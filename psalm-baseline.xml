@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
+<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -5391,10 +5391,6 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MissingClosureParamType occurrences="2">
-      <code>$a</code>
-      <code>$b</code>
-    </MissingClosureParamType>
     <MixedArgument occurrences="51">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
@@ -6001,6 +5997,9 @@
     <PossiblyNullArgument occurrences="1">
       <code>$colVisibCurrent</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$firstStatement-&gt;order[$key]</code>
+    </PossiblyNullArrayAccess>
     <PossiblyNullOperand occurrences="2">
       <code>$dispval</code>
       <code>$this-&gt;getSortedColumnMessage($dtResult, $sortExpressionNoDirection[$i])</code>
@@ -9028,9 +9027,7 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>$length == 1</code>
-      <code>$length == 1</code>
+    <DocblockTypeContradiction occurrences="1">
       <code>$resp == null</code>
     </DocblockTypeContradiction>
     <InvalidScalarArgument occurrences="1">
@@ -11033,6 +11030,9 @@
       <code>line</code>
       <code>line</code>
       <code>setAlias</code>
+      <code>setAutoPageBreak</code>
+      <code>setAutoPageBreak</code>
+      <code>setAutoPageBreak</code>
       <code>setCMargin</code>
       <code>setCMargin</code>
       <code>setCMargin</code>
@@ -16217,11 +16217,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
     </PossiblyInvalidArgument>
-  </file>
-  <file src="test/classes/VersionTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertIsString</code>
-    </RedundantCondition>
   </file>
   <file src="test/classes/ZipExtensionTest.php">
     <MixedInferredReturnType occurrences="2">
