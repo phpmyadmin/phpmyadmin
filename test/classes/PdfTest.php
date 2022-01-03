@@ -51,7 +51,7 @@ class PdfTest extends AbstractTestCase
         $pdf = new Pdf();
         $pdf->SetTitle('Title');
         $pdf->Open();
-        $pdf->SetAutoPageBreak('auto');
+        $pdf->SetAutoPageBreak(true);
         $pdf->Addpage();
         $pdf->SetFont(Pdf::PMA_PDF_FONT, 'B', 14);
         $pdf->Cell(0, 6, 'Cell', 'B', 1, 'C');
