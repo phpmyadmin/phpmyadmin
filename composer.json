@@ -125,6 +125,11 @@
     },
     "config":{
         "sort-packages": true,
-        "discard-changes": true
+        "discard-changes": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true,
+            "composer/package-versions-deprecated": true
+        }
     }
 }
