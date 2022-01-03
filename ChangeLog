@@ -143,7 +143,7 @@ phpMyAdmin - ChangeLog
 - issue #17247 Fix triple HTML encoding
 - issue #17259 Fix broken link in the Simulate DML query modal
 - issue #16746 Update tcpdf dependency to ^6.4.4 for PHP 8.1 compatibility
-- issue #16746 Update twig dependency to "^2.14.9 || ^3" for PHP 8.1 compatibility
+- issue #16746 Update twig dependency to "^2.14.9 || ^3.3.5" for PHP 8.1 compatibility
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
