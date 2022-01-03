@@ -34,6 +34,7 @@ jobs:
         # musl-locales and musl-locales-lang are needed to run some locale specific tests
         # gettext is needed to run generate-mo
         # git is needed to work around a version detection issue with composer, see: https://github.com/Roave/SecurityAdvisories/issues/76
+        # ctype for psalm
         run: |
           printf "set -exu && \
           export V='%s' && \
@@ -64,16 +65,16 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        php-version: ["7.2", "7.3", "7.4", "8.0"]
+        php-version: ["7.2", "7.3", "7.4", "8.0", "8.1"]
         experimental: [false]
         os: [ubuntu-latest]
         phpunit-options: ['--testsuite unit']
         include:
-          - php-version: '8.1'
+          - php-version: 'nightly'
             experimental: true
             os: ubuntu-latest
             phpunit-options: '--configuration test/phpunit-php-nightly.xml'
-            composer-options: '--ignore-platform-req=php'
+            composer-options: '--ignore-platform-req=php+'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
