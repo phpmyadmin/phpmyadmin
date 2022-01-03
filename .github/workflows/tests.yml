@@ -69,7 +69,7 @@ jobs:
                 experimental: [false]
                 os: [ubuntu-latest]
                 include:
-                    - { php-version: 'nightly', composer-options: '--ignore-platform-req=php', experimental: true, os: ubuntu-latest }
+                    - { php-version: 'nightly', composer-options: '--ignore-platform-req=php+', experimental: true, os: ubuntu-latest }
         steps:
             - uses: actions/checkout@v2
             - name: Install gettext
