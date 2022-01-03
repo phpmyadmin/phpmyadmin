@@ -56,6 +56,11 @@ parameters:
 			path: libraries/classes/Config/Form.php
 
 		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 2
+			path: libraries/classes/Config/Form.php
+
+		-
 			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getValue\\(\\) expects string, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -2446,6 +2451,16 @@ parameters:
 			path: libraries/classes/Theme.php
 
 		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: libraries/classes/Theme.php
+
+		-
+			message: "#^If condition is always true\\.$#"
+			count: 1
+			path: libraries/classes/ThemeManager.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$activeTheme \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
@@ -2453,6 +2468,11 @@ parameters:
 		-
 			message: "#^Static property PhpMyAdmin\\\\ThemeManager\\:\\:\\$instance \\(PhpMyAdmin\\\\ThemeManager\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
+			path: libraries/classes/ThemeManager.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 3
 			path: libraries/classes/ThemeManager.php
 
 		-
@@ -2674,11 +2694,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$name of static method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) expects string, array\\<string, string\\> given\\.$#"
 			count: 1
 			path: test/classes/Navigation/Nodes/NodeColumnTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$auto of method TCPDF\\:\\:SetAutoPageBreak\\(\\) expects bool, string given\\.$#"
-			count: 1
-			path: test/classes/PdfTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
