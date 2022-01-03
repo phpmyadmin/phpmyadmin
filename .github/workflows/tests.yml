@@ -65,11 +65,11 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         strategy:
             matrix:
-                php-version: ["7.1", "7.2", "7.3", "7.4", "8.0"]
+                php-version: ["7.1", "7.2", "7.3", "7.4", "8.0", "8.1"]
                 experimental: [false]
                 os: [ubuntu-latest]
                 include:
-                    - { php-version: '8.1', composer-options: '--ignore-platform-req=php', experimental: true, os: ubuntu-latest }
+                    - { php-version: 'nightly', composer-options: '--ignore-platform-req=php', experimental: true, os: ubuntu-latest }
         steps:
             - uses: actions/checkout@v2
             - name: Install gettext
