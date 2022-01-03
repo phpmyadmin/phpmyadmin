@@ -32,11 +32,12 @@ jobs:
               # musl-locales and musl-locales-lang are needed to run some locale specific tests
               # gettext is needed to run generate-mo
               # pcov for code coverage
+              # ctype for psalm
               run: |
                   printf "set -exu && \
                   export V='%s' && \
                   apk add --update --no-cache \
-                  php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring \
+                  php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype \
                   php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
                   php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
                   musl-locales musl-locales-lang \
