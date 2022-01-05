@@ -912,10 +912,12 @@ class Sql
 
         $statement = $analyzedSqlResults['statement'];
         if ($statement instanceof AlterStatement) {
-            if (! empty($statement->altered[0]) && $statement->altered[0]->options->has('DROP')) {
-                if (! empty($statement->altered[0]->field->column)) {
-                    $this->transformations->clear($db, $table, $statement->altered[0]->field->column);
-                }
+            if (
+                ! empty($statement->altered[0])
+                && $statement->altered[0]->options->has('DROP')
+                && ! empty($statement->altered[0]->field->column)
+            ) {
+                $this->transformations->clear($db, $table, $statement->altered[0]->field->column);
             }
         } elseif ($statement instanceof DropStatement) {
             $this->transformations->clear($db, $table);
@@ -1440,11 +1442,9 @@ class Sql
 
         $statement = $analyzedSqlResults['statement'] ?? null;
         if ($statement instanceof SelectStatement) {
-            if (! empty($statement->expr)) {
-                if ($statement->expr[0]->expr === '*' && ! empty($table)) {
-                    $_table = new Table($table, $db);
-                    $updatableView = $_table->isUpdatableView();
-                }
+            if (! empty($statement->expr) && $statement->expr[0]->expr === '*' && ! empty($table)) {
+                $_table = new Table($table, $db);
+                $updatableView = $_table->isUpdatableView();
             }
 
             if (
