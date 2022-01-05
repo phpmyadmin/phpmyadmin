@@ -492,7 +492,7 @@ class Sql
     {
         $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], $db, $table, 'label', false, true);
 
-        if (! empty($bookmark) && ! empty($bookmark->getQuery())) {
+        if ($bookmark !== null && $bookmark->getQuery() !== '') {
             $GLOBALS['using_bookmark_message'] = Message::notice(
                 __('Using bookmark "%s" as default browse query.')
             );
@@ -845,7 +845,7 @@ class Sql
 
             // If there are no errors and bookmarklabel was given,
             // store the query as a bookmark
-            if (! empty($_POST['bkm_label']) && ! empty($sqlQueryForBookmark)) {
+            if (! empty($_POST['bkm_label']) && $sqlQueryForBookmark) {
                 $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
                 $this->storeTheQueryAsBookmark(
                     $bookmarkFeature,
@@ -971,7 +971,7 @@ class Sql
             // fact that $message_to_show is sent for every case.
             // The $message_to_show containing a success message and sent with
             // the form should not have priority over errors
-        } elseif (! empty($messageToShow) && $analyzedSqlResults['querytype'] !== 'SELECT') {
+        } elseif ($messageToShow && $analyzedSqlResults['querytype'] !== 'SELECT') {
             $message = Message::rawSuccess(htmlspecialchars($messageToShow));
         } elseif (! empty($GLOBALS['show_as_php'])) {
             $message = Message::success(__('Showing as PHP code'));
@@ -1113,7 +1113,7 @@ class Sql
             $bookmarkFeature !== null
             && $displayParts['bkm_form'] == '1'
             && empty($_GET['id_bookmark'])
-            && ! empty($sqlQuery)
+            && $sqlQuery
         ) {
             $bookmark = $this->template->render('sql/bookmark', [
                 'db' => $db,
@@ -1339,7 +1339,7 @@ class Sql
     private function getMessageIfMissingColumnIndex(?string $table, string $database, $editable, $hasUniqueKey): string
     {
         $output = '';
-        if (! empty($table) && (Utilities::isSystemSchema($database) || ! $editable)) {
+        if ($table && (Utilities::isSystemSchema($database) || ! $editable)) {
             $output = Message::notice(
                 sprintf(
                     __(
@@ -1353,7 +1353,7 @@ class Sql
                     )
                 )
             )->getDisplay();
-        } elseif (! empty($table) && ! $hasUniqueKey) {
+        } elseif ($table && ! $hasUniqueKey) {
             $output = Message::notice(
                 sprintf(
                     __(
@@ -1442,7 +1442,7 @@ class Sql
 
         $statement = $analyzedSqlResults['statement'] ?? null;
         if ($statement instanceof SelectStatement) {
-            if (! empty($statement->expr) && $statement->expr[0]->expr === '*' && ! empty($table)) {
+            if ($statement->expr && $statement->expr[0]->expr === '*' && $table) {
                 $_table = new Table($table, $db);
                 $updatableView = $_table->isUpdatableView();
             }
@@ -1456,7 +1456,7 @@ class Sql
             }
         }
 
-        $hasUnique = !empty($table) && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
+        $hasUnique = $table && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
 
         $editable = ($hasUnique
             || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
@@ -1517,7 +1517,7 @@ class Sql
         );
 
         $profilingChartHtml = '';
-        if (! empty($profilingResults)) {
+        if ($profilingResults) {
             $profiling = $this->getDetailedProfilingStats($profilingResults);
             $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
         }
@@ -1543,7 +1543,7 @@ class Sql
             $bookmarkFeature !== null
             && $displayParts['bkm_form'] == '1'
             && empty($_GET['id_bookmark'])
-            && ! empty($sqlQuery)
+            && $sqlQuery
         ) {
             $bookmarkSupportHtml = $this->template->render('sql/bookmark', [
                 'db' => $db,
@@ -1610,7 +1610,7 @@ class Sql
                 $tableFromSql,
             ] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
-            if ($table != $tableFromSql && ! empty($tableFromSql)) {
+            if ($table != $tableFromSql && $tableFromSql) {
                 $table = $tableFromSql;
             }
         }
