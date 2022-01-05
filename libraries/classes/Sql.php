@@ -1610,9 +1610,7 @@ class Sql
                 $tableFromSql,
             ] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
-            if ($table != $tableFromSql && $tableFromSql) {
-                $table = $tableFromSql;
-            }
+            $table = $tableFromSql ?: $table;
         }
 
         return $this->executeQueryAndGetQueryResponse(
