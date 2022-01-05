@@ -552,7 +552,7 @@ class Sql
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
         } else {
-            Generator::mysqlDie($error, $fullSqlQuery, '', '');
+            Generator::mysqlDie($error, $fullSqlQuery, false);
         }
 
         exit;
