@@ -197,13 +197,15 @@ class Sql
             $indexColumns = $index->getColumns();
             $numberFound = 0;
             foreach (array_keys($indexColumns) as $indexColumnName) {
-                if (in_array($indexColumnName, $resultSetColumnNames)) {
-                    $numberFound++;
-                } elseif (! in_array($indexColumnName, $columns)) {
-                    $numberFound++;
-                } elseif (str_contains($columns[$indexColumnName]['Extra'], 'INVISIBLE')) {
-                    $numberFound++;
+                if (
+                    ! in_array($indexColumnName, $resultSetColumnNames)
+                    && in_array($indexColumnName, $columns)
+                    && ! str_contains($columns[$indexColumnName]['Extra'], 'INVISIBLE')
+                ) {
+                    continue;
                 }
+
+                $numberFound++;
             }
 
             if ($numberFound == count($indexColumns)) {
