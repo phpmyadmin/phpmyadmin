@@ -449,7 +449,7 @@ class Sql
      *
      * @return bool|Message
      */
-    public function setColumnProperty($table, $requestIndex)
+    public function setColumnProperty(Table $table, string $requestIndex)
     {
         $propertyValue = array_map('intval', explode(',', $_POST[$requestIndex]));
         switch ($requestIndex) {
@@ -490,7 +490,7 @@ class Sql
      *
      * @return string the default $sql_query for browse page
      */
-    public function getDefaultSqlQueryForBrowse($db, $table)
+    public function getDefaultSqlQueryForBrowse($db, $table): string
     {
         $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], $db, $table, 'label', false, true);
 
@@ -684,9 +684,9 @@ class Sql
      * @param string|null $column current column
      * @param bool        $purge  whether purge set or not
      */
-    private function cleanupRelations(string $db, string $table, ?string $column, $purge): void
+    private function cleanupRelations(string $db, string $table, ?string $column, bool $purge): void
     {
-        if (empty($purge) || $db === '') {
+        if (! $purge || $db === '') {
             return;
         }
 
@@ -703,7 +703,7 @@ class Sql
 
     /**
      * Function to count the total number of rows for the same 'SELECT' query without
-     * the 'LIMIT' clause that may have been programatically added
+     * the 'LIMIT' clause that may have been programmatically added
      *
      * @param int|string $numRows            number of rows affected/changed by the query
      * @param bool       $justBrowsing       whether just browsing or not
@@ -717,13 +717,13 @@ class Sql
      */
     private function countQueryResults(
         $numRows,
-        $justBrowsing,
-        $db,
-        $table,
+        bool $justBrowsing,
+        string $db,
+        string $table,
         array $analyzedSqlResults
     ) {
         /* Shortcut for not analyzed/empty query */
-        if (empty($analyzedSqlResults)) {
+        if ($analyzedSqlResults === []) {
             return 0;
         }
 
@@ -806,8 +806,8 @@ class Sql
      * @param string      $db                  current database
      * @param string|null $table               current table
      * @param bool|null   $findRealEnd         whether to find the real end
-     * @param string      $sqlQueryForBookmark sql query to be stored as bookmark
-     * @param array       $extraData           extra data
+     * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
+     * @param array|null  $extraData           extra data
      *
      * @return array
      */
@@ -818,7 +818,7 @@ class Sql
         string $db,
         ?string $table,
         ?bool $findRealEnd,
-        $sqlQueryForBookmark,
+        ?string $sqlQueryForBookmark,
         $extraData
     ) {
         $response = ResponseRenderer::getInstance();
@@ -868,9 +868,9 @@ class Sql
 
             $justBrowsing = self::isJustBrowsing($analyzedSqlResults, $findRealEnd ?? null);
 
-            $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table, $analyzedSqlResults);
+            $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $analyzedSqlResults);
 
-            $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? null, $_POST['purge'] ?? null);
+            $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? null, ! empty($_POST['purge']));
 
             if (
                 isset($_POST['dropped_column'])
@@ -906,7 +906,7 @@ class Sql
      * @param string $table              current table
      * @param array  $analyzedSqlResults analyzed sql results
      */
-    private function deleteTransformationInfo($db, $table, array $analyzedSqlResults): void
+    private function deleteTransformationInfo(string $db, string $table, array $analyzedSqlResults): void
     {
         if (! isset($analyzedSqlResults['statement'])) {
             return;
@@ -1041,7 +1041,7 @@ class Sql
         ?string $completeQuery
     ) {
         if ($this->isDeleteTransformationInfo($analyzedSqlResults)) {
-            $this->deleteTransformationInfo($db, $table, $analyzedSqlResults);
+            $this->deleteTransformationInfo($db, $table ?? '', $analyzedSqlResults);
         }
 
         if (isset($extraData['error'])) {
@@ -1723,9 +1723,9 @@ class Sql
             $isGotoFile,
             $db,
             $table,
-            $findRealEnd ?? null,
-            $sqlQueryForBookmark ?? null,
-            $extraData ?? null
+            $findRealEnd,
+            $sqlQueryForBookmark,
+            $extraData
         );
 
         if ($this->dbi->moreResults()) {
