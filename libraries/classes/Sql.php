@@ -1783,15 +1783,12 @@ class Sql
      * Function to define pos to display a row
      *
      * @param int $numberOfLine Number of the line to display
-     * @param int $maxRows      Number of rows by page
      *
      * @return int Start position to display the line
      */
-    private function getStartPosToDisplayRow($numberOfLine, $maxRows = null)
+    private function getStartPosToDisplayRow($numberOfLine)
     {
-        if ($maxRows === null) {
-            $maxRows = $_SESSION['tmpval']['max_rows'];
-        }
+        $maxRows = $_SESSION['tmpval']['max_rows'];
 
         return @((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows;
     }
