@@ -139,7 +139,7 @@ class Sql
      *
      * @return string limit clause appended SQL query
      */
-    private function getSqlWithLimitClause(array &$analyzedSqlResults)
+    private function getSqlWithLimitClause(array $analyzedSqlResults)
     {
         return Query::replaceClause(
             $analyzedSqlResults['statement'],
