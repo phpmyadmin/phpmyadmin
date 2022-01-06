@@ -410,22 +410,16 @@ class TrackerTest extends AbstractTestCase
         $resultStub1 = $this->createMock(DummyResult::class);
         $resultStub2 = $this->createMock(DummyResult::class);
 
-        $dbi->method('query')
+        $dbi->method('queryAsControlUser')
             ->will(
                 $this->returnValueMap(
                     [
                         [
                             $sql_query_1,
-                            DatabaseInterface::CONNECT_CONTROL,
-                            0,
-                            false,
                             $resultStub1,
                         ],
                         [
                             $sql_query_2,
-                            DatabaseInterface::CONNECT_CONTROL,
-                            0,
-                            false,
                             $resultStub2,
                         ],
                     ]

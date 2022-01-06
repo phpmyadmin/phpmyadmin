@@ -119,7 +119,7 @@ class Tracking
             $this->dbi->escapeString($table)
         );
 
-        return $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL, 0, false);
+        return $this->dbi->queryAsControlUser($query);
     }
 
     /**

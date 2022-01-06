@@ -2205,7 +2205,7 @@ class Table implements Stringable
                 . '\'' . $this->dbi->escapeString($displayField) . '\')';
         }
 
-        $this->dbi->query($updQuery, DatabaseInterface::CONNECT_CONTROL, 0, false);
+        $this->dbi->queryAsControlUser($updQuery);
     }
 
     /**
@@ -2283,7 +2283,7 @@ class Table implements Stringable
                 continue;
             }
 
-            $this->dbi->query($updQuery, DatabaseInterface::CONNECT_CONTROL, 0, false);
+            $this->dbi->queryAsControlUser($updQuery);
             $updated = true;
         }
 
