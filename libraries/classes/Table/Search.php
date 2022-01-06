@@ -26,10 +26,7 @@ final class Search
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param DatabaseInterface $dbi A DatabaseInterface instance.
-     */
-    public function __construct($dbi)
+    public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
     }
@@ -158,7 +155,7 @@ final class Search
         $where = '';
         if ($unaryFlag) {
             $where = $backquoted_name . ' ' . $func_type;
-        } elseif (strncasecmp($types, 'enum', 4) == 0 && (! empty($criteriaValues) || $criteriaValues[0] === '0')) {
+        } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
             $where = $backquoted_name;
             $where .= $this->getEnumWhereClause($criteriaValues, $func_type);
         } elseif ($criteriaValues != '') {

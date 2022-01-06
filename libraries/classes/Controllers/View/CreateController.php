@@ -132,11 +132,8 @@ class CreateController extends AbstractController
 
             $sql_query .= $sep . ' AS ' . $_POST['view']['as'];
 
-            if (isset($_POST['view']['with'])) {
-                if (in_array($_POST['view']['with'], $view_with_options)) {
-                    $sql_query .= $sep . ' WITH ' . $_POST['view']['with']
-                        . '  CHECK OPTION';
-                }
+            if (isset($_POST['view']['with']) && in_array($_POST['view']['with'], $view_with_options)) {
+                $sql_query .= $sep . ' WITH ' . $_POST['view']['with'] . '  CHECK OPTION';
             }
 
             if (! $this->dbi->tryQuery($sql_query)) {

@@ -716,7 +716,6 @@ class Results
      * @param bool   $back            whether 'begin' or 'previous'
      * @param string $onsubmit        optional onsubmit clause
      * @param string $inputForRealEnd optional hidden field for special treatment
-     * @param string $onclick         optional onclick clause
      *
      * @return string                     html content
      */
@@ -727,8 +726,7 @@ class Results
         $htmlSqlQuery,
         $back,
         $onsubmit = '',
-        $inputForRealEnd = '',
-        $onclick = ''
+        $inputForRealEnd = ''
     ): string {
         $captionOutput = '';
         if ($back) {
@@ -760,7 +758,6 @@ class Results
             'caption_output' => $captionOutput,
             'title' => $title,
             'onsubmit' => $onsubmit,
-            'onclick' => $onclick,
         ]);
     }
 
@@ -791,12 +788,7 @@ class Results
                     'pos',
                     $_SESSION['tmpval']['max_rows'],
                     $pageNow,
-                    $nbTotalPage,
-                    200,
-                    5,
-                    5,
-                    20,
-                    10
+                    $nbTotalPage
                 ),
             ]);
         }
@@ -1434,10 +1426,9 @@ class Results
         if (
             isset($_SESSION['tmpval']['possible_as_geometry'])
             && $_SESSION['tmpval']['possible_as_geometry'] == false
+            && $_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM
         ) {
-            if ($_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM) {
-                $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
-            }
+            $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
         }
 
         return [
@@ -1916,7 +1907,7 @@ class Results
         $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
 
         $urlRemoveOrder = Url::getFromRoute('/sql', $multipleUrlParams);
-        if ($numberOfClausesFound !== null && $numberOfClausesFound === 0) {
+        if ($numberOfClausesFound === 0) {
             $urlRemoveOrder .= '&discard_remembered_sort=1';
         }
 
@@ -2349,30 +2340,27 @@ class Results
 
             // 3. Displays the modify/delete links on the right if required
             if (
-                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
+                    || $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
+                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             ) {
-                if (
-                    ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
-                    || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-                ) {
-                    $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
-                        'position' => self::POSITION_RIGHT,
-                        'has_checkbox' => $deleteUrl && $displayParts['del_lnk'] !== self::KILL_PROCESS,
-                        'edit' => [
-                            'url' => $editUrl,
-                            'string' => $editString,
-                            'clause_is_unique' => $clauseIsUnique ?? true,
-                        ],
-                        'copy' => ['url' => $copyUrl, 'string' => $copyString],
-                        'delete' => ['url' => $deleteUrl, 'string' => $deleteString],
-                        'row_number' => $rowNumber,
-                        'where_clause' => $whereClause ?? '',
-                        'condition' => json_encode($conditionArray ?? []),
-                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                        'js_conf' => $jsConf ?? '',
-                    ]);
-                }
+                $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
+                    'position' => self::POSITION_RIGHT,
+                    'has_checkbox' => $deleteUrl && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                    'edit' => [
+                        'url' => $editUrl,
+                        'string' => $editString,
+                        'clause_is_unique' => $clauseIsUnique ?? true,
+                    ],
+                    'copy' => ['url' => $copyUrl, 'string' => $copyString],
+                    'delete' => ['url' => $deleteUrl, 'string' => $deleteString],
+                    'row_number' => $rowNumber,
+                    'where_clause' => $whereClause ?? '',
+                    'condition' => json_encode($conditionArray ?? []),
+                    'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
+                    'js_conf' => $jsConf ?? '',
+                ]);
             }
 
             $tableBodyHtml .= '</tr>';
@@ -3354,7 +3342,7 @@ class Results
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif ($meta->isBinary() && ! ($isAnalyse === true)) {
+        } elseif ($meta->isBinary() && $isAnalyse !== true) {
             // we show the BINARY or BLOB message and field's size
             // (or maybe use a transformation)
             $binaryOrBlob = 'BLOB';
@@ -3651,7 +3639,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if (($displayParts['nav_bar'] == '1')) {
+        if ($displayParts['nav_bar'] == '1') {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $analyzedSqlResults,

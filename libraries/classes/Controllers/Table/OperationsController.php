@@ -246,11 +246,7 @@ class OperationsController extends AbstractController
                 $warning_messages = $this->operations->getWarningMessagesArray();
             }
 
-            if (
-                isset($_POST['tbl_collation'], $_POST['change_all_collations'])
-                && ! empty($_POST['tbl_collation'])
-                && ! empty($_POST['change_all_collations'])
-            ) {
+            if (! empty($_POST['tbl_collation']) && ! empty($_POST['change_all_collations'])) {
                 $this->operations->changeAllColumnsCollation($db, $table, $_POST['tbl_collation']);
             }
 

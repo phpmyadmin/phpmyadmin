@@ -8411,11 +8411,6 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table/Search.php
-
-		-
 			message: "#^Parameter \\#1 \\$gisString of static method PhpMyAdmin\\\\Utils\\\\Gis\\:\\:createData\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Table/Search.php

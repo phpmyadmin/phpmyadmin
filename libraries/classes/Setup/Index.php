@@ -71,7 +71,7 @@ class Index
     {
         foreach ($_SESSION['messages'] as &$messages) {
             $remove_ids = [];
-            foreach ($messages as $id => &$msg) {
+            foreach ($messages as $id => $msg) {
                 if ($msg['active'] != false) {
                     continue;
                 }
