@@ -126,7 +126,7 @@ final class RelationController extends AbstractController
          * Dialog
          */
         // Now find out the columns of our $table
-        // need to use DatabaseInterface::QUERY_STORE with $this->dbi->numRows()
+        // need to use DatabaseInterface::QUERY_BUFFERED with $this->dbi->numRows()
         // in mysqli
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
@@ -322,7 +322,7 @@ final class RelationController extends AbstractController
         if ($foreign) {
             $query = 'SHOW TABLE STATUS FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
+            $tables_rs = $this->dbi->query($query);
 
             foreach ($tables_rs as $row) {
                 if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) != $storageEngine) {
@@ -334,7 +334,7 @@ final class RelationController extends AbstractController
         } else {
             $query = 'SHOW TABLES FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
+            $tables_rs = $this->dbi->query($query);
             $tables = $tables_rs->fetchAllColumn();
         }
 

@@ -37,10 +37,7 @@ class BinlogController extends AbstractController
 
         $this->binaryLogs = $this->dbi->fetchResult(
             'SHOW MASTER LOGS',
-            'Log_name',
-            null,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
+            'Log_name'
         );
     }
 

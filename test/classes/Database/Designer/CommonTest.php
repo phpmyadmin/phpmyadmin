@@ -69,8 +69,7 @@ class CommonTest extends AbstractTestCase
             WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             );
         $GLOBALS['dbi'] = $dbi;
 
@@ -100,8 +99,7 @@ class CommonTest extends AbstractTestCase
                 . ' WHERE `page_nr` = ' . $pg,
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([$pageName]));
         $GLOBALS['dbi'] = $dbi;
@@ -160,8 +158,7 @@ class CommonTest extends AbstractTestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([$default_pg]));
         $dbi->expects($this->any())->method('escapeString')
@@ -193,8 +190,7 @@ class CommonTest extends AbstractTestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([]));
         $dbi->expects($this->any())->method('escapeString')
@@ -227,8 +223,7 @@ class CommonTest extends AbstractTestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([$default_pg]));
         $dbi->expects($this->any())->method('escapeString')

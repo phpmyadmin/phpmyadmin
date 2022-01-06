@@ -468,10 +468,7 @@ class Menu
         } else {
             $binaryLogs = $this->dbi->fetchResult(
                 'SHOW MASTER LOGS',
-                'Log_name',
-                null,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
+                'Log_name'
             );
             SessionCache::set('binary_logs', $binaryLogs);
         }

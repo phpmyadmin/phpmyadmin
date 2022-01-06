@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Util;
@@ -131,7 +130,7 @@ abstract class TableStats
         global $dbi;
 
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
-        $result = $dbi->tryQuery($sql, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
+        $result = $dbi->tryQuery($sql);
         if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
         }
@@ -196,11 +195,7 @@ abstract class TableStats
     {
         global $dbi;
 
-        $result = $dbi->query(
-            'SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $result = $dbi->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
         if ($result->numRows() <= 0) {
             return;
         }

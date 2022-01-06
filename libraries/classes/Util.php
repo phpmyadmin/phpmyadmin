@@ -2366,11 +2366,7 @@ class Util
                 }
             }
 
-            $dbInfoResult = $dbi->query(
-                'SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
+            $dbInfoResult = $dbi->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
             unset($tblGroupSql, $whereAdded);
 
             if ($dbInfoResult->numRows() > 0) {

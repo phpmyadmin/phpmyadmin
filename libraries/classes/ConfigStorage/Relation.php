@@ -68,7 +68,6 @@ class Relation
      *
      * @param string $sql        the query to execute
      * @param bool   $show_error whether to display SQL error messages or not
-     * @param int    $options    query options
      * @psalm-param T $show_error
      *
      * @return ResultInterface|false the result set, or false if no result set
@@ -76,17 +75,17 @@ class Relation
      *
      * @template T as bool
      */
-    public function queryAsControlUser($sql, $show_error = true, $options = 0)
+    public function queryAsControlUser($sql, $show_error = true)
     {
         // Avoid caching of the number of rows affected; for example, this function
         // is called for tracking purposes but we want to display the correct number
         // of rows affected by the original query, not by the query generated for
         // tracking.
         if ($show_error) {
-            return $this->dbi->query($sql, DatabaseInterface::CONNECT_CONTROL, $options, false);
+            return $this->dbi->query($sql, DatabaseInterface::CONNECT_CONTROL, DatabaseInterface::QUERY_BUFFERED, false);
         }
 
-        return $this->dbi->tryQuery($sql, DatabaseInterface::CONNECT_CONTROL, $options, false);
+        return $this->dbi->tryQuery($sql, DatabaseInterface::CONNECT_CONTROL, DatabaseInterface::QUERY_BUFFERED, false);
     }
 
     public function getRelationParameters(): RelationParameters
@@ -189,7 +188,7 @@ class Relation
     {
         $tabQuery = 'SHOW TABLES FROM '
         . Util::backquote($GLOBALS['cfg']['Server']['pmadb']);
-        $tableRes = $this->queryAsControlUser($tabQuery, false, DatabaseInterface::QUERY_STORE);
+        $tableRes = $this->queryAsControlUser($tabQuery, false);
         if ($tableRes === false) {
             return null;
         }
@@ -364,8 +363,7 @@ class Relation
     {
         $result = $this->queryAsControlUser(
             'SELECT NULL FROM ' . Util::backquote($tableDbName) . ' LIMIT 0',
-            false,
-            DatabaseInterface::QUERY_STORE
+            false
         );
 
         return $result !== false;
@@ -387,7 +385,7 @@ class Relation
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
             . '.' . Util::backquote($GLOBALS['cfg']['Server']['column_info'])
             . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
-        $result = $this->queryAsControlUser($query, false, DatabaseInterface::QUERY_STORE);
+        $result = $this->queryAsControlUser($query, false);
         if ($result) {
             $rows = $result->numRows();
             unset($result);
@@ -612,7 +610,7 @@ class Relation
                     . ' WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
                     . ' AND table_name  = \'\''
                     . ' AND column_name = \'(db_comment)\'';
-            $com_rs = $this->queryAsControlUser($com_qry, false, DatabaseInterface::QUERY_STORE);
+            $com_rs = $this->queryAsControlUser($com_qry, false);
 
             if ($com_rs && $com_rs->numRows() > 0) {
                 $row = $com_rs->fetchAssoc();
@@ -639,7 +637,7 @@ class Relation
                     . ' FROM ' . Util::backquote($columnCommentsFeature->database)
                     . '.' . Util::backquote($columnCommentsFeature->columnInfo)
                     . ' WHERE `column_name` = \'(db_comment)\'';
-            $com_rs = $this->queryAsControlUser($com_qry, false, DatabaseInterface::QUERY_STORE);
+            $com_rs = $this->queryAsControlUser($com_qry, false);
 
             if ($com_rs && $com_rs->numRows() > 0) {
                 return $com_rs->fetchAllKeyPair();
@@ -1783,11 +1781,7 @@ class Relation
     public function getTables($foreignDb, $tblStorageEngine)
     {
         $tables = [];
-        $tablesRows = $this->dbi->query(
-            'SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb),
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $tablesRows = $this->dbi->query('SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb));
         while ($row = $this->dbi->fetchRow($tablesRows)) {
             if (! isset($row[1]) || mb_strtoupper($row[1]) != $tblStorageEngine) {
                 continue;

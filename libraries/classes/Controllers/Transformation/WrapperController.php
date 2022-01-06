@@ -107,16 +107,12 @@ class WrapperController extends AbstractController
 
             $result = $this->dbi->query(
                 'SELECT * FROM ' . Util::backquote($table)
-                . ' WHERE ' . $where_clause . ';',
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
+                . ' WHERE ' . $where_clause . ';'
             );
             $row = $result->fetchAssoc();
         } else {
             $result = $this->dbi->query(
-                'SELECT * FROM ' . Util::backquote($table) . ' LIMIT 1;',
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
+                'SELECT * FROM ' . Util::backquote($table) . ' LIMIT 1;'
             );
             $row = $result->fetchAssoc();
         }

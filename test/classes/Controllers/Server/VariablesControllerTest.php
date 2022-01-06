@@ -64,7 +64,6 @@ class VariablesControllerTest extends AbstractTestCase
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 $serverSessionVariables,
             ],
             [
@@ -72,7 +71,6 @@ class VariablesControllerTest extends AbstractTestCase
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 $serverGlobalVariables,
             ],
         ];

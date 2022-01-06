@@ -220,11 +220,7 @@ class SearchController extends AbstractController
         $extra_data = [];
         $row_info_query = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
             . Util::backquote($_POST['table']) . ' WHERE ' . $_POST['where_clause'];
-        $result = $this->dbi->query(
-            $row_info_query . ';',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $result = $this->dbi->query($row_info_query . ';');
         $fields_meta = $this->dbi->getFieldsMeta($result);
         while ($row = $this->dbi->fetchAssoc($result)) {
             // for bit fields we need to convert them to printable form

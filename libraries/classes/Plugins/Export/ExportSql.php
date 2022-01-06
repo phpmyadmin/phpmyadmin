@@ -1431,9 +1431,7 @@ class ExportSql extends ExportPlugin
 
         $result = $dbi->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = \'' . $dbi->escapeString((string) $table) . '\'',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
+            . ' WHERE Name = \'' . $dbi->escapeString((string) $table) . '\''
         );
         if ($result != false) {
             if ($result->numRows() > 0) {

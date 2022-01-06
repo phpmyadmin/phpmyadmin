@@ -354,7 +354,7 @@ class FindReplaceController extends AbstractController
             // is case sensitive
         }
 
-        $this->dbi->query($sql_query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
+        $this->dbi->query($sql_query);
         $GLOBALS['sql_query'] = $sql_query;
     }
 }

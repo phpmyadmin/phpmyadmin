@@ -104,7 +104,7 @@ class Designer
             . Util::backquote($pdfFeature->pdfPages)
             . " WHERE db_name = '" . $this->dbi->escapeString($db) . "'"
             . ' ORDER BY `page_descr`';
-        $page_rs = $this->relation->queryAsControlUser($page_query, false, DatabaseInterface::QUERY_STORE);
+        $page_rs = $this->relation->queryAsControlUser($page_query, false);
 
         if (! $page_rs) {
             return [];

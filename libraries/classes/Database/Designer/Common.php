@@ -99,9 +99,7 @@ class Common
                 QueryGenerator::getColumnsSql(
                     $designerTable->getDatabaseName(),
                     $designerTable->getTableName()
-                ),
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
+                )
             );
             $j = 0;
             while ($row = $this->dbi->fetchAssoc($fieldsRs)) {
@@ -133,11 +131,7 @@ class Common
         $con = [];
         $con['C_NAME'] = [];
         $i = 0;
-        $alltab_rs = $this->dbi->query(
-            'SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']),
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $alltab_rs = $this->dbi->query('SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']));
         while ($val = $alltab_rs->fetchRow()) {
             $val = (string) $val[0];
 
@@ -294,8 +288,7 @@ class Common
             $query,
             'name',
             null,
-            DatabaseInterface::CONNECT_CONTROL,
-            DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_CONTROL
         );
     }
 
@@ -321,8 +314,7 @@ class Common
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL,
-            DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         return $page_name[0] ?? null;
@@ -343,12 +335,12 @@ class Common
         $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->tableCoords)
             . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . intval($pg);
-        $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
+        $this->relation->queryAsControlUser($query);
 
         $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
-        $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
+        $this->relation->queryAsControlUser($query);
 
         return true;
     }
@@ -378,8 +370,7 @@ class Common
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL,
-            DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         if (isset($default_page_no[0])) {
@@ -410,8 +401,7 @@ class Common
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL,
-            DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         return count($pageNos) > 0;
@@ -446,8 +436,7 @@ class Common
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL,
-            DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_CONTROL
         );
         $page_no = $min_page_no[0] ?? -1;
 
@@ -491,7 +480,7 @@ class Common
             . '.' . Util::backquote($pdfFeature->tableCoords)
             . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
-        $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
+        $this->relation->queryAsControlUser($query);
 
         foreach ($_POST['t_h'] as $key => $value) {
             $DB = $_POST['t_db'][$key];
@@ -511,7 +500,7 @@ class Common
                 . "'" . $this->dbi->escapeString($_POST['t_x'][$key]) . "', "
                 . "'" . $this->dbi->escapeString($_POST['t_y'][$key]) . "')";
 
-            $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
+            $this->relation->queryAsControlUser($query);
         }
 
         return true;
@@ -677,7 +666,7 @@ class Common
             . "'" . $this->dbi->escapeString($T1) . "', "
             . "'" . $this->dbi->escapeString($F1) . "')";
 
-        if ($this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)) {
+        if ($this->relation->queryAsControlUser($q, false)) {
             return [
                 true,
                 __('Internal relationship has been added.'),
@@ -750,7 +739,7 @@ class Common
             . " AND foreign_table = '" . $this->dbi->escapeString($T1) . "'"
             . " AND foreign_field = '" . $this->dbi->escapeString($F1) . "'";
 
-        $result = $this->relation->queryAsControlUser($delete_query, false, DatabaseInterface::QUERY_STORE);
+        $result = $this->relation->queryAsControlUser($delete_query, false);
 
         if (! $result) {
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);

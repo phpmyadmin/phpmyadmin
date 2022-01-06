@@ -89,7 +89,6 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 ['PMA_BookMark'],
             ],
             [
@@ -97,7 +96,6 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [],
             ],
             [
@@ -105,7 +103,6 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [],
             ],
             [
@@ -113,7 +110,6 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 ['PMA_BookMark'],
             ],
             [
@@ -121,7 +117,6 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [],
             ],
             [
@@ -129,7 +124,6 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [
                     [
                         'COLUMN_NAME' => 'COLUMN_NAME',
@@ -145,7 +139,6 @@ class TableTest extends AbstractTestCase
                 ],
                 'Column_name',
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [
                     ['index1'],
                     ['index3'],
@@ -157,7 +150,6 @@ class TableTest extends AbstractTestCase
                 'Column_name',
                 'Column_name',
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [
                     'column1',
                     'column3',
@@ -172,7 +164,6 @@ class TableTest extends AbstractTestCase
                 'Field',
                 'Field',
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [
                     'column1',
                     'column3',
@@ -187,7 +178,6 @@ class TableTest extends AbstractTestCase
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 [
                     [
                         'Field' => 'COLUMN_NAME1',

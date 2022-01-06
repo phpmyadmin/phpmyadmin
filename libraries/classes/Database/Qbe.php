@@ -316,11 +316,7 @@ class Qbe
             }
         }
 
-        $allTables = $this->dbi->query(
-            'SHOW TABLES FROM ' . Util::backquote($this->db) . ';',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $allTables = $this->dbi->query('SHOW TABLES FROM ' . Util::backquote($this->db) . ';');
         $allTablesCount = $allTables->numRows();
         if ($allTablesCount == 0) {
             echo Message::error(__('No tables found in database.'))->getDisplay();
