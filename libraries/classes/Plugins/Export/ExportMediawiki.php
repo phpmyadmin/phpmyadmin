@@ -316,7 +316,7 @@ class ExportMediawiki extends ExportPlugin
 
         // Get the table data from the database
         $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $fields_cnt = $dbi->numFields($result);
+        $fields_cnt = $result->numFields();
 
         while ($row = $dbi->fetchRow($result)) {
             $output .= '|-' . $this->exportCRLF();

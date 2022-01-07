@@ -2137,18 +2137,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * return number of fields in given $result
-     *
-     * @param ResultInterface $result result set identifier
-     *
-     * @return int field count
-     */
-    public function numFields(ResultInterface $result): int
-    {
-        return $result->numFields();
-    }
-
-    /**
      * returns properly escaped string for use in MySQL queries
      *
      * @param string $str  string to be escaped
