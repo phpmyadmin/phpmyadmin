@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-02 00:12+0000\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-01-08 20:52+0000\n"
+"Last-Translator: Adam Ondrejčák <tadam.space@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "sk/>\n"
 "Language: sk\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Doba prevádzky je menej než jeden deň"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
@@ -28,6 +28,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Ak chcete získať presnejšie priemery, odporúča sa pred spustením analyzátora "
+"nechať server bežať dlhšie ako jeden deň"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
@@ -43,12 +45,14 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Menej než 1,000 dopytov bolo spustených voči serveru. Odporučenia nemusia "
+"byť presné."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "Nechajte server bežať dlhšie pokým vykoná väčšie množstvo dopytov."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -62,7 +66,7 @@ msgstr "Percento pomalých dopytov"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Je tu veľa pomalých dopytov oproti celkového počtu dopytov."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
@@ -76,7 +80,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:45
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Miera pomalých dopytov by mala byť pod 5%%, vaša hodnota je %s%%."
 
 #: libraries/advisory_rules_generic.php:50
 msgid "Slow query rate"
@@ -86,6 +90,8 @@ msgstr "Miera pomalých dopytov"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Existuje vysoké percento pomalých dopytov v porovnaní s dobou prevádzky "
+"servera."
 
 #: libraries/advisory_rules_generic.php:58
 #, php-format
@@ -192,10 +198,12 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Mali by ste aktualizovať, pretože posledné verzie MySQL 5.1 zlepšili výkon a "
+"MySQL 5.5 ešte viac."
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Verzia nižšia ako 5.5.8 (prvé vydanie GA verzie 5.5)."
 
 #: libraries/advisory_rules_generic.php:137
 #, fuzzy
@@ -210,6 +218,8 @@ msgstr "Distribúcia"
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Verzia je skompilovaná zo zdrojových kódov, nie je to oficiálna binárna "
+"verzia MySQL."
 
 #: libraries/advisory_rules_generic.php:148
 msgid ""
@@ -217,24 +227,30 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Ak ste nekompilovali zo zdrojových kódov, možno používate balík upravený "
+"distribúciou. Príručka MySQL je presná len pre oficiálne binárne súbory "
+"MySQL, nie pre akékoľvek distribúcie balíkov (napríklad RedHat, Debian/"
+"Ubuntu atď.)."
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source' nájdené v version_comment"
 
 #: libraries/advisory_rules_generic.php:159
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "Príručka MySQL je presná len pre oficiálne binárne súbory MySQL."
 
 #: libraries/advisory_rules_generic.php:161
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Dokumentácia Percona sa nachádza na adrese <a href=\"https://www.percona.com/"
+"software/documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.php:164
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' nájdené vo version_comment"
 
 #: libraries/advisory_rules_generic.php:168
 msgid "MySQL Architecture"
@@ -242,7 +258,7 @@ msgstr "MySQL architektúra"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL nie je skompilovaný ako 64-bitový balík."
 
 #: libraries/advisory_rules_generic.php:174
 msgid ""
@@ -250,6 +266,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Kapacita vašej pamäte je vyššia ako 3 GiB (za predpokladu, že server je na "
+"localhost), takže MySQL nemusí mať prístup k celej pamäti. Možno budete "
+"chcieť zvážiť inštaláciu 64-bitovej verzie MySQL."
 
 #: libraries/advisory_rules_generic.php:178
 #, php-format
@@ -271,6 +290,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
+"Používate MySQL Vyrovnávaciu pamäť dopytov s pomerne vysokou návštevnosťou "
+"databázy. Možno by stálo za zváženie použiť <a href=\"https://dev.mysql.com/"
+"doc/refman/5.6/en/ha-memcached.html\">memcached</a> namiesto MySQL "
+"Vyrovnávacej pamäti dopytov, najmä ak máte viacero replík."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -278,6 +301,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Vyrovnávacia pamäť je zapnutá a server prijíma %d dotazov za sekundu. Toto "
+"pravidlo sa spustí, ak je viac ako 100 dopytov za sekundu."
 
 #: libraries/advisory_rules_generic.php:204
 msgid "Percentage of sorts that cause temporary tables"
@@ -294,6 +319,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
+"Zvážte zvýšenie veľkosti {sort_buffer_size} a/alebo {read_rnd_buffer_size} v "
+"závislosti od limitov pamäte vášho systému."
 
 #: libraries/advisory_rules_generic.php:213
 #, php-format
@@ -301,6 +328,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% všetkých druhov spôsobujú dočasné tabuľky, táto hodnota by mala byť "
+"nižšia ako 10%%."
 
 #: libraries/advisory_rules_generic.php:218
 msgid "Rate of sorts that cause temporary tables"
@@ -320,7 +349,7 @@ msgstr "Triediť riadky"
 
 #: libraries/advisory_rules_generic.php:234
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Triedi sa veľa riadkov."
 
 #: libraries/advisory_rules_generic.php:236
 msgid ""
@@ -329,11 +358,14 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
+"Hoci na veľkom množstve triedenia riadkov nie je nič zlé, možno by ste sa "
+"mali uistiť, že dopyty, ktoré vyžadujú veľa triedenia, používajú indexované "
+"stĺpce v klauzule ORDER BY, pretože to vedie k oveľa rýchlejšiemu triedeniu."
 
 #: libraries/advisory_rules_generic.php:240
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Priemer zoradených riadkov: %s"
 
 #: libraries/advisory_rules_generic.php:246
 msgid "Rate of joins without indexes"
@@ -348,6 +380,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
+"To znamená, že spájania vykonávajú prehľadávanie celej tabuľky. Pridanie "
+"indexov pre stĺpce, ktoré sa používajú v podmienkach spojenia, výrazne "
+"urýchli spájanie tabuliek."
 
 #: libraries/advisory_rules_generic.php:254
 #, php-format
@@ -373,6 +408,12 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"To zvyčajne znamená časté skenovanie celého indexu. Plné prehľadávanie "
+"indexov je rýchlejšie ako prehľadávanie tabuliek, ale vo veľkých tabuľkách "
+"si vyžaduje veľa cyklov procesora. Ak sa v tabuľkách, ktoré majú alebo mali "
+"veľké množstvo UPDATE a DELETE, spustí 'OPTIMIZE TABLE', môže sa znížiť "
+"množstvo a/alebo zrýchliť prehľadávanie plných indexov. Okrem toho sa "
+"skenovanie úplných indexov dá znížiť len prepísaním dotazov."
 
 #: libraries/advisory_rules_generic.php:270
 #, php-format
@@ -394,6 +435,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"To naznačuje, že mnoho dotazov potrebuje zoradiť výsledky a/alebo vykonať "
+"úplnú kontrolu tabuľky vrátane spojovacích dotazov, ktoré nepoužívajú "
+"indexy. V prípade potreby pridajte indexy."
 
 #: libraries/advisory_rules_generic.php:283
 #, php-format
@@ -18339,11 +18383,11 @@ msgstr ""
 #: templates/table/relation/common_form.twig:24
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "Iba stĺpce s indexom budú zobrazené. Nadefinovať index môžete nižšie."
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Obmedzenie cudzieho kľúča"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
@@ -18508,7 +18552,7 @@ msgstr "Presunúť stĺpce"
 
 #: templates/table/structure/display_structure.twig:333
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Posúvajte stĺpce posúvaním hore a dole."
 
 #: templates/table/structure/display_structure.twig:371
 #: templates/view_create.twig:13
@@ -18521,7 +18565,7 @@ msgstr "Navrhnúť štruktúru tabuľky"
 
 #: templates/table/structure/display_structure.twig:402
 msgid "Normalize"
-msgstr ""
+msgstr "Znormalizovať"
 
 #: templates/table/structure/display_structure.twig:408
 msgid "Track view"
@@ -18563,7 +18607,7 @@ msgstr "dynamický"
 
 #: templates/table/structure/display_table_stats.twig:99
 msgid "partitioned"
-msgstr ""
+msgstr "rozdelený"
 
 #: templates/table/structure/display_table_stats.twig:128
 msgid "Row length"
@@ -18589,7 +18633,7 @@ msgstr "Aktivovať sledovanie %s"
 
 #: templates/table/tracking/main.twig:104
 msgid "Activate now"
-msgstr ""
+msgstr "Teraz aktivovať"
 
 #: templates/table/tracking/main.twig:106
 #, php-format
@@ -18598,7 +18642,7 @@ msgstr "Deaktivovať sledovanie %s"
 
 #: templates/table/tracking/main.twig:108
 msgid "Deactivate now"
-msgstr ""
+msgstr "Teraz deaktivovať"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
@@ -18654,7 +18698,7 @@ msgstr "Navigačná lišta tabuľky"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(aktuálny)"
 
 #: templates/transformation_overview.twig:1
 #, fuzzy
