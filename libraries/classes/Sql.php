@@ -1743,14 +1743,14 @@ class Sql
                 $analyzedSqlResults,
                 $db,
                 $table,
-                $messageToShow ?? null,
+                $messageToShow,
                 $numRows,
                 $displayResultsObject,
                 $extraData,
                 $profilingResults,
                 $result,
                 $sqlQuery,
-                $completeQuery ?? null
+                $completeQuery
             );
         } else {
             // At least one row is returned -> displays a table with results
@@ -1759,15 +1759,15 @@ class Sql
                 $analyzedSqlResults,
                 $db,
                 $table,
-                $sqlData ?? null,
+                $sqlData,
                 $displayResultsObject,
                 $unlimNumRows,
                 $numRows,
-                $dispQuery ?? null,
-                $dispMessage ?? null,
+                $dispQuery,
+                $dispMessage,
                 $profilingResults,
                 $sqlQuery,
-                $completeQuery ?? null
+                $completeQuery
             );
         }
 
