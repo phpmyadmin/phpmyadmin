@@ -502,39 +502,37 @@ class Sql
             $GLOBALS['using_bookmark_message']->addHtml(
                 MySQLDocumentation::showDocumentation('faq', 'faq6-22')
             );
-            $sqlQuery = $bookmark->getQuery();
-        } else {
-            $defaultOrderByClause = '';
 
-            if (
-                isset($GLOBALS['cfg']['TablePrimaryKeyOrder'])
-                && ($GLOBALS['cfg']['TablePrimaryKeyOrder'] !== 'NONE')
-            ) {
-                $primaryKey = null;
-                $primary = Index::getPrimary($table, $db);
-
-                if ($primary !== false) {
-                    $primarycols = $primary->getColumns();
-
-                    foreach ($primarycols as $col) {
-                        $primaryKey = $col->getName();
-                        break;
-                    }
-
-                    if ($primaryKey != null) {
-                        $defaultOrderByClause = ' ORDER BY '
-                            . Util::backquote($table) . '.'
-                            . Util::backquote($primaryKey) . ' '
-                            . $GLOBALS['cfg']['TablePrimaryKeyOrder'];
-                    }
-                }
-            }
-
-            $sqlQuery = 'SELECT * FROM ' . Util::backquote($table)
-                . $defaultOrderByClause;
+            return $bookmark->getQuery();
         }
 
-        return $sqlQuery;
+        $defaultOrderByClause = '';
+
+        if (
+            isset($GLOBALS['cfg']['TablePrimaryKeyOrder'])
+            && ($GLOBALS['cfg']['TablePrimaryKeyOrder'] !== 'NONE')
+        ) {
+            $primaryKey = null;
+            $primary = Index::getPrimary($table, $db);
+
+            if ($primary !== false) {
+                $primarycols = $primary->getColumns();
+
+                foreach ($primarycols as $col) {
+                    $primaryKey = $col->getName();
+                    break;
+                }
+
+                if ($primaryKey !== null) {
+                    $defaultOrderByClause = ' ORDER BY '
+                        . Util::backquote($table) . '.'
+                        . Util::backquote($primaryKey) . ' '
+                        . $GLOBALS['cfg']['TablePrimaryKeyOrder'];
+                }
+            }
+        }
+
+        return 'SELECT * FROM ' . Util::backquote($table) . $defaultOrderByClause;
     }
 
     /**
