@@ -53,7 +53,7 @@ class QueryByExampleController extends AbstractController
         $this->addScriptFiles(['database/qbe.js']);
         if ($savedQbeSearchesFeature !== null) {
             //Get saved search list.
-            $savedSearch = new SavedSearches($this->relation);
+            $savedSearch = new SavedSearches();
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($db);
 
@@ -74,14 +74,14 @@ class QueryByExampleController extends AbstractController
                 } elseif ($_POST['action'] === 'delete') {
                     $savedSearch->delete($savedQbeSearchesFeature);
                     //After deletion, reset search.
-                    $savedSearch = new SavedSearches($this->relation);
+                    $savedSearch = new SavedSearches();
                     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                         ->setDbname($db);
                     $_POST = [];
                 } elseif ($_POST['action'] === 'load') {
                     if (empty($_POST['searchId'])) {
                         //when not loading a search, reset the object.
-                        $savedSearch = new SavedSearches($this->relation);
+                        $savedSearch = new SavedSearches();
                         $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                             ->setDbname($db);
                         $_POST = [];

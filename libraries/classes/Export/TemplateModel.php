@@ -33,7 +33,7 @@ final class TemplateModel
             $this->dbi->escapeString($template->getName()),
             $this->dbi->escapeString($template->getData())
         );
-        $result = $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL, 0, false);
+        $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
             return '';
         }
@@ -50,7 +50,7 @@ final class TemplateModel
             $id,
             $this->dbi->escapeString($user)
         );
-        $result = $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL, 0, false);
+        $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
             return '';
         }
@@ -70,7 +70,7 @@ final class TemplateModel
             $id,
             $this->dbi->escapeString($user)
         );
-        $result = $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL, 0, false);
+        $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
             return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
         }
@@ -99,7 +99,7 @@ final class TemplateModel
             $template->getId(),
             $this->dbi->escapeString($template->getUsername())
         );
-        $result = $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL, 0, false);
+        $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
             return '';
         }
@@ -119,7 +119,7 @@ final class TemplateModel
             $this->dbi->escapeString($user),
             $this->dbi->escapeString($exportType)
         );
-        $result = $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL, 0, false);
+        $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
             return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
         }

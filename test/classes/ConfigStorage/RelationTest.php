@@ -42,40 +42,6 @@ class RelationTest extends AbstractTestCase
     }
 
     /**
-     * Test for queryAsControlUser
-     */
-    public function testPMAQueryAsControlUser(): void
-    {
-        $resultStub1 = $this->createMock(DummyResult::class);
-        $resultStub2 = $this->createMock(DummyResult::class);
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->will($this->returnValue($resultStub1));
-
-        $dbi->expects($this->once())
-            ->method('tryQuery')
-            ->will($this->returnValue($resultStub2));
-
-        $GLOBALS['dbi'] = $dbi;
-        $this->relation->dbi = $GLOBALS['dbi'];
-
-        $sql = 'insert into PMA_bookmark A,B values(1, 2)';
-        $this->assertSame(
-            $resultStub1,
-            $this->relation->queryAsControlUser($sql)
-        );
-        $this->assertSame(
-            $resultStub2,
-            $this->relation->queryAsControlUser($sql, false)
-        );
-    }
-
-    /**
      * Test for getDisplayField
      */
     public function testPMAGetDisplayField(): void
@@ -160,7 +126,7 @@ class RelationTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->will($this->returnValue($resultStub));
         $resultStub->expects($this->any())
             ->method('numRows')

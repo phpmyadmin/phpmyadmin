@@ -175,7 +175,7 @@ class Navigation
             . "'" . $this->dbi->escapeString($dbName) . "',"
             . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : '' )
             . "')";
-        $this->relation->queryAsControlUser($sqlQuery, false);
+        $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
     /**
@@ -211,7 +211,7 @@ class Navigation
                 ? " AND `table_name`='" . $this->dbi->escapeString($tableName) . "'"
                 : ''
             );
-        $this->relation->queryAsControlUser($sqlQuery, false);
+        $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
     /**
@@ -266,7 +266,7 @@ class Navigation
             . " AND `db_name`='" . $this->dbi->escapeString($database) . "'"
             . " AND `table_name`='"
             . (! empty($table) ? $this->dbi->escapeString($table) : '') . "'";
-        $result = $this->relation->queryAsControlUser($sqlQuery, false);
+        $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
 
         $hidden = [];
         if ($result) {

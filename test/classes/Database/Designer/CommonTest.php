@@ -125,7 +125,7 @@ class CommonTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->exactly(2))
-            ->method('query')
+            ->method('queryAsControlUser')
             ->willReturnOnConsecutiveCalls($resultStub, $resultStub);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));

@@ -599,7 +599,7 @@ class ExportOdtTest extends AbstractTestCase
             ->will($this->returnValue([$columns]));
 
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())
@@ -697,7 +697,7 @@ class ExportOdtTest extends AbstractTestCase
             ->will($this->returnValue([$columns]));
 
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())

@@ -41,7 +41,6 @@ class UserGroups
 
         $users = [];
         $numRows = 0;
-        $relation = new Relation($dbi);
 
         $userGroupSpecialChars = htmlspecialchars($userGroup);
         $usersTable = Util::backquote($configurableMenusFeature->database)
@@ -49,7 +48,7 @@ class UserGroups
         $sql_query = 'SELECT `username` FROM ' . $usersTable
             . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
-        $result = $relation->queryAsControlUser($sql_query, false);
+        $result = $dbi->tryQueryAsControlUser($sql_query);
         if ($result) {
             $i = 0;
             while ($row = $result->fetchRow()) {
@@ -78,11 +77,10 @@ class UserGroups
     {
         global $dbi;
 
-        $relation = new Relation($dbi);
         $groupTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
         $sql_query = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
-        $result = $relation->queryAsControlUser($sql_query, false);
+        $result = $dbi->tryQueryAsControlUser($sql_query);
         $userGroups = [];
         $userGroupsValues = [];
         $action = Url::getFromRoute('/server/privileges');
@@ -173,7 +171,6 @@ class UserGroups
     {
         global $dbi;
 
-        $relation = new Relation($dbi);
         $userTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->users);
         $groupTable = Util::backquote($configurableMenusFeature->database)
@@ -181,11 +178,11 @@ class UserGroups
         $sql_query = 'DELETE FROM ' . $userTable
             . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
-        $relation->queryAsControlUser($sql_query, true);
+        $dbi->queryAsControlUser($sql_query);
         $sql_query = 'DELETE FROM ' . $groupTable
             . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
-        $relation->queryAsControlUser($sql_query, true);
+        $dbi->queryAsControlUser($sql_query);
     }
 
     /**
@@ -201,7 +198,6 @@ class UserGroups
     ): string {
         global $dbi;
 
-        $relation = new Relation($dbi);
         $urlParams = [];
 
         $editUserGroupSpecialChars = '';
@@ -227,7 +223,7 @@ class UserGroups
             $sql_query = 'SELECT * FROM ' . $groupTable
                 . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
                 . "'";
-            $result = $relation->queryAsControlUser($sql_query, false);
+            $result = $dbi->tryQueryAsControlUser($sql_query);
             if ($result) {
                 foreach ($result as $row) {
                     $key = $row['tab'];
@@ -316,7 +312,6 @@ class UserGroups
     ): void {
         global $dbi;
 
-        $relation = new Relation($dbi);
         $tabs = Util::getMenuTabList();
         $groupTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
@@ -325,7 +320,7 @@ class UserGroups
             $sql_query = 'DELETE FROM ' . $groupTable
                 . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
                 . "';";
-            $relation->queryAsControlUser($sql_query, true);
+            $dbi->queryAsControlUser($sql_query);
         }
 
         $sql_query = 'INSERT INTO ' . $groupTable
@@ -348,6 +343,6 @@ class UserGroups
         }
 
         $sql_query .= ';';
-        $relation->queryAsControlUser($sql_query, true);
+        $dbi->queryAsControlUser($sql_query);
     }
 }

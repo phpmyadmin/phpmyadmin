@@ -48,7 +48,7 @@ class RelationCleanup
                 . '\''
                 . ' AND column_name = \'' . $this->dbi->escapeString($column)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->displayFeature !== null) {
@@ -60,7 +60,7 @@ class RelationCleanup
                 . '\''
                 . ' AND display_field = \'' . $this->dbi->escapeString($column)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->relationFeature === null) {
@@ -76,7 +76,7 @@ class RelationCleanup
             . '\''
             . ' AND master_field = \'' . $this->dbi->escapeString($column)
             . '\'';
-        $this->relation->queryAsControlUser($remove_query);
+        $this->dbi->queryAsControlUser($remove_query);
 
         $remove_query = 'DELETE FROM '
             . Util::backquote($relationParameters->relationFeature->database)
@@ -87,7 +87,7 @@ class RelationCleanup
             . '\''
             . ' AND foreign_field = \'' . $this->dbi->escapeString($column)
             . '\'';
-        $this->relation->queryAsControlUser($remove_query);
+        $this->dbi->queryAsControlUser($remove_query);
     }
 
     /**
@@ -107,7 +107,7 @@ class RelationCleanup
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
                 . ' AND table_name = \'' . $this->dbi->escapeString($table)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->displayFeature !== null) {
@@ -117,7 +117,7 @@ class RelationCleanup
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
                 . ' AND table_name = \'' . $this->dbi->escapeString($table)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->pdfFeature !== null) {
@@ -127,7 +127,7 @@ class RelationCleanup
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
                 . ' AND table_name = \'' . $this->dbi->escapeString($table)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->relationFeature !== null) {
@@ -138,7 +138,7 @@ class RelationCleanup
                 . '\''
                 . ' AND master_table = \'' . $this->dbi->escapeString($table)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
 
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->relationFeature->database)
@@ -147,7 +147,7 @@ class RelationCleanup
                 . '\''
                 . ' AND foreign_table = \'' . $this->dbi->escapeString($table)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->uiPreferencesFeature !== null) {
@@ -157,7 +157,7 @@ class RelationCleanup
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
                 . ' AND table_name = \'' . $this->dbi->escapeString($table)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->navigationItemsHidingFeature === null) {
@@ -173,7 +173,7 @@ class RelationCleanup
             . ' OR (item_name = \'' . $this->dbi->escapeString($table)
             . '\''
             . ' AND item_type = \'table\'))';
-        $this->relation->queryAsControlUser($remove_query);
+        $this->dbi->queryAsControlUser($remove_query);
     }
 
     /**
@@ -193,7 +193,7 @@ class RelationCleanup
                 . Util::backquote($relationParameters->columnCommentsFeature->database)
                 . '.' . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->bookmarkFeature !== null) {
@@ -201,7 +201,7 @@ class RelationCleanup
                 . Util::backquote($relationParameters->bookmarkFeature->database)
                 . '.' . Util::backquote($relationParameters->bookmarkFeature->bookmark)
                 . ' WHERE dbase  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->displayFeature !== null) {
@@ -209,7 +209,7 @@ class RelationCleanup
                 . Util::backquote($relationParameters->displayFeature->database)
                 . '.' . Util::backquote($relationParameters->displayFeature->tableInfo)
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->pdfFeature !== null) {
@@ -217,13 +217,13 @@ class RelationCleanup
                 . Util::backquote($relationParameters->pdfFeature->database)
                 . '.' . Util::backquote($relationParameters->pdfFeature->pdfPages)
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
 
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->pdfFeature->database)
                 . '.' . Util::backquote($relationParameters->pdfFeature->tableCoords)
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->relationFeature !== null) {
@@ -232,14 +232,14 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->relationFeature->relation)
                 . ' WHERE master_db  = \''
                 . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
 
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->relationFeature->database)
                 . '.' . Util::backquote($relationParameters->relationFeature->relation)
                 . ' WHERE foreign_db  = \'' . $this->dbi->escapeString($db)
                 . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->uiPreferencesFeature !== null) {
@@ -247,7 +247,7 @@ class RelationCleanup
                 . Util::backquote($relationParameters->uiPreferencesFeature->database)
                 . '.' . Util::backquote($relationParameters->uiPreferencesFeature->tableUiPrefs)
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->navigationItemsHidingFeature !== null) {
@@ -255,7 +255,7 @@ class RelationCleanup
                 . Util::backquote($relationParameters->navigationItemsHidingFeature->database)
                 . '.' . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding)
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->savedQueryByExampleSearchesFeature !== null) {
@@ -263,7 +263,7 @@ class RelationCleanup
                 . Util::backquote($relationParameters->savedQueryByExampleSearchesFeature->database)
                 . '.' . Util::backquote($relationParameters->savedQueryByExampleSearchesFeature->savedSearches)
                 . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->centralColumnsFeature === null) {
@@ -274,7 +274,7 @@ class RelationCleanup
             . Util::backquote($relationParameters->centralColumnsFeature->database)
             . '.' . Util::backquote($relationParameters->centralColumnsFeature->centralColumns)
             . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-        $this->relation->queryAsControlUser($remove_query);
+        $this->dbi->queryAsControlUser($remove_query);
     }
 
     /**
@@ -295,7 +295,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->bookmarkFeature->bookmark)
                 . " WHERE `user`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->sqlHistoryFeature !== null) {
@@ -304,7 +304,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->sqlHistoryFeature->history)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->recentlyUsedTablesFeature !== null) {
@@ -313,7 +313,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->recentlyUsedTablesFeature->recent)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->favoriteTablesFeature !== null) {
@@ -322,7 +322,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->favoriteTablesFeature->favorite)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->uiPreferencesFeature !== null) {
@@ -331,7 +331,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->uiPreferencesFeature->tableUiPrefs)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->userPreferencesFeature !== null) {
@@ -340,7 +340,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->userPreferencesFeature->userConfig)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->configurableMenusFeature !== null) {
@@ -349,7 +349,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->configurableMenusFeature->users)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->navigationItemsHidingFeature !== null) {
@@ -358,7 +358,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->savedQueryByExampleSearchesFeature !== null) {
@@ -367,7 +367,7 @@ class RelationCleanup
                 . '.' . Util::backquote($relationParameters->savedQueryByExampleSearchesFeature->savedSearches)
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
-            $this->relation->queryAsControlUser($remove_query);
+            $this->dbi->queryAsControlUser($remove_query);
         }
 
         if ($relationParameters->databaseDesignerSettingsFeature === null) {
@@ -379,6 +379,6 @@ class RelationCleanup
             . '.' . Util::backquote($relationParameters->databaseDesignerSettingsFeature->designerSettings)
             . " WHERE `username`  = '" . $this->dbi->escapeString($username)
             . "'";
-        $this->relation->queryAsControlUser($remove_query);
+        $this->dbi->queryAsControlUser($remove_query);
     }
 }

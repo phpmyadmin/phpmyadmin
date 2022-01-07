@@ -273,7 +273,7 @@ class TrackerTest extends AbstractTestCase
             . " AND `table_name` = 'testtable'";
 
         $dbi->expects($this->exactly(1))
-            ->method('query')
+            ->method('queryAsControlUser')
             ->with($sql_query)
             ->will($this->returnValue($resultStub));
         $dbi->expects($this->any())->method('escapeString')
@@ -305,8 +305,8 @@ class TrackerTest extends AbstractTestCase
             . '\', \'CREATE DATABASE,ALTER DATABASE,DROP DATABASE\')';
 
         $dbi->expects($this->exactly(1))
-            ->method('query')
-            ->with($this->matches($expectedMainQuery), DatabaseInterface::CONNECT_CONTROL, 0, false)
+            ->method('queryAsControlUser')
+            ->with($this->matches($expectedMainQuery))
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -346,8 +346,8 @@ class TrackerTest extends AbstractTestCase
         " AND `version` = '" . $version . "'";
 
         $dbi->expects($this->exactly(1))
-            ->method('query')
-            ->with($sql_query, DatabaseInterface::CONNECT_CONTROL, 0, false)
+            ->method('queryAsControlUser')
+            ->with($sql_query)
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -410,22 +410,16 @@ class TrackerTest extends AbstractTestCase
         $resultStub1 = $this->createMock(DummyResult::class);
         $resultStub2 = $this->createMock(DummyResult::class);
 
-        $dbi->method('query')
+        $dbi->method('queryAsControlUser')
             ->will(
                 $this->returnValueMap(
                     [
                         [
                             $sql_query_1,
-                            DatabaseInterface::CONNECT_CONTROL,
-                            0,
-                            false,
                             $resultStub1,
                         ],
                         [
                             $sql_query_2,
-                            DatabaseInterface::CONNECT_CONTROL,
-                            0,
-                            false,
                             $resultStub2,
                         ],
                     ]
@@ -491,7 +485,7 @@ class TrackerTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('query')
+            ->method('queryAsControlUser')
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->once())

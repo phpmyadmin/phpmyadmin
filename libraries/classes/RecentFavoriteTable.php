@@ -123,7 +123,7 @@ class RecentFavoriteTable
         $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable() .
             " WHERE `username` = '" . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
-        $result = $this->relation->queryAsControlUser($sql_query, false);
+        $result = $dbi->tryQueryAsControlUser($sql_query);
         if ($result) {
             $value = $result->fetchValue();
             if (is_string($value)) {

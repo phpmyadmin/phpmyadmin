@@ -276,7 +276,7 @@ class Pdf extends PdfLib
                 . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE db_name = \'' . $dbi->escapeString($this->db)
                 . '\' AND page_nr = \'' . $this->pageNumber . '\'';
-            $test_rs = $this->relation->queryAsControlUser($test_query);
+            $test_rs = $dbi->queryAsControlUser($test_query);
             $pageDesc = '';
             $pages = $dbi->fetchAssoc($test_rs);
             if ($pages !== []) {

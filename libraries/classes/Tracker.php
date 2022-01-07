@@ -275,7 +275,7 @@ class Tracker
             $dbi->escapeString($trackingSet)
         );
 
-        $relation->queryAsControlUser($sqlQuery);
+        $dbi->queryAsControlUser($sqlQuery);
 
         // Deactivate previous version
         return self::deactivateTracking($dbName, $tableName, (int) $version - 1);
@@ -309,7 +309,7 @@ class Tracker
             $sqlQuery .= " AND `version` = '" . $dbi->escapeString($version) . "'";
         }
 
-        return (bool) $relation->queryAsControlUser($sqlQuery);
+        return (bool) $dbi->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -368,7 +368,7 @@ class Tracker
             $dbi->escapeString($trackingSet)
         );
 
-        return (bool) $relation->queryAsControlUser($sqlQuery);
+        return (bool) $dbi->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -404,7 +404,7 @@ class Tracker
             $dbi->escapeString((string) $version)
         );
 
-        return (bool) $relation->queryAsControlUser($sqlQuery);
+        return (bool) $dbi->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -465,7 +465,7 @@ class Tracker
             $dbi->escapeString($version)
         );
 
-        $result = $relation->queryAsControlUser($sqlQuery);
+        $result = $dbi->queryAsControlUser($sqlQuery);
 
         return (bool) $result;
     }
@@ -528,7 +528,7 @@ class Tracker
             $sqlQuery .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0";
         }
 
-        $result = $relation->queryAsControlUser($sqlQuery, false);
+        $result = $dbi->tryQueryAsControlUser($sqlQuery);
 
         if ($result === false) {
             return -1;
@@ -575,7 +575,7 @@ class Tracker
         $sqlQuery .= " AND `version` = '" . $dbi->escapeString($version)
             . "' ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = $dbi->fetchAssoc($relation->queryAsControlUser($sqlQuery));
+        $mixed = $dbi->fetchAssoc($dbi->queryAsControlUser($sqlQuery));
 
         // PHP 7.4 fix for accessing array offset on null
         if ($mixed === []) {
@@ -952,6 +952,6 @@ class Tracker
         . $dbi->escapeString($result['tablename']) . "' " .
         " AND `version` = '" . $dbi->escapeString($version ?? '') . "' ";
 
-        $relation->queryAsControlUser($sqlQuery);
+        $dbi->queryAsControlUser($sqlQuery);
     }
 }

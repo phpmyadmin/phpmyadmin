@@ -69,7 +69,7 @@ class NavigationTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -91,7 +91,7 @@ class NavigationTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
 
         $dbi->expects($this->any())->method('escapeString')

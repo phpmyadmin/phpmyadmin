@@ -386,11 +386,6 @@ parameters:
 			path: libraries/classes/Config/Form.php
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
-			path: libraries/classes/Config/Form.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -953,16 +948,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getTabList\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/ConfigStorage/UserGroups.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/UserGroups.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function substr expects string, string\\|null given\\.$#"
-			count: 3
 			path: libraries/classes/ConfigStorage/UserGroups.php
 
 		-
@@ -7156,16 +7141,6 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Cannot call method fetchAllKeyPair\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
-			count: 1
-			path: libraries/classes/SavedSearches.php
-
-		-
-			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
-			count: 1
-			path: libraries/classes/SavedSearches.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SavedSearches\\:\\:getCriterias\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
@@ -7187,16 +7162,6 @@ parameters:
 
 		-
 			message: "#^Offset non\\-empty\\-string does not exist on array\\|string\\.$#"
-			count: 1
-			path: libraries/classes/SavedSearches.php
-
-		-
-			message: "#^Parameter \\#1 \\$criterias of method PhpMyAdmin\\\\SavedSearches\\:\\:setCriterias\\(\\) expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/SavedSearches.php
-
-		-
-			message: "#^Parameter \\#1 \\$searchName of method PhpMyAdmin\\\\SavedSearches\\:\\:setSearchName\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 
@@ -8136,16 +8101,6 @@ parameters:
 			path: libraries/classes/SystemDatabase.php
 
 		-
-			message: "#^Argument of an invalid type PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot call method fetchValue\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8456,16 +8411,6 @@ parameters:
 			path: libraries/classes/Theme.php
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: libraries/classes/Theme.php
-
-		-
-			message: "#^If condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\ThemeManager\\:\\:getThemesArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
@@ -8478,11 +8423,6 @@ parameters:
 		-
 			message: "#^Static property PhpMyAdmin\\\\ThemeManager\\:\\:\\$instance \\(PhpMyAdmin\\\\ThemeManager\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
 			path: libraries/classes/ThemeManager.php
 
 		-
@@ -8562,16 +8502,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Cannot call method fetchRow\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 
@@ -8816,16 +8746,6 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Cannot call method numRows\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
@@ -8837,11 +8757,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
 

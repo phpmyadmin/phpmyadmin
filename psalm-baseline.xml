@@ -14433,30 +14433,9 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
-    <MixedMethodCall occurrences="12">
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-    </MixedMethodCall>
-    <PossiblyUndefinedMethod occurrences="8">
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-    </PossiblyUndefinedMethod>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$dbi</code>
+    </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/ConfigStorage/RelationTest.php">
     <DocblockTypeContradiction occurrences="1">

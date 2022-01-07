@@ -6,7 +6,6 @@ namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\PdfFeature;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\InternalRelations;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -61,31 +60,6 @@ class Relation
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-    }
-
-    /**
-     * Executes a query as controluser if possible, otherwise as normal user
-     *
-     * @param string $sql        the query to execute
-     * @param bool   $show_error whether to display SQL error messages or not
-     * @psalm-param T $show_error
-     *
-     * @return ResultInterface|false the result set, or false if no result set
-     * @psalm-return (T is true ? ResultInterface : ResultInterface|false)
-     *
-     * @template T as bool
-     */
-    public function queryAsControlUser($sql, $show_error = true)
-    {
-        // Avoid caching of the number of rows affected; for example, this function
-        // is called for tracking purposes but we want to display the correct number
-        // of rows affected by the original query, not by the query generated for
-        // tracking.
-        if ($show_error) {
-            return $this->dbi->query($sql, DatabaseInterface::CONNECT_CONTROL, DatabaseInterface::QUERY_BUFFERED, false);
-        }
-
-        return $this->dbi->tryQuery($sql, DatabaseInterface::CONNECT_CONTROL, DatabaseInterface::QUERY_BUFFERED, false);
     }
 
     public function getRelationParameters(): RelationParameters
@@ -188,7 +162,7 @@ class Relation
     {
         $tabQuery = 'SHOW TABLES FROM '
         . Util::backquote($GLOBALS['cfg']['Server']['pmadb']);
-        $tableRes = $this->queryAsControlUser($tabQuery, false);
+        $tableRes = $this->dbi->tryQueryAsControlUser($tabQuery);
         if ($tableRes === false) {
             return null;
         }
@@ -361,10 +335,7 @@ class Relation
      */
     public function canAccessStorageTable(string $tableDbName): bool
     {
-        $result = $this->queryAsControlUser(
-            'SELECT NULL FROM ' . Util::backquote($tableDbName) . ' LIMIT 0',
-            false
-        );
+        $result = $this->dbi->tryQueryAsControlUser('SELECT NULL FROM ' . Util::backquote($tableDbName) . ' LIMIT 0');
 
         return $result !== false;
     }
@@ -385,7 +356,7 @@ class Relation
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
             . '.' . Util::backquote($GLOBALS['cfg']['Server']['column_info'])
             . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
-        $result = $this->queryAsControlUser($query, false);
+        $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result) {
             $rows = $result->numRows();
             unset($result);
@@ -610,7 +581,7 @@ class Relation
                     . ' WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
                     . ' AND table_name  = \'\''
                     . ' AND column_name = \'(db_comment)\'';
-            $com_rs = $this->queryAsControlUser($com_qry, false);
+            $com_rs = $this->dbi->tryQueryAsControlUser($com_qry);
 
             if ($com_rs && $com_rs->numRows() > 0) {
                 $row = $com_rs->fetchAssoc();
@@ -637,7 +608,7 @@ class Relation
                     . ' FROM ' . Util::backquote($columnCommentsFeature->database)
                     . '.' . Util::backquote($columnCommentsFeature->columnInfo)
                     . ' WHERE `column_name` = \'(db_comment)\'';
-            $com_rs = $this->queryAsControlUser($com_qry, false);
+            $com_rs = $this->dbi->tryQueryAsControlUser($com_qry);
 
             if ($com_rs && $com_rs->numRows() > 0) {
                 return $com_rs->fetchAllKeyPair();
@@ -682,7 +653,7 @@ class Relation
                     AND `column_name` = \'(db_comment)\'';
         }
 
-        return (bool) $this->queryAsControlUser($upd_query);
+        return (bool) $this->dbi->queryAsControlUser($upd_query);
     }
 
     /**
@@ -722,7 +693,7 @@ class Relation
             return;
         }
 
-        $this->queryAsControlUser(
+        $this->dbi->queryAsControlUser(
             'INSERT INTO '
             . Util::backquote($sqlHistoryFeature->database) . '.'
             . Util::backquote($sqlHistoryFeature->history) . '
@@ -810,7 +781,7 @@ class Relation
             return;
         }
 
-        $this->queryAsControlUser(
+        $this->dbi->queryAsControlUser(
             'DELETE FROM '
             . Util::backquote($sqlHistoryFeature->database) . '.'
             . Util::backquote($sqlHistoryFeature->history) . '
@@ -1164,7 +1135,7 @@ class Relation
                 . '\''
                 . '   AND display_field = \'' . $this->dbi->escapeString($field)
                 . '\'';
-            $this->queryAsControlUser($table_query);
+            $this->dbi->queryAsControlUser($table_query);
         }
 
         if ($relationParameters->relationFeature === null) {
@@ -1181,7 +1152,7 @@ class Relation
             . '\''
             . '   AND master_field = \'' . $this->dbi->escapeString($field)
             . '\'';
-        $this->queryAsControlUser($table_query);
+        $this->dbi->queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
             . Util::backquote($relationParameters->relationFeature->database) . '.'
@@ -1193,7 +1164,7 @@ class Relation
             . '\''
             . '   AND foreign_field = \'' . $this->dbi->escapeString($field)
             . '\'';
-        $this->queryAsControlUser($table_query);
+        $this->dbi->queryAsControlUser($table_query);
     }
 
     /**
@@ -1230,7 +1201,7 @@ class Relation
             . ' AND '
             . $table_field . ' = \'' . $this->dbi->escapeString($source_table)
             . '\'';
-        $this->queryAsControlUser($query);
+        $this->dbi->queryAsControlUser($query);
     }
 
     /**
@@ -1318,7 +1289,7 @@ class Relation
                     . " WHERE db_name  = '" . $this->dbi->escapeString($source_db) . "'"
                     . " AND table_name = '" . $this->dbi->escapeString($source_table)
                     . "'";
-                $this->queryAsControlUser($remove_query);
+                $this->dbi->queryAsControlUser($remove_query);
             }
         }
 
@@ -1362,7 +1333,7 @@ class Relation
             . " AND item_name = '" . $this->dbi->escapeString($source_table)
             . "'"
             . " AND item_type = 'table'";
-        $this->queryAsControlUser($query);
+        $this->dbi->queryAsControlUser($query);
     }
 
     /**
@@ -1380,7 +1351,7 @@ class Relation
             . ' VALUES (\''
             . $this->dbi->escapeString($db) . '\', \''
             . $this->dbi->escapeString($newpage ?: __('no description')) . '\')';
-        $this->queryAsControlUser($ins_query, false);
+        $this->dbi->tryQueryAsControlUser($ins_query);
 
         return $this->dbi->insertId(DatabaseInterface::CONNECT_CONTROL);
     }

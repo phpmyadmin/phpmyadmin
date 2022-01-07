@@ -55,7 +55,7 @@ class UserGroupsTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
             ->will($this->returnValue($resultStub));
         $resultStub->expects($this->once())
@@ -101,7 +101,7 @@ class UserGroupsTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->exactly(2))
-            ->method('query')
+            ->method('queryAsControlUser')
             ->withConsecutive([$this->equalTo($userDelQuery)], [$this->equalTo($userGrpDelQuery)]);
         $dbi->expects($this->any())
             ->method('escapeString')
@@ -129,7 +129,7 @@ class UserGroupsTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
             ->will($this->returnValue($resultStub));
         $resultStub->expects($this->exactly(1))
