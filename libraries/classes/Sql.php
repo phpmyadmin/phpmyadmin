@@ -811,8 +811,6 @@ class Sql
      * @param bool|null   $findRealEnd         whether to find the real end
      * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
      * @param array|null  $extraData           extra data
-     *
-     * @return array
      */
     private function executeTheQuery(
         array $analyzedSqlResults,
@@ -823,7 +821,7 @@ class Sql
         ?bool $findRealEnd,
         ?string $sqlQueryForBookmark,
         $extraData
-    ) {
+    ): array {
         $response = ResponseRenderer::getInstance();
         $response->getHeader()->getMenu()->setTable($table ?? '');
 
@@ -935,14 +933,12 @@ class Sql
      * @param string $messageToShow      message to show
      * @param array  $analyzedSqlResults analyzed sql results
      * @param int    $numRows            number of rows
-     *
-     * @return Message
      */
     private function getMessageForNoRowsReturned(
         $messageToShow,
         array $analyzedSqlResults,
         $numRows
-    ) {
+    ): Message {
         if ($analyzedSqlResults['querytype'] === 'DELETE"') {
             $message = Message::getMessageForDeletedRows($numRows);
         } elseif ($analyzedSqlResults['is_insert']) {
@@ -1042,7 +1038,7 @@ class Sql
         $result,
         $sqlQuery,
         ?string $completeQuery
-    ) {
+    ): string {
         if ($this->isDeleteTransformationInfo($analyzedSqlResults)) {
             $this->deleteTransformationInfo($db, $table ?? '', $analyzedSqlResults);
         }
@@ -1193,8 +1189,6 @@ class Sql
      * @param ResultInterface|false|null $result               result of the executed query
      * @param array                      $analyzedSqlResults   analyzed sql results
      * @param bool                       $isLimitedDisplay     Show only limited operations or not
-     *
-     * @return string
      */
     private function getHtmlForSqlQueryResultsTable(
         $displayResultsObject,
@@ -1206,7 +1200,7 @@ class Sql
         $result,
         array $analyzedSqlResults,
         $isLimitedDisplay = false
-    ) {
+    ): string {
         $printView = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
         $tableHtml = '';
         $isBrowseDistinct = ! empty($_POST['is_browse_distinct']);
@@ -1409,7 +1403,7 @@ class Sql
         ?array $profilingResults,
         $sqlQuery,
         ?string $completeQuery
-    ) {
+    ): string {
         global $showtable;
 
         // If we are retrieving the full value of a truncated field or the original
@@ -1670,7 +1664,7 @@ class Sql
         $dispMessage,
         $sqlQuery,
         ?string $completeQuery
-    ) {
+    ): string {
         // Handle disable/enable foreign key checks
         $defaultFkCheck = ForeignKey::handleDisableCheckInit();
 
