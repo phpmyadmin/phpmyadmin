@@ -597,6 +597,11 @@ class Sql
             $bfields,
             isset($_POST['bkm_all_users'])
         );
+
+        if ($bookmark === false) {
+            return;
+        }
+
         $bookmark->save();
     }
 
