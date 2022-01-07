@@ -1113,7 +1113,6 @@ class Sql
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if (
             $bookmarkFeature !== null
-            && $displayParts['bkm_form'] == '1'
             && empty($_GET['id_bookmark'])
             && $sqlQuery
         ) {
