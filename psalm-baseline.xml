@@ -12703,17 +12703,13 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Sql.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>''</code>
-    </InvalidScalarArgument>
     <LessSpecificReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="56">
+    <MixedArgument occurrences="47">
       <code>$_POST[$requestIndex]</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['dropped_column'] ?? null</code>
-      <code>$_POST['purge'] ?? null</code>
       <code>$_POST['table_create_time'] ?? null</code>
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults['is_affected']</code>
@@ -12745,24 +12741,16 @@
       <code>$analyzedSqlResults['statement']-&gt;where</code>
       <code>$columns[$indexColumnName]['Extra']</code>
       <code>$db</code>
-      <code>$extraData</code>
       <code>$extraData['error']</code>
       <code>$fieldInfoResult[0]['Type']</code>
       <code>$foreignData['foreign_field']</code>
-      <code>$numRows</code>
-      <code>$numRows</code>
       <code>$numberOfLine / $maxRows</code>
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Status']</code>
-      <code>$profilingResults</code>
-      <code>$profilingResults</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$sortCol</code>
       <code>$statement</code>
       <code>$table</code>
       <code>$tokenList</code>
-      <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>Message::sanitize($warning)</code>
@@ -12861,38 +12849,23 @@
     <NullableReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </NullableReturnStatement>
-    <PossiblyFalseReference occurrences="1">
-      <code>save</code>
-    </PossiblyFalseReference>
-    <PossiblyNullArgument occurrences="12">
-      <code>$_POST['purge'] ?? null</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$extraData ?? null</code>
-      <code>$messageToShow ?? null</code>
+    <PossiblyInvalidArgument occurrences="4">
+      <code>$numRows</code>
+      <code>$numRows</code>
+      <code>$numRows</code>
+      <code>$numRows</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>$numRows</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullArgument occurrences="3">
       <code>$result</code>
       <code>$row[0]</code>
-      <code>$sqlData ?? null</code>
-      <code>$sqlQueryForBookmark ?? null</code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$table</code>
     </PossiblyNullArgument>
     <RedundantCast occurrences="1">
       <code>(bool) $GLOBALS['cfg']['ShowSQL']</code>
     </RedundantCast>
-    <RedundantCondition occurrences="6">
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$table</code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull occurrences="4">
-      <code>''</code>
-      <code>''</code>
-      <code>''</code>
-      <code>''</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/SqlQueryForm.php">
     <MixedArgument occurrences="2">

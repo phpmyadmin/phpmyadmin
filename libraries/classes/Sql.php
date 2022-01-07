@@ -811,6 +811,14 @@ class Sql
      * @param bool|null   $findRealEnd         whether to find the real end
      * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
      * @param array|null  $extraData           extra data
+     *
+     * @psalm-return array{
+     *  ResultInterface|false|null,
+     *  int|numeric-string,
+     *  int|numeric-string,
+     *  array<string, string>|null,
+     *  array|null
+     * }
      */
     private function executeTheQuery(
         array $analyzedSqlResults,
@@ -830,6 +838,7 @@ class Sql
             $result = null;
             $numRows = 0;
             $unlimNumRows = 0;
+            $profilingResults = null;
         } else { // If we don't ask to see the php code
             Profiling::enable($this->dbi);
 
@@ -895,7 +904,7 @@ class Sql
             $result,
             $numRows,
             $unlimNumRows,
-            $profilingResults ?? null,
+            $profilingResults,
             $extraData,
         ];
     }
@@ -930,12 +939,12 @@ class Sql
     /**
      * Function to get the message for the no rows returned case
      *
-     * @param string $messageToShow      message to show
-     * @param array  $analyzedSqlResults analyzed sql results
-     * @param int    $numRows            number of rows
+     * @param string|null $messageToShow      message to show
+     * @param array       $analyzedSqlResults analyzed sql results
+     * @param int|string  $numRows            number of rows
      */
     private function getMessageForNoRowsReturned(
-        $messageToShow,
+        ?string $messageToShow,
         array $analyzedSqlResults,
         $numRows
     ): Message {
@@ -1016,13 +1025,14 @@ class Sql
      * @param string                     $db                   current database
      * @param string|null                $table                current table
      * @param string|null                $messageToShow        message to show
-     * @param int                        $numRows              number of rows
+     * @param int|string                 $numRows              number of rows
      * @param DisplayResults             $displayResultsObject DisplayResult instance
      * @param array|null                 $extraData            extra data
      * @param array|null                 $profilingResults     profiling results
      * @param ResultInterface|false|null $result               executed query results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
+     * @psalm-param int|numeric-string $numRows
      *
      * @return string html
      */
@@ -1046,7 +1056,7 @@ class Sql
         if (isset($extraData['error'])) {
             $message = Message::rawError($extraData['error']);
         } else {
-            $message = $this->getMessageForNoRowsReturned($messageToShow ?? null, $analyzedSqlResults, $numRows);
+            $message = $this->getMessageForNoRowsReturned($messageToShow, $analyzedSqlResults, $numRows);
         }
 
         $queryMessage = Generator::getMessage($message, $GLOBALS['sql_query'], 'success');
@@ -1183,12 +1193,14 @@ class Sql
      * @param array                      $displayParts         the parts to display
      * @param bool                       $editable             whether the result table is
      *                                                         editable or not
-     * @param int                        $unlimNumRows         unlimited number of rows
-     * @param int                        $numRows              number of rows
+     * @param int|string                 $unlimNumRows         unlimited number of rows
+     * @param int|string                 $numRows              number of rows
      * @param array|null                 $showTable            table definitions
      * @param ResultInterface|false|null $result               result of the executed query
      * @param array                      $analyzedSqlResults   analyzed sql results
      * @param bool                       $isLimitedDisplay     Show only limited operations or not
+     * @psalm-param int|numeric-string $unlimNumRows
+     * @psalm-param int|numeric-string $numRows
      */
     private function getHtmlForSqlQueryResultsTable(
         $displayResultsObject,
@@ -1386,13 +1398,15 @@ class Sql
      * @param string|null                $table                current table
      * @param array|null                 $sqlData              sql data
      * @param DisplayResults             $displayResultsObject Instance of DisplayResults
-     * @param int                        $unlimNumRows         unlimited number of rows
-     * @param int                        $numRows              number of rows
+     * @param int|string                 $unlimNumRows         unlimited number of rows
+     * @param int|string                 $numRows              number of rows
      * @param string|null                $dispQuery            display query
      * @param Message|string|null        $dispMessage          display message
      * @param array|null                 $profilingResults     profiling results
      * @param string                     $sqlQuery             sql query
      * @param string|null                $completeQuery        complete sql query
+     * @psalm-param int|numeric-string $unlimNumRows
+     * @psalm-param int|numeric-string $numRows
      *
      * @return string html
      */
