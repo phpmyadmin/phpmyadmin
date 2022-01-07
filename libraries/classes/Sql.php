@@ -1304,8 +1304,7 @@ class Sql
     }
 
     /**
-     * Function to get html for the previous query if there is such. If not will return
-     * null
+     * Function to get html for the previous query if there is such.
      *
      * @param string|null    $displayQuery   display query
      * @param bool           $showSql        whether to show sql
@@ -1315,11 +1314,11 @@ class Sql
     private function getHtmlForPreviousUpdateQuery(
         ?string $displayQuery,
         bool $showSql,
-        $sqlData,
+        array $sqlData,
         $displayMessage
     ): string {
         $output = '';
-        if (isset($displayQuery) && ($showSql === true) && empty($sqlData)) {
+        if ($displayQuery !== null && $showSql && $sqlData === []) {
             $output = Generator::getMessage($displayMessage, $displayQuery, 'success');
         }
 
@@ -1508,9 +1507,9 @@ class Sql
         }
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
-            $dispQuery ?? null,
+            $dispQuery,
             (bool) $GLOBALS['cfg']['ShowSQL'],
-            $sqlData ?? null,
+            $sqlData ?? [],
             $dispMessage ?? ''
         );
 
