@@ -1333,10 +1333,18 @@ class Sql
      * @param bool        $editable     whether the results table can be editable or not
      * @param bool        $hasUniqueKey whether there is a unique key
      */
-    private function getMessageIfMissingColumnIndex(?string $table, string $database, $editable, $hasUniqueKey): string
-    {
+    private function getMessageIfMissingColumnIndex(
+        ?string $table,
+        string $database,
+        bool $editable,
+        bool $hasUniqueKey
+    ): string {
+        if ($table === null) {
+            return '';
+        }
+
         $output = '';
-        if ($table && (Utilities::isSystemSchema($database) || ! $editable)) {
+        if (Utilities::isSystemSchema($database) || ! $editable) {
             $output = Message::notice(
                 sprintf(
                     __(
@@ -1350,7 +1358,7 @@ class Sql
                     )
                 )
             )->getDisplay();
-        } elseif ($table && ! $hasUniqueKey) {
+        } elseif (! $hasUniqueKey) {
             $output = Message::notice(
                 sprintf(
                     __(
