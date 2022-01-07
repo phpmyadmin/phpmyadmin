@@ -544,14 +544,6 @@ interface DbalInterface
     public function fetchRow(ResultInterface $result): array;
 
     /**
-     * Adjusts the result pointer to an arbitrary row in the result
-     *
-     * @param ResultInterface $result database result
-     * @param int             $offset offset to seek
-     */
-    public function dataSeek(ResultInterface $result, int $offset): bool;
-
-    /**
      * Check if there are any more query results from a multi query
      *
      * @param int $link link type

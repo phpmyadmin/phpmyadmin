@@ -48,7 +48,7 @@ class MysqliResultTest extends AbstractTestCase
     }
 
     /**
-     * Test for dataSeek
+     * Test for seek
      */
     public function testDataSeek(): void
     {

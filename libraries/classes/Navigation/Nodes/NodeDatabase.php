@@ -454,7 +454,7 @@ class NodeDatabase extends Node
             $handle = $dbi->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                if ($dbi->dataSeek($handle, $pos)) {
+                if ($handle->seek($pos)) {
                     while ($arr = $handle->fetchRow()) {
                         if ($count >= $maxItems) {
                             break;
