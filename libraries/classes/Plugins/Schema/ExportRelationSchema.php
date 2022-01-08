@@ -259,7 +259,7 @@ class ExportRelationSchema
                 . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
             $_name_rs = $dbi->queryAsControlUser($_name_sql);
-            $_name_row = $dbi->fetchRow($_name_rs);
+            $_name_row = $_name_rs->fetchRow();
             $filename = $_name_row[0] . $extension;
         }
 

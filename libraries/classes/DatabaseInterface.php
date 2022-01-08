@@ -1930,16 +1930,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns array of rows with numeric keys from $result
-     *
-     * @param ResultInterface $result result set identifier
-     */
-    public function fetchRow(ResultInterface $result): array
-    {
-        return $result->fetchRow();
-    }
-
-    /**
      * Check if there are any more query results from a multi query
      *
      * @param int $link link type

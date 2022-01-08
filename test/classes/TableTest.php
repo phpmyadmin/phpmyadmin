@@ -272,8 +272,8 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($value));
 
-        $dbi->expects($this->any())->method('fetchRow')
-            ->will($this->returnValue(null));
+        $resultStub->expects($this->any())->method('fetchRow')
+            ->will($this->returnValue([]));
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));

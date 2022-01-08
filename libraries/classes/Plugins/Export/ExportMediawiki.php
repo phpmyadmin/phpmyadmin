@@ -318,7 +318,7 @@ class ExportMediawiki extends ExportPlugin
         $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fields_cnt = $result->numFields();
 
-        while ($row = $dbi->fetchRow($result)) {
+        while ($row = $result->fetchRow()) {
             $output .= '|-' . $this->exportCRLF();
 
             // Use '|' for separating table columns

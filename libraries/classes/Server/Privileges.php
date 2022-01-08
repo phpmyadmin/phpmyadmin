@@ -1640,12 +1640,7 @@ class Privileges
             $sqlQuery = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
                 . $this->dbi->escapeString($_GET['username']) . "';";
             $res = $this->dbi->query($sqlQuery);
-            $row = $this->dbi->fetchRow($res);
-            if ($row === []) {
-                $extraData['user_exists'] = false;
-            } else {
-                $extraData['user_exists'] = true;
-            }
+            $extraData['user_exists'] = $res->fetchRow() !== [];
         }
 
         return $extraData;
@@ -2086,7 +2081,7 @@ class Privileges
             'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC'
         );
         if ($initials) {
-            while ($tmpInitial = $this->dbi->fetchRow($initials)) {
+            while ($tmpInitial = $initials->fetchRow()) {
                 $arrayInitials[$tmpInitial[0]] = true;
             }
         }

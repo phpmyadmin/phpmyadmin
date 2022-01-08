@@ -133,6 +133,7 @@ abstract class TableStats
         $result = $dbi->tryQuery($sql);
         if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
+            exit;
         }
 
         if ($this->showKeys) {
@@ -147,9 +148,7 @@ abstract class TableStats
 
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = $dbi->fetchRow($result)) {
-                $this->fields[] = $row[0];
-            }
+            $this->fields = $result->fetchAllColumn();
         }
     }
 
