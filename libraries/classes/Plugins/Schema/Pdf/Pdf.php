@@ -277,11 +277,7 @@ class Pdf extends PdfLib
                 . ' WHERE db_name = \'' . $dbi->escapeString($this->db)
                 . '\' AND page_nr = \'' . $this->pageNumber . '\'';
             $test_rs = $dbi->queryAsControlUser($test_query);
-            $pageDesc = '';
-            $pages = $dbi->fetchAssoc($test_rs);
-            if ($pages !== []) {
-                $pageDesc = (string) $pages['page_descr'];
-            }
+            $pageDesc = (string) $test_rs->fetchValue('page_descr');
 
             $pg_name = ucfirst($pageDesc);
         }

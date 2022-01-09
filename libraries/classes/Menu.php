@@ -139,7 +139,7 @@ class Menu
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {
-                while ($row = $this->dbi->fetchAssoc($result)) {
+                while ($row = $result->fetchAssoc()) {
                     $tab = (string) $row['tab'];
                     $tabName = mb_substr(
                         $tab,

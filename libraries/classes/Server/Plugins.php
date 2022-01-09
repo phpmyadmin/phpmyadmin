@@ -54,7 +54,7 @@ class Plugins
 
         $plugins = [];
 
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $plugins[$row['PLUGIN_NAME']] = $this->getTranslatedDescription($row['PLUGIN_DESCRIPTION']);
         }
 

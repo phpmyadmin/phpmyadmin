@@ -33,13 +33,15 @@ class SystemDatabaseTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue('executeResult2'));
+            ->will($this->returnValue($resultStub));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -55,7 +57,29 @@ class SystemDatabaseTest extends AbstractTestCase
             'relation' => 'relation',
         ])->toArray();
 
-        $dbi->expects($this->any())
+        $this->sysDb = new SystemDatabase($dbi);
+    }
+
+    /**
+     * Tests for PMA_getExistingTransformationData() method.
+     */
+    public function testPMAGetExistingTransformationData(): void
+    {
+        $db = 'PMA_db';
+        $ret = $this->sysDb->getExistingTransformationData($db);
+
+        //validate that is the same as $dbi->tryQuery
+        $this->assertInstanceOf(DummyResult::class, $ret);
+    }
+
+    /**
+     * Tests for PMA_getNewTransformationDataSql() method.
+     */
+    public function testPMAGetNewTransformationDataSql(): void
+    {
+        $resultStub = $this->createMock(DummyResult::class);
+
+        $resultStub->expects($this->any())
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
@@ -70,26 +94,6 @@ class SystemDatabaseTest extends AbstractTestCase
                 )
             );
 
-        $this->sysDb = new SystemDatabase($dbi);
-    }
-
-    /**
-     * Tests for PMA_getExistingTransformationData() method.
-     */
-    public function testPMAGetExistingTransformationData(): void
-    {
-        $db = 'PMA_db';
-        $ret = $this->sysDb->getExistingTransformationData($db);
-
-        //validate that is the same as $dbi->tryQuery
-        $this->assertEquals('executeResult2', $ret);
-    }
-
-    /**
-     * Tests for PMA_getNewTransformationDataSql() method.
-     */
-    public function testPMAGetNewTransformationDataSql(): void
-    {
         $db = 'PMA_db';
         $column_map = [
             [
@@ -98,8 +102,6 @@ class SystemDatabaseTest extends AbstractTestCase
             ],
         ];
         $view_name = 'view_name';
-
-        $resultStub = $this->createMock(DummyResult::class);
 
         $ret = $this->sysDb->getNewTransformationDataSql(
             $resultStub,

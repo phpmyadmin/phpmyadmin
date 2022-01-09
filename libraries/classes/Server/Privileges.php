@@ -3202,7 +3202,7 @@ class Privileges
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
             . $userHostCondition
         );
-        while ($row = $this->dbi->fetchAssoc($res)) {
+        while ($row = $res->fetchAssoc()) {
             $res2 = $this->dbi->query(
                 'SELECT `Column_name`, `Column_priv`'
                 . ' FROM `mysql`.`columns_priv`'
@@ -3225,7 +3225,7 @@ class Privileges
                 'References' => [],
             ];
 
-            while ($row2 = $this->dbi->fetchAssoc($res2)) {
+            while ($row2 = $res2->fetchAssoc()) {
                 $tmpArray = explode(',', $row2['Column_priv']);
                 if (in_array('Select', $tmpArray)) {
                     $tmpPrivs2['Select'][] = $row2['Column_name'];
@@ -3444,7 +3444,7 @@ class Privileges
             return false;
         }
 
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             if ($row['Status'] === 'ACTIVE') {
                 return true;
             }

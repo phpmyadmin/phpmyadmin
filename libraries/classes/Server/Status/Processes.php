@@ -67,7 +67,7 @@ final class Processes
 
         $result = $this->dbi->query($sqlQuery);
         $rows = [];
-        while ($process = $this->dbi->fetchAssoc($result)) {
+        while ($process = $result->fetchAssoc()) {
             // Array keys need to modify due to the way it has used
             // to display column values
             if (
