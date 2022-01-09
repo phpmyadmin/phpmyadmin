@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Url;
 
@@ -166,10 +167,10 @@ class Utilities
     /**
      * Stores query data into session data for debugging purposes
      *
-     * @param string      $query        Query text
-     * @param string|null $errorMessage Error message from getError()
-     * @param object|bool $result       Query result
-     * @param int|float   $time         Time to execute query
+     * @param string                $query        Query text
+     * @param string|null           $errorMessage Error message from getError()
+     * @param ResultInterface|false $result       Query result
+     * @param int|float             $time         Time to execute query
      */
     public static function debugLogQueryIntoSession(string $query, ?string $errorMessage, $result, $time): void
     {

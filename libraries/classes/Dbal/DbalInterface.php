@@ -246,9 +246,9 @@ interface DbalInterface
      * @param string $var  mysql server variable name
      * @param int    $type DatabaseInterface::GETVAR_SESSION |
      *                     DatabaseInterface::GETVAR_GLOBAL
-     * @param mixed  $link mysql link resource|object
+     * @param int    $link mysql link resource|object
      *
-     * @return mixed   value for mysql server variable
+     * @return false|string|null value for mysql server variable
      */
     public function getVariable(
         string $var,
@@ -261,7 +261,7 @@ interface DbalInterface
      *
      * @param string $var   variable name
      * @param string $value value to set
-     * @param mixed  $link  mysql link resource|object
+     * @param int    $link  mysql link resource|object
      */
     public function setVariable(string $var, string $value, $link = DatabaseInterface::CONNECT_USER): bool;
 
