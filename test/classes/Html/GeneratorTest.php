@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function call_user_func_array;
 use function htmlspecialchars;
@@ -283,6 +284,42 @@ class GeneratorTest extends AbstractTestCase
                 ],
                 1000,
                 '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    ['some' => 'parameter'],
+                    'text',
+                ],
+                20,
+                '<a href="index.php" data-post="route=/server/databases&some=parameter&lang=en">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    null,
+                    'text',
+                ],
+                20,
+                '<a href="index.php" data-post="route=/server/databases">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    ['some' => 'parameter'],
+                    'text',
+                ],
+                100,
+                '<a href="index.php?route=/server/databases&some=parameter&lang=en" >text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    null,
+                    'text',
+                ],
+                100,
+                '<a href="index.php?route=/server/databases" >text</a>',
             ],
         ];
     }

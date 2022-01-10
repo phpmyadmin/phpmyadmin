@@ -1113,7 +1113,7 @@ class Generator
     ): string {
         $url = $urlPath;
         if (is_array($urlParams)) {
-            $url = $urlPath . Url::getCommon($urlParams, '?', false);
+            $url = $urlPath . Url::getCommon($urlParams, strpos($urlPath, '?') !== false ? '&' : '?', false);
         }
 
         $url_length = strlen($url);
@@ -1180,7 +1180,7 @@ class Generator
         } else {
             $url = $urlPath;
             if (is_array($urlParams)) {
-                $url = $urlPath . Url::getCommon($urlParams);
+                $url = $urlPath . Url::getCommon($urlParams, strpos($urlPath, '?') !== false ? '&' : '?');
             }
         }
 
