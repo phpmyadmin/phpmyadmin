@@ -1739,12 +1739,12 @@ Generic settings
 .. config:option:: $cfg['URLQueryEncryption']
 
     :type: boolean
-    :default: true
+    :default: false
 
     .. versionadded:: 4.9.8
 
     Define whether phpMyAdmin will encrypt sensitive data (like database name
-    and table name) from the URL query string. Default is to encrypt the URL
+    and table name) from the URL query string. Default is to not encrypt the URL
     query string.
 
 .. config:option:: $cfg['URLQueryEncryptionSecretKey']

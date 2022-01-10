@@ -822,7 +822,7 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
  *
  * @global bool $cfg['URLQueryEncryption']
  */
-$cfg['URLQueryEncryption'] = true;
+$cfg['URLQueryEncryption'] = false;
 
 /**
  * A secret key used to encrypt/decrypt the URL query string. Should be 32 bytes long.
