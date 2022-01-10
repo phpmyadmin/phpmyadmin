@@ -604,6 +604,13 @@ $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
 $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
 
 /**
+ * Whether to show or hide detailed MySQL/MariaDB connection errors on the login page.
+ *
+ * @global bool $cfg['Servers'][$i]['hide_connection_errors']
+ */
+$cfg['Servers'][$i]['hide_connection_errors'] = false;
+
+/**
  * Default server (0 = no default server)
  *
  * If you have more than one server configured, you can set $cfg['ServerDefault']
