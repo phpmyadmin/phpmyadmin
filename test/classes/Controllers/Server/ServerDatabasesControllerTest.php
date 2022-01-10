@@ -34,6 +34,7 @@ class ServerDatabasesControllerTest extends PmaTestCase
 
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['db'] = 'db';

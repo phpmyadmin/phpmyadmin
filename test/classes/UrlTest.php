@@ -27,6 +27,7 @@ class UrlTest extends TestCase
     public function setUp()
     {
         unset($_COOKIE['pma_lang']);
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
     }
 
     /**
@@ -104,5 +105,62 @@ class UrlTest extends TestCase
         $separator = Url::getArgSeparator();
         $expected = '?server=x' . htmlentities($separator) . 'lang=en' ;
         $this->assertEquals($expected, Url::getCommon());
+    }
+
+    /**
+     * @return void
+     */
+    public function testBuildHttpQueryWithUrlQueryEncryptionDisabled()
+    {
+        global $PMA_Config;
+
+        $PMA_Config->set('URLQueryEncryption', false);
+        $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
+        $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
+    }
+
+    /**
+     * @return void
+     */
+    public function testBuildHttpQueryWithUrlQueryEncryptionEnabled()
+    {
+        global $PMA_Config;
+
+        $_SESSION = [];
+        $PMA_Config->set('URLQueryEncryption', true);
+        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
+        $query = Url::buildHttpQuery($params);
+        $this->assertStringStartsWith('pos=0&eq=', $query);
+        parse_str($query, $queryParams);
+        $this->assertCount(2, $queryParams);
+        $this->assertSame('0', $queryParams['pos']);
+        $this->assertTrue(is_string($queryParams['eq']));
+        $this->assertNotSame('', $queryParams['eq']);
+        $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
+        $decrypted = Url::decryptQuery($queryParams['eq']);
+        $this->assertJson($decrypted);
+        $this->assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
+    }
+
+    /**
+     * @return void
+     */
+    public function testQueryEncryption()
+    {
+        global $PMA_Config;
+
+        $_SESSION = [];
+        $PMA_Config->set('URLQueryEncryption', true);
+        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $query = '{"db":"test_db","table":"test_table"}';
+        $encrypted = Url::encryptQuery($query);
+        $this->assertNotSame($query, $encrypted);
+        $this->assertNotSame('', $encrypted);
+        $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $encrypted);
+        $decrypted = Url::decryptQuery($encrypted);
+        $this->assertSame($query, $decrypted);
     }
 }

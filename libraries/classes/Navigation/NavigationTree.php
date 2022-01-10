@@ -102,13 +102,13 @@ class NavigationTree
             $this->_pos = $this->_getNavigationDbPos();
         }
         // Get the active node
-        if (isset($_REQUEST['aPath'])) {
-            $this->_aPath[0] = $this->_parsePath($_REQUEST['aPath']);
-            $this->_pos2_name[0] = $_REQUEST['pos2_name'];
-            $this->_pos2_value[0] = $_REQUEST['pos2_value'];
-            if (isset($_REQUEST['pos3_name'])) {
-                $this->_pos3_name[0] = $_REQUEST['pos3_name'];
-                $this->_pos3_value[0] = $_REQUEST['pos3_value'];
+        if (isset($_POST['aPath'])) {
+            $this->_aPath[0] = $this->_parsePath($_POST['aPath']);
+            $this->_pos2_name[0] = $_POST['pos2_name'];
+            $this->_pos2_value[0] = $_POST['pos2_value'];
+            if (isset($_POST['pos3_name'])) {
+                $this->_pos3_name[0] = $_POST['pos3_name'];
+                $this->_pos3_value[0] = $_POST['pos3_value'];
             }
         } else {
             if (isset($_POST['n0_aPath'])) {
@@ -129,8 +129,8 @@ class NavigationTree
                 }
             }
         }
-        if (isset($_REQUEST['vPath'])) {
-            $this->_vPath[0] = $this->_parsePath($_REQUEST['vPath']);
+        if (isset($_POST['vPath'])) {
+            $this->_vPath[0] = $this->_parsePath($_POST['vPath']);
         } else {
             if (isset($_POST['n0_vPath'])) {
                 $count = 0;
@@ -142,11 +142,11 @@ class NavigationTree
                 }
             }
         }
-        if (isset($_REQUEST['searchClause'])) {
-            $this->_searchClause = $_REQUEST['searchClause'];
+        if (isset($_POST['searchClause'])) {
+            $this->_searchClause = $_POST['searchClause'];
         }
-        if (isset($_REQUEST['searchClause2'])) {
-            $this->_searchClause2 = $_REQUEST['searchClause2'];
+        if (isset($_POST['searchClause2'])) {
+            $this->_searchClause2 = $_POST['searchClause2'];
         }
         // Initialise the tree by creating a root node
         $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
@@ -1156,7 +1156,7 @@ class NavigationTree
                 }
 
                 foreach ($icons as $key => $icon) {
-                    $link = vsprintf($iconLinks[$key], $args);
+                    $link = $this->encryptQueryParams(vsprintf($iconLinks[$key], $args));
                     if ($linkClass != '') {
                         $retval .= "<a class='$linkClass' href='$link'>";
                         $retval .= "{$icon}</a>";
@@ -1174,7 +1174,7 @@ class NavigationTree
                 foreach ($node->parents(true) as $parent) {;
                     $args[] = urlencode($parent->real_name);
                 }
-                $link = vsprintf($node->links['text'], $args);
+                $link = $this->encryptQueryParams(vsprintf($node->links['text'], $args));
                 $title = isset($node->links['title']) ? $node->links['title'] : '';
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
@@ -1556,5 +1556,24 @@ class NavigationTree
         $retval .= '</div>';
 
         return $retval;
+    }
+
+    /**
+     * @param string $link
+     *
+     * @return string
+     */
+    private function encryptQueryParams($link)
+    {
+        global $PMA_Config;
+
+        if (! $PMA_Config->get('URLQueryEncryption')) {
+            return $link;
+        }
+
+        $url = parse_url($link);
+        parse_str(htmlspecialchars_decode($url['query']), $query);
+
+        return $url['path'] . '?' . htmlspecialchars(Url::buildHttpQuery($query));
     }
 }

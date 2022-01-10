@@ -65,7 +65,7 @@
         "samyoul/u2f-php-server": "<1.1"
     },
     "suggest": {
-        "ext-openssl": "Cookie encryption",
+        "ext-openssl": "For encryption performance",
         "ext-curl": "Updates checking",
         "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",
@@ -76,7 +76,8 @@
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa": "For 2FA authentication",
         "bacon/bacon-qr-code": "For 2FA authentication",
-        "samyoul/u2f-php-server": "For FIDO U2F authentication"
+        "samyoul/u2f-php-server": "For FIDO U2F authentication",
+        "paragonie/sodium_compat": "For modern encryption support"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8.36 || ^5.7",
@@ -87,7 +88,9 @@
         "pragmarx/google2fa": "^3.0",
         "bacon/bacon-qr-code": "^1.0",
         "samyoul/u2f-php-server": "^1.1",
-        "phpmyadmin/coding-standard": "^0.3"
+        "phpmyadmin/coding-standard": "^0.3",
+        "paragonie/random_compat": ">=2",
+        "paragonie/sodium_compat": "^1.17"
     },
     "extra": {
         "branch-alias": {

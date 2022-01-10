@@ -1241,13 +1241,6 @@ class TableStructureController extends TableController
             'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
         );
 
-        $edit_view_url = '';
-        if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
-            $edit_view_url = Url::getCommon(
-                array('db' => $this->db, 'table' => $this->table)
-            );
-        }
-
         /**
          * Displays Space usage and row statistics
          */
@@ -1275,11 +1268,11 @@ class TableStructureController extends TableController
                 'tbl_is_view' => $this->_tbl_is_view,
                 'mime_map' => $mime_map,
                 'url_query' => $this->_url_query,
+                'url_params' => $url_params,
                 'titles' => $titles,
                 'tbl_storage_engine' => $this->_tbl_storage_engine,
                 'primary' => $primary_index,
                 'columns_with_unique_index' => $columns_with_unique_index,
-                'edit_view_url' => $edit_view_url,
                 'columns_list' => $columns_list,
                 'table_stats' => isset($tablestats) ? $tablestats : null,
                 'fields' => $fields,

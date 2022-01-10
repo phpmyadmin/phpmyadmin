@@ -280,12 +280,12 @@ class InsertEdit
 
         if (! $is_show) {
             return ' : <a href="tbl_change.php" data-post="'
-                . Url::getCommon($this_url_params, '') . '">'
+                . Url::getCommon($this_url_params, '', false) . '">'
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
         return '<th><a href="tbl_change.php" data-post="'
-            . Url::getCommon($this_url_params, '')
+            . Url::getCommon($this_url_params, '', false)
             . '" title="' . __('Hide') . '">'
             . $this->showTypeOrFunctionLabel($which)
             . '</a></th>';
@@ -857,7 +857,7 @@ class InsertEdit
                     'rownumber' => $rownumber,
                     'data'      => $data
                 ),
-                ''
+                '', false
             ) . '">'
             . str_replace("'", "\'", $titles['Browse']) . '</a>';
         return $html_output;
@@ -1704,6 +1704,7 @@ class InsertEdit
         return '<span class="open_gis_editor">'
             . Util::linkOrButton(
                 '#',
+                null,
                 $edit_str,
                 array(),
                 '_blank'

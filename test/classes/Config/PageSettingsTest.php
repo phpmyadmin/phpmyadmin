@@ -26,6 +26,7 @@ class PageSettingsTest extends PmaTestCase
     public function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';

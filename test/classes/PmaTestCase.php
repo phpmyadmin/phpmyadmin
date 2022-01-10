@@ -28,6 +28,7 @@ class PmaTestCase extends TestCase
     {
         require 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
     }
 
     /**

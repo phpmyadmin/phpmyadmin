@@ -196,7 +196,7 @@ class ProcessesTest extends TestCase
 
         //validate 1: $kill_process
         $kill_process = 'href="server_status_processes.php" data-post="'
-            . Url::getCommon(['kill' => $process['id']], '') . '"';
+            . Url::getCommon(['kill' => $process['id']], '', false) . '"';
         $this->assertContains(
             $kill_process,
             $html

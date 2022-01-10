@@ -191,7 +191,7 @@ class RteList
      */
     public static function getRoutineRow(array $routine, $rowclass = '')
     {
-        global $url_query, $db, $titles;
+        global $url_query, $url_params, $db, $titles;
 
         $sql_drop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -316,7 +316,11 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= Util::linkOrButton(
-            'sql.php' . $url_query . '&amp;sql_query=' . urlencode($sql_drop) . '&amp;goto=db_routines.php' . urlencode("?db={$db}"),
+            'sql.php',
+            array_merge(
+                $url_params,
+                ['sql_query' => $sql_drop, 'goto' => 'db_routines.php' . Url::getCommon(['db' => $db])]
+            ),
             $titles['Drop'],
             ['class' => 'ajax drop_anchor']
         );
@@ -343,7 +347,7 @@ class RteList
      */
     public static function getTriggerRow(array $trigger, $rowclass = '')
     {
-        global $url_query, $db, $table, $titles;
+        global $url_query, $url_params, $db, $table, $titles;
 
         $retval  = "        <tr class='$rowclass'>\n";
         $retval .= "            <td>\n";
@@ -360,8 +364,8 @@ class RteList
         $retval .= "            </td>\n";
         if (empty($table)) {
             $retval .= "            <td>\n";
-            $retval .= "<a href='db_triggers.php{$url_query}"
-                . "&amp;table=" . urlencode($trigger['table']) . "'>"
+            $retval .= "<a href='db_triggers.php"
+                . Url::getCommon(array_merge($url_params, ['table' => $trigger['table']])) . "'>"
                 . htmlspecialchars($trigger['table']) . "</a>";
             $retval .= "            </td>\n";
         }
@@ -390,7 +394,11 @@ class RteList
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db)) {
             $retval .= Util::linkOrButton(
-                'sql.php' . $url_query . '&amp;sql_query=' . urlencode($trigger['drop']) . '&amp;goto=db_triggers.php' . urlencode("?db={$db}"),
+                'sql.php',
+                array_merge(
+                    $url_params,
+                    ['sql_query' => $trigger['drop'], 'goto' => 'db_triggers.php' . Url::getCommon(['db' => $db])]
+                ),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']
             );
@@ -419,7 +427,7 @@ class RteList
      */
     public static function getEventRow(array $event, $rowclass = '')
     {
-        global $url_query, $db, $titles;
+        global $url_query, $url_params, $db, $titles;
 
         $sql_drop = sprintf(
             'DROP EVENT IF EXISTS %s',
@@ -468,7 +476,11 @@ class RteList
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
             $retval .= Util::linkOrButton(
-                'sql.php' . $url_query . '&amp;sql_query=' . urlencode($sql_drop) . '&amp;goto=db_events.php' . urlencode("?db={$db}"),
+                'sql.php',
+                array_merge(
+                    $url_params,
+                    ['sql_query' => $sql_drop, 'goto' => 'db_events.php' . Url::getCommon(['db' => $db])]
+                ),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']
             );

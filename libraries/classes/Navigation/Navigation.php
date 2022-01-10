@@ -231,7 +231,7 @@ class Navigation
                         $html .= '<tr>';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php" data-post="'
-                            . Url::getCommon($params, '') . '"'
+                            . Url::getCommon($params, '', false) . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show', __('Show'))
                             . '</a></td>';
