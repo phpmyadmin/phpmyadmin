@@ -1559,9 +1559,8 @@ class Results
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
                      . $tmp_txt . '" title="' . $tmp_txt . '">';
-        $tmp_url = Url::getFromRoute('/sql', $url_params_full_text);
 
-        return Generator::linkOrButton($tmp_url, $tmp_image);
+        return Generator::linkOrButton(Url::getFromRoute('/sql'), $url_params_full_text, $tmp_image);
     }
 
     /**
@@ -1677,16 +1676,14 @@ class Results
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->properties['is_browse_distinct'],
         ];
-        $single_order_url = Url::getFromRoute('/sql', $_single_url_params);
-        $multi_order_url = Url::getFromRoute('/sql', $_multi_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
         $order_link = $this->getSortOrderLink(
             $order_img,
             $fields_meta,
-            $single_order_url,
-            $multi_order_url
+            $_single_url_params,
+            $_multi_url_params
         );
 
         $order_link .= $this->getSortOrderHiddenInputs(
@@ -1996,10 +1993,10 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param string   $order_img       the sort order image
-     * @param stdClass $fields_meta     set of field properties
-     * @param string   $order_url       the url for sort
-     * @param string   $multi_order_url the url for sort
+     * @param string   $order_img              the sort order image
+     * @param stdClass $fields_meta            set of field properties
+     * @param array    $order_url_params       the url params for sort
+     * @param array    $multi_order_url_params the url params for sort
      *
      * @return string the sort order link
      *
@@ -2008,17 +2005,21 @@ class Results
     private function getSortOrderLink(
         $order_img,
         $fields_meta,
-        $order_url,
-        $multi_order_url
+        $order_url_params,
+        $multi_order_url_params
     ) {
         $order_link_params = ['class' => 'sortlink'];
 
         $order_link_content = htmlspecialchars($fields_meta->name ?? '');
         $inner_link_content = $order_link_content . $order_img
-            . '<input type="hidden" value="' . $multi_order_url . '">';
+            . '<input type="hidden" value="'
+            . Url::getFromRoute('/sql')
+            . Url::getCommon($multi_order_url_params, '?', false)
+            . '">';
 
         return Generator::linkOrButton(
-            $order_url,
+            Url::getFromRoute('/sql'),
+            $order_url_params,
             $inner_link_content,
             $order_link_params
         );
@@ -2519,6 +2520,8 @@ class Results
             $copy_url = null;
             $copy_str = null;
             $edit_url = null;
+            $editCopyUrlParams = null;
+            $delUrlParams = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
 
@@ -2559,6 +2562,7 @@ class Results
                         $copy_url,
                         $edit_str,
                         $copy_str,
+                        $editCopyUrlParams,
                     ]
                             = $this->getModifiedLinks(
                                 $where_clause,
@@ -2568,7 +2572,7 @@ class Results
                 }
 
                 // 1.2.2 Delete/Kill link(s)
-                [$del_url, $del_str, $js_conf]
+                [$del_url, $del_str, $js_conf, $delUrlParams]
                     = $this->getDeleteAndKillLinks(
                         $where_clause,
                         $clause_is_unique,
@@ -2584,9 +2588,18 @@ class Results
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_LEFT,
                         'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
-                        'edit' => ['url' => $edit_url, 'string' => $edit_str, 'clause_is_unique' => $clause_is_unique],
-                        'copy' => ['url' => $copy_url, 'string' => $copy_str],
-                        'delete' => ['url' => $del_url, 'string' => $del_str],
+                        'edit' => [
+                            'url' => $edit_url,
+                            'params' => $editCopyUrlParams + ['default_action' => 'update'],
+                            'string' => $edit_str,
+                            'clause_is_unique' => $clause_is_unique,
+                        ],
+                        'copy' => [
+                            'url' => $copy_url,
+                            'params' => $editCopyUrlParams + ['default_action' => 'insert'],
+                            'string' => $copy_str,
+                        ],
+                        'delete' => ['url' => $del_url, 'params' => $delUrlParams, 'string' => $del_str],
                         'row_number' => $row_no,
                         'where_clause' => $where_clause,
                         'condition' => json_encode($condition_array),
@@ -2597,9 +2610,18 @@ class Results
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_NONE,
                         'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
-                        'edit' => ['url' => $edit_url, 'string' => $edit_str, 'clause_is_unique' => $clause_is_unique],
-                        'copy' => ['url' => $copy_url, 'string' => $copy_str],
-                        'delete' => ['url' => $del_url, 'string' => $del_str],
+                        'edit' => [
+                            'url' => $edit_url,
+                            'params' => $editCopyUrlParams + ['default_action' => 'update'],
+                            'string' => $edit_str,
+                            'clause_is_unique' => $clause_is_unique,
+                        ],
+                        'copy' => [
+                            'url' => $copy_url,
+                            'params' => $editCopyUrlParams + ['default_action' => 'insert'],
+                            'string' => $copy_str,
+                        ],
+                        'delete' => ['url' => $del_url, 'params' => $delUrlParams, 'string' => $del_str],
                         'row_number' => $row_no,
                         'where_clause' => $where_clause,
                         'condition' => json_encode($condition_array),
@@ -2637,11 +2659,16 @@ class Results
                         'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
                         'edit' => [
                             'url' => $edit_url,
+                            'params' => $editCopyUrlParams + ['default_action' => 'update'],
                             'string' => $edit_str,
                             'clause_is_unique' => $clause_is_unique ?? true,
                         ],
-                        'copy' => ['url' => $copy_url, 'string' => $copy_str],
-                        'delete' => ['url' => $del_url, 'string' => $del_str],
+                        'copy' => [
+                            'url' => $copy_url,
+                            'params' => $editCopyUrlParams + ['default_action' => 'insert'],
+                            'string' => $copy_str,
+                        ],
+                        'delete' => ['url' => $del_url, 'params' => $delUrlParams, 'string' => $del_str],
                         'row_number' => $row_no,
                         'where_clause' => $where_clause ?? '',
                         'condition' => json_encode($condition_array ?? []),
@@ -3231,7 +3258,7 @@ class Results
      * @param bool   $clause_is_unique the unique condition of clause
      * @param string $url_sql_query    the analyzed sql query
      *
-     * @return array<int,string>       5 element array - $edit_url, $copy_url,
+     * @return array<int,string|array>       5 element array - $edit_url, $copy_url,
      *                                                   $edit_str, $copy_str
      *
      * @access private
@@ -3250,15 +3277,9 @@ class Results
             'goto'             => Url::getFromRoute('/sql'),
         ];
 
-        $edit_url = Url::getFromRoute(
-            '/table/change',
-            $_url_params + ['default_action' => 'update']
-        );
+        $edit_url = Url::getFromRoute('/table/change');
 
-        $copy_url = Url::getFromRoute(
-            '/table/change',
-            $_url_params + ['default_action' => 'insert']
-        );
+        $copy_url = Url::getFromRoute('/table/change');
 
         $edit_str = $this->getActionLinkContent(
             'b_edit',
@@ -3274,6 +3295,7 @@ class Results
             $copy_url,
             $edit_str,
             $copy_str,
+            $_url_params,
         ];
     }
 
@@ -3327,7 +3349,7 @@ class Results
                 'message_to_show' => __('The row has been deleted.'),
                 'goto'      => $lnk_goto,
             ];
-            $del_url  = Url::getFromRoute('/sql', $_url_params);
+            $del_url  = Url::getFromRoute('/sql');
 
             $js_conf  = 'DELETE FROM ' . $this->properties['table']
                 . ' WHERE ' . $where_clause
@@ -3352,20 +3374,21 @@ class Results
                 'goto'      => $lnk_goto,
             ];
 
-            $del_url = Url::getFromRoute('/sql', $_url_params);
+            $del_url = Url::getFromRoute('/sql');
             $js_conf = $kill;
             $del_str = Generator::getIcon(
                 'b_drop',
                 __('Kill')
             );
         } else {
-            $del_url = $del_str = $js_conf = null;
+            $del_url = $del_str = $js_conf = $_url_params = null;
         }
 
         return [
             $del_url,
             $del_str,
             $js_conf,
+            $_url_params,
         ];
     }
 
@@ -5067,7 +5090,8 @@ class Results
                     $tag_params['class'] = 'ajax';
                 }
                 $result .= Generator::linkOrButton(
-                    Url::getFromRoute('/sql', $_url_params),
+                    Url::getFromRoute('/sql'),
+                    $_url_params,
                     $displayedData,
                     $tag_params
                 );

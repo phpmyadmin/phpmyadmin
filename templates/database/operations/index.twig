@@ -90,7 +90,8 @@
       <div class="card-body">
         <div class="card-text">
           {{ link_or_button(
-            url('/sql', {
+            url('/sql'),
+            {
               'sql_query': 'DROP DATABASE ' ~ backquote(db),
               'back': url('/database/operations'),
               'goto': url('/'),
@@ -98,7 +99,7 @@
               'purge': true,
               'message_to_show': 'Database %s has been dropped.'|trans|format(backquote(db))|e,
               'db': null
-            }),
+            },
             'Drop the database (DROP)'|trans,
             {
               'id': 'drop_db_anchor',

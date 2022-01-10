@@ -89,7 +89,7 @@
                                         'back': url('/database/tracking'),
                                         'table': version.table_name,
                                         'delete_tracking': true
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_drop', 'Delete tracking'|trans) }}
                                 </a>
                             </td>
@@ -100,7 +100,7 @@
                                         'goto': url('/table/tracking'),
                                         'back': url('/database/tracking'),
                                         'table': version.table_name
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_versions', 'Versions'|trans) }}
                                 </a>
                                 <a href="{{ url('/table/tracking') }}" data-post="
@@ -111,7 +111,7 @@
                                         'table': version.table_name,
                                         'report': true,
                                         'version': version.version
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_report', 'Tracking report'|trans) }}
                                 </a>
                                 <a href="{{ url('/table/tracking') }}" data-post="
@@ -122,7 +122,7 @@
                                         'table': version.table_name,
                                         'snapshot': true,
                                         'version': version.version
-                                    }, '') }}">
+                                    }, '', false) }}">
                                     {{ get_icon('b_props', 'Structure snapshot'|trans) }}
                                 </a>
                             </td>

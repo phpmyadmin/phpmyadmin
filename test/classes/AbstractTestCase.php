@@ -200,6 +200,7 @@ abstract class AbstractTestCase extends TestCase
         global $PMA_Config;
         $PMA_Config = new Config();
         $PMA_Config->set('environment', 'development');
+        $PMA_Config->set('URLQueryEncryption', false);
     }
 
     protected function setTheme(): void

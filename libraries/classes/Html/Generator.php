@@ -653,7 +653,8 @@ class Generator
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $explain_params),
+                            Url::getFromRoute('/import'),
+                            $explain_params,
                             __('Explain SQL')
                         ) . '&nbsp;]';
                 } elseif (preg_match(
@@ -664,7 +665,8 @@ class Generator
                         = mb_substr($sql_query, 8);
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $explain_params),
+                            Url::getFromRoute('/import'),
+                            $explain_params,
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -673,6 +675,7 @@ class Generator
                     $explain_link .= ' ['
                         . self::linkOrButton(
                             htmlspecialchars('url.php?url=' . urlencode($url)),
+                            null,
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             [],
                             '_blank',
@@ -689,9 +692,8 @@ class Generator
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= Url::getCommon($url_params, '&');
                 $edit_link = ' [&nbsp;'
-                    . self::linkOrButton($edit_link, __('Edit'))
+                    . self::linkOrButton($edit_link, $url_params, __('Edit'))
                     . '&nbsp;]';
             } else {
                 $edit_link = '';
@@ -703,14 +705,16 @@ class Generator
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $url_params),
+                            Url::getFromRoute('/import'),
+                            $url_params,
                             __('Without PHP code')
                         )
                         . '&nbsp;]';
 
                     $php_link .= ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $url_params),
+                            Url::getFromRoute('/import'),
+                            $url_params,
                             __('Submit query')
                         )
                         . '&nbsp;]';
@@ -719,7 +723,8 @@ class Generator
                     $php_params['show_as_php'] = 1;
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $php_params),
+                            Url::getFromRoute('/import'),
+                            $php_params,
                             __('Create PHP code')
                         )
                         . '&nbsp;]';
@@ -733,9 +738,9 @@ class Generator
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = Url::getFromRoute('/sql', $url_params);
+                $refresh_link = Url::getFromRoute('/sql');
                 $refresh_link = ' [&nbsp;'
-                    . self::linkOrButton($refresh_link, __('Refresh')) . '&nbsp;]';
+                    . self::linkOrButton($refresh_link, $url_params, __('Refresh')) . '&nbsp;]';
             } else {
                 $refresh_link = '';
             }
@@ -770,6 +775,7 @@ class Generator
                 $inline_edit_link = ' [&nbsp;'
                     . self::linkOrButton(
                         '#',
+                        null,
                         _pgettext('Inline edit query', 'Edit inline'),
                         ['class' => 'inline_edit_sql']
                     )
@@ -1089,21 +1095,27 @@ class Generator
      * - URL components are over Suhosin limits
      * - There is SQL query in the parameters
      *
-     * @param string $url        the URL
-     * @param string $message    the link message
-     * @param mixed  $tag_params string: js confirmation; array: additional tag
-     *                           params (f.e. style="")
-     * @param string $target     target
+     * @param string     $urlPath    the URL
+     * @param array|null $urlParams  URL parameters
+     * @param string     $message    the link message
+     * @param mixed      $tag_params string: js confirmation; array: additional tag params (f.e. style="")
+     * @param string     $target     target
      *
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
-        $url,
+        $urlPath,
+        $urlParams,
         $message,
         $tag_params = [],
         $target = '',
         bool $respectUrlLengthLimit = true
     ): string {
+        $url = $urlPath;
+        if (is_array($urlParams)) {
+            $url = $urlPath . Url::getCommon($urlParams, '?', false);
+        }
+
         $url_length = strlen($url);
 
         if (! is_array($tag_params)) {
@@ -1164,6 +1176,11 @@ class Generator
                 && strpos($tag_params['class'], 'create_view') !== false
             ) {
                 $url .= '?' . explode('&', $parts[1], 2)[0];
+            }
+        } else {
+            $url = $urlPath;
+            if (is_array($urlParams)) {
+                $url = $urlPath . Url::getCommon($urlParams);
             }
         }
 

@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Crypto\Crypto;
+
 use function htmlentities;
 use function htmlspecialchars;
 use function http_build_query;
@@ -14,6 +16,11 @@ use function ini_get;
 use function is_array;
 use function mb_strpos;
 use function strlen;
+use function in_array;
+use function json_encode;
+use function strtr;
+use function base64_encode;
+use function base64_decode;
 
 /**
  * Static methods for URL/hidden inputs generating
@@ -166,14 +173,15 @@ class Url
      *
      * @param array<string,int|string|bool> $params  optional, Contains an associative array with url params
      * @param string                        $divider optional character to use instead of '?'
+     * @param bool                          $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
      *
      * @access public
      */
-    public static function getCommon(array $params = [], $divider = '?')
+    public static function getCommon(array $params = [], $divider = '?', $encrypt = true)
     {
-        return self::getCommonRaw($params, $divider);
+        return self::getCommonRaw($params, $divider, $encrypt);
     }
 
     /**
@@ -201,16 +209,15 @@ class Url
      *
      * @param array<string|int,int|string|bool> $params  optional, Contains an associative array with url params
      * @param string                            $divider optional character to use instead of '?'
+     * @param bool                              $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
      *
      * @access public
      */
-    public static function getCommonRaw(array $params = [], $divider = '?')
+    public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true)
     {
         global $PMA_Config;
-
-        $separator = self::getArgSeparator();
 
         // avoid overwriting when creating navigation panel links to servers
         if (isset($GLOBALS['server'])
@@ -227,13 +234,88 @@ class Url
             $params['lang'] = $GLOBALS['lang'];
         }
 
-        $query = http_build_query($params, '', $separator);
+        $query = self::buildHttpQuery($params, $encrypt);
 
         if (($divider !== '?' && $divider !== '&') || strlen($query) > 0) {
             return $divider . $query;
         }
 
         return '';
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     * @param bool                 $encrypt whether to encrypt URL params
+     *
+     * @return string
+     */
+    public static function buildHttpQuery($params, $encrypt = true)
+    {
+        global $PMA_Config;
+
+        $separator = self::getArgSeparator();
+
+        if (! $encrypt || ! $PMA_Config->get('URLQueryEncryption')) {
+            return http_build_query($params, '', $separator);
+        }
+
+        $data = $params;
+        $keys = [
+            'db',
+            'table',
+            'field',
+            'sql_query',
+            'sql_signature',
+            'where_clause',
+            'goto',
+            'back',
+            'message_to_show',
+            'username',
+            'hostname',
+            'dbname',
+            'tablename',
+            'checkprivsdb',
+            'checkprivstable',
+        ];
+        $paramsToEncrypt = [];
+        foreach ($params as $paramKey => $paramValue) {
+            if (! in_array($paramKey, $keys)) {
+                continue;
+            }
+
+            $paramsToEncrypt[$paramKey] = $paramValue;
+            unset($data[$paramKey]);
+        }
+
+        if ($paramsToEncrypt !== []) {
+            $data['eq'] = self::encryptQuery(json_encode($paramsToEncrypt));
+        }
+
+        return http_build_query($data, '', $separator);
+    }
+
+    /**
+     * @param string $query
+     *
+     * @return string
+     */
+    public static function encryptQuery($query)
+    {
+        $crypto = new Crypto();
+
+        return strtr(base64_encode($crypto->encrypt($query)), '+/', '-_');
+    }
+
+    /**
+     * @param string $query
+     *
+     * @return string|null
+     */
+    public static function decryptQuery($query)
+    {
+        $crypto = new Crypto();
+
+        return $crypto->decrypt(base64_decode(strtr($query, '-_', '+/')));
     }
 
     /**

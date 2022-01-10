@@ -71,6 +71,7 @@ use function trigger_error;
 use function unserialize;
 use function urldecode;
 use function vsprintf;
+use function json_decode;
 
 /**
  * Core class
@@ -1425,5 +1426,38 @@ class Core
         $loader->load('services_loader.php');
 
         return $containerBuilder;
+    }
+
+    /**
+     * @return void
+     */
+    public static function populateRequestWithEncryptedQueryParams()
+    {
+        if (
+            (! isset($_GET['eq']) || ! is_string($_GET['eq']))
+            && (! isset($_POST['eq']) || ! is_string($_POST['eq']))
+        ) {
+            unset($_GET['eq'], $_POST['eq'], $_REQUEST['eq']);
+
+            return;
+        }
+
+        $isFromPost = isset($_POST['eq']);
+        $decryptedQuery = Url::decryptQuery($isFromPost ? $_POST['eq'] : $_GET['eq']);
+        unset($_GET['eq'], $_POST['eq'], $_REQUEST['eq']);
+        if ($decryptedQuery === null) {
+            return;
+        }
+
+        $urlQueryParams = (array) json_decode($decryptedQuery);
+        foreach ($urlQueryParams as $urlQueryParamKey => $urlQueryParamValue) {
+            if ($isFromPost) {
+                $_POST[$urlQueryParamKey] = $urlQueryParamValue;
+            } else {
+                $_GET[$urlQueryParamKey] = $urlQueryParamValue;
+            }
+
+            $_REQUEST[$urlQueryParamKey] = $urlQueryParamValue;
+        }
     }
 }

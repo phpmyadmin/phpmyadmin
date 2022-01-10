@@ -118,7 +118,8 @@ class UserGroupsTest extends AbstractTestCase
                     'viewUsers' => 1,
                     'userGroup' => htmlspecialchars('usergroup'),
                 ],
-                ''
+                '',
+                false
             );
         $this->assertStringContainsString(
             $url_tag,
@@ -130,7 +131,8 @@ class UserGroupsTest extends AbstractTestCase
                     'editUserGroup' => 1,
                     'userGroup' => htmlspecialchars('usergroup'),
                 ],
-                ''
+                '',
+                false
             );
         $this->assertStringContainsString(
             $url_tag,
@@ -142,7 +144,8 @@ class UserGroupsTest extends AbstractTestCase
                     'deleteUserGroup' => 1,
                     'userGroup' => htmlspecialchars('usergroup'),
                 ],
-                ''
+                '',
+                false
             );
         $this->assertStringContainsString(
             $url_tag,

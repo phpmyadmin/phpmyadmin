@@ -60,7 +60,7 @@
                                 {{- get_common(url_params|merge({
                                     'version': version['version'],
                                     'submit_delete_version': true
-                                }), '') }}">
+                                }), '', false) }}">
                                 {{ get_icon('b_drop', 'Delete version'|trans) }}
                             </a>
                         </td>
@@ -69,14 +69,14 @@
                                 {{- get_common(url_params|merge({
                                     'version': version['version'],
                                     'report': 'true'
-                                }), '') }}">
+                                }), '', false) }}">
                                 {{ get_icon('b_report', 'Tracking report'|trans) }}
                             </a>
                             <a href="{{ url('/table/tracking') }}" data-post="
                                 {{- get_common(url_params|merge({
                                     'version': version['version'],
                                     'snapshot': 'true'
-                                }), '') }}">
+                                }), '', false) }}">
                                 {{ get_icon('b_props', 'Structure snapshot'|trans) }}
                             </a>
                         </td>

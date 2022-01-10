@@ -80,7 +80,7 @@
                             'db': db,
                             'table': table,
                             'partition_name': partition.getName(),
-                          }) }}">
+                          }, '', false) }}">
                             {{ get_icon('b_search', 'Analyze'|trans) }}
                           </a>
                         </td>
@@ -90,7 +90,7 @@
                             'db': db,
                             'table': table,
                             'partition_name': partition.getName(),
-                          }) }}">
+                          }, '', false) }}">
                             {{ get_icon('eye', 'Check'|trans) }}
                           </a>
                         </td>
@@ -100,7 +100,7 @@
                             'db': db,
                             'table': table,
                             'partition_name': partition.getName(),
-                          }) }}">
+                          }, '', false) }}">
                             {{ get_icon('normalize', 'Optimize'|trans) }}
                           </a>
                         </td>
@@ -110,7 +110,7 @@
                             'db': db,
                             'table': table,
                             'partition_name': partition.getName(),
-                          }) }}">
+                          }, '', false) }}">
                             {{ get_icon('s_tbl', 'Rebuild'|trans) }}
                           </a>
                         </td>
@@ -120,7 +120,7 @@
                             'db': db,
                             'table': table,
                             'partition_name': partition.getName(),
-                          }) }}">
+                          }, '', false) }}">
                             {{ get_icon('b_tblops', 'Repair'|trans) }}
                           </a>
                         </td>
@@ -130,7 +130,7 @@
                             'db': db,
                             'table': table,
                             'partition_name': partition.getName(),
-                          }) }}">
+                          }, '', false) }}">
                             {{ get_icon('b_empty', 'Truncate'|trans) }}
                           </a>
                         </td>
@@ -141,7 +141,7 @@
                               'db': db,
                               'table': table,
                               'partition_name': partition.getName(),
-                            }) }}">
+                            }, '', false) }}">
                               {{ get_icon('b_drop', 'Drop'|trans) }}
                             </a>
                           </td>
@@ -194,11 +194,12 @@
                 <input class="btn btn-secondary" type="submit" value="{% trans 'Partition table' %}">
             {% else %}
                 {{ link_or_button(
-                  url('/sql', {
+                  url('/sql'),
+                  {
                     'db': db,
                     'table': table,
                     'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING'
-                  }),
+                  },
                   'Remove partitioning'|trans, {
                     'class': 'btn btn-secondary ajax',
                     'id': 'remove_partitioning'

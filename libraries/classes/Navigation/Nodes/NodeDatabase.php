@@ -702,7 +702,7 @@ class NodeDatabase extends Node
                 ];
                 $ret = '<span class="dbItemControls">'
                     . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
-                    . Url::getCommon($params, '') . '"'
+                    . Url::getCommon($params, '', false) . '"'
                     . ' class="showUnhide ajax">'
                     . Generator::getImage(
                         'show',

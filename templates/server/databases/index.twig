@@ -315,7 +315,7 @@
         <div class="row">
           <ul>
             <li class="li_switch_dbstats">
-              <a href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '') }}" title="{% trans 'Enable statistics' %}">
+              <a href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '', false) }}" title="{% trans 'Enable statistics' %}">
                 <strong>{% trans 'Enable statistics' %}</strong>
               </a>
             </li>
