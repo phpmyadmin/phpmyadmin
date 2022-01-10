@@ -1,0 +1,17 @@
+<div class="alert alert-{{ context }}" role="alert">
+
+  {% if isUserError == false %}
+    <strong>{{ type }}</strong> in {{ file ~'#'~ line }} <br>
+  {% endif %}
+
+  {{ message }}
+
+  {% if isUserError == false %}
+    <br><br>
+    <strong>Backtrace</strong><br>
+    <br>
+    {{ backtraceDisplay }}
+  {% endif %}
+
+
+</div>

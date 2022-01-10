@@ -477,25 +477,17 @@ class Error extends Message
             $context = 'danger';
         }
 
-        $retval = '<div class="alert alert-' . $context . '" role="alert">';
-        if (! $this->isUserError()) {
-            $retval .= '<strong>' . $this->getType() . '</strong>';
-            $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
-            $retval .= "<br>\n";
-        }
+        $template = new Template();
 
-        $retval .= $this->getMessage();
-        if (! $this->isUserError()) {
-            $retval .= "<br>\n";
-            $retval .= "<br>\n";
-            $retval .= "<strong>Backtrace</strong><br>\n";
-            $retval .= "<br>\n";
-            $retval .= $this->getBacktraceDisplay();
-        }
-
-        $retval .= '</div>';
-
-        return $retval;
+        return $template->render('error/get_display',[
+            'context' => $context,
+            'isUserError' => $this->isUserError(),
+            'type' => $this->getType(),
+            'file' => $this->getFile(),
+            'line' => $this->getLine(),
+            'message' => $this->getMessage(),
+            'backtraceDisplay' => $this->getBacktraceDisplay(),
+        ]);
     }
 
     /**
