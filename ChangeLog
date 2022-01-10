@@ -16,7 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #16974 Replace zxcvbn by zxcvbn-ts
 - issue #15691 Disable the last column checkbox in the column list dropdown instead of not allowing un-check
 - issue #16138 Ignore the length of integer types and show a warning on MySQL >= 8.0.18
-- issue        Add suport for the Mroonga engine
+- issue        Add support for the Mroonga engine
 - issue        Double click column name to directly copy to clipboard
 - issue #16425 Add "DELETE FROM" table on table operations page
 - issue #16482 Add a select all link for table-specific privileges
