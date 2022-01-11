@@ -942,21 +942,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    public function testCookieEncryptPHPSecLib(): void
-    {
-        $this->object->setUseOpenSSL(false);
-        $this->testCookieEncrypt();
-    }
-
-    /**
-     * @requires extension openssl
-     */
-    public function testCookieEncryptOpenSSL(): void
-    {
-        $this->object->setUseOpenSSL(true);
-        $this->testCookieEncrypt();
-    }
-
     public function testCookieDecrypt(): void
     {
         // works with the openssl extension active or inactive
@@ -983,21 +968,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
                 'aedzoiefpzf,zf1z7ef6ef84'
             )
         );
-    }
-
-    public function testCookieDecryptPHPSecLib(): void
-    {
-        $this->object->setUseOpenSSL(false);
-        $this->testCookieDecrypt();
-    }
-
-    /**
-     * @requires extension openssl
-     */
-    public function testCookieDecryptOpenSSL(): void
-    {
-        $this->object->setUseOpenSSL(true);
-        $this->testCookieDecrypt();
     }
 
     public function testCookieDecryptInvalid(): void

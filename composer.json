@@ -55,7 +55,6 @@
         "phpmyadmin/shapefile": "^3.0.1",
         "phpmyadmin/sql-parser": "^5.5",
         "phpmyadmin/twig-i18n-extension": "^4.0",
-        "phpseclib/phpseclib": "^3.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^1.0",
         "slim/psr7": "^1.4",

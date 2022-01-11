@@ -18,15 +18,12 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
-use phpseclib3\Crypt\AES;
-use phpseclib3\Crypt\Random;
 use ReCaptcha;
 
 use function __;
 use function array_keys;
 use function base64_decode;
 use function base64_encode;
-use function class_exists;
 use function count;
 use function defined;
 use function explode;
@@ -44,8 +41,8 @@ use function openssl_cipher_iv_length;
 use function openssl_decrypt;
 use function openssl_encrypt;
 use function openssl_error_string;
-use function openssl_random_pseudo_bytes;
 use function preg_match;
+use function random_bytes;
 use function session_id;
 use function strlen;
 use function substr;
@@ -62,29 +59,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      * @var string|null
      */
     private $cookieIv = null;
-
-    /**
-     * Whether to use OpenSSL directly
-     *
-     * @var bool
-     */
-    private $useOpenSsl;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->useOpenSsl = ! class_exists(Random::class);
-    }
-
-    /**
-     * Forces (not)using of openSSL
-     *
-     * @param bool $use The flag
-     */
-    public function setUseOpenSSL($use): void
-    {
-        $this->useOpenSsl = $use;
-    }
 
     /**
      * Displays authentication form
@@ -646,11 +620,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function getSessionEncryptionSecret()
     {
         if (empty($_SESSION['encryption_key'])) {
-            if ($this->useOpenSsl) {
-                $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(32);
-            } else {
-                $_SESSION['encryption_key'] = Random::string(32);
-            }
+            $_SESSION['encryption_key'] = random_bytes(32);
         }
 
         return $_SESSION['encryption_key'];
@@ -740,8 +710,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Encryption using openssl's AES or phpseclib's AES
-     * (phpseclib uses another extension when it is available)
+     * Encryption using openssl's AES
      *
      * @param string $data   original data
      * @param string $secret the secret
@@ -753,14 +722,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $mac_secret = $this->getMACSecret($secret);
         $aes_secret = $this->getAESSecret($secret);
         $iv = $this->createIV();
-        if ($this->useOpenSsl) {
-            $result = openssl_encrypt($data, 'AES-128-CBC', $aes_secret, 0, $iv);
-        } else {
-            $cipher = new AES('cbc');
-            $cipher->setIV($iv);
-            $cipher->setKey($aes_secret);
-            $result = base64_encode($cipher->encrypt($data));
-        }
+        $result = openssl_encrypt($data, 'AES-128-CBC', $aes_secret, 0, $iv);
 
         $this->cleanSSLErrors();
         $iv = base64_encode($iv);
@@ -775,8 +737,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Decryption using openssl's AES or phpseclib's AES
-     * (phpseclib uses another extension when it is available)
+     * Decryption using openssl's AES
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret
@@ -805,20 +766,13 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        if ($this->useOpenSsl) {
-            $result = openssl_decrypt(
-                $data['payload'],
-                'AES-128-CBC',
-                $aes_secret,
-                0,
-                base64_decode($data['iv'])
-            );
-        } else {
-            $cipher = new AES('cbc');
-            $cipher->setIV(base64_decode($data['iv']));
-            $cipher->setKey($aes_secret);
-            $result = $cipher->decrypt(base64_decode($data['payload']));
-        }
+        $result = openssl_decrypt(
+            $data['payload'],
+            'AES-128-CBC',
+            $aes_secret,
+            0,
+            base64_decode($data['iv'])
+        );
 
         $this->cleanSSLErrors();
 
@@ -832,11 +786,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function getIVSize()
     {
-        if ($this->useOpenSsl) {
-            return openssl_cipher_iv_length('AES-128-CBC');
-        }
-
-        return (new AES('cbc'))->getBlockLengthInBytes();
+        return openssl_cipher_iv_length('AES-128-CBC');
     }
 
     /**
@@ -854,16 +804,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             return $this->cookieIv;
         }
 
-        if ($this->useOpenSsl) {
-            $bytes = openssl_random_pseudo_bytes($this->getIVSize());
-            if ($bytes !== false) {
-                return $bytes;
-            }
-        }
-
-        return Random::string(
-            $this->getIVSize()
-        );
+        return random_bytes($this->getIVSize());
     }
 
     /**
