@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
+<files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -4127,15 +4127,13 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="6">
       <code>$_POST['view']['as']</code>
       <code>$_POST['view']['as']</code>
       <code>$_POST['view']['column_names']</code>
       <code>$_POST['view']['column_names']</code>
       <code>$_POST['view']['name']</code>
       <code>$_POST['view']['name']</code>
-      <code>$_POST['view']['with']</code>
-      <code>$_POST['view']['with']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="4">
       <code>$urlParams['back']</code>
@@ -4218,16 +4216,22 @@
     <MixedArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['TrustedProxies'][$direct_ip]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="16">
       <code>$GLOBALS[$post_key]</code>
+      <code>$_GET[$urlQueryParamKey]</code>
+      <code>$_POST[$urlQueryParamKey]</code>
+      <code>$_REQUEST[$urlQueryParamKey]</code>
       <code>$a</code>
       <code>$a[$last_key]</code>
       <code>$direct_ip</code>
       <code>$one_post_pattern</code>
+      <code>$parsedBody[$urlQueryParamKey]</code>
       <code>$path[$depth]</code>
       <code>$query</code>
+      <code>$queryParams[$urlQueryParamKey]</code>
       <code>$secret</code>
       <code>$secret</code>
+      <code>$urlQueryParamValue</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="2">
@@ -4359,6 +4363,15 @@
     <PossiblyFalseArgument occurrences="1">
       <code>$_POST['field_extra'][$i] ?? false</code>
     </PossiblyFalseArgument>
+  </file>
+  <file src="libraries/classes/Crypto/Crypto.php">
+    <MixedAssignment occurrences="2">
+      <code>$key</code>
+      <code>$key</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>get</code>
+    </MixedMethodCall>
   </file>
   <file src="libraries/classes/Database/CentralColumns.php">
     <InvalidScalarArgument occurrences="1">
@@ -5622,8 +5635,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="9">
       <code>$host</code>
+      <code>$host</code>
+      <code>$server['port']</code>
       <code>$server['port']</code>
       <code>$server['ssl_ca'] ?? ''</code>
       <code>$server['ssl_ca_path'] ?? ''</code>
@@ -5685,9 +5700,13 @@
       <code>$displayParts['nav_bar'] == '1' &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
       <code>[]</code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="1">
+    <InvalidArgument occurrences="2">
       <code>$added[$orgFullTableName]</code>
+      <code>$multiOrderUrlParams</code>
     </InvalidArgument>
+    <InvalidArrayOffset occurrences="1">
+      <code>$delUrlParams</code>
+    </InvalidArrayOffset>
     <MixedArgument occurrences="53">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
@@ -5994,14 +6013,28 @@
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand occurrences="6">
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$colVisibCurrent</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$firstStatement-&gt;order[$key]</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="2">
+    <PossiblyNullOperand occurrences="8">
       <code>$dispval</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
       <code>$this-&gt;getSortedColumnMessage($dtResult, $sortExpressionNoDirection[$i])</code>
     </PossiblyNullOperand>
     <RedundantCast occurrences="3">
@@ -7306,18 +7339,21 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Html/Generator.php">
+    <InvalidArgument occurrences="2">
+      <code>$urlParams</code>
+      <code>$urlParams</code>
+    </InvalidArgument>
     <InvalidArrayOffset occurrences="2">
       <code>$server['ssl']</code>
       <code>$server['ssl_verify']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="23">
+    <MixedArgument occurrences="20">
       <code>$GLOBALS['special_message']</code>
       <code>$GLOBALS['special_message']</code>
       <code>$alt</code>
       <code>$cfg['MaxCharactersInDisplayedSQL']</code>
       <code>$defaultFunction</code>
       <code>$field['True_Type']</code>
-      <code>$paramValue</code>
       <code>$queryBase</code>
       <code>$queryBase</code>
       <code>$queryBase</code>
@@ -7330,15 +7366,12 @@
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$subvalue</code>
-      <code>$tagParams['class']</code>
       <code>$title</code>
-      <code>$tmp</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$classes</code>
       <code>$key</code>
-      <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">
       <code>$cfg['DefaultFunctions']['FUNC_' . $currentClass]</code>
@@ -7351,17 +7384,15 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="12">
       <code>$alt</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
-      <code>$paramValue</code>
       <code>$queryBase</code>
       <code>$sqlQuery</code>
       <code>$subvalue</code>
       <code>$title</code>
-      <code>$tmp</code>
       <code>$urlParams['sql_query']</code>
       <code>$value</code>
       <code>$value</code>
@@ -8104,10 +8135,10 @@
       <code>isset($this-&gt;pos)</code>
     </DocblockTypeContradiction>
     <MixedArgument occurrences="34">
+      <code>$_POST['aPath']</code>
       <code>$_POST['n' . $count . '_aPath']</code>
       <code>$_POST['n' . $count . '_vPath']</code>
-      <code>$_REQUEST['aPath']</code>
-      <code>$_REQUEST['vPath']</code>
+      <code>$_POST['vPath']</code>
       <code>$container-&gt;children</code>
       <code>$container-&gt;realName</code>
       <code>$db</code>
@@ -9014,12 +9045,12 @@
       <code>$propertyItem-&gt;getName()</code>
       <code>$subgroup_header-&gt;getName()</code>
     </PossiblyNullOperand>
-    <RedundantCast occurrences="1">
-      <code>strtolower</code>
-    </RedundantCast>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$properties != null</code>
     </RedundantConditionGivenDocblockType>
+    <RedundantFunctionCall occurrences="1">
+      <code>strtolower</code>
+    </RedundantFunctionCall>
     <UnnecessaryVarAnnotation occurrences="3">
       <code>RadioPropertyItem</code>
       <code>SelectPropertyItem</code>
@@ -13401,12 +13432,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
+    <MixedArrayAccess occurrences="4">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
       <code>$_POST['criteriaColumnTypes'][$column_index]</code>
       <code>$_POST['criteriaValues'][$column_index]</code>
       <code>$_POST['geom_func'][$column_index]</code>
-      <code>$criteriaValues[0]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="4">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
@@ -13798,7 +13828,9 @@
     <MixedArrayOffset occurrences="1">
       <code>$params[$skipping]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="5">
+      <code>$paramValue</code>
+      <code>$paramsToEncrypt[$paramKey]</code>
       <code>$skipping</code>
       <code>$value</code>
       <code>$values['token']</code>
@@ -13806,7 +13838,8 @@
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="3">
+    <MixedMethodCall occurrences="4">
+      <code>get</code>
       <code>get</code>
       <code>getCookie</code>
       <code>getCookie</code>
@@ -14666,6 +14699,9 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/CoreTest.php">
+    <InvalidArgument occurrences="1">
+      <code>testPopulateRequestWithEncryptedQueryParamsWithInvalidParam</code>
+    </InvalidArgument>
     <MixedArgument occurrences="9">
       <code>$arr['arr']</code>
       <code>$arr['arr']</code>
@@ -14703,6 +14739,12 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+    <MixedMethodCall occurrences="4">
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+    </MixedMethodCall>
     <PossiblyNullArgument occurrences="1">
       <code>$page</code>
     </PossiblyNullArgument>
@@ -14716,6 +14758,21 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>testGetColumnCreationQuery</code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Crypto/CryptoTest.php">
+    <EmptyArrayAccess occurrences="1">
+      <code>$_SESSION['URLQueryEncryptionSecretKey']</code>
+    </EmptyArrayAccess>
+    <MixedArgument occurrences="1">
+      <code>$_SESSION['URLQueryEncryptionSecretKey']</code>
+    </MixedArgument>
+    <MixedMethodCall occurrences="5">
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+    </MixedMethodCall>
   </file>
   <file src="test/classes/Database/CentralColumnsTest.php">
     <MixedArgument occurrences="1"/>
@@ -16059,6 +16116,15 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+  </file>
+  <file src="test/classes/UrlTest.php">
+    <MixedMethodCall occurrences="5">
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+    </MixedMethodCall>
   </file>
   <file src="test/classes/UserPreferencesTest.php">
     <MixedArgument occurrences="1">

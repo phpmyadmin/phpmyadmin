@@ -119,7 +119,7 @@
       {% endif %}
 
       {% if column.pma_type in gis_data_types %}
-        <span class="open_gis_editor" data-row-id="{{ row_id }}">{{ link_or_button('#', get_icon('b_edit', 'Edit/Insert'|trans), [], '_blank') }}</span>
+        <span class="open_gis_editor" data-row-id="{{ row_id }}">{{ link_or_button('#', null, get_icon('b_edit', 'Edit/Insert'|trans), [], '_blank') }}</span>
       {% endif %}
     {% endif %}
   </td>

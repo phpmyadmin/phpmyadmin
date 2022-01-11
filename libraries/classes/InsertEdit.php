@@ -317,13 +317,13 @@ class InsertEdit
 
         if (! $isShow) {
             return ' : <a href="' . Url::getFromRoute('/table/change') . '" data-post="'
-                . Url::getCommon($thisUrlParams, '') . '">'
+                . Url::getCommon($thisUrlParams, '', false) . '">'
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
 
         return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
-            . Url::getCommon($thisUrlParams, '')
+            . Url::getCommon($thisUrlParams, '', false)
             . '" title="' . __('Hide') . '">'
             . $this->showTypeOrFunctionLabel($which)
             . '</a></th>';

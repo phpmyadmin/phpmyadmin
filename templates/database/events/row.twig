@@ -39,12 +39,13 @@
   <td>
     {% if has_privilege %}
       {{ link_or_button(
-        url('/sql', {
+        url('/sql'),
+        {
           'db': db,
           'table': table,
           'sql_query': sql_drop,
           'goto': url('/database/events', {'db': db})
-        }),
+        },
         get_icon('b_drop', 'Drop'|trans),
         {'class': 'ajax drop_anchor'}
       ) }}

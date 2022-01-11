@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Url;
 use stdClass;
 
 use function __;
@@ -19,6 +21,7 @@ use function ob_get_contents;
 use function ob_start;
 use function preg_quote;
 use function serialize;
+use function str_repeat;
 
 /**
  * @covers \PhpMyAdmin\Core
@@ -38,6 +41,7 @@ class CoreTest extends AbstractNetworkTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = 'http://example.net/';
+        $GLOBALS['config']->set('URLQueryEncryption', false);
     }
 
     /**
@@ -923,5 +927,74 @@ class CoreTest extends AbstractNetworkTestCase
         $hmac = Core::signSqlQuery($sqlQuery);
         // Must work now, (good secret and blowfish_secret)
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    public function testPopulateRequestWithEncryptedQueryParams(): void
+    {
+        global $config;
+
+        $_SESSION = [];
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $_GET = ['pos' => '0', 'eq' => Url::encryptQuery('{"db":"test_db","table":"test_table"}')];
+        $_REQUEST = $_GET;
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getQueryParams')->willReturn($_GET);
+        $request->method('getParsedBody')->willReturn(null);
+        $request->method('withQueryParams')->willReturnSelf();
+        $request->method('withParsedBody')->willReturnSelf();
+
+        Core::populateRequestWithEncryptedQueryParams($request);
+
+        $expected = ['pos' => '0', 'db' => 'test_db', 'table' => 'test_table'];
+
+        $this->assertEquals($expected, $_GET);
+        $this->assertEquals($expected, $_REQUEST);
+    }
+
+    /**
+     * @param string[] $encrypted
+     * @param string[] $decrypted
+     *
+     * @dataProvider providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam
+     */
+    public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
+        array $encrypted,
+        array $decrypted
+    ): void {
+        global $config;
+
+        $_SESSION = [];
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $_GET = $encrypted;
+        $_REQUEST = $encrypted;
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getQueryParams')->willReturn($_GET);
+        $request->method('getParsedBody')->willReturn(null);
+        $request->method('withQueryParams')->willReturnSelf();
+        $request->method('withParsedBody')->willReturnSelf();
+
+        Core::populateRequestWithEncryptedQueryParams($request);
+
+        $this->assertEquals($decrypted, $_GET);
+        $this->assertEquals($decrypted, $_REQUEST);
+    }
+
+    /**
+     * @return array<int, array<int, array<string, string|mixed[]>>>
+     */
+    public function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
+    {
+        return [
+            [[], []],
+            [['eq' => []], []],
+            [['eq' => ''], []],
+            [['eq' => 'invalid'], []],
+        ];
     }
 }

@@ -17,7 +17,7 @@
       <div class="card mb-2">
         <div class="card-header">{% trans 'Primary replication' %}</div>
         <div class="card-body">
-        {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'primary_configure': true}), '') ~ '">', '</a>')|raw %}
+        {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'primary_configure': true}), '', false) ~ '">', '</a>')|raw %}
           {% trans %}
             This server is not configured as primary in a replication process. Would you like to %sconfigure%s it?
           {% endtrans %}

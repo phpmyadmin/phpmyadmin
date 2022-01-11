@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Http\ServerRequest;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
@@ -29,6 +30,7 @@ use function in_array;
 use function intval;
 use function is_array;
 use function is_string;
+use function json_decode;
 use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
@@ -976,5 +978,65 @@ class Core
         $loader->load('services_loader.php');
 
         return $containerBuilder;
+    }
+
+    public static function populateRequestWithEncryptedQueryParams(ServerRequest $request): ServerRequest
+    {
+        $queryParams = $request->getQueryParams();
+        $parsedBody = $request->getParsedBody();
+
+        unset($_GET['eq'], $_POST['eq'], $_REQUEST['eq']);
+
+        if (! isset($queryParams['eq']) && (! is_array($parsedBody) || ! isset($parsedBody['eq']))) {
+            return $request;
+        }
+
+        $encryptedQuery = '';
+        if (
+            is_array($parsedBody)
+            && isset($parsedBody['eq'])
+            && is_string($parsedBody['eq'])
+            && $parsedBody['eq'] !== ''
+        ) {
+            $encryptedQuery = $parsedBody['eq'];
+            unset($parsedBody['eq'], $queryParams['eq']);
+        } elseif (isset($queryParams['eq']) && is_string($queryParams['eq']) && $queryParams['eq'] !== '') {
+            $encryptedQuery = $queryParams['eq'];
+            unset($queryParams['eq']);
+        }
+
+        $decryptedQuery = null;
+        if ($encryptedQuery !== '') {
+            $decryptedQuery = Url::decryptQuery($encryptedQuery);
+        }
+
+        if ($decryptedQuery === null) {
+            $request = $request->withQueryParams($queryParams);
+            if (is_array($parsedBody)) {
+                $request = $request->withParsedBody($parsedBody);
+            }
+
+            return $request;
+        }
+
+        $urlQueryParams = (array) json_decode($decryptedQuery);
+        foreach ($urlQueryParams as $urlQueryParamKey => $urlQueryParamValue) {
+            if (is_array($parsedBody)) {
+                $parsedBody[$urlQueryParamKey] = $urlQueryParamValue;
+                $_POST[$urlQueryParamKey] = $urlQueryParamValue;
+            } else {
+                $queryParams[$urlQueryParamKey] = $urlQueryParamValue;
+                $_GET[$urlQueryParamKey] = $urlQueryParamValue;
+            }
+
+            $_REQUEST[$urlQueryParamKey] = $urlQueryParamValue;
+        }
+
+        $request = $request->withQueryParams($queryParams);
+        if (is_array($parsedBody)) {
+            $request = $request->withParsedBody($parsedBody);
+        }
+
+        return $request;
     }
 }

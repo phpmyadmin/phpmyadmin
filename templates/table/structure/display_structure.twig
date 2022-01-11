@@ -116,7 +116,7 @@
                       'dropped_column': row['Field'],
                       'purge': true,
                       'message_to_show': 'Column %s has been dropped.'|trans|format(row['Field']|e)
-                    }) }}">
+                    }, '', false) }}">
                       {{ get_icon('b_drop', 'Drop'|trans) }}
                     </a>
                 </td>
@@ -141,7 +141,7 @@
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row['Field']) ~ ');',
                               'message_to_show': 'A primary key has been added on %s.'|trans|format(row['Field']|e)
-                            }) }}">
+                            }, '', false) }}">
                               {{ get_icon('b_primary', 'Primary'|trans) }}
                             </a>
                           {% endif %}
@@ -156,7 +156,7 @@
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row['Field']) ~ ');',
                               'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
-                            }) }}">
+                            }, '', false) }}">
                               {{ get_icon('b_unique', 'Unique'|trans) }}
                             </a>
                           {% endif %}
@@ -171,7 +171,7 @@
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row['Field']) ~ ');',
                               'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
-                            }) }}">
+                            }, '', false) }}">
                               {{ get_icon('b_index', 'Index'|trans) }}
                             </a>
                           {% endif %}
@@ -196,7 +196,7 @@
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row['Field']) ~ ');',
                               'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
-                            }) }}">
+                            }, '', false) }}">
                               {{ get_icon('b_spatial', 'Spatial'|trans) }}
                             </a>
                           {% endif %}
@@ -215,7 +215,7 @@
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row['Field']) ~ ');',
                               'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
-                            }) }}">
+                            }, '', false) }}">
                               {{ get_icon('b_ftext', 'Fulltext'|trans) }}
                             </a>
                         {% else %}
@@ -234,7 +234,7 @@
                                 ~ ' GROUP BY ' ~ backquote(row['Field'])
                                 ~ ' ORDER BY ' ~ backquote(row['Field']),
                               'is_browse_distinct': true
-                            }) }}">
+                            }, '', false) }}">
                               {{ get_icon('b_browse', 'Distinct values'|trans) }}
                             </a>
                         </li>
@@ -368,7 +368,8 @@
 <div id="structure-action-links" class="d-print-none">
     {% if tbl_is_view and not db_is_system_schema %}
         {{ link_or_button(
-            url('/view/create', {'db': db, 'table': table}),
+            url('/view/create'),
+            {'db': db, 'table': table},
             get_icon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
@@ -381,7 +382,7 @@
             'table': table,
             'sql_query': 'SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()',
             'session_max_rows': 'all'
-          }) }}">
+          }, '', false) }}">
             {{ get_icon(
               'b_tblanalyse',
               'Propose table structure'|trans,
@@ -475,7 +476,7 @@
                     'db': db,
                     'table': table,
                     'index': index.getName()
-                  }, '') }}">
+                  }, '', false) }}">
                     {{ get_icon('b_edit', 'Edit'|trans) }}
                   </a>
                 </td>
@@ -484,7 +485,7 @@
                     'db': db,
                     'table': table,
                     'index': index.getName()
-                  }, '') }}">
+                  }, '', false) }}">
                     {{ get_icon('b_rename', 'Rename'|trans) }}
                   </a>
                 </td>
@@ -503,7 +504,8 @@
 
                   <input type="hidden" class="drop_primary_key_index_msg" value="{{ index_params.sql_query }}">
                   {{ link_or_button(
-                    url('/sql', index_params|merge({'db': db, 'table': table})),
+                    url('/sql'),
+                    index_params|merge({'db': db, 'table': table}),
                     get_icon('b_drop', 'Drop'|trans),
                     {'class': 'drop_primary_key_index_anchor ajax'}
                   ) }}

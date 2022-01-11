@@ -64,7 +64,7 @@
                 </a>
                 |
                 <a class="delete-server" href="{{ get_common(server.params.remove) }}" data-post="
-                  {{- get_common({ token: server.params.token }, '') }}">
+                  {{- get_common({ token: server.params.token }, '', false) }}">
                   {% trans 'Delete' %}
                 </a>
               </small>

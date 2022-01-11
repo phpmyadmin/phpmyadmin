@@ -120,6 +120,8 @@ final class Common
             Session::setUp($config, $errorHandler);
         }
 
+        $request = Core::populateRequestWithEncryptedQueryParams($request);
+
         /**
          * init some variables LABEL_variables_init
          */
