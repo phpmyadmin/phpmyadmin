@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-09 00:12+0000\n"
-"PO-Revision-Date: 2021-11-01 22:37+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2022-01-12 00:56+0000\n"
+"Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -296,12 +296,6 @@ msgid "Suboptimal caching method."
 msgstr "Méthode de cache non efficace."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -311,7 +305,7 @@ msgstr ""
 "Le cache de requêtes MySQL est utilisé avec une base de données très "
 "sollicitée. Merci d'envisager l'utilisation de <a href=\"https://dev.mysql."
 "com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> à la place, "
-"spécialement en cas de nombreux serveurs esclaves."
+"spécialement en cas de nombreux serveurs répliqués."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -5672,10 +5666,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Faut-il vraiment retirer le partitionnement ?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Faut-il vraiment supprimer l'(es) utilisateur(s) sélectionné(s) ?"
+msgstr "Vous-vous vraiment rétablir le réplication (RESET REPLICA) ?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -8354,33 +8346,24 @@ msgstr ""
 "table."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
 "Le nombre de tables temporaires actuellement ouvertes par le fil d'exécution "
-"SQL de l'esclave."
+"SQL de la réplique."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Nombre de fois (depuis le démarrage) que le fil d'exécution SQL de l'esclave "
-"a envoyé à nouveau des transactions."
+"Nombre de fois (depuis le démarrage) que le fil d'exécution SQL de la "
+"réplique a envoyé à nouveau des transactions."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
-"Ceci est à Activé (ON) si ce serveur est un esclave connecté à un maître."
+"Ceci est à Activé (ON) si ce serveur est une réplique connecté à l'original."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -12222,32 +12205,25 @@ msgid "Unknown error"
 msgstr "Erreur inconnue"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Connexion impossible sur le maître %s."
+msgstr "Connexion impossible à l'original %s."
 
 #: libraries/classes/ReplicationGui.php:530
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
-"Impossible de lire la position du journal sur le maître. Possible problème "
-"de privilège sur le maître."
+"Impossible de lire la position du journal sur l'original. C'est un possible "
+"problème de privilège sur l'original."
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
-msgstr "Impossible de changer le maître !"
+msgstr "Impossible de changer l'original !"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Le serveur maître est maintenant %s."
+msgstr "Le serveur original est maintenant %s."
 
 #: libraries/classes/Routing.php:104
 #, php-format
@@ -12504,20 +12480,16 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:433
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Nécessaire pour les esclaves (système de duplication)."
+msgstr "Nécessaire pour les répliques (système de duplication)."
 
 #: libraries/classes/Server/Privileges.php:438
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
-"Permission de demander où sont les maîtres et les esclaves (système de "
-"duplication)."
+"Permet de demander à l'utilisateur où sont les originaux et les répliques ("
+"système de duplication)."
 
 #: libraries/classes/Server/Privileges.php:448
 #: templates/server/privileges/privileges_table.twig:524
@@ -12758,23 +12730,17 @@ msgid "Show open tables"
 msgstr "Afficher les tables ouvertes"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "Afficher les serveurs esclaves"
+msgstr "Afficher les serveurs des répliques"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Afficher l'état du maître"
+msgstr "Afficher l'état du l'original"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Afficher l'état des serveurs esclaves"
+msgstr "Afficher l'état des serveurs des répliques"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -14747,16 +14713,12 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportation des tables depuis la base de données « %s »"
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Permission de modifier la structure des tables existantes."
+msgstr "Exporter la structure de toutes les tables."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Exporter les vues comme des tables"
+msgstr "Exporter les données de toutes les tables."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15617,10 +15579,8 @@ msgid "Custom - display all possible options"
 msgstr "Personnalisée, afficher toutes les options possibles"
 
 #: templates/export.twig:121
-#, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
-msgstr "Fichier à importer :"
+msgstr "Format du fichier à exporter :"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -15709,8 +15669,6 @@ msgstr ""
 "la FAQ 6.27 pour les détails."
 
 #: templates/export.twig:398
-#, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "Utiliser ceci pour les futures exportations"
 
@@ -15739,14 +15697,12 @@ msgid "Export tables as separate files"
 msgstr "Exporter les tables en fichiers séparés"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "Ignorer les tables de taille plus grande que %s MiB"
+msgstr "Ignorer les tables de plus de :"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "La taille est définie en Mio."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -15928,11 +15884,9 @@ msgid "Theme"
 msgstr "Thème"
 
 #: templates/home/index.twig:142
-#, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Voir uniquement"
+msgstr "Tout afficher"
 
 #: templates/home/index.twig:157
 msgid "Database server"
@@ -16087,10 +16041,8 @@ msgstr ""
 "[compression]</strong>. Exemple : <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Save as file"
 msgid "Upload a file"
-msgstr "Enregistrer en fichier"
+msgstr "Envoyer un fichier"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -16115,10 +16067,8 @@ msgstr ""
 "strong] :"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
-msgstr "Aucun fichier n'est disponible pour le transfert !"
+msgstr "Aucun fichier pour l'importation !"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -16137,43 +16087,28 @@ msgstr ""
 "reprendra à la position %d."
 
 #: templates/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <em>(This might be a good way to import "
-#| "large files, however it can break transactions.)</em>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
-"Permettre l'interruption de l'importation si la limite de temps configurée "
-"dans PHP est sur le point d'être atteinte. <em>(Ceci pourrait aider à "
-"importer des fichiers volumineux, au détriment du respect des "
-"transactions.)</em>"
+"Permettre l'interruption de l'importation pour respecter la limite de temps "
+"définie dans PHP."
 
 #: templates/import.twig:140
-#, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Permettre l'interruption de l'importation si la limite de temps est sur le "
-"point d'être atteinte. Ceci pourrait aider à importer des fichiers "
-"volumineux, au détriment du respect des transactions."
+"Ceci peut faciliter l'importation des fichiers volumineux, mais peut aussi "
+"affecter la stabilité des transactions."
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Ignorer ce nombre de requêtes (pour SQL), à partir du début :"
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Autres options :"
+msgstr "Autres options"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:488
@@ -16766,7 +16701,7 @@ msgstr "Pas de tables préférées."
 #, fuzzy
 #| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "Extrait de configuration de phpMyAdmin"
+msgstr "Stockage de la configuration de phpMyAdmin"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16873,108 +16808,78 @@ msgid "Enabled"
 msgstr "Activé"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Afficher les infobulles"
+msgstr "Afficher les infobulles :"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "Concepteur et création de PDF"
+msgstr "Concepteur et création de PDF :"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Affichage des commentaires de colonnes"
+msgstr "Affichage des commentaires des colonnes :"
 
 #: templates/relation/check_relations.twig:160
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Transformation"
+msgstr "Navigateur des transformations :"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "La documentation indique comment mettre à jour la table column_info."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Requêtes SQL en signets"
+msgstr "Requêtes SQL favorites :"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "Historique SQL : "
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Tables récemment utilisées (persistantes)"
+msgstr "Tables récemment utilisées (persistantes) :"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Tables préférées (persistantes)"
+msgstr "Tables préférées (persistantes) :"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "Préférences d'interface de tables (persistantes)"
+msgstr "Préférences d'interface de tables (persistantes) :"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Suivi"
+msgstr "Suivi :"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Préférences de l'utilisateur"
+msgstr "Préférences de l'utilisateur :"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Menus configurables"
+msgstr "Menus configurables :"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Masquer/Afficher les éléments de navigation"
+msgstr "Masquer/Afficher les éléments de navigation :"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "Enregistrement des recherches (requête par un exemple)"
+msgstr "Enregistrement des recherches (requête par un exemple) :"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Gestion de la liste centrale de colonnes"
+msgstr "Gestion de la liste centrale de colonnes :"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Mémorisation des paramètres du concepteur"
+msgstr "Mémorisation des paramètres du concepteur :"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Enregistrement des modèles d'exportation"
+msgstr "Enregistrement des modèles d'exportation :"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -17065,17 +16970,13 @@ msgstr "Aucun privilège pour créer des bases de données"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
-msgstr "Réplication maître"
+msgstr "Réplication de l'original"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "Réplication esclave"
+msgstr "Réplication des répliques"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -17587,17 +17488,13 @@ msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
-msgstr "Configuration de l'esclave"
+msgstr "Configuration de la réplique"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "Changer ou reconfigurer le serveur maître"
+msgstr "Changer ou reconfigurer le serveur original"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17613,15 +17510,12 @@ msgid "Port:"
 msgstr "Port :"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Ce serveur n'est pas configuré comme maître dans un processus de "
+"Ce serveur n'est pas configuré comme original dans un processus de "
 "réplication. Faut-il le %sconfigurer%s ?"
 
 #: templates/server/replication/index.twig:43
@@ -17630,10 +17524,8 @@ msgstr "Pas de privilèges"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "Ajouter un utilisateur pour la réplication vers l'esclave"
+msgstr "Ajouter un utilisateur pour la réplication de la réplique"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17646,19 +17538,10 @@ msgid "Generate password:"
 msgstr "Générer un mot de passe :"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Configuration du serveur"
+msgstr "Configuration de l'original"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17666,7 +17549,7 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Ce serveur n'est pas configuré comme maître dans un processus de "
+"Ce serveur n'est pas configuré comme original dans un processus de "
 "réplication. Il est possible de soit répliquer toutes les bases tout en "
 "ignorant certaines d'entre elles (utile si la majorité des bases doivent "
 "être répliquées), soit d'ignorer toutes les bases en demandant que certaines "
@@ -17693,90 +17576,62 @@ msgstr ""
 "redémarrer le serveur MySQL."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
-"Une fois que le serveur MySQL est redémarré, merci de cliquer sur Exécuter. "
-"Par la suite, un message devrait informer que ce serveur <strong>est</"
-"strong> configuré comme maître."
+"Une fois que le serveur MySQL est redémarré, merci de cliquer sur « Exécuter "
+"». Par la suite, un message devrait vous informer que ce serveur "
+"<strong>est</strong> configuré comme original."
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
-msgstr "Ce serveur est un serveur maître dans le processus de réplication."
+msgstr "Ce serveur est un serveur original dans le processus de réplication."
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "Afficher les esclaves connectés"
+msgstr "Afficher les répliques connectées"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Seuls les esclaves démarrés avec l'option --report-host=host_name sont "
+"Seuls les répliques démarrées avec l'option « --report-host=host_name » sont "
 "visibles sur cette liste."
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "Connexion au serveur :"
+msgstr "Connexion au serveur original :"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "Le fil d'exécution SQL ne tourne pas sur le serveur esclave !"
+msgstr "Le fil d'exécution SQL ne tourne pas sur le serveur répliqué !"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
 msgstr ""
-"Le fil d'exécution d'entrée/sortie ne tourne pas sur le serveur esclave !"
+"Le fil d'exécution d'entrée/sortie ne tourne pas sur le serveur répliqué !"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
-"Le serveur est configuré comme esclave dans un processus de réplication. "
-"Faut-il :"
+"Le serveur est configuré comme réplique dans un processus de réplication. "
+"Voulez-vous :"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
-msgstr "Voir l'état de l'esclave"
+msgstr "Voir l'état de la réplique"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "Contrôler le serveur esclave :"
+msgstr "Contrôler le serveur répliqué :"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Non répliqué"
+msgstr "Rétablir la réplique"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17799,12 +17654,10 @@ msgid "Error management:"
 msgstr "Gestion des erreurs :"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
-"Ignorer les erreurs peut mener à une désynchronisation entre les serveurs "
-"maître et esclave !"
+"Ignorer ces erreurs peut mener à une désynchronisation entre les originaux "
+"et les répliques !"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -17816,28 +17669,21 @@ msgid "Skip next %s errors."
 msgstr "Ignorer les %s erreurs suivantes."
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Ce serveur n'est pas configuré comme esclave dans un processus de "
+"Ce serveur n'est pas configuré comme réplique dans un processus de "
 "réplication. Faut-il le %sconfigurer%s ?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "État de l'importation"
+msgstr "État de l'original"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "État de la réplication"
+msgstr "État de la réplique"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -18225,35 +18071,25 @@ msgstr ""
 "inexactes."
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"Ce serveur est un serveur <b>maître</b> et <b>esclave</b> dans le processus "
-"de <b>réplication</b>."
+"Ce serveur est <b>l'original</b> mais aussi <b>une réplique</b> dans le "
+"processus de <b>réplication</b>."
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
-"Ce serveur est un serveur <b>maître</b> dans le processus de <b>réplication</"
-"b>."
+"Ce serveur MySQL est <b>l'original</b> dans le processus de "
+"<b>réplication</b>."
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Ce serveur est un serveur <b>esclave</b> dans le processus de "
+"Ce serveur MySQL est une <b>réplique</b> dans le processus de "
 "<b>réplication</b>."
 
 #: templates/server/status/status/index.twig:69
