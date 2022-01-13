@@ -271,11 +271,6 @@ parameters:
 			path: libraries/classes/Controllers/Setup/HomeController.php
 
 		-
-			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerDSN\\(\\) expects int, int\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/ServersController.php
-
-		-
 			message: "#^Comparison operation \"\\>\" between 0 and 0 is always false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php

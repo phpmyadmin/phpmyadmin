@@ -446,9 +446,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Setup/FormController.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$formset</code>
-    </PossiblyNullArgument>
     <UndefinedClass occurrences="1">
       <code>new $formClass($this-&gt;config)</code>
     </UndefinedClass>
@@ -460,11 +457,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>PMA_IS_WINDOWS</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="libraries/classes/Controllers/Setup/ServersController.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$id</code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
     <PossiblyNullArgument occurrences="1">
