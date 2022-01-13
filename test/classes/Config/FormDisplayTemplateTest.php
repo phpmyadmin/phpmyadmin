@@ -38,13 +38,13 @@ class FormDisplayTemplateTest extends AbstractTestCase
      */
     public function testDisplayFormTop(): void
     {
-        $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
+        $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net/index.php?key=value&key2=">value2';
         $GLOBALS['cfg']['ServerDefault'] = '';
         $result = $this->formDisplayTemplate->displayFormTop(null, 'posted', [1]);
 
         $this->assertStringContainsString(
-            '<form method="get" action="https://www.phpmyadmin.net" ' .
-            'class="config-form disableAjax">',
+            '<form method="get" action="https&#x3A;&#x2F;&#x2F;www.phpmyadmin.net&#x2F;'
+            . 'index.php&#x3F;key&#x3D;value&amp;key2&#x3D;&quot;&gt;value2" class="config-form disableAjax">',
             $result
         );
 
