@@ -1,4 +1,4 @@
-<form method="post" action="{{ action|raw }}" class="config-form disableAjax">
+<form method="post" action="{{ action|e('html_attr') }}" class="config-form disableAjax">
   <input type="hidden" name="tab_hash" value="">
   {% if has_check_page_refresh %}
     <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">

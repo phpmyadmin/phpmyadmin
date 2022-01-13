@@ -2716,11 +2716,6 @@
       <code>$id</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Controllers/Setup/ServersController.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$id</code>
-    </PossiblyNullArgument>
-  </file>
   <file src="libraries/classes/Controllers/Sql/ColumnPreferencesController.php">
     <MixedArgument occurrences="2">
       <code>$db</code>
@@ -12680,12 +12675,6 @@
     <PossiblyNullOperand occurrences="1">
       <code>self::getServerPart($cf, $crlf, $conf['Servers'])</code>
     </PossiblyNullOperand>
-  </file>
-  <file src="libraries/classes/Setup/FormProcessing.php">
-    <MixedAssignment occurrences="2">
-      <code>$formset</code>
-      <code>$page</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Setup/Index.php">
     <MixedArgument occurrences="6">

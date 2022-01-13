@@ -32,10 +32,9 @@ if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
     Core::fatalError(__('Configuration already exists, setup is disabled!'));
 }
 
-$page = isset($_GET['page']) && is_scalar($_GET['page']) ? (string) $_GET['page'] : '';
-$page = preg_replace('/[^a-z]/', '', $page);
-if ($page === '') {
-    $page = 'index';
+$page = 'index';
+if (isset($_GET['page']) && in_array($_GET['page'], ['form', 'config', 'servers'], true)) {
+    $page = $_GET['page'];
 }
 
 Core::noCacheHeader();
@@ -79,6 +78,5 @@ if ($page === 'servers') {
 
 echo (new HomeController($GLOBALS['ConfigFile'], new Template()))([
     'formset' => $_GET['formset'] ?? null,
-    'action_done' => $_GET['action_done'] ?? null,
     'version_check' => $_GET['version_check'] ?? null,
 ]);

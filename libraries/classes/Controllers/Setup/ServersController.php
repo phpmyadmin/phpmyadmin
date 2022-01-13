@@ -7,7 +7,9 @@ namespace PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Setup\FormProcessing;
 
+use function in_array;
 use function is_numeric;
+use function is_string;
 use function ob_get_clean;
 use function ob_start;
 
@@ -20,12 +22,18 @@ class ServersController extends AbstractController
      */
     public function index(array $params): string
     {
+        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
+        $id = isset($params['id']) && is_numeric($params['id']) && (int) $params['id'] >= 1 ? (int) $params['id'] : 0;
+        $mode = '';
+        if (isset($params['mode']) && in_array($params['mode'], ['add', 'edit', 'revert'], true)) {
+            $mode = $params['mode'];
+        }
+
         $pages = $this->getPages();
 
-        $id = isset($params['id']) && is_numeric($params['id']) ? (int) $params['id'] : null;
-        $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
+        $hasServer = $id >= 1 && $this->config->get('Servers/' . $id) !== null;
 
-        if (! $hasServer && ($params['mode'] !== 'revert' && $params['mode'] !== 'edit')) {
+        if (! $hasServer && $mode !== 'revert' && $mode !== 'edit') {
             $id = 0;
         }
 
@@ -34,10 +42,10 @@ class ServersController extends AbstractController
         $page = ob_get_clean();
 
         return $this->template->render('setup/servers/index', [
-            'formset' => $params['formset'] ?? '',
+            'formset' => $formset,
             'pages' => $pages,
             'has_server' => $hasServer,
-            'mode' => $params['mode'],
+            'mode' => $mode,
             'server_id' => $id,
             'server_dsn' => $this->config->getServerDSN($id),
             'page' => $page,
@@ -49,9 +57,9 @@ class ServersController extends AbstractController
      */
     public function destroy(array $params): void
     {
-        $id = isset($params['id']) && is_numeric($params['id']) ? (int) $params['id'] : null;
+        $id = isset($params['id']) && is_numeric($params['id']) && (int) $params['id'] >= 1 ? (int) $params['id'] : 0;
 
-        $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
+        $hasServer = $id >= 1 && $this->config->get('Servers/' . $id) !== null;
 
         if (! $hasServer) {
             return;

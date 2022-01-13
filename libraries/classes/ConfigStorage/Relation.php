@@ -1784,15 +1784,22 @@ class Relation
      */
     public function initRelationParamsCache(): void
     {
-        if (strlen($GLOBALS['db'])) {
-            $relationParameters = $this->getRelationParameters();
-            if ($relationParameters->db === null) {
-                $this->fixPmaTables($GLOBALS['db'], false);
-            }
-        }
-
         $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
-        $this->fixPmaTables($storageDbName ?: 'phpmyadmin', false);
+        $storageDbName = is_string($storageDbName) && $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
+
+        // This will make users not having explicitly listed databases
+        // have config values filled by the default phpMyAdmin storage table name values
+        $this->fixPmaTables($storageDbName, false);
+
+        // This global will be changed if fixPmaTables did find one valid table
+        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+
+        // Empty means that until now no pmadb was found eligible
+        if (! empty($storageDbName)) {
+            return;
+        }
+
+        $this->fixPmaTables($GLOBALS['db'], false);
     }
 }
