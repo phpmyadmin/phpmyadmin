@@ -19,6 +19,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use ReCaptcha;
+use Throwable;
 
 use function __;
 use function array_keys;
@@ -28,8 +29,6 @@ use function count;
 use function defined;
 use function explode;
 use function function_exists;
-use function hash_equals;
-use function hash_hmac;
 use function in_array;
 use function ini_get;
 use function intval;
@@ -37,29 +36,24 @@ use function is_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
-use function openssl_cipher_iv_length;
-use function openssl_decrypt;
-use function openssl_encrypt;
-use function openssl_error_string;
+use function mb_strlen;
+use function mb_substr;
 use function preg_match;
 use function random_bytes;
 use function session_id;
+use function sodium_crypto_secretbox;
+use function sodium_crypto_secretbox_open;
 use function strlen;
-use function substr;
 use function time;
+
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
+use const SODIUM_CRYPTO_SECRETBOX_NONCEBYTES;
 
 /**
  * Handles the cookie authentication method
  */
 class AuthenticationCookie extends AuthenticationPlugin
 {
-    /**
-     * IV for encryption
-     *
-     * @var string|null
-     */
-    private $cookieIv = null;
-
     /**
      * Displays authentication form
      *
@@ -352,7 +346,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->getEncryptionSecret()
         );
 
-        if ($value === false) {
+        if ($value === null) {
             return false;
         }
 
@@ -403,7 +397,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $serverCookie,
             $this->getSessionEncryptionSecret()
         );
-        if ($value === false) {
+        if ($value === null) {
             return false;
         }
 
@@ -559,7 +553,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['config']->setCookie(
             'pmaAuth-' . $GLOBALS['server'],
             $this->cookieEncrypt(
-                json_encode($payload),
+                (string) json_encode($payload),
                 $this->getSessionEncryptionSecret()
             ),
             null,
@@ -600,223 +594,61 @@ class AuthenticationCookie extends AuthenticationPlugin
 
     /**
      * Returns blowfish secret or generates one if needed.
-     *
-     * @return string
      */
-    private function getEncryptionSecret()
+    private function getEncryptionSecret(): string
     {
-        if (empty($GLOBALS['cfg']['blowfish_secret'])) {
-            return $this->getSessionEncryptionSecret();
+        $key = $GLOBALS['cfg']['blowfish_secret'] ?? null;
+        if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+            return $key;
         }
 
-        return $GLOBALS['cfg']['blowfish_secret'];
+        return $this->getSessionEncryptionSecret();
     }
 
     /**
      * Returns blowfish secret or generates one if needed.
-     *
-     * @return string
      */
-    private function getSessionEncryptionSecret()
+    private function getSessionEncryptionSecret(): string
     {
-        if (empty($_SESSION['encryption_key'])) {
-            $_SESSION['encryption_key'] = random_bytes(32);
+        $key = $_SESSION['encryption_key'] ?? null;
+        if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+            return $key;
         }
 
-        return $_SESSION['encryption_key'];
+        $key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $_SESSION['encryption_key'] = $key;
+
+        return $key;
     }
 
-    /**
-     * Concatenates secret in order to make it 16 bytes log
-     *
-     * This doesn't add any security, just ensures the secret
-     * is long enough by copying it.
-     *
-     * @param string $secret Original secret
-     *
-     * @return string
-     */
-    public function enlargeSecret($secret)
+    public function cookieEncrypt(string $data, string $secret): string
     {
-        while (strlen($secret) < 16) {
-            $secret .= $secret;
+        try {
+            $nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
+            $ciphertext = sodium_crypto_secretbox($data, $nonce, $secret);
+        } catch (Throwable $throwable) {
+            return '';
         }
 
-        return substr($secret, 0, 16);
+        return base64_encode($nonce . $ciphertext);
     }
 
-    /**
-     * Derives MAC secret from encryption secret.
-     *
-     * @param string $secret the secret
-     *
-     * @return string the MAC secret
-     */
-    public function getMACSecret($secret)
+    public function cookieDecrypt(string $encryptedData, string $secret): ?string
     {
-        // Grab first part, up to 16 chars
-        // The MAC and AES secrets can overlap if original secret is short
-        $length = strlen($secret);
-        if ($length > 16) {
-            return substr($secret, 0, 16);
+        $encrypted = base64_decode($encryptedData);
+        $nonce = mb_substr($encrypted, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
+        $ciphertext = mb_substr($encrypted, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
+        try {
+            $decrypted = sodium_crypto_secretbox_open($ciphertext, $nonce, $secret);
+        } catch (Throwable $throwable) {
+            return null;
         }
 
-        return $this->enlargeSecret(
-            $length == 1 ? $secret : substr($secret, 0, -1)
-        );
-    }
-
-    /**
-     * Derives AES secret from encryption secret.
-     *
-     * @param string $secret the secret
-     *
-     * @return string the AES secret
-     */
-    public function getAESSecret($secret)
-    {
-        // Grab second part, up to 16 chars
-        // The MAC and AES secrets can overlap if original secret is short
-        $length = strlen($secret);
-        if ($length > 16) {
-            return substr($secret, -16);
+        if (! is_string($decrypted)) {
+            return null;
         }
 
-        return $this->enlargeSecret(
-            $length == 1 ? $secret : substr($secret, 1)
-        );
-    }
-
-    /**
-     * Cleans any SSL errors
-     *
-     * This can happen from corrupted cookies, by invalid encryption
-     * parameters used in older phpMyAdmin versions or by wrong openSSL
-     * configuration.
-     *
-     * In neither case the error is useful to user, but we need to clear
-     * the error buffer as otherwise the errors would pop up later, for
-     * example during MySQL SSL setup.
-     */
-    public function cleanSSLErrors(): void
-    {
-        if (! function_exists('openssl_error_string')) {
-            return;
-        }
-
-        do {
-            $hasSslErrors = openssl_error_string();
-        } while ($hasSslErrors !== false);
-    }
-
-    /**
-     * Encryption using openssl's AES
-     *
-     * @param string $data   original data
-     * @param string $secret the secret
-     *
-     * @return string the encrypted result
-     */
-    public function cookieEncrypt($data, $secret)
-    {
-        $mac_secret = $this->getMACSecret($secret);
-        $aes_secret = $this->getAESSecret($secret);
-        $iv = $this->createIV();
-        $result = openssl_encrypt($data, 'AES-128-CBC', $aes_secret, 0, $iv);
-
-        $this->cleanSSLErrors();
-        $iv = base64_encode($iv);
-
-        return json_encode(
-            [
-                'iv' => $iv,
-                'mac' => hash_hmac('sha1', $iv . $result, $mac_secret),
-                'payload' => $result,
-            ]
-        );
-    }
-
-    /**
-     * Decryption using openssl's AES
-     *
-     * @param string $encdata encrypted data
-     * @param string $secret  the secret
-     *
-     * @return string|false original data, false on error
-     */
-    public function cookieDecrypt($encdata, $secret)
-    {
-        $data = json_decode($encdata, true);
-
-        if (
-            ! isset($data['mac'], $data['iv'], $data['payload'])
-            || ! is_array($data)
-            || ! is_string($data['mac'])
-            || ! is_string($data['iv'])
-            || ! is_string($data['payload'])
-        ) {
-            return false;
-        }
-
-        $mac_secret = $this->getMACSecret($secret);
-        $aes_secret = $this->getAESSecret($secret);
-        $newmac = hash_hmac('sha1', $data['iv'] . $data['payload'], $mac_secret);
-
-        if (! hash_equals($data['mac'], $newmac)) {
-            return false;
-        }
-
-        $result = openssl_decrypt(
-            $data['payload'],
-            'AES-128-CBC',
-            $aes_secret,
-            0,
-            base64_decode($data['iv'])
-        );
-
-        $this->cleanSSLErrors();
-
-        return $result;
-    }
-
-    /**
-     * Returns size of IV for encryption.
-     *
-     * @return int
-     */
-    public function getIVSize()
-    {
-        return openssl_cipher_iv_length('AES-128-CBC');
-    }
-
-    /**
-     * Initialization
-     * Store the initialization vector because it will be needed for
-     * further decryption. I don't think necessary to have one iv
-     * per server so I don't put the server number in the cookie name.
-     *
-     * @return string
-     */
-    public function createIV()
-    {
-        /* Testsuite shortcut only to allow predictable IV */
-        if ($this->cookieIv !== null) {
-            return $this->cookieIv;
-        }
-
-        return random_bytes($this->getIVSize());
-    }
-
-    /**
-     * Sets encryption IV to use
-     *
-     * This is for testing only!
-     *
-     * @param string $vector The IV
-     */
-    public function setIV($vector): void
-    {
-        $this->cookieIv = $vector;
+        return $decrypted;
     }
 
     /**

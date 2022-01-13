@@ -918,11 +918,11 @@ class CoreTest extends AbstractNetworkTestCase
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = Core::signSqlQuery($sqlQuery);
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
-        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         // Try to use the previous HMAC signature
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
 
-        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         // Generate the HMAC signature to check that it works
         $hmac = Core::signSqlQuery($sqlQuery);
         // Must work now, (good secret and blowfish_secret)

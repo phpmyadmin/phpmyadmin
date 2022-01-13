@@ -5706,36 +5706,6 @@ parameters:
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Cannot access offset 'iv' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot access offset 'mac' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot access offset 'payload' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:getIVSize\\(\\) should return int but returns int\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: "#^Parameter \\#2 \\$remoteIp of method ReCaptcha\\\\ReCaptcha\\:\\:verify\\(\\) expects string\\|null, bool\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
@@ -10611,22 +10581,7 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationCookieTest\\:\\:secretsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationCookieTest\\:\\:testCheckRules\\(\\) has parameter \\$rules with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$secret of method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 

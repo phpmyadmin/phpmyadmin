@@ -27,14 +27,15 @@ use function count;
 use function extension_loaded;
 use function file_exists;
 use function ini_get;
+use function mb_strlen;
 use function preg_match;
 use function sprintf;
-use function strlen;
 use function trigger_error;
 
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const PHP_VERSION;
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 class HomeController extends AbstractController
 {
@@ -317,10 +318,14 @@ class HomeController extends AbstractController
                     ),
                     E_USER_WARNING
                 );
-            } elseif (strlen($cfg['blowfish_secret']) < 32) {
+            } elseif (mb_strlen($cfg['blowfish_secret'], '8bit') !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
                 trigger_error(
-                    __(
-                        'The secret passphrase in configuration (blowfish_secret) is too short.'
+                    sprintf(
+                        __(
+                            'The secret passphrase in configuration (blowfish_secret) is not the correct length.'
+                            . ' It should be %d bytes long.'
+                        ),
+                        SODIUM_CRYPTO_SECRETBOX_KEYBYTES
                     ),
                     E_USER_WARNING
                 );
