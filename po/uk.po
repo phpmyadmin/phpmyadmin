@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2022-01-14 11:55+0000\n"
+"PO-Revision-Date: 2022-01-15 12:52+0000\n"
 "Last-Translator: Максим Крикуненко <mxxmus@meta.ua>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "uk/>\n"
@@ -935,13 +935,12 @@ msgstr ""
 "так що інші атрибути запиту, такі як час початку, можуть відрізнятися."
 
 #: js/messages.php:282
-#, fuzzy
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"Оскільки було обрано групування запитів INSERT, INSERT запити в тій же "
+"Оскільки було обрано групування запитів INSERT, запити INSERT в тій же "
 "таблиці також групуються разом, незважаючи на вставлені дані."
 
 #: js/messages.php:287
@@ -4443,7 +4442,7 @@ msgid ""
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
 "Кількість рядків при виведенні результату запиту. Якщо результат містить "
-"декілька рядків,  посилання \"Previous\" та \"Next\" будуть показані."
+"декілька рядків, посилання \"Previous\" та \"Next\" будуть показані."
 
 #: libraries/classes/Config/Descriptions.php:472
 msgid "Maximum number of rows to display"
@@ -15384,10 +15383,8 @@ msgstr ""
 "Хочете справити %sнастройку%s?"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Немає прав."
+msgstr "Немає прав"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:43
@@ -15455,11 +15452,6 @@ msgstr ""
 "cnf, після чого перезапустіть сервер MySQL."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
@@ -15467,7 +15459,7 @@ msgid ""
 msgstr ""
 "Відразу після перезапуску MySQL сервера, будь ласка, натисніть кнопку OK, "
 "після чого ви повинні побачити повідомлення, яке вказує, що даний сервер "
-"<b>налаштований</b> як головний."
+"<strong>налаштований</strong> як головний."
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
