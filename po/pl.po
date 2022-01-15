@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-01-16 23:52+0000\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -313,7 +313,7 @@ msgstr "Nazwa bazy danych jest pusta!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nie można skopiować bazy danych o tej samej nazwie. Zmień nazwę i spróbuj "
+"Nie można skopiować bazy danych pod tę samą nazwę. Zmień nazwę i spróbuj "
 "ponownie."
 
 #: db_operations.php:156
@@ -339,10 +339,8 @@ msgid "You have to choose at least one column to display!"
 msgstr "Musisz wybrać co najmniej jedną kolumnę do wyświetlenia!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Symuluj zapytanie"
+msgstr "Zapytanie wielotabelowe"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
@@ -2111,7 +2109,7 @@ msgstr "Krok"
 
 #: js/messages.php:471
 msgid "The following actions will be performed:"
-msgstr "Zostaną wykonane następujące czynności:"
+msgstr "Wykonane zostaną następujące czynności:"
 
 #: js/messages.php:472
 #, php-format
@@ -2124,7 +2122,7 @@ msgstr "Utwórz tabelę"
 
 #: js/messages.php:476
 msgid "Third step of normalization (3NF)"
-msgstr "Trzeci krok normalizacji (3KN)"
+msgstr "Trzeci krok normalizacji (3NF)"
 
 #: js/messages.php:477
 msgid "Confirm transitive dependencies"
@@ -2318,7 +2316,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr "value/subQuery jest puste"
+msgstr "wartość/podzapytanie jest puste"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2698,7 +2696,7 @@ msgstr "Dodaj prefiks tabeli"
 
 #: js/messages.php:740
 msgid "Replace table with prefix"
-msgstr "Zastąp tabelę prefiksem"
+msgstr "Zastąp tabelę przedrostkiem"
 
 #: js/messages.php:741 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
@@ -6409,22 +6407,17 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Należy używać połączeń SSL, jeśli serwer bazy danych je obsługuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Jeśli uważasz, że jest to konieczne, należy stosować dodatkowe ustawienia "
-"ochrony - ustawienia %suwierzytelniania hosta%s i %slisty zaufanych%s "
-"serwerów proxy. Jednak ochrona IP może nie być wiarygodna, czy IP należy do "
-"ISP, w którym tysiące użytkowników, łącznie z Tobą, są podłączeni."
+"Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony — "
+"ustawień %1$s host uwierzytelniania %2$s i listy zaufanych serwerów proxy %3$"
+"%4%s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój adres "
+"IP należy do dostawcy usług internetowych, z którym połączone są tysiące "
+"użytkowników, w tym Ty."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
 #, php-format
@@ -6806,13 +6799,12 @@ msgid "Find and replace"
 msgstr "Znajdź i Zamień"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:185
-#, fuzzy, php-format
-#| msgid "The column name '%s' is a MySQL reserved keyword."
+#, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Nazwa kolumny '%s' jest słowem kluczowym MySQL."
-msgstr[1] "Nazwa kolumny '%s' jest słowem kluczowym MySQL."
-msgstr[2] "Nazwa kolumny '%s' jest słowem kluczowym MySQL."
+msgstr[0] "Nazwa '%s' jest zastrzeżonym słowem kluczowym MySQL."
+msgstr[1] "Nazwy '%s' to zastrzeżone słowa kluczowe MySQL."
+msgstr[2] "Nazwy '%s' to zastrzeżone słowa kluczowe MySQL."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:273
 msgid "No column selected."
@@ -7110,20 +7102,15 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Wyrazy oddzielone są znakiem spacji (\" \")."
 
 #: libraries/classes/DatabaseInterface.php:1503
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Nie udało się użyć strefy czasowej %1$s dla serwera %2$d. Proszę sprawdź "
-"pliki konfiguracyjne [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin obecnie używa domyślnej strefy czasowej serwera."
+"Nie można użyć strefy czasowej „%1$s” na serwerze %2$d. Sprawdź ustawienia "
+"konfiguracji dla [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin używa obecnie domyślnej strefy czasowej serwera bazy danych."
 
 #: libraries/classes/DatabaseInterface.php:1550
 msgid "Failed to set configured collation connection!"
@@ -8338,17 +8325,17 @@ msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Usuniętych rekordów: %1$d."
-msgstr[1] "Usuniętych rekordów: %1$d."
-msgstr[2] "Usuniętych rekordów: %1$d."
+msgstr[0] "Usunięto wiersz %1$d."
+msgstr[1] "Usunięto %1$d wierszy."
+msgstr[2] "Usunięto %1$d wierszy."
 
 #: libraries/classes/Message.php:285
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Wstawionych rekordów: %1$d."
-msgstr[1] "Wstawionych rekordów: %1$d."
-msgstr[2] "Wstawionych rekordów: %1$d."
+msgstr[0] "Wstawiono wiersz: %1$d."
+msgstr[1] "Wstawiono wiersze: %1$d."
+msgstr[2] "Wstawiono wiersze: %1$d."
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:197
 #: libraries/classes/Operations.php:1286 libraries/classes/Tracking.php:395
@@ -10254,7 +10241,7 @@ msgstr "Sprzętowy klucz bezpieczeństwa (FIDO U2F)"
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
-"Zapewnia uwierzytelnianie przy użyciu sprzętowych tokenów zabezpieczających "
+"Zapewnia uwierzytelnianie za pomocą sprzętowych tokenów bezpieczeństwa "
 "obsługujących FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
@@ -10280,7 +10267,7 @@ msgstr "Brak dwóch czynników"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr "Zaloguj się używając tylko hasła."
+msgstr "Zaloguj się wyłącznie hasłem."
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save recent table!"
@@ -13920,8 +13907,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-"Nie udało się ustawić pliku cookie sesji. Może używasz protokołu HTTP "
-"zamiast HTTPS, aby uzyskać dostęp do phpMyAdmin."
+"Nie udało się ustawić pliku cookie sesji. Być może używasz HTTP zamiast "
+"HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
@@ -14730,8 +14717,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
-"Nie używasz protokołu HTTPS, aby uzyskać dostęp do phpMyAdmin, dlatego "
-"urządzenie FIDO U2F najprawdopodobniej odmówi uwierzytelnienia."
+"Nie używasz https, aby uzyskać dostęp do phpMyAdmin, dlatego urządzenie FIDO "
+"U2F najprawdopodobniej odmówi uwierzytelnienia."
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -14999,7 +14986,7 @@ msgid ""
 "dependencies to enable authentication backends."
 msgstr ""
 "Uwierzytelnianie dwuskładnikowe nie jest dostępne. Zainstaluj opcjonalne "
-"zależności, aby włączyć zaplecze uwierzytelniania."
+"zależności, aby włączyć backendy uwierzytelniania."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
@@ -15015,8 +15002,8 @@ msgstr ""
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"Uwierzytelnianie dwuskładnikowe jest dostępne, ale nie zostało "
-"skonfigurowane dla tego konta."
+"Uwierzytelnianie dwuskładnikowe jest dostępne, ale nie jest skonfigurowane "
+"dla tego konta."
 
 #: templates/prefs_twofactor.twig:24
 msgid ""
@@ -15342,7 +15329,7 @@ msgid ""
 "password only."
 msgstr ""
 "Wyłączając uwierzytelnianie dwuskładnikowe, będziesz mógł ponownie logować "
-"się przy użyciu samego hasła."
+"się tylko przy użyciu hasła."
 
 #: templates/table/structure/row_stats_table.twig:2
 msgid "Row statistics"
@@ -16175,8 +16162,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Zeskanuj poniższy kod QR do aplikacji uwierzytelniania dwuskładnikowego na "
-"swoim urządzeniu i wprowadź wygenerowany kod uwierzytelniający."
+"Zeskanuj poniższy kod QR do aplikacji do uwierzytelniania dwuskładnikowego "
+"na swoim urządzeniu i wprowadź wygenerowany przez nią kod uwierzytelniający."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
@@ -17587,13 +17574,13 @@ msgstr ""
 "Flushing zapytania pamięci podręcznej może pomóc."
 
 #: libraries/advisory_rules_mysql_before80003.txt:29
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
-"Bieżący współczynnik wolnej pamięci pamięci podręcznej zapytań do "
-"całkowitego zapytania wielkości cache to %s. Powinno być powyżej 80%"
+"Bieżący stosunek wolnej pamięci podręcznej zapytań do całkowitego rozmiaru "
+"pamięci podręcznej zapytań wynosi %s%%. Powinno być powyżej 80%%"
 
 #: libraries/advisory_rules_mysql_before80003.txt:31
 msgid "Query cache fragmentation"
