@@ -9085,11 +9085,13 @@
     <MixedArrayOffset occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="14">
       <code>$GLOBALS['pma_auth_server']</code>
       <code>$_form_params['route']</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$captchaSiteVerifyURL</code>
+      <code>$key</code>
+      <code>$key</code>
       <code>$key</code>
       <code>$password</code>
       <code>$serverCookie</code>
@@ -9099,10 +9101,6 @@
       <code>$url_params['route']</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
-      <code>string</code>
-    </MixedInferredReturnType>
     <MixedMethodCall occurrences="6">
       <code>issetCookie</code>
       <code>issetCookie</code>
@@ -9111,18 +9109,10 @@
       <code>removeCookie</code>
       <code>removeCookie</code>
     </MixedMethodCall>
-    <MixedReturnStatement occurrences="2">
-      <code>$GLOBALS['cfg']['blowfish_secret']</code>
-      <code>$_SESSION['encryption_key']</code>
-    </MixedReturnStatement>
     <RedundantCast occurrences="2">
       <code>(int) $GLOBALS['cfg']['LoginCookieStore']</code>
       <code>(string) $conn_error</code>
     </RedundantCast>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>substr($secret, 0, -1)</code>
-      <code>substr($secret, 1)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
     <MixedArgument occurrences="3">
@@ -15440,20 +15430,17 @@
     </MixedArgument>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationCookieTest.php">
-    <MixedArgument occurrences="2">
-      <code>$method-&gt;invoke($this-&gt;object, null)</code>
+    <MixedArgument occurrences="1">
       <code>$result</code>
     </MixedArgument>
     <MixedArrayAssignment occurrences="2">
       <code>$_SESSION['browser_access_time']['default']</code>
       <code>$_SESSION['browser_access_time']['default']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
-      <code>$result</code>
+    <MixedAssignment occurrences="1">
       <code>$result</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="2">
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>

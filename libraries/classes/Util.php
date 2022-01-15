@@ -12,7 +12,6 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Utils\SessionCache;
-use phpseclib3\Crypt\Random;
 use Stringable;
 
 use function __;
@@ -26,7 +25,6 @@ use function array_unique;
 use function basename;
 use function bin2hex;
 use function chr;
-use function class_exists;
 use function count;
 use function ctype_digit;
 use function date;
@@ -64,6 +62,7 @@ use function parse_url;
 use function preg_match;
 use function preg_quote;
 use function preg_replace;
+use function random_bytes;
 use function range;
 use function reset;
 use function round;
@@ -2463,19 +2462,11 @@ class Util
     public static function generateRandom(int $length, bool $asHex = false): string
     {
         $result = '';
-        if (class_exists(Random::class)) {
-            $randomFunction = [
-                Random::class,
-                'string',
-            ];
-        } else {
-            $randomFunction = 'openssl_random_pseudo_bytes';
-        }
 
         while (strlen($result) < $length) {
             // Get random byte and strip highest bit
             // to get ASCII only range
-            $byte = ord((string) $randomFunction(1)) & 0x7f;
+            $byte = ord(random_bytes(1)) & 0x7f;
             // We want only ASCII chars and no DEL character (127)
             if ($byte <= 32 || $byte === 127) {
                 continue;
