@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-01-09 00:12+0000\n"
+"POT-Creation-Date: 2022-01-16 00:13+0000\n"
 "PO-Revision-Date: 2022-01-12 00:56+0000\n"
 "Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12488,8 +12488,8 @@ msgstr "Nécessaire pour les répliques (système de duplication)."
 #: templates/server/privileges/privileges_table.twig:684
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
-"Permet de demander à l'utilisateur où sont les originaux et les répliques ("
-"système de duplication)."
+"Permet de demander à l'utilisateur où sont les originaux et les répliques "
+"(système de duplication)."
 
 #: libraries/classes/Server/Privileges.php:448
 #: templates/server/privileges/privileges_table.twig:524
@@ -18082,8 +18082,8 @@ msgstr ""
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
-"Ce serveur MySQL est <b>l'original</b> dans le processus de "
-"<b>réplication</b>."
+"Ce serveur MySQL est <b>l'original</b> dans le processus de <b>réplication</"
+"b>."
 
 #: templates/server/status/status/index.twig:63
 msgid ""
