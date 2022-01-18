@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-16 00:13+0000\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-01-18 18:01+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4784,7 +4784,7 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Należy używać połączeń SSL, jeśli serwer bazy danych je obsługuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -4792,10 +4792,10 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony — "
-"ustawień %1$shost uwierzytelniania%2$s i listy zaufanych serwerów proxy %3$"
-"%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój adres "
-"IP należy do dostawcy usług internetowych, z którym połączone są tysiące "
-"użytkowników, w tym Ty."
+"ustawień %1$shost uwierzytelniania%2$s i listy zaufanych serwerów proxy "
+"%3$%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
+"adres IP należy do dostawcy usług internetowych, z którym połączone są "
+"tysiące użytkowników, w tym Ty."
 
 #: libraries/classes/Config/ServerConfigChecks.php:195
 #, php-format
