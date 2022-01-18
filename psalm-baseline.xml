@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
+<files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -4127,15 +4127,13 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="6">
       <code>$_POST['view']['as']</code>
       <code>$_POST['view']['as']</code>
       <code>$_POST['view']['column_names']</code>
       <code>$_POST['view']['column_names']</code>
       <code>$_POST['view']['name']</code>
       <code>$_POST['view']['name']</code>
-      <code>$_POST['view']['with']</code>
-      <code>$_POST['view']['with']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="4">
       <code>$urlParams['back']</code>
@@ -9014,12 +9012,12 @@
       <code>$propertyItem-&gt;getName()</code>
       <code>$subgroup_header-&gt;getName()</code>
     </PossiblyNullOperand>
-    <RedundantCast occurrences="1">
-      <code>strtolower</code>
-    </RedundantCast>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$properties != null</code>
     </RedundantConditionGivenDocblockType>
+    <RedundantFunctionCall occurrences="1">
+      <code>strtolower</code>
+    </RedundantFunctionCall>
     <UnnecessaryVarAnnotation occurrences="3">
       <code>RadioPropertyItem</code>
       <code>SelectPropertyItem</code>
@@ -13401,12 +13399,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
+    <MixedArrayAccess occurrences="4">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
       <code>$_POST['criteriaColumnTypes'][$column_index]</code>
       <code>$_POST['criteriaValues'][$column_index]</code>
       <code>$_POST['geom_func'][$column_index]</code>
-      <code>$criteriaValues[0]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="4">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
