@@ -15,6 +15,7 @@ use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
+use PHPUnit\Framework\Assert;
 
 use function addslashes;
 use function count;
@@ -239,9 +240,7 @@ class DbiDummy implements DbiExtension
             return new DummyResult($this, $i + self::OFFSET_GLOBAL);
         }
 
-        echo 'Not supported query: ' . $query . "\n";
-
-        return false;
+        Assert::markTestIncomplete('Not supported query: ' . $query);
     }
 
     /**
