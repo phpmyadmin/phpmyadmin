@@ -22,7 +22,6 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function array_keys;
 use function array_map;
-use function array_sum;
 use function bin2hex;
 use function ceil;
 use function count;
@@ -33,7 +32,6 @@ use function in_array;
 use function is_array;
 use function is_bool;
 use function is_object;
-use function microtime;
 use function session_start;
 use function session_write_close;
 use function sprintf;
@@ -606,38 +604,6 @@ class Sql
     }
 
     /**
-     * Executes the SQL query and measures its execution time
-     *
-     * @param string $fullSqlQuery the full sql query
-     *
-     * @return array ($result, $querytime)
-     * @psalm-return array{ResultInterface|false, int|float}
-     */
-    private function executeQueryAndMeasureTime($fullSqlQuery)
-    {
-        if (! defined('TESTSUITE')) {
-            // close session in case the query takes too long
-            session_write_close();
-        }
-
-        // Measure query time.
-        $queryTimeBefore = array_sum(explode(' ', microtime()));
-
-        $result = $this->dbi->tryQuery($fullSqlQuery);
-        $queryTimeAfter = array_sum(explode(' ', microtime()));
-
-        if (! defined('TESTSUITE')) {
-            // reopen session
-            session_start();
-        }
-
-        return [
-            $result,
-            $queryTimeAfter - $queryTimeBefore,
-        ];
-    }
-
-    /**
      * Function to get the affected or changed number of rows after executing a query
      *
      * @param bool                  $isAffected whether the query affected a table
@@ -842,10 +808,18 @@ class Sql
         } else { // If we don't ask to see the php code
             Profiling::enable($this->dbi);
 
-            [
-                $result,
-                $GLOBALS['querytime'],
-            ] = $this->executeQueryAndMeasureTime($fullSqlQuery);
+            if (! defined('TESTSUITE')) {
+                // close session in case the query takes too long
+                session_write_close();
+            }
+
+            $result = $this->dbi->tryQuery($fullSqlQuery);
+            $GLOBALS['querytime'] = $this->dbi->lastQueryExecutionTime;
+
+            if (! defined('TESTSUITE')) {
+                // reopen session
+                session_start();
+            }
 
             // Displays an error message if required and stop parsing the script
             $error = $this->dbi->getError();

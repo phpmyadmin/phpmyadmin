@@ -139,6 +139,9 @@ class DatabaseInterface implements DbalInterface
     /** @var Cache */
     private $cache;
 
+    /** @var float */
+    public $lastQueryExecutionTime = 0;
+
     /**
      * @param DbiExtension $ext Object to be used for database queries
      */
@@ -210,10 +213,7 @@ class DatabaseInterface implements DbalInterface
             return false;
         }
 
-        $time = 0;
-        if ($debug) {
-            $time = microtime(true);
-        }
+        $time = microtime(true);
 
         $result = $this->extension->realQuery($query, $this->links[$link], $options);
 
@@ -221,14 +221,14 @@ class DatabaseInterface implements DbalInterface
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($link, false);
         }
 
+        $this->lastQueryExecutionTime = microtime(true) - $time;
         if ($debug) {
-            $time = microtime(true) - $time;
             $errorMessage = $this->getError($link);
             Utilities::debugLogQueryIntoSession(
                 $query,
                 $errorMessage !== '' ? $errorMessage : null,
                 $result,
-                $time
+                $this->lastQueryExecutionTime
             );
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
                 $warningsCount = 0;
@@ -244,7 +244,7 @@ class DatabaseInterface implements DbalInterface
                         'SQL[%s?route=%s]: %0.3f(W:%d,C:%s,L:0x%02X) > %s',
                         basename($_SERVER['SCRIPT_NAME']),
                         Routing::getCurrentRoute(),
-                        $time,
+                        $this->lastQueryExecutionTime,
                         $warningsCount,
                         $cache_affected_rows ? 'y' : 'n',
                         $link,
