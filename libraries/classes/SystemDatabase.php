@@ -67,7 +67,7 @@ class SystemDatabase
      * @return string SQL query for new transformations
      */
     public function getNewTransformationDataSql(
-        $transformationData,
+        ResultInterface $transformationData,
         array $columnMap,
         $viewName,
         $db
@@ -90,7 +90,7 @@ class SystemDatabase
         $columnCount = 0;
         $addComma = false;
 
-        while ($dataRow = $this->dbi->fetchAssoc($transformationData)) {
+        while ($dataRow = $transformationData->fetchAssoc()) {
             foreach ($columnMap as $column) {
                 if (
                     $dataRow['table_name'] != $column['table_name']

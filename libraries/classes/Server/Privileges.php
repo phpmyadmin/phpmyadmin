@@ -1640,12 +1640,7 @@ class Privileges
             $sqlQuery = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
                 . $this->dbi->escapeString($_GET['username']) . "';";
             $res = $this->dbi->query($sqlQuery);
-            $row = $this->dbi->fetchRow($res);
-            if ($row === []) {
-                $extraData['user_exists'] = false;
-            } else {
-                $extraData['user_exists'] = true;
-            }
+            $extraData['user_exists'] = $res->fetchRow() !== [];
         }
 
         return $extraData;
@@ -2086,7 +2081,7 @@ class Privileges
             'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC'
         );
         if ($initials) {
-            while ($tmpInitial = $this->dbi->fetchRow($initials)) {
+            while ($tmpInitial = $initials->fetchRow()) {
                 $arrayInitials[$tmpInitial[0]] = true;
             }
         }
@@ -3207,7 +3202,7 @@ class Privileges
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
             . $userHostCondition
         );
-        while ($row = $this->dbi->fetchAssoc($res)) {
+        while ($row = $res->fetchAssoc()) {
             $res2 = $this->dbi->query(
                 'SELECT `Column_name`, `Column_priv`'
                 . ' FROM `mysql`.`columns_priv`'
@@ -3230,7 +3225,7 @@ class Privileges
                 'References' => [],
             ];
 
-            while ($row2 = $this->dbi->fetchAssoc($res2)) {
+            while ($row2 = $res2->fetchAssoc()) {
                 $tmpArray = explode(',', $row2['Column_priv']);
                 if (in_array('Select', $tmpArray)) {
                     $tmpPrivs2['Select'][] = $row2['Column_name'];
@@ -3449,7 +3444,7 @@ class Privileges
             return false;
         }
 
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             if ($row['Status'] === 'ACTIVE') {
                 return true;
             }

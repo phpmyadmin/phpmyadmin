@@ -488,9 +488,8 @@ class TrackerTest extends AbstractTestCase
             ->method('queryAsControlUser')
             ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->with($resultStub)
             ->will($this->returnValue($fetchArrayReturn));
 
         $dbi->expects($this->any())

@@ -1671,9 +1671,19 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetHtmlForInitials(): void
     {
         // Setup for the test
-        $GLOBALS['dbi']->expects($this->any())->method('fetchRow')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $resultStub = $this->createMock(DummyResult::class);
+
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->atLeastOnce())
+            ->method('fetchRow')
             ->will($this->onConsecutiveCalls(['-'], []));
-        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
+        $this->serverPrivileges->dbi = $dbi;
+
         $actual = $this->serverPrivileges->getHtmlForInitials(['"' => true]);
         $this->assertStringContainsString(
             '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">A</a>',

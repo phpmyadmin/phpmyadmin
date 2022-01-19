@@ -474,7 +474,7 @@ class Generator
         $devider .= "\n";
 
         $ret .= $devider . $columnNames . "\n" . $devider;
-        while ($row = $dbi->fetchRow($result)) {
+        while ($row = $result->fetchRow()) {
             $values = '|';
             foreach ($row as $value) {
                 if ($value === null) {

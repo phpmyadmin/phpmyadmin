@@ -50,7 +50,7 @@ class DbiDummyTest extends AbstractTestCase
     {
         $result = $this->dbi->tryQuery('SELECT 1');
         $this->assertNotFalse($result);
-        $this->assertSame(['1'], $this->dbi->fetchRow($result));
+        $this->assertSame(['1'], $result->fetchRow());
     }
 
     /**

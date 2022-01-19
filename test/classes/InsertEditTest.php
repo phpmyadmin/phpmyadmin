@@ -182,12 +182,13 @@ class InsertEditTest extends AbstractTestCase
             ->method('query')
             ->willReturnOnConsecutiveCalls($resultStub1, $resultStub2);
 
-        $dbi->expects($this->exactly(2))
+        $resultStub1->expects($this->once())
             ->method('fetchAssoc')
-            ->willReturnOnConsecutiveCalls(
-                ['assoc1'],
-                ['assoc2']
-            );
+            ->will($this->returnValue(['assoc1']));
+
+        $resultStub2->expects($this->once())
+            ->method('fetchAssoc')
+            ->will($this->returnValue(['assoc2']));
 
         $dbi->expects($this->exactly(2))
             ->method('getFieldsMeta')

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Transformations;
@@ -55,7 +56,7 @@ class Pdf extends PdfLib
     /** @var array */
     private $colTitles;
 
-    /** @var mixed */
+    /** @var ResultInterface */
     private $results;
 
     /** @var array */
@@ -241,8 +242,6 @@ class Pdf extends PdfLib
      */
     public function morepagestable($lineheight = 8): void
     {
-        global $dbi;
-
         // some things to set and 'remember'
         $l = $this->lMargin;
         $startheight = $h = $this->dataY;
@@ -259,7 +258,7 @@ class Pdf extends PdfLib
         $tmpheight = [];
         $maxpage = $this->page;
 
-        while ($data = $dbi->fetchRow($this->results)) {
+        while ($data = $this->results->fetchRow()) {
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth + $l, $h);
@@ -799,7 +798,7 @@ class Pdf extends PdfLib
         /**
          * @todo force here a LIMIT to avoid reading all rows
          */
-        while ($row = $dbi->fetchRow($this->results)) {
+        while ($row = $this->results->fetchRow()) {
             foreach ($colFits as $key => $val) {
                 /** @var float $stringWidth */
                 $stringWidth = $this->GetStringWidth($row[$key]);

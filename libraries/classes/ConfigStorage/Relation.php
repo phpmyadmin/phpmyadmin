@@ -1753,7 +1753,7 @@ class Relation
     {
         $tables = [];
         $tablesRows = $this->dbi->query('SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb));
-        while ($row = $this->dbi->fetchRow($tablesRows)) {
+        while ($row = $tablesRows->fetchRow()) {
             if (! isset($row[1]) || mb_strtoupper($row[1]) != $tblStorageEngine) {
                 continue;
             }

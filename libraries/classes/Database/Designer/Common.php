@@ -102,7 +102,7 @@ class Common
                 )
             );
             $j = 0;
-            while ($row = $this->dbi->fetchAssoc($fieldsRs)) {
+            while ($row = $fieldsRs->fetchAssoc()) {
                 if (! isset($tabColumn[$designerTable->getDbTableString()])) {
                     $tabColumn[$designerTable->getDbTableString()] = [];
                 }

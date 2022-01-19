@@ -265,15 +265,15 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->any())->method('insertId')
             ->will($this->returnValue(10));
 
-        $dbi->expects($this->any())->method('fetchAssoc')
-            ->will($this->returnValue(null));
+        $resultStub->expects($this->any())->method('fetchAssoc')
+            ->will($this->returnValue([]));
 
         $value = ['Auto_increment' => 'Auto_increment'];
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($value));
 
-        $dbi->expects($this->any())->method('fetchRow')
-            ->will($this->returnValue(null));
+        $resultStub->expects($this->any())->method('fetchRow')
+            ->will($this->returnValue([]));
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));

@@ -705,20 +705,20 @@ class Node
 
         $maxItems = $cfg['FirstLevelNavigationItems'];
         if (! $cfg['NavigationTreeEnableGrouping'] || ! $cfg['ShowDatabasesNavigationAsTree']) {
-            $retval = [];
             $handle = $dbi->tryQuery(sprintf(
                 'SHOW DATABASES %s',
                 $this->getWhereClause('Database', $searchClause)
             ));
             if ($handle === false) {
-                return $retval;
+                return [];
             }
 
             $count = 0;
-            if (! $dbi->dataSeek($handle, $pos)) {
-                return $retval;
+            if (! $handle->seek($pos)) {
+                return [];
             }
 
+            $retval = [];
             while ($arr = $handle->fetchRow()) {
                 if ($count >= $maxItems) {
                     break;

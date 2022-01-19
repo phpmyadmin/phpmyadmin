@@ -116,6 +116,11 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
+			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/CheckUserPrivileges.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:display\\(\\) has parameter \\$filesInfo with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
@@ -937,6 +942,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, 'strnatcasecmp' given\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -2561,11 +2571,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchByMode\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -2577,11 +2582,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchResult\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2711,11 +2711,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#3 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchValue\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#3 \\.\\.\\.\\$args of function array_map expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -2746,22 +2741,12 @@ parameters:
 			path: libraries/classes/Dbal/DbalInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:fetchAssoc\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:fetchResult\\(\\) has parameter \\$key with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:fetchResult\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:fetchRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 
@@ -6081,6 +6066,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
+			message: "#^Parameter \\#3 \\$txt of method TCPDF\\:\\:MultiCell\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$aliases type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -7196,6 +7186,11 @@ parameters:
 			path: libraries/classes/Server/Plugins.php
 
 		-
+			message: "#^Parameter \\#1 \\$description of method PhpMyAdmin\\\\Server\\\\Plugins\\:\\:getTranslatedDescription\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Server/Plugins.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) has parameter \\$dbname with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -7426,8 +7421,13 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
+			count: 2
+			path: libraries/classes/Server/Privileges.php
+
+		-
 			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|null given\\.$#"
-			count: 1
+			count: 3
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -7556,6 +7556,21 @@ parameters:
 			path: libraries/classes/Server/Status/Data.php
 
 		-
+			message: "#^Binary operation \"\\-\" between string\\|null and 1 results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
+			message: "#^Cannot access offset int\\<\\-1, max\\> on float\\|int\\<2, max\\>\\|string\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
+			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
+			count: 2
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
 			message: "#^Cannot call method loadavg\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Monitor.php
@@ -7651,18 +7666,38 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
+			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects PhpMyAdmin\\\\Dbal\\\\ResultInterface, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$ret of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForChartingDataGet\\(\\) expects array, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Parameter \\#1 \\$ret of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForChartingDataGet\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$str of function mb_strlen expects string, string\\|null given\\.$#"
+			count: 4
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function strlen expects string, float\\|int\\<2, max\\>\\|string\\|null given\\.$#"
 			count: 1
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|null given\\.$#"
+			count: 2
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-

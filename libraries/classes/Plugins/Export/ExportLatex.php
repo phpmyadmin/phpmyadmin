@@ -297,7 +297,7 @@ class ExportLatex extends ExportPlugin
 
         $result = $dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
-        $columns_cnt = $dbi->numFields($result);
+        $columns_cnt = $result->numFields();
         $columns = [];
         $columns_alias = [];
         foreach ($result->getFieldNames() as $i => $col_as) {

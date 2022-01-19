@@ -289,7 +289,7 @@ class Monitor
             'sum' => [],
         ];
 
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $type = mb_strtolower(
                 mb_substr(
                     $row['sql_text'],
@@ -374,7 +374,7 @@ class Monitor
         $insertTablesFirst = -1;
         $i = 0;
 
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             preg_match('/^(\w+)\s/', $row['argument'], $match);
             $type = mb_strtolower($match[1]);
 

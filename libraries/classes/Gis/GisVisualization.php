@@ -241,7 +241,7 @@ class GisVisualization
      *
      * @return array the raw data.
      */
-    private function fetchRawData()
+    private function fetchRawData(): array
     {
         global $dbi;
 
@@ -251,12 +251,7 @@ class GisVisualization
             return [];
         }
 
-        $data = [];
-        while ($row = $dbi->fetchAssoc($modified_result)) {
-            $data[] = $row;
-        }
-
-        return $data;
+        return $modified_result->fetchAllAssoc();
     }
 
     /**

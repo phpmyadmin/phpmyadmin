@@ -172,7 +172,7 @@ class InsertEdit
                 . Util::backquote($table)
                 . ' WHERE ' . $whereClause . ';';
             $result[$keyId] = $this->dbi->query($localQuery);
-            $rows[$keyId] = $this->dbi->fetchAssoc($result[$keyId]);
+            $rows[$keyId] = $result[$keyId]->fetchAssoc();
 
             $whereClauses[$keyId] = str_replace('\\', '\\\\', $whereClause);
             $hasUniqueCondition = $this->showEmptyResultMessageOrSetUniqueCondition(
@@ -2054,7 +2054,7 @@ class InsertEdit
         int $columnNumber,
         array $commentsMap,
         $timestampSeen,
-        $currentResult,
+        ResultInterface $currentResult,
         $chgEvtHandler,
         $jsvkey,
         $vkey,
@@ -2435,7 +2435,7 @@ class InsertEdit
         array $tableColumns,
         array $commentsMap,
         $timestampSeen,
-        $currentResult,
+        ResultInterface $currentResult,
         $chgEvtHandler,
         $jsvkey,
         $vkey,

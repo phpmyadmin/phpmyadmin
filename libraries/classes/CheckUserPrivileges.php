@@ -196,7 +196,7 @@ class CheckUserPrivileges
         $re0 = '(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
         $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
-        while ($row = $this->dbi->fetchRow($showGrantsResult)) {
+        while ($row = $showGrantsResult->fetchRow()) {
             [
                 $showGrantsString,
                 $showGrantsDbName,
