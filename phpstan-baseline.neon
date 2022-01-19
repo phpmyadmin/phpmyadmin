@@ -7791,11 +7791,6 @@ parameters:
 			path: libraries/classes/Setup/Index.php
 
 		-
-			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -7976,13 +7971,23 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$numberOfLine of method PhpMyAdmin\\\\Sql\\:\\:getStartPosToDisplayRow\\(\\) expects int, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForAffectedRows\\(\\) expects int, int\\|string given\\.$#"
+			count: 2
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForDeletedRows\\(\\) expects int, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$numberOfLine of method PhpMyAdmin\\\\Sql\\:\\:getStartPosToDisplayRow\\(\\) expects int, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForInsertedRows\\(\\) expects int, int\\|string given\\.$#"
+			count: 1
 			path: libraries/classes/Sql.php
 
 		-
@@ -7996,17 +8001,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:deleteTransformationInfo\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -8016,43 +8011,8 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#3 \\$isModifyLink of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, string given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#3 \\$sqlData of method PhpMyAdmin\\\\Sql\\:\\:getHtmlForPreviousUpdateQuery\\(\\) expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#7 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#8 \\$extraData of method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Variable \\$db on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 2
 			path: libraries/classes/Sql.php
 
 		-
