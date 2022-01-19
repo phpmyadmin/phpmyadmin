@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @param string $identifier
+ * @return array{
+ *     upload_id: string,
+ *     fieldname: string,
+ *     filename: string,
+ *     time_start: int,
+ *     time_last: int,
+ *     speed_average: int,
+ *     speed_last: int,
+ *     bytes_uploaded: int,
+ *     bytes_total: int,
+ *     files_uploaded: int,
+ *     est_sec: int
+ * }|null
+ */
+function uploadprogress_get_info(string $identifier): ?array {}

@@ -191,6 +191,9 @@
       <code>mb_strpos($row, ' ON ')</code>
       <code>mb_strpos($row, ' ON ')</code>
     </PossiblyFalseOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>$row[0]</code>
+    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Command/CacheWarmupCommand.php">
     <MixedArgument occurrences="2">
@@ -5380,7 +5383,7 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="51">
+    <MixedArgument occurrences="50">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
@@ -5391,7 +5394,6 @@
       <code>$grant</code>
       <code>$host</code>
       <code>$host</code>
-      <code>$link</code>
       <code>$link</code>
       <code>$link</code>
       <code>$link</code>
@@ -10505,14 +10507,10 @@
     <MixedArgument occurrences="1">
       <code>$_SESSION[$SESSION_KEY]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="7">
+    <MixedArrayAccess occurrences="3">
       <code>$_SESSION[$SESSION_KEY][$id]</code>
       <code>$ret['finished']</code>
       <code>$ret['total']</code>
-      <code>$status['bytes_total']</code>
-      <code>$status['bytes_total']</code>
-      <code>$status['bytes_uploaded']</code>
-      <code>$status['bytes_uploaded']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="7">
       <code>$_SESSION[$SESSION_KEY][$id]</code>
@@ -10529,20 +10527,13 @@
       <code>$_SESSION[$SESSION_KEY]</code>
       <code>$_SESSION[$SESSION_KEY]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="2">
       <code>$_SESSION[$SESSION_KEY][$id]</code>
       <code>$ret</code>
-      <code>$ret['complete']</code>
-      <code>$ret['percent']</code>
-      <code>$ret['total']</code>
-      <code>$status</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array|null</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
-      <code>$ret['complete']</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="2">
       <code>$ret</code>
       <code>$ret</code>

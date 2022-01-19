@@ -13,7 +13,6 @@ use PhpMyAdmin\Plugins\UploadInterface;
 use function array_key_exists;
 use function function_exists;
 use function trim;
-use function uploadprogress_get_info;
 
 /**
  * Implementation for upload progress
@@ -67,7 +66,8 @@ class UploadProgress implements UploadInterface
         $status = null;
         // @see https://pecl.php.net/package/uploadprogress
         if (function_exists('uploadprogress_get_info')) {
-            $status = uploadprogress_get_info($id);
+            // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
+            $status = \uploadprogress_get_info($id);
         }
 
         if ($status) {

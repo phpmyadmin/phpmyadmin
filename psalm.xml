@@ -25,6 +25,10 @@
         </ignoreFiles>
     </projectFiles>
 
+    <stubs>
+        <file name="test/stubs/uploadprogress.stub"/>
+    </stubs>
+
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>

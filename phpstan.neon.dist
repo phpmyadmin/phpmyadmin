@@ -8,6 +8,8 @@ parameters:
         - libraries/constants.php
     bootstrapFiles:
         - test/phpstan-constants.php
+    stubFiles:
+        - test/stubs/uploadprogress.stub
     excludePaths:
         - examples/openid.php
         - node_modules/*
