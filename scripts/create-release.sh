@@ -223,12 +223,6 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
-    find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f \
-        -not -name AES.php \
-        -not -name Base.php \
-        -not -name Random.php \
-        -not -name Rijndael.php \
-        -print0 | xargs -0 rm
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
