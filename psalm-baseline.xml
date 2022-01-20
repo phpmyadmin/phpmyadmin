@@ -2,11 +2,8 @@
 <files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
-      <code>global $route, $containerBuilder;</code>
+      <code>global $containerBuilder;</code>
     </InvalidGlobal>
-    <MixedArgument occurrences="1">
-      <code>$route</code>
-    </MixedArgument>
   </file>
   <file src="js/messages.php">
     <UnusedVariable occurrences="1">
@@ -6444,11 +6441,10 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$params</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$info</code>
       <code>$params['checkprivsdb']</code>
       <code>$params['checkprivstable']</code>
-      <code>$params['route']</code>
       <code>$params['server']</code>
       <code>$params['single_table']</code>
       <code>$params['viewing_mode']</code>
@@ -9069,18 +9065,14 @@
       <code>$serverCookie</code>
       <code>$tmp_host</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$url_params</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="12">
       <code>$GLOBALS['pma_auth_server']</code>
-      <code>$_form_params['route']</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$key</code>
@@ -9091,7 +9083,6 @@
       <code>$serverCookie</code>
       <code>$this-&gt;password</code>
       <code>$tmp_host</code>
-      <code>$url_params['route']</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="6">

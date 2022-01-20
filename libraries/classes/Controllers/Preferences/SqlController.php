@@ -10,6 +10,7 @@ use PhpMyAdmin\Config\Forms\User\SqlForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
@@ -44,7 +45,9 @@ class SqlController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $cf, $error, $tabHash, $hash, $server, $route;
+        global $cfg, $cf, $error, $tabHash, $hash, $server;
+
+        $route = Routing::getCurrentRoute();
 
         $cf = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($cf);

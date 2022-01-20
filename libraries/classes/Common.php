@@ -81,7 +81,7 @@ final class Common
     public static function run(): void
     {
         global $containerBuilder, $errorHandler, $config, $server, $dbi;
-        global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
+        global $lang, $cfg, $isConfigLoading, $auth_plugin, $theme;
         global $urlParams, $isMinimumCommon, $sql_query, $token_mismatch;
 
         $request = self::getRequest();

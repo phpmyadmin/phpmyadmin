@@ -1817,11 +1817,9 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetFormForChangePassword(): void
     {
-        global $route;
-
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $route = '/server/privileges';
+        $_GET['route'] = '/server/privileges';
 
         $html = $this->serverPrivileges->getFormForChangePassword($username, $hostname, false);
 

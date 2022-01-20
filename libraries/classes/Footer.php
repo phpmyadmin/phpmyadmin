@@ -140,12 +140,10 @@ class Footer
      */
     public function getSelfUrl(): string
     {
-        global $route, $db, $table, $server;
+        global $db, $table, $server;
 
         $params = [];
-        if (isset($route)) {
-            $params['route'] = $route;
-        }
+        $params['route'] = Routing::getCurrentRoute();
 
         if (isset($db) && strlen($db) > 0) {
             $params['db'] = $db;
