@@ -197,6 +197,7 @@ class ErrorReport
             unset($queryArray["table"]);
             unset($queryArray["token"]);
             unset($queryArray["server"]);
+            unset($queryArray["eq"]);
             $query = http_build_query($queryArray);
         } else {
             $query = '';

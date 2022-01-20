@@ -1507,7 +1507,8 @@ class Operations
     {
         return '<li>'
             . Util::linkOrButton(
-                'sql.php' . Url::getCommon(array_merge($url_params, $params)),
+                'sql.php',
+                array_merge($url_params, $params),
                 $action_message,
                 ['class' => 'maintain_action ajax']
             )
@@ -1567,7 +1568,8 @@ class Operations
     public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
         return '<li>' . Util::linkOrButton(
-                'sql.php' . Url::getCommon($url_params),
+                'sql.php',
+                $url_params,
                 $link,
                 array('id' => $htmlId, 'class' => 'ajax')
             )

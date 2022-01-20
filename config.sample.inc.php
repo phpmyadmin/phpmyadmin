@@ -149,6 +149,13 @@ $cfg['SaveDir'] = '';
 //$cfg['SendErrorReports'] = 'always';
 
 /**
+ * 'URLQueryEncryption' defines whether phpMyAdmin will encrypt sensitive data from the URL query string.
+ * 'URLQueryEncryptionSecretKey' is a 32 bytes long secret key used to encrypt/decrypt the URL query string.
+ */
+//$cfg['URLQueryEncryption'] = true;
+//$cfg['URLQueryEncryptionSecretKey'] = '';
+
+/**
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */

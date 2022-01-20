@@ -741,7 +741,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php" data-post="' . Url::getCommon($this_params, '')
+                $r .= '" href="tbl_indexes.php" data-post="' . Url::getCommon($this_params, '', false)
                    . '">' . Util::getIcon('b_edit', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
@@ -766,7 +766,8 @@ class Index
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '" />';
                 $r .= Util::linkOrButton(
-                    'sql.php' . Url::getCommon($this_params),
+                    'sql.php',
+                    $this_params,
                     Util::getIcon('b_drop', __('Drop')),
                     array('class' => 'drop_primary_key_index_anchor ajax')
                 );

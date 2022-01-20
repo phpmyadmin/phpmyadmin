@@ -11,6 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Url;
 use stdClass;
 
 /**
@@ -50,6 +51,7 @@ class CoreTest extends PmaTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = 'http://example.net/';
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
     }
 
     /**
@@ -1225,5 +1227,62 @@ class CoreTest extends PmaTestCase
         $hmac = Core::signSqlQuery($sqlQuery);
         // Must work now, (good secret and blowfish_secret)
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * @return void
+     */
+    public function testPopulateRequestWithEncryptedQueryParams()
+    {
+        global $PMA_Config;
+
+        $_SESSION = [];
+        $PMA_Config->set('URLQueryEncryption', true);
+        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $_GET = ['pos' => '0', 'eq' => Url::encryptQuery('{"db":"test_db","table":"test_table"}')];
+        $_REQUEST = $_GET;
+
+        Core::populateRequestWithEncryptedQueryParams();
+
+        $expected = ['pos' => '0', 'db' => 'test_db', 'table' => 'test_table'];
+
+        $this->assertEquals($expected, $_GET);
+        $this->assertEquals($expected, $_REQUEST);
+    }
+
+    /**
+     * @return void
+     *
+     * @dataProvider providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam
+     */
+    public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam($encrypted, $decrypted)
+    {
+        global $PMA_Config;
+
+        $_SESSION = [];
+        $PMA_Config->set('URLQueryEncryption', true);
+        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $_GET = $encrypted;
+        $_REQUEST = $encrypted;
+
+        Core::populateRequestWithEncryptedQueryParams();
+
+        $this->assertEquals($decrypted, $_GET);
+        $this->assertEquals($decrypted, $_REQUEST);
+    }
+
+    /**
+     * @return string[][][]
+     */
+    public function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam()
+    {
+        return [
+            [[], []],
+            [['eq' => []], []],
+            [['eq' => ''], []],
+            [['eq' => 'invalid'], []],
+        ];
     }
 }
