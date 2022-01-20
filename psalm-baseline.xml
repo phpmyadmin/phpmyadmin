@@ -11906,12 +11906,6 @@
       <code>isset($dbi)</code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Routing.php">
-    <MixedArgument occurrences="2">
-      <code>$_GET['db']</code>
-      <code>$_GET['table']</code>
-    </MixedArgument>
-  </file>
   <file src="libraries/classes/Sanitize.php">
     <MixedArgument occurrences="6">
       <code>$found[1]</code>

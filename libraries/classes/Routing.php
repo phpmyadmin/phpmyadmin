@@ -20,7 +20,6 @@ use function htmlspecialchars;
 use function is_array;
 use function is_readable;
 use function is_writable;
-use function mb_strlen;
 use function rawurldecode;
 use function sprintf;
 use function trigger_error;
@@ -129,9 +128,9 @@ class Routing
          *
          * @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34
          */
-        if (($route === '/' || $route === '') && isset($_GET['db']) && mb_strlen($_GET['db']) !== 0) {
+        if (($route === '/' || $route === '') && isset($_GET['db']) && $_GET['db'] !== '') {
             $route = '/database/structure';
-            if (isset($_GET['table']) && mb_strlen($_GET['table']) !== 0) {
+            if (isset($_GET['table']) && $_GET['table'] !== '') {
                 $route = '/sql';
             }
         }
