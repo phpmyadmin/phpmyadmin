@@ -32,17 +32,20 @@ for type in "$@" ; do
         english)
             rm -rf po
             rm -rf locale
+            rm -rf vendor/phpmyadmin/sql-parser/locale
             exit 0
             ;;
         *)
-            match="$match -and -not -name $type.po -and -not -path locale/$type/LC_MESSAGES/phpmyadmin.mo"
+            match="$match -and -not -name $type.po -and -not -path locale/$type/LC_MESSAGES/phpmyadmin.mo -and -not -path vendor/phpmyadmin/sql-parser/locale/$type/LC_MESSAGES/sqlparser.mo"
             ;;
     esac
 done
 
-# Delete unvanted languages
-find po locale -type f $match -print0 | xargs -0r rm
+# Delete unwanted languages
+find po locale vendor/phpmyadmin/sql-parser/locale -type f $match -print0 | xargs -0r rm
 
 # Delete empty directories
 rmdir --ignore-fail-on-non-empty locale/*/*
 rmdir --ignore-fail-on-non-empty locale/*
+rmdir --ignore-fail-on-non-empty vendor/phpmyadmin/sql-parser/locale/*/*
+rmdir --ignore-fail-on-non-empty vendor/phpmyadmin/sql-parser/locale/*

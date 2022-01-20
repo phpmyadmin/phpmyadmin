@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Export\Options;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Response;
@@ -61,8 +60,6 @@ class ExportController extends AbstractController
         $url_params['goto'] = Url::getFromRoute('/table/export');
         $url_params['back'] = Url::getFromRoute('/table/export');
 
-        $message = '';
-
         // When we have some query, we need to remove LIMIT from that and possibly
         // generate WHERE clause (if we are asked to export specific rows)
 
@@ -93,8 +90,6 @@ class ExportController extends AbstractController
                     $replaces
                 );
             }
-
-            $message = Generator::getMessage(Message::success());
         }
 
         if (! isset($sql_query)) {
@@ -107,7 +102,7 @@ class ExportController extends AbstractController
             $unlim_num_rows = 0;
         }
 
-        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
+        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
 
         $exportList = Plugins::getExport('table', isset($GLOBALS['single_table']));
 
@@ -119,8 +114,14 @@ class ExportController extends AbstractController
             return;
         }
 
+        $exportType = 'table';
+        $isReturnBackFromRawExport = isset($_POST['export_type']) && $_POST['export_type'] === 'raw';
+        if (isset($_POST['raw_query']) || $isReturnBackFromRawExport) {
+            $exportType = 'raw';
+        }
+
         $options = $this->export->getOptions(
-            'table',
+            $exportType,
             $db,
             $table,
             $sql_query,
@@ -130,9 +131,9 @@ class ExportController extends AbstractController
         );
 
         $this->render('table/export/index', array_merge($options, [
+            'export_type' => $exportType,
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
-            'message' => $message,
         ]));
     }
 

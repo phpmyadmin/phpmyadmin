@@ -237,8 +237,16 @@ class DatabaseInterface implements DbalInterface
 
                 syslog(
                     LOG_INFO,
-                    'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
-                    . sprintf('%0.3f', $time) . '(W:' . $warningsCount . ') > ' . $query
+                    sprintf(
+                        'SQL[%s?route=%s]: %0.3f(W:%s,C:%s,L:0x%02X) > %s',
+                        basename($_SERVER['SCRIPT_NAME']),
+                        Routing::getCurrentRoute(),
+                        $time,
+                        $warningsCount,
+                        $cache_affected_rows ? 'y' : 'n',
+                        $link,
+                        $query
+                    )
                 );
                 closelog();
             }
@@ -1160,22 +1168,25 @@ class DatabaseInterface implements DbalInterface
      */
     public function initRelationParamsCache()
     {
-        if (strlen($GLOBALS['db'])) {
-            $cfgRelation = $this->relation->getRelationsParam();
-            if (empty($cfgRelation['db'])) {
-                $this->relation->fixPmaTables($GLOBALS['db'], false);
-            }
-        }
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! empty($cfgRelation['db']) || ! isset($GLOBALS['dblist'])) {
+        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+        // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
+        $storageDbName = $storageDbName !== null && is_string($storageDbName) && $storageDbName !== ''
+            ? $storageDbName
+            : 'phpmyadmin';
+
+        // This will make users not having explicitly listed databases
+        // have config values filled by the default phpMyAdmin storage table name values
+        $this->relation->fixPmaTables($storageDbName, false);
+
+        // This global will be changed if fixPmaTables did find one valid table
+        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+
+        // Empty means that until now no pmadb was found eligible
+        if (! empty($storageDbName)) {
             return;
         }
 
-        if (! $GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-            return;
-        }
-
-        $this->relation->fixPmaTables('phpmyadmin', false);
+        $this->relation->fixPmaTables($GLOBALS['db'], false);
     }
 
     /**
@@ -1632,7 +1643,7 @@ class DatabaseInterface implements DbalInterface
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
             if (! empty($name)) {
-                $query .= " AND `Name` = '"
+                $query .= " WHERE `Name` = '"
                     . $this->escapeString($name) . "'";
             }
         }
@@ -2129,17 +2140,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns a string that represents the client library version
      *
-     * @param int $link link type
-     *
      * @return string MySQL client library version
      */
-    public function getClientInfo($link = self::CONNECT_USER): string
+    public function getClientInfo(): string
     {
-        if (! isset($this->links[$link])) {
-            return '';
-        }
-
-        return $this->extension->getClientInfo($this->links[$link]);
+        return $this->extension->getClientInfo();
     }
 
     /**

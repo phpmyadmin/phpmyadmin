@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function call_user_func_array;
 use function htmlspecialchars;
@@ -51,8 +52,8 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db=' . $database
-            . '&amp;server=99&amp;lang=en" '
+            . '&db=' . $database
+            . '&server=99&lang=en" '
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
@@ -65,7 +66,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLink(): void
     {
-        global $cfg;
         $GLOBALS['server'] = 99;
         $database = 'test_database';
         $this->assertEquals(
@@ -73,8 +73,8 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db=' . $database
-            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . '&db=' . $database
+            . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             Generator::getDbLink($database)
@@ -86,7 +86,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLinkWithSpecialChars(): void
     {
-        global $cfg;
         $GLOBALS['server'] = 99;
         $database = 'test&data\'base';
         $this->assertEquals(
@@ -95,9 +94,9 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db='
+            . '&db='
             . htmlspecialchars(urlencode($database))
-            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             Generator::getDbLink($database)
@@ -174,7 +173,7 @@ class GeneratorTest extends AbstractTestCase
 
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="./url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F' . $lang
+        $expected = '<a href="./url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';
@@ -223,6 +222,7 @@ class GeneratorTest extends AbstractTestCase
             [
                 [
                     'index.php',
+                    null,
                     'text',
                 ],
                 1000,
@@ -230,15 +230,17 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    'index.php?some=parameter',
+                    'index.php',
+                    ['some' => 'parameter'],
                     'text',
                 ],
                 20,
-                '<a href="index.php" data-post="some=parameter">text</a>',
+                '<a href="index.php" data-post="some=parameter&lang=en">text</a>',
             ],
             [
                 [
                     'index.php',
+                    null,
                     'text',
                     [],
                     'target',
@@ -248,13 +250,76 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
+                    'https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B',
+                    null,
+                    'text',
+                    [],
+                    'target',
+                ],
+                10,
+                // This is not the behavior we want for the analyser feature, next test will disable the limit
+                '<a href="https://mariadb.org/explain_analyzer/analyze/"'
+                . ' data-post="client=phpMyAdmin&amp;raw_explain=%2B---%2B" target="target">text</a>',
+            ],
+            [
+                [
+                    'https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B',
+                    null,
+                    'text',
+                    [],
+                    'target',
+                    false,
+                ],
+                10,
+                '<a href="https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B"'
+                . ' target="target">text</a>',
+            ],
+            [
+                [
                     'url.php?url=http://phpmyadmin.net/',
+                    null,
                     'text',
                     [],
                     '_blank',
                 ],
                 1000,
                 '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    ['some' => 'parameter'],
+                    'text',
+                ],
+                20,
+                '<a href="index.php" data-post="route=/server/databases&some=parameter&lang=en">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    null,
+                    'text',
+                ],
+                20,
+                '<a href="index.php" data-post="route=/server/databases">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    ['some' => 'parameter'],
+                    'text',
+                ],
+                100,
+                '<a href="index.php?route=/server/databases&some=parameter&lang=en" >text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    null,
+                    'text',
+                ],
+                100,
+                '<a href="index.php?route=/server/databases" >text</a>',
             ],
         ];
     }

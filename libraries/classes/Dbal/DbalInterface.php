@@ -621,11 +621,9 @@ interface DbalInterface
     /**
      * returns a string that represents the client library version
      *
-     * @param int $link link type
-     *
      * @return string MySQL client library version
      */
-    public function getClientInfo($link = DatabaseInterface::CONNECT_USER): string;
+    public function getClientInfo(): string;
 
     /**
      * returns last error message or false if no errors occurred

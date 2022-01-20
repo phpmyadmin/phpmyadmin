@@ -356,7 +356,7 @@ AJAX.registerOnload('sql.js', function () {
         textArea.value = '';
 
         $('#server-breadcrumb a').each(function () {
-            textArea.value += $(this).text().split(':')[1].trim() + '/';
+            textArea.value += $(this).data('raw-text') + '/';
         });
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
@@ -376,11 +376,14 @@ AJAX.registerOnload('sql.js', function () {
         textArea.value += '\n';
         $('.table_results tbody tr').each(function () {
             $(this).find('.data span').each(function () {
-                textArea.value += $(this).text() + '\t';
+                // Extract <em> tag for NULL values before converting to string to not mess up formatting
+                var data = $(this).find('em').length !== 0 ? $(this).find('em')[0] : this;
+                textArea.value += $(data).text() + '\t';
             });
             textArea.value += '\n';
         });
 
+        // eslint-disable-next-line compat/compat
         document.body.appendChild(textArea);
 
         textArea.select();
@@ -391,6 +394,7 @@ AJAX.registerOnload('sql.js', function () {
             alert('Sorry! Unable to copy');
         }
 
+        // eslint-disable-next-line compat/compat
         document.body.removeChild(textArea);
     }); // end of Copy to Clipboard action
 
@@ -713,14 +717,6 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var $form = $(this).parents('form');
 
-        if (! $(this).is(':checked')) { // already showing all rows
-            Sql.submitShowAllForm();
-        } else {
-            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
-                Sql.submitShowAllForm();
-            });
-        }
-
         Sql.submitShowAllForm = function () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
@@ -728,6 +724,14 @@ AJAX.registerOnload('sql.js', function () {
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         };
+
+        if (! $(this).is(':checked')) { // already showing all rows
+            Sql.submitShowAllForm();
+        } else {
+            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
+                Sql.submitShowAllForm();
+            });
+        }
     });
 
     $('body').on('keyup', '#sqlqueryform', function () {
@@ -937,6 +941,9 @@ Sql.browseForeignDialog = function ($thisA) {
             }
             // Set selected value as input value
             $input.val($(this).data('key'));
+            // Unchecks the Ignore checkbox for the current row
+            $input.trigger('change');
+
             $dialog.dialog('close');
         });
         $(formId).on('click', showAllId, function () {

@@ -21,6 +21,7 @@ use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
+use function round;
 use function trim;
 
 /**
@@ -153,7 +154,7 @@ class GisMultiPolygon extends GisGeometry
                 }
             }
             // draw polygon
-            imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
+            @imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
             // mark label point if applicable
             if (isset($label) && trim($label) != '' && $first_poly) {
                 $label_point = [
@@ -168,8 +169,8 @@ class GisMultiPolygon extends GisGeometry
             imagestring(
                 $image,
                 1,
-                $points_arr[2],
-                $points_arr[3],
+                (int) round($label_point[0]),
+                (int) round($label_point[1]),
                 trim((string) $label),
                 $black
             );
@@ -347,8 +348,8 @@ class GisMultiPolygon extends GisGeometry
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
 
-        if ($label) {
-            $text_style = ['text' => $label];
+        if (trim($label) !== '') {
+            $text_style = ['text' => trim($label)];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

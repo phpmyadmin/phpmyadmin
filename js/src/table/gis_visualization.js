@@ -4,61 +4,40 @@
  * @requires    jquery
  * @requires    vendor/jquery/jquery.svg.js
  * @requires    vendor/jquery/jquery.mousewheel.js
- * @requires    vendor/jquery/jquery.event.drag-2.2.js
  */
 
-/* global drawOpenLayers */ // templates/table/gis_visualization/gis_visualization.twig
+/* global drawOpenLayers PASSIVE_EVENT_LISTENERS */ // templates/table/gis_visualization/gis_visualization.twig
 
 // Constants
 var zoomFactor = 1.5;
 var defaultX = 0;
 var defaultY = 0;
+var defaultScale = 1;
 
 // Variables
-var x = 0;
-var y = 0;
-var scale = 1;
+var x = defaultX;
+var y = defaultY;
+var scale = defaultScale;
 
-var svg;
+/** @type {SVGElement|undefined} */
+var gisSvg;
+/** @type {ol.Map|undefined} */
+var map;
 
 /**
  * Zooms and pans the visualization.
  */
 function zoomAndPan () {
-    var g = svg.getElementById('groupPanel');
+    var g = gisSvg.getElementById('groupPanel');
     if (!g) {
         return;
     }
 
-    g.setAttribute('transform', 'translate(' + x + ', ' + y + ') scale(' + scale + ')');
-    var id;
-    var circle;
-    $('circle.vector').each(function () {
-        id = $(this).attr('id');
-        circle = svg.getElementById(id);
-        $(svg).on('change', circle, {
-            r : (3 / scale),
-            'stroke-width' : (2 / scale)
-        });
-    });
-
-    var line;
-    $('polyline.vector').each(function () {
-        id = $(this).attr('id');
-        line = svg.getElementById(id);
-        $(svg).on('change', line, {
-            'stroke-width' : (2 / scale)
-        });
-    });
-
-    var polygon;
-    $('path.vector').each(function () {
-        id = $(this).attr('id');
-        polygon = svg.getElementById(id);
-        $(svg).on('change', polygon, {
-            'stroke-width' : (0.5 / scale)
-        });
-    });
+    $('#groupPanel', gisSvg).attr('transform', 'translate(' + x + ', ' + y + ') scale(' + scale + ')');
+    $('circle.vector', gisSvg).attr('r', 3 / scale);
+    $('circle.vector', gisSvg).attr('stroke-width', 2 / scale);
+    $('polyline.vector', gisSvg).attr('stroke-width', 2 / scale);
+    $('path.vector', gisSvg).attr('stroke-width', 0.5 / scale);
 }
 
 /**
@@ -87,38 +66,31 @@ function styleOSM () {
 }
 
 /**
- * Loads the SVG element and make a reference to it.
+ * Store a reference to the gis svg element.
  */
-function loadSVG () {
-    var $placeholder = $('#placeholder');
-
-    $placeholder.svg({
-        onLoad: function (svgRef) {
-            svg = svgRef;
-        }
-    });
-
-    // Removes the second SVG element unnecessarily added due to the above command
-    $placeholder.find('svg').eq(1).remove();
+function storeGisSvgRef () {
+    gisSvg = $('#placeholder').find('svg').get(0);
 }
 
 /**
- * Adds controllers for zooming and panning.
+ * Adds controls for zooming and panning.
  */
 function addZoomPanControllers () {
-    var $placeholder = $('#placeholder');
-    if ($('#placeholder').find('svg').length > 0) {
-        var themeImagePath = $('#themeImagePath').val();
-        // add panning arrows
-        $('<img class="button" id="left_arrow" src="' + themeImagePath + 'west-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="right_arrow" src="' + themeImagePath + 'east-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="up_arrow" src="' + themeImagePath + 'north-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="down_arrow" src="' + themeImagePath + 'south-mini.png">').appendTo($placeholder);
-        // add zooming controls
-        $('<img class="button" id="zoom_in" src="' + themeImagePath + 'zoom-plus-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="zoom_world" src="' + themeImagePath + 'zoom-world-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">').appendTo($placeholder);
+    if (!gisSvg) {
+        return;
     }
+    var themeImagePath = $('#themeImagePath').val();
+    $('#placeholder').append(
+        // pan arrows
+        '<img class="button" id="left_arrow" src="' + themeImagePath + 'west-mini.png">',
+        '<img class="button" id="right_arrow" src="' + themeImagePath + 'east-mini.png">',
+        '<img class="button" id="up_arrow" src="' + themeImagePath + 'north-mini.png">',
+        '<img class="button" id="down_arrow" src="' + themeImagePath + 'south-mini.png">',
+        // zoom controls
+        '<img class="button" id="zoom_in" src="' + themeImagePath + 'zoom-plus-mini.png">',
+        '<img class="button" id="zoom_world" src="' + themeImagePath + 'zoom-world-mini.png">',
+        '<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">'
+    );
 }
 
 /**
@@ -131,19 +103,20 @@ function resizeGISVisualization () {
 
     // Assign new value for width
     $placeholder.width(visWidth);
-    $('svg').attr('width', visWidth);
+    $(gisSvg).attr('width', visWidth);
 
     // Assign the offset created due to resizing to defaultX and center the svg.
     defaultX = (visWidth - oldWidth) / 2;
     x = defaultX;
-    y = 0;
-    scale = 1;
+    y = defaultY;
+    scale = defaultScale;
 }
 
 /**
  * Initialize the GIS visualization.
  */
 function initGISVisualization () {
+    storeGisSvgRef();
     // Loads either SVG or OSM visualization based on the choice
     selectVisualization();
     // Resizes the GIS visualization to fit into the space available
@@ -153,23 +126,19 @@ function initGISVisualization () {
         // Adds necessary styles to the div that contains the openStreetMap
         styleOSM();
     }
-    // Loads the SVG element and make a reference to it
-    loadSVG();
     // Adds controllers for zooming and panning
     addZoomPanControllers();
     zoomAndPan();
 }
 
-function drawOpenLayerMap (openLayerCreate) {
+function drawOpenLayerMap () {
     $('#placeholder').hide();
     $('#openlayersmap').show();
     // Function doesn't work properly if #openlayersmap is hidden
-    if (!openLayerCreate) {
+    if (typeof map !== 'object') {
         // Draws openStreetMap with openLayers
-        drawOpenLayers();
-        return 1;
+        map = drawOpenLayers();
     }
-    return 0;
 }
 
 function getRelativeCoords (e) {
@@ -178,6 +147,22 @@ function getRelativeCoords (e) {
         x : e.pageX - position.left,
         y : e.pageY - position.top
     };
+}
+
+function onGisMouseWheel (event) {
+    if (event.deltaY === 0) {
+        return;
+    }
+    event.preventDefault();
+
+    var relCoords = getRelativeCoords(event);
+    var factor = event.deltaY > 0 ? zoomFactor : 1 / zoomFactor;
+    // zoom
+    scale *= factor;
+    // zooming keeping the position under mouse pointer unmoved.
+    x = relCoords.x - (relCoords.x - x) * factor;
+    y = relCoords.y - (relCoords.y - y) * factor;
+    zoomAndPan();
 }
 
 /**
@@ -198,7 +183,6 @@ function getRelativeCoords (e) {
  */
 AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#choice');
-    $(document).off('mousewheel', '#placeholder');
     $(document).off('dragstart', 'svg');
     $(document).off('mouseup', 'svg');
     $(document).off('drag', 'svg');
@@ -211,18 +195,26 @@ AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#up_arrow');
     $(document).off('click', '#down_arrow');
     $('.vector').off('mousemove').off('mouseout');
+    $('#placeholder').get(0).removeEventListener(
+        'wheel',
+        onGisMouseWheel,
+        PASSIVE_EVENT_LISTENERS ? { passive: false } : undefined
+    );
+    if (map) {
+        // Removes ol.Map's resize listener from window
+        map.setTarget(null);
+        map = undefined;
+    }
 });
 
 AJAX.registerOnload('table/gis_visualization.js', function () {
-    var openLayerCreate = 0;
-
     // If we are in GIS visualization, initialize it
     if ($('#gis_div').length > 0) {
         initGISVisualization();
     }
 
     if ($('#choice').prop('checked') === true) {
-        openLayerCreate = drawOpenLayerMap(openLayerCreate);
+        drawOpenLayerMap();
     }
 
     if (typeof ol === 'undefined') {
@@ -234,38 +226,27 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
             $('#placeholder').show();
             $('#openlayersmap').hide();
         } else {
-            openLayerCreate = drawOpenLayerMap(openLayerCreate);
+            drawOpenLayerMap();
         }
     });
 
-    $(document).on('mousewheel', '#placeholder', function (event, delta) {
-        event.preventDefault();
-        var relCoords = getRelativeCoords(event);
-        if (delta > 0) {
-            // zoom in
-            scale *= zoomFactor;
-            // zooming in keeping the position under mouse pointer unmoved.
-            x = relCoords.x - (relCoords.x - x) * zoomFactor;
-            y = relCoords.y - (relCoords.y - y) * zoomFactor;
-            zoomAndPan();
-        } else {
-            // zoom out
-            scale /= zoomFactor;
-            // zooming out keeping the position under mouse pointer unmoved.
-            x = relCoords.x - (relCoords.x - x) / zoomFactor;
-            y = relCoords.y - (relCoords.y - y) / zoomFactor;
-            zoomAndPan();
-        }
-        return true;
-    });
+    $('#placeholder').get(0).addEventListener(
+        'wheel',
+        onGisMouseWheel,
+        PASSIVE_EVENT_LISTENERS ? { passive: false } : undefined
+    );
 
     var dragX = 0;
     var dragY = 0;
-
+    $('svg').draggable({
+        helper: function () {
+            return $('<div>');// Give a fake element to be used for dragging display
+        }
+    });
     $(document).on('dragstart', 'svg', function (event, dd) {
         $('#placeholder').addClass('placeholderDrag');
-        dragX = Math.round(dd.offsetX);
-        dragY = Math.round(dd.offsetY);
+        dragX = Math.round(dd.offset.left);
+        dragY = Math.round(dd.offset.top);
     });
 
     $(document).on('mouseup', 'svg', function () {
@@ -273,16 +254,19 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
     });
 
     $(document).on('drag', 'svg', function (event, dd) {
-        var newX = Math.round(dd.offsetX);
+        var newX = Math.round(dd.offset.left);
         x +=  newX - dragX;
         dragX = newX;
-        var newY = Math.round(dd.offsetY);
+        var newY = Math.round(dd.offset.top);
         y +=  newY - dragY;
         dragY = newY;
         zoomAndPan();
     });
 
     $(document).on('dblclick', '#placeholder', function (event) {
+        if (event.target.classList.contains('button')) {
+            return;
+        }
         scale *= zoomFactor;
         // zooming in keeping the position under mouse pointer unmoved.
         var relCoords = getRelativeCoords(event);
@@ -296,9 +280,8 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         // zoom in
         scale *= zoomFactor;
 
-        var $placeholder = $('#placeholder').find('svg');
-        var width = $placeholder.attr('width');
-        var height = $placeholder.attr('height');
+        var width = $(gisSvg).attr('width');
+        var height = $(gisSvg).attr('height');
         // zooming in keeping the center unmoved.
         x = width / 2 - (width / 2 - x) * zoomFactor;
         y = height / 2 - (height / 2 - y) * zoomFactor;
@@ -318,9 +301,8 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         // zoom out
         scale /= zoomFactor;
 
-        var $placeholder = $('#placeholder').find('svg');
-        var width = $placeholder.attr('width');
-        var height = $placeholder.attr('height');
+        var width = $(gisSvg).attr('width');
+        var height = $(gisSvg).attr('height');
         // zooming out keeping the center unmoved.
         x = width / 2 - (width / 2 - x) / zoomFactor;
         y = height / 2 - (height / 2 - y) / zoomFactor;

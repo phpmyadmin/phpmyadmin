@@ -773,10 +773,18 @@ class Common
             }
         }
 
+        // internal (pmadb) relation is not working, skip delete
+        if ($GLOBALS['cfgRelation']['relwork'] == false) {
+            return [
+                false,
+                __('Error: Relational features are disabled!'),
+            ];
+        }
+
         // internal relations
         $delete_query = 'DELETE FROM '
             . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . $GLOBALS['cfgRelation']['relation'] . ' WHERE '
+            . Util::backquote($GLOBALS['cfgRelation']['relation']) . ' WHERE '
             . "master_db = '" . $this->dbi->escapeString($DB2) . "'"
             . " AND master_table = '" . $this->dbi->escapeString($T2) . "'"
             . " AND master_field = '" . $this->dbi->escapeString($F2) . "'"

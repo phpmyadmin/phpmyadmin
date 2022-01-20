@@ -27,6 +27,7 @@ use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
 use function trigger_error;
+use const PHP_VERSION_ID;
 
 /**
  * handling errors
@@ -150,16 +151,22 @@ class ErrorHandler
     /**
      * Pops recent errors from the storage
      *
-     * @param int $count Old error count
+     * @param int $count Old error count (amount of errors to splice)
      *
-     * @return Error[]
+     * @return Error[] The non spliced elements (total-$count)
      */
     public function sliceErrors(int $count): array
     {
+        // store the errors before any operation, example number of items: 10
         $errors = $this->getErrors(false);
+
+        // before array_splice $this->errors has 10 elements
+        // cut out $count items out, let's say $count = 9
+        // $errors will now contain 10 - 9 = 1 elements
+        // $this->errors will contain the 9 elements left
         $this->errors = array_splice($errors, 0, $count);
 
-        return array_splice($errors, $count);
+        return $errors;
     }
 
     /**
@@ -183,8 +190,13 @@ class ErrorHandler
             /**
             * Check if Error Control Operator (@) was used, but still show
             * user errors even in this case.
+            * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
             */
-            if (error_reporting() == 0 &&
+            $isSilenced = ! (error_reporting() & $errno);
+            if (PHP_VERSION_ID < 80000) {
+                $isSilenced = error_reporting() == 0;
+            }
+            if ($isSilenced &&
                 $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {

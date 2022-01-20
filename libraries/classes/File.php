@@ -492,6 +492,10 @@ class File
             return false;
         }
 
+        if (! is_string($GLOBALS['cfg']['UploadDir'])) {
+            return false;
+        }
+
         $this->setName(
             Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
         );

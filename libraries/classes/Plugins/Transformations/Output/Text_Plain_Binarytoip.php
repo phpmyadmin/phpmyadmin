@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Output;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
 use stdClass;
+use function stripos;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
@@ -43,7 +44,12 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        return FormatConverter::binaryToIp($buffer);
+        $isBinary = false;
+        if ($meta !== null && stripos($meta->flags, 'binary') !== false) {
+            $isBinary = true;
+        }
+
+        return FormatConverter::binaryToIp($buffer, $isBinary);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

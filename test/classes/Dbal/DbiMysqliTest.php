@@ -29,6 +29,11 @@ class DbiMysqliTest extends AbstractTestCase
         $this->object = new DbiMysqli();
     }
 
+    public function testGetClientInfo(): void
+    {
+        $this->assertNotEmpty($this->object->getClientInfo());
+    }
+
     /**
      * Test for selectDb
      */
@@ -163,11 +168,12 @@ class DbiMysqliTest extends AbstractTestCase
     public function testStoreResult(): void
     {
         $mysqli = $this->createMock(mysqli::class);
+        $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqli->expects($this->once())
             ->method('store_result')
-            ->willReturn(true);
+            ->willReturn($mysqliResult);
 
-        $this->assertTrue($this->object->storeResult($mysqli));
+        $this->assertInstanceOf(mysqli_result::class, $this->object->storeResult($mysqli));
     }
 
     /**

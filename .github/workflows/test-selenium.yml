@@ -54,6 +54,8 @@ jobs:
                 db-server: ["mysql:5.7"]
         steps:
             - uses: actions/checkout@v2
+            - name: Refresh apt cache
+              run: sudo apt-get update
             - name: Install gettext
               run: sudo apt-get install -y gettext
             - name: Generate mo files
@@ -62,13 +64,17 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd
-                  tools: composer:v2
-            - name: Cache module
-              uses: actions/cache@v2
+                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
+            - name: Get Composer Cache Directory
+              id: composer-cache
+              run: |
+                echo "::set-output name=dir::$(composer config cache-files-dir)"
+            - uses: actions/cache@v2
               with:
-                  path: ~/.composer/cache/
-                  key: composer-cache
+                path: ${{ steps.composer-cache.outputs.dir }}
+                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-composer-
             - name: Install dependencies
               run: composer install --no-interaction
             - uses: actions/setup-node@v1

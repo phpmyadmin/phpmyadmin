@@ -415,7 +415,7 @@ class Export
             $doNotSaveItOver = $_POST['quick_export_onserver_overwrite'] !== 'saveitover';
         }
 
-        $save_filename = Util::userDir($GLOBALS['cfg']['SaveDir'])
+        $save_filename = Util::userDir((string) ($GLOBALS['cfg']['SaveDir'] ?? ''))
             . preg_replace('@[/\\\\]@', '_', $filename);
 
         if (@file_exists($save_filename)
@@ -565,16 +565,18 @@ class Export
          */
         $back_button = '<p id="export_back_button">[ <a href="';
         if ($export_type === 'server') {
-            $back_button .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '');
+            $back_button .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
         } elseif ($export_type === 'database') {
-            $back_button .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(['db' => $db], '');
+            $back_button .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
+                ['db' => $db],
+                '',
+                false
+            );
         } else {
             $back_button .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
-                [
-                    'db' => $db,
-                    'table' => $table,
-                ],
-                ''
+                ['db' => $db, 'table' => $table],
+                '',
+                false
             );
         }
 
@@ -601,7 +603,7 @@ class Export
         $html .= $back_button;
         $refreshButton = '<form id="export_refresh_form" method="POST" action="'
             . Url::getFromRoute('/export') . '" class="disableAjax">';
-        $refreshButton .= '[ <a class="disableAjax" id="export_refresh_btn">' . __('Refresh') . '</a> ]';
+        $refreshButton .= '[ <a class="disableAjax export_refresh_btn">' . __('Refresh') . '</a> ]';
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
                 foreach ($value as $val) {

@@ -128,7 +128,7 @@ final class ImportController extends AbstractController
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
-            'user_upload_dir' => Util::userDir($cfg['UploadDir'] ?? ''),
+            'user_upload_dir' => Util::userDir((string) ($cfg['UploadDir'] ?? '')),
             'local_files' => Import::getLocalFiles($importList),
         ]);
     }

@@ -18,6 +18,7 @@ class BrowseForeignersTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['MaxRows'] = 25;
@@ -135,7 +136,7 @@ class BrowseForeignersTest extends AbstractTestCase
 
         $this->assertEquals(
             [
-                'foobar&lt;baz',
+                'foobar<baz',
                 '',
             ],
             $this->callFunction(
@@ -152,7 +153,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'fooba...',
-                'foobar&lt;baz',
+                'foobar<baz',
             ],
             $this->callFunction(
                 $browseForeigners,

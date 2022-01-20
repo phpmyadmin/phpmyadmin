@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Url;
 use stdClass;
 use function hash;
 use function htmlspecialchars;
@@ -15,6 +16,7 @@ use function ob_get_contents;
 use function ob_start;
 use function preg_quote;
 use function serialize;
+use function str_repeat;
 
 class CoreTest extends AbstractNetworkTestCase
 {
@@ -33,6 +35,7 @@ class CoreTest extends AbstractNetworkTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = 'http://example.net/';
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
     }
 
     /**
@@ -521,6 +524,22 @@ class CoreTest extends AbstractNetworkTestCase
                 '8G',
                 8 * 1024 * 1024 * 1024,
             ],
+            [
+                '2048',
+                2048,
+            ],
+            [
+                '2048K',
+                2048 * 1024,
+            ],
+            [
+                '2048K',
+                2048 * 1024,
+            ],
+            [
+                '102400K',
+                102400 * 1024,
+            ],
         ];
     }
 
@@ -532,7 +551,7 @@ class CoreTest extends AbstractNetworkTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
             Core::getPHPDocLink('function'),
-            './url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F'
+            './url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
             . $lang . '%2Ffunction'
         );
     }
@@ -1420,5 +1439,62 @@ class CoreTest extends AbstractNetworkTestCase
         $this->assertTrue($token_provided);
         $this->assertArrayHasKey('test', $_POST);
         $this->assertEquals('test', $_POST['test']);
+    }
+
+    public function testPopulateRequestWithEncryptedQueryParams(): void
+    {
+        global $PMA_Config;
+
+        $_SESSION = [];
+        $PMA_Config->set('URLQueryEncryption', true);
+        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $_GET = ['pos' => '0', 'eq' => Url::encryptQuery('{"db":"test_db","table":"test_table"}')];
+        $_REQUEST = $_GET;
+
+        Core::populateRequestWithEncryptedQueryParams();
+
+        $expected = ['pos' => '0', 'db' => 'test_db', 'table' => 'test_table'];
+
+        $this->assertEquals($expected, $_GET);
+        $this->assertEquals($expected, $_REQUEST);
+    }
+
+    /**
+     * @param string[] $encrypted
+     * @param string[] $decrypted
+     *
+     * @dataProvider providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam
+     */
+    public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
+        array $encrypted,
+        array $decrypted
+    ): void {
+        global $PMA_Config;
+
+        $_SESSION = [];
+        $PMA_Config->set('URLQueryEncryption', true);
+        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $_GET = $encrypted;
+        $_REQUEST = $encrypted;
+
+        Core::populateRequestWithEncryptedQueryParams();
+
+        $this->assertEquals($decrypted, $_GET);
+        $this->assertEquals($decrypted, $_REQUEST);
+    }
+
+    /**
+     * @return string[][][]
+     */
+    public function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
+    {
+        return [
+            [[], []],
+            [['eq' => []], []],
+            [['eq' => ''], []],
+            [['eq' => 'invalid'], []],
+        ];
     }
 }

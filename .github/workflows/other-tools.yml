@@ -33,11 +33,16 @@ jobs:
                   php-version: 7.1
                   extensions: mbstring, iconv, mysqli, zip, gd
                   tools: composer:v2
-            - name: Cache module
-              uses: actions/cache@v2
+            - name: Get Composer Cache Directory
+              id: composer-cache
+              run: |
+                echo "::set-output name=dir::$(composer config cache-files-dir)"
+            - uses: actions/cache@v2
               with:
-                  path: ~/.composer/cache/
-                  key: composer-cache
+                path: ${{ steps.composer-cache.outputs.dir }}
+                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-composer-
             - name: Install dependencies
               run: composer install
             - uses: actions/setup-node@v1

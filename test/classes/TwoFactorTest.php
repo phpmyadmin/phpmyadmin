@@ -6,10 +6,13 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\TwoFactor;
-use Samyoul\U2F\U2FServer\RegistrationRequest;
-use Samyoul\U2F\U2FServer\SignRequest;
+use CodeLts\U2F\U2FServer\RegistrationRequest;
+use CodeLts\U2F\U2FServer\SignRequest;
 use function count;
 use function in_array;
+use function json_encode;
+use const JSON_UNESCAPED_SLASHES;
+use function str_replace;
 
 class TwoFactorTest extends AbstractTestCase
 {
@@ -19,7 +22,7 @@ class TwoFactorTest extends AbstractTestCase
         parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
+        $GLOBALS['db'] = '';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -28,6 +31,59 @@ class TwoFactorTest extends AbstractTestCase
             'sql' => false,
         ];
         $GLOBALS['cfg']['NaturalOrder'] = true;
+        $this->initStorageConfigAndData();
+    }
+
+    private function initStorageConfigAndData(): void
+    {
+        $GLOBALS['cfg']['Server']['user'] = 'groot';
+        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
+        $GLOBALS['cfg']['Server']['relation'] = '';
+        $GLOBALS['cfg']['Server']['table_info'] = '';
+        $GLOBALS['cfg']['Server']['table_coords'] = '';
+        $GLOBALS['cfg']['Server']['column_info'] = '';
+        $GLOBALS['cfg']['Server']['pdf_pages'] = '';
+        $GLOBALS['cfg']['Server']['history'] = '';
+        $GLOBALS['cfg']['Server']['recent'] = '';
+        $GLOBALS['cfg']['Server']['favorite'] = '';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = '';
+        $GLOBALS['cfg']['Server']['tracking'] = '';
+        $GLOBALS['cfg']['Server']['userconfig'] = '';
+        $GLOBALS['cfg']['Server']['users'] = '';
+        $GLOBALS['cfg']['Server']['usergroups'] = '';
+        $GLOBALS['cfg']['Server']['navigationhiding'] = '';
+        $GLOBALS['cfg']['Server']['savedsearches'] = '';
+        $GLOBALS['cfg']['Server']['central_columns'] = '';
+        $GLOBALS['cfg']['Server']['designer_settings'] = '';
+        $GLOBALS['cfg']['Server']['export_templates'] = '';
+
+        parent::setGlobalDbi();
+
+        $this->dummyDbi->removeDefaultResults();
+
+        $this->dummyDbi->addResult(
+            'SHOW TABLES FROM `phpmyadmin`;',
+            [
+                ['pma__userconfig'],// Minimal working setup for 2FA
+            ],
+            ['Tables_in_phpmyadmin']
+        );
+
+        $this->dummyDbi->addResult(
+            'SHOW TABLES FROM `phpmyadmin`',
+            [
+                ['pma__userconfig'],// Minimal working setup for 2FA
+            ],
+            ['Tables_in_phpmyadmin']
+        );
+
+        $this->dummyDbi->addResult(
+            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
+            [
+                ['NULL'],
+            ],
+            ['NULL']
+        );
     }
 
     /**
@@ -36,27 +92,69 @@ class TwoFactorTest extends AbstractTestCase
      * @param string $user   Username
      * @param array  $config Two factor authentication configuration
      */
-    public function getTwoFactorMock(string $user, array $config): TwoFactor
+    private function getTwoFactorAndLoadConfig(string $user, ?array $config): TwoFactor
     {
-        if (! isset($config['backend'])) {
+        if ($config !== null && ! isset($config['backend'])) {
             $config['backend'] = '';
         }
-        if (! isset($config['settings'])) {
+        if ($config !== null && ! isset($config['settings'])) {
             $config['settings'] = [];
         }
-        $result = $this->getMockBuilder(TwoFactor::class)
-            ->setMethods(['readConfig'])
-            ->disableOriginalConstructor()
-            ->getMock();
-        $result->method('readConfig')->willReturn($config);
-        $result->__construct($user);
 
-        return $result;
+        $this->loadResultForConfig($config);
+
+        return new TwoFactor($user);
+    }
+
+    private function loadQueriesForConfigure(string $backend, array $backendSettings = []): void
+    {
+        $this->dummyDbi->addResult(
+            'SELECT `username` FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = \'groot\'',
+            [
+                ['groot'],
+            ],
+            ['username']
+        );
+
+        $jsonData = (string) json_encode([
+            'Console\\\\\\/Mode' => 'collapse',
+            'lang' => 'fr',
+            '2fa' => [
+                'backend' => $backend,
+                'settings' => $backendSettings,
+            ],
+        ], JSON_UNESCAPED_SLASHES);
+        $jsonData = str_replace('"', '\"', $jsonData);
+
+        $this->dummyDbi->addResult(
+            'UPDATE `phpmyadmin`.`pma__userconfig` SET `timevalue` = NOW(),'
+            . ' `config_data` = \'' . $jsonData . '\' WHERE `username` = \'groot\'',
+            []
+        );
+    }
+
+    private function loadResultForConfig(?array $config): void
+    {
+        $this->dummyDbi->addResult(
+            'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
+            . ' FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = \'groot\'',
+            $config === null ? [] : [
+                [
+                    (string) json_encode([
+                        'Console\/Mode' => 'collapse',
+                        'lang' => 'fr',
+                        '2fa' => $config,
+                    ]),
+                    '1628632378',
+                ],
+            ],
+            ['config_data', 'ts']
+        );
     }
 
     public function testNone(): void
     {
-        $object = $this->getTwoFactorMock('user', ['type' => 'db']);
+        $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db']);
         $backend = $object->getBackend();
         $this->assertEquals('', $backend::$id);
         // Is always valid
@@ -65,6 +163,12 @@ class TwoFactorTest extends AbstractTestCase
         $this->assertTrue($object->check());
         $this->assertTrue($object->check());
         $this->assertEquals('', $object->render());
+
+        $this->assertAllQueriesConsumed();
+
+        $this->loadResultForConfig(['type' => 'db']);
+        $this->loadQueriesForConfigure('');
+
         $this->assertTrue($object->configure(''));
         $this->assertEquals('', $object->setup());
     }
@@ -72,7 +176,7 @@ class TwoFactorTest extends AbstractTestCase
     public function testSimple(): void
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
-        $object = $this->getTwoFactorMock('user', ['type' => 'db', 'backend' => 'simple']);
+        $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple']);
         $backend = $object->getBackend();
         $this->assertEquals('simple', $backend::$id);
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
@@ -91,7 +195,7 @@ class TwoFactorTest extends AbstractTestCase
 
     public function testLoad(): void
     {
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backend = $object->getBackend();
         $this->assertEquals('', $backend::$id);
     }
@@ -99,16 +203,34 @@ class TwoFactorTest extends AbstractTestCase
     public function testConfigureSimple(): void
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
+
+        $this->assertAllQueriesConsumed();
+
+        $this->loadResultForConfig([]);
+        $this->loadQueriesForConfigure('simple');
+
         $this->assertTrue($object->configure('simple'));
         $backend = $object->getBackend();
         $this->assertEquals('simple', $backend::$id);
+
+        $this->assertAllQueriesConsumed();
+
+        $this->loadResultForConfig([]);
+        $this->loadQueriesForConfigure('');
+
         $this->assertTrue($object->configure(''));
         $backend = $object->getBackend();
         $this->assertEquals('', $backend::$id);
+
+        $this->assertAllQueriesConsumed();
+
+        $this->initStorageConfigAndData();// Needs a re-init
+
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
         $this->assertFalse($object->configure('simple'));
+        $this->assertAllQueriesConsumed();
     }
 
     /**
@@ -119,7 +241,7 @@ class TwoFactorTest extends AbstractTestCase
         parent::setLanguage();
         parent::loadDefaultConfig();
 
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('application', $object->getAvailable())) {
             $this->markTestSkipped('google2fa not available');
         }
@@ -139,7 +261,16 @@ class TwoFactorTest extends AbstractTestCase
             $object->config['settings']['secret'],
             $google2fa->getTimestamp()
         );
+
+        $this->assertAllQueriesConsumed();
+        $this->loadResultForConfig([]);
+        $this->loadQueriesForConfigure('application', [
+            'secret' => $object->config['settings']['secret'],
+        ]);
+
         $this->assertTrue($object->configure('application'));
+
+        $this->assertAllQueriesConsumed();
         unset($_POST['2fa_code']);
 
         /* Check code */
@@ -164,7 +295,7 @@ class TwoFactorTest extends AbstractTestCase
         parent::loadDefaultConfig();
         parent::setLanguage();
 
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('key', $object->getAvailable())) {
             $this->markTestSkipped('u2f-php-server not available');
         }
@@ -203,7 +334,7 @@ class TwoFactorTest extends AbstractTestCase
      */
     public function testKeyAppId(): void
     {
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'http://demo.example.com');
         $this->assertEquals('http://demo.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
@@ -226,7 +357,7 @@ class TwoFactorTest extends AbstractTestCase
      */
     public function testKeyAuthentication(): void
     {
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('key', $object->getAvailable())) {
             $this->markTestSkipped('u2f-php-server not available');
         }
@@ -259,6 +390,34 @@ class TwoFactorTest extends AbstractTestCase
             . 'Ji8V2naCtzV-HTly8Nww=", "clientData": "eyAiY2hhbGxlbmdlIjogInlLQTB4MDc1dGpKLUdFN2'
             . 'ZLVGZuelRPU2FOVU9XUXhSZDlUV3o1YUZPZzgiLCAib3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXB'
             . 'sZS5jb20iLCAidHlwIjogIm5hdmlnYXRvci5pZC5maW5pc2hFbnJvbGxtZW50IiB9", "errorCode": 0 }';
+
+        $this->assertAllQueriesConsumed();
+        $this->loadResultForConfig([]);
+        $this->loadQueriesForConfigure('key', [
+            'registrations' => [
+                [
+                    'keyHandle' => 'CTUayZo8hCBeC-sGQJChC0wW-bBg99bmOlGCgw8XGq4'
+                    . 'dLsxO3yWh9mRYArZxocP5hBB1pEGB3bbJYiM-5acc5w',
+                    'publicKey' => 'BC0SaFZWC9uH7wamOwduP93kUH2I2hEvyY0Srfj4A258pZSlV0iPoFIH'
+                    . '+bd4yhncaqdoPLdEDl5Y\\/yaFORPUe3c=',
+                    'certificate' => 'MIIC4jCBywIBATANBgkqhkiG9w0BAQsFADAdMRswGQYDVQQDExJZdWJpY28gVTJGIFRlc3QgQ0EwHhcN'
+                    . 'MTQwNTE1MTI1ODU0WhcNMTQwNjE0MTI1ODU0WjAdMRswGQYDVQQDExJZdWJpY28gVTJGIFRlc3QgRUUwW'
+                    . 'TATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATbCtv1IcdczmPcpuHoJQYNlOYnVBlPnSSvJhq+rZlEH5WjcZ'
+                    . 'EKOiDnPpFeE+i+OAV61XqjfnaQj6\\/iipS2MOudMA0GCSqGSIb3DQEBCwUAA4ICAQCVQGtQYX2thKO064'
+                    . 'gP4zAPLaIKANklBO5y+mffWFEPC0cCnD5BKUqTrCmFiS2keoEyKFdxAe+oQogWljeR1d\\/gj8k8jbDNiX'
+                    . 'CC7HnTxnhzKTLlq2y9Vp\\/VRZHOwd2NZNzpnB9ePNKvUaWCGK\\/gN+cynnYFdwJ75iSgMVYb\\/RnFcd'
+                    . 'PwnsBzBU68hbhTnu\\/FvJxWo7rZJ2q7qXpA10eLVXJr4\\/4oSXEk9I\\/0IIHqOP98Ck\\/fAoI5gYI7'
+                    . 'ygndyqoPJ\\/Wkg1VsmjmbFToWY9xb+axbvPefvg+KojwxE6MySMpYh\\/h7oKEKamCWk19dJp5jHQmumk'
+                    . 'HlvQhH\\/uUJmyD9EuLmQH+6SmEzZg0Oc9uw1aKamhcNNDCFakJGnv80j1+HbDXnqE0168FBqorS2hmqea'
+                    . 'JfNSyg\\/SXT950lGC36tLy7BzQ8jYG99Ok32znp0UVbIEEvLSci3JJ0ipLVg\\/0J+xOb4zl6a1z65nae'
+                    . '4OTj7628\\/UJFmtSU0X6Np9gF1dNizxXPlH0fW1ggRCCQcb5m6ZqrdDJwUx1p7Ydm9AlPyiUwwmN5ADyx'
+                    . 'mzk\\/AOCoiO96UVvnvUlk2kF7JMNxIv3R0SCzP5fTl7KqGByeA3d7W375o6DWIIEsOI+dJd7pyPXdakec'
+                    . 'ZQRaVubC6\\/ICl+G52OEkdp8jYjkDS8j3NAdJ1udNmg==',
+                    'counter' => -1,
+                ],
+            ],
+        ]);
+
         $this->assertTrue($object->configure('key'));
 
         unset($_POST['u2f_authentication_response']);
@@ -281,7 +440,34 @@ class TwoFactorTest extends AbstractTestCase
             . 'yejRmVWpnYzBRN2ciLCAib3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXBsZS5jb20iLCAidHlwI'
             . 'jogIm5hdmlnYXRvci5pZC5nZXRBc3NlcnRpb24iIH0=", "keyHandle": "CTUayZo8hCBeC-sGQJC'
             . 'hC0wW-bBg99bmOlGCgw8XGq4dLsxO3yWh9mRYArZxocP5hBB1pEGB3bbJYiM-5acc5w", "errorCode": 0 }';
+        $this->assertAllQueriesConsumed();
+        $this->loadResultForConfig([]);
+        $this->loadQueriesForConfigure('key', [
+            'registrations' => [
+                [
+                    'keyHandle' => 'CTUayZo8hCBeC-sGQJChC0wW-bBg99bmOlGCgw8XGq4dLsxO3yWh9mRYArZxocP5hBB1pEGB3bbJ'
+                    . 'YiM-5acc5w',
+                    'publicKey' => 'BC0SaFZWC9uH7wamOwduP93kUH2I2hEvyY0Srfj4A258pZSlV0iPoFIH+bd4yhncaqdo'
+                        . 'PLdEDl5Y\\/yaFORPUe3c=',
+                    'certificate' => 'MIIC4jCBywIBATANBgkqhkiG9w0BAQsFADAdMRswGQYDVQQDExJZdWJpY28gVTJGIFRlc3QgQ0EwHhcN'
+                    . 'MTQwNTE1MTI1ODU0WhcNMTQwNjE0MTI1ODU0WjAdMRswGQYDVQQDExJZdWJpY28gVTJGIFRlc3QgRUUwW'
+                    . 'TATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATbCtv1IcdczmPcpuHoJQYNlOYnVBlPnSSvJhq+rZlEH5WjcZ'
+                    . 'EKOiDnPpFeE+i+OAV61XqjfnaQj6\\/iipS2MOudMA0GCSqGSIb3DQEBCwUAA4ICAQCVQGtQYX2thKO064'
+                    . 'gP4zAPLaIKANklBO5y+mffWFEPC0cCnD5BKUqTrCmFiS2keoEyKFdxAe+oQogWljeR1d\\/gj8k8jbDNiX'
+                    . 'CC7HnTxnhzKTLlq2y9Vp\\/VRZHOwd2NZNzpnB9ePNKvUaWCGK\\/gN+cynnYFdwJ75iSgMVYb\\/RnFcd'
+                    . 'PwnsBzBU68hbhTnu\\/FvJxWo7rZJ2q7qXpA10eLVXJr4\\/4oSXEk9I\\/0IIHqOP98Ck\\/fAoI5gYI7'
+                    . 'ygndyqoPJ\\/Wkg1VsmjmbFToWY9xb+axbvPefvg+KojwxE6MySMpYh\\/h7oKEKamCWk19dJp5jHQmumk'
+                    . 'HlvQhH\\/uUJmyD9EuLmQH+6SmEzZg0Oc9uw1aKamhcNNDCFakJGnv80j1+HbDXnqE0168FBqorS2hmqea'
+                    . 'JfNSyg\\/SXT950lGC36tLy7BzQ8jYG99Ok32znp0UVbIEEvLSci3JJ0ipLVg\\/0J+xOb4zl6a1z65nae'
+                    . '4OTj7628\\/UJFmtSU0X6Np9gF1dNizxXPlH0fW1ggRCCQcb5m6ZqrdDJwUx1p7Ydm9AlPyiUwwmN5ADyx'
+                    . 'mzk\\/AOCoiO96UVvnvUlk2kF7JMNxIv3R0SCzP5fTl7KqGByeA3d7W375o6DWIIEsOI+dJd7pyPXdakec'
+                    . 'ZQRaVubC6\\/ICl+G52OEkdp8jYjkDS8j3NAdJ1udNmg==',
+                    'counter' => 4,
+                ],
+            ],
+        ]);
         $this->assertTrue($object->check(true));
+        $this->assertAllQueriesConsumed();
     }
 
     /**
@@ -290,7 +476,7 @@ class TwoFactorTest extends AbstractTestCase
     public function testBackends(): void
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
-        $object = new TwoFactor('user');
+        $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backends = $object->getAllBackends();
         $this->assertCount(
             count($object->getAvailable()) + 1,

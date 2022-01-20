@@ -19,6 +19,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use const E_USER_WARNING;
 use function array_key_exists;
 use function array_keys;
@@ -51,6 +52,9 @@ use function trim;
 use function urlencode;
 use function usort;
 use function vsprintf;
+use function parse_url;
+use function parse_str;
+use function htmlspecialchars_decode;
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -144,13 +148,13 @@ class NavigationTree
             $this->pos = $this->getNavigationDbPos();
         }
         // Get the active node
-        if (isset($_REQUEST['aPath'])) {
-            $this->aPath[0] = $this->parsePath($_REQUEST['aPath']);
-            $this->pos2Name[0] = $_REQUEST['pos2_name'] ?? '';
-            $this->pos2Value[0] = (int) ($_REQUEST['pos2_value'] ?? 0);
-            if (isset($_REQUEST['pos3_name'])) {
-                $this->pos3Name[0] = $_REQUEST['pos3_name'] ?? '';
-                $this->pos3Value[0] = (int) $_REQUEST['pos3_value'];
+        if (isset($_POST['aPath'])) {
+            $this->aPath[0] = $this->parsePath($_POST['aPath']);
+            $this->pos2Name[0] = $_POST['pos2_name'] ?? '';
+            $this->pos2Value[0] = (int) ($_POST['pos2_value'] ?? 0);
+            if (isset($_POST['pos3_name'])) {
+                $this->pos3Name[0] = $_POST['pos3_name'] ?? '';
+                $this->pos3Value[0] = (int) $_POST['pos3_value'];
             }
         } else {
             if (isset($_POST['n0_aPath'])) {
@@ -159,20 +163,20 @@ class NavigationTree
                     $this->aPath[$count] = $this->parsePath(
                         $_POST['n' . $count . '_aPath']
                     );
-                    $index = 'n' . $count . '_pos2_';
-                    $this->pos2Name[$count] = $_POST[$index . 'name'];
-                    $this->pos2Value[$count] = (int) $_POST[$index . 'value'];
-                    $index = 'n' . $count . '_pos3_';
-                    if (isset($_POST[$index])) {
-                        $this->pos3Name[$count] = $_POST[$index . 'name'];
-                        $this->pos3Value[$count] = (int) $_POST[$index . 'value'];
+                    if (isset($_POST['n' . $count . '_pos2_name'])) {
+                        $this->pos2Name[$count] = $_POST['n' . $count . '_pos2_name'];
+                        $this->pos2Value[$count] = (int) $_POST['n' . $count . '_pos2_value'];
+                    }
+                    if (isset($_POST['n' . $count . '_pos3_name'])) {
+                        $this->pos3Name[$count] = $_POST['n' . $count . '_pos3_name'];
+                        $this->pos3Value[$count] = (int) $_POST['n' . $count . '_pos3_value'];
                     }
                     $count++;
                 }
             }
         }
-        if (isset($_REQUEST['vPath'])) {
-            $this->vPath[0] = $this->parsePath($_REQUEST['vPath']);
+        if (isset($_POST['vPath'])) {
+            $this->vPath[0] = $this->parsePath($_POST['vPath']);
         } else {
             if (isset($_POST['n0_vPath'])) {
                 $count = 0;
@@ -184,11 +188,11 @@ class NavigationTree
                 }
             }
         }
-        if (isset($_REQUEST['searchClause'])) {
-            $this->searchClause = $_REQUEST['searchClause'];
+        if (isset($_POST['searchClause'])) {
+            $this->searchClause = $_POST['searchClause'];
         }
-        if (isset($_REQUEST['searchClause2'])) {
-            $this->searchClause2 = $_REQUEST['searchClause2'];
+        if (isset($_POST['searchClause2'])) {
+            $this->searchClause2 = $_POST['searchClause2'];
         }
         // Initialize the tree by creating a root node
         $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
@@ -210,7 +214,7 @@ class NavigationTree
     {
         $retval = 0;
 
-        if (strlen($GLOBALS['db']) == 0) {
+        if (strlen($GLOBALS['db'] ?? '') === 0) {
             return $retval;
         }
 
@@ -1121,8 +1125,8 @@ class NavigationTree
                 $retval .= '<span class="hide paths_nav"';
                 $retval .= ' data-apath="' . $paths['aPath'] . '"';
                 $retval .= ' data-vpath="' . $paths['vPath'] . '"';
-                $retval .= ' data-pos="' . $this->pos . '"';
-                $retval .= '"></span>';
+                $retval .= ' data-pos="' . $this->pos . '">';
+                $retval .= '</span>';
                 $retval .= $this->getPaginationParamsHtml($node);
                 if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
                     || $parentName !== 'root'
@@ -1163,7 +1167,8 @@ class NavigationTree
                 $retval .= '<i>';
             }
 
-            $divClass = '';
+            // The .second class is used in js/src/navigation.js
+            $divClass = 'second';
 
             $iconLinks = [];
             $icons = [];
@@ -1177,11 +1182,12 @@ class NavigationTree
                 }
                 /** @var array $icons */
                 if (count($icons) > 1) {
-                    $divClass = 'double';
+                    // Generates: .second double class for NavigationTreeDefaultTabTable2
+                    $divClass = 'second double';
                 }
             }
 
-            $retval .= '<div class="block second' . $divClass . '">';
+            $retval .= '<div class="block ' . $divClass . '">';
 
             if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
                 $args = [];
@@ -1190,7 +1196,7 @@ class NavigationTree
                 }
 
                 foreach ($icons as $key => $icon) {
-                    $link = vsprintf($iconLinks[$key], $args);
+                    $link = $this->encryptQueryParams(vsprintf($iconLinks[$key], $args));
                     if ($linkClass != '') {
                         $retval .= "<a class='" . $linkClass . "' href='" . $link . "'>";
                         $retval .= '' . $icon . '</a>';
@@ -1208,7 +1214,7 @@ class NavigationTree
                 foreach ($node->parents(true) as $parent) {
                     $args[] = urlencode($parent->realName);
                 }
-                $link = vsprintf($node->links['text'], $args);
+                $link = $this->encryptQueryParams(vsprintf($node->links['text'], $args));
                 $title = $node->links['title'] ?? $node->title ?? '';
                 if ($nodeIsContainer) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='" . $link . "'>";
@@ -1349,12 +1355,15 @@ class NavigationTree
             }
         }
 
+        $databaseUrl = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,
             'list_navigator' => $listNavigator,
             'server' => $GLOBALS['server'],
             'options' => $options,
             'nodes' => $nodes,
+            'database_url' => $databaseUrl,
         ]);
     }
 
@@ -1594,5 +1603,24 @@ class NavigationTree
         $retval .= '</div>';
 
         return $retval;
+    }
+
+    /**
+     * @param string $link
+     *
+     * @return string
+     */
+    private function encryptQueryParams($link)
+    {
+        global $PMA_Config;
+
+        if (! $PMA_Config->get('URLQueryEncryption')) {
+            return $link;
+        }
+
+        $url = parse_url($link);
+        parse_str(htmlspecialchars_decode($url['query']), $query);
+
+        return $url['path'] . '?' . htmlspecialchars(Url::buildHttpQuery($query));
     }
 }

@@ -146,11 +146,9 @@ interface DbiExtension
     /**
      * returns a string that represents the client library version
      *
-     * @param object $link mysql link
-     *
      * @return string MySQL client library version
      */
-    public function getClientInfo($link);
+    public function getClientInfo();
 
     /**
      * returns last error message or false if no errors occurred

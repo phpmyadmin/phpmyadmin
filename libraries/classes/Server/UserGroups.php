@@ -62,7 +62,7 @@ class UserGroups
         $dbi->freeResult($result);
         $template = new Template();
 
-        return $template->render('/server/user_groups/user_listings', [
+        return $template->render('server/user_groups/user_listings', [
             'user_group_special_chars' => $userGroupSpecialChars,
             'num_rows' => $numRows,
             'users' => $users,
@@ -111,7 +111,8 @@ class UserGroups
                         'viewUsers' => 1,
                         'userGroup' => $groupName,
                     ],
-                    ''
+                    '',
+                    false
                 );
                 $userGroupVal['viewUsersIcon'] = Generator::getIcon('b_usrlist', __('View users'));
 
@@ -120,7 +121,8 @@ class UserGroups
                         'editUserGroup' => 1,
                         'userGroup' => $groupName,
                     ],
-                    ''
+                    '',
+                    false
                 );
                 $userGroupVal['editUsersIcon'] = Generator::getIcon('b_edit', __('Edit'));
 
@@ -129,7 +131,8 @@ class UserGroups
                         'deleteUserGroup' => 1,
                         'userGroup' => $groupName,
                     ],
-                    ''
+                    '',
+                    false
                 );
                 $userGroupVal['deleteUsersIcon'] = Generator::getIcon('b_drop', __('Delete'));
                 $userGroupsValues[] = $userGroupVal;
@@ -274,7 +277,7 @@ class UserGroups
 
         $template = new Template();
 
-        return $template->render('/server/user_groups/edit_user_groups', [
+        return $template->render('server/user_groups/edit_user_groups', [
             'user_group' => $userGroup,
             'edit_user_group_special_chars' => $editUserGroupSpecialChars,
             'user_group_url' => Url::getFromRoute('/server/user-groups'),
@@ -306,7 +309,7 @@ class UserGroups
         }
         $template = new Template();
 
-        return $template->render('/server/user_groups/tab_list', [
+        return $template->render('server/user_groups/tab_list', [
             'title' => $title,
             'level' => $level,
             'tab_details' => $tabDetails,

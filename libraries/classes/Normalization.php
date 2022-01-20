@@ -283,7 +283,7 @@ class Normalization
         $hasPrimaryKey = '0';
         $legendText = __('Step 1.') . $step . ' ' . $stepTxt;
         $extra = '';
-        if ($primary) {
+        if ($primary !== false) {
             $headText = __('Primary key already exists.');
             $subText = __('Taking you to next step…');
             $hasPrimaryKey = '1';
@@ -386,7 +386,7 @@ class Normalization
             . '<input class="btn btn-secondary" type="submit" value="' . __('No repeating group')
             . '" onclick="goToStep4();">';
         $primary = Index::getPrimary($table, $db);
-        $primarycols = $primary->getColumns();
+        $primarycols = $primary === false ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {
             $pk[] = $col->getName();
@@ -413,7 +413,7 @@ class Normalization
     {
         $legendText = __('Step 2.') . '1 ' . __('Find partial dependencies');
         $primary = Index::getPrimary($table, $db);
-        $primarycols = $primary->getColumns();
+        $primarycols = $primary === false ? [] : $primary->getColumns();
         $pk = [];
         $subText = '';
         $selectPkForm = '';
@@ -630,7 +630,7 @@ class Normalization
                 continue;
             }
             $primary = Index::getPrimary($table, $db);
-            $primarycols = $primary->getColumns();
+            $primarycols = $primary === false ? [] : $primary->getColumns();
             $pk = [];
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
@@ -695,7 +695,7 @@ class Normalization
         $headText = '<h3>' .
             __('The third step of normalization is complete.')
             . '</h3>';
-        if (count((array) $newTables) === 0) {
+        if (count($newTables) === 0) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
@@ -709,11 +709,11 @@ class Normalization
                 if ($table != $originalTable) {
                     $quotedPk = implode(
                         ', ',
-                        Util::backquote(explode(', ', $cols->pk))
+                        Util::backquote(explode(', ', $cols['pk']))
                     );
                     $quotedNonpk = implode(
                         ', ',
-                        Util::backquote(explode(', ', $cols->nonpk))
+                        Util::backquote(explode(', ', $cols['nonpk']))
                     );
                     $queries[] = 'CREATE TABLE ' . Util::backquote($table)
                         . ' SELECT DISTINCT ' . $quotedPk
@@ -731,8 +731,8 @@ class Normalization
                     $originalTable
                 );
                 $colPresent = array_merge(
-                    explode(', ', $dropCols->pk),
-                    explode(', ', $dropCols->nonpk)
+                    explode(', ', $dropCols['pk']),
+                    explode(', ', $dropCols['nonpk'])
                 );
                 $query = 'ALTER TABLE ' . Util::backquote($originalTable);
                 foreach ($columns as $col) {
@@ -873,7 +873,7 @@ class Normalization
         $cnt = 0;
         foreach ($tables as $table) {
             $primary = Index::getPrimary($table, $db);
-            $primarycols = $primary->getColumns();
+            $primarycols = $primary === false ? [] : $primary->getColumns();
             $selectTdForm = '';
             $pk = [];
             foreach ($primarycols as $col) {
@@ -1001,7 +1001,7 @@ class Normalization
         );
         $totalRows = $totalRowsRes[0];
         $primary = Index::getPrimary($table, $db);
-        $primarycols = $primary->getColumns();
+        $primarycols = $primary === false ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {
             $pk[] = Util::backquote($col->getName());

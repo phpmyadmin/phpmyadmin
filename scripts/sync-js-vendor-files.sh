@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -eu
+
 #
 # vim: expandtab sw=4 ts=4 sts=4:
 #
@@ -13,9 +14,7 @@ cd ${ROOT_DIR}
 
 # Remove each '-not -path' when a new package can be used from npm
 echo 'Delete vendor files we can replace from source dists'
-find ./js/vendor/ \
-    -not -path './js/vendor/openlayers/*' \
-    -type f -delete -print
+find ./js/vendor/ -type f -delete -print
 
 echo 'Updating codemirror'
 cp ./node_modules/codemirror/addon/hint/sql-hint.js ./js/vendor/codemirror/addon/hint/sql-hint.js
@@ -40,28 +39,7 @@ echo 'Updating jquery-mousewheel'
 cp ./node_modules/jquery-mousewheel/jquery.mousewheel.js ./js/vendor/jquery/jquery.mousewheel.js
 echo 'Updating jquery-ui'
 cp ./node_modules/jquery-ui-dist/jquery-ui.min.js ./js/vendor/jquery/jquery-ui.min.js
-echo 'Updating jquery.event.drag'
-cp ./node_modules/jquery.event.drag/jquery.event.drag.js ./js/vendor/jquery/jquery.event.drag-2.2.js
 # https://github.com/devongovett/jquery.event.drag/commit/2db3b7865f31eee6a8145532554f8b02210180bf#diff-ab8497cedd384270de86ee2e9f06530e
-echo 'Patching jquery.event.drag to be jquery init compatible'
-echo '--- js/vendor/jquery/jquery.event.drag-2.2.js 2020-04-18 16:43:43.822208181 +0200
-+++ js/vendor/jquery/jquery.event.drag-2.2.js	2020-04-18 16:44:29.342750892 +0200
-@@ -7,7 +7,7 @@
- // Updated: 2012-05-21
- // REQUIRES: jquery 1.7.x
-
--module.exports = function( $ ){
-+;(function( $ ){
-   // add the jquery instance method
-   $.fn.drag = function( str, arg, opts ){
-   	// figure out the event type
-@@ -397,4 +397,4 @@
-
-   // share the same special event configuration with related events...
-   $special.draginit = $special.dragstart = $special.dragend = drag;
--};
-+})( jQuery );
-' | patch --strip=0
 echo 'Updating jquery-validation'
 cp ./node_modules/jquery-validation/dist/jquery.validate.js ./js/vendor/jquery/jquery.validate.js
 cp ./node_modules/jquery-validation/dist/additional-methods.js ./js/vendor/jquery/additional-methods.js
@@ -95,8 +73,20 @@ echo 'Updating jquery-debounce'
 cp ./node_modules/jquery-debounce-throttle/index.js ./js/vendor/jquery/jquery.debounce-1.0.6.js
 echo 'Updating jquery-Timepicker-Addon'
 cp ./node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js ./js/vendor/jquery/jquery-ui-timepicker-addon.js
+echo 'Updating OpenLayers'
+cp ./node_modules/ol/ol.css ./js/vendor/openlayers/theme/ol.css
+npx webpack-cli --config ./js/config/ol/webpack.config.js
+echo "/*!
+  * OpenLayers v$(yarn -s info ol version) (https://openlayers.org/)
+  * Copyright 2005-present, OpenLayers Contributors All rights reserved.
+  * Licensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)
+  *
+  * @license $(yarn -s info ol license)
+  */
+$(cat ./js/vendor/openlayers/OpenLayers.js)" > ./js/vendor/openlayers/OpenLayers.js
 echo 'Updating sprintf'
 cp ./node_modules/locutus.sprintf/src/php/strings/sprintf.browser.js ./js/vendor/sprintf.js
+
 echo 'Update jqplot'
 
 echo 'Build jquery.jqplot.js'
@@ -124,7 +114,5 @@ cp ./node_modules/updated-jqplot/build/plugins/jqplot.canvasAxisLabelRenderer.js
 
 cp ./node_modules/updated-jqplot/build/plugins/jqplot.cursor.js ./js/vendor/jqplot/plugins/jqplot.cursor.js
 cp ./node_modules/updated-jqplot/build/plugins/jqplot.highlighter.js ./js/vendor/jqplot/plugins/jqplot.highlighter.js
-
-# There's no available bundle file distribution for openlayers. See: https://github.com/phpmyadmin/phpmyadmin/pull/16303#issuecomment-679205088
 
 echo 'Done.'

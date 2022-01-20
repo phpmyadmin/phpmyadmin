@@ -49,7 +49,7 @@
         "nikic/fast-route": "^1.3",
         "phpmyadmin/motranslator": "^5.0",
         "phpmyadmin/shapefile": "^2.0",
-        "phpmyadmin/sql-parser": "^5.0",
+        "phpmyadmin/sql-parser": "^5.5",
         "phpmyadmin/twig-i18n-extension": "^3.0",
         "phpseclib/phpseclib": "^2.0",
         "symfony/config": "^4.4.9",
@@ -57,18 +57,17 @@
         "symfony/expression-language": "^4.4.9",
         "symfony/polyfill-ctype": "^1.17.0",
         "symfony/polyfill-mbstring": "^1.17.0",
-        "twig/twig": "^2.9 || ^3",
+        "twig/twig": "^2.14.9 || ^3.3.5",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
     "conflict": {
         "phpseclib/phpseclib": "2.0.8",
         "tecnickcom/tcpdf": "<6.2",
         "pragmarx/google2fa": "<6.1.0 || >8.0",
-        "pragmarx/google2fa-qrcode": "<1.0.1",
-        "samyoul/u2f-php-server": "<1.1"
+        "pragmarx/google2fa-qrcode": "<1.0.1"
     },
     "suggest": {
-        "ext-openssl": "Cookie encryption",
+        "ext-openssl": "For encryption performance",
         "ext-curl": "Updates checking",
         "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",
@@ -78,22 +77,24 @@
         "ext-mbstring": "For best performance",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "For 2FA authentication",
-        "samyoul/u2f-php-server": "For FIDO U2F authentication"
+        "code-lts/u2f-php-server": "For FIDO U2F authentication",
+        "paragonie/sodium_compat": "For modern encryption support"
     },
     "require-dev": {
-        "php-webdriver/webdriver": "^1.8",
+        "code-lts/u2f-php-server": "^1.2",
+        "paragonie/sodium_compat": "^1.17",
+        "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^2.1.1",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^0.12.78",
-        "phpstan/phpstan-phpunit": "^0.12.17",
+        "phpstan/phpstan": "^1.3",
+        "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^7.5 || ^8.0 || ^9.0",
         "pragmarx/google2fa-qrcode": "^1.0.1",
-        "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^4.4",
         "symfony/finder": "^4.4",
         "symfony/twig-bridge": "^4.4",
-        "tecnickcom/tcpdf": "dev-main#456b794f1fae9aee5c151a1ee515aae2aaa619a3",
-        "vimeo/psalm": "^4.6.1"
+        "tecnickcom/tcpdf": "^6.4.4",
+        "vimeo/psalm": "^4.17"
     },
     "extra": {
         "branch-alias": {
@@ -117,6 +118,11 @@
     },
     "config":{
         "sort-packages": true,
-        "discard-changes": true
+        "discard-changes": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true,
+            "composer/package-versions-deprecated": true
+        }
     }
 }

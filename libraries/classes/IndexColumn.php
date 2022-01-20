@@ -49,11 +49,34 @@ class IndexColumn
     private $cardinality = null;
 
     /**
+     * If the Index uses an expression and not a name
+     *
+     * @var string|null
+     */
+    private $expression = null;
+
+    /**
      * @param array $params an array containing the parameters of the index column
      */
     public function __construct(array $params = [])
     {
         $this->set($params);
+    }
+
+    /**
+     * If the Index has an expression
+     */
+    public function hasExpression(): bool
+    {
+        return $this->expression !== null;
+    }
+
+    /**
+     * The Index expression if it has one
+     */
+    public function getExpression(): ?string
+    {
+        return $this->expression;
     }
 
     /**
@@ -79,6 +102,9 @@ class IndexColumn
         }
         if (isset($params['Sub_part'])) {
             $this->subPart = $params['Sub_part'];
+        }
+        if (isset($params['Expression'])) {
+            $this->expression = $params['Expression'];
         }
         if (! isset($params['Null'])) {
             return;

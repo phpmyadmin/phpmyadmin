@@ -8,10 +8,10 @@
     verbose="true">
 
     <testsuites>
-        <testsuite name="Classes">
+        <testsuite name="unit">
             <directory suffix="Test.php">test/classes</directory>
         </testsuite>
-        <testsuite name="Selenium">
+        <testsuite name="selenium">
             <directory suffix="Test.php">test/selenium</directory>
         </testsuite>
     </testsuites>

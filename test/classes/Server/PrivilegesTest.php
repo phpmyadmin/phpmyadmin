@@ -202,7 +202,7 @@ class PrivilegesTest extends AbstractTestCase
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
         $this->assertEquals(
-            'PMA_pred_dbname',
+            'PMA\_pred\_dbname',
             $dbname
         );
         $this->assertEquals(
@@ -378,8 +378,8 @@ class PrivilegesTest extends AbstractTestCase
         $sql = 'SELECT * FROM `mysql`.`db`'
             . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
-            . " AND '" . Util::unescapeMysqlWildcards($db) . "'"
-            . ' LIKE `Db`;';
+            . ' AND `Db` = \'' . $db . '\'';
+
         $this->assertEquals(
             $sql,
             $ret
@@ -1393,7 +1393,7 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        $dbname = 'pma\_dbname';
+        $dbname = 'pma_dbname';
         $url_html = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
@@ -1411,6 +1411,91 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         $dbname = 'pma_dbname';
+        $html = $this->serverPrivileges->getUserLink(
+            'revoke',
+            $username,
+            $hostname,
+            $dbname,
+            $tablename,
+            ''
+        );
+
+        $dbname = 'pma_dbname';
+        $url_html = Url::getCommon(
+            [
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+                'routinename' => '',
+                'revokeall' => 1,
+            ],
+            ''
+        );
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Revoke'),
+            $html
+        );
+
+        $html = $this->serverPrivileges->getUserLink('export', $username, $hostname);
+
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'initial' => '',
+            'export' => 1,
+        ], '');
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Export'),
+            $html
+        );
+    }
+
+    /**
+     * Test for getUserLink
+     */
+    public function testGetUserLinkWildcardsEscaped(): void
+    {
+        $username = 'pma\_username';
+        $hostname = 'pma\_hostname';
+        $dbname = 'pma\_dbname';
+        $tablename = 'pma\_tablename';
+
+        $html = $this->serverPrivileges->getUserLink(
+            'edit',
+            $username,
+            $hostname,
+            $dbname,
+            $tablename,
+            ''
+        );
+
+        $dbname = 'pma\_dbname';
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'dbname' => $dbname,
+            'tablename' => $tablename,
+            'routinename' => '',
+        ], '');
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Edit privileges'),
+            $html
+        );
+
+        $dbname = 'pma\_dbname';
         $html = $this->serverPrivileges->getUserLink(
             'revoke',
             $username,
@@ -1987,13 +2072,13 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertStringContainsString('<td>A</td>', $actual);
         $this->assertStringContainsString('<td>Z</td>', $actual);
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=-'
-            . '&amp;lang=en">-</a>',
+            '<a class="ajax" href="index.php?route=/server/privileges&initial=-'
+            . '&lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=%22'
-            . '&amp;lang=en">"</a>',
+            '<a class="ajax" href="index.php?route=/server/privileges&initial=%22'
+            . '&lang=en">"</a>',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);

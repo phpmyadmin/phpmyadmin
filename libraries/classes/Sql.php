@@ -32,6 +32,7 @@ use function stripos;
 use function strlen;
 use function strpos;
 use function ucwords;
+use function defined;
 
 /**
  * Set of functions for the SQL executor
@@ -181,7 +182,7 @@ class Sql
      *
      * @return bool whether the result set contains a unique key
      */
-    private function resultSetContainsUniqueKey($db, $table, array $fields_meta)
+    private function resultSetContainsUniqueKey(string $db, string $table, array $fields_meta)
     {
         $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
@@ -328,9 +329,9 @@ class Sql
      * @param string $table  current table
      * @param string $column current column
      *
-     * @return array array containing the value list for the column
+     * @return array|null array containing the value list for the column, null on failure
      */
-    public function getValuesForColumn($db, $table, $column)
+    public function getValuesForColumn(string $db, string $table, string $column): ?array
     {
         $field_info_query = QueryGenerator::getColumnsSql($db, $table, $this->dbi->escapeString($column));
 
@@ -341,6 +342,10 @@ class Sql
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
+
+        if (! isset($field_info_result[0])) {
+            return null;
+        }
 
         return Util::parseEnumSetValues($field_info_result[0]['Type']);
     }
@@ -641,8 +646,10 @@ class Sql
      */
     private function executeQueryAndMeasureTime($full_sql_query)
     {
-        // close session in case the query takes too long
-        session_write_close();
+        if (! defined('TESTSUITE')) {
+            // close session in case the query takes too long
+            session_write_close();
+        }
 
         // Measure query time.
         $querytime_before = array_sum(explode(' ', microtime()));
@@ -654,8 +661,10 @@ class Sql
         );
         $querytime_after = array_sum(explode(' ', microtime()));
 
-        // reopen session
-        session_start();
+        if (! defined('TESTSUITE')) {
+            // reopen session
+            session_start();
+        }
 
         return [
             $result,
@@ -809,12 +818,15 @@ class Sql
                         '',
                     ],
                 ];
-                $count_query = Query::replaceClauses(
+                $count_query = 'SELECT COUNT(*) FROM (' . Query::replaceClauses(
                     $statement,
                     $token_list,
                     $replaces
-                );
-                $unlim_num_rows = $this->dbi->numRows($this->dbi->tryQuery($count_query));
+                ) . ') as cnt';
+                $unlim_num_rows = $this->dbi->fetchValue($count_query);
+                if ($unlim_num_rows === false) {
+                    $unlim_num_rows = 0;
+                }
             }
         } else {// not $is_select
             $unlim_num_rows = 0;
@@ -1063,7 +1075,7 @@ class Sql
      *
      * @param array          $analyzed_sql_results analyzed sql results
      * @param string         $db                   current database
-     * @param string         $table                current table
+     * @param string|null    $table                current table
      * @param string|null    $message_to_show      message to show
      * @param int            $num_rows             number of rows
      * @param DisplayResults $displayResultsObject DisplayResult instance
@@ -1078,8 +1090,8 @@ class Sql
      */
     private function getQueryResponseForNoResultsReturned(
         array $analyzed_sql_results,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         ?string $message_to_show,
         $num_rows,
         $displayResultsObject,
@@ -1395,12 +1407,12 @@ class Sql
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string $table        current table
-     * @param string $database     current database
-     * @param bool   $editable     whether the results table can be editable or not
-     * @param bool   $hasUniqueKey whether there is a unique key
+     * @param string|null $table        current table
+     * @param string      $database     current database
+     * @param bool        $editable     whether the results table can be editable or not
+     * @param bool        $hasUniqueKey whether there is a unique key
      */
-    private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
+    private function getMessageIfMissingColumnIndex(?string $table, string $database, $editable, $hasUniqueKey): string
     {
         $output = '';
         if (! empty($table) && (Utilities::isSystemSchema($database) || ! $editable)) {
@@ -1442,7 +1454,7 @@ class Sql
      * @param object|null         $result               executed query results
      * @param array               $analyzed_sql_results analysed sql results
      * @param string              $db                   current database
-     * @param string              $table                current table
+     * @param string|null         $table                current table
      * @param array|null          $sql_data             sql data
      * @param DisplayResults      $displayResultsObject Instance of DisplayResults
      * @param string              $themeImagePath       uri of the theme image
@@ -1459,8 +1471,8 @@ class Sql
     private function getQueryResponseForResultsReturned(
         $result,
         array $analyzed_sql_results,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         ?array $sql_data,
         $displayResultsObject,
         $themeImagePath,
@@ -1508,7 +1520,7 @@ class Sql
         $statement = $analyzed_sql_results['statement'] ?? null;
         if ($statement instanceof SelectStatement) {
             if (! empty($statement->expr)) {
-                if ($statement->expr[0]->expr === '*') {
+                if ($statement->expr[0]->expr === '*' && ! empty($table)) {
                     $_table = new Table($table, $db);
                     $updatableView = $_table->isUpdatableView();
                 }
@@ -1522,7 +1534,7 @@ class Sql
             }
         }
 
-        $has_unique = $this->resultSetContainsUniqueKey(
+        $has_unique = empty($table) ? false : $this->resultSetContainsUniqueKey(
             $db,
             $table,
             $fields_meta
@@ -1664,8 +1676,8 @@ class Sql
     public function executeQueryAndSendQueryResponse(
         $analyzed_sql_results,
         $is_gotofile,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         $find_real_end,
         $sql_query_for_bookmark,
         $extra_data,
@@ -1715,7 +1727,7 @@ class Sql
      *
      * @param array               $analyzed_sql_results   analysed sql results
      * @param bool                $is_gotofile            whether goto file or not
-     * @param string|null         $db                     current database
+     * @param string              $db                     current database
      * @param string|null         $table                  current table
      * @param bool|null           $find_real_end          whether to find real end or not
      * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
@@ -1734,8 +1746,8 @@ class Sql
     public function executeQueryAndGetQueryResponse(
         array $analyzed_sql_results,
         $is_gotofile,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         $find_real_end,
         ?string $sql_query_for_bookmark,
         $extra_data,

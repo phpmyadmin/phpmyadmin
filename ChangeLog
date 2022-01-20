@@ -1,6 +1,237 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.2 (2022-01-20)
+- issue        Replaced MySQL documentation redirected links
+- issue #16960 Fix JS error on Designer visual builder on some modal buttons
+- issue        Re-build openlayers JS dependency from the source files and provide a smaller JS bundle
+- issue        Fixed imports and theme detection depending on the current working dir
+- issue        Update JavaScript dependencies
+- issue #16935 Remove hardcoded row length for "$cfg['CharTextareaRows']" to allow back values < 7
+- issue #16977 Fix encoding of enum and set values on edit value
+- issue        Fix set value as selected when it has special chars on edit value enum
+- issue #16896 Fix distinct URLs broken on nullable text fields
+- issue        Fixed two possible PHP errors using INT data
+- issue        Fixed possible warning "Undefined index: output_format" on export
+- issue        Fixed warning "Undefined index: ods_recognize_percentages" on Import ODS
+- issue        Fixed warning "Undefined array key "ods_recognize_currency" on Import ODS
+- issue #16982 Fixed "Notice: Undefined index: foreign_keys_data" on Designer remove relation
+- issue        Backquote phpMyAdmin table name on internal relation delete query for Designer
+- issue #16982 Do not try to delete internal relations if they are not configured
+- issue #16982 Show success messages on Designer for add and remove relation operations
+- issue        Fixed possible "Undefined index: clause_is_unique" on replace value in cell
+- issue #16991 Fixed case where $_SERVER['REQUEST_METHOD'] is undefined
+- issue        Fixed configuration error handler registration
+- issue #16997 Fixed server variables get/set value not working on multi server server > 1
+- issue #16998 Fixed Multi table query submit on server > 1 logged out user
+- issue #17000 Fixed Multi edit on central columns on server > 1 logged out user
+- issue #17001 Fix PHP error on query submit without a table name on multi table query box
+- issue #16999 Fixed multi table query results shows for 1 sec and then page refreshes
+- issue        Fixed a non translated button text on central columns add
+- issue        Fixed table width on Query by example page for large screens
+- issue #16975 Fixed NULL default had a value on insert with datatime fields
+- issue #16994 Fixed missing privilege escaping when assigning multiple databases with '_' to an user
+- issue #16864 Fixed the margin on the last database of the tree on all themes when scrollbars are displayed
+- issue #17011 Fixed the database tree line that was not continuous on database groups
+- issue        Build more syntax correct URLs on JS internal redirects
+- issue #16976 Fix wrong link when a table is moved from a database to another
+- issue #16985 Fix case-sensitive issue of innodb_file_format=barracuda vs innodb_file_format=Barracuda
+- issue        Fixed duplicate quote in navigation nodes
+- issue #17006 Disable the URL limit for the MariaDB analyser feature
+- issue        Fix calls to fetchRow using two parameters but the function has only one parameter
+- issue #17020 Fixed "Notice Undefined index: sql_query" on Insert page
+- issue        Fix reported "Undefined index: FirstDayOfCalendar"
+- issue        Fix reported "Undefined index: environment"
+- issue        Fix "TypeError: strlen() expects parameter 1 to be string, null given" on databases listing
+- issue #16973 Fix "Undefined array key "n0_pos2_name"" on databases listing
+- issue        Use the correct min MySQL version for axis-order (8.0.1) instead of (8.0.11)
+- issue        Use the queries we asked the user confirmation for on DELETE and TRUNCATE table actions
+- issue #16994 Fixed editing specific privileges for a database covered by a wildcard privilege
+- issue #16994 Fixed escaping of the database name for databases containing '_' on users edit
+- issue #16994 Only escape once on grant/revoke privileges for databases containing '_' or '%'
+- issue #16994 Only show databases without a privilege on multi select for user grant databases
+- issue        Removed un-expected query success message from the Table export page
+- issue #17026 Handle possible invalid boolean values injected in SaveDir or UploadDir causing "TypeError: mb_substr()"
+- issue #16981 Enable cookie parameter "SameSite" on "phpMyAdmin" cookie for PHP >= 7.3
+- issue #16966 Encode "#" to have the anchor part of the destination URL on SQL highlight terms URLs
+- issue #17004 Fix PHP errors due to removed variable "innodb_file_format" on MariaDB >= 10.6.0 and MySQL >= 8.0.0
+- issue #16842 Fixed missing password modes on PerconaDB
+- issue #16947 Fix "Change login information" form not working
+- issue #17004 Fix Advisor for MariaDB >= 10.5 because of removed "innodb_log_files_in_group" variable
+- issue #17037 Fix change structure does not surface errors
+- issue #17016 Fixed online Transaction, errors not reported on structure edit
+- issue #17042 Fix SQL escaping bug on DB name with special chars on submit query with rollback option
+- issue #17027 Better handle the display of sorted binary columns in results summary
+- issue #16398 Quote non numeric values on parameterized queries
+- issue        Fixed duplicate HTML escaping on foreign keys select value modal
+- issue #15370 Fixed edit routine UI incorrectly removes too many escape slashes
+- issue #14631 Fix enum with comma produces incorrect search dropdown on search pages
+- issue        Fix gis visualization position and limit parameters have no effect
+- issue #16995 Fix edit binary foreign key adds a 1 to the value on the selected value
+- issue #13614 Fixed escaping the database names when granting privileges on tables
+- issue #11834 Fixed adding a new user on "privileges" tab of a table with a database name using a "_" character
+- issue #17033 Fixed scaling of line width and point size in GIS visualization
+- issue #17054 Removed "DEL" character from generated random strings for Blowfish secret auto-generated by setup
+- issue #17019 Fixed "Browse" button visible when creating a table from the database structure view
+- issue #16804 Fixed numbers were left-aligned rather than right-aligned
+- issue        Fixed Metro theme text color for buttons in the browse table navigation bar
+- issue #14796 Fix export Database page, UI prevents from exporting procedures only
+- issue #15225 Fix Command+click on macOS opens links in same tab
+- issue #17014 Fix column names in first row when importing from CSV where the first line contains column names
+- issue        Fix prevent scrolling the page when scrolling in GIS visualization
+- issue        Fix GIS visualization save file with a different label or column
+- issue        Fixed GIS saving image as png with a label
+- issue        Fixed if label is just the number zero, it was treated as no label in the OpenLayers map
+- issue #17039 Fix unable to have 2FA working with a "pmadb" config value != phpmyadmin
+- issue #17079 Fixed missing spatial functions in Insert/Edit page
+- issue        Fixed broken docs link after a FK data type mismatch error
+- issue        Fix don't add multiple OpenLayers maps, remove listeners on dispose on GIS visualization
+- issue #14502 Uncheck the "ignore" checkbox when the user chooses a value in the foreign key list on Insert page
+- issue #14502 Uncheck the "ignore" checkbox when the user saves the GIS value on Insert page
+- issue #17018 Fixed cannot save data from GIS editor for spatial column on Insert page
+- issue #17084 Fixed ErrorHandler not showing errors when phpMyAdmin session does not work at all
+- issue #17062 Fixed pagination issues when working with identically named tables in separate databases
+- issue #17046 Fix "Uncaught TypeError: htmlspecialchars() expects parameter 1 to be string, null given"
+- issue #16942 Fix table Import with CSV using LOAD DATA LOCAL causes error "LOAD DATA LOCAL INFILE is forbidden"
+- issue #16942 Fix auto-detection for "LOAD DATA LOCAL INFILE" LOCAL option
+- issue #16067 Make select elements with multiple items resizable
+- issue        Fix the display of Indexes that use Expressions and not column names
+- issue        Allow to create the phpMyAdmin storage database using a different name than "phpmyadmin" using the interface
+- issue #17092 Document that "$cfg['Servers'][$i]['designer_coords']" was removed in version 4.3.0
+- issue #16906 Support special table names for pmadb storage table names
+- issue #16906 Fix a caching effect on the feature list after creating the tables
+- issue #16906 Better report errors when creating the pmadb or its tables
+- issue #16906 Create the pmadb tables using the names configured and not the default names
+- issue #16906 Create the phpMyAdmin storage database using the configured "['pmadb']" name and not always "phpmyadmin"
+- issue #16906 Prevent incorrect overriding of configured values after a pmadb fix
+- issue #16906 Use the control connection to create the storage database and tables and not the user connection
+- issue #16693 Fix can't see SQL after adding a new column
+- issue #12753 Show table structure after adding a new column
+- issue        Fix a PHP notice when logging out
+- issue #17090 Fix bbcode not rendered for error messages on setup
+- issue #17198 Fix the database selection when the navigation tree is disabled
+- issue #17228 Fixed copy to clipboard with NULL values gives non usable text
+- issue #16746 Replace samyoul/u2f-php-server by code-lts/u2f-php-server
+- issue #16005 Performance improvement on the Import and Export pages
+- issue #17247 Fix triple HTML encoding
+- issue #17259 Fix broken link in the Simulate DML query modal
+- issue #16746 Update tcpdf dependency to ^6.4.4 for PHP 8.1 compatibility
+- issue #16746 Update twig dependency to "^2.14.9 || ^3.3.5" for PHP 8.1 compatibility
+- issue        [security] Add configuration directive $cfg['Servers'][$i]['hide_connection_errors'] to allow hiding host names and other error details when login fails
+- issue        [security] Add configuration directive $cfg['URLQueryEncryption'] to allow encrypting senstive information in the URL
+- issue        [security] Fix a scenario where an authenticated user can disable two factor authentication (PMASA-2022-1)
+- issue        [security] Fix XSS and HTML injection attacks in the graphical setup page (PMASA-2022-2)
+
+5.1.1 (2021-06-04)
+- issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
+- issue        Fixed adding an event shows an empty row
+- issue #16706 Fixed a PHP error when visualizing a nullable geometry column
+- issue        Fixed a PHP type error when exporting triggers to ODF
+- issue #16659 Fixed the Column Drop arrow to make it responsive
+- issue #16677 Improved the Font size of an executed SQL query
+- issue #16677 Fixed Metro theme DB tree background
+- issue #16713 Fixed "PhpMyAdmin\Url::getFromRoute" PHP error for old config values
+- issue #16713 Add a legacy fallback for the old config value of "$cfg['DefaultTabDatabase']" and others
+- issue #16698 Fix relative fallback URL to './' instead of '/'
+- issue        Fixed Yaml export to quote strings even when they are numeric
+- issue #16704 Fixed PHP type errors on the substring transformation
+- issue #14026 Fixed error messages and conditions for MD5 and AES_* functions
+- issue #16708 Fixed PHP "Uncaught TypeError: hash_hmac()" on double quick edit
+- issue #16709 Fix TCPDF open_basedir issue due to internal guessing code from TCPDF
+- issue #16729 Fixed the silencing error management for PHP >= 8.0
+- issue #16604 Set back tables width like in 5.0 versions
+- issue #16716 Fixed rename button disappears after a column drop on table structure page
+- issue #15628 Fixed "JSON encoding failed: Malformed UTF-8 characters" when browsing data that uses binary to IP transformation
+- issue #14395 Fixed display chart with timeline & series name column trigger JS error
+- issue #16738 Fixed quick search submit is not working on multi server server > 1
+- issue #16717 Fixed main drawer js call slowing down the page and remove the reflow effect
+- issue        Fixed a PHP notice "Undefined index: pred_username"
+- issue #16744 Fixed "Uncaught TypeError: XMLWriter::writeAttribute()" on Designer SVG export
+- issue        Fixed an PHP undefined index notice on export
+- issue #14555 Fixed JavaScript error when auto completion is open (upgraded CodeMirror to 5.60.0)
+- issue #16647 Fixed preferences form not showing texts and not respecting TabsMode config
+- issue        Fixed escape_mysql_wildcards Twig filter
+- issue        Change text from "Null" to "NULL" on grid edit popup
+- issue        Translate a non translated string on a change password page
+- issue        Fix designer modal buttons sizes for pmahomme and bootstrap themes
+- issue #16694 Fixed "Triggers" page not visible for user table specific privileges
+- issue #14430 Fixed execute button is disabled for routines
+- issue #16703 Fixed SQL option to Export specific rows from a table
+- issue #16656 Fixed error messages are not always translated
+- issue #16728 Fixed wrong SQL query built on table structure index for new column
+- issue #16647 Fixed table search forms not showing texts and not respecting TabsMode config
+- issue #16758 Fixed copy to clipboard feature not working on ja or zh_TW languages because of the non ascii colon
+- issue #16601 Update tcpdf dependency to ^6.4.1
+- issue #16770 Fixed a notice or warning, when clicking on Structure tab
+- issue #16756 Fixed refresh UI on server status
+- issue        Fixed a PHP notice when searching for .git/commondir on the login page for users using ShowGitRevision
+- issue        Fixed reported PHP notice on export save template
+- issue        Fixed reported PHP warnings on server status page
+- issue #15629 Fixed datetime decimals displayed (.00000) after edit
+- issue #16780 Fixed new event shows an empty row
+- issue #16765 Fixed new lines in text fields are doubled
+- issue        Fix "Connection" label always shown on table create, should be hidden like it's input
+- issue #16773 Fix do not use cast as binary for an empty text value on edit button condition
+- issue        Fixed a JS error on a missing script on zoom search
+- issue        Added button style on the reset charts of zoom search
+- issue        Fixed number of rows not kept when changing sort by index value
+- issue #16784 Fixed spacing between icons when using NavigationTreeDefaultTabTable2 configuration
+- issue #16786 Fixed browser error when clicking the logo with NavigationLogoLink configuration
+- issue        Fixed a type error when getting the special schema links
+- issue #16789 Fix create PHP code removes ; from SQL query on Structure snapshot
+- issue #16791 Fixed "Undefined index table_schema" on special schema table
+- issue        Fixed "DESCRIBE FILES;" broken links in query results
+- issue #16790 Fixed "Undefined index field_name" PHP error
+- issue #16605 Fixed vertical alignment issue on tables for pmahomme theme
+- issue #16798 Fix ServerConfigChecks: Link 'trusted proxies list' not terminated properly (translation)
+- issue #16805 Fixed shortcut keys not working
+- issue #16821 Fix "Show all rows" un-check checkbox creates a JS error if the page was reloaded
+- issue        Remove redundant jQuery Event Drag plugin
+- issue        Fix PHP type error on GIS nullable data
+- issue        Fix not working export to PNG, SVG, PDF on GIS visualization
+- issue        Fix float values type errors on GIS export to PNG, SVG, PDF
+- issue #16792 Fixed URL generation by removing un-needed &amp; escaping for & char
+- issue #16777 Fixed Non-UTF8 Primary Key text value edit row
+- issue #16836 Fixed extra whitespaces in binary edit values causes a JS validation error message
+- issue #15566 Support RTL mode on the Designer
+- issue #16810 Fixed SQL query shown twice on drop column success
+- issue #16404 Fixed JS password generation fails after a new user creation failure
+- issue #16837 Fixed PHP error on execute query "create table event(...)"
+- issue        Fixed a PHP warning that was occuring on wrong chmod on config files
+- issue        Fixed a JS error on dismiss notification modal
+- issue #16793 Upgrade CodeMirror to 5.61.0 to fix a JS error on scroll in SQL query box
+- issue        Fix password management for Percona Server lacking PASSWORD function
+- issue        Fixed "data is undefined" JS error
+- issue        Fixed 2 un-translated buttons on central columns edit
+- issue #16810 Fixed SQL query shown twice on central columns actions
+- issue #16771 Fixed PHP array export to work on very large datasets
+- issue #16847 Fixed JSON export nullable binary PHP error
+- issue #16847 Fixed JSON export text fields and binary data
+- issue #14773 Fix exporting a raw query is not working
+- issue #16734 Fixed memory limit reached, use SQL COUNT(*) instead of fetch and count results
+- issue #16723 Fixed option to perform ALTER ONLINE is not available on edit of an existing column
+- issue        Add missing CSS style on "Filter" button on monitor results table header
+- issue        Fixed non working "Filter" button on monitor results table header
+- issue #16420 Fixed single clicking on row starts editing even if GridEditing is set to double-click
+- issue #16854 Fixed "Undefined index: SERVER_SOFTWARE" on very minimal PHP FPM setups
+- issue #16863 Fixed replication setting up a replica is not working
+- issue #16843 Fixed vertical alignment in Metro and pmahomme themes on user accounts overview
+- issue        Fixed "phpMyAdmin configuration storage" link on settings page warning
+- issue #16871 Fixed PHP and JS errors on normalization steps
+- issue        Fixed CSS missing classes on normalization buttons
+- issue #16437 Fixed sticky top position when using smaller screen sizes
+- issue #16895 Fixed wrong table count on space separated numbers
+- issue #16882 Fixed table delete resets count to 0
+- issue #16892 Fixed current_timestamp() stringified on INSERT for date field
+- issue #16911 Fixed PHP 8.1 "Method mysqli::get_client_info() is deprecated"
+- issue        Fix "array_fill(): Argument #2 ($count) must be of type int, string" for "$cfg['InsertRows']"
+- issue #14130 Created new messages for U2F errors
+- issue #16920 Fixed "Uncaught TypeError: PhpMyAdmin\Import::detectType()" on ODS import
+- issue #16926 Fixed ODS import warning: Undefined array key "ods_empty_rows"
+- issue #16888 Fixed JS error on renaming tables in saved Designer page
+- issue #16504 Fixed create view dialog is too big and won't scroll (on small screens)
+- issue #16931 Fixed php notice "Undefined index: utf8mb3" on MySQL 8.0.11+ servers with default utf8 server charset
+
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
 - issue #15377 Add a request router
@@ -312,6 +543,13 @@ phpMyAdmin - ChangeLog
 - issue #14732 Fixed can't rename primary key with auto increment
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
+
+4.9.8 (2022-01-20)
+- issue #14321 Display a correct error page when "$cfg['Servers'][$i]['SignonURL']" is empty for auth_type=signon
+- issue #14321 [security] Remove leaked HTML on signon page redirect before login for auth_type=signon
+- issue        [security] Add configuration directive $cfg['Servers'][$i]['hide_connection_errors'] to allow hiding host names and other error details when login fails
+- issue        [security] Add configuration directive $cfg['URLQueryEncryption'] to allow encrypting senstive information in the URL
+- issue        [security] Fix a scenario where an authenticated user can disable two factor authentication
 
 4.9.7 (2020-10-15)
 - issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)

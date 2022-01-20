@@ -169,7 +169,6 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->scripts->addFile('vendor/js.cookie.js');
         $this->scripts->addFile('vendor/jquery/jquery.mousewheel.js');
-        $this->scripts->addFile('vendor/jquery/jquery.event.drag-2.2.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('vendor/jquery/jquery.ba-hashchange-2.0.js');
@@ -710,7 +709,7 @@ class Header
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
-            'first_day_of_calendar' => $cfg['FirstDayOfCalendar'],
+            'first_day_of_calendar' => $cfg['FirstDayOfCalendar'] ?? 0,
             'theme_image_path' => $PMA_Theme !== null ? $PMA_Theme->getImgPath() : '',
             'max_input_vars' => $maxInputVarsValue,
         ]);

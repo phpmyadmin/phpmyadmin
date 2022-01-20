@@ -2065,7 +2065,8 @@ Functions.documentationAdd = function ($elm, params) {
         params[0]
     );
     if (params.length > 1) {
-        url += '#' + params[1];
+        // The # needs to be escaped to be part of the destination URL
+        url += encodeURIComponent('#') + params[1];
     }
     var content = $elm.text();
     $elm.text('');
@@ -2486,7 +2487,7 @@ $(function () {
         }, 250);
     });
 
-    $(document).on('mouseup', 'span.ajax_notification.dismissable', function () {
+    $(document).on('mouseup', 'span.ajax_notification.dismissable', function (event) {
         if (holdStarter && event.which === 1) {
             clearTimeout(holdStarter);
             Functions.ajaxRemoveMessage($(this));
@@ -3341,8 +3342,7 @@ AJAX.registerOnload('functions.js', function () {
  */
 Functions.hideShowConnection = function ($engineSelector) {
     var $connection = $('.create_table_form input[name=connection]');
-    var index = $connection.parent('td').index();
-    var $labelTh = $connection.parents('tr').prev('tr').children('th').eq(index);
+    var $labelTh = $('.create_table_form #storage-engine-connection');
     if ($engineSelector.val() !== 'FEDERATED') {
         $connection
             .prop('disabled', true)
@@ -3995,6 +3995,7 @@ AJAX.registerOnload('functions.js', function () {
 
 Functions.mainMenuResizerCallback = function () {
     // 5 px margin for jumping menu in Chrome
+    // eslint-disable-next-line compat/compat
     return $(document.body).width() - 5;
 };
 
@@ -4269,7 +4270,7 @@ Functions.initSlider = function () {
         }
         var $wrapper = $('<div>', { 'class': 'slide-wrapper' });
         $wrapper.toggle($this.is(':visible'));
-        $('<a>', { href: '#' + this.id, 'class': 'ajax' })
+        $('<a>', { href: '#' + this.id, 'class': 'ajax', id: 'slide-handle' })
             .text($this.attr('title'))
             .prepend($('<span>'))
             .insertBefore($this)
@@ -4662,6 +4663,7 @@ Functions.createViewDialog = function ($this) {
             var $dialog = $('<div></div>').attr('id', 'createViewDialog').append(data.message).dialog({
                 width: 600,
                 minWidth: 400,
+                height: $(window).height(),
                 modal: true,
                 buttons: buttonOptions,
                 title: Messages.strCreateView,
@@ -5164,7 +5166,7 @@ Functions.configSet = function (key, value) {
  * @param {boolean}    cached          Configuration type.
  * @param {Function}   successCallback  The callback to call after the value is received
  *
- * @return {object}                Configuration value.
+ * @return {void}
  */
 Functions.configGet = function (key, cached, successCallback) {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
@@ -5176,8 +5178,6 @@ Functions.configGet = function (key, cached, successCallback) {
     // Result not found in local storage or ignored.
     // Hitting the server.
     $.ajax({
-        // Value at false to be synchronous (then ignore the callback on success)
-        async: typeof successCallback === 'function',
         url: 'index.php?route=/config/get',
         type: 'POST',
         dataType: 'json',
@@ -5200,7 +5200,6 @@ Functions.configGet = function (key, cached, successCallback) {
             }
         }
     });
-    return JSON.parse(localStorage.getItem(key));
 };
 
 /**

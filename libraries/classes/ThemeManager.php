@@ -19,7 +19,6 @@ use function opendir;
 use function readdir;
 use function sprintf;
 use function trigger_error;
-use function trim;
 
 /**
  * phpMyAdmin theme manager
@@ -36,10 +35,13 @@ class ThemeManager
     private static $instance;
 
     /**
-     * @var string path to theme folder
+     * @var string file-system path to the theme folder
      * @access protected
      */
-    private $themesPath = './themes/';
+    private $themesPath;
+
+    /** @var string path to theme folder as an URL */
+    private $themesPathUrl;
 
     /** @var array available themes */
     public $themes = [];
@@ -69,8 +71,10 @@ class ThemeManager
         $this->themes = [];
         $this->themeDefault = self::FALLBACK_THEME;
         $this->activeTheme = '';
+        $this->themesPath = self::getThemesFsDir();
+        $this->themesPathUrl = self::getThemesDir();
 
-        if (! $this->setThemesPath('./themes/')) {
+        if (! $this->checkThemeFolder($this->themesPath)) {
             return;
         }
 
@@ -122,26 +126,6 @@ class ThemeManager
         }
 
         return self::$instance;
-    }
-
-    /**
-     * sets path to folder containing the themes
-     *
-     * @param string $path path to themes folder
-     *
-     * @return bool success
-     *
-     * @access public
-     */
-    public function setThemesPath($path): bool
-    {
-        if (! $this->checkThemeFolder($path)) {
-            return false;
-        }
-
-        $this->themesPath = trim($path);
-
-        return true;
     }
 
     /**
@@ -295,7 +279,7 @@ class ThemeManager
             // Skip non dirs, . and ..
             if ($PMA_Theme === '.'
                 || $PMA_Theme === '..'
-                || ! @is_dir(ROOT_PATH . $this->themesPath . $PMA_Theme)
+                || ! @is_dir($this->themesPath . $PMA_Theme)
             ) {
                 continue;
             }
@@ -303,8 +287,8 @@ class ThemeManager
                 continue;
             }
             $new_theme = Theme::load(
-                $this->themesPath . $PMA_Theme,
-                ROOT_PATH . $this->themesPath . $PMA_Theme . '/'
+                $this->themesPathUrl . $PMA_Theme,
+                $this->themesPath . $PMA_Theme . DIRECTORY_SEPARATOR
             );
             if (! $new_theme) {
                 continue;
@@ -400,6 +384,6 @@ class ThemeManager
      */
     public static function getThemesDir(): string
     {
-        return './themes' . DIRECTORY_SEPARATOR;
+        return './themes/';// This is an URL
     }
 }

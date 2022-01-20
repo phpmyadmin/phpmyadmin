@@ -19,6 +19,9 @@ use PhpMyAdmin\Transformations;
 use stdClass;
 use function count;
 use function hex2bin;
+use function urldecode;
+use function htmlspecialchars_decode;
+use function explode;
 
 /**
  * Test cases for displaying results.
@@ -352,19 +355,6 @@ class ResultsTest extends AbstractTestCase
                 'index.php?route=/database/routines&item_name=area&db=data'
                 . '&item_type=PROCEDURE&server=0&lang=en',
             ],
-            [
-                'information_schema',
-                'columns',
-                'CHARACTER_SET_NAME',
-                [
-                    'table_schema' => 'information_schema',
-                    'table_name' => 'CHARACTER_SETS',
-                ],
-                'column_name',
-                'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
-                . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
-                . '&test_name=value&server=0&lang=en',
-            ],
         ];
     }
 
@@ -408,21 +398,15 @@ class ResultsTest extends AbstractTestCase
                 ],
                 'columns' => [
                     'column_name' => [
-                        'link_param' => [
-                            'sql_query',
-                            'table_schema',
-                            'table_name',
-                        ],
+                        'link_param' => 'table_schema',
                         'link_dependancy_params' => [
                             0 => [
                                 'param_info' => 'db',
                                 'column_name' => 'table_schema',
                             ],
                             1 => [
-                                'param_info' => [
-                                    'test_name',
-                                    'value',
-                                ],
+                                'param_info' => 'db2',
+                                'column_name' => 'table_schema',
                             ],
                         ],
                         'default_page' => 'index.php',
@@ -431,9 +415,6 @@ class ResultsTest extends AbstractTestCase
             ],
         ];
 
-        $this->object->properties['db'] = $db;
-        $this->object->properties['table'] = $table;
-
         $this->assertEquals(
             $output,
             $this->callFunction(
@@ -441,10 +422,9 @@ class ResultsTest extends AbstractTestCase
                 DisplayResults::class,
                 'getSpecialLinkUrl',
                 [
-                    $specialSchemaLinks,
+                    $specialSchemaLinks[$db][$table][$field_name],
                     $column_value,
                     $row_info,
-                    $field_name,
                 ]
             )
         );
@@ -887,7 +867,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 0,
                 'binary',
-                'class="disableAjax">[BLOB - 4 B]</a>' . "\n"
+                'class="disableAjax">[BLOB - 4 B]</a>'
                 . '</td>' . "\n",
             ],
             [
@@ -908,8 +888,8 @@ class ResultsTest extends AbstractTestCase
                 [],
                 0,
                 'binary',
-                '<td class="left grid_edit  transformed hex">' . "\n"
-                . '    1001' . "\n"
+                '<td class="left grid_edit  transformed hex">'
+                . '1001'
                 . '</td>' . "\n",
             ],
             [
@@ -1116,6 +1096,7 @@ class ResultsTest extends AbstractTestCase
         $meta->numeric = true;
         $meta->primary_key = false;
         $meta->unique_key = false;
+        $meta->blob = false;
         $meta2 = new stdClass();
         $meta2->db = 'db';
         $meta2->table = 'table';
@@ -1128,6 +1109,7 @@ class ResultsTest extends AbstractTestCase
         $meta2->numeric = true;
         $meta2->primary_key = false;
         $meta2->unique_key = false;
+        $meta2->blob = false;
         $fields_meta = [
             $meta,
             $meta2,
@@ -1195,5 +1177,171 @@ class ResultsTest extends AbstractTestCase
         );
         unset($_SESSION['tmpval']);
         unset($_SESSION['relation']);
+    }
+
+    public function dataProviderGetSortOrderHiddenInputs(): array
+    {
+        // SQL to add the column
+        // SQL to remove the column
+        // The URL params
+        // The column name
+        return [
+            [
+                '',
+                '',
+                ['sql_query' => ''],
+                'colname',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC',
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`name` ASC',
+                ['sql_query' => 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC'],
+                'shape',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC',
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC',
+                ['sql_query' => 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC'],
+                'name',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all`',
+                'SELECT * FROM `gis_all`',
+                ['sql_query' => 'SELECT * FROM `gis_all`'],
+                'name',
+                '',
+            ],
+            [
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                [
+                    'sql_query' => 'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                ],
+                '',
+                '',
+            ],
+            [
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`country_slug` ASC, `gd_cities`.`city_id`'
+                . ' ASC, `gd_cities`.`city` ASC',
+                [
+                    'sql_query' => 'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                ],
+                'region_slug',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC',
+                'SELECT * FROM `gis_all`',
+                ['sql_query' => 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC'],
+                'shape',
+                '&discard_remembered_sort=1',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderGetSortOrderHiddenInputs
+     */
+    public function testGetSortOrderHiddenInputs(
+        string $sqlAdd,
+        string $sqlRemove,
+        array $urlParams,
+        string $colName,
+        string $urlParamsRemove
+    ): void {
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSortOrderHiddenInputs',
+            [
+                $urlParams,
+                $colName,
+            ]
+        );
+        $out = urldecode(htmlspecialchars_decode($output));
+        $this->assertStringContainsString(
+            'name="url-remove-order" value="index.php?route=/sql&sql_query=' . $sqlRemove,
+            $out,
+            'The remove query should be found'
+        );
+
+        $this->assertStringContainsString(
+            'name="url-add-order" value="index.php?route=/sql&sql_query=' . $sqlAdd,
+            $out,
+            'The add query should be found'
+        );
+
+        $firstLine = explode("\n", $out)[0] ?? '';
+        $this->assertStringContainsString(
+            'url-remove-order',
+            $firstLine,
+            'The first line should contain url-remove-order input'
+        );
+        $this->assertStringNotContainsString(
+            'url-add-order',
+            $firstLine,
+            'The first line should contain NOT url-add-order input'
+        );
+
+        $this->assertStringContainsString(
+            $urlParamsRemove,
+            $firstLine,
+            'The first line should contain the URL params'
+        );
+    }
+
+    /**
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/16836
+     */
+    public function testBuildValueDisplayNoTrainlingSpaces(): void
+    {
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                false,
+                '  special value  ',
+            ]
+        );
+        $this->assertSame('<td class="left my_class">  special value  </td>' . "\n", $output);
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                false,
+                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
+            ]
+        );
+        $this->assertSame(
+            '<td class="left my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
+            $output
+        );
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                true,// condition mode
+                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
+            ]
+        );
+        $this->assertSame(
+            '<td class="left my_class condition">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
+            $output
+        );
     }
 }

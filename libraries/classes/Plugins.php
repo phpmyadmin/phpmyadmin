@@ -77,8 +77,11 @@ class Plugins
             . mb_strtoupper($plugin_format[0])
             . mb_strtolower(mb_substr($plugin_format, 1));
         $file = $class_name . '.php';
-        if (is_file($plugins_dir . $file)) {
-            //include_once $plugins_dir . $file;
+
+        $fullFsPathPluginDir = ROOT_PATH . $plugins_dir;
+
+        if (is_file($fullFsPathPluginDir . $file)) {
+            //include_once $fullFsPathPluginDir . $file;
             $fqnClass = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18)) . $class_name;
             // check if class exists, could be caused by skip_import
             if (class_exists($fqnClass)) {
@@ -136,7 +139,9 @@ class Plugins
 
         $GLOBALS['plugin_param'] = $plugin_param;
 
-        $handle = @opendir($plugins_dir);
+        $fullFsPathPluginDir = ROOT_PATH . $plugins_dir;
+
+        $handle = @opendir($fullFsPathPluginDir);
         if (! $handle) {
             return [];
         }
@@ -154,7 +159,7 @@ class Plugins
             // (for example ._csv.php) so the following regexp
             // matches a file which does not start with a dot but ends
             // with ".php"
-            if (! is_file($plugins_dir . $file)
+            if (! is_file($fullFsPathPluginDir . $file)
                 || ! preg_match(
                     '@^' . $class_type . '([^\.]+)\.php$@i',
                     $file,
@@ -167,7 +172,7 @@ class Plugins
             /** @var bool $skip_import */
             $skip_import = false;
 
-            include_once $plugins_dir . $file;
+            include_once $fullFsPathPluginDir . $file;
 
             if ($skip_import) {
                 continue;

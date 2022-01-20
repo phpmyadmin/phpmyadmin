@@ -47,7 +47,7 @@ EOT;
             . '<meta:generator>phpMyAdmin ' . PMA_VERSION . '</meta:generator>'
             . '<meta:initial-creator>phpMyAdmin ' . PMA_VERSION
             . '</meta:initial-creator>'
-            . '<meta:creation-date>' . strftime('%Y-%m-%dT%H:%M:%S')
+            . '<meta:creation-date>' . @strftime('%Y-%m-%dT%H:%M:%S')
             . '</meta:creation-date>'
             . '</office:meta>'
             . '</office:document-meta>',

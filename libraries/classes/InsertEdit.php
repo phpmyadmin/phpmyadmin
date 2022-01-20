@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use const ENT_COMPAT;
 use const PASSWORD_DEFAULT;
 use function array_fill;
 use function array_flip;
@@ -266,7 +267,8 @@ class InsertEdit
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
+        // Can be a string on some old configuration storage settings
+        $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
 
         return [
             $result,
@@ -327,13 +329,13 @@ class InsertEdit
 
         if (! $is_show) {
             return ' : <a href="' . Url::getFromRoute('/table/change') . '" data-post="'
-                . Url::getCommon($this_url_params, '') . '">'
+                . Url::getCommon($this_url_params, '', false) . '">'
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
 
         return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
-            . Url::getCommon($this_url_params, '')
+            . Url::getCommon($this_url_params, '', false)
             . '" title="' . __('Hide') . '">'
             . $this->showTypeOrFunctionLabel($which)
             . '</a></th>';
@@ -856,7 +858,7 @@ class InsertEdit
         }
 
         if (in_array($column['pma_type'], $gis_data_types)) {
-            $html_output .= $this->getHtmlForGisDataTypes();
+            $html_output .= $this->getHtmlForGisDataTypes((int) $rownumber);
         }
 
         return $html_output;
@@ -918,7 +920,8 @@ class InsertEdit
                     'rownumber' => $rownumber,
                     'data'      => $data,
                 ],
-                ''
+                '',
+                false
             ) . '">'
             . Generator::getIcon('b_browse', __('Browse foreign values')) . '</a>';
 
@@ -1028,7 +1031,7 @@ class InsertEdit
              *       why character columns have the "char" class instead
              */
             $the_class = 'char charField';
-            $textAreaRows = max($GLOBALS['cfg']['CharTextareaRows'], 7);
+            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
             $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
             $extracted_columnspec = Util::extractColumnSpec(
                 $column['Type']
@@ -1567,7 +1570,7 @@ class InsertEdit
     private function getSelectOptionForUpload($vkey, array $column)
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir($GLOBALS['cfg']['UploadDir'])
+            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? ''))
         );
 
         if ($files === false) {
@@ -1724,9 +1727,10 @@ class InsertEdit
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="timestamp">';
             }
-            if (substr($column['pma_type'], 0, 8) === 'datetime') {
+            if (substr($column['pma_type'], 0, 4) === 'date') {
+                $type = substr($column['pma_type'], 0, 8) === 'datetime' ? 'datetime' : 'date';
                 $html_output .= '<input type="hidden" name="fields_type'
-                    . $column_name_appendix . '" value="datetime">';
+                    . $column_name_appendix . '" value="' . $type . '">';
             }
             if ($column['True_Type'] === 'bit') {
                 $html_output .= '<input type="hidden" name="fields_type'
@@ -1778,13 +1782,14 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    private function getHtmlForGisDataTypes()
+    private function getHtmlForGisDataTypes(int $rowId): string
     {
         $edit_str = Generator::getIcon('b_edit', __('Edit/Insert'));
 
-        return '<span class="open_gis_editor">'
+        return '<span class="open_gis_editor" data-row-id="' . $rowId . '">'
             . Generator::linkOrButton(
                 '#',
+                null,
                 $edit_str,
                 [],
                 '_blank'
@@ -2067,7 +2072,7 @@ class InsertEdit
                 : Util::addMicroseconds(
                     $current_row[$column['Field']]
                 );
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
         } elseif (in_array($column['True_Type'], $gis_data_types)) {
             // Convert gis data to Well Know Text format
             $current_row[$column['Field']] = $as_is
@@ -2076,7 +2081,7 @@ class InsertEdit
                     $current_row[$column['Field']],
                     true
                 );
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
         } else {
             // special binary "characters"
             if ($column['is_binary']
@@ -2088,7 +2093,7 @@ class InsertEdit
                         $current_row[$column['Field']]
                     );
             }
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
 
             //We need to duplicate the first \n or otherwise we will lose
             //the first newline entered in a VARCHAR or TEXT column
@@ -2115,7 +2120,7 @@ class InsertEdit
         // it's better to set a fields_prev in this situation
         $backup_field = '<input type="hidden" name="fields_prev'
             . $column_name_appendix . '" value="'
-            . htmlspecialchars($current_row[$column['Field']]) . '">';
+            . htmlspecialchars($current_row[$column['Field']], ENT_COMPAT) . '">';
 
         return [
             $real_null_value,
@@ -2397,7 +2402,7 @@ class InsertEdit
         $error_messages = [];
 
         foreach ($query as $single_query) {
-            if ($_POST['submit_type'] === 'showinsert') {
+            if (isset($_POST['submit_type']) && $_POST['submit_type'] === 'showinsert') {
                 $last_messages[] = Message::notice(__('Showing SQL query'));
                 continue;
             }
@@ -2599,12 +2604,14 @@ class InsertEdit
         $type
     ) {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        if (is_file($include_file)) {
+        if (is_file(ROOT_PATH . $include_file)) {
+            // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
+            $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
             $_url_params = [
                 'db'            => $db,
                 'table'         => $table,
-                'where_clause_sign' => Core::signSqlQuery($_POST['where_clause']),
-                'where_clause'  => $_POST['where_clause'],
+                'where_clause_sign' => Core::signSqlQuery($whereClause),
+                'where_clause'  => $whereClause,
                 'transform_key' => $column_name,
             ];
             $transform_options = $this->transformations->getOptions(
@@ -2681,9 +2688,9 @@ class InsertEdit
             return "'" . $uuid . "'";
         }
 
-        if ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
-            && substr($current_value, 0, 3) == "'''")
-            || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
+        if (
+            in_array($multi_edit_funcs[$key], $gis_from_text_functions) ||
+            in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
         ) {
             // Remove enclosing apostrophes
             $current_value = mb_substr($current_value, 1, -1);
@@ -2899,7 +2906,7 @@ class InsertEdit
                 $current_value = preg_replace('/[^01]/', '0', $current_value);
                 $current_value = "b'" . $this->dbi->escapeString($current_value)
                     . "'";
-            } elseif (! ($type === 'datetime' || $type === 'timestamp')
+            } elseif (! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
                 || ($current_value !== 'CURRENT_TIMESTAMP'
                     && $current_value !== 'current_timestamp()')
             ) {
@@ -3094,7 +3101,7 @@ class InsertEdit
          */
         $url_params = [
             'db' => $db,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $_POST['sql_query'] ?? '',
         ];
 
         if (strpos($goto, 'tbl_') === 0 || strpos($goto, 'index.php?route=/table') === 0) {
@@ -3292,7 +3299,8 @@ class InsertEdit
         // in the name attribute (see bug #1746964 )
         $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
 
-        if ($column['Type'] === 'datetime' && ! isset($column['Default']) && $insert_mode) {
+        if ($column['Type'] === 'datetime' && $column['Null'] !== 'YES'
+            && ! isset($column['Default']) && $insert_mode) {
             $column['Default'] = date('Y-m-d H:i:s', time());
         }
 
@@ -3420,7 +3428,7 @@ class InsertEdit
         if (! empty($column_mime['input_transformation'])) {
             $file = $column_mime['input_transformation'];
             $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-            if (is_file($include_file)) {
+            if (is_file(ROOT_PATH . $include_file)) {
                 $class_name = $this->transformations->getClassName($include_file);
                 if (class_exists($class_name)) {
                     $transformation_plugin = new $class_name();

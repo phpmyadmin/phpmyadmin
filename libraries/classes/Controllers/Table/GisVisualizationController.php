@@ -88,8 +88,11 @@ final class GisVisualizationController extends AbstractController
 
         // Get settings if any posted
         $visualizationSettings = [];
+        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
         if (Core::isValid($_POST['visualizationSettings'], 'array')) {
             $visualizationSettings = $_POST['visualizationSettings'];
+        } elseif (Core::isValid($_GET['visualizationSettings'], 'array')) {
+            $visualizationSettings = $_GET['visualizationSettings'];
         }
 
         // Check mysql version
@@ -107,15 +110,16 @@ final class GisVisualizationController extends AbstractController
             $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
         }
 
+        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
         // Convert geometric columns from bytes to text.
-        $pos = $_GET['pos'] ?? $_SESSION['tmpval']['pos'];
-        if (isset($_GET['session_max_rows'])) {
-            $rows = $_GET['session_max_rows'];
+        $pos = (int) ($_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']);
+        if (isset($_POST['session_max_rows']) || isset($_GET['session_max_rows'])) {
+            $rows = (int) ($_POST['session_max_rows'] ?? $_GET['session_max_rows']);
         } else {
             if ($_SESSION['tmpval']['max_rows'] !== 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
+                $rows = (int) $_SESSION['tmpval']['max_rows'];
             } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
+                $rows = (int) $GLOBALS['cfg']['MaxRows'];
             }
         }
         $this->visualization = GisVisualization::get(
@@ -166,12 +170,15 @@ final class GisVisualizationController extends AbstractController
         );
         $url_params['back'] = Url::getFromRoute('/sql');
         $url_params['sql_query'] = $sqlQuery;
+        $url_params['sql_signature'] = Core::signSqlQuery($sqlQuery);
         $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge(
             $url_params,
             [
                 'saveToFile' => true,
                 'session_max_rows' => $rows,
                 'pos' => $pos,
+                'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
+                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'],
             ]
         ));
         $html = $this->template->render('table/gis_visualization/gis_visualization', [

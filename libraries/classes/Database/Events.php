@@ -207,6 +207,7 @@ class Events
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
                 }
+                $this->response->addJSON('tableType', 'events');
                 exit;
             }
         }

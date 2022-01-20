@@ -863,6 +863,24 @@ Server connection settings
 
     .. seealso:: :ref:`faqpdf`.
 
+.. _designer_coords:
+.. config:option:: $cfg['Servers'][$i]['designer_coords']
+
+    :type: string
+    :default: ``''``
+
+    .. versionadded:: 2.10.0
+
+        Since release 2.10.0 a Designer interface is available; it permits to
+        visually manage the relations.
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed and the Designer table positioning data is now stored into :config:option:`$cfg['Servers'][$i]['table\_coords']`.
+
+    .. note::
+        You can now delete the table `pma__designer_coords` from your phpMyAdmin configuration storage database and remove :config:option:`$cfg['Servers'][$i]['designer\_coords']` from your configuration file.
+
 .. _col_com:
 .. config:option:: $cfg['Servers'][$i]['column_info']
 
@@ -1480,6 +1498,20 @@ Server connection settings
     after logout (doesn't affect config authentication method). Should be
     absolute including protocol.
 
+.. config:option:: $cfg['Servers'][$i]['hide_connection_errors']
+
+    :type: boolean
+    :default: false
+
+    .. versionadded:: 4.9.8
+
+    Whether to show or hide detailed MySQL/MariaDB connection errors on the login page.
+
+    .. note::
+
+        This error message can contain the target database server hostname or IP address,
+        which may reveal information about your network to an attacker.
+
 Generic settings
 ----------------
 
@@ -1509,7 +1541,7 @@ Generic settings
     :default: true
 
     Enables check for latest versions using JavaScript on the main phpMyAdmin
-    page or by directly accessing :file:`version_check.php`.
+    page or by directly accessing `index.php?route=/version-check`.
 
     .. note::
 
@@ -1768,6 +1800,27 @@ Generic settings
     Whether or not the drag and drop import feature is enabled.
     When enabled, a user can drag a file in to their browser and phpMyAdmin will
     attempt to import the file.
+
+.. config:option:: $cfg['URLQueryEncryption']
+
+    :type: boolean
+    :default: false
+
+    .. versionadded:: 4.9.8
+
+    Define whether phpMyAdmin will encrypt sensitive data (like database name
+    and table name) from the URL query string. Default is to not encrypt the URL
+    query string.
+
+.. config:option:: $cfg['URLQueryEncryptionSecretKey']
+
+    :type: string
+    :default: ``''``
+
+    .. versionadded:: 4.9.8
+
+    A secret key used to encrypt/decrypt the URL query string.
+    Should be 32 bytes long.
 
 Cookie authentication options
 -----------------------------
@@ -2100,10 +2153,12 @@ Navigation panel setup
     :type: string
     :default: ``'index.php'``
 
-    Enter :term:`URL` where logo in the navigation panel will point to.
+    Enter the :term:`URL` where the logo in the navigation panel will point to.
     For use especially with self made theme which changes this.
-    For relative/internal URLs, you need to have leading `` ./ `` or trailing characters `` ? `` such as ``'./sql.php?'``.
+    For relative/internal URLs, you need to have leading `` ./ `` or trailing characters `` ? `` such as ``'./index.php?route=/server/sql?'``.
     For external URLs, you should include URL protocol schemes (``http`` or ``https``) with absolute URLs.
+
+    You may want to make the link open in a new browser tab, for that you need to use :config:option:`$cfg['NavigationLogoLinkWindow']`
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
@@ -2113,6 +2168,9 @@ Navigation panel setup
     Whether to open the linked page in the main window (``main``) or in a
     new one (``new``). Note: use ``new`` if you are linking to
     ``phpmyadmin.net``.
+
+    To open the link in the main window you will need to add the value of :config:option:`$cfg['NavigationLogoLink']`
+    to :config:option:`$cfg['CSPAllow']` because of the :term:`Content Security Policy` header.
 
 .. config:option:: $cfg['NavigationTreeDisplayItemFilterMinimum']
 
@@ -2857,7 +2915,7 @@ Web server settings
 
     This can be useful when you want to include some external JavaScript files
     in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
-    would be normally not allowed by Content Security Policy.
+    would be normally not allowed by :term:`Content Security Policy`.
 
     To allow some sites, just list them within the string:
 
@@ -3031,7 +3089,7 @@ Text fields
 .. config:option:: $cfg['CharTextareaRows']
 
     :type: integer
-    :default: 2
+    :default: 7
 
     Number of columns and rows for the textareas. This value will be
     emphasized (\*2) for :term:`SQL` query
@@ -3040,6 +3098,10 @@ Text fields
 
     The Char\* values are used for CHAR
     and VARCHAR editing (if configured via :config:option:`$cfg['CharEditing']`).
+
+    .. versionchanged:: 5.0.0
+
+        The default value was changed from 2 to 7.
 
 .. config:option:: $cfg['LongtextDoubleTextarea']
 
@@ -3406,12 +3468,25 @@ MySQL settings
 .. config:option:: $cfg['DefaultFunctions']
 
     :type: array
-    :default: array(...)
+    :default: ``array('FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW')``
 
     Functions selected by default when inserting/changing row, Functions
-    are defined for meta types as (FUNC\_NUMBER, FUNC\_DATE, FUNC\_CHAR,
-    FUNC\_SPATIAL, FUNC\_UUID) and for ``first_timestamp``, which is used
+    are defined for meta types as (``FUNC_NUMBER``, ``FUNC_DATE``, ``FUNC_CHAR``,
+    ``FUNC_SPATIAL``, ``FUNC_UUID``) and for ``first_timestamp``, which is used
     for first timestamp column in table.
+
+    Example configuration
+
+    .. code-block:: php
+
+        $cfg['DefaultFunctions'] = [
+            'FUNC_CHAR' => '',
+            'FUNC_DATE' => '',
+            'FUNC_NUMBER' => '',
+            'FUNC_SPATIAL' => 'ST_GeomFromText',
+            'FUNC_UUID' => 'UUID',
+            'first_timestamp' => 'UTC_TIMESTAMP',
+        ];
 
 Default options for Transformations
 -----------------------------------

@@ -144,6 +144,10 @@
     z-index: 100;
     vertical-align: sub;
   }
+
+  li.table {
+    background-color: #0000;
+  }
 }
 
 #pma_navigation_tree {
@@ -304,6 +308,11 @@
     border-#{$left}: 1px solid #666;
     margin-#{$left}: 0.75em;
     padding-#{$left}: 0.75em;
+
+    li.last.database {
+      // Revert the effect of the rule that is applied on all the tree
+      margin-bottom: 0 !important;
+    }
   }
 
   .last > .list_container {

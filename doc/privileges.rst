@@ -9,14 +9,14 @@ perform a particular action. Within phpMyAdmin, administrators have full
 control over creating users, viewing and editing privileges for existing users,
 and removing users.
 
-Within phpMyAdmin, user management is controlled via the :guilabel:`Users` link
+Within phpMyAdmin, user management is controlled via the :guilabel:`User accounts` tab
 from the main page. Users can be created, edited, and removed.
 
 Creating a new user
 -------------------
 
-To create a new user, click the :guilabel:`Add a new user` link near the bottom
-of the :guilabel:`Users` page (you must be a "superuser", e.g., user "root").
+To create a new user, click the :guilabel:`Add user account` link near the bottom
+of the :guilabel:`User accounts` page (you must be a "superuser", e.g., user "root").
 Use the textboxes and drop-downs to configure the user to your particular
 needs. You can then select whether to create a database for that user and grant
 specific global privileges. Once you've created the user (by clicking Go), you
@@ -28,14 +28,14 @@ Editing an existing user
 ------------------------
 
 To edit an existing user, simply click the pencil icon to the right of that
-user in the :guilabel:`Users` page. You can then edit their global- and
+user in the :guilabel:`User accounts` page. You can then edit their global- and
 database-specific privileges, change their password, or even copy those
 privileges to a new user.
 
 Deleting a user
 ---------------
 
-From the :guilabel:`Users` page, check the checkbox for the user you wish to
+From the :guilabel:`User accounts` page, check the checkbox for the user you wish to
 remove, select whether or not to also remove any databases of the same name (if
 they exist), and click Go.
 

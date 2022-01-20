@@ -7,7 +7,7 @@
       {{ saved_searches_field|raw }}
 
       <div class="table-responsive jsresponsive">
-        <table class="table table-borderless table-sm">
+        <table class="table table-borderless table-sm w-auto">
           <tr class="noclick">
             <th>{% trans 'Column:' %}</th>
             {{ column_names_row|raw }}
@@ -85,7 +85,7 @@
     <fieldset>
       <legend>{% trans 'Use tables' %}</legend>
 
-      <select name="TableList[]" id="listTable" size="{{ criteria_tables|length > 30 ? '15' : '7' }}" aria-label="{% trans 'Use tables' %}" multiple>
+      <select class="resize-vertical" name="TableList[]" id="listTable" size="{{ criteria_tables|length > 30 ? '15' : '7' }}" aria-label="{% trans 'Use tables' %}" multiple>
         {% for table, selected in criteria_tables %}
           <option value="{{ table }}"{{ selected|raw }}>{{ table }}</option>
         {% endfor %}

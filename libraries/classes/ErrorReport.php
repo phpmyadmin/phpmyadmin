@@ -96,7 +96,7 @@ class ErrorReport
             'browser_name' => PMA_USR_BROWSER_AGENT,
             'browser_version' => PMA_USR_BROWSER_VER,
             'user_os' => PMA_USR_OS,
-            'server_software' => $_SERVER['SERVER_SOFTWARE'],
+            'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? null,
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $PMA_Config->getCookie('pma_lang'),
             'configuration_storage' =>
@@ -222,6 +222,7 @@ class ErrorReport
         if (isset($components['query'])) {
             parse_str($components['query'], $queryArray);
             unset($queryArray['db'], $queryArray['table'], $queryArray['token'], $queryArray['server']);
+            unset($queryArray['eq']);
             $query = http_build_query($queryArray);
         } else {
             $query = '';

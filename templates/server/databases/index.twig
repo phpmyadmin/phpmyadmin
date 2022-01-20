@@ -238,7 +238,7 @@
 
                 <td class="tool">
                   <a class="server_databases" data="
-                    {{- database.name|js_format }}" href="{{ url('/server/privileges', {
+                    {{- database.name }}" href="{{ url('/server/privileges', {
                       'db': database.name,
                       'checkprivsdb': database.name
                     }) }}" title="
@@ -315,7 +315,7 @@
         <div class="row">
           <ul>
             <li class="li_switch_dbstats">
-              <a href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '') }}" title="{% trans 'Enable statistics' %}">
+              <a href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '', false) }}" title="{% trans 'Enable statistics' %}">
                 <strong>{% trans 'Enable statistics' %}</strong>
               </a>
             </li>

@@ -313,7 +313,7 @@
   <ul class="list-group list-group-flush" id="tbl_maintenance">
     {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
       <li class="list-group-item">
-        <a href="{{ url('/table/maintenance/analyze') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+        <a href="{{ url('/table/maintenance/analyze') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
           {% trans 'Analyze table' %}
         </a>
         {{ show_mysql_docu('ANALYZE_TABLE') }}
@@ -322,7 +322,7 @@
 
     {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'] %}
       <li class="list-group-item">
-        <a href="{{ url('/table/maintenance/check') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+        <a href="{{ url('/table/maintenance/check') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
           {% trans 'Check table' %}
         </a>
         {{ show_mysql_docu('CHECK_TABLE') }}
@@ -330,7 +330,7 @@
     {% endif %}
 
     <li class="list-group-item">
-      <a href="{{ url('/table/maintenance/checksum') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+      <a href="{{ url('/table/maintenance/checksum') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
         {% trans 'Checksum table' %}
       </a>
       {{ show_mysql_docu('CHECKSUM_TABLE') }}
@@ -338,7 +338,7 @@
 
     {% if storage_engine == 'INNODB' %}
       <li class="list-group-item">
-        <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ENGINE = InnoDB;'})) }}">
+        <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ENGINE = InnoDB;'}), '', false) }}">
           {% trans 'Defragment table' %}
         </a>
         {{ show_mysql_docu('InnoDB_File_Defragmenting') }}
@@ -350,7 +350,7 @@
         'sql_query': 'FLUSH TABLE ' ~ backquote(table),
         'message_to_show': 'Table %s has been flushed.'|trans|format(table|e),
         'reload': true
-      })) }}">
+      }), '', false) }}">
         {% trans 'Flush the table (FLUSH)' %}
       </a>
       {{ show_mysql_docu('FLUSH') }}
@@ -358,7 +358,7 @@
 
     {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
       <li class="list-group-item">
-        <a href="{{ url('/table/maintenance/optimize') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+        <a href="{{ url('/table/maintenance/optimize') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
           {% trans 'Optimize table' %}
         </a>
         {{ show_mysql_docu('OPTIMIZE_TABLE') }}
@@ -367,7 +367,7 @@
 
     {% if storage_engine in ['MYISAM', 'ARIA'] %}
       <li class="list-group-item">
-        <a href="{{ url('/table/maintenance/repair') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+        <a href="{{ url('/table/maintenance/repair') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
           {% trans 'Repair table' %}
         </a>
         {{ show_mysql_docu('REPAIR_TABLE') }}
@@ -383,12 +383,13 @@
       {% if not is_view %}
         <li class="list-group-item">
           {{ link_or_button(
-            url('/sql', url_params|merge({
-              'sql_query': 'TRUNCATE TABLE ' ~ backquote(table),
+            url('/sql'),
+            url_params|merge({
+              'sql_query': 'TRUNCATE TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
               'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
-            })),
+            }),
             'Empty the table (TRUNCATE)'|trans,
             {
               'id': 'truncate_tbl_anchor',
@@ -400,14 +401,15 @@
       {% endif %}
       <li class="list-group-item">
         {{ link_or_button(
-          url('/sql', url_params|merge({
-            'sql_query': 'DROP TABLE ' ~ backquote(table),
+          url('/sql'),
+          url_params|merge({
+            'sql_query': 'DROP TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
             'goto': url('/database/operations'),
             'reload': true,
             'purge': true,
             'message_to_show': is_view ? 'View %s has been dropped.'|trans|format(table)|e : 'Table %s has been dropped.'|trans|format(table)|e,
             'table': table
-          })),
+          }),
           'Delete the table (DROP)'|trans,
           {
             'id': 'drop_tbl_anchor',
@@ -434,7 +436,7 @@
       <div class="card-body">
         <div class="form-group">
           <label for="partition_name">{% trans 'Partition' %}</label>
-          <select class="form-control" id="partition_name" name="partition_name[]" multiple required>
+          <select class="form-control resize-vertical" id="partition_name" name="partition_name[]" multiple required>
             {% for partition in partitions %}
               <option value="{{ partition }}"{{ loop.first ? ' selected' }}>{{ partition }}</option>
             {% endfor %}

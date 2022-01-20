@@ -30,6 +30,7 @@ use function session_status;
 use function session_unset;
 use function session_write_close;
 use function setcookie;
+use const PHP_VERSION_ID;
 
 /**
  * Session class
@@ -180,6 +181,10 @@ class Session
         ini_set('session.use_strict_mode', '1');
         // make the session cookie HttpOnly
         ini_set('session.cookie_httponly', '1');
+        if (PHP_VERSION_ID >= 70300) {
+            // add SameSite to the session cookie
+            ini_set('session.cookie_samesite', $config->get('CookieSameSite') ?? '');
+        }
         // do not force transparent session ids
         ini_set('session.use_trans_sid', '0');
 

@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Theme;
@@ -40,6 +42,20 @@ abstract class AbstractTestCase extends TestCase
         '__PHPUNIT_CONFIGURATION_FILE',
         '__PHPUNIT_BOOTSTRAP',
     ];
+
+    /**
+     * The DatabaseInterface loaded by setGlobalDbi
+     *
+     * @var DatabaseInterface
+     */
+    protected $dbi;
+
+    /**
+     * The DbiDummy loaded by setGlobalDbi
+     *
+     * @var DbiDummy
+     */
+    protected $dummyDbi;
 
     /**
      * Prepares environment for the test.
@@ -79,10 +95,104 @@ abstract class AbstractTestCase extends TestCase
         require ROOT_PATH . 'libraries/config.default.php';
     }
 
+    protected function assertAllQueriesConsumed(): void
+    {
+        if ($this->dummyDbi->hasUnUsedQueries() === false) {
+            $this->assertTrue(true);// increment the assertion count
+
+            return;
+        }
+
+        $this->fail('Some queries where not used !');
+    }
+
+    protected function assertAllErrorCodesConsumed(): void
+    {
+        if ($this->dummyDbi->hasUnUsedErrors() === false) {
+            $this->assertTrue(true);// increment the assertion count
+
+            return;
+        }
+
+        $this->fail('Some error codes where not used !');
+    }
+
+    protected function loadContainerBuilder(): void
+    {
+        global $containerBuilder;
+
+        $containerBuilder = Core::getContainerBuilder();
+    }
+
+    protected function loadDbiIntoContainerBuilder(): void
+    {
+        global $containerBuilder, $dbi;
+
+        $containerBuilder->set(DatabaseInterface::class, $dbi);
+        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
+    }
+
+    protected function loadResponseIntoContainerBuilder(): void
+    {
+        global $containerBuilder;
+
+        $response = new Response();
+        $containerBuilder->set(Response::class, $response);
+        $containerBuilder->setAlias('response', Response::class);
+    }
+
+    protected function setResponseIsAjax(): void
+    {
+        global $containerBuilder;
+
+        /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
+        $response->setAjax(true);
+    }
+
+    protected function getResponseHtmlResult(): string
+    {
+        global $containerBuilder;
+        $response = $containerBuilder->get(Response::class);
+
+        /** @var Response $response */
+        return $response->getHTMLResult();
+    }
+
+    protected function getResponseJsonResult(): array
+    {
+        global $containerBuilder;
+        $response = $containerBuilder->get(Response::class);
+
+        /** @var Response $response */
+        return $response->getJSONResult();
+    }
+
+    protected function assertResponseWasNotSuccessfull(): void
+    {
+        global $containerBuilder;
+        $response = $containerBuilder->get(Response::class);
+
+        /** @var Response $response */
+        $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
+    }
+
+    protected function assertResponseWasSuccessfull(): void
+    {
+        global $containerBuilder;
+        $response = $containerBuilder->get(Response::class);
+
+        /** @var Response $response */
+        $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
+    }
+
     protected function setGlobalDbi(): void
     {
         global $dbi;
-        $dbi = DatabaseInterface::load(new DbiDummy());
+        $this->dummyDbi = new DbiDummy();
+        $this->dbi = DatabaseInterface::load($this->dummyDbi);
+        $dbi = $this->dbi;
     }
 
     protected function setGlobalConfig(): void
@@ -90,6 +200,7 @@ abstract class AbstractTestCase extends TestCase
         global $PMA_Config;
         $PMA_Config = new Config();
         $PMA_Config->set('environment', 'development');
+        $PMA_Config->set('URLQueryEncryption', false);
     }
 
     protected function setTheme(): void

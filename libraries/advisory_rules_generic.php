@@ -612,8 +612,37 @@ return [
     [
         'id' => 'InnoDB log size',
         'name' => __('InnoDB log size'),
-        'precondition' => 'innodb_buffer_pool_size > 0',
+        'precondition' => 'innodb_buffer_pool_size > 0 && ! (IS_MARIADB && PMA_MYSQL_INT_VERSION > 100500)',
         'formula' => '(innodb_log_file_size * innodb_log_files_in_group)/ innodb_buffer_pool_size * 100',
+        'test' => 'value < 20 && innodb_log_file_size / (1024 * 1024) < 256',
+        'issue' => __(
+            'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'
+        ),
+        'recommendation' => __(/* xgettext:no-php-format */
+            'Especially on a system with a lot of writes to InnoDB tables you should set'
+            . ' {innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the bigger this value,'
+            . ' the longer the recovery time will be when database crashes, so this value should not be set'
+            . ' much higher than 256 MiB. Please note however that you cannot simply change the value of'
+            . ' this variable. You need to shutdown the server, remove the InnoDB log files, set the new'
+            . ' value in my.cnf, start the server, then check the error logs if everything went fine.'
+            . ' See also <a href="'
+            . 'https://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html'
+            . '">this blog entry</a>'
+        ),
+        'justification' => __(
+            'Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size,'
+            . ' it should not be below 20%%'
+        ),
+        'justification_formula' => 'round(value,1)',
+    ],
+    [
+        'id' => 'InnoDB log size',
+        'name' => __('InnoDB log size'),
+        'precondition' => 'innodb_buffer_pool_size > 0 && IS_MARIADB && PMA_MYSQL_INT_VERSION > 100500',
+        // From MariaDB 10.5, there is 1 redo log.
+        // For MariaDB 10.4 and before, the number of redo log files is configured
+        // by the innodb_log_files_in_group system variable.
+        'formula' => 'innodb_log_file_size / innodb_buffer_pool_size * 100',
         'test' => 'value < 20 && innodb_log_file_size / (1024 * 1024) < 256',
         'issue' => __(
             'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'

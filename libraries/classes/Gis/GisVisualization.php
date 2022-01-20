@@ -28,6 +28,7 @@ use function mb_strtolower;
 use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
+use function is_string;
 
 /**
  * Handles visualization of GIS data
@@ -210,8 +211,8 @@ class GisVisualization
             $spatialSrid = 'ST_SRID';
         }
 
-        // If MYSQL version >= 8.1 override default axis order
-        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80010 && ! $isMariaDb) {
+        // If MYSQL version >= 8.0.1 override default axis order
+        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80001 && ! $isMariaDb) {
             $axisOrder = ', \'axis-order=long-lat\'';
         }
 
@@ -484,7 +485,8 @@ class GisVisualization
     {
         $this->init();
         $scale_data = $this->scaleDataSet($this->data);
-        $output = 'if (typeof ol !== "undefined") {'
+        $output = 'function drawOpenLayers() {'
+            . 'if (typeof ol !== "undefined") {'
             . 'var olCss = "js/vendor/openlayers/theme/ol.css";'
             . '$(\'head\').append(\'<link rel="stylesheet" type="text/css" href=\'+olCss+\'>\');'
             . 'var vectorLayer = new ol.source.Vector({});'
@@ -509,6 +511,9 @@ class GisVisualization
             . 'new ol.control.Attribution]'
             . '});';
         $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
+            . 'return map;'
+            . '}'
+            . 'return undefined;'
             . '}';
 
         return $output;
@@ -623,6 +628,9 @@ class GisVisualization
         foreach ($data as $row) {
             // Figure out the data type
             $ref_data = $row[$this->settings['spatialColumn']];
+            if (! is_string($ref_data)) {
+                continue;
+            }
             $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;
@@ -715,6 +723,9 @@ class GisVisualization
 
             // Figure out the data type
             $ref_data = $row[$this->settings['spatialColumn']];
+            if (! is_string($ref_data)) {
+                continue;
+            }
             $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;

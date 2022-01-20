@@ -45,7 +45,23 @@ class SpecialSchemaLinks
      *     )
      * );
      *
-     * @return array
+     * @return array<string,array<string,array<string,array<string,array<int,array<string,string>>|string>>>>
+     *
+     * @phpstan-return array<
+     *              string, array<
+     *                  string, array<
+     *                      string,
+     *                      array{
+     *                          'link_param': string,
+     *                          'link_dependancy_params'?: array<
+     *                                                      int,
+     *                                                      array{'param_info': string, 'column_name': string}
+     *                                                     >,
+     *                          'default_page': string
+     *                      }>
+     *                  >
+     *             >
+     * }
      */
     public static function get(): array
     {

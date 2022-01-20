@@ -94,6 +94,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 objLeft: $(obj).position().left,
                 objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth()
             };
+            // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'col-resize').noSelect();
             if (g.isCellEditActive) {
                 g.hideEditCell();
@@ -133,6 +134,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 objLeft: objPos.left
             };
 
+            // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'move').noSelect();
             if (g.isCellEditActive) {
                 g.hideEditCell();
@@ -229,6 +231,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                 g.colReorder = false;
             }
+            // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },
 
@@ -527,12 +530,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             // only show when not resizing or reordering
             if (!g.colRsz && !g.colReorder) {
                 var pos = $(obj).position();
-                // check if the list position is too right
-                if (pos.left + $(g.cList).outerWidth(true) > $(document).width()) {
-                    pos.left = $(document).width() - $(g.cList).outerWidth(true);
-                }
                 $(g.cList).css({
-                    left: pos.left,
                     top: pos.top + $(obj).outerHeight(true)
                 })
                     .show();
@@ -688,14 +686,16 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         var newHtml = Functions.escapeHtml(value);
                         newHtml = newHtml.replace(/\n/g, '<br>\n');
 
+                        var decimals = parseInt($thisField.attr('data-decimals'));
+
                         // remove decimal places if column type not supported
-                        if (($thisField.attr('data-decimals') === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
+                        if ((decimals === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
                             newHtml = newHtml.substring(0, newHtml.indexOf('.'));
                         }
 
-                        // remove addtional decimal places
-                        if (($thisField.attr('data-decimals') > 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
-                            newHtml = newHtml.substring(0, newHtml.length - (6 - $thisField.attr('data-decimals')));
+                        // remove additional decimal places
+                        if ((decimals > 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
+                            newHtml = newHtml.substring(0, newHtml.length - (6 - decimals));
                         }
 
                         var selector = 'span';
@@ -803,7 +803,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.wasEditedCellNull = false;
                 if ($td.is(':not(.not_null)')) {
                     // append a null checkbox
-                    $editArea.append('<div class="null_div"><label>Null:<input type="checkbox"></label></div>');
+                    $editArea.append('<div class="null_div"><label>NULL:<input type="checkbox"></label></div>');
 
                     var $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
@@ -936,6 +936,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     };
                     g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
                         g.lastXHR = null;
+                        if (typeof data === 'object' && data.success === false) {
+                            Functions.ajaxShowMessage(data.error, undefined, 'error');
+                            return;
+                        }
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -974,6 +978,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                     g.lastXHR = $.post('index.php?route=/sql/get-set-values', postParams, function (data) {
                         g.lastXHR = null;
+                        if (typeof data === 'object' && data.success === false) {
+                            Functions.ajaxShowMessage(data.error, undefined, 'error');
+                            return;
+                        }
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
                         $td.data('original_data', $(data.select).val().join());
@@ -1243,11 +1251,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             fieldsType.push('hex');
                         }
                         fieldsNull.push('');
-                        // Convert \n to \r\n to be consistent with form submitted value.
-                        // The internal browser representation has to be just \n
-                        // while form submitted value \r\n, see specification:
-                        // https://www.w3.org/TR/html5/forms.html#the-textarea-element
-                        fields.push($thisField.data('value').replace(/\n/g, '\r\n'));
+                        fields.push($thisField.data('value'));
 
                         var cellIndex = $thisField.index('.to_be_saved');
                         if ($thisField.is(':not(.relation, .enum, .set, .bit)')) {
@@ -1774,9 +1778,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.hideColList();
             });
 
-            // attach to global div
-            $(g.gDiv).append(g.cDrop);
-            $(g.gDiv).append(g.cList);
+            // attach to first row first col of the grid
+            var thFirst = $(g.t).find('th.print_ignore');
+            $(thFirst).append(g.cDrop);
+            $(thFirst).append(g.cList);
 
             // some adjustment
             g.reposDrop();
@@ -2046,13 +2051,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             // start grid-editing
                             startGridEditing(e, this);
                         }
-                    } else {// If it is not a link or it is a double tap then call startGridEditing
-                        // this is a double click, cancel the single click timer
-                        // and make the click count 0
-                        clearTimeout($cell.data('timer'));
-                        $cell.data('clicks', 0);
-                        // start grid-editing
-                        startGridEditing(e, this);
                     }
                 })
                 .on('dblclick', function (e) {

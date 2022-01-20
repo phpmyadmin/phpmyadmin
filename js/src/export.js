@@ -506,19 +506,11 @@ Export.checkTableSelectAll = function () {
 };
 
 Export.checkTableSelectStructureOrData = function () {
-    var strChecked = $('input[name="table_structure[]"]:checked').length;
     var dataChecked = $('input[name="table_data[]"]:checked').length;
     var autoIncrement = $('#checkbox_sql_auto_increment');
 
     var pluginName = $('select#plugins').val();
     var dataDiv = '#' + pluginName + '_data';
-    var structureDiv = '#' + pluginName + '_structure';
-
-    if (strChecked === 0) {
-        $(structureDiv).slideUp('slow');
-    } else {
-        $(structureDiv).slideDown('slow');
-    }
 
     if (dataChecked === 0) {
         $(dataDiv).slideUp('slow');

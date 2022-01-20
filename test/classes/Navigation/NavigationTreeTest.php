@@ -7,6 +7,12 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Url;
+use ReflectionMethod;
+use function str_repeat;
+use function parse_url;
+use function parse_str;
+use function htmlspecialchars_decode;
 
 class NavigationTreeTest extends AbstractTestCase
 {
@@ -79,5 +85,38 @@ class NavigationTreeTest extends AbstractTestCase
     {
         $result = $this->object->renderDbSelect();
         $this->assertStringContainsString('pma_navigation_select_database', $result);
+    }
+
+    /**
+     * @return void
+     */
+    public function testEncryptQueryParams()
+    {
+        global $PMA_Config;
+
+        $_SESSION = [];
+        $PMA_Config->set('URLQueryEncryption', false);
+        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $method = new ReflectionMethod($this->object, 'encryptQueryParams');
+        $method->setAccessible(true);
+
+        $link = 'tbl_structure.php?server=1&amp;db=test_db&amp;table=test_table&amp;pos=0';
+
+        $actual = $method->invoke($this->object, $link);
+        $this->assertEquals($link, $actual);
+
+        $PMA_Config->set('URLQueryEncryption', true);
+
+        $actual = $method->invoke($this->object, $link);
+        $this->assertStringStartsWith('tbl_structure.php?server=1&amp;pos=0&amp;eq=', $actual);
+
+        $url = parse_url($actual);
+        parse_str(htmlspecialchars_decode($url['query']), $query);
+
+        $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $query['eq']);
+        $decrypted = Url::decryptQuery($query['eq']);
+        $this->assertJson($decrypted);
+        $this->assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
     }
 }

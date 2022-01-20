@@ -54,15 +54,20 @@ class StatusController extends AbstractController
         $connections = [];
         $replication = '';
         if ($this->data->dataLoaded) {
-            $networkTraffic = implode(
-                ' ',
-                Util::formatByteDown(
-                    $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
-                    3,
-                    1
-                )
-            );
-            $uptime = Util::timespanFormat($this->data->status['Uptime']);
+            // In some case the data was reported not to exist, check it for all keys
+            if (isset($this->data->status['Bytes_received'], $this->data->status['Bytes_sent'])) {
+                $networkTraffic = implode(
+                    ' ',
+                    Util::formatByteDown(
+                        $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
+                        3,
+                        1
+                    )
+                );
+            }
+            if (isset($this->data->status['Uptime'])) {
+                $uptime = Util::timespanFormat($this->data->status['Uptime']);
+            }
             $startTime = Util::localisedDate($this->getStartTime());
 
             $traffic = $this->getTrafficInfo();

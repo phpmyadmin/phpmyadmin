@@ -49,6 +49,8 @@ use function str_replace;
 use function strlen;
 use function strncmp;
 use function strpos;
+use function strtoupper;
+use function substr;
 use function trim;
 use function urlencode;
 
@@ -284,6 +286,15 @@ class Generator
         $current_class = $dbi->types->getTypeClass($field['True_Type']);
         if (! empty($current_class) && isset($cfg['DefaultFunctions']['FUNC_' . $current_class])) {
             $default_function = $cfg['DefaultFunctions']['FUNC_' . $current_class];
+            // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
+            // It needs to match the function listed in the select html element.
+            if (
+                $current_class === 'SPATIAL' &&
+                $dbi->getVersion() >= 50600 &&
+                strtoupper(substr($default_function, 0, 3)) !== 'ST_'
+            ) {
+                $default_function = 'ST_' . $default_function;
+            }
         }
 
         // what function defined as default?
@@ -340,9 +351,7 @@ class Generator
         $functions = $dbi->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
-            if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false
-                && $default_function === $function
-            ) {
+            if ($function === $default_function && ! isset($foreignData['foreign_field'])) {
                 $retval .= ' selected="selected"';
             }
             $retval .= '>' . $function . '</option>' . "\n";
@@ -606,7 +615,7 @@ class Generator
                     . '</pre></code>';
             } elseif ($query_too_big) {
                 $query_base = '<code class="sql"><pre>' . "\n" .
-                    htmlspecialchars($query_base) .
+                    htmlspecialchars($query_base, ENT_COMPAT) .
                     '</pre></code>';
             } else {
                 $query_base = self::formatSql($query_base);
@@ -644,7 +653,8 @@ class Generator
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $explain_params),
+                            Url::getFromRoute('/import'),
+                            $explain_params,
                             __('Explain SQL')
                         ) . '&nbsp;]';
                 } elseif (preg_match(
@@ -655,7 +665,8 @@ class Generator
                         = mb_substr($sql_query, 8);
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $explain_params),
+                            Url::getFromRoute('/import'),
+                            $explain_params,
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -664,9 +675,11 @@ class Generator
                     $explain_link .= ' ['
                         . self::linkOrButton(
                             htmlspecialchars('url.php?url=' . urlencode($url)),
+                            null,
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             [],
-                            '_blank'
+                            '_blank',
+                            false
                         ) . '&nbsp;]';
                 }
             }
@@ -679,9 +692,8 @@ class Generator
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= Url::getCommon($url_params, '&');
                 $edit_link = ' [&nbsp;'
-                    . self::linkOrButton($edit_link, __('Edit'))
+                    . self::linkOrButton($edit_link, $url_params, __('Edit'))
                     . '&nbsp;]';
             } else {
                 $edit_link = '';
@@ -693,14 +705,16 @@ class Generator
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $url_params),
+                            Url::getFromRoute('/import'),
+                            $url_params,
                             __('Without PHP code')
                         )
                         . '&nbsp;]';
 
                     $php_link .= ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $url_params),
+                            Url::getFromRoute('/import'),
+                            $url_params,
                             __('Submit query')
                         )
                         . '&nbsp;]';
@@ -709,7 +723,8 @@ class Generator
                     $php_params['show_as_php'] = 1;
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            Url::getFromRoute('/import', $php_params),
+                            Url::getFromRoute('/import'),
+                            $php_params,
                             __('Create PHP code')
                         )
                         . '&nbsp;]';
@@ -723,9 +738,9 @@ class Generator
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = Url::getFromRoute('/sql', $url_params);
+                $refresh_link = Url::getFromRoute('/sql');
                 $refresh_link = ' [&nbsp;'
-                    . self::linkOrButton($refresh_link, __('Refresh')) . '&nbsp;]';
+                    . self::linkOrButton($refresh_link, $url_params, __('Refresh')) . '&nbsp;]';
             } else {
                 $refresh_link = '';
             }
@@ -760,6 +775,7 @@ class Generator
                 $inline_edit_link = ' [&nbsp;'
                     . self::linkOrButton(
                         '#',
+                        null,
                         _pgettext('Inline edit query', 'Edit inline'),
                         ['class' => 'inline_edit_sql']
                     )
@@ -1079,20 +1095,27 @@ class Generator
      * - URL components are over Suhosin limits
      * - There is SQL query in the parameters
      *
-     * @param string $url        the URL
-     * @param string $message    the link message
-     * @param mixed  $tag_params string: js confirmation; array: additional tag
-     *                           params (f.e. style="")
-     * @param string $target     target
+     * @param string     $urlPath    the URL
+     * @param array|null $urlParams  URL parameters
+     * @param string     $message    the link message
+     * @param mixed      $tag_params string: js confirmation; array: additional tag params (f.e. style="")
+     * @param string     $target     target
      *
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
-        $url,
+        $urlPath,
+        $urlParams,
         $message,
         $tag_params = [],
-        $target = ''
+        $target = '',
+        bool $respectUrlLengthLimit = true
     ): string {
+        $url = $urlPath;
+        if (is_array($urlParams)) {
+            $url = $urlPath . Url::getCommon($urlParams, strpos($urlPath, '?') !== false ? '&' : '?', false);
+        }
+
         $url_length = strlen($url);
 
         if (! is_array($tag_params)) {
@@ -1132,12 +1155,16 @@ class Generator
         }
 
         $tag_params_strings = [];
-        if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
-            || ! $in_suhosin_limits
-            // Has as sql_query without a signature
-            || (strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
-            || strpos($url, 'view[as]=') !== false
-        ) {
+        $isDataPostFormatSupported = ($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
+                                || ! $in_suhosin_limits
+                                // Has as sql_query without a signature, to be accepted it needs
+                                // to be sent using POST
+                                || (
+                                    strpos($url, 'sql_query=') !== false
+                                    && strpos($url, 'sql_signature=') === false
+                                )
+                                || strpos($url, 'view[as]=') !== false;
+        if ($respectUrlLengthLimit && $isDataPostFormatSupported) {
             $parts = explode('?', $url, 2);
             /*
              * The data-post indicates that client should do POST
@@ -1149,6 +1176,11 @@ class Generator
                 && strpos($tag_params['class'], 'create_view') !== false
             ) {
                 $url .= '?' . explode('&', $parts[1], 2)[0];
+            }
+        } else {
+            $url = $urlPath;
+            if (is_array($urlParams)) {
+                $url = $urlPath . Url::getCommon($urlParams, strpos($urlPath, '?') !== false ? '&' : '?');
             }
         }
 
@@ -1309,7 +1341,7 @@ class Generator
         }
 
         return '<code class="sql"><pre>' . "\n"
-            . htmlspecialchars($sqlQuery) . "\n"
+            . htmlspecialchars($sqlQuery, ENT_COMPAT) . "\n"
             . '</pre></code>';
     }
 

@@ -959,6 +959,7 @@ label.col-3.d-flex.align-items-center {
 }
 
 li.last.database {
+  // Avoid having the last item of the tree hidden behind the scroll bar
   margin-bottom: 15px !important;
 }
 
@@ -2495,8 +2496,8 @@ input#auto_increment_opt {
 
   height: $height;
   width: $width;
-  margin-top: $height / -2;
-  margin-#{$left}: $width / -2;
+  margin-top: $height * -0.5;
+  margin-#{$left}: $width * -0.5;
   background: url("../img/col_pointer.png");
   position: absolute;
 }
@@ -2521,7 +2522,7 @@ input#auto_increment_opt {
 }
 
 .cDrop {
-  #{$left}: 0;
+  #{$right}: 0;
   position: absolute;
   top: 0;
 }
@@ -2530,9 +2531,7 @@ input#auto_increment_opt {
   background: url("../img/col_drop.png");
   cursor: pointer;
   height: 16px;
-  margin-#{$left}: 0.3em;
   margin-top: 0.3em;
-  position: absolute;
   width: 16px;
 
   &:hover {
@@ -2551,6 +2550,9 @@ input#auto_increment_opt {
   -moz-box-shadow: 0 0.2em 0.5em #333;
   -webkit-box-shadow: 0 0.2em 0.5em #333;
   box-shadow: 0 0.2em 0.5em #333;
+  margin-#{$left}: 75%;
+  #{$right}: 0;
+  width: max-content;
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
@@ -3632,6 +3634,10 @@ body .ui-dialog {
     overflow-x: auto;
   }
 
+  .sticky {
+    top: 0;
+  }
+
   body#loginform div.container {
     width: 100%;
   }
@@ -3701,7 +3707,7 @@ body .ui-dialog {
   pointer-events: none;
 }
 
-#filter_query_text {
+#filterQueryText {
   vertical-align: baseline;
 }
 
@@ -3725,4 +3731,8 @@ body .ui-dialog {
   .tblFooters {
     text-align: #{$left};
   }
+}
+
+.resize-vertical {
+  resize: vertical;
 }

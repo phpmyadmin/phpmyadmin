@@ -461,6 +461,8 @@ class Privileges
                 __('Allows deleting historical rows.'),
             ],
             [
+                // This was finally removed in the following MariaDB versions
+                // @see https://jira.mariadb.org/browse/MDEV-20382
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
                 // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -512,8 +514,7 @@ class Privileges
             return 'SELECT * FROM `mysql`.`db`'
                 . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
                 . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
-                . " AND '" . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
-                . ' LIKE `Db`;';
+                . " AND `Db` = '" . $this->dbi->escapeString($db) . "'";
         }
 
         return 'SELECT `Table_priv`'
@@ -861,7 +862,7 @@ class Privileges
             $host
         );
 
-        $isNew = ($serverType === 'MySQL' && $serverVersion >= 50507)
+        $isNew = (($serverType === 'MySQL' || $serverType === 'Percona Server') && $serverVersion >= 50507)
             || ($serverType === 'MariaDB' && $serverVersion >= 50200);
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
@@ -1038,7 +1039,8 @@ class Privileges
                 ));
 
             // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
-            if ($serverType === 'MySQL'
+            if (
+                in_array($serverType, ['MySQL', 'Percona Server'], true)
                 && $serverVersion >= 50706
             ) {
                 if ($authentication_plugin !== 'mysql_old_password') {
@@ -1586,12 +1588,12 @@ class Privileges
         ];
         switch ($linktype) {
             case 'edit':
-                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
+                $params['dbname'] = $dbname;
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 break;
             case 'revoke':
-                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
+                $params['dbname'] = $dbname;
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 $params['revokeall'] = 1;
@@ -1604,7 +1606,7 @@ class Privileges
 
         $html .= ' href="' . Url::getFromRoute('/server/privileges');
         if ($linktype === 'revoke') {
-            $html .= '" data-post="' . Url::getCommon($params, '');
+            $html .= '" data-post="' . Url::getCommon($params, '', false);
         } else {
             $html .= Url::getCommon($params, '&');
         }
@@ -1924,7 +1926,7 @@ class Privileges
     }
 
     /**
-     * Get a HTML table for display user's tabel specific or database specific rights
+     * Get a HTML table for display user's table specific or database specific rights
      *
      * @param string $username username
      * @param string $hostname host name
@@ -1992,7 +1994,7 @@ class Privileges
                 $onePrivilege['column_privs']  = ! empty($row['Column_priv']);
                 $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
-                $paramDbName = $dbname;
+                $paramDbName = Util::escapeMysqlWildcards($dbname);
                 $paramTableName = $row['Table_name'];
             } else { // routine
                 $name = $row['Routine_name'];
@@ -2007,7 +2009,7 @@ class Privileges
                     $this->extractPrivInfo($privs, true)
                 );
 
-                $paramDbName = $dbname;
+                $paramDbName = Util::escapeMysqlWildcards($dbname);
                 $paramRoutineName = $row['Routine_name'];
             }
 
@@ -2507,7 +2509,7 @@ class Privileges
                 if (! isset($row['password']) && isset($row['Password'])) {
                     $row['password'] = $row['Password'];
                 }
-                if (Util::getServerType() === 'MySQL'
+                if ((Util::getServerType() === 'MySQL' || Util::getServerType() === 'Percona Server')
                     && $serverVersion >= 50606
                     && $serverVersion < 50706
                     && ((isset($row['authentication_string'])
@@ -2660,7 +2662,6 @@ class Privileges
         ?string $password,
         $is_menuwork
     ) {
-        $_add_user_error = false;
         $message = null;
         $queries = null;
         $queries_for_display = null;
@@ -2672,12 +2673,15 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                false, // Add user error
             ];
         }
 
         $sql_query = '';
-        if ($_POST['pred_username'] === 'any') {
+        // Some reports where sent to the error reporting server with phpMyAdmin 5.1.0
+        // pred_username was reported to be not defined
+        $predUsername = $_POST['pred_username'] ?? '';
+        if ($predUsername === 'any') {
             $username = '';
         }
         switch ($_POST['pred_hostname']) {
@@ -2706,14 +2710,13 @@ class Privileges
             $message = Message::error(__('The user %s already exists!'));
             $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
             $_GET['adduser'] = true;
-            $_add_user_error = true;
 
             return [
                 $message,
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                true, // Add user error
             ];
         }
 
@@ -2769,7 +2772,7 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                $_error, // Add user error if the query fails
             ];
         }
 
@@ -2810,7 +2813,7 @@ class Privileges
             $queries,
             $queries_for_display,
             $sql_query,
-            $_add_user_error,
+            false, // Add user error
         ];
     }
 
@@ -2922,7 +2925,7 @@ class Privileges
             } else {
                 $unescaped_db = Util::unescapeMysqlWildcards($dbname);
                 $db_and_table = Util::backquote($unescaped_db) . '.';
-                $return_db = $unescaped_db;
+                $return_db = $dbname;
             }
             if (isset($tablename)) {
                 $db_and_table .= Util::backquote($tablename);
@@ -3575,7 +3578,7 @@ class Privileges
             // Grant all privileges on the specified database to the new user
             $q = 'GRANT ALL PRIVILEGES ON '
             . Util::backquote(
-                $this->dbi->escapeString($dbname)
+                $dbname
             ) . '.* TO \''
             . $this->dbi->escapeString($username)
             . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
@@ -3612,7 +3615,7 @@ class Privileges
      * Check if MariaDB's 'simple_password_check'
      * OR 'cracklib_password_check' is ACTIVE
      *
-     * @return bool if atleast one of the plugins is ACTIVE
+     * @return bool if at least one of the plugins is ACTIVE
      */
     public function checkIfMariaDBPwdCheckPluginActive()
     {
@@ -3868,7 +3871,7 @@ class Privileges
 
         // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
         // and pre-5.2.0 MariaDB
-        if (($serverType === 'MySQL'
+        if ((($serverType === 'MySQL' || $serverType === 'Percona Server')
             && $serverVersion >= 50706)
             || ($serverType === 'MariaDB'
             && $serverVersion >= 50200)
@@ -3958,9 +3961,11 @@ class Privileges
             $hostname
         );
 
-        $isNew = ($serverType === 'MySQL' && $serverVersion >= 50507)
+        $isMySqlOrPerconaDb = ($serverType === 'MySQL' || $serverType === 'Percona Server');
+
+        $isNew = ($isMySqlOrPerconaDb && $serverVersion >= 50507)
             || ($serverType === 'MariaDB' && $serverVersion >= 50200);
-        $hasMoreAuthPlugins = ($serverType === 'MySQL' && $serverVersion >= 50706)
+        $hasMoreAuthPlugins = ($isMySqlOrPerconaDb && $serverVersion >= 50706)
             || ($this->dbi->isSuperUser() && $editOthers);
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];

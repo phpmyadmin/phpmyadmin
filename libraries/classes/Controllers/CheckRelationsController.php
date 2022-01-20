@@ -35,9 +35,11 @@ class CheckRelationsController extends AbstractController
             'fix_pmadb' => $_POST['fix_pmadb'] ?? null,
         ];
 
+        $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
+
         // If request for creating the pmadb
-        if (isset($params['create_pmadb']) && $this->relation->createPmaDatabase()) {
-            $this->relation->fixPmaTables('phpmyadmin');
+        if (isset($params['create_pmadb']) && $this->relation->createPmaDatabase($cfgStorageDbName)) {
+            $this->relation->fixPmaTables($cfgStorageDbName);
         }
 
         // If request for creating all PMA tables.
@@ -45,12 +47,14 @@ class CheckRelationsController extends AbstractController
             $this->relation->fixPmaTables($db);
         }
 
-        $cfgRelation = $this->relation->getRelationsParam();
         // If request for creating missing PMA tables.
         if (isset($params['fix_pmadb'])) {
+            $cfgRelation = $this->relation->getRelationsParam();
             $this->relation->fixPmaTables($cfgRelation['db']);
         }
 
+        // Do not use any previous $cfgRelation value as it could have changed after a successfull fixPmaTables()
+        $cfgRelation = $this->relation->getRelationsParam();
         $this->response->addHTML($this->relation->getRelationsParamDiagnostic($cfgRelation));
     }
 }

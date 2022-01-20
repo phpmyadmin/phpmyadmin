@@ -173,10 +173,18 @@ final class ReplaceController extends AbstractController
             'PolyFromText',
             'MPolyFromText',
         ];
-
-        $gis_from_wkb_functions = [];
+        $gis_from_wkb_functions = [
+            'GeomFromWKB',
+            'GeomCollFromWKB',
+            'LineFromWKB',
+            'MLineFromWKB',
+            'PointFromWKB',
+            'MPointFromWKB',
+            'PolyFromWKB',
+            'MPolyFromWKB',
+        ];
         if ($this->dbi->getVersion() >= 50600) {
-            $gis_from_wkb_functions = [
+            $gis_from_text_functions = [
                 'ST_GeomFromText',
                 'ST_GeomCollFromText',
                 'ST_LineFromText',
@@ -185,6 +193,16 @@ final class ReplaceController extends AbstractController
                 'ST_MPointFromText',
                 'ST_PolyFromText',
                 'ST_MPolyFromText',
+            ];
+            $gis_from_wkb_functions = [
+                'ST_GeomFromWKB',
+                'ST_GeomCollFromWKB',
+                'ST_LineFromWKB',
+                'ST_MLineFromWKB',
+                'ST_PointFromWKB',
+                'ST_MPointFromWKB',
+                'ST_PolyFromWKB',
+                'ST_MPolyFromWKB',
             ];
         }
 
@@ -260,7 +278,7 @@ final class ReplaceController extends AbstractController
                 ) {
                     $filename = 'libraries/classes/Plugins/Transformations/'
                         . $mime_map[$column_name]['input_transformation'];
-                    if (is_file($filename)) {
+                    if (is_file(ROOT_PATH . $filename)) {
                         $classname = $this->transformations->getClassName($filename);
                         if (class_exists($classname)) {
                             /** @var IOTransformationsPlugin $transformation_plugin */
@@ -363,10 +381,11 @@ final class ReplaceController extends AbstractController
                 $value_sets[] = implode(', ', $query_values);
             } else {
                 // build update query
+                $clauseIsUnique = $_POST['clause_is_unique'] ?? '';// Should contain 0 or 1
                 $query[] = 'UPDATE ' . Util::backquote($table)
                     . ' SET ' . implode(', ', $query_values)
                     . ' WHERE ' . $where_clause
-                    . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');
+                    . ($clauseIsUnique ? '' : ' LIMIT 1');
             }
         }
         unset(

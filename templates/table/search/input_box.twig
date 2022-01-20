@@ -21,7 +21,7 @@
                 value="{{ criteria_values[column_index] }}"
             {% endif %}>
         <a class="ajax browse_foreign" href="{{ url('/browse-foreigners') }}" data-post="
-            {{- get_common({'db': db, 'table': table}, '') -}}
+            {{- get_common({'db': db, 'table': table}, '', false) -}}
             &amp;field={{ column_name|url_encode }}&amp;fieldkey=
             {{- column_index }}&amp;fromsearch=1">
             {{ get_icon('b_browse', 'Browse foreign values'|trans) }}
@@ -36,13 +36,13 @@
     {% if in_fbs %}
         {% set edit_str = get_icon('b_edit', 'Edit/Insert'|trans) %}
         <span class="open_search_gis_editor">
-            {{ link_or_button(url('/gis-data-editor'), edit_str, [], '_blank') }}
+            {{ link_or_button(url('/gis-data-editor'), [], edit_str, [], '_blank') }}
         </span>
     {% endif %}
 {% elseif column_type starts with 'enum'
     or (column_type starts with 'set' and in_zoom_search_edit) %}
     {% set in_zoom_search_edit = false %}
-    {% set value = column_type|e|slice(5, -1)|replace({'&#039;': ''})|split(', ') %}
+    {% set value = parse_enum_set_values(column_type) %}
     {% set cnt_value = value|length %}
     {#
     Enum in edit mode   --> dropdown

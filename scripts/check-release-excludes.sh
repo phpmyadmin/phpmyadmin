@@ -20,96 +20,315 @@ foundFile() {
     printf "Found: %s\n" "${filePath}"
 }
 
+foundFileExt() {
+    found=1
+    printf "Found unexpected file: %s with extension %s\n" "${pathWithoutFirst}" "${extension}"
+}
+
+validateExtension() {
+    if [ "${filePath: -1}" = "/" ]; then
+        return;
+    fi
+
+    pathWithoutFirst="$(echo "$filePath" | cut -d / -f 2-)"
+
+    filename=$(basename -- "$pathWithoutFirst")
+    extension="${filename##*.}"
+
+    case $pathWithoutFirst in
+        doc/*)
+            if [ \
+                "${extension}" != "png" -a "${extension}" != "txt" \
+                -a "${extension}" != "html" -a "${extension}" != "js" \
+                -a "${extension}" != "css" -a "${extension}" != "gif" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        js/vendor/*)
+            if [ \
+                "${extension}" != "js" -a "${extension}" != "map" \
+                -a "${extension}" != "css" -a "${filename}" != "LICENSE" \
+                -a "${extension}" != "txt" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        js/config/*)
+            if [ "${extension}" != "js" ];then
+                foundFileExt
+            fi
+        ;;
+        js/dist/*)
+            if [ "${extension}" != "js" ];then
+                foundFileExt
+            fi
+        ;;
+        js/src/*)
+            if [ \
+                "${extension}" != "js" -a "${extension}" != "mjs" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        sql/*)
+            if [ "${extension}" != "sql" ]; then
+                foundFileExt
+            fi
+        ;;
+        examples/*)
+            if [ "${extension}" != "php" ]; then
+                foundFileExt
+            fi
+        ;;
+        locale/*)
+            if [ "${extension}" != "mo" ]; then
+                foundFileExt
+            fi
+        ;;
+        setup/*)
+            if [ \
+                "${extension}" != "php" -a "${extension}" != "twig" \
+                -a "${extension}" != "css" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        templates/*)
+            if [ "${extension}" != "twig" ]; then
+                foundFileExt
+            fi
+        ;;
+        libraries/certs/*)
+            if [ "${extension}" != "0" -a "${extension}" != "rst" -a "${extension}" != "pem" ]; then
+                foundFileExt
+            fi
+        ;;
+        libraries/*)
+            if [ \
+                "${extension}" != "php" -a "${extension}" != "md" \
+                -a "${filename}" != "README" \
+                -a "${filename}" != "TEMPLATE" -a "${filename}" != "TEMPLATE_ABSTRACT" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        themes/*)
+            if [ \
+                "${extension}" != "css" -a "${extension}" != "png" \
+                -a "${extension}" != "scss" -a "${extension}" != "map" \
+                -a "${extension}" != "svg" -a "${extension}" != "ico" \
+                -a "${extension}" != "gif" -a "${extension}" != "json" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        vendor/phpmyadmin/sql-parser/locale/*)
+            if [ "${extension}" != "mo" ]; then
+                foundFileExt
+            fi
+        ;;
+        vendor/phpseclib/phpseclib/phpseclib/openssl.cnf)
+        ;;
+        vendor/pragmarx/google2fa-qrcode/composer.lock)
+        ;;
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.json)
+        ;;
+        vendor/composer/installed.json)
+        ;;
+        vendor/tecnickcom/tcpdf/*)
+            if [ \
+                "${extension}" != "php" -a "${filename}" != "LICENSE.TXT" \
+                -a "${filename}" != "README.md" -a "${filename}" != "CHANGELOG.TXT" \
+                -a "${filename}" != "VERSION" -a "${filename}" != "composer.json" \
+                -a "${extension}" != "z" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        vendor/*)
+            if [ \
+                "${extension}" != "php" -a "${filename}" != "LICENSE" \
+                -a "${filename}" != "README" -a "${filename}" != "CHANGELOG" \
+                -a "${filename}" != "composer.json" -a "${filename}" != "CHANGELOG.md" \
+                -a "${filename}" != "README.md" -a "${filename}" != "BACKERS.md" \
+                -a "${filename}" != "LICENSE.md" -a "${filename}" != "ARCHITECTURE.md" \
+                -a "${filename}" != "LICENSE.txt" -a "${filename}" != "AUTHORS" \
+                -a "${filename}" != "LICENCE.md" -a "${filename}" != "LICENCE" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        ChangeLog)
+        ;;
+        LICENSE)
+        ;;
+        RELEASE-DATE-[1-9].[0-9].[0-9])
+        ;;
+        RELEASE-DATE-[1-9].[0-9].[0-9]-dev)
+        ;;
+        CONTRIBUTING.md)
+        ;;
+        README)
+        ;;
+        favicon.ico)
+        ;;
+        print.css)
+        ;;
+        babel.config.json)
+        ;;
+        package.json)
+        ;;
+        composer.json)
+        ;;
+        composer.lock)
+        ;;
+        yarn.lock)
+        ;;
+        robots.txt)
+        ;;
+        index.php)
+        ;;
+        url.php)
+        ;;
+        js/messages.php)
+        ;;
+        config.sample.inc.php)
+        ;;
+        show_config_errors.php)
+        ;;
+        *)
+            foundFileExt
+        ;;
+    esac
+
+}
+
 for filePath in ${FILE_LIST}; do
+    validateExtension
     case $filePath in
         */.editorconfig)
-        foundFile "${foundFile}";;
+        foundFile;;
         */easy-coding-standard.neon)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.travis.yml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */psalm.xml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.coveralls.yml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */appveyor.yml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpunit.xml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phive.xml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */Makefile)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpbench.json)
-        foundFile "${foundFile}";;
+        foundFile;;
+        */phpbench.json.dist)
+        foundFile;;
+        */.php-cs-fixer.dist.php)
+        foundFile;;
+        */.php_cs)
+        foundFile;;
         */.php_cs.dist)
-        foundFile "${foundFile}";;
-        */psalm.xml)
-        foundFile "${foundFile}";;
-        */phpstan.neon)
-        foundFile "${foundFile}";;
-        */phpstan.neon)
-        foundFile "${foundFile}";;
-        */phpcs.xml.dist)
-        foundFile "${foundFile}";;
-        */phpunit.xml.dist)
-        foundFile "${foundFile}";;
-        */.scrutinizer.yml)
-        foundFile "${foundFile}";;
-        */.gitattributes)
-        foundFile "${foundFile}";;
-        */.gitignore)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.php_cs.cache)
-        foundFile "${foundFile}";;
+        foundFile;;
+        */psalm.xml)
+        foundFile;;
+        */phpstan.neon)
+        foundFile;;
+        */phpstan.neon)
+        foundFile;;
+        */phpcs.xml.dist)
+        foundFile;;
+        */phpunit.xml.dist)
+        foundFile;;
+        */.scrutinizer.yml)
+        foundFile;;
+        */codecov.yml)
+        foundFile;;
+        */.gitattributes)
+        foundFile;;
+        */.gitignore)
+        foundFile;;
+        */infection.json.dist)
+        foundFile;;
+        */infection.json)
+        foundFile;;
+        */infection.json.dist)
+        foundFile;;
         */makefile)
-        foundFile "${foundFile}";;
+        foundFile;;
+        */Makefile)
+        foundFile;;
         */.phpunit.result.cache)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpstan.neon.dist)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpstan-baseline.neon)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpmd.xml.dist)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.travis.php.ini)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/*/tests/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/*/Tests/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/*/test/*)
-        foundFile "${foundFile}";;
+        foundFile;;
+        */twig/twig/lib/Twig/Node/Expression/Test/*)
+        ;;
+        */twig/twig/lib/Twig/Test/*)
+        ;;
+        *twig/twig/src/Node/Expression/Test/*)
+        ;;
+        */vendor/*/Test/*)
+        foundFile;;
         */.dependabot/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.github/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.circleci/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/examples/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.git/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.rst)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.po)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.pot)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.m4)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.c)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.h)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.sh)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.w32)
-        foundFile "${foundFile}";;
+        foundFile;;
         *.hhconfig)
-        foundFile "${foundFile}";;
+        foundFile;;
         *.hhi)
-        foundFile "${foundFile}";;
+        foundFile;;
+        *.xsd)
+        foundFile;;
+        *.xml)
+        foundFile;;
+        *vendor/*CONTRIBUTING.md*)
+        foundFile;;
+        *CODE_OF_CONDUCT.md*)
+        foundFile;;
+        *PERFORMANCE.md*)
+        foundFile;;
         *) ;;
     esac
 done

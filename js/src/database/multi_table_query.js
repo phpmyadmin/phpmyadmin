@@ -129,6 +129,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             'db': $('#db_name').val(),
             'sql_query': query,
             'ajax_request': '1',
+            'server': CommonParams.get('server'),
             'token': CommonParams.get('token')
         };
         $.ajax({
@@ -148,7 +149,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                     });
                 });
                 $('#sql_results').html($resultsDom);
-                $('#page_content').find('a').first().trigger('click');
+                $('#slide-handle').trigger('click');// Collapse search criteria area
             }
         });
     });

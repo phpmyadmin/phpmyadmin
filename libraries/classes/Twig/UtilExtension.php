@@ -146,6 +146,10 @@ class UtilExtension extends AbstractExtension
                 'timespan_format',
                 'PhpMyAdmin\Util::timespanFormat'
             ),
+            new TwigFunction(
+                'parse_enum_set_values',
+                'PhpMyAdmin\Util::parseEnumSetValues'
+            ),
         ];
     }
 
@@ -163,7 +167,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFilter(
                 'escape_mysql_wildcards',
-                'PhpMyAdmin\Util::convertBitDefaultValue'
+                'PhpMyAdmin\Util::escapeMysqlWildcards'
             ),
         ];
     }

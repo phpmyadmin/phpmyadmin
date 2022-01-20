@@ -97,11 +97,13 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
         return count($this->properties);
     }
 
+    // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly, Squiz.WhiteSpace.FunctionSpacing
     /**
      * Countable interface implementation.
      *
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return $this->getNrOfProperties();
