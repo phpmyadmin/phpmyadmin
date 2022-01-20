@@ -108,7 +108,8 @@ class UserGroups
                         'viewUsers' => 1,
                         'userGroup' => $groupName,
                     ],
-                    ''
+                    '',
+                    false
                 );
                 $userGroupVal['viewUsersIcon'] = Generator::getIcon('b_usrlist', __('View users'));
 
@@ -117,7 +118,8 @@ class UserGroups
                         'editUserGroup' => 1,
                         'userGroup' => $groupName,
                     ],
-                    ''
+                    '',
+                    false
                 );
                 $userGroupVal['editUsersIcon'] = Generator::getIcon('b_edit', __('Edit'));
                 $userGroupsValues[] = $userGroupVal;

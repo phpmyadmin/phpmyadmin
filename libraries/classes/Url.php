@@ -7,13 +7,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Crypto\Crypto;
+
+use function base64_decode;
+use function base64_encode;
 use function htmlentities;
 use function htmlspecialchars;
 use function http_build_query;
+use function in_array;
 use function ini_get;
 use function is_array;
+use function json_encode;
 use function str_contains;
 use function strlen;
+use function strtr;
 
 /**
  * Static methods for URL/hidden inputs generating
@@ -164,12 +171,13 @@ class Url
      *
      * @param array<string,int|string|bool> $params  optional, Contains an associative array with url params
      * @param string                        $divider optional character to use instead of '?'
+     * @param bool                          $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
      */
-    public static function getCommon(array $params = [], $divider = '?')
+    public static function getCommon(array $params = [], $divider = '?', $encrypt = true)
     {
-        return self::getCommonRaw($params, $divider);
+        return self::getCommonRaw($params, $divider, $encrypt);
     }
 
     /**
@@ -197,14 +205,13 @@ class Url
      *
      * @param array<string|int,int|string|bool> $params  optional, Contains an associative array with url params
      * @param string                            $divider optional character to use instead of '?'
+     * @param bool                              $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
      */
-    public static function getCommonRaw(array $params = [], $divider = '?')
+    public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true)
     {
         global $config;
-
-        $separator = self::getArgSeparator();
 
         // avoid overwriting when creating navigation panel links to servers
         if (
@@ -221,13 +228,78 @@ class Url
             $params['lang'] = $GLOBALS['lang'];
         }
 
-        $query = http_build_query($params, '', $separator);
+        $query = self::buildHttpQuery($params, $encrypt);
 
         if (($divider !== '?' && $divider !== '&') || strlen($query) > 0) {
             return $divider . $query;
         }
 
         return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $params
+     * @param bool                     $encrypt whether to encrypt URL params
+     *
+     * @return string
+     */
+    public static function buildHttpQuery($params, $encrypt = true)
+    {
+        global $config;
+
+        $separator = self::getArgSeparator();
+
+        if (! $encrypt || ! $config->get('URLQueryEncryption')) {
+            return http_build_query($params, '', $separator);
+        }
+
+        $data = $params;
+        $keys = [
+            'db',
+            'table',
+            'field',
+            'sql_query',
+            'sql_signature',
+            'where_clause',
+            'goto',
+            'back',
+            'message_to_show',
+            'username',
+            'hostname',
+            'dbname',
+            'tablename',
+            'checkprivsdb',
+            'checkprivstable',
+        ];
+        $paramsToEncrypt = [];
+        foreach ($params as $paramKey => $paramValue) {
+            if (! in_array($paramKey, $keys)) {
+                continue;
+            }
+
+            $paramsToEncrypt[$paramKey] = $paramValue;
+            unset($data[$paramKey]);
+        }
+
+        if ($paramsToEncrypt !== []) {
+            $data['eq'] = self::encryptQuery((string) json_encode($paramsToEncrypt));
+        }
+
+        return http_build_query($data, '', $separator);
+    }
+
+    public static function encryptQuery(string $query): string
+    {
+        $crypto = new Crypto();
+
+        return strtr(base64_encode($crypto->encrypt($query)), '+/', '-_');
+    }
+
+    public static function decryptQuery(string $query): ?string
+    {
+        $crypto = new Crypto();
+
+        return $crypto->decrypt(base64_decode(strtr($query, '-_', '+/')));
     }
 
     /**

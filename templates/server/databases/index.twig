@@ -297,7 +297,7 @@
           <div class="alert alert-info" role="alert">
             {{ get_icon('s_notice', 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
           </div>
-          <a class="card-link" href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '') }}" title="{% trans 'Enable statistics' %}">
+          <a class="card-link" href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '', false) }}" title="{% trans 'Enable statistics' %}">
             {% trans 'Enable statistics' %}
           </a>
         </div>

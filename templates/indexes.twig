@@ -30,12 +30,12 @@
             {% set columns_count = index.getColumnCount() %}
             <tr class="noclick">
               <td rowspan="{{ columns_count }}" class="edit_index d-print-none ajax">
-                <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '') }}">
+                <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '', false) }}">
                   {{ get_icon('b_edit', 'Edit'|trans) }}
                 </a>
               </td>
               <td rowspan="{{ columns_count }}" class="rename_index d-print-none ajax" >
-                <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '') }}">
+                <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '', false) }}">
                   {{ get_icon('b_rename', 'Rename'|trans) }}
                 </a>
               </td>
@@ -54,7 +54,8 @@
 
                 <input type="hidden" class="drop_primary_key_index_msg" value="{{ index_params.sql_query }}">
                 {{ link_or_button(
-                  url('/sql', url_params|merge(index_params)),
+                  url('/sql'),
+                  url_params|merge(index_params),
                   get_icon('b_drop', 'Drop'|trans),
                   {'class': 'drop_primary_key_index_anchor ajax'}
                 ) }}

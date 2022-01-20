@@ -77,6 +77,7 @@ class ServerTest extends TestCase
         'tracking_add_drop_view' => true,
         'tracking_add_drop_table' => true,
         'tracking_add_drop_database' => true,
+        'hide_connection_errors' => false,
     ];
 
     /**
@@ -172,6 +173,7 @@ class ServerTest extends TestCase
                     ['tracking_add_drop_view', null, true],
                     ['tracking_add_drop_table', null, true],
                     ['tracking_add_drop_database', null, true],
+                    ['hide_connection_errors', null, false],
                 ],
             ],
             'valid values' => [
@@ -234,6 +236,7 @@ class ServerTest extends TestCase
                     ['tracking_add_drop_view', true, true],
                     ['tracking_add_drop_table', true, true],
                     ['tracking_add_drop_database', true, true],
+                    ['hide_connection_errors', true, true],
                 ],
             ],
             'valid values 2' => [
@@ -271,6 +274,7 @@ class ServerTest extends TestCase
                     ['tracking_add_drop_view', false, false],
                     ['tracking_add_drop_table', false, false],
                     ['tracking_add_drop_database', false, false],
+                    ['hide_connection_errors', false, false],
                 ],
             ],
             'valid values 3' => [
@@ -346,6 +350,7 @@ class ServerTest extends TestCase
                     ['tracking_add_drop_view', 0, false],
                     ['tracking_add_drop_table', 0, false],
                     ['tracking_add_drop_database', 0, false],
+                    ['hide_connection_errors', 1, true],
                 ],
             ],
             'invalid values' => [

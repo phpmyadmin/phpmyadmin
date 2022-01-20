@@ -203,6 +203,7 @@ class ErrorReport
         if (isset($components['query'])) {
             parse_str($components['query'], $queryArray);
             unset($queryArray['db'], $queryArray['table'], $queryArray['token'], $queryArray['server']);
+            unset($queryArray['eq']);
             $query = http_build_query($queryArray);
         } else {
             $query = '';

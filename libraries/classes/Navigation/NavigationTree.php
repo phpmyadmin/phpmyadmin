@@ -152,13 +152,13 @@ class NavigationTree
         }
 
         // Get the active node
-        if (isset($_REQUEST['aPath'])) {
-            $this->aPath[0] = $this->parsePath($_REQUEST['aPath']);
-            $this->pos2Name[0] = $_REQUEST['pos2_name'] ?? '';
-            $this->pos2Value[0] = (int) ($_REQUEST['pos2_value'] ?? 0);
-            if (isset($_REQUEST['pos3_name'])) {
-                $this->pos3Name[0] = $_REQUEST['pos3_name'] ?? '';
-                $this->pos3Value[0] = (int) $_REQUEST['pos3_value'];
+        if (isset($_POST['aPath'])) {
+            $this->aPath[0] = $this->parsePath($_POST['aPath']);
+            $this->pos2Name[0] = $_POST['pos2_name'] ?? '';
+            $this->pos2Value[0] = (int) ($_POST['pos2_value'] ?? 0);
+            if (isset($_POST['pos3_name'])) {
+                $this->pos3Name[0] = $_POST['pos3_name'] ?? '';
+                $this->pos3Value[0] = (int) $_POST['pos3_value'];
             }
         } else {
             if (isset($_POST['n0_aPath'])) {
@@ -180,8 +180,8 @@ class NavigationTree
             }
         }
 
-        if (isset($_REQUEST['vPath'])) {
-            $this->vPath[0] = $this->parsePath($_REQUEST['vPath']);
+        if (isset($_POST['vPath'])) {
+            $this->vPath[0] = $this->parsePath($_POST['vPath']);
         } else {
             if (isset($_POST['n0_vPath'])) {
                 $count = 0;
@@ -192,12 +192,12 @@ class NavigationTree
             }
         }
 
-        if (isset($_REQUEST['searchClause'])) {
-            $this->searchClause = $_REQUEST['searchClause'];
+        if (isset($_POST['searchClause'])) {
+            $this->searchClause = $_POST['searchClause'];
         }
 
-        if (isset($_REQUEST['searchClause2'])) {
-            $this->searchClause2 = $_REQUEST['searchClause2'];
+        if (isset($_POST['searchClause2'])) {
+            $this->searchClause2 = $_POST['searchClause2'];
         }
 
         // Initialize the tree by creating a root node

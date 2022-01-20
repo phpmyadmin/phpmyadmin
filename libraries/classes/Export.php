@@ -547,16 +547,18 @@ class Export
          */
         $backButton = '<p>[ <a href="';
         if ($exportType === 'server') {
-            $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '');
+            $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
         } elseif ($exportType === 'database') {
-            $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(['db' => $db], '');
+            $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
+                ['db' => $db],
+                '',
+                false
+            );
         } else {
             $backButton .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
-                [
-                    'db' => $db,
-                    'table' => $table,
-                ],
-                ''
+                ['db' => $db, 'table' => $table],
+                '',
+                false
             );
         }
 

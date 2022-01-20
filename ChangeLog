@@ -6,7 +6,7 @@ phpMyAdmin - ChangeLog
 - issue #16521 Drop support for Internet Explorer and others
 - issue        Upgrade to shapefile 3
 - issue #16555 Bump minimum PHP version to 7.2
-- issue        Upgrade phpseclib to version 3
+- issue        Remove the phpseclib dependency
 - issue        Upgrade Symfony components to version 5.2
 - issue        Upgrade to Motranslator 4
 - issue #16005 Improve the performance of the Export logic

@@ -642,7 +642,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 43
+			count: 44
 			path: libraries/classes/Config/Settings.php
 
 		-
@@ -1462,11 +1462,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Setup\\\\ServersController\\:\\:index\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/ServersController.php
-
-		-
-			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerDSN\\(\\) expects int, int\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/ServersController.php
 
@@ -2871,6 +2866,16 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string\\|null and array\\{default_action\\: 'insert'\\} results in an error\\.$#"
+			count: 3
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string\\|null and array\\{default_action\\: 'update'\\} results in an error\\.$#"
+			count: 3
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
@@ -3216,8 +3221,18 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Offset 3 does not exist on array\\{string\\|null, string\\|null, string\\|null\\}\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Parameter \\#1 \\$offset of method PhpMyAdmin\\\\Dbal\\\\ResultInterface\\:\\:seek\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<int\\|string, mixed\\> given\\.$#"
+			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -4336,8 +4351,8 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<int\\|string, mixed\\> given\\.$#"
+			count: 2
 			path: libraries/classes/Html/Generator.php
 
 		-
@@ -5679,36 +5694,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Cannot access offset 'iv' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot access offset 'mac' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Cannot access offset 'payload' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:getIVSize\\(\\) should return int but returns int\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
 			message: "#^Parameter \\#2 \\$remoteIp of method ReCaptcha\\\\ReCaptcha\\:\\:verify\\(\\) expects string\\|null, bool\\|string given\\.$#"
@@ -10591,22 +10576,7 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationCookieTest\\:\\:secretsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationCookieTest\\:\\:testCheckRules\\(\\) has parameter \\$rules with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$secret of method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 

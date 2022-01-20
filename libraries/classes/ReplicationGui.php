@@ -139,7 +139,7 @@ class ReplicationGui
             }
 
             $urlParams['sr_replica_control_param'] = 'IO_THREAD';
-            $replicaControlIoLink = Url::getCommon($urlParams, '');
+            $replicaControlIoLink = Url::getCommon($urlParams, '', false);
 
             if ($serverReplicaReplication[0]['Slave_SQL_Running'] === 'No') {
                 $urlParams['sr_replica_action'] = 'start';
@@ -148,7 +148,7 @@ class ReplicationGui
             }
 
             $urlParams['sr_replica_control_param'] = 'SQL_THREAD';
-            $replicaControlSqlLink = Url::getCommon($urlParams, '');
+            $replicaControlSqlLink = Url::getCommon($urlParams, '', false);
 
             if (
                 $serverReplicaReplication[0]['Slave_IO_Running'] === 'No'
@@ -160,21 +160,21 @@ class ReplicationGui
             }
 
             $urlParams['sr_replica_control_param'] = null;
-            $replicaControlFullLink = Url::getCommon($urlParams, '');
+            $replicaControlFullLink = Url::getCommon($urlParams, '', false);
 
             $urlParams['sr_replica_action'] = 'reset';
-            $replicaControlResetLink = Url::getCommon($urlParams, '');
+            $replicaControlResetLink = Url::getCommon($urlParams, '', false);
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['sr_take_action'] = true;
             $urlParams['sr_replica_skip_error'] = true;
-            $replicaSkipErrorLink = Url::getCommon($urlParams, '');
+            $replicaSkipErrorLink = Url::getCommon($urlParams, '', false);
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['replica_configure'] = true;
             $urlParams['repl_clear_scr'] = true;
 
-            $reconfigurePrimaryLink = Url::getCommon($urlParams, '');
+            $reconfigurePrimaryLink = Url::getCommon($urlParams, '', false);
 
             $replicaStatusTable = $this->getHtmlForReplicationStatusTable('replica', true, false);
 

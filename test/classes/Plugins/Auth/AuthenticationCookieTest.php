@@ -14,15 +14,19 @@ use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use ReflectionException;
 use ReflectionMethod;
 
+use function base64_decode;
 use function base64_encode;
 use function is_readable;
 use function json_encode;
+use function mb_strlen;
 use function ob_get_clean;
 use function ob_start;
+use function random_bytes;
 use function str_repeat;
 use function str_shuffle;
-use function strlen;
 use function time;
+
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie
@@ -177,7 +181,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $this->object->user = 'pmauser';
         $GLOBALS['pma_auth_server'] = 'localhost';
 
@@ -535,7 +539,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $_COOKIE['pmaAuth-1'] = '';
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
 
@@ -552,7 +556,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = '';
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
@@ -587,7 +591,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
         $GLOBALS['cfg']['CaptchaResponseParam'] = '';
@@ -624,7 +628,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = 1;
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
@@ -911,12 +915,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertEquals($result, $_SESSION['encryption_key']);
-
-        $this->assertEquals(
-            32,
-            strlen($result)
-        );
+        $this->assertSame($result, $_SESSION['encryption_key']);
+        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($result, '8bit'));
     }
 
     public function testGetEncryptionSecretConfigured(): void
@@ -924,127 +924,48 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
         $method->setAccessible(true);
 
-        $GLOBALS['cfg']['blowfish_secret'] = 'notEmpty';
+        $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $GLOBALS['cfg']['blowfish_secret'] = $key;
+        $_SESSION['encryption_key'] = '';
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertEquals('notEmpty', $result);
+        $this->assertSame($key, $result);
     }
 
-    public function testCookieEncrypt(): void
+    public function testGetSessionEncryptionSecretConfigured(): void
     {
-        $this->object->setIV('testiv09testiv09');
-        // works with the openssl extension active or inactive
-        $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2def'
-            . 'ef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
-            $this->object->cookieEncrypt('data123', 'sec321')
-        );
+        $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
+        $method->setAccessible(true);
+
+        $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $GLOBALS['cfg']['blowfish_secret'] = 'blowfish_secret';
+        $_SESSION['encryption_key'] = $key;
+
+        $result = $method->invoke($this->object, null);
+
+        $this->assertSame($key, $result);
     }
 
-    public function testCookieEncryptPHPSecLib(): void
+    public function testCookieEncryption(): void
     {
-        $this->object->setUseOpenSSL(false);
-        $this->testCookieEncrypt();
-    }
-
-    /**
-     * @requires extension openssl
-     */
-    public function testCookieEncryptOpenSSL(): void
-    {
-        $this->object->setUseOpenSSL(true);
-        $this->testCookieEncrypt();
-    }
-
-    public function testCookieDecrypt(): void
-    {
-        // works with the openssl extension active or inactive
-        $this->assertEquals(
-            'data123',
-            $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec'
-                . '2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
-                'sec321'
-            )
-        );
-        $this->assertEquals(
-            'root',
-            $this->object->cookieDecrypt(
-                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc'
-                . '571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
-                ':Kb1?)c(r{]-{`HW*hOzuufloK(M~!p'
-            )
-        );
-        $this->assertFalse(
-            $this->object->cookieDecrypt(
-                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc'
-                . '571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
-                'aedzoiefpzf,zf1z7ef6ef84'
-            )
-        );
-    }
-
-    public function testCookieDecryptPHPSecLib(): void
-    {
-        $this->object->setUseOpenSSL(false);
-        $this->testCookieDecrypt();
-    }
-
-    /**
-     * @requires extension openssl
-     */
-    public function testCookieDecryptOpenSSL(): void
-    {
-        $this->object->setUseOpenSSL(true);
-        $this->testCookieDecrypt();
+        $key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $encrypted = $this->object->cookieEncrypt('data123', $key);
+        $this->assertNotFalse(base64_decode($encrypted, true));
+        $this->assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
     }
 
     public function testCookieDecryptInvalid(): void
     {
-        // works with the openssl extension active or inactive
-        $this->assertFalse(
-            $this->object->cookieDecrypt(
-                '{"iv":0,"mac":0,"payload":0}',
-                'sec321'
-            )
-        );
-    }
+        $this->assertNull($this->object->cookieDecrypt('', ''));
 
-    /**
-     * Test for secret splitting using getAESSecret
-     *
-     * @param string $secret secret
-     * @param string $mac    mac
-     * @param string $aes    aes
-     *
-     * @dataProvider secretsProvider
-     */
-    public function testMACSecretSplit(string $secret, string $mac, string $aes): void
-    {
-        $this->assertNotEmpty($aes);// Useless check
-        $this->assertEquals(
-            $mac,
-            $this->object->getMACSecret($secret)
-        );
-    }
+        $key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $encrypted = $this->object->cookieEncrypt('data123', $key);
+        $this->assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
 
-    /**
-     * Test for secret splitting using getMACSecret and getAESSecret
-     *
-     * @param string $secret secret
-     * @param string $mac    mac
-     * @param string $aes    aes
-     *
-     * @dataProvider secretsProvider
-     */
-    public function testAESSecretSplit(string $secret, string $mac, string $aes): void
-    {
-        $this->assertNotEmpty($mac);// Useless check
-        $this->assertEquals(
-            $aes,
-            $this->object->getAESSecret($secret)
-        );
+        $this->assertNull($this->object->cookieDecrypt('', $key));
+        $this->assertNull($this->object->cookieDecrypt($encrypted, ''));
+        $this->assertNull($this->object->cookieDecrypt($encrypted, random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES)));
     }
 
     /**
@@ -1052,68 +973,23 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      */
     public function testPasswordChange(): void
     {
+        $GLOBALS['server'] = 1;
         $newPassword = 'PMAPASSWD2';
         $GLOBALS['config']->set('is_https', false);
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $_SESSION['encryption_key'] = '';
-        $this->object->setIV('testiv09testiv09');
 
         $this->object->handlePasswordChange($newPassword);
 
-        $payload = [
-            'password' => $newPassword,
-            'server' => 'b 2',
-        ];
-        $method = new ReflectionMethod(AuthenticationCookie::class, 'getSessionEncryptionSecret');
-        $method->setAccessible(true);
+        $payload = ['password' => $newPassword, 'server' => 'b 2'];
 
-        $encryptedCookie = $this->object->cookieEncrypt(
-            (string) json_encode($payload),
-            $method->invoke($this->object, null)
+        $this->assertIsString($_COOKIE['pmaAuth-' . $GLOBALS['server']]);
+        $decryptedCookie = $this->object->cookieDecrypt(
+            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
+            $_SESSION['encryption_key']
         );
-        $this->assertEquals($_COOKIE['pmaAuth-' . $GLOBALS['server']], $encryptedCookie);
-    }
-
-    /**
-     * Data provider for secrets splitting.
-     *
-     * @return array
-     */
-    public function secretsProvider(): array
-    {
-        return [
-            // Optimal case
-            [
-                '1234567890123456abcdefghijklmnop',
-                '1234567890123456',
-                'abcdefghijklmnop',
-            ],
-            // Overlapping secret
-            [
-                '12345678901234567',
-                '1234567890123456',
-                '2345678901234567',
-            ],
-            // Short secret
-            [
-                '1234567890123456',
-                '1234567890123451',
-                '2345678901234562',
-            ],
-            // Really short secret
-            [
-                '12',
-                '1111111111111111',
-                '2222222222222222',
-            ],
-            // Too short secret
-            [
-                '1',
-                '1111111111111111',
-                '1111111111111111',
-            ],
-        ];
+        $this->assertSame(json_encode($payload), $decryptedCookie);
     }
 
     public function testAuthenticate(): void

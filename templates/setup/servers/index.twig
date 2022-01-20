@@ -11,6 +11,10 @@
   <h2>{% trans 'Add a new server' %}</h2>
 {% endif %}
 
-{{ page|raw }}
+{% if mode == 'add' or mode == 'edit' or mode == 'revert' %}
+  {{ page|raw }}
+{% else %}
+  <p>{% trans 'Something went wrong.' %}</p>
+{% endif %}
 
 {% endblock %}

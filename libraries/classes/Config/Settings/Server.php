@@ -503,6 +503,13 @@ final class Server
     public $tracking_add_drop_database;
 
     /**
+     * Whether to show or hide detailed MySQL/MariaDB connection errors on the login page.
+     *
+     * @var bool
+     */
+    public $hide_connection_errors;
+
+    /**
      * @param array<int|string, mixed> $server
      */
     public function __construct(array $server = [])
@@ -565,6 +572,7 @@ final class Server
         $this->tracking_add_drop_view = $this->setTrackingAddDropView($server);
         $this->tracking_add_drop_table = $this->setTrackingAddDropTable($server);
         $this->tracking_add_drop_database = $this->setTrackingAddDropDatabase($server);
+        $this->hide_connection_errors = $this->setHideConnectionErrors($server);
     }
 
     /**
@@ -1374,5 +1382,17 @@ final class Server
         }
 
         return true;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setHideConnectionErrors(array $server): bool
+    {
+        if (isset($server['hide_connection_errors'])) {
+            return (bool) $server['hide_connection_errors'];
+        }
+
+        return false;
     }
 }

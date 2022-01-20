@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
 
+use function is_string;
+use function parse_str;
+use function str_repeat;
 use function urldecode;
 
 /**
@@ -22,6 +25,7 @@ class UrlTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         unset($_COOKIE['pma_lang']);
+        $GLOBALS['config']->set('URLQueryEncryption', false);
     }
 
     /**
@@ -176,5 +180,63 @@ class UrlTest extends AbstractTestCase
             '<input type="hidden" name="token" value="&lt;b&gt;token&lt;/b&gt;">',
             Url::getHiddenFields([])
         );
+    }
+
+    /**
+     * @return void
+     */
+    public function testBuildHttpQueryWithUrlQueryEncryptionDisabled()
+    {
+        global $config;
+
+        $config->set('URLQueryEncryption', false);
+        $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
+        $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
+    }
+
+    /**
+     * @return void
+     */
+    public function testBuildHttpQueryWithUrlQueryEncryptionEnabled()
+    {
+        global $config;
+
+        $_SESSION = [];
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
+        $query = Url::buildHttpQuery($params);
+        $this->assertStringStartsWith('pos=0&eq=', $query);
+        parse_str($query, $queryParams);
+        $this->assertCount(2, $queryParams);
+        $this->assertSame('0', $queryParams['pos']);
+        $this->assertTrue(is_string($queryParams['eq']));
+        $this->assertNotSame('', $queryParams['eq']);
+        $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
+        $decrypted = Url::decryptQuery($queryParams['eq']);
+        $this->assertNotNull($decrypted);
+        $this->assertJson($decrypted);
+        $this->assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
+    }
+
+    /**
+     * @return void
+     */
+    public function testQueryEncryption()
+    {
+        global $config;
+
+        $_SESSION = [];
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+
+        $query = '{"db":"test_db","table":"test_table"}';
+        $encrypted = Url::encryptQuery($query);
+        $this->assertNotSame($query, $encrypted);
+        $this->assertNotSame('', $encrypted);
+        $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $encrypted);
+        $decrypted = Url::decryptQuery($encrypted);
+        $this->assertSame($query, $decrypted);
     }
 }
