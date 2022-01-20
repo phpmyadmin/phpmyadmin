@@ -47,6 +47,9 @@ use const E_USER_ERROR;
 
 final class Common
 {
+    /** @var ServerRequest|null */
+    private static $request = null;
+
     /**
      * Misc stuff and REQUIRED by ALL the scripts.
      * MUST be included by every script
@@ -77,11 +80,11 @@ final class Common
      */
     public static function run(): void
     {
-        global $containerBuilder, $errorHandler, $config, $server, $dbi, $request;
+        global $containerBuilder, $errorHandler, $config, $server, $dbi;
         global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
         global $urlParams, $isMinimumCommon, $sql_query, $token_mismatch;
 
-        $request = ServerRequestFactory::createFromGlobals();
+        $request = self::getRequest();
 
         $route = Routing::getCurrentRoute();
 
@@ -616,5 +619,14 @@ final class Common
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
         $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
+    }
+
+    public static function getRequest(): ServerRequest
+    {
+        if (self::$request === null) {
+            self::$request = ServerRequestFactory::createFromGlobals();
+        }
+
+        return self::$request;
     }
 }

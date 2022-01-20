@@ -2,10 +2,9 @@
 <files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
-      <code>global $route, $containerBuilder, $request;</code>
+      <code>global $route, $containerBuilder;</code>
     </InvalidGlobal>
-    <MixedArgument occurrences="2">
-      <code>$request</code>
+    <MixedArgument occurrences="1">
       <code>$route</code>
     </MixedArgument>
   </file>
