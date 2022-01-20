@@ -9,10 +9,8 @@ use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index;
-use function preg_replace;
-use function uniqid;
+use function is_string;
 
 class HomeController extends AbstractController
 {
@@ -23,11 +21,9 @@ class HomeController extends AbstractController
      */
     public function index(array $params): string
     {
-        $pages = $this->getPages();
+        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
 
-        // Handle done action info
-        $actionDone = Core::isValid($params['action_done'], 'scalar') ? $params['action_done'] : '';
-        $actionDone = preg_replace('/[^a-z_]/', '', $actionDone);
+        $pages = $this->getPages();
 
         // message handling
         Index::messagesBegin();
@@ -52,43 +48,6 @@ class HomeController extends AbstractController
         );
         $text .= '</a>';
         Index::messagesSet('notice', 'no_https', __('Insecure connection'), $text);
-
-        // Check for done action info and set notice message if present
-        switch ($actionDone) {
-            case 'config_saved':
-                /* Use uniqid to display this message every time configuration is saved */
-                Index::messagesSet(
-                    'notice',
-                    uniqid('config_saved'),
-                    __('Configuration saved.'),
-                    Sanitize::sanitizeMessage(
-                        __(
-                            'Configuration saved to file config/config.inc.php in phpMyAdmin '
-                            . 'top level directory, copy it to top level one and delete '
-                            . 'directory config to use it.'
-                        )
-                    )
-                );
-                break;
-            case 'config_not_saved':
-                /* Use uniqid to display this message every time configuration is saved */
-                Index::messagesSet(
-                    'notice',
-                    uniqid('config_not_saved'),
-                    __('Configuration not saved!'),
-                    Sanitize::sanitizeMessage(
-                        __(
-                            'Please create web server writable folder [em]config[/em] in '
-                            . 'phpMyAdmin top level directory as described in '
-                            . '[doc@setup_script]documentation[/doc]. Otherwise you will be '
-                            . 'only able to download or display it.'
-                        )
-                    )
-                );
-                break;
-            default:
-                break;
-        }
 
         Index::messagesEnd();
         $messages = Index::messagesShowHtml();
@@ -205,7 +164,7 @@ class HomeController extends AbstractController
         );
 
         return $this->template->render('setup/home/index', [
-            'formset' => $params['formset'] ?? '',
+            'formset' => $formset,
             'languages' => $languages,
             'messages' => $messages,
             'servers_form_top_html' => $serversFormTopHtml,

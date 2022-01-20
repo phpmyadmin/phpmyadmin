@@ -163,7 +163,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
         };
     }
 
-    $.get('index.php?route=/navigation&ajax_request=1', params, function (data) {
+    $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             if (isNode) {

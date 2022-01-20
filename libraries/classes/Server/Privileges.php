@@ -1606,7 +1606,7 @@ class Privileges
 
         $html .= ' href="' . Url::getFromRoute('/server/privileges');
         if ($linktype === 'revoke') {
-            $html .= '" data-post="' . Url::getCommon($params, '');
+            $html .= '" data-post="' . Url::getCommon($params, '', false);
         } else {
             $html .= Url::getCommon($params, '&');
         }

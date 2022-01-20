@@ -329,13 +329,13 @@ class InsertEdit
 
         if (! $is_show) {
             return ' : <a href="' . Url::getFromRoute('/table/change') . '" data-post="'
-                . Url::getCommon($this_url_params, '') . '">'
+                . Url::getCommon($this_url_params, '', false) . '">'
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
 
         return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
-            . Url::getCommon($this_url_params, '')
+            . Url::getCommon($this_url_params, '', false)
             . '" title="' . __('Hide') . '">'
             . $this->showTypeOrFunctionLabel($which)
             . '</a></th>';
@@ -920,7 +920,8 @@ class InsertEdit
                     'rownumber' => $rownumber,
                     'data'      => $data,
                 ],
-                ''
+                '',
+                false
             ) . '">'
             . Generator::getIcon('b_browse', __('Browse foreign values')) . '</a>';
 
@@ -1788,6 +1789,7 @@ class InsertEdit
         return '<span class="open_gis_editor" data-row-id="' . $rowId . '">'
             . Generator::linkOrButton(
                 '#',
+                null,
                 $edit_str,
                 [],
                 '_blank'

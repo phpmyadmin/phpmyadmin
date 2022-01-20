@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function call_user_func_array;
 use function htmlspecialchars;
@@ -221,6 +222,7 @@ class GeneratorTest extends AbstractTestCase
             [
                 [
                     'index.php',
+                    null,
                     'text',
                 ],
                 1000,
@@ -228,15 +230,17 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    'index.php?some=parameter',
+                    'index.php',
+                    ['some' => 'parameter'],
                     'text',
                 ],
                 20,
-                '<a href="index.php" data-post="some=parameter">text</a>',
+                '<a href="index.php" data-post="some=parameter&lang=en">text</a>',
             ],
             [
                 [
                     'index.php',
+                    null,
                     'text',
                     [],
                     'target',
@@ -247,6 +251,7 @@ class GeneratorTest extends AbstractTestCase
             [
                 [
                     'https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B',
+                    null,
                     'text',
                     [],
                     'target',
@@ -259,6 +264,7 @@ class GeneratorTest extends AbstractTestCase
             [
                 [
                     'https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B',
+                    null,
                     'text',
                     [],
                     'target',
@@ -271,12 +277,49 @@ class GeneratorTest extends AbstractTestCase
             [
                 [
                     'url.php?url=http://phpmyadmin.net/',
+                    null,
                     'text',
                     [],
                     '_blank',
                 ],
                 1000,
                 '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    ['some' => 'parameter'],
+                    'text',
+                ],
+                20,
+                '<a href="index.php" data-post="route=/server/databases&some=parameter&lang=en">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    null,
+                    'text',
+                ],
+                20,
+                '<a href="index.php" data-post="route=/server/databases">text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    ['some' => 'parameter'],
+                    'text',
+                ],
+                100,
+                '<a href="index.php?route=/server/databases&some=parameter&lang=en" >text</a>',
+            ],
+            [
+                [
+                    Url::getFromRoute('/server/databases'),
+                    null,
+                    'text',
+                ],
+                100,
+                '<a href="index.php?route=/server/databases" >text</a>',
             ],
         ];
     }

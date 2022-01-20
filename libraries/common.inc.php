@@ -161,6 +161,8 @@ if (! defined('PMA_NO_SESSION')) {
     Session::setUp($PMA_Config, $error_handler);
 }
 
+Core::populateRequestWithEncryptedQueryParams();
+
 /**
  * init some variables LABEL_variables_init
  */
