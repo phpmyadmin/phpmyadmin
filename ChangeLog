@@ -540,9 +540,12 @@ phpMyAdmin - ChangeLog
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
 
-4.9.8 (not yet released)
+4.9.8 (2022-01-20)
 - issue #14321 Display a correct error page when "$cfg['Servers'][$i]['SignonURL']" is empty for auth_type=signon
 - issue #14321 [security] Remove leaked HTML on signon page redirect before login for auth_type=signon
+- issue        [security] Add configuration directive $cfg['Servers'][$i]['hide_connection_errors'] to allow hiding host names and other error details when login fails
+- issue        [security] Add configuration directive $cfg['URLQueryEncryption'] to allow encrypting senstive information in the URL
+- issue        [security] Fix a scenario where an authenticated user can disable two factor authentication
 
 4.9.7 (2020-10-15)
 - issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
