@@ -28,7 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #16197 Replace the master/slave terminology
 - issue #17257 Replace libraries/vendor_config.php constants with an array
 
-5.1.2 (not yet released)
+5.1.2 (2022-01-20)
 - issue        Replaced MySQL documentation redirected links
 - issue #16960 Fix JS error on Designer visual builder on some modal buttons
 - issue        Re-build openlayers JS dependency from the source files and provide a smaller JS bundle
@@ -144,6 +144,10 @@ phpMyAdmin - ChangeLog
 - issue #17259 Fix broken link in the Simulate DML query modal
 - issue #16746 Update tcpdf dependency to ^6.4.4 for PHP 8.1 compatibility
 - issue #16746 Update twig dependency to "^2.14.9 || ^3.3.5" for PHP 8.1 compatibility
+- issue        [security] Add configuration directive $cfg['Servers'][$i]['hide_connection_errors'] to allow hiding host names and other error details when login fails
+- issue        [security] Add configuration directive $cfg['URLQueryEncryption'] to allow encrypting senstive information in the URL
+- issue        [security] Fix a scenario where an authenticated user can disable two factor authentication (PMASA-2022-1)
+- issue        [security] Fix XSS and HTML injection attacks in the graphical setup page (PMASA-2022-2)
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
@@ -568,6 +572,10 @@ phpMyAdmin - ChangeLog
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
 
 4.9.8 (2022-01-20)
+<<<<<<< HEAD
+=======
+- issue #14321 Display a correct error page when "$cfg['Servers'][$i]['SignonURL']" is empty for auth_type=signon
+>>>>>>> QA_5_1
 - issue #14321 [security] Remove leaked HTML on signon page redirect before login for auth_type=signon
 - issue        [security] Add configuration directive $cfg['Servers'][$i]['hide_connection_errors'] to allow hiding host names and other error details when login fails
 - issue        [security] Add configuration directive $cfg['URLQueryEncryption'] to allow encrypting senstive information in the URL
