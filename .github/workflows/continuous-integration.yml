@@ -46,3 +46,33 @@ jobs:
 
       - name: "Run tests"
         run: "vendor/bin/phpunit --no-coverage --disallow-test-output --exclude-group selenium"
+
+  coding-standards:
+    name: "Check coding standards"
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.1"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          php-version: "${{ matrix.php-version }}"
+          ini-values: "memory_limit=-1"
+
+      - name: "Install dependencies"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "highest"
+
+      - name: "Check coding standards"
+        run: |
+          vendor/bin/phpcs --config-set installed_paths ../../phpmyadmin/coding-standard
+          vendor/bin/phpcs
