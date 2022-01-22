@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.9.9 (not yet released)
 - issue #17305 Fix syntax error for PHP 5
+- issue #17307 Fix hide_connection_errors being undefined when a controluser is set
 
 4.9.8 (2022-01-20)
 - issue #14321 Display a correct error page when "$cfg['Servers'][$i]['SignonURL']" is empty for auth_type=signon

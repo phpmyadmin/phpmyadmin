@@ -2427,6 +2427,8 @@ class DatabaseInterface
 
             $server = array();
 
+            $server['hide_connection_errors'] = $cfg['Server']['hide_connection_errors'];
+
             if (! empty($cfg['Server']['controlhost'])) {
                 $server['host'] = $cfg['Server']['controlhost'];
             } else {
@@ -2484,6 +2486,10 @@ class DatabaseInterface
         }
         if (!isset($server['compress'])) {
             $server['compress'] = false;
+        }
+
+        if (! isset($server['hide_connection_errors'])) {
+            $server['hide_connection_errors'] = false;
         }
 
         return array($user, $password, $server);
