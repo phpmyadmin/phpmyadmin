@@ -107,7 +107,7 @@ class DbiMysqli implements DbiExtension
             $host = $server['host'];
         }
 
-        if ($server['hide_connection_errors']) {
+        if (array_key_exists('hide_connection_errors',$server) && $server['hide_connection_errors']) {
             $return_value = @$mysqli->real_connect(
                 $host,
                 $user,
@@ -157,7 +157,7 @@ class DbiMysqli implements DbiExtension
                 return self::connect($user, $password, $server);
             }
 
-            if ($error_number === 1045 && $server['hide_connection_errors']) {
+            if ($error_number === 1045 && array_key_exists('hide_connection_errors',$server) && $server['hide_connection_errors']) {
                 trigger_error(
                     sprintf(
                         __(
