@@ -44,7 +44,12 @@ jobs:
         with:
           dependency-versions: "highest"
 
+      - name: "Run tests for PHP 5.5"
+        if: "matrix.php-version == '5.5'"
+        run: "vendor/bin/phpunit --no-coverage --disallow-test-output --exclude-group selenium,git-revision,network"
+
       - name: "Run tests"
+        if: "matrix.php-version != '5.5'"
         run: "vendor/bin/phpunit --no-coverage --disallow-test-output --exclude-group selenium"
 
   coding-standards:
