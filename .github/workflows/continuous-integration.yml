@@ -39,6 +39,18 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           ini-values: "memory_limit=-1, error_reporting=E_ALL, display_errors=On"
 
+      - name: "Require PHPUnit 8 for PHP 7.4"
+        if: "matrix.php-version == '7.4'"
+        run: |
+          composer require --no-interaction php>=7.1
+          composer remove --dev --no-interaction phpunit/phpunit-selenium
+          composer remove --dev --no-interaction phpunit/phpunit
+          composer require --dev --no-interaction "phpunit/phpunit:~8.5"
+          rm -rf test/selenium
+          find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'
+          find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'
+          find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'
+
       - name: "Install dependencies"
         uses: "ramsey/composer-install@v2"
         with:
