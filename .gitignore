@@ -59,3 +59,4 @@ composer.lock
 /node_modules/
 libraries/cache/
 js/dist/
+/setup/styles.css.map
