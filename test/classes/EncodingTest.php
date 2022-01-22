@@ -79,6 +79,13 @@ class EncodingTest extends TestCase
             $this->markTestSkipped('iconv extension missing');
         }
 
+        // Set PHP native locale
+        if (function_exists('setlocale') && setlocale(0, 'POSIX') === false) {
+            $this->markTestSkipped('native setlocale failed');
+        }
+
+        _setlocale(LC_ALL, 'POSIX');
+
         if (PHP_INT_SIZE === 8) {
             $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
             Encoding::setEngine(Encoding::ENGINE_ICONV);

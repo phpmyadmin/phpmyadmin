@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="phpMyAdmin Coding Standard">
-    <rule ref="./vendor/phpmyadmin/coding-standard/PMAStandard/ruleset.xml">
+    <rule ref="PMAStandard">
         <exclude name="Generic.Metrics.NestingLevel.TooHigh"/>
         <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
         <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>

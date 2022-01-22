@@ -1,0 +1,95 @@
+name: "Continuous Integration"
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  phpunit:
+    name: "PHPUnit tests"
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "5.5"
+          - "5.6"
+          - "7.0"
+          - "7.1"
+          - "7.2"
+          - "7.3"
+          - "7.4"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Install gettext"
+        run: "sudo apt-get install -y gettext"
+
+      - name: "Generate .mo files"
+        run: "./scripts/generate-mo --quiet"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          extensions: "mbstring, iconv, mysqli, zip, gd, bz2"
+          php-version: "${{ matrix.php-version }}"
+          ini-values: "memory_limit=-1, error_reporting=E_ALL, display_errors=On"
+
+      - name: "Require PHPUnit 8 for PHP 7.4"
+        if: "matrix.php-version == '7.4'"
+        run: |
+          composer require --no-interaction php>=7.1
+          composer remove --dev --no-interaction phpunit/phpunit-selenium
+          composer remove --dev --no-interaction phpunit/phpunit
+          composer require --dev --no-interaction "phpunit/phpunit:~8.5"
+          rm -rf test/selenium
+          find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'
+          find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'
+          find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'
+
+      - name: "Install dependencies"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "highest"
+
+      - name: "Run tests for PHP 5.5"
+        if: "matrix.php-version == '5.5'"
+        run: "vendor/bin/phpunit --no-coverage --disallow-test-output --exclude-group selenium,git-revision,network"
+
+      - name: "Run tests"
+        if: "matrix.php-version != '5.5'"
+        run: "vendor/bin/phpunit --no-coverage --disallow-test-output --exclude-group selenium"
+
+  coding-standards:
+    name: "Check coding standards"
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.1"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          php-version: "${{ matrix.php-version }}"
+          ini-values: "memory_limit=-1"
+
+      - name: "Install dependencies"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "highest"
+
+      - name: "Check coding standards"
+        run: |
+          vendor/bin/phpcs --config-set installed_paths ../../phpmyadmin/coding-standard
+          vendor/bin/phpcs
