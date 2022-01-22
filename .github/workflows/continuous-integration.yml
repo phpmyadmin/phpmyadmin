@@ -1,0 +1,48 @@
+name: "Continuous Integration"
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  phpunit:
+    name: "PHPUnit tests"
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "5.5"
+          - "5.6"
+          - "7.0"
+          - "7.1"
+          - "7.2"
+          - "7.3"
+          - "7.4"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Install gettext"
+        run: "sudo apt-get install -y gettext"
+
+      - name: "Generate .mo files"
+        run: "./scripts/generate-mo --quiet"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          extensions: "mbstring, iconv, mysqli, zip, gd, bz2"
+          php-version: "${{ matrix.php-version }}"
+          ini-values: "memory_limit=-1, error_reporting=E_ALL, display_errors=On"
+
+      - name: "Install dependencies"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "highest"
+
+      - name: "Run tests"
+        run: "vendor/bin/phpunit --no-coverage --disallow-test-output --exclude-group selenium"
