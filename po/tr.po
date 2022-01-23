@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-23 00:11+0000\n"
-"PO-Revision-Date: 2021-12-19 15:27+0000\n"
+"PO-Revision-Date: 2022-01-23 08:23+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5323,13 +5323,13 @@ msgstr ""
 "(blowfish_secret)."
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr "Yapılandırma (blowfish_secret) içindeki gizli parola çok kısa."
+msgstr ""
+"Yapılandırmadaki gizli parola (blowfish_secret) doğru uzunlukta değil. %d "
+"bayt uzunluğunda olmalıdır."
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -9089,6 +9089,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Hata 1045: Kullanıcı için erişim reddedildi. Ek hata bilgileri mevcut "
+"olabilir, ancak %s yapılandırma yönergesi tarafından gizleniyor."
 
 #: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -18033,7 +18035,7 @@ msgstr "Yeni sunucu ekle"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Bir şeyler ters gitti."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
