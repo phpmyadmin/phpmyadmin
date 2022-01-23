@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.9.9 (not yet released)
+4.9.9 (2022-01-22)
 - issue #17305 Fix syntax error for PHP 5
 - issue #17307 Fix hide_connection_errors being undefined when a controluser is set
 
