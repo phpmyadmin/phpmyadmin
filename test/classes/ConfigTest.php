@@ -1211,6 +1211,7 @@ class ConfigTest extends AbstractTestCase
             'host' => '',
             'controluser' => 'u2',
             'controlpass' => 'p2',
+            'hide_connection_errors' => false,
         ];
         $cfg_ssl = [
             'user' => 'u',
@@ -1219,6 +1220,7 @@ class ConfigTest extends AbstractTestCase
             'ssl' => true,
             'controluser' => 'u2',
             'controlpass' => 'p2',
+            'hide_connection_errors' => false,
         ];
         $cfg_control_ssl = [
             'user' => 'u',
@@ -1227,6 +1229,7 @@ class ConfigTest extends AbstractTestCase
             'control_ssl' => true,
             'controluser' => 'u2',
             'controlpass' => 'p2',
+            'hide_connection_errors' => false,
         ];
 
         return [
@@ -1247,6 +1250,7 @@ class ConfigTest extends AbstractTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -1263,6 +1267,7 @@ class ConfigTest extends AbstractTestCase
                         'port' => 0,
                         'ssl' => false,
                         'compress' => false,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -1283,6 +1288,7 @@ class ConfigTest extends AbstractTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -1299,6 +1305,7 @@ class ConfigTest extends AbstractTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -1320,6 +1327,7 @@ class ConfigTest extends AbstractTestCase
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
                         'control_ssl' => true,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],
@@ -1336,6 +1344,7 @@ class ConfigTest extends AbstractTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
+                        'hide_connection_errors' => false,
                     ],
                 ],
             ],

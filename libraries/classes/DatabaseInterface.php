@@ -288,6 +288,10 @@ class DatabaseInterface implements DbalInterface
      */
     public function getTables(string $database, $link = self::CONNECT_USER): array
     {
+        if ($database === '') {
+            return [];
+        }
+
         $tables = $this->fetchResult(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,
@@ -1170,9 +1174,7 @@ class DatabaseInterface implements DbalInterface
     {
         $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
-        $storageDbName = $storageDbName !== null && is_string($storageDbName) && $storageDbName !== ''
-            ? $storageDbName
-            : 'phpmyadmin';
+        $storageDbName = is_string($storageDbName) && $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
 
         // This will make users not having explicitly listed databases
         // have config values filled by the default phpMyAdmin storage table name values
