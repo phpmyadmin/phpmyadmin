@@ -92,8 +92,6 @@ jobs:
                       ${{ runner.os }}-yarn-
             - name: Install modules
               run: yarn install --non-interactive --production
-            - name: Install nginx and php-fpm
-              run: sudo apt-get install -y nginx php7.1-fpm
             - name: Copy the config
               run: cp test/config.e2e.inc.php config.inc.php
             - name: Start server
