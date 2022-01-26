@@ -37,6 +37,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install gettext
+        run: sudo apt-get install -y gettext
+
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
@@ -73,9 +76,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.6'
-
-      - name: Install gettext
-        run: sudo apt-get install -y gettext
 
       - name: Install Sphinx for the documentation build
         run: pip install 'Sphinx'
