@@ -304,6 +304,9 @@
     <InvalidArgument occurrences="1">
       <code>$optionalParams</code>
     </InvalidArgument>
+    <InvalidArrayOffset occurrences="1">
+      <code>$cfg['Server']['hide_connection_errors']</code>
+    </InvalidArrayOffset>
     <MixedArgument occurrences="17">
       <code>$collation_connection</code>
       <code>$config_data</code>
@@ -346,7 +349,7 @@
       <code>$this-&gt;settings['Servers'][$server]</code>
       <code>$this-&gt;settings['Servers'][$this-&gt;settings['ServerDefault']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="27">
+    <MixedAssignment occurrences="28">
       <code>$_SESSION['cache'][$cache_key]['userprefs_mtime']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs_type']</code>
       <code>$cfg['LoginCookieValidity']</code>
@@ -366,6 +369,7 @@
       <code>$server</code>
       <code>$server</code>
       <code>$server[$item]</code>
+      <code>$server['hide_connection_errors']</code>
       <code>$server['host']</code>
       <code>$server['port']</code>
       <code>$server[substr($key, 8)]</code>
@@ -7371,7 +7375,7 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="13">
+    <MixedAssignment occurrences="11">
       <code>$alt</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>

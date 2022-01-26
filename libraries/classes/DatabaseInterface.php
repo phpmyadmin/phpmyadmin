@@ -323,6 +323,10 @@ class DatabaseInterface implements DbalInterface
      */
     public function getTables(string $database, $link = self::CONNECT_USER): array
     {
+        if ($database === '') {
+            return [];
+        }
+
         $tables = $this->fetchResult(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,

@@ -98,9 +98,6 @@ jobs:
       - name: Install modules
         run: yarn install --non-interactive --production
 
-      - name: Install nginx and php-fpm
-        run: sudo apt-get install -y nginx php7.2-fpm
-
       - name: Copy the config
         run: cp test/config.e2e.inc.php config.inc.php
 
