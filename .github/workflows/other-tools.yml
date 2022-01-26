@@ -27,6 +27,8 @@ jobs:
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
             - uses: actions/checkout@v2
+            - name: Install gettext
+              run: sudo apt-get install -y gettext
             - name: Use php 7.1
               uses: shivammathur/setup-php@v2
               with:
@@ -63,8 +65,6 @@ jobs:
             - uses: actions/setup-python@v2
               with:
                 python-version: '3.6'
-            - name: Install gettext
-              run: sudo apt-get install -y gettext
             - name: Install Sphinx for the documentation build
               run: pip install 'Sphinx'
             - name: Build the release
