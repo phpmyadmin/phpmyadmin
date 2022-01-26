@@ -489,6 +489,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $sql = 'insert into PMA_bookmark A,B values(1, 2)';
         $this->dummyDbi->addResult($sql, [true]);
         $this->dummyDbi->addResult($sql, [true]);
+        $this->dummyDbi->addResult('Invalid query', false);
 
         $this->assertInstanceOf(
             ResultInterface::class,
