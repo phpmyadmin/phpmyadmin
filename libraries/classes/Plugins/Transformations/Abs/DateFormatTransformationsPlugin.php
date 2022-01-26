@@ -30,10 +30,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
@@ -153,10 +151,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Date Format';
     }

@@ -22,10 +22,8 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'Image upload functionality which also displays a thumbnail.'
@@ -110,10 +108,8 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Image upload';
     }

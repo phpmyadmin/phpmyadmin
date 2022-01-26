@@ -22,10 +22,8 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'Displays an image and a link; the column contains the filename. The'
@@ -67,10 +65,8 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Image Link';
     }

@@ -21,10 +21,8 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __('Converts an Internet network address in (IPv4/IPv6) format into a long integer.');
     }
@@ -97,30 +95,24 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
 
     /**
      * Gets the transformation name of the plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'IPv4/IPv6 To Long';
     }
 
     /**
      * Gets the plugin`s MIME type
-     *
-     * @return string
      */
-    public static function getMIMEType()
+    public static function getMIMEType(): string
     {
         return 'Text';
     }
 
     /**
      * Gets the plugin`s MIME subtype
-     *
-     * @return string
      */
-    public static function getMIMESubtype()
+    public static function getMIMESubtype(): string
     {
         return 'Plain';
     }
