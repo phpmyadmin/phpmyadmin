@@ -1066,6 +1066,43 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'SELECT CONCAT(`db_name`, \'.\', `table_name`, \'.\', `column_name`) AS column_name, `mimetype`, `transformation`,'
+                    . ' `transformation_options`, `input_transformation`,'
+                    . ' `input_transformation_options`'
+                    . ' FROM `information_schema`.`column_info`'
+                    . ' WHERE `db_name` = \'my_db\' AND `table_name` = \'\''
+                    . ' AND ( `mimetype` != \'\' OR `transformation` != \'\''
+                    . ' OR `transformation_options` != \'\''
+                    . ' OR `input_transformation` != \'\''
+                    . ' OR `input_transformation_options` != \'\')',
+                'columns' => [
+                    'column_name',
+                    'mimetype',
+                    'transformation',
+                    'transformation_options',
+                    'input_transformation',
+                    'input_transformation_options',
+                ],
+                'result' => [
+                    [
+                        'vc',
+                        '',
+                        'output/text_plain_json.php',
+                        '',
+                        'Input/Text_Plain_JsonEditor.php',
+                        '',
+                    ],
+                    [
+                        'vc',
+                        '',
+                        'output/text_plain_formatted.php',
+                        '',
+                        'Text_Plain_Substring.php',
+                        '1',
+                    ],
+                ],
+            ],
+            [
                 'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'pma_test\' AND TABLE_NAME = \'table1\'',
                 'result' => [],

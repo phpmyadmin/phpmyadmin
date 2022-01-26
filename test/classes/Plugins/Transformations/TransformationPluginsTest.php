@@ -69,6 +69,8 @@ class TransformationPluginsTest extends AbstractTestCase
      */
     public function multiDataProvider(): array
     {
+        $GLOBALS['cfg']['CodemirrorEnable'] = false;
+
         return [
             // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
             [
@@ -726,6 +728,8 @@ class TransformationPluginsTest extends AbstractTestCase
      */
     public function transformationDataProvider(): array
     {
+        $GLOBALS['cfg']['CodemirrorEnable'] = false;
+
         $result = [
             [
                 new Image_JPEG_Upload(),
