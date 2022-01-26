@@ -20,7 +20,7 @@ set -e
 KITS="all-languages english source"
 COMPRESSIONS="zip-7z txz tgz"
 # The version series this script is allowed to handle
-VERSION_SERIES="5.2"
+VERSION_SERIES="5.3"
 
 # Process parameters
 
