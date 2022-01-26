@@ -31,7 +31,6 @@ jobs:
               # tcpdf allowed memory exhausted needs the memory_limit workaround
               # musl-locales and musl-locales-lang are needed to run some locale specific tests
               # gettext is needed to run generate-mo
-              # pcov for code coverage
               # ctype for psalm
               run: |
                   printf "set -exu && \
@@ -42,10 +41,9 @@ jobs:
                   php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
                   musl-locales musl-locales-lang \
                   gettext composer && \
-                  apk add --update --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing php\$V-pecl-pcov && \
                   composer update && \
                   ./scripts/generate-mo && \
-                  php -d memory_limit=512M ./vendor/bin/phpunit --exclude-group=%s" \
+                  php -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --exclude-group=%s" \
                   "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
             - name: Setup multi arch support
               run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
@@ -53,11 +51,6 @@ jobs:
               run: docker run --rm ${{ matrix.arch }}/alpine:3.14 uname -a
             - name: Run tests on php ${{ matrix.php-version }}
               run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.14 sh /app/do-tests.sh
-            - name: Send coverage
-              uses: codecov/codecov-action@v1
-              with:
-                flags: arch-${{ matrix.php-version }}-${{ matrix.arch }}
-                name: phpunit-${{ matrix.php-version }}-${{ matrix.arch }}
     test-php:
         name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
@@ -81,7 +74,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php-version }}
                   extensions: mbstring, iconv, mysqli, zip, gd, bz2
-                  coverage: xdebug
+                  coverage: "none"
             - name: Get Composer Cache Directory
               id: composer-cache
               run: |
@@ -95,25 +88,7 @@ jobs:
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
             - name: Run php tests
-              run: composer run phpunit --  --exclude-group selenium
-            - name: Send coverage
-              uses: codecov/codecov-action@v1
-              with:
-                flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
-                name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
-            - name: Send coverage to Scrutinizer
-              uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
-              with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
-            - name: Send coverage to Codacy
-              # Upload can fail on forks or if the secret is missing
-              continue-on-error: true
-              uses: codacy/codacy-coverage-reporter-action@master
-              with:
-                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                coverage-reports: build/logs/clover.xml
+              run: composer run phpunit -- --no-coverage --exclude-group selenium
 
     test-php-optional-extensions:
         name: Test on php (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
@@ -135,7 +110,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php-version }}
                   extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd
-                  coverage: xdebug
+                  coverage: "none"
             - name: Get Composer Cache Directory
               id: composer-cache
               run: |
@@ -149,25 +124,7 @@ jobs:
             - name: Install dependencies
               run: composer install
             - name: Run php tests
-              run: composer run phpunit --  --exclude-group selenium
-            - name: Send coverage
-              uses: codecov/codecov-action@v1
-              with:
-                flags: ${{ matrix.extension }}-extension
-                name: php-7.1-${{ matrix.extension }}-enabled
-            - name: Send coverage to Scrutinizer
-              uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
-              with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
-            - name: Send coverage to Codacy
-              # Upload can fail on forks or if the secret is missing
-              continue-on-error: true
-              uses: codacy/codacy-coverage-reporter-action@master
-              with:
-                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                coverage-reports: build/logs/clover.xml
+              run: composer run phpunit -- --no-coverage --exclude-group selenium
 
     test-php-random:
         name: Test (random) on php ${{ matrix.php-version }} and ${{ matrix.os }}
@@ -188,6 +145,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php-version }}
                   extensions: mbstring, iconv, mysqli, zip, gd, bz2
+                  coverage: "none"
             - name: Get Composer Cache Directory
               id: composer-cache
               run: |
@@ -203,7 +161,7 @@ jobs:
             - name: Run random php tests
               # This one is allowed to fail, but we hope it will not
               continue-on-error: true
-              run: composer run phpunit --  --exclude-group selenium --order-by=random --stop-on-failure
+              run: composer run phpunit -- --no-coverage --exclude-group selenium --order-by=random --stop-on-failure
 
     test-js:
         name: Test javascript files

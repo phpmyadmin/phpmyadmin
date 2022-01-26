@@ -34,6 +34,7 @@ jobs:
               with:
                   php-version: 7.1
                   extensions: mbstring, iconv, mysqli, zip, gd
+                  coverage: "none"
                   tools: composer:v2
             - name: Get Composer Cache Directory
               id: composer-cache

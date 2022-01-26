@@ -65,6 +65,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php-version }}
                   extensions: mbstring, iconv, mysqli, zip, gd, bz2
+                  coverage: "none"
             - name: Get Composer Cache Directory
               id: composer-cache
               run: |
