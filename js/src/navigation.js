@@ -1066,14 +1066,12 @@ Navigation.selectCurrentDatabase = function () {
 Navigation.treePagination = function ($this) {
     var $msgbox = Functions.ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
-    var url;
-    var params;
+    var url = 'index.php?route=/navigation';
+    var params = 'ajax_request=true';
     if ($this[0].tagName === 'A') {
-        url = $this.attr('href');
-        params = 'ajax_request=true';
+        params += CommonParams.get('arg_separator') + $this.getPostData();
     } else { // tagName === 'SELECT'
-        url = 'index.php?route=/navigation';
-        params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
+        params += CommonParams.get('arg_separator') + $this.closest('form').serialize();
     }
     var searchClause = Navigation.FastFilter.getSearchClause();
     if (searchClause) {
