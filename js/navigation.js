@@ -1036,14 +1036,12 @@ function PMA_selectCurrentDb () {
 function PMA_navigationTreePagination ($this) {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
-    var url;
-    var params;
+    var url = 'navigation.php';
+    var params = 'ajax_request=true';
     if ($this[0].tagName === 'A') {
-        url = $this.attr('href');
-        params = 'ajax_request=true';
+        params += PMA_commonParams.get('arg_separator') + $this.getPostData();
     } else { // tagName === 'SELECT'
-        url = 'navigation.php';
-        params = $this.closest('form').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        params += PMA_commonParams.get('arg_separator') + $this.closest('form').serialize();
     }
     var searchClause = PMA_fastFilter.getSearchClause();
     if (searchClause) {
