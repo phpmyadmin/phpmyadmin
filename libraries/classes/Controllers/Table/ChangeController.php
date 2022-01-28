@@ -58,7 +58,7 @@ class ChangeController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         /**
          * Determine whether Insert or Edit and set global variables

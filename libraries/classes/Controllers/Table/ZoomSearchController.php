@@ -103,7 +103,7 @@ class ZoomSearchController extends AbstractController
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $errorUrl .= Url::getCommon($urlParams, '&');
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         $this->addScriptFiles([
             'vendor/stickyfill.min.js',

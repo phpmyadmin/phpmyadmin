@@ -54,7 +54,7 @@ final class SqlController extends AbstractController
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $errorUrl .= Url::getCommon($url_params, '&');
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         /**
          * After a syntax error, we return to this script

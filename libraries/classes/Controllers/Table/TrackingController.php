@@ -53,7 +53,7 @@ final class TrackingController extends AbstractController
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $errorUrl .= Url::getCommon($urlParams, '&');
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         $activeMessage = '';
         if (

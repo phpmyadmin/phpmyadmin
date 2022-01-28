@@ -55,7 +55,7 @@ final class ImportController extends AbstractController
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $errorUrl .= Url::getCommon($urlParams, '&');
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         $urlParams['goto'] = Url::getFromRoute('/table/import');
         $urlParams['back'] = Url::getFromRoute('/table/import');

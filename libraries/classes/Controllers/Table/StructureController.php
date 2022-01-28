@@ -124,7 +124,7 @@ class StructureController extends AbstractController
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $errorUrl .= Url::getCommon($url_params, '&');
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         $primary = Index::getPrimary($this->table, $this->db);
         $columns_with_index = $this->dbi

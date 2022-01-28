@@ -8,30 +8,28 @@ use PhpMyAdmin\Controllers\Database\SqlController;
 
 use function __;
 use function defined;
-use function strlen;
 
 final class DbTableExists
 {
     /**
-     * Ensure the database and the table exist (else move to the "parent" script)
-     * and display headers
+     * Ensure the database and the table exist (else move to the "parent" script) and display headers.
      */
-    public static function check(): void
+    public static function check(string $db, string $table): void
     {
-        self::checkDatabase();
-        self::checkTable();
+        self::checkDatabase($db);
+        self::checkTable($db, $table);
     }
 
-    private static function checkDatabase(): void
+    private static function checkDatabase(string $db): void
     {
-        global $db, $dbi, $is_db, $message, $show_as_php, $sql_query;
+        global $dbi, $is_db, $message, $show_as_php, $sql_query;
 
         if (! empty($is_db)) {
             return;
         }
 
         $is_db = false;
-        if (strlen($db) > 0) {
+        if ($db !== '') {
             $is_db = @$dbi->selectDb($db);
         }
 
@@ -69,16 +67,16 @@ final class DbTableExists
         exit;
     }
 
-    private static function checkTable(): void
+    private static function checkTable(string $db, string $table): void
     {
-        global $containerBuilder, $db, $table, $dbi, $is_table;
+        global $containerBuilder, $dbi, $is_table;
 
         if (! empty($is_table) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
             return;
         }
 
         $is_table = false;
-        if (strlen($table) > 0) {
+        if ($table !== '') {
             $is_table = $dbi->getCache()->getCachedTableContent([$db, $table], false);
             if ($is_table) {
                 return;
@@ -96,7 +94,7 @@ final class DbTableExists
             exit;
         }
 
-        if (strlen($table) > 0) {
+        if ($table !== '') {
             /**
              * SHOW TABLES doesn't show temporary tables, so try select
              * (as it can happen just in case temporary table, it should be fast):

@@ -62,7 +62,7 @@ class WrapperController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         /**
          * Sets globals from $_REQUEST

@@ -1342,13 +1342,14 @@
     </MixedArrayAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/RoutinesController.php">
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="9">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$item</code>
       <code>$sub_part ?? ''</code>
+      <code>$table</code>
       <code>$table</code>
       <code>$type</code>
     </MixedArgument>
@@ -1838,11 +1839,12 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="5">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$sub_part ?? ''</code>
+      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$urlParams</code>
@@ -2817,7 +2819,7 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/AddFieldController.php">
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="13">
       <code>$_POST['field_input_transformation'][$fieldindex]</code>
       <code>$_POST['field_input_transformation_options'][$fieldindex]</code>
       <code>$_POST['field_name'][$fieldindex]</code>
@@ -2826,8 +2828,10 @@
       <code>$_POST['field_transformation_options'][$fieldindex]</code>
       <code>$cfg['DefaultTabTable']</code>
       <code>$db</code>
+      <code>$db</code>
       <code>$mimetype</code>
       <code>$regenerate</code>
+      <code>$table</code>
       <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
@@ -2846,15 +2850,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
-    <MixedArgument occurrences="33">
+    <MixedArgument occurrences="20">
       <code>$current_result</code>
       <code>$current_row</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$disp_message</code>
       <code>$insert_mode</code>
@@ -2865,13 +2863,6 @@
       <code>$row_id</code>
       <code>$row_id</code>
       <code>$rows</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$text_dir</code>
       <code>$unsaved_values</code>
@@ -2893,16 +2884,13 @@
       <code>$unsaved_values[$row_id]</code>
       <code>$unsaved_values[$row_id]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="6">
       <code>$current_result</code>
       <code>$current_row</code>
       <code>$isUpload</code>
       <code>$jsvkey</code>
       <code>$repopulate</code>
       <code>$row_id</code>
-      <code>$urlParams['db']</code>
-      <code>$urlParams['table']</code>
-      <code>$urlParams['table']</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
       <code>$biggest_max_file_size</code>
@@ -2983,6 +2971,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/DeleteConfirmController.php">
+    <MixedArgument occurrences="2">
+      <code>$db</code>
+      <code>$table</code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
@@ -3009,6 +3001,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnConfirmationController.php">
+    <MixedArgument occurrences="2">
+      <code>$db</code>
+      <code>$table</code>
+    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$selected</code>
     </MixedAssignment>
@@ -3058,7 +3054,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
-    <MixedArgument occurrences="26">
+    <MixedArgument occurrences="28">
       <code>$_POST['columnIndex']</code>
       <code>$_POST['columnIndex']</code>
       <code>$_POST['find']</code>
@@ -3082,9 +3078,11 @@
       <code>$column</code>
       <code>$column</code>
       <code>$column_types[$i]</code>
+      <code>$db</code>
       <code>$row[0]</code>
       <code>$row[0]</code>
       <code>$row[1]</code>
+      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
@@ -3162,6 +3160,10 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
+    <MixedArgument occurrences="2">
+      <code>$db</code>
+      <code>$table</code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
@@ -3182,8 +3184,10 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexRenameController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="3">
       <code>$_POST['index']</code>
+      <code>$db</code>
+      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
@@ -3194,11 +3198,13 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexesController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="6">
       <code>$_POST['columns']</code>
       <code>$_POST['index']</code>
       <code>$_POST['index']['columns']['names']</code>
+      <code>$db</code>
       <code>$fields</code>
+      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
@@ -3479,13 +3485,15 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="13">
       <code>$_POST['column']</code>
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
       <code>$_POST['where_clause_sign']</code>
+      <code>$db</code>
       <code>$selected_operator</code>
+      <code>$table</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNullFlags[$column_index]</code>
@@ -3650,10 +3658,12 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/PrimaryController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="6">
+      <code>$db</code>
       <code>$db</code>
       <code>$field</code>
       <code>$selected</code>
+      <code>$table</code>
       <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
@@ -3801,7 +3811,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
-    <MixedArgument occurrences="13">
+    <MixedArgument occurrences="14">
       <code>$db</code>
       <code>$field['Collation'] ?? ''</code>
       <code>$field['Extra']</code>
@@ -3811,6 +3821,7 @@
       <code>$showtable['Data_length']</code>
       <code>$showtable['Data_length'] + $showtable['Index_length']</code>
       <code>$showtable['Index_length']</code>
+      <code>$table</code>
       <code>$tbl_collation</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
@@ -3872,7 +3883,7 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <MixedArgument occurrences="26">
+    <MixedArgument occurrences="12">
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
       <code>$_POST['users']</code>
@@ -3882,20 +3893,6 @@
       <code>$data</code>
       <code>$data</code>
       <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$text_dir</code>
       <code>$version</code>
@@ -3915,11 +3912,12 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="5">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$sub_part ?? ''</code>
+      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$urlParams</code>
@@ -3927,7 +3925,7 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="19">
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
@@ -3935,9 +3933,11 @@
       <code>$columnName</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
+      <code>$db</code>
       <code>$goto</code>
       <code>$properties['type']</code>
       <code>$selected_operator</code>
+      <code>$table</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNullFlags[$column_index]</code>
@@ -4025,10 +4025,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Transformation/WrapperController.php">
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="12">
       <code>$_GET['where_clause_sign'] ?? ''</code>
       <code>$cn ?? ''</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$mime_map[$transform_key]['mimetype']</code>
       <code>$mime_map[$transform_key]['transformation_options'] ?? ''</code>
@@ -4037,8 +4036,6 @@
       <code>$option</code>
       <code>$srcHeight / $ratioWidth</code>
       <code>$srcWidth / $ratioHeight</code>
-      <code>$table</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$where_clause</code>
     </MixedArgument>
@@ -5611,10 +5608,6 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/DbTableExists.php">
-    <MixedArgument occurrences="2">
-      <code>$db</code>
-      <code>$table</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>

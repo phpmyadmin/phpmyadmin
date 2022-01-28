@@ -90,7 +90,7 @@ class ChartController extends AbstractController
             $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $errorUrl .= Url::getCommon($url_params, '&');
 
-            DbTableExists::check();
+            DbTableExists::check($db, $table);
 
             $url_params['goto'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $url_params['back'] = Url::getFromRoute('/table/sql');
@@ -179,7 +179,7 @@ class ChartController extends AbstractController
             $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $errorUrl .= Url::getCommon($urlParams, '&');
 
-            DbTableExists::check();
+            DbTableExists::check($db, $table);
         }
 
         $parser = new Parser($sql_query);

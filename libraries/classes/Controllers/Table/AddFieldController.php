@@ -173,7 +173,7 @@ class AddFieldController extends AbstractController
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $errorUrl .= Url::getCommon($url_params, '&');
 
-        DbTableExists::check();
+        DbTableExists::check($db, $table);
 
         $active_page = Url::getFromRoute('/table/structure');
         /**
