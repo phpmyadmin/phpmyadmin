@@ -1,8 +1,8 @@
 <div class="alert alert-{{ context }}" role="alert">
 
-  {% if isUserError == false %}
+  {%- if isUserError == false %}
     <strong>{{ type }}</strong> in {{ file ~'#'~ line }} <br>
-  {% endif %}
+  {% endif -%}
 
   {{ message }}
 

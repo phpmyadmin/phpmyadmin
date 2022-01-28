@@ -53,7 +53,7 @@ class PageSettingsTest extends AbstractTestCase
             '<div id="page_settings_modal">'
             . '<div class="page_settings">'
             . '<form method="post" '
-            . 'action="index.php&#x3F;db&#x3D;db&amp;server&#x3D;1&amp;lang&#x3D;en" '
+            . 'action="index.php&#x3F;route&#x3D;&#x25;2F&amp;db&#x3D;db&amp;server&#x3D;1&amp;lang&#x3D;en" '
             . 'class="config-form disableAjax">',
             $html
         );

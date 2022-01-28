@@ -131,7 +131,7 @@ class ErrorTest extends AbstractTestCase
     public function testGetDisplay(): void
     {
         $this->assertStringContainsString(
-            '<div class="alert alert-danger" role="alert"><strong>Warning</strong>',
+            '<div class="alert alert-danger" role="alert">    <strong>Warning</strong>',
             $this->object->getDisplay()
         );
     }
