@@ -19,6 +19,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -3710,7 +3711,7 @@ class Privileges
 
     public function getFormForChangePassword(string $username, string $hostname, bool $editOthers): string
     {
-        global $route;
+        $route = Routing::getCurrentRoute();
 
         $isPrivileges = $route === '/server/privileges';
 

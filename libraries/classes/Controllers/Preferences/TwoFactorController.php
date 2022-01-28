@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
@@ -27,7 +28,9 @@ class TwoFactorController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $route;
+        global $cfg;
+
+        $route = Routing::getCurrentRoute();
 
         $relationParameters = $this->relation->getRelationParameters();
 

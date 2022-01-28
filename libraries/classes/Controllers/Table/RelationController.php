@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -58,7 +59,7 @@ final class RelationController extends AbstractController
      */
     public function __invoke(): void
     {
-        global $route;
+        $route = Routing::getCurrentRoute();
 
         $options = [
             'CASCADE' => 'CASCADE',

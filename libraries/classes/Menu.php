@@ -220,7 +220,7 @@ class Menu
      */
     private function getTableTabs(): array
     {
-        global $route;
+        $route = Routing::getCurrentRoute();
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
         $tableIsView = $this->dbi->getTable($this->db, $this->table)
@@ -342,7 +342,7 @@ class Menu
      */
     private function getDbTabs(): array
     {
-        global $route;
+        $route = Routing::getCurrentRoute();
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
         $numTables = count($this->dbi->getTables($this->db));
@@ -459,7 +459,7 @@ class Menu
      */
     private function getServerTabs(): array
     {
-        global $route;
+        $route = Routing::getCurrentRoute();
 
         $isSuperUser = $this->dbi->isSuperUser();
         $isCreateOrGrantUser = $this->dbi->isGrantUser() || $this->dbi->isCreateUser();

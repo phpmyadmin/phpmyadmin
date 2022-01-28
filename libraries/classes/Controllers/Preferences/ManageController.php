@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
@@ -67,7 +68,9 @@ class ManageController extends AbstractController
     public function __invoke(): void
     {
         global $cf, $error, $filename, $json, $lang;
-        global $new_config, $return_url, $form_display, $all_ok, $params, $query, $route;
+        global $new_config, $return_url, $form_display, $all_ok, $params, $query;
+
+        $route = Routing::getCurrentRoute();
 
         $cf = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($cf);

@@ -2,12 +2,8 @@
 <files psalm-version="4.19.0@a2ad69ae4f5ab1f7d225a8dc4e2ec2d9415ed599">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
-      <code>global $route, $containerBuilder, $request;</code>
+      <code>global $containerBuilder;</code>
     </InvalidGlobal>
-    <MixedArgument occurrences="2">
-      <code>$request</code>
-      <code>$route</code>
-    </MixedArgument>
   </file>
   <file src="js/messages.php">
     <UnusedVariable occurrences="1">
@@ -6438,11 +6434,10 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$params</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$info</code>
       <code>$params['checkprivsdb']</code>
       <code>$params['checkprivstable']</code>
-      <code>$params['route']</code>
       <code>$params['server']</code>
       <code>$params['single_table']</code>
       <code>$params['viewing_mode']</code>
@@ -9063,18 +9058,14 @@
       <code>$serverCookie</code>
       <code>$tmp_host</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$url_params</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="12">
       <code>$GLOBALS['pma_auth_server']</code>
-      <code>$_form_params['route']</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$key</code>
@@ -9085,7 +9076,6 @@
       <code>$serverCookie</code>
       <code>$this-&gt;password</code>
       <code>$tmp_host</code>
-      <code>$url_params['route']</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="6">
@@ -11909,12 +11899,6 @@
       <code>isset($GLOBALS['table']) &amp;&amp; is_scalar($GLOBALS['table'])</code>
       <code>isset($dbi)</code>
     </RedundantCondition>
-  </file>
-  <file src="libraries/classes/Routing.php">
-    <MixedArgument occurrences="2">
-      <code>$_GET['db']</code>
-      <code>$_GET['table']</code>
-    </MixedArgument>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <MixedArgument occurrences="6">

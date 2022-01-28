@@ -21,6 +21,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -164,7 +165,9 @@ class StructureController extends AbstractController
         array $columns_with_index,
         bool $isSystemSchema
     ) {
-        global $route, $tbl_is_view, $tbl_storage_engine;
+        global $tbl_is_view, $tbl_storage_engine;
+
+        $route = Routing::getCurrentRoute();
 
         // prepare comments
         $comments_map = [];
