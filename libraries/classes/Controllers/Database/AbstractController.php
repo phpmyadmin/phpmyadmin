@@ -10,7 +10,11 @@ use PhpMyAdmin\Template;
 
 abstract class AbstractController extends Controller
 {
-    /** @var string */
+    /**
+     * @deprecated Get the value from $GLOBALS['db'] or from the {@see \PhpMyAdmin\Http\ServerRequest} instance.
+     *
+     * @var string
+     */
     protected $db;
 
     public function __construct(ResponseRenderer $response, Template $template, string $db)

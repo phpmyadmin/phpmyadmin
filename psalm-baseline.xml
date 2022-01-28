@@ -1012,12 +1012,27 @@
       <code>json_decode($value)</code>
     </MixedArgument>
   </file>
+  <file src="libraries/classes/Controllers/Database/AbstractController.php">
+    <DeprecatedProperty occurrences="1">
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
+  </file>
   <file src="libraries/classes/Controllers/Database/CentralColumns/PopulateColumnsController.php">
+    <DeprecatedProperty occurrences="1">
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="1">
       <code>$_POST['selectedTable']</code>
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/CentralColumnsController.php">
+    <DeprecatedProperty occurrences="5">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="24">
       <code>$columnDefault</code>
       <code>$columnDefault</code>
@@ -1057,6 +1072,19 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
+    <DeprecatedProperty occurrences="11">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="4">
       <code>$mimeMap[$row['Field']]['mimetype']</code>
       <code>$row['Field']</code>
@@ -1248,6 +1276,11 @@
     <MixedAssignment occurrences="1">
       <code>$table</code>
     </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/MultiTableQueryController.php">
+    <DeprecatedProperty occurrences="1">
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
   </file>
   <file src="libraries/classes/Controllers/Database/Operations/CollationController.php">
     <MixedArgument occurrences="7">
@@ -1577,6 +1610,13 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/FavoriteTableController.php">
+    <DeprecatedProperty occurrences="5">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="5">
       <code>$favoriteTable</code>
       <code>$favoriteTables</code>
@@ -1607,6 +1647,11 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/RealRowCountController.php">
+    <DeprecatedProperty occurrences="3">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="1">
       <code>$table['TABLE_NAME']</code>
     </MixedArgument>
@@ -1648,6 +1693,9 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/ShowCreateController.php">
+    <DeprecatedProperty occurrences="1">
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="2">
       <code>$object-&gt;showCreate()</code>
       <code>$selected</code>
@@ -1657,6 +1705,30 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/StructureController.php">
+    <DeprecatedProperty occurrences="22">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+    </DeprecatedProperty>
     <InvalidScalarArgument occurrences="2">
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
@@ -2814,6 +2886,12 @@
       <code>$errorUrl</code>
     </MixedOperand>
   </file>
+  <file src="libraries/classes/Controllers/Table/AbstractController.php">
+    <DeprecatedProperty occurrences="2">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
+  </file>
   <file src="libraries/classes/Controllers/Table/AddFieldController.php">
     <MixedArgument occurrences="13">
       <code>$_POST['field_input_transformation'][$fieldindex]</code>
@@ -2997,6 +3075,12 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnConfirmationController.php">
+    <DeprecatedProperty occurrences="4">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="2">
       <code>$db</code>
       <code>$table</code>
@@ -3006,6 +3090,14 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnController.php">
+    <DeprecatedProperty occurrences="6">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="4">
       <code>$field</code>
       <code>$field</code>
@@ -3050,6 +3142,20 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
+    <DeprecatedProperty occurrences="12">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="28">
       <code>$_POST['columnIndex']</code>
       <code>$_POST['columnIndex']</code>
@@ -3180,6 +3286,14 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexRenameController.php">
+    <DeprecatedProperty occurrences="6">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="3">
       <code>$_POST['index']</code>
       <code>$db</code>
@@ -3194,6 +3308,16 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexesController.php">
+    <DeprecatedProperty occurrences="8">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="6">
       <code>$_POST['columns']</code>
       <code>$_POST['index']</code>
@@ -3307,6 +3431,26 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/RelationController.php">
+    <DeprecatedProperty occurrences="18">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <InvalidArgument occurrences="1">
       <code>usort($tables, 'strnatcasecmp')</code>
     </InvalidArgument>
@@ -3481,6 +3625,20 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
+    <DeprecatedProperty occurrences="12">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="13">
       <code>$_POST['column']</code>
       <code>$_POST['db']</code>
@@ -3537,6 +3695,13 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/BrowseController.php">
+    <DeprecatedProperty occurrences="5">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="3">
       <code>$analyzed_sql_results ?? ''</code>
       <code>$sval</code>
@@ -3567,6 +3732,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
+    <DeprecatedProperty occurrences="2">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="2">
       <code>$selected</code>
       <code>$selected[$i]</code>
@@ -3589,6 +3758,14 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
+    <DeprecatedProperty occurrences="6">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="16">
       <code>$column</code>
       <code>$column</code>
@@ -3638,6 +3815,15 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/PartitioningController.php">
+    <DeprecatedProperty occurrences="7">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <DocblockTypeContradiction occurrences="2">
       <code>count($stmt-&gt;partitions)</code>
       <code>count($stmt-&gt;partitions[0]-&gt;subpartitions)</code>
@@ -3654,6 +3840,10 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/PrimaryController.php">
+    <DeprecatedProperty occurrences="2">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="6">
       <code>$db</code>
       <code>$db</code>
@@ -3677,6 +3867,10 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php">
+    <DeprecatedProperty occurrences="2">
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="1">
       <code>$column</code>
     </MixedArgument>
@@ -3686,6 +3880,28 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/SaveController.php">
+    <DeprecatedProperty occurrences="20">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="42">
       <code>$_POST['field_attribute'][$i]</code>
       <code>$_POST['field_attribute_orig'][$i]</code>
@@ -3807,6 +4023,37 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
+    <DeprecatedProperty occurrences="29">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="14">
       <code>$db</code>
       <code>$field['Collation'] ?? ''</code>
@@ -3921,6 +4168,20 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
+    <DeprecatedProperty occurrences="12">
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+      <code>$this-&gt;table</code>
+    </DeprecatedProperty>
     <MixedArgument occurrences="19">
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>

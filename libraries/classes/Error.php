@@ -479,7 +479,7 @@ class Error extends Message
 
         $template = new Template();
 
-        return $template->render('error/get_display',[
+        return $template->render('error/get_display', [
             'context' => $context,
             'isUserError' => $this->isUserError(),
             'type' => $this->getType(),
