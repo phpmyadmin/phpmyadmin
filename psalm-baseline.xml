@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
+<files psalm-version="4.19.0@a2ad69ae4f5ab1f7d225a8dc4e2ec2d9415ed599">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -11292,7 +11292,8 @@
       <code>setTitle</code>
       <code>startSvgDoc</code>
     </PossiblyNullReference>
-    <TooFewArguments occurrences="1">
+    <TooFewArguments occurrences="2">
+      <code>setFont</code>
       <code>tableDraw</code>
     </TooFewArguments>
   </file>
