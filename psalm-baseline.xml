@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
+<files psalm-version="4.19.0@a2ad69ae4f5ab1f7d225a8dc4e2ec2d9415ed599">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -343,10 +343,9 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_FILES['import_file']</code>
     </PossiblyUndefinedArrayOffset>
-    <TypeDoesNotContainType occurrences="4">
+    <TypeDoesNotContainType occurrences="3">
       <code>$bookmark_created</code>
       <code>$finished</code>
-      <code>$memory_limit == -1</code>
       <code>$timeout_passed</code>
     </TypeDoesNotContainType>
   </file>
@@ -2285,7 +2284,8 @@
       <code>showOutput</code>
       <code>startSvgDoc</code>
     </PossiblyUndefinedMethod>
-    <TooFewArguments occurrences="1">
+    <TooFewArguments occurrences="2">
+      <code>setFont</code>
       <code>tableDraw</code>
     </TooFewArguments>
   </file>
