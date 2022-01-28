@@ -2347,13 +2347,15 @@ class Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . Url::getCommon($_url_params) . '">' . $caption1
-                    . '</a>';
+                    . '" data-post="'
+                    . Url::getCommon($_url_params, '', false)
+                    . '">' . $caption1 . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
-                $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . Url::getCommon($_url_params) . '">'
-                    . $caption2 . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title2 . ' href="' . $script
+                    . '" data-post="'
+                    . Url::getCommon($_url_params, '', false)
+                    . '">' . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
@@ -2386,17 +2388,19 @@ class Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . Url::getCommon($_url_params) . '" >' . $caption3
-                    . '</a>';
+                    . '" data-post="'
+                    . Url::getCommon($_url_params, '', false)
+                    . '" >' . $caption3 . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
                 if ($_url_params[$name] == $count) {
                     $_url_params[$name] = $count - $max_count;
                 }
 
-                $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . Url::getCommon($_url_params) . '" >'
-                    . $caption4 . '</a>';
+                $list_navigator_html .= ' <a' . $class . $title4 . ' href="' . $script
+                    . '" data-post="'
+                    . Url::getCommon($_url_params, '', false)
+                    . '" >' . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
         }
