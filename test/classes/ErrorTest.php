@@ -120,7 +120,7 @@ class ErrorTest extends AbstractTestCase
     public function testGetBacktraceDisplay(): void
     {
         $this->assertStringContainsString(
-            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
+            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)',
             $this->object->getBacktraceDisplay()
         );
     }
@@ -130,10 +130,18 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetDisplay(): void
     {
-        $this->assertStringContainsString(
-            '<div class="alert alert-danger" role="alert">    <strong>Warning</strong>',
-            $this->object->getDisplay()
+        $actual = $this->object->getDisplay();
+        $this->assertStringStartsWith(
+            '<div class="alert alert-danger" role="alert"><p><strong>Warning</strong> in error.txt#15</p>'
+            . '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Compile Error'
+            . '<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">',
+            $actual
         );
+        $this->assertStringContainsString(
+            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)</li><li class="list-group-item">',
+            $actual
+        );
+        $this->assertStringEndsWith('</li></ol></div>' . "\n", $actual);
     }
 
     /**
