@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PHPUnit\Framework\TestCase;
 
-use function __;
 use function json_decode;
 use function ob_end_clean;
 use function ob_get_contents;
@@ -39,7 +38,7 @@ class JavaScriptMessagesControllerTest extends TestCase
         $array = json_decode($json, true);
 
         $this->assertIsArray($array);
-        $this->assertArrayHasKey('strConfirm', $array);
-        $this->assertEquals(__('Confirm'), $array['strConfirm']);
+        $this->assertArrayHasKey('strDoYouReally', $array);
+        $this->assertEquals('Do you really want to execute "%s"?', $array['strDoYouReally']);
     }
 }
