@@ -2797,6 +2797,7 @@ AJAX.registerOnload('functions.js', function () {
                 $('#edit_user_dialog').dialog('close').remove();
                 Functions.ajaxRemoveMessage($msgbox);
             }); // end $.post()
+            $('#changePasswordModal').modal('hide');
         });
 
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
