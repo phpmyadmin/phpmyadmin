@@ -589,7 +589,6 @@ final class JavaScriptMessagesController
             /* password generation */
             'strGeneratePassword' => __('Generate password'),
             'strGenerate' => __('Generate'),
-            'strChangePassword' => __('Change password'),
 
             /* navigation tabs */
             'strMore' => __('More'),
