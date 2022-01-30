@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-01-23 00:11+0000\n"
+"POT-Creation-Date: 2022-01-30 00:12+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1422,7 +1422,7 @@ msgid "Search:"
 msgstr "Keresés:"
 
 #: libraries/classes/BrowseForeigners.php:206
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 #: libraries/classes/Controllers/Server/PrivilegesController.php:330
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
@@ -1503,7 +1503,7 @@ msgid "Page number:"
 msgstr "Oldalszám:"
 
 #: libraries/classes/BrowseForeigners.php:335
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -1807,22 +1807,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "vietnámi"
 
-#: libraries/classes/Common.php:244
+#: libraries/classes/Common.php:247
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Frissítenie kell %s %s vagy újabb verzióra."
 
-#: libraries/classes/Common.php:276
+#: libraries/classes/Common.php:279
 msgid "Error: Token mismatch"
 msgstr "Hiba: Token eltérés"
 
-#: libraries/classes/Common.php:490
+#: libraries/classes/Common.php:493
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:549
+#: libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1831,17 +1831,17 @@ msgstr ""
 "Ön engedélyezte az mbstring.func_overload funkciót a PHP konfigurációban. Ez "
 "a beállítás nem kompatibilis a phpMyAdminnal, és az adatsérüléssel járhat!"
 
-#: libraries/classes/Common.php:566
+#: libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:577
+#: libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS felülírási kísérlet"
 
-#: libraries/classes/Common.php:587
+#: libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "lehetséges kiaknázás"
 
@@ -3982,7 +3982,7 @@ msgid "Navigation panel width"
 msgstr "Navigációs keret"
 
 #: libraries/classes/Config/Descriptions.php:834
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 #: libraries/classes/Navigation/NavigationTree.php:1354
 msgid "Link with main panel"
 msgstr "Hozzákapcsolás a fő panelhez"
@@ -4440,7 +4440,7 @@ msgstr "A zárolt táblák kihagyása"
 
 #: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/ConfigStorage/UserGroups.php:124
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 #: libraries/classes/Display/Results.php:2961
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
@@ -4503,8 +4503,8 @@ msgstr "Szövegdoboz sorai"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:141
 #: libraries/classes/Plugins/Export/ExportOdt.php:185
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
-#: libraries/classes/Server/Privileges.php:1812
-#: libraries/classes/Server/Privileges.php:1814
+#: libraries/classes/Server/Privileges.php:1813
+#: libraries/classes/Server/Privileges.php:1815
 #: libraries/classes/Server/Status/Processes.php:126
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
@@ -4533,8 +4533,8 @@ msgstr "Kiszolgáló"
 
 #: libraries/classes/Config/Descriptions.php:960
 #: libraries/classes/Plugins/Export/ExportXml.php:466
-#: libraries/classes/Server/Privileges.php:1818
-#: libraries/classes/Server/Privileges.php:1820
+#: libraries/classes/Server/Privileges.php:1819
+#: libraries/classes/Server/Privileges.php:1821
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4761,7 +4761,7 @@ msgstr "Egyedi"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4809,9 +4809,9 @@ msgid "OpenDocument Text"
 msgstr "Open Document szöveges dokumentum"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
-#: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1506
+#: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1507
 #: libraries/classes/Util.php:1947 libraries/classes/Util.php:1962
 #: libraries/classes/Util.php:1979 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4854,7 +4854,7 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV a LOAD DATA használatával"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
 #: libraries/classes/Menu.php:518 libraries/classes/Util.php:1948
 #: libraries/classes/Util.php:1963 libraries/classes/Util.php:1980
@@ -5199,9 +5199,9 @@ msgid "SQL Query Console"
 msgstr "SQL lekérdezés konzol"
 
 #: libraries/classes/Controllers/AbstractController.php:73
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
-#: libraries/classes/DbTableExists.php:47
+#: libraries/classes/DbTableExists.php:45
 msgid "No databases selected."
 msgstr "Nincs kiválasztott adatbázis."
 
@@ -5297,7 +5297,7 @@ msgstr "A hozzáférés megtagadva!"
 #: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:24
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
 #: libraries/classes/Controllers/Export/TablesController.php:29
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:54
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:54
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:54
@@ -5350,7 +5350,7 @@ msgstr "ismeretlen"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:56
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:58
@@ -5583,7 +5583,7 @@ msgid "Succeeded"
 msgstr "Sikerült"
 
 #: libraries/classes/Controllers/Import/ImportController.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid "Failed"
 msgstr "Nem sikerült"
 
@@ -5657,109 +5657,104 @@ msgid "Could not load the progress of the import."
 msgstr "Nem sikerült betölteni az importálás folyamatát."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:39
-#: templates/server/databases/index.twig:318
-msgid "Confirm"
-msgstr "Megerősítés"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:40
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Valóban végre szeretné hajtani: „%s”?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:41
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:40
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ön a teljes adatbázis MEGSEMMISÍTÉSÉRE készül!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:43
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:42
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
 "Nem lehet átnevezni az adatbázist a séma nevére. Változtassa meg a nevet, és "
 "próbálja újra"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:44
 msgid "You are about to DESTROY a complete table!"
 msgstr "Ön a teljes tábla MEGSEMMISÍTÉSÉRE készül!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:46
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Ön a teljes tábla KIÜRÍTÉSÉRE készül!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:46
 #, fuzzy
 #| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "Ön a teljes tábla MEGSEMMISÍTÉSÉRE készül!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:48
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "Delete tracking data for this table?"
 msgstr "Törli a tábla nyomkövetési adatait?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for these tables?"
 msgstr "Törli a táblák nyomkövetési adatait?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
 msgid "Delete tracking data for this version?"
 msgstr "Törli a verzió nyomkövetési adatait?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
 msgid "Delete tracking data for these versions?"
 msgstr "Törli a verziók nyomkövetési adatait?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 msgid "Delete entry from tracking report?"
 msgstr "Nyomkövetési bejegyzés törlése a jelentésből?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 msgid "Deleting tracking data"
 msgstr "Nyomkövetési adatok törlése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
 msgid "Dropping Primary Key/Index"
 msgstr "Elsődleges kulcs/index törlése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
 msgid "Dropping Foreign key."
 msgstr "Idegen kulcs eldobása."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ez a művelet sokáig eltarthat. Mindenképp folytatja?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Valóban törölni szeretné a következő felhasználói csoportot: \"%s\"?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Valóban törölni szeretné a következő keresést: „%s”?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:59
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Mentetlen változtatásai vannak, biztosan el szeretné hagyni ezt az oldalt?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Valóban vissza szeretné vonni a kijelölt felhasználókat?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
 msgid "Do you really want to delete this central column?"
 msgstr "Valóban törölni szeretné ezt a központi oszlopot?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:66
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
 msgid "Do you really want to delete the selected items?"
 msgstr "Valóban törölni szeretné a kijelölt elemeket?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
@@ -5767,21 +5762,21 @@ msgstr ""
 "Valóban el szeretné DOBNI a kijelölt partíciókat? Ez TÖRÖLNI fogja a "
 "kijelölt partíciókkal kapcsolatos adatokat is!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:71
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Valóban ki szeretné ÜRÍTENI a kijelölt partíciókat?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:71
 msgid "Do you really want to remove partitioning?"
 msgstr "Valóban el szeretné távolítani a partíciókat?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:73
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
 #, fuzzy
 #| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "Valóban vissza szeretné vonni a kijelölt felhasználókat?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:75
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:74
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -5795,17 +5790,17 @@ msgstr ""
 "illesztésben. Ebben az esetben azt javasoljuk, hogy álljon vissza az eredeti "
 "illesztésre, és nézze meg a tippeket a következő oldalon: "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:81
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:80
 msgid "Garbled Data"
 msgstr "Meghamisított adatok"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:83
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:82
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
 "Biztosan módosítani szeretné az illesztést és át szeretné alakítani az "
 "adatokat?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:86
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:85
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -5821,7 +5816,7 @@ msgstr ""
 "átalakításához javasolt a táblaszerkezet oldalon lévő oszlopszerkesztés "
 "funkció (a „Módosítás” hivatkozás).</b>"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:94
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:93
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
@@ -5829,12 +5824,12 @@ msgstr ""
 "Biztosan módosítani szeretné az összes oszlopillesztést és át szeretné "
 "alakítani az adatokat?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:96
 #: templates/export.twig:324
 msgid "Save & close"
 msgstr "Mentés és bezárás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:98
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
 #: templates/config/form_display/display.twig:47
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
@@ -5842,64 +5837,64 @@ msgstr "Mentés és bezárás"
 msgid "Reset"
 msgstr "Visszaállítás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:99
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:98
 msgid "Reset all"
 msgstr "Összes visszaállítása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:101
 msgid "Missing value in the form!"
 msgstr "Érték hiányzik az űrlapban!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 msgid "Select at least one of the options!"
 msgstr "Legalább egy lehetőséget válasszon ki!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 msgid "Please enter a valid number!"
 msgstr "Adjon meg egy érvényes számot!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
 msgid "Please enter a valid length!"
 msgstr "Adjon meg egy érvényes hosszt!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 msgid "Add index"
 msgstr "Index hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:107
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Edit index"
 msgstr "Index szerkesztése"
 
 #. l10n: Rename a table Index
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 #, fuzzy
 #| msgid "Remove index(s)"
 msgid "Rename index"
 msgstr "Index(ek) törlése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 #: templates/table/index_form.twig:234
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "%s oszlop hozzáadása az indexhez"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 msgid "Create single-column index"
 msgstr "Egyoszlopos index létrehozása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
 msgid "Create composite index"
 msgstr "Összetett index létrehozása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
 msgid "Composite with:"
 msgstr "Összetétel ezzel:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:114
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 msgid "Please select column(s) for the index."
 msgstr "Válasszon oszlopokat az indexhez."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/table/index_form.twig:240
@@ -5910,56 +5905,56 @@ msgstr "Válasszon oszlopokat az indexhez."
 msgid "Preview SQL"
 msgstr "SQL előnézete"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:119
 #: templates/sql/query.twig:218
 msgid "Simulate query"
 msgstr "Lekérdezés szimulálása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
 msgid "Matched rows:"
 msgstr "Illeszkedő sorok:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:122
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 #: libraries/classes/Html/Generator.php:887 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL lekérdezés:"
 
 #. l10n: Default label for the y-Axis of Charts
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:126
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
 msgid "Y values"
 msgstr "Y érték"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:129
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
 #, fuzzy
 #| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
 msgstr "Adja meg ismét ugyanazt az értéket"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 msgid "The host name is empty!"
 msgstr "A gépnév üres!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 msgid "The user name is empty!"
 msgstr "Üres a felhasználónév!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
-#: libraries/classes/Server/Privileges.php:943
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
+#: libraries/classes/Server/Privileges.php:944
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "Üres a jelszó mező!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
-#: libraries/classes/Server/Privileges.php:941
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
+#: libraries/classes/Server/Privileges.php:942
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
 msgid "Removing Selected Users"
 msgstr "A kijelölt felhasználók törlése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
 #: libraries/classes/Tracking.php:237 libraries/classes/Tracking.php:641
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
@@ -5971,6 +5966,8 @@ msgstr "A kijelölt felhasználók törlése"
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
+#: templates/modals/function_confirm.twig:6
+#: templates/modals/function_confirm.twig:11
 #: templates/modals/index_dialog_modal.twig:6
 #: templates/modals/index_dialog_modal.twig:12
 #: templates/modals/preview_sql_confirmation.twig:6
@@ -6002,76 +5999,76 @@ msgstr "A kijelölt felhasználók törlése"
 msgid "Close"
 msgstr "Bezárás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "Log file count"
 msgid "Lock this account."
 msgstr "Naplófájlok száma"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "User account"
 msgid "Unlock this account."
 msgstr "Felhasználói fiók"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 msgid "Template was created."
 msgstr "A sablon létre lett hozva."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 msgid "Template was loaded."
 msgstr "A sablon be lett töltve."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 msgid "Template was updated."
 msgstr "A sablon frissítve lett."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was deleted."
 msgstr "A sablon törölve lett."
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:95
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr "Egyéb"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 #: libraries/classes/Util.php:548 libraries/classes/Util.php:580
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:153
 #: libraries/classes/Util.php:546 libraries/classes/Util.php:578
 msgid "."
 msgstr "."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:155
 msgid "Connections / Processes"
 msgstr "Kapcsolatok / Folyamatok"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:159
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 msgid "Local monitor configuration incompatible!"
 msgstr "A helyi megfigyelés beállításai nem kompatibilisek!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6083,164 +6080,164 @@ msgstr ""
 "nem működik többé. Állítsa vissza az alapértelmezést a <i>Beállítások</i> "
 "menüben."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
 msgid "Query cache efficiency"
 msgstr "Lekérdezési gyorsítótár hatékonysága"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
 msgid "Query cache usage"
 msgstr "Lekérdezési gyorsítótár használat"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
 msgid "Query cache used"
 msgstr "Lekérdezési gyorsítótárat használatban"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
 msgid "System CPU usage"
 msgstr "Rendszer CPU használat"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
 msgid "System memory"
 msgstr "Rendszermemória"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
 msgid "System swap"
 msgstr "Rendszer lapozófájl"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
 msgid "Average load"
 msgstr "Átlagos terhelés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 msgid "Total memory"
 msgstr "Teljes memória"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Cached memory"
 msgstr "Gyorsítótárazott memória"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
 msgid "Buffered memory"
 msgstr "Puffer memória"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
 msgid "Free memory"
 msgstr "Szabad memória"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
 msgid "Used memory"
 msgstr "Használt memória"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Total swap"
 msgstr "Teljes lapozófájl"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 msgid "Cached swap"
 msgstr "Gyorsítótárazott lapozófájl"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
 msgid "Used swap"
 msgstr "Használt lapozófájl"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 msgid "Free swap"
 msgstr "Szabad lapozófájl"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 msgid "Bytes sent"
 msgstr "Elküldött bájtok"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
 msgid "Bytes received"
 msgstr "Fogadott bájtok"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "Kapcsolatok"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Folyamatok"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:456
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #: libraries/classes/Util.php:458
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 #: libraries/classes/Util.php:460
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #: libraries/classes/Util.php:462
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:464
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:466
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:468
 msgid "EiB"
 msgstr "EiB"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tábla"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 msgid "Questions"
 msgstr "Kérdések"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "Forgalom"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 #: libraries/classes/Menu.php:523 libraries/classes/Util.php:1949
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Beállítások"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 #: templates/server/status/monitor/index.twig:217
 msgid "Add chart to grid"
 msgstr "Diagram hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
 msgid "Please add at least one variable to the series!"
 msgstr "Legalább egy változót adjon meg a sorozathoz!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: libraries/classes/Display/Results.php:1260
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
@@ -6258,54 +6255,54 @@ msgid "None"
 msgstr "Nincs"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL-lekérdezés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 msgid "Resume monitor"
 msgstr "Megfigyelés visszakapcsolása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 msgid "Pause monitor"
 msgstr "Megfigyelés megállítása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr "Automatikus frissítés indítása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 msgid "Stop auto refresh"
 msgstr "Automatikus frissítés leállítása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
 msgid "general_log and slow_query_log are enabled."
 msgstr "A general_log és a slow_query_log engedélyezve vannak."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 msgid "general_log is enabled."
 msgstr "A general_log engedélyezve van."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
 msgid "slow_query_log is enabled."
 msgstr "A slow_query_log engedélyezve van."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 msgid "slow_query_log and general_log are disabled."
 msgstr "A slow_query_log és a general_log titlva vannak."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
 msgid "log_output is not set to TABLE."
 msgstr "log_output nincs beállítva a TÁBLÁHOZ."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "log_output is set to TABLE."
 msgstr "log_output be van állítva a TÁBLÁHOZ."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6316,12 +6313,12 @@ msgstr ""
 "lekérdezéseket naplózza, amelyek %d másodpercnél hosszabb ideig tartanak. "
 "Ajánlott a long_query_time beállítása 0-2 másodpercre a rendszertől függően."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "A long_query_time %d másodpercre van beállítva."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -6330,30 +6327,30 @@ msgstr ""
 "alapértelmezettre a kiszolgáló újraindításakor:"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 #, php-format
 msgid "Set log_output to %s"
 msgstr "A log_output beállítása ehhez: %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
 #, php-format
 msgid "Enable %s"
 msgstr "%s engedélyezése"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
 #, php-format
 msgid "Disable %s"
 msgstr "%s letiltása"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "A long_query_time beállítása %d másodpercre."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6362,58 +6359,58 @@ msgstr ""
 "rendszergazdaként vagy vegye fel a kapcsolatot az adatbázis "
 "adminisztrátorával."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:241
 msgid "Change settings"
 msgstr "Beállítások megváltoztatása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid "Current settings"
 msgstr "Jelenlegi beállítások"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid "Chart title"
 msgstr "Diagramcím"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "Differential"
 msgstr "Megkülönböztető"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 #, php-format
 msgid "Divided by %s"
 msgstr "Osztva %s -el"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
 msgid "Unit"
 msgstr "Egység"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:250
 msgid "From slow log"
 msgstr "a slow naplóból"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "From general log"
 msgstr "az általános naplóból"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Az adatbázis neve nem ismert ennél a lekérdezésnél a kiszolgáló naplójában."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid "Analysing logs"
 msgstr "Naplók elemzése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Elemzés és naplók betöltése. Ez eltarthat egy ideig."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid "Cancel request"
 msgstr "Kérés elvetése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -6424,7 +6421,7 @@ msgstr ""
 "rendezési kritériumként, ezért a lekérdezések más tulajdonságai, mint "
 "például a lekérdezés kezdete, eltérőek lehetnek."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:263
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -6434,31 +6431,31 @@ msgstr ""
 "történt INSERT lekérdezések is egy csoportba kerültek, tekintet nélkül a "
 "beszúrt adatokra."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "A naplóadatok betöltve. Végrehajtott lekérdezések ebben az időszakban:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 msgid "Jump to Log table"
 msgstr "Ugrás a naplótáblához"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
 msgid "No data found"
 msgstr "Nincs adat"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
 msgid "Log analysed, but no data found in this time span."
 msgstr "A napló megvizsgálva, de nincs adat az adott időszakban."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
 msgid "Analyzing…"
 msgstr "Elemzés…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Explain output"
 msgstr "A kimenet magyarázata"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #: libraries/classes/Menu.php:490
 #: libraries/classes/Server/Status/Processes.php:138
 #: libraries/classes/Util.php:1945 libraries/config.values.php:157
@@ -6469,7 +6466,7 @@ msgstr "A kimenet magyarázata"
 msgid "Status"
 msgstr "Állapot"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:474
 #: libraries/classes/Plugins/Export/ExportOdt.php:597
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
@@ -6480,80 +6477,80 @@ msgstr "Állapot"
 msgid "Time"
 msgstr "Idő"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 msgid "Total time:"
 msgstr "Teljes idő:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 msgid "Profiling results"
 msgstr "Eredmények elemzése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tábla"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 msgid "Chart"
 msgstr "Diagram"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #: templates/export.twig:210
 msgctxt "Alias"
 msgid "Database"
 msgstr "Adatbázis"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: templates/export.twig:224
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tábla"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
 #: templates/export.twig:237
 msgctxt "Alias"
 msgid "Column"
 msgstr "Oszlop"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Log table filter options"
 msgstr "Naplótábla szűrőbeállításai"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 msgid "Filter"
 msgstr "Szűrő"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
 msgid "Filter queries by word/regexp:"
 msgstr "Lekérdezések szűrése szó/reguláris kifejezés alapján:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Lekérdezések csoportosítása, változóadat figyelmen kívül hagyása a WHERE "
 "feltételben"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 msgid "Sum of grouped rows:"
 msgstr "A csoportosított sorok összege:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #: libraries/classes/Engines/Innodb.php:140
 #: templates/server/databases/index.twig:253
 msgid "Total:"
 msgstr "Összesen:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
 msgid "Loading logs"
 msgstr "Naplók betöltése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Monitor refresh failed"
 msgstr "A megfigyelés frissítése sikertelen"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -6563,63 +6560,63 @@ msgstr ""
 "Valószínűleg a munkamenet lejárt. Az oldal újratöltése, és a belépési adatok "
 "újbóli megadása segíthet."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:301
 msgid "Reload page"
 msgstr "Oldal újratöltése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
 msgid "Affected rows:"
 msgstr "Érintett sorok:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "A beállítófájl feldolgozása nem sikerült. Nem tűnik érvényes JSON kódnak."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "A grafikon felépítése az importált beállításokkal sikertelen. Eredet "
 "beállítások visszaállítása…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 msgid "Import monitor configuration"
 msgstr "Megfigyelési beállítások importálása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
 msgid "Please select the file you want to import."
 msgstr "Válassza ki a fájlt, amelyet importálni szeretne."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Adjon meg egy érvényes oszlopnevet"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Adjon meg egy érvényes oszlopnevet"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
 msgstr "Nincs elérhető fájl a kiszolgálón az importáláshoz!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Analyse query"
 msgstr "Lekérdezés elemzése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Formatting SQL…"
 msgstr "SQL formázása…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
 msgid "No parameters found!"
 msgstr "Nincs paraméter megadva!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: templates/database/central_columns/main.twig:269
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -6644,52 +6641,52 @@ msgstr "Nincs paraméter megadva!"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: templates/header.twig:43
 msgid "Page-related settings"
 msgstr "Oldallal kapcsolatos beállítások"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/config/form_display/display.twig:46
 msgid "Apply"
 msgstr "Alkalmaz"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 #: templates/home/index.twig:289 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "Betöltés…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
 msgstr "Kérés megszakítva!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Processing request"
 msgstr "Kérés feldolgozása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
 msgid "Request failed!!"
 msgstr "A kérés sikertelen!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:51
 #: libraries/classes/Controllers/Sql/SetValuesController.php:54
 msgid "Error in processing request"
 msgstr "Hiba a kérés feldolgozásában"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #, php-format
 msgid "Error code: %s"
 msgstr "Hibakód: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 #, php-format
 msgid "Error text: %s"
 msgstr "Hibaüzenet: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -6697,19 +6694,19 @@ msgstr ""
 "A kapcsolat megszűnt a szerverrel. Ellenőrizni kell a hálózati kapcsolatot "
 "és a szerver állapotot."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 msgid "No accounts selected."
 msgstr "Nem hozzáférés kijelölve."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 msgid "Dropping column"
 msgstr "Oszlop eldobása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 msgid "Adding primary key"
 msgstr "Elsődleges kulcs hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: templates/console/display.twig:129 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -6721,23 +6718,23 @@ msgstr "Elsődleges kulcs hozzáadása"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 msgid "Click to dismiss this notification"
 msgstr "Kattintson az értesítés elutasításához"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 msgid "Renaming databases"
 msgstr "Adatbázisok átnevezése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 msgid "Copying database"
 msgstr "Adatbázis másolása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 msgid "Changing charset"
 msgstr "Karakterkészlet megváltoztatása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:355
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:498
 #: libraries/classes/Index.php:526
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:632
@@ -6774,85 +6771,85 @@ msgstr "Karakterkészlet megváltoztatása"
 msgid "No"
 msgstr "Nem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Idegen kulcsok ellenőrzésének engedélyezése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 msgid "Failed to get real row count."
 msgstr "A valódi sorok számának lekérése sikertelen."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 msgid "Searching"
 msgstr "Keresés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
 msgid "Hide search results"
 msgstr "Keresési eredmények elrejtése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 msgid "Show search results"
 msgstr "Keresési eredmények megjelenítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 msgid "Browsing"
 msgstr "Böngészés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 msgid "Deleting"
 msgstr "Törlés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Törli a találatokat a %s táblában?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "A tárolt függvény meghatározásának tqartalmaznia kell VISSZATÉRÉSI utasítást!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Nincs exportálható eljárás. Talán hiányoznak a szükséges jogosultságok."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 #, php-format
 msgid "Values for column %s"
 msgstr "„%s” oszlop értékei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 msgid "Values for a new column"
 msgstr "Az új oszlop értékei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
 msgid "Enter each value in a separate field."
 msgstr "Minden értéket külön mezőben adjon meg."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d érték hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Megjegyzés: Ha a fájl több táblát tartalmaz, akkor azok egyesítve lesznek."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 msgid "Hide query box"
 msgstr "SQL-lekérdezési panelek elrejtése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
 msgid "Show query box"
 msgstr "Lekérdezési doboz megjelenítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Display/Results.php:3029
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
@@ -6869,47 +6866,47 @@ msgstr "Lekérdezési doboz megjelenítése"
 msgid "Delete"
 msgstr "Törlés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #, php-format
 msgid "%d is not valid row number."
 msgstr "A(z) %d érvénytelen sorszám."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "Az idegen kulcsok böngészése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #, php-format
 msgid "Variable %d:"
 msgstr "%d. változó:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
 #: libraries/classes/Normalization.php:1051
 msgid "Pick"
 msgstr "Kiválasztás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 msgid "Column selector"
 msgstr "Oszlopkiválasztó"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 msgid "Search this list"
 msgstr "Keresés a listában"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -6919,29 +6916,29 @@ msgstr ""
 "adatbázis központi oszlopainak listája tartalmaz-e olyan oszlopokat, amelyek "
 "nincsenek a jelenlegi táblában."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 msgid "See more"
 msgstr "Több megtekintése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
 msgid "Add primary key"
 msgstr "Elsődleges kulcs hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 msgid "Primary key added."
 msgstr "Elsődleges kulcs hozzáadva."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 #: libraries/classes/Normalization.php:282
 msgid "Taking you to next step…"
 msgstr "Átvitel a következő lépésre…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "A normalizálás első lépése befejeződött a következő táblánál: „%s”."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #: libraries/classes/Normalization.php:540
 #: libraries/classes/Normalization.php:602
 #: libraries/classes/Normalization.php:699
@@ -6949,26 +6946,26 @@ msgstr "A normalizálás első lépése befejeződött a következő táblánál
 msgid "End of step"
 msgstr "Lépés vége"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 msgid "Second step of normalization (2NF)"
 msgstr "A normalizálás második lépése (2NF)"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 #: libraries/classes/Normalization.php:375
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "Kész"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
 msgid "Confirm partial dependencies"
 msgstr "Részleges függőségek megerősítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 msgid "Selected partial dependencies are as follows:"
 msgstr "A kijelölt részleges függőségek a következők:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -6976,28 +6973,28 @@ msgstr ""
 "Megjegyzés: a, b -> d,f azt jelenti, hogy az „a” és „b” oszlopok értékei "
 "együtt meghatározzák a „d” és „f” oszlopok értékét."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 msgid "No partial dependencies selected!"
 msgstr "Nincsenek részleges függőségek kiválasztva!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 #: libraries/classes/Export.php:587 libraries/classes/Html/Generator.php:987
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Vissza"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Mutassa meg a táblában lévő adatok alapján a lehetséges részleges "
 "függőségeket"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Hide partial dependencies list"
 msgstr "Részleges függőségek listájának elrejtése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -7005,40 +7002,40 @@ msgstr ""
 "Maradjon ülve! Az adatok méretétől és a tábla oszlopszámától függően "
 "eltarthat néhány másodpercig."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
 msgid "Step"
 msgstr "Lépés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "The following actions will be performed:"
 msgstr "A következő műveletek lesznek végrehajtva:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "%s oszlopok ELDOBÁSA a következő táblából: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 msgid "Create the following table"
 msgstr "A következő tábla létrehozása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
 msgid "Third step of normalization (3NF)"
 msgstr "A normalizálás harmadik lépése (3NF)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Confirm transitive dependencies"
 msgstr "Tranzitív függőségek megerősítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid "Selected dependencies are as follows:"
 msgstr "A kijelölt függőségek a következők:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "No dependencies selected!"
 msgstr "Nincsenek függőségek kiválasztva!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -7052,78 +7049,78 @@ msgstr "Nincsenek függőségek kiválasztva!"
 msgid "Save"
 msgstr "Mentés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
 msgid "Hide search criteria"
 msgstr "Keresési kritériumok elrejtése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 msgid "Show search criteria"
 msgstr "Keresési kritériumok megjelenítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 msgid "Column maximum:"
 msgstr "Oszlop maximum:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
 msgid "Column minimum:"
 msgstr "Oszlop minimum:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 msgid "Hide find and replace criteria"
 msgstr "Keresési és csere kritériumok elrejtése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 msgid "Show find and replace criteria"
 msgstr "Keresési és csere kritériumok megjelenítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 msgid "Each point represents a data row."
 msgstr "Minden pont egy adatsort ábrázol."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
 msgid "Hovering over a point will show its label."
 msgstr "Egy pont fölé mutatás megjeleníti annak címkéjét."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "A nagyításhoz jelöljön ki egy területet az egérrel."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Kattints a nagyítás visszaállítása gombra, hogy visszatérj az eredeti "
 "állapotra."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Kattintson az adat területére a megjelenítéshez és a rekord esetleges "
 "szerkesztéséhez."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "A terület a jobb alsó sarok húzásával átméretezhető."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
 msgid "Select two columns"
 msgstr "Válasszon két oszlopot"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:469
 msgid "Select two different columns"
 msgstr "Válasszon két különböző oszlopot"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:471
 msgid "Data point content"
 msgstr "Adatmutató tartalma"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2001
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Kihagyás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Display/Results.php:2965
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
@@ -7131,7 +7128,7 @@ msgstr "Kihagyás"
 msgid "Copy"
 msgstr "Másolás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -7139,7 +7136,7 @@ msgstr "Másolás"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -7147,64 +7144,64 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 msgid "Point"
 msgstr "Pont"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #, php-format
 msgid "Point %d"
 msgstr "%d. pont"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
 msgid "Linestring"
 msgstr "Karakterlánc"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 msgid "Polygon"
 msgstr "Sokszög"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 #: templates/display/results/table.twig:174
 msgid "Geometry"
 msgstr "Geometria"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Inner ring"
 msgstr "Belső gyűrű"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
 msgid "Outer ring"
 msgstr "Külső gyűrű"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "Pont hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "Belső gyűrű hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 msgid "Do you want to copy encryption key?"
 msgstr "Szeretné másolni a titkosítási kulcsot?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 msgid "Encryption key"
 msgstr "Titkosítási kulcs"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -7212,7 +7209,7 @@ msgstr ""
 "A MySQL elfogad a csúszkával nem kiválasztható értékeket is, gépeljük be "
 "közvetlenül a kívánt értékeket szükség esetén."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -7220,7 +7217,7 @@ msgstr ""
 "A MySQL elfogad olyan értékeket is, amelyek nem állíthatók be a "
 "dátumválasztóval - ezeket begépelheted"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:510
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7228,25 +7225,25 @@ msgstr ""
 "Azt jelzi, hogy módosításokat végzett ezen az oldalon; megerősítést fog "
 "kérni a módosítások elhagyása előtt"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
 msgid "Select referenced key"
 msgstr "Válassza ki a hivatkozott kulcsot"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
 msgid "Select Foreign Key"
 msgstr "Idegen kulcs kiválasztása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
 msgid "Please select the primary key or a unique key!"
 msgstr "Válassza ki az elsődleges kulcsot vagy egy egyedi kulcsot!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:518
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Válassza ki a megjelenítendő oszlopot"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:520
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7254,99 +7251,99 @@ msgstr ""
 "Nem mentette a változtatásokat az elrendezésben. Mentés nélkül ezek el "
 "fognak veszni. Így is folytatni szeretné?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Tábla hozzáadása más adatbázisból"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid "Page name"
 msgstr "Oldal neve"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Oldal mentése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Oldal mentése másként"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Oldal megnyitása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 msgid "Delete page"
 msgstr "Oldal törlése"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Névtelen"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 msgid "Please select a page to continue"
 msgstr "Válasszon egy oldalt a folytatáshoz"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 msgid "Please enter a valid page name"
 msgstr "Adjon meg egy érvényes oszlopnevet"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 msgid "Do you want to save the changes to the current page?"
 msgstr "Szeretné menteni a jelenlegi oldal módosításait?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid "Successfully deleted the page"
 msgstr "Az oldal sikeresen törölve"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "Export relational schema"
 msgstr "Kapcsolati séma exportálása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 msgid "Modifications have been saved"
 msgstr "A módosítások mentése megtörtént"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objektum létrehozva."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Oszlopnevek"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
 msgstr "Indítás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #, fuzzy
 #| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Nyomja meg az Escape billentyűt a szerkesztés megszakításához."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7354,15 +7351,15 @@ msgstr ""
 "Egy vagy több adat szerkesztve lett de nem lett még elmentve. Biztos benne, "
 "hogy mentés nélkül kívánja elhagyni az oldalt?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 msgid "Drag to reorder."
 msgstr "Húzza az elemeket az újrarendezéshez."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 msgid "Click to sort results by this column."
 msgstr "Kattintson az eredmények rendezéséhez ezen oszlop szerint."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -7372,20 +7369,20 @@ msgstr ""
 "DESC váltogatása.<br>- Oszlop eltávolítása az ORDER BY kikötésből Ctrl"
 "+kattintás vagy Alt+kattintás (Mac: Shift+Option+kattintás) használatával"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
 msgid "Click to mark/unmark."
 msgstr "Kattintson a kijelöléshez / kijelölés megszüntetéséhez."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 msgid "Double-click to copy column name."
 msgstr "Az oszlopnév másolásához kattintson duplán."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 "Kattintson a legördülő nyílra<br>az oszlop láthatóságának ki/bekapcsolásához."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7394,13 +7391,13 @@ msgstr ""
 "rendelt funkciók mint Szerkesztés, Másolás és Törlés nem feltétlenül lesznek "
 "elérhetők mentés után."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Adjon meg egy érvényes hexadecimális szöveget. Az érvényes karakterek: 0-9, "
 "A-F."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7408,83 +7405,83 @@ msgstr ""
 "Valóban meg szeretné nézni az összes sort? Egy nagy tábla esetén ez "
 "összeomlaszthatja a böngészőt."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Original length"
 msgstr "Eredeti hossz"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid "cancel"
 msgstr "mégse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
 msgid "Aborted"
 msgstr "Megszakítva"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 msgid "Success"
 msgstr "Sikerült"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Import status"
 msgstr "Importálás állapota"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Ejtse ide a fájlokat"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 msgid "Select database first"
 msgstr "Először válasszon adatbázist"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "Az elemek nagy része szerkeszthetővé válik<br>dupla kattintással."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "Az elem szerkeszthetővé <br>válik kattintással."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 msgid "Go to link:"
 msgstr "Ugrás a hivatkozáshoz:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Generate password"
 msgstr "Jelszó generálása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Generálás"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Jelszó megváltoztatása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "Több"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Show panel"
 msgstr "Panel megjelenítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 msgid "Hide panel"
 msgstr "Panel elrejtése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #: libraries/classes/Navigation/NavigationTree.php:1357
 msgid "Unlink from main panel"
 msgstr "Eltávolítás a fő panelről"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -7495,29 +7492,29 @@ msgstr ""
 "%s, kiadás dátuma: %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
 msgid ", latest stable version:"
 msgstr ", utolsó stabil verzió:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid "up to date"
 msgstr "friss"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Végzetes JavaScript hiba történt. Szeretne hibajelentést küldeni?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid "Change report settings"
 msgstr "Jelentés beállításainak megváltoztatása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid "Show report details"
 msgstr "Jelentés részleteinek megjelenítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7525,7 +7522,7 @@ msgstr ""
 "Az exportálás nem teljes a PHP szinten lévő alacsony végrehajtási időkorlát "
 "miatt!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7535,81 +7532,81 @@ msgstr ""
 "Elküldéskor a mezők egy része mellőzve lehet a PHP max_input_vars beállítása "
 "miatt."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 msgid "Some errors have been detected on the server!"
 msgstr "Hibák észlelhetők a kiszolgálón!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 msgid "Please look at the bottom of this window."
 msgstr "Nézze meg ennek az ablaknak az alját."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "Összes mellőzése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "A beállítások szerint jelenleg elküldés alatt vannak, legyen türelemmel."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Az oldal sikeresen törölve"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Adatbázis másolása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Execute this query again?"
 msgstr "Végrehajtja ismét ezt a lekérdezést?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Do you really want to delete this bookmark?"
 msgstr "Valóban törölni szeretné ezt a könyvjelzőt?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Hibák történtek az SQL hibakeresési információk lekérése közben."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s kérés került végrehajtásra %s alkalommal %s másodperc alatt."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s argumentum került átadásra"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Show arguments"
 msgstr "Argumentumok megjelenítése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Hide arguments"
 msgstr "Argumentumok elrejtése"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Time taken:"
 msgstr "Felhasznált idő:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7624,57 +7621,57 @@ msgstr ""
 "adatok törlése\" segíthet. Safari böngészőnél ezt a hibát általában a privát "
 "módú böngészés okozza."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
 msgid "Copy tables to"
 msgstr "Táblák másolása ide"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Add table prefix"
 msgstr "Táblaelőtag hozzáadása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Replace table with prefix"
 msgstr "Tábla cseréje előtaggal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Tábla másolása előtaggal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid "Extremely weak"
 msgstr "Extrém gyenge"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Very weak"
 msgstr "Nagyon gyenge"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 msgid "Weak"
 msgstr "Gyenge"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Good"
 msgstr "Jó"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Strong"
 msgstr "Erős"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -7682,26 +7679,26 @@ msgid "Unknown security key error."
 msgstr "Ismeretlen hiba"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Érvénytelen export típus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7709,13 +7706,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Már létezik %s nevű tábla!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Elrejtés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7743,25 +7740,25 @@ msgctxt "string types"
 msgid "String"
 msgstr "Karakterlánc"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:93
+#: libraries/classes/Controllers/Preferences/ManageController.php:96
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin beállítás kódrészlet"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:94
+#: libraries/classes/Controllers/Preferences/ManageController.php:97
 msgid "Paste it to your config.inc.php"
 msgstr "Illessze be a config.inc.php fájlba"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:140
+#: libraries/classes/Controllers/Preferences/ManageController.php:143
 msgid "Could not import configuration"
 msgstr "Nem importálhatók a beállítások"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:52
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:55
 #, fuzzy
 #| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
 msgstr "A belső kapcsolat eltávolítása megtörtént."
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:63
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:66
 #, fuzzy
 #| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
@@ -8684,7 +8681,7 @@ msgstr "Már létezik %s nevű tábla!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:56
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:55
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:56
-#: libraries/classes/Controllers/Table/RelationController.php:241
+#: libraries/classes/Controllers/Table/RelationController.php:242
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
 #: libraries/classes/Display/Results.php:3682 libraries/classes/Message.php:172
@@ -8744,7 +8741,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/OperationsController.php:109
 #: libraries/classes/Controllers/Table/OperationsController.php:298
-#: libraries/classes/Controllers/Table/StructureController.php:100
+#: libraries/classes/Controllers/Table/StructureController.php:101
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8763,11 +8760,11 @@ msgstr "Nézet"
 msgid "Error"
 msgstr "Hiba"
 
-#: libraries/classes/Controllers/Table/RelationController.php:182
+#: libraries/classes/Controllers/Table/RelationController.php:183
 msgid "Display column was successfully updated."
 msgstr "A megjelenített oszlop sikeresen frissítve."
 
-#: libraries/classes/Controllers/Table/RelationController.php:275
+#: libraries/classes/Controllers/Table/RelationController.php:276
 msgid "Internal relationships were successfully updated."
 msgstr "A belső kapcsolatok sikeresen frissítve."
 
@@ -8781,7 +8778,7 @@ msgstr "Sor: %1$s, oszlop: %2$s, hiba: %3$s"
 msgid "Failed to get description of column %s!"
 msgstr "At %s oszlop leírását nem tudtam lekérni!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:226
+#: libraries/classes/Controllers/Table/StructureController.php:229
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8791,7 +8788,7 @@ msgstr "At %s oszlop leírását nem tudtam lekérni!"
 msgid "Primary"
 msgstr "Elsődleges"
 
-#: libraries/classes/Controllers/Table/StructureController.php:230
+#: libraries/classes/Controllers/Table/StructureController.php:233
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -9073,7 +9070,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban."
 
-#: libraries/classes/DatabaseInterface.php:1127
+#: libraries/classes/DatabaseInterface.php:1131
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -9090,21 +9087,21 @@ msgstr ""
 "beállításait. A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett "
 "időzónáját használja."
 
-#: libraries/classes/DatabaseInterface.php:1172
+#: libraries/classes/DatabaseInterface.php:1176
 msgid "Failed to set configured collation connection!"
 msgstr "Nem sikerült beállítani a beállított egyeztetés kapcsolatot!"
 
-#: libraries/classes/DatabaseInterface.php:1865
+#: libraries/classes/DatabaseInterface.php:1869
 msgid "Missing connection parameters!"
 msgstr "Hiányzó kapcsolat paraméterek!"
 
-#: libraries/classes/DatabaseInterface.php:1890
+#: libraries/classes/DatabaseInterface.php:1894
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "A konfigurációban meghatározott kapcsolat a kontrollfelhasználó számára nem "
 "sikerült."
 
-#: libraries/classes/DatabaseInterface.php:2282
+#: libraries/classes/DatabaseInterface.php:2286
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "További információkért nézze meg a %sdokumentációnkat%s."
@@ -10215,7 +10212,7 @@ msgid "Insert"
 msgstr "Beszúrás"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:406
-#: libraries/classes/Server/Privileges.php:2842 libraries/classes/Util.php:1965
+#: libraries/classes/Server/Privileges.php:2843 libraries/classes/Util.php:1965
 #: libraries/classes/Util.php:1981 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10988,31 +10985,31 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Kapcsolódási kísérlet ismétlése"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:133
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:134
 msgid "Your session has expired. Please log in again."
 msgstr "Lejárt a munkamenet. Lépjen be újra."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:252
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:251
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:286
 #, fuzzy
 #| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Nem sikerült kapcsolódni az adatbázis-kiszolgálóhoz!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:288
 msgid "Entered captcha is wrong, try again!"
 msgstr "A megadott captcha helytelen, próbálja újra!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:300
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:319
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Önnek nem engedélyezett a bejelentkezés erre a MySQL kiszolgálóra!"
 
@@ -11930,7 +11927,7 @@ msgstr "Név (növekvő)"
 msgid "Name (Descending)"
 msgstr "Név (csökkenő)"
 
-#: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:28
+#: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:26
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
@@ -11938,7 +11935,7 @@ msgstr ""
 "Logikai értékeket alakít át szövegre (alapértelmezetten „T” és „F”). Az első "
 "lehetőség az IGAZ, a második a HAMIS. Nem nulla = igaz."
 
-#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:39
+#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:37
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -11960,12 +11957,12 @@ msgstr ""
 "végrehajtása a gmdate() függvénnyel történik."
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
-#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
+#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
 #: libraries/classes/Util.php:707
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y. %B %d. %H:%M"
 
-#: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:29
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -11978,7 +11975,7 @@ msgstr ""
 "második lehetőséget használja, akkor az első lehetőséget üres karakterláncra "
 "kell állítania."
 
-#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:42
+#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
 #, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
@@ -12014,7 +12011,7 @@ msgstr ""
 "lehetőség 1-re van állítva, akkor megakadályozza a beágyazást, és "
 "biztosítja, hogy a kimenet egysoros legyen (alapértelmezés: 1)."
 
-#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
+#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:120
 #, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
@@ -12022,7 +12019,7 @@ msgid ""
 "directly to the definition in %s."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:29
+#: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -12031,7 +12028,7 @@ msgstr ""
 "függvényen keresztüli lefuttatás nélkül. Vagyis feltételezi, hogy az oszlop "
 "érvényes HTML-kódot tartalmaz."
 
-#: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php:29
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
@@ -12040,11 +12037,11 @@ msgstr ""
 "határozza meg, hogy milyen gyakran kerül szóköz hozzáadásra (alapértelmezés "
 "2 négybit)."
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:29
+#: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:27
 msgid "Displays a link to download this image."
 msgstr "A kép letöltésére mutató hivatkozást jelenít meg."
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:29
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
@@ -12053,11 +12050,11 @@ msgstr ""
 "lehetőségek a bélyegkép szélessége és magassága képpontban. Az "
 "alapértelmezett 100 X 100."
 
-#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:91
+#: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:89
 msgid "Image preview here"
 msgstr "Kép előnézete itt"
 
-#: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:29
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
@@ -12066,7 +12063,7 @@ msgstr ""
 "szélesség és magasság a lehetőségek. Az eredeti méretarányok megtartásra "
 "kerülnek."
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:30
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -12074,7 +12071,7 @@ msgstr ""
 "Átalakít egy BIGINT formában tárolt (IPv4) Internet hálózati címet Internet "
 "szabványú pontozott formátumú karakterláncba."
 
-#: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:29
+#: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:27
 msgid ""
 "Prepends and/or Appends text to a string. First option is text to be "
 "prepended, second is appended (enclosed in single quotes, default empty "
@@ -12084,7 +12081,7 @@ msgstr ""
 "eléfűzendő szöveg, a második a hozzáfűzendő szöveg (aposztrófok között, "
 "alapértelmezetten üres karakterlánc)."
 
-#: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:32
+#: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:30
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
@@ -12093,16 +12090,16 @@ msgstr ""
 "hajtja végre a beszúrást, ha a karakterlánc illeszkedik arra. Az első "
 "lehetőség a reguláris kifejezés."
 
-#: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:54
+#: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
 msgid "Validation failed for the input string %s."
 msgstr "Az ellenőrzés nem sikerült a következő bemeneti karakterláncnál: %s."
 
-#: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:28
+#: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:26
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "SQL-lekérdezésként formázza a szöveget szintaxis kiemeléssel."
 
-#: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:29
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -12116,7 +12113,7 @@ msgstr ""
 "végéig). A harmadik lehetőség az elején és/vagy a végén hozzáfűzendő "
 "karakterlánc a tranzakció előfordulásakor (alapértelmezés: \"…\")."
 
-#: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:29
+#: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:27
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
@@ -12124,7 +12121,7 @@ msgstr ""
 "Fájlfeltöltés funkcionalitás TEXT oszlopokhoz. Nincs szövegdoboz a "
 "bemenethez."
 
-#: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:29
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"https://www.example.com/\". The second and "
@@ -12134,7 +12131,7 @@ msgstr ""
 "Az első lehetőség egy URL előtag, mint a \"https://www.pelda.hu/\". A "
 "második és harmadik lehetőség a szélesség és a magasság képpontban."
 
-#: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:30
+#: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:28
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"https://www.example.com/\". The second option is a title for "
@@ -12144,12 +12141,12 @@ msgstr ""
 "lehetőség egy URL előtag, mint a \"https://www.pelda.hu/\". A második "
 "lehetőség a hivatkozás címe."
 
-#: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
+#: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
 "Átalakít egy (IPv4/IPv6) formátumban lévő Internet hálózati címet binárissá"
 
-#: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
+#: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:27
 #, fuzzy
 #| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
@@ -12158,20 +12155,20 @@ msgid ""
 msgstr ""
 "Átalakít egy (IPv4/IPv6) formátumban lévő Internet hálózati címet binárissá"
 
-#: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
+#: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:24
 msgid "Syntax highlighted CodeMirror editor for JSON."
 msgstr "Szintaxis kiemeléssel ellátott CodeMirror szerkesztő JSON-höz."
 
-#: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
+#: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:24
 msgid "Syntax highlighted CodeMirror editor for SQL."
 msgstr "Szintaxis kiemeléssel ellátott CodeMirror szerkesztő SQL-hez."
 
-#: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
+#: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:24
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 "Szintaxis kiemeléssel ellátott CodeMirror szerkesztő XML-hez (és HTML-hez)."
 
-#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:29
+#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:27
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
@@ -12179,11 +12176,11 @@ msgstr ""
 "Átalakít egy bináris karakterláncban tárolt Internet hálózati címet Internet "
 "szabványú (IPv4/IPv6) formátumú karakterláncba."
 
-#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:44
+#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:42
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "JSON-ként formázza a szöveget szintaxis kiemeléssel."
 
-#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:44
+#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:42
 msgid "Formats text as XML with syntax highlighting."
 msgstr "XML-ként formázza a szöveget szintaxis kiemeléssel."
 
@@ -12356,20 +12353,20 @@ msgstr "Nem lehet módosítani a mestert!"
 msgid "Primary server changed successfully to %s."
 msgstr "A mesterkiszolgáló sikeresen módosítva erre: %s."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:103
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:158
+#: libraries/classes/Routing.php:157
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "A(z) „%s” forrás adatbázis nem található!"
 
-#: libraries/classes/Routing.php:169
+#: libraries/classes/Routing.php:168
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12399,8 +12396,8 @@ msgid "Error while loading the search."
 msgstr "Hiba a keresés betöltése közben."
 
 #: libraries/classes/Server/Plugins.php:68
-#: libraries/classes/Server/Privileges.php:788
-#: libraries/classes/Server/Privileges.php:3725
+#: libraries/classes/Server/Privileges.php:789
+#: libraries/classes/Server/Privileges.php:3726
 msgid "Native MySQL authentication"
 msgstr "Natív MySQL hitelesítés"
 
@@ -12431,16 +12428,16 @@ msgstr "Natív MySQL hitelesítés"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:262
+#: libraries/classes/Server/Privileges.php:263
 msgid "No privileges."
 msgstr "Nincsenek jogok."
 
-#: libraries/classes/Server/Privileges.php:270
+#: libraries/classes/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "A GRANT kivételével minden jogot tartalmaz."
 
-#: libraries/classes/Server/Privileges.php:292
-#: libraries/classes/Server/Privileges.php:359
+#: libraries/classes/Server/Privileges.php:293
+#: libraries/classes/Server/Privileges.php:360
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:323
@@ -12448,7 +12445,7 @@ msgstr "A GRANT kivételével minden jogot tartalmaz."
 msgid "Allows deleting data."
 msgstr "Engedélyezi az adatok törlését."
 
-#: libraries/classes/Server/Privileges.php:297
+#: libraries/classes/Server/Privileges.php:298
 #: templates/server/privileges/privileges_table.twig:136
 #: templates/server/privileges/privileges_table.twig:139
 #: templates/server/privileges/privileges_table.twig:361
@@ -12456,7 +12453,7 @@ msgstr "Engedélyezi az adatok törlését."
 msgid "Allows creating new tables."
 msgstr "Engedélyezi új táblák készítését."
 
-#: libraries/classes/Server/Privileges.php:302
+#: libraries/classes/Server/Privileges.php:303
 #: templates/server/privileges/privileges_table.twig:148
 #: templates/server/privileges/privileges_table.twig:151
 #: templates/server/privileges/privileges_table.twig:409
@@ -12464,8 +12461,8 @@ msgstr "Engedélyezi új táblák készítését."
 msgid "Allows dropping tables."
 msgstr "Engedélyezi a táblák eldobását."
 
-#: libraries/classes/Server/Privileges.php:307
-#: libraries/classes/Server/Privileges.php:399
+#: libraries/classes/Server/Privileges.php:308
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:393
@@ -12473,8 +12470,8 @@ msgstr "Engedélyezi a táblák eldobását."
 msgid "Allows creating and dropping indexes."
 msgstr "Engedélyezi indexek készítését és törlését."
 
-#: libraries/classes/Server/Privileges.php:312
-#: libraries/classes/Server/Privileges.php:404
+#: libraries/classes/Server/Privileges.php:313
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:380
@@ -12482,9 +12479,9 @@ msgstr "Engedélyezi indexek készítését és törlését."
 msgid "Allows altering the structure of existing tables."
 msgstr "Engedélyezi a létező táblák szerkezetének megváltoztatását."
 
-#: libraries/classes/Server/Privileges.php:317
-#: libraries/classes/Server/Privileges.php:443
-#: libraries/classes/Server/Privileges.php:459
+#: libraries/classes/Server/Privileges.php:318
+#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:460
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:494
@@ -12494,9 +12491,9 @@ msgstr "Engedélyezi a létező táblák szerkezetének megváltoztatását."
 msgid "Allows creating new views."
 msgstr "Engedélyezi új nézetek létrehozását."
 
-#: libraries/classes/Server/Privileges.php:322
-#: libraries/classes/Server/Privileges.php:464
-#: libraries/classes/Server/Privileges.php:470
+#: libraries/classes/Server/Privileges.php:323
+#: libraries/classes/Server/Privileges.php:465
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:209
 #: templates/server/privileges/privileges_table.twig:212
 #: templates/server/privileges/privileges_table.twig:441
@@ -12504,8 +12501,8 @@ msgstr "Engedélyezi új nézetek létrehozását."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Engedélyezi SHOW CREATE VIEW lekérdezések végrehajtását."
 
-#: libraries/classes/Server/Privileges.php:327
-#: libraries/classes/Server/Privileges.php:453
+#: libraries/classes/Server/Privileges.php:328
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:221
 #: templates/server/privileges/privileges_table.twig:224
 #: templates/server/privileges/privileges_table.twig:537
@@ -12513,40 +12510,40 @@ msgstr "Engedélyezi SHOW CREATE VIEW lekérdezések végrehajtását."
 msgid "Allows creating and dropping triggers."
 msgstr "Lehetővé teszi eseményindítók létrehozását és eldobását."
 
-#: libraries/classes/Server/Privileges.php:344
+#: libraries/classes/Server/Privileges.php:345
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:284
 #: templates/server/privileges/privileges_table.twig:287
 msgid "Allows reading data."
 msgstr "Engedélyezi az adatok olvasását."
 
-#: libraries/classes/Server/Privileges.php:349
+#: libraries/classes/Server/Privileges.php:350
 #: templates/server/privileges/privileges_table.twig:42
 #: templates/server/privileges/privileges_table.twig:297
 #: templates/server/privileges/privileges_table.twig:300
 msgid "Allows inserting and replacing data."
 msgstr "Engedélyezi az adatok beírását és megváltoztatását."
 
-#: libraries/classes/Server/Privileges.php:354
+#: libraries/classes/Server/Privileges.php:355
 #: templates/server/privileges/privileges_table.twig:69
 #: templates/server/privileges/privileges_table.twig:310
 #: templates/server/privileges/privileges_table.twig:313
 msgid "Allows changing data."
 msgstr "Engedélyezi az adatok megváltoztatását."
 
-#: libraries/classes/Server/Privileges.php:364
+#: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:359
 #: templates/server/privileges/privileges_table.twig:367
 msgid "Allows creating new databases and tables."
 msgstr "Engedélyezi új adatbázisok és táblák készítését."
 
-#: libraries/classes/Server/Privileges.php:369
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:407
 #: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
 msgstr "Engedélyezi az adatbázisok és táblák eldobását."
 
-#: libraries/classes/Server/Privileges.php:374
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:599
 #: templates/server/privileges/privileges_table.twig:602
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -12554,37 +12551,37 @@ msgstr ""
 "Engedélyezi a szerver beállításainak újratöltését, és a szerver "
 "gyorsítótárának törlését."
 
-#: libraries/classes/Server/Privileges.php:379
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:612
 #: templates/server/privileges/privileges_table.twig:615
 msgid "Allows shutting down the server."
 msgstr "Engedélyezi a szerver leállítását."
 
-#: libraries/classes/Server/Privileges.php:384
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:586
 #: templates/server/privileges/privileges_table.twig:589
 msgid "Allows viewing processes of all users."
 msgstr "Engedélyezi az összes felhasználó folyamatainak megtekintését."
 
-#: libraries/classes/Server/Privileges.php:389
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:337
 #: templates/server/privileges/privileges_table.twig:340
 msgid "Allows importing data from and exporting data into files."
 msgstr "Engedélyezi az adatok fájlokba történő exportálását/importálását."
 
-#: libraries/classes/Server/Privileges.php:394
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:96
 #: templates/server/privileges/privileges_table.twig:666
 msgid "Has no effect in this MySQL version."
 msgstr "Nincs hatása ebben a MySQL verzióban."
 
-#: libraries/classes/Server/Privileges.php:409
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:625
 #: templates/server/privileges/privileges_table.twig:628
 msgid "Gives access to the complete list of databases."
 msgstr "Hozzáférést ad az adatbázisok teljes listájához."
 
-#: libraries/classes/Server/Privileges.php:415
+#: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:572
 #: templates/server/privileges/privileges_table.twig:576
 msgid ""
@@ -12597,19 +12594,19 @@ msgstr ""
 "globális változók beállítása, vagy más felhasználók folyamatainak "
 "megszüntetése."
 
-#: libraries/classes/Server/Privileges.php:423
+#: libraries/classes/Server/Privileges.php:424
 #: templates/server/privileges/privileges_table.twig:428
 #: templates/server/privileges/privileges_table.twig:431
 msgid "Allows creating temporary tables."
 msgstr "Engedélyezi ideiglenes táblák készítését."
 
-#: libraries/classes/Server/Privileges.php:428
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:653
 #: templates/server/privileges/privileges_table.twig:656
 msgid "Allows locking tables for the current thread."
 msgstr "A jelenlegi szálon engedélyezi a táblák zárolását."
 
-#: libraries/classes/Server/Privileges.php:433
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
 #, fuzzy
@@ -12617,7 +12614,7 @@ msgstr "A jelenlegi szálon engedélyezi a táblák zárolását."
 msgid "Needed for the replication replicas."
 msgstr "Szükséges a szolgák többszörözéséhez."
 
-#: libraries/classes/Server/Privileges.php:438
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
 #, fuzzy
@@ -12627,15 +12624,15 @@ msgstr ""
 "Engedélyezi a felhasználónak, hogy megkérdezze, hol találhatók a kisegítő/fő "
 "helyek."
 
-#: libraries/classes/Server/Privileges.php:448
+#: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:524
 #: templates/server/privileges/privileges_table.twig:527
 msgid "Allows to set up events for the event scheduler."
 msgstr "Az eseményütemező eseményeinek beállítását teszi lehetővé."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:477
-#: libraries/classes/Server/Privileges.php:486
+#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 #, fuzzy
@@ -12643,48 +12640,48 @@ msgstr "Az eseményütemező eseményeinek beállítását teszi lehetővé."
 msgid "Allows deleting historical rows."
 msgstr "Engedélyezi az adatok törlését."
 
-#: libraries/classes/Server/Privileges.php:491
+#: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:454
 #: templates/server/privileges/privileges_table.twig:457
 msgid "Allows creating stored routines."
 msgstr "Engedélyezi tárolt eljárások létrehozását."
 
-#: libraries/classes/Server/Privileges.php:496
+#: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:467
 #: templates/server/privileges/privileges_table.twig:470
 msgid "Allows altering and dropping stored routines."
 msgstr "Engedélyezi a tárolt eljárások módosítását és eldobását."
 
-#: libraries/classes/Server/Privileges.php:501
+#: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:707
 #: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Engedélyezi a felhasználói fiókok létrehozását, törlését és átnevezését."
 
-#: libraries/classes/Server/Privileges.php:506
+#: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:480
 #: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
 msgstr "Engedélyezi a tárolt eljárások végrehajtását."
 
-#: libraries/classes/Server/Privileges.php:1076
+#: libraries/classes/Server/Privileges.php:1077
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s jelszavának megváltoztatása sikerült."
 
-#: libraries/classes/Server/Privileges.php:1124
+#: libraries/classes/Server/Privileges.php:1125
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s jogainak visszavonása megtörtént."
 
-#: libraries/classes/Server/Privileges.php:1436
+#: libraries/classes/Server/Privileges.php:1437
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Nincs elegendő jogosultság a felhasználók megtekintéséhez."
 
-#: libraries/classes/Server/Privileges.php:1498
+#: libraries/classes/Server/Privileges.php:1499
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12692,84 +12689,84 @@ msgstr "Nincs elegendő jogosultság a felhasználók megtekintéséhez."
 msgid "Edit privileges"
 msgstr "Jogosultságok szerkesztése"
 
-#: libraries/classes/Server/Privileges.php:1502
+#: libraries/classes/Server/Privileges.php:1503
 msgid "Revoke"
 msgstr "Visszavonás"
 
-#: libraries/classes/Server/Privileges.php:1813
+#: libraries/classes/Server/Privileges.php:1814
 #: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
 msgstr "Adatbázis-specifikus jogok"
 
-#: libraries/classes/Server/Privileges.php:1819
+#: libraries/classes/Server/Privileges.php:1820
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
 msgstr "Táblaspecifikus jogok"
 
-#: libraries/classes/Server/Privileges.php:1824
-#: libraries/classes/Server/Privileges.php:1826
+#: libraries/classes/Server/Privileges.php:1825
+#: libraries/classes/Server/Privileges.php:1827
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Eljárás"
 
-#: libraries/classes/Server/Privileges.php:1825
+#: libraries/classes/Server/Privileges.php:1826
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Eljárásra jellemző jogosultságok"
 
-#: libraries/classes/Server/Privileges.php:2170
+#: libraries/classes/Server/Privileges.php:2171
 msgid "No users selected for deleting!"
 msgstr "Nincs törlésre kijelölt felhasználó!"
 
-#: libraries/classes/Server/Privileges.php:2173
+#: libraries/classes/Server/Privileges.php:2174
 msgid "Reloading the privileges"
 msgstr "A jogok újratöltése"
 
-#: libraries/classes/Server/Privileges.php:2198
+#: libraries/classes/Server/Privileges.php:2199
 msgid "The selected users have been deleted successfully."
 msgstr "A kiválasztott felhasználók törlése sikerült."
 
-#: libraries/classes/Server/Privileges.php:2275
+#: libraries/classes/Server/Privileges.php:2276
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ön frissítette %s jogait."
 
-#: libraries/classes/Server/Privileges.php:2362
+#: libraries/classes/Server/Privileges.php:2363
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Nem található felhasználó."
 
-#: libraries/classes/Server/Privileges.php:2449
+#: libraries/classes/Server/Privileges.php:2450
 #, php-format
 msgid "Deleting %s"
 msgstr "%s törlése"
 
-#: libraries/classes/Server/Privileges.php:2480
+#: libraries/classes/Server/Privileges.php:2481
 msgid "The privileges were reloaded successfully."
 msgstr "A jogok újratöltése sikerült."
 
-#: libraries/classes/Server/Privileges.php:2584
+#: libraries/classes/Server/Privileges.php:2585
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s felhasználó már létezik!"
 
-#: libraries/classes/Server/Privileges.php:2859
+#: libraries/classes/Server/Privileges.php:2860
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s jogosultságai"
 
-#: libraries/classes/Server/Privileges.php:2868
+#: libraries/classes/Server/Privileges.php:2869
 #: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Felhasználó"
 
-#: libraries/classes/Server/Privileges.php:2982
+#: libraries/classes/Server/Privileges.php:2983
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12780,7 +12777,7 @@ msgstr ""
 "kapcsolódását, ha a fiókjuk gép része lehetővé tesz egy kapcsolatot bármely "
 "(%) gépről."
 
-#: libraries/classes/Server/Privileges.php:3016
+#: libraries/classes/Server/Privileges.php:3017
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12793,7 +12790,7 @@ msgstr ""
 "használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
 "%stöltse be újra a jogokat%s a folytatás előtt."
 
-#: libraries/classes/Server/Privileges.php:3032
+#: libraries/classes/Server/Privileges.php:3033
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12806,7 +12803,7 @@ msgstr ""
 "által használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben a "
 "jogokat újra kell tölteni, de jelenleg nincs RELOAD joga."
 
-#: libraries/classes/Server/Privileges.php:3346
+#: libraries/classes/Server/Privileges.php:3347
 msgid "You have added a new user."
 msgstr "Az új felhasználó hozzáadása megtörtént."
 
@@ -15952,21 +15949,21 @@ msgstr "Szűrők"
 msgid "Containing the word:"
 msgstr "Tartalmazza ezt a szót:"
 
-#: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
+#: templates/footer.twig:8 templates/footer.twig:10 templates/footer.twig:12
 msgid "Open new phpMyAdmin window"
 msgstr "Új phpMyAdmin ablak nyitása"
 
-#: templates/footer.twig:26 templates/home/index.twig:18
+#: templates/footer.twig:27 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin Demo Server"
 
-#: templates/footer.twig:34
+#: templates/footer.twig:35
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr "Jelenleg futtatott Git revízió %1$s a %2$s branchból."
 
-#: templates/footer.twig:36
+#: templates/footer.twig:37
 msgid "Git information missing!"
 msgstr "Git információ hiányzik!"
 
@@ -16709,6 +16706,15 @@ msgstr ""
 #| msgid "Views:"
 msgid "View:"
 msgstr "Nézetek:"
+
+#: templates/modals/function_confirm.twig:5
+#: templates/server/databases/index.twig:318
+msgid "Confirm"
+msgstr "Megerősítés"
+
+#: templates/modals/function_confirm.twig:10
+msgid "Ok"
+msgstr ""
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
