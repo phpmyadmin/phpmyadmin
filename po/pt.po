@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-01-01 16:54+0000\n"
+"PO-Revision-Date: 2022-01-31 15:55+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2002,7 +2002,7 @@ msgstr "Personalizar as opções por defeito."
 
 #: libraries/classes/Config/Descriptions.php:203
 msgid "Settings for phpMyAdmin developers."
-msgstr "Configurações para programadores phpMyAdmin."
+msgstr "Definições para programadores phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:204
 msgid "Customize edit mode."
@@ -2046,11 +2046,11 @@ msgstr "Opções de exibição de tabelas."
 
 #: libraries/classes/Config/Descriptions.php:217
 msgid "Settings that didn't fit anywhere else."
-msgstr "Configurações que não se encaixavam em nenhum outro lugar."
+msgstr "Definições que não se encaixavam em nenhum outro lugar."
 
 #: libraries/classes/Config/Descriptions.php:218
 msgid "Authentication settings."
-msgstr "Configurações de autenticação."
+msgstr "Definições de autenticação."
 
 #: libraries/classes/Config/Descriptions.php:219
 msgid "Enter server connection parameters."
@@ -3605,7 +3605,7 @@ msgstr "Microsoft Office"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Other core settings"
-msgstr "Outras configurações do núcleo"
+msgstr "Outras definições do núcleo"
 
 #: libraries/classes/Config/Descriptions.php:777
 msgid "Page titles"
@@ -3617,7 +3617,7 @@ msgstr "Segurança"
 
 #: libraries/classes/Config/Descriptions.php:779
 msgid "Basic settings"
-msgstr "Configurações básicas"
+msgstr "Definições básicas"
 
 #: libraries/classes/Config/Descriptions.php:780
 msgid "Authentication"
@@ -4419,7 +4419,7 @@ msgstr "Utilizar a pesquisa da base de dados"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "Enable the Developer tab in settings"
-msgstr "Activar o separador Programador nas definições"
+msgstr "Ativar o separador Programador nas definições"
 
 #: libraries/classes/Config/Descriptions.php:971
 #: libraries/classes/Setup/Index.php:132 libraries/classes/Setup/Index.php:156
@@ -4502,7 +4502,7 @@ msgstr "Mostrar consulta de navegação atual"
 #: libraries/classes/Config/Descriptions.php:989
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Executa os queries carregando no Enter e insere uma nova linha com Shift + "
+"Execute as queries carregando no Enter e insira uma nova linha com Shift + "
 "Enter"
 
 #: libraries/classes/Config/Descriptions.php:990
@@ -4837,7 +4837,7 @@ msgstr "Transformações predefinidas"
 #: libraries/classes/Config/PageSettings.php:138
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"As configurações não podem ser gravadas, o formulário de configuração "
+"As definições não podem ser guardadas, o formulário de configuração "
 "submetido contém erros!"
 
 #: libraries/classes/Config.php:741
@@ -5276,8 +5276,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Foi detectado um erro e enviado automaticamente um relatório de erro com "
-"base nas suas configurações."
+"Foi detetado um erro e enviado automaticamente um relatório de erro com base "
+"nas suas definições."
 
 #: libraries/classes/Controllers/ErrorReportController.php:105
 msgid "Thank you for submitting this report."
@@ -5561,11 +5561,11 @@ msgstr "A eliminar os dados de rastreamento"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:49
 msgid "Dropping Primary Key/Index"
-msgstr "Eliminando Chave Primária/Índice"
+msgstr "A eliminar Chave Primária/Índice"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:50
 msgid "Dropping Foreign key."
-msgstr "Eliminando Chave estrangeira."
+msgstr "A eliminar Chave estrangeira."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 msgid "This operation could take a long time. Proceed anyway?"
@@ -5851,9 +5851,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"As configurações da tabela de armazenamento local do seu browser já não são "
-"compatíveis com a nova versão do monitor de diálogos. É provável que a sua "
-"configuração actual deixe de funcionar. Por favor, reinicie as suas "
+"As configurações da tabela de armazenamento local do seu navegador já não "
+"são compatíveis com a nova versão do monitor de diálogos. É provável que a "
+"sua configuração atual deixe de funcionar. Por favor, reinicie as suas "
 "configurações no menu <i>Configurações</i>."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:160
@@ -6096,8 +6096,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
-"As seguintes configurações vão ser aplicadas globalmente e redefinidas para "
-"o valor predefinição após o reinicio do servidor:"
+"As seguintes definições vão ser aplicadas globalmente e redefinidas para o "
+"valor predefinição após o reinicio do servidor:"
 
 #. l10n: %s is FILE or TABLE
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:226
@@ -6133,11 +6133,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 msgid "Change settings"
-msgstr "Alterar configurações"
+msgstr "Alterar definições"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:238
 msgid "Current settings"
-msgstr "Configurações atuais"
+msgstr "Definições atuais"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 msgid "Chart title"
@@ -6402,7 +6402,7 @@ msgstr "Cancelar"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: templates/header.twig:50
 msgid "Page-related settings"
-msgstr "Configurações relacionadas com a página"
+msgstr "Definições relacionadas com a página"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/config/form_display/fieldset_bottom.twig:8
@@ -10132,7 +10132,7 @@ msgstr "Visualizar o conteúdo da estrutura clicando em seu nome."
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
-"Alterar qualquer uma destas configurações clicando no link \"Opções\" "
+"Alterar qualquer uma destas definições clicando no link \"Opções\" "
 "correspondente."
 
 #: libraries/classes/Import.php:1346
@@ -10147,7 +10147,7 @@ msgstr "Ir para o banco de dados: %s"
 #: libraries/classes/Import.php:1359 libraries/classes/Import.php:1402
 #, php-format
 msgid "Edit settings for %s"
-msgstr "Editar as configurações para %s"
+msgstr "Editar as definições para %s"
 
 #: libraries/classes/Import.php:1387
 #, php-format
@@ -11026,7 +11026,7 @@ msgstr "Truncar"
 #: templates/table/structure/display_structure.twig:283
 #: templates/table/structure/display_structure.twig:463
 msgid "Drop"
-msgstr "Elimina"
+msgstr "Eliminar"
 
 #: libraries/classes/Operations.php:618
 msgid "Coalesce"
@@ -11070,7 +11070,7 @@ msgstr "Erro ao criar o PDF:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:80
 msgid "Cannot connect: invalid settings."
-msgstr "Não é possível realizar a ligação: configurações inválidas."
+msgstr "Não é possível realizar a ligação: definições inválidas."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:94
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:86
@@ -12692,8 +12692,7 @@ msgstr "Permite apagar Bases de Dados e tabelas."
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
-"Permite recarregar as configurações do servidor e limpar os caches do "
-"servidor."
+"Permite recarregar as definições do servidor e limpar as caches do servidor."
 
 #: libraries/classes/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:588
@@ -15524,7 +15523,7 @@ msgid ""
 "team for debugging the error."
 msgstr ""
 "Este relatório automaticamente inclui dados sobre o erro e informações sobre "
-"configurações relevantes. Ele será enviado à equipa do phpMyAdmin para poder "
+"definições relevantes. Será enviado à equipa do phpMyAdmin para poder "
 "depurar o erro."
 
 #: templates/error/report_form.twig:12
@@ -15853,7 +15852,7 @@ msgstr "Mais definições"
 
 #: templates/home/index.twig:89
 msgid "Appearance settings"
-msgstr "Configurações de aspecto"
+msgstr "Definições de aspeto"
 
 #: templates/home/index.twig:113
 msgid "Database server"
@@ -16410,7 +16409,7 @@ msgstr "Documentação MySQL"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
-msgstr "Configurações do painel de navegação"
+msgstr "Definições do painel de navegação"
 
 #: templates/navigation/main.twig:47 templates/navigation/main.twig:48
 msgid "Reload navigation panel"
@@ -16434,16 +16433,15 @@ msgstr ""
 
 #: templates/preferences/autoload.twig:13
 msgid "Delete settings"
-msgstr "Apagar configurações"
+msgstr "Apagar definições"
 
 #: templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr ""
-"As configurações não podem salvas, o formulário submetido contém erros!"
+msgstr "As definições não podem guardadas, o formulário submetido contém erros!"
 
 #: templates/preferences/header.twig:6
 msgid "Manage your settings"
-msgstr "Gerencie suas configurações"
+msgstr "Gira as suas definições"
 
 #: templates/preferences/header.twig:12
 msgid "Two-factor authentication"
@@ -16469,7 +16467,7 @@ msgstr "A configuração contém dados incorretos para alguns campos."
 
 #: templates/preferences/manage/error.twig:16
 msgid "Do you want to import remaining settings?"
-msgstr "Deseja importar as configurações restantes?"
+msgstr "Deseja importar as definições restantes?"
 
 #: templates/preferences/manage/main.twig:3
 #: templates/preferences/manage/main.twig:33
@@ -16487,11 +16485,11 @@ msgstr "Importar do armazenamento do seu browser"
 #: templates/preferences/manage/main.twig:30
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
-"As configurações vão ser importadas do armazenamento local do seu browser."
+"As definições vão ser importadas do armazenamento local do seu navegador."
 
 #: templates/preferences/manage/main.twig:36
 msgid "You have no saved settings!"
-msgstr "Não dispõe de configurações guardadas!"
+msgstr "Não dispõe de definições guardadas!"
 
 #: templates/preferences/manage/main.twig:40
 #: templates/preferences/manage/main.twig:104
@@ -16508,8 +16506,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Você pode definir mais configurações modificando config.inc.php, por exemplo "
-"usando %sscript de configuração%s."
+"Pode definir mais definições modificando o config.inc.php, por exemplo, ao "
+"utilizar o %sscript de configuração%s."
 
 #: templates/preferences/manage/main.twig:81
 msgid "Save as JSON file"
@@ -16525,11 +16523,11 @@ msgstr "Gravar para o armazenamento do seu browser"
 
 #: templates/preferences/manage/main.twig:96
 msgid "Settings will be saved in your browser's local storage."
-msgstr "As configurações serão gravadas no armazenamento local do seu browser."
+msgstr "As definições serão guardadas no armazenamento local do seu navegador."
 
 #: templates/preferences/manage/main.twig:99
 msgid "Existing settings will be overwritten!"
-msgstr "As configurações existentes serão sobre-escritas!"
+msgstr "As definições existentes serão sobre-escritas!"
 
 #: templates/preferences/manage/main.twig:120
 msgid "You can reset all your settings and restore them to default values."
@@ -17598,7 +17596,7 @@ msgid ""
 msgstr ""
 "O seu navegador atualizará todos os gráficos exibidos em intervalo regular. "
 "Pode adicioná-los e alterar a taxa de atualização em 'Definições', ou "
-"remover qualquer um usando o ícone da engrenagem em cada gráfico."
+"remover qualquer um utilizando o ícone da engrenagem em cada gráfico."
 
 #: templates/server/status/monitor/index.twig:108
 msgid ""
@@ -17862,7 +17860,7 @@ msgstr ""
 
 #: templates/server/variables/index.twig:5
 msgid "Server variables and settings"
-msgstr "Variáveis do servidor e configurações"
+msgstr "Variáveis do servidor e definições"
 
 #: templates/server/variables/index.twig:43
 msgid "This is a read-only variable and can not be edited"
