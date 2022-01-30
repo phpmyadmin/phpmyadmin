@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-01-01 16:53+0000\n"
+"PO-Revision-Date: 2022-02-01 15:55+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -382,8 +382,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Foi detectado um erro e enviado automaticamente um relatório de erro com "
-"base nas suas configurações."
+"Foi detetado um erro e enviado automaticamente um relatório de erro com base "
+"nas suas definições."
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
@@ -680,7 +680,7 @@ msgstr "Ordenação de caracteres da ligação ao servidor"
 
 #: index.php:285
 msgid "Appearance settings"
-msgstr "Configurações de aspecto"
+msgstr "Definições de aspeto"
 
 #: index.php:318 prefs_manage.php:276
 msgid "More settings"
@@ -925,11 +925,11 @@ msgstr "A eliminar os dados de rastreamento"
 
 #: js/messages.php:61
 msgid "Dropping Primary Key/Index"
-msgstr "Eliminando Chave Primária/Índice"
+msgstr "A eliminar Chave Primária/Índice"
 
 #: js/messages.php:62
 msgid "Dropping Foreign key."
-msgstr "Eliminando Chave estrangeira."
+msgstr "A eliminar Chave estrangeira."
 
 #: js/messages.php:64
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1199,9 +1199,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"As configurações da tabela de armazenamento local do seu browser já não são "
-"compatíveis com a nova versão do monitor de diálogos. É provável que a sua "
-"configuração actual deixe de funcionar. Por favor, reinicie as suas "
+"As configurações da tabela de armazenamento local do seu navegador já não "
+"são compatíveis com a nova versão do monitor de diálogos. É provável que a "
+"sua configuração atual deixe de funcionar. Por favor, reinicie as suas "
 "configurações no menu <i>Configurações</i>."
 
 #: js/messages.php:177
@@ -1425,8 +1425,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
-"As seguintes configurações vão ser aplicadas globalmente e redefinidas para "
-"o valor predefinição após o reinicio do servidor:"
+"As seguintes definições vão ser aplicadas globalmente e redefinidas para o "
+"valor predefinição após o reinicio do servidor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:243
@@ -1462,11 +1462,11 @@ msgstr ""
 
 #: js/messages.php:254
 msgid "Change settings"
-msgstr "Alterar configurações"
+msgstr "Alterar definições"
 
 #: js/messages.php:255
 msgid "Current settings"
-msgstr "Configurações atuais"
+msgstr "Definições atuais"
 
 #: js/messages.php:257
 msgid "Chart title"
@@ -1755,7 +1755,7 @@ msgstr "Cancelar"
 
 #: js/messages.php:358 libraries/classes/Header.php:461
 msgid "Page-related settings"
-msgstr "Configurações relacionadas com a página"
+msgstr "Definições relacionadas com a página"
 
 #: js/messages.php:359 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
@@ -4284,7 +4284,7 @@ msgstr "Programador"
 
 #: libraries/classes/Config/Descriptions.php:448
 msgid "Settings for phpMyAdmin developers."
-msgstr "Configurações para programadores phpMyAdmin."
+msgstr "Definições para programadores phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:450
 msgid "Edit mode"
@@ -4383,11 +4383,11 @@ msgstr "Microsoft Office"
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Other core settings"
-msgstr "Outras configurações do núcleo"
+msgstr "Outras definições do núcleo"
 
 #: libraries/classes/Config/Descriptions.php:506
 msgid "Settings that didn't fit anywhere else."
-msgstr "Configurações que não se encaixavam em nenhum outro lugar."
+msgstr "Definições que não se encaixavam em nenhum outro lugar."
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid "Page titles"
@@ -4416,7 +4416,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Basic settings"
-msgstr "Configurações básicas"
+msgstr "Definições básicas"
 
 #: libraries/classes/Config/Descriptions.php:525
 msgid "Authentication"
@@ -4424,7 +4424,7 @@ msgstr "Autenticação"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Authentication settings."
-msgstr "Configurações de autenticação."
+msgstr "Definições de autenticação."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Server configuration"
@@ -6094,7 +6094,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
-msgstr "Activar o separador Programador nas definições"
+msgstr "Ativar o separador Programador nas definições"
 
 #: libraries/classes/Config/Descriptions.php:1406
 msgid "Enables check for latest version on main phpMyAdmin page."
@@ -6220,7 +6220,7 @@ msgstr "Mostrar consulta de navegação atual"
 #: libraries/classes/Config/Descriptions.php:1472
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Executa os queries carregando no Enter e insere uma nova linha com Shift + "
+"Execute as queries carregando no Enter e insira uma nova linha com Shift + "
 "Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
@@ -6383,7 +6383,7 @@ msgstr "Transformações predefinidas"
 #: libraries/classes/Config/PageSettings.php:141
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"As configurações não podem ser gravadas, o formulário de configuração "
+"As definições não podem ser guardadas, o formulário de configuração "
 "submetido contém erros!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:71
@@ -6852,7 +6852,7 @@ msgstr "Muda"
 #: templates/server/databases/databases_footer.twig:57
 #: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
-msgstr "Elimina"
+msgstr "Eliminar"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: libraries/classes/Controllers/Table/TableStructureController.php:1237
@@ -7931,7 +7931,7 @@ msgstr "Visualizar o conteúdo da estrutura clicando em seu nome."
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
-"Alterar qualquer uma destas configurações clicando no link \"Opções\" "
+"Alterar qualquer uma destas definições clicando no link \"Opções\" "
 "correspondente."
 
 #: libraries/classes/Import.php:1221
@@ -7978,7 +7978,7 @@ msgstr "Ir para o banco de dados: %s"
 #: libraries/classes/Import.php:1234 libraries/classes/Import.php:1278
 #, php-format
 msgid "Edit settings for %s"
-msgstr "Editar as configurações para %s"
+msgstr "Editar as definições para %s"
 
 #: libraries/classes/Import.php:1263
 #, php-format
@@ -8446,7 +8446,7 @@ msgstr "Documentação do phpMyAdmin"
 
 #: libraries/classes/Navigation/NavigationHeader.php:217
 msgid "Navigation panel settings"
-msgstr "Configurações do painel de navegação"
+msgstr "Definições do painel de navegação"
 
 #: libraries/classes/Navigation/NavigationHeader.php:228
 msgid "Reload navigation panel"
@@ -9148,7 +9148,7 @@ msgstr "Esse formato não tem opções"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:75
 msgid "Cannot connect: invalid settings."
-msgstr "Não é possível realizar a ligação: configurações inválidas."
+msgstr "Não é possível realizar a ligação: definições inválidas."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:83
@@ -11332,8 +11332,7 @@ msgstr "Permite apagar Bases de Dados e tabelas."
 #: libraries/classes/Server/Privileges.php:1346 server_privileges.php:103
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
-"Permite recarregar as configurações do servidor e limpar os caches do "
-"servidor."
+"Permite recarregar as definições do servidor e limpar as caches do servidor."
 
 #: libraries/classes/Server/Privileges.php:339
 #: libraries/classes/Server/Privileges.php:1350 server_privileges.php:112
@@ -12125,7 +12124,7 @@ msgid ""
 msgstr ""
 "O seu navegador atualizará todos os gráficos exibidos em intervalo regular. "
 "Pode adicioná-los e alterar a taxa de atualização em 'Definições', ou "
-"remover qualquer um usando o ícone da engrenagem em cada gráfico."
+"remover qualquer um utilizando o ícone da engrenagem em cada gráfico."
 
 #: libraries/classes/Server/Status/Monitor.php:144
 msgid ""
@@ -14077,7 +14076,7 @@ msgstr "Sucesso!"
 
 #: libraries/user_preferences.inc.php:31
 msgid "Manage your settings"
-msgstr "Gira as suas configurações"
+msgstr "Gira as suas definições"
 
 #: libraries/user_preferences.inc.php:38
 msgid "Two-factor authentication"
@@ -14106,8 +14105,7 @@ msgstr "O formulário fornecido está incorreto!"
 
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr ""
-"As configurações não podem salvas, o formulário submetido contém erros!"
+msgstr "As definições não podem guardadas, o formulário submetido contém erros!"
 
 #: prefs_manage.php:52
 msgid "phpMyAdmin configuration snippet"
@@ -14127,7 +14125,7 @@ msgstr "A configuração contém dados incorretos para alguns campos."
 
 #: prefs_manage.php:140
 msgid "Do you want to import remaining settings?"
-msgstr "Deseja importar as configurações restantes?"
+msgstr "Deseja importar as definições restantes?"
 
 #: prefs_manage.php:221 prefs_manage.php:250
 msgid "Saved on: @DATE@"
@@ -14144,11 +14142,11 @@ msgstr "Importar do armazenamento do seu browser"
 #: prefs_manage.php:247
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
-"As configurações vão ser importadas do armazenamento local do seu browser."
+"As definições vão ser importadas do armazenamento local do seu navegador."
 
 #: prefs_manage.php:253
 msgid "You have no saved settings!"
-msgstr "Não dispõe de configurações guardadas!"
+msgstr "Não dispõe de definições guardadas!"
 
 #: prefs_manage.php:258 prefs_manage.php:343
 msgid "This feature is not supported by your web browser"
@@ -14164,8 +14162,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Você pode definir mais configurações modificando config.inc.php, por exemplo "
-"usando %sscript de configuração%s."
+"Pode definir mais definições modificando o config.inc.php, por exemplo, ao "
+"utilizar o %sscript de configuração%s."
 
 #: prefs_manage.php:309
 msgid "Save as JSON file"
@@ -14181,11 +14179,11 @@ msgstr "Gravar para o armazenamento do seu browser"
 
 #: prefs_manage.php:326
 msgid "Settings will be saved in your browser's local storage."
-msgstr "As configurações serão gravadas no armazenamento local do seu browser."
+msgstr "As definições serão guardadas no armazenamento local do seu navegador."
 
 #: prefs_manage.php:334
 msgid "Existing settings will be overwritten!"
-msgstr "As configurações existentes serão sobre-escritas!"
+msgstr "As definições existentes serão sobre-escritas!"
 
 #: prefs_manage.php:362
 msgid "You can reset all your settings and restore them to default values."
@@ -15461,7 +15459,7 @@ msgstr "utilize isto para futuras exportações"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
-msgstr "Variáveis do servidor e configurações"
+msgstr "Variáveis do servidor e definições"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
@@ -15571,7 +15569,7 @@ msgid ""
 "team for debugging the error."
 msgstr ""
 "Este relatório automaticamente inclui dados sobre o erro e informações sobre "
-"configurações relevantes. Ele será enviado à equipa do phpMyAdmin para poder "
+"definições relevantes. Será enviado à equipa do phpMyAdmin para poder "
 "depurar o erro."
 
 #: templates/error/report_form.twig:12
@@ -16334,7 +16332,7 @@ msgstr ""
 
 #: templates/prefs_autoload.twig:13
 msgid "Delete settings"
-msgstr "Apagar configurações"
+msgstr "Apagar definições"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
