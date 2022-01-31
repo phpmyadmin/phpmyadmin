@@ -124,8 +124,9 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer();
         $footer->setAjax(true);
+        $template = new Template();
         $this->assertEquals(
-            (new Template())->render('modals/function_confirm') . "\n",
+            $template->render('modals/function_confirm') . "\n" . $template->render('modals/add_index') . "\n",
             $footer->getDisplay()
         );
     }
@@ -163,8 +164,10 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer();
         $footer->setMinimal();
+        $template = new Template();
         $this->assertEquals(
-            (new Template())->render('modals/function_confirm') . "\n  </div>\n  </body>\n</html>\n",
+            $template->render('modals/function_confirm') . "\n"
+            . $template->render('modals/add_index') . "\n  </div>\n  </body>\n</html>\n",
             $footer->getDisplay()
         );
     }
