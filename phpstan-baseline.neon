@@ -3276,6 +3276,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
