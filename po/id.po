@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-30 00:12+0000\n"
-"PO-Revision-Date: 2021-06-17 22:46+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-02-03 03:39+0000\n"
+"Last-Translator: Dadan Setia <dadan.setia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.7\n"
+"X-Generator: Weblate 4.11-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/advisory_rules_generic.php:9
@@ -67,7 +67,6 @@ msgid "Percentage of slow queries"
 msgstr "Persentase kueri lambat"
 
 #: libraries/advisory_rules_generic.php:41
-#, fuzzy
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
@@ -120,13 +119,12 @@ msgstr ""
 "yang membutuhkan waktu di atas 10 detik yang dicatat."
 
 #: libraries/advisory_rules_generic.php:71
-#, fuzzy
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
 "Disarankan untuk mengatur {long_query_time} ke nilai yang lebih rendah, "
-"tergantung pada lingkungan Anda. Biasanya nilai dari 1-5 detik disarankan."
+"tergantung pada lingkungan Anda. Disarankan biasanya nilai dari 1-5 detik."
 
 #: libraries/advisory_rules_generic.php:74
 #, fuzzy, php-format
