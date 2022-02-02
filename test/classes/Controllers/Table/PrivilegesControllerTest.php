@@ -48,8 +48,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         $actual = (new PrivilegesController(
             ResponseRenderer::getInstance(),
             new Template(),
-            $db,
-            $table,
             $serverPrivileges,
             $dbi
         ))(['checkprivsdb' => $db, 'checkprivstable' => $table]);

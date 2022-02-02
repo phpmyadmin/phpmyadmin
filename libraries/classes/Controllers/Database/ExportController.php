@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Message;
@@ -29,11 +30,10 @@ final class ExportController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         Export $export,
         Options $exportOptions
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->export = $export;
         $this->exportOptions = $exportOptions;
     }

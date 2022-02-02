@@ -95,7 +95,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
@@ -143,7 +142,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
@@ -175,7 +173,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
@@ -231,7 +228,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
@@ -256,7 +252,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
@@ -291,7 +286,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
@@ -330,7 +324,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
@@ -367,7 +360,6 @@ class StructureControllerTest extends AbstractTestCase
         $controller = new StructureController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,

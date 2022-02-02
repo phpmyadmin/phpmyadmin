@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -26,10 +27,9 @@ class CentralColumnsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         CentralColumns $centralColumns
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->centralColumns = $centralColumns;
     }
 
@@ -156,7 +156,7 @@ class CentralColumnsController extends AbstractController
         if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
             $totalRows = (int) $params['total_rows'];
         } else {
-            $totalRows = $this->centralColumns->getCount($this->db);
+            $totalRows = $this->centralColumns->getCount($GLOBALS['db']);
         }
 
         $pos = 0;
@@ -164,7 +164,7 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $params['pos'];
         }
 
-        $variables = $this->centralColumns->getTemplateVariablesForMain($this->db, $totalRows, $pos, $text_dir);
+        $variables = $this->centralColumns->getTemplateVariablesForMain($GLOBALS['db'], $totalRows, $pos, $text_dir);
 
         $this->render('database/central_columns/main', $variables);
     }
@@ -176,7 +176,7 @@ class CentralColumnsController extends AbstractController
      */
     public function getColumnList(array $params): array
     {
-        return $this->centralColumns->getListRaw($this->db, $params['cur_table'] ?? '');
+        return $this->centralColumns->getListRaw($GLOBALS['db'], $params['cur_table'] ?? '');
     }
 
     /**
@@ -192,7 +192,7 @@ class CentralColumnsController extends AbstractController
         }
 
         return $this->centralColumns->updateOneColumn(
-            $this->db,
+            $GLOBALS['db'],
             $params['orig_col_name'],
             $params['col_name'],
             $params['col_type'],
@@ -218,7 +218,7 @@ class CentralColumnsController extends AbstractController
         }
 
         return $this->centralColumns->updateOneColumn(
-            $this->db,
+            $GLOBALS['db'],
             '',
             $params['col_name'],
             $params['col_type'],

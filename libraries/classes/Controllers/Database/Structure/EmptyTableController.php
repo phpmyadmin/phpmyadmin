@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
@@ -45,7 +45,6 @@ final class EmptyTableController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         DatabaseInterface $dbi,
         Relation $relation,
         RelationCleanup $relationCleanup,
@@ -53,7 +52,7 @@ final class EmptyTableController extends AbstractController
         FlashMessages $flash,
         StructureController $structureController
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->dbi = $dbi;
         $this->relation = $relation;
         $this->relationCleanup = $relationCleanup;

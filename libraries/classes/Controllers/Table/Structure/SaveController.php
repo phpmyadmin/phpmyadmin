@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -48,20 +48,18 @@ final class SaveController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         Relation $relation,
         Transformations $transformations,
         DatabaseInterface $dbi,
         StructureController $structureController
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->relation = $relation;
         $this->transformations = $transformations;
         $this->dbi = $dbi;
         $this->structureController = $structureController;
 
-        $this->tableObj = $this->dbi->getTable($this->db, $this->table);
+        $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
 
     public function __invoke(): void
@@ -83,15 +81,15 @@ final class SaveController extends AbstractController
     private function updateColumns(): bool
     {
         $err_url = Url::getFromRoute('/table/structure', [
-            'db' => $this->db,
-            'table' => $this->table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
         ]);
         $regenerate = false;
         $field_cnt = count($_POST['field_name'] ?? []);
         $changes = [];
         $adjust_privileges = [];
         $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
+            ->getTable($GLOBALS['db'], $GLOBALS['table'])
             ->getColumnsWithIndex(Index::PRIMARY | Index::UNIQUE);
         for ($i = 0; $i < $field_cnt; $i++) {
             if (! $this->columnNeedsAlterTable($i)) {
@@ -148,16 +146,16 @@ final class SaveController extends AbstractController
 
             // To allow replication, we first select the db to use
             // and then run queries on this db.
-            if (! $this->dbi->selectDb($this->db)) {
+            if (! $this->dbi->selectDb($GLOBALS['db'])) {
                 Generator::mysqlDie(
                     $this->dbi->getError(),
-                    'USE ' . Util::backquote($this->db) . ';',
+                    'USE ' . Util::backquote($GLOBALS['db']) . ';',
                     false,
                     $err_url
                 );
             }
 
-            $sql_query = 'ALTER TABLE ' . Util::backquote($this->table) . ' ';
+            $sql_query = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']) . ' ';
             $sql_query .= implode(', ', $changes) . $key_query;
             if (isset($_POST['online_transaction'])) {
                 $sql_query .= ', ALGORITHM=INPLACE, LOCK=NONE';
@@ -173,7 +171,7 @@ final class SaveController extends AbstractController
             }
 
             $columns_with_index = $this->dbi
-                ->getTable($this->db, $this->table)
+                ->getTable($GLOBALS['db'], $GLOBALS['table'])
                 ->getColumnsWithIndex(Index::PRIMARY | Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
 
             $changedToBlob = [];
@@ -185,7 +183,7 @@ final class SaveController extends AbstractController
                     && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
                     && ! in_array($_POST['field_orig'][$i], $columns_with_index)
                 ) {
-                    $secondary_query = 'ALTER TABLE ' . Util::backquote($this->table)
+                    $secondary_query = 'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
                         . ' CHANGE ' . Util::backquote($_POST['field_orig'][$i])
                         . ' ' . Util::backquote($_POST['field_orig'][$i])
                         . ' BLOB';
@@ -224,7 +222,7 @@ final class SaveController extends AbstractController
                     );
                 }
 
-                $message->addParam($this->table);
+                $message->addParam($GLOBALS['table']);
 
                 $this->response->addHTML(
                     Generator::getMessage($message, $sql_query, 'success')
@@ -260,7 +258,7 @@ final class SaveController extends AbstractController
                     );
                 }
 
-                $revert_query = 'ALTER TABLE ' . Util::backquote($this->table)
+                $revert_query = 'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
                     . ' ';
                 $revert_query .= implode(', ', $changes_revert) . '';
                 $revert_query .= ';';
@@ -286,7 +284,12 @@ final class SaveController extends AbstractController
                     continue;
                 }
 
-                $this->relation->renameField($this->db, $this->table, $fieldcontent, $_POST['field_name'][$fieldindex]);
+                $this->relation->renameField(
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
+                    $fieldcontent,
+                    $_POST['field_name'][$fieldindex]
+                );
             }
         }
 
@@ -298,8 +301,8 @@ final class SaveController extends AbstractController
                 }
 
                 $this->transformations->setMime(
-                    $this->db,
-                    $this->table,
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
                     $_POST['field_name'][$fieldindex],
                     $mimetype,
                     $_POST['field_transformation'][$fieldindex],
@@ -381,8 +384,8 @@ final class SaveController extends AbstractController
                         AND Column_name = "%s";',
                         Util::backquote('columns_priv'),
                         $newCol,
-                        $this->db,
-                        $this->table,
+                        $GLOBALS['db'],
+                        $GLOBALS['table'],
                         $oldCol
                     )
                 );

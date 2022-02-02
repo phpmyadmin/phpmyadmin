@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -30,11 +31,10 @@ class RoutinesController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         CheckUserPrivileges $checkUserPrivileges,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->checkUserPrivileges = $checkUserPrivileges;
         $this->dbi = $dbi;
     }

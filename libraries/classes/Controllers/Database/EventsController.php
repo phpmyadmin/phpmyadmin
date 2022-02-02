@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
@@ -24,11 +25,10 @@ final class EventsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         Events $events,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->events = $events;
         $this->dbi = $dbi;
     }

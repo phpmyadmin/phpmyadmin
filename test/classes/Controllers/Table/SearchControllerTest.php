@@ -111,8 +111,6 @@ class SearchControllerTest extends AbstractTestCase
         $ctrl = new SearchController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
             new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']

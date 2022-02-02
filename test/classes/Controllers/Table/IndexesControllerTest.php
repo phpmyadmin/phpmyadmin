@@ -107,8 +107,6 @@ class IndexesControllerTest extends AbstractTestCase
         $ctrl = new IndexesController(
             $response,
             $template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
             $GLOBALS['dbi'],
             new Indexes($response, $template, $GLOBALS['dbi'])
         );

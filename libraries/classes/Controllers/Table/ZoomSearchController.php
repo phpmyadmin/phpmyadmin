@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -72,13 +73,11 @@ class ZoomSearchController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         Search $search,
         Relation $relation,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->search = $search;
         $this->relation = $relation;
         $this->dbi = $dbi;
@@ -140,7 +139,7 @@ class ZoomSearchController extends AbstractController
 
         //Set default datalabel if not selected
         if (! isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
-            $dataLabel = $this->relation->getDisplayField($this->db, $this->table);
+            $dataLabel = $this->relation->getDisplayField($GLOBALS['db'], $GLOBALS['table']);
         } else {
             $dataLabel = $_POST['dataLabel'];
         }
@@ -175,7 +174,7 @@ class ZoomSearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($this->db, $this->table, true);
+        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
         // Get details about the geometry functions
         $geom_types = Gis::getDataTypes();
 
@@ -218,7 +217,7 @@ class ZoomSearchController extends AbstractController
         }
 
         // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners($this->db, $this->table);
+        $this->foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
     }
 
     /**
@@ -250,8 +249,8 @@ class ZoomSearchController extends AbstractController
         }
 
         $this->render('table/zoom_search/index', [
-            'db' => $this->db,
-            'table' => $this->table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'goto' => $goto,
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
@@ -377,8 +376,8 @@ class ZoomSearchController extends AbstractController
         }
 
         $this->render('table/zoom_search/result_form', [
-            'db' => $this->db,
-            'table' => $this->table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'column_names' => $this->columnNames,
             'column_names_hashes' => $column_names_hashes,
             'foreigners' => $this->foreigners,
@@ -450,11 +449,11 @@ class ZoomSearchController extends AbstractController
             'column_name' => $this->columnNames[$column_index],
             'column_name_hash' => md5($this->columnNames[$column_index]),
             'foreign_data' => $foreignData,
-            'table' => $this->table,
+            'table' => $GLOBALS['table'],
             'column_index' => $search_index,
             'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
-            'db' => $this->db,
+            'db' => $GLOBALS['db'],
             'in_fbs' => true,
         ]);
 

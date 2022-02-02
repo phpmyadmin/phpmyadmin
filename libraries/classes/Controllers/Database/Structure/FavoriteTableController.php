@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -24,9 +24,9 @@ final class FavoriteTableController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    public function __construct(ResponseRenderer $response, Template $template, string $db, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
     {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->relation = $relation;
     }
 
@@ -80,7 +80,7 @@ final class FavoriteTableController extends AbstractController
         if (isset($_REQUEST['remove_favorite'])) {
             if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
-                $favoriteInstance->remove($this->db, $favoriteTable);
+                $favoriteInstance->remove($GLOBALS['db'], $favoriteTable);
                 $alreadyFavorite = false; // for favorite_anchor template
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
@@ -90,7 +90,7 @@ final class FavoriteTableController extends AbstractController
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.
-                    $favoriteInstance->add($this->db, $favoriteTable);
+                    $favoriteInstance->add($GLOBALS['db'], $favoriteTable);
                     $alreadyFavorite = true; // for favorite_anchor template
                 }
             }
@@ -111,7 +111,7 @@ final class FavoriteTableController extends AbstractController
 
         // Check if current table is already in favorite list.
         $favoriteParams = [
-            'db' => $this->db,
+            'db' => $GLOBALS['db'],
             'ajax_request' => true,
             'favorite_table' => $favoriteTable,
             ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
@@ -122,7 +122,7 @@ final class FavoriteTableController extends AbstractController
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
             'table_name_hash' => md5($favoriteTable),
-            'db_table_name_hash' => md5($this->db . '.' . $favoriteTable),
+            'db_table_name_hash' => md5($GLOBALS['db'] . '.' . $favoriteTable),
             'fav_params' => $favoriteParams,
             'already_favorite' => $alreadyFavorite,
         ]);
@@ -174,7 +174,7 @@ final class FavoriteTableController extends AbstractController
         RecentFavoriteTable::getInstance('favorite');
         $favoriteTables = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] ?? [];
         foreach ($favoriteTables as $value) {
-            if ($value['db'] == $this->db && $value['table'] == $currentTable) {
+            if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
                 return true;
             }
         }

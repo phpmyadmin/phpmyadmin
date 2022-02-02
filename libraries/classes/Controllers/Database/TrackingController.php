@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -34,11 +35,10 @@ class TrackingController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         Tracking $tracking,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->tracking = $tracking;
         $this->dbi = $dbi;
     }

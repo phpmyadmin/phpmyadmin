@@ -36,8 +36,6 @@ class ChangeControllerTest extends AbstractTestCase
         $ctrl = new ChangeController(
             $response,
             new Template(),
-            $GLOBALS['db'],
-            $GLOBALS['table'],
             new Relation($this->dbi),
             new Transformations(),
             $this->dbi

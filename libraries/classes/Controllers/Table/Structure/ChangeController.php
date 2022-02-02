@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -32,13 +32,11 @@ final class ChangeController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         Relation $relation,
         Transformations $transformations,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->relation = $relation;
         $this->transformations = $transformations;
         $this->dbi = $dbi;
@@ -85,7 +83,7 @@ final class ChangeController extends AbstractController
          */
         $fields_meta = [];
         for ($i = 0; $i < $selected_cnt; $i++) {
-            $value = $this->dbi->getColumn($this->db, $this->table, $selected[$i], true);
+            $value = $this->dbi->getColumn($GLOBALS['db'], $GLOBALS['table'], $selected[$i], true);
             if (count($value) === 0) {
                 $message = Message::error(
                     __('Failed to get description of column %s!')

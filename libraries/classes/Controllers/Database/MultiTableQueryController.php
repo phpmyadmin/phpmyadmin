@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
@@ -17,9 +18,9 @@ class MultiTableQueryController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->dbi = $dbi;
     }
 
@@ -30,7 +31,7 @@ class MultiTableQueryController extends AbstractController
             'database/query_generator.js',
         ]);
 
-        $queryInstance = new MultiTableQuery($this->dbi, $this->template, $this->db);
+        $queryInstance = new MultiTableQuery($this->dbi, $this->template, $GLOBALS['db']);
 
         $this->response->addHTML($queryInstance->getFormHtml());
     }

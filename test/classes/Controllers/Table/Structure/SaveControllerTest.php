@@ -33,8 +33,6 @@ class SaveControllerTest extends AbstractTestCase
         $ctrl = new SaveController(
             new ResponseStub(),
             new Template(),
-            $GLOBALS['db'],
-            $GLOBALS['table'],
             new Relation($this->dbi),
             new Transformations(),
             $this->dbi,

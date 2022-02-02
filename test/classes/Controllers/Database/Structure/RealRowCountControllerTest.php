@@ -30,14 +30,14 @@ class RealRowCountControllerTest extends AbstractTestCase
 
         $_REQUEST['table'] = 'City';
 
-        (new RealRowCountController($response, new Template(), 'world', $this->dbi))();
+        (new RealRowCountController($response, new Template(), $this->dbi))();
 
         $json = $response->getJSONResult();
         $this->assertEquals('4,079', $json['real_row_count']);
 
         $_REQUEST['real_row_count_all'] = 'on';
 
-        (new RealRowCountController($response, new Template(), 'world', $this->dbi))();
+        (new RealRowCountController($response, new Template(), $this->dbi))();
 
         $json = $response->getJSONResult();
         $expected = [

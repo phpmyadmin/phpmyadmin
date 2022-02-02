@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -21,9 +22,9 @@ class SqlController extends AbstractController
     /** @var SqlQueryForm */
     private $sqlQueryForm;
 
-    public function __construct(ResponseRenderer $response, Template $template, string $db, SqlQueryForm $sqlQueryForm)
+    public function __construct(ResponseRenderer $response, Template $template, SqlQueryForm $sqlQueryForm)
     {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
