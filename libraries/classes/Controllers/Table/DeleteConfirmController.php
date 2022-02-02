@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;

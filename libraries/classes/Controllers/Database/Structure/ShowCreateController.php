@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
@@ -17,9 +17,9 @@ final class ShowCreateController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->dbi = $dbi;
     }
 
@@ -51,7 +51,7 @@ final class ShowCreateController extends AbstractController
         $tables = ['tables' => [], 'views' => []];
 
         foreach ($selected as $table) {
-            $object = $this->dbi->getTable($this->db, $table);
+            $object = $this->dbi->getTable($GLOBALS['db'], $table);
 
             $tables[$object->isView() ? 'views' : 'tables'][] = [
                 'name' => Core::mimeDefaultFunction($table),

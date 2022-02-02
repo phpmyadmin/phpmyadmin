@@ -75,8 +75,6 @@ class FindReplaceControllerTest extends AbstractTestCase
         $tableSearch = new FindReplaceController(
             ResponseRenderer::getInstance(),
             new Template(),
-            $GLOBALS['db'],
-            $GLOBALS['table'],
             $GLOBALS['dbi']
         );
         $columnIndex = 0;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -19,11 +20,9 @@ final class ExportRowsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         ExportController $exportController
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->exportController = $exportController;
     }
 

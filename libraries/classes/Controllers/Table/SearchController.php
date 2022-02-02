@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -93,13 +94,11 @@ class SearchController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         Search $search,
         Relation $relation,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->search = $search;
         $this->relation = $relation;
         $this->dbi = $dbi;
@@ -121,7 +120,7 @@ class SearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($this->db, $this->table, true);
+        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
         // Get details about the geometry functions
         $geom_types = Gis::getDataTypes();
 
@@ -164,7 +163,7 @@ class SearchController extends AbstractController
         }
 
         // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners($this->db, $this->table);
+        $this->foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
     }
 
     /**
@@ -264,8 +263,8 @@ class SearchController extends AbstractController
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
-            $this->db, // db
-            $this->table, // table
+            $GLOBALS['db'], // db
+            $GLOBALS['table'], // table
             null, // find_real_end
             null, // sql_query_for_bookmark
             null, // extra_data
@@ -291,8 +290,8 @@ class SearchController extends AbstractController
         }
 
         $this->render('table/search/index', [
-            'db' => $this->db,
-            'table' => $this->table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'goto' => $goto,
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
@@ -324,8 +323,8 @@ class SearchController extends AbstractController
     {
         $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
-            . 'FROM ' . Util::backquote($this->db) . '.'
-            . Util::backquote($this->table);
+            . 'FROM ' . Util::backquote($GLOBALS['db']) . '.'
+            . Util::backquote($GLOBALS['table']);
 
         return $this->dbi->fetchSingleRow($sql_query);
     }
@@ -388,11 +387,11 @@ class SearchController extends AbstractController
             'column_name' => $this->columnNames[$column_index],
             'column_name_hash' => md5($this->columnNames[$column_index]),
             'foreign_data' => $foreignData,
-            'table' => $this->table,
+            'table' => $GLOBALS['table'],
             'column_index' => $search_index,
             'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
-            'db' => $this->db,
+            'db' => $GLOBALS['db'],
             'in_fbs' => true,
         ]);
 

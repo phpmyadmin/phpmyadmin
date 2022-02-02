@@ -56,7 +56,7 @@ class PrivilegesController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table, $errorUrl, $message, $text_dir, $post_patterns;
+        global $db, $errorUrl, $message, $text_dir, $post_patterns;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
         global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
         global $itemType, $tables, $num_tables, $total_num_tables, $sub_part;
@@ -78,22 +78,9 @@ class PrivilegesController extends AbstractController
             new Plugins($this->dbi)
         );
 
-        $databaseController = new DatabaseController(
-            $this->response,
-            $this->template,
-            $db,
-            $serverPrivileges,
-            $this->dbi
-        );
+        $databaseController = new DatabaseController($this->response, $this->template, $serverPrivileges, $this->dbi);
 
-        $tableController = new TableController(
-            $this->response,
-            $this->template,
-            $db,
-            $table,
-            $serverPrivileges,
-            $this->dbi
-        );
+        $tableController = new TableController($this->response, $this->template, $serverPrivileges, $this->dbi);
 
         if (
             (isset($_GET['viewing_mode'])

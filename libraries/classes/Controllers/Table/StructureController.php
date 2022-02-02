@@ -10,6 +10,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
@@ -67,8 +68,6 @@ class StructureController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         Relation $relation,
         Transformations $transformations,
         CreateAddField $createAddField,
@@ -76,7 +75,7 @@ class StructureController extends AbstractController
         DatabaseInterface $dbi,
         FlashMessages $flash
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->createAddField = $createAddField;
         $this->relation = $relation;
         $this->transformations = $transformations;
@@ -84,7 +83,7 @@ class StructureController extends AbstractController
         $this->dbi = $dbi;
         $this->flash = $flash;
 
-        $this->tableObj = $this->dbi->getTable($this->db, $this->table);
+        $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
 
     public function __invoke(): void
@@ -92,7 +91,7 @@ class StructureController extends AbstractController
         global $reread_info, $showtable, $db, $table, $cfg, $errorUrl;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
 
-        $this->dbi->selectDb($this->db);
+        $this->dbi->selectDb($GLOBALS['db']);
         $reread_info = $this->tableObj->getStatusInfo(null, true);
         $showtable = $this->tableObj->getStatusInfo(null, (isset($reread_info) && $reread_info));
 
@@ -127,15 +126,15 @@ class StructureController extends AbstractController
 
         DbTableExists::check($db, $table);
 
-        $primary = Index::getPrimary($this->table, $this->db);
+        $primary = Index::getPrimary($GLOBALS['table'], $GLOBALS['db']);
         $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
+            ->getTable($GLOBALS['db'], $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
         $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
+            ->getTable($GLOBALS['db'], $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE);
 
-        $fields = $this->dbi->getColumns($this->db, $this->table, true);
+        $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
 
         $this->response->addHTML($this->displayStructure(
             $relationParameters,
@@ -174,14 +173,14 @@ class StructureController extends AbstractController
         $mime_map = [];
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
-            $comments_map = $this->relation->getComments($this->db, $this->table);
+            $comments_map = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
             if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
-                $mime_map = $this->transformations->getMime($this->db, $this->table, true);
+                $mime_map = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table'], true);
             }
         }
 
         $centralColumns = new CentralColumns($this->dbi);
-        $central_list = $centralColumns->getFromTable($this->db, $this->table);
+        $central_list = $centralColumns->getFromTable($GLOBALS['db'], $GLOBALS['table']);
 
         /**
          * Displays Space usage and row statistics
@@ -253,12 +252,12 @@ class StructureController extends AbstractController
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
-            'indexes' => Index::getFromTable($this->table, $this->db),
-            'indexes_duplicates' => Index::findDuplicates($this->table, $this->db),
+            'indexes' => Index::getFromTable($GLOBALS['table'], $GLOBALS['db']),
+            'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], $GLOBALS['db']),
             'relation_parameters' => $relationParameters,
             'hide_structure_actions' => $GLOBALS['cfg']['HideStructureActions'] === true,
-            'db' => $this->db,
-            'table' => $this->table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'db_is_system_schema' => $isSystemSchema,
             'tbl_is_view' => $tbl_is_view,
             'mime_map' => $mime_map,
@@ -280,8 +279,8 @@ class StructureController extends AbstractController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
-            'partitions' => Partition::getPartitions($this->db, $this->table),
-            'partition_names' => Partition::getPartitionNames($this->db, $this->table),
+            'partitions' => Partition::getPartitions($GLOBALS['db'], $GLOBALS['table']),
+            'partition_names' => Partition::getPartitionNames($GLOBALS['db'], $GLOBALS['table']),
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
@@ -301,7 +300,7 @@ class StructureController extends AbstractController
         global $tbl_storage_engine, $table_info_num_rows, $tbl_collation;
 
         if (empty($showtable)) {
-            $showtable = $this->dbi->getTable($this->db, $this->table)->getStatusInfo(null, true);
+            $showtable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
         }
 
         if (is_string($showtable)) {

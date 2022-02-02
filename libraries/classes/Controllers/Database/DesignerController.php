@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
 use PhpMyAdmin\ResponseRenderer;
@@ -27,11 +28,10 @@ class DesignerController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         Designer $databaseDesigner,
         DesignerCommon $designerCommon
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->databaseDesigner = $databaseDesigner;
         $this->designerCommon = $designerCommon;
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
@@ -54,14 +55,12 @@ final class ReplaceController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         InsertEdit $insertEdit,
         Transformations $transformations,
         Relation $relation,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->insertEdit = $insertEdit;
         $this->transformations = $transformations;
         $this->relation = $relation;

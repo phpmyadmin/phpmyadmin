@@ -529,8 +529,6 @@ final class Common
 
         $urlParams['db'] = $db;
         $urlParams['table'] = $table;
-        $containerBuilder->setParameter('db', $db);
-        $containerBuilder->setParameter('table', $table);
         $containerBuilder->setParameter('url_params', $urlParams);
     }
 

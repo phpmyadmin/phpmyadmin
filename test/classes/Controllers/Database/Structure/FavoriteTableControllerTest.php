@@ -24,6 +24,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['db'] = 'db';
 
         $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
             ->disableOriginalConstructor()
@@ -39,7 +40,6 @@ class FavoriteTableControllerTest extends AbstractTestCase
         $controller = new FavoriteTableController(
             new ResponseStub(),
             new Template(),
-            'db',
             new Relation($this->dbi)
         );
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -27,15 +28,15 @@ final class DropColumnConfirmationController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $this->db, 'table' => $this->table];
+        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check($db, $table);
 
         $this->render('table/structure/drop_confirm', [
-            'db' => $this->db,
-            'table' => $this->table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'fields' => $selected,
         ]);
     }

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
@@ -27,11 +28,10 @@ class PrivilegesController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         Privileges $privileges,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->privileges = $privileges;
         $this->dbi = $dbi;
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -18,9 +19,9 @@ class SqlAutoCompleteController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->dbi = $dbi;
     }
 

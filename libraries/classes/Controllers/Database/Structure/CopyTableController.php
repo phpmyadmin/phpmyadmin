@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -25,11 +25,10 @@ final class CopyTableController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         Operations $operations,
         StructureController $structureController
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->operations = $operations;
         $this->structureController = $structureController;
     }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Partition;
 
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
@@ -26,11 +26,9 @@ final class OptimizeController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         Maintenance $maintenance
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->model = $maintenance;
     }
 

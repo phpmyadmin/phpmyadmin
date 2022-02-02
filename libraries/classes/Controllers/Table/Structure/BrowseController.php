@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -21,9 +21,9 @@ final class BrowseController extends AbstractController
     /** @var Sql */
     private $sql;
 
-    public function __construct(ResponseRenderer $response, Template $template, string $db, string $table, Sql $sql)
+    public function __construct(ResponseRenderer $response, Template $template, Sql $sql)
     {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->sql = $sql;
     }
 
@@ -55,19 +55,19 @@ final class BrowseController extends AbstractController
         $sql_query = sprintf(
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
-            Util::backquote($this->db),
-            Util::backquote($this->table)
+            Util::backquote($GLOBALS['db']),
+            Util::backquote($GLOBALS['table'])
         );
 
         // Parse and analyze the query
-        [$analyzed_sql_results, $this->db] = ParseAnalyze::sqlQuery($sql_query, $this->db);
+        [$analyzed_sql_results, $GLOBALS['db']] = ParseAnalyze::sqlQuery($sql_query, $GLOBALS['db']);
 
         $this->response->addHTML(
             $this->sql->executeQueryAndGetQueryResponse(
                 $analyzed_sql_results ?? '',
                 false, // is_gotofile
-                $this->db, // db
-                $this->table, // table
+                (string) $GLOBALS['db'], // db
+                $GLOBALS['table'], // table
                 null, // find_real_end
                 null, // sql_query_for_bookmark
                 null, // extra_data

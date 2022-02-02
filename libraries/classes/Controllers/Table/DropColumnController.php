@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Message;
@@ -30,13 +31,11 @@ final class DropColumnController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
         DatabaseInterface $dbi,
         FlashMessages $flash,
         RelationCleanup $relationCleanup
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
         $this->dbi = $dbi;
         $this->flash = $flash;
         $this->relationCleanup = $relationCleanup;
@@ -56,15 +55,15 @@ final class DropColumnController extends AbstractController
         $selectedCount = count($selected);
         if (($_POST['mult_btn'] ?? '') === __('Yes')) {
             $i = 1;
-            $statement = 'ALTER TABLE ' . Util::backquote($this->table);
+            $statement = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']);
 
             foreach ($selected as $field) {
-                $this->relationCleanup->column($this->db, $this->table, $field);
+                $this->relationCleanup->column($GLOBALS['db'], $GLOBALS['table'], $field);
                 $statement .= ' DROP ' . Util::backquote($field);
                 $statement .= $i++ === $selectedCount ? ';' : ',';
             }
 
-            $this->dbi->selectDb($this->db);
+            $this->dbi->selectDb($GLOBALS['db']);
             $result = $this->dbi->tryQuery($statement);
 
             if (! $result) {
@@ -86,6 +85,6 @@ final class DropColumnController extends AbstractController
         }
 
         $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->redirect('/table/structure', ['db' => $this->db, 'table' => $this->table]);
+        $this->redirect('/table/structure', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
     }
 }

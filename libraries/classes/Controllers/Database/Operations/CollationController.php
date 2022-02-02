@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Operations;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -26,11 +26,10 @@ final class CollationController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
         Operations $operations,
         DatabaseInterface $dbi
     ) {
-        parent::__construct($response, $template, $db);
+        parent::__construct($response, $template);
         $this->operations = $operations;
         $this->dbi = $dbi;
     }
