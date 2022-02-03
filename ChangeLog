@@ -30,6 +30,8 @@ phpMyAdmin - ChangeLog
 
 5.1.3 (not yet released)
 - issue #17308 Fix broken pagination links in the navigation sidebar
+- issue #17331 Fix MariaDB has no support for system variable "disabled_storage_engines"
+- issue #17315 Fix unsupported operand types in Results.php when running "SHOW PROCESSLIST" SQL query
 
 5.1.2 (2022-01-20)
 - issue        Replaced MySQL documentation redirected links

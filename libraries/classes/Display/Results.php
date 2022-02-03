@@ -2242,7 +2242,7 @@ class Results
             $copyUrl = null;
             $copyString = null;
             $editUrl = null;
-            $editCopyUrlParams = null;
+            $editCopyUrlParams = [];
             $delUrlParams = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
@@ -2937,6 +2937,12 @@ class Results
      * @param string $urlSqlQuery    the analyzed sql query
      *
      * @return array<int,string|array<string, bool|string>>
+     * @phpstan-return array{string, string, string, string,
+     *  array{
+     *    db: string, table: string, where_clause: string,
+     *    clause_is_unique: bool, sql_query: string, goto: string
+     *  }
+     * }
      */
     private function getModifiedLinks(
         $whereClause,
