@@ -631,6 +631,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 3
 			path: libraries/classes/Display/Results.php
