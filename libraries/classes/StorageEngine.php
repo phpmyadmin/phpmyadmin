@@ -109,7 +109,7 @@ class StorageEngine
 
         if ($storage_engines == null) {
             $storage_engines = $dbi->fetchResult('SHOW STORAGE ENGINES', 'Engine');
-            if ($dbi->getVersion() >= 50708) {
+            if (! $dbi->isMariaDB() && $dbi->getVersion() >= 50708) {
                 $disabled = (string) SessionCache::get(
                     'disabled_storage_engines',
                     /** @return mixed|false */

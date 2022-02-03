@@ -2866,16 +2866,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string\\|null and array\\{default_action\\: 'insert'\\} results in an error\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string\\|null and array\\{default_action\\: 'update'\\} results in an error\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php

@@ -5990,28 +5990,14 @@
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand occurrences="6">
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$colVisibCurrent</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$firstStatement-&gt;order[$key]</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="8">
+    <PossiblyNullOperand occurrences="2">
       <code>$dispval</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
       <code>$this-&gt;getSortedColumnMessage($dtResult, $sortExpressionNoDirection[$i])</code>
     </PossiblyNullOperand>
     <RedundantCast occurrences="3">
