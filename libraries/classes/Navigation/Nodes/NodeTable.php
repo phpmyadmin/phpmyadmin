@@ -66,7 +66,7 @@ class NodeTable extends NodeDatabaseChild
             ],
             'title' => $this->title,
         ];
-        $this->classes = 'table';
+        $this->classes = 'nav_node_table';
         $this->urlParamName = 'table';
     }
 
