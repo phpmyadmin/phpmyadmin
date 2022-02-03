@@ -5674,7 +5674,7 @@
   </file>
   <file src="libraries/classes/Display/Results.php">
     <DocblockTypeContradiction occurrences="2">
-      <code>$displayParts['nav_bar'] == '1' &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
+      <code>$displayParts-&gt;hasNavigationBar &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
       <code>[]</code>
     </DocblockTypeContradiction>
     <InvalidArgument occurrences="2">
@@ -5684,7 +5684,7 @@
     <InvalidArrayOffset occurrences="1">
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="53">
+    <MixedArgument occurrences="49">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -5707,10 +5707,6 @@
       <code>$displayParams['desc']</code>
       <code>$displayParams['emptyafter']</code>
       <code>$displayParams['emptypre']</code>
-      <code>$displayParts</code>
-      <code>$displayParts['del_lnk']</code>
-      <code>$displayParts['del_lnk']</code>
-      <code>$displayParts['pview_lnk']</code>
       <code>$expr-&gt;alias</code>
       <code>$field-&gt;table</code>
       <code>$mediaTypeMap[$orgFullColName]['mimetype']</code>
@@ -5746,7 +5742,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="68">
+    <MixedArrayAccess occurrences="64">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -5790,10 +5786,6 @@
       <code>$colOrder[$j]</code>
       <code>$colVisib[$j]</code>
       <code>$displayParams['data'][$rowNumber]</code>
-      <code>$displayParts['nav_bar']</code>
-      <code>$displayParts['nav_bar']</code>
-      <code>$displayParts['nav_bar']</code>
-      <code>$displayParts['sort_lnk']</code>
       <code>$oneKey['index_list']</code>
       <code>$oneKey['ref_db_name']</code>
       <code>$oneKey['ref_db_name']</code>
@@ -5891,7 +5883,7 @@
       <code>$row[$sortedColumnIndex]</code>
       <code>$row[$sortedColumnIndex]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="50">
+    <MixedAssignment occurrences="51">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -5939,6 +5931,7 @@
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
       <code>$theTotal</code>
+      <code>$total</code>
       <code>$value</code>
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
       <code>$whereClauseMap[$rowNumber][$this-&gt;properties['table']]</code>

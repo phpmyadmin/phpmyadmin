@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -1059,15 +1060,15 @@ class Sql
             return $queryMessage;
         }
 
-        $displayParts = [
-            'edit_lnk' => null,
-            'del_lnk' => null,
-            'sort_lnk' => '1',
-            'nav_bar' => '0',
-            'bkm_form' => '1',
-            'text_btn' => '1',
-            'pview_lnk' => '1',
-        ];
+        $displayParts = DisplayParts::fromArray([
+            'hasEditLink' => false,
+            'deleteLink' => DisplayParts::NO_DELETE,
+            'hasSortLink' => true,
+            'hasNavigationBar' => false,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => true,
+            'hasPrintLink' => true,
+        ]);
 
         $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
@@ -1164,7 +1165,6 @@ class Sql
      * Function to get html for the sql query results table
      *
      * @param DisplayResults             $displayResultsObject instance of DisplayResult
-     * @param array                      $displayParts         the parts to display
      * @param bool                       $editable             whether the result table is
      *                                                         editable or not
      * @param int|string                 $unlimNumRows         unlimited number of rows
@@ -1178,7 +1178,7 @@ class Sql
      */
     private function getHtmlForSqlQueryResultsTable(
         $displayResultsObject,
-        array $displayParts,
+        DisplayParts $displayParts,
         $editable,
         $unlimNumRows,
         $numRows,
@@ -1228,15 +1228,15 @@ class Sql
                         $isBrowseDistinct
                     );
 
-                    $displayParts = [
-                        'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
-                        'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
-                        'sort_lnk' => '1',
-                        'nav_bar' => '1',
-                        'bkm_form' => '1',
-                        'text_btn' => '1',
-                        'pview_lnk' => '1',
-                    ];
+                    $displayParts = DisplayParts::fromArray([
+                        'hasEditLink' => false,
+                        'deleteLink' => DisplayParts::NO_DELETE,
+                        'hasSortLink' => true,
+                        'hasNavigationBar' => true,
+                        'hasBookmarkForm' => true,
+                        'hasTextButton' => true,
+                        'hasPrintLink' => true,
+                    ]);
 
                     $tableHtml .= $displayResultsObject->getTable(
                         $result,
@@ -1458,38 +1458,38 @@ class Sql
 
         $_SESSION['tmpval']['possible_as_geometry'] = $editable;
 
-        $displayParts = [
-            'edit_lnk' => $displayResultsObject::UPDATE_ROW,
-            'del_lnk' => $displayResultsObject::DELETE_ROW,
-            'sort_lnk' => '1',
-            'nav_bar' => '1',
-            'bkm_form' => '1',
-            'text_btn' => '0',
-            'pview_lnk' => '1',
-        ];
+        $displayParts = DisplayParts::fromArray([
+            'hasEditLink' => true,
+            'deleteLink' => DisplayParts::DELETE_ROW,
+            'hasSortLink' => true,
+            'hasNavigationBar' => true,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => false,
+            'hasPrintLink' => true,
+        ]);
 
         if (Utilities::isSystemSchema($db) || ! $editable) {
-            $displayParts = [
-                'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
-                'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
-                'sort_lnk' => '1',
-                'nav_bar' => '1',
-                'bkm_form' => '1',
-                'text_btn' => '1',
-                'pview_lnk' => '1',
-            ];
+            $displayParts = DisplayParts::fromArray([
+                'hasEditLink' => false,
+                'deleteLink' => DisplayParts::NO_DELETE,
+                'hasSortLink' => true,
+                'hasNavigationBar' => true,
+                'hasBookmarkForm' => true,
+                'hasTextButton' => true,
+                'hasPrintLink' => true,
+            ]);
         }
 
         if (isset($_POST['printview']) && $_POST['printview'] == '1') {
-            $displayParts = [
-                'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
-                'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
-                'sort_lnk' => '0',
-                'nav_bar' => '0',
-                'bkm_form' => '0',
-                'text_btn' => '0',
-                'pview_lnk' => '0',
-            ];
+            $displayParts = DisplayParts::fromArray([
+                'hasEditLink' => false,
+                'deleteLink' => DisplayParts::NO_DELETE,
+                'hasSortLink' => false,
+                'hasNavigationBar' => false,
+                'hasBookmarkForm' => false,
+                'hasTextButton' => false,
+                'hasPrintLink' => false,
+            ]);
         }
 
         if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
@@ -1534,7 +1534,7 @@ class Sql
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if (
             $bookmarkFeature !== null
-            && $displayParts['bkm_form'] == '1'
+            && $displayParts->hasBookmarkForm
             && empty($_GET['id_bookmark'])
             && $sqlQuery
         ) {
