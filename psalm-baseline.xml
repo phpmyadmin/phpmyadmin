@@ -801,6 +801,8 @@
     <InvalidScalarArgument occurrences="1">
       <code>$original_length</code>
     </InvalidScalarArgument>
+    <LessSpecificReturnStatement occurrences="1"/>
+    <MoreSpecificReturnType occurrences="1"/>
     <ParadoxicalCondition occurrences="3">
       <code>! isset($column) || $column === null</code>
       <code>! isset($column) || $column === null</code>
@@ -811,14 +813,6 @@
       <code>$col_visib</code>
       <code>$sortExpressionNoDirection</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand occurrences="6">
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-      <code>$editCopyUrlParams</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="4">
       <code>$col_visib_current</code>
       <code>$col_visib_current</code>
