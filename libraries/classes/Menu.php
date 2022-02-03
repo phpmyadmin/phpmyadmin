@@ -234,6 +234,9 @@ class Menu
         $isSuperUser = $this->dbi->isSuperUser();
         $isCreateOrGrantUser = $this->dbi->isGrantUser() || $this->dbi->isCreateUser();
 
+        $tableCountQuery = 'SELECT COUNT(*) AS `count` FROM ' . $this->db . '.' . $this->table;
+        $result = $this->dbi->tryQueryAsControlUser($tableCountQuery);
+
         $tabs = [];
 
         $tabs['browse']['icon'] = 'b_browse';
@@ -255,14 +258,16 @@ class Menu
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['active'] = $route === '/table/sql';
 
-        $tabs['search']['icon'] = 'b_search';
-        $tabs['search']['text'] = __('Search');
-        $tabs['search']['route'] = '/table/search';
-        $tabs['search']['active'] = in_array($route, [
-            '/table/find-replace',
-            '/table/search',
-            '/table/zoom-search',
-        ]);
+        if ($result->fetchAssoc()['count']) {
+            $tabs['search']['icon'] = 'b_search';
+            $tabs['search']['text'] = __('Search');
+            $tabs['search']['route'] = '/table/search';
+            $tabs['search']['active'] = in_array($route, [
+                '/table/find-replace',
+                '/table/search',
+                '/table/zoom-search',
+            ]);
+        }
 
         if (! $isSystemSchema && (! $tableIsView || $updatableView)) {
             $tabs['insert']['icon'] = 'b_insrow';
