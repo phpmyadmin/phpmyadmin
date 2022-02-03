@@ -49,9 +49,13 @@
         </a>
     </td>
     <td class="text-center d-print-none">
-        <a href="{{ url('/table/search', table_url_params) }}">
+        {% if may_have_rows %}
+            <a href="{{ url('/table/search', table_url_params) }}">
+        {% endif %}
           {{ may_have_rows ? get_icon('b_select', 'Search'|trans) : get_icon('bd_select', 'Search'|trans) }}
-        </a>
+        {% if may_have_rows %}
+            </a>
+        {% endif %}
     </td>
 
     {% if not db_is_system_schema %}
