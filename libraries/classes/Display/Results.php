@@ -3258,8 +3258,6 @@ class Results
      * @param bool   $clause_is_unique the unique condition of clause
      * @param string $url_sql_query    the analyzed sql query
      *
-     * @return array<int,string|array>       5 element array - $edit_url, $copy_url,
-     *                                                   $edit_str, $copy_str
      * @phpstan-return array{string, string, string, string,
      *  array{
      *    db: string, table: string, where_clause: string,
