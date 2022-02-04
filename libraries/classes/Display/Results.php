@@ -84,12 +84,6 @@ use function trim;
  */
 class Results
 {
-    // Define constants
-    public const NO_EDIT_OR_DELETE = 'nn';
-    public const UPDATE_ROW = 'ur';
-    public const DELETE_ROW = 'dr';
-    public const KILL_PROCESS = 'kp';
-
     public const POSITION_LEFT = 'left';
     public const POSITION_RIGHT = 'right';
     public const POSITION_BOTH = 'both';
@@ -451,33 +445,24 @@ class Results
 
     /**
      * Defines the parts to display for a print view
-     *
-     * @param array $displayParts the parts to display
-     *
-     * @return array the modified display parts
      */
-    private function setDisplayPartsForPrintView(array $displayParts)
+    private function setDisplayPartsForPrintView(DisplayParts $displayParts): DisplayParts
     {
-        // set all elements to false!
-        $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE; // no edit link
-        $displayParts['del_lnk'] = self::NO_EDIT_OR_DELETE; // no delete link
-        $displayParts['sort_lnk'] = '0';
-        $displayParts['nav_bar'] = '0';
-        $displayParts['bkm_form'] = '0';
-        $displayParts['text_btn'] = '0';
-        $displayParts['pview_lnk'] = '0';
-
-        return $displayParts;
+        return $displayParts->with([
+            'hasEditLink' => false,
+            'deleteLink' => DisplayParts::NO_DELETE,
+            'hasSortLink' => false,
+            'hasNavigationBar' => false,
+            'hasBookmarkForm' => false,
+            'hasTextButton' => false,
+            'hasPrintLink' => false,
+        ]);
     }
 
     /**
      * Defines the parts to display for a SHOW statement
-     *
-     * @param array $displayParts the parts to display
-     *
-     * @return array the modified display parts
      */
-    private function setDisplayPartsForShow(array $displayParts)
+    private function setDisplayPartsForShow(DisplayParts $displayParts): DisplayParts
     {
         preg_match(
             '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
@@ -493,78 +478,51 @@ class Results
             $bIsProcessList = strpos($str, 'PROCESSLIST') > 0;
         }
 
-        // no edit link
-        $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-        if ($bIsProcessList) {
-            // "kill process" type edit link
-            $displayParts['del_lnk'] = self::KILL_PROCESS;
-        } else {
-            // Default case -> no links
-            // no delete link
-            $displayParts['del_lnk'] = self::NO_EDIT_OR_DELETE;
-        }
-
-        // Other settings
-        $displayParts['sort_lnk'] = '0';
-        $displayParts['nav_bar'] = '0';
-        $displayParts['bkm_form'] = '1';
-        $displayParts['text_btn'] = '1';
-        $displayParts['pview_lnk'] = '1';
-
-        return $displayParts;
+        return $displayParts->with([
+            'hasEditLink' => false,
+            'deleteLink' => $bIsProcessList ? DisplayParts::KILL_PROCESS : DisplayParts::NO_DELETE,
+            'hasSortLink' => false,
+            'hasNavigationBar' => false,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => true,
+            'hasPrintLink' => true,
+        ]);
     }
 
     /**
      * Defines the parts to display for statements not related to data
-     *
-     * @param array $displayParts the parts to display
-     *
-     * @return array the modified display parts
      */
-    private function setDisplayPartsForNonData(array $displayParts)
+    private function setDisplayPartsForNonData(DisplayParts $displayParts): DisplayParts
     {
         // Statement is a "SELECT COUNT", a
         // "CHECK/ANALYZE/REPAIR/OPTIMIZE/CHECKSUM", an "EXPLAIN" one or
         // contains a "PROC ANALYSE" part
-        $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE; // no edit link
-        $displayParts['del_lnk'] = self::NO_EDIT_OR_DELETE; // no delete link
-        $displayParts['sort_lnk'] = '0';
-        $displayParts['nav_bar'] = '0';
-        $displayParts['bkm_form'] = '1';
-
-        if ($this->properties['is_maint']) {
-            $displayParts['text_btn'] = '1';
-        } else {
-            $displayParts['text_btn'] = '0';
-        }
-
-        $displayParts['pview_lnk'] = '1';
-
-        return $displayParts;
+        return $displayParts->with([
+            'hasEditLink' => false,
+            'deleteLink' => DisplayParts::NO_DELETE,
+            'hasSortLink' => false,
+            'hasNavigationBar' => false,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => (bool) $this->properties['is_maint'],
+            'hasPrintLink' => true,
+        ]);
     }
 
     /**
-     * Defines the parts to display for other statements (probably SELECT)
-     *
-     * @param array $displayParts the parts to display
-     *
-     * @return array the modified display parts
+     * Defines the parts to display for other statements (probably SELECT).
      */
-    private function setDisplayPartsForSelect(array $displayParts)
+    private function setDisplayPartsForSelect(DisplayParts $displayParts): DisplayParts
     {
-        // Other statements (ie "SELECT" ones) -> updates
-        // $displayParts['edit_lnk'], $displayParts['del_lnk'] and
-        // $displayParts['text_btn'] (keeps other default values)
-
         $fieldsMeta = $this->properties['fields_meta'];
         $previousTable = '';
-        $displayParts['text_btn'] = '1';
         $numberOfColumns = $this->properties['fields_cnt'];
+        $hasTextButton = true;
+        $hasEditLink = $displayParts->hasEditLink;
+        $deleteLink = $displayParts->deleteLink;
+        $hasPrintLink = $displayParts->hasPrintLink;
 
         for ($i = 0; $i < $numberOfColumns; $i++) {
-            $isLink = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
-                || ($displayParts['sort_lnk'] != '0');
+            $isLink = $hasEditLink || $deleteLink !== DisplayParts::NO_DELETE || $displayParts->hasSortLink;
 
             // Displays edit/delete/sort/insert links?
             if (
@@ -574,19 +532,13 @@ class Results
                 && $fieldsMeta[$i]->table != $previousTable
             ) {
                 // don't display links
-                $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-                $displayParts['del_lnk'] = self::NO_EDIT_OR_DELETE;
-                /**
-                 * @todo May be problematic with same field names
-                 * in two joined table.
-                 */
-                if ($displayParts['text_btn'] == '1') {
-                    break;
-                }
+                $hasEditLink = false;
+                $deleteLink = DisplayParts::NO_DELETE;
+                break;
             }
 
             // Always display print view link
-            $displayParts['pview_lnk'] = '1';
+            $hasPrintLink = true;
             if ($fieldsMeta[$i]->table == '') {
                 continue;
             }
@@ -596,11 +548,16 @@ class Results
 
         if ($previousTable == '') { // no table for any of the columns
             // don't display links
-            $displayParts['edit_lnk'] = self::NO_EDIT_OR_DELETE;
-            $displayParts['del_lnk'] = self::NO_EDIT_OR_DELETE;
+            $hasEditLink = false;
+            $deleteLink = DisplayParts::NO_DELETE;
         }
 
-        return $displayParts;
+        return $displayParts->with([
+            'hasEditLink' => $hasEditLink,
+            'deleteLink' => $deleteLink,
+            'hasTextButton' => $hasTextButton,
+            'hasPrintLink' => $hasPrintLink,
+        ]);
     }
 
     /**
@@ -609,17 +566,14 @@ class Results
      *
      * @see     getTable()
      *
-     * @param array $displayParts the parts to display (see a few
-     *                            lines above for explanations)
-     *
-     * @return array the first element is an array with explicit indexes
-     *               for all the display elements
+     * @return array<int, DisplayParts|int|mixed> the first element is a {@see DisplayParts} object
      *               the second element is the total number of rows returned
      *               by the SQL query without any programmatically appended
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
+     * @psalm-return array{DisplayParts, int|mixed}
      */
-    private function setDisplayPartsAndTotal(array $displayParts)
+    private function setDisplayPartsAndTotal(DisplayParts $displayParts): array
     {
         $theTotal = 0;
 
@@ -649,8 +603,8 @@ class Results
         if ($unlimNumRows > 0) {
             $theTotal = $unlimNumRows;
         } elseif (
-            ($displayParts['nav_bar'] == '1')
-            || ($displayParts['sort_lnk'] == '1')
+            $displayParts->hasNavigationBar
+            || $displayParts->hasSortLink
             && $db !== '' && $table !== ''
         ) {
             $theTotal = $this->dbi->getTable($db, $table)->countRecords();
@@ -659,21 +613,23 @@ class Results
         // if for COUNT query, number of rows returned more than 1
         // (may be being used GROUP BY)
         if ($this->properties['is_count'] && $numRows > 1) {
-            $displayParts['nav_bar'] = '1';
-            $displayParts['sort_lnk'] = '1';
+            $displayParts = $displayParts->with([
+                'hasNavigationBar' => true,
+                'hasSortLink' => true,
+            ]);
         }
 
         // 4. If navigation bar or sorting fields names URLs should be
         //    displayed but there is only one row, change these settings to
         //    false
-        if ($displayParts['nav_bar'] == '1' || $displayParts['sort_lnk'] == '1') {
+        if ($displayParts->hasNavigationBar || $displayParts->hasSortLink) {
             // - Do not display sort links if less than 2 rows.
             // - For a VIEW we (probably) did not count the number of rows
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
             $tableObject = new Table($table, $db);
             if ($unlimNumRows < 2 && ! $tableObject->isView()) {
-                $displayParts['sort_lnk'] = '0';
+                $displayParts = $displayParts->with(['hasSortLink' => false]);
             }
         }
 
@@ -968,7 +924,6 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array              $displayParts              which elements to display
      * @param array              $analyzedSqlResults        analyzed sql results
      * @param array              $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression
@@ -981,7 +936,7 @@ class Results
      * @return string html content
      */
     private function getTableHeadersForColumns(
-        array $displayParts,
+        bool $hasSortLink,
         array $analyzedSqlResults,
         array $sortExpression,
         array $sortExpressionNoDirection,
@@ -1029,7 +984,7 @@ class Results
             $comments = $this->getCommentForRow($commentsMap, $fieldsMeta[$i]);
             $displayParams = $this->properties['display_params'] ?? [];
 
-            if (($displayParts['sort_lnk'] == '1') && ! $isLimitedDisplay) {
+            if ($hasSortLink && ! $isLimitedDisplay) {
                 $sortedHeaderData = $this->getOrderLinkAndSortedHeaderHtml(
                     $fieldsMeta[$i],
                     $sortExpression,
@@ -1074,7 +1029,7 @@ class Results
         }
 
         return $this->template->render('display/results/table_headers_for_columns', [
-            'is_sortable' => $displayParts['sort_lnk'] == '1' && ! $isLimitedDisplay,
+            'is_sortable' => $hasSortLink && ! $isLimitedDisplay,
             'columns' => $columns,
         ]);
     }
@@ -1084,7 +1039,6 @@ class Results
      *
      * @see getTable()
      *
-     * @param array              $displayParts              which elements to display
      * @param array              $analyzedSqlResults        analyzed sql results
      * @param string             $unsortedSqlQuery          the unsorted sql query
      * @param array              $sortExpression            sort expression
@@ -1102,7 +1056,7 @@ class Results
      * }
      */
     private function getTableHeaders(
-        array $displayParts,
+        DisplayParts $displayParts,
         array $analyzedSqlResults,
         $unsortedSqlQuery,
         array $sortExpression = [],
@@ -1136,8 +1090,8 @@ class Results
 
         // 1. Set $colspan and generate html with full/partial
         // text button or link
-        $colspan = $displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
-            && $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE ? ' colspan="4"' : '';
+        $colspan = $displayParts->hasEditLink
+            && $displayParts->deleteLink !== DisplayParts::NO_DELETE ? ' colspan="4"' : '';
         $buttonHtml = $this->getFieldVisibilityParams($displayParts, $fullOrPartialTextLink, $colspan);
 
         // 2. Displays the fields' name
@@ -1150,7 +1104,7 @@ class Results
 
         // Get the headers for all of the columns
         $tableHeadersForColumns = $this->getTableHeadersForColumns(
-            $displayParts,
+            $displayParts->hasSortLink,
             $analyzedSqlResults,
             $sortExpression,
             $sortExpressionNoDirection,
@@ -1168,8 +1122,8 @@ class Results
         return [
             'column_order' => $columnOrder,
             'options' => $optionsBlock,
-            'has_bulk_actions_form' => $displayParts['del_lnk'] === self::DELETE_ROW
-                || $displayParts['del_lnk'] === self::KILL_PROCESS,
+            'has_bulk_actions_form' => $displayParts->deleteLink === DisplayParts::DELETE_ROW
+                || $displayParts->deleteLink === DisplayParts::KILL_PROCESS,
             'button' => $buttonHtml,
             'table_headers_for_columns' => $tableHeadersForColumns,
             'column_at_right_side' => $columnAtRightSide,
@@ -1270,14 +1224,13 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array  $displayParts          which elements to display
      * @param string $fullOrPartialTextLink full/partial link or text button
      * @param string $colspan               column span of table header
      *
      * @return string html with full/partial text button or link
      */
     private function getFieldVisibilityParams(
-        array $displayParts,
+        DisplayParts $displayParts,
         string $fullOrPartialTextLink,
         string $colspan
     ) {
@@ -1286,20 +1239,19 @@ class Results
         // 1. Displays the full/partial text button (part 1)...
         $buttonHtml = '<thead class="table-light"><tr>' . "\n";
 
-        $emptyPreCondition = $displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
-                           && $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE;
+        $emptyPreCondition = $displayParts->hasEditLink && $displayParts->deleteLink !== DisplayParts::NO_DELETE;
 
         $leftOrBoth = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT
                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
 
         //     ... before the result table
         if (
-            ($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE)
-            && ($displayParts['text_btn'] == '1')
+            ! $displayParts->hasEditLink
+            && $displayParts->deleteLink === DisplayParts::NO_DELETE
+            && $displayParts->hasTextButton
         ) {
-            $displayParams['emptypre'] = $emptyPreCondition ? 4 : 0;
-        } elseif ($leftOrBoth && ($displayParts['text_btn'] == '1')) {
+            $displayParams['emptypre'] = 0;
+        } elseif ($leftOrBoth && $displayParts->hasTextButton) {
             //     ... at the left column of the result table header if possible
             //     and required
 
@@ -1309,8 +1261,7 @@ class Results
                 . '>' . $fullOrPartialTextLink . '</th>';
         } elseif (
             $leftOrBoth
-            && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
+            && ($displayParts->hasEditLink || $displayParts->deleteLink !== DisplayParts::NO_DELETE)
         ) {
             //     ... elseif no button, displays empty(ies) col(s) if required
 
@@ -1945,14 +1896,13 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array  $displayParts          which elements to display
      * @param string $fullOrPartialTextLink full/partial link or text button
      * @param string $colspan               column span of table header
      *
      * @return string  html content
      */
     private function getColumnAtRightSide(
-        array $displayParts,
+        DisplayParts $displayParts,
         string $fullOrPartialTextLink,
         string $colspan
     ) {
@@ -1964,12 +1914,11 @@ class Results
         if (
             ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
             || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-            && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
-            && ($displayParts['text_btn'] == '1')
+            && ($displayParts->hasEditLink || $displayParts->deleteLink !== DisplayParts::NO_DELETE)
+            && $displayParts->hasTextButton
         ) {
-            $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
+            $displayParams['emptyafter'] = $displayParts->hasEditLink
+                && $displayParts->deleteLink !== DisplayParts::NO_DELETE ? 4 : 1;
 
             $rightColumnHtml .= "\n"
                 . '<th class="column_action d-print-none"' . $colspan . '>'
@@ -1978,15 +1927,15 @@ class Results
         } elseif (
             ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-            && (($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE))
+            && (! $displayParts->hasEditLink
+            && $displayParts->deleteLink === DisplayParts::NO_DELETE)
             && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
         ) {
             //     ... elseif no button, displays empty columns if required
             // (unless coming from Browse mode print view)
 
-            $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
+            $displayParams['emptyafter'] = $displayParts->hasEditLink
+                && $displayParts->deleteLink !== DisplayParts::NO_DELETE ? 4 : 1;
 
             $rightColumnHtml .= "\n" . '<td class="d-print-none"' . $colspan
                 . '></td>';
@@ -2135,7 +2084,6 @@ class Results
      *
      * @param ResultInterface         $dtResult           the link id associated to the query
      *                                                                      which results have to be displayed
-     * @param array                   $displayParts       which elements to display
      * @param array<string, string[]> $map                the list of relations
      * @param array                   $analyzedSqlResults analyzed sql results
      * @param bool                    $isLimitedDisplay   with limited operations or not
@@ -2146,7 +2094,7 @@ class Results
      */
     private function getTableBody(
         ResultInterface $dtResult,
-        array $displayParts,
+        DisplayParts $displayParts,
         array $map,
         array $analyzedSqlResults,
         $isLimitedDisplay = false
@@ -2248,8 +2196,8 @@ class Results
             // 1.2 Defines the URLs for the modify/delete link(s)
 
             if (
-                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                $displayParts->hasEditLink
+                || ($displayParts->deleteLink !== DisplayParts::NO_DELETE)
             ) {
                 $expressions = [];
 
@@ -2279,7 +2227,7 @@ class Results
                 $this->properties['whereClauseMap'] = $whereClauseMap;
 
                 // 1.2.1 Modify link(s) - update row case
-                if ($displayParts['edit_lnk'] === self::UPDATE_ROW) {
+                if ($displayParts->hasEditLink) {
                     [
                         $editUrl,
                         $copyUrl,
@@ -2294,7 +2242,7 @@ class Results
                     $whereClause,
                     $clauseIsUnique,
                     $urlSqlQuery,
-                    $displayParts['del_lnk'],
+                    $displayParts->deleteLink,
                     (int) $row[0]
                 );
 
@@ -2305,7 +2253,7 @@ class Results
                 ) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_LEFT,
-                        'has_checkbox' => $deleteUrl && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DisplayParts::KILL_PROCESS,
                         'edit' => [
                             'url' => $editUrl,
                             'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -2327,7 +2275,7 @@ class Results
                 } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_NONE,
-                        'has_checkbox' => $deleteUrl && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                        'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DisplayParts::KILL_PROCESS,
                         'edit' => [
                             'url' => $editUrl,
                             'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -2367,14 +2315,14 @@ class Results
 
             // 3. Displays the modify/delete links on the right if required
             if (
-                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
-                    || $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                ($displayParts->hasEditLink
+                    || $displayParts->deleteLink !== DisplayParts::NO_DELETE)
                 && ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
                     || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             ) {
                 $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                     'position' => self::POSITION_RIGHT,
-                    'has_checkbox' => $deleteUrl && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                    'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DisplayParts::KILL_PROCESS,
                     'edit' => [
                         'url' => $editUrl,
                         'params' => $editCopyUrlParams + ['default_action' => 'update'],
@@ -2988,8 +2936,8 @@ class Results
      * @param string $whereClause    the where clause of the sql
      * @param bool   $clauseIsUnique the unique condition of clause
      * @param string $urlSqlQuery    the analyzed sql query
-     * @param string $deleteLink     the delete link of current row
      * @param int    $processId      Process ID
+     * @psalm-param DisplayParts::NO_DELETE|DisplayParts::DELETE_ROW|DisplayParts::KILL_PROCESS $deleteLink
      *
      * @return array  $del_url, $del_str, $js_conf
      * @psalm-return array{?string, ?string, ?string}
@@ -2998,12 +2946,12 @@ class Results
         $whereClause,
         $clauseIsUnique,
         $urlSqlQuery,
-        $deleteLink,
+        int $deleteLink,
         int $processId
     ) {
         $goto = $this->properties['goto'];
 
-        if ($deleteLink === self::DELETE_ROW) { // delete row case
+        if ($deleteLink === DisplayParts::DELETE_ROW) { // delete row case
             $urlParams = [
                 'db' => $this->properties['db'],
                 'table' => $this->properties['table'],
@@ -3033,7 +2981,7 @@ class Results
                 . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $deleteString = $this->getActionLinkContent('b_drop', __('Delete'));
-        } elseif ($deleteLink === self::KILL_PROCESS) { // kill process case
+        } elseif ($deleteLink === DisplayParts::KILL_PROCESS) { // kill process case
             $urlParams = [
                 'db' => $this->properties['db'],
                 'table' => $this->properties['table'],
@@ -3579,7 +3527,6 @@ class Results
      *
      * @param ResultInterface $dtResult           the link id associated to the query
      *                                   which results have to be displayed
-     * @param array           $displayParts       the parts to display
      * @param array           $analyzedSqlResults analyzed sql results
      * @param bool            $isLimitedDisplay   With limited operations or not
      *
@@ -3587,7 +3534,7 @@ class Results
      */
     public function getTable(
         ResultInterface $dtResult,
-        array &$displayParts,
+        DisplayParts $displayParts,
         array $analyzedSqlResults,
         $isLimitedDisplay = false
     ) {
@@ -3637,7 +3584,7 @@ class Results
         // 1.2 Defines offsets for the next and previous pages
         $posNext = 0;
         $posPrev = 0;
-        if ($displayParts['nav_bar'] == '1') {
+        if ($displayParts->hasNavigationBar) {
             [$posNext, $posPrev] = $this->getOffsets();
         }
 
@@ -3672,7 +3619,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if ($displayParts['nav_bar'] == '1') {
+        if ($displayParts->hasNavigationBar) {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $analyzedSqlResults,
@@ -3702,7 +3649,7 @@ class Results
         $unsortedSqlQuery = '';
         $sortByKeyData = [];
         // can the result be sorted?
-        if ($displayParts['sort_lnk'] == '1' && isset($analyzedSqlResults['statement'])) {
+        if ($displayParts->hasSortLink && isset($analyzedSqlResults['statement'])) {
             $unsortedSqlQuery = Query::replaceClause(
                 $analyzedSqlResults['statement'],
                 $analyzedSqlResults['parser']->list,
@@ -3720,7 +3667,7 @@ class Results
         }
 
         $navigation = [];
-        if ($displayParts['nav_bar'] == '1' && $statement !== null && empty($statement->limit)) {
+        if ($displayParts->hasNavigationBar && $statement !== null && empty($statement->limit)) {
             $navigation = $this->getTableNavigation($posNext, $posPrev, $isInnodb, $sortByKeyData);
         }
 
@@ -3764,12 +3711,12 @@ class Results
         $this->properties['display_params'] = null;
 
         // 4. ----- Prepares the link for multi-fields edit and delete
-        $bulkLinks = $this->getBulkLinks($dtResult, $analyzedSqlResults, $displayParts['del_lnk']);
+        $bulkLinks = $this->getBulkLinks($dtResult, $analyzedSqlResults, $displayParts->deleteLink);
 
         // 5. ----- Prepare "Query results operations"
         $operations = [];
         if (($printView === null || $printView != '1') && ! $isLimitedDisplay) {
-            $operations = $this->getResultsOperations($displayParts['pview_lnk'], $analyzedSqlResults);
+            $operations = $this->getResultsOperations($displayParts->hasPrintLink, $analyzedSqlResults);
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -4090,16 +4037,16 @@ class Results
      * @param ResultInterface $dtResult           the link id associated to the query which
      *                                    results have to be displayed
      * @param array           $analyzedSqlResults analyzed sql results
-     * @param string          $deleteLink         the display element - 'del_link'
+     * @psalm-param DisplayParts::NO_DELETE|DisplayParts::DELETE_ROW|DisplayParts::KILL_PROCESS $deleteLink
      *
      * @psalm-return array{has_export_button:bool, clause_is_unique:mixed}|array<empty, empty>
      */
     private function getBulkLinks(
         ResultInterface $dtResult,
         array $analyzedSqlResults,
-        $deleteLink
+        int $deleteLink
     ): array {
-        if ($deleteLink !== self::DELETE_ROW) {
+        if ($deleteLink !== DisplayParts::DELETE_ROW) {
             return [];
         }
 
@@ -4140,8 +4087,7 @@ class Results
      *
      * @see     getTable()
      *
-     * @param string $printLink          the parts to display
-     * @param array  $analyzedSqlResults analyzed sql results
+     * @param array $analyzedSqlResults analyzed sql results
      *
      * @psalm-return array{
      *   has_export_link: bool,
@@ -4160,7 +4106,7 @@ class Results
      * }
      */
     private function getResultsOperations(
-        string $printLink,
+        bool $hasPrintLink,
         array $analyzedSqlResults
     ): array {
         $urlParams = [
@@ -4218,7 +4164,7 @@ class Results
         return [
             'has_procedure' => ! empty($analyzedSqlResults['procedure']),
             'has_geometry' => $geometryFound,
-            'has_print_link' => $printLink == '1',
+            'has_print_link' => $hasPrintLink,
             'has_export_link' => $analyzedSqlResults['querytype'] === self::QUERY_TYPE_SELECT,
             'url_params' => $urlParams,
         ];

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
@@ -1420,15 +1421,17 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['query']['27b1330f2076ef45d236f20839a92831']['max_rows'] = 25;
 
         $dtResult = $this->dbi->tryQuery($query);
-        $displayParts = [
-            'edit_lnk' => DisplayResults::UPDATE_ROW,
-            'del_lnk' => DisplayResults::DELETE_ROW,
-            'sort_lnk' => '1',
-            'nav_bar' => '1',
-            'bkm_form' => '1',
-            'text_btn' => '0',
-            'pview_lnk' => '1',
-        ];
+
+        $displayParts = DisplayParts::fromArray([
+            'hasEditLink' => true,
+            'deleteLink' => DisplayParts::DELETE_ROW,
+            'hasSortLink' => true,
+            'hasNavigationBar' => true,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => false,
+            'hasPrintLink' => true,
+        ]);
+
         $this->assertNotFalse($dtResult);
         $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
 

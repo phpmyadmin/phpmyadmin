@@ -2876,11 +2876,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getColumnAtRightSide\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getColumnParams\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -2937,11 +2932,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataForResettingColumnOrder\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getFieldVisibilityParams\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3036,17 +3026,7 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableBody\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableBody\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3062,11 +3042,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeaders\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeaders\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3087,11 +3062,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3146,56 +3116,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsAndTotal\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsAndTotal\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForNonData\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForNonData\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForPrintView\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForPrintView\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForSelect\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForSelect\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForShow\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setDisplayPartsForShow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setHighlightedColumnGlobalField\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3227,6 +3147,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$colOrder of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowValues\\(\\) expects array\\|false, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Parameter \\#3 \\$total of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setMessageInformation\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -7877,11 +7802,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getHtmlForSqlQueryResultsTable\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getHtmlForSqlQueryResultsTable\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
