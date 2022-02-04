@@ -161,21 +161,18 @@ class Header
         $this->scripts->addFile('menu_resizer.js');
 
         // Cross-framing protection
+        // At this point browser settings are not merged
+        // this is good that we only use file configuration for this protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->scripts->addFile('cross_framing_protection.js');
         }
 
         $this->scripts->addFile('rte.js');
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
-            $this->scripts->addFile('vendor/tracekit.js');
-            $this->scripts->addFile('error_report.js');
-        }
 
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
         $this->scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
-        $this->scripts->addCode($this->getVariablesForJavaScript());
         $this->scripts->addFile('config.js');
         $this->scripts->addFile('doclinks.js');
         $this->scripts->addFile('functions.js');
@@ -183,12 +180,7 @@ class Header
         $this->scripts->addFile('indexes.js');
         $this->scripts->addFile('common.js');
         $this->scripts->addFile('page_settings.js');
-        if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
-            $this->scripts->addFile('drag_drop_import.js');
-        }
-        if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
-            $this->scripts->addFile('shortcuts_handler.js');
-        }
+
         $this->scripts->addCode($this->getJsParamsCode());
     }
 
@@ -383,7 +375,7 @@ class Header
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
-        // so we can conditionally add CodeMirror
+        // so we can conditionally add CodeMirror, other scripts and settings
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $this->scripts->addFile('vendor/codemirror/lib/codemirror.js');
             $this->scripts->addFile('vendor/codemirror/mode/sql/sql.js');
@@ -397,6 +389,19 @@ class Header
                 );
             }
         }
+
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
+            $this->scripts->addFile('vendor/tracekit.js');
+            $this->scripts->addFile('error_report.js');
+        }
+        if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
+            $this->scripts->addFile('drag_drop_import.js');
+        }
+        if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
+            $this->scripts->addFile('shortcuts_handler.js');
+        }
+
+        $this->scripts->addCode($this->getVariablesForJavaScript());
 
         $this->scripts->addCode(
             'ConsoleEnterExecutes='
