@@ -46,13 +46,7 @@ class Header
      * @var Menu
      */
     private $menu;
-    /**
-     * Whether to offer the option of importing user settings
-     *
-     * @access private
-     * @var bool
-     */
-    private $userprefsOfferImport;
+
     /**
      * The page title
      *
@@ -141,15 +135,6 @@ class Header
         $this->scripts = new Scripts();
         $this->addDefaultScripts();
         $this->headerIsSent = false;
-        // if database storage for user preferences is transient,
-        // offer to load exported settings from localStorage
-        // (detection will be done in JavaScript)
-        $this->userprefsOfferImport = false;
-        if ($GLOBALS['PMA_Config']->get('user_preferences') === 'session'
-            && ! isset($_SESSION['userprefs_autoload'])
-        ) {
-            $this->userprefsOfferImport = true;
-        }
 
         $this->userPreferences = new UserPreferences();
     }
@@ -419,7 +404,17 @@ class Header
         );
         $this->scripts->addFiles($this->console->getScripts());
 
-        if ($this->userprefsOfferImport) {
+        // if database storage for user preferences is transient,
+        // offer to load exported settings from localStorage
+        // (detection will be done in JavaScript)
+        $userprefsOfferImport = false;
+        if ($GLOBALS['PMA_Config']->get('user_preferences') === 'session'
+            && ! isset($_SESSION['userprefs_autoload'])
+        ) {
+            $userprefsOfferImport = true;
+        }
+
+        if ($userprefsOfferImport) {
             $this->scripts->addFile('config.js');
         }
 
@@ -435,7 +430,7 @@ class Header
         $customHeader = Config::renderHeader();
 
         // offer to load user preferences from localStorage
-        if ($this->userprefsOfferImport) {
+        if ($userprefsOfferImport) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
         }
 
