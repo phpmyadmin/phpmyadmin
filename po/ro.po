@@ -289,12 +289,6 @@ msgid "Suboptimal caching method."
 msgstr "Metodă de memorare în cache sub cea optimă."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -304,7 +298,7 @@ msgstr ""
 "Folosești cache interogări MySQL pentru o bază de date cu trafic destul de "
 "mare. Poate trebuie să iei în considerare folosirea <a href=\"https://dev."
 "mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> în loc de "
-"cache interogări MySQL, mai ales dacă ai mai mulți sclavi."
+"cache interogări MySQL, mai ales dacă ai mai multe replici."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -599,17 +593,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size este 0"
 
 #: libraries/advisory_rules_generic.php:371
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "%% maxim tampon cheie MyISAM folosit vreodată"
+msgstr "% maxim tampon cheie MyISAM folosit vreodată"
 
 #: libraries/advisory_rules_generic.php:376
 #: libraries/advisory_rules_generic.php:393
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Tamponul cheie MyISAM folosit (cache index) %% este mic."
+msgstr "Tamponul cheie MyISAM folosit (cache index) % este mic."
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
@@ -646,10 +638,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Procentul de citiri index din memorie"
 
 #: libraries/advisory_rules_generic.php:409
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "%% de indexuri care folosește tamponul cheii MyISAM este mic."
+msgstr "% de indexuri care folosește tamponul cheii MyISAM este mic."
 
 #: libraries/advisory_rules_generic.php:410
 msgid "You may need to increase {key_buffer_size}."
@@ -691,9 +682,6 @@ msgstr "Procentul limitei de fișiere deschise folosite"
 
 #: libraries/advisory_rules_generic.php:433
 #, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
@@ -733,10 +721,9 @@ msgstr ""
 "pe oră"
 
 #: libraries/advisory_rules_generic.php:459
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "Blocări de tabel imediate %%"
+msgstr "Blocări de tabel imediate %"
 
 #: libraries/advisory_rules_generic.php:463
 #: libraries/advisory_rules_generic.php:473
@@ -788,10 +775,9 @@ msgid "The thread cache is set to 0"
 msgstr "Cache-ul firului de execuție este setat la 0"
 
 #: libraries/advisory_rules_generic.php:490
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Rată de succes cache fire de execuție %%"
+msgstr "Rată de succes cache fire de execuție %"
 
 #: libraries/advisory_rules_generic.php:494
 msgid "Thread cache is not efficient."
@@ -987,16 +973,6 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:615
 #: libraries/advisory_rules_generic.php:642
 #, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-#| "proper-innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1011,8 +987,8 @@ msgstr ""
 "De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
 "% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
-"distrugere(eroare gravă) a unei baze de date.  A se vedea de asemenea <a "
-"href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a href="
+"\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
 "ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
 "pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
@@ -1040,16 +1016,6 @@ msgstr "Dimensiunea fișierului jurnal InnoDB este insuficient de mare."
 
 #: libraries/advisory_rules_generic.php:666
 #, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-#| "proper-innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1064,8 +1030,8 @@ msgstr ""
 "De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
 "% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
-"distrugere(eroare gravă) a unei baze de date.  A se vedea de asemenea <a "
-"href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a href="
+"\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
 "ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
 "pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
@@ -1088,17 +1054,6 @@ msgstr "Buffer pool InnoDB este destul de mic."
 
 #: libraries/advisory_rules_generic.php:687
 #, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1115,7 +1070,7 @@ msgstr ""
 "InnoDB. Alocă toată memoria rămasă în acest tampon. Pentru serverele de bază "
 "de date care folosesc exclusiv InnoDB ca motor de stocare și nu a alte "
 "servicii care rulează (de exemplu, un server web), poți seta o valoare mare, "
-"cum ar fi 80%% din memoria disponibilă. În caz contrar, trebuie să evaluezi "
+"cum ar fi 80% din memoria disponibilă. În caz contrar, trebuie să evaluezi "
 "cu atenție consumul de memorie al celorlalte servicii și tabelele non-InnoDB "
 "și să setezi această variabilă în consecință. Dacă este setată o valoare "
 "prea mare, sistemul tău va începe să se schimbe, ceea ce scade semnificativ "
@@ -1183,10 +1138,9 @@ msgstr ""
 "query_cache_size este setat la 0 sau query_cache_type este setat la ”OPRIT”"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Eficiență cache interogări (%%)"
+msgstr "Eficiență cache interogări (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1206,10 +1160,9 @@ msgid "Query Cache usage"
 msgstr "Utilizare cache interogări"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Este utilizat mai puțin de 80%% din cache-ul interogări."
+msgstr "Este utilizat mai puțin de 80% din cache-ul interogări."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -1467,6 +1420,7 @@ msgstr "Caută:"
 #: templates/table/structure/display_structure.twig:437
 #: templates/table/structure/display_structure.twig:555
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
+#: libraries/classes/Controllers/Server/PrivilegesController.php:330
 msgid "Go"
 msgstr "Execută"
 
@@ -1553,8 +1507,6 @@ msgstr "sensibil la accent"
 
 #: libraries/classes/Charsets/Collation.php:310
 #, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "sensibil la accent"
@@ -1816,7 +1768,7 @@ msgstr ""
 "Setarea cookie-urilor de sesiune a eșuat. Probabil folosești HTTP în loc de "
 "HTTPS pentru a accesa phpMyAdmin."
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:550 libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1825,17 +1777,19 @@ msgstr ""
 "Ai activat mbstring.func_overload în configurarea ta PHP. Această opțiune "
 "este incompatibilă cu phpMyAdmin și ar putea provoca deteriorarea unor date!"
 
-#: libraries/classes/Common.php:567
+#: libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Funcțiile ini_get și/sau ini_set sunt dezactivate în php.ini. phpMyAdmin are "
+"nevoie de aceste funcții!"
 
-#: libraries/classes/Common.php:578
+#: libraries/classes/Common.php:578 libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "Încercare suprascriere GLOBALE"
 
-#: libraries/classes/Common.php:588
+#: libraries/classes/Common.php:588 libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "vulnerabilitate potențială"
 
@@ -1880,13 +1834,11 @@ msgstr "Activează compresia bzip2 pentru operațiile de import."
 
 #: libraries/classes/Config/Descriptions.php:106
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:107
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
@@ -1894,31 +1846,26 @@ msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:108
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:109
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:110
 #, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Introdu cheia publică pentru serviciul tău reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:111
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:112
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
@@ -2286,9 +2233,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:288
 #, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -2309,16 +2253,12 @@ msgstr ""
 "sau a tabelului actual."
 
 #: libraries/classes/Config/Descriptions.php:298
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Deschide pagina legată în fereastra principală ([kbd]principală[/kbd]) sau "
-"într-o fereastră nouă ([kbd]nouă[/kbd])."
+"Deschide pagina legată în fereastra principală ([code]principală[/code]) sau "
+"într-o fereastră nouă ([code]nouă[/code])."
 
 #: libraries/classes/Config/Descriptions.php:301
 msgid ""
@@ -2348,7 +2288,6 @@ msgstr "Fie pentru a arăta procedurile bazei de date în arborele de navigare"
 
 #: libraries/classes/Config/Descriptions.php:314
 #, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Fie pentru a arăta evenimentele bazei de date în arborele de navigare"
 
@@ -2451,9 +2390,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:352
 #, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -2720,11 +2656,10 @@ msgid "Leave blank for defaults."
 msgstr "Lasă gol pentru implicite."
 
 #: libraries/classes/Config/Descriptions.php:469
-#, fuzzy
-#| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"Numele HTTP Basic Auth Realm ce va fi afișat când se face autentificarea HTTP"
+"Numele HTTP Basic Auth Realm ce va fi afișat când se face autentificarea "
+"HTTP."
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "Authentication method to use."
@@ -2839,7 +2774,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:505
 #, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Permite afișarea statisticilor pentru baze de date și tabele (de exemplu, "
@@ -2887,12 +2821,6 @@ msgstr ""
 "mărită pentru zonele text ale interogărilor SQL (*2)."
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid ""
-#| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
-#| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
-#| "Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-#| "HTTP_X_FORWARDED_FOR[/kbd]"
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -2902,7 +2830,7 @@ msgstr ""
 "Proxy-uri de intrare ca [kbd] IP: header HTTP de încredere [/kbd]. Următorul "
 "exemplu specifică faptul că phpMyAdmin ar trebui să încredere într-un antet "
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) provenind de la proxy 1.2.3.4: [br]"
-"[kbd] 1.2.3.4: HTTP_X_FORWARDED_FOR [/kbd]"
+"[kbd] 1.2.3.4: HTTP_X_FORWARDED_FOR [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:530
 msgid ""
@@ -2941,9 +2869,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:549
 #, fuzzy
-#| msgid ""
-#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
-#| "configuration storage tables automatically."
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -3492,7 +3417,6 @@ msgstr "Cheie etichetă"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
 #, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
 msgstr "Tip de MIME"
 
@@ -3522,8 +3446,6 @@ msgid "Export as separate files"
 msgstr "Exportă ca fișiere separate"
 
 #: libraries/classes/Config/Descriptions.php:709
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Ține minte șablonul nume fișier"
 
@@ -3594,7 +3516,6 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:732
 #: libraries/classes/Plugins/Export/ExportSql.php:351
 #, fuzzy, php-format
-#| msgid "%s value"
 msgid "%s view"
 msgstr "Valoare %s"
 
@@ -3638,7 +3559,7 @@ msgstr "Verificări chei străine"
 
 #: libraries/classes/Config/Descriptions.php:750
 msgid "First day of calendar"
-msgstr ""
+msgstr "Prima zi din calendar"
 
 #: libraries/classes/Config/Descriptions.php:751
 #: libraries/classes/Config/Descriptions.php:762 libraries/classes/Menu.php:480
@@ -3845,7 +3766,7 @@ msgstr "Nu anulează la eroarea de INSERARE"
 #: libraries/classes/Config/Descriptions.php:800
 #: libraries/classes/Config/Descriptions.php:807
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Adaugă ON DUPLICATE KEY UPDATE"
 
 #: libraries/classes/Config/Descriptions.php:802
 msgid "Format of imported file"
@@ -3956,6 +3877,7 @@ msgstr "Lățime panou de navigare"
 #: libraries/classes/Config/Descriptions.php:834
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 #: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Link with main panel"
 msgstr "Leagă la panoul principal"
 
@@ -4040,7 +3962,6 @@ msgstr "Arată evenimente în arbore"
 
 #: libraries/classes/Config/Descriptions.php:856
 #, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
 msgstr "Copiez baza de date"
 
@@ -4446,6 +4367,7 @@ msgstr "Omite tabele blocate"
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:480
+#: libraries/classes/Display/Results.php:2961
 msgid "Edit"
 msgstr "Editează"
 
@@ -4562,8 +4484,6 @@ msgid "Version check"
 msgstr "Verificare versiune"
 
 #: libraries/classes/Config/Descriptions.php:966
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "URL proxy"
 
@@ -4581,11 +4501,11 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "URL for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Legătură pentru API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Fragment Content-Security-Policy pentru API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:972
 msgid "Request parameter for reCAPTCHA v2 API"
@@ -4593,19 +4513,15 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parametru de răspuns pentru API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:974
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
-msgstr "Cheie publică pentru reCaptcha"
+msgstr "Cheie publică pentru reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:975
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
-msgstr "Cheie publică pentru reCaptcha"
+msgstr "Cheie privată pentru reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCAPTCHA siteverify"
@@ -4639,12 +4555,9 @@ msgid "Show current browsing query"
 msgstr "Arată interogarea răsfoită acum"
 
 #: libraries/classes/Config/Descriptions.php:983
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
-"Execută interogări apăsând pe Enter și inserează o linie nouă cu Shift + "
-"Enter"
+"Execută interogări apăsând pe Enter și inserează o linie nouă cu Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:168
@@ -4753,6 +4666,7 @@ msgstr "Personalizat"
 #: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid "Structure"
 msgstr "Structură"
 
@@ -4878,7 +4792,7 @@ msgid "Invalid server index: %s"
 msgstr "Index server invalid: %s"
 
 #: libraries/classes/Config.php:1240
-#, fuzzy, php-format
+#, php-format
 msgid "Server %d"
 msgstr "Server %d"
 
@@ -5023,19 +4937,15 @@ msgid "no description"
 msgstr "nicio descriere"
 
 #: libraries/classes/ConfigStorage/Relation.php:1555
-#, fuzzy, php-format
-#| msgid ""
-#| "You do not have necessary privileges to create a database named '%s'. You "
-#| "may go to 'Operations' tab of any database to set up the phpMyAdmin "
-#| "configuration storage there."
+#, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"Nu ai privilegiile necesare pentru a crea o bază de date numită "
-"„phpmyadmin”. Poți merge la fila „Operații” a oricărei baze de date pentru a "
-"inițializa acolo spațiul de stocare pentru configurarea phpMyAdmin."
+"Nu ai privilegiile necesare pentru a crea o bază de date numită „%s”. Poți "
+"merge la fila „Operații” a oricărei baze de date pentru a inițializa acolo "
+"spațiul de stocare pentru configurarea phpMyAdmin."
 
 #: libraries/classes/ConfigStorage/UserGroups.php:114
 msgid "View users"
@@ -5176,6 +5086,7 @@ msgstr "Niciun tabel găsit în baza de date."
 #: libraries/classes/Controllers/Database/ExportController.php:143
 #: libraries/classes/Controllers/Server/ExportController.php:73
 #: libraries/classes/Controllers/Table/ExportController.php:103
+#: libraries/classes/Controllers/Table/ExportController.php:104
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Nu am putut încărca modulele de export, te rog verifică-ți instalarea!"
 
@@ -5183,16 +5094,21 @@ msgstr "Nu am putut încărca modulele de export, te rog verifică-ți instalare
 #: libraries/classes/Controllers/Import/ImportController.php:564
 #: libraries/classes/Controllers/Server/ImportController.php:58
 #: libraries/classes/Controllers/Table/ImportController.php:68
+#: libraries/classes/Controllers/Database/ImportController.php:72
+#: libraries/classes/Controllers/Table/ImportController.php:69
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nu am putut încărca module de import, te rog verifică-ți instalarea!"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:47
 #: libraries/classes/Controllers/Table/OperationsController.php:257
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:48
+#: libraries/classes/Controllers/Table/OperationsController.php:258
 msgid "No collation provided."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
 #: libraries/classes/Controllers/Table/CreateController.php:71
+#: libraries/classes/Controllers/Table/CreateController.php:72
 msgid "The database name is empty!"
 msgstr "Numele bazei de date este gol!"
 
@@ -5225,13 +5141,14 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:103
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
 #: libraries/classes/Plugins/AuthenticationPlugin.php:183
+#: libraries/classes/Controllers/Database/SearchController.php:52
 msgid "Access denied!"
 msgstr "Acces refuzat!"
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:21
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:44
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:44
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:44
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:45
 #: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:22
 #: libraries/classes/Controllers/Database/Structure/CopyFormController.php:21
 #: libraries/classes/Controllers/Database/Structure/DropFormController.php:37
@@ -5239,19 +5156,20 @@ msgstr "Acces refuzat!"
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
 #: libraries/classes/Controllers/Export/TablesController.php:29
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:343
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:52
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:52
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:52
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:52
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:52
-#, fuzzy
-#| msgid "No tables selected."
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:54
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:54
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:54
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:54
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:54
 msgid "No table selected."
-msgstr "Nicio bază de date selectată."
+msgstr "Niciun tabel selectat."
 
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:52
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:52
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:52
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
 msgid "Success!"
 msgstr "Succes!"
 
@@ -5277,6 +5195,7 @@ msgstr "Tabelul %s a fost golit."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
 #: libraries/classes/Display/Results.php:3923
+#: libraries/classes/Display/Results.php:3970
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5328,6 +5247,12 @@ msgstr "necunoscut"
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:56
+#: libraries/classes/Controllers/Table/DropColumnController.php:57
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:58
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:82
 msgid "Yes"
 msgstr "Da"
 
@@ -5337,6 +5262,11 @@ msgstr "Da"
 #: libraries/classes/Controllers/Table/OperationsController.php:317
 #: libraries/classes/Controllers/Table/ReplaceController.php:418
 #: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
+#: libraries/classes/Controllers/Table/DropColumnController.php:74
+#: libraries/classes/Controllers/Table/OperationsController.php:318
+#: libraries/classes/Controllers/Table/ReplaceController.php:419
 msgid "No change"
 msgstr "Nicio modificare"
 
@@ -5464,14 +5394,13 @@ msgstr ""
 "(blowfish_secret)."
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr ""
-"Fraza de acces secretă din configurare (blowfish_secret) este prea scurtă."
+"Fraza de acces secretă din configurare (blowfish_secret) nu are lungimea "
+"corectă. Ar trebui să aibe o lungime de %d octeți."
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -5630,10 +5559,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Ești pe cale să TRUNCHIEZI un tabel întreg!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:46
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Ești pe cale să DISTRUGI un tabel întreg!"
+msgstr "Ești pe cale să ȘTERGI toate rândurile din tabel!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "Delete tracking data for this table?"
@@ -5722,7 +5649,6 @@ msgstr "Sigur vrei să înlături partiționarea?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:72
 #, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "Sigur vrei să revoci utilizatorul selectat (utilizatorii selectați)?"
 
@@ -5810,7 +5736,6 @@ msgstr "Editează indexul"
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 #, fuzzy
-#| msgid "Rename view to"
 msgid "Rename index"
 msgstr "Redenumește vizualizarea în"
 
@@ -5867,10 +5792,8 @@ msgid "Y values"
 msgstr "Valori Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:128
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Te rog introdu din nou aceeași valoare"
+msgstr "Te rog introdu mai întâi interogarea SQL."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 msgid "The host name is empty!"
@@ -5947,27 +5870,23 @@ msgstr "Închide"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Blochează"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Deblochează"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "Număr fișiere jurnal"
+msgstr "Blochează acest cont de utilizator."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "Cont utilizator"
+msgstr "Deblochează acest cont de utilizator."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 msgid "Template was created."
@@ -6196,13 +6115,13 @@ msgstr "Te rog adaugă cel puțin o variabilă la serie!"
 #: templates/server/status/processes/list.twig:54
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
+#: libraries/classes/Display/Results.php:1260
 msgid "None"
 msgstr "Niciunul"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 #, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Interogare SQL"
 
@@ -6533,16 +6452,12 @@ msgid "Please select the file you want to import."
 msgstr "Te rog selectează fișierul pe care vrei să-l imporți."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Te rog introdu un nume de pagină valid"
+msgstr "Te rog introdu un nume de tabel valid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Te rog introdu un nume de pagină valid"
+msgstr "Te rog introdu un nume de bază de date valid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
@@ -6810,6 +6725,7 @@ msgstr "Arată caseta de interogare"
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
+#: libraries/classes/Display/Results.php:3029
 msgid "Delete"
 msgstr "Șterge"
 
@@ -7032,8 +6948,7 @@ msgstr "Pentru a mări, selectează o secțiune a plotului cu mausul."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:460
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Dă clic pe pe butonul de resetare a măririi pentru a reveni la starea "
-"inițială."
+"Dă clic pe butonul de resetare a măririi pentru a reveni la starea inițială."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:462
 msgid "Click a data point to view and possibly edit the data row."
@@ -7060,6 +6975,7 @@ msgstr "Conținut punct de date"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:629
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2001
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
 msgid "Ignore"
 msgstr "Ignoră"
 
@@ -7068,6 +6984,7 @@ msgstr "Ignoră"
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
+#: libraries/classes/Display/Results.php:2965
 msgid "Copy"
 msgstr "Copiază"
 
@@ -7234,6 +7151,8 @@ msgstr "Șterge pagina"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Este posibil ca unele tabele salvate în această pagină să fi fost redenumite "
+"sau șterse."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:10
@@ -7271,7 +7190,6 @@ msgstr "Un obiect creat (%d obiecte create)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "Nume coloane"
 
@@ -7282,7 +7200,6 @@ msgstr "Trimite"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Apasă Esc pentru a anula editarea."
 
@@ -7402,24 +7319,29 @@ msgstr "Generează"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 #: templates/table/structure/display_structure.twig:130
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 msgid "More"
 msgstr "Mai mult"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Show panel"
 msgstr "Arată panoul"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 msgid "Hide panel"
 msgstr "Ascunde panoul"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 #: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 msgid "Unlink from main panel"
 msgstr "Anulează legătura din panoul principal"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 #: libraries/classes/Setup/Index.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -7430,14 +7352,17 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:608
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
 msgid ", latest stable version:"
 msgstr ", ultima versiune stabilă:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid "up to date"
 msgstr "la zi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:612
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -7445,14 +7370,17 @@ msgstr ""
 "A apărut o eroare JavaScript fatală. Vrei să trimiți un raport de erori?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid "Change report settings"
 msgstr "Modifică setări rapoarte"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid "Show report details"
 msgstr "Arată detalii raport"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7461,6 +7389,7 @@ msgstr ""
 "nivel de PHP!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7472,79 +7401,91 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 msgid "Some errors have been detected on the server!"
 msgstr "Au fost detectate unele erori pe server!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 msgid "Please look at the bottom of this window."
 msgstr "Te rog uită-te în partea de jos a acestei ferestre."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 #: libraries/classes/ErrorHandler.php:425
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 msgid "Ignore All"
 msgstr "Ignoră tot"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "În funcție de setările tale, aceste sunt trimise acum, te rog ai răbdare."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:646
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
-#, fuzzy
-#| msgid "Successfully deleted the page"
-msgid "Successfully copied!"
-msgstr "Pagină ștearsă cu succes"
-
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:648
-#, fuzzy
-#| msgid "Copying database"
+msgid "Successfully copied!"
+msgstr "Copiat cu succes!"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Copying failed!"
-msgstr "Copiez baza de date"
+msgstr "Copiere eșuată!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:651
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Execute this query again?"
 msgstr "Execuți această interogare din nou?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:652
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Do you really want to delete this bookmark?"
 msgstr "Sigur vrei să ștergi acest semn de carte?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Au apărut erori în timpul obținerii informațiilor de depanare SQL."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s interogări executate de %s ori în %s secunde."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "Un argument trecut (%s argumente trecute)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Show arguments"
 msgstr "Arată argumente"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Hide arguments"
 msgstr "Ascunde argumente"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Time taken:"
 msgstr "Timp luat:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7554,89 +7495,95 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
 msgid "Copy tables to"
 msgstr "Copiază tabelele în"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Add table prefix"
 msgstr "Adaugă prefix tabel"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Replace table with prefix"
 msgstr "Înlocuiește tabelul cu prefix"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 #: templates/database/structure/check_all_tables.twig:28
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Copy table with prefix"
 msgstr "Copiază tabelul cu prefix"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:673
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid "Extremely weak"
 msgstr "Extrem de slabă"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:674
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Very weak"
 msgstr "Foarte slabă"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 msgid "Weak"
 msgstr "Slabă"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Good"
 msgstr "Bună"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Strong"
 msgstr "Puternică"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 #, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "A expirat așteptarea pentru activarea cheii de securitate."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
-#, fuzzy
-#| msgid "Unknown error"
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Eroare necunoscută"
+msgstr "Eroare cheie de securitate necunoscută."
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Clientul nu suportă cheie de securitate."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 #, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Activarea cheii de securitate a eșuat (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
-#, fuzzy
-#| msgid "Invalid export type"
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Tip invalid de export"
+msgstr "Cheie de securitate invalidă."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy, php-format
-#| msgid "Table %s already exists!"
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -7645,6 +7592,7 @@ msgstr "Tabelul %s există deja!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 msgid "Hide"
 msgstr "Ascunde"
 
@@ -7653,6 +7601,8 @@ msgstr "Ascunde"
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/Table/ChangeController.php:188
 msgid "Show"
 msgstr "Arată"
 
@@ -7742,29 +7692,29 @@ msgstr[1] "%1$d baze de data au fost eliminate cu succes."
 msgstr[2] "%1$d de baze de data au fost eliminate cu succes."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Coloanele au fost mutate cu succes."
+msgstr "Contul de utilizator %s@%s a fost blocat cu succes."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Coloanele au fost mutate cu succes."
+msgstr "Contul de utilizator %s@%s a fost deblocat cu succes."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:140
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
+#: libraries/classes/Controllers/Server/PrivilegesController.php:153
 msgid "No Privileges"
 msgstr "Niciun privilegiu"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:149
+#: libraries/classes/Controllers/Server/PrivilegesController.php:162
 #, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:164
+#: libraries/classes/Controllers/Server/PrivilegesController.php:177
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7773,6 +7723,7 @@ msgstr ""
 "numai parola, trebuie să folosești fila „Schimbă parola”."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:393
+#: libraries/classes/Controllers/Server/PrivilegesController.php:406
 msgid "User has been added."
 msgstr "Utilizatorul a fost adăugat."
 
@@ -8246,9 +8197,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:437
 #, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
@@ -8358,8 +8306,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
 #, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
@@ -8367,9 +8313,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
 #, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
@@ -8379,7 +8322,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
 #, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
 "Este PORNIT dacă acest server este un sclav care este conectat la un master."
@@ -8466,7 +8408,6 @@ msgstr "Lipsește parametrul:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 #, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "Cache-ul interogări nu este activat."
 
@@ -8499,7 +8440,7 @@ msgid "Insecure connection"
 msgstr "Conexiune nesigură"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:236
-#: libraries/classes/Sql.php:1155
+#: libraries/classes/Sql.php:1155 libraries/classes/Sql.php:1154
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
@@ -8512,6 +8453,9 @@ msgstr "Semn de carte necreat!"
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:221
 #: libraries/classes/Table/Indexes.php:85
+#: libraries/classes/Controllers/Table/AddFieldController.php:151
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:223
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabelul %1$s a fost modificat cu succes."
@@ -8519,29 +8463,39 @@ msgstr "Tabelul %1$s a fost modificat cu succes."
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:35
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:26
 #: libraries/classes/Controllers/Table/ExportRowsController.php:35
+#: libraries/classes/Controllers/Table/ChangeRowsController.php:36
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
+#: libraries/classes/Controllers/Table/ExportRowsController.php:36
 msgid "No row selected."
 msgstr "Niciun rând selectat."
 
 #: libraries/classes/Controllers/Table/ChartController.php:59
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:69
+#: libraries/classes/Controllers/Table/ChartController.php:60
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:70
 msgid "No SQL query was set to fetch data."
 msgstr "Nu a fost setată nicio interogare SQL pentru aducerea datelor."
 
 #: libraries/classes/Controllers/Table/ChartController.php:144
+#: libraries/classes/Controllers/Table/ChartController.php:145
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/ChartController.php:207
+#: libraries/classes/Controllers/Table/ChartController.php:208
 msgid "No data to display"
 msgstr "Nu sunt date de afișat"
 
 #: libraries/classes/Controllers/Table/CreateController.php:83
 #: libraries/classes/Controllers/Table/GetFieldController.php:54
+#: libraries/classes/Controllers/Table/CreateController.php:84
+#: libraries/classes/Controllers/Table/GetFieldController.php:55
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Baza de date „%s” nu există."
 
 #: libraries/classes/Controllers/Table/CreateController.php:93
+#: libraries/classes/Controllers/Table/CreateController.php:94
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
@@ -8565,6 +8519,22 @@ msgstr "Tabelul %s există deja!"
 #: libraries/classes/Database/Routines.php:1224
 #: libraries/classes/Display/Results.php:3635 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:77
+#: libraries/classes/Controllers/Table/FindReplaceController.php:181
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:83
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:83
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:83
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:83
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:83
+#: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:55
+#: libraries/classes/Controllers/Table/Partition/CheckController.php:55
+#: libraries/classes/Controllers/Table/Partition/DropController.php:56
+#: libraries/classes/Controllers/Table/Partition/OptimizeController.php:55
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:56
+#: libraries/classes/Controllers/Table/Partition/RepairController.php:55
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:56
+#: libraries/classes/Controllers/Table/RelationController.php:242
+#: libraries/classes/Display/Results.php:3682
 msgid "Your SQL query has been executed successfully."
 msgstr "Interogarea SQL a fost executată cu succes."
 
@@ -8579,13 +8549,22 @@ msgstr "Interogarea SQL a fost executată cu succes."
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:48
 #: libraries/classes/Controllers/Table/Structure/SpatialController.php:45
 #: libraries/classes/Controllers/Table/Structure/UniqueController.php:45
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
+#: libraries/classes/Controllers/Table/DropColumnController.php:51
+#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:47
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:45
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:45
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:59
+#: libraries/classes/Controllers/Table/Structure/FulltextController.php:47
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:50
+#: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
+#: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
 msgid "No column selected."
 msgstr "Nicio coloană selectată."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:79
+#: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "O bază de data a fost eliminată cu succes."
@@ -8593,14 +8572,15 @@ msgstr[1] "%1$d baze de data au fost eliminate cu succes."
 msgstr[2] "%1$d de baze de data au fost eliminate cu succes."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:62
+#: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
 msgstr "Nume tabel invalid"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:71
 #: libraries/classes/Controllers/Transformation/WrapperController.php:103
+#: libraries/classes/Controllers/Table/GetFieldController.php:72
 #, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Există prea multe asocieri fără indexuri."
 
@@ -8608,6 +8588,8 @@ msgstr "Există prea multe asocieri fără indexuri."
 #: libraries/classes/Database/Routines.php:1243
 #: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:221
 #: libraries/classes/Sql.php:968
+#: libraries/classes/Controllers/Table/GetFieldController.php:86
+#: libraries/classes/Sql.php:967
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 
@@ -8616,6 +8598,11 @@ msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:73
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:73
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:73
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:75
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:75
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:75
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:75
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:75
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
@@ -8626,6 +8613,9 @@ msgstr ""
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
 #: templates/database/structure/structure_table_row.twig:186
+#: libraries/classes/Controllers/Table/OperationsController.php:109
+#: libraries/classes/Controllers/Table/OperationsController.php:298
+#: libraries/classes/Controllers/Table/StructureController.php:101
 msgid "View"
 msgstr "Vezi"
 
@@ -8637,23 +8627,30 @@ msgstr "Vezi"
 #: libraries/classes/InsertEdit.php:717 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
+#: libraries/classes/Controllers/Table/Partition/DropController.php:62
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:62
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 msgid "Error"
 msgstr "Eroare"
 
 #: libraries/classes/Controllers/Table/RelationController.php:182
+#: libraries/classes/Controllers/Table/RelationController.php:183
 msgid "Display column was successfully updated."
 msgstr "Coloana de afișare a fost actualizată cu succes."
 
 #: libraries/classes/Controllers/Table/RelationController.php:275
+#: libraries/classes/Controllers/Table/RelationController.php:276
 msgid "Internal relationships were successfully updated."
 msgstr "Relațiile interne au fost actualizate cu succes."
 
 #: libraries/classes/Controllers/Table/ReplaceController.php:299
+#: libraries/classes/Controllers/Table/ReplaceController.php:300
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rând: %1$s, coloană: %2$s, eroare: %3$s"
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:89
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Obținerea descrierii coloanei %s a eșuat!"
@@ -8665,6 +8662,7 @@ msgstr "Obținerea descrierii coloanei %s a eșuat!"
 #: templates/table/structure/display_structure.twig:145
 #: templates/table/structure/display_structure.twig:295
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: libraries/classes/Controllers/Table/StructureController.php:229
 msgid "Primary"
 msgstr "Principal"
 
@@ -8677,16 +8675,20 @@ msgstr "Principal"
 #: templates/table/structure/display_structure.twig:301
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: libraries/classes/Controllers/Table/StructureController.php:233
 msgid "Index"
 msgstr "Index"
 
 #: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:170
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:172
 msgid "The columns have been moved successfully."
 msgstr "Coloanele au fost mutate cu succes."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:265
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:271
 #: libraries/classes/Tracking.php:776
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:273
 msgid "Query error"
 msgstr "Eroare de interogare"
 
@@ -8699,6 +8701,7 @@ msgstr[1] "Numele „%s” sunt cuvinte cheie rezervate pentru MySQL."
 msgstr[2] "Numele „%s” sunt cuvinte cheie rezervate pentru MySQL."
 
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:216
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:218
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -8706,19 +8709,23 @@ msgstr ""
 "Tabelul %1$s a fost modificat cu succes. Privilegiile au fost ajustate."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:68
+#: libraries/classes/Controllers/Table/TrackingController.php:69
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "Urmărirea %s este activată."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:139
+#: libraries/classes/Controllers/Table/TrackingController.php:140
 msgid "Tracking versions deleted successfully."
 msgstr "Urmărirea versiunilor a fost ștearsă cu succes."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:144
+#: libraries/classes/Controllers/Table/TrackingController.php:145
 msgid "No versions selected."
 msgstr "Nicio versiune selectată."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:173
+#: libraries/classes/Controllers/Table/TrackingController.php:174
 msgid "SQL statements executed."
 msgstr "Declarații SQL executate."
 
@@ -8729,6 +8736,7 @@ msgstr "Nu ai suficiente privilegii pentru a fi aici, chiar acum!"
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
 #: templates/server/privileges/change_password.twig:10
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Change password"
 msgstr "Schimbă parola"
 
@@ -8782,9 +8790,6 @@ msgstr "NU"
 
 #: libraries/classes/Database/Designer/Common.php:528
 #, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -8899,11 +8904,10 @@ msgstr "Editează evenimentul"
 #: libraries/classes/Database/Routines.php:984
 #: libraries/classes/Database/Triggers.php:381
 #, fuzzy
-#| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
-"Datele introduse aici trebuie sa fie în format-ul \"nume-de-"
-"utilizator@numele-gazdei\" (username@hostname)"
+"Datele introduse aici trebuie să fie în formatul \"nume-de-utilizator@numele-"
+"gazdei\"!"
 
 #: libraries/classes/Database/Events.php:412
 msgid "You must provide an event name!"
@@ -8955,7 +8959,6 @@ msgstr "Exportul evenimentului %s"
 
 #: libraries/classes/Database/Events.php:589
 #, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Niciun eveniment cu numele %1$s găsit în baza de date %2$s."
@@ -9134,9 +9137,6 @@ msgstr "Exportul rutinei %s"
 
 #: libraries/classes/Database/Routines.php:1589
 #, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
@@ -9225,7 +9225,6 @@ msgstr "Exportul declanșatorului %s"
 
 #: libraries/classes/Database/Triggers.php:520
 #, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
@@ -9243,7 +9242,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Display/Results.php:852 templates/list_navigator.twig:8
-#: templates/list_navigator.twig:13
+#: templates/list_navigator.twig:13 libraries/classes/Display/Results.php:896
 msgctxt "First page"
 msgid "Begin"
 msgstr "Început"
@@ -9251,6 +9250,7 @@ msgstr "Început"
 #: libraries/classes/Display/Results.php:859 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
+#: libraries/classes/Display/Results.php:903
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterioară"
@@ -9258,23 +9258,26 @@ msgstr "Anterioară"
 #: libraries/classes/Display/Results.php:885 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
+#: libraries/classes/Display/Results.php:929
 msgctxt "Next page"
 msgid "Next"
 msgstr "Următoare"
 
 #: libraries/classes/Display/Results.php:910 templates/list_navigator.twig:42
-#: templates/list_navigator.twig:44
+#: templates/list_navigator.twig:44 libraries/classes/Display/Results.php:954
 msgctxt "Last page"
 msgid "End"
 msgstr "Sfârșit"
 
 #: libraries/classes/Display/Results.php:1418
 #: templates/display/results/table.twig:129
+#: libraries/classes/Display/Results.php:1467
 msgid "Partial texts"
 msgstr "Texte parțiale"
 
 #: libraries/classes/Display/Results.php:1422
 #: templates/display/results/table.twig:133
+#: libraries/classes/Display/Results.php:1471
 msgid "Full texts"
 msgstr "Texte întregi"
 
@@ -9289,6 +9292,8 @@ msgstr "Texte întregi"
 #: templates/server/status/processes/list.twig:12
 #: templates/table/operations/index.twig:31
 #: templates/table/search/index.twig:163
+#: libraries/classes/Display/Results.php:1812
+#: libraries/classes/Display/Results.php:1838
 msgid "Descending"
 msgstr "Descrescător"
 
@@ -9303,46 +9308,57 @@ msgstr "Descrescător"
 #: templates/server/status/processes/list.twig:14
 #: templates/table/operations/index.twig:27
 #: templates/table/search/index.twig:159
+#: libraries/classes/Display/Results.php:1820
+#: libraries/classes/Display/Results.php:1830
 msgid "Ascending"
 msgstr "Crescător"
 
 #: libraries/classes/Display/Results.php:2959
 #: libraries/classes/Display/Results.php:2974
+#: libraries/classes/Display/Results.php:3005
+#: libraries/classes/Display/Results.php:3020
 msgid "The row has been deleted."
 msgstr "Rândul a fost șters."
 
 #: libraries/classes/Display/Results.php:3006
 #: templates/server/status/processes/list.twig:44
+#: libraries/classes/Display/Results.php:3052
 #, fuzzy
 msgid "Kill"
 msgstr "Oprește"
 
 #: libraries/classes/Display/Results.php:3566
+#: libraries/classes/Display/Results.php:3613
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Poate fi aproximativ. Vezi [doc@faq3-11]Întrebări frecvente 3.11[/doc]."
 
 #: libraries/classes/Display/Results.php:3932
+#: libraries/classes/Display/Results.php:3979
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Arăt rândurile %1s - %2s"
 
 #: libraries/classes/Display/Results.php:3946
+#: libraries/classes/Display/Results.php:3993
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d în total, %2$d în interogare"
 
 #: libraries/classes/Display/Results.php:3951
+#: libraries/classes/Display/Results.php:3998
 #, php-format
 msgid "%d total"
 msgstr "Total %d"
 
 #: libraries/classes/Display/Results.php:3964 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:4011 libraries/classes/Sql.php:973
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
 
 #: libraries/classes/Display/Results.php:4294
+#: libraries/classes/Display/Results.php:4342
 msgid "Link not found!"
 msgstr "Legătură negăsită!"
 
@@ -9815,10 +9831,8 @@ msgstr ""
 "dezactivată de configurarea ta."
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "Extensia SOAP nu a fost găsită"
+msgstr "Sesiunea nu a fost găsită."
 
 #: libraries/classes/Html/Generator.php:146
 #, php-format
@@ -9893,6 +9907,7 @@ msgid "%d errors were found during analysis."
 msgstr "Au fost găsite %d erori în timpul analizei."
 
 #: libraries/classes/Import.php:287 libraries/classes/Sql.php:982
+#: libraries/classes/Sql.php:981
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
 
@@ -10048,10 +10063,12 @@ msgid "web server upload directory:"
 msgstr "director încărcare pe server web:"
 
 #: libraries/classes/InsertEdit.php:1334 libraries/classes/Sql.php:965
+#: libraries/classes/Sql.php:964
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
 
 #: libraries/classes/InsertEdit.php:1358 libraries/classes/Sql.php:945
+#: libraries/classes/Sql.php:944
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
@@ -10271,10 +10288,8 @@ msgstr ""
 "de navigare."
 
 #: libraries/classes/Navigation/NavigationTree.php:833
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Grupuri:"
+msgstr "Grupuri"
 
 #: libraries/classes/Navigation/NavigationTree.php:946
 #, php-format
@@ -10420,7 +10435,6 @@ msgstr "Nou"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
 #, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
 msgstr "Declanșatori"
 
@@ -10896,6 +10910,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Parola ta este prea lungă. Pentru a preveni atacurile DoS, phpMyAdmin "
+"restricționează parolele la mai puțin de 1000 caractere."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:319
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11195,7 +11211,6 @@ msgstr "Afișează comentarii"
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
 #: libraries/classes/Plugins/Export/ExportSql.php:159
 #, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "Afișează tipuri de MIME"
 
@@ -11259,7 +11274,6 @@ msgstr "Exportă anteturi tabele"
 #: libraries/classes/Plugins/Export/ExportOdt.php:246
 #: libraries/classes/Plugins/Export/ExportTexytext.php:179
 #, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "Eliminarea datelor din tabel"
 
@@ -11273,7 +11287,6 @@ msgstr "Eliminarea datelor"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:210
 #, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
 msgstr "Rezultatele interogării"
 
@@ -11511,7 +11524,6 @@ msgstr "AUTO_INCREMENT pentru tabele"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1903
 #, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TIPURI DE MIME PENTRU TABELE"
 
@@ -11593,10 +11605,8 @@ msgstr ""
 "ghilimele."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:134
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Nume coloane: "
+msgstr "Nume coloane:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:272
 #: libraries/classes/Plugins/Import/ImportCsv.php:631
@@ -11824,15 +11834,6 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:37
 #, fuzzy
-#| msgid ""
-#| "plays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-#| "matted date. The first option is the offset (in hours) which will be ed "
-#| "to the timestamp (Default: 0). Use second option to specify a ferent date/"
-#| "time format string. Third option determines whether you t to see local "
-#| "date or UTC one (use \"local\" or \"utc\" strings) for t. According to "
-#| "that, date format has different value - for \"local\"  the documentation "
-#| "for PHP's strftime() function and for \"utc\" it is e using gmdate() "
-#| "function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -11873,17 +11874,6 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:40
 #, fuzzy
-#| msgid ""
-#| "UX ONLY: Launches an external application and feeds it the field data  "
-#| "standard input. Returns the standard output of the application. The ault "
-#| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
-#| "manually edit the file libraries/transformations/t_plain__external.inc."
-#| "php and list the tools you want to make ilable. The first option is then "
-#| "the number of the program you want to  and the second option is the "
-#| "parameters for the program. The third ion, if set to 1, will convert the "
-#| "output using htmlspecialchars() fault 1). The fourth option, if set to 1, "
-#| "will prevent wrapping and ure that the output appears all on one line "
-#| "(Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11901,7 +11891,7 @@ msgstr ""
 "listarea codului HTML. Din motive de securitate, va trebui sa editati manual "
 "fisierul libraries/transformations/text_plain__external.inc.php și să "
 "inserați uneltele permise să ruleze. Prima opțiune este apoi numărul de "
-"programe care vor fi utilizate și a doua opțiune sînt  parametri pentru "
+"programe care vor fi utilizate și a doua opțiune sînt parametri pentru "
 "program. Al treilea parametru, dacă este stabilit la 1 va transforma ieșirea "
 "folosind htmlspecialchars() (implicit este 1). Un al patrulea parametru, "
 "dacă este stabilit la 1, va aplica NOWRAP la conținut, astfel încît întregul "
@@ -11997,7 +11987,7 @@ msgstr ""
 "pentru definirea punctului de început a outputului de text (Default 0). A "
 "doua optiune este un offset de text returnat. Daca este gol, returneaza "
 "textul ramas. A treia optiune defineste caracterele care vor fi atasate la "
-"output la returnarea unui substring  (Default: …) ."
+"output la returnarea unui substring (Default: …) ."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:27
 msgid ""
@@ -12033,7 +12023,6 @@ msgstr "Convertește o adresă de rețea Internet în format (IPv4/IPv6) la bina
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:27
 #, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
@@ -12085,9 +12074,6 @@ msgstr "Cheie de securitate hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:214
 #, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."
@@ -12106,7 +12092,6 @@ msgstr "Autentificarea pe două niveluri a eșuat."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:128
 #, fuzzy
-#| msgid "Two-factor authentication"
 msgid "No Two-Factor Authentication"
 msgstr "Autentificare pe două niveluri"
 
@@ -12212,14 +12197,11 @@ msgstr "Eroare necunoscută"
 
 #: libraries/classes/ReplicationGui.php:520
 #, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "Nu pot face conexiunea la master %s."
 
 #: libraries/classes/ReplicationGui.php:530
 #, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
@@ -12228,13 +12210,11 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:548
 #, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
 msgstr "Nu pot schimba master-ul!"
 
 #: libraries/classes/ReplicationGui.php:552
 #, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
 msgid "Primary server changed successfully to %s."
 msgstr "Serverul master schimbat cu succes în %s."
 
@@ -12246,10 +12226,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Routing.php:157
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Baza de date sursă „%s” nu a fost găsită!"
+msgstr "Eroare 404! Pagina %s nu a fost găsită."
 
 #: libraries/classes/Routing.php:168
 msgid "Error 405! Request method not allowed."
@@ -12294,19 +12273,16 @@ msgstr "Autentificare cu parolă SHA256"
 
 #: libraries/classes/Server/Plugins.php:78
 #, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
 msgstr "Autentificare config"
 
 #: libraries/classes/Server/Plugins.php:83
 #, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
 msgstr "Autentificare Cookie"
 
 #: libraries/classes/Server/Plugins.php:88
 #, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
 msgstr "Autentificare nativă MySQL"
 
@@ -12496,7 +12472,6 @@ msgstr "Permite blocarea tabelelor pentru firul de execuție curent."
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
 #, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
 msgstr "Necesară pentru sclavii de replicare."
 
@@ -12504,7 +12479,6 @@ msgstr "Necesară pentru sclavii de replicare."
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
 #, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Permite utilizatorului să întrebe unde sunt serverele sclav/master."
 
@@ -12521,7 +12495,6 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 #, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
 msgstr "Permite ștergerea datelor."
 
@@ -12748,20 +12721,17 @@ msgstr "Arată tabele deschise"
 
 #: libraries/classes/Server/Status/Data.php:193
 #, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "Arată gazde sclav"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
 #, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
 msgstr "Arată stare master"
 
 #: libraries/classes/Server/Status/Data.php:207
 #, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
 msgstr "Arată stare sclav"
 
@@ -12815,12 +12785,12 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nu este disponibilă nicio versiune stabilă mai nouă"
 
-#: libraries/classes/Sql.php:498
+#: libraries/classes/Sql.php:498 libraries/classes/Sql.php:497
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Folosește semnul de carte „%s” ca interogare de răsfoire implicită."
 
-#: libraries/classes/Sql.php:962
+#: libraries/classes/Sql.php:962 libraries/classes/Sql.php:961
 msgid "Showing as PHP code"
 msgstr "Arăt drept cod PHP"
 
@@ -13188,7 +13158,7 @@ msgid ""
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Un număr cu virgulă mobilă cu dublă precizie, valorile permise sunt "
-"-1.7976931348623157E+308 până la  -2.2250738585072014E-308, 0, şi "
+"-1.7976931348623157E+308 până la -2.2250738585072014E-308, 0, şi "
 "2.2250738585072014E-308 până la 1.7976931348623157E+308"
 
 #: libraries/classes/Types.php:253
@@ -13510,7 +13480,6 @@ msgstr "dec."
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:690
 #, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "D"
@@ -13852,7 +13821,6 @@ msgstr "Conexiune:"
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 #, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
 msgstr "Motoare de stocare"
 
@@ -13862,7 +13830,6 @@ msgstr "Definiție PARTIȚIE:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Include exportul într-o tranzacție"
@@ -13876,8 +13843,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:81 templates/modals/add_index.twig:5
-#: templates/modals/build_query.twig:5
+#: templates/export.twig:81 templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
@@ -13885,10 +13851,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Încarc…"
+msgstr "Se încarcă"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -13987,11 +13951,6 @@ msgstr "Lungime/valori"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
@@ -14228,9 +14187,6 @@ msgstr "Setează la implicit"
 
 #: templates/console/display.twig:162
 #, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
@@ -14262,7 +14218,6 @@ msgstr "Creează versiunea"
 
 #: templates/database/central_columns/edit.twig:15
 #, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
@@ -14288,10 +14243,8 @@ msgid "A_I"
 msgstr "A_I"
 
 #: templates/database/central_columns/main.twig:129
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Lista centrală de coloane pentru baza de date curentă este goală."
+msgstr "Lista centrală de coloane pentru baza de date curentă este goală"
 
 #: templates/database/central_columns/main.twig:166
 #: templates/display/results/table.twig:62
@@ -14342,7 +14295,6 @@ msgstr "Acțiune"
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
 #, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
 msgstr "Creează tabel"
 
@@ -14358,10 +14310,8 @@ msgid "Create"
 msgstr "Creează"
 
 #: templates/database/data_dictionary/index.twig:4
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Comentariu bază de date"
+msgstr "Comentariu bază de date:"
 
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
@@ -14700,7 +14650,6 @@ msgstr "Bifează tot"
 
 #: templates/database/events/index.twig:27
 #, fuzzy
-#| msgid "Create event"
 msgid "Create new event"
 msgstr "Creare relație"
 
@@ -14726,17 +14675,16 @@ msgid "OFF"
 msgstr "OPRIT"
 
 #: templates/database/export/index.twig:61
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ va deveni numele bazei de date"
+msgstr ""
+"@SERVER@ va deveni numele server-ului și @DATABASE@ va deveni numele bazei "
+"de date."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 #, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
 msgstr "Arăt interogarea SQL"
 
@@ -14747,15 +14695,12 @@ msgstr "Export tabelele din baza de date „%s”"
 
 #: templates/database/export/index.twig:30
 #, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
 msgstr "Permite modificarea structurii tabelelor existente."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Exportă vizualizări ca tabele"
+msgstr "Exportă datele din toate tabelele."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -14770,7 +14715,6 @@ msgstr "Interogare în mai multe tabele"
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 #, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
 msgstr "Interogare eșuată"
 
@@ -14849,16 +14793,12 @@ msgstr "Nume bază de date nouă"
 #: templates/table/operations/index.twig:77
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Nu ai suficiente privilegii pentru a efectua această operație; te rog "
-"consultă documentația pentru mai multe detalii"
+"consultă documentația pentru mai multe detalii."
 
 #: templates/database/operations/index.twig:83
 msgid "Remove database"
@@ -15005,10 +14945,8 @@ msgid "Ins:"
 msgstr "Inserează:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Și:"
+msgstr "Și"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 #, fuzzy
@@ -15045,21 +14983,16 @@ msgid "Modify:"
 msgstr "Modifică:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Adaugă/șterge rândurile de criterii"
+msgstr "Adaugă/șterge rândurile de criterii:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Adaugă/șterge coloane"
+msgstr "Adaugă/șterge coloane:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
 #, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Folosește tabele"
 
@@ -15111,16 +15044,12 @@ msgid "Is deterministic"
 msgstr "Este determinat"
 
 #: templates/database/routines/editor_form.twig:131
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "Nu ai suficiente privilegii pentru a efectua această operațiune; Te rog "
-"consultă documentația pentru mai multe detalii"
+"consultă documentația pentru mai multe detalii."
 
 #: templates/database/routines/editor_form.twig:144
 msgid "Security type"
@@ -15137,7 +15066,6 @@ msgstr "Parametri rutină"
 
 #: templates/database/routines/index.twig:33
 #, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
 msgstr "Creează versiunea"
 
@@ -15276,7 +15204,6 @@ msgstr "Verifică tabelul"
 #: templates/table/maintenance/checksum.twig:3
 #: templates/table/operations/index.twig:356
 #, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
 msgstr "Verificare tabel"
 
@@ -15335,10 +15262,8 @@ msgstr ""
 "continui?"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Opțiuni"
+msgstr "Opțiuni:"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15483,7 +15408,6 @@ msgstr "Timp"
 
 #: templates/database/triggers/list.twig:27
 #, fuzzy
-#| msgid "Create trigger"
 msgid "Create new trigger"
 msgstr "Creare relație"
 
@@ -15509,15 +15433,12 @@ msgid "All"
 msgstr "Tot"
 
 #: templates/display/results/table.twig:70
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Sortează după cheie"
+msgstr "Sortează după cheie:"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
 #, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
 msgstr "Opțiuni revenire"
 
@@ -15636,7 +15557,6 @@ msgstr "Actualizează"
 
 #: templates/export.twig:72
 #, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "Arăt interogarea SQL"
 
@@ -15654,7 +15574,6 @@ msgstr "Personalizat - afișează toate opțiunile posibile"
 
 #: templates/export.twig:121
 #, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
 msgstr "Fișier de importat:"
 
@@ -15734,24 +15653,18 @@ msgstr "Șablon nume fișier:"
 
 #: templates/export.twig:388
 #, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Această valoare este interpretată folosind %1$sstrftime%2$s, deci poți "
+"Această valoare este interpretată folosind funcția 'strftime', deci poți "
 "folosi șiruri de formatare pentru timp. În plus, vor avea loc următoarele "
-"transformări: %3$s. Orice alt text va fi păstrat așa cum este. Vezi "
-"%4$sÎntrebări frecvente%5$s pentru detalii."
+"transformări: %s Orice alt text va fi păstrat așa cum este. Vezi Întrebări "
+"frecvente 6.27 pentru detalii."
 
 #: templates/export.twig:398
 #, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "folosește asta exporturi viitoare"
 
@@ -15780,10 +15693,8 @@ msgid "Export tables as separate files"
 msgstr "Exportă tabelele ca fișiere separate"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "Sari peste tabelele mai mari de %s MiO"
+msgstr "Sari peste tabelele mai mari de:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
@@ -15807,20 +15718,21 @@ msgid "Containing the word:"
 msgstr "Conținând cuvântul:"
 
 #: templates/footer.twig:10 templates/footer.twig:12 templates/footer.twig:14
+#: templates/footer.twig:8
 msgid "Open new phpMyAdmin window"
 msgstr "Deschide fereastră phpMyAdmin nouă"
 
 #: templates/footer.twig:29 templates/home/index.twig:18
-#: templates/login/form.twig:5
+#: templates/login/form.twig:5 templates/footer.twig:27
 msgid "phpMyAdmin Demo Server"
 msgstr "Server demonstrativ phpMyAdmin"
 
-#: templates/footer.twig:37
+#: templates/footer.twig:37 templates/footer.twig:35
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr "În prezent se rulează revizia Git %1$s din ramura %2$s."
 
-#: templates/footer.twig:39
+#: templates/footer.twig:39 templates/footer.twig:37
 msgid "Git information missing!"
 msgstr "Informațiile despre Git lipsesc!"
 
@@ -15836,7 +15748,6 @@ msgstr "Folosește OpenStreetMaps ca strat de bază"
 
 #: templates/gis_data_editor_form.twig:38
 #, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -15853,10 +15764,9 @@ msgstr "Punct:"
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Punct %d"
+msgstr "Punct %d:"
 
 #: templates/gis_data_editor_form.twig:113
 #, php-format
@@ -15920,22 +15830,19 @@ msgid "no branch"
 msgstr "nicio ramură"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s din ramura %2$s"
+msgstr "din ramura %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "consemnat pe %1$s de %2$s"
+msgstr "consemnat pe %s de %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "scris pe %1$s de %2$s"
+msgstr "scris pe %s de %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:8
 #, php-format
@@ -15945,7 +15852,7 @@ msgid ""
 "at %s."
 msgstr ""
 "Folosești serverul demonstrativ. Poți face orice aici, dar te rog nu "
-"modifica rădăcina, devian-sys-maint sau utilizatorii pma. Mai multe "
+"modifica rădăcina, debian-sys-maint sau utilizatorii pma. Mai multe "
 "informații sunt disponibile la %s."
 
 #: templates/home/index.twig:32
@@ -15953,10 +15860,8 @@ msgid "General settings"
 msgstr "Setări generale"
 
 #: templates/home/index.twig:57
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Colaționare conexiune server"
+msgstr "Colaționare conexiune server:"
 
 #: templates/home/index.twig:83 templates/preferences/manage/main.twig:56
 msgid "More settings"
@@ -15978,7 +15883,6 @@ msgstr "Temă"
 
 #: templates/home/index.twig:142
 #, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
 msgstr "Numai vizualizare"
@@ -16058,7 +15962,6 @@ msgstr "Licență"
 
 #: templates/home/index.twig:284
 #, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "Pagină principală phpMyAdmin"
 
@@ -16067,10 +15970,9 @@ msgid "Get more themes!"
 msgstr "Ia mai multe teme!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Schema bazei de date %s"
+msgstr "Captura de ecran a temei %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -16140,15 +16042,12 @@ msgstr ""
 
 #: templates/import.twig:40
 #, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
 msgstr "Descarcă fișierul"
 
 #: templates/import.twig:43
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Fișier de importat:"
+msgstr "Selectează fișierul de importat"
 
 #: templates/import.twig:50 templates/import.twig:77
 #: templates/preferences/manage/main.twig:22
@@ -16160,14 +16059,14 @@ msgid "You may also drag and drop a file on any page."
 msgstr "De asemenea, poți trage și plasa un fișier în orice pagină."
 
 #: templates/import.twig:62 templates/import.twig:88
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Selectează de pe serverul web un director pentru încărcări <b>%s</b>:"
+msgstr ""
+"Selectează de pe serverul web un director pentru încărcări [strong]%s[/"
+"strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
 #, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
 msgstr "Niciun fișier pentru încărcare!"
 
@@ -16188,10 +16087,6 @@ msgstr ""
 
 #: templates/import.twig:138
 #, fuzzy
-#| msgid ""
-#| "ow the interruption of an import in case the script detects it is se to "
-#| "the PHP timeout limit. This might be good way to import large es, however "
-#| "it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
@@ -16202,10 +16097,6 @@ msgstr ""
 
 #: templates/import.twig:140
 #, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
@@ -16219,15 +16110,12 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Sari peste acest număr de interogări (pentru SQL) începând cu prima:"
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Alte opțiuni:"
+msgstr "Alte opțiuni"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:489
 #, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
 msgstr "Redenumește în"
 
@@ -16251,16 +16139,12 @@ msgstr "calendar-month-year"
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
 #, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "Niciunul"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
 #, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "Anterior"
 
@@ -16489,7 +16373,6 @@ msgstr "Parolă:"
 
 #: templates/login/form.twig:95
 #, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "Alegere server:"
 
@@ -16563,7 +16446,6 @@ msgstr "Verifică"
 
 #: templates/menu/breadcrumbs.twig:27
 #, fuzzy
-#| msgid "Views:"
 msgid "View:"
 msgstr "Vizualizări:"
 
@@ -16602,13 +16484,11 @@ msgstr "Documentație phpMyAdmin"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 #, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
 msgstr "Documentație"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 #, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
 msgstr "Documentație"
 
@@ -16626,7 +16506,6 @@ msgstr "A apărut o eroare la încărcarea afișării de navigare"
 
 #: templates/navigation/main.twig:88
 #, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
 msgstr "Dump SQL"
 
@@ -16727,7 +16606,6 @@ msgstr ""
 
 #: templates/preferences/manage/main.twig:81
 #, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
 msgstr "Salvează ca fișier"
 
@@ -16831,7 +16709,6 @@ msgstr "Nu există niciun tabel favorit."
 
 #: templates/relation/check_relations.twig:3
 #, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
 msgstr "Fragment configurare phpMyAdmin"
 
@@ -16915,10 +16792,8 @@ msgid "OK"
 msgstr "OK"
 
 #: templates/relation/check_relations.twig:62
-#, fuzzy
-#| msgid "General relation features"
 msgid "General relation features:"
-msgstr "Facilități generale"
+msgstr "Facilități generale:"
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -16942,28 +16817,20 @@ msgid "Enabled"
 msgstr "Activat"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Afișează funcționalități"
+msgstr "Afișează funcționalități:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "Designer și crearea de PDF-uri"
+msgstr "Designer și crearea de PDF-uri:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Afișez comentarii coloană"
+msgstr "Afișez comentarii coloană:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Transformare navigator"
+msgstr "Transformare navigator:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -16972,82 +16839,56 @@ msgstr ""
 "column_info."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Interogare SQL marcată cu semn de carte"
+msgstr "Interogare SQL marcată cu semn de carte:"
 
 #: templates/relation/check_relations.twig:220
-#, fuzzy
-#| msgid "SQL history"
 msgid "SQL history:"
-msgstr "Istoric SQL"
+msgstr "Istoric SQL:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Tabele persistente folosite recent"
+msgstr "Tabele persistente folosite recent:"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Tabele persistente favorite"
+msgstr "Tabele persistente favorite:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "Preferințe UI pentru tabele persistente"
+msgstr "Preferințe UI pentru tabele persistente:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Urmărire"
+msgstr "Urmărire:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Preferințe utilizator"
+msgstr "Preferințe utilizator:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Meniuri configurabile"
+msgstr "Meniuri configurabile:"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Ascunde/arată elementele de navigare"
+msgstr "Ascunde/arată elementele de navigare:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "Salvez căutările interogare după exemplu"
+msgstr "Salvez căutările interogare după exemplu:"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Administrez lista centrală a coloanelor"
+msgstr "Administrez lista centrală a coloanelor:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Memorez setările pentru designer"
+msgstr "Memorez setările pentru designer:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Salvez șabloanele de export"
+msgstr "Salvez șabloanele de export:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -17083,14 +16924,12 @@ msgstr "Selectează jurnalul binar pentru vizualizare"
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
 #, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Taie interogările afișate"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
 #, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Arată toate interogările"
 
@@ -17122,7 +16961,6 @@ msgstr "Seturi de caractere și colaționări"
 
 #: templates/server/collations/index.twig:23
 #, fuzzy
-#| msgid "Default"
 msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Implicit"
@@ -17136,23 +16974,19 @@ msgid "Create database"
 msgstr "Creează bază de date"
 
 #: templates/server/databases/index.twig:50
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Verifică privilegiile pentru baza de date „%s”."
+msgstr "Nu ai privilegii pentru a crea baze de date"
 
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
 #, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
 msgstr "Replicare master"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
 #, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
 msgstr "Replicare sclav"
 
@@ -17196,16 +17030,12 @@ msgid "Storage Engine"
 msgstr "Motor de stocare"
 
 #: templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Motoare de stocare"
+msgstr "Motor de stocare necunoscut."
 
 #: templates/server/export/index.twig:26
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ va deveni numele serverului"
+msgstr "@SERVER@ va deveni numele server-ului."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -17229,7 +17059,6 @@ msgstr "Autor"
 
 #: templates/server/plugins/index.twig:41
 #, fuzzy
-#| msgid "active"
 msgid "inactive"
 msgstr "activă"
 
@@ -17239,13 +17068,11 @@ msgstr "dezactivat"
 
 #: templates/server/plugins/index.twig:45
 #, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "Șterg"
 
 #: templates/server/plugins/index.twig:47
 #, fuzzy
-#| msgid "Delete"
 msgid "deleted"
 msgstr "Șterge"
 
@@ -17277,7 +17104,6 @@ msgstr "Introdu:"
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
 #, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "Lungime date"
@@ -17289,10 +17115,8 @@ msgid "Re-type:"
 msgstr "Tastează din nou:"
 
 #: templates/server/privileges/change_password.twig:40
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Criptare Parola"
+msgstr "Criptare Parolă:"
 
 #: templates/server/privileges/change_password.twig:58
 msgid ""
@@ -17305,10 +17129,8 @@ msgstr ""
 "conectării la server."
 
 #: templates/server/privileges/choose_user_group.twig:5
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Grup de utilizatori"
+msgstr "Grup de utilizatori:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -17356,7 +17178,6 @@ msgstr "Permite executarea acestei rutine."
 
 #: templates/server/privileges/initials_row.twig:1
 #, fuzzy
-#| msgid "Change login information / Copy user account"
 msgid "Pagination of user accounts"
 msgstr "Modifică informațiile de autentificare/copiază contul utilizatorului"
 
@@ -17409,14 +17230,12 @@ msgstr "Locală"
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/primary_add_replica_user.twig:37
 #, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Această gazdă"
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:39
 #, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Folosește tabel gazde"
 
@@ -17445,7 +17264,6 @@ msgstr "Nu schimba parola"
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/primary_add_replica_user.twig:53
 #, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "Nicio parolă"
 
@@ -17456,30 +17274,23 @@ msgstr "Tastează din nou"
 
 #: templates/server/privileges/login_information_fields.twig:68
 #, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "Modul de autentificare"
 
 #: templates/server/privileges/login_information_fields.twig:70
 #, fuzzy
-#| msgid "Password Hashing"
 msgid "Password hashing method"
 msgstr "Criptare Parola"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Această metodă necesită folosirea unei „<i>conexiuni SSL</i>” sau a unei "
-"„<i>conexiuni necriptate care criptează parola folosind RSA</i>”; în timpul "
-"conectării la server."
+"Această metodă necesită folosirea unei „<em>conexiuni SSL</em>” sau a unei "
+"„<em>conexiuni necriptate care criptează parola folosind RSA</em>”; în "
+"timpul conectării la server."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:83
@@ -17555,7 +17366,6 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
 msgstr "Permite crearea de rutine stocate."
 
@@ -17565,7 +17375,6 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
 msgstr "Nu are niciun efect în această versiune MySQL."
 
@@ -17693,20 +17502,17 @@ msgstr "Elimină bazele de date care are același nume ca utilizatorii."
 
 #: templates/server/privileges/users_overview.twig:178
 #, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
 msgstr "Salvează pagina"
 
 #: templates/server/replication/change_primary.twig:5
 #, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
 msgstr "Configurare sclav"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
 #, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
 msgstr "Schimbă sau reconfigurează serverul master"
 
@@ -17724,9 +17530,6 @@ msgstr "Port:"
 
 #: templates/server/replication/index.twig:21
 #, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -17735,15 +17538,12 @@ msgstr ""
 "să-l %sconfigurezi%s?"
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Niciun privilegiu."
+msgstr "Niciun privilegiu"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
 #, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
 msgstr "Adaugă utilizator de replicare slav"
 
@@ -17759,18 +17559,11 @@ msgstr "Generează parola:"
 
 #: templates/server/replication/primary_configuration.twig:2
 #, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
 msgstr "Configurare server"
 
 #: templates/server/replication/primary_configuration.twig:4
 #, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17805,37 +17598,27 @@ msgstr ""
 "apoi te rog repornește serverul MySQL."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
 "După ce ai repornit serverul MySQL, te rog dă clic pe butonul Execută. Apoi "
-"ar trebui să vezi un mesaj care te informează că acest server <b>este</b> "
-"configurat ca master."
+"ar trebui să vezi un mesaj care te informează că acest server <strong>este</"
+"strong> configurat ca primar."
 
 #: templates/server/replication/primary_replication.twig:5
 #, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
 msgstr "Acest server este configurat ca master într-un proces de replicare."
 
 #: templates/server/replication/primary_replication.twig:16
 #, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
 msgstr "Arată sclavi conectați"
 
 #: templates/server/replication/primary_replication.twig:38
 #, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
@@ -17845,26 +17628,21 @@ msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:5
 #, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
 msgstr "Conexiune server:"
 
 #: templates/server/replication/replica_configuration.twig:25
 #, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
 msgstr "Firul de execuție SQL sclav nu rulează!"
 
 #: templates/server/replication/replica_configuration.twig:28
 #, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
 msgstr "Firul de execuție IO sclav nu rulează!"
 
 #: templates/server/replication/replica_configuration.twig:31
 #, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
@@ -17872,19 +17650,16 @@ msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:34
 #, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
 msgstr "Vezi tabel stare sclav"
 
 #: templates/server/replication/replica_configuration.twig:38
 #, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
 msgstr "Sclav de control:"
 
 #: templates/server/replication/replica_configuration.twig:48
 #, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
 msgstr "Nereprodus"
 
@@ -17910,7 +17685,6 @@ msgstr "Administrare erori:"
 
 #: templates/server/replication/replica_configuration.twig:77
 #, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
 "Omiterea erorilor ar putea duce la o desincronizare între master și sclav!"
@@ -17926,9 +17700,6 @@ msgstr "Sari peste următoarele %s erori."
 
 #: templates/server/replication/replica_configuration.twig:107
 #, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -17938,13 +17709,11 @@ msgstr ""
 
 #: templates/server/replication/status_table.twig:6
 #, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
 msgstr "Stare import"
 
 #: templates/server/replication/status_table.twig:8
 #, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
 msgstr "Stare replicare"
 
@@ -18011,7 +17780,6 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:53
 #, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
 msgstr "Au apărut erori în timpul obținerii informațiilor de depanare SQL."
 
@@ -18020,34 +17788,24 @@ msgid "Possible performance issues"
 msgstr "Probleme de performanță posibile"
 
 #: templates/server/status/advisor/index.twig:76
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Problemă"
+msgstr "Problemă:"
 
 #: templates/server/status/advisor/index.twig:79
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Recomandare"
+msgstr "Recomandare:"
 
 #: templates/server/status/advisor/index.twig:82
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Justificare"
+msgstr "Justificare:"
 
 #: templates/server/status/advisor/index.twig:85
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Variabilă/formulă folosită"
+msgstr "Variabilă/formulă folosită:"
 
 #: templates/server/status/advisor/index.twig:88
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Test"
+msgstr "Test:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -18094,16 +17852,12 @@ msgstr "Rată de împrospătare"
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:40
 #, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgid "%d second"
 msgstr "%d secundă"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:42
 #, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgid "%d seconds"
 msgstr "%d secundă"
 
@@ -18293,10 +18047,8 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Întrebări de la pornire: %s"
+msgstr "Întrebări de la pornire:"
 
 #: templates/server/status/queries/index.twig:20
 msgid "per hour:"
@@ -18323,7 +18075,6 @@ msgstr "#"
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 #, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
 msgstr "pe oră"
 
@@ -18351,9 +18102,6 @@ msgstr ""
 
 #: templates/server/status/status/index.twig:59
 #, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
@@ -18363,8 +18111,6 @@ msgstr ""
 
 #: templates/server/status/status/index.twig:61
 #, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
@@ -18373,8 +18119,6 @@ msgstr ""
 
 #: templates/server/status/status/index.twig:63
 #, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
@@ -18441,10 +18185,8 @@ msgid "Table level tabs"
 msgstr "File la nivel de tabel"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
-msgstr "Editează grupul de utilizatori"
+msgstr "Șterge grupul de utilizatori"
 
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -18485,7 +18227,6 @@ msgstr "Fișier de configurare"
 
 #: templates/setup/config/index.twig:16
 #, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
 msgstr "Citirea fișierului de configurare a eșuat!"
 
@@ -18515,7 +18256,6 @@ msgstr "Arată formularul"
 
 #: templates/setup/home/index.twig:23
 #, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
 msgstr "Arată elementele ascunse"
 
@@ -18649,10 +18389,8 @@ msgid "Bookmarked SQL query"
 msgstr "Interogare SQL marcată cu semn de carte"
 
 #: templates/sql/query.twig:160
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Semn de carte"
+msgstr "Semn de carte:"
 
 #: templates/sql/query.twig:169
 msgid "shared"
@@ -18668,7 +18406,6 @@ msgstr "Folosește această valoare"
 
 #: templates/table/chart/tbl_chart.twig:10
 #, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
 msgstr "Titlu diagramă"
 
@@ -18761,12 +18498,12 @@ msgid "Save chart as image"
 msgstr "Salvează diagrama ca imagine"
 
 #: templates/table/export/index.twig:12
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ", @DATABASE@ va deveni numele bazei de date"
+msgstr ""
+"@SERVER@ va deveni numele server-ului, @DATABASE@ va deveni numele bazei de "
+"date și @TABLE@ va deveni numele tabelului."
 
 #: templates/table/export/index.twig:7
 #, php-format
@@ -18852,7 +18589,6 @@ msgstr "Alegere index:"
 
 #: templates/table/index_form.twig:54
 #, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
 msgstr "Opțiuni avansate"
 
@@ -18920,10 +18656,8 @@ msgid "Binary"
 msgstr "Binar"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Valoare pentru coloana „%s”"
+msgstr "Folosește valoarea NULL pentru această coloană."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -18946,7 +18680,6 @@ msgstr "Continuă inserarea cu %s rânduri"
 
 #: templates/table/maintenance/checksum.twig:13
 #, fuzzy
-#| msgid "Check"
 msgid "Checksum"
 msgstr "Verifică"
 
@@ -18956,14 +18689,12 @@ msgstr "Modifică ordinea tabelelor după"
 
 #: templates/table/operations/index.twig:20
 #, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(individual)"
 
 #: templates/table/operations/index.twig:50
 #, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
 msgstr "Mută tabelul la (bază de date<b>.</b>tabel)"
 
@@ -18985,7 +18716,6 @@ msgstr "Schimbă toate colaționările coloanelor"
 
 #: templates/table/operations/index.twig:251
 #, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
 msgstr "Copiază tabelul în (bază de date<b>.</b>tabel)"
 
@@ -19012,7 +18742,6 @@ msgstr "Golește tabelul (TRUNCATE)"
 
 #: templates/table/operations/index.twig:431
 #, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
 msgstr "Golește tabelul (TRUNCATE)"
 
@@ -19030,10 +18759,8 @@ msgid "Remove partitioning"
 msgstr "Înlătură partiționarea"
 
 #: templates/table/operations/index.twig:513
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Verifică integritatea referențială:"
+msgstr "Verifică integritatea referențială"
 
 #: templates/table/operations/view.twig:12
 msgid "Rename view to"
@@ -19049,43 +18776,36 @@ msgstr "Vizualizare relație"
 
 #: templates/table/partition/analyze.twig:2
 #, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
 msgstr "partiționat"
 
 #: templates/table/partition/check.twig:2
 #, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
 msgstr "partiționat"
 
 #: templates/table/partition/drop.twig:2
 #, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
 msgstr "partiționat"
 
 #: templates/table/partition/optimize.twig:2
 #, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
 msgstr "Înlătură partiționarea"
 
 #: templates/table/partition/rebuild.twig:2
 #, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
 msgstr "Sub-partiție"
 
 #: templates/table/partition/repair.twig:2
 #, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
 msgstr "Înlătură partiționarea"
 
 #: templates/table/partition/truncate.twig:2
 #, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
 msgstr "Sub-partiție"
 
@@ -19230,7 +18950,6 @@ msgstr "Editează partiționarea"
 
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
 msgstr "Tip de MIME"
 
@@ -19315,7 +19034,6 @@ msgstr "la începutul tabelului"
 
 #: templates/table/structure/display_structure.twig:552
 #, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgid "Create an index on %s columns"
 msgstr "Creează un index pe coloanele %s"
 
@@ -19425,7 +19143,6 @@ msgstr "Resetează zoom-ul"
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
 #, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
 msgstr "Bară de navigare tabel"
 
@@ -19436,7 +19153,6 @@ msgstr ""
 
 #: templates/transformation_overview.twig:1
 #, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
 msgstr "Tipuri de MIME disponibile"
 
@@ -19447,7 +19163,6 @@ msgstr "Transformări afișare navigator disponibile"
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
 #, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Descriere"
@@ -19520,7 +19235,6 @@ msgstr "Nume coloane"
 #~ "ignoră opțiunile pentru alte formate."
 
 #, fuzzy
-#~| msgid "Browse your computer:"
 #~ msgid "Browse your computer"
 #~ msgstr "Caută în calculatorul tău:"
 
@@ -19557,7 +19271,6 @@ msgstr "Nume coloane"
 #~ msgstr "Cale temă negăsită pentru tema %s!"
 
 #, fuzzy
-#~| msgid "New"
 #~ msgctxt "Create new routine"
 #~ msgid "New"
 #~ msgstr "Nou"
@@ -19660,7 +19373,6 @@ msgstr "Nume coloane"
 #~ msgstr "Folosește tabel gazde"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Descriere"
@@ -19682,8 +19394,6 @@ msgstr "Nume coloane"
 #~ msgstr "Arată mesajele ascunse (#MSG_COUNT)"
 
 #, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%count% second"
 #~ msgid_plural "%count% seconds"
 #~ msgstr[0] "O secundă"
@@ -19691,8 +19401,6 @@ msgstr "Nume coloane"
 #~ msgstr[2] "%d de secunde"
 
 #, fuzzy
-#~| msgid "%d minute"
-#~| msgid_plural "%d minutes"
 #~ msgid "%count% minute"
 #~ msgid_plural "%count% minutes"
 #~ msgstr[0] "Un minut"
@@ -19706,7 +19414,6 @@ msgstr "Nume coloane"
 #~ msgstr "Arată toate interogările"
 
 #, fuzzy
-#~| msgid "No databases"
 #~ msgid "%count% database"
 #~ msgid_plural "%count% databases"
 #~ msgstr[0] "Nicio bază de date"
@@ -19717,9 +19424,6 @@ msgstr "Nume coloane"
 #~ msgstr "Fără două niveluri"
 
 #, fuzzy
-#~| msgid ""
-#~| "Please scan following QR code into the two-factor authentication app on "
-#~| "your device and enter authentication code it generates."
 #~ msgid ""
 #~ "Please enter following secret/key into the two-factor authentication app "
 #~ "on your device and enter authentication code it generates."
@@ -19747,7 +19451,6 @@ msgstr "Nume coloane"
 #~ msgstr "Caută rezultate pentru \"<i>%s</i>\" %s:"
 
 #, fuzzy
-#~| msgid "Text"
 #~ msgctxt "Text context"
 #~ msgid "Text"
 #~ msgstr "Text"
@@ -19765,7 +19468,6 @@ msgstr "Nume coloane"
 #~ msgstr "Personalizați cadrul principal"
 
 #, fuzzy
-#~| msgid "unknown"
 #~ msgid "Unknonwn"
 #~ msgstr "necunoscut"
 
@@ -19773,18 +19475,15 @@ msgstr "Nume coloane"
 #~ msgstr "Valoare globală"
 
 #, fuzzy
-#~| msgid "Height"
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"
 #~ msgstr "Înălțime"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Old column name"
 #~ msgstr "Denumirile coloanelor"
 
 #, fuzzy
-#~| msgid "You have to add at least one field."
 #~ msgid "You have to add at least one column."
 #~ msgstr "Trebuie să adăugați cel puțin un câmp."
 
@@ -19804,17 +19503,14 @@ msgstr "Nume coloane"
 #~ msgstr "Spaniola traditionala"
 
 #, fuzzy
-#~| msgid "Collation"
 #~ msgid "binary collation"
 #~ msgstr "Interclasare"
 
 #, fuzzy
-#~| msgid "case-insensitive"
 #~ msgid "case-insensitive collation"
 #~ msgstr "insensibil la registru"
 
 #, fuzzy
-#~| msgid "case-sensitive"
 #~ msgid "case-sensitive collation"
 #~ msgstr "sensibil la registru"
 
@@ -19822,7 +19518,6 @@ msgstr "Nume coloane"
 #~ msgstr "toate cuvintele"
 
 #, fuzzy
-#~| msgid "Propose table structure"
 #~ msgid "Improve table structure"
 #~ msgstr "Propune structura de tabele"
 
@@ -19840,9 +19535,6 @@ msgstr "Nume coloane"
 #~ "dumneavoastră."
 
 #, fuzzy
-#~| msgid ""
-#~| "Disable the default warning that is displayed if mcrypt is missing for "
-#~| "cookie authentication"
 #~ msgid ""
 #~ "Disable the default warning that is displayed if a difference between the "
 #~ "MySQL library and server is detected."
@@ -19851,7 +19543,6 @@ msgstr "Nume coloane"
 #~ "pentru autentificarea prin cookie-uri"
 
 #, fuzzy
-#~| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 #~ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 #~ msgstr ""
 #~ "Cum se realizează conexiunea la server, lăsați [kbd]tcp[/kbd] dacă nu "
@@ -19865,7 +19556,6 @@ msgstr "Nume coloane"
 #~ msgstr "Local"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "Denumirile coloanelor"
 
@@ -19881,17 +19571,14 @@ msgstr "Nume coloane"
 #~ msgstr "O paranteza deschisa este necesara."
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected keyword."
 #~ msgstr "Caractere neaşteptate pe linia %s."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A symbol name was expected!"
 #~ msgstr "Șablon nume tabel"
 
 #, fuzzy
-#~| msgid "No tables selected."
 #~ msgid "A comma or a closing bracket was expected."
 #~ msgstr "Nici o bază de date selectată."
 
@@ -19902,97 +19589,78 @@ msgstr "Nume coloane"
 #~ msgstr "Tip de date nerecunoscut."
 
 #, fuzzy
-#~| msgid "No tables selected."
 #~ msgid "An alias was expected."
 #~ msgstr "Nici o bază de date selectată."
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "An expression was expected."
 #~ msgstr "Nici un rând selectat"
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Value/Expression for the option %1$s was expected"
 #~ msgstr "Evenimentul %1$s a fost creat."
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The old name of the table was expected."
 #~ msgstr "Numărul de tabele ce sînt deschise."
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The new name of the table was expected."
 #~ msgstr "Numărul de tabele ce sînt deschise."
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "A rename operation was expected."
 #~ msgstr "Înregistrarea a fost ștearsă."
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected character."
 #~ msgstr "Caractere neaşteptate pe linia %s."
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Ending quote %1$s was expected."
 #~ msgstr "Evenimentul %1$s a fost creat."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "Variable name was expected."
 #~ msgstr "Șablon nume tabel"
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected beginning of statement."
 #~ msgstr "La începutul tabelului"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected token."
 #~ msgstr "Caractere neaşteptate pe linia %s."
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected ordering of clauses."
 #~ msgstr "La începutul tabelului"
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The name of the entity was expected."
 #~ msgstr "Numărul de tabele ce sînt deschise."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A table name was expected."
 #~ msgstr "Șablon nume tabel"
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "At least one column definition was expected."
 #~ msgstr "Înregistrarea a fost ștearsă."
 
 #, fuzzy
-#~| msgid "Error"
 #~ msgid "error #1"
 #~ msgstr "Eroare"
 
 #, fuzzy
-#~| msgid "Gather errors"
 #~ msgid "strict error"
 #~ msgstr "Strânge erorile"
 
 #, fuzzy
-#~| msgid "Cookie authentication"
 #~ msgid "Native MySQL Authentication"
 #~ msgstr "Autentificare Cookie"
 
 #, fuzzy
-#~| msgid "Try to connect without password"
 #~ msgid "Try to connect without password."
 #~ msgstr "Încearcă conectarea fără parolă"
 
@@ -20003,9 +19671,6 @@ msgstr "Nume coloane"
 #~ msgstr "Wiki"
 
 #, fuzzy
-#~| msgid ""
-#~| "Enable [a@https://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
-#~| "compression for import and export operations"
 #~ msgid ""
 #~ "Enable [a@https://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 #~ "compression for import and export operations."
@@ -20014,7 +19679,6 @@ msgstr "Nume coloane"
 #~ "ZIP_(file_format)]ZIP[/a] pentru operațiile de import și export"
 
 #, fuzzy
-#~| msgid "Relations"
 #~ msgid "Related Links"
 #~ msgstr "Legături"
 
@@ -20027,7 +19691,6 @@ msgstr "Nume coloane"
 #~ "fișiere temporare)."
 
 #, fuzzy
-#~| msgid "Count"
 #~ msgid "Count:"
 #~ msgstr "Numără"
 
@@ -20035,10 +19698,6 @@ msgstr "Nume coloane"
 #~ msgstr "cheie numerica detectată"
 
 #, fuzzy
-#~| msgid ""
-#~| "The path for the config file for [a@https://swekey.com]SweKey hardware "
-#~| "authentication[/a] (not located in your document root; suggested: /etc/"
-#~| "swekey.conf)"
 #~ msgid ""
 #~ "The path for the config file for [a@https://swekey.com]SweKey hardware "
 #~ "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -20070,9 +19729,6 @@ msgstr "Nume coloane"
 #~ msgstr "Semnele de carte %1$s, %2$s și %3$s au fost incluse"
 
 #, fuzzy
-#~| msgid ""
-#~| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
-#~| "configuration file!"
 #~ msgid ""
 #~ "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 #~ "configuration file!"
@@ -20089,12 +19745,10 @@ msgstr "Nume coloane"
 #~ msgstr "Forțează conexiunea SSL"
 
 #, fuzzy
-#~| msgid "Replace table prefix"
 #~ msgid "Replace table prefix:"
 #~ msgstr "Înlocuiește prefixul tabelei"
 
 #, fuzzy
-#~| msgid "Copy table with prefix"
 #~ msgid "Copy table with prefix:"
 #~ msgstr "Copiază tabelul cu prefix"
 
@@ -20113,7 +19767,6 @@ msgstr "Nume coloane"
 #~ msgstr "Adevărat sau fals"
 
 #, fuzzy
-#~| msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #~ msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 #~ msgstr "Un sinonim pentru BIGINT FĂRĂ SEMN NENUL INCREMENTARE_AUTOMATĂ UNIC"
 
@@ -20136,62 +19789,50 @@ msgstr "Nume coloane"
 #~ "utilizatorul „root”."
 
 #, fuzzy
-#~| msgid "Create new database"
 #~ msgid "Create database:"
 #~ msgstr "Creează bază de date nouă"
 
 #, fuzzy
-#~| msgid "Tables"
 #~ msgid "tables"
 #~ msgstr "Tabele"
 
 #, fuzzy
-#~| msgid "View"
 #~ msgid "views"
 #~ msgstr "Vizualizare"
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "procedures"
 #~ msgstr "Proceduri"
 
 #, fuzzy
-#~| msgid "Event"
 #~ msgid "events"
 #~ msgstr "Eveniment"
 
 #, fuzzy
-#~| msgid "Functions"
 #~ msgid "functions"
 #~ msgstr "Funcții"
 
 #, fuzzy
-#~| msgid "table name"
 #~ msgid "Filter databases by name or regex"
 #~ msgstr "nume tabel"
 
 #, fuzzy
-#~| msgid "table name"
 #~ msgid "Filter by name or regex"
 #~ msgstr "nume tabel"
 
 #, fuzzy
-#~| msgid "Tracking report"
 #~ msgid "Taking you to %s."
 #~ msgstr "Raport de monitorizare"
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "Autentificare"
 
 #, fuzzy
-#~| msgid "Generate password"
 #~ msgid "MySQL native password"
 #~ msgstr "Generează parolă"
 
 #, fuzzy
-#~| msgid "Change password"
 #~ msgid "SHA256 password"
 #~ msgstr "Modifică parola"
 
@@ -20242,12 +19883,10 @@ msgstr "Nume coloane"
 #~ msgstr "Tabelă(e):"
 
 #, fuzzy
-#~| msgid "Generate Password"
 #~ msgid "Generate Password:"
 #~ msgstr "Generează parolă"
 
 #, fuzzy
-#~| msgid "Current Server"
 #~ msgid "Current Server:"
 #~ msgstr "Server Curent"
 
@@ -20317,7 +19956,6 @@ msgstr "Nume coloane"
 #~ msgstr "Adaugă utilizator"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "Export Method:"
 #~ msgstr "Modul de export"
 
@@ -20335,22 +19973,18 @@ msgstr "Nume coloane"
 #~ msgstr "Rezultat SQL"
 
 #, fuzzy
-#~| msgid "Generated by"
 #~ msgid "Generated by:"
 #~ msgstr "Generat de"
 
 #, fuzzy
-#~| msgid "Row Statistics"
 #~ msgid "Row Statistics:"
 #~ msgstr "Statisticile rândului"
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "Space usage:"
 #~ msgstr "Utilizare spațiu"
 
 #, fuzzy
-#~| msgid "Show tables"
 #~ msgid "Showing tables:"
 #~ msgstr "Arată tabelele"
 
@@ -20361,17 +19995,14 @@ msgstr "Nume coloane"
 #~ msgstr "(Dezactivată)"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Temporarily disable foreign key checks while importing"
 #~ msgstr "Dezactivare verificări de cheie străine"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Disable foreign key check"
 #~ msgstr "Dezactivare verificări de cheie străine"
 
 #, fuzzy
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "Se reîncarcă privilegiile"
 
@@ -20394,7 +20025,6 @@ msgstr "Nume coloane"
 #~ msgstr "(Generează un raport conținînd datele unui singur tabel)"
 
 #, fuzzy
-#~| msgid "Please select a database"
 #~ msgid "Please select a database."
 #~ msgstr "Selectați baza de date"
 
@@ -20405,7 +20035,6 @@ msgstr "Nume coloane"
 #~ msgstr "Salvează poziție"
 
 #, fuzzy
-#~| msgid "Save position"
 #~ msgid "Save positions as"
 #~ msgstr "Salvează poziție"
 
@@ -20413,7 +20042,6 @@ msgstr "Nume coloane"
 #~ msgstr "Limbă necunoscută: %1$s."
 
 #, fuzzy
-#~| msgid "Display databases as a list"
 #~ msgid "Disable database expansion"
 #~ msgstr "Afișează bazele de date ca o listă"
 
@@ -20421,7 +20049,6 @@ msgstr "Nume coloane"
 #~ msgstr "Șterge datele de urmărire pentru acest tabel"
 
 #, fuzzy
-#~| msgid "Database for user"
 #~ msgid "Table Structure"
 #~ msgstr "Bază de date pentru utilizatorul"
 
@@ -20432,13 +20059,11 @@ msgstr "Nume coloane"
 #~ msgstr "Arată/ascunde meniul stîng"
 
 #, fuzzy
-#~| msgid "Engines"
 #~ msgctxt "Inline edit query"
 #~ msgid "Inline"
 #~ msgstr "Intercalat"
 
 #, fuzzy
-#~| msgid "After %s"
 #~ msgid "after"
 #~ msgstr "După %s"
 
@@ -20466,7 +20091,6 @@ msgstr "Nume coloane"
 #~ "vizualizarea unui tabel"
 
 #, fuzzy
-#~| msgid "Databases display options"
 #~ msgid "Show display direction"
 #~ msgstr "Opțiuni de afișare a bazelor de date"
 
@@ -20489,17 +20113,14 @@ msgstr "Nume coloane"
 #~ msgstr "Această pagină nu conține nicio tabelă!"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "Dia export page"
 #~ msgstr "Tip invalid de export"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "EPS export page"
 #~ msgstr "Tip invalid de export"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "SVG export page"
 #~ msgstr "Tip invalid de export"
 
@@ -20510,7 +20131,6 @@ msgstr "Nume coloane"
 #~ msgstr "Eroare la salvarea coordonatelor pentru Designer."
 
 #, fuzzy
-#~| msgid "Edit SQL queries in popup window"
 #~ msgid "Edit SQL queries in popup window."
 #~ msgstr "Editează interogări SQL într-o fereastră popup"
 
@@ -20519,7 +20139,6 @@ msgstr "Nume coloane"
 
 # Fila afișată la deschiderea unei noi ferestre de interogare
 #, fuzzy
-#~| msgid "Tab displayed when opening a new query window"
 #~ msgid "Tab displayed when opening a new query window."
 #~ msgstr "Tab-ul afișat la deschiderea unei noi ferestre de interogare"
 
@@ -20528,7 +20147,6 @@ msgstr "Nume coloane"
 #~ msgstr "Tab-ul implicit al interogării în fereastră"
 
 #, fuzzy
-#~| msgid "Query window height (in pixels)"
 #~ msgid "Query window height (in pixels)."
 #~ msgstr "Înălțimea (în pixeli) a ferestrei de interogări"
 
@@ -20536,7 +20154,6 @@ msgstr "Nume coloane"
 #~ msgstr "Înălțimea ferestrei de interogări"
 
 #, fuzzy
-#~| msgid "Query window width (in pixels)"
 #~ msgid "Query window width (in pixels)."
 #~ msgstr "Lățimea (în pixeli) a ferestrei de interogări"
 
@@ -20553,22 +20170,18 @@ msgstr "Nume coloane"
 #~ msgstr "Import fișiere"
 
 #, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
 #~ msgid "File doesn't exist"
 #~ msgstr "Tabelul „%s” nu există!"
 
 #, fuzzy
-#~| msgid "SQL Validator is disabled"
 #~ msgid "Plugin is disabled"
 #~ msgstr "Validatorul SQL este dezactivat"
 
 #, fuzzy
-#~| msgid "Customize main frame"
 #~ msgid "Unlink with main panel"
 #~ msgstr "Personalizează cadrul principal"
 
 #, fuzzy
-#~| msgid "No index defined!"
 #~ msgid "No index defined! Create one below"
 #~ msgstr "Index nu este definit!"
 
@@ -20577,37 +20190,30 @@ msgstr "Nume coloane"
 #~ msgstr "Modul de export"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "Tip invalid de export"
 
 #, fuzzy
-#~| msgid "Click to sort"
 #~ msgid "Click to sort"
 #~ msgstr "Apăsați pentru a sorta"
 
 #, fuzzy
-#~| msgid "Total"
 #~ msgid "Total "
 #~ msgstr "Total"
 
 #, fuzzy
-#~| msgid "Delete relation"
 #~ msgid " bookmarks, "
 #~ msgstr "Șterge relația"
 
 #, fuzzy
-#~| msgid "Select two columns"
 #~ msgid "Select one ..."
 #~ msgstr "Alege două coloane"
 
 #, fuzzy
-#~| msgid "Add columns"
 #~ msgid "Have unique columns"
 #~ msgstr "Adaugă coloane"
 
 #, fuzzy
-#~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "Utilizatorul %s există deja!"
 
@@ -20618,7 +20224,6 @@ msgstr "Nume coloane"
 #~ msgstr "Creează o nouă pagină"
 
 #, fuzzy
-#~| msgid "Automatic layout"
 #~ msgid "Automatic layout based on"
 #~ msgstr "Așezare automată"
 
@@ -20642,9 +20247,6 @@ msgstr "Nume coloane"
 #~ msgstr "<b>%s</b> tabelul nu a fost găsit sau nu este stabilit în %s"
 
 #, fuzzy
-#~| msgid ""
-#~| "Disable the default warning that is displayed if mcrypt is missing for "
-#~| "cookie authentication"
 #~ msgid ""
 #~ "Disable the default warning that is displayed if mcrypt is missing for "
 #~ "[kbd]cookie[/kbd] authentication."
@@ -20659,7 +20261,6 @@ msgstr "Nume coloane"
 #~ msgstr "Tabelul designeri"
 
 #, fuzzy
-#~| msgid "Edit or export relational schema"
 #~ msgid "Import/Export coordinates for relational schema"
 #~ msgstr "Editați sau exportați schema relațională"
 
@@ -20667,22 +20268,18 @@ msgstr "Nume coloane"
 #~ msgstr "Pagina a fost creată."
 
 #, fuzzy
-#~| msgid "Page creation failed"
 #~ msgid "Page creation has failed!"
 #~ msgstr "Pagina nu a putut fi creată"
 
 #, fuzzy
-#~| msgid "Page"
 #~ msgid "Page:"
 #~ msgstr "Pagină"
 
 #, fuzzy
-#~| msgid "Import files"
 #~ msgid "Import from selected page."
 #~ msgstr "Import fișiere"
 
 #, fuzzy
-#~| msgid "Export/Import to scale"
 #~ msgid "Export/Import to scale:"
 #~ msgstr "Exportă/Importă la scală"
 
@@ -20705,7 +20302,6 @@ msgstr "Nume coloane"
 #~ "configurate să blocheze actualizările dintre ferestre."
 
 #, fuzzy
-#~| msgid "Show binary contents as HEX by default"
 #~ msgid "Show binary contents as HEX by default."
 #~ msgstr "Afișează conținutul binar ca HEX implicit"
 
@@ -20739,14 +20335,10 @@ msgstr "Nume coloane"
 #~ "Technology. Toate drepturile rezervate.[/em]"
 
 #, fuzzy
-#~| msgid "Requires SQL Validator to be enabled"
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Are nevoie de SQL Validator pentru a fi activată"
 
 #, fuzzy
-#~| msgid ""
-#~| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
-#~| "installed"
 #~ msgid ""
 #~ "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 #~ "installed."
@@ -20755,9 +20347,6 @@ msgstr "Nume coloane"
 #~ "instalat"
 
 #, fuzzy
-#~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to "
-#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
 #~ "If you have a custom username, specify it here (defaults to "
 #~ "[kbd]anonymous[/kbd])."
@@ -20777,18 +20366,14 @@ msgstr "Nume coloane"
 #~ "extesnsia necesară PHP, așa cum e descris în %sdocumentation%s."
 
 #, fuzzy
-#~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "Eroare: Relația nu a fost adăugată."
 
 #, fuzzy
-#~| msgid "Copy"
 #~ msgid "Copy Salt"
 #~ msgstr "Copiază"
 
 #, fuzzy
-#~| msgid ""
-#~| "<b>One or more errors have occured while processing your request:</b>"
 #~ msgid ""
 #~ "<b>One or more errors have occurred while processing your request:</b>"
 #~ msgstr ""
@@ -20796,9 +20381,6 @@ msgstr "Nume coloane"
 #~ "dumneavoastră:</b>"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma_userconfig[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__users[/kbd]."
@@ -20807,9 +20389,6 @@ msgstr "Nume coloane"
 #~ "în baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma_userconfig[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__usergroups[/kbd]."
@@ -20854,7 +20433,6 @@ msgstr "Nume coloane"
 #~ msgstr "Adaugă coloane"
 
 #, fuzzy
-#~| msgid "\"bzipped\""
 #~ msgid "bzipped"
 #~ msgstr "cu „bzip2”"
 
@@ -20884,17 +20462,14 @@ msgstr "Nume coloane"
 #~ msgstr "comanda SHOW DATABASES"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy url"
 #~ msgstr "Verificarea versiunii"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy username"
 #~ msgstr "Verificarea versiunii"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy password"
 #~ msgstr "Verificarea versiunii"
 
@@ -20909,7 +20484,6 @@ msgstr "Nume coloane"
 #~ msgstr "Acesta nu este un număr!"
 
 #, fuzzy
-#~| msgid "Find:"
 #~ msgid "Find"
 #~ msgstr "Găsește:"
 
@@ -20917,12 +20491,10 @@ msgstr "Nume coloane"
 #~ msgstr "Afișează toate tabelele cu aceeași lățime"
 
 #, fuzzy
-#~| msgid "Headers every %s rows"
 #~ msgid "Headers every %s rows"
 #~ msgstr "Capete de tabel la fiecare %s rânduri"
 
 #, fuzzy
-#~| msgid "Search"
 #~ msgid "Enable reCaptcha"
 #~ msgstr "Caută"
 
@@ -20930,12 +20502,10 @@ msgstr "Nume coloane"
 #~ msgstr "Trebuie sa aveti activat \"cookies\"."
 
 #, fuzzy
-#~| msgid "Rename database to"
 #~ msgid "Rearrange/edit charts"
 #~ msgstr "Redenumire bază de date în"
 
 #, fuzzy
-#~| msgid "Open Document Text"
 #~ msgid "Open Document"
 #~ msgstr "Text Open Document"
 
@@ -20949,7 +20519,6 @@ msgstr "Nume coloane"
 #~ msgstr "Tabelul pare a fi gol!"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Live traffic chart"
 #~ msgstr "Alegerea serverului"
 
@@ -20957,7 +20526,6 @@ msgstr "Nume coloane"
 #~ msgstr "Grafic interactiv cu interogări"
 
 #, fuzzy
-#~| msgid "Number of fields"
 #~ msgid "Number of rows"
 #~ msgstr "Număr de câmpuri"
 
@@ -20965,7 +20533,6 @@ msgstr "Nume coloane"
 #~ msgstr "Coloane încadrate de"
 
 #, fuzzy
-#~| msgid "Fields escaped by"
 #~ msgid "Columns escaped by"
 #~ msgstr "câmpuri realizate de"
 
@@ -20979,7 +20546,6 @@ msgstr "Nume coloane"
 #~ msgstr "ltr"
 
 #, fuzzy
-#~| msgid "Server version"
 #~ msgid "Software version"
 #~ msgstr "Versiune server"
 
@@ -20987,17 +20553,14 @@ msgstr "Nume coloane"
 #~ msgstr "Lățime"
 
 #, fuzzy
-#~| msgid "Save as file"
 #~ msgid "Save to file"
 #~ msgstr "Trimite"
 
 #, fuzzy
-#~| msgid "Log file count"
 #~ msgid "Total count"
 #~ msgstr "Număr de fișiere-jurnal"
 
 #, fuzzy
-#~| msgid "Enable"
 #~ msgid "Enable Ajax"
 #~ msgstr "Activează"
 
@@ -21020,22 +20583,18 @@ msgstr "Nume coloane"
 #~ msgstr "Informații rulare"
 
 #, fuzzy
-#~| msgid "Number of rows:"
 #~ msgid "Number of data points: "
 #~ msgstr "Număr de rânduri:"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate: "
 #~ msgstr "Reîncarcă"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Run analyzer"
 #~ msgstr "Tip interogare"
 
 #, fuzzy
-#~| msgid "Show PHP information"
 #~ msgid "Show more actions"
 #~ msgstr "Arată informația PHP"
 
@@ -21074,7 +20633,6 @@ msgstr "Nume coloane"
 #~ msgstr "Comprimă conexiunea"
 
 #, fuzzy
-#~| msgid "New"
 #~ msgctxt "Crate new trigger"
 #~ msgid "New"
 #~ msgstr "Nou"
@@ -21130,7 +20688,6 @@ msgstr "Nume coloane"
 #~ msgstr "Afișează comentariul tabelului în loc de numele acestuia"
 
 #, fuzzy
-#~| msgid "Create table"
 #~ msgctxt "short form"
 #~ msgid "Create table"
 #~ msgstr "Creare tabel"
@@ -21152,7 +20709,6 @@ msgstr "Nume coloane"
 #~ msgstr "ro"
 
 #, fuzzy
-#~| msgid "Do you really want to "
 #~ msgid "Do you really want to execute following query?"
 #~ msgstr "Sigur doriți să "
 
@@ -21160,7 +20716,6 @@ msgstr "Nume coloane"
 #~ msgstr "DocSQL"
 
 #, fuzzy
-#~| msgid "Privileges"
 #~ msgid "Privileges for all users"
 #~ msgstr "Drepturi de acces"
 
@@ -21184,7 +20739,6 @@ msgstr "Nume coloane"
 #~ msgstr "Utilizare"
 
 #, fuzzy
-#~| msgid "Lines terminated by"
 #~ msgid "String"
 #~ msgstr "Linii terminate de"
 
@@ -21198,7 +20752,6 @@ msgstr "Nume coloane"
 #~ msgstr "Afișează butonul de help"
 
 #, fuzzy
-#~| msgid "Add/Delete Field Columns"
 #~ msgid "The remaining columns"
 #~ msgstr "Adaugă/șterge coloane"
 
@@ -21216,7 +20769,6 @@ msgstr "Nume coloane"
 #~ msgstr "Declarații multiple explicite ( verbose )"
 
 #, fuzzy
-#~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Numai date"
 
