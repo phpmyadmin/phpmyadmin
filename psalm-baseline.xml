@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.19.0@a2ad69ae4f5ab1f7d225a8dc4e2ec2d9415ed599">
+<files psalm-version="4.20.0@f82a70e7edfc6cf2705e9374c8a0b6a974a779ed">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -6004,6 +6004,14 @@
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand occurrences="6">
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+      <code>$editCopyUrlParams</code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$colVisibCurrent</code>
     </PossiblyNullArgument>
@@ -10344,12 +10352,7 @@
     </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportOds.php">
-    <InvalidArgument occurrences="2">
-      <code>$cell_attrs</code>
-      <code>$text</code>
-    </InvalidArgument>
-    <MixedArgument occurrences="19">
-      <code>$cell</code>
+    <MixedArgument occurrences="18">
       <code>$col_names</code>
       <code>$col_names</code>
       <code>$db</code>
@@ -10369,6 +10372,9 @@
       <code>$tempRows[$i]</code>
       <code>$tempRows[0]</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$values</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="8">
       <code>$rows[$j]</code>
       <code>$rows[$j]</code>
@@ -10388,12 +10394,15 @@
     <MixedAssignment occurrences="7">
       <code>$cell</code>
       <code>$max_cols</code>
-      <code>$paragraph</code>
       <code>$tables[$i][Import::ROWS]</code>
       <code>$tables[$i][]</code>
       <code>$tempRows[]</code>
       <code>$tempRows[]</code>
+      <code>$values[]</code>
     </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>__toString</code>
+    </MixedMethodCall>
     <MixedPropertyFetch occurrences="1">
       <code>$xml-&gt;children('office', true)-&gt;{'body'}-&gt;{'spreadsheet'}</code>
     </MixedPropertyFetch>

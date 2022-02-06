@@ -2937,12 +2937,6 @@ class Results
      * @param string $urlSqlQuery    the analyzed sql query
      *
      * @return array<int,string|array<string, bool|string>>
-     * @phpstan-return array{string, string, string, string,
-     *  array{
-     *    db: string, table: string, where_clause: string,
-     *    clause_is_unique: bool, sql_query: string, goto: string
-     *  }
-     * }
      */
     private function getModifiedLinks(
         $whereClause,

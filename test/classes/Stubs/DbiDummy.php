@@ -1118,6 +1118,11 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'Feuille 1\'',
+                'result' => [],
+            ],
+            [
                 'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'my_dataset\' AND TABLE_NAME = \'company_users\'',
                 'result' => [],
