@@ -546,11 +546,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
