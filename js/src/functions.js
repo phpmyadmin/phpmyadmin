@@ -1264,6 +1264,9 @@ Functions.insertQuery = function (queryType) {
                         codeMirrorEditor.setValue(data.sql);
                     }
                     $('#querymessage').html('');
+                },
+                error: function () {
+                    $('#querymessage').html('');
                 }
             });
         }
