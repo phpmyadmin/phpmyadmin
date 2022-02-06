@@ -2866,6 +2866,16 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string and array\\{default_action\\: 'insert'\\} results in an error\\.$#"
+			count: 3
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string and array\\{default_action\\: 'update'\\} results in an error\\.$#"
+			count: 3
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
@@ -6176,16 +6186,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) has parameter \\$cell_attrs with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) has parameter \\$text with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverColumns\\(\\) has parameter \\$col_names with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -6246,12 +6246,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#1 \\$cell_attrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects array, SimpleXMLElement\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#2 \\$text of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects array, SimpleXMLElement given\\.$#"
+			message: "#^Parameter \\#1 \\$cell_attrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 

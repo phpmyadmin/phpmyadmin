@@ -232,8 +232,8 @@ class ImportOds extends ImportPlugin
     /**
      * Get value
      *
-     * @param array $cell_attrs Cell attributes
-     * @param array $text       Texts
+     * @param SimpleXMLElement $cell_attrs Cell attributes
+     * @param SimpleXMLElement $text       Texts
      *
      * @return float|string
      */
@@ -258,7 +258,15 @@ class ImportOds extends ImportPlugin
         /* We need to concatenate all paragraphs */
         $values = [];
         foreach ($text as $paragraph) {
-            $values[] = (string) $paragraph;
+            // Maybe a text node has the content ? (email, url, ...)
+            // Example: <text:a ... xlink:href="mailto:contact@example.org">test@example.fr</text:a>
+            $paragraphValue = $paragraph->__toString();
+            if ($paragraphValue === '' && isset($paragraph->{'a'})) {
+                $values[] = $paragraph->{'a'}->__toString();
+                continue;
+            }
+
+            $values[] = $paragraphValue;
         }
 
         return implode("\n", $values);
@@ -365,7 +373,7 @@ class ImportOds extends ImportPlugin
             if (! $col_names_in_first_row) {
                 if ($_REQUEST['ods_empty_rows'] ?? false) {
                     foreach ($tempRow as $cell) {
-                        if (strcmp('NULL', $cell)) {
+                        if (strcmp('NULL', (string) $cell)) {
                             $tempRows[] = $tempRow;
                             break;
                         }
