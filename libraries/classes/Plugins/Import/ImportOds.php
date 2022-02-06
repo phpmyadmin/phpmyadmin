@@ -378,7 +378,7 @@ class ImportOds extends ImportPlugin
             if (! $col_names_in_first_row) {
                 if ($_REQUEST['ods_empty_rows'] ?? false) {
                     foreach ($tempRow as $cell) {
-                        if (strcmp('NULL', $cell)) {
+                        if (strcmp('NULL', (string) $cell)) {
                             $tempRows[] = $tempRow;
                             break;
                         }
