@@ -4,7 +4,9 @@
     {% for theme in themes %}
       <div class="col">
         <div class="card">
-          <img src="./themes/{{ theme.id }}/screen.png" class="card-img-top" alt="{{ 'Screenshot of the %s theme.'|trans|format(theme.name) }}">
+          <div class="card-img-container">
+            <img src="./themes/{{ theme.id }}/screen.png" class="card-img-top" alt="{{ 'Screenshot of the %s theme.'|trans|format(theme.name) }}">
+          </div>
           <div class="card-body">
             <h5 class="card-title">{{ theme.name }} <small>({{ theme.version }})</small></h5>
           </div>

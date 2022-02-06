@@ -31,6 +31,15 @@
   }
 }
 
+.card-img-container {
+  height: 140px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .card-footer {
   color: $th-color;
   background: $th-background;

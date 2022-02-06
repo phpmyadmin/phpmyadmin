@@ -18,6 +18,15 @@
   color: #444;
 }
 
+.card-img-container {
+  height: 140px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 #maincontainer .card-header {
   position: static;
   width: auto;
