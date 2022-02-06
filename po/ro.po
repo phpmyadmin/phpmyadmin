@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-02-06 18:55+0000\n"
+"PO-Revision-Date: 2022-02-08 13:57+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ro/>\n"
@@ -3371,7 +3371,7 @@ msgstr "Coloane escapate cu"
 #: libraries/classes/Config/Descriptions.php:701
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Replace NULL with"
-msgstr "Înlocuiește NUL cu"
+msgstr "Înlocuiește NULL cu"
 
 #: libraries/classes/Config/Descriptions.php:668
 #: libraries/classes/Config/Descriptions.php:674
@@ -13929,9 +13929,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Dacă câmpul este „enum” sau „set”, vă rugăm să adăugați valori folosind "
-"formatul: 'a','b','c'…<br />Daca aveti nevoie sa puneti bara intoarsa "
-"(backslash) (\"\\\") sau semnul (\"'\") la aceste valori, folosiți exemplul "
-"( '\\\\xyz' or 'a\\'b')."
+"formatul: 'a','b','c'…<br>Dacă aveti nevoie sa puneti bara intoarsa "
+"(backslash) (\"\\\") sau semnul (\"'\") la aceste valori, folosiți exemplul ("
+" '\\\\xyz' or 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -14672,10 +14672,8 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Export tabelele din baza de date „%s”"
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Permite modificarea structurii tabelelor existente."
+msgstr "Exportă structura tuturor tabelelor."
 
 #: templates/database/export/index.twig:33
 msgid "Export the data of all tables."
@@ -14693,10 +14691,8 @@ msgstr "Interogare în mai multe tabele"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Interogare eșuată"
+msgstr "Interogare prin exemplu"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -15875,11 +15871,9 @@ msgid "Theme"
 msgstr "Temă"
 
 #: templates/home/index.twig:142
-#, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Numai vizualizare"
+msgstr "Vezi toate"
 
 #: templates/home/index.twig:157
 msgid "Database server"
@@ -16382,8 +16376,6 @@ msgid "Password:"
 msgstr "Parolă:"
 
 #: templates/login/form.twig:95
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "Alegere server:"
 
@@ -16611,10 +16603,8 @@ msgstr ""
 "%sscriptul de inițializare%s."
 
 #: templates/preferences/manage/main.twig:81
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Salvează ca fișier"
+msgstr "Salvează ca fișier JSON"
 
 #: templates/preferences/manage/main.twig:85
 msgid "Save as PHP file"
@@ -17087,10 +17077,8 @@ msgid "deleting"
 msgstr "Șterg"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Șterge"
+msgstr "șterse"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
@@ -17119,11 +17107,9 @@ msgstr "Introdu:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Lungime date"
+msgstr "Putere:"
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
@@ -17133,7 +17119,7 @@ msgstr "Tastează din nou:"
 
 #: templates/server/privileges/change_password.twig:40
 msgid "Password Hashing:"
-msgstr "Criptare Parolă:"
+msgstr "Criptare parolă:"
 
 #: templates/server/privileges/change_password.twig:58
 msgid ""
