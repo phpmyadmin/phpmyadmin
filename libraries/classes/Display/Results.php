@@ -2490,8 +2490,8 @@ class Results
         $whereClauseMap = $this->properties['whereClauseMap'];
         while ($row = $dbi->fetchRow($dt_result)) {
             // add repeating headers
-            if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
-                && ! $row_no % $_SESSION['tmpval']['repeat_cells']
+            if (($row_no !== 0) && ($_SESSION['tmpval']['repeat_cells'] > 0)
+                && ($row_no % $_SESSION['tmpval']['repeat_cells']) === 0
             ) {
                 $table_body_html .= $this->getRepeatingHeaders(
                     $display_params
