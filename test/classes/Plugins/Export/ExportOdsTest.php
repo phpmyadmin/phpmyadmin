@@ -357,7 +357,7 @@ class ExportOdsTest extends AbstractTestCase
 
         $this->assertEquals(
             '<table:table table:name="table"><table:table-row><table:table-cell ' .
-            'office:value-type="string"><text:p>fna&quot;me</text:p></table:table' .
+            'office:value-type="string"><text:p>fna\&quot;me</text:p></table:table' .
             '-cell><table:table-cell office:value-type="string"><text:p>' .
             'fnam/&lt;e2</text:p></table:table-cell></table:table-row>' .
             '</table:table>',

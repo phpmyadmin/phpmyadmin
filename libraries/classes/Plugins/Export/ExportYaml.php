@@ -19,7 +19,6 @@ use function __;
 use function array_key_exists;
 use function is_numeric;
 use function str_replace;
-use function stripslashes;
 
 /**
  * Handles the export for the YAML format
@@ -150,7 +149,7 @@ class ExportYaml extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
 
-            $columns[$i] = stripslashes($col_as);
+            $columns[$i] = $col_as;
         }
 
         $record_cnt = 0;

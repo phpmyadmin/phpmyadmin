@@ -22,7 +22,6 @@ use function __;
 use function bin2hex;
 use function date;
 use function htmlspecialchars;
-use function stripslashes;
 use function strtotime;
 
 /**
@@ -225,9 +224,7 @@ class ExportOds extends ExportPlugin
 
                 $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
-                    . htmlspecialchars(
-                        stripslashes($col_as)
-                    )
+                    . htmlspecialchars($col_as)
                     . '</text:p>'
                     . '</table:table-cell>';
             }

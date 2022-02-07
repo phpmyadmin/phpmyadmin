@@ -21,7 +21,6 @@ use function __;
 use function htmlspecialchars;
 use function in_array;
 use function str_replace;
-use function stripslashes;
 
 /**
  * Handles the export for the HTML-Word format
@@ -214,7 +213,6 @@ class ExportHtmlword extends ExportPlugin
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
 
-                $col_as = stripslashes($col_as);
                 $schema_insert .= '<td class="print"><strong>'
                     . htmlspecialchars($col_as)
                     . '</strong></td>';

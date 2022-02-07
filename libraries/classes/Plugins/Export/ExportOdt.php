@@ -23,7 +23,6 @@ use function __;
 use function bin2hex;
 use function htmlspecialchars;
 use function str_replace;
-use function stripslashes;
 
 /**
  * Handles the export for the ODT class
@@ -261,9 +260,7 @@ class ExportOdt extends ExportPlugin
 
                 $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
-                    . htmlspecialchars(
-                        stripslashes($col_as)
-                    )
+                    . htmlspecialchars($col_as)
                     . '</text:p>'
                     . '</table:table-cell>';
             }

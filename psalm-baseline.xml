@@ -9166,7 +9166,8 @@
     <MixedAssignment occurrences="1">
       <code>$col_as</code>
     </MixedAssignment>
-    <MixedOperand occurrences="17">
+    <MixedOperand occurrences="18">
+      <code>$col_as</code>
       <code>$csv_enclosed</code>
       <code>$csv_enclosed</code>
       <code>$csv_enclosed</code>
@@ -9264,11 +9265,12 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportJson.php">
-    <MixedArgument occurrences="1">
+    <MixedArrayOffset occurrences="1">
+      <code>$data[$columns[$i]]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="2">
       <code>$col_as</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$col_as</code>
+      <code>$columns[$i]</code>
     </MixedAssignment>
     <MixedOperand occurrences="4">
       <code>$crlf</code>
@@ -9480,11 +9482,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
-    <MixedArgument occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$col_as</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$col_as</code>
+      <code>$columns[$i]</code>
     </MixedAssignment>
     <PossiblyNullArgument occurrences="1">
       <code>$table_alias</code>
@@ -9852,12 +9852,15 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportYaml.php">
-    <MixedArgument occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$col_as</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$col_as</code>
+      <code>$columns[$i]</code>
     </MixedAssignment>
+    <MixedOperand occurrences="3">
+      <code>$columns[$i]</code>
+      <code>$columns[$i]</code>
+      <code>$columns[$i]</code>
+    </MixedOperand>
     <PossiblyNullOperand occurrences="1">
       <code>$table_alias</code>
     </PossiblyNullOperand>

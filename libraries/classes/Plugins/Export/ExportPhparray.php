@@ -19,7 +19,6 @@ use PhpMyAdmin\Version;
 use function __;
 use function preg_match;
 use function preg_replace;
-use function stripslashes;
 use function strtr;
 use function var_export;
 
@@ -175,7 +174,7 @@ class ExportPhparray extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
 
-            $columns[$i] = stripslashes($col_as);
+            $columns[$i] = $col_as;
         }
 
         $tablefixed = $table;
