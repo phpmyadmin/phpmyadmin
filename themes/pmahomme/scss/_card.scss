@@ -32,7 +32,7 @@
 }
 
 .card-img-container {
-  height: 16vh;
+  height: $card-img-height;
   overflow: hidden;
   img {
     object-fit: cover;
