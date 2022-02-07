@@ -149,8 +149,6 @@ class Header
             $this->scripts->addFile('cross_framing_protection.js');
         }
 
-        $this->scripts->addFile('rte.js');
-
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
