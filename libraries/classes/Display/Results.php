@@ -124,7 +124,7 @@ class Results
      *   table: string,
      *   goto: string,
      *   sql_query: string,
-     *   unlim_num_rows: int|numeric-string,
+     *   unlim_num_rows: int|numeric-string|false,
      *   fields_meta: FieldMetadata[],
      *   is_count: bool|null,
      *   is_export: bool|null,
@@ -726,7 +726,7 @@ class Results
     {
         $pageNow = (int) floor($_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']) + 1;
 
-        $nbTotalPage = (int) ceil($this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']);
+        $nbTotalPage = (int) ceil((int) $this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']);
 
         $output = '';
         if ($nbTotalPage > 1) {
@@ -796,7 +796,8 @@ class Results
         // Move to the next page or to the last one
         $moveForwardButtons = '';
         if (
-            $this->properties['unlim_num_rows'] === false // view with unknown number of rows
+            // view with unknown number of rows
+            ($this->properties['unlim_num_rows'] === -1 || $this->properties['unlim_num_rows'] === false)
             || (! $isShowingAll
             && intval($_SESSION['tmpval']['pos']) + intval($_SESSION['tmpval']['max_rows'])
                 < $this->properties['unlim_num_rows']
@@ -909,7 +910,7 @@ class Results
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
             @((int) ceil(
-                $this->properties['unlim_num_rows']
+                (int) $this->properties['unlim_num_rows']
                 / $_SESSION['tmpval']['max_rows']
             ) - 1) * $maxRows,
             $htmlSqlQuery,
@@ -4095,7 +4096,7 @@ class Results
      *     sql_query: string,
      *     single_table?: "true",
      *     raw_query?: "true",
-     *     unlim_num_rows?: int|numeric-string
+     *     unlim_num_rows?: int|numeric-string|false
      *   }
      * }
      */

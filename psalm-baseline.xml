@@ -5726,12 +5726,12 @@
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sqlQuery</code>
-      <code>$this-&gt;properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$total</code>
       <code>$urlParams['where_clause']</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
+      <code>(int) $this-&gt;properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']</code>
       <code>empty($field-&gt;database) ? $this-&gt;properties['db'] : $field-&gt;database</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="6">
