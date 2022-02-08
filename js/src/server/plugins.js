@@ -1,8 +1,7 @@
 /**
- * Functions used in server plugins pages
+ * Make columns sortable, but only for tables with more than 1 data row.
  */
-AJAX.registerOnload('server/plugins.js', function () {
-    // Make columns sortable, but only for tables with more than 1 data row
+function makeColumnsSortable () {
     var $tables = $('#plugins_plugins table:has(tbody tr + tr)');
     $tables.tablesorter({
         sortList: [[0, 0]],
@@ -12,4 +11,8 @@ AJAX.registerOnload('server/plugins.js', function () {
     });
     $tables.find('thead th')
         .append('<div class="sorticon"></div>');
+}
+
+AJAX.registerOnload('server/plugins.js', function () {
+    makeColumnsSortable();
 });
