@@ -1,37 +1,4 @@
 /**
- * @fileoverview    functions used in server privilege pages
- * @name            Server Privileges
- *
- * @requires    jQuery
- * @requires    jQueryUI
- * @requires    js/functions.js
- *
- */
-
-/**
- * Validates the "add a user" form
- *
- * @param theForm
- *
- * @return {bool} whether the form is validated or not
- */
-function checkAddUser (theForm) {
-    if (theForm.elements.hostname.value === '') {
-        alert(Messages.strHostEmpty);
-        theForm.elements.hostname.focus();
-        return false;
-    }
-
-    if ((theForm.elements.pred_username && theForm.elements.pred_username.value === 'userdefined') && theForm.elements.username.value === '') {
-        alert(Messages.strUserEmpty);
-        theForm.elements.username.focus();
-        return false;
-    }
-
-    return Functions.checkPassword($(theForm));
-}
-
-/**
  * Export privileges modal handler
  *
  * @param {object} data
@@ -157,48 +124,12 @@ const AccountLocking = {
 };
 
 /**
- * AJAX scripts for /server/privileges page.
+ * Display a warning if there is already a user by the name entered as the username.
  *
- * Actions ajaxified here:
- * Add user
- * Revoke a user
- * Edit privileges
- * Export privileges
- * Paginate table of users
- * Flush privileges
- *
- * @memberOf    jQuery
- * @name        document.ready
+ * @implements EventListener
  */
-
-
-/**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('server/privileges.js', function () {
-    $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
-    $(document).off('click', '#deleteUserCard .btn.ajax');
-
-    const editUserGroupModal = document.getElementById('editUserGroupModal');
-    if (editUserGroupModal) {
-        editUserGroupModal.removeEventListener('show.bs.modal', EditUserGroup);
-    }
-
-    $(document).off('click', 'button.mult_submit[value=export]');
-    $(document).off('click', 'a.export_user_anchor.ajax');
-    $('button.jsAccountLocking').off('click');
-    $('#dropUsersDbCheckbox').off('click');
-    $(document).off('click', '.checkall_box');
-    $(document).off('change', '#checkbox_SSL_priv');
-    $(document).off('change', 'input[name="ssl_type"]');
-    $(document).off('change', '#select_authentication_plugin');
-});
-
-AJAX.registerOnload('server/privileges.js', function () {
-    /**
-     * Display a warning if there is already a user by the name entered as the username.
-     */
-    $('#fieldset_add_user_login').on('change', 'input[name=\'username\']', function () {
+const AddUserLoginCheckUsername = {
+    handleEvent: function () {
         var username = $(this).val();
         var $warning = $('#user_exists_warning');
         if ($('#select_pred_username').val() === 'userdefined' && username !== '') {
@@ -219,54 +150,72 @@ AJAX.registerOnload('server/privileges.js', function () {
         } else {
             $warning.hide();
         }
-    });
+    }
+};
 
-    /**
-     * Indicating password strength
-     */
-    $('#text_pma_pw').on('keyup', function () {
+/**
+ * Indicating password strength
+ *
+ * @implements EventListener
+ */
+const PasswordStrength = {
+    handleEvent: function () {
         var meterObj = $('#password_strength_meter');
         var meterObjLabel = $('#password_strength');
         var username = $('input[name="username"]');
         username = username.val();
         Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username);
-    });
+    }
+};
 
-    /**
-     * Automatically switching to 'Use Text field' from 'No password' once start writing in text area
-     */
-    $('#text_pma_pw').on('input', function () {
+/**
+ * Automatically switching to 'Use Text field' from 'No password' once start writing in text area
+ *
+ * @implements EventListener
+ */
+const SwitchToUseTextField = {
+    handleEvent: function () {
         if ($('#text_pma_pw').val() !== '') {
             $('#select_pred_password').val('userdefined');
         }
-    });
+    }
+};
 
-    $('#text_pma_change_pw').on('keyup', function () {
+/**
+ * @implements EventListener
+ */
+const ChangePasswordStrength = {
+    handleEvent: function () {
         var meterObj = $('#change_password_strength_meter');
         var meterObjLabel = $('#change_password_strength');
         Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
-    });
+    }
+};
 
-    /**
-     * Display a notice if sha256_password is selected
-     */
-    $(document).on('change', '#select_authentication_plugin', function () {
+/**
+ * Display a notice if sha256_password is selected
+ *
+ * @implements EventListener
+ */
+const ShowSha256PasswordNotice = {
+    handleEvent: function () {
         var selectedPlugin = $(this).val();
         if (selectedPlugin === 'sha256_password') {
             $('#ssl_reqd_warning').show();
         } else {
             $('#ssl_reqd_warning').hide();
         }
-    });
+    }
+};
 
+/**
+ * @implements EventListener
+ */
+const RevokeUser = {
     /**
-     * AJAX handler for 'Revoke User'
-     *
-     * @see         Functions.ajaxShowMessage()
-     * @memberOf    jQuery
-     * @name        revoke_user_click
+     * @param {Event} event
      */
-    $(document).on('click', '#deleteUserCard .btn.ajax', function (event) {
+    handleEvent: function (event) {
         event.preventDefault();
 
         var $thisButton = $(this);
@@ -324,21 +273,17 @@ AJAX.registerOnload('server/privileges.js', function () {
                 }
             }); // end $.post()
         });
-    }); // end Revoke User
-
-    const editUserGroupModal = document.getElementById('editUserGroupModal');
-    if (editUserGroupModal) {
-        editUserGroupModal.addEventListener('show.bs.modal', EditUserGroup);
     }
+};
 
+/**
+ * @implements EventListener
+ */
+const ExportPrivileges = {
     /**
-     * AJAX handler for 'Export Privileges'
-     *
-     * @see         Functions.ajaxShowMessage()
-     * @memberOf    jQuery
-     * @name        export_user_click
+     * @param {Event} event
      */
-    $(document).on('click', 'button.mult_submit[value=export]', function (event) {
+    handleEvent: function (event) {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find('input:checked').length === 0) {
@@ -354,30 +299,44 @@ AJAX.registerOnload('server/privileges.js', function () {
         $.post($(this.form).prop('action'), postStr, function (data) {
             exportPrivilegesModalHandler(data, msgbox);
         }); // end $.post
-    });
-    // if exporting non-ajax, highlight anyways
-    Functions.getSqlEditor($('textarea.export'));
+    }
+};
 
-    $(document).on('click', 'a.export_user_anchor.ajax', function (event) {
+/**
+ * @implements EventListener
+ */
+const ExportUser = {
+    /**
+     * @param {Event} event
+     */
+    handleEvent: function (event) {
         event.preventDefault();
         var msgbox = Functions.ajaxShowMessage();
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
             exportPrivilegesModalHandler(data, msgbox);
-        }); // end $.get
-    }); // end export privileges
+        });
+    }
+};
 
-    $('button.jsAccountLocking').on('click', AccountLocking.handleEvent);
-
-    $(document).on('change', 'input[name="ssl_type"]', function () {
+/**
+ * @implements EventListener
+ */
+const SslTypeToggle = {
+    handleEvent: function () {
         var $div = $('#specified_div');
         if ($('#ssl_type_SPECIFIED').is(':checked')) {
             $div.find('input').prop('disabled', false);
         } else {
             $div.find('input').prop('disabled', true);
         }
-    });
+    }
+};
 
-    $(document).on('change', '#checkbox_SSL_priv', function () {
+/**
+ * @implements EventListener
+ */
+const SslPrivilegeToggle = {
+    handleEvent: function () {
         var $div = $('#require_ssl_div');
         if ($(this).is(':checked')) {
             $div.find('input').prop('disabled', false);
@@ -385,104 +344,194 @@ AJAX.registerOnload('server/privileges.js', function () {
         } else {
             $div.find('input').prop('disabled', true);
         }
-    });
+    }
+};
 
-    $('#checkbox_SSL_priv').trigger('change');
-
-    /*
-     * Create submenu for simpler interface
-     */
-    var addOrUpdateSubmenu = function () {
-        var $subNav = $('.nav-pills');
-        var $editUserDialog = $('#edit_user_dialog');
-        var submenuLabel;
-        var submenuLink;
-        var linkNumber;
-
-        // if submenu exists yet, remove it first
-        if ($subNav.length > 0) {
-            $subNav.remove();
-        }
-
-        // construct a submenu from the existing fieldsets
-        $subNav = $('<ul></ul>').prop('class', 'nav nav-pills m-2');
-
-        $('#edit_user_dialog .submenu-item').each(function () {
-            submenuLabel = $(this).find('legend[data-submenu-label]').data('submenu-label');
-
-            submenuLink = $('<a></a>')
-                .prop('class', 'nav-link')
-                .prop('href', '#')
-                .html(submenuLabel);
-
-            $('<li></li>')
-                .prop('class', 'nav-item')
-                .append(submenuLink)
-                .appendTo($subNav);
-        });
-
-        // click handlers for submenu
-        $subNav.find('a').on('click', function (e) {
-            e.preventDefault();
-            // if already active, ignore click
-            if ($(this).hasClass('active')) {
-                return;
-            }
-            $subNav.find('a').removeClass('active');
-            $(this).addClass('active');
-
-            // which section to show now?
-            linkNumber = $subNav.find('a').index($(this));
-            // hide all sections but the one to show
-            $('#edit_user_dialog .submenu-item').hide().eq(linkNumber).show();
-        });
-
-        // make first menu item active
-        // TODO: support URL hash history
-        $subNav.find('> :first-child a').addClass('active');
-        $editUserDialog.prepend($subNav);
-
-        // hide all sections but the first
-        $('#edit_user_dialog .submenu-item').hide().eq(0).show();
-
-        // scroll to the top
-        $('html, body').animate({ scrollTop: 0 }, 'fast');
-    };
-
-    $('input.autofocus').trigger('focus');
-    $(Functions.checkboxesSel).trigger('change');
-    Functions.displayPasswordGenerateButton();
-    if ($('#edit_user_dialog').length > 0) {
-        addOrUpdateSubmenu();
+/**
+ * Create submenu for simpler interface
+ */
+function addOrUpdateSubmenu () {
+    var $editUserDialog = $('#edit_user_dialog');
+    if ($editUserDialog.length === 0) {
+        return;
     }
 
+    var $subNav = $('.nav-pills');
+    var submenuLabel;
+    var submenuLink;
+    var linkNumber;
+
+    // if submenu exists yet, remove it first
+    if ($subNav.length > 0) {
+        $subNav.remove();
+    }
+
+    // construct a submenu from the existing fieldsets
+    $subNav = $('<ul></ul>').prop('class', 'nav nav-pills m-2');
+
+    $('#edit_user_dialog .submenu-item').each(function () {
+        submenuLabel = $(this).find('legend[data-submenu-label]').data('submenu-label');
+
+        submenuLink = $('<a></a>')
+            .prop('class', 'nav-link')
+            .prop('href', '#')
+            .html(submenuLabel);
+
+        $('<li></li>')
+            .prop('class', 'nav-item')
+            .append(submenuLink)
+            .appendTo($subNav);
+    });
+
+    // click handlers for submenu
+    $subNav.find('a').on('click', function (e) {
+        e.preventDefault();
+        // if already active, ignore click
+        if ($(this).hasClass('active')) {
+            return;
+        }
+        $subNav.find('a').removeClass('active');
+        $(this).addClass('active');
+
+        // which section to show now?
+        linkNumber = $subNav.find('a').index($(this));
+        // hide all sections but the one to show
+        $('#edit_user_dialog .submenu-item').hide().eq(linkNumber).show();
+    });
+
+    // make first menu item active
+    // TODO: support URL hash history
+    $subNav.find('> :first-child a').addClass('active');
+    $editUserDialog.prepend($subNav);
+
+    // hide all sections but the first
+    $('#edit_user_dialog .submenu-item').hide().eq(0).show();
+
+    // scroll to the top
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+}
+
+/**
+ * @implements EventListener
+ */
+const SelectAllPrivileges = {
     /**
-     * Select all privileges
-     *
-     * @param {HTMLElement} e
-     * @return {void}
+     * @param {Event} event
      */
-    var tableSelectAll = function (e) {
-        const method = e.target.getAttribute('data-select-target');
+    handleEvent: function (event) {
+        const method = event.target.getAttribute('data-select-target');
         var options = $(method).first().children();
         options.each(function (_, obj) {
             obj.selected = true;
         });
-    };
+    }
+};
 
-    $('#select_priv_all').on('click', tableSelectAll);
-    $('#insert_priv_all').on('click', tableSelectAll);
-    $('#update_priv_all').on('click', tableSelectAll);
-    $('#references_priv_all').on('click', tableSelectAll);
-
+function setMaxWidth () {
     var windowWidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowWidth - 35) + 'px');
+}
 
-    $('#addUsersForm').on('submit', function () {
-        return checkAddUser(this);
-    });
+/**
+ * Validates the "add a user" form
+ *
+ * @implements EventListener
+ */
+const CheckAddUser = {
+    handleEvent: function () {
+        const theForm = this;
 
-    $('#copyUserForm').on('submit', function () {
-        return checkAddUser(this);
-    });
+        if (theForm.elements.hostname.value === '') {
+            alert(Messages.strHostEmpty);
+            theForm.elements.hostname.focus();
+            return false;
+        }
+
+        if ((theForm.elements.pred_username && theForm.elements.pred_username.value === 'userdefined') && theForm.elements.username.value === '') {
+            alert(Messages.strUserEmpty);
+            theForm.elements.username.focus();
+            return false;
+        }
+
+        return Functions.checkPassword($(theForm));
+    }
+};
+
+/**
+ * AJAX scripts for /server/privileges page.
+ *
+ * Actions ajaxified here:
+ * Add user
+ * Revoke a user
+ * Edit privileges
+ * Export privileges
+ * Paginate table of users
+ * Flush privileges
+ *
+ * @memberOf    jQuery
+ * @name        document.ready
+ */
+
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server/privileges.js', function () {
+    $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
+    $(document).off('click', '#deleteUserCard .btn.ajax');
+
+    const editUserGroupModal = document.getElementById('editUserGroupModal');
+    if (editUserGroupModal) {
+        editUserGroupModal.removeEventListener('show.bs.modal', EditUserGroup);
+    }
+
+    $(document).off('click', 'button.mult_submit[value=export]');
+    $(document).off('click', 'a.export_user_anchor.ajax');
+    $('button.jsAccountLocking').off('click');
+    $('#dropUsersDbCheckbox').off('click');
+    $(document).off('click', '.checkall_box');
+    $(document).off('change', '#checkbox_SSL_priv');
+    $(document).off('change', 'input[name="ssl_type"]');
+    $(document).off('change', '#select_authentication_plugin');
+});
+
+AJAX.registerOnload('server/privileges.js', function () {
+    $('#fieldset_add_user_login').on('change', 'input[name=\'username\']', AddUserLoginCheckUsername.handleEvent);
+    $('#text_pma_pw').on('keyup', PasswordStrength.handleEvent);
+    $('#text_pma_pw').on('input', SwitchToUseTextField.handleEvent);
+    $('#text_pma_change_pw').on('keyup', ChangePasswordStrength.handleEvent);
+    $(document).on('change', '#select_authentication_plugin', ShowSha256PasswordNotice.handleEvent);
+    $(document).on('click', '#deleteUserCard .btn.ajax', RevokeUser.handleEvent);
+
+    const editUserGroupModal = document.getElementById('editUserGroupModal');
+    if (editUserGroupModal) {
+        editUserGroupModal.addEventListener('show.bs.modal', EditUserGroup);
+    }
+
+    $(document).on('click', 'button.mult_submit[value=export]', ExportPrivileges.handleEvent);
+
+    // if exporting non-ajax, highlight anyways
+    Functions.getSqlEditor($('textarea.export'));
+
+    $(document).on('click', 'a.export_user_anchor.ajax', ExportUser.handleEvent);
+    $('button.jsAccountLocking').on('click', AccountLocking.handleEvent);
+    $(document).on('change', 'input[name="ssl_type"]', SslTypeToggle.handleEvent);
+
+    $(document).on('change', '#checkbox_SSL_priv', SslPrivilegeToggle.handleEvent);
+    $('#checkbox_SSL_priv').trigger('change');
+
+    $('input.autofocus').trigger('focus');
+    $(Functions.checkboxesSel).trigger('change');
+    Functions.displayPasswordGenerateButton();
+    addOrUpdateSubmenu();
+
+    $('#select_priv_all').on('click', SelectAllPrivileges.handleEvent);
+    $('#insert_priv_all').on('click', SelectAllPrivileges.handleEvent);
+    $('#update_priv_all').on('click', SelectAllPrivileges.handleEvent);
+    $('#references_priv_all').on('click', SelectAllPrivileges.handleEvent);
+
+    setMaxWidth();
+
+    $('#addUsersForm').on('submit', CheckAddUser.handleEvent);
+    $('#copyUserForm').on('submit', CheckAddUser.handleEvent);
 });
