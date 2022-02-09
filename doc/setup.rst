@@ -1138,6 +1138,7 @@ you can use :config:option:`$cfg['MysqlSslWarningSafeHosts']` to explicitly list
 .. seealso::
 
     :ref:`example-google-ssl`,
+    :ref:`example-aws-ssl`,
     :config:option:`$cfg['Servers'][$i]['ssl']`,
     :config:option:`$cfg['Servers'][$i]['ssl_key']`,
     :config:option:`$cfg['Servers'][$i]['ssl_cert']`,

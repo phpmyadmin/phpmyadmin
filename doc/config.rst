@@ -325,6 +325,7 @@ Server connection settings
 
         :ref:`ssl`,
         :ref:`example-google-ssl`,
+        :ref:`example-aws-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
@@ -350,6 +351,7 @@ Server connection settings
 
         :ref:`ssl`,
         :ref:`example-google-ssl`,
+        :ref:`example-aws-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
@@ -369,6 +371,7 @@ Server connection settings
 
         :ref:`ssl`,
         :ref:`example-google-ssl`,
+        :ref:`example-aws-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
@@ -387,6 +390,7 @@ Server connection settings
 
         :ref:`ssl`,
         :ref:`example-google-ssl`,
+        :ref:`example-aws-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -405,6 +409,7 @@ Server connection settings
 
         :ref:`ssl`,
         :ref:`example-google-ssl`,
+        :ref:`example-aws-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -423,6 +428,7 @@ Server connection settings
 
         :ref:`ssl`,
         :ref:`example-google-ssl`,
+        :ref:`example-aws-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -461,6 +467,7 @@ Server connection settings
 
         :ref:`ssl`,
         :ref:`example-google-ssl`,
+        :ref:`example-aws-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -3797,6 +3804,40 @@ server certificates and tell phpMyAdmin to use them:
     :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
     :config:option:`$cfg['Servers'][$i]['ssl_verify']`,
     <https://bugs.php.net/bug.php?id=72048>
+
+.. _example-aws-ssl:
+
+Amazon RDS Aurora with SSL
+++++++++++++++++++++++++++
+
+To connect phpMyAdmin to an Amazon RDS Aurora MySQL database instance using SSL,
+download the CA server certificate and tell phpMyAdmin to use it:
+
+.. code-block:: php
+
+    // Address of your instance
+    $cfg['Servers'][$i]['host'] = 'replace-me-custer-name.cluster-replace-me-id.replace-me-region.rds.amazonaws.com';
+    // Use SSL for connection
+    $cfg['Servers'][$i]['ssl'] = true;
+    // You need to have the region CA file and the authority CA file (2019 edition CA for example) in the PEM bundle for it to work
+    $cfg['Servers'][$i]['ssl_ca'] = '../rds-combined-ca-bundle.pem';
+    // Enable SSL verification
+    $cfg['Servers'][$i]['ssl_verify'] = true;
+
+.. seealso::
+
+    :ref:`ssl`,
+    :config:option:`$cfg['Servers'][$i]['ssl']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+
+.. seealso::
+
+    - Current RDS CA bundle for all regions https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+    - The RDS CA (2019 edition) for the region `eu-west-3` without the parent CA https://s3.amazonaws.com/rds-downloads/rds-ca-2019-eu-west-3.pem
+    - `List of available Amazon RDS CA files <https://s3.amazonaws.com/rds-downloads/>`_
+    - `Amazon MySQL Aurora security guide <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Security.html>`_
+    - `Amazon certificates bundles per region <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html>`_
 
 reCaptcha using hCaptcha
 ++++++++++++++++++++++++
