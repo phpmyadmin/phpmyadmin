@@ -1807,4 +1807,90 @@ class RelationTest extends AbstractTestCase
 
         $this->assertAllQueriesConsumed();
     }
+
+    /**
+     * @param array<string, bool|string> $params
+     * @param string[]                   $queries
+     *
+     * @dataProvider providerForTestRenameTable
+     */
+    public function testRenameTable(array $params, array $queries): void
+    {
+        $GLOBALS['server'] = 1;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray($params)->toArray();
+
+        foreach ($queries as $query) {
+            $this->dummyDbi->addResult($query, []);
+        }
+
+        $this->relation->renameTable('db_1', 'db_2', 'table_1', 'table_2');
+
+        $this->assertAllQueriesConsumed();
+    }
+
+    /**
+     * @return array<int, array<int, array<int|string, bool|string>>>
+     * @psalm-return list<array{array<string, bool|string>, string[]}>
+     */
+    public function providerForTestRenameTable(): array
+    {
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        return [
+            [
+                ['user' => 'user', 'db' => 'pmadb', 'commwork' => true, 'column_info' => 'column_info'],
+                ['UPDATE `pmadb`.`column_info` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
+            ],
+            [
+                ['user' => 'user', 'db' => 'pmadb', 'displaywork' => true, 'relation' => 'relation', 'table_info' => 'table_info'],
+                ['UPDATE `pmadb`.`table_info` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
+            ],
+            [
+                ['user' => 'user', 'db' => 'pmadb', 'relwork' => true, 'relation' => 'relation'],
+                [
+                    'UPDATE `pmadb`.`relation` SET foreign_db = \'db_2\', foreign_table = \'table_2\' WHERE foreign_db = \'db_1\' AND foreign_table = \'table_1\'',
+                    'UPDATE `pmadb`.`relation` SET master_db = \'db_2\', master_table = \'table_2\' WHERE master_db = \'db_1\' AND master_table = \'table_1\'',
+                ],
+            ],
+            [
+                ['user' => 'user', 'db' => 'pmadb', 'pdfwork' => true, 'pdf_pages' => 'pdf_pages', 'table_coords' => 'table_coords'],
+                ['DELETE FROM `pmadb`.`table_coords` WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
+            ],
+            [
+                ['user' => 'user', 'db' => 'pmadb', 'uiprefswork' => true, 'table_uiprefs' => 'table_uiprefs'],
+                ['UPDATE `pmadb`.`table_uiprefs` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\''],
+            ],
+            [
+                ['user' => 'user', 'db' => 'pmadb', 'navwork' => true, 'navigationhiding' => 'navigationhiding'],
+                [
+                    'UPDATE `pmadb`.`navigationhiding` SET db_name = \'db_2\', table_name = \'table_2\' WHERE db_name = \'db_1\' AND table_name = \'table_1\'',
+                    'UPDATE `pmadb`.`navigationhiding` SET db_name = \'db_2\', item_name = \'table_2\' WHERE db_name = \'db_1\' AND item_name = \'table_1\' AND item_type = \'table\'',
+                ],
+            ],
+        ];
+        // phpcs:enable
+    }
+
+    public function testRenameTableEscaping(): void
+    {
+        $GLOBALS['server'] = 1;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'user' => 'user',
+            'db' => 'pma`db',
+            'pdfwork' => true,
+            'pdf_pages' => 'pdf_pages',
+            'table_coords' => 'table`coords',
+        ])->toArray();
+
+        $this->dummyDbi->addResult(
+            'UPDATE `pma``db`.`table``coords` SET db_name = \'db\\\'1\', table_name = \'table\\\'2\''
+                . ' WHERE db_name = \'db\\\'1\' AND table_name = \'table\\\'1\'',
+            []
+        );
+
+        $this->relation->renameTable('db\'1', 'db\'1', 'table\'1', 'table\'2');
+
+        $this->assertAllQueriesConsumed();
+    }
 }
