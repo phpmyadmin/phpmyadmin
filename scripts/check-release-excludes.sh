@@ -169,7 +169,7 @@ validateExtension() {
         ;;
         favicon.ico)
         ;;
-        babel.config.json)
+        webpack.config.js)
         ;;
         package.json)
         ;;
