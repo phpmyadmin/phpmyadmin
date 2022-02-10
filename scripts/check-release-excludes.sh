@@ -179,8 +179,6 @@ validateExtension() {
         ;;
         yarn.lock)
         ;;
-        .rtlcssrc.json)
-        ;;
         robots.txt)
         ;;
         index.php)

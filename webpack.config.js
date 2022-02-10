@@ -1,11 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const CopyPlugin = require('copy-webpack-plugin');
 const WebpackConcatPlugin = require('webpack-concat-files-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackRTLPlugin = require('webpack-rtl-plugin');
 
 module.exports = [
     {
         mode: 'none',
+        devtool: 'source-map',
         entry: {
             'ajax': './js/src/ajax.js',
             'chart': './js/src/chart.js',
@@ -92,10 +96,10 @@ module.exports = [
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            presets:  ['@babel/preset-env']
-                        }
-                    }
-                }
+                            presets:  ['@babel/preset-env'],
+                        },
+                    },
+                },
             ],
         },
         plugins: [
@@ -186,7 +190,7 @@ module.exports = [
         performance: {
             hints: false,
             maxEntrypointSize: 512000,
-            maxAssetSize: 512000
+            maxAssetSize: 512000,
         },
         output: {
             path: path.resolve('./js/vendor/openlayers'),
@@ -197,7 +201,62 @@ module.exports = [
         },
         plugins: [
             new webpack.BannerPlugin({
-                banner: 'OpenLayers (https://openlayers.org/)\nCopyright 2005-present, OpenLayers Contributors All rights reserved.\nLicensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)'
+                banner: 'OpenLayers (https://openlayers.org/)\nCopyright 2005-present, OpenLayers Contributors All rights reserved.\nLicensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)',
+            }),
+        ],
+    },
+    {
+        name: 'CSS',
+        mode: 'none',
+        devtool: 'source-map',
+        entry: {
+            'themes/bootstrap/css/theme': './themes/bootstrap/scss/theme.scss',
+            'themes/metro/css/blueeyes-theme': './themes/metro/scss/blueeyes-theme.scss',
+            'themes/metro/css/mono-theme': './themes/metro/scss/mono-theme.scss',
+            'themes/metro/css/redmond-theme': './themes/metro/scss/redmond-theme.scss',
+            'themes/metro/css/teal-theme': './themes/metro/scss/teal-theme.scss',
+            'themes/metro/css/theme': './themes/metro/scss/theme.scss',
+            'themes/original/css/theme': './themes/original/scss/theme.scss',
+            'themes/pmahomme/css/theme': './themes/pmahomme/scss/theme.scss',
+            'setup/styles': './setup/scss/styles.scss',
+        },
+        output: {
+            filename: 'build/css/[name].js',
+            path: path.resolve(__dirname, ''),
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.scss$/,
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false,
+                            },
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                postcssOptions: {
+                                    plugins: [ autoprefixer() ],
+                                },
+                            },
+                        },
+                        'sass-loader',
+                    ],
+                },
+            ],
+        },
+        plugins: [
+            new MiniCssExtractPlugin({
+                filename: '[name].css',
+                chunkFilename: '[id].css',
+            }),
+            new WebpackRTLPlugin({
+                filename: '[name].rtl.css',
+                minify: false,
             }),
         ],
     },
