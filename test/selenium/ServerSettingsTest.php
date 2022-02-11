@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use function sleep;
+
 /**
  * @coversNothing
  */
@@ -126,12 +128,14 @@ class ServerSettingsTest extends TestBase
         $this->waitForElement('name', 'NavigationDisplayLogo')
             ->click();
         $this->saveConfig();
+        sleep(1);
         $this->assertFalse(
             $this->isElementPresent('id', 'imgpmalogo')
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->saveConfig();
+        sleep(1);
         $this->assertTrue(
             $this->isElementPresent('id', 'imgpmalogo')
         );
