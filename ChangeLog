@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.9.10 (not yet released)
+4.9.10 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
 
 4.9.9 (2022-01-22)
