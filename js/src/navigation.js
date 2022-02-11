@@ -447,7 +447,7 @@ $(function () {
     /** New index */
     $(document).on('click', '#pma_navigation_tree li.new_index a.ajax', function (event) {
         event.preventDefault();
-        var url = $(this).attr('href').substr(
+        var url = $(this).attr('href').substring(
             $(this).attr('href').indexOf('?') + 1
         ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = Messages.strAddIndex;
@@ -457,7 +457,7 @@ $(function () {
     /** Edit index */
     $(document).on('click', 'li.index a.ajax', function (event) {
         event.preventDefault();
-        var url = $(this).attr('href').substr(
+        var url = $(this).attr('href').substring(
             $(this).attr('href').indexOf('?') + 1
         ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = Messages.strEditIndex;

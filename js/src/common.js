@@ -91,7 +91,7 @@ var CommonParams = (function () {
             if (typeof common === 'string' && common.length > 0) {
                 // If the last char is the separator, do not add it
                 // Else add it
-                common = common.substr(common.length - 1, common.length) === argsep ? common : common + argsep;
+                common = common.endsWith(argsep) ? common : common + argsep;
             }
 
             return Functions.sprintf(

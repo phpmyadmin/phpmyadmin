@@ -599,7 +599,7 @@ var ConsoleInput = {
             } else {
                 // Get cursor position from textarea
                 var text = ConsoleInput.getText();
-                cursorLine = text.substr(0, editor.prop('selectionStart')).split('\n').length - 1;
+                cursorLine = text.substring(0, editor.prop('selectionStart')).split('\n').length - 1;
                 totalLine = text.split(/\r*\n/).length;
             }
             if (cursorLine === 0) {

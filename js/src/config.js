@@ -667,7 +667,7 @@ function setupRestoreField () {
             var fieldSel;
             if ($(this).hasClass('restore-default')) {
                 fieldSel = href;
-                restoreField(fieldSel.substr(1));
+                restoreField(fieldSel.substring(1));
             } else {
                 fieldSel = href.match(/^[^=]+/)[0];
                 var value = href.match(/=(.+)$/)[1];

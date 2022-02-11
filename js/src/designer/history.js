@@ -504,7 +504,7 @@ DesignerHistory.queryGroupBy = function () {
             str += '`' + historyArray[i].getColumnName() + '`, ';
         }
     }
-    str = str.substr(0, str.length - 2);
+    str = str.substring(0, str.length - 2);
     return str;
 };
 
@@ -529,7 +529,7 @@ DesignerHistory.queryHaving = function () {
     if (and === '(') {
         and = '';
     } else {
-        and = and.substr(0, and.length - 2) + ')';
+        and = and.substring(0, and.length - 2) + ')';
     }
     return and;
 };
@@ -549,7 +549,7 @@ DesignerHistory.queryOrderBy = function () {
                 historyArray[i].getObj().getOrder() + ', ';
         }
     }
-    str = str.substr(0, str.length - 2);
+    str = str.substring(0, str.length - 2);
     return str;
 };
 
