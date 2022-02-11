@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-01-03 16:54+0000\n"
-"Last-Translator: Emanuel <emanuel12m@gmail.com>\n"
+"PO-Revision-Date: 2022-02-08 13:56+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -594,17 +594,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size este 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "%% maxim tampon cheie MyISAM folosit vreodată"
+msgstr "% maxim tampon cheie MyISAM folosit vreodată"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Tamponul cheie MyISAM folosit (cache index) %% este mic."
+msgstr "Tamponul cheie MyISAM folosit (cache index) % este mic."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -641,10 +639,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Procentul de citiri index din memorie"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "%% de indexuri care folosește tamponul cheii MyISAM este mic."
+msgstr "% de indexuri care folosește tamponul cheii MyISAM este mic."
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -728,10 +725,9 @@ msgstr ""
 "pe oră"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "Blocări de tabel imediate %%"
+msgstr "Blocări de tabel imediate %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -783,10 +779,9 @@ msgid "The thread cache is set to 0"
 msgstr "Cache-ul firului de execuție este setat la 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Rată de succes cache fire de execuție %%"
+msgstr "Rată de succes cache fire de execuție %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -1003,17 +998,17 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
-"% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
+"De obicei, este suficientă setarea propietății {innodb_log_file_size} la "
+"25%% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
-"distrugere(eroare gravă) a unei baze de date.  A se vedea de asemenea <a "
-"href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
-"ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
-"pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
-"asigura că totul a decurs bine. A se vedea de asemenea <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">acest post din blog</a>"
+"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a href="
+"\"https://www.mysqlperformanceblog.com/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se "
+"închidă server-ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă "
+"în my.cnf, pornească server-ul și apoi să se verifice intrările de erori, "
+"pentru a se asigura că totul a decurs bine. A se vedea de asemenea <a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">acest post din blog</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #: libraries/advisory_rules_generic.php:662
@@ -1056,17 +1051,17 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
-"% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
+"De obicei, este suficientă setarea propietății {innodb_log_file_size} la "
+"25%% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
-"distrugere(eroare gravă) a unei baze de date.  A se vedea de asemenea <a "
-"href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
-"ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
-"pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
-"asigura că totul a decurs bine. A se vedea de asemenea <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">acest post din blog</a>"
+"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a href="
+"\"https://www.mysqlperformanceblog.com/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se "
+"închidă server-ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă "
+"în my.cnf, pornească server-ul și apoi să se verifice intrările de erori, "
+"pentru a se asigura că totul a decurs bine. A se vedea de asemenea <a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">acest post din blog</a>"
 
 #: libraries/advisory_rules_generic.php:685
 #, php-format
@@ -1110,12 +1105,12 @@ msgstr ""
 "InnoDB. Alocă toată memoria rămasă în acest tampon. Pentru serverele de bază "
 "de date care folosesc exclusiv InnoDB ca motor de stocare și nu a alte "
 "servicii care rulează (de exemplu, un server web), poți seta o valoare mare, "
-"cum ar fi 80%% din memoria disponibilă. În caz contrar, trebuie să evaluezi "
+"cum ar fi 80% din memoria disponibilă. În caz contrar, trebuie să evaluezi "
 "cu atenție consumul de memorie al celorlalte servicii și tabelele non-InnoDB "
 "și să setezi această variabilă în consecință. Dacă este setată o valoare "
 "prea mare, sistemul tău va începe să se schimbe, ceea ce scade semnificativ "
-"performanța. De asemenea, vezi <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">acest articol</a>"
+"performanța. De asemenea, vezi <a href=\"https://www.percona.com/blog/2007/"
+"11/03/choosing-innodb_buffer_pool_size/\">acest articol</a>"
 
 #: libraries/advisory_rules_generic.php:706
 #, php-format
@@ -1178,10 +1173,9 @@ msgstr ""
 "query_cache_size este setat la 0 sau query_cache_type este setat la ”OPRIT”"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Eficiență cache interogări (%%)"
+msgstr "Eficiență cache interogări (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1201,10 +1195,9 @@ msgid "Query Cache usage"
 msgstr "Utilizare cache interogări"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Este utilizat mai puțin de 80%% din cache-ul interogări."
+msgstr "Este utilizat mai puțin de 80% din cache-ul interogări."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -2252,16 +2245,12 @@ msgstr ""
 "sau a tabelului actual."
 
 #: libraries/classes/Config/Descriptions.php:292
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Deschide pagina legată în fereastra principală ([kbd]principală[/kbd]) sau "
-"într-o fereastră nouă ([kbd]nouă[/kbd])."
+"Deschide pagina legată în fereastra principală ([code]principală[/code]) sau "
+"într-o fereastră nouă ([code]nouă[/code])."
 
 #: libraries/classes/Config/Descriptions.php:296
 msgid ""
@@ -2483,13 +2472,14 @@ msgstr ""
 "[kbd]pma__central_columns[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:391
+#, fuzzy
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "Poți folosi metacaractere MySQL (% și _), să le escapezi dacă vrei să "
-"folosești instanțele lor literale, adică folosește  [kbd]'my\\_db'[/kbd] și "
+"folosești instanțele lor literale, adică folosește [kbd]'my\\_db'[/kbd] și "
 "nu [kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:396
@@ -2663,11 +2653,10 @@ msgid "Leave blank for defaults."
 msgstr "Lasă gol pentru implicite."
 
 #: libraries/classes/Config/Descriptions.php:478
-#, fuzzy
-#| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"Numele HTTP Basic Auth Realm ce va fi afișat când se face autentificarea HTTP"
+"Numele HTTP Basic Auth Realm ce va fi afișat când se face autentificarea "
+"HTTP."
 
 #: libraries/classes/Config/Descriptions.php:479
 msgid "Authentication method to use."
@@ -2830,12 +2819,6 @@ msgstr ""
 "mărită pentru zonele text ale interogărilor SQL (*2)."
 
 #: libraries/classes/Config/Descriptions.php:538
-#, fuzzy
-#| msgid ""
-#| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
-#| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
-#| "Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-#| "HTTP_X_FORWARDED_FOR[/kbd]"
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -2844,8 +2827,8 @@ msgid ""
 msgstr ""
 "Proxy-uri de intrare ca [kbd] IP: header HTTP de încredere [/kbd]. Următorul "
 "exemplu specifică faptul că phpMyAdmin ar trebui să încredere într-un antet "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) provenind de la proxy 1.2.3.4: [br]"
-"[kbd] 1.2.3.4: HTTP_X_FORWARDED_FOR [/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) provenind de la proxy 1.2.3.4: "
+"[br][kbd] 1.2.3.4: HTTP_X_FORWARDED_FOR [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:544
 msgid ""
@@ -3331,7 +3314,7 @@ msgstr "Coloane escapate cu"
 #: libraries/classes/Config/Descriptions.php:706
 #: libraries/classes/Config/Descriptions.php:751
 msgid "Replace NULL with"
-msgstr "Înlocuiește NUL cu"
+msgstr "Înlocuiește NULL cu"
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:679
@@ -3574,7 +3557,7 @@ msgstr "Verificări chei străine"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
-msgstr ""
+msgstr "Prima zi din calendar"
 
 #: libraries/classes/Config/Descriptions.php:757
 #: libraries/classes/Config/Descriptions.php:768 libraries/classes/Menu.php:530
@@ -3780,7 +3763,7 @@ msgstr "Nu anulează la eroarea de INSERARE"
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:813
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Adaugă ON DUPLICATE KEY UPDATE"
 
 #: libraries/classes/Config/Descriptions.php:808
 msgid "Format of imported file"
@@ -4939,7 +4922,7 @@ msgid "Invalid server index: %s"
 msgstr "Index server invalid: %s"
 
 #: libraries/classes/Config.php:1401
-#, fuzzy, php-format
+#, php-format
 msgid "Server %d"
 msgstr "Server %d"
 
@@ -5199,10 +5182,8 @@ msgstr "Nu am putut încărca modulele de export, te rog verifică-ți instalare
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "Nicio bază de date selectată."
+msgstr "Niciun tabel selectat."
 
 #: libraries/classes/Controllers/Database/ImportController.php:75
 #: libraries/classes/Controllers/ImportController.php:619
@@ -5815,10 +5796,8 @@ msgid "Y values"
 msgstr "Valori Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:126
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Te rog introdu din nou aceeași valoare"
+msgstr "Te rog introdu mai întâi interogarea SQL."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "The host name is empty!"
@@ -6414,16 +6393,12 @@ msgid "Please select the file you want to import."
 msgstr "Te rog selectează fișierul pe care vrei să-l imporți."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Te rog introdu un nume de pagină valid"
+msgstr "Te rog introdu un nume de tabel valid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Te rog introdu un nume de pagină valid"
+msgstr "Te rog introdu un nume de bază de date valid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
@@ -6894,8 +6869,7 @@ msgstr "Pentru a mări, selectează o secțiune a plotului cu mausul."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Dă clic pe pe butonul de resetare a măririi pentru a reveni la starea "
-"inițială."
+"Dă clic pe butonul de resetare a măririi pentru a reveni la starea inițială."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Click a data point to view and possibly edit the data row."
@@ -7096,6 +7070,8 @@ msgstr "Șterge pagina"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Este posibil ca unele tabele salvate în această pagină să fi fost redenumite "
+"sau șterse."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -7398,16 +7374,12 @@ msgstr ""
 "În funcție de setările tale, aceste sunt trimise acum, te rog ai răbdare."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:682
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Pagină ștearsă cu succes"
+msgstr "Copiat cu succes!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Copiez baza de date"
+msgstr "Copiere eșuată!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgid "Execute this query again?"
@@ -7507,17 +7479,15 @@ msgstr "Tip invalid de export"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Eroare necunoscută"
+msgstr "Eroare cheie de securitate necunoscută."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Clientul nu suportă cheie de securitate."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
@@ -7529,11 +7499,9 @@ msgstr "Activarea cheii de securitate a eșuat (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Tip invalid de export"
+msgstr "Cheie de securitate invalidă."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy, php-format
@@ -8690,6 +8658,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Funcțiile ini_get și/sau ini_set sunt dezactivate în php.ini. phpMyAdmin are "
+"nevoie de aceste funcții!"
 
 #: libraries/classes/Core.php:1261
 msgid "GLOBALS overwrite attempt"
@@ -8874,8 +8844,8 @@ msgstr "Editează evenimentul"
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
-"Datele introduse aici trebuie sa fie în format-ul \"nume-de-"
-"utilizator@numele-gazdei\" (username@hostname)"
+"Datele introduse aici trebuie să fie în formatul \"nume-de-utilizator@numele-"
+"gazdei\"!"
 
 #: libraries/classes/Database/Events.php:402
 msgid "You must provide an event name!"
@@ -10546,10 +10516,8 @@ msgstr ""
 "de navigare."
 
 #: libraries/classes/Navigation/NavigationTree.php:816
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Grupuri:"
+msgstr "Grupuri"
 
 #: libraries/classes/Navigation/NavigationTree.php:982
 #, php-format
@@ -11133,6 +11101,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Parola ta este prea lungă. Pentru a preveni atacurile DoS, phpMyAdmin "
+"restricționează parolele la mai puțin de 1000 caractere."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11778,10 +11748,8 @@ msgstr ""
 "ghilimele."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:128
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Nume coloane: "
+msgstr "Nume coloane:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:267
 #: libraries/classes/Plugins/Import/ImportCsv.php:643
@@ -12086,7 +12054,7 @@ msgstr ""
 "listarea codului HTML. Din motive de securitate, va trebui sa editati manual "
 "fisierul libraries/transformations/text_plain__external.inc.php și să "
 "inserați uneltele permise să ruleze. Prima opțiune este apoi numărul de "
-"programe care vor fi utilizate și a doua opțiune sînt  parametri pentru "
+"programe care vor fi utilizate și a doua opțiune sînt parametri pentru "
 "program. Al treilea parametru, dacă este stabilit la 1 va transforma ieșirea "
 "folosind htmlspecialchars() (implicit este 1). Un al patrulea parametru, "
 "dacă este stabilit la 1, va aplica NOWRAP la conținut, astfel încît întregul "
@@ -12182,7 +12150,7 @@ msgstr ""
 "pentru definirea punctului de început a outputului de text (Default 0). A "
 "doua optiune este un offset de text returnat. Daca este gol, returneaza "
 "textul ramas. A treia optiune defineste caracterele care vor fi atasate la "
-"output la returnarea unui substring  (Default: …) ."
+"output la returnarea unui substring (Default: …) ."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:28
 msgid ""
@@ -12455,19 +12423,15 @@ msgid "no description"
 msgstr "nicio descriere"
 
 #: libraries/classes/Relation.php:2039
-#, fuzzy, php-format
-#| msgid ""
-#| "You do not have necessary privileges to create a database named '%s'. You "
-#| "may go to 'Operations' tab of any database to set up the phpMyAdmin "
-#| "configuration storage there."
+#, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"Nu ai privilegiile necesare pentru a crea o bază de date numită "
-"„phpmyadmin”. Poți merge la fila „Operații” a oricărei baze de date pentru a "
-"inițializa acolo spațiul de stocare pentru configurarea phpMyAdmin."
+"Nu ai privilegiile necesare pentru a crea o bază de date numită „%s”. Poți "
+"merge la fila „Operații” a oricărei baze de date pentru a inițializa acolo "
+"spațiul de stocare pentru configurarea phpMyAdmin."
 
 #: libraries/classes/Relation.php:2163
 #, php-format
@@ -12566,10 +12530,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Routing.php:165
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Baza de date sursă „%s” nu a fost găsită!"
+msgstr "Eroare 404! Pagina %s nu a fost găsită."
 
 #: libraries/classes/Routing.php:176
 msgid "Error 405! Request method not allowed."
@@ -13469,9 +13432,9 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Un număr cu virgulă mobilă cu dublă precizie, valorile permise sunt "
-"-1.7976931348623157E+308 până la  -2.2250738585072014E-308, 0, şi "
-"2.2250738585072014E-308 până la 1.7976931348623157E+308"
+"Un număr cu virgulă mobilă cu dublă precizie, valorile permise sunt -1."
+"7976931348623157E+308 până la -2.2250738585072014E-308, 0, şi 2."
+"2250738585072014E-308 până la 1.7976931348623157E+308"
 
 #: libraries/classes/Types.php:251
 msgid ""
@@ -14222,9 +14185,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Dacă câmpul este „enum” sau „set”, vă rugăm să adăugați valori folosind "
-"formatul: 'a','b','c'…<br />Daca aveti nevoie sa puneti bara intoarsa "
-"(backslash) (\"\\\") sau semnul (\"'\") la aceste valori, folosiți exemplul "
-"( '\\\\xyz' or 'a\\'b')."
+"formatul: 'a','b','c'…<br>Dacă aveti nevoie sa puneti bara intoarsa "
+"(backslash) (\"\\\") sau semnul (\"'\") la aceste valori, folosiți exemplul ("
+" '\\\\xyz' or 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -14476,10 +14439,8 @@ msgid "A_I"
 msgstr "A_I"
 
 #: templates/database/central_columns/main.twig:131
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Lista centrală de coloane pentru baza de date curentă este goală."
+msgstr "Lista centrală de coloane pentru baza de date curentă este goală"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
@@ -14544,10 +14505,8 @@ msgid "Number of columns"
 msgstr "Număr de coloane"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Comentariu bază de date"
+msgstr "Comentariu bază de date:"
 
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:417
@@ -14876,12 +14835,12 @@ msgid "OFF"
 msgstr "OPRIT"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ va deveni numele bazei de date"
+msgstr ""
+"@SERVER@ va deveni numele server-ului și @DATABASE@ va deveni numele bazei "
+"de date."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
@@ -14907,10 +14866,8 @@ msgstr "Interogare în mai multe tabele"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Interogare eșuată"
+msgstr "Interogare prin exemplu"
 
 #: templates/database/multi_table_query/form.twig:15
 msgid "Query window"
@@ -14987,16 +14944,12 @@ msgstr "Nume bază de date nouă"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Nu ai suficiente privilegii pentru a efectua această operație; te rog "
-"consultă documentația pentru mai multe detalii"
+"consultă documentația pentru mai multe detalii."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -15129,10 +15082,8 @@ msgid "Ins:"
 msgstr "Inserează:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Și:"
+msgstr "Și"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 #, fuzzy
@@ -15169,16 +15120,12 @@ msgid "Modify:"
 msgstr "Modifică:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Adaugă/șterge rândurile de criterii"
+msgstr "Adaugă/șterge rândurile de criterii:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Adaugă/șterge coloane"
+msgstr "Adaugă/șterge coloane:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -15382,10 +15329,8 @@ msgid "Make consistent with central list"
 msgstr "Asigură consecvență în lista centrală"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Opțiuni"
+msgstr "Opțiuni:"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15513,10 +15458,8 @@ msgid "There are no triggers to display."
 msgstr "Nu există niciun declanșator de afișat."
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Sortează după cheie"
+msgstr "Sortează după cheie:"
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
@@ -15744,10 +15687,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Această valoare este interpretată folosind %1$sstrftime%2$s, deci poți "
+"Această valoare este interpretată folosind funcția 'strftime', deci poți "
 "folosi șiruri de formatare pentru timp. În plus, vor avea loc următoarele "
-"transformări: %3$s. Orice alt text va fi păstrat așa cum este. Vezi "
-"%4$sÎntrebări frecvente%5$s pentru detalii."
+"transformări: %s Orice alt text va fi păstrat așa cum este. Vezi Întrebări "
+"frecvente 6.27 pentru detalii."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -15831,10 +15774,9 @@ msgstr "Punct:"
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Punct %d"
+msgstr "Punct %d:"
 
 #: templates/gis_data_editor_form.twig:113
 #, php-format
@@ -15898,22 +15840,19 @@ msgid "no branch"
 msgstr "nicio ramură"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s din ramura %2$s"
+msgstr "din ramura %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "consemnat pe %1$s de %2$s"
+msgstr "consemnat pe %s de %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "scris pe %1$s de %2$s"
+msgstr "scris pe %s de %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -15923,7 +15862,7 @@ msgid ""
 "at %s."
 msgstr ""
 "Folosești serverul demonstrativ. Poți face orice aici, dar te rog nu "
-"modifica rădăcina, devian-sys-maint sau utilizatorii pma. Mai multe "
+"modifica rădăcina, debian-sys-maint sau utilizatorii pma. Mai multe "
 "informații sunt disponibile la %s."
 
 #: templates/home/index.twig:32
@@ -15931,10 +15870,8 @@ msgid "General settings"
 msgstr "Setări generale"
 
 #: templates/home/index.twig:56
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Colaționare conexiune server"
+msgstr "Colaționare conexiune server:"
 
 #: templates/home/index.twig:79 templates/preferences/manage/main.twig:56
 msgid "More settings"
@@ -16094,16 +16031,15 @@ msgid "You may also drag and drop a file on any page."
 msgstr "De asemenea, poți trage și plasa un fișier în orice pagină."
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Selectează de pe serverul web un director pentru încărcări <b>%s</b>:"
+msgstr ""
+"Selectează de pe serverul web un director pentru încărcări "
+"[strong]%s[/strong]:"
 
 #: templates/import.twig:80
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Fișier de importat:"
+msgstr "Selectează fișierul de importat"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
@@ -16410,8 +16346,6 @@ msgid "Password:"
 msgstr "Parolă:"
 
 #: templates/login/form.twig:67
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "Alegere server:"
 
@@ -16626,10 +16560,8 @@ msgstr ""
 "%sscriptul de inițializare%s."
 
 #: templates/preferences/manage/main.twig:81
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Salvează ca fișier"
+msgstr "Salvează ca fișier JSON"
 
 #: templates/preferences/manage/main.twig:85
 msgid "Save as PHP file"
@@ -16808,10 +16740,8 @@ msgid "Create database"
 msgstr "Creează bază de date"
 
 #: templates/server/databases/index.twig:72
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Verifică privilegiile pentru baza de date „%s”."
+msgstr "Nu ai privilegii pentru a crea baze de date"
 
 #: templates/server/databases/index.twig:159
 #: templates/server/replication/index.twig:18
@@ -16864,16 +16794,12 @@ msgid "Storage Engine"
 msgstr "Motor de stocare"
 
 #: templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Motoare de stocare"
+msgstr "Motor de stocare necunoscut."
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ va deveni numele serverului"
+msgstr "@SERVER@ va deveni numele server-ului."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16916,10 +16842,8 @@ msgid "deleting"
 msgstr "Șterg"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Șterge"
+msgstr "șterse"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
@@ -16948,11 +16872,9 @@ msgstr "Introdu:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Lungime date"
+msgstr "Putere:"
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
@@ -16961,10 +16883,8 @@ msgid "Re-type:"
 msgstr "Tastează din nou:"
 
 #: templates/server/privileges/change_password.twig:40
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Criptare Parola"
+msgstr "Criptare parolă:"
 
 #: templates/server/privileges/change_password.twig:58
 msgid ""
@@ -16982,10 +16902,8 @@ msgid "User group"
 msgstr "Grup de utilizatori"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Grup de utilizatori"
+msgstr "Grup de utilizatori:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -17138,18 +17056,13 @@ msgid "Password hashing method"
 msgstr "Criptare Parola"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Această metodă necesită folosirea unei „<i>conexiuni SSL</i>” sau a unei "
-"„<i>conexiuni necriptate care criptează parola folosind RSA</i>”; în timpul "
+"Această metodă necesită folosirea unei „<em>conexiuni SSL</em>” sau a unei „"
+"<em>conexiuni necriptate care criptează parola folosind RSA</em>”; în timpul "
 "conectării la server."
 
 #: templates/server/privileges/new_user_ajax.twig:52
@@ -17388,10 +17301,8 @@ msgstr ""
 "să-l %sconfigurezi%s?"
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Niciun privilegiu."
+msgstr "Niciun privilegiu"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:44
@@ -17626,34 +17537,24 @@ msgid "Possible performance issues"
 msgstr "Probleme de performanță posibile"
 
 #: templates/server/status/advisor/index.twig:78
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Problemă"
+msgstr "Problemă:"
 
 #: templates/server/status/advisor/index.twig:81
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Recomandare"
+msgstr "Recomandare:"
 
 #: templates/server/status/advisor/index.twig:84
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Justificare"
+msgstr "Justificare:"
 
 #: templates/server/status/advisor/index.twig:87
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Variabilă/formulă folosită"
+msgstr "Variabilă/formulă folosită:"
 
 #: templates/server/status/advisor/index.twig:90
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Test"
+msgstr "Test:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -17899,10 +17800,8 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Întrebări de la pornire: %s"
+msgstr "Întrebări de la pornire:"
 
 #: templates/server/status/queries/index.twig:20
 msgid "per hour:"
@@ -18202,10 +18101,8 @@ msgid "Rollback when finished"
 msgstr "Restaurează când termini"
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Semn de carte"
+msgstr "Semn de carte:"
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -18312,12 +18209,12 @@ msgid "Save chart as image"
 msgstr "Salvează diagrama ca imagine"
 
 #: templates/table/export/index.twig:12
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ", @DATABASE@ va deveni numele bazei de date"
+msgstr ""
+"@SERVER@ va deveni numele server-ului, @DATABASE@ va deveni numele bazei de "
+"date și @TABLE@ va deveni numele tabelului."
 
 #: templates/table/export/index.twig:7
 #, php-format
@@ -18512,10 +18409,8 @@ msgid "Remove partitioning"
 msgstr "Înlătură partiționarea"
 
 #: templates/table/operations/index.twig:469
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Verifică integritatea referențială:"
+msgstr "Verifică integritatea referențială"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"

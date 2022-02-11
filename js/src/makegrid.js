@@ -1715,7 +1715,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // make sure we have more than one column
             if ($firstRowCols.length > 1) {
-                var $colVisibTh = $(g.t).find('th:not(.draggable)');
+                var $colVisibTh = $(g.t).find('th:not(.draggable)').slice(0, 1);
                 Functions.tooltip(
                     $colVisibTh,
                     'th',

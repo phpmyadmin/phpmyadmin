@@ -2490,8 +2490,8 @@ class Results
         $whereClauseMap = $this->properties['whereClauseMap'];
         while ($row = $dbi->fetchRow($dt_result)) {
             // add repeating headers
-            if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
-                && ! $row_no % $_SESSION['tmpval']['repeat_cells']
+            if (($row_no !== 0) && ($_SESSION['tmpval']['repeat_cells'] > 0)
+                && ($row_no % $_SESSION['tmpval']['repeat_cells']) === 0
             ) {
                 $table_body_html .= $this->getRepeatingHeaders(
                     $display_params
@@ -2520,7 +2520,7 @@ class Results
             $copy_url = null;
             $copy_str = null;
             $edit_url = null;
-            $editCopyUrlParams = null;
+            $editCopyUrlParams = [];
             $delUrlParams = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
@@ -3258,8 +3258,12 @@ class Results
      * @param bool   $clause_is_unique the unique condition of clause
      * @param string $url_sql_query    the analyzed sql query
      *
-     * @return array<int,string|array>       5 element array - $edit_url, $copy_url,
-     *                                                   $edit_str, $copy_str
+     * @phpstan-return array{string, string, string, string,
+     *  array{
+     *    db: string, table: string, where_clause: string,
+     *    clause_is_unique: bool, sql_query: string, goto: string
+     *  }
+     * }
      *
      * @access private
      */

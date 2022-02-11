@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Throwable;
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
@@ -26,6 +27,7 @@ use function error_reporting;
 use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
+use function set_exception_handler;
 use function trigger_error;
 use const PHP_VERSION_ID;
 
@@ -64,6 +66,7 @@ class ErrorHandler
          * rely on PHPUnit doing it's own error handling which we break here.
          */
         if (! defined('TESTSUITE')) {
+            set_exception_handler([$this, 'handleException']);
             set_error_handler([$this, 'handleError']);
         }
         if (! Util::isErrorReportingAvailable()) {
@@ -209,6 +212,22 @@ class ErrorHandler
         }
 
         $this->addError($errstr, $errno, $errfile, $errline, true);
+    }
+
+    /**
+     * Hides exception if it's not in the development environment.
+     *
+     * @throws Throwable
+     */
+    public function handleException(Throwable $exception): void
+    {
+        $config = $GLOBALS['PMA_Config'] ?? null;
+        $environment = $config instanceof Config ? $config->get('environment') : 'production';
+        if ($environment !== 'development') {
+            return;
+        }
+
+        throw $exception;
     }
 
     /**

@@ -1,6 +1,16 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Static property PhpMyAdmin\\\\Charsets\\:\\:\\$charsets \\(array\\<string, PhpMyAdmin\\\\Charsets\\\\Charset\\>\\) does not accept array\\<int\\|string, PhpMyAdmin\\\\Charsets\\\\Charset\\>\\.$#"
+			count: 1
+			path: libraries/classes/Charsets.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Charsets\\:\\:\\$collations \\(array\\<string, array\\<string, PhpMyAdmin\\\\Charsets\\\\Collation\\>\\>\\) does not accept array\\<int\\|string, array\\<int\\|string, PhpMyAdmin\\\\Charsets\\\\Collation\\>\\>\\.$#"
+			count: 1
+			path: libraries/classes/Charsets.php
+
+		-
 			message: "#^Strict comparison using \\=\\=\\= between non\\-empty\\-array\\<int, string\\> and false will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
@@ -316,7 +326,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:extractPartitionDetails\\(\\) should return array\\<array\\>\\|null but returns array\\<string, array\\<int, array\\<string, mixed\\>\\>\\|bool\\|int\\|string\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:extractPartitionDetails\\(\\) should return array\\<array\\>\\|null but returns array\\<string, array\\<int\\<0, max\\>, array\\<string, mixed\\>\\>\\|bool\\|int\\|string\\>\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
@@ -361,7 +371,7 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{scheme\\?\\: string, host\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
+			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{host\\: non\\-empty\\-string, scheme\\?\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -371,22 +381,22 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -521,16 +531,6 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Binary operation \"\\+\" between array\\|string\\|null and array\\{default_action\\: 'insert'\\} results in an error\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Binary operation \"\\+\" between array\\|string\\|null and array\\{default_action\\: 'update'\\} results in an error\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:getMIMESubtype\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -571,37 +571,37 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
+			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#7 \\$transformation_plugin of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin, array\\<int, class\\-string\\|string\\>\\|object given\\.$#"
+			message: "#^Parameter \\#7 \\$transformation_plugin of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin, array\\<int, string\\>\\|object given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#7 \\$transformation_plugin of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin, array\\<int, class\\-string\\|string\\>\\|object given\\.$#"
+			message: "#^Parameter \\#7 \\$transformation_plugin of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin, array\\<int, string\\>\\|object given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$transformation_plugin of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin, array\\<int, class\\-string\\|string\\>\\|object given\\.$#"
+			message: "#^Parameter \\#8 \\$transformation_plugin of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin, array\\<int, string\\>\\|object given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
+			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -612,6 +612,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$order \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\>\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -831,7 +836,7 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -841,7 +846,7 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getLineForOpenLayers\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getLineForOpenLayers\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -871,7 +876,7 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -881,7 +886,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getLineArrayForOpenLayers\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getLineArrayForOpenLayers\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -911,7 +916,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -921,7 +926,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:getPointsArrayForOpenLayers\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:getPointsArrayForOpenLayers\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -951,7 +956,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -961,7 +966,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPolygonArrayForOpenLayers\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPolygonArrayForOpenLayers\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -996,7 +1001,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -1006,7 +1011,7 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPointForOpenLayers\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPointForOpenLayers\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -1036,7 +1041,7 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -1046,7 +1051,7 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPolygonForOpenLayers\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPolygonForOpenLayers\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -1122,7 +1127,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset int on array\\|false\\.$#"
-			count: 2
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
+			message: "#^Cannot access offset int\\<min, \\-1\\>\\|int\\<1, max\\> on array\\|false\\.$#"
+			count: 1
 			path: libraries/classes/Git.php
 
 		-
@@ -1131,7 +1141,7 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Offset int does not exist on array\\|null\\.$#"
+			message: "#^Offset int\\<0, max\\> does not exist on array\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Import.php
 
@@ -1396,11 +1406,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 4
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Parameter \\#1 \\$create_query of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -1506,12 +1511,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#1 \\$cell_attrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects array, SimpleXMLElement\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#2 \\$text of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects array, SimpleXMLElement given\\.$#"
+			message: "#^Parameter \\#1 \\$cell_attrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
@@ -1564,11 +1564,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Used function uploadprogress_get_info not found\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadSession\\:\\:getIdKey\\(\\) should return string but returns string\\|false\\.$#"
