@@ -21,6 +21,7 @@ use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
+use function bin2hex;
 use function curl_close;
 use function curl_errno;
 use function curl_error;
@@ -36,12 +37,9 @@ use function is_string;
 use function json_decode;
 use function json_encode;
 use function mb_strtolower;
-use function mb_substr;
-use function mt_getrandmax;
 use function preg_match;
-use function random_int;
+use function random_bytes;
 use function reset;
-use function sha1;
 use function sprintf;
 use function strlen;
 use function substr;
@@ -159,7 +157,7 @@ abstract class TestBase extends TestCase
      */
     protected function createDatabase(): void
     {
-        $this->databaseName = $this->getDbPrefix() . mb_substr(sha1((string) random_int(0, mt_getrandmax())), 0, 7);
+        $this->databaseName = $this->getDbPrefix() . bin2hex(random_bytes(4));
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`; USE `' . $this->databaseName . '`;'
         );

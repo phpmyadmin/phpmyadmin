@@ -49,7 +49,7 @@ class StructureTest extends TestBase
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->assertNotNull(
             $this->waitForElement(
