@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-5.1.3 (not yet released)
+5.1.3 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
 - issue #17331 Fix MariaDB has no support for system variable "disabled_storage_engines"
 - issue #17315 Fix unsupported operand types in Results.php when running "SHOW PROCESSLIST" SQL query
@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #17298 Fixed import of email-adresses or links from ODS results in empty contents
 - issue #17344 Fixed a type error on ODS import with non string values
 - issue #17239 Fixed header row show/hide columns buttons on each line after hover are shown on each row
+- issue        [security] Fix for path disclosure under certain server configurations (if display_errors is on, for instance)
 
 5.1.2 (2022-01-20)
 - issue        Replaced MySQL documentation redirected links
