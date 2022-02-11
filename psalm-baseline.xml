@@ -13412,8 +13412,7 @@
     </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Tracker.php">
-    <DocblockTypeContradiction occurrences="4">
-      <code>''</code>
+    <DocblockTypeContradiction occurrences="3">
       <code>null</code>
       <code>null</code>
       <code>null</code>
@@ -13463,9 +13462,6 @@
       <code>mb_strpos($logEntry, "\n")</code>
       <code>mb_strpos($logEntry, "\n")</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$version ?? ''</code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidPropertyFetch occurrences="4">
       <code>$statement-&gt;body[2]-&gt;value</code>
       <code>$statement-&gt;body[3]-&gt;value</code>
@@ -13481,10 +13477,9 @@
     <RedundantCondition occurrences="1">
       <code>$dbname</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="4">
+    <RedundantConditionGivenDocblockType occurrences="3">
       <code>$statement-&gt;name !== null</code>
       <code>$statement-&gt;name !== null</code>
-      <code>$version</code>
       <code>isset($statement-&gt;options)</code>
     </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainNull occurrences="1">

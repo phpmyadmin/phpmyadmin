@@ -8371,11 +8371,6 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Variable \\$version on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
 			message: "#^Cannot access offset 'COLUMNS' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php

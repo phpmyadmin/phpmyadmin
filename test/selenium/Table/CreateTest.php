@@ -65,7 +65,7 @@ class CreateTest extends TestBase
         $column_dropdown_details = [
             'field_0_6' => 'UNSIGNED',
             'field_1_2' => 'VARCHAR',
-            'field_1_5' => 'utf8_general_ci',
+            'field_1_5' => 'utf8mb4_general_ci',
             'field_1_4' => 'As defined:',
         ];
 
@@ -83,7 +83,7 @@ class CreateTest extends TestBase
         $this->moveto($ele);
         // post
         $ele->click();
-        $this->waitForElement('cssSelector', 'li.last.table');
+        $this->waitForElement('cssSelector', 'li.last.nav_node_table');
 
         $this->waitAjax();
 
@@ -162,7 +162,7 @@ class CreateTest extends TestBase
         );
 
         $this->assertEquals(
-            'utf8_general_ci',
+            'utf8mb4_general_ci',
             $this->getCellByTableId('tablestructure', 2, 5)
         );
 
