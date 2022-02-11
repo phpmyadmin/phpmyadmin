@@ -163,7 +163,7 @@ class TrackingTest extends TestBase
         $this->moveto($ele);
         $this->click();
 
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->waitAjax();
         $this->waitForElement(

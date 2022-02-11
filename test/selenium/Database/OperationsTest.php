@@ -68,7 +68,7 @@ class OperationsTest extends TestBase
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->waitForElement(
             'xpath',

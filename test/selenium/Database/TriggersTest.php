@@ -92,7 +92,7 @@ class TriggersTest extends TestBase
         $proc = 'UPDATE ' . $this->databaseName . '.`test_table2` SET val=val+1';
         $this->typeInTextArea($proc);
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
@@ -147,7 +147,7 @@ class TriggersTest extends TestBase
         $proc = 'UPDATE ' . $this->databaseName . '.`test_table2` SET val=val+10';
         $this->typeInTextArea($proc);
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
@@ -182,7 +182,7 @@ class TriggersTest extends TestBase
         $this->waitForElement('id', 'checkAllCheckbox');
 
         $this->byPartialLinkText('Drop')->click();
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->waitAjaxMessage();
 

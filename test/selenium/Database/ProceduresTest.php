@@ -149,7 +149,7 @@ class ProceduresTest extends TestBase
             'READS SQL DATA'
         );
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
@@ -185,7 +185,7 @@ class ProceduresTest extends TestBase
         $this->byName('item_param_length[0]')->clear();
         $this->byName('item_param_length[0]')->sendKeys('30');
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
@@ -209,7 +209,7 @@ class ProceduresTest extends TestBase
         $this->waitForElement('id', 'checkAllCheckbox');
 
         $this->byPartialLinkText('Drop')->click();
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->waitAjaxMessage();
 

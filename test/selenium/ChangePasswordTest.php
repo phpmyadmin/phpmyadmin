@@ -80,7 +80,7 @@ class ChangePasswordTest extends TestBase
             $this->byId('nopass_1')->click();
         }
 
-        $this->byCssSelector('#change_password_dialog + div button')->click();
+        $this->byId('changePasswordGoButton')->click();
         $ele = $this->waitForElement('cssSelector', '.alert-success');
         $this->assertEquals(
             'The profile has been updated.',

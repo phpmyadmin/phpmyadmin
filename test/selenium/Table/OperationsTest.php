@@ -185,7 +185,7 @@ class OperationsTest extends TestBase
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
         $this->byId('truncate_tbl_anchor')->click();
-        $this->byCssSelector('button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
         $this->waitAjax();
 
         $this->waitForElement(
@@ -212,7 +212,7 @@ class OperationsTest extends TestBase
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
         $this->scrollToBottom();
         $dropLink->click();
-        $this->byCssSelector('button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
         $this->waitAjax();
 
         $this->waitForElement(
