@@ -950,7 +950,7 @@ class Tracker
         " AND `db_name` = '" . $dbi->escapeString($dbname ?? '') . "' " .
         " AND `table_name` = '"
         . $dbi->escapeString($result['tablename']) . "' " .
-        " AND `version` = '" . $dbi->escapeString($version ?? '') . "' ";
+        " AND `version` = '" . $dbi->escapeString((string) $version) . "' ";
 
         $dbi->queryAsControlUser($sqlQuery);
     }
