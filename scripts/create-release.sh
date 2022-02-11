@@ -234,7 +234,7 @@ if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
     composer update --no-dev
-    composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
+    composer require --update-no-dev tecnickcom/tcpdf:\^6.3 pragmarx/google2fa:\^3.0.0 bacon/bacon-qr-code:\^1.0.0 samyoul/u2f-php-server:\^1.1
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
