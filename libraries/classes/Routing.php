@@ -19,6 +19,7 @@ use function file_put_contents;
 use function htmlspecialchars;
 use function is_array;
 use function is_readable;
+use function is_string;
 use function is_writable;
 use function rawurldecode;
 use function sprintf;
@@ -123,6 +124,7 @@ class Routing
      */
     public static function getCurrentRoute(): string
     {
+        /** @var mixed $route */
         $route = $_GET['route'] ?? $_POST['route'] ?? '/';
         if (! is_string($route) || $route === '') {
             $route = '/';
@@ -133,11 +135,10 @@ class Routing
          *
          * @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34
          */
-        if (($route === '/' || $route === '') && isset($_GET['db']) && $_GET['db'] !== '') {
-            $route = '/database/structure';
-            if (isset($_GET['table']) && $_GET['table'] !== '') {
-                $route = '/sql';
-            }
+        $db = isset($_GET['db']) && is_string($_GET['db']) ? $_GET['db'] : '';
+        if ($route === '/' && $db !== '') {
+            $table = isset($_GET['table']) && is_string($_GET['table']) ? $_GET['table'] : '';
+            $route = $table === '' ? '/database/structure' : '/sql';
         }
 
         return $route;

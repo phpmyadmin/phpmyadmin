@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ErrorException;
+use Throwable;
 
 use function __;
 use function array_splice;
@@ -14,9 +15,9 @@ use function error_reporting;
 use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
+use function set_exception_handler;
 use function trigger_error;
 
-use Throwable;
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
@@ -233,7 +234,7 @@ class ErrorHandler
      */
     public function handleException(Throwable $exception): void
     {
-        $config = $GLOBALS['PMA_Config'] ?? null;
+        $config = $GLOBALS['config'] ?? null;
         $environment = $config instanceof Config ? $config->get('environment') : 'production';
         if ($environment !== 'development') {
             return;
