@@ -508,7 +508,7 @@ class DbiDummy implements DbiExtension
      *
      * @return void
      *
-     * @phpstan-param (int[]|string[]|array{string: string})[]|bool $result
+     * @phpstan-param ((string|null|int|bool)[]|array{string: string})[]|bool $result
      */
     public function addResult(string $query, $result, array $columns = [], array $metadata = [])
     {
