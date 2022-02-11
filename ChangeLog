@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.4 (not yet released)
+
 5.1.3 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
 - issue #17331 Fix MariaDB has no support for system variable "disabled_storage_engines"
