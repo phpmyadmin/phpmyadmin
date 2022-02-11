@@ -21,6 +21,7 @@ use function is_array;
 use function is_readable;
 use function is_writable;
 use function mb_strlen;
+use function is_string;
 use function rawurldecode;
 use function sprintf;
 use function trigger_error;
@@ -119,21 +120,25 @@ class Routing
         return @file_put_contents(self::ROUTES_CACHE_FILE, $cacheContents) !== false;
     }
 
+    /**
+     * @psalm-return non-empty-string
+     */
     public static function getCurrentRoute(): string
     {
-        /** @var string $route */
         $route = $_GET['route'] ?? $_POST['route'] ?? '/';
+        if (! is_string($route) || $route === '') {
+            $route = '/';
+        }
 
         /**
          * See FAQ 1.34.
          *
          * @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34
          */
-        if (($route === '/' || $route === '') && isset($_GET['db']) && mb_strlen($_GET['db']) !== 0) {
-            $route = '/database/structure';
-            if (isset($_GET['table']) && mb_strlen($_GET['table']) !== 0) {
-                $route = '/sql';
-            }
+        $db = isset($_GET['db']) && is_string($_GET['db']) ? $_GET['db'] : '';
+        if ($route === '/' && $db !== '') {
+            $table = isset($_GET['table']) && is_string($_GET['table']) ? $_GET['table'] : '';
+            $route = $table === '' ? '/database/structure' : '/sql';
         }
 
         return $route;
