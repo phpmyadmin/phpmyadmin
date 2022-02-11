@@ -118,10 +118,15 @@ class Routing
         return @file_put_contents(self::ROUTES_CACHE_FILE, $cacheContents) !== false;
     }
 
+    /**
+     * @psalm-return non-empty-string
+     */
     public static function getCurrentRoute(): string
     {
-        /** @var string $route */
         $route = $_GET['route'] ?? $_POST['route'] ?? '/';
+        if (! is_string($route) || $route === '') {
+            $route = '/';
+        }
 
         /**
          * See FAQ 1.34.
