@@ -19,9 +19,8 @@ use function file_put_contents;
 use function htmlspecialchars;
 use function is_array;
 use function is_readable;
-use function is_writable;
-use function mb_strlen;
 use function is_string;
+use function is_writable;
 use function rawurldecode;
 use function sprintf;
 use function trigger_error;
@@ -125,6 +124,7 @@ class Routing
      */
     public static function getCurrentRoute(): string
     {
+        /** @var mixed $route */
         $route = $_GET['route'] ?? $_POST['route'] ?? '/';
         if (! is_string($route) || $route === '') {
             $route = '/';
