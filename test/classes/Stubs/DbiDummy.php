@@ -19,25 +19,17 @@ use PHPUnit\Framework\Assert;
 
 use function addslashes;
 use function count;
-use function debug_backtrace;
-use function fwrite;
 use function is_array;
 use function is_bool;
 use function is_int;
-use function json_encode;
 use function preg_replace;
 use function str_replace;
 use function trim;
 
-use const DEBUG_BACKTRACE_IGNORE_ARGS;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
 use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
-use const PHP_EOL;
-use const STDERR;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
 
@@ -140,13 +132,7 @@ class DbiDummy implements DbiExtension
             return true;
         }
 
-        fwrite(STDERR, 'Non expected select of database: ' . $databaseName . PHP_EOL);
-        fwrite(STDERR, 'Trace: ' . json_encode(
-            debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5),
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
-        ) . PHP_EOL);
-
-        return false;
+        Assert::markTestIncomplete('Non expected select of database: ' . $databaseName);
     }
 
     public function hasUnUsedErrors(): bool
@@ -507,7 +493,7 @@ class DbiDummy implements DbiExtension
      * @param array|bool $result   Expected result
      * @param string[]   $columns  The result columns
      * @param object[]   $metadata The result metadata
-     * @phpstan-param (int[]|string[]|array{string: string}|null[])[]|bool|bool[] $result
+     * @phpstan-param array<int, array<int, array{string: string}|bool|int|string|null>|bool>|bool $result
      */
     public function addResult(string $query, $result, array $columns = [], array $metadata = []): void
     {

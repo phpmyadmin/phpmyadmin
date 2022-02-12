@@ -630,6 +630,27 @@ Server connection settings
     "phpMyAdmin " and either :config:option:`$cfg['Servers'][$i]['verbose']` or
     :config:option:`$cfg['Servers'][$i]['host']` will be used.
 
+.. _servers_auth_swekey_config:
+.. config:option:: $cfg['Servers'][$i]['auth_swekey_config']
+
+    :type: string
+    :default: ``''``
+
+    .. versionadded:: 3.0.0.0
+
+        This setting was named `$cfg['Servers'][$i]['auth_feebee_config']` and was renamed before the `3.0.0.0` release.
+
+    .. deprecated:: 4.6.4
+
+        This setting was removed because their servers are no longer working and it was not working correctly.
+
+    .. deprecated:: 4.0.10.17
+
+        This setting was removed in a maintenance release because their servers are no longer working and it was not working correctly.
+
+    The name of the file containing swekey ids and login names for hardware
+    authentication. Leave empty to deactivate this feature.
+
 .. _servers_user:
 .. config:option:: $cfg['Servers'][$i]['user']
 

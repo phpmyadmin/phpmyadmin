@@ -145,9 +145,13 @@ class Utilities
 
         // produces f.e.:
         // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
-        $compare = $cfg['NaturalOrder']
-            ? strnatcasecmp($a[$sortBy], $b[$sortBy])
-            : strcasecmp($a[$sortBy], $b[$sortBy]);
+        $compare = $cfg['NaturalOrder'] ? strnatcasecmp(
+            (string) $a[$sortBy],
+            (string) $b[$sortBy]
+        ) : strcasecmp(
+            (string) $a[$sortBy],
+            (string) $b[$sortBy]
+        );
 
         return ($sortOrder === 'ASC' ? 1 : -1) * $compare;
     }
