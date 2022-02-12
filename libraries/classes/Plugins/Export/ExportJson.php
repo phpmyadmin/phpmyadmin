@@ -21,7 +21,6 @@ use function __;
 use function bin2hex;
 use function explode;
 use function json_encode;
-use function stripslashes;
 
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_UNICODE;
@@ -263,7 +262,7 @@ class ExportJson extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
 
-            $columns[$i] = stripslashes($col_as);
+            $columns[$i] = $col_as;
         }
 
         $record_cnt = 0;

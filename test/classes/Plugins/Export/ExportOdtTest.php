@@ -469,7 +469,7 @@ class ExportOdtTest extends AbstractTestCase
             'is-list-header="true">Dumping data for table table</text:h><table:' .
             'table table:name="table_structure"><table:table-column table:number-' .
             'columns-repeated="2"/><table:table-row><table:table-cell office:' .
-            'value-type="string"><text:p>fna&quot;me</text:p></table:table-cell>' .
+            'value-type="string"><text:p>fna\&quot;me</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p>fnam/&lt;e2' .
             '</text:p></table:table-cell></table:table-row></table:table>',
             $GLOBALS['odt_buffer']

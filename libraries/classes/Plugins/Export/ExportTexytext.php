@@ -21,7 +21,6 @@ use function __;
 use function htmlspecialchars;
 use function in_array;
 use function str_replace;
-use function stripslashes;
 
 /**
  * Handles the export for the Texy! text class
@@ -194,8 +193,7 @@ class ExportTexytext extends ExportPlugin
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
 
-                $text_output .= '|'
-                    . htmlspecialchars(stripslashes($col_as));
+                $text_output .= '|' . htmlspecialchars($col_as);
             }
 
             $text_output .= "\n|------\n";

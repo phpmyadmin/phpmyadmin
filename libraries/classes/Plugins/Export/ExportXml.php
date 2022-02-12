@@ -21,7 +21,6 @@ use function is_array;
 use function mb_substr;
 use function rtrim;
 use function str_replace;
-use function stripslashes;
 use function strlen;
 
 use const PHP_VERSION;
@@ -458,10 +457,7 @@ class ExportXml extends ExportPlugin
             $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
             $columns_cnt = $result->numFields();
-            $columns = [];
-            foreach ($result->getFieldNames() as $column) {
-                $columns[] = stripslashes($column);
-            }
+            $columns = $result->getFieldNames();
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . htmlspecialchars($table_alias) . ' -->' . $crlf;

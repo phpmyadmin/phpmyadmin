@@ -24,7 +24,6 @@ use function in_array;
 use function mb_strpos;
 use function mb_substr;
 use function str_replace;
-use function stripslashes;
 
 use const PHP_VERSION;
 
@@ -353,7 +352,7 @@ class ExportLatex extends ExportPlugin
             $buffer = '\\hline ';
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $buffer .= '\\multicolumn{1}{|c|}{\\textbf{'
-                    . self::texEscape(stripslashes($columns_alias[$i])) . '}} & ';
+                    . self::texEscape($columns_alias[$i]) . '}} & ';
             }
 
             $buffer = mb_substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
@@ -398,9 +397,7 @@ class ExportLatex extends ExportPlugin
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
                 if ($record[$columns[$i]] !== null && isset($record[$columns[$i]])) {
-                    $column_value = self::texEscape(
-                        stripslashes($record[$columns[$i]])
-                    );
+                    $column_value = self::texEscape($record[$columns[$i]]);
                 } else {
                     $column_value = $GLOBALS['latex_null'];
                 }

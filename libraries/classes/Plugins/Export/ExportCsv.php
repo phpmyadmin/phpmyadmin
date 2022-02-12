@@ -21,7 +21,6 @@ use function mb_strtolower;
 use function mb_substr;
 use function preg_replace;
 use function str_replace;
-use function stripslashes;
 use function trim;
 
 /**
@@ -233,7 +232,6 @@ class ExportCsv extends ExportPlugin
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
 
-                $col_as = stripslashes($col_as);
                 if ($csv_enclosed == '') {
                     $schema_insert .= $col_as;
                 } else {
