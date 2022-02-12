@@ -19,25 +19,17 @@ use PHPUnit\Framework\Assert;
 
 use function addslashes;
 use function count;
-use function debug_backtrace;
-use function fwrite;
 use function is_array;
 use function is_bool;
 use function is_int;
-use function json_encode;
 use function preg_replace;
 use function str_replace;
 use function trim;
 
-use const DEBUG_BACKTRACE_IGNORE_ARGS;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
 use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
-use const PHP_EOL;
-use const STDERR;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
 
@@ -140,13 +132,7 @@ class DbiDummy implements DbiExtension
             return true;
         }
 
-        fwrite(STDERR, 'Non expected select of database: ' . $databaseName . PHP_EOL);
-        fwrite(STDERR, 'Trace: ' . json_encode(
-            debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5),
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
-        ) . PHP_EOL);
-
-        return false;
+        Assert::markTestIncomplete('Non expected select of database: ' . $databaseName);
     }
 
     public function hasUnUsedErrors(): bool
