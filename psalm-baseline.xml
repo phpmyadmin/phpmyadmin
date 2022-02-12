@@ -1262,16 +1262,15 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="2">
-      <code>$data</code>
+    <MixedArrayAccess occurrences="1">
       <code>$tableName</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>['Name' =&gt; $tableName]</code>
     </MixedAssignment>
     <PossiblyNullArgument occurrences="1">
       <code>$_POST['db_collation']</code>
     </PossiblyNullArgument>
-    <UnusedForeachValue occurrences="1">
-      <code>$data</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Controllers/Database/OperationsController.php">
     <MixedArgument occurrences="10">

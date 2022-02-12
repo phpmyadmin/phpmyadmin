@@ -2271,18 +2271,16 @@ class Util
                 }
             }
 
-            $tables = array_merge(
-                $groupTable,
-                $dbi->getTablesFull(
-                    $db,
-                    $groupWithSeparator !== false ? $groupWithSeparator : '',
-                    $groupWithSeparator !== false,
-                    $limitOffset,
-                    $limitCount,
-                    $sort,
-                    $sortOrder,
-                    $tableType
-                )
+            // We must use union operator here instead of array_merge to preserve numerical keys
+            $tables = $groupTable + $dbi->getTablesFull(
+                $db,
+                $groupWithSeparator !== false ? $groupWithSeparator : '',
+                $groupWithSeparator !== false,
+                $limitOffset,
+                $limitCount,
+                $sort,
+                $sortOrder,
+                $tableType
             );
         }
 
