@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\DatabaseList;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
+use stdClass;
 
 /**
  * @covers \PhpMyAdmin\DatabaseInterface
@@ -500,5 +502,204 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $this->dbi->tryQueryAsControlUser($sql)
         );
         $this->assertFalse($this->dbi->tryQueryAsControlUser('Invalid query'));
+    }
+
+    public function testGetDatabasesFullDisabledISAndSortIntColumn(): void
+    {
+        parent::setGlobalDbi();
+
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['cfg']['NaturalOrder'] = true;
+        $GLOBALS['dblist'] = new stdClass();
+        $GLOBALS['dblist']->databases = [
+            'db1',
+            'db2',
+        ];
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addResult(
+            'SELECT @@collation_database',
+            [
+                ['utf8_general_ci'],
+            ],
+            ['@@collation_database']
+        );
+        $this->dummyDbi->addResult(
+            'SELECT @@collation_database',
+            [
+                ['utf8_general_ci'],
+            ],
+            ['@@collation_database']
+        );
+        $this->dummyDbi->addResult(
+            'SHOW TABLE STATUS FROM `db1`;',
+            [
+                [
+                    'pma__bookmark',
+                    'InnoDB',
+                    10,
+                    'Dynamic',
+                    0,
+                    0,
+                    16384,
+                    0,
+                    0,
+                    0,
+                    1,
+                    '2021-08-27 14:11:52',
+                    null,
+                    null,
+                    'utf8_bin',
+                    null,
+                    'Bookmarks',
+                ],
+                [
+                    'pma__central_columns',
+                    'InnoDB',
+                    10,
+                    'Dynamic',
+                    0,
+                    0,
+                    16384,
+                    0,
+                    0,
+                    0,
+                    null,
+                    '2021-08-27 14:11:52',
+                    null,
+                    null,
+                    'utf8_bin',
+                    null,
+                    'Central list of columns',
+                ],
+            ],
+            [
+                'Name',
+                'Engine',
+                'Version',
+                'Row_format',
+                'Rows',
+                'Avg_row_length',
+                'Data_length',
+                'Max_data_length',
+                'Index_length',
+                'Data_free',
+                'Auto_increment',
+                'Create_time',
+                'Update_time',
+                'Check_time',
+                'Collation',
+                'Checksum',
+                'Create_options',
+                'Comment',
+            ]
+        );
+
+        $this->dummyDbi->addResult(
+            'SHOW TABLE STATUS FROM `db2`;',
+            [
+                [
+                    'pma__bookmark',
+                    'InnoDB',
+                    10,
+                    'Dynamic',
+                    0,
+                    0,
+                    16324,
+                    0,
+                    0,
+                    0,
+                    1,
+                    '2021-08-27 14:11:52',
+                    null,
+                    null,
+                    'utf8_bin',
+                    null,
+                    'Bookmarks',
+                ],
+                [
+                    'pma__central_columns',
+                    'InnoDB',
+                    10,
+                    'Dynamic',
+                    0,
+                    0,
+                    14384,
+                    0,
+                    0,
+                    0,
+                    null,
+                    '2021-08-27 14:11:52',
+                    null,
+                    null,
+                    'utf8_bin',
+                    null,
+                    'Central list of columns',
+                ],
+            ],
+            [
+                'Name',
+                'Engine',
+                'Version',
+                'Row_format',
+                'Rows',
+                'Avg_row_length',
+                'Data_length',
+                'Max_data_length',
+                'Index_length',
+                'Data_free',
+                'Auto_increment',
+                'Create_time',
+                'Update_time',
+                'Check_time',
+                'Collation',
+                'Checksum',
+                'Create_options',
+                'Comment',
+            ]
+        );
+        $this->dummyDbi->addSelectDb('');
+        $this->dummyDbi->addSelectDb('');
+        $this->dummyDbi->addSelectDb('db1');
+        $this->dummyDbi->addSelectDb('db2');
+
+        $databaseList = $this->dbi->getDatabasesFull(
+            null,
+            true,
+            DatabaseInterface::CONNECT_USER,
+            'SCHEMA_DATA_LENGTH',
+            'ASC',
+            0,
+            100
+        );
+
+        $this->assertSame([
+            [
+                'SCHEMA_NAME' => 'db2',
+                'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
+                'SCHEMA_TABLES' => 2,
+                'SCHEMA_TABLE_ROWS' => 0,
+                'SCHEMA_DATA_LENGTH' => 30708,
+                'SCHEMA_MAX_DATA_LENGTH' => 0,
+                'SCHEMA_INDEX_LENGTH' => 0,
+                'SCHEMA_LENGTH' => 30708,
+                'SCHEMA_DATA_FREE' => 0,
+            ],
+            [
+                'SCHEMA_NAME' => 'db1',
+                'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
+                'SCHEMA_TABLES' => 2,
+                'SCHEMA_TABLE_ROWS' => 0,
+                'SCHEMA_DATA_LENGTH' => 32768,
+                'SCHEMA_MAX_DATA_LENGTH' => 0,
+                'SCHEMA_INDEX_LENGTH' => 0,
+                'SCHEMA_LENGTH' => 32768,
+                'SCHEMA_DATA_FREE' => 0,
+            ],
+        ], $databaseList);
+
+        $this->assertAllQueriesConsumed();
     }
 }

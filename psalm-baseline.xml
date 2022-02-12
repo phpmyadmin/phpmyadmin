@@ -11729,12 +11729,6 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Query/Utilities.php">
-    <MixedArgument occurrences="4">
-      <code>$a[$sortBy]</code>
-      <code>$a[$sortBy]</code>
-      <code>$b[$sortBy]</code>
-      <code>$b[$sortBy]</code>
-    </MixedArgument>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['debug']['queries']</code>
     </MixedArrayAssignment>
