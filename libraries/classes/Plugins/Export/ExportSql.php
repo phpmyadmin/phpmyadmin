@@ -840,11 +840,7 @@ class ExportSql extends ExportPlugin
             $dbAlias = $db;
         }
 
-        if (isset($GLOBALS['sql_compatibility'])) {
-            $compat = $GLOBALS['sql_compatibility'];
-        } else {
-            $compat = 'NONE';
-        }
+        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         if (isset($GLOBALS['sql_drop_database'])) {
             if (
@@ -928,11 +924,7 @@ class ExportSql extends ExportPlugin
             $dbAlias = $db;
         }
 
-        if (isset($GLOBALS['sql_compatibility'])) {
-            $compat = $GLOBALS['sql_compatibility'];
-        } else {
-            $compat = 'NONE';
-        }
+        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         $head = $this->exportComment()
             . $this->exportComment(
@@ -1363,11 +1355,7 @@ class ExportSql extends ExportPlugin
 
         $createQuery .= $crlf . ')' . ($addSemicolon ? ';' : '') . $crlf;
 
-        if (isset($GLOBALS['sql_compatibility'])) {
-            $compat = $GLOBALS['sql_compatibility'];
-        } else {
-            $compat = 'NONE';
-        }
+        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         if ($compat === 'MSSQL') {
             $createQuery = $this->makeCreateTableMSSQLCompatible($createQuery);
@@ -1422,11 +1410,7 @@ class ExportSql extends ExportPlugin
         $schemaCreate = '';
         $newCrlf = $crlf;
 
-        if (isset($GLOBALS['sql_compatibility'])) {
-            $compat = $GLOBALS['sql_compatibility'];
-        } else {
-            $compat = 'NONE';
-        }
+        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         $result = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
@@ -2046,11 +2030,7 @@ class ExportSql extends ExportPlugin
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
-        if (isset($GLOBALS['sql_compatibility'])) {
-            $compat = $GLOBALS['sql_compatibility'];
-        } else {
-            $compat = 'NONE';
-        }
+        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         $formattedTableName = Util::backquoteCompat($tableAlias, $compat, isset($GLOBALS['sql_backquotes']));
         $dump = $this->possibleCRLF()
