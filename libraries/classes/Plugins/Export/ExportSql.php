@@ -947,8 +947,6 @@ class ExportSql extends ExportPlugin
      */
     public function exportDBFooter($db): bool
     {
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
-
         $result = true;
 
         //add indexes to the sql dump file
