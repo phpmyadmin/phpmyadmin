@@ -1569,7 +1569,7 @@ DesignerMove.hideTabAll = function (idThis) {
     var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
+        if (E.elements[i].type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
             if (idThis.alt === 'v') {
                 E.elements[i].checked = true;
                 document.getElementById(E.elements[i].value).style.display = '';
@@ -1622,7 +1622,7 @@ DesignerMove.noHaveConstr = function (idThis) {
     var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
+        if (E.elements[i].type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
             if (!DesignerMove.inArrayK(E.elements[i].value, a)) {
                 if (idThis.alt === 'v') {
                     E.elements[i].checked = true;

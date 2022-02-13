@@ -319,7 +319,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         });
     }
 
-    if (target.value === 'HEX' && theType.substring(0,3) === 'int') {
+    if (target.value === 'HEX' && theType.startsWith('int')) {
         // Add note when HEX function is selected on a int
         var newHexInfo = '<br><p id="note' +  target.id + '">' + Messages.HexConversionInfo + '</p>';
         if (!$('#note' + target.id).length) {
@@ -338,10 +338,10 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     $('input[name=\'insert_ignore_' + multiEdit + '\']').prop('checked', false);
 
     var charExceptionHandling;
-    if (theType.substring(0,4) === 'char') {
-        charExceptionHandling = theType.substring(5,6);
-    } else if (theType.substring(0,7) === 'varchar') {
-        charExceptionHandling = theType.substring(8,9);
+    if (theType.startsWith('char')) {
+        charExceptionHandling = theType.substring(5, 6);
+    } else if (theType.startsWith('varchar')) {
+        charExceptionHandling = theType.substring(8, 9);
     }
     if (functionSelected) {
         $thisInput.removeAttr('min');
@@ -436,7 +436,7 @@ AJAX.registerOnload('table/change.js', function () {
         });
 
         jQuery.validator.addMethod('validationFunctionForMd5', function (value, element, options) {
-            return !(value.substring(0, 3) === 'MD5' &&
+            return !(value.startsWith('MD5') &&
                 typeof options.data('maxlength') !== 'undefined' &&
                 options.data('maxlength') < 32);
         });

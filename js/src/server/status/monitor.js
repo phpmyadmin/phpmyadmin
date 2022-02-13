@@ -89,7 +89,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a.popupLink').on('click', function () {
         var $link = $(this);
-        $('div.' + $link.attr('href').substr(1))
+        $('div.' + $link.attr('href').substring(1))
             .show()
             .offset({ top: $link.offset().top + $link.height() + 5, left: $link.offset().left })
             .addClass('openedPopup');
@@ -862,7 +862,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     $dialog.find('img.ajaxIcon').hide();
                     $dialog.find('a.set').on('click', function () {
                         var nameValue = $(this).attr('href').split('-');
-                        loadLogVars({ varName: nameValue[0].substr(1), varValue: nameValue[1] });
+                        loadLogVars({ varName: nameValue[0].substring(1), varValue: nameValue[1] });
                         $dialog.find('img.ajaxIcon').show();
                     });
                 }

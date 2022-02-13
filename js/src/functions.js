@@ -710,7 +710,7 @@ Functions.confirmQuery = function (theForm1, sqlQuery1) {
         doConfirmRegExp4.test(sqlQuery1)) {
         var message;
         if (sqlQuery1.length > 100) {
-            message = sqlQuery1.substr(0, 100) + '\n    ...';
+            message = sqlQuery1.substring(0, 100) + '\n    ...';
         } else {
             message = sqlQuery1;
         }
@@ -1374,8 +1374,8 @@ Functions.getJsConfirmCommonParam = function (elem, parameters) {
     var sep = CommonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
-        if (params.substring(0,1) === '?') {
-            params = params.substr(1);
+        if (params.startsWith('?')) {
+            params = params.substring(1);
         }
         params += sep;
     } else {
@@ -4551,8 +4551,8 @@ Functions.configGet = function (key, cached, successCallback) {
 Functions.getPostData = function () {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
-    if (dataPost !== undefined && dataPost.substring(0,1) === '?') {
-        dataPost = dataPost.substr(1);
+    if (dataPost !== undefined && dataPost.startsWith('?')) {
+        dataPost = dataPost.substring(1);
     }
     return dataPost;
 };

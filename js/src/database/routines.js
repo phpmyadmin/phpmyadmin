@@ -554,19 +554,19 @@ const DatabaseRoutines = {
                  *                the input field being reindexed
                  */
                 var inputname = $(this).attr('name');
-                if (inputname.substr(0, 14) === 'item_param_dir') {
-                    $(this).attr('name', inputname.substr(0, 14) + '[' + index + ']');
-                } else if (inputname.substr(0, 15) === 'item_param_name') {
-                    $(this).attr('name', inputname.substr(0, 15) + '[' + index + ']');
-                } else if (inputname.substr(0, 15) === 'item_param_type') {
-                    $(this).attr('name', inputname.substr(0, 15) + '[' + index + ']');
-                } else if (inputname.substr(0, 17) === 'item_param_length') {
-                    $(this).attr('name', inputname.substr(0, 17) + '[' + index + ']');
+                if (inputname.startsWith('item_param_dir')) {
+                    $(this).attr('name', inputname.substring(0, 14) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_name')) {
+                    $(this).attr('name', inputname.substring(0, 15) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_type')) {
+                    $(this).attr('name', inputname.substring(0, 15) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_length')) {
+                    $(this).attr('name', inputname.substring(0, 17) + '[' + index + ']');
                     $(this).attr('id', 'item_param_length_' + index);
-                } else if (inputname.substr(0, 20) === 'item_param_opts_text') {
-                    $(this).attr('name', inputname.substr(0, 20) + '[' + index + ']');
-                } else if (inputname.substr(0, 19) === 'item_param_opts_num') {
-                    $(this).attr('name', inputname.substr(0, 19) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_opts_text')) {
+                    $(this).attr('name', inputname.substring(0, 20) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_opts_num')) {
+                    $(this).attr('name', inputname.substring(0, 19) + '[' + index + ']');
                 }
             });
             index++;
@@ -593,9 +593,9 @@ const DatabaseRoutines = {
             if (isSuccess) {
                 $(this).find(':input').each(function () {
                     inputname = $(this).attr('name');
-                    if (inputname.substr(0, 14) === 'item_param_dir' ||
-                        inputname.substr(0, 15) === 'item_param_name' ||
-                        inputname.substr(0, 15) === 'item_param_type') {
+                    if (inputname.startsWith('item_param_dir') ||
+                        inputname.startsWith('item_param_name') ||
+                        inputname.startsWith('item_param_type')) {
                         if ($(this).val() === '') {
                             $(this).trigger('focus');
                             isSuccess = false;
@@ -616,7 +616,7 @@ const DatabaseRoutines = {
             var $inputtyp = $(this).find('select[name^=item_param_type]');
             var $inputlen = $(this).find('input[name^=item_param_length]');
             if ($inputtyp.length && $inputlen.length) {
-                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR') &&
+                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().startsWith('VAR')) &&
                     $inputlen.val() === ''
                 ) {
                     $inputlen.trigger('focus');
@@ -634,7 +634,7 @@ const DatabaseRoutines = {
             // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
             var $returntyp = this.$ajaxDialog.find('select[name=item_returntype]');
             var $returnlen = this.$ajaxDialog.find('input[name=item_returnlength]');
-            if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR') &&
+            if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().startsWith('VAR')) &&
                 $returnlen.val() === ''
             ) {
                 $returnlen.trigger('focus');
