@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-06 00:13+0000\n"
+"POT-Creation-Date: 2022-02-13 00:13+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3322,12 +3322,12 @@ msgstr "Qysý"
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:698
 #: libraries/classes/Config/Descriptions.php:744
-#: libraries/classes/Plugins/Export/ExportCsv.php:88
+#: libraries/classes/Plugins/Export/ExportCsv.php:87
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:85
-#: libraries/classes/Plugins/Export/ExportOds.php:70
-#: libraries/classes/Plugins/Export/ExportOdt.php:127
-#: libraries/classes/Plugins/Export/ExportTexytext.php:79
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:84
+#: libraries/classes/Plugins/Export/ExportOds.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:126
+#: libraries/classes/Plugins/Export/ExportTexytext.php:78
 msgid "Put columns names in the first row"
 msgstr "Baǵandardyń ataýlaryn birinshi jolǵa qoıý"
 
@@ -3394,29 +3394,29 @@ msgstr "Keste atynyń úlgisi"
 #: libraries/classes/Config/Descriptions.php:703
 #: libraries/classes/Config/Descriptions.php:740
 #: libraries/classes/Config/Descriptions.php:746
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:56
-#: libraries/classes/Plugins/Export/ExportLatex.php:88
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:55
+#: libraries/classes/Plugins/Export/ExportLatex.php:87
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
-#: libraries/classes/Plugins/Export/ExportOdt.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:68
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
 #: libraries/classes/Plugins/Export/ExportSql.php:237
-#: libraries/classes/Plugins/Export/ExportTexytext.php:55
+#: libraries/classes/Plugins/Export/ExportTexytext.php:54
 msgid "Dump table"
 msgstr "Kesteni damptaý"
 
 #: libraries/classes/Config/Descriptions.php:682
-#: libraries/classes/Plugins/Export/ExportLatex.php:79
+#: libraries/classes/Plugins/Export/ExportLatex.php:78
 msgid "Include table caption"
 msgstr "Keste taqyrypshasyn qamtý"
 
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:699
 #: libraries/classes/Config/Descriptions.php:734
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:386
-#: libraries/classes/Plugins/Export/ExportLatex.php:544
-#: libraries/classes/Plugins/Export/ExportOdt.php:490
-#: libraries/classes/Plugins/Export/ExportTexytext.php:388
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:384
+#: libraries/classes/Plugins/Export/ExportLatex.php:541
+#: libraries/classes/Plugins/Export/ExportOdt.php:487
+#: libraries/classes/Plugins/Export/ExportTexytext.php:386
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:548
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
@@ -3444,9 +3444,9 @@ msgstr "Belgi kilti"
 #: libraries/classes/Config/Descriptions.php:688
 #: libraries/classes/Config/Descriptions.php:700
 #: libraries/classes/Config/Descriptions.php:737
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:393
-#: libraries/classes/Plugins/Export/ExportOdt.php:497
-#: libraries/classes/Plugins/Export/ExportTexytext.php:393
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:391
+#: libraries/classes/Plugins/Export/ExportOdt.php:494
+#: libraries/classes/Plugins/Export/ExportTexytext.php:391
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:556
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
@@ -3665,7 +3665,7 @@ msgstr "Serverler"
 #: libraries/classes/Controllers/Server/DatabasesController.php:307
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:115
+#: libraries/classes/Plugins/Export/ExportXml.php:114
 #: libraries/classes/Server/Status/Data.php:159
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
@@ -4370,7 +4370,7 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2915
+#: libraries/classes/Display/Results.php:2910
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4429,9 +4429,9 @@ msgid "Textarea rows"
 msgstr "Mátinaýmaq joldary"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:141
-#: libraries/classes/Plugins/Export/ExportOdt.php:185
-#: libraries/classes/Plugins/Export/ExportTexytext.php:125
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:140
+#: libraries/classes/Plugins/Export/ExportOdt.php:184
+#: libraries/classes/Plugins/Export/ExportTexytext.php:124
 #: libraries/classes/Server/Privileges.php:1813
 #: libraries/classes/Server/Privileges.php:1815
 #: libraries/classes/Server/Status/Processes.php:126
@@ -4461,7 +4461,7 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/classes/Config/Descriptions.php:960
-#: libraries/classes/Plugins/Export/ExportXml.php:466
+#: libraries/classes/Plugins/Export/ExportXml.php:462
 #: libraries/classes/Server/Privileges.php:1819
 #: libraries/classes/Server/Privileges.php:1821
 #: templates/database/structure/show_create.twig:10
@@ -4974,11 +4974,11 @@ msgstr ""
 "%1$sGZip qysý men qysýdan shyǵarý%2$s osy júıede qoljetimdi emes "
 "fýnksıalardy qajet etedi (%3$s)."
 
-#: libraries/classes/ConfigStorage/Relation.php:1353
+#: libraries/classes/ConfigStorage/Relation.php:1361
 msgid "no description"
 msgstr "sipattamasy joq"
 
-#: libraries/classes/ConfigStorage/Relation.php:1555
+#: libraries/classes/ConfigStorage/Relation.php:1563
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5225,7 +5225,7 @@ msgid "Table %s has been emptied."
 msgstr "%s kestesi bosatyldy."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3923
+#: libraries/classes/Display/Results.php:3918
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5244,10 +5244,10 @@ msgstr "belgisiz"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:56
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:80
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:525
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:633
-#: libraries/classes/Plugins/Export/ExportLatex.php:625
-#: libraries/classes/Plugins/Export/ExportOdt.php:783
-#: libraries/classes/Plugins/Export/ExportTexytext.php:619
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:631
+#: libraries/classes/Plugins/Export/ExportLatex.php:622
+#: libraries/classes/Plugins/Export/ExportOdt.php:780
+#: libraries/classes/Plugins/Export/ExportTexytext.php:617
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -6132,7 +6132,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Toptamaǵa eń keminde bir aınymalyny qosyńyz!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1214
+#: libraries/classes/Display/Results.php:1215
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6358,9 +6358,9 @@ msgid "Status"
 msgstr "Mártebesi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:474
-#: libraries/classes/Plugins/Export/ExportOdt.php:597
-#: libraries/classes/Plugins/Export/ExportTexytext.php:455
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:472
+#: libraries/classes/Plugins/Export/ExportOdt.php:594
+#: libraries/classes/Plugins/Export/ExportTexytext.php:453
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
 #: libraries/classes/Server/Status/Processes.php:134
 #: templates/database/triggers/list.twig:47
@@ -6627,10 +6627,10 @@ msgstr "Tańbalar jıynyn ózgertý"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:354
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:498
 #: libraries/classes/Index.php:526
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:632
-#: libraries/classes/Plugins/Export/ExportLatex.php:625
-#: libraries/classes/Plugins/Export/ExportOdt.php:782
-#: libraries/classes/Plugins/Export/ExportTexytext.php:619
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:630
+#: libraries/classes/Plugins/Export/ExportLatex.php:622
+#: libraries/classes/Plugins/Export/ExportOdt.php:779
+#: libraries/classes/Plugins/Export/ExportTexytext.php:617
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -6740,7 +6740,7 @@ msgid "Show query box"
 msgstr "Saýal uıasyn kórsetý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2983
+#: libraries/classes/Display/Results.php:2978
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7004,13 +7004,13 @@ msgstr "Derekter núktesiniń mazmuny"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:629
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2001
+#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2001
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Elemeý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Display/Results.php:2919
+#: libraries/classes/Display/Results.php:2914
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7426,7 +7426,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Osy terezeniń tómengi jaǵyn qarańyz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:632
-#: libraries/classes/ErrorHandler.php:425
+#: libraries/classes/ErrorHandler.php:444
 msgid "Ignore All"
 msgstr "Barlyǵyn elemeý"
 
@@ -8542,7 +8542,7 @@ msgstr "%s kestesi áldeqashan bar!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3635 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3630 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-saýalyńyz sátti oryndaldy."
@@ -9208,44 +9208,44 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:852 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:853 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr "Basy"
 
-#: libraries/classes/Display/Results.php:859 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:860 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Aldyńǵy"
 
-#: libraries/classes/Display/Results.php:885 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:886 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Kelesi"
 
-#: libraries/classes/Display/Results.php:910 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:911 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Aıaǵy"
 
-#: libraries/classes/Display/Results.php:1418
+#: libraries/classes/Display/Results.php:1419
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Ishinara mátinder"
 
-#: libraries/classes/Display/Results.php:1422
+#: libraries/classes/Display/Results.php:1423
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "Tolyq mátinder"
 
-#: libraries/classes/Display/Results.php:1763
-#: libraries/classes/Display/Results.php:1789 libraries/classes/Util.php:2574
+#: libraries/classes/Display/Results.php:1764
+#: libraries/classes/Display/Results.php:1790 libraries/classes/Util.php:2574
 #: libraries/classes/Util.php:2597 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9258,8 +9258,8 @@ msgstr "Tolyq mátinder"
 msgid "Descending"
 msgstr "Kemý boıynsha"
 
-#: libraries/classes/Display/Results.php:1771
-#: libraries/classes/Display/Results.php:1781 libraries/classes/Util.php:2566
+#: libraries/classes/Display/Results.php:1772
+#: libraries/classes/Display/Results.php:1782 libraries/classes/Util.php:2566
 #: libraries/classes/Util.php:2589 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9272,41 +9272,41 @@ msgstr "Kemý boıynsha"
 msgid "Ascending"
 msgstr "Ósý boıynsha"
 
-#: libraries/classes/Display/Results.php:2959
-#: libraries/classes/Display/Results.php:2974
+#: libraries/classes/Display/Results.php:2954
+#: libraries/classes/Display/Results.php:2969
 msgid "The row has been deleted."
 msgstr "Jol joıyldy."
 
-#: libraries/classes/Display/Results.php:3006
+#: libraries/classes/Display/Results.php:3001
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Doǵarý"
 
-#: libraries/classes/Display/Results.php:3566
+#: libraries/classes/Display/Results.php:3561
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Shamamen bolýy múmkin. [doc@faq3-11]FAQ 3.11[/doc] qarańyz."
 
-#: libraries/classes/Display/Results.php:3932
+#: libraries/classes/Display/Results.php:3927
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s joldardy kórsetýde"
 
-#: libraries/classes/Display/Results.php:3946
+#: libraries/classes/Display/Results.php:3941
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d qorytyndy, %2$d saýalda"
 
-#: libraries/classes/Display/Results.php:3951
+#: libraries/classes/Display/Results.php:3946
 #, php-format
 msgid "%d total"
 msgstr "%d qorytyndy"
 
-#: libraries/classes/Display/Results.php:3964 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3959 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Saýal %01.4f sekýnt jumsady."
 
-#: libraries/classes/Display/Results.php:4294
+#: libraries/classes/Display/Results.php:4289
 msgid "Link not found!"
 msgstr "Silteme tabylmady!"
 
@@ -9661,15 +9661,15 @@ msgstr ""
 "Qujattamany jáne PBXT týraly kóbirek aqparatty %sPrimeBase XT basqy betinde"
 "%s tabýǵa bolady."
 
-#: libraries/classes/ErrorHandler.php:101
+#: libraries/classes/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr "Tym kóp qate týraly habarlar, keıbireýleri beınelenbeıdi."
 
-#: libraries/classes/ErrorHandler.php:409
+#: libraries/classes/ErrorHandler.php:428
 msgid "Report"
 msgstr "Esep"
 
-#: libraries/classes/ErrorHandler.php:414 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:433 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Esepti kelesi kezde avtomatty jiberedi"
 
@@ -9874,20 +9874,20 @@ msgstr "Qurylymdy kelesi «Qurylym» siltemesi boıynsha óńdeý."
 
 #: libraries/classes/Import.php:1266 libraries/classes/Import.php:1300
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
-#: libraries/classes/Plugins/Export/ExportCsv.php:46
+#: libraries/classes/Plugins/Export/ExportCsv.php:45
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
-#: libraries/classes/Plugins/Export/ExportJson.php:72
-#: libraries/classes/Plugins/Export/ExportLatex.php:67
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:45
+#: libraries/classes/Plugins/Export/ExportJson.php:71
+#: libraries/classes/Plugins/Export/ExportLatex.php:66
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:45
-#: libraries/classes/Plugins/Export/ExportOds.php:53
-#: libraries/classes/Plugins/Export/ExportOdt.php:59
+#: libraries/classes/Plugins/Export/ExportOds.php:52
+#: libraries/classes/Plugins/Export/ExportOdt.php:58
 #: libraries/classes/Plugins/Export/ExportPdf.php:65
-#: libraries/classes/Plugins/Export/ExportPhparray.php:45
+#: libraries/classes/Plugins/Export/ExportPhparray.php:44
 #: libraries/classes/Plugins/Export/ExportSql.php:115
-#: libraries/classes/Plugins/Export/ExportTexytext.php:45
-#: libraries/classes/Plugins/Export/ExportXml.php:76
-#: libraries/classes/Plugins/Export/ExportYaml.php:44
+#: libraries/classes/Plugins/Export/ExportTexytext.php:44
+#: libraries/classes/Plugins/Export/ExportXml.php:75
+#: libraries/classes/Plugins/Export/ExportYaml.php:43
 #: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
@@ -9953,13 +9953,13 @@ msgid "Function"
 msgstr "Funksıa"
 
 #: libraries/classes/InsertEdit.php:346
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:275
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:370
-#: libraries/classes/Plugins/Export/ExportLatex.php:536
-#: libraries/classes/Plugins/Export/ExportOdt.php:370
-#: libraries/classes/Plugins/Export/ExportOdt.php:474
-#: libraries/classes/Plugins/Export/ExportTexytext.php:288
-#: libraries/classes/Plugins/Export/ExportTexytext.php:380
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:273
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:368
+#: libraries/classes/Plugins/Export/ExportLatex.php:533
+#: libraries/classes/Plugins/Export/ExportOdt.php:367
+#: libraries/classes/Plugins/Export/ExportOdt.php:471
+#: libraries/classes/Plugins/Export/ExportTexytext.php:286
+#: libraries/classes/Plugins/Export/ExportTexytext.php:378
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:527
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
@@ -10088,12 +10088,12 @@ msgstr "Qadaǵalaý"
 #: libraries/classes/Menu.php:330 libraries/classes/Menu.php:425
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:558
-#: libraries/classes/Plugins/Export/ExportOdt.php:703
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:556
+#: libraries/classes/Plugins/Export/ExportOdt.php:700
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:2081
-#: libraries/classes/Plugins/Export/ExportTexytext.php:541
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportTexytext.php:539
+#: libraries/classes/Plugins/Export/ExportXml.php:119
 #: libraries/classes/Util.php:1968 libraries/classes/Util.php:1984
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10117,7 +10117,7 @@ msgstr "Rásimder"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1006
-#: libraries/classes/Plugins/Export/ExportXml.php:100
+#: libraries/classes/Plugins/Export/ExportXml.php:99
 #: libraries/classes/Util.php:1967 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Oqıǵalar"
@@ -10260,13 +10260,13 @@ msgid "New"
 msgstr "Jańa"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:272
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:367
-#: libraries/classes/Plugins/Export/ExportLatex.php:535
-#: libraries/classes/Plugins/Export/ExportOdt.php:367
-#: libraries/classes/Plugins/Export/ExportOdt.php:471
-#: libraries/classes/Plugins/Export/ExportTexytext.php:287
-#: libraries/classes/Plugins/Export/ExportTexytext.php:379
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:270
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:365
+#: libraries/classes/Plugins/Export/ExportLatex.php:532
+#: libraries/classes/Plugins/Export/ExportOdt.php:364
+#: libraries/classes/Plugins/Export/ExportOdt.php:468
+#: libraries/classes/Plugins/Export/ExportTexytext.php:285
+#: libraries/classes/Plugins/Export/ExportTexytext.php:377
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:525
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
@@ -10311,9 +10311,9 @@ msgid "New"
 msgstr "Jańa"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:475
-#: libraries/classes/Plugins/Export/ExportOdt.php:600
-#: libraries/classes/Plugins/Export/ExportTexytext.php:456
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:473
+#: libraries/classes/Plugins/Export/ExportOdt.php:597
+#: libraries/classes/Plugins/Export/ExportTexytext.php:454
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:363
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
@@ -10323,7 +10323,7 @@ msgstr "Oqıǵa"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:626
-#: libraries/classes/Plugins/Export/ExportXml.php:105
+#: libraries/classes/Plugins/Export/ExportXml.php:104
 msgid "Functions"
 msgstr "Funksıalar"
 
@@ -10344,7 +10344,7 @@ msgstr "Keńeıtý/tasalaý"
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:615
-#: libraries/classes/Plugins/Export/ExportXml.php:110
+#: libraries/classes/Plugins/Export/ExportXml.php:109
 msgid "Procedures"
 msgstr "Prosedýralar"
 
@@ -10375,7 +10375,7 @@ msgstr "Trıgerler"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:124
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "Kórinister"
@@ -10885,37 +10885,37 @@ msgstr ""
 msgid "Format:"
 msgstr "Pishim:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:58
+#: libraries/classes/Plugins/Export/ExportCsv.php:57
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Baǵandar mynaýmen bólinedi:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:63
+#: libraries/classes/Plugins/Export/ExportCsv.php:62
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "Baǵandar mynaýmen qorshalady:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:68
+#: libraries/classes/Plugins/Export/ExportCsv.php:67
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "Baǵandar mynaýmen ekrandalady:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:73
+#: libraries/classes/Plugins/Export/ExportCsv.php:72
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "Syzyqtar mynaýmen aıaqtalady:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:78
+#: libraries/classes/Plugins/Export/ExportCsv.php:77
 #: libraries/classes/Plugins/Export/ExportExcel.php:51
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:80
-#: libraries/classes/Plugins/Export/ExportLatex.php:187
-#: libraries/classes/Plugins/Export/ExportOds.php:65
-#: libraries/classes/Plugins/Export/ExportOdt.php:132
-#: libraries/classes/Plugins/Export/ExportTexytext.php:84
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:79
+#: libraries/classes/Plugins/Export/ExportLatex.php:186
+#: libraries/classes/Plugins/Export/ExportOds.php:64
+#: libraries/classes/Plugins/Export/ExportOdt.php:131
+#: libraries/classes/Plugins/Export/ExportTexytext.php:83
 msgid "Replace NULL with:"
 msgstr "NULL mynaýmen aýystyrylady:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:83
+#: libraries/classes/Plugins/Export/ExportCsv.php:82
 #: libraries/classes/Plugins/Export/ExportExcel.php:56
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
@@ -10925,67 +10925,67 @@ msgstr ""
 msgid "Excel edition:"
 msgstr "Excel óńdemesi:"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:62
-#: libraries/classes/Plugins/Export/ExportLatex.php:94
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:61
+#: libraries/classes/Plugins/Export/ExportLatex.php:93
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
-#: libraries/classes/Plugins/Export/ExportOdt.php:75
+#: libraries/classes/Plugins/Export/ExportOdt.php:74
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
 #: libraries/classes/Plugins/Export/ExportSql.php:242
-#: libraries/classes/Plugins/Export/ExportTexytext.php:61
+#: libraries/classes/Plugins/Export/ExportTexytext.php:60
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
 #: libraries/config.values.php:347
 msgid "structure"
 msgstr "qurylym"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
-#: libraries/classes/Plugins/Export/ExportLatex.php:95
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:62
+#: libraries/classes/Plugins/Export/ExportLatex.php:94
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
-#: libraries/classes/Plugins/Export/ExportOdt.php:76
+#: libraries/classes/Plugins/Export/ExportOdt.php:75
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
 #: libraries/classes/Plugins/Export/ExportSql.php:243
-#: libraries/classes/Plugins/Export/ExportTexytext.php:62
+#: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
 #: libraries/config.values.php:348
 msgid "data"
 msgstr "derekter"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:64
-#: libraries/classes/Plugins/Export/ExportLatex.php:96
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
+#: libraries/classes/Plugins/Export/ExportLatex.php:95
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
-#: libraries/classes/Plugins/Export/ExportOdt.php:77
+#: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
 #: libraries/classes/Plugins/Export/ExportSql.php:244
-#: libraries/classes/Plugins/Export/ExportTexytext.php:63
+#: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
 msgid "structure and data"
 msgstr "qurylym men derekter"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:74
-#: libraries/classes/Plugins/Export/ExportLatex.php:158
-#: libraries/classes/Plugins/Export/ExportOdt.php:121
-#: libraries/classes/Plugins/Export/ExportTexytext.php:73
-#: libraries/classes/Plugins/Export/ExportXml.php:133
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:73
+#: libraries/classes/Plugins/Export/ExportLatex.php:157
+#: libraries/classes/Plugins/Export/ExportOdt.php:120
+#: libraries/classes/Plugins/Export/ExportTexytext.php:72
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 msgid "Data dump options"
 msgstr "Derekter dampynyń opsıalary"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:194
-#: libraries/classes/Plugins/Export/ExportOdt.php:245
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:193
+#: libraries/classes/Plugins/Export/ExportOdt.php:244
 #: libraries/classes/Plugins/Export/ExportSql.php:2331
-#: libraries/classes/Plugins/Export/ExportTexytext.php:178
+#: libraries/classes/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "Keste úshin derekterdi damptaý"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:278
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:373
-#: libraries/classes/Plugins/Export/ExportLatex.php:537
-#: libraries/classes/Plugins/Export/ExportOdt.php:373
-#: libraries/classes/Plugins/Export/ExportOdt.php:477
-#: libraries/classes/Plugins/Export/ExportTexytext.php:289
-#: libraries/classes/Plugins/Export/ExportTexytext.php:381
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:276
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:371
+#: libraries/classes/Plugins/Export/ExportLatex.php:534
+#: libraries/classes/Plugins/Export/ExportOdt.php:370
+#: libraries/classes/Plugins/Export/ExportOdt.php:474
+#: libraries/classes/Plugins/Export/ExportTexytext.php:287
+#: libraries/classes/Plugins/Export/ExportTexytext.php:379
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:529
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:704
@@ -11004,13 +11004,13 @@ msgstr "Keste úshin derekterdi damptaý"
 msgid "Null"
 msgstr "Bosmán"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:281
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:376
-#: libraries/classes/Plugins/Export/ExportLatex.php:538
-#: libraries/classes/Plugins/Export/ExportOdt.php:376
-#: libraries/classes/Plugins/Export/ExportOdt.php:480
-#: libraries/classes/Plugins/Export/ExportTexytext.php:290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:382
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:279
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:374
+#: libraries/classes/Plugins/Export/ExportLatex.php:535
+#: libraries/classes/Plugins/Export/ExportOdt.php:373
+#: libraries/classes/Plugins/Export/ExportOdt.php:477
+#: libraries/classes/Plugins/Export/ExportTexytext.php:288
+#: libraries/classes/Plugins/Export/ExportTexytext.php:380
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:531
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
@@ -11026,10 +11026,10 @@ msgstr "Bosmán"
 msgid "Default"
 msgstr "Ádepki"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:380
-#: libraries/classes/Plugins/Export/ExportLatex.php:540
-#: libraries/classes/Plugins/Export/ExportOdt.php:484
-#: libraries/classes/Plugins/Export/ExportTexytext.php:384
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:378
+#: libraries/classes/Plugins/Export/ExportLatex.php:537
+#: libraries/classes/Plugins/Export/ExportOdt.php:481
+#: libraries/classes/Plugins/Export/ExportTexytext.php:382
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:540
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:707
@@ -11037,9 +11037,9 @@ msgstr "Ádepki"
 msgid "Links to"
 msgstr "Kelesige siltemeler"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:473
-#: libraries/classes/Plugins/Export/ExportOdt.php:594
-#: libraries/classes/Plugins/Export/ExportTexytext.php:454
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:471
+#: libraries/classes/Plugins/Export/ExportOdt.php:591
+#: libraries/classes/Plugins/Export/ExportTexytext.php:452
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:359
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
@@ -11054,9 +11054,9 @@ msgstr "Kelesige siltemeler"
 msgid "Name"
 msgstr "Aty"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:476
-#: libraries/classes/Plugins/Export/ExportOdt.php:603
-#: libraries/classes/Plugins/Export/ExportTexytext.php:457
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:474
+#: libraries/classes/Plugins/Export/ExportOdt.php:600
+#: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:365
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
@@ -11064,133 +11064,133 @@ msgstr "Aty"
 msgid "Definition"
 msgstr "Anyqtamasy"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:548
-#: libraries/classes/Plugins/Export/ExportOdt.php:681
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:546
+#: libraries/classes/Plugins/Export/ExportOdt.php:678
 #: libraries/classes/Plugins/Export/ExportSql.php:2067
-#: libraries/classes/Plugins/Export/ExportTexytext.php:521
+#: libraries/classes/Plugins/Export/ExportTexytext.php:519
 msgid "Table structure for table"
 msgstr "Keste úshin keste qurylymy"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:566
-#: libraries/classes/Plugins/Export/ExportOdt.php:713
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:564
+#: libraries/classes/Plugins/Export/ExportOdt.php:710
 #: libraries/classes/Plugins/Export/ExportSql.php:2118
-#: libraries/classes/Plugins/Export/ExportTexytext.php:547
+#: libraries/classes/Plugins/Export/ExportTexytext.php:545
 msgid "Structure for view"
 msgstr "Kórinis úshin qurylym"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:572
-#: libraries/classes/Plugins/Export/ExportOdt.php:733
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:570
+#: libraries/classes/Plugins/Export/ExportOdt.php:730
 #: libraries/classes/Plugins/Export/ExportSql.php:2150
-#: libraries/classes/Plugins/Export/ExportTexytext.php:563
+#: libraries/classes/Plugins/Export/ExportTexytext.php:561
 msgid "Stand-in structure for view"
 msgstr "Kórinis úshin qosarlaýshy qurylym"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:87
+#: libraries/classes/Plugins/Export/ExportJson.php:86
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr "Ádemi basylǵan JSON shyǵarý (adam oqı alatyn pishimdeýdi paıdalanyńyz)"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:93
+#: libraries/classes/Plugins/Export/ExportJson.php:92
 msgid "Output unicode characters unescaped"
 msgstr "Unicode tańbalaryn ekrandamaı shyǵarý"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:50
+#: libraries/classes/Plugins/Export/ExportLatex.php:49
 msgid "Content of table @TABLE@"
 msgstr "@TABLE@ kestesiniń mazmuny"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:51
+#: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "(continued)"
 msgstr "(jalǵasqan)"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:52
+#: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ kestesiniń qurylymy"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:107
-#: libraries/classes/Plugins/Export/ExportOdt.php:88
+#: libraries/classes/Plugins/Export/ExportLatex.php:106
+#: libraries/classes/Plugins/Export/ExportOdt.php:87
 #: libraries/classes/Plugins/Export/ExportSql.php:257
 msgid "Object creation options"
 msgstr "Nysan jasaý opsıalary"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:113
-#: libraries/classes/Plugins/Export/ExportLatex.php:169
+#: libraries/classes/Plugins/Export/ExportLatex.php:112
+#: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Table caption:"
 msgstr "Keste taqyrypshasy:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:119
-#: libraries/classes/Plugins/Export/ExportLatex.php:175
+#: libraries/classes/Plugins/Export/ExportLatex.php:118
+#: libraries/classes/Plugins/Export/ExportLatex.php:174
 msgid "Table caption (continued):"
 msgstr "Keste taqyrypshasy (jalǵasqan):"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:125
-#: libraries/classes/Plugins/Export/ExportLatex.php:181
+#: libraries/classes/Plugins/Export/ExportLatex.php:124
+#: libraries/classes/Plugins/Export/ExportLatex.php:180
 msgid "Label key:"
 msgstr "Belgi kilti:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:133
-#: libraries/classes/Plugins/Export/ExportOdt.php:96
+#: libraries/classes/Plugins/Export/ExportLatex.php:132
+#: libraries/classes/Plugins/Export/ExportOdt.php:95
 #: libraries/classes/Plugins/Export/ExportSql.php:151
 msgid "Display foreign key relationships"
 msgstr "Syrtqy kilt qatynastyqtaryn beıneleý"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:140
-#: libraries/classes/Plugins/Export/ExportOdt.php:103
+#: libraries/classes/Plugins/Export/ExportLatex.php:139
+#: libraries/classes/Plugins/Export/ExportOdt.php:102
 msgid "Display comments"
 msgstr "Túsiniktemelerdi beıneleý"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:146
-#: libraries/classes/Plugins/Export/ExportOdt.php:109
+#: libraries/classes/Plugins/Export/ExportLatex.php:145
+#: libraries/classes/Plugins/Export/ExportOdt.php:108
 #: libraries/classes/Plugins/Export/ExportSql.php:159
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "MIME túrlerin beıneleý"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:164
+#: libraries/classes/Plugins/Export/ExportLatex.php:163
 msgid "Put columns names in the first row:"
 msgstr "Baǵan ataýlaryn birinshi jolǵa qoıý:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:210
+#: libraries/classes/Plugins/Export/ExportLatex.php:209
 #: libraries/classes/Plugins/Export/ExportSql.php:746
-#: libraries/classes/Plugins/Export/ExportXml.php:232
+#: libraries/classes/Plugins/Export/ExportXml.php:231
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
 msgid "Host:"
 msgstr "Túın:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:216
+#: libraries/classes/Plugins/Export/ExportLatex.php:215
 #: libraries/classes/Plugins/Export/ExportSql.php:753
-#: libraries/classes/Plugins/Export/ExportXml.php:238
+#: libraries/classes/Plugins/Export/ExportXml.php:237
 msgid "Generation Time:"
 msgstr "Jasaý ýaqyty:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:218
+#: libraries/classes/Plugins/Export/ExportLatex.php:217
 #: libraries/classes/Plugins/Export/ExportSql.php:757
-#: libraries/classes/Plugins/Export/ExportXml.php:240
+#: libraries/classes/Plugins/Export/ExportXml.php:239
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "Server nusqasy:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:219
+#: libraries/classes/Plugins/Export/ExportLatex.php:218
 #: libraries/classes/Plugins/Export/ExportSql.php:759
-#: libraries/classes/Plugins/Export/ExportXml.php:241
+#: libraries/classes/Plugins/Export/ExportXml.php:240
 msgid "PHP Version:"
 msgstr "PHP nusqasy:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:246
+#: libraries/classes/Plugins/Export/ExportLatex.php:245
 #: libraries/classes/Plugins/Export/ExportSql.php:939
-#: libraries/classes/Plugins/Export/ExportXml.php:390
+#: libraries/classes/Plugins/Export/ExportXml.php:389
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
 msgstr "Derekqor:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:312
+#: libraries/classes/Plugins/Export/ExportLatex.php:311
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 msgid "Data:"
 msgstr "Derekter:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:513
+#: libraries/classes/Plugins/Export/ExportLatex.php:510
 msgid "Structure:"
 msgstr "Qurylym:"
 
@@ -11202,8 +11202,8 @@ msgstr "Keste ataýlaryn eksportaý"
 msgid "Export table headers"
 msgstr "Kesteniń ústińgi derektemelerin eksportaý"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:246
-#: libraries/classes/Plugins/Export/ExportTexytext.php:179
+#: libraries/classes/Plugins/Export/ExportOdt.php:245
+#: libraries/classes/Plugins/Export/ExportTexytext.php:178
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
@@ -11486,11 +11486,11 @@ msgstr "(Naqty kórinis úshin tómende qarańyz)"
 msgid "Error reading data for table %s:"
 msgstr "%s kestesiniń derekterin oqý qatesi:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:93
 msgid "Object creation options (all are recommended)"
 msgstr "Nysan jasaý opsıalary (barlyǵy usynylady)"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:138
+#: libraries/classes/Plugins/Export/ExportXml.php:137
 msgid "Export contents"
 msgstr "Mazmundardy eksporttaý"
 
@@ -12183,20 +12183,20 @@ msgstr "Jetekshini ózgertý múmkin emes!"
 msgid "Primary server changed successfully to %s."
 msgstr "Jetekshi server %s úshin sátti ózgertildi."
 
-#: libraries/classes/Routing.php:103
+#: libraries/classes/Routing.php:104
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:157
+#: libraries/classes/Routing.php:163
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "«%s» qaınar derekqory tabylmady!"
 
-#: libraries/classes/Routing.php:168
+#: libraries/classes/Routing.php:174
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
