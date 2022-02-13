@@ -5743,9 +5743,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$this-&gt;extension === null</code>
-    </DocblockTypeContradiction>
     <EmptyArrayAccess occurrences="1">
       <code>$resultTarget[]</code>
     </EmptyArrayAccess>

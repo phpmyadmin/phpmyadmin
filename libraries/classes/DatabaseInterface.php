@@ -2122,13 +2122,13 @@ class DatabaseInterface implements DbalInterface
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(string $str, $link = self::CONNECT_USER)
+    public function escapeString(string $str, $link = self::CONNECT_USER): string
     {
-        if ($this->extension === null || ! isset($this->links[$link])) {
-            return $str;
+        if (isset($this->links[$link])) {
+            return $this->extension->escapeString($this->links[$link], $str);
         }
 
-        return $this->extension->escapeString($this->links[$link], $str);
+        return $str;
     }
 
     /**
