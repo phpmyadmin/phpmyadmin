@@ -1285,12 +1285,10 @@ class ExportSql extends ExportPlugin
     /**
      * Returns CREATE definition that matches $view's structure
      *
-     * @param string $db           the database name
-     * @param string $view         the view name
-     * @param string $crlf         the end of line sequence
-     * @param bool   $addSemicolon whether to add semicolon and end-of-line at
-     *                              the end
-     * @param array  $aliases      Aliases of db/table/columns
+     * @param string $db      the database name
+     * @param string $view    the view name
+     * @param string $crlf    the end of line sequence
+     * @param array  $aliases Aliases of db/table/columns
      *
      * @return string resulting schema
      */
@@ -1298,7 +1296,6 @@ class ExportSql extends ExportPlugin
         $db,
         $view,
         $crlf,
-        $addSemicolon = true,
         array $aliases = []
     ) {
         $dbAlias = $db;
@@ -1353,7 +1350,7 @@ class ExportSql extends ExportPlugin
             $firstCol = false;
         }
 
-        $createQuery .= $crlf . ')' . ($addSemicolon ? ';' : '') . $crlf;
+        $createQuery .= $crlf . ');' . $crlf;
 
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
@@ -2118,7 +2115,7 @@ class ExportSql extends ExportPlugin
                         . Util::backquote($tableAlias) . ';' . $crlf;
                     }
 
-                    $dump .= $this->getTableDefForView($db, $table, $crlf, true, $aliases);
+                    $dump .= $this->getTableDefForView($db, $table, $crlf, $aliases);
                 }
 
                 break;
