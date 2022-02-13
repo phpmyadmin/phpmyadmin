@@ -169,7 +169,7 @@ validateExtension() {
         ;;
         favicon.ico)
         ;;
-        babel.config.json)
+        webpack.config.js)
         ;;
         package.json)
         ;;
@@ -178,8 +178,6 @@ validateExtension() {
         composer.lock)
         ;;
         yarn.lock)
-        ;;
-        .rtlcssrc.json)
         ;;
         robots.txt)
         ;;
