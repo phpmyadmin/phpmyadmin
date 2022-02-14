@@ -1,4 +1,5 @@
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
+/* global gridEditingConfig */ // templates/javascript/variables.twig
 
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
@@ -2150,12 +2151,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             $(g.gDiv).append(g.cEditTextarea);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
-            if (Messages.strGridEditFeatureHint !== undefined) {
-                Functions.tooltip(
-                    $(g.t).find('.edit_row_anchor a'),
-                    'a',
-                    Messages.strGridEditFeatureHint
-                );
+            if (gridEditingConfig === 'double-click') {
+                Functions.tooltip($(g.t).find('.edit_row_anchor a'), 'a', Messages.strGridEditFeatureHintDoubleClick);
+            } else if (gridEditingConfig === 'click') {
+                Functions.tooltip($(g.t).find('.edit_row_anchor a'), 'a', Messages.strGridEditFeatureHintClick);
             }
         }
     };

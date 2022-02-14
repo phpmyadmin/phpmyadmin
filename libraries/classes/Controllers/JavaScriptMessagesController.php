@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Theme;
-
 use function __;
 use function _pgettext;
 use function json_encode;
+use function json_last_error_msg;
 
 /**
  * Exporting of translated messages from PHP to JavaScript.
@@ -16,25 +15,31 @@ use function json_encode;
 final class JavaScriptMessagesController
 {
     /** @var array<string, string> */
-    private $messages = [];
+    private $messages;
 
     public function __construct()
     {
-        $this->setMessages();
+        $this->messages = $this->setMessages();
     }
 
     public function __invoke(): void
     {
-        echo 'var Messages = ' . json_encode($this->messages) . ';';
+        $messages = json_encode($this->messages);
+        if ($messages === false) {
+            echo '// Error when encoding messages: ' . json_last_error_msg();
+
+            return;
+        }
+
+        echo 'var Messages = ' . $messages . ';';
     }
 
-    private function setMessages(): void
+    /**
+     * @return array<string, string>
+     */
+    private function setMessages(): array
     {
-        global $cfg, $theme;
-
-        $ajaxClockSmallGifPath = $theme instanceof Theme ? $theme->getImgPath('ajax_clock_small.gif') : '';
-
-        $this->messages = [
+        return [
             /* For confirmations */
             'strDoYouReally' => __('Do you really want to execute "%s"?'),
             'strDropDatabaseStrongWarning' => __('You are about to DESTROY a complete database!'),
@@ -578,11 +583,10 @@ final class JavaScriptMessagesController
             'dropImportSelectDB' => __('Select database first'),
 
             // this approach does not work when the parameter is changed via user prefs
-            'strGridEditFeatureHint' => $cfg['GridEditing'] === 'double-click'
-                ? __('You can also edit most values<br>by double-clicking directly on them.')
-                : ($cfg['GridEditing'] === 'click'
-                    ? __('You can also edit most values<br>by clicking directly on them.')
-                    : ''),
+            'strGridEditFeatureHintDoubleClick' => __(
+                'You can also edit most values<br>by double-clicking directly on them.'
+            ),
+            'strGridEditFeatureHintClick' => __('You can also edit most values<br>by clicking directly on them.'),
 
             'strGoToLink' => __('Go to link:'),
 
@@ -638,9 +642,7 @@ final class JavaScriptMessagesController
                 . '<br>'
                 . __('As per your settings, they are being submitted currently, please be patient.')
                 . '<br>'
-                . '<img src="'
-                . $ajaxClockSmallGifPath
-                . '" width="16" height="16" alt="ajax clock">'
+                . '<img src="themes/dot.gif" alt="" class="icon ic_ajax_clock_small">'
                 . '</div>',
             'strCopyColumnSuccess' => __('Column name successfully copied to clipboard!'),
             'strCopyColumnFailure' => __('Column name copying to clipboard failed!'),

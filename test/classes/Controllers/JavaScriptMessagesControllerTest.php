@@ -21,10 +21,6 @@ class JavaScriptMessagesControllerTest extends TestCase
 {
     public function testIndex(): void
     {
-        global $cfg;
-
-        $cfg['GridEditing'] = 'double-click';
-
         ob_start();
         (new JavaScriptMessagesController())();
         $actual = ob_get_contents();
