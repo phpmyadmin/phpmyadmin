@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-01-18 18:01+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2022-02-17 10:35+0000\n"
+"Last-Translator: Jarosław Wasilewski <jarek.wasilewski@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
+">\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -286,17 +286,16 @@ msgid "Suboptimal caching method."
 msgstr "Optymalna metoda buforowania."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"Używasz pamięci podręcznej zapytań MySQL z dość wysokim ruchem bazy danych. "
-"To może być warte rozważenia używając <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> zamiast pamięci podręcznej "
-"MySQL zapytania, zwłaszcza jeśli masz wiele niewolników."
+"Używasz pamięci podręcznej zapytań MySQL z wysokim obciążeniem bazy danych. "
+"Warto rozważyć użycie <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> zamiast pamięci podręcznej zapytań MySQL, "
+"zwłaszcza jeśli masz wiele replik bazy danych."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -4460,7 +4459,7 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "URL for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Adres URL API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
