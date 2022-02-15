@@ -958,7 +958,7 @@ class ResultsTest extends AbstractTestCase
                 0,
                 false,
                 [],
-                '',
+                'disabled',
                 false,
                 $query,
                 Query::getAll($query),

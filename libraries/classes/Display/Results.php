@@ -2119,25 +2119,12 @@ class Results
         $displayParams['row_delete'] = [];
         $this->properties['display_params'] = $displayParams;
 
-        // name of the class added to all grid editable elements;
-        // if we don't have all the columns of a unique key in the result set,
-        //  do not permit grid editing
-        if ($isLimitedDisplay || ! $this->properties['editable']) {
-            $gridEditClass = '';
-        } else {
-            switch ($GLOBALS['cfg']['GridEditing']) {
-                case 'double-click':
-                    // trying to reduce generated HTML by using shorter
-                    // classes like click1 and click2
-                    $gridEditClass = 'grid_edit click2';
-                    break;
-                case 'click':
-                    $gridEditClass = 'grid_edit click1';
-                    break;
-                default: // 'disabled'
-                    $gridEditClass = '';
-                    break;
-            }
+        $gridEditConfig = 'double-click';
+        // If we don't have all the columns of a unique key in the result set, do not permit grid editing.
+        if ($isLimitedDisplay || ! $this->properties['editable'] || $GLOBALS['cfg']['GridEditing'] === 'disabled') {
+            $gridEditConfig = 'disabled';
+        } elseif ($GLOBALS['cfg']['GridEditing'] === 'click') {
+            $gridEditConfig = 'click';
         }
 
         // prepare to get the column order, if available
@@ -2272,6 +2259,7 @@ class Results
                         'condition' => json_encode($conditionArray),
                         'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
+                        'grid_edit_config' => $gridEditConfig,
                     ]);
                 } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
@@ -2294,6 +2282,7 @@ class Results
                         'condition' => json_encode($conditionArray),
                         'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
+                        'grid_edit_config' => $gridEditConfig,
                     ]);
                 }
             }
@@ -2308,7 +2297,7 @@ class Results
                 $rowNumber,
                 $colOrder,
                 $map,
-                $gridEditClass,
+                $gridEditConfig,
                 $colVisib,
                 $urlSqlQuery,
                 $analyzedSqlResults
@@ -2341,6 +2330,7 @@ class Results
                     'condition' => json_encode($conditionArray ?? []),
                     'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                     'js_conf' => $jsConf ?? '',
+                    'grid_edit_config' => $gridEditConfig,
                 ]);
             }
 
@@ -2427,13 +2417,12 @@ class Results
      *                                                     a property not found false
      *                                                     when a property not found
      * @param array<string, string[]> $map                the list of relations
-     * @param string                  $gridEditClass      the class for all editable
-     *                                                      columns
      * @param bool|array|string       $colVisib           column is visible(false);
      *                                                     column isn't visible(string
      *                                                     array)
      * @param string                  $urlSqlQuery        the analyzed sql query
      * @param array                   $analyzedSqlResults analyzed sql results
+     * @psalm-param 'double-click'|'click'|'disabled' $gridEditConfig
      *
      * @return string  html content
      */
@@ -2442,7 +2431,7 @@ class Results
         $rowNumber,
         $colOrder,
         array $map,
-        $gridEditClass,
+        string $gridEditConfig,
         $colVisib,
         $urlSqlQuery,
         array $analyzedSqlResults
@@ -2478,7 +2467,11 @@ class Results
             $hideClass = is_array($colVisib) && isset($colVisib[$currentColumn]) && ! $colVisib[$currentColumn]
                 ? 'hide'
                 : '';
-            $gridEdit = $meta->orgtable != '' ? $gridEditClass : '';
+
+            $gridEdit = '';
+            if ($meta->orgtable != '' && $gridEditConfig !== 'disabled') {
+                $gridEdit = $gridEditConfig === 'click' ? 'grid_edit click1' : 'grid_edit click2';
+            }
 
             // handle datetime-related class, for grid editing
             $fieldTypeClass = $this->getClassForDateTimeRelatedFields($meta);

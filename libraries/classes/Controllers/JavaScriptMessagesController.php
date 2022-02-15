@@ -582,12 +582,6 @@ final class JavaScriptMessagesController
             'dropImportDropFiles' => __('Drop files here'),
             'dropImportSelectDB' => __('Select database first'),
 
-            // this approach does not work when the parameter is changed via user prefs
-            'strGridEditFeatureHintDoubleClick' => __(
-                'You can also edit most values<br>by double-clicking directly on them.'
-            ),
-            'strGridEditFeatureHintClick' => __('You can also edit most values<br>by clicking directly on them.'),
-
             'strGoToLink' => __('Go to link:'),
 
             /* password generation */
