@@ -809,6 +809,33 @@ final class JavaScriptMessagesController
             'strCalendarNext' => __('Next'),
             /* l10n: Display text for current month link in calendar */
             'strCalendarCurrent' => __('Today'),
+
+            /* Validator */
+            'strValidatorRequired' => __('This field is required'),
+            'strValidatorRemote' => __('Please fix this field'),
+            'strValidatorEmail' => __('Please enter a valid email address'),
+            'strValidatorUrl' => __('Please enter a valid URL'),
+            'strValidatorDate' => __('Please enter a valid date'),
+            'strValidatorDateIso' => __('Please enter a valid date ( ISO )'),
+            'strValidatorNumber' => __('Please enter a valid number'),
+            'strValidatorCreditCard' => __('Please enter a valid credit card number'),
+            'strValidatorDigits' => __('Please enter only digits'),
+            'strValidatorEqualTo' => __('Please enter the same value again'),
+            'strValidatorMaxLength' => __('Please enter no more than {0} characters'),
+            'strValidatorMinLength' => __('Please enter at least {0} characters'),
+            'strValidatorRangeLength' => __('Please enter a value between {0} and {1} characters long'),
+            'strValidatorRange' => __('Please enter a value between {0} and {1}'),
+            'strValidatorMax' => __('Please enter a value less than or equal to {0}'),
+            'strValidatorMin' => __('Please enter a value greater than or equal to {0}'),
+            'strValidationFunctionForDateTime' => __('Please enter a valid date or time'),
+            'strValidationFunctionForHex' => __('Please enter a valid HEX input'),
+            /* l10n: To validate the usage of a MD5 function on the column */
+            'strValidationFunctionForMd5' => __('This column can not contain a 32 chars value'),
+            /* l10n: To validate the usage of an AES_ENCRYPT/DES_ENCRYPT function on the column */
+            'strValidationFunctionForAesDesEncrypt' => __(
+                'These functions are meant to return a binary result; to avoid inconsistent results you should store'
+                . ' it in a BINARY, VARBINARY, or BLOB column.'
+            ),
         ];
     }
 }

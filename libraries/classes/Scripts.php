@@ -90,6 +90,8 @@ class Scripts
             && ! str_contains($filename, 'codemirror')
             && ! str_contains($filename, 'messages.php')
             && ! str_contains($filename, 'ajax.js')
+            && ! str_contains($filename, 'datetimepicker.js')
+            && ! str_contains($filename, 'validator-messages.js')
             && ! str_contains($filename, 'cross_framing_protection.js');
     }
 

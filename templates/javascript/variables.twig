@@ -3,29 +3,4 @@ var firstDayOfCalendar = '{{ first_day_of_calendar }}';
 var themeImagePath = '{{ image() }}';
 var mysqlDocTemplate = '{{ get_mysql_docu_url('%s') }}';
 var maxInputVars = {{ max_input_vars }};
-
-function extendingValidatorMessages () {
-  $.extend($.validator.messages, {
-    required: '{{ 'This field is required'|trans }}',
-    remote: '{{ 'Please fix this field'|trans }}',
-    email: '{{ 'Please enter a valid email address'|trans }}',
-    url: '{{ 'Please enter a valid URL'|trans }}',
-    date: '{{ 'Please enter a valid date'|trans }}',
-    dateISO: '{{ 'Please enter a valid date ( ISO )'|trans }}',
-    number: '{{ 'Please enter a valid number'|trans }}',
-    creditcard: '{{ 'Please enter a valid credit card number'|trans }}',
-    digits: '{{ 'Please enter only digits'|trans }}',
-    equalTo: '{{ 'Please enter the same value again'|trans }}',
-    maxlength: $.validator.format('{{ 'Please enter no more than {0} characters'|trans }}'),
-    minlength: $.validator.format('{{ 'Please enter at least {0} characters'|trans }}'),
-    rangelength: $.validator.format('{{ 'Please enter a value between {0} and {1} characters long'|trans }}'),
-    range: $.validator.format('{{ 'Please enter a value between {0} and {1}'|trans }}'),
-    max: $.validator.format('{{ 'Please enter a value less than or equal to {0}'|trans }}'),
-    min: $.validator.format('{{ 'Please enter a value greater than or equal to {0}'|trans }}'),
-    validationFunctionForDateTime: $.validator.format('{{ 'Please enter a valid date or time'|trans }}'),
-    validationFunctionForHex: $.validator.format('{{ 'Please enter a valid HEX input'|trans }}'),
-    validationFunctionForMd5: $.validator.format('{% apply escape('js') %}{% trans %}This column can not contain a 32 chars value{% notes %}To validate the usage of a MD5 function on the column{% endtrans %}{% endapply %}'),
-    validationFunctionForAesDesEncrypt: $.validator.format('{% apply escape('js') %}{% trans %}These functions are meant to return a binary result; to avoid inconsistent results you should store it in a BINARY, VARBINARY, or BLOB column.{% notes %}To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column{% endtrans %}{% endapply %}')
-  });
-}
 {% endautoescape %}

@@ -83,6 +83,7 @@ module.exports = [
             'transformations/xml': './js/src/transformations/xml.js',
             'transformations/xml_editor': './js/src/transformations/xml_editor.js',
             'u2f': './js/src/u2f.js',
+            'validator-messages': './js/src/validator-messages.js',
         },
         output: {
             filename: '[name].js',

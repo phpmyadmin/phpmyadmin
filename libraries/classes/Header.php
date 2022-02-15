@@ -401,6 +401,7 @@ class Header
         $messages = $this->getMessage();
 
         $this->scripts->addFile('datetimepicker.js');
+        $this->scripts->addFile('validator-messages.js');
 
         return $this->template->render('header', [
             'lang' => $GLOBALS['lang'],
