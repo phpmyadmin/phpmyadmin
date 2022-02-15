@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-13 00:13+0000\n"
+"POT-Creation-Date: 2022-02-15 18:25+0000\n"
 "PO-Revision-Date: 2021-08-08 00:09+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1216,7 +1216,7 @@ msgid "Search:"
 msgstr "搜索："
 
 #: libraries/classes/BrowseForeigners.php:206
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: libraries/classes/Controllers/Server/PrivilegesController.php:317
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
@@ -1298,7 +1298,7 @@ msgid "Page number:"
 msgstr "页码："
 
 #: libraries/classes/BrowseForeigners.php:335
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -3526,7 +3526,7 @@ msgid "Navigation panel width"
 msgstr "导航面板宽度"
 
 #: libraries/classes/Config/Descriptions.php:834
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: libraries/classes/Navigation/NavigationTree.php:1354
 msgid "Link with main panel"
 msgstr "与主面板链接"
@@ -3982,8 +3982,8 @@ msgstr "跳过锁定的表"
 
 #: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/ConfigStorage/UserGroups.php:124
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2910
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
+#: libraries/classes/Display/Results.php:2903
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4285,7 +4285,7 @@ msgstr "自定义"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4333,7 +4333,7 @@ msgid "OpenDocument Text"
 msgstr "OpenOffice 文档"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1507
 #: libraries/classes/Util.php:1947 libraries/classes/Util.php:1962
@@ -4378,7 +4378,7 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV 使用 LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
 #: libraries/classes/Menu.php:518 libraries/classes/Util.php:1948
 #: libraries/classes/Util.php:1963 libraries/classes/Util.php:1980
@@ -4665,7 +4665,7 @@ msgid "SQL Query Console"
 msgstr "SQL 查询控制台"
 
 #: libraries/classes/Controllers/AbstractController.php:73
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
 #: libraries/classes/DbTableExists.php:45
 msgid "No databases selected."
@@ -4754,7 +4754,7 @@ msgstr "访问被拒绝！"
 #: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:24
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
 #: libraries/classes/Controllers/Export/TablesController.php:29
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:52
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:52
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:52
@@ -4790,7 +4790,7 @@ msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3918
+#: libraries/classes/Display/Results.php:3911
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -4803,7 +4803,7 @@ msgstr "未知"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:55
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:71
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:55
 #: libraries/classes/Controllers/Table/DropColumnController.php:56
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:56
@@ -5022,7 +5022,7 @@ msgid "Succeeded"
 msgstr "成功"
 
 #: libraries/classes/Controllers/Import/ImportController.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Failed"
 msgstr "失败"
 
@@ -5087,121 +5087,121 @@ msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 msgid "Could not load the progress of the import."
 msgstr "无法加载导入进度。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:39
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:44
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "您真的要执行“%s”吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:40
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete database!"
 msgstr "您将要完全删除一个数据库！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:42
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr "数据库名称已存在. 请更换名字再试"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:44
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
 msgid "You are about to DESTROY a complete table!"
 msgstr "您将要完全删除一个表！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "您将要完全清空一个表！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:46
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "您即将删除表的所有行！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 msgid "Delete tracking data for this table?"
 msgstr "删除该表的追踪数据？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:48
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
 msgid "Delete tracking data for these tables?"
 msgstr "删除这些表的追踪数据？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
 msgid "Delete tracking data for this version?"
 msgstr "删除该版本的追踪数据？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
 msgid "Delete tracking data for these versions?"
 msgstr "删除这些版本的追踪数据？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 msgid "Delete entry from tracking report?"
 msgstr "从追踪报告中删除条目？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
 msgid "Deleting tracking data"
 msgstr "正在删除追踪数据"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
 msgid "Dropping Primary Key/Index"
 msgstr "正在删除主键"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 msgid "Dropping Foreign key."
 msgstr "删除外键。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "该操作可能需要较长时间执行。是否继续？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "您真的要删除用户组“%s”吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:62
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "您真的要删除搜索“%s”吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
 "您正在尝试减少行数，但那些行中已经输入了数据，这些数据即将丢失。你想继续吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "您真的要删除选择的用户吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:69
 msgid "Do you really want to delete this central column?"
 msgstr "您真的要删除此中心列吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 msgid "Do you really want to delete the selected items?"
 msgstr "您真的要删除所选择的项目吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr "您真的要删除所选的分区吗？这也将删除所有与之相关的数据！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "您真的要清空所选择的分区吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:71
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:76
 msgid "Do you really want to remove partitioning?"
 msgstr "您真的要移除分区吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:77
 #, fuzzy
 #| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "您真的要删除选择的用户吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:74
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:79
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -5214,15 +5214,15 @@ msgstr ""
 "示错误。若出现这种情况我们建议您将数据重新恢复为原来的排序规则，然后参考以下"
 "提示： "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:80
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:85
 msgid "Garbled Data"
 msgstr "乱码数据"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:82
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:87
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "您确定您希望改变排序规则并进行数据转换吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:85
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:90
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -5236,18 +5236,18 @@ msgstr ""
 "进行恢复。<b>若要转换已经存在的数据，建议您使用表结构的页面上的列编辑功能"
 "（“修改”链接）。</b>"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:93
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:98
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr "您确定希望修改所有的列排序规则并且转换数据吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:96
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:101
 #: templates/export.twig:324
 msgid "Save & close"
 msgstr "保存并关闭"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 #: templates/config/form_display/display.twig:47
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
@@ -5255,62 +5255,62 @@ msgstr "保存并关闭"
 msgid "Reset"
 msgstr "重置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:98
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 msgid "Reset all"
 msgstr "重置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:101
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Missing value in the form!"
 msgstr "表单内缺少值！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 msgid "Select at least one of the options!"
 msgstr "请至少选择一项！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 msgid "Please enter a valid number!"
 msgstr "请输入一个有效的数字！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 msgid "Please enter a valid length!"
 msgstr "请输入一个有效的长度！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 msgid "Add index"
 msgstr "添加索引"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
 msgid "Edit index"
 msgstr "编辑索引"
 
 #. l10n: Rename a table Index
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 msgid "Rename index"
 msgstr "重命名索引"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:114
 #: templates/table/index_form.twig:234
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "添加 %s 个字段至索引"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:115
 msgid "Create single-column index"
 msgstr "创建单列索引"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
 msgid "Create composite index"
 msgstr "创建复合索引"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 msgid "Composite with:"
 msgstr "复合对象："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:118
 msgid "Please select column(s) for the index."
 msgstr "请为索引选择列。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/table/index_form.twig:240
@@ -5321,54 +5321,54 @@ msgstr "请为索引选择列。"
 msgid "Preview SQL"
 msgstr "预览 SQL 语句"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:119
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
 #: templates/sql/query.twig:218
 msgid "Simulate query"
 msgstr "模拟查询"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
 msgid "Matched rows:"
 msgstr "受影响的行数："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:126
 #: libraries/classes/Html/Generator.php:887 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL 查询："
 
 #. l10n: Default label for the y-Axis of Charts
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:130
 msgid "Y values"
 msgstr "纵轴值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
 msgid "Please enter the SQL query first."
 msgstr "请先输入 SQL 查询语句。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
 msgid "The host name is empty!"
 msgstr "主机名不能为空！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 msgid "The user name is empty!"
 msgstr "用户名不能为空！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: libraries/classes/Server/Privileges.php:944
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "密码不能为空！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: libraries/classes/Server/Privileges.php:942
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "两次密码不一致！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 msgid "Removing Selected Users"
 msgstr "正在删除选中的用户"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: libraries/classes/Tracking.php:237 libraries/classes/Tracking.php:641
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
@@ -5415,76 +5415,76 @@ msgstr "正在删除选中的用户"
 msgid "Close"
 msgstr "关闭"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:142
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "Log file count"
 msgid "Lock this account."
 msgstr "日志文件总数"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "User account"
 msgid "Unlock this account."
 msgstr "用户账户"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
 msgid "Template was created."
 msgstr "模板已被创建。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 msgid "Template was loaded."
 msgstr "模板已被加载。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
 msgid "Template was updated."
 msgstr "模板己被更新。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 msgid "Template was deleted."
 msgstr "模板已被删除。"
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:95
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr "其它"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
 #: libraries/classes/Util.php:548 libraries/classes/Util.php:580
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:153
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 #: libraries/classes/Util.php:546 libraries/classes/Util.php:578
 msgid "."
 msgstr "."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:155
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
 msgid "Connections / Processes"
 msgstr "连接 / 进程"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
 msgid "Local monitor configuration incompatible!"
 msgstr "本地监控设置不兼容！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -5494,164 +5494,164 @@ msgstr ""
 "您浏览器本地存储中的图表设置不兼容于新版的监控对话框。所以您当前的设置可能不"
 "再有效。请通过<i>设置</i>菜单恢复默认设置。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
 msgid "Query cache efficiency"
 msgstr "查询缓存效率"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
 msgid "Query cache usage"
 msgstr "查询缓存使用"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
 msgid "Query cache used"
 msgstr "已用查询缓存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 msgid "System CPU usage"
 msgstr "系统 CPU 使用"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "System memory"
 msgstr "系统内存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
 msgid "System swap"
 msgstr "系统交换空间"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
 msgid "Average load"
 msgstr "平均负载"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 msgid "Total memory"
 msgstr "内存总量"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Cached memory"
 msgstr "已缓存的内存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 msgid "Buffered memory"
 msgstr "已缓冲的内存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
 msgid "Free memory"
 msgstr "空闲内存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 msgid "Used memory"
 msgstr "已用内存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 msgid "Total swap"
 msgstr "交换空间总量"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
 msgid "Cached swap"
 msgstr "已缓存的交换空间"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 msgid "Used swap"
 msgstr "已用交换空间"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 msgid "Free swap"
 msgstr "空闲交换空间"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 msgid "Bytes sent"
 msgstr "已发送字节数"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 msgid "Bytes received"
 msgstr "已接收字节数"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "连接"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "进程"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:456
 msgid "B"
 msgstr "字节"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:458
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #: libraries/classes/Util.php:460
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 #: libraries/classes/Util.php:462
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 #: libraries/classes/Util.php:464
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 #: libraries/classes/Util.php:466
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: libraries/classes/Util.php:468
 msgid "EiB"
 msgstr "EB"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 #, php-format
 msgid "%d table(s)"
 msgstr "%d 张表"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 msgid "Questions"
 msgstr "内部查询"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "流量"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 #: libraries/classes/Menu.php:523 libraries/classes/Util.php:1949
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "设置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: templates/server/status/monitor/index.twig:217
 msgid "Add chart to grid"
 msgstr "添加图表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 msgid "Please add at least one variable to the series!"
 msgstr "请至少添加一个数据！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1215
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
@@ -5669,52 +5669,52 @@ msgid "None"
 msgstr "无"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 msgid "SQL Query"
 msgstr "SQL 查询"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
 msgid "Resume monitor"
 msgstr "继续监控"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 msgid "Pause monitor"
 msgstr "暂停监控"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr "开启自动刷新"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 msgid "Stop auto refresh"
 msgstr "停止自动刷新"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "general_log and slow_query_log are enabled."
 msgstr "已启用 general_log 和 slow_query_log。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 msgid "general_log is enabled."
 msgstr "已启用 general_log。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
 msgid "slow_query_log is enabled."
 msgstr "已启用 slow_query_log。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 msgid "slow_query_log and general_log are disabled."
 msgstr "未启用 slow_query_log 和 general_log。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
 msgid "log_output is not set to TABLE."
 msgstr "未设置 log_output 为 TABLE。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 msgid "log_output is set to TABLE."
 msgstr "已设置 log_output 为 TABLE。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -5724,98 +5724,98 @@ msgstr ""
 "已启用 slow_query_log，但服务器仅记录查询时间超过 %d 秒的查询。请根据您的系统"
 "适当设置 long_query_time 为 0-2 秒。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "已设置 long_query_time 为 %d 秒。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr "下列设置将被应用到整个服务器直到服务器重新启动："
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
 #, php-format
 msgid "Set log_output to %s"
 msgstr "设置 log_output 为 %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
 #, php-format
 msgid "Enable %s"
 msgstr "启用 %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 #, php-format
 msgid "Disable %s"
 msgstr "禁用 %s"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "设置 long_query_time 为 %d 秒。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr "无法修改这些变量。请以 root 登录或联系数据库管理员。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:241
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "Change settings"
 msgstr "修改设置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 msgid "Current settings"
 msgstr "当前设置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 msgid "Chart title"
 msgstr "图表标题"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "Differential"
 msgstr "差异"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
 #, php-format
 msgid "Divided by %s"
 msgstr "除以 %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid "Unit"
 msgstr "单位"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:250
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid "From slow log"
 msgstr "从慢查询日志"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
 msgid "From general log"
 msgstr "从常规日志"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
 msgid "The database name is not known for this query in the server's logs."
 msgstr "本次查询使用的数据库名称在服务器日志中未知。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
 msgid "Analysing logs"
 msgstr "正在分析日志"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:259
 msgid "Analysing & loading logs. This may take a while."
 msgstr "正在分析并加载日志。请稍候。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 msgid "Cancel request"
 msgstr "取消请求"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -5824,7 +5824,7 @@ msgstr ""
 "该列显示了已分组的相同查询数量。然而只有 SQL 查询本身被作为分组依据，所以查询"
 "的其它属性，如开始时间可能不同。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -5833,31 +5833,31 @@ msgstr ""
 "因选择了分组 INSERT 查询，对相同表的 INSERT 查询将忽略插入的数据而被分为一"
 "组。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "已加载日志数据。该时间段执行的查询："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Jump to Log table"
 msgstr "转到日志表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 msgid "No data found"
 msgstr "未找到数据"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 msgid "Log analysed, but no data found in this time span."
 msgstr "已分析日志，但在该时间段内没有找到数据。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 msgid "Analyzing…"
 msgstr "正在分析…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
 msgid "Explain output"
 msgstr "解析输出"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:490
 #: libraries/classes/Server/Status/Processes.php:138
 #: libraries/classes/Util.php:1945 libraries/config.values.php:157
@@ -5868,89 +5868,91 @@ msgstr "解析输出"
 msgid "Status"
 msgstr "状态"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
+#. l10n: A specific point in the day, as shown on a clock.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:472
 #: libraries/classes/Plugins/Export/ExportOdt.php:594
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
 #: libraries/classes/Server/Status/Processes.php:134
 #: templates/database/triggers/list.twig:47
-#: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
+#: templates/sql/profiling_chart.twig:17
 msgid "Time"
 msgstr "时间"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 msgid "Total time:"
 msgstr "总时间："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 msgid "Profiling results"
 msgstr "性能分析结果"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
 msgctxt "Display format"
 msgid "Table"
 msgstr "表格"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Chart"
 msgstr "图表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 #: templates/export.twig:210
 msgctxt "Alias"
 msgid "Database"
 msgstr "数据库"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 #: templates/export.twig:224
 msgctxt "Alias"
 msgid "Table"
 msgstr "表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 #: templates/export.twig:237
 msgctxt "Alias"
 msgid "Column"
 msgstr "字段"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 msgid "Log table filter options"
 msgstr "日志表筛选选项"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Filter"
 msgstr "筛选"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
 msgid "Filter queries by word/regexp:"
 msgstr "根据内容/正则表达式筛选："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "忽略 WHERE 从句中的变量值对查询分组"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
 msgid "Sum of grouped rows:"
 msgstr "分组后的行数："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 #: libraries/classes/Engines/Innodb.php:140
 #: templates/server/databases/index.twig:253
 msgid "Total:"
 msgstr "总数："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
 msgid "Loading logs"
 msgstr "正在加载日志"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
 msgid "Monitor refresh failed"
 msgstr "刷新监控失败"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -5959,56 +5961,56 @@ msgstr ""
 "请求新图表数据时服务器返回了无效数据。这很可能是因为您的会话已过期所造成的。"
 "请尝试重新载入页面并重新登录。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:301
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
 msgid "Reload page"
 msgstr "重新载入页面"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Affected rows:"
 msgstr "影响的行数："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "解析配置文件失败。它似乎不是有效的 JSON 代码。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr "使用导入的设置建立图表失败。正在重设为默认设置…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "Import monitor configuration"
 msgstr "导入监控设置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import."
 msgstr "请选择您要导入的文件。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Please enter a valid table name."
 msgstr "请输入有效表名。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
 msgid "Please enter a valid database name."
 msgstr "请输入有效的数据库名称。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "No files available on server for import!"
 msgstr "服务器上没有可用文件来导入！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
 msgid "Analyse query"
 msgstr "分析查询"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 msgid "Formatting SQL…"
 msgstr "正在格式化SQL……"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 msgid "No parameters found!"
 msgstr "未找到参数！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 #: templates/database/central_columns/main.twig:269
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -6035,71 +6037,71 @@ msgstr "未找到参数！"
 msgid "Cancel"
 msgstr "取消"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 #: templates/header.twig:43 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "页面相关设置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 #: templates/config/form_display/display.twig:46
 #: templates/modals/page_settings.twig:10
 msgid "Apply"
 msgstr "应用"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #: templates/home/index.twig:289 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "正在加载…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 msgid "Request aborted!!"
 msgstr "请求已放弃！！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
 msgid "Processing request"
 msgstr "正在处理请求"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
 msgid "Request failed!!"
 msgstr "请求失败！！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:51
 #: libraries/classes/Controllers/Sql/SetValuesController.php:54
 msgid "Error in processing request"
 msgstr "处理请求时的错误"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 #, php-format
 msgid "Error code: %s"
 msgstr "错误代码：%s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #, php-format
 msgid "Error text: %s"
 msgstr "错误信息：%s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr "与服务器的连接断开，请检查网络状况与服务器的运行状态。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
 msgid "No accounts selected."
 msgstr "没有选中任何账户。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
 msgid "Dropping column"
 msgstr "正在删除字段"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 msgid "Adding primary key"
 msgstr "正在添加主键"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 #: templates/console/display.twig:129 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -6111,23 +6113,23 @@ msgstr "正在添加主键"
 msgid "OK"
 msgstr "确定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 msgid "Click to dismiss this notification"
 msgstr "点击隐藏该提示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
 msgid "Renaming databases"
 msgstr "正在重命名数据库"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 msgid "Copying database"
 msgstr "正在复制数据库"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 msgid "Changing charset"
 msgstr "正在修改字符集"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:498
 #: libraries/classes/Index.php:526
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:630
@@ -6164,83 +6166,83 @@ msgstr "正在修改字符集"
 msgid "No"
 msgstr "否"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "启用外键约束"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 msgid "Failed to get real row count."
 msgstr "获取实际行数失败。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
 msgid "Searching"
 msgstr "正在搜索"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 msgid "Hide search results"
 msgstr "隐藏搜索结果"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
 msgid "Show search results"
 msgstr "显示搜索结果"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 msgid "Browsing"
 msgstr "正在浏览"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 msgid "Deleting"
 msgstr "正在删除"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "删除在 %s 表中找到的所有记录吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "函数定义中必须包含 RETURN 语句！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr "无法导出。可能缺少相应权限。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 #, php-format
 msgid "Values for column %s"
 msgstr "字段 %s 的值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 msgid "Values for a new column"
 msgstr "新字段的值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
 msgid "Enter each value in a separate field."
 msgstr "每个输入框一个值。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
 #, php-format
 msgid "Add %d value(s)"
 msgstr "添加 %d 个值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "注意：如果文件包含多张表，它们将会被合并到一起。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 msgid "Hide query box"
 msgstr "隐藏查询框"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid "Show query box"
 msgstr "显示查询框"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2978
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Display/Results.php:2971
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6256,47 +6258,47 @@ msgstr "显示查询框"
 msgid "Delete"
 msgstr "删除"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d 不是有效行数。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "浏览不相关的值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr "没有之前自动保存的查询可用。加载默认查询。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr "您有一个以前保存的查询。单击“获取自动保存的查询”以加载查询。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #, php-format
 msgid "Variable %d:"
 msgstr "变量 %d："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 #: libraries/classes/Normalization.php:1051
 msgid "Pick"
 msgstr "检出"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 msgid "Column selector"
 msgstr "列选择器"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 msgid "Search this list"
 msgstr "在该列表中搜索"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -6304,29 +6306,29 @@ msgid ""
 msgstr ""
 "中心列表中没有列。请确保数据库 %s 的中心列表存在没有显示在当前表中的列。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 msgid "See more"
 msgstr "显示更多"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 msgid "Add primary key"
 msgstr "添加主键"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 msgid "Primary key added."
 msgstr "主键已添加。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
 #: libraries/classes/Normalization.php:282
 msgid "Taking you to next step…"
 msgstr "等待进入下一步…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "表“%s”标准化过程的第一步已经完成。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 #: libraries/classes/Normalization.php:540
 #: libraries/classes/Normalization.php:602
 #: libraries/classes/Normalization.php:699
@@ -6334,90 +6336,90 @@ msgstr "表“%s”标准化过程的第一步已经完成。"
 msgid "End of step"
 msgstr "完成"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
 msgid "Second step of normalization (2NF)"
 msgstr "标准化第二步（2NF）"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
 #: libraries/classes/Normalization.php:375
-#: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "完成"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 msgid "Confirm partial dependencies"
 msgstr "确认局部依赖"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 msgid "Selected partial dependencies are as follows:"
 msgstr "下面是已经选择的局部依赖："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr "注意： a, b -> d,f 表示a和b两列结合起来决定d和f两列的值。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 msgid "No partial dependencies selected!"
 msgstr "没有已选择的局部依赖！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 #: libraries/classes/Export.php:587 libraries/classes/Html/Generator.php:987
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "返回"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "显示基于表中数据可能的局部依赖"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Hide partial dependencies list"
 msgstr "隐藏局部依赖列表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr "坐好啦！取决于数据大小和表的列数，这可能需要几秒钟。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
 msgid "Step"
 msgstr "步骤"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
 msgid "The following actions will be performed:"
 msgstr "下列操作将被执行："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "将列 %s 从表 %s 中删除"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid "Create the following table"
 msgstr "创建下列表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
 msgid "Third step of normalization (3NF)"
 msgstr "标准化第三步（3NF）"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 msgid "Confirm transitive dependencies"
 msgstr "确认传递依赖"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 msgid "Selected dependencies are as follows:"
 msgstr "下面是已经选择的依赖："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 msgid "No dependencies selected!"
 msgstr "没有已选择的依赖！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -6431,82 +6433,82 @@ msgstr "没有已选择的依赖！"
 msgid "Save"
 msgstr "保存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 msgid "Hide search criteria"
 msgstr "隐藏搜索条件"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 msgid "Show search criteria"
 msgstr "显示搜索条件"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 msgid "Column maximum:"
 msgstr "最大列数目:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
 msgid "Column minimum:"
 msgstr "最小列数目:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 msgid "Hide find and replace criteria"
 msgstr "隐藏搜索替换条件"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
 msgid "Show find and replace criteria"
 msgstr "显示搜索替换条件"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 msgid "Each point represents a data row."
 msgstr "每个点代表一个数据行。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 msgid "Hovering over a point will show its label."
 msgstr "悬浮至一个点上会显示它的标签。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "要放大，请用鼠标选择图表的一块区域。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
 msgid "Click reset zoom button to come back to original state."
 msgstr "点击重置缩放按钮以回到初始状态。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "点击数据点以查看或编辑数据行。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:469
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "拖拽右下角以改变图表大小。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Select two columns"
 msgstr "选择两列"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:469
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Select two different columns"
 msgstr "选择两个不同的列"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:471
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "Data point content"
 msgstr "数据点内容"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2001
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "忽略"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Display/Results.php:2914
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Display/Results.php:2907
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
 msgid "Copy"
 msgstr "复制"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -6514,7 +6516,7 @@ msgstr "复制"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -6522,208 +6524,208 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Point"
 msgstr "点"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
 #, php-format
 msgid "Point %d"
 msgstr "点 %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Linestring"
 msgstr "线"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 msgid "Polygon"
 msgstr "多边形"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/display/results/table.twig:174
 msgid "Geometry"
 msgstr "几何体"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 msgid "Inner ring"
 msgstr "内环"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 msgid "Outer ring"
 msgstr "外环"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "添加点"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "添加内环"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 msgid "Do you want to copy encryption key?"
 msgstr "是否要复制加密密匙？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid "Encryption key"
 msgstr "加密密匙"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr "HEX函数在计算十六进制值时会将整数视为字符串"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr "MySQL 可接受滑动条上不可选的其他值；如果需要直接键入这些值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:508
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr "MySQL 可接受日期选择器无法选取的其他值；如果需要直接键入这些值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr "检测到您已经对页面做出了修改。因此在您放弃改动时会提示您确认"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 msgid "Select referenced key"
 msgstr "选择外键"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:520
 msgid "Select Foreign Key"
 msgstr "选择外键"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
 msgid "Please select the primary key or a unique key!"
 msgstr "请选择主键或唯一键！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是否继续？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 msgid "value/subQuery is empty"
 msgstr "值/子查询为空"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "从其他数据库中添加表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 msgid "Page name"
 msgstr "页面名称"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "保存页面"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "保存页面为"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "打开页面"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 msgid "Delete page"
 msgstr "删除页面"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr "此页面中保存的某些表可能已重命名或删除。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "未命名"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 msgid "Please select a page to continue"
 msgstr "请选择一个页面"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 msgid "Please enter a valid page name"
 msgstr "请输入有效页面名称"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Do you want to save the changes to the current page?"
 msgstr "是否保存对该页面的更改？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 msgid "Successfully deleted the page"
 msgstr "成功删除页面"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 msgid "Export relational schema"
 msgstr "导出关系模式"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Modifications have been saved"
 msgstr "已保存修改"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #, php-format
 msgid "%d object(s) created."
 msgstr "已创建 %d 个对象。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Column name"
 msgstr "字段名"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
 msgstr "提交"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "按 Esc 键取消编辑。<br>- 使用 Shift+Enter 进行换行。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid "Drag to reorder."
 msgstr "拖拽以调整顺序。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 msgid "Click to sort results by this column."
 msgstr "点此排序此列的结果。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -6733,19 +6735,19 @@ msgstr ""
 "<br>使用 Ctrl+Click 或者 Alt+Click （Mac：Shift+Option+Click ）即可将列从 "
 "ORDER BY 语句中移除"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid "Click to mark/unmark."
 msgstr "点击以标记/取消标记。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
 msgid "Double-click to copy column name."
 msgstr "双击以复制字段名。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "点击下箭头<br>以设置显示的字段。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -6753,86 +6755,78 @@ msgstr ""
 "该表没有唯一字段。在保存后单元格编辑、多选、编辑、复制和删除等功能可能无法正"
 "常使用。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "请输入一个有效的十六进制字符串。只有0-9和A-F为有效字符。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr "您真的想要查看所有的行吗？若表过大可能会导致浏览器崩溃。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid "Original length"
 msgstr "原始长度"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "cancel"
 msgstr "取消"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
 msgid "Aborted"
 msgstr "已取消"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid "Success"
 msgstr "成功"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 msgid "Import status"
 msgstr "导入状态"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "将文件拖动至此"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Select database first"
 msgstr "先选择数据库"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
-msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "您可以直接双击大部分<br>单元格以修改其值。"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
-msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "您可以直接点击大部分<br>单元格以修改其值。"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid "Go to link:"
 msgstr "前往："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Generate password"
 msgstr "生成密码"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "生成"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "更多"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 msgid "Show panel"
 msgstr "显示导航面板"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Hide panel"
 msgstr "隐藏导航面板"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 #: libraries/classes/Navigation/NavigationTree.php:1357
 msgid "Unlink from main panel"
 msgstr "从主面板取消链接"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -6842,35 +6836,35 @@ msgstr ""
 "phpMyAdmin 的新版本已出，您应当考虑升级了。最新的版本是 %s，于 %s 发布。"
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 msgid ", latest stable version:"
 msgstr "，最新稳定版本："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 msgid "up to date"
 msgstr "已是最新"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "发生致命JavaScript错误。是否发送错误报告？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid "Change report settings"
 msgstr "更改报告设置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 msgid "Show report details"
 msgstr "显示报告详细信息"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "由于PHP设置的执行限制时间过低，您的导入未能完成！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -6879,76 +6873,76 @@ msgstr ""
 "警告：当前表单包含的字段多于 %d，受限于 PHP 中 max_input_vars 值的配置，该次"
 "提交有可能忽略其中一部分。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
 msgid "Some errors have been detected on the server!"
 msgstr "在服务上检测到错误！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 msgid "Please look at the bottom of this window."
 msgstr "请查看此窗口的底部。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
 #: libraries/classes/ErrorHandler.php:444
 msgid "Ignore All"
 msgstr "忽略全部"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "正在提交您的设置，请耐心等待。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid "Column name successfully copied to clipboard!"
 msgstr "字段名已成功复制到剪贴板！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
 msgid "Column name copying to clipboard failed!"
 msgstr "字段名复制到剪贴板失败！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid "Successfully copied!"
 msgstr "成功复制！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 msgid "Copying failed!"
 msgstr "复制失败！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Execute this query again?"
 msgstr "再次执行该查询？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Do you really want to delete this bookmark?"
 msgstr "您真的要删除该书签吗？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Some error occurred while getting SQL debug info."
 msgstr "获取SQL调试信息时出错。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s查询已执行%s次，耗时%s秒。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s 个参数已传递"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Show arguments"
 msgstr "显示注释"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Hide arguments"
 msgstr "隐藏注释"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Time taken:"
 msgstr "用时："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -6962,99 +6956,486 @@ msgstr ""
 "线网站数据”可能会解决这个问题。对于Safari浏览器，这个问题通常是由于“隐私浏览"
 "模式”导致的。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 msgid "Copy tables to"
 msgstr "复制数据表到"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid "Add table prefix"
 msgstr "添加表前缀"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
 msgid "Replace table with prefix"
 msgstr "替换表前缀"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Extremely weak"
 msgstr "极弱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Very weak"
 msgstr "很弱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Weak"
 msgstr "弱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 msgid "Good"
 msgstr "优"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Strong"
 msgstr "强"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "等待安全密钥激活超时。"
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "发送到安全密钥的请求无效。"
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "未知的安全密钥错误。"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "客户端不支持安全密钥。"
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "安全密钥激活失败。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "无效的安全密钥。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "隐藏"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 #: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "显示"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+msgid "January"
+msgstr "一月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+msgid "February"
+msgstr "二月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+msgid "March"
+msgstr "三月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+msgid "April"
+msgstr "四月"
+
+#. l10n: Month name
+#. l10n: Short month name for May
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+msgid "May"
+msgstr "五月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+msgid "June"
+msgstr "六月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+msgid "July"
+msgstr "七月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+msgid "August"
+msgstr "八月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+msgid "September"
+msgstr "九月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+msgid "October"
+msgstr "十月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+msgid "November"
+msgstr "十一月"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+msgid "December"
+msgstr "十二月"
+
+#. l10n: Short month name for January
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Util.php:664
+msgid "Jan"
+msgstr "一月"
+
+#. l10n: Short month name for February
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Util.php:666
+msgid "Feb"
+msgstr "二月"
+
+#. l10n: Short month name for March
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Util.php:668
+msgid "Mar"
+msgstr "三月"
+
+#. l10n: Short month name for April
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Util.php:670
+msgid "Apr"
+msgstr "四月"
+
+#. l10n: Short month name for June
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Util.php:674
+msgid "Jun"
+msgstr "六月"
+
+#. l10n: Short month name for July
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Util.php:676
+msgid "Jul"
+msgstr "七月"
+
+#. l10n: Short month name for August
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Util.php:678
+msgid "Aug"
+msgstr "八月"
+
+#. l10n: Short month name for September
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Util.php:680
+msgid "Sep"
+msgstr "九月"
+
+#. l10n: Short month name for October
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Util.php:682
+msgid "Oct"
+msgstr "十月"
+
+#. l10n: Short month name for November
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Util.php:684
+msgid "Nov"
+msgstr "十一月"
+
+#. l10n: Short month name for December
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Util.php:686
+msgid "Dec"
+msgstr "十二月"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/config.values.php:197
+msgid "Sunday"
+msgstr "星期日"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/config.values.php:191
+msgid "Monday"
+msgstr "星期一"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/config.values.php:192
+msgid "Tuesday"
+msgstr "星期二"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/config.values.php:193
+msgid "Wednesday"
+msgstr "星期三"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/config.values.php:194
+msgid "Thursday"
+msgstr "星期四"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/config.values.php:195
+msgid "Friday"
+msgstr "星期五"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/config.values.php:196
+msgid "Saturday"
+msgstr "星期六"
+
+#. l10n: Short week day name for Sunday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+msgid "Sun"
+msgstr "周日"
+
+#. l10n: Short week day name for Monday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
+#: libraries/classes/Util.php:692
+msgid "Mon"
+msgstr "周一"
+
+#. l10n: Short week day name for Tuesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Util.php:694
+msgid "Tue"
+msgstr "周二"
+
+#. l10n: Short week day name for Wednesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Util.php:696
+msgid "Wed"
+msgstr "周三"
+
+#. l10n: Short week day name for Thursday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Util.php:698
+msgid "Thu"
+msgstr "周四"
+
+#. l10n: Short week day name for Friday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Util.php:700
+msgid "Fri"
+msgstr "周五"
+
+#. l10n: Short week day name for Saturday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
+#: libraries/classes/Util.php:702
+msgid "Sat"
+msgstr "周六"
+
+#. l10n: Minimal week day name for Sunday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
+msgid "Su"
+msgstr "日"
+
+#. l10n: Minimal week day name for Monday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
+msgid "Mo"
+msgstr "一"
+
+#. l10n: Minimal week day name for Tuesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
+msgid "Tu"
+msgstr "二"
+
+#. l10n: Minimal week day name for Wednesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
+msgid "We"
+msgstr "三"
+
+#. l10n: Minimal week day name for Thursday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+msgid "Th"
+msgstr "四"
+
+#. l10n: Minimal week day name for Friday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+msgid "Fr"
+msgstr "五"
+
+#. l10n: Minimal week day name for Saturday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+msgid "Sa"
+msgstr "六"
+
+#. l10n: Column header for week of the year in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+msgid "Wk"
+msgstr "周"
+
+#. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+msgid "calendar-month-year"
+msgstr "calendar-year-month"
+
+#. l10n: Year suffix for calendar, "none" is empty.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+msgid "none"
+msgstr "无"
+
+#. l10n: Period of time.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+msgid "Hour"
+msgstr "时"
+
+#. l10n: Period of time.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+msgid "Minute"
+msgstr "分"
+
+#. l10n: Period of time.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+msgid "Second"
+msgstr "秒"
+
+#. l10n: Previous month. Display text for previous month link in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
+msgid "Prev"
+msgstr "上个月"
+
+#. l10n: Next month. Display text for next month link in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
+msgid "Next"
+msgstr "下个月"
+
+#. l10n: Display text for current month link in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+msgid "Today"
+msgstr "今天"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+msgid "This field is required"
+msgstr "此字段为必须字段"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+msgid "Please fix this field"
+msgstr "请修改这个字段"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+msgid "Please enter a valid email address"
+msgstr "请输入有效的Email地址"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+msgid "Please enter a valid URL"
+msgstr "请输入一个有效的链接地址"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+msgid "Please enter a valid date"
+msgstr "请输入有效的日期"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
+msgid "Please enter a valid date ( ISO )"
+msgstr "请输入有效的日期（ISO标准格式）"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+msgid "Please enter a valid number"
+msgstr "请输入一个有效的数字"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
+msgid "Please enter a valid credit card number"
+msgstr "请输入一个有效的银行卡号码"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+msgid "Please enter only digits"
+msgstr "请输入纯数字"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+msgid "Please enter the same value again"
+msgstr "请重输一遍"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+msgid "Please enter no more than {0} characters"
+msgstr "请输入不超过{0}位字符"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+msgid "Please enter at least {0} characters"
+msgstr "请输入大于{0}位字符"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr "请输入一个 {0} 和 {1} 字符长度之间的值"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+msgid "Please enter a value between {0} and {1}"
+msgstr "请输入 {0} 和 {1}之间的一个值"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
+msgid "Please enter a value less than or equal to {0}"
+msgstr "请输入一个小于或等于 {0} 的值"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "请输入一个大于或等于 {0} 的值"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
+msgid "Please enter a valid date or time"
+msgstr "请输入有效的日期或时间"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
+msgid "Please enter a valid HEX input"
+msgstr "请输入一个有效的HEX值"
+
+#. l10n: To validate the usage of a MD5 function on the column
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
+msgid "This column can not contain a 32 chars value"
+msgstr "这个字段无法容纳一个 32 字符长度的值"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
+msgid ""
+"These functions are meant to return a binary result; to avoid inconsistent "
+"results you should store it in a BINARY, VARBINARY, or BLOB column."
+msgstr ""
+"这些函数是要返回二进制结果的。为避免结果不一致，您应将其存储在BINARY，"
+"VARBINARY或BLOB字段中。"
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -7932,7 +8313,7 @@ msgstr "数据表 %s 已存在！"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3630 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3623 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 语句已成功运行。"
@@ -8634,41 +9015,41 @@ msgstr "递减"
 msgid "Ascending"
 msgstr "递增"
 
-#: libraries/classes/Display/Results.php:2954
-#: libraries/classes/Display/Results.php:2969
+#: libraries/classes/Display/Results.php:2947
+#: libraries/classes/Display/Results.php:2962
 msgid "The row has been deleted."
 msgstr "已删除该行。"
 
-#: libraries/classes/Display/Results.php:3001
+#: libraries/classes/Display/Results.php:2994
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "杀死"
 
-#: libraries/classes/Display/Results.php:3561
+#: libraries/classes/Display/Results.php:3554
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "可能是近似值。参见[doc@faq3-11]常见问题 3.11[/doc]。"
 
-#: libraries/classes/Display/Results.php:3927
+#: libraries/classes/Display/Results.php:3920
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "正在显示第 %1s - %2s 行"
 
-#: libraries/classes/Display/Results.php:3941
+#: libraries/classes/Display/Results.php:3934
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "总数为 %1$d，查询包含 %2$d"
 
-#: libraries/classes/Display/Results.php:3946
+#: libraries/classes/Display/Results.php:3939
 #, php-format
 msgid "%d total"
 msgstr "共 %d 行"
 
-#: libraries/classes/Display/Results.php:3959 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3952 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查询花费 %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4289
+#: libraries/classes/Display/Results.php:4282
 msgid "Link not found!"
 msgstr "找不到链接！"
 
@@ -12534,112 +12915,16 @@ msgid "Max: %s%s"
 msgstr "最大限制：%s %s"
 
 #. l10n: Short month name
-#. l10n: Short month name for January
-#: libraries/classes/Util.php:664 templates/javascript/variables.twig:34
-msgid "Jan"
-msgstr "一月"
-
-#. l10n: Short month name
-#. l10n: Short month name for February
-#: libraries/classes/Util.php:666 templates/javascript/variables.twig:35
-msgid "Feb"
-msgstr "二月"
-
-#. l10n: Short month name
-#. l10n: Short month name for March
-#: libraries/classes/Util.php:668 templates/javascript/variables.twig:36
-msgid "Mar"
-msgstr "三月"
-
-#. l10n: Short month name
-#. l10n: Short month name for April
-#: libraries/classes/Util.php:670 templates/javascript/variables.twig:37
-msgid "Apr"
-msgstr "四月"
-
-#. l10n: Short month name
 #: libraries/classes/Util.php:672
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
-
-#. l10n: Short month name
-#. l10n: Short month name for June
-#: libraries/classes/Util.php:674 templates/javascript/variables.twig:39
-msgid "Jun"
-msgstr "六月"
-
-#. l10n: Short month name
-#. l10n: Short month name for July
-#: libraries/classes/Util.php:676 templates/javascript/variables.twig:40
-msgid "Jul"
-msgstr "七月"
-
-#. l10n: Short month name
-#. l10n: Short month name for August
-#: libraries/classes/Util.php:678 templates/javascript/variables.twig:41
-msgid "Aug"
-msgstr "八月"
-
-#. l10n: Short month name
-#. l10n: Short month name for September
-#: libraries/classes/Util.php:680 templates/javascript/variables.twig:42
-msgid "Sep"
-msgstr "九月"
-
-#. l10n: Short month name
-#. l10n: Short month name for October
-#: libraries/classes/Util.php:682 templates/javascript/variables.twig:43
-msgid "Oct"
-msgstr "十月"
-
-#. l10n: Short month name
-#. l10n: Short month name for November
-#: libraries/classes/Util.php:684 templates/javascript/variables.twig:44
-msgid "Nov"
-msgstr "十一月"
-
-#. l10n: Short month name
-#. l10n: Short month name for December
-#: libraries/classes/Util.php:686 templates/javascript/variables.twig:45
-msgid "Dec"
-msgstr "十二月"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:690
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "周日"
-
-#. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:692 templates/javascript/variables.twig:58
-msgid "Mon"
-msgstr "周一"
-
-#. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:694 templates/javascript/variables.twig:59
-msgid "Tue"
-msgstr "周二"
-
-#. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:696 templates/javascript/variables.twig:60
-msgid "Wed"
-msgstr "周三"
-
-#. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:698 templates/javascript/variables.twig:61
-msgid "Thu"
-msgstr "周四"
-
-#. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:700 templates/javascript/variables.twig:62
-msgid "Fri"
-msgstr "周五"
-
-#. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:702 templates/javascript/variables.twig:63
-msgid "Sat"
-msgstr "周六"
 
 #: libraries/classes/Util.php:728
 msgctxt "AM/PM indication in time"
@@ -12752,34 +13037,6 @@ msgstr "开启"
 #: libraries/config.values.php:187
 msgid "Closed"
 msgstr "关闭"
-
-#: libraries/config.values.php:191 templates/javascript/variables.twig:49
-msgid "Monday"
-msgstr "星期一"
-
-#: libraries/config.values.php:192 templates/javascript/variables.twig:50
-msgid "Tuesday"
-msgstr "星期二"
-
-#: libraries/config.values.php:193 templates/javascript/variables.twig:51
-msgid "Wednesday"
-msgstr "星期三"
-
-#: libraries/config.values.php:194 templates/javascript/variables.twig:52
-msgid "Thursday"
-msgstr "星期四"
-
-#: libraries/config.values.php:195 templates/javascript/variables.twig:53
-msgid "Friday"
-msgstr "星期五"
-
-#: libraries/config.values.php:196 templates/javascript/variables.twig:54
-msgid "Saturday"
-msgstr "星期六"
-
-#: libraries/config.values.php:197 templates/javascript/variables.twig:48
-msgid "Sunday"
-msgstr "星期日"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
@@ -14506,6 +14763,21 @@ msgstr "新建视图"
 msgid "There are no triggers to display."
 msgstr "没有触发器。"
 
+#: templates/display/results/checkbox_and_links.twig:16
+#: templates/display/results/checkbox_and_links.twig:78
+#, fuzzy
+#| msgid "You can also edit most values<br>by clicking directly on them."
+msgid "You can also edit most values by clicking directly on them."
+msgstr "您可以直接点击大部分<br>单元格以修改其值。"
+
+#: templates/display/results/checkbox_and_links.twig:18
+#: templates/display/results/checkbox_and_links.twig:80
+#, fuzzy
+#| msgid ""
+#| "You can also edit most values<br>by double-clicking directly on them."
+msgid "You can also edit most values by double-clicking directly on them."
+msgstr "您可以直接双击大部分<br>单元格以修改其值。"
+
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
 msgstr "保存已修改的数据"
@@ -15215,224 +15487,6 @@ msgstr "已删除主键。"
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "已删除索引 %s。"
-
-#. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: templates/javascript/variables.twig:8
-msgid "calendar-month-year"
-msgstr "calendar-year-month"
-
-#. l10n: Year suffix for calendar, "none" is empty.
-#: templates/javascript/variables.twig:11
-msgid "none"
-msgstr "无"
-
-#. l10n: Previous month. Display text for previous month link in calendar
-#: templates/javascript/variables.twig:16
-msgid "Prev"
-msgstr "上个月"
-
-#. l10n: Next month. Display text for next month link in calendar
-#: templates/javascript/variables.twig:17
-msgid "Next"
-msgstr "下个月"
-
-#. l10n: Display text for current month link in calendar
-#: templates/javascript/variables.twig:18
-msgid "Today"
-msgstr "今天"
-
-#: templates/javascript/variables.twig:20
-msgid "January"
-msgstr "一月"
-
-#: templates/javascript/variables.twig:21
-msgid "February"
-msgstr "二月"
-
-#: templates/javascript/variables.twig:22
-msgid "March"
-msgstr "三月"
-
-#: templates/javascript/variables.twig:23
-msgid "April"
-msgstr "四月"
-
-#. l10n: Short month name for May
-#: templates/javascript/variables.twig:24
-#: templates/javascript/variables.twig:38
-msgid "May"
-msgstr "五月"
-
-#: templates/javascript/variables.twig:25
-msgid "June"
-msgstr "六月"
-
-#: templates/javascript/variables.twig:26
-msgid "July"
-msgstr "七月"
-
-#: templates/javascript/variables.twig:27
-msgid "August"
-msgstr "八月"
-
-#: templates/javascript/variables.twig:28
-msgid "September"
-msgstr "九月"
-
-#: templates/javascript/variables.twig:29
-msgid "October"
-msgstr "十月"
-
-#: templates/javascript/variables.twig:30
-msgid "November"
-msgstr "十一月"
-
-#: templates/javascript/variables.twig:31
-msgid "December"
-msgstr "十二月"
-
-#. l10n: Short week day name for Sunday
-#: templates/javascript/variables.twig:57
-msgid "Sun"
-msgstr "周日"
-
-#. l10n: Minimal week day name for Sunday
-#: templates/javascript/variables.twig:66
-msgid "Su"
-msgstr "日"
-
-#. l10n: Minimal week day name for Monday
-#: templates/javascript/variables.twig:67
-msgid "Mo"
-msgstr "一"
-
-#. l10n: Minimal week day name for Tuesday
-#: templates/javascript/variables.twig:68
-msgid "Tu"
-msgstr "二"
-
-#. l10n: Minimal week day name for Wednesday
-#: templates/javascript/variables.twig:69
-msgid "We"
-msgstr "三"
-
-#. l10n: Minimal week day name for Thursday
-#: templates/javascript/variables.twig:70
-msgid "Th"
-msgstr "四"
-
-#. l10n: Minimal week day name for Friday
-#: templates/javascript/variables.twig:71
-msgid "Fr"
-msgstr "五"
-
-#. l10n: Minimal week day name for Saturday
-#: templates/javascript/variables.twig:72
-msgid "Sa"
-msgstr "六"
-
-#. l10n: Column header for week of the year in calendar
-#: templates/javascript/variables.twig:74
-msgid "Wk"
-msgstr "周"
-
-#: templates/javascript/variables.twig:82
-msgid "Hour"
-msgstr "时"
-
-#: templates/javascript/variables.twig:83
-msgid "Minute"
-msgstr "分"
-
-#: templates/javascript/variables.twig:84
-msgid "Second"
-msgstr "秒"
-
-#: templates/javascript/variables.twig:90
-msgid "This field is required"
-msgstr "此字段为必须字段"
-
-#: templates/javascript/variables.twig:91
-msgid "Please fix this field"
-msgstr "请修改这个字段"
-
-#: templates/javascript/variables.twig:92
-msgid "Please enter a valid email address"
-msgstr "请输入有效的Email地址"
-
-#: templates/javascript/variables.twig:93
-msgid "Please enter a valid URL"
-msgstr "请输入一个有效的链接地址"
-
-#: templates/javascript/variables.twig:94
-msgid "Please enter a valid date"
-msgstr "请输入有效的日期"
-
-#: templates/javascript/variables.twig:95
-msgid "Please enter a valid date ( ISO )"
-msgstr "请输入有效的日期（ISO标准格式）"
-
-#: templates/javascript/variables.twig:96
-msgid "Please enter a valid number"
-msgstr "请输入一个有效的数字"
-
-#: templates/javascript/variables.twig:97
-msgid "Please enter a valid credit card number"
-msgstr "请输入一个有效的银行卡号码"
-
-#: templates/javascript/variables.twig:98
-msgid "Please enter only digits"
-msgstr "请输入纯数字"
-
-#: templates/javascript/variables.twig:99
-msgid "Please enter the same value again"
-msgstr "请重输一遍"
-
-#: templates/javascript/variables.twig:100
-msgid "Please enter no more than {0} characters"
-msgstr "请输入不超过{0}位字符"
-
-#: templates/javascript/variables.twig:101
-msgid "Please enter at least {0} characters"
-msgstr "请输入大于{0}位字符"
-
-#: templates/javascript/variables.twig:102
-msgid "Please enter a value between {0} and {1} characters long"
-msgstr "请输入一个 {0} 和 {1} 字符长度之间的值"
-
-#: templates/javascript/variables.twig:103
-msgid "Please enter a value between {0} and {1}"
-msgstr "请输入 {0} 和 {1}之间的一个值"
-
-#: templates/javascript/variables.twig:104
-msgid "Please enter a value less than or equal to {0}"
-msgstr "请输入一个小于或等于 {0} 的值"
-
-#: templates/javascript/variables.twig:105
-msgid "Please enter a value greater than or equal to {0}"
-msgstr "请输入一个大于或等于 {0} 的值"
-
-#: templates/javascript/variables.twig:106
-msgid "Please enter a valid date or time"
-msgstr "请输入有效的日期或时间"
-
-#: templates/javascript/variables.twig:107
-msgid "Please enter a valid HEX input"
-msgstr "请输入一个有效的HEX值"
-
-#. l10n: To validate the usage of a MD5 function on the column
-#: templates/javascript/variables.twig:108
-msgid "This column can not contain a 32 chars value"
-msgstr "这个字段无法容纳一个 32 字符长度的值"
-
-#. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
-#: templates/javascript/variables.twig:109
-msgid ""
-"These functions are meant to return a binary result; to avoid inconsistent "
-"results you should store it in a BINARY, VARBINARY, or BLOB column."
-msgstr ""
-"这些函数是要返回二进制结果的。为避免结果不一致，您应将其存储在BINARY，"
-"VARBINARY或BLOB字段中。"
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124

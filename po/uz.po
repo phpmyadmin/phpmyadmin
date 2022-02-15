@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-13 00:13+0000\n"
+"POT-Creation-Date: 2022-02-15 18:25+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1282,7 +1282,7 @@ msgid "Search:"
 msgstr "Қидириш"
 
 #: libraries/classes/BrowseForeigners.php:206
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: libraries/classes/Controllers/Server/PrivilegesController.php:317
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
@@ -1364,7 +1364,7 @@ msgid "Page number:"
 msgstr "Саҳифа рақами:"
 
 #: libraries/classes/BrowseForeigners.php:335
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -4241,7 +4241,7 @@ msgid "Navigation panel width"
 msgstr "Навигация панели"
 
 #: libraries/classes/Config/Descriptions.php:834
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: libraries/classes/Navigation/NavigationTree.php:1354
 #, fuzzy
 #| msgid "Customize main frame"
@@ -4795,8 +4795,8 @@ msgstr "Қулфланган жадвалларни ташлаб кетишли�
 
 #: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/ConfigStorage/UserGroups.php:124
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2910
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
+#: libraries/classes/Display/Results.php:2903
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -5140,7 +5140,7 @@ msgstr "Рангни танлаш"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -5192,7 +5192,7 @@ msgid "OpenDocument Text"
 msgstr "OpenDocument матн"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1507
 #: libraries/classes/Util.php:1947 libraries/classes/Util.php:1962
@@ -5237,7 +5237,7 @@ msgid "CSV using LOAD DATA"
 msgstr "\"LOAD DATA\" ишлатилган CSV"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
 #: libraries/classes/Menu.php:518 libraries/classes/Util.php:1948
 #: libraries/classes/Util.php:1963 libraries/classes/Util.php:1980
@@ -5644,7 +5644,7 @@ msgid "SQL Query Console"
 msgstr "SQL сўровлари қутиси"
 
 #: libraries/classes/Controllers/AbstractController.php:73
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
 #: libraries/classes/DbTableExists.php:45
 msgid "No databases selected."
@@ -5746,7 +5746,7 @@ msgstr "Рухсат берилмади!"
 #: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:24
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
 #: libraries/classes/Controllers/Export/TablesController.php:29
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:52
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:52
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:52
@@ -5786,7 +5786,7 @@ msgid "Table %s has been emptied."
 msgstr "\"%s\" жадвали тозаланди."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3918
+#: libraries/classes/Display/Results.php:3911
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5801,7 +5801,7 @@ msgstr "номаълум"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:55
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:71
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:55
 #: libraries/classes/Controllers/Table/DropColumnController.php:56
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:56
@@ -6056,7 +6056,7 @@ msgid "Succeeded"
 msgstr "Рухсат берилмади!"
 
 #: libraries/classes/Controllers/Import/ImportController.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Failed"
 msgstr ""
 
@@ -6135,153 +6135,153 @@ msgstr ""
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:39
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:44
 #, fuzzy, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:40
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete database!"
 msgstr "Маълумотлар базаси тўлиқ ЎЧИРИЛАДИ!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:42
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:44
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
 #, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
 msgstr "Маълумотлар базаси тўлиқ ЎЧИРИЛАДИ!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
 #, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Маълумотлар базаси тўлиқ ЎЧИРИЛАДИ!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:46
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 #, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "Маълумотлар базаси тўлиқ ЎЧИРИЛАДИ!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
 msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:48
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
 msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
 msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
 msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
 msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Deleting tracking data"
 msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
 msgid "Dropping Primary Key/Index"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
 msgstr "Ташқи калитни танланг"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:55
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ушбу операцияни бажариш узоқ вақт талаб қилиши мумкин. Давом этсинми?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
 #, fuzzy, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:62
 #, fuzzy, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:69
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this central column?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete the selected items?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:71
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:76
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to remove partitioning?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:72
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:77
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:74
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:79
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -6290,15 +6290,15 @@ msgid ""
 "refer to the tips at "
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:80
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:85
 msgid "Garbled Data"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:82
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:87
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:85
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:90
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -6308,20 +6308,20 @@ msgid ""
 "</b>"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:93
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:98
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:96
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:101
 #: templates/export.twig:324
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save & close"
 msgstr "Файл каби сақлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 #: templates/config/form_display/display.twig:47
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
@@ -6329,85 +6329,85 @@ msgstr "Файл каби сақлаш"
 msgid "Reset"
 msgstr "Тозалаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:98
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 #, fuzzy
 #| msgid "Select All"
 msgid "Reset all"
 msgstr "Барчасини белгилаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:101
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Missing value in the form!"
 msgstr "Форманинг керакли майдонлари тўлдирилмаган!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
 msgstr "сўзлардан бири"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
 msgstr "Нотўғри порт номери"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
 msgstr "Нотўғри порт номери"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
 msgstr "Индекс(лар)ни сақлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
 #, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
 msgstr "Таҳрирлаш усули"
 
 #. l10n: Rename a table Index
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 #, fuzzy
 #| msgid "Remove index(s)"
 msgid "Rename index"
 msgstr "Индекс(лар)ни олиб ташлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:114
 #: templates/table/index_form.twig:234
 #, fuzzy, php-format
 #| msgid "Add column(s)"
 msgid "Add %s column(s) to index"
 msgstr "Устун(лар) қўшиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:115
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "Боғлиқлик ўрнатиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
 msgstr "Боғлиқлик ўрнатиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Composite with:"
 msgstr "Майдон қийматлари қуйидаги белги ичига олинган "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:118
 #, fuzzy
 #| msgid "Add column(s)"
 msgid "Please select column(s) for the index."
 msgstr "Устун(лар) қўшиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/table/index_form.twig:240
@@ -6418,20 +6418,20 @@ msgstr "Устун(лар) қўшиш"
 msgid "Preview SQL"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:119
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
 #: templates/sql/query.twig:218
 #, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
 msgstr "сўров бўйича"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:120
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
 #, fuzzy
 #| msgid "Latched pages"
 msgid "Matched rows:"
 msgstr "Блокировка қилинган саҳифалар сони"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:126
 #: libraries/classes/Html/Generator.php:887 templates/export.twig:67
 #, fuzzy
 #| msgid "SQL query"
@@ -6439,45 +6439,45 @@ msgid "SQL query:"
 msgstr "SQL сўрови"
 
 #. l10n: Default label for the y-Axis of Charts
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:130
 #, fuzzy
 #| msgid "Value"
 msgid "Y values"
 msgstr "Қиймати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the SQL query first."
 msgstr "Нотўғри порт номери"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
 msgid "The host name is empty!"
 msgstr "Хост номи бўш!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 msgid "The user name is empty!"
 msgstr "Фойдаланувчи номи белгиланмаган!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: libraries/classes/Server/Privileges.php:944
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "Парол белгиланмаган!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: libraries/classes/Server/Privileges.php:942
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "Киритилган пароллар бир хил эмас!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Белгиланган фойдаланувчиларни ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: libraries/classes/Tracking.php:237 libraries/classes/Tracking.php:641
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
@@ -6524,86 +6524,86 @@ msgstr "Белгиланган фойдаланувчиларни ўчириш"
 msgid "Close"
 msgstr "Ёпиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:142
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "Log file count"
 msgid "Lock this account."
 msgstr "Журнал файллари сони"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
 #| msgid "User"
 msgid "Unlock this account."
 msgstr "Фойдаланувчи"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
 #, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
 msgstr "Тузилган саҳифалар сони."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 msgid "Template was loaded."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "Профил янгиланди."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "Ёзув ўчирилди"
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:95
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:151
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
 #: libraries/classes/Util.php:548 libraries/classes/Util.php:580
 msgid ","
 msgstr ""
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:153
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 #: libraries/classes/Util.php:546 libraries/classes/Util.php:578
 msgid "."
 msgstr ","
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:155
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
 #, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "Уланишлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible!"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6611,172 +6611,172 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Сўровлар кеши"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Сўровлар кеши"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Сўровлар кеши"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 #, fuzzy
 #| msgid "CPU Usage"
 msgid "System CPU usage"
 msgstr "Ишлатилиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "System memory"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
 msgid "System swap"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
 msgid "Average load"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
 msgstr "Журнал файллари сони"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Cached memory"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 #, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Буфер пули"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
 msgid "Free memory"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 msgid "Used memory"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 #, fuzzy
 #| msgid "Total"
 msgid "Total swap"
 msgstr "Жами"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
 #, fuzzy
 #| msgid "memcached usage"
 msgid "Cached swap"
 msgstr "Фойдаланилаётган жой"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 msgid "Used swap"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free swap"
 msgstr "Бўш саҳифалар сони "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 msgid "Bytes sent"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Қабул қилинди"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "Уланишлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Жараёнлар"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:456
 msgid "B"
 msgstr "Байт"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:458
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "КБ"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #: libraries/classes/Util.php:460
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "МБ"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 #: libraries/classes/Util.php:462
 msgid "GiB"
 msgstr "ГБ"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 #: libraries/classes/Util.php:464
 msgid "TiB"
 msgstr "ТБ"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 #: libraries/classes/Util.php:466
 msgid "PiB"
 msgstr "ПБ"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: libraries/classes/Util.php:468
 msgid "EiB"
 msgstr "ЭБ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%d table(s)"
 msgstr "Жадваллар сони: \"%s\""
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #, fuzzy
 #| msgid "Versions"
 msgid "Questions"
 msgstr "Версиялар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "Трафик"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 #: libraries/classes/Menu.php:523 libraries/classes/Util.php:1949
 #: templates/server/status/monitor/index.twig:12
 #, fuzzy
@@ -6784,18 +6784,18 @@ msgstr "Трафик"
 msgid "Settings"
 msgstr "танловлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: templates/server/status/monitor/index.twig:217
 #, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Тўрга боғлаб қўйиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1215
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
@@ -6813,54 +6813,54 @@ msgid "None"
 msgstr "Йўқ"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL сўрови"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
 msgid "Resume monitor"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 msgid "Pause monitor"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 msgid "Stop auto refresh"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 msgid "general_log is enabled."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6868,160 +6868,160 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Файл каби сақлаш"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
 #, fuzzy, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Фаоллаштирилган"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 #, fuzzy, php-format
 #| msgid "Disable"
 msgid "Disable %s"
 msgstr "Фаолсизлантириш"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Set long_query_time to %d seconds."
 msgstr "Сўров %01.4f секунд вақт олди"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:241
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 #, fuzzy
 #| msgid "Other core settings"
 msgid "Change settings"
 msgstr "Бошқа созланишлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 #, fuzzy
 #| msgid "settings"
 msgid "Current settings"
 msgstr "танловлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
 msgstr "Ҳисобот сарлавҳаси"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 #, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Фарқ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
 #, php-format
 msgid "Divided by %s"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid "Unit"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:250
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid "From slow log"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
 msgid "From general log"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
 #, fuzzy
 #| msgid "Load"
 msgid "Analysing logs"
 msgstr "Юклаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:259
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 #, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Ўқишга рухсат сўраш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 #, fuzzy
 #| msgid "Go to database"
 msgid "Jump to Log table"
 msgstr "Ушбу базага ўтиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #, fuzzy
 #| msgid "No databases"
 msgid "No data found"
 msgstr "Маълумотлар базаси мавжуд эмас"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing…"
 msgstr "Таҳлил"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Сўров таҳлили"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:490
 #: libraries/classes/Server/Status/Processes.php:138
 #: libraries/classes/Util.php:1945 libraries/config.values.php:157
@@ -7032,43 +7032,45 @@ msgstr "Сўров таҳлили"
 msgid "Status"
 msgstr "Ҳолат"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
+#. l10n: A specific point in the day, as shown on a clock.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:472
 #: libraries/classes/Plugins/Export/ExportOdt.php:594
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
 #: libraries/classes/Server/Status/Processes.php:134
 #: templates/database/triggers/list.twig:47
-#: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
+#: templates/sql/profiling_chart.twig:17
 msgid "Time"
 msgstr "Вақт"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "Жами"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Профиллаштириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Жадвал "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 #, fuzzy
 #| msgid "Charset"
 msgid "Chart"
 msgstr "Кодировка"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 #: templates/export.twig:210
 #, fuzzy
 #| msgid "Database"
@@ -7076,7 +7078,7 @@ msgctxt "Alias"
 msgid "Database"
 msgstr "Маълумотлар базаси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 #: templates/export.twig:224
 #, fuzzy
 #| msgid "Table"
@@ -7084,7 +7086,7 @@ msgctxt "Alias"
 msgid "Table"
 msgstr "Жадвал"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 #: templates/export.twig:237
 #, fuzzy
 #| msgid "Column"
@@ -7093,32 +7095,32 @@ msgid "Column"
 msgstr "Устун"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Жадваллар кўринишини созлаш"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Filter"
 msgstr "Фильтр"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
 #, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
 msgstr "Қўйилган қаторлар сони"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 #: libraries/classes/Engines/Innodb.php:140
 #: templates/server/databases/index.twig:253
 #, fuzzy
@@ -7126,87 +7128,87 @@ msgstr "Қўйилган қаторлар сони"
 msgid "Total:"
 msgstr "Жами"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
 #, fuzzy
 #| msgid "Load"
 msgid "Loading logs"
 msgstr "Юклаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:301
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
 #, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "Қайта юклаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Affected rows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
 msgstr "\"%1$s\" файлидан андоза конфигурацияни юклаб бўлмади."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import."
 msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс бўлган майдонни танланг!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid table name."
 msgstr "Нотўғри порт номери"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid database name."
 msgstr "Нотўғри порт номери"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "No files available on server for import!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse query"
 msgstr "Сўровни янгилаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 msgid "Formatting SQL…"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "Параметрлар нотугри!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 #: templates/database/central_columns/main.twig:269
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -7233,20 +7235,20 @@ msgstr "Параметрлар нотугри!"
 msgid "Cancel"
 msgstr "Бекор қилиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 #: templates/header.twig:43 templates/modals/page_settings.twig:5
 #, fuzzy
 #| msgid "Other core settings"
 msgid "Page-related settings"
 msgstr "Бошқа созланишлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 #: templates/config/form_display/display.twig:46
 #: templates/modals/page_settings.twig:10
 msgid "Apply"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #: templates/home/index.twig:289 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
@@ -7255,23 +7257,23 @@ msgstr ""
 msgid "Loading…"
 msgstr "Юклаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 msgid "Request aborted!!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing request"
 msgstr "Жараёнлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
 #, fuzzy
 #| msgid "Query cache"
 msgid "Request failed!!"
 msgstr "Сўровлар кеши"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:51
 #: libraries/classes/Controllers/Sql/SetValuesController.php:54
 #, fuzzy
@@ -7279,41 +7281,41 @@ msgstr "Сўровлар кеши"
 msgid "Error in processing request"
 msgstr "Жараёнлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 #, php-format
 msgid "Error code: %s"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #, php-format
 msgid "Error text: %s"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No accounts selected."
 msgstr "Амални амалга ошириш учун битта ёки бир нечта қаторни танлаш керак."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
 #, fuzzy
 #| msgid "Dropping Procedure"
 msgid "Dropping column"
 msgstr "Муолажалар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 #, fuzzy
 #| msgid "Add column(s)"
 msgid "Adding primary key"
 msgstr "Устун(лар) қўшиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 #: templates/console/display.twig:129 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -7325,29 +7327,29 @@ msgstr "Устун(лар) қўшиш"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming databases"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying database"
 msgstr "Маълумотлар базасидан қуйидагига нусха олиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing charset"
 msgstr "Кодировка"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:498
 #: libraries/classes/Index.php:526
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:630
@@ -7384,7 +7386,7 @@ msgstr "Кодировка"
 msgid "No"
 msgstr "Йўқ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
@@ -7393,92 +7395,92 @@ msgstr "Йўқ"
 msgid "Enable foreign key checks"
 msgstr "Ташқи калитларни текширишни ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 #, fuzzy
 msgid "Failed to get real row count."
 msgstr "Файлни дискка ёзишдахатолик юз берди."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Қидириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search results"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search results"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Кўриб чиқиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "\"%s\" ўчирилмоқда"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "%s жадвалидаги мосликларни ўчирасизми?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 #, php-format
 msgid "Values for column %s"
 msgstr "%s устуни учун қийматлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 msgid "Values for a new column"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
 msgid "Enter each value in a separate field."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
 #, fuzzy, php-format
 #| msgid "Add a new server"
 msgid "Add %d value(s)"
 msgstr "Янги фойдаланувчи қўшиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2978
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Display/Results.php:2971
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7494,85 +7496,85 @@ msgstr "SQL сўровлари қутиси"
 msgid "Delete"
 msgstr "Ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d сони тўғри қатор рақами эмас."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "Ташқи қийматларни кўриб чиқиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Ўзгарувчи"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 #: libraries/classes/Normalization.php:1051
 msgid "Pick"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
 msgstr "Амални амалга ошириш учун битта ёки бир нечта қаторни танлаш керак."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "Маълумотлар базасида қидириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 msgid "See more"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "\"%s\" га бирламчи калит қўшилди"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
 #: libraries/classes/Normalization.php:282
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "Кузатиш ҳисоботи"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 #: libraries/classes/Normalization.php:540
 #: libraries/classes/Normalization.php:602
 #: libraries/classes/Normalization.php:699
@@ -7582,100 +7584,100 @@ msgstr ""
 msgid "End of step"
 msgstr "Сатр охири"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
 #: libraries/classes/Normalization.php:375
-#: templates/javascript/variables.twig:15
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Садақа"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Биронта ҳам маълумотлар базаси танланмаган."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 #: libraries/classes/Export.php:587 libraries/classes/Html/Generator.php:987
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Орқага"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
 msgid "Step"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
 #, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
 msgstr "Қуйидаги сўровлар бажарилди:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
 msgstr "Қуйидаги жадвалга привилегия қўшиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "Биронта ҳам маълумотлар базаси танланмаган."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -7689,98 +7691,98 @@ msgstr "Биронта ҳам маълумотлар базаси танланм
 msgid "Save"
 msgstr "Сақлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 #, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
 msgstr "Майдон номлари"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
 #, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
 msgstr "Майдон номлари"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide find and replace criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show find and replace criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 msgid "Each point represents a data row."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:469
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Устун қўшиш/ўчириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:469
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Select two different columns"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:471
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Маълумотлар файли кўрсатгичи ҳажми"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2001
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Эътибор бермаслик"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Display/Results.php:2914
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Display/Results.php:2907
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
 msgid "Copy"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -7788,7 +7790,7 @@ msgstr ""
 msgid "X"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -7796,43 +7798,43 @@ msgstr ""
 msgid "Y"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Point"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
 #, php-format
 msgid "Point %d"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Қаторлар бўлувчиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 msgid "Polygon"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/display/results/table.twig:174
 msgid "Geometry"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Inner ring"
 msgstr "Янги фойдаланувчи қўшиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Outer ring"
 msgstr "Қаторлар бўлувчиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
@@ -7841,7 +7843,7 @@ msgstr "Қаторлар бўлувчиси"
 msgid "Add a point"
 msgstr "Индекс(лар)ни сақлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 #, fuzzy
@@ -7849,53 +7851,53 @@ msgstr "Индекс(лар)ни сақлаш"
 msgid "Add an inner ring"
 msgstr "Янги фойдаланувчи қўшиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid "Encryption key"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:508
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 msgid "Select referenced key"
 msgstr "Боғлиқ калитни танланг"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:520
 msgid "Select Foreign Key"
 msgstr "Ташқи калитни танланг"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс бўлган майдонни танланг!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 #, fuzzy
@@ -7903,17 +7905,17 @@ msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс б�
 msgid "Choose column to display"
 msgstr "Кўрсатиладиган майдонни танлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 #, fuzzy
@@ -7921,13 +7923,13 @@ msgstr ""
 msgid "Add tables from other databases"
 msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Саҳифа рақами: "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 #, fuzzy
@@ -7935,7 +7937,7 @@ msgstr "Саҳифа рақами: "
 msgid "Save page"
 msgstr "Жадвалларни танланг"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 #, fuzzy
@@ -7943,7 +7945,7 @@ msgstr "Жадвалларни танланг"
 msgid "Save page as"
 msgstr "Жадвалларни танланг"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 #, fuzzy
@@ -7951,215 +7953,207 @@ msgstr "Жадвалларни танланг"
 msgid "Open page"
 msgstr "Бўш саҳифалар сони"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Delete page"
 msgstr "Жадвалларни танланг"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Таҳрирлаш лозим бўлган саҳифани танлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "Нотўғри порт номери"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Алоқалар схемасини тахрирлаш ёки экспорт қилиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Modifications have been saved"
 msgstr "Ўзгариришлар сақланди"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Майдон номлари"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
 msgstr "Бажариш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid "Drag to reorder."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Майдон номлари"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "Асл позиция"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Бекор қилиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
 msgid "Aborted"
 msgstr "Узилди"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid "Success"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "Импорт"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
 #: templates/navigation/main.twig:84
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Журнал файли остонаси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Жадвалларни танланг"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
-msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr ""
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
-msgid "You can also edit most values<br>by clicking directly on them."
-msgstr ""
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 #, fuzzy
 #| msgid "Go to view"
 msgid "Go to link:"
 msgstr "Ушбу кўринишга ўтиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Парол ўрнатиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Генерация қилиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/table/structure/display_structure.twig:130
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Душ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Барчасини кўрсатиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Hide panel"
 msgstr "Индекс(лар)ни сақлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 #: libraries/classes/Navigation/NavigationTree.php:1357
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
 msgstr "Асосий рамкани мослаштириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -8171,131 +8165,131 @@ msgstr ""
 "чиқарилган."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "Охирги версияни текшириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 #, fuzzy
 #| msgid "Go to database"
 msgid "up to date"
 msgstr "Ушбу базага ўтиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 #, fuzzy
 #| msgid "Other core settings"
 msgid "Change report settings"
 msgstr "Бошқа созланишлар"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "Очиқ жадваллар рўйхати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
 #: libraries/classes/ErrorHandler.php:444
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Эътибор бермаслик"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid "Successfully copied!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying failed!"
 msgstr "Маълумотлар базасидан қуйидагига нусха олиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Ушбу сўровни қайта кўрсатиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ҳақиқатан ҳам сўровни бажармоқчимисиз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 #, fuzzy, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "SQL сўровлари"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Жадвал изоҳи"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide arguments"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Time taken:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -8304,63 +8298,63 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Маълумотлар базасидан қуйидагига нусха олиш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add table prefix"
 msgstr "Индекс(лар)ни сақлаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Жадвал префиксини алмаштириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Жадвални префикси билан нусхалаш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Extremely weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Very weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 msgid "Good"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -8368,26 +8362,26 @@ msgid "Unknown security key error."
 msgstr "Номаълум хатолик"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Экспорт тури нотугри"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -8395,19 +8389,488 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "\"%s\" номли жадвал мавжуд!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Яшириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 #: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Кўрсатиш"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#, fuzzy
+#| msgid "Binary"
+msgid "January"
+msgstr "Иккилик"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+msgid "February"
+msgstr ""
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#, fuzzy
+#| msgid "Mar"
+msgid "March"
+msgstr "Мар"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#, fuzzy
+#| msgid "Apr"
+msgid "April"
+msgstr "Апр"
+
+#. l10n: Month name
+#. l10n: Short month name for May
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+msgid "May"
+msgstr "Май"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#, fuzzy
+#| msgid "Jun"
+msgid "June"
+msgstr "Июн"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#, fuzzy
+#| msgid "Jul"
+msgid "July"
+msgstr "Июл"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#, fuzzy
+#| msgid "Aug"
+msgid "August"
+msgstr "Авг"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+msgid "September"
+msgstr ""
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#, fuzzy
+#| msgid "Oct"
+msgid "October"
+msgstr "Окт"
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+msgid "November"
+msgstr ""
+
+#. l10n: Month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+msgid "December"
+msgstr ""
+
+#. l10n: Short month name for January
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Util.php:664
+msgid "Jan"
+msgstr "Янв"
+
+#. l10n: Short month name for February
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Util.php:666
+msgid "Feb"
+msgstr "Фев"
+
+#. l10n: Short month name for March
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Util.php:668
+msgid "Mar"
+msgstr "Мар"
+
+#. l10n: Short month name for April
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Util.php:670
+msgid "Apr"
+msgstr "Апр"
+
+#. l10n: Short month name for June
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Util.php:674
+msgid "Jun"
+msgstr "Июн"
+
+#. l10n: Short month name for July
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Util.php:676
+msgid "Jul"
+msgstr "Июл"
+
+#. l10n: Short month name for August
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Util.php:678
+msgid "Aug"
+msgstr "Авг"
+
+#. l10n: Short month name for September
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Util.php:680
+msgid "Sep"
+msgstr "Сен"
+
+#. l10n: Short month name for October
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Util.php:682
+msgid "Oct"
+msgstr "Окт"
+
+#. l10n: Short month name for November
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Util.php:684
+msgid "Nov"
+msgstr "Ноя"
+
+#. l10n: Short month name for December
+#. l10n: Short month name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Util.php:686
+msgid "Dec"
+msgstr "Дек"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/config.values.php:197
+#, fuzzy
+#| msgid "Sun"
+msgid "Sunday"
+msgstr "Якш"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/config.values.php:191
+#, fuzzy
+#| msgid "Mon"
+msgid "Monday"
+msgstr "Душ"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/config.values.php:192
+#, fuzzy
+#| msgid "Tue"
+msgid "Tuesday"
+msgstr "Сеш"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/config.values.php:193
+msgid "Wednesday"
+msgstr ""
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/config.values.php:194
+msgid "Thursday"
+msgstr ""
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/config.values.php:195
+#, fuzzy
+#| msgid "Fri"
+msgid "Friday"
+msgstr "Жум"
+
+#. l10n: Week day name
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/config.values.php:196
+msgid "Saturday"
+msgstr ""
+
+#. l10n: Short week day name for Sunday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#, fuzzy
+#| msgctxt "Short week day name"
+#| msgid "Sun"
+msgid "Sun"
+msgstr "Якш"
+
+#. l10n: Short week day name for Monday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
+#: libraries/classes/Util.php:692
+msgid "Mon"
+msgstr "Душ"
+
+#. l10n: Short week day name for Tuesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Util.php:694
+msgid "Tue"
+msgstr "Сеш"
+
+#. l10n: Short week day name for Wednesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Util.php:696
+msgid "Wed"
+msgstr "Чор"
+
+#. l10n: Short week day name for Thursday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Util.php:698
+msgid "Thu"
+msgstr "Пай"
+
+#. l10n: Short week day name for Friday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Util.php:700
+msgid "Fri"
+msgstr "Жум"
+
+#. l10n: Short week day name for Saturday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
+#: libraries/classes/Util.php:702
+msgid "Sat"
+msgstr "Шан"
+
+#. l10n: Minimal week day name for Sunday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
+#, fuzzy
+#| msgid "Sun"
+msgid "Su"
+msgstr "Якш"
+
+#. l10n: Minimal week day name for Monday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
+#, fuzzy
+#| msgid "Mon"
+msgid "Mo"
+msgstr "Душ"
+
+#. l10n: Minimal week day name for Tuesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
+#, fuzzy
+#| msgid "Tue"
+msgid "Tu"
+msgstr "Сеш"
+
+#. l10n: Minimal week day name for Wednesday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
+#, fuzzy
+#| msgid "Wed"
+msgid "We"
+msgstr "Чор"
+
+#. l10n: Minimal week day name for Thursday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#, fuzzy
+#| msgid "Thu"
+msgid "Th"
+msgstr "Пай"
+
+#. l10n: Minimal week day name for Friday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#, fuzzy
+#| msgid "Fri"
+msgid "Fr"
+msgstr "Жум"
+
+#. l10n: Minimal week day name for Saturday
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#, fuzzy
+#| msgid "Sat"
+msgid "Sa"
+msgstr "Шан"
+
+#. l10n: Column header for week of the year in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#, fuzzy
+#| msgid "Wiki"
+msgid "Wk"
+msgstr "Вики"
+
+#. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#, fuzzy
+msgid "calendar-month-year"
+msgstr "calendar-month-year"
+
+#. l10n: Year suffix for calendar, "none" is empty.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#, fuzzy
+#| msgid "None"
+msgid "none"
+msgstr "Йўқ"
+
+#. l10n: Period of time.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+msgid "Hour"
+msgstr ""
+
+#. l10n: Period of time.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#, fuzzy
+#| msgid "in use"
+msgid "Minute"
+msgstr "ишлатилмоқда"
+
+#. l10n: Period of time.
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#, fuzzy
+#| msgid "per second"
+msgid "Second"
+msgstr "секундига"
+
+#. l10n: Previous month. Display text for previous month link in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
+#, fuzzy
+#| msgid "Previous"
+msgid "Prev"
+msgstr "Орқага"
+
+#. l10n: Next month. Display text for next month link in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
+#, fuzzy
+#| msgid "Next"
+msgid "Next"
+msgstr "Кейинги"
+
+#. l10n: Display text for current month link in calendar
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+#, fuzzy
+#| msgid "Total"
+msgid "Today"
+msgstr "Жами"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+msgid "This field is required"
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#, fuzzy
+#| msgid "Use text field"
+msgid "Please fix this field"
+msgstr "Матнмайдонини ишлатиш"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid email address"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid URL"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date ( ISO )"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid number"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid credit card number"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter only digits"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter the same value again"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+msgid "Please enter no more than {0} characters"
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter at least {0} characters"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value between {0} and {1}"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value less than or equal to {0}"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a value greater than or equal to {0}"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid date or time"
+msgstr "Нотўғри порт номери"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Please enter a valid HEX input"
+msgstr "Нотўғри порт номери"
+
+#. l10n: To validate the usage of a MD5 function on the column
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
+msgid "This column can not contain a 32 chars value"
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
+msgid ""
+"These functions are meant to return a binary result; to avoid inconsistent "
+"results you should store it in a BINARY, VARBINARY, or BLOB column."
+msgstr ""
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -9401,7 +9864,7 @@ msgstr "\"%s\" номли жадвал мавжуд!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3630 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3623 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -10232,48 +10695,48 @@ msgstr "Камайиш тартибида"
 msgid "Ascending"
 msgstr "Ўсиш тартибида"
 
-#: libraries/classes/Display/Results.php:2954
-#: libraries/classes/Display/Results.php:2969
+#: libraries/classes/Display/Results.php:2947
+#: libraries/classes/Display/Results.php:2962
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Ёзув ўчирилди"
 
-#: libraries/classes/Display/Results.php:3001
+#: libraries/classes/Display/Results.php:2994
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Тугатиш"
 
-#: libraries/classes/Display/Results.php:3561
+#: libraries/classes/Display/Results.php:3554
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Тахминий бўлиши мумкин. [doc@faq3-11]\"FAQ 3.11\"[/doc]га қаранг"
 
-#: libraries/classes/Display/Results.php:3927
+#: libraries/classes/Display/Results.php:3920
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Ёзувларни кўрсатиш"
 
-#: libraries/classes/Display/Results.php:3941
+#: libraries/classes/Display/Results.php:3934
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3946
+#: libraries/classes/Display/Results.php:3939
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "жами"
 
-#: libraries/classes/Display/Results.php:3959 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3952 libraries/classes/Sql.php:974
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Сўров %01.4f секунд вақт олди"
 
-#: libraries/classes/Display/Results.php:4289
+#: libraries/classes/Display/Results.php:4282
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -14538,78 +15001,12 @@ msgid "Max: %s%s"
 msgstr "Максимал ҳажми: \"%s\"%s\""
 
 #. l10n: Short month name
-#. l10n: Short month name for January
-#: libraries/classes/Util.php:664 templates/javascript/variables.twig:34
-msgid "Jan"
-msgstr "Янв"
-
-#. l10n: Short month name
-#. l10n: Short month name for February
-#: libraries/classes/Util.php:666 templates/javascript/variables.twig:35
-msgid "Feb"
-msgstr "Фев"
-
-#. l10n: Short month name
-#. l10n: Short month name for March
-#: libraries/classes/Util.php:668 templates/javascript/variables.twig:36
-msgid "Mar"
-msgstr "Мар"
-
-#. l10n: Short month name
-#. l10n: Short month name for April
-#: libraries/classes/Util.php:670 templates/javascript/variables.twig:37
-msgid "Apr"
-msgstr "Апр"
-
-#. l10n: Short month name
 #: libraries/classes/Util.php:672
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "Май"
-
-#. l10n: Short month name
-#. l10n: Short month name for June
-#: libraries/classes/Util.php:674 templates/javascript/variables.twig:39
-msgid "Jun"
-msgstr "Июн"
-
-#. l10n: Short month name
-#. l10n: Short month name for July
-#: libraries/classes/Util.php:676 templates/javascript/variables.twig:40
-msgid "Jul"
-msgstr "Июл"
-
-#. l10n: Short month name
-#. l10n: Short month name for August
-#: libraries/classes/Util.php:678 templates/javascript/variables.twig:41
-msgid "Aug"
-msgstr "Авг"
-
-#. l10n: Short month name
-#. l10n: Short month name for September
-#: libraries/classes/Util.php:680 templates/javascript/variables.twig:42
-msgid "Sep"
-msgstr "Сен"
-
-#. l10n: Short month name
-#. l10n: Short month name for October
-#: libraries/classes/Util.php:682 templates/javascript/variables.twig:43
-msgid "Oct"
-msgstr "Окт"
-
-#. l10n: Short month name
-#. l10n: Short month name for November
-#: libraries/classes/Util.php:684 templates/javascript/variables.twig:44
-msgid "Nov"
-msgstr "Ноя"
-
-#. l10n: Short month name
-#. l10n: Short month name for December
-#: libraries/classes/Util.php:686 templates/javascript/variables.twig:45
-msgid "Dec"
-msgstr "Дек"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:690
@@ -14619,36 +15016,6 @@ msgstr "Дек"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Якш"
-
-#. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:692 templates/javascript/variables.twig:58
-msgid "Mon"
-msgstr "Душ"
-
-#. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:694 templates/javascript/variables.twig:59
-msgid "Tue"
-msgstr "Сеш"
-
-#. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:696 templates/javascript/variables.twig:60
-msgid "Wed"
-msgstr "Чор"
-
-#. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:698 templates/javascript/variables.twig:61
-msgid "Thu"
-msgstr "Пай"
-
-#. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:700 templates/javascript/variables.twig:62
-msgid "Fri"
-msgstr "Жум"
-
-#. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:702 templates/javascript/variables.twig:63
-msgid "Sat"
-msgstr "Шан"
 
 #: libraries/classes/Util.php:728
 msgctxt "AM/PM indication in time"
@@ -14773,42 +15140,6 @@ msgstr ""
 #| msgid "Close"
 msgid "Closed"
 msgstr "Ёпиш"
-
-#: libraries/config.values.php:191 templates/javascript/variables.twig:49
-#, fuzzy
-#| msgid "Mon"
-msgid "Monday"
-msgstr "Душ"
-
-#: libraries/config.values.php:192 templates/javascript/variables.twig:50
-#, fuzzy
-#| msgid "Tue"
-msgid "Tuesday"
-msgstr "Сеш"
-
-#: libraries/config.values.php:193 templates/javascript/variables.twig:51
-msgid "Wednesday"
-msgstr ""
-
-#: libraries/config.values.php:194 templates/javascript/variables.twig:52
-msgid "Thursday"
-msgstr ""
-
-#: libraries/config.values.php:195 templates/javascript/variables.twig:53
-#, fuzzy
-#| msgid "Fri"
-msgid "Friday"
-msgstr "Жум"
-
-#: libraries/config.values.php:196 templates/javascript/variables.twig:54
-msgid "Saturday"
-msgstr ""
-
-#: libraries/config.values.php:197 templates/javascript/variables.twig:48
-#, fuzzy
-#| msgid "Sun"
-msgid "Sunday"
-msgstr "Якш"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
@@ -16925,6 +17256,16 @@ msgstr "Версиясини тузиш"
 msgid "There are no triggers to display."
 msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
 
+#: templates/display/results/checkbox_and_links.twig:16
+#: templates/display/results/checkbox_and_links.twig:78
+msgid "You can also edit most values by clicking directly on them."
+msgstr ""
+
+#: templates/display/results/checkbox_and_links.twig:18
+#: templates/display/results/checkbox_and_links.twig:80
+msgid "You can also edit most values by double-clicking directly on them."
+msgstr ""
+
 #: templates/display/results/table.twig:32
 #, fuzzy
 #| msgid "Save directory"
@@ -17787,298 +18128,6 @@ msgstr "Бирламчи калит ўчирилди."
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "\"%s\" индекси ўчирилди."
-
-#. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: templates/javascript/variables.twig:8
-#, fuzzy
-msgid "calendar-month-year"
-msgstr "calendar-month-year"
-
-#. l10n: Year suffix for calendar, "none" is empty.
-#: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgid "None"
-msgid "none"
-msgstr "Йўқ"
-
-#. l10n: Previous month. Display text for previous month link in calendar
-#: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgid "Previous"
-msgid "Prev"
-msgstr "Орқага"
-
-#. l10n: Next month. Display text for next month link in calendar
-#: templates/javascript/variables.twig:17
-#, fuzzy
-#| msgid "Next"
-msgid "Next"
-msgstr "Кейинги"
-
-#. l10n: Display text for current month link in calendar
-#: templates/javascript/variables.twig:18
-#, fuzzy
-#| msgid "Total"
-msgid "Today"
-msgstr "Жами"
-
-#: templates/javascript/variables.twig:20
-#, fuzzy
-#| msgid "Binary"
-msgid "January"
-msgstr "Иккилик"
-
-#: templates/javascript/variables.twig:21
-msgid "February"
-msgstr ""
-
-#: templates/javascript/variables.twig:22
-#, fuzzy
-#| msgid "Mar"
-msgid "March"
-msgstr "Мар"
-
-#: templates/javascript/variables.twig:23
-#, fuzzy
-#| msgid "Apr"
-msgid "April"
-msgstr "Апр"
-
-#. l10n: Short month name for May
-#: templates/javascript/variables.twig:24
-#: templates/javascript/variables.twig:38
-msgid "May"
-msgstr "Май"
-
-#: templates/javascript/variables.twig:25
-#, fuzzy
-#| msgid "Jun"
-msgid "June"
-msgstr "Июн"
-
-#: templates/javascript/variables.twig:26
-#, fuzzy
-#| msgid "Jul"
-msgid "July"
-msgstr "Июл"
-
-#: templates/javascript/variables.twig:27
-#, fuzzy
-#| msgid "Aug"
-msgid "August"
-msgstr "Авг"
-
-#: templates/javascript/variables.twig:28
-msgid "September"
-msgstr ""
-
-#: templates/javascript/variables.twig:29
-#, fuzzy
-#| msgid "Oct"
-msgid "October"
-msgstr "Окт"
-
-#: templates/javascript/variables.twig:30
-msgid "November"
-msgstr ""
-
-#: templates/javascript/variables.twig:31
-msgid "December"
-msgstr ""
-
-#. l10n: Short week day name for Sunday
-#: templates/javascript/variables.twig:57
-#, fuzzy
-#| msgctxt "Short week day name"
-#| msgid "Sun"
-msgid "Sun"
-msgstr "Якш"
-
-#. l10n: Minimal week day name for Sunday
-#: templates/javascript/variables.twig:66
-#, fuzzy
-#| msgid "Sun"
-msgid "Su"
-msgstr "Якш"
-
-#. l10n: Minimal week day name for Monday
-#: templates/javascript/variables.twig:67
-#, fuzzy
-#| msgid "Mon"
-msgid "Mo"
-msgstr "Душ"
-
-#. l10n: Minimal week day name for Tuesday
-#: templates/javascript/variables.twig:68
-#, fuzzy
-#| msgid "Tue"
-msgid "Tu"
-msgstr "Сеш"
-
-#. l10n: Minimal week day name for Wednesday
-#: templates/javascript/variables.twig:69
-#, fuzzy
-#| msgid "Wed"
-msgid "We"
-msgstr "Чор"
-
-#. l10n: Minimal week day name for Thursday
-#: templates/javascript/variables.twig:70
-#, fuzzy
-#| msgid "Thu"
-msgid "Th"
-msgstr "Пай"
-
-#. l10n: Minimal week day name for Friday
-#: templates/javascript/variables.twig:71
-#, fuzzy
-#| msgid "Fri"
-msgid "Fr"
-msgstr "Жум"
-
-#. l10n: Minimal week day name for Saturday
-#: templates/javascript/variables.twig:72
-#, fuzzy
-#| msgid "Sat"
-msgid "Sa"
-msgstr "Шан"
-
-#. l10n: Column header for week of the year in calendar
-#: templates/javascript/variables.twig:74
-#, fuzzy
-#| msgid "Wiki"
-msgid "Wk"
-msgstr "Вики"
-
-#: templates/javascript/variables.twig:82
-msgid "Hour"
-msgstr ""
-
-#: templates/javascript/variables.twig:83
-#, fuzzy
-#| msgid "in use"
-msgid "Minute"
-msgstr "ишлатилмоқда"
-
-#: templates/javascript/variables.twig:84
-#, fuzzy
-#| msgid "per second"
-msgid "Second"
-msgstr "секундига"
-
-#: templates/javascript/variables.twig:90
-msgid "This field is required"
-msgstr ""
-
-#: templates/javascript/variables.twig:91
-#, fuzzy
-#| msgid "Use text field"
-msgid "Please fix this field"
-msgstr "Матнмайдонини ишлатиш"
-
-#: templates/javascript/variables.twig:92
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid email address"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:93
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid URL"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:94
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid date"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:95
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid date ( ISO )"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:96
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid number"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:97
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid credit card number"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:98
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter only digits"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:99
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter the same value again"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:100
-msgid "Please enter no more than {0} characters"
-msgstr ""
-
-#: templates/javascript/variables.twig:101
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter at least {0} characters"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:102
-msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
-
-#: templates/javascript/variables.twig:103
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a value between {0} and {1}"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:104
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a value less than or equal to {0}"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:105
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a value greater than or equal to {0}"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:106
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid date or time"
-msgstr "Нотўғри порт номери"
-
-#: templates/javascript/variables.twig:107
-#, fuzzy
-#| msgid "Not a valid port number"
-msgid "Please enter a valid HEX input"
-msgstr "Нотўғри порт номери"
-
-#. l10n: To validate the usage of a MD5 function on the column
-#: templates/javascript/variables.twig:108
-msgid "This column can not contain a 32 chars value"
-msgstr ""
-
-#. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
-#: templates/javascript/variables.twig:109
-msgid ""
-"These functions are meant to return a binary result; to avoid inconsistent "
-"results you should store it in a BINARY, VARBINARY, or BLOB column."
-msgstr ""
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
