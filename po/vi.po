@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2021-12-28 12:53+0000\n"
-"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
+"PO-Revision-Date: 2022-02-17 10:35+0000\n"
+"Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/vi/>\n"
+"5-2/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -71,9 +71,10 @@ msgid "Percentage of slow queries"
 msgstr "Phần trăm các truy vấn chậm"
 
 #: libraries/advisory_rules_generic.php:41
+#, fuzzy
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Có rất nhiều truy vấn chậm so với tổng số truy vấn."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
@@ -81,6 +82,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Bạn có thể muốn tăng {long_query_time} hoặc tối ưu hóa các truy vấn được "
+"liệt kê trong nhật ký truy vấn chậm"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
@@ -5463,6 +5466,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Thông qua hoạt động này, MySQL sẽ cố gắng ánh xạ dữ liệu giữa các bảng mã. "
+"Nếu các bộ ký tự không tương thích, có thể sẽ gây mất dữ liệu và dữ liệu bị "
+"mất này <b> KHÔNG THỂ</b> khôi phục được kể cả khi đổi lại về bảng mã ban "
+"đầu.<b> Để chuyển đổi dữ liệu hiện có, bạn nên sử dụng tính năng chỉnh sửa "
+"(các) cột (Nhấn vào \"Thay đổi\") trên trang bảng cấu trúc. </b>"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:94
 msgid ""
