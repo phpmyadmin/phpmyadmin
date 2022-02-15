@@ -694,6 +694,121 @@ final class JavaScriptMessagesController
             'strHide' => __('Hide'),
             'strShow' => __('Show'),
             'strStructure' => __('Structure'),
+
+            /* DateTime Picker */
+            // l10n: Month name
+            'strMonthNameJan' => __('January'),
+            // l10n: Month name
+            'strMonthNameFeb' => __('February'),
+            // l10n: Month name
+            'strMonthNameMar' => __('March'),
+            // l10n: Month name
+            'strMonthNameApr' => __('April'),
+            // l10n: Month name
+            'strMonthNameMay' => __('May'),
+            // l10n: Month name
+            'strMonthNameJun' => __('June'),
+            // l10n: Month name
+            'strMonthNameJul' => __('July'),
+            // l10n: Month name
+            'strMonthNameAug' => __('August'),
+            // l10n: Month name
+            'strMonthNameSep' => __('September'),
+            // l10n: Month name
+            'strMonthNameOct' => __('October'),
+            // l10n: Month name
+            'strMonthNameNov' => __('November'),
+            // l10n: Month name
+            'strMonthNameDec' => __('December'),
+            /* l10n: Short month name for January */
+            'strMonthNameJanShort' => __('Jan'),
+            /* l10n: Short month name for February */
+            'strMonthNameFebShort' => __('Feb'),
+            /* l10n: Short month name for March */
+            'strMonthNameMarShort' => __('Mar'),
+            /* l10n: Short month name for April */
+            'strMonthNameAprShort' => __('Apr'),
+            /* l10n: Short month name for May */
+            'strMonthNameMayShort' => __('May'),
+            /* l10n: Short month name for June */
+            'strMonthNameJunShort' => __('Jun'),
+            /* l10n: Short month name for July */
+            'strMonthNameJulShort' => __('Jul'),
+            /* l10n: Short month name for August */
+            'strMonthNameAugShort' => __('Aug'),
+            /* l10n: Short month name for September */
+            'strMonthNameSepShort' => __('Sep'),
+            /* l10n: Short month name for October */
+            'strMonthNameOctShort' => __('Oct'),
+            /* l10n: Short month name for November */
+            'strMonthNameNovShort' => __('Nov'),
+            /* l10n: Short month name for December */
+            'strMonthNameDecShort' => __('Dec'),
+            /* l10n: Week day name */
+            'strDayNameSun' => __('Sunday'),
+            /* l10n: Week day name */
+            'strDayNameMon' => __('Monday'),
+            /* l10n: Week day name */
+            'strDayNameTue' => __('Tuesday'),
+            /* l10n: Week day name */
+            'strDayNameWed' => __('Wednesday'),
+            /* l10n: Week day name */
+            'strDayNameThu' => __('Thursday'),
+            /* l10n: Week day name */
+            'strDayNameFri' => __('Friday'),
+            /* l10n: Week day name */
+            'strDayNameSat' => __('Saturday'),
+            /* l10n: Short week day name for Sunday */
+            'strDayNameSunShort' => __('Sun'),
+            /* l10n: Short week day name for Monday */
+            'strDayNameMonShort' => __('Mon'),
+            /* l10n: Short week day name for Tuesday */
+            'strDayNameTueShort' => __('Tue'),
+            /* l10n: Short week day name for Wednesday */
+            'strDayNameWedShort' => __('Wed'),
+            /* l10n: Short week day name for Thursday */
+            'strDayNameThuShort' => __('Thu'),
+            /* l10n: Short week day name for Friday */
+            'strDayNameFriShort' => __('Fri'),
+            /* l10n: Short week day name for Saturday */
+            'strDayNameSatShort' => __('Sat'),
+            /* l10n: Minimal week day name for Sunday */
+            'strDayNameSunMin' => __('Su'),
+            /* l10n: Minimal week day name for Monday */
+            'strDayNameMonMin' => __('Mo'),
+            /* l10n: Minimal week day name for Tuesday */
+            'strDayNameTueMin' => __('Tu'),
+            /* l10n: Minimal week day name for Wednesday */
+            'strDayNameWedMin' => __('We'),
+            /* l10n: Minimal week day name for Thursday */
+            'strDayNameThuMin' => __('Th'),
+            /* l10n: Minimal week day name for Friday */
+            'strDayNameFriMin' => __('Fr'),
+            /* l10n: Minimal week day name for Saturday */
+            'strDayNameSatMin' => __('Sa'),
+            /* l10n: Column header for week of the year in calendar */
+            'strWeekHeader' => __('Wk'),
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            /* l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month". */
+            'strMonthAfterYear' => __('calendar-month-year'),
+            /* l10n: Year suffix for calendar, "none" is empty. */
+            'strYearSuffix' => __('none'),
+            /* l10n: A specific point in the day, as shown on a clock. */
+            'strCalendarTime' => __('Time'),
+            /* l10n: Period of time. */
+            'strCalendarHour' => __('Hour'),
+            /* l10n: Period of time. */
+            'strCalendarMinute' => __('Minute'),
+            /* l10n: Period of time. */
+            'strCalendarSecond' => __('Second'),
+            /* l10n: Display text for calendar close link */
+            'strCalendarClose' => __('Done'),
+            /* l10n: Previous month. Display text for previous month link in calendar */
+            'strCalendarPrevious' => __('Prev'),
+            /* l10n: Next month. Display text for next month link in calendar */
+            'strCalendarNext' => __('Next'),
+            /* l10n: Display text for current month link in calendar */
+            'strCalendarCurrent' => __('Today'),
         ];
     }
 }

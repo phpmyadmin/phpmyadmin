@@ -18,6 +18,7 @@ module.exports = [
             'config': './js/src/config.js',
             'console': './js/src/console.js',
             'cross_framing_protection': './js/src/cross_framing_protection.js',
+            'datetimepicker': './js/src/datetimepicker.js',
             'database/central_columns': './js/src/database/central_columns.js',
             'database/events': './js/src/database/events.js',
             'database/multi_table_query': './js/src/database/multi_table_query.js',

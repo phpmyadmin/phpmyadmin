@@ -400,6 +400,8 @@ class Header
         $console = $this->console->getDisplay();
         $messages = $this->getMessage();
 
+        $this->scripts->addFile('datetimepicker.js');
+
         return $this->template->render('header', [
             'lang' => $GLOBALS['lang'],
             'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
