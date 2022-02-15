@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-02-03 03:39+0000\n"
-"Last-Translator: Dadan Setia <dadan.setia@gmail.com>\n"
+"PO-Revision-Date: 2022-02-17 10:35+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/id/>\n"
 "Language: id\n"
@@ -16857,8 +16857,9 @@ msgstr "Indeks %s telah dihapus."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
+#, fuzzy
 msgid "calendar-month-year"
-msgstr "Kalender-bulan-tahun"
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
