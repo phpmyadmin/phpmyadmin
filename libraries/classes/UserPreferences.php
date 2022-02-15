@@ -7,11 +7,13 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseName;
 
 use function __;
 use function array_flip;
 use function array_merge;
 use function basename;
+use function htmlspecialchars;
 use function http_build_query;
 use function is_array;
 use function json_decode;
@@ -120,7 +122,11 @@ class UserPreferences
         $relationParameters = $this->relation->getRelationParameters();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
-        if ($relationParameters->userPreferencesFeature === null || $relationParameters->user === null) {
+        if (
+            $relationParameters->userPreferencesFeature === null
+            || $relationParameters->user === null
+            || $relationParameters->db === null
+        ) {
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
                 'db' => $config_array,
@@ -165,15 +171,35 @@ class UserPreferences
 
         if (! $dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
-            $message->addMessage(
-                Message::rawError($dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
-                '<br><br>'
-            );
+            $message->addMessage(Message::error($dbi->getError(DatabaseInterface::CONNECT_CONTROL)), '<br><br>');
+            if (! $this->hasAccessToDatabase($relationParameters->db)) {
+                /**
+                 * When phpMyAdmin cached the configuration storage parameters, it checked if the database can be
+                 * accessed, so if it could not be accessed anymore, then the cache must be cleared as it's out of date.
+                 *
+                 * @psalm-suppress MixedArrayAssignment
+                 */
+                $_SESSION['relation'][$GLOBALS['server']] = [];
+                $message->addMessage(Message::error(htmlspecialchars(
+                    __('The phpMyAdmin configuration storage database could not be accessed.')
+                )), '<br><br>');
+            }
 
             return $message;
         }
 
         return true;
+    }
+
+    private function hasAccessToDatabase(DatabaseName $database): bool
+    {
+        $escapedDb = $GLOBALS['dbi']->escapeString($database->getName());
+        $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = \'' . $escapedDb . '\';';
+        if ($GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = 'SHOW DATABASES LIKE \'' . Util::escapeMysqlWildcards($escapedDb) . '\';';
+        }
+
+        return (bool) $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
