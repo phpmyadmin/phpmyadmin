@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use function array_flip;
 use function array_merge;
 use function basename;
+use function htmlspecialchars;
 use function http_build_query;
 use function is_array;
 use function json_decode;
@@ -166,17 +167,33 @@ class UserPreferences
         }
         if (! $dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
-            $message->addMessage(
-                Message::rawError(
-                    $dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-                ),
-                '<br><br>'
-            );
+            $message->addMessage(Message::error($dbi->getError(DatabaseInterface::CONNECT_CONTROL)), '<br><br>');
+            if (! $this->hasAccessToDatabase($cfgRelation['db'])) {
+                /**
+                 * When phpMyAdmin cached the configuration storage parameters, it checked if the database can be
+                 * accessed, so if it could not be accessed anymore, then the cache must be cleared as it's out of date.
+                 */
+                $_SESSION['relation'][$GLOBALS['server']] = [];
+                $message->addMessage(Message::error(htmlspecialchars(
+                    __('The phpMyAdmin configuration storage database could not be accessed.')
+                )), '<br><br>');
+            }
 
             return $message;
         }
 
         return true;
+    }
+
+    private function hasAccessToDatabase(string $database): bool
+    {
+        $escapedDb = $GLOBALS['dbi']->escapeString($database);
+        $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = \'' . $escapedDb . '\';';
+        if ($GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = 'SHOW DATABASES LIKE \'' . Util::escapeMysqlWildcards($escapedDb) . '\';';
+        }
+
+        return (bool) $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**

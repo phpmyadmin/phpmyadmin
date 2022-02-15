@@ -140,6 +140,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
      */
     public function testSave(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][2]['userconfigwork'] = null;
@@ -251,7 +252,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $this->assertInstanceOf(Message::class, $result);
         $this->assertEquals(
-            'Could not save configuration<br><br>err1',
+            'Could not save configuration<br><br>err1'
+            . '<br><br>The phpMyAdmin configuration storage database could not be accessed.',
             $result->getMessage()
         );
     }
