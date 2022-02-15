@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-02-15 18:25+0000\n"
-"PO-Revision-Date: 2022-01-23 08:23+0000\n"
+"PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -15476,20 +15476,15 @@ msgstr "Görüntülemek için tetikleyiciler yok."
 
 #: templates/display/results/checkbox_and_links.twig:16
 #: templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
-#| msgid "You can also edit most values<br>by clicking directly on them."
 msgid "You can also edit most values by clicking directly on them."
 msgstr ""
-"Aynı zamanda çoğu değeri, onlara doğrudan<br>tıklayarak düzenleyebilirsiniz."
+"Aynı zamanda çoğu değeri, onlara doğrudan tıklayarak düzenleyebilirsiniz."
 
 #: templates/display/results/checkbox_and_links.twig:18
 #: templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br>by double-clicking directly on them."
 msgid "You can also edit most values by double-clicking directly on them."
 msgstr ""
-"Aynı zamanda çoğu değeri, onlara doğrudan<br>çift tıklayarak "
+"Aynı zamanda çoğu değeri, onlara doğrudan çift tıklayarak "
 "düzenleyebilirsiniz."
 
 #: templates/display/results/table.twig:32
