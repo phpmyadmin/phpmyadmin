@@ -1,4 +1,4 @@
-name: Run Selenium tests
+name: "End-to-End tests"
 
 on:
   push:
@@ -8,14 +8,17 @@ on:
       - master
       - QA_**
 
+env:
+  php-version: "8.1"
+
 jobs:
-  test-selenium:
-    name: Selenium tests on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
+  selenium:
+    name: "Selenium"
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[ci selenium skip]')"
-    runs-on: ${{ matrix.os }}
+    runs-on: "ubuntu-latest"
     services:
       database-server:
-        image: ${{ matrix.db-server }}
+        image: "mysql:5.7"
         env:
           MYSQL_ROOT_PASSWORD: testbench
         ports:
@@ -51,9 +54,29 @@ jobs:
           --restart on-failure
     strategy:
       matrix:
-        php-version: ["7.2"]
-        os: [ubuntu-latest]
-        db-server: ["mysql:5.7"]
+        test-name:
+          - "ChangePassword"
+          - "CreateDropDatabase"
+          - "CreateRemoveUser"
+          - "Database/Events"
+          - "Database/Operations"
+          - "Database/Procedures"
+          - "Database/QueryByExample"
+          - "Database/Structure"
+          - "Database/Triggers"
+          - "Export"
+          - "Import"
+          - "Login"
+          - "Normalization"
+          - "ServerSettings"
+          - "SqlQuery"
+          - "Table/Browse"
+          - "Table/Create"
+          - "Table/Insert"
+          - "Table/Operations"
+          - "Table/Structure"
+          - "Tracking"
+          - "Xss"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -67,10 +90,10 @@ jobs:
       - name: Generate mo files
         run: ./scripts/generate-mo --quiet
 
-      - name: Set up PHP ${{ matrix.php-version }}
+      - name: Set up PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-version }}
+          php-version: ${{ env.php-version }}
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
@@ -104,7 +127,7 @@ jobs:
       - name: Start server
         env:
           CI_MODE: selenium
-          FPM_PATH: php-fpm7.2
+          FPM_PATH: php-fpm${{ env.php-version }}
           SKIP_STANDALONE: 1
         run: |
           ./test/start-local-server
@@ -122,7 +145,7 @@ jobs:
           TESTSUITE_DATABASE_PREFIX: "selenium"
           TESTSUITE_SELENIUM_HOST: "127.0.0.1"
           TESTSUITE_SELENIUM_PORT: "4444"
-        run: ./vendor/bin/phpunit --testsuite selenium --verbose --debug --no-coverage --stop-on-skipped
+        run: ./vendor/bin/phpunit --testsuite selenium --verbose --debug --no-coverage --stop-on-skipped test/selenium/${{ matrix.test-name }}Test.php
 
       - name: Output logs and stop server
         env:
