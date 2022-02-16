@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-01-12 00:56+0000\n"
-"Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2022-02-17 10:34+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5404,15 +5404,13 @@ msgstr ""
 "(blowfish_secret)."
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr ""
-"La phrase de passe secrète de la configuration (blowfish_secret) est trop "
-"courte."
+"La phrase de passe secrète dans la configuration (blowfish_secret) n'a pas "
+"la bonne longueur. Elle doit être de %d octets."
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -9222,6 +9220,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Erreur 1045 : Accès refusé pour l'utilisateur. Des informations "
+"supplémentaires sur les erreurs peuvent être disponibles, mais elles sont "
+"masquées par la directive de configuration %s."
 
 #: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -15565,7 +15566,7 @@ msgstr "Personnalisée, afficher toutes les options possibles"
 
 #: templates/export.twig:121
 msgid "File format to export"
-msgstr "Format du fichier à exporter :"
+msgstr "Format du fichier à exporter"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -16683,8 +16684,6 @@ msgid "There are no favorite tables."
 msgstr "Pas de tables préférées."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
 msgstr "Stockage de la configuration de phpMyAdmin"
 
@@ -16769,7 +16768,7 @@ msgstr "OK"
 
 #: templates/relation/check_relations.twig:62
 msgid "General relation features:"
-msgstr "Fonctions relationnelles : "
+msgstr "Fonctions relationnelles :"
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -16805,10 +16804,8 @@ msgid "Displaying column comments:"
 msgstr "Affichage des commentaires des colonnes :"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Navigateur des transformations :"
+msgstr "Transformation du navigateur :"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -16820,7 +16817,7 @@ msgstr "Requêtes SQL favorites :"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
-msgstr "Historique SQL : "
+msgstr "Historique SQL :"
 
 #: templates/relation/check_relations.twig:245
 msgid "Persistent recently used tables:"
@@ -18262,7 +18259,7 @@ msgstr "Ajouter un serveur"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Quelque chose s'est mal passé."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
