@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2021-12-28 12:53+0000\n"
-"Last-Translator: f3rr31 <5920873@disroot.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2022-02-17 10:35+0000\n"
+"Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -19359,7 +19359,7 @@ msgstr "Indexhossz"
 
 #: templates/table/structure/display_partitions.twig:194
 msgid "Partition table"
-msgstr "Partíciós tábla"
+msgstr "Tábla particionálása"
 
 #: templates/table/structure/display_partitions.twig:207
 #: templates/table/structure/partition_definition_form.twig:5
