@@ -155,7 +155,7 @@ class OperationsTest extends TestBase
         $this->waitUntilElementIsVisible('cssSelector', 'form#copyTable', 30);
         $this->byCssSelector("form#copyTable input[name='new_name']")->sendKeys('2');
         $this->byCssSelector('label[for="whatRadio2"]')->click();
-        $this->byCssSelector("form#copyTable input[type='submit']")->click();
+        $this->waitForElement('cssSelector', 'form#copyTable input[type=\'submit\']')->click();
         $this->waitAjax();
 
         $this->waitForElement(
