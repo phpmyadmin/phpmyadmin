@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-02-15 18:25+0000\n"
-"PO-Revision-Date: 2022-02-11 03:56+0000\n"
-"Last-Translator: Axel Blanchardon <axel.blanchardon@gmail.com>\n"
+"PO-Revision-Date: 2022-02-17 10:35+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -5410,8 +5410,8 @@ msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr ""
-"La phrase de passe secrète de la configuration (blowfish_secret) n'a pas la "
-"bonne longueur. Elle doit être de %d octets."
+"La phrase de passe secrète dans la configuration (blowfish_secret) n'a pas "
+"la bonne longueur. Elle doit être de %d octets."
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -9600,6 +9600,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Erreur 1045 : Accès refusé pour l'utilisateur. Des informations "
+"supplémentaires sur les erreurs peuvent être disponibles, mais elles sont "
+"masquées par la directive de configuration %s."
 
 #: libraries/classes/Display/Results.php:853 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -15665,21 +15668,16 @@ msgstr "Aucun déclencheur à afficher."
 
 #: templates/display/results/checkbox_and_links.twig:16
 #: templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
-#| msgid "You can also edit most values<br>by clicking directly on them."
 msgid "You can also edit most values by clicking directly on them."
 msgstr ""
-"Il est aussi possible de modifier la plupart des valeurs<br>en cliquant "
+"Il est aussi possible de modifier la plupart des valeurs en cliquant "
 "directement sur celles-ci."
 
 #: templates/display/results/checkbox_and_links.twig:18
 #: templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br>by double-clicking directly on them."
 msgid "You can also edit most values by double-clicking directly on them."
 msgstr ""
-"Il est aussi possible de modifier la plupart<br>des valeurs en les double-"
+"Il est aussi possible de modifier la plupart des valeurs en les double-"
 "cliquant."
 
 #: templates/display/results/table.twig:32
@@ -15839,7 +15837,7 @@ msgstr "Personnalisée, afficher toutes les options possibles"
 
 #: templates/export.twig:121
 msgid "File format to export"
-msgstr "Format du fichier à exporter :"
+msgstr "Format du fichier à exporter"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -16747,8 +16745,6 @@ msgid "There are no favorite tables."
 msgstr "Pas de tables préférées."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
 msgstr "Stockage de la configuration de phpMyAdmin"
 
@@ -16833,7 +16829,7 @@ msgstr "OK"
 
 #: templates/relation/check_relations.twig:62
 msgid "General relation features:"
-msgstr "Fonctions relationnelles : "
+msgstr "Fonctions relationnelles :"
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -16869,10 +16865,8 @@ msgid "Displaying column comments:"
 msgstr "Affichage des commentaires des colonnes :"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Navigateur des transformations :"
+msgstr "Transformation du navigateur :"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -16884,7 +16878,7 @@ msgstr "Requêtes SQL favorites :"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
-msgstr "Historique SQL : "
+msgstr "Historique SQL :"
 
 #: templates/relation/check_relations.twig:245
 msgid "Persistent recently used tables:"
@@ -18326,7 +18320,7 @@ msgstr "Ajouter un serveur"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Quelque chose s'est mal passé."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
