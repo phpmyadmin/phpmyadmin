@@ -963,12 +963,15 @@ class Config
                 return true;
             }
 
+            /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
+            $cookieSameSite = $this->get('CookieSameSite');
+
             if (PHP_VERSION_ID < 70300) {
                 return setcookie(
                     $httpCookieName,
                     $value,
                     $validity,
-                    $this->getRootPath() . '; SameSite=' . $this->get('CookieSameSite'),
+                    $this->getRootPath() . '; SameSite=' . $cookieSameSite,
                     '',
                     $this->isHttps(),
                     $httponly
@@ -981,7 +984,7 @@ class Config
                 'domain' => '',
                 'secure' => $this->isHttps(),
                 'httponly' => $httponly,
-                'samesite' => $this->get('CookieSameSite'),
+                'samesite' => $cookieSameSite,
             ];
 
             return setcookie($httpCookieName, $value, $optionalParams);

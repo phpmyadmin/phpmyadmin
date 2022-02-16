@@ -139,6 +139,7 @@ class Session
             }
         }
 
+        /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
         $cookieSameSite = $config->get('CookieSameSite') ?? 'Strict';
         $cookiePath = $config->getRootPath();
         if (PHP_VERSION_ID < 70300) {
