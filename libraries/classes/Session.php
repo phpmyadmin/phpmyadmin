@@ -139,10 +139,17 @@ class Session
             }
         }
 
+        /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
+        $cookieSameSite = $config->get('CookieSameSite') ?? 'Strict';
+        $cookiePath = $config->getRootPath();
+        if (PHP_VERSION_ID < 70300) {
+            $cookiePath .= '; SameSite=' . $cookieSameSite;
+        }
+
         // session cookie settings
         session_set_cookie_params(
             0,
-            $config->getRootPath(),
+            $cookiePath,
             '',
             $config->isHttps(),
             true
@@ -169,7 +176,7 @@ class Session
         ini_set('session.cookie_httponly', '1');
         if (PHP_VERSION_ID >= 70300) {
             // add SameSite to the session cookie
-            ini_set('session.cookie_samesite', $config->get('CookieSameSite') ?? '');
+            ini_set('session.cookie_samesite', $cookieSameSite);
         }
 
         // do not force transparent session ids

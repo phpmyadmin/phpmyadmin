@@ -7686,11 +7686,6 @@ parameters:
 			path: libraries/classes/Session.php
 
 		-
-			message: "#^Parameter \\#2 \\$newvalue of function ini_set expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Session.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:exportZeroBasedArray\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Setup/ConfigGenerator.php

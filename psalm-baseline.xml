@@ -12555,8 +12555,7 @@
     </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Session.php">
-    <MixedArgument occurrences="4">
-      <code>$config-&gt;get('CookieSameSite') ?? ''</code>
+    <MixedArgument occurrences="3">
       <code>$config-&gt;getCookie('phpMyAdmin')</code>
       <code>$error-&gt;getMessage()</code>
       <code>$path</code>
