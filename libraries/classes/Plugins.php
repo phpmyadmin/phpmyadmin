@@ -292,7 +292,7 @@ class Plugins
     public static function getOneOption(
         $section,
         $plugin_name,
-        &$propertyGroup,
+        $propertyGroup,
         $is_subgroup = false
     ) {
         $ret = "\n";
