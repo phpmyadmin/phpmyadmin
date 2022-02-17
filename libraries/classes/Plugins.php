@@ -572,18 +572,14 @@ class Plugins
      *
      * @return string  html fieldset with plugin options
      */
-    public static function getOptions(string $section, array $list)
+    public static function getOptions(string $section, array $list): string
     {
         $ret = '';
         // Options for plugins that support them
         foreach ($list as $plugin) {
             $properties = $plugin->getProperties();
-            $text = null;
-            $options = null;
-            if ($properties != null) {
-                $text = $properties->getText();
-                $options = $properties->getOptions();
-            }
+            $text = $properties->getText();
+            $options = $properties->getOptions();
 
             $plugin_name = $plugin->getName();
 
