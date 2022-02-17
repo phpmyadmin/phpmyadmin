@@ -5612,10 +5612,8 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="7">
       <code>$host</code>
-      <code>$host</code>
-      <code>$server['port']</code>
       <code>$server['port']</code>
       <code>$server['ssl_ca'] ?? ''</code>
       <code>$server['ssl_ca_path'] ?? ''</code>

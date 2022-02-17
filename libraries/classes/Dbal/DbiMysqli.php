@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Dbal;
 
 use mysqli;
+use mysqli_sql_exception;
 use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
@@ -30,7 +31,9 @@ use const MYSQLI_CLIENT_SSL;
 use const MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
 use const MYSQLI_OPT_LOCAL_INFILE;
 use const MYSQLI_OPT_SSL_VERIFY_SERVER_CERT;
+use const MYSQLI_REPORT_ERROR;
 use const MYSQLI_REPORT_OFF;
+use const MYSQLI_REPORT_STRICT;
 use const MYSQLI_STORE_RESULT;
 use const MYSQLI_USE_RESULT;
 
@@ -56,7 +59,7 @@ class DbiMysqli implements DbiExtension
                 : $server['host'];
         }
 
-        mysqli_report(MYSQLI_REPORT_OFF);
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         $mysqli = mysqli_init();
 
@@ -107,8 +110,8 @@ class DbiMysqli implements DbiExtension
             $host = $server['host'];
         }
 
-        if ($server['hide_connection_errors']) {
-            $return_value = @$mysqli->real_connect(
+        try {
+            $mysqli->real_connect(
                 $host,
                 $user,
                 $password,
@@ -117,19 +120,7 @@ class DbiMysqli implements DbiExtension
                 (string) $server['socket'],
                 $client_flags
             );
-        } else {
-            $return_value = $mysqli->real_connect(
-                $host,
-                $user,
-                $password,
-                '',
-                $server['port'],
-                (string) $server['socket'],
-                $client_flags
-            );
-        }
-
-        if ($return_value === false) {
+        } catch (mysqli_sql_exception $exception) {
             /*
              * Switch to SSL if server asked us to do so, unfortunately
              * there are more ways MySQL server can tell this:
@@ -169,12 +160,18 @@ class DbiMysqli implements DbiExtension
                     ),
                     E_USER_ERROR
                 );
+            } else {
+                trigger_error($error_number . ': ' . $error_message, E_USER_WARNING);
             }
+
+            mysqli_report(MYSQLI_REPORT_OFF);
 
             return false;
         }
 
         $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
+
+        mysqli_report(MYSQLI_REPORT_OFF);
 
         return $mysqli;
     }
