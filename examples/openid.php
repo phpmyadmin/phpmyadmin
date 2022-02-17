@@ -42,24 +42,23 @@ function Show_page($contents): void
 {
     header('Content-Type: text/html; charset=utf-8');
 
-    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-    echo '<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-<meta charset="utf-8">
-<title>phpMyAdmin OpenID signon example</title>
-</head>
-<body>';
+    echo '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL .
+         '<!DOCTYPE HTML>' . PHP_EOL .
+         '<html lang="en" dir="ltr">' . PHP_EOL .
+         '<head>' . PHP_EOL .
+         '<link rel="icon" href="../favicon.ico" type="image/x-icon">' . PHP_EOL .
+         '<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">' . PHP_EOL .
+         '<meta charset="utf-8">' . PHP_EOL .
+         '<title>phpMyAdmin OpenID signon example</title>' . PHP_EOL .
+         '</head>' . PHP_EOL .
+         '<body>';
 
-    if (isset($_SESSION['PMA_single_signon_error_message'])) {
+    if (isset($_SESSION['PMA_single_signon_error_message']) && !empty($_SESSION['PMA_single_signon_error_message'])) {
         echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
         unset($_SESSION['PMA_single_signon_message']);
     }
 
-    echo $contents;
-    echo '</body></html>';
+    echo $contents . '</body></html>';
 }
 
 /**
@@ -69,9 +68,9 @@ function Show_page($contents): void
  */
 function Die_error($e): void
 {
-    $contents = "<div class='relyingparty_results'>\n";
-    $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";
-    $contents .= "</div class='relyingparty_results'>";
+    $contents = '<div class="relyingparty_results">' . PHP_EOL;
+    $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . '</pre>' . PHP_EOL;
+    $contents .= '</div class="relyingparty_results">';
     Show_page($contents);
     exit;
 }
@@ -104,10 +103,10 @@ $returnTo .= 'openid.php';
 /* Display form */
 if ((! count($_GET) && ! count($_POST)) || isset($_GET['phpMyAdmin'])) {
     /* Show simple form */
-    $content = '<form action="openid.php" method="post">
-OpenID: <input type="text" name="identifier"><br>
-<input type="submit" name="start">
-</form>';
+    $content = '<form action="openid.php" method="post">' . PHP_EOL .
+               'OpenID: <input type="text" name="identifier"><br>' . PHP_EOL .
+               '<input type="submit" name="start">' . PHP_EOL .
+               '</form>';
     Show_page($content);
     exit;
 }

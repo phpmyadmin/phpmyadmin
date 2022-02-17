@@ -41,8 +41,8 @@ if (isset($_POST['user']) && !empty($_POST['user'])) {
     /* Show simple form */
     header('Content-Type: text/html; charset=utf-8');
 
-    echo '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL;
-    echo '<!DOCTYPE HTML>' . PHP_EOL .
+    echo '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL .
+         '<!DOCTYPE HTML>' . PHP_EOL .
          '<html lang="en" dir="ltr">' . PHP_EOL .
          '<head>' . PHP_EOL .
          '<link rel="icon" href="../favicon.ico" type="image/x-icon">' . PHP_EOL .
@@ -52,7 +52,7 @@ if (isset($_POST['user']) && !empty($_POST['user'])) {
          '</head>' . PHP_EOL .
          '<body>';
 
-    if (isset($_SESSION['PMA_single_signon_error_message'])) {
+    if (isset($_SESSION['PMA_single_signon_error_message']) && !empty($_SESSION['PMA_single_signon_error_message'])) {
         echo '<p class="error">' . $_SESSION['PMA_single_signon_error_message'] . '</p>';
     }
 
