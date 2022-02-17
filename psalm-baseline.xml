@@ -9028,9 +9028,7 @@
     <InvalidReturnType occurrences="1">
       <code>string</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="12">
-      <code>$doc</code>
-      <code>$doc</code>
+    <MixedArgument occurrences="10">
       <code>$doc[0]</code>
       <code>$doc[1]</code>
       <code>$doc[1]</code>
@@ -9042,12 +9040,6 @@
       <code>$val</code>
       <code>$val</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$doc[0]</code>
-      <code>$doc[1]</code>
-      <code>$doc[1]</code>
-      <code>$doc[2]</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="7">
       <code>$doc</code>
       <code>$properties</code>
@@ -9097,9 +9089,12 @@
       <code>$propertyItem-&gt;getName()</code>
       <code>$subgroup_header-&gt;getName()</code>
     </PossiblyNullOperand>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$properties != null</code>
-    </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainType occurrences="4">
+      <code>$property_class === BoolPropertyItem::class</code>
+      <code>$property_class === MessageOnlyPropertyItem::class</code>
+      <code>$property_class === SelectPropertyItem::class</code>
+      <code>$property_class === TextPropertyItem::class</code>
+    </TypeDoesNotContainType>
     <UnnecessaryVarAnnotation occurrences="3">
       <code>RadioPropertyItem</code>
       <code>SelectPropertyItem</code>
