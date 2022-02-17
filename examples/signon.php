@@ -23,7 +23,7 @@ session_name($session_name);
 @session_start();
 
 /* Was data posted? */
-if (isset($_POST['user'])) {
+if (isset($_POST['user']) && !empty($_POST['user'])) {
     /* Store there credentials */
     $_SESSION['PMA_single_signon_user'] = $_POST['user'];
     $_SESSION['PMA_single_signon_password'] = $_POST['password'];
@@ -41,32 +41,30 @@ if (isset($_POST['user'])) {
     /* Show simple form */
     header('Content-Type: text/html; charset=utf-8');
 
-    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-    echo '<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-<meta charset="utf-8">
-<title>phpMyAdmin single signon example</title>
-</head>
-<body>';
+    echo '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL;
+    echo '<!DOCTYPE HTML>' . PHP_EOL .
+         '<html lang="en" dir="ltr">' . PHP_EOL .
+         '<head>' . PHP_EOL .
+         '<link rel="icon" href="../favicon.ico" type="image/x-icon">' . PHP_EOL .
+         '<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">' . PHP_EOL .
+         '<meta charset="utf-8">' . PHP_EOL .
+         '<title>phpMyAdmin single signon example</title>' . PHP_EOL .
+         '</head>' . PHP_EOL .
+         '<body>';
 
     if (isset($_SESSION['PMA_single_signon_error_message'])) {
-        echo '<p class="error">';
-        echo $_SESSION['PMA_single_signon_error_message'];
-        echo '</p>';
+        echo '<p class="error">' . $_SESSION['PMA_single_signon_error_message'] . '</p>';
     }
 
-    echo '<form action="signon.php" method="post">
-Username: <input type="text" name="user" autocomplete="username"><br>
-Password: <input type="password" name="password" autocomplete="current-password"><br>
-Host: (will use the one from config.inc.php by default)
-<input type="text" name="host"><br>
-Port: (will use the one from config.inc.php by default)
-<input type="text" name="port"><br>
-<input type="submit">
-</form>
-</body>
-</html>';
+    echo '<form action="signon.php" method="post">' . PHP_EOL .
+         'Username: <input type="text" name="user" autocomplete="username"><br>' . PHP_EOL .
+         'Password: <input type="password" name="password" autocomplete="current-password"><br>' . PHP_EOL .
+         'Host: (will use the one from config.inc.php by default)' . PHP_EOL .
+         '<input type="text" name="host"><br>' . PHP_EOL .
+         'Port: (will use the one from config.inc.php by default)' . PHP_EOL .
+         '<input type="text" name="port"><br>' . PHP_EOL .
+         '<input type="submit">' . PHP_EOL .
+         '</form>' . PHP_EOL .
+         '</body>' . PHP_EOL .
+         '</html>';
 }
