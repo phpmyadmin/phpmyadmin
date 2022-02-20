@@ -34,7 +34,8 @@ class LanguageManager
      * - Match regular expression
      * - MySQL locale
      *
-     * @var array
+     * @var array<string, string[]>
+     * @psalm-var array<string, array{non-empty-string, non-empty-string, string, non-empty-string, string}>
      */
     private static $languageData = [
         'af' => [
@@ -190,6 +191,13 @@ class LanguageManager
             '',
             'en[_-]gb|english (United Kingdom)',
             'en_GB',
+        ],
+        'enm' => [
+            'enm',
+            'English (Middle)',
+            '',
+            'enm|english (middle)',
+            '',
         ],
         'eo' => [
             'eo',
