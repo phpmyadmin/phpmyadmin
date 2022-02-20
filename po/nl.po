@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-02-21 11:55+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
 "\n"
 "Language: nl\n"
@@ -5378,8 +5378,8 @@ msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr ""
-"De geheime passphrase in configuratie (blowfish_secret) heeft niet de "
-"correcte lengte . Deze zou %d bytes lang moeten zijn."
+"De geconfigureerde geheime passphrase (blowfish_secret) heeft niet de "
+"correcte lengte. Deze moet %d bytes lang zijn."
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -9178,8 +9178,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Fout 1045: Toegang geweigerd. Additionele fout informatie is mogelijk "
-"beschikbaar, maar verborgen door de %s configuratie regel."
+"Fout 1045: Toegang geweigerd voor gebruiker. Additionele informatie is "
+"misschien beschikbaar maar is verborgen door de %s configuratie regel."
 
 #: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -16053,7 +16053,6 @@ msgstr "Index %s is verwijderd."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -18191,7 +18190,7 @@ msgstr "Een server toevoegen"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr "Er ging iets fout."
+msgstr "Er ging iets verkeerd."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
