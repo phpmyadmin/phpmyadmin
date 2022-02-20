@@ -1543,7 +1543,8 @@ class Sql
         $editable = ($has_unique
             || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
             || $updatableView)
-            && $just_one_table;
+            && $just_one_table
+            && ! Utilities::isSystemSchema($db);
 
         $_SESSION['tmpval']['possible_as_geometry'] = $editable;
 
@@ -1557,7 +1558,7 @@ class Sql
             'pview_lnk' => '1',
         ];
 
-        if (Utilities::isSystemSchema($db) || ! $editable) {
+        if (! $editable) {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
