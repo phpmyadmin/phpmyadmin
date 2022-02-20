@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-02-20 00:16+0000\n"
-"PO-Revision-Date: 2022-02-15 16:21+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-02-21 11:58+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -5374,13 +5374,13 @@ msgstr ""
 "(blowfish_secret)."
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr "De geconfigureerde geheime passphrase (blowfish_secret) is te kort."
+msgstr ""
+"De geconfigureerde geheime passphrase (blowfish_secret) heeft niet de "
+"correcte lengte. Deze moet %d bytes lang zijn."
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -7823,7 +7823,6 @@ msgstr "Week"
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:793
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -9562,6 +9561,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Fout 1045: Toegang geweigerd voor gebruiker. Additionele informatie is "
+"misschien beschikbaar maar is verborgen door de %s configuratie regel."
 
 #: libraries/classes/Display/Results.php:853 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -13737,12 +13738,8 @@ msgid "Could not save configuration"
 msgstr "Opslaan van het configuratiebestand is niet mogelijk"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"%sMaak%s de configuratieopslag van phpMyAdmin aan in de huidige database."
+msgstr "De phpMyAdmin configuratie opslagdatabase kon niet worden benaderd."
 
 #: libraries/classes/Util.php:131
 #, php-format
@@ -15618,18 +15615,13 @@ msgstr "Er zijn geen triggers om weer te gegeven."
 
 #: templates/display/results/checkbox_and_links.twig:16
 #: templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
-#| msgid "You can also edit most values<br>by clicking directly on them."
 msgid "You can also edit most values by clicking directly on them."
-msgstr "U kan de meeste waarden ook bewerken<br>door erop te klikken."
+msgstr "U kan de meeste waarden ook direct bewerken door erop te klikken."
 
 #: templates/display/results/checkbox_and_links.twig:18
 #: templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br>by double-clicking directly on them."
 msgid "You can also edit most values by double-clicking directly on them."
-msgstr "U kan de meeste waarden bewerken<br>door er dubbel op te klikken."
+msgstr "U kan de meeste waarden direct bewerken door er dubbel op te klikken."
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
@@ -18263,7 +18255,7 @@ msgstr "Een server toevoegen"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Er ging iets verkeerd."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
