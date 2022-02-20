@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-02-20 00:16+0000\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-02-21 11:58+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13792,13 +13792,10 @@ msgid "Could not save configuration"
 msgstr "Impossible d'enregistrer la configuration"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sCréer%s le stockage de configurations phpMyAdmin dans la base de données "
-"active."
+"La base de données de stockage de configuration de phpMyAdmin n'a pas pu "
+"être accédée."
 
 #: libraries/classes/Util.php:131
 #, php-format
