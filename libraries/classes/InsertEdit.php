@@ -822,15 +822,12 @@ class InsertEdit
         // HTML5 data-* attribute data-type
         $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
         $fieldsize = $this->getColumnSize($column, $extractedColumnspec['spec_in_brackets']);
-        $htmlOutput = '';
-        $html_input = '';
-        $text_area = '';
-        $default_generated = false;
 
-        $if_is_char = $column['is_char'] && ($GLOBALS['cfg']['CharEditing'] === 'textarea' || str_contains($data, "\n"));
-        if ($if_is_char) {
+        $isTextareaRequired = $column['is_char']
+            && ($GLOBALS['cfg']['CharEditing'] === 'textarea' || str_contains($data, "\n"));
+        if ($isTextareaRequired) {
             $GLOBALS['cfg']['CharEditing'] = $defaultCharEditing;
-            $text_area = $this->getTextarea(
+            $htmlField = $this->getTextarea(
                 $column,
                 $backupField,
                 $columnNameAppendix,
@@ -843,10 +840,8 @@ class InsertEdit
                 $dataType,
                 $readOnly
             );
-        }
-
-        if (! $if_is_char) {
-            $html_input = $this->getHtmlInput(
+        } else {
+            $htmlField = $this->getHtmlInput(
                 $column,
                 $columnNameAppendix,
                 $specialChars,
@@ -858,18 +853,13 @@ class InsertEdit
                 $dataType,
                 $readOnly
             );
-            $default_generated = preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])
-            && ! str_contains($column['Extra'], 'DEFAULT_GENERATED');
         }
 
         return $this->template->render('table/insert/value_column_for_other_datatype', [
-            'html' => $htmlOutput,
-            'html_input' => $html_input,
+            'html_field' => $htmlField,
             'backup_field' => $backupField,
-            'is_char' => $if_is_char,
-            'text_area' => $text_area,
+            'is_textarea' => $isTextareaRequired,
             'columnNameAppendix' => $columnNameAppendix,
-            'default_generated' => $default_generated,
             'column' => $column,
         ]);
     }

@@ -1101,7 +1101,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            "a\n\na\n"
+            "a\na\n"
             . '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="25" rows="7" cols="1" dir="/" '
             . 'id="field_1_3" c tabindex="34" data-type="CHAR">'
