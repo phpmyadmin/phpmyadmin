@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-15 18:25+0000\n"
+"POT-Creation-Date: 2022-02-20 00:16+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4817,12 +4817,12 @@ msgstr ""
 "Dette betyder ofte, at der er en eller flere syntaksmæssige fejl i den, "
 "kontroller venligst for fejlen(e) vist herunder."
 
-#: libraries/classes/Config.php:1227
+#: libraries/classes/Config.php:1228
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Server indekset %s er ugyldigt"
 
-#: libraries/classes/Config.php:1240
+#: libraries/classes/Config.php:1241
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -9587,11 +9587,11 @@ msgid ""
 "%2$s."
 msgstr "Ingen trigger med navnet %1$s fundet i databasen %2$s."
 
-#: libraries/classes/Dbal/DbiMysqli.php:152
+#: libraries/classes/Dbal/DbiMysqli.php:143
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "En SSL forbindelse er påkrævet af serveren, aktiverer det automatisk."
 
-#: libraries/classes/Dbal/DbiMysqli.php:164
+#: libraries/classes/Dbal/DbiMysqli.php:155
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -13748,9 +13748,16 @@ msgstr "Profilen er blevet opdateret."
 msgid "Password is too long!"
 msgstr "Adgangskoden er for lang!"
 
-#: libraries/classes/UserPreferences.php:167
+#: libraries/classes/UserPreferences.php:173
 msgid "Could not save configuration"
 msgstr "Kunne ikke gemme konfiguration"
+
+#: libraries/classes/UserPreferences.php:184
+#, fuzzy
+#| msgid ""
+#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
+msgid "The phpMyAdmin configuration storage database could not be accessed."
+msgstr "%sOpret%s phpMyAdmin-konfigurationslageret i den aktuelle database."
 
 #: libraries/classes/Util.php:131
 #, php-format

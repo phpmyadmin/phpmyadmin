@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-15 18:25+0000\n"
+"POT-Creation-Date: 2022-02-20 00:16+0000\n"
 "PO-Revision-Date: 2021-08-08 00:09+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -4416,12 +4416,12 @@ msgid ""
 "shown below."
 msgstr "这通常意味着文件中有语法错误，请检查下面显示出的错误。"
 
-#: libraries/classes/Config.php:1227
+#: libraries/classes/Config.php:1228
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引：%s"
 
-#: libraries/classes/Config.php:1240
+#: libraries/classes/Config.php:1241
 #, php-format
 msgid "Server %d"
 msgstr "服务器 %d"
@@ -8940,11 +8940,11 @@ msgid ""
 "%2$s."
 msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的触发器。"
 
-#: libraries/classes/Dbal/DbiMysqli.php:152
+#: libraries/classes/Dbal/DbiMysqli.php:143
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "服务器要求 SSL 连接，已自动启用 SSL。"
 
-#: libraries/classes/Dbal/DbiMysqli.php:164
+#: libraries/classes/Dbal/DbiMysqli.php:155
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -12905,9 +12905,16 @@ msgstr "配置文件己更新。"
 msgid "Password is too long!"
 msgstr "密码太长！"
 
-#: libraries/classes/UserPreferences.php:167
+#: libraries/classes/UserPreferences.php:173
 msgid "Could not save configuration"
 msgstr "无法保存设置"
+
+#: libraries/classes/UserPreferences.php:184
+#, fuzzy
+#| msgid ""
+#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
+msgid "The phpMyAdmin configuration storage database could not be accessed."
+msgstr "在当前数据库%s创建%sphpMyAdmin配置存储。"
 
 #: libraries/classes/Util.php:131
 #, php-format

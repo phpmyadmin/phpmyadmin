@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-15 18:25+0000\n"
+"POT-Creation-Date: 2022-02-20 00:16+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4607,12 +4607,12 @@ msgstr ""
 "Việc này thường do có lỗi cú pháp trong đó, vui lòng kiểm tra xem các lỗi "
 "hiển thị bên dưới."
 
-#: libraries/classes/Config.php:1227
+#: libraries/classes/Config.php:1228
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chỉ mục máy chủ không hợp lệ: %s"
 
-#: libraries/classes/Config.php:1240
+#: libraries/classes/Config.php:1241
 #, php-format
 msgid "Server %d"
 msgstr "Máy chủ %d"
@@ -9244,11 +9244,11 @@ msgid ""
 "%2$s."
 msgstr "Không có bẫy nào mang tên %1$s ở trong cơ sở dữ liệu %2$s"
 
-#: libraries/classes/Dbal/DbiMysqli.php:152
+#: libraries/classes/Dbal/DbiMysqli.php:143
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Dbal/DbiMysqli.php:164
+#: libraries/classes/Dbal/DbiMysqli.php:155
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -13242,9 +13242,15 @@ msgstr "Hồ sơ đã được cập nhật."
 msgid "Password is too long!"
 msgstr "Mã băm mật khẩu:"
 
-#: libraries/classes/UserPreferences.php:167
+#: libraries/classes/UserPreferences.php:173
 msgid "Could not save configuration"
 msgstr "Không thể ghi lại cấu hình"
+
+#: libraries/classes/UserPreferences.php:184
+#, fuzzy
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid "The phpMyAdmin configuration storage database could not be accessed."
+msgstr "Thiếu các bảng lưu trữ cấu hình phpMyAdmin"
 
 #: libraries/classes/Util.php:131
 #, php-format

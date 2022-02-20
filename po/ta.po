@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-15 18:25+0000\n"
+"POT-Creation-Date: 2022-02-20 00:16+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4383,12 +4383,12 @@ msgid ""
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1227
+#: libraries/classes/Config.php:1228
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/classes/Config.php:1240
+#: libraries/classes/Config.php:1241
 #, php-format
 msgid "Server %d"
 msgstr "வழங்கி %d"
@@ -9066,11 +9066,11 @@ msgid ""
 "%2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
-#: libraries/classes/Dbal/DbiMysqli.php:152
+#: libraries/classes/Dbal/DbiMysqli.php:143
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Dbal/DbiMysqli.php:164
+#: libraries/classes/Dbal/DbiMysqli.php:155
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -12980,9 +12980,17 @@ msgstr ""
 msgid "Password is too long!"
 msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
-#: libraries/classes/UserPreferences.php:167
+#: libraries/classes/UserPreferences.php:173
 msgid "Could not save configuration"
 msgstr ""
+
+#: libraries/classes/UserPreferences.php:184
+#, fuzzy
+#| msgid ""
+#| "The phpMyAdmin configuration storage has been deactivated. %sFind out why"
+#| "%s."
+msgid "The phpMyAdmin configuration storage database could not be accessed."
+msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்கப்பட்டுள்ளது. %sஏனென்று அறிக%s."
 
 #: libraries/classes/Util.php:131
 #, php-format
