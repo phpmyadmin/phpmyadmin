@@ -17,7 +17,9 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function count;
 use function is_array;
+use function is_numeric;
 use function json_decode;
+use function min;
 
 /**
  * Displays index edit/creation form and handles it.
@@ -152,7 +154,18 @@ class IndexesController extends AbstractController
                 $add_fields += $_POST['added_fields'];
             }
         } elseif (isset($_POST['create_index'])) {
-            $add_fields = $_POST['added_fields'];
+            /**
+             * In most cases, an index may consist of up to 16 columns, so add an initial limit.
+             * More columns could be added later if necessary.
+             *
+             * @see https://dev.mysql.com/doc/refman/5.6/en/multiple-column-indexes.html "up to 16 columns"
+             * @see https://mariadb.com/kb/en/innodb-limitations/#limitations-on-schema "maximum of 16 columns"
+             * @see https://mariadb.com/kb/en/myisam-overview/#myisam-features "Maximum of 32 columns per index"
+             */
+            $add_fields = 1;
+            if (is_numeric($_POST['added_fields']) && $_POST['added_fields'] >= 2) {
+                $add_fields = min((int) $_POST['added_fields'], 16);
+            }
         }
 
         // Get fields and stores their name/type
