@@ -14268,9 +14268,6 @@
       <code>$val</code>
       <code>$val2</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <MixedOperand occurrences="1">
       <code>$second</code>
     </MixedOperand>

@@ -9041,11 +9041,6 @@ parameters:
 			path: test/classes/CommonTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Config\\\\DescriptionTest\\:\\:getValues\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Config/DescriptionTest.php
-
-		-
 			message: "#^Cannot access offset 'pma_testform' on mixed\\.$#"
 			count: 1
 			path: test/classes/Config/FormDisplayTest.php
