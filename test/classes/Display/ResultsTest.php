@@ -1642,4 +1642,227 @@ class ResultsTest extends AbstractTestCase
 
         $this->assertEquals($tableTemplate, $actual);
     }
+
+    public function testGetTable2(): void
+    {
+        global $db, $table;
+
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
+        $db = 'test_db';
+        $table = 'test_table';
+        $query = 'SELECT COUNT(*) AS `Rows`, `name` FROM `test_table` GROUP BY `name` ORDER BY `name`';
+
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object->properties['unique_id'] = 1234567890;
+
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        $fieldsMeta = [
+            new FieldMetadata(
+                MYSQLI_TYPE_LONG,
+                MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                (object) ['name' => 'Rows']
+            ),
+            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'name']),
+        ];
+
+        $this->dummyDbi->addResult($query, [['2', 'abcd'], ['1', 'foo']], ['Rows', 'name'], $fieldsMeta);
+
+        $object->setProperties(
+            2,
+            $fieldsMeta,
+            $analyzedSqlResults['is_count'],
+            $analyzedSqlResults['is_export'],
+            $analyzedSqlResults['is_func'],
+            $analyzedSqlResults['is_analyse'],
+            2,
+            count($fieldsMeta),
+            1.234,
+            'ltr',
+            $analyzedSqlResults['is_maint'],
+            $analyzedSqlResults['is_explain'],
+            $analyzedSqlResults['is_show'],
+            null,
+            null,
+            true,
+            true
+        );
+
+        $_SESSION = ['tmpval' => [], ' PMA_token ' => 'token'];
+        $_SESSION['tmpval']['geoOption'] = '';
+        $_SESSION['tmpval']['hide_transformation'] = false;
+        $_SESSION['tmpval']['display_blob'] = '';
+        $_SESSION['tmpval']['display_binary'] = '';
+        $_SESSION['tmpval']['relational_display'] = '';
+        $_SESSION['tmpval']['possible_as_geometry'] = '';
+        $_SESSION['tmpval']['pftext'] = '';
+        $_SESSION['tmpval']['max_rows'] = 25;
+        $_SESSION['tmpval']['pos'] = 0;
+        $_SESSION['tmpval']['repeat_cells'] = 0;
+        $_SESSION['tmpval']['query']['f2a8e80312ca180031ad773b573adbe1']['max_rows'] = 25;
+
+        $dtResult = $this->dbi->tryQuery($query);
+
+        $displayParts = DisplayParts::fromArray([
+            'hasEditLink' => false,
+            'deleteLink' => DisplayParts::NO_DELETE,
+            'hasSortLink' => true,
+            'hasNavigationBar' => true,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => false,
+            'hasPrintLink' => true,
+        ]);
+
+        $this->assertNotFalse($dtResult);
+        $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
+
+        $template = new Template();
+
+        $tableHeadersForColumns = $template->render('display/results/table_headers_for_columns', [
+            'is_sortable' => true,
+            'columns' => [
+                [
+                    'column_name' => 'Rows',
+                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
+                        . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60Rows%60+ASC&sql_signature='
+                        . '8412b2f6bb4473905c68b2612d95d0020dda32282b3f5bf7a63fbaa98163016e&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en" class="sortlink">Rows<input type="hidden" value="'
+                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
+                        . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en"></a><input type="hidden" name="url-remove-order"'
+                        . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+%60name'
+                        . '%60+ORDER+BY+%60name%60+ASC&sql_signature='
+                        . 'a6daf20f5593bc5d7c62fdb7dc564994f9e4a928f4488ab41b653c264bed70e7&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
+                        . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => true,
+                ],
+                [
+                    'column_name' => 'name',
+                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
+                        . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en" class="sortlink">name <img src="themes/dot.gif"'
+                        . ' title="" alt="Ascending" class="icon ic_s_asc soimg"> <img src="themes/dot.gif" title=""'
+                        . ' alt="Descending" class="icon ic_s_desc soimg hide"> <small>1</small><input type="hidden"'
+                        . ' value="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en"></a><input type="hidden" name="url-remove-order"'
+                        . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60&sql_signature=1e391c9073b55f6d88696ff3b6991df45636bd24c32e7c235c8ff7ef640161ce'
+                        . '&session_max_rows=25&is_browse_distinct=1&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n" . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => false,
+                ],
+            ],
+        ]);
+
+        $tableTemplate = $template->render('display/results/table', [
+            'sql_query_message' => Generator::getMessage(
+                Message::success('Showing rows 0 -  1 (2 total, Query took 1.2340 seconds.)'),
+                $query,
+                'success'
+            ),
+            'navigation' => [
+                'move_backward_buttons' => '',
+                'page_selector' => '',
+                'move_forward_buttons' => '',
+                'number_total_page' => 1,
+                'has_show_all' => true,
+                'hidden_fields' => [
+                    'db' => $db,
+                    'table' => $table,
+                    'server' => 1,
+                    'sql_query' => $query,
+                    'is_browse_distinct' => true,
+                    'goto' => '',
+                ],
+                'session_max_rows' => 'all',
+                'is_showing_all' => false,
+                'max_rows' => 25,
+                'pos' => 0,
+                'sort_by_key' => [],
+            ],
+            'headers' => [
+                'column_order' => [],
+                'options' => '$optionsBlock',
+                'has_bulk_actions_form' => false,
+                'button' => '<thead class="table-light"><tr>' . "\n",
+                'table_headers_for_columns' => $tableHeadersForColumns,
+                'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
+            ],
+            'body' => '<tr><td data-decimals="0" data-type="int" class="'
+                . 'text-end data not_null text-nowrap">2</td>' . "\n"
+                . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=0&lang=en'
+                . '&db=test_db&table=test_table&pos=0&sql_signature='
+                . '435bef10ad40031af7da88ea735cdc55ee91ac589b93adf10a10101b00e4d7ac&sql_query='
+                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27abcd%27&server=0&lang=en'
+                . '" title="abcd">abcd</a></td>' . "\n"
+                . '</tr>' . "\n"
+                . '<tr><td data-decimals="0" data-type="int" class="'
+                . 'text-end data not_null text-nowrap">1</td>' . "\n"
+                . '<td data-decimals="0" data-type="string" data-originallength="3" class="'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=0&lang=en&db=test_db'
+                . '&table=test_table&pos=0&sql_signature='
+                . '8b25f948acdbde1631297c34c6fe773c1751dfed5e59a30e3ee909773512e297&sql_query='
+                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27foo%27&server=0&lang=en"'
+                . ' title="foo">foo</a></td>' . "\n"
+                . '</tr>' . "\n",
+            'bulk_links' => [],
+            'operations' => [
+                'has_procedure' => false,
+                'has_geometry' => false,
+                'has_print_link' => true,
+                'has_export_link' => true,
+                'url_params' => [
+                    'db' => $db,
+                    'table' => $table,
+                    'printview' => '1',
+                    'sql_query' => $query,
+                    'single_table' => 'true',
+                    'unlim_num_rows' => 2,
+                ],
+            ],
+            'db' => $db,
+            'table' => $table,
+            'unique_id' => 1234567890,
+            'sql_query' => $query,
+            'goto' => '',
+            'unlim_num_rows' => 2,
+            'displaywork' => false,
+            'relwork' => false,
+            'save_cells_at_once' => false,
+            'default_sliders_state' => 'closed',
+            'text_dir' => 'ltr',
+        ]);
+
+        $this->assertEquals($tableTemplate, $actual);
+    }
 }
