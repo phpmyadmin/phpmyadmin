@@ -14777,26 +14777,41 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Display/ResultsTest.php">
-    <MixedArgument occurrences="13">
+    <MixedArgument occurrences="21">
       <code>$actual</code>
       <code>$analyzedSqlResults</code>
+      <code>$analyzedSqlResults</code>
+      <code>$analyzedSqlResults['is_analyse']</code>
       <code>$analyzedSqlResults['is_analyse']</code>
       <code>$analyzedSqlResults['is_count']</code>
+      <code>$analyzedSqlResults['is_count']</code>
+      <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_export']</code>
+      <code>$analyzedSqlResults['is_export']</code>
+      <code>$analyzedSqlResults['is_func']</code>
       <code>$analyzedSqlResults['is_func']</code>
       <code>$analyzedSqlResults['is_maint']</code>
+      <code>$analyzedSqlResults['is_maint']</code>
+      <code>$analyzedSqlResults['is_show']</code>
       <code>$analyzedSqlResults['is_show']</code>
       <code>$output</code>
       <code>$output</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="7">
+    <MixedArrayAccess occurrences="14">
+      <code>$analyzedSqlResults['is_analyse']</code>
       <code>$analyzedSqlResults['is_analyse']</code>
       <code>$analyzedSqlResults['is_count']</code>
+      <code>$analyzedSqlResults['is_count']</code>
+      <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_export']</code>
+      <code>$analyzedSqlResults['is_export']</code>
+      <code>$analyzedSqlResults['is_func']</code>
       <code>$analyzedSqlResults['is_func']</code>
       <code>$analyzedSqlResults['is_maint']</code>
+      <code>$analyzedSqlResults['is_maint']</code>
+      <code>$analyzedSqlResults['is_show']</code>
       <code>$analyzedSqlResults['is_show']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="10">
