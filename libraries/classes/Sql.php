@@ -1454,7 +1454,8 @@ class Sql
         $editable = ($hasUnique
             || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
             || $updatableView)
-            && $justOneTable;
+            && $justOneTable
+            && ! Utilities::isSystemSchema($db);
 
         $_SESSION['tmpval']['possible_as_geometry'] = $editable;
 
@@ -1468,7 +1469,7 @@ class Sql
             'hasPrintLink' => true,
         ]);
 
-        if (Utilities::isSystemSchema($db) || ! $editable) {
+        if (! $editable) {
             $displayParts = DisplayParts::fromArray([
                 'hasEditLink' => false,
                 'deleteLink' => DisplayParts::NO_DELETE,

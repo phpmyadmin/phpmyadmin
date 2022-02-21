@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.20.0@f82a70e7edfc6cf2705e9374c8a0b6a974a779ed">
+<files psalm-version="4.21.0@d8bec4c7aaee111a532daec32fb09de5687053d1">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $containerBuilder;</code>
@@ -3206,8 +3206,7 @@
     <MixedArrayAccess occurrences="1">
       <code>$_POST['index']['Index_choice']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="5">
-      <code>$add_fields</code>
+    <MixedAssignment occurrences="4">
       <code>$add_fields</code>
       <code>$fields</code>
       <code>$form_params['old_index']</code>
@@ -5642,6 +5641,12 @@
       <code>$link</code>
       <code>$link</code>
     </MoreSpecificImplementedParamType>
+    <PossiblyNullArgument occurrences="1">
+      <code>$error_message</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="1">
+      <code>$error_message</code>
+    </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Dbal/MysqliResult.php">
     <InvalidReturnStatement occurrences="6">
@@ -7899,28 +7904,16 @@
     <MissingConstructor occurrences="1">
       <code>$availableLocales</code>
     </MissingConstructor>
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="5">
       <code>$GLOBALS['config']-&gt;get('Lang')</code>
       <code>$GLOBALS['config']-&gt;getCookie('pma_lang')</code>
       <code>$_GET['lang']</code>
       <code>$_POST['lang']</code>
-      <code>$data[0]</code>
-      <code>$data[1]</code>
-      <code>$data[2]</code>
-      <code>$data[3]</code>
-      <code>$data[4]</code>
       <code>$lang</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$this-&gt;listLocaleDir()</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
-      <code>$data[0]</code>
-      <code>$data[1]</code>
-      <code>$data[2]</code>
-      <code>$data[3]</code>
-      <code>$data[4]</code>
-    </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$langs[$GLOBALS['config']-&gt;get('DefaultLang')]</code>
       <code>$langs[$GLOBALS['config']-&gt;get('DefaultLang')]</code>
@@ -7929,8 +7922,7 @@
       <code>$langs[$GLOBALS['config']-&gt;get('DefaultLang')]</code>
       <code>$langs[$GLOBALS['config']-&gt;get('DefaultLang')]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="2">
-      <code>$data</code>
+    <MixedAssignment occurrences="1">
       <code>$lang</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
