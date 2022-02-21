@@ -5121,11 +5121,6 @@ parameters:
 			path: libraries/classes/LanguageManager.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$languageData type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
 			message: "#^Unsafe access to private property PhpMyAdmin\\\\LanguageManager\\:\\:\\$languageData through static\\:\\:\\.$#"
 			count: 2
 			path: libraries/classes/LanguageManager.php

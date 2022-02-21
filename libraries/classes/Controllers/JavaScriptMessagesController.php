@@ -693,6 +693,10 @@ final class JavaScriptMessagesController
             'strU2FErrorAuthenticate' => _pgettext('U2F error', 'Invalid security key.'),
 
             /* Designer */
+            'strIndexedDBNotWorking' => __(
+                'You can not open, save or delete your page layout, as IndexedDB is not working'
+                . ' in your browser and your phpMyAdmin configuration storage is not configured for this.'
+            ),
             'strTableAlreadyExists' => _pgettext(
                 'The table already exists in the designer and can not be added once more.',
                 'Table %s already exists!'
