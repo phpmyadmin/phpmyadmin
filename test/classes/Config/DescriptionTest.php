@@ -14,6 +14,7 @@ use function in_array;
 /**
  * @covers \PhpMyAdmin\Config\Descriptions
  * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class DescriptionTest extends AbstractTestCase
 {

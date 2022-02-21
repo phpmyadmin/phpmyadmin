@@ -9,6 +9,7 @@ use PhpMyAdmin\Charsets;
 /**
  * @covers \PhpMyAdmin\Charsets
  * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class CharsetsTest extends AbstractTestCase
 {
