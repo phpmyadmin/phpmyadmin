@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-02-20 00:16+0000\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
+"PO-Revision-Date: 2022-02-21 15:48+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -13572,13 +13572,9 @@ msgid "Could not save configuration"
 msgstr "Ne morem shraniti konfiguracije"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sCreate%s tabele hrambe konfiguracije phpMyAdmin in trenutni zbirki "
-"podatkov."
+"Do zbirke podatkov za hrambo konfiguracije phpMyAdmin ni možno dostopati."
 
 #: libraries/classes/Util.php:131
 #, php-format
