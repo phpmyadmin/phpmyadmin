@@ -2262,7 +2262,7 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
         selfClosing = false;
     }
     // Figure out whether (or after how long) to remove the notification
-    if (newTimeOut === undefined) {
+    if (newTimeOut === undefined || newTimeOut === null) {
         newTimeOut = 5000;
     } else if (newTimeOut === false) {
         selfClosing = false;
