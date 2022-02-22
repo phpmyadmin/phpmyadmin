@@ -8,13 +8,13 @@ https://www.phpmyadmin.net/
 Code status
 -----------
 
-.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20tests/badge.svg?branch=master
+.. image:: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/tests.yml/badge.svg?branch=master
     :alt: Testsuite
-    :target: https://github.com/phpmyadmin/phpmyadmin/actions
+    :target: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/tests.yml?query=branch%3Amaster
 
-.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20selenium%20tests/badge.svg?branch=master
-    :alt: Selenium tests
-    :target: https://github.com/phpmyadmin/phpmyadmin/actions
+.. image:: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/test-selenium.yml/badge.svg?branch=master
+    :alt: End-to-End tests
+    :target: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/test-selenium.yml?query=branch%3Amaster
 
 .. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=latest
     :target: https://docs.phpmyadmin.net/en/latest/
