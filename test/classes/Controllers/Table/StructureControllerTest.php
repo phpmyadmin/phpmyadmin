@@ -139,6 +139,5 @@ class StructureControllerTest extends AbstractTestCase
         ]);
 
         $this->assertSame($expected, $response->getHTMLResult());
-        $this->assertAllQueriesConsumed();
     }
 }
