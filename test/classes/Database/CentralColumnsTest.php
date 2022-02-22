@@ -14,6 +14,8 @@ use function array_slice;
 
 /**
  * @covers \PhpMyAdmin\Database\CentralColumns
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class CentralColumnsTest extends AbstractTestCase
 {
