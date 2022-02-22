@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use Facebook\WebDriver\Exception\ElementClickInterceptedException;
+
 /**
  * @coversNothing
  */
@@ -164,8 +166,13 @@ class ExportTest extends TestBase
         }
 
         $this->scrollToBottom();
+        try {
+            $this->waitForElement('id', 'buttonGo')->click();
+        } catch (ElementClickInterceptedException $exception) {
+            $this->scrollToBottom();
+            $this->waitForElement('id', 'buttonGo')->click();
+        }
 
-        $this->waitForElement('id', 'buttonGo')->click();
         $this->waitAjax();
 
         return $this->waitForElement('id', 'textSQLDUMP')->getText();

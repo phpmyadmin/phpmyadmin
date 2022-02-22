@@ -93,6 +93,7 @@ jobs:
       - name: Set up PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2
         with:
+          coverage: "none"
           php-version: ${{ env.php-version }}
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
