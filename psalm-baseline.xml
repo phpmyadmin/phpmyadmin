@@ -10,7 +10,7 @@
       <code>$isMinimumCommon</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Advisor.php">
+  <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument occurrences="17">
       <code>$matches[1]</code>
       <code>$matches[2]</code>
@@ -14139,7 +14139,7 @@
       <code>$http_response_code_param</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/AdvisorTest.php">
+  <file src="test/classes/Advisory/AdvisorTest.php">
     <MixedInferredReturnType occurrences="2">
       <code>array</code>
       <code>array</code>

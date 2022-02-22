@@ -2,13 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Advisory;
 
-use PhpMyAdmin\Advisor;
+use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
+use const ROOT_PATH;
+
 /**
- * @covers \PhpMyAdmin\Advisor
+ * @covers \PhpMyAdmin\Advisory\Advisor
  */
 class AdvisorTest extends AbstractTestCase
 {

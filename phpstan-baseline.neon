@@ -6,54 +6,54 @@ parameters:
 			path: examples/signon-script.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:addRule\\(\\) has parameter \\$rule with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:addRule\\(\\) has parameter \\$rule with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:getRunResult\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:getRunResult\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:replaceLinkURL\\(\\) has parameter \\$matches with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:replaceLinkURL\\(\\) has parameter \\$matches with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:replaceVariable\\(\\) has parameter \\$matches with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:replaceVariable\\(\\) has parameter \\$matches with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:run\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:run\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
 			message: "#^Parameter \\#2 \\$args of function vsprintf expects array, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$globals type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$globals type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$rules type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$rules type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$runResult type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$runResult type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$variables type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$variables type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Advisor.php
+			path: libraries/classes/Advisory/Advisor.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:applyVariables\\(\\) has parameter \\$variables with no value type specified in iterable type array\\.$#"
@@ -8966,24 +8966,24 @@ parameters:
 			path: test/classes/AbstractTestCase.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\AdvisorTest\\:\\:advisorTimes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Advisory\\\\AdvisorTest\\:\\:advisorTimes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/AdvisorTest.php
+			path: test/classes/Advisory/AdvisorTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\AdvisorTest\\:\\:rulesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Advisory\\\\AdvisorTest\\:\\:rulesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/AdvisorTest.php
+			path: test/classes/Advisory/AdvisorTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\AdvisorTest\\:\\:testAddRule\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Advisory\\\\AdvisorTest\\:\\:testAddRule\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/AdvisorTest.php
+			path: test/classes/Advisory/AdvisorTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\AdvisorTest\\:\\:testAddRule\\(\\) has parameter \\$rule with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Advisory\\\\AdvisorTest\\:\\:testAddRule\\(\\) has parameter \\$rule with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: test/classes/AdvisorTest.php
+			path: test/classes/Advisory/AdvisorTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"

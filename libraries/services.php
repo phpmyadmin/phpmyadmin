@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 return [
     'services' => [
         'advisor' => [
-            'class' => PhpMyAdmin\Advisor::class,
+            'class' => PhpMyAdmin\Advisory\Advisor::class,
             'arguments' => [
                 '$dbi' => '@dbi',
                 '$expression' => '@expression_language',

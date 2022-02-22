@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Advisor;
+use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;

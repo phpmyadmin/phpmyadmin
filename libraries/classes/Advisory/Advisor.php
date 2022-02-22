@@ -2,9 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Advisory;
 
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
 
@@ -19,6 +23,8 @@ use function sprintf;
 use function str_contains;
 use function substr;
 use function vsprintf;
+
+use const ROOT_PATH;
 
 /**
  * A simple rules engine, that executes the rules in the advisory_rules files.
