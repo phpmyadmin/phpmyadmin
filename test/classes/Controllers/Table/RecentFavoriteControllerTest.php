@@ -15,6 +15,7 @@ use Psr\Container\ContainerInterface;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\RecentFavoriteController
  * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class RecentFavoriteControllerTest extends AbstractTestCase
 {
