@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
 
+use function defined;
 use function function_exists;
 use function ini_get;
 use function json_encode;
@@ -35,7 +36,7 @@ final class Ajax
         /**
          * unique ID for each upload
          */
-        $upload_id = uniqid('');
+        $upload_id = ! defined('TESTSUITE') ? uniqid('') : 'abc1234567890';
 
         /**
          * list of available plugins
