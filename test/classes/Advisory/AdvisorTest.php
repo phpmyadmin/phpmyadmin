@@ -8,8 +8,6 @@ use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-use const ROOT_PATH;
-
 /**
  * @covers \PhpMyAdmin\Advisory\Advisor
  */
@@ -75,10 +73,6 @@ class AdvisorTest extends AbstractTestCase
     {
         parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
-        $this->assertIsArray($parseResult);
-        $this->assertArrayHasKey(0, $parseResult);
-        $this->assertIsArray($parseResult[0]);
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();

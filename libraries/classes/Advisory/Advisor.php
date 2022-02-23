@@ -24,16 +24,13 @@ use function str_contains;
 use function substr;
 use function vsprintf;
 
-use const ROOT_PATH;
-
 /**
- * A simple rules engine, that executes the rules in the advisory_rules files.
+ * A simple rules engine, that executes the rules in the {@see Rules} class.
+ *
+ * @psalm-import-type RuleType from Rules
  */
 class Advisor
 {
-    private const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.php';
-    private const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.php';
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -43,8 +40,11 @@ class Advisor
     /** @var array */
     private $globals;
 
-    /** @var array */
-    private $rules;
+    /**
+     * @var array<int, array<string, string>>
+     * @psalm-var list<RuleType>
+     */
+    private $rules = [];
 
     /** @var array */
     private $runResult;
@@ -196,7 +196,7 @@ class Advisor
     private function setRules(): void
     {
         $isMariaDB = str_contains($this->variables['version'], 'MariaDB');
-        $genericRules = include ROOT_PATH . self::GENERIC_RULES_FILE;
+        $genericRules = Rules::getGeneric();
 
         if (! $isMariaDB && $this->globals['PMA_MYSQL_INT_VERSION'] >= 80003) {
             $this->rules = $genericRules;
@@ -204,7 +204,7 @@ class Advisor
             return;
         }
 
-        $extraRules = include ROOT_PATH . self::BEFORE_MYSQL80003_RULES_FILE;
+        $extraRules = Rules::getBeforeMySql80003();
         $this->rules = array_merge($genericRules, $extraRules);
     }
 

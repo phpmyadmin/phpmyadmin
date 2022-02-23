@@ -41,11 +41,6 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$rules type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Advisory/Advisor.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$runResult type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Advisory/Advisor.php

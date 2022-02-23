@@ -11,54 +11,37 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Advisory/Advisor.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="8">
       <code>$matches[1]</code>
       <code>$matches[2]</code>
       <code>$params</code>
-      <code>$rule</code>
-      <code>$rule</code>
-      <code>$rule</code>
-      <code>$rule['formula']</code>
       <code>$rule['issue']</code>
       <code>$rule['justification']</code>
       <code>$rule['name']</code>
-      <code>$rule['name']</code>
-      <code>$rule['name']</code>
-      <code>$rule['name']</code>
-      <code>$rule['precondition']</code>
       <code>$rule['recommendation']</code>
-      <code>$rule['test']</code>
       <code>$this-&gt;variables['version']</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>(array) Util::formatByteDown($value, $limes, $comma)</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="7">
-      <code>$rule['formula']</code>
+    <MixedArrayAccess occurrences="1">
       <code>$rule['id']</code>
-      <code>$rule['name']</code>
-      <code>$rule['name']</code>
-      <code>$rule['name']</code>
-      <code>$rule['precondition']</code>
-      <code>$rule['test']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="3">
       <code>$this-&gt;runResult[$type][]</code>
       <code>$this-&gt;runResult[$type][]</code>
       <code>$this-&gt;runResult['errors'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$params</code>
       <code>$precondition</code>
-      <code>$rule</code>
       <code>$rule</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$rule['justification_formula']</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$rules</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>$runResult</code>
       <code>$variables</code>
     </PropertyNotSetInConstructor>
@@ -14144,10 +14127,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <RedundantCondition occurrences="2">
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-    </RedundantCondition>
   </file>
   <file src="test/classes/BrowseForeignersTest.php">
     <MixedArgument occurrences="1">
