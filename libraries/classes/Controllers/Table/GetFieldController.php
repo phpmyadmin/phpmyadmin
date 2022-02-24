@@ -16,8 +16,8 @@ use PhpMyAdmin\Util;
 use function __;
 use function htmlspecialchars;
 use function ini_set;
+use function mb_strlen;
 use function sprintf;
-use function strlen;
 
 /**
  * Provides download to a given field defined in parameters.
@@ -95,7 +95,7 @@ class GetFieldController extends AbstractController
         Core::downloadHeader(
             $table . '-' . $_GET['transform_key'] . '.bin',
             Mime::detect($result),
-            strlen($result)
+            mb_strlen($result, '8bit')
         );
         echo $result;
     }
