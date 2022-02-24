@@ -72,7 +72,7 @@ final class Ajax
      */
     public static function progressCheck(): bool
     {
-        return function_exists('uploadprogress_get_info');
+        return ! defined('TESTSUITE') && function_exists('uploadprogress_get_info');
     }
 
     /**
@@ -80,7 +80,7 @@ final class Ajax
      */
     public static function sessionCheck(): bool
     {
-        return ini_get('session.upload_progress.enabled') === '1';
+        return ! defined('TESTSUITE') && ini_get('session.upload_progress.enabled') === '1';
     }
 
     /**

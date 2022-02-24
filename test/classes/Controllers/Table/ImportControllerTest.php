@@ -43,9 +43,9 @@ class ImportControllerTest extends AbstractTestCase
             'page_settings_error_html' => $pageSettings->getErrorHTML(),
             'page_settings_html' => $pageSettings->getHTML(),
             'upload_id' => 'abc1234567890',
-            'handler' => 'PhpMyAdmin\Plugins\Import\Upload\UploadProgress',
+            'handler' => 'PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin',
             'hidden_inputs' => [
-                'UPLOAD_IDENTIFIER' => 'abc1234567890',
+                'noplugin' => 'abc1234567890',
                 'import_type' => 'table',
                 'db' => 'test_db',
                 'table' => 'test_table',
