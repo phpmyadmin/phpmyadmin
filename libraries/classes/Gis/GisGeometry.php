@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Gis;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
+use function defined;
 use function explode;
 use function floatval;
 use function mb_strripos;
@@ -377,6 +378,6 @@ abstract class GisGeometry
 
     protected function getRandomId(): int
     {
-        return random_int(0, mt_getrandmax());
+        return ! defined('TESTSUITE') ? random_int(0, mt_getrandmax()) : 1234567890;
     }
 }
