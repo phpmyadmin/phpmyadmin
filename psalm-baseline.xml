@@ -3556,12 +3556,6 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/RecentFavoriteController.php">
-    <MixedArgument occurrences="4">
-      <code>$_REQUEST['db']</code>
-      <code>$_REQUEST['db']</code>
-      <code>$_REQUEST['table']</code>
-      <code>$_REQUEST['table']</code>
-    </MixedArgument>
     <PossiblyNullReference occurrences="1">
       <code>get</code>
     </PossiblyNullReference>
