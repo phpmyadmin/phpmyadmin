@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
+use function defined;
 use function strlen;
 
 abstract class AbstractController
@@ -95,6 +96,10 @@ abstract class AbstractController
      */
     protected function redirect(string $route, array $params = []): void
     {
+        if (defined('TESTSUITE')) {
+            return;
+        }
+
         $uri = './index.php?route=' . $route . Url::getCommonRaw($params, '&');
         Core::sendHeaderLocation($uri);
     }
