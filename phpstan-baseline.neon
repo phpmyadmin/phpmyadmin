@@ -10406,11 +10406,6 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Cannot access offset 'Field_html' on mixed\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
 			message: "#^Cannot access offset 'Field_md5' on mixed\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php

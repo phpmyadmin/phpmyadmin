@@ -363,7 +363,6 @@ class InsertEdit
         array $commentsMap,
         $timestampSeen
     ) {
-        $column['Field_html'] = htmlspecialchars($column['Field']);
         $column['Field_md5'] = md5($column['Field']);
         // True_Type contains only the type (stops at first bracket)
         $column['True_Type'] = preg_replace('@\(.*@s', '', $column['Type']);
@@ -415,10 +414,10 @@ class InsertEdit
         if (isset($commentsMap[$column['Field']])) {
             return '<span style="border-bottom: 1px dashed black;" title="'
                 . htmlspecialchars($commentsMap[$column['Field']]) . '">'
-                . $column['Field_html'] . '</span>';
+                . htmlspecialchars($column['Field']) . '</span>';
         }
 
-        return $column['Field_html'];
+        return htmlspecialchars($column['Field']);
     }
 
     /**

@@ -1,7 +1,7 @@
 <tr class="noclick">
   <td class="text-center">
-    {{ column.Field_title }}
-    <input type="hidden" name="fields_name[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" value="{{ column.Field_html }}">
+    {{ column.Field_title|raw }}
+    <input type="hidden" name="fields_name[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" value="{{ column.Field }}">
   </td>
 
   {% if show_field_types_in_data_edit_view %}

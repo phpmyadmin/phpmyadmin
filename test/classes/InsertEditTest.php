@@ -473,8 +473,6 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals($result['Field_html'], '1&lt;2');
-
         $this->assertEquals($result['Field_md5'], '4342210df36bf2ff2c4e2a997a6d4089');
 
         $this->assertEquals($result['True_Type'], 'float');
@@ -503,7 +501,6 @@ class InsertEditTest extends AbstractTestCase
     {
         $column = [];
         $column['Field'] = 'f1<';
-        $column['Field_html'] = 'f1&lt;';
 
         $this->assertEquals(
             $this->callFunction(
