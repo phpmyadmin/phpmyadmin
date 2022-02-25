@@ -4110,7 +4110,7 @@ class Results
      * @param string[] $fieldInfo       the relation
      * @param string   $whereComparison data for the where clause
      *
-     * @return string  formatted data
+     * @return string|null  formatted data
      */
     private function getFromForeign(array $fieldInfo, string $whereComparison): ?string
     {
