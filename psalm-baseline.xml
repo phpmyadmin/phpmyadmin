@@ -2957,11 +2957,13 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Table/DeleteRowsController.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="12">
       <code>$_REQUEST['pos']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
+      <code>$disp_message ?? null</code>
+      <code>$disp_query ?? null</code>
       <code>$goto</code>
       <code>$row</code>
       <code>$sql_query</code>

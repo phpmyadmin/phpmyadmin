@@ -97,8 +97,8 @@ final class DeleteRowsController extends AbstractController
             null,
             null,
             $goto,
-            null,
-            null,
+            $disp_query ?? null,
+            $disp_message ?? null,
             $sql_query,
             null
         ));
