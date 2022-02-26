@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-02-27 11:58+0000\n"
+"Last-Translator: Aadel Lahdili <lah.aadel@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -29,11 +29,13 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"للحصول على متوسطات أكثر دقة ، يوصى بترك الخادم يعمل لمدة تزيد عن يوم قبل "
+"تشغيل هذا المحلل"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "مدة التشغيل %s فقط"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
