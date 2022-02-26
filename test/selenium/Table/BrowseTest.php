@@ -313,7 +313,16 @@ class BrowseTest extends TestBase
         $this->byId('buttonYes')->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement('className', 'alert-success');
+
+        $success = $this->waitForElement(
+            'cssSelector',
+            '.sqlqueryresults > .result_query:nth-child(1) > .alert-success'
+        );
+        $this->assertStringContainsString('Your SQL query has been executed successfully.', $success->getText());
+        $success = $this->waitForElement(
+            'cssSelector',
+            '.sqlqueryresults > .result_query:nth-child(2) > .alert-success'
+        );
         $this->assertStringContainsString('Showing rows', $success->getText());
 
         $this->assertFalse(
