@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-02-27 00:17+0000\n"
-"PO-Revision-Date: 2022-02-21 11:58+0000\n"
+"PO-Revision-Date: 2022-02-28 21:57+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -7472,6 +7472,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"IndexedDB, tarayıcınızda çalışmadığından ve phpMyAdmin yapılandırma "
+"depolamanız bunun için yapılandırılmadığından sayfa düzeninizi açamaz, "
+"kaydedemez veya silemezsiniz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
