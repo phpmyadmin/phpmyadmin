@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-20 00:16+0000\n"
+"POT-Creation-Date: 2022-02-27 00:17+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -16,16 +16,57 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.11-dev\n"
 
-#: libraries/advisory_rules_generic.php:9
+#: libraries/classes/Advisory/Advisor.php:240
+#, php-format
+msgid "Error when evaluating: %s"
+msgstr "Помилка при оцінці: %s"
+
+#: libraries/classes/Advisory/Advisor.php:267
+#, php-format
+msgid "Failed evaluating precondition for rule '%s'."
+msgstr "Не вдалося виконати визначення передумови для правила '%s'."
+
+#: libraries/classes/Advisory/Advisor.php:287
+#, php-format
+msgid "Failed calculating value for rule '%s'."
+msgstr "Не вдалося виконати обчислення значення для правила '%s'."
+
+#: libraries/classes/Advisory/Advisor.php:306
+#, php-format
+msgid "Failed running test for rule '%s'."
+msgstr "Не вдалося виконати тест для правила \"%s\"."
+
+#: libraries/classes/Advisory/Advisor.php:334
+#, php-format
+msgid "Failed formatting string for rule '%s'."
+msgstr "Не вдалося виконати форматування рядка для правила '%s'."
+
+#: libraries/classes/Advisory/Advisor.php:419
+msgid "per second"
+msgstr "за секунду"
+
+#: libraries/classes/Advisory/Advisor.php:422
+msgid "per minute"
+msgstr "за хвилину"
+
+#: libraries/classes/Advisory/Advisor.php:425
+msgid "per hour"
+msgstr "за годину"
+
+#: libraries/classes/Advisory/Advisor.php:428
+msgid "per day"
+msgstr "за день"
+
+#: libraries/classes/Advisory/Rules.php:34
 msgid "Uptime below one day"
 msgstr "Сервер працює менше доби"
 
-#: libraries/advisory_rules_generic.php:12
+#: libraries/classes/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
 "Сервер працює менше доби, налаштування продуктивності можуть бути неточними."
 
-#: libraries/advisory_rules_generic.php:14
+#: libraries/classes/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -33,16 +74,16 @@ msgstr ""
 "Для отримання більш точних середніх значень перед запуском аналізатора "
 "бажано дати попрацювати серверу понад одну добу"
 
-#: libraries/advisory_rules_generic.php:17
+#: libraries/classes/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Сервер працює лише %s"
 
-#: libraries/advisory_rules_generic.php:22
+#: libraries/classes/Advisory/Rules.php:47
 msgid "Questions below 1,000"
 msgstr "Запитів менше 1000"
 
-#: libraries/advisory_rules_generic.php:26
+#: libraries/classes/Advisory/Rules.php:51
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -50,7 +91,7 @@ msgstr ""
 "Цей сервер обробив менше 1000 запитів. Рекомендації можуть бути недостатньо "
 "неточними."
 
-#: libraries/advisory_rules_generic.php:30
+#: libraries/classes/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -58,24 +99,24 @@ msgstr ""
 "Дайте серверові попрацювати ще деякий час поки не буде виконана достатня "
 "кількість запитів."
 
-#: libraries/advisory_rules_generic.php:32
+#: libraries/classes/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Поточна кількість запитів: %s"
 
-#: libraries/advisory_rules_generic.php:37
+#: libraries/classes/Advisory/Rules.php:62
 msgid "Percentage of slow queries"
 msgstr "Відсоток повільних запитів"
 
-#: libraries/advisory_rules_generic.php:41
+#: libraries/classes/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 "Спостерігається велика кількість повільних запитів в порівнянні з загальною "
 "кількістю запитів."
 
-#: libraries/advisory_rules_generic.php:43
-#: libraries/advisory_rules_generic.php:56
+#: libraries/classes/Advisory/Rules.php:68
+#: libraries/classes/Advisory/Rules.php:81
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -83,23 +124,23 @@ msgstr ""
 "Можна збільшити значення {long_query_time} або оптимізувати запити, внесені "
 "в журнал повільних запитів"
 
-#: libraries/advisory_rules_generic.php:45
+#: libraries/classes/Advisory/Rules.php:70
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Рівень повільних запитів має бути менше 5%%, ваші значення - %s%%."
 
-#: libraries/advisory_rules_generic.php:50
+#: libraries/classes/Advisory/Rules.php:75
 msgid "Slow query rate"
 msgstr "Рівень повільних запитів"
 
-#: libraries/advisory_rules_generic.php:54
+#: libraries/classes/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "Спостерігається високий відсоток повільних запитів по відношенню до часу "
 "роботи сервера."
 
-#: libraries/advisory_rules_generic.php:58
+#: libraries/classes/Advisory/Rules.php:84
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -107,11 +148,11 @@ msgid ""
 msgstr ""
 "Рівень повільних запитів складає %s на годину, має бути менше 1%% на годину."
 
-#: libraries/advisory_rules_generic.php:63
+#: libraries/classes/Advisory/Rules.php:90
 msgid "Long query time"
 msgstr "Час виконання довгих запитів"
 
-#: libraries/advisory_rules_generic.php:67
+#: libraries/classes/Advisory/Rules.php:94
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -119,7 +160,7 @@ msgstr ""
 "Змінній {long_query_time} присвоєно значення 10 секунд або більше, і з цієї "
 "причини в журналі записуються повільні запити понад 10 секунд."
 
-#: libraries/advisory_rules_generic.php:71
+#: libraries/classes/Advisory/Rules.php:98
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -127,22 +168,22 @@ msgstr ""
 "Пропонується присвоїти змінній {long_query_time} менше значення, в "
 "залежності від оточення. Рекомендоване значення 1-5 секунд."
 
-#: libraries/advisory_rules_generic.php:74
+#: libraries/classes/Advisory/Rules.php:101
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time наразі встановлений у %ds."
 
-#: libraries/advisory_rules_generic.php:79
-#: libraries/advisory_rules_generic.php:92
+#: libraries/classes/Advisory/Rules.php:106
+#: libraries/classes/Advisory/Rules.php:119
 msgid "Slow query logging"
 msgstr "Журналювання повільних запитів"
 
-#: libraries/advisory_rules_generic.php:83
-#: libraries/advisory_rules_generic.php:96
+#: libraries/classes/Advisory/Rules.php:110
+#: libraries/classes/Advisory/Rules.php:123
 msgid "The slow query log is disabled."
 msgstr "Журнал повільних запитів вимкнено."
 
-#: libraries/advisory_rules_generic.php:85
+#: libraries/classes/Advisory/Rules.php:112
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -150,11 +191,11 @@ msgstr ""
 "Увімкніть запис повільних запитів встановивши змінну {log_slow_queries} у "
 "'ON'. Це допоможе в пошуці повільних, недостатньо оптимізованих запитів."
 
-#: libraries/advisory_rules_generic.php:88
+#: libraries/classes/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "Змінна log_slow_queries встановлена у \"OFF\""
 
-#: libraries/advisory_rules_generic.php:98
+#: libraries/classes/Advisory/Rules.php:125
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -163,19 +204,19 @@ msgstr ""
 "{slow_query_log} в 'ON. Це допоможе в усуненні неполадок погано виконаних "
 "запитів."
 
-#: libraries/advisory_rules_generic.php:101
+#: libraries/classes/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
 msgstr "значення long_query_time встановлено на  'OFF'"
 
-#: libraries/advisory_rules_generic.php:106
+#: libraries/classes/Advisory/Rules.php:133
 msgid "Release Series"
 msgstr "Випуск серії"
 
-#: libraries/advisory_rules_generic.php:109
+#: libraries/classes/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
 msgstr "Версія MySQL сервера менше 5.1."
 
-#: libraries/advisory_rules_generic.php:111
+#: libraries/classes/Advisory/Rules.php:138
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -183,23 +224,23 @@ msgstr ""
 "Необхідно оновитися, оскільки MySQL 5.1 має покращену продуктивність, а "
 "MySQL 5.5 і поготів."
 
-#: libraries/advisory_rules_generic.php:113
-#: libraries/advisory_rules_generic.php:127
-#: libraries/advisory_rules_generic.php:138
+#: libraries/classes/Advisory/Rules.php:140
+#: libraries/classes/Advisory/Rules.php:154
+#: libraries/classes/Advisory/Rules.php:165
 #, php-format
 msgid "Current version: %s"
 msgstr "Поточна версія: %s"
 
-#: libraries/advisory_rules_generic.php:118
-#: libraries/advisory_rules_generic.php:132
+#: libraries/classes/Advisory/Rules.php:145
+#: libraries/classes/Advisory/Rules.php:159
 msgid "Minor Version"
 msgstr "Неосновна версія"
 
-#: libraries/advisory_rules_generic.php:122
+#: libraries/classes/Advisory/Rules.php:149
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Версія менше, ніж 5.1.30 (перший стабільний випуск у версії 5.1)."
 
-#: libraries/advisory_rules_generic.php:124
+#: libraries/classes/Advisory/Rules.php:151
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -207,25 +248,25 @@ msgstr ""
 "Необхідно оновитись, оскільки останні версії MySQL 5.1 мають покращену "
 "продуктивність, а MySQL 5.5 і поготів."
 
-#: libraries/advisory_rules_generic.php:136
+#: libraries/classes/Advisory/Rules.php:163
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Версія менше, ніж 5.5.8 (перший стабільний випуск у версії 5.5)."
 
-#: libraries/advisory_rules_generic.php:137
+#: libraries/classes/Advisory/Rules.php:164
 msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr "Необхідно оновитися до стабільної версії MySQL 5.5."
 
-#: libraries/advisory_rules_generic.php:143
-#: libraries/advisory_rules_generic.php:156
+#: libraries/classes/Advisory/Rules.php:170
+#: libraries/classes/Advisory/Rules.php:183
 msgid "Distribution"
 msgstr "Дистрибутив"
 
-#: libraries/advisory_rules_generic.php:146
+#: libraries/classes/Advisory/Rules.php:173
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
 "Версія скомпільована з вихідних кодів, не з офіційного двійкового коду MySQL."
 
-#: libraries/advisory_rules_generic.php:148
+#: libraries/classes/Advisory/Rules.php:175
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -236,15 +277,15 @@ msgstr ""
 "офіційній збірці MySQL, а не пакетам дистрибутивів (на кшталт RedHat, Debian/"
 "Ubuntu тощо)."
 
-#: libraries/advisory_rules_generic.php:152
+#: libraries/classes/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
 msgstr "У version_comment знайдено слово 'source'"
 
-#: libraries/advisory_rules_generic.php:159
+#: libraries/classes/Advisory/Rules.php:186
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "Документація MySQL відповідає лише офіційній збірці MySQL."
 
-#: libraries/advisory_rules_generic.php:161
+#: libraries/classes/Advisory/Rules.php:188
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
@@ -252,19 +293,19 @@ msgstr ""
 "Документація Percona знаходиться на <a href=\"https://www.percona.com/"
 "software/documentation/\">https://www.percona.com/software/documentation/</a>"
 
-#: libraries/advisory_rules_generic.php:164
+#: libraries/classes/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
 msgstr "У version_comment знайдено слово 'percona'"
 
-#: libraries/advisory_rules_generic.php:168
+#: libraries/classes/Advisory/Rules.php:195
 msgid "MySQL Architecture"
 msgstr "Архітектура MySQL"
 
-#: libraries/advisory_rules_generic.php:172
+#: libraries/classes/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL не скомпільовано як 64-бітний пакет."
 
-#: libraries/advisory_rules_generic.php:174
+#: libraries/classes/Advisory/Rules.php:201
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -274,20 +315,20 @@ msgstr ""
 "отже MySQL не зможе отримати доступ до всієї пам'яті. Необхідно розглянути "
 "можливість встановлення 64-бітної версії MySQL."
 
-#: libraries/advisory_rules_generic.php:178
+#: libraries/classes/Advisory/Rules.php:205
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Доступна пам'ять на цьому хості: %s"
 
-#: libraries/advisory_rules_generic.php:184
+#: libraries/classes/Advisory/Rules.php:211
 msgid "Query caching method"
 msgstr "Метод кешування запитів"
 
-#: libraries/advisory_rules_generic.php:188
+#: libraries/classes/Advisory/Rules.php:215
 msgid "Suboptimal caching method."
 msgstr "Субоптимальний метод кешування."
 
-#: libraries/advisory_rules_generic.php:190
+#: libraries/classes/Advisory/Rules.php:217
 #, fuzzy
 #| msgid ""
 #| "You are using the MySQL Query cache with a fairly high traffic database. "
@@ -306,7 +347,7 @@ msgstr ""
 "memcached.html\">Memcached</a>, особливо, якщо у вас є кілька "
 "підпорядкованих серверів."
 
-#: libraries/advisory_rules_generic.php:196
+#: libraries/classes/Advisory/Rules.php:223
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -315,17 +356,17 @@ msgstr ""
 "Кешування запитів увімкнено, і сервер отримує  %d запитів в секунду. Це "
 "правило спрацьовує, якщо є більш ніж 100 запитів в секунду."
 
-#: libraries/advisory_rules_generic.php:204
+#: libraries/classes/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Відсоток сортувань, при якому створюються тимчасові таблиці"
 
-#: libraries/advisory_rules_generic.php:208
-#: libraries/advisory_rules_generic.php:221
+#: libraries/classes/Advisory/Rules.php:235
+#: libraries/classes/Advisory/Rules.php:250
 msgid "Too many sorts are causing temporary tables."
 msgstr "Забагато сортувань викликають створення тимчасових таблиць."
 
-#: libraries/advisory_rules_generic.php:210
-#: libraries/advisory_rules_generic.php:223
+#: libraries/classes/Advisory/Rules.php:237
+#: libraries/classes/Advisory/Rules.php:252
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
@@ -333,7 +374,7 @@ msgstr ""
 "Можливо, слід збільшити {sort_buffer_size} та/або {read_rnd_buffer_size}, в "
 "залежності від обмежень системної пам'яті."
 
-#: libraries/advisory_rules_generic.php:213
+#: libraries/classes/Advisory/Rules.php:241
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
@@ -342,11 +383,11 @@ msgstr ""
 "%s%% всіх сортувань викликає створення тимчасових таблиць, це значення має "
 "бути нижчим 10%%."
 
-#: libraries/advisory_rules_generic.php:218
+#: libraries/classes/Advisory/Rules.php:247
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Частота сортувань, при якому створюються тимчасові таблиці"
 
-#: libraries/advisory_rules_generic.php:226
+#: libraries/classes/Advisory/Rules.php:255
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
@@ -354,15 +395,15 @@ msgstr ""
 "Середнє значення створення тимчасових таблиць: %s, це значення має бути "
 "меншим за 1 на годину."
 
-#: libraries/advisory_rules_generic.php:231
+#: libraries/classes/Advisory/Rules.php:260
 msgid "Sort rows"
 msgstr "Сортувати рядки"
 
-#: libraries/advisory_rules_generic.php:234
+#: libraries/classes/Advisory/Rules.php:263
 msgid "There are lots of rows being sorted."
 msgstr "Було відсортовано велику кількість рядків."
 
-#: libraries/advisory_rules_generic.php:236
+#: libraries/classes/Advisory/Rules.php:265
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -374,20 +415,20 @@ msgstr ""
 "використовують у виразах ORDER BY стовпці індексів, оскільки це призводить "
 "до набагато швидкого сортування."
 
-#: libraries/advisory_rules_generic.php:240
+#: libraries/classes/Advisory/Rules.php:269
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Середня кількість відсортованих рядків: %s"
 
-#: libraries/advisory_rules_generic.php:246
+#: libraries/classes/Advisory/Rules.php:275
 msgid "Rate of joins without indexes"
 msgstr "Рівень об'єднань без індексів"
 
-#: libraries/advisory_rules_generic.php:249
+#: libraries/classes/Advisory/Rules.php:278
 msgid "There are too many joins without indexes."
 msgstr "Забагато об'єднань без індексів."
 
-#: libraries/advisory_rules_generic.php:251
+#: libraries/classes/Advisory/Rules.php:280
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
@@ -396,22 +437,22 @@ msgstr ""
 "стовпців  використаних в операторах об'єднання, значно підвищать швидкість "
 "об'єднання таблиці."
 
-#: libraries/advisory_rules_generic.php:254
+#: libraries/classes/Advisory/Rules.php:283
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Середнє значення об'єднання таблиць: %s, це значення не повинно перевищувати "
 "1 на годину"
 
-#: libraries/advisory_rules_generic.php:259
+#: libraries/classes/Advisory/Rules.php:288
 msgid "Rate of reading first index entry"
 msgstr "Рівень читання першого входження індексу"
 
-#: libraries/advisory_rules_generic.php:262
+#: libraries/classes/Advisory/Rules.php:291
 msgid "The rate of reading the first index entry is high."
 msgstr "Рівень читання першого входження індексу завеликий."
 
-#: libraries/advisory_rules_generic.php:264
+#: libraries/classes/Advisory/Rules.php:293
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -427,22 +468,22 @@ msgstr ""
 "кількість та/або прискорити повні сканування індексу. Ще зменшити повне "
 "сканування індексу можна тільки шляхом переписування запитів."
 
-#: libraries/advisory_rules_generic.php:270
+#: libraries/classes/Advisory/Rules.php:299
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Середнє значення сканування індексу: %s, це значення має бути меншим ніж 1 "
 "на годину"
 
-#: libraries/advisory_rules_generic.php:275
+#: libraries/classes/Advisory/Rules.php:304
 msgid "Rate of reading fixed position"
 msgstr "Рівень читання фіксованого положення"
 
-#: libraries/advisory_rules_generic.php:278
+#: libraries/classes/Advisory/Rules.php:307
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Рівень читання даних з фіксованого положення великий."
 
-#: libraries/advisory_rules_generic.php:280
+#: libraries/classes/Advisory/Rules.php:309
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -452,7 +493,7 @@ msgstr ""
 "повного сканування таблиці, включно із запитами об'єднання, що не "
 "використовують індекси. Додайте індекси, де це можливо."
 
-#: libraries/advisory_rules_generic.php:283
+#: libraries/classes/Advisory/Rules.php:313
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -461,15 +502,15 @@ msgstr ""
 "Середній рівень читання з фіксованого положення: %s, це значення повинно "
 "бути меншим 1 на годину"
 
-#: libraries/advisory_rules_generic.php:288
+#: libraries/classes/Advisory/Rules.php:319
 msgid "Rate of reading next table row"
 msgstr "Рівень читань наступного рядка таблиці"
 
-#: libraries/advisory_rules_generic.php:291
+#: libraries/classes/Advisory/Rules.php:322
 msgid "The rate of reading the next table row is high."
 msgstr "Рівень читань наступного рядка таблиці високий."
 
-#: libraries/advisory_rules_generic.php:293
+#: libraries/classes/Advisory/Rules.php:324
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -477,7 +518,7 @@ msgstr ""
 "Показує, скільки запитів виконує повні сканування таблиць. Додайте індекси, "
 "де це можливо."
 
-#: libraries/advisory_rules_generic.php:295
+#: libraries/classes/Advisory/Rules.php:326
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -485,15 +526,15 @@ msgstr ""
 "Рівень читань наступного рядка: %s, це значення повинно бути меншим 1 на "
 "годину"
 
-#: libraries/advisory_rules_generic.php:301
+#: libraries/classes/Advisory/Rules.php:332
 msgid "Different tmp_table_size and max_heap_table_size"
 msgstr "Різні tmp_table_size та max_heap_table_size"
 
-#: libraries/advisory_rules_generic.php:304
+#: libraries/classes/Advisory/Rules.php:335
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
 msgstr "{tmp_table_size} і {max_heap_table_size} не одне й те саме."
 
-#: libraries/advisory_rules_generic.php:306
+#: libraries/classes/Advisory/Rules.php:337
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -505,17 +546,17 @@ msgstr ""
 "значень. Тому, якщо ви хочете збільшити межу пам'ять таблиці, потрібно також "
 "збільшити і значення другої змінної."
 
-#: libraries/advisory_rules_generic.php:310
+#: libraries/classes/Advisory/Rules.php:341
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Поточні значення tmp_table_size: %s, max_heap_table_size: %s"
 
-#: libraries/advisory_rules_generic.php:316
+#: libraries/classes/Advisory/Rules.php:347
 msgid "Percentage of temp tables on disk"
 msgstr "Відсоток тимчасових таблиць на диску"
 
-#: libraries/advisory_rules_generic.php:320
-#: libraries/advisory_rules_generic.php:341
+#: libraries/classes/Advisory/Rules.php:351
+#: libraries/classes/Advisory/Rules.php:372
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
@@ -523,7 +564,7 @@ msgstr ""
 "Багато тимчасових таблиць пишуться на диск замість того, щоб зберігатися в "
 "пам'яті."
 
-#: libraries/advisory_rules_generic.php:322
+#: libraries/classes/Advisory/Rules.php:353
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -541,7 +582,7 @@ msgstr ""
 "www.facebook.com/note.php?note_id=10150111255065841&comments\">Статті групи "
 "Pythian</a>"
 
-#: libraries/advisory_rules_generic.php:331
+#: libraries/classes/Advisory/Rules.php:362
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -550,11 +591,11 @@ msgstr ""
 "%s%% всіх тимчасових таблиць, які збережені на диск, це значення повинно "
 "бути нижче 25%%"
 
-#: libraries/advisory_rules_generic.php:337
+#: libraries/classes/Advisory/Rules.php:368
 msgid "Temp disk rate"
 msgstr "Співвідношення тимчасових таблиць на диску"
 
-#: libraries/advisory_rules_generic.php:343
+#: libraries/classes/Advisory/Rules.php:374
 #, fuzzy
 #| msgid ""
 #| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
@@ -581,7 +622,7 @@ msgstr ""
 "mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\">Документації "
 "MySQL</a>"
 
-#: libraries/advisory_rules_generic.php:352
+#: libraries/classes/Advisory/Rules.php:383
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -590,16 +631,16 @@ msgstr ""
 "Рівень тимчасових таблиць, що записуються на диск: %s, це значення має бути "
 "меншим  1 на годину"
 
-#: libraries/advisory_rules_generic.php:359
+#: libraries/classes/Advisory/Rules.php:390
 msgid "MyISAM key buffer size"
 msgstr "Розмір буфера ключів MyISAM"
 
-#: libraries/advisory_rules_generic.php:362
+#: libraries/classes/Advisory/Rules.php:393
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Буфер ключів не ініціалізовано. Індекси MyISAM не зберігатимуться в кеші."
 
-#: libraries/advisory_rules_generic.php:364
+#: libraries/classes/Advisory/Rules.php:395
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -607,25 +648,25 @@ msgstr ""
 "Встановіть значення змінної {key_buffer_size}, залежно від розміру індексів "
 "MyISAM. Почніть з 64M."
 
-#: libraries/advisory_rules_generic.php:366
+#: libraries/classes/Advisory/Rules.php:397
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size дорівнює 0"
 
-#: libraries/advisory_rules_generic.php:371
+#: libraries/classes/Advisory/Rules.php:402
 #, fuzzy, no-php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "Максимальний %% буфера ключів MyISAM, що коли-небудь використовувався"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:393
+#: libraries/classes/Advisory/Rules.php:407
+#: libraries/classes/Advisory/Rules.php:424
 #, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "Низький %% використання буфера ключів MyISAM (кеш індексу)."
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:395
+#: libraries/classes/Advisory/Rules.php:409
+#: libraries/classes/Advisory/Rules.php:426
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -635,7 +676,7 @@ msgstr ""
 "впевнитися у видаленні індексу або перегляньте запити і використовувані ними "
 "індекси."
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/classes/Advisory/Rules.php:413
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -643,43 +684,43 @@ msgstr ""
 "Максимальний %% буфера ключів MyISAM, що був використаний: %s%%, це значення "
 "має бути вище 95%%"
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/classes/Advisory/Rules.php:418
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Відсоток використовуваного буфера ключів MyISAM"
 
-#: libraries/advisory_rules_generic.php:399
+#: libraries/classes/Advisory/Rules.php:430
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr "%% використаного буфера ключів MyISAM: %s%%, має перевищувати 95%%"
 
-#: libraries/advisory_rules_generic.php:404
+#: libraries/classes/Advisory/Rules.php:435
 msgid "Percentage of index reads from memory"
 msgstr "Відсоток зчитувань індексу з пам'яті"
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/classes/Advisory/Rules.php:440
 #, fuzzy, no-php-format
 #| msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "%% індексів, які використовують буфер ключів MyISAM, є низьким."
 
-#: libraries/advisory_rules_generic.php:410
+#: libraries/classes/Advisory/Rules.php:441
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Можливо потрібно збільшити {key_buffer_size}."
 
-#: libraries/advisory_rules_generic.php:411
+#: libraries/classes/Advisory/Rules.php:442
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Зчитувань індексу з пам'яті: %s%%, має перевищувати 95%%"
 
-#: libraries/advisory_rules_generic.php:417
+#: libraries/classes/Advisory/Rules.php:448
 msgid "Rate of table open"
 msgstr "Рівень відкритих таблиць"
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/classes/Advisory/Rules.php:451
 msgid "The rate of opening tables is high."
 msgstr "Рівень відкритих таблиць високий."
 
-#: libraries/advisory_rules_generic.php:422
+#: libraries/classes/Advisory/Rules.php:453
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -687,16 +728,16 @@ msgstr ""
 "Відкриття таблиць вимагає витратних операцій введення/виведення з диском. "
 "Збільшення {table_open_cache} допоможе уникнути цього."
 
-#: libraries/advisory_rules_generic.php:424
+#: libraries/classes/Advisory/Rules.php:455
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "Рівень відкритих таблиць: %s, має бути меншим, ніж 10 на годину"
 
-#: libraries/advisory_rules_generic.php:429
+#: libraries/classes/Advisory/Rules.php:460
 msgid "Percentage of used open files limit"
 msgstr "Відсоток ліміту використання відкритих файлів"
 
-#: libraries/advisory_rules_generic.php:433
+#: libraries/classes/Advisory/Rules.php:464
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -708,8 +749,8 @@ msgstr ""
 "Кількість відкритих файлів наближається до максимальної кількості відкритих "
 "файлів. Можливе виникнення помилки \"Забагато відкритих файлів\"."
 
-#: libraries/advisory_rules_generic.php:437
-#: libraries/advisory_rules_generic.php:450
+#: libraries/classes/Advisory/Rules.php:468
+#: libraries/classes/Advisory/Rules.php:481
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -717,64 +758,64 @@ msgstr ""
 "Розгляньте можливість збільшення {open_files_limit} та після зміни "
 "{open_files_limit} і перезавантаження перегляньте журнал помилок."
 
-#: libraries/advisory_rules_generic.php:440
+#: libraries/classes/Advisory/Rules.php:471
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
 "Кількість відкритих файлів складає %s%% від ліміту. Має бути меншим за 85%%"
 
-#: libraries/advisory_rules_generic.php:445
+#: libraries/classes/Advisory/Rules.php:476
 msgid "Rate of open files"
 msgstr "Рівень відкритих файлів"
 
-#: libraries/advisory_rules_generic.php:448
+#: libraries/classes/Advisory/Rules.php:479
 msgid "The rate of opening files is high."
 msgstr "Рівень відкритих файлів високий."
 
-#: libraries/advisory_rules_generic.php:453
+#: libraries/classes/Advisory/Rules.php:484
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Рівень відкритих файлів: %s, має бути меншим, ніж 5 на годину"
 
-#: libraries/advisory_rules_generic.php:459
+#: libraries/classes/Advisory/Rules.php:490
 #, fuzzy, no-php-format
 #| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "Поточні блокування таблиці %%"
 
-#: libraries/advisory_rules_generic.php:463
-#: libraries/advisory_rules_generic.php:473
+#: libraries/classes/Advisory/Rules.php:494
+#: libraries/classes/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
 msgstr "Занадто багато блокувань таблиць не було надано негайно."
 
-#: libraries/advisory_rules_generic.php:464
-#: libraries/advisory_rules_generic.php:474
+#: libraries/classes/Advisory/Rules.php:495
+#: libraries/classes/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Для зменшення очікування блокування оптимізуйте запити та/або використовуйте "
 "InnoDB."
 
-#: libraries/advisory_rules_generic.php:465
+#: libraries/classes/Advisory/Rules.php:496
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Негайних блокувань таблиць: %s%%, має перевищувати 95%%"
 
-#: libraries/advisory_rules_generic.php:470
+#: libraries/classes/Advisory/Rules.php:501
 msgid "Table lock wait rate"
 msgstr "Рівень очікувань блокування таблиці"
 
-#: libraries/advisory_rules_generic.php:475
+#: libraries/classes/Advisory/Rules.php:506
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Рівень очікувань блокування таблиці: %s, має бути меншим, ніж 1 на годину"
 
-#: libraries/advisory_rules_generic.php:480
+#: libraries/classes/Advisory/Rules.php:511
 msgid "Thread cache"
 msgstr "Кеш потоку"
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/classes/Advisory/Rules.php:514
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -782,42 +823,42 @@ msgstr ""
 "Кеш потоку вимкнено, через це буде збільшено навантаження від нових "
 "підключень до MySQL."
 
-#: libraries/advisory_rules_generic.php:484
+#: libraries/classes/Advisory/Rules.php:515
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "Увімкнути кеш потоку, встановивши значення {thread_cache_size} > 0."
 
-#: libraries/advisory_rules_generic.php:485
+#: libraries/classes/Advisory/Rules.php:516
 msgid "The thread cache is set to 0"
 msgstr "Кеш потоку встановлено у 0"
 
-#: libraries/advisory_rules_generic.php:490
+#: libraries/classes/Advisory/Rules.php:521
 #, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "%% співвідношень звернень до кеша потоку"
 
-#: libraries/advisory_rules_generic.php:494
+#: libraries/classes/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
 msgstr "Кеш потоку не є ефективним."
 
-#: libraries/advisory_rules_generic.php:495
+#: libraries/classes/Advisory/Rules.php:526
 msgid "Increase {thread_cache_size}."
 msgstr "Збільшити {thread_cache_size}."
 
-#: libraries/advisory_rules_generic.php:496
+#: libraries/classes/Advisory/Rules.php:527
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "Рівень вдалих звернень до кеша потоку: %s%%, має перевищувати 80%%"
 
-#: libraries/advisory_rules_generic.php:501
+#: libraries/classes/Advisory/Rules.php:532
 msgid "Threads that are slow to launch"
 msgstr "Потоки з повільним запуском"
 
-#: libraries/advisory_rules_generic.php:505
+#: libraries/classes/Advisory/Rules.php:536
 msgid "There are too many threads that are slow to launch."
 msgstr "Забагато потоків з повільним запуском."
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/classes/Advisory/Rules.php:538
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -825,20 +866,20 @@ msgstr ""
 "Це, зазвичай, буває при перевантаженнях основної системи, оскільки самі "
 "операції досить прості. Можливо, зверніть увагу на завантаженість системи."
 
-#: libraries/advisory_rules_generic.php:510
+#: libraries/classes/Advisory/Rules.php:541
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "Запуск %s потоку (потоків) тривав понад %s секунд, а має бути 0"
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/classes/Advisory/Rules.php:546
 msgid "Slow launch time"
 msgstr "Повільний час запуску"
 
-#: libraries/advisory_rules_generic.php:518
+#: libraries/classes/Advisory/Rules.php:549
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time перевищує 2 сек."
 
-#: libraries/advisory_rules_generic.php:520
+#: libraries/classes/Advisory/Rules.php:551
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
@@ -846,16 +887,16 @@ msgstr ""
 "Встановіть значення {slow_launch_time} у 1 або 2 сек. щоб правильно "
 "підраховувати потоки з повільним запуском."
 
-#: libraries/advisory_rules_generic.php:522
+#: libraries/classes/Advisory/Rules.php:553
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time встановлено у %s"
 
-#: libraries/advisory_rules_generic.php:528
+#: libraries/classes/Advisory/Rules.php:559
 msgid "Percentage of used connections"
 msgstr "Відсоток використаних з'єднань"
 
-#: libraries/advisory_rules_generic.php:531
+#: libraries/classes/Advisory/Rules.php:563
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
@@ -863,7 +904,7 @@ msgstr ""
 "Максимальна кількість використаних з'єднань наближається до значення "
 "{max_connections}."
 
-#: libraries/advisory_rules_generic.php:533
+#: libraries/classes/Advisory/Rules.php:566
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -874,7 +915,7 @@ msgstr ""
 "знешкоджувались. Переконайтеся, що код правильно закриває обробники бази "
 "даних."
 
-#: libraries/advisory_rules_generic.php:537
+#: libraries/classes/Advisory/Rules.php:570
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -882,17 +923,17 @@ msgstr ""
 "Max_used_connections складає %s%% від max_connections, має бути меншим, ніж "
 "80%%"
 
-#: libraries/advisory_rules_generic.php:542
+#: libraries/classes/Advisory/Rules.php:575
 msgid "Percentage of aborted connections"
 msgstr "Відсоток перерваних з'єднань"
 
-#: libraries/advisory_rules_generic.php:545
-#: libraries/advisory_rules_generic.php:559
+#: libraries/classes/Advisory/Rules.php:578
+#: libraries/classes/Advisory/Rules.php:592
 msgid "Too many connections are aborted."
 msgstr "Забагато перерваних з'єднань."
 
-#: libraries/advisory_rules_generic.php:547
-#: libraries/advisory_rules_generic.php:561
+#: libraries/classes/Advisory/Rules.php:580
+#: libraries/classes/Advisory/Rules.php:594
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
@@ -903,32 +944,32 @@ msgstr ""
 "source-of-aborted_connects/\">Дана стаття</a> може допомогти вам "
 "відслідковувати джерело проблеми."
 
-#: libraries/advisory_rules_generic.php:551
+#: libraries/classes/Advisory/Rules.php:584
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "%s%% всіх з'єднань перервано. Має бути меншим, ніж 1%%"
 
-#: libraries/advisory_rules_generic.php:556
+#: libraries/classes/Advisory/Rules.php:589
 msgid "Rate of aborted connections"
 msgstr "Співвідношення перерваних з'єднань"
 
-#: libraries/advisory_rules_generic.php:565
+#: libraries/classes/Advisory/Rules.php:598
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr "Рівень перерваних з'єднань %s, має бути меншим, ніж 1 на годину"
 
-#: libraries/advisory_rules_generic.php:570
+#: libraries/classes/Advisory/Rules.php:603
 msgid "Percentage of aborted clients"
 msgstr "Відсоток перерваних з'єднань"
 
-#: libraries/advisory_rules_generic.php:573
-#: libraries/advisory_rules_generic.php:587
+#: libraries/classes/Advisory/Rules.php:606
+#: libraries/classes/Advisory/Rules.php:620
 msgid "Too many clients are aborted."
 msgstr "Забагато перерваних з'єднань."
 
-#: libraries/advisory_rules_generic.php:575
-#: libraries/advisory_rules_generic.php:589
+#: libraries/classes/Advisory/Rules.php:608
+#: libraries/classes/Advisory/Rules.php:622
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -939,44 +980,44 @@ msgstr ""
 "правильного закриття обробника бази даних. Перевірте вашу мережу та "
 "програмний код."
 
-#: libraries/advisory_rules_generic.php:579
+#: libraries/classes/Advisory/Rules.php:612
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% всіх з'єднань перервано. Має бути менше 2%%"
 
-#: libraries/advisory_rules_generic.php:584
+#: libraries/classes/Advisory/Rules.php:617
 msgid "Rate of aborted clients"
 msgstr "Співвідношення перерваних з'єднань"
 
-#: libraries/advisory_rules_generic.php:593
+#: libraries/classes/Advisory/Rules.php:626
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Кількість відмов обслуговування клієнта %s, має бути меншим, ніж 1 за годину"
 
-#: libraries/advisory_rules_generic.php:599
+#: libraries/classes/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB вимкнено?"
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/classes/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
 msgstr "Ви не ввімкнули InnoDB."
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/classes/Advisory/Rules.php:637
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB, зазвичай - найкращий з двигунів таблиць."
 
-#: libraries/advisory_rules_generic.php:605
+#: libraries/classes/Advisory/Rules.php:638
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb встановлено у 'value'"
 
-#: libraries/advisory_rules_generic.php:609
-#: libraries/advisory_rules_generic.php:633
+#: libraries/classes/Advisory/Rules.php:642
+#: libraries/classes/Advisory/Rules.php:669
 msgid "InnoDB log size"
 msgstr "Розмір журналу InnoDB"
 
-#: libraries/advisory_rules_generic.php:613
-#: libraries/advisory_rules_generic.php:640
+#: libraries/classes/Advisory/Rules.php:647
+#: libraries/classes/Advisory/Rules.php:677
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -984,8 +1025,8 @@ msgstr ""
 "Файл журналу InnoDB не є відповідного розміру у відношенні до пула буфера "
 "InnoDB."
 
-#: libraries/advisory_rules_generic.php:615
-#: libraries/advisory_rules_generic.php:642
+#: libraries/classes/Advisory/Rules.php:650
+#: libraries/classes/Advisory/Rules.php:680
 #, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
@@ -1020,8 +1061,8 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">цей запис в блозі</a>"
 
-#: libraries/advisory_rules_generic.php:626
-#: libraries/advisory_rules_generic.php:653
+#: libraries/classes/Advisory/Rules.php:662
+#: libraries/classes/Advisory/Rules.php:692
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -1030,15 +1071,15 @@ msgstr ""
 "Розмір журналу InnoDB складає %s%% від розміру буферного пула InnoDB, а "
 "повинен бути не нижче 20%%"
 
-#: libraries/advisory_rules_generic.php:660
+#: libraries/classes/Advisory/Rules.php:699
 msgid "Max InnoDB log size"
 msgstr "Максимальний розмір журналу InnoDB"
 
-#: libraries/advisory_rules_generic.php:664
+#: libraries/classes/Advisory/Rules.php:704
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Розмір журналу InnoDB є неадекватно великим."
 
-#: libraries/advisory_rules_generic.php:666
+#: libraries/classes/Advisory/Rules.php:706
 #, fuzzy, no-php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
@@ -1071,20 +1112,20 @@ msgstr ""
 "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">цей запис в блозі</a>"
 
-#: libraries/advisory_rules_generic.php:676
+#: libraries/classes/Advisory/Rules.php:717
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Ваш абсолютний розмір журналу InnoDB є %s МБ"
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/classes/Advisory/Rules.php:722
 msgid "InnoDB buffer pool size"
 msgstr "Розмір пула буфера InnoDB"
 
-#: libraries/advisory_rules_generic.php:685
+#: libraries/classes/Advisory/Rules.php:726
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Ваш InnoDB буферний пул доволі малий."
 
-#: libraries/advisory_rules_generic.php:687
+#: libraries/classes/Advisory/Rules.php:728
 #, fuzzy, no-php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -1120,7 +1161,7 @@ msgstr ""
 "Дивіться також <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">ця стаття</a>"
 
-#: libraries/advisory_rules_generic.php:697
+#: libraries/classes/Advisory/Rules.php:738
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1133,15 +1174,15 @@ msgstr ""
 "достатньо для вашої системи, якщо у вас небагато таблиць InnoDB або інших "
 "виконуваних служб на поточній машині."
 
-#: libraries/advisory_rules_generic.php:707
+#: libraries/classes/Advisory/Rules.php:748
 msgid "MyISAM concurrent inserts"
 msgstr "Паралельні вставки MyISAM"
 
-#: libraries/advisory_rules_generic.php:710
+#: libraries/classes/Advisory/Rules.php:751
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Увімкнути {concurrent_insert}"
 
-#: libraries/advisory_rules_generic.php:712
+#: libraries/classes/Advisory/Rules.php:753
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1151,19 +1192,19 @@ msgstr ""
 "записом даної таблиці. Дивіться також <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">Документацію MySQL</a>"
 
-#: libraries/advisory_rules_generic.php:716
+#: libraries/classes/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлено у 0"
 
-#: libraries/advisory_rules_mysql_before80003.php:9
+#: libraries/classes/Advisory/Rules.php:772
 msgid "Query cache disabled"
 msgstr "Кеш запитів вимкнено"
 
-#: libraries/advisory_rules_mysql_before80003.php:12
+#: libraries/classes/Advisory/Rules.php:775
 msgid "The query cache is not enabled."
 msgstr "Кеш запитів не увімкнено."
 
-#: libraries/advisory_rules_mysql_before80003.php:14
+#: libraries/classes/Advisory/Rules.php:777
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -1175,43 +1216,43 @@ msgstr ""
 "значення у MiB і змінишви {query_cache_type} на \"ON\". <b>Примітка:</b> "
 "Якщо використовується memcached, цю рекомендацію ігноруйте."
 
-#: libraries/advisory_rules_mysql_before80003.php:18
+#: libraries/classes/Advisory/Rules.php:781
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "Змінна query_cache_size встановлена в 0, або змінна query_cache_type "
 "встановлена у \"OFF\""
 
-#: libraries/advisory_rules_mysql_before80003.php:23
+#: libraries/classes/Advisory/Rules.php:786
 #, fuzzy, no-php-format
 #| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "Ефективність кешу запитів (%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/classes/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 "Кешування запитів працює неефективно через низький рівень успішних звернень."
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/classes/Advisory/Rules.php:791
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Розгляньте можливість збільшення {query_cache_limit}."
 
-#: libraries/advisory_rules_mysql_before80003.php:29
+#: libraries/classes/Advisory/Rules.php:792
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Поточний рівень успішних звернень до кешу запитів на %s%% менше 20%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:34
+#: libraries/classes/Advisory/Rules.php:797
 msgid "Query Cache usage"
 msgstr "Використання кешу запитів"
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/classes/Advisory/Rules.php:802
 #, fuzzy, no-php-format
 #| msgid "Less than 80%% of the query cache is being utilized."
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "Наразі використовується менше 80%% кешу запитів."
 
-#: libraries/advisory_rules_mysql_before80003.php:41
+#: libraries/classes/Advisory/Rules.php:804
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -1219,7 +1260,7 @@ msgstr ""
 "Це може бути викликано низьким значенням змінної {query_cache_limit}. Також "
 "може допомогти очищення кешу запитів."
 
-#: libraries/advisory_rules_mysql_before80003.php:45
+#: libraries/classes/Advisory/Rules.php:808
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1228,15 +1269,15 @@ msgstr ""
 "Поточне співвідношення вільної пам'яті кешу запитів до загального розміру "
 "кешу запитів складає %s%%. Воно має перевищувати 80%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:52
+#: libraries/classes/Advisory/Rules.php:815
 msgid "Query cache fragmentation"
 msgstr "Фрагментація кешу запитів"
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/classes/Advisory/Rules.php:819
 msgid "The query cache is considerably fragmented."
 msgstr "Кеш запитів значно фрагментований."
 
-#: libraries/advisory_rules_mysql_before80003.php:58
+#: libraries/classes/Advisory/Rules.php:821
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -1258,7 +1299,7 @@ msgstr ""
 "розраховується за формулою: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 
-#: libraries/advisory_rules_mysql_before80003.php:66
+#: libraries/classes/Advisory/Rules.php:829
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1269,11 +1310,11 @@ msgstr ""
 "запитів послідовно чергуються вільні і використовувані блоки. Це значення не "
 "повинно перевищувати 20%%."
 
-#: libraries/advisory_rules_mysql_before80003.php:73
+#: libraries/classes/Advisory/Rules.php:836
 msgid "Query cache low memory prunes"
 msgstr "Очищення нижньої пам'яті кешу запитів"
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/classes/Advisory/Rules.php:840
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -1281,7 +1322,7 @@ msgstr ""
 "Кешовані запити видалені з кешу запитів, через недостатню кількість пам'яті "
 "в кеші."
 
-#: libraries/advisory_rules_mysql_before80003.php:79
+#: libraries/classes/Advisory/Rules.php:842
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -1292,7 +1333,7 @@ msgstr ""
 "разом з його розміром, тому змінюйте це значення невеликими кроками і стежте "
 "за результатами."
 
-#: libraries/advisory_rules_mysql_before80003.php:84
+#: libraries/classes/Advisory/Rules.php:847
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -1301,11 +1342,11 @@ msgstr ""
 "Співвідношення видалених запитів до доданих запитів дорівнює %s%%. Чим нижче "
 "це значення, тим краще (Межа спрацьовування цього правила: 0,1%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:91
+#: libraries/classes/Advisory/Rules.php:854
 msgid "Query cache max size"
 msgstr "Максимальний розмір кешу запитів"
 
-#: libraries/advisory_rules_mysql_before80003.php:96
+#: libraries/classes/Advisory/Rules.php:859
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -1313,7 +1354,7 @@ msgstr ""
 "Розмір кешу запитів перевищує 128 MiB. Великі запити в кеш можуть привести "
 "до помітного навантаження, тому необхідна підтримка стану кешу."
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/classes/Advisory/Rules.php:863
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
@@ -1321,23 +1362,23 @@ msgstr ""
 "В залежності від системного оточення для збільшення швидкодії можливо краще "
 "зменшити це значення."
 
-#: libraries/advisory_rules_mysql_before80003.php:102
+#: libraries/classes/Advisory/Rules.php:865
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Поточний розмір кешу запитів: %s"
 
-#: libraries/advisory_rules_mysql_before80003.php:107
+#: libraries/classes/Advisory/Rules.php:870
 msgid "Query cache min result size"
 msgstr "Мінімальний розмір результату кешу запитів"
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/classes/Advisory/Rules.php:874
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "Максимальний розмір результату, встановлений в кеші запитів, початково "
 "дорівнює 1МіБ."
 
-#: libraries/advisory_rules_mysql_before80003.php:113
+#: libraries/classes/Advisory/Rules.php:876
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -1357,50 +1398,9 @@ msgstr ""
 "недійсні через оновлення таблиці), підвищення {query_cache_limit} може "
 "знизити ефективність."
 
-#: libraries/advisory_rules_mysql_before80003.php:120
+#: libraries/classes/Advisory/Rules.php:883
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "Змінній query_cache_limit присвоєно значення 1 MiB"
-
-#: libraries/classes/Advisor.php:234
-#, php-format
-msgid "Error when evaluating: %s"
-msgstr "Помилка при оцінці: %s"
-
-#: libraries/classes/Advisor.php:261
-#, php-format
-msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Не вдалося виконати визначення передумови для правила '%s'."
-
-#: libraries/classes/Advisor.php:281
-#, php-format
-msgid "Failed calculating value for rule '%s'."
-msgstr "Не вдалося виконати обчислення значення для правила '%s'."
-
-#: libraries/classes/Advisor.php:300
-#, php-format
-msgid "Failed running test for rule '%s'."
-msgstr "Не вдалося виконати тест для правила \"%s\"."
-
-#: libraries/classes/Advisor.php:328
-#, php-format
-msgid "Failed formatting string for rule '%s'."
-msgstr "Не вдалося виконати форматування рядка для правила '%s'."
-
-#: libraries/classes/Advisor.php:413
-msgid "per second"
-msgstr "за секунду"
-
-#: libraries/classes/Advisor.php:416
-msgid "per minute"
-msgstr "за хвилину"
-
-#: libraries/classes/Advisor.php:419
-msgid "per hour"
-msgstr "за годину"
-
-#: libraries/classes/Advisor.php:422
-msgid "per day"
-msgstr "за день"
 
 #: libraries/classes/BrowseForeigners.php:200
 msgid "Search:"
@@ -4678,7 +4678,7 @@ msgstr "Звичайно"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -5100,7 +5100,7 @@ msgstr "Немає закладок"
 msgid "SQL Query Console"
 msgstr "Консоль SQL запитів"
 
-#: libraries/classes/Controllers/AbstractController.php:73
+#: libraries/classes/Controllers/AbstractController.php:74
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
 #: libraries/classes/DbTableExists.php:45
@@ -5295,7 +5295,7 @@ msgstr "Так"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:317
 #: libraries/classes/Controllers/Table/ReplaceController.php:418
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:720 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Змін немає"
 
@@ -6363,7 +6363,7 @@ msgstr "Статус"
 
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:472
 #: libraries/classes/Plugins/Export/ExportOdt.php:594
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
@@ -6847,7 +6847,7 @@ msgstr "Другий етап нормалізації (2NF)"
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:419
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
 #: libraries/classes/Normalization.php:375
 msgid "Done"
 msgstr "Готово"
@@ -7573,20 +7573,27 @@ msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Невірний тип експорту"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+msgid ""
+"You can not open, save or delete your page layout, as IndexedDB is not "
+"working in your browser and your phpMyAdmin configuration storage is not "
+"configured for this."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Таблиця %s вже існує!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Приховати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7595,275 +7602,275 @@ msgid "Show"
 msgstr "Показати"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "January"
 msgstr "Січень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "February"
 msgstr "Лютий"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "March"
 msgstr "Березень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "April"
 msgstr "Квітень"
 
 #. l10n: Month name
 #. l10n: Short month name for May
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 msgid "May"
 msgstr "Травень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "June"
 msgstr "Червень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 msgid "July"
 msgstr "Липень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgid "August"
 msgstr "Серпень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgid "September"
 msgstr "Вересень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgid "October"
 msgstr "Жовтень"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgid "November"
 msgstr "Листопад"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 msgid "December"
 msgstr "Грудень"
 
 #. l10n: Short month name for January
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #: libraries/classes/Util.php:664
 msgid "Jan"
 msgstr "Січ"
 
 #. l10n: Short month name for February
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:666
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name for March
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:668
 msgid "Mar"
 msgstr "Бер"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:670
 msgid "Apr"
 msgstr "Квт"
 
 #. l10n: Short month name for June
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:674
 msgid "Jun"
 msgstr "Чрв"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #: libraries/classes/Util.php:676
 msgid "Jul"
 msgstr "Лип"
 
 #. l10n: Short month name for August
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #: libraries/classes/Util.php:678
 msgid "Aug"
 msgstr "Сер"
 
 #. l10n: Short month name for September
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #: libraries/classes/Util.php:680
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name for October
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #: libraries/classes/Util.php:682
 msgid "Oct"
 msgstr "Жов"
 
 #. l10n: Short month name for November
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #: libraries/classes/Util.php:684
 msgid "Nov"
 msgstr "Лис"
 
 #. l10n: Short month name for December
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:686
 msgid "Dec"
 msgstr "Гру"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/config.values.php:197
 msgid "Sunday"
 msgstr "Неділя"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #: libraries/config.values.php:191
 msgid "Monday"
 msgstr "Понеділок"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
 #: libraries/config.values.php:192
 msgid "Tuesday"
 msgstr "Вівторок"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #: libraries/config.values.php:193
 msgid "Wednesday"
 msgstr "Середа"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #: libraries/config.values.php:194
 msgid "Thursday"
 msgstr "Четвер"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
 #: libraries/config.values.php:195
 msgid "Friday"
 msgstr "П'ятниця"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #: libraries/config.values.php:196
 msgid "Saturday"
 msgstr "Субота"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 msgid "Sun"
 msgstr "Нед"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
 #: libraries/classes/Util.php:692
 msgid "Mon"
 msgstr "Пон"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
 #: libraries/classes/Util.php:694
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #: libraries/classes/Util.php:696
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
 #: libraries/classes/Util.php:698
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
 #: libraries/classes/Util.php:700
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
 #: libraries/classes/Util.php:702
 msgid "Sat"
 msgstr "Сб"
 
 #. l10n: Minimal week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
 msgid "Su"
 msgstr "Нд"
 
 #. l10n: Minimal week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
 msgid "Mo"
 msgstr "Пн"
 
 #. l10n: Minimal week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
 msgid "Tu"
 msgstr "Вт"
 
 #. l10n: Minimal week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
 msgid "Th"
 msgstr "Чт"
 
 #. l10n: Minimal week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
 msgid "Fr"
 msgstr "Пт"
 
 #. l10n: Minimal week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
 msgid "Sa"
 msgstr "Сб"
 
 #. l10n: Column header for week of the year in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
 msgid "Wk"
 msgstr "Тж"
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -7871,22 +7878,22 @@ msgid "none"
 msgstr "none"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
 msgid "Hour"
 msgstr "Година"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
 msgid "Minute"
 msgstr "Хвилина"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
 msgid "Second"
 msgstr "Секунда"
 
 #. l10n: Previous month. Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -7894,93 +7901,93 @@ msgid "Prev"
 msgstr "Попередня"
 
 #. l10n: Next month. Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
 msgid "Next"
 msgstr "Наступні"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
 msgid "Today"
 msgstr "Сьогодні"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
 msgid "This field is required"
 msgstr "Це поле є обов'язковим"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
 msgid "Please fix this field"
 msgstr "Будь ласка, виправте це поле"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
 msgid "Please enter a valid email address"
 msgstr "Будь ласка, введіть дійсну адресу електронної пошти"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
 msgid "Please enter a valid URL"
 msgstr "Введіть дійсний URL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
 msgid "Please enter a valid date"
 msgstr "Будь ласка, введіть дійсну дату"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
 msgid "Please enter a valid date ( ISO )"
 msgstr "Будь ласка, введіть правильну дату (ISO)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 msgid "Please enter a valid number"
 msgstr "Будь ласка, введіть дійсний номер"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
 msgid "Please enter a valid credit card number"
 msgstr "Будь ласка, введіть дійсний номер кредитної картки"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
 msgid "Please enter only digits"
 msgstr "Будь ласка, введіть лише цифри"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
 msgid "Please enter the same value again"
 msgstr "Будь ласка, введіть те ж значення знову"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
 msgid "Please enter no more than {0} characters"
 msgstr "Будь ласка, введіть не більше {0} символів"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
 msgid "Please enter at least {0} characters"
 msgstr "Будь ласка, введіть принаймні {0} символів"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Будь ласка, введіть значення довжиною від {0} до {1} символів"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
 msgid "Please enter a value between {0} and {1}"
 msgstr "Будь ласка, введіть значення між {0} і {1}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:832
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Будь ласка, введіть значення менше або дорівнює {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Будь ласка, введіть значення більше або дорівнює {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:834
 msgid "Please enter a valid date or time"
 msgstr "Будь ласка, введіть дійсну дату або час"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:835
 msgid "Please enter a valid HEX input"
 msgstr "Будь ласка, введіть правильний вхід HEX"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:837
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:840
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -10416,7 +10423,7 @@ msgstr "Показ SQL-запиту"
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор вставленого рядка: %1$d"
 
-#: libraries/classes/LanguageManager.php:971
+#: libraries/classes/LanguageManager.php:979
 msgid "Ignoring unsupported language code."
 msgstr "Ігнорувати непідтримуваний код мови."
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-20 00:16+0000\n"
+"POT-Creation-Date: 2022-02-27 00:17+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,15 +15,56 @@ msgstr ""
 "X-Generator: Weblate 4.11-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
-#: libraries/advisory_rules_generic.php:9
+#: libraries/classes/Advisory/Advisor.php:240
+#, php-format
+msgid "Error when evaluating: %s"
+msgstr "Terjadi error saat mengevaluasi: %s"
+
+#: libraries/classes/Advisory/Advisor.php:267
+#, php-format
+msgid "Failed evaluating precondition for rule '%s'."
+msgstr "Gagal mengevaluasi prasyarat untuk aturan '%s'."
+
+#: libraries/classes/Advisory/Advisor.php:287
+#, php-format
+msgid "Failed calculating value for rule '%s'."
+msgstr "Gagal menghitung nilai aturan '%s'."
+
+#: libraries/classes/Advisory/Advisor.php:306
+#, php-format
+msgid "Failed running test for rule '%s'."
+msgstr "Gagal menjalankan tes untuk aturan '%s'."
+
+#: libraries/classes/Advisory/Advisor.php:334
+#, php-format
+msgid "Failed formatting string for rule '%s'."
+msgstr "Gagal memformat string untuk aturan '%s'."
+
+#: libraries/classes/Advisory/Advisor.php:419
+msgid "per second"
+msgstr "per detik"
+
+#: libraries/classes/Advisory/Advisor.php:422
+msgid "per minute"
+msgstr "per menit"
+
+#: libraries/classes/Advisory/Advisor.php:425
+msgid "per hour"
+msgstr "dalam sejam"
+
+#: libraries/classes/Advisory/Advisor.php:428
+msgid "per day"
+msgstr "per hari"
+
+#: libraries/classes/Advisory/Rules.php:34
 msgid "Uptime below one day"
 msgstr "Uptime kurang dari satu hari"
 
-#: libraries/advisory_rules_generic.php:12
+#: libraries/classes/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "Uptime kurang dari 1 hari, tuning kinerja mungkin tidak akurat."
 
-#: libraries/advisory_rules_generic.php:14
+#: libraries/classes/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -32,16 +73,16 @@ msgstr ""
 "server berjalan lebih lama dari satu hari sebelum menjalankan penganalisis "
 "ini"
 
-#: libraries/advisory_rules_generic.php:17
+#: libraries/classes/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Uptime hanya %s"
 
-#: libraries/advisory_rules_generic.php:22
+#: libraries/classes/Advisory/Rules.php:47
 msgid "Questions below 1,000"
 msgstr "Perintah di bawah 1.000"
 
-#: libraries/advisory_rules_generic.php:26
+#: libraries/classes/Advisory/Rules.php:51
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -49,7 +90,7 @@ msgstr ""
 "Kurang dari 1.000 perintah telah dijalankan oleh server ini. Rekomendasi "
 "mungkin tidak akurat."
 
-#: libraries/advisory_rules_generic.php:30
+#: libraries/classes/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -57,23 +98,23 @@ msgstr ""
 "Biarkan server berjalan untuk waktu yang lebih lama hingga server tersebut "
 "mengeksekusi lebih banyak kueri."
 
-#: libraries/advisory_rules_generic.php:32
+#: libraries/classes/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Jumlah Perintah saat ini: %s"
 
-#: libraries/advisory_rules_generic.php:37
+#: libraries/classes/Advisory/Rules.php:62
 msgid "Percentage of slow queries"
 msgstr "Persentase kueri lambat"
 
-#: libraries/advisory_rules_generic.php:41
+#: libraries/classes/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 "Ada banyak query yang lambat dibandingkan dengan jumlah keseluruhan Query."
 
-#: libraries/advisory_rules_generic.php:43
-#: libraries/advisory_rules_generic.php:56
+#: libraries/classes/Advisory/Rules.php:68
+#: libraries/classes/Advisory/Rules.php:81
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -81,23 +122,23 @@ msgstr ""
 "Anda mungkin ingin meningkatkan {long_query_time} atau mengoptimalkan kueri "
 "yang tercantum di log kueri yang lambat"
 
-#: libraries/advisory_rules_generic.php:45
+#: libraries/classes/Advisory/Rules.php:70
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Tingkat lambat permintaan harus di bawah 5%%, nilai Anda adalah %s%%."
 
-#: libraries/advisory_rules_generic.php:50
+#: libraries/classes/Advisory/Rules.php:75
 msgid "Slow query rate"
 msgstr "Laju kueri lambat"
 
-#: libraries/advisory_rules_generic.php:54
+#: libraries/classes/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "Ada persentase yang tinggi dari kueri lambat dibandingkan dengan waktu aktif "
 "server."
 
-#: libraries/advisory_rules_generic.php:58
+#: libraries/classes/Advisory/Rules.php:84
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -106,11 +147,11 @@ msgstr ""
 "Anda memiliki tingkat kueri yang lambat sebesar %s per jam, Anda harus "
 "memiliki kurang dari 1%% per jam."
 
-#: libraries/advisory_rules_generic.php:63
+#: libraries/classes/Advisory/Rules.php:90
 msgid "Long query time"
 msgstr "Waktu kueri panjang"
 
-#: libraries/advisory_rules_generic.php:67
+#: libraries/classes/Advisory/Rules.php:94
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -118,7 +159,7 @@ msgstr ""
 "{long_query_time} disetel ke 10 detik atau lebih, jadi hanya kueri lambat "
 "yang membutuhkan waktu di atas 10 detik yang dicatat."
 
-#: libraries/advisory_rules_generic.php:71
+#: libraries/classes/Advisory/Rules.php:98
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -126,23 +167,23 @@ msgstr ""
 "Disarankan untuk mengatur {long_query_time} ke nilai yang lebih rendah, "
 "tergantung pada lingkungan Anda. Disarankan biasanya nilai dari 1-5 detik."
 
-#: libraries/advisory_rules_generic.php:74
+#: libraries/classes/Advisory/Rules.php:101
 #, fuzzy, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time disetel menjadi %d detik."
 
-#: libraries/advisory_rules_generic.php:79
-#: libraries/advisory_rules_generic.php:92
+#: libraries/classes/Advisory/Rules.php:106
+#: libraries/classes/Advisory/Rules.php:119
 msgid "Slow query logging"
 msgstr "Log kueri lambat"
 
-#: libraries/advisory_rules_generic.php:83
-#: libraries/advisory_rules_generic.php:96
+#: libraries/classes/Advisory/Rules.php:110
+#: libraries/classes/Advisory/Rules.php:123
 msgid "The slow query log is disabled."
 msgstr "Log kueri yang lambat dinonaktifkan."
 
-#: libraries/advisory_rules_generic.php:85
+#: libraries/classes/Advisory/Rules.php:112
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -150,11 +191,11 @@ msgstr ""
 "Aktifkan pembuatan log kueri yang lambat dengan menyetel {log_slow_queries} "
 "ke 'ON'. Ini akan membantu memecahkan masalah kueri yang berkinerja buruk."
 
-#: libraries/advisory_rules_generic.php:88
+#: libraries/classes/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries disetel ke 'OFF'"
 
-#: libraries/advisory_rules_generic.php:98
+#: libraries/classes/Advisory/Rules.php:125
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -162,19 +203,19 @@ msgstr ""
 "Aktifkan logging query dengan menetapkan {slow_query_log} ke 'ON'. Ini akan "
 "membantu pemecahan masalah pada query yang bekerja buruk."
 
-#: libraries/advisory_rules_generic.php:101
+#: libraries/classes/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log disetel ke 'OFF'"
 
-#: libraries/advisory_rules_generic.php:106
+#: libraries/classes/Advisory/Rules.php:133
 msgid "Release Series"
 msgstr "Seri Rilis"
 
-#: libraries/advisory_rules_generic.php:109
+#: libraries/classes/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
 msgstr "Versi Server MySQL dibawah 5.1."
 
-#: libraries/advisory_rules_generic.php:111
+#: libraries/classes/Advisory/Rules.php:138
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -182,24 +223,24 @@ msgstr ""
 "Anda harus meningkatkan, karena MySQL 5.1 telah meningkatkan kinerja, dan "
 "MySQL 5.5 bahkan lebih."
 
-#: libraries/advisory_rules_generic.php:113
-#: libraries/advisory_rules_generic.php:127
-#: libraries/advisory_rules_generic.php:138
+#: libraries/classes/Advisory/Rules.php:140
+#: libraries/classes/Advisory/Rules.php:154
+#: libraries/classes/Advisory/Rules.php:165
 #, php-format
 msgid "Current version: %s"
 msgstr "Versi saat ini: %s"
 
-#: libraries/advisory_rules_generic.php:118
-#: libraries/advisory_rules_generic.php:132
+#: libraries/classes/Advisory/Rules.php:145
+#: libraries/classes/Advisory/Rules.php:159
 msgid "Minor Version"
 msgstr "Versi Minor"
 
-#: libraries/advisory_rules_generic.php:122
+#: libraries/classes/Advisory/Rules.php:149
 #, fuzzy
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Versi kurang dari 5.1.30 (GA rilis pertama dari 5.1)."
 
-#: libraries/advisory_rules_generic.php:124
+#: libraries/classes/Advisory/Rules.php:151
 #, fuzzy
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
@@ -208,28 +249,28 @@ msgstr ""
 "Anda harus meng-upgrade, karena versi terbaru MySQL 5.1 telah meningkatkan "
 "kinerja dan MySQL 5.5 bahkan lebih."
 
-#: libraries/advisory_rules_generic.php:136
+#: libraries/classes/Advisory/Rules.php:163
 #, fuzzy
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Versi kurang dari 5.5.8 (GA rilis pertama dari 5.5)."
 
-#: libraries/advisory_rules_generic.php:137
+#: libraries/classes/Advisory/Rules.php:164
 #, fuzzy
 #| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr "Anda harus memperbarui ke versi stabil MySQL 5.5"
 
-#: libraries/advisory_rules_generic.php:143
-#: libraries/advisory_rules_generic.php:156
+#: libraries/classes/Advisory/Rules.php:170
+#: libraries/classes/Advisory/Rules.php:183
 msgid "Distribution"
 msgstr "Distribusi"
 
-#: libraries/advisory_rules_generic.php:146
+#: libraries/classes/Advisory/Rules.php:173
 #, fuzzy
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "Versi dikompilasi dari sumber, bukan biner resmi MySQL."
 
-#: libraries/advisory_rules_generic.php:148
+#: libraries/classes/Advisory/Rules.php:175
 #, fuzzy
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
@@ -241,16 +282,16 @@ msgstr ""
 "binari resmi, tidak ada distribusi paket (seperti RedHat, Debian / Ubuntu "
 "dll)."
 
-#: libraries/advisory_rules_generic.php:152
+#: libraries/classes/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
 msgstr "'source' ditemukan pada version_comment"
 
-#: libraries/advisory_rules_generic.php:159
+#: libraries/classes/Advisory/Rules.php:186
 #, fuzzy
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "The MySQL manual saja cukup akurat untuk MySQL binari resmi."
 
-#: libraries/advisory_rules_generic.php:161
+#: libraries/classes/Advisory/Rules.php:188
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
@@ -258,20 +299,20 @@ msgstr ""
 "Dokumentasi percona di <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 
-#: libraries/advisory_rules_generic.php:164
+#: libraries/classes/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
 msgstr "'percona' ditemukan pada version_comment"
 
-#: libraries/advisory_rules_generic.php:168
+#: libraries/classes/Advisory/Rules.php:195
 msgid "MySQL Architecture"
 msgstr "Arsitektur MySQL"
 
-#: libraries/advisory_rules_generic.php:172
+#: libraries/classes/Advisory/Rules.php:199
 #, fuzzy
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL tidak dikompilasi sebagai paket 64-bit."
 
-#: libraries/advisory_rules_generic.php:174
+#: libraries/classes/Advisory/Rules.php:201
 #, fuzzy
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
@@ -282,22 +323,22 @@ msgstr ""
 "localhost), sehingga MySQL mungkin tidak dapat mengakses semua memori Anda. "
 "Anda mungkin ingin mempertimbangkan untuk menginstal versi 64-bit dari MySQL."
 
-#: libraries/advisory_rules_generic.php:178
+#: libraries/classes/Advisory/Rules.php:205
 #, fuzzy, php-format
 msgid "Available memory on this host: %s"
 msgstr "Tersedia memori pada host ini: %s"
 
-#: libraries/advisory_rules_generic.php:184
+#: libraries/classes/Advisory/Rules.php:211
 msgid "Query caching method"
 msgstr "Metode penyinggahan kueri"
 
-#: libraries/advisory_rules_generic.php:188
+#: libraries/classes/Advisory/Rules.php:215
 #, fuzzy
 #| msgid "Query caching method"
 msgid "Suboptimal caching method."
 msgstr "Metode penyinggahan kueri"
 
-#: libraries/advisory_rules_generic.php:190
+#: libraries/classes/Advisory/Rules.php:217
 #, fuzzy
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
@@ -310,7 +351,7 @@ msgstr ""
 "dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> bukan "
 "cache MySQL Query, terutama jika Anda memiliki beberapa budak."
 
-#: libraries/advisory_rules_generic.php:196
+#: libraries/classes/Advisory/Rules.php:223
 #, fuzzy, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -319,17 +360,17 @@ msgstr ""
 "The cache query diaktifkan dan server menerima %d query per detik. Aturan "
 "ini kebakaran jika ada lebih dari 100 permintaan per detik."
 
-#: libraries/advisory_rules_generic.php:204
+#: libraries/classes/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Persentase pengurutan yang menyebabkan tabel temporer"
 
-#: libraries/advisory_rules_generic.php:208
-#: libraries/advisory_rules_generic.php:221
+#: libraries/classes/Advisory/Rules.php:235
+#: libraries/classes/Advisory/Rules.php:250
 msgid "Too many sorts are causing temporary tables."
 msgstr "Terlalu banyak pengurutan yang menyebabkan tabel temporer."
 
-#: libraries/advisory_rules_generic.php:210
-#: libraries/advisory_rules_generic.php:223
+#: libraries/classes/Advisory/Rules.php:237
+#: libraries/classes/Advisory/Rules.php:252
 #, fuzzy
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
@@ -338,7 +379,7 @@ msgstr ""
 "Pertimbangkan untuk meningkatkan {sort_buffer_size} dan / atau "
 "{read_rnd_buffer_size}, tergantung pada batas memori sistem Anda"
 
-#: libraries/advisory_rules_generic.php:213
+#: libraries/classes/Advisory/Rules.php:241
 #, fuzzy, php-format
 #| msgid ""
 #| "Rate of temporary tables being written to disk: %s, this value should be "
@@ -350,11 +391,11 @@ msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
 "per jam"
 
-#: libraries/advisory_rules_generic.php:218
+#: libraries/classes/Advisory/Rules.php:247
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Laju pengurutan yang menyebabkan tabel temporer"
 
-#: libraries/advisory_rules_generic.php:226
+#: libraries/classes/Advisory/Rules.php:255
 #, fuzzy, php-format
 #| msgid ""
 #| "Rate of temporary tables being written to disk: %s, this value should be "
@@ -365,16 +406,16 @@ msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
 "per jam"
 
-#: libraries/advisory_rules_generic.php:231
+#: libraries/classes/Advisory/Rules.php:260
 msgid "Sort rows"
 msgstr "Urutkan baris"
 
-#: libraries/advisory_rules_generic.php:234
+#: libraries/classes/Advisory/Rules.php:263
 #, fuzzy
 msgid "There are lots of rows being sorted."
 msgstr "Ada banyak baris yang diurutkan."
 
-#: libraries/advisory_rules_generic.php:236
+#: libraries/classes/Advisory/Rules.php:265
 #, fuzzy
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
@@ -387,20 +428,20 @@ msgstr ""
 "penggunaan diindeks kolom dalam klausa ORDER BY, karena hal ini akan "
 "menghasilkan lebih cepat menyortir"
 
-#: libraries/advisory_rules_generic.php:240
+#: libraries/classes/Advisory/Rules.php:269
 #, fuzzy, php-format
 msgid "Sorted rows average: %s"
 msgstr "Pengurutan baris rata-rata: %s"
 
-#: libraries/advisory_rules_generic.php:246
+#: libraries/classes/Advisory/Rules.php:275
 msgid "Rate of joins without indexes"
 msgstr "Laju join tanpa indeks"
 
-#: libraries/advisory_rules_generic.php:249
+#: libraries/classes/Advisory/Rules.php:278
 msgid "There are too many joins without indexes."
 msgstr "Terlalu banyak join tanpa indeks."
 
-#: libraries/advisory_rules_generic.php:251
+#: libraries/classes/Advisory/Rules.php:280
 #, fuzzy
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
@@ -410,7 +451,7 @@ msgstr ""
 "untuk kolom yang digunakan dalam kondisi bergabung akan sangat mempercepat "
 "meja bergabung"
 
-#: libraries/advisory_rules_generic.php:254
+#: libraries/classes/Advisory/Rules.php:283
 #, fuzzy, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
@@ -420,19 +461,19 @@ msgstr ""
 "Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
 "dari 1 per jam"
 
-#: libraries/advisory_rules_generic.php:259
+#: libraries/classes/Advisory/Rules.php:288
 #, fuzzy
 #| msgid "Rate of joins without indexes"
 msgid "Rate of reading first index entry"
 msgstr "Laju join tanpa indeks"
 
-#: libraries/advisory_rules_generic.php:262
+#: libraries/classes/Advisory/Rules.php:291
 #, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the first index entry is high."
 msgstr "Tempat menampilkan tautan baris tabel"
 
-#: libraries/advisory_rules_generic.php:264
+#: libraries/classes/Advisory/Rules.php:293
 #, fuzzy
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
@@ -449,7 +490,7 @@ msgstr ""
 "atau mempercepat scan indeks penuh . Selain itu scan indeks penuh hanya "
 "dapat dikurangi dengan menulis ulang query."
 
-#: libraries/advisory_rules_generic.php:270
+#: libraries/classes/Advisory/Rules.php:299
 #, fuzzy, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
@@ -459,19 +500,19 @@ msgstr ""
 "Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
 "dari 1 per jam"
 
-#: libraries/advisory_rules_generic.php:275
+#: libraries/classes/Advisory/Rules.php:304
 #, fuzzy
 #| msgid "Rate of open files"
 msgid "Rate of reading fixed position"
 msgstr "Tingkat berkas yang terbuka"
 
-#: libraries/advisory_rules_generic.php:278
+#: libraries/classes/Advisory/Rules.php:307
 #, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Tempat menampilkan tautan baris tabel"
 
-#: libraries/advisory_rules_generic.php:280
+#: libraries/classes/Advisory/Rules.php:309
 #, fuzzy
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
@@ -482,7 +523,7 @@ msgstr ""
 "atau melakukan scan meja penuh, termasuk bergabung dengan query yang tidak "
 "menggunakan indeks. Menambahkan indeks mana yang berlaku."
 
-#: libraries/advisory_rules_generic.php:283
+#: libraries/classes/Advisory/Rules.php:313
 #, fuzzy, php-format
 #| msgid ""
 #| "Rate of temporary tables being written to disk: %s, this value should be "
@@ -494,19 +535,19 @@ msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
 "per jam"
 
-#: libraries/advisory_rules_generic.php:288
+#: libraries/classes/Advisory/Rules.php:319
 #, fuzzy
 #| msgid "Rate of table open"
 msgid "Rate of reading next table row"
 msgstr "Tingkat tabel yang terbuka"
 
-#: libraries/advisory_rules_generic.php:291
+#: libraries/classes/Advisory/Rules.php:322
 #, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
 msgstr "Tempat menampilkan tautan baris tabel"
 
-#: libraries/advisory_rules_generic.php:293
+#: libraries/classes/Advisory/Rules.php:324
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -514,7 +555,7 @@ msgstr ""
 "Hal ini menunjukkan bahwa banyak kueri yang melakukan scan tabel secara "
 "menyeluruh. Menambahkan indeks dimana memungkinkan."
 
-#: libraries/advisory_rules_generic.php:295
+#: libraries/classes/Advisory/Rules.php:326
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -522,15 +563,15 @@ msgstr ""
 "Tingkat (kecepatan) membaca baris tabel selanjutnya: %s, nilai ini "
 "seharusnya kurang dari 1 per jam"
 
-#: libraries/advisory_rules_generic.php:301
+#: libraries/classes/Advisory/Rules.php:332
 msgid "Different tmp_table_size and max_heap_table_size"
 msgstr "tmp_table_size max_heap_table_size berbeda"
 
-#: libraries/advisory_rules_generic.php:304
+#: libraries/classes/Advisory/Rules.php:335
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
 msgstr "{tmp_table_size} dan {max_heap_table_size} tidak sama."
 
-#: libraries/advisory_rules_generic.php:306
+#: libraries/classes/Advisory/Rules.php:337
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -542,24 +583,24 @@ msgstr ""
 "memori tabel. Jadi jika Anda ingin meningkatkan batas tabel di memori anda "
 "harus meningkatkan nilai lain juga."
 
-#: libraries/advisory_rules_generic.php:310
+#: libraries/classes/Advisory/Rules.php:341
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Nilai sekarang tmp_table_size: %s, max_heap_table_size: %s"
 
-#: libraries/advisory_rules_generic.php:316
+#: libraries/classes/Advisory/Rules.php:347
 msgid "Percentage of temp tables on disk"
 msgstr "Persentase tabel sementara di disk"
 
-#: libraries/advisory_rules_generic.php:320
-#: libraries/advisory_rules_generic.php:341
+#: libraries/classes/Advisory/Rules.php:351
+#: libraries/classes/Advisory/Rules.php:372
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
 "Banyak tabel sementara yang ditulis ke disk daripada disimpan di memori."
 
-#: libraries/advisory_rules_generic.php:322
+#: libraries/classes/Advisory/Rules.php:353
 #, fuzzy
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
@@ -579,7 +620,7 @@ msgstr ""
 "facebook.com/note.php?note_id=10150111255065841&comments\">Artikel oleh the "
 "Pythian Group</a>"
 
-#: libraries/advisory_rules_generic.php:331
+#: libraries/classes/Advisory/Rules.php:362
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -588,11 +629,11 @@ msgstr ""
 "%s%% dari semua tabel sementara sedang ditulis ke disk, nilai ini seharusnya "
 "kurang dari 25%%"
 
-#: libraries/advisory_rules_generic.php:337
+#: libraries/classes/Advisory/Rules.php:368
 msgid "Temp disk rate"
 msgstr "Tingkat disk sementara"
 
-#: libraries/advisory_rules_generic.php:343
+#: libraries/classes/Advisory/Rules.php:374
 #, fuzzy
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
@@ -612,7 +653,7 @@ msgstr ""
 "dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\">MySQL "
 "Documentation</a>"
 
-#: libraries/advisory_rules_generic.php:352
+#: libraries/classes/Advisory/Rules.php:383
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -621,17 +662,17 @@ msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
 "per jam"
 
-#: libraries/advisory_rules_generic.php:359
+#: libraries/classes/Advisory/Rules.php:390
 msgid "MyISAM key buffer size"
 msgstr "Ukuran penyangga kunci MyISAM"
 
-#: libraries/advisory_rules_generic.php:362
+#: libraries/classes/Advisory/Rules.php:393
 #, fuzzy
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Penyangga Key tidak diinisialisasi. Tidak ada indeks MyISAM akan di-cache."
 
-#: libraries/advisory_rules_generic.php:364
+#: libraries/classes/Advisory/Rules.php:395
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -639,25 +680,25 @@ msgstr ""
 "Set {key_buffer_size} tergantung pada ukuran indeks MyISAM Anda. 64M adalah "
 "awal yang baik."
 
-#: libraries/advisory_rules_generic.php:366
+#: libraries/classes/Advisory/Rules.php:397
 msgid "key_buffer_size is 0"
 msgstr "nilai key_buffer_size adalah 0"
 
-#: libraries/advisory_rules_generic.php:371
+#: libraries/classes/Advisory/Rules.php:402
 #, fuzzy, no-php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "Jumlah %% maksimum penyangga kunci MyISAM yang pernah dipakai"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:393
+#: libraries/classes/Advisory/Rules.php:407
+#: libraries/classes/Advisory/Rules.php:424
 #, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "Penyangga kunci MyISAM (singgahan indeks) %% yang dipakai rendah."
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:395
+#: libraries/classes/Advisory/Rules.php:409
+#: libraries/classes/Advisory/Rules.php:426
 #, fuzzy
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
@@ -668,7 +709,7 @@ msgstr ""
 "memeriksa meja Anda untuk melihat apakah indeks telah dihapus, atau "
 "memeriksa pertanyaan dan harapan tentang apa indeks yang digunakan."
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/classes/Advisory/Rules.php:413
 #, fuzzy, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid ""
@@ -677,45 +718,45 @@ msgstr ""
 "max %% Penyangga kunci MyISAM yang pernah digunakan: %s%%, nilai ini harus "
 "di atas 95%%"
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/classes/Advisory/Rules.php:418
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Persentase penyangga kunci MyISAM yang dipakai"
 
-#: libraries/advisory_rules_generic.php:399
+#: libraries/classes/Advisory/Rules.php:430
 #, fuzzy, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% MyISAM kunci penyinggah terpakai: %s%%, nilai ini seharusnya diatas 95%%"
 
-#: libraries/advisory_rules_generic.php:404
+#: libraries/classes/Advisory/Rules.php:435
 msgid "Percentage of index reads from memory"
 msgstr "Persentase dari indeks yang dibaca dari memori"
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/classes/Advisory/Rules.php:440
 #, fuzzy, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "indeks %% yang menggunakan kunci penyangga MyISAM rendah."
 
-#: libraries/advisory_rules_generic.php:410
+#: libraries/classes/Advisory/Rules.php:441
 #, fuzzy
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Anda mungkin perlu untuk meningkatkan {key_buffer_size}."
 
-#: libraries/advisory_rules_generic.php:411
+#: libraries/classes/Advisory/Rules.php:442
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Indeks membaca dari memori: %s%%, nilai ini seharusnya diatas 95%%"
 
-#: libraries/advisory_rules_generic.php:417
+#: libraries/classes/Advisory/Rules.php:448
 msgid "Rate of table open"
 msgstr "Tingkat tabel yang terbuka"
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/classes/Advisory/Rules.php:451
 msgid "The rate of opening tables is high."
 msgstr "Tingkat pembukaan tabel tinggi."
 
-#: libraries/advisory_rules_generic.php:422
+#: libraries/classes/Advisory/Rules.php:453
 #, fuzzy
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
@@ -724,18 +765,18 @@ msgstr ""
 "Membuka tabel membutuhkan disk I/O (baca-tulis) yang mana kurang "
 "menguntungkan. Meningkatkan {table_open_cache} mungkin menghindari hal ini."
 
-#: libraries/advisory_rules_generic.php:424
+#: libraries/classes/Advisory/Rules.php:455
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Tingkat koneksi yang dibatalkan adalah %s, ninlai ini seharusnya kurang dari "
 "10 per jam"
 
-#: libraries/advisory_rules_generic.php:429
+#: libraries/classes/Advisory/Rules.php:460
 msgid "Percentage of used open files limit"
 msgstr "Persentase limit berkas terbuka yang dipakai"
 
-#: libraries/advisory_rules_generic.php:433
+#: libraries/classes/Advisory/Rules.php:464
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -747,8 +788,8 @@ msgstr ""
 "Jumlah file yang terbuka mendekati jumlah maksimum file yang terbuka. Anda "
 "mungkin mendapatkan \"Terlalu banyak membuka file\" error."
 
-#: libraries/advisory_rules_generic.php:437
-#: libraries/advisory_rules_generic.php:450
+#: libraries/classes/Advisory/Rules.php:468
+#: libraries/classes/Advisory/Rules.php:481
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -756,68 +797,68 @@ msgstr ""
 "Pertimbangkan untuk meningkatkan {open_files_limit}, dan periksa log "
 "kesalahan ketika restart setelah mengubah {open_files_limit}."
 
-#: libraries/advisory_rules_generic.php:440
+#: libraries/classes/Advisory/Rules.php:471
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
 "jumlah file yang dibuka adalah %s%% dari batasan. seharusnya itu dibawah 85%%"
 
-#: libraries/advisory_rules_generic.php:445
+#: libraries/classes/Advisory/Rules.php:476
 msgid "Rate of open files"
 msgstr "Tingkat berkas yang terbuka"
 
-#: libraries/advisory_rules_generic.php:448
+#: libraries/classes/Advisory/Rules.php:479
 #, fuzzy
 #| msgid "Rate of open files"
 msgid "The rate of opening files is high."
 msgstr "Tingkat berkas yang terbuka"
 
-#: libraries/advisory_rules_generic.php:453
+#: libraries/classes/Advisory/Rules.php:484
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Tingkat file yang dibuka: %s, seharusnya nilai ini kurang dari 5 per jam"
 
-#: libraries/advisory_rules_generic.php:459
+#: libraries/classes/Advisory/Rules.php:490
 #, fuzzy, no-php-format
 #| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "Kunci tabel langsung %%"
 
-#: libraries/advisory_rules_generic.php:463
-#: libraries/advisory_rules_generic.php:473
+#: libraries/classes/Advisory/Rules.php:494
+#: libraries/classes/Advisory/Rules.php:504
 #, fuzzy
 msgid "Too many table locks were not granted immediately."
 msgstr "Terlalu banyak kunci tabel yang tidak diberikan segera."
 
-#: libraries/advisory_rules_generic.php:464
-#: libraries/advisory_rules_generic.php:474
+#: libraries/classes/Advisory/Rules.php:495
+#: libraries/classes/Advisory/Rules.php:505
 #, fuzzy
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Optimalkan Query dan/atau penggunaan InnoDB untuk mengurangi kunci tunggu."
 
-#: libraries/advisory_rules_generic.php:465
+#: libraries/classes/Advisory/Rules.php:496
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Kunci tabel terpakai: %s%%, seharusnya nilai ini diatas 95%%"
 
-#: libraries/advisory_rules_generic.php:470
+#: libraries/classes/Advisory/Rules.php:501
 msgid "Table lock wait rate"
 msgstr "Tingkat tunggu kunci tabel"
 
-#: libraries/advisory_rules_generic.php:475
+#: libraries/classes/Advisory/Rules.php:506
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Tingkat tunggu kunci tabel: %s, hasil ini seharusnya kurang dari 1 per jam"
 
-#: libraries/advisory_rules_generic.php:480
+#: libraries/classes/Advisory/Rules.php:511
 msgid "Thread cache"
 msgstr "Singgahan thread"
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/classes/Advisory/Rules.php:514
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -825,44 +866,44 @@ msgstr ""
 "Cache Thread dinonaktifkan, akibat kelebihan beban dari koneksi baru ke "
 "MySQL."
 
-#: libraries/advisory_rules_generic.php:484
+#: libraries/classes/Advisory/Rules.php:515
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "Aktifkan cache thread dengan mengatur {thread_cache_size} > 0."
 
-#: libraries/advisory_rules_generic.php:485
+#: libraries/classes/Advisory/Rules.php:516
 msgid "The thread cache is set to 0"
 msgstr "Cache thread diatur ke 0"
 
-#: libraries/advisory_rules_generic.php:490
+#: libraries/classes/Advisory/Rules.php:521
 #, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "Tingkat penggunaan singgahan thread %%"
 
-#: libraries/advisory_rules_generic.php:494
+#: libraries/classes/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
 msgstr "Singgahan thread tidak efisien."
 
-#: libraries/advisory_rules_generic.php:495
+#: libraries/classes/Advisory/Rules.php:526
 msgid "Increase {thread_cache_size}."
 msgstr "Tingkatkan {thread_cache_size}."
 
-#: libraries/advisory_rules_generic.php:496
+#: libraries/classes/Advisory/Rules.php:527
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "hit-rate cache thread: %s%%, seharusnya nilai ini diatas 80%%"
 
-#: libraries/advisory_rules_generic.php:501
+#: libraries/classes/Advisory/Rules.php:532
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "Threads that are slow to launch"
 msgstr "Thread lambat untuk diluncurkan"
 
-#: libraries/advisory_rules_generic.php:505
+#: libraries/classes/Advisory/Rules.php:536
 msgid "There are too many threads that are slow to launch."
 msgstr "Terlalu banyak thread sehingga lambat untuk diluncurkan."
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/classes/Advisory/Rules.php:538
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -871,24 +912,24 @@ msgstr ""
 "cukup sederhana. Mungkin anda perlu memantau beban sistem anda dengan hati-"
 "hati."
 
-#: libraries/advisory_rules_generic.php:510
+#: libraries/classes/Advisory/Rules.php:541
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 "thread %s sepertinya dimulai lebih dari %s detik, seharusnya ini dimulai "
 "dari 0"
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/classes/Advisory/Rules.php:546
 msgid "Slow launch time"
 msgstr "Waktu peluncuran lambat"
 
-#: libraries/advisory_rules_generic.php:518
+#: libraries/classes/Advisory/Rules.php:549
 #, fuzzy
 #| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time diatas 2 detik"
 
-#: libraries/advisory_rules_generic.php:520
+#: libraries/classes/Advisory/Rules.php:551
 #, fuzzy
 #| msgid ""
 #| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
@@ -900,16 +941,16 @@ msgstr ""
 "Atur {slow_launch_time} menjadi 1 detik atau 2 detik untuk memperbaiki "
 "perhitungan thread yang lambat untuk diluncurkan."
 
-#: libraries/advisory_rules_generic.php:522
+#: libraries/classes/Advisory/Rules.php:553
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time disetel menjadi %s detik"
 
-#: libraries/advisory_rules_generic.php:528
+#: libraries/classes/Advisory/Rules.php:559
 msgid "Percentage of used connections"
 msgstr "Persentase koneksi terpakai"
 
-#: libraries/advisory_rules_generic.php:531
+#: libraries/classes/Advisory/Rules.php:563
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
@@ -917,7 +958,7 @@ msgstr ""
 "Jumlah maksimum koneksi yang digunakan semakin mendekati nilai "
 "{max_connections}."
 
-#: libraries/advisory_rules_generic.php:533
+#: libraries/classes/Advisory/Rules.php:566
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -927,7 +968,7 @@ msgstr ""
 "menutupi penanganan basis data dengan baik, dapat mematikannya. Pastikan "
 "kode menutupi penanganan basis data dengan benar."
 
-#: libraries/advisory_rules_generic.php:537
+#: libraries/classes/Advisory/Rules.php:570
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -935,18 +976,18 @@ msgstr ""
 "Max_used_connections saat ini mencapai %s%% dari max_connections, itu "
 "seharusnya dibawah 80%%"
 
-#: libraries/advisory_rules_generic.php:542
+#: libraries/classes/Advisory/Rules.php:575
 #, fuzzy
 msgid "Percentage of aborted connections"
 msgstr "Persentasi koneksi yang dibatalkan"
 
-#: libraries/advisory_rules_generic.php:545
-#: libraries/advisory_rules_generic.php:559
+#: libraries/classes/Advisory/Rules.php:578
+#: libraries/classes/Advisory/Rules.php:592
 msgid "Too many connections are aborted."
 msgstr "Terlalu banyak koneksi yang dibatalkan."
 
-#: libraries/advisory_rules_generic.php:547
-#: libraries/advisory_rules_generic.php:561
+#: libraries/classes/Advisory/Rules.php:580
+#: libraries/classes/Advisory/Rules.php:594
 #, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
@@ -963,16 +1004,16 @@ msgstr ""
 "source-of-aborted_connects/\">Artikel ini</a> mungkin dapat membantu Anda "
 "melacak sumbernya."
 
-#: libraries/advisory_rules_generic.php:551
+#: libraries/classes/Advisory/Rules.php:584
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "%s%% dari semua koneksi dibatalkan. Nilai ini seharusnya dibawah 1%%"
 
-#: libraries/advisory_rules_generic.php:556
+#: libraries/classes/Advisory/Rules.php:589
 msgid "Rate of aborted connections"
 msgstr "Tingkat koneksi yang dibatalkan"
 
-#: libraries/advisory_rules_generic.php:565
+#: libraries/classes/Advisory/Rules.php:598
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -980,17 +1021,17 @@ msgstr ""
 "Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
 "dari 1 per jam"
 
-#: libraries/advisory_rules_generic.php:570
+#: libraries/classes/Advisory/Rules.php:603
 msgid "Percentage of aborted clients"
 msgstr "Persentase klien yang dibatalkan"
 
-#: libraries/advisory_rules_generic.php:573
-#: libraries/advisory_rules_generic.php:587
+#: libraries/classes/Advisory/Rules.php:606
+#: libraries/classes/Advisory/Rules.php:620
 msgid "Too many clients are aborted."
 msgstr "Terlalu banyak klien yang dibatalkan."
 
-#: libraries/advisory_rules_generic.php:575
-#: libraries/advisory_rules_generic.php:589
+#: libraries/classes/Advisory/Rules.php:608
+#: libraries/classes/Advisory/Rules.php:622
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -1001,46 +1042,46 @@ msgstr ""
 "kode tidak menutup handler basis data dengan benar. Periksa jaringan dan "
 "kode Anda."
 
-#: libraries/advisory_rules_generic.php:579
+#: libraries/classes/Advisory/Rules.php:612
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% dari semua klien dibatalkan. Nilai ini seharusnya dibawah 2%%"
 
-#: libraries/advisory_rules_generic.php:584
+#: libraries/classes/Advisory/Rules.php:617
 #, fuzzy
 msgid "Rate of aborted clients"
 msgstr "Tingkat klien yang dibatalkan"
 
-#: libraries/advisory_rules_generic.php:593
+#: libraries/classes/Advisory/Rules.php:626
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Tingkat koneksi yang digugurkan adalah pada %s, nilai ini seharusnya kurang "
 "dari 1 per jam"
 
-#: libraries/advisory_rules_generic.php:599
+#: libraries/classes/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
 msgstr "Apakah InnoDB non-aktif?"
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/classes/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB anda tidak ada yang aktif."
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/classes/Advisory/Rules.php:637
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB biasanya merupakan pilihan yang lebih baik untuk mesin tabel."
 
-#: libraries/advisory_rules_generic.php:605
+#: libraries/classes/Advisory/Rules.php:638
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb diatur ke 'value'"
 
-#: libraries/advisory_rules_generic.php:609
-#: libraries/advisory_rules_generic.php:633
+#: libraries/classes/Advisory/Rules.php:642
+#: libraries/classes/Advisory/Rules.php:669
 msgid "InnoDB log size"
 msgstr "Besar log InnoDB"
 
-#: libraries/advisory_rules_generic.php:613
-#: libraries/advisory_rules_generic.php:640
+#: libraries/classes/Advisory/Rules.php:647
+#: libraries/classes/Advisory/Rules.php:677
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -1048,8 +1089,8 @@ msgstr ""
 "ukuran file log InnoDB tidak pada ukuran yang sesuai, dalam kaitannya dengan "
 "buffer pool InnoDB."
 
-#: libraries/advisory_rules_generic.php:615
-#: libraries/advisory_rules_generic.php:642
+#: libraries/classes/Advisory/Rules.php:650
+#: libraries/classes/Advisory/Rules.php:680
 #, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
@@ -1084,8 +1125,8 @@ msgstr ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">entri blog ini</a>"
 
-#: libraries/advisory_rules_generic.php:626
-#: libraries/advisory_rules_generic.php:653
+#: libraries/classes/Advisory/Rules.php:662
+#: libraries/classes/Advisory/Rules.php:692
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -1094,15 +1135,15 @@ msgstr ""
 "Ukuran log InnoDB anda adalah %s%% terkait dengan ukuran pool InnoDB, ini "
 "harus diatas 20%%"
 
-#: libraries/advisory_rules_generic.php:660
+#: libraries/classes/Advisory/Rules.php:699
 msgid "Max InnoDB log size"
 msgstr "Ukuran maksimum log InnoDB"
 
-#: libraries/advisory_rules_generic.php:664
+#: libraries/classes/Advisory/Rules.php:704
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Ukuran file log InnoDB kurang besar."
 
-#: libraries/advisory_rules_generic.php:666
+#: libraries/classes/Advisory/Rules.php:706
 #, fuzzy, no-php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
@@ -1136,20 +1177,20 @@ msgstr ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">tulisan blog ini </"
 "a>"
 
-#: libraries/advisory_rules_generic.php:676
+#: libraries/classes/Advisory/Rules.php:717
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Ukuran absolut log InnoDB anda adalah %s MiB"
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/classes/Advisory/Rules.php:722
 msgid "InnoDB buffer pool size"
 msgstr "Besar penampungan penyangga InnoDB"
 
-#: libraries/advisory_rules_generic.php:685
+#: libraries/classes/Advisory/Rules.php:726
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Ukuran buffer InnoDB anda lumayan kecil."
 
-#: libraries/advisory_rules_generic.php:687
+#: libraries/classes/Advisory/Rules.php:728
 #, fuzzy, no-php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -1185,7 +1226,7 @@ msgstr ""
 "juga <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">Artikel ini</a>"
 
-#: libraries/advisory_rules_generic.php:697
+#: libraries/classes/Advisory/Rules.php:738
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1198,15 +1239,15 @@ msgstr ""
 "ini mungkin jadi memadai untuk sistem Anda jika Anda tidak cukup memiliki "
 "tabel InnoDB atau layanan lain yang berjalan pada mesin yang sama."
 
-#: libraries/advisory_rules_generic.php:707
+#: libraries/classes/Advisory/Rules.php:748
 msgid "MyISAM concurrent inserts"
 msgstr "Sisipan konkuren MyISAM"
 
-#: libraries/advisory_rules_generic.php:710
+#: libraries/classes/Advisory/Rules.php:751
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Aktifkan {concurrent_insert} dengan menetapkan ke 1"
 
-#: libraries/advisory_rules_generic.php:712
+#: libraries/classes/Advisory/Rules.php:753
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1216,19 +1257,19 @@ msgstr ""
 "dan penulisan pada tabel yang ditentukan. Lihat juga <a href=\"https://dev."
 "mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Dokumentasi MySQL</a>"
 
-#: libraries/advisory_rules_generic.php:716
+#: libraries/classes/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert diatur ke 0"
 
-#: libraries/advisory_rules_mysql_before80003.php:9
+#: libraries/classes/Advisory/Rules.php:772
 msgid "Query cache disabled"
 msgstr "Singgahan kueri dinonaktifkan"
 
-#: libraries/advisory_rules_mysql_before80003.php:12
+#: libraries/classes/Advisory/Rules.php:775
 msgid "The query cache is not enabled."
 msgstr "Singgahan kueri tidak diaktifkan."
 
-#: libraries/advisory_rules_mysql_before80003.php:14
+#: libraries/classes/Advisory/Rules.php:777
 #, fuzzy
 msgid ""
 "The query cache is known to greatly improve performance if configured "
@@ -1241,43 +1282,43 @@ msgstr ""
 "nilai dan pengaturan {query_cache_type} ke 'ON'. <b> Catatan: </b> Jika Anda "
 "menggunakan memcached, mengabaikan rekomendasi ini."
 
-#: libraries/advisory_rules_mysql_before80003.php:18
+#: libraries/classes/Advisory/Rules.php:781
 #, fuzzy
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size diatur ke 0 atau query_cache_type diatur ke 'OFF'"
 
-#: libraries/advisory_rules_mysql_before80003.php:23
+#: libraries/classes/Advisory/Rules.php:786
 #, fuzzy, no-php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%)"
 msgstr "Efisiensi singgahan kueri"
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/classes/Advisory/Rules.php:790
 #, fuzzy
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "Cache query tidak berjalan efisien, memiliki hit rate yang rendah."
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/classes/Advisory/Rules.php:791
 #, fuzzy
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Pertimbangkan untuk meningkatkan {query_cache_limit}."
 
-#: libraries/advisory_rules_mysql_before80003.php:29
+#: libraries/classes/Advisory/Rules.php:792
 #, fuzzy, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Tingkat kenaikan cache kueri saat ini (%s%%) di bawah 20%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:34
+#: libraries/classes/Advisory/Rules.php:797
 msgid "Query Cache usage"
 msgstr "Penggunaan singgahan kueri"
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/classes/Advisory/Rules.php:802
 #, fuzzy, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "Kurang dari 80%% dari cache query yang sedang digunakan."
 
-#: libraries/advisory_rules_mysql_before80003.php:41
+#: libraries/classes/Advisory/Rules.php:804
 #, fuzzy
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
@@ -1286,7 +1327,7 @@ msgstr ""
 "Hal ini mungkin disebabkan oleh {query_cache_limit} menjadi terlalu rendah. "
 "Flushing cache query mungkin membantu juga."
 
-#: libraries/advisory_rules_mysql_before80003.php:45
+#: libraries/classes/Advisory/Rules.php:808
 #, fuzzy, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1295,17 +1336,17 @@ msgstr ""
 "Rasio lancar gratis permintaan memori cache untuk ukuran total cache query "
 "adalah %s%%. Ini harus di atas 80%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:52
+#: libraries/classes/Advisory/Rules.php:815
 msgid "Query cache fragmentation"
 msgstr "Fragmentasi singgahan kueri"
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/classes/Advisory/Rules.php:819
 #, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "The query cache is considerably fragmented."
 msgstr "Singgahan kueri tidak diaktifkan."
 
-#: libraries/advisory_rules_mysql_before80003.php:58
+#: libraries/classes/Advisory/Rules.php:821
 #, fuzzy
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
@@ -1327,7 +1368,7 @@ msgstr ""
 "Anda dalam cache menggunakan rumus ini: (query_cache_size - "
 "qcache_free_memory) / qcache_queries_in_cache"
 
-#: libraries/advisory_rules_mysql_before80003.php:66
+#: libraries/classes/Advisory/Rules.php:829
 #, fuzzy, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1338,13 +1379,13 @@ msgstr ""
 "fragmentasi cache query pola bolak blok bebas dan digunakan. Nilai ini harus "
 "berada di bawah 20%%."
 
-#: libraries/advisory_rules_mysql_before80003.php:73
+#: libraries/classes/Advisory/Rules.php:836
 #, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
 msgstr "Singgahan kueri terpakai"
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/classes/Advisory/Rules.php:840
 #, fuzzy
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
@@ -1352,7 +1393,7 @@ msgid ""
 msgstr ""
 "Query cache dihapus karena permintaan rendah memori cache dari cache query."
 
-#: libraries/advisory_rules_mysql_before80003.php:79
+#: libraries/classes/Advisory/Rules.php:842
 #, fuzzy
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
@@ -1363,7 +1404,7 @@ msgstr ""
 "bahwa overhead menjaga cache cenderung meningkat dengan ukurannya, sehingga "
 "melakukan hal ini sedikit demi sedikit dan memantau hasilnya."
 
-#: libraries/advisory_rules_mysql_before80003.php:84
+#: libraries/classes/Advisory/Rules.php:847
 #, fuzzy, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -1372,11 +1413,11 @@ msgstr ""
 "Rasio query dihapus untuk pertanyaan dimasukkan adalah %s%%. Semakin rendah "
 "nilai ini, semakin baik (ini aturan menembak limit: 0.1%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:91
+#: libraries/classes/Advisory/Rules.php:854
 msgid "Query cache max size"
 msgstr "Besar maks. singgahan kueri"
 
-#: libraries/advisory_rules_mysql_before80003.php:96
+#: libraries/classes/Advisory/Rules.php:859
 #, fuzzy
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
@@ -1385,7 +1426,7 @@ msgstr ""
 "Ukuran cache query di atas 128 MiB. Permintaan cache besar dapat menyebabkan "
 "overhead yang signifikan yang diperlukan untuk menjaga cache."
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/classes/Advisory/Rules.php:863
 #, fuzzy
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
@@ -1394,23 +1435,23 @@ msgstr ""
 "Tergantung pada lingkungan Anda, mungkin akan meningkatkan kinerja untuk "
 "mengurangi nilai ini."
 
-#: libraries/advisory_rules_mysql_before80003.php:102
+#: libraries/classes/Advisory/Rules.php:865
 #, fuzzy, php-format
 #| msgid "Current version: %s"
 msgid "Current query cache size: %s"
 msgstr "Versi saat ini: %s"
 
-#: libraries/advisory_rules_mysql_before80003.php:107
+#: libraries/classes/Advisory/Rules.php:870
 msgid "Query cache min result size"
 msgstr "Besar min. singgahan kueri"
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/classes/Advisory/Rules.php:874
 #, fuzzy
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr "Ukuran maksimal dari hasil set di cache query default dari 1 MiB."
 
-#: libraries/advisory_rules_mysql_before80003.php:113
+#: libraries/classes/Advisory/Rules.php:876
 #, fuzzy
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
@@ -1431,51 +1472,10 @@ msgstr ""
 "sangat baik disimpan di cache (sering batal karena update tabel) meningkat  "
 "{query_cache_limit} mungkin mengurangi efisiensi."
 
-#: libraries/advisory_rules_mysql_before80003.php:120
+#: libraries/classes/Advisory/Rules.php:883
 #, fuzzy
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit di set pada 1 MiB"
-
-#: libraries/classes/Advisor.php:234
-#, php-format
-msgid "Error when evaluating: %s"
-msgstr "Terjadi error saat mengevaluasi: %s"
-
-#: libraries/classes/Advisor.php:261
-#, php-format
-msgid "Failed evaluating precondition for rule '%s'."
-msgstr "Gagal mengevaluasi prasyarat untuk aturan '%s'."
-
-#: libraries/classes/Advisor.php:281
-#, php-format
-msgid "Failed calculating value for rule '%s'."
-msgstr "Gagal menghitung nilai aturan '%s'."
-
-#: libraries/classes/Advisor.php:300
-#, php-format
-msgid "Failed running test for rule '%s'."
-msgstr "Gagal menjalankan tes untuk aturan '%s'."
-
-#: libraries/classes/Advisor.php:328
-#, php-format
-msgid "Failed formatting string for rule '%s'."
-msgstr "Gagal memformat string untuk aturan '%s'."
-
-#: libraries/classes/Advisor.php:413
-msgid "per second"
-msgstr "per detik"
-
-#: libraries/classes/Advisor.php:416
-msgid "per minute"
-msgstr "per menit"
-
-#: libraries/classes/Advisor.php:419
-msgid "per hour"
-msgstr "dalam sejam"
-
-#: libraries/classes/Advisor.php:422
-msgid "per day"
-msgstr "per hari"
 
 #: libraries/classes/BrowseForeigners.php:200
 msgid "Search:"
@@ -4890,7 +4890,7 @@ msgstr "Kustom"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -5316,7 +5316,7 @@ msgstr "Tidak ada penanda"
 msgid "SQL Query Console"
 msgstr "Konsol Kueri SQL"
 
-#: libraries/classes/Controllers/AbstractController.php:73
+#: libraries/classes/Controllers/AbstractController.php:74
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
 #: libraries/classes/DbTableExists.php:45
@@ -5510,7 +5510,7 @@ msgstr "Ya"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:317
 #: libraries/classes/Controllers/Table/ReplaceController.php:418
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:720 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Tidak ada perubahan"
 
@@ -6590,7 +6590,7 @@ msgstr "Status"
 
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:472
 #: libraries/classes/Plugins/Export/ExportOdt.php:594
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
@@ -7078,7 +7078,7 @@ msgstr "Langkah kedua normalisasi (2NF)"
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:419
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
 #: libraries/classes/Normalization.php:375
 msgid "Done"
 msgstr "Selesai"
@@ -7813,7 +7813,14 @@ msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Jenis ekspor invalid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+msgid ""
+"You can not open, save or delete your page layout, as IndexedDB is not "
+"working in your browser and your phpMyAdmin configuration storage is not "
+"configured for this."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7821,13 +7828,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabel %s sudah ada!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Sembunyikan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7836,275 +7843,275 @@ msgid "Show"
 msgstr "Tampilkan"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "January"
 msgstr "Januari"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "February"
 msgstr "Februari"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "March"
 msgstr "Maret"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "April"
 msgstr "April"
 
 #. l10n: Month name
 #. l10n: Short month name for May
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 msgid "May"
 msgstr "Mei"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "June"
 msgstr "Juni"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 msgid "July"
 msgstr "Juli"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgid "August"
 msgstr "Agustus"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgid "September"
 msgstr "September"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgid "October"
 msgstr "Oktober"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgid "November"
 msgstr "November"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 msgid "December"
 msgstr "Desember"
 
 #. l10n: Short month name for January
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #: libraries/classes/Util.php:664
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name for February
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:666
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name for March
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:668
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:670
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name for June
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:674
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #: libraries/classes/Util.php:676
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name for August
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #: libraries/classes/Util.php:678
 msgid "Aug"
 msgstr "Agu"
 
 #. l10n: Short month name for September
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #: libraries/classes/Util.php:680
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name for October
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #: libraries/classes/Util.php:682
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name for November
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #: libraries/classes/Util.php:684
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name for December
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:686
 msgid "Dec"
 msgstr "Des"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/config.values.php:197
 msgid "Sunday"
 msgstr "Minggu"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #: libraries/config.values.php:191
 msgid "Monday"
 msgstr "Senin"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
 #: libraries/config.values.php:192
 msgid "Tuesday"
 msgstr "Selasa"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #: libraries/config.values.php:193
 msgid "Wednesday"
 msgstr "Rabu"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #: libraries/config.values.php:194
 msgid "Thursday"
 msgstr "Kamis"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
 #: libraries/config.values.php:195
 msgid "Friday"
 msgstr "Jumat"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #: libraries/config.values.php:196
 msgid "Saturday"
 msgstr "Sabtu"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 msgid "Sun"
 msgstr "Min"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
 #: libraries/classes/Util.php:692
 msgid "Mon"
 msgstr "Sen"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
 #: libraries/classes/Util.php:694
 msgid "Tue"
 msgstr "Sel"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #: libraries/classes/Util.php:696
 msgid "Wed"
 msgstr "Rab"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
 #: libraries/classes/Util.php:698
 msgid "Thu"
 msgstr "Kam"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
 #: libraries/classes/Util.php:700
 msgid "Fri"
 msgstr "Jum"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
 #: libraries/classes/Util.php:702
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
 msgid "Su"
 msgstr "Min"
 
 #. l10n: Minimal week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
 msgid "Mo"
 msgstr "Sn"
 
 #. l10n: Minimal week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
 msgid "Tu"
 msgstr "Sl"
 
 #. l10n: Minimal week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
 msgid "We"
 msgstr "Rb"
 
 #. l10n: Minimal week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
 msgid "Th"
 msgstr "Km"
 
 #. l10n: Minimal week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
 msgid "Fr"
 msgstr "Jm"
 
 #. l10n: Minimal week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
 msgid "Sa"
 msgstr "Sb"
 
 #. l10n: Column header for week of the year in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
 msgid "Wk"
 msgstr "Mingguan"
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -8112,22 +8119,22 @@ msgid "none"
 msgstr "Kosong"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
 msgid "Hour"
 msgstr "Jam"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
 msgid "Minute"
 msgstr "Menit"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
 msgid "Second"
 msgstr "Detik"
 
 #. l10n: Previous month. Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -8135,93 +8142,93 @@ msgid "Prev"
 msgstr "Sebelum"
 
 #. l10n: Next month. Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
 msgid "Next"
 msgstr "Berikutnya"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
 msgid "Today"
 msgstr "Hari ini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
 msgid "This field is required"
 msgstr "Wajib diisi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
 msgid "Please fix this field"
 msgstr "Silakan perbaiki kolom ini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
 msgid "Please enter a valid email address"
 msgstr "Silakan masukkan alamat email yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
 msgid "Please enter a valid URL"
 msgstr "Silakan masukkan URL yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
 msgid "Please enter a valid date"
 msgstr "Silakan masukkan tanggal yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
 msgid "Please enter a valid date ( ISO )"
 msgstr "Silakan masukkan tanggal yang valid (ISO)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 msgid "Please enter a valid number"
 msgstr "Silakan masukkan angka yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
 msgid "Please enter a valid credit card number"
 msgstr "Silakan masukkan nomor kartu kredit yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
 msgid "Please enter only digits"
 msgstr "Silakan masukkan angka saja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
 msgid "Please enter the same value again"
 msgstr "Silakan masukkan lagi nilai yang sama"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
 msgid "Please enter no more than {0} characters"
 msgstr "Silakan masukkan tidak lebih dari {0} karakter"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
 msgid "Please enter at least {0} characters"
 msgstr "Silakan masukkan setidaknya {0} karakter"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Silakan masukkan nilai panjang karakter antara {0} dan {1}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
 msgid "Please enter a value between {0} and {1}"
 msgstr "Silakan masukkan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:832
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Silakan masukkan nilai kurang dari atau sama dengan {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Silakan masukkan nilai lebih dari atau sama dengan {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:834
 msgid "Please enter a valid date or time"
 msgstr "Silakan masukkan tanggal dan jam yang valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:835
 msgid "Please enter a valid HEX input"
 msgstr "Silakan masukkan input HEX yang valid"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:837
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:840
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -10777,7 +10784,7 @@ msgstr "Menampilkan kueri SQL"
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
 
-#: libraries/classes/LanguageManager.php:971
+#: libraries/classes/LanguageManager.php:979
 msgid "Ignoring unsupported language code."
 msgstr "Mengabaikan kode bahasa yang tidak didukung."
 

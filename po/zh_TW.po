@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-20 00:16+0000\n"
+"POT-Creation-Date: 2022-02-27 00:17+0000\n"
 "PO-Revision-Date: 2021-01-22 01:10+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -15,88 +15,129 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.5-dev\n"
 
-#: libraries/advisory_rules_generic.php:9
+#: libraries/classes/Advisory/Advisor.php:240
+#, php-format
+msgid "Error when evaluating: %s"
+msgstr "評估此項目時發生錯誤：%s"
+
+#: libraries/classes/Advisory/Advisor.php:267
+#, php-format
+msgid "Failed evaluating precondition for rule '%s'."
+msgstr "在檢查預先狀況時，條件「%s」失敗。"
+
+#: libraries/classes/Advisory/Advisor.php:287
+#, php-format
+msgid "Failed calculating value for rule '%s'."
+msgstr "在計算值時，條件「%s」失敗。"
+
+#: libraries/classes/Advisory/Advisor.php:306
+#, php-format
+msgid "Failed running test for rule '%s'."
+msgstr "在執行測試時，條件「%s」失敗。"
+
+#: libraries/classes/Advisory/Advisor.php:334
+#, php-format
+msgid "Failed formatting string for rule '%s'."
+msgstr "無法產生規則「%s」的格式化文字。"
+
+#: libraries/classes/Advisory/Advisor.php:419
+msgid "per second"
+msgstr "每秒"
+
+#: libraries/classes/Advisory/Advisor.php:422
+msgid "per minute"
+msgstr "每分鐘"
+
+#: libraries/classes/Advisory/Advisor.php:425
+msgid "per hour"
+msgstr "每小時"
+
+#: libraries/classes/Advisory/Advisor.php:428
+msgid "per day"
+msgstr "每天"
+
+#: libraries/classes/Advisory/Rules.php:34
 msgid "Uptime below one day"
 msgstr "上線時間不到一天"
 
-#: libraries/advisory_rules_generic.php:12
+#: libraries/classes/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "上線時間不到 1 天，根據來作效能調整的資料可能不準確。"
 
-#: libraries/advisory_rules_generic.php:14
+#: libraries/classes/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr "若要取得更準確的平均資料，建議在執行分析前讓伺服器執行至少一天"
 
-#: libraries/advisory_rules_generic.php:17
+#: libraries/classes/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
 msgstr "上線時間僅有 %s"
 
-#: libraries/advisory_rules_generic.php:22
+#: libraries/classes/Advisory/Rules.php:47
 msgid "Questions below 1,000"
 msgstr "查詢次數低於 1,000"
 
-#: libraries/advisory_rules_generic.php:26
+#: libraries/classes/Advisory/Rules.php:51
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr "查詢次數少於 1,000。建議可能不夠準確。"
 
-#: libraries/advisory_rules_generic.php:30
+#: libraries/classes/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr "讓伺服器執行較久一點的時間，直到執行了多一些查詢指令。"
 
-#: libraries/advisory_rules_generic.php:32
+#: libraries/classes/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "目前查詢的次數：%s"
 
-#: libraries/advisory_rules_generic.php:37
+#: libraries/classes/Advisory/Rules.php:62
 msgid "Percentage of slow queries"
 msgstr "緩慢查詢百分比"
 
-#: libraries/advisory_rules_generic.php:41
+#: libraries/classes/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr "緩慢查詢佔全部的查詢數量比例過大。"
 
-#: libraries/advisory_rules_generic.php:43
-#: libraries/advisory_rules_generic.php:56
+#: libraries/classes/Advisory/Rules.php:68
+#: libraries/classes/Advisory/Rules.php:81
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr "可能需要增加 {long_query_time} 或最佳化緩慢查詢記錄中出現的查詢"
 
-#: libraries/advisory_rules_generic.php:45
+#: libraries/classes/Advisory/Rules.php:70
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "緩慢查詢率應低於 5%%，您的值是 %s%%。"
 
-#: libraries/advisory_rules_generic.php:50
+#: libraries/classes/Advisory/Rules.php:75
 msgid "Slow query rate"
 msgstr "緩慢查詢率"
 
-#: libraries/advisory_rules_generic.php:54
+#: libraries/classes/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr "伺服器執行期間產生的緩慢查詢比例過高。"
 
-#: libraries/advisory_rules_generic.php:58
+#: libraries/classes/Advisory/Rules.php:84
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr "緩慢查詢率為每小時 %s，這個值應該低於每小時 1%%。"
 
-#: libraries/advisory_rules_generic.php:63
+#: libraries/classes/Advisory/Rules.php:90
 msgid "Long query time"
 msgstr "超長查詢時間"
 
-#: libraries/advisory_rules_generic.php:67
+#: libraries/classes/Advisory/Rules.php:94
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -104,29 +145,29 @@ msgstr ""
 "{long_query_time} 目前設定為超過 10 秒，只有執行時間超過 10 秒的查詢會被記"
 "錄。"
 
-#: libraries/advisory_rules_generic.php:71
+#: libraries/classes/Advisory/Rules.php:98
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
 "建議您依據您的環境將 {long_query_time} 設定值調低，通常建議設在 1-5 秒之間。"
 
-#: libraries/advisory_rules_generic.php:74
+#: libraries/classes/Advisory/Rules.php:101
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time 目前設定為 %d 秒。"
 
-#: libraries/advisory_rules_generic.php:79
-#: libraries/advisory_rules_generic.php:92
+#: libraries/classes/Advisory/Rules.php:106
+#: libraries/classes/Advisory/Rules.php:119
 msgid "Slow query logging"
 msgstr "緩慢查詢記錄"
 
-#: libraries/advisory_rules_generic.php:83
-#: libraries/advisory_rules_generic.php:96
+#: libraries/classes/Advisory/Rules.php:110
+#: libraries/classes/Advisory/Rules.php:123
 msgid "The slow query log is disabled."
 msgstr "未啟用「緩慢查詢記錄」。"
 
-#: libraries/advisory_rules_generic.php:85
+#: libraries/classes/Advisory/Rules.php:112
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -134,11 +175,11 @@ msgstr ""
 "要啟用緩慢查詢記錄，請將 {log_slow_queries} 設為 ON，這將有助於不良查詢的故障"
 "排除。"
 
-#: libraries/advisory_rules_generic.php:88
+#: libraries/classes/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries 目前設定為 OFF"
 
-#: libraries/advisory_rules_generic.php:98
+#: libraries/classes/Advisory/Rules.php:125
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -146,65 +187,65 @@ msgstr ""
 "要啟用緩慢查詢記錄，請將 {slow_query_log} 設為 ON，這將有助於不良查詢的故障排"
 "除。"
 
-#: libraries/advisory_rules_generic.php:101
+#: libraries/classes/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log 目前設定為 OFF"
 
-#: libraries/advisory_rules_generic.php:106
+#: libraries/classes/Advisory/Rules.php:133
 msgid "Release Series"
 msgstr "釋放序列"
 
-#: libraries/advisory_rules_generic.php:109
+#: libraries/classes/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
 msgstr "MySQL 伺服器版本低於 5.1。"
 
-#: libraries/advisory_rules_generic.php:111
+#: libraries/classes/Advisory/Rules.php:138
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr "應該升級到 MySQL 5.1，以獲得較好的性能；升級到 MySQL 5.5 更佳。"
 
-#: libraries/advisory_rules_generic.php:113
-#: libraries/advisory_rules_generic.php:127
-#: libraries/advisory_rules_generic.php:138
+#: libraries/classes/Advisory/Rules.php:140
+#: libraries/classes/Advisory/Rules.php:154
+#: libraries/classes/Advisory/Rules.php:165
 #, php-format
 msgid "Current version: %s"
 msgstr "目前版本：%s"
 
-#: libraries/advisory_rules_generic.php:118
-#: libraries/advisory_rules_generic.php:132
+#: libraries/classes/Advisory/Rules.php:145
+#: libraries/classes/Advisory/Rules.php:159
 msgid "Minor Version"
 msgstr "次要版本"
 
-#: libraries/advisory_rules_generic.php:122
+#: libraries/classes/Advisory/Rules.php:149
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "版本小於 5.1.30 (5.1 第一個釋出的正式版本)。"
 
-#: libraries/advisory_rules_generic.php:124
+#: libraries/classes/Advisory/Rules.php:151
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
 "應該升級到 MySQL 5.1 最新的版本，以取得較好的性能；升級到 MySQL 5.5 更佳。"
 
-#: libraries/advisory_rules_generic.php:136
+#: libraries/classes/Advisory/Rules.php:163
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "版本低於 5.5.8 (5.5 第一個釋出的正式版本)。"
 
-#: libraries/advisory_rules_generic.php:137
+#: libraries/classes/Advisory/Rules.php:164
 msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr "應升級到 MySQL 5.5 的穩定版本。"
 
-#: libraries/advisory_rules_generic.php:143
-#: libraries/advisory_rules_generic.php:156
+#: libraries/classes/Advisory/Rules.php:170
+#: libraries/classes/Advisory/Rules.php:183
 msgid "Distribution"
 msgstr "發行版"
 
-#: libraries/advisory_rules_generic.php:146
+#: libraries/classes/Advisory/Rules.php:173
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "您的伺服器版本是自行從原始碼編譯而來的，並非 MySQL 官方所編譯。"
 
-#: libraries/advisory_rules_generic.php:148
+#: libraries/classes/Advisory/Rules.php:175
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -214,15 +255,15 @@ msgstr ""
 "而 MySQL 說明文件是依據官方版本所撰寫，對發行版 (例如 RedHat、Debian/Ubuntu "
 "等) 的套件可能不適用。"
 
-#: libraries/advisory_rules_generic.php:152
+#: libraries/classes/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
 msgstr "在 version_comment 中找到 'source' 字串"
 
-#: libraries/advisory_rules_generic.php:159
+#: libraries/classes/Advisory/Rules.php:186
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "MySQL 手冊的內容，僅適用於官方編譯的版本。"
 
-#: libraries/advisory_rules_generic.php:161
+#: libraries/classes/Advisory/Rules.php:188
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
@@ -230,19 +271,19 @@ msgstr ""
 "Percona 說明文件位於 <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 
-#: libraries/advisory_rules_generic.php:164
+#: libraries/classes/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
 msgstr "在 version_comment 中找到 'percona' 字串"
 
-#: libraries/advisory_rules_generic.php:168
+#: libraries/classes/Advisory/Rules.php:195
 msgid "MySQL Architecture"
 msgstr "MySQL 架構"
 
-#: libraries/advisory_rules_generic.php:172
+#: libraries/classes/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL 並非編譯成 64 位元套件。"
 
-#: libraries/advisory_rules_generic.php:174
+#: libraries/classes/Advisory/Rules.php:201
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -251,20 +292,20 @@ msgstr ""
 "您的記憶體空間超過 3 GB (若伺服器是在本機上)，MySQL 可能無法使用所有的記憶體"
 "空間。請考慮安裝 64 位元版本的 MySQL。"
 
-#: libraries/advisory_rules_generic.php:178
+#: libraries/classes/Advisory/Rules.php:205
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "此主機的可用記憶體：%s"
 
-#: libraries/advisory_rules_generic.php:184
+#: libraries/classes/Advisory/Rules.php:211
 msgid "Query caching method"
 msgstr "查詢快取方法"
 
-#: libraries/advisory_rules_generic.php:188
+#: libraries/classes/Advisory/Rules.php:215
 msgid "Suboptimal caching method."
 msgstr "次佳的查詢快取方法。"
 
-#: libraries/advisory_rules_generic.php:190
+#: libraries/classes/Advisory/Rules.php:217
 #, fuzzy
 #| msgid ""
 #| "You are using the MySQL Query cache with a fairly high traffic database. "
@@ -281,7 +322,7 @@ msgstr ""
 "\"HTTP://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> 來"
 "取代 MySQL 查詢快取，特別是當您使用多台次要備援資料庫，。"
 
-#: libraries/advisory_rules_generic.php:196
+#: libraries/classes/Advisory/Rules.php:223
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -290,49 +331,49 @@ msgstr ""
 "已啟用查詢快取，伺服器每秒收到 %d 個查詢。如果每秒超過 100 個查詢，將觸發此規"
 "則。"
 
-#: libraries/advisory_rules_generic.php:204
+#: libraries/classes/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "因排序建立的暫存表百分比"
 
-#: libraries/advisory_rules_generic.php:208
-#: libraries/advisory_rules_generic.php:221
+#: libraries/classes/Advisory/Rules.php:235
+#: libraries/classes/Advisory/Rules.php:250
 msgid "Too many sorts are causing temporary tables."
 msgstr "太多因為排序而產生的暫存表。"
 
-#: libraries/advisory_rules_generic.php:210
-#: libraries/advisory_rules_generic.php:223
+#: libraries/classes/Advisory/Rules.php:237
+#: libraries/classes/Advisory/Rules.php:252
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "根據系統記憶體多寡，考慮增加 {sort_buffer_size} 和 {read_rnd_buffer_size}。"
 
-#: libraries/advisory_rules_generic.php:213
+#: libraries/classes/Advisory/Rules.php:241
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr "有 %s%% 的排序會產生暫存表，這個值應低於 10%%。"
 
-#: libraries/advisory_rules_generic.php:218
+#: libraries/classes/Advisory/Rules.php:247
 msgid "Rate of sorts that cause temporary tables"
 msgstr "排序產生的暫存表比率"
 
-#: libraries/advisory_rules_generic.php:226
+#: libraries/classes/Advisory/Rules.php:255
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr "平均暫存表數：%s，此值應小於每小時 1 個。"
 
-#: libraries/advisory_rules_generic.php:231
+#: libraries/classes/Advisory/Rules.php:260
 msgid "Sort rows"
 msgstr "資料列排序"
 
-#: libraries/advisory_rules_generic.php:234
+#: libraries/classes/Advisory/Rules.php:263
 msgid "There are lots of rows being sorted."
 msgstr "有大量資料列需要排序。"
 
-#: libraries/advisory_rules_generic.php:236
+#: libraries/classes/Advisory/Rules.php:265
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -342,20 +383,20 @@ msgstr ""
 "大量排序不是錯，但請確保 ORDER BY 子句使用有索引的欄位來排序，以加速排序的執"
 "行速度。"
 
-#: libraries/advisory_rules_generic.php:240
+#: libraries/classes/Advisory/Rules.php:269
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "平均排序列數：%s"
 
-#: libraries/advisory_rules_generic.php:246
+#: libraries/classes/Advisory/Rules.php:275
 msgid "Rate of joins without indexes"
 msgstr "未使用索引的資料表連結(join)比率"
 
-#: libraries/advisory_rules_generic.php:249
+#: libraries/classes/Advisory/Rules.php:278
 msgid "There are too many joins without indexes."
 msgstr "有太多的資料表連結(join)未使用索引。"
 
-#: libraries/advisory_rules_generic.php:251
+#: libraries/classes/Advisory/Rules.php:280
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
@@ -363,20 +404,20 @@ msgstr ""
 "這代表資料表連結(join)時會掃描整個資料表。將連結條件所使用的欄位設定為有索引"
 "的欄位，可大幅加快資料表連結時的速度。"
 
-#: libraries/advisory_rules_generic.php:254
+#: libraries/classes/Advisory/Rules.php:283
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr "平均資料表連結(join)次數: %s，此值應小於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:259
+#: libraries/classes/Advisory/Rules.php:288
 msgid "Rate of reading first index entry"
 msgstr "讀取第一個索引項目比率"
 
-#: libraries/advisory_rules_generic.php:262
+#: libraries/classes/Advisory/Rules.php:291
 msgid "The rate of reading the first index entry is high."
 msgstr "讀取第一個索引項目比率過髙。"
 
-#: libraries/advisory_rules_generic.php:264
+#: libraries/classes/Advisory/Rules.php:293
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -390,20 +431,20 @@ msgstr ""
 "除操作，執行 OPTIMIZE TABLE 可以減少掃描全部索引的次數或提升速度，除此之外只"
 "能靠重寫查詢來減少掃描全部索引。"
 
-#: libraries/advisory_rules_generic.php:270
+#: libraries/classes/Advisory/Rules.php:299
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr "平均掃描索引次數：%s，此值應小於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:275
+#: libraries/classes/Advisory/Rules.php:304
 msgid "Rate of reading fixed position"
 msgstr "讀取固定位置資料比率"
 
-#: libraries/advisory_rules_generic.php:278
+#: libraries/classes/Advisory/Rules.php:307
 msgid "The rate of reading data from a fixed position is high."
 msgstr "讀取固定位置資料比率過高。"
 
-#: libraries/advisory_rules_generic.php:280
+#: libraries/classes/Advisory/Rules.php:309
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -412,42 +453,42 @@ msgstr ""
 "這表示許多查詢的結果需要排序，或掃描整個資料表，這包括未使用索引的資料表連結"
 "(join)查詢。請在適當的地方增加索引。"
 
-#: libraries/advisory_rules_generic.php:283
+#: libraries/classes/Advisory/Rules.php:313
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr "平均固定位置讀取次數：%s，這個值應小於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:288
+#: libraries/classes/Advisory/Rules.php:319
 msgid "Rate of reading next table row"
 msgstr "讀取資料表下一筆資料比率"
 
-#: libraries/advisory_rules_generic.php:291
+#: libraries/classes/Advisory/Rules.php:322
 msgid "The rate of reading the next table row is high."
 msgstr "讀取資料表下一筆資料比率過高。"
 
-#: libraries/advisory_rules_generic.php:293
+#: libraries/classes/Advisory/Rules.php:324
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr "這表示有許多查詢需要掃描整個資料表。請適時增加索引。"
 
-#: libraries/advisory_rules_generic.php:295
+#: libraries/classes/Advisory/Rules.php:326
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr "平均讀取資料表下一筆資料次數：%s，此值應小於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:301
+#: libraries/classes/Advisory/Rules.php:332
 msgid "Different tmp_table_size and max_heap_table_size"
 msgstr "tmp_table_size 與 max_heap_table_size 設定值不一致"
 
-#: libraries/advisory_rules_generic.php:304
+#: libraries/classes/Advisory/Rules.php:335
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
 msgstr "{tmp_table_size} 和 {max_heap_table_size} 並不相同。"
 
-#: libraries/advisory_rules_generic.php:306
+#: libraries/classes/Advisory/Rules.php:337
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -457,23 +498,23 @@ msgstr ""
 "如果有意更改其中之一的話：伺服器會使用當中較低的值來決定記憶體中資料表的上"
 "限。如果想要增加記憶體中資料表的上限，應該同時增加另一個值。"
 
-#: libraries/advisory_rules_generic.php:310
+#: libraries/classes/Advisory/Rules.php:341
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "目前 tmp_table_size 的值是 %s，max_heap_table_size 的值是 %s"
 
-#: libraries/advisory_rules_generic.php:316
+#: libraries/classes/Advisory/Rules.php:347
 msgid "Percentage of temp tables on disk"
 msgstr "暫存表在磁碟的比率"
 
-#: libraries/advisory_rules_generic.php:320
-#: libraries/advisory_rules_generic.php:341
+#: libraries/classes/Advisory/Rules.php:351
+#: libraries/classes/Advisory/Rules.php:372
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr "太多的暫存資料表寫入至磁碟，而非儲存在記憶體。"
 
-#: libraries/advisory_rules_generic.php:322
+#: libraries/classes/Advisory/Rules.php:353
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -489,18 +530,18 @@ msgstr ""
 "<a href=\"HTTP://www.facebook.com/note.php?note_id=10150111255065841&comments"
 "\">Pythian 小組文章</a>開首所提到的狀況"
 
-#: libraries/advisory_rules_generic.php:331
+#: libraries/classes/Advisory/Rules.php:362
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr "有 %s%% 的暫存資料表將資料寫入磁碟中，此值應低於 25%%"
 
-#: libraries/advisory_rules_generic.php:337
+#: libraries/classes/Advisory/Rules.php:368
 msgid "Temp disk rate"
 msgstr "暫存磁碟比率"
 
-#: libraries/advisory_rules_generic.php:343
+#: libraries/classes/Advisory/Rules.php:374
 #, fuzzy
 #| msgid ""
 #| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
@@ -525,47 +566,47 @@ msgstr ""
 "<a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables."
 "html\">MySQL 說明文件</a>所提到的狀況"
 
-#: libraries/advisory_rules_generic.php:352
+#: libraries/classes/Advisory/Rules.php:383
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr "暫存資料表寫入至磁碟的比率：%s，此值應小於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:359
+#: libraries/classes/Advisory/Rules.php:390
 msgid "MyISAM key buffer size"
 msgstr "MyISAM 鍵值緩衝區大小"
 
-#: libraries/advisory_rules_generic.php:362
+#: libraries/classes/Advisory/Rules.php:393
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "鍵值緩衝區未初始化。將無法快取 MyISAM 索引。"
 
-#: libraries/advisory_rules_generic.php:364
+#: libraries/classes/Advisory/Rules.php:395
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
 "請根據 MyISAM 索引的大小來設定 {key_buffer_size}。一開始通常會設定為 64M。"
 
-#: libraries/advisory_rules_generic.php:366
+#: libraries/classes/Advisory/Rules.php:397
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 為 0"
 
-#: libraries/advisory_rules_generic.php:371
+#: libraries/classes/Advisory/Rules.php:402
 #, fuzzy, no-php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "MyISAM 鍵值緩衝區最大使用 %%"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:393
+#: libraries/classes/Advisory/Rules.php:407
+#: libraries/classes/Advisory/Rules.php:424
 #, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "MyISAM 鍵值緩衝區 (索引快取) %% 使用率過低。"
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:395
+#: libraries/classes/Advisory/Rules.php:409
+#: libraries/classes/Advisory/Rules.php:426
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -574,64 +615,64 @@ msgstr ""
 "可能需要減少 {key_buffer_size} 的值，重新檢視資料表，是否曾經刪除過索引，或檢"
 "視查詢是否如預期的使用了索引。"
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/classes/Advisory/Rules.php:413
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr "MyISAM 鍵值緩衝區最大使用 %%：%s%%，此值應該要在 95%% 以上"
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/classes/Advisory/Rules.php:418
 msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM 鍵值緩衝區使用比率"
 
-#: libraries/advisory_rules_generic.php:399
+#: libraries/classes/Advisory/Rules.php:430
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr "MyISAM 鍵值緩衝區使用 %% : %s%%，此值應該在 95%% 以上"
 
-#: libraries/advisory_rules_generic.php:404
+#: libraries/classes/Advisory/Rules.php:435
 msgid "Percentage of index reads from memory"
 msgstr "從記憶體中讀取索引的比率"
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/classes/Advisory/Rules.php:440
 #, fuzzy, no-php-format
 #| msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "索引使用 MyISAM 鍵值緩衝區的比率太低。"
 
-#: libraries/advisory_rules_generic.php:410
+#: libraries/classes/Advisory/Rules.php:441
 msgid "You may need to increase {key_buffer_size}."
 msgstr "可能需要增加 {key_buffer_size} 的值。"
 
-#: libraries/advisory_rules_generic.php:411
+#: libraries/classes/Advisory/Rules.php:442
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "從記憶體中讀取索引：%s%%，這個值應該在 95%% 以上"
 
-#: libraries/advisory_rules_generic.php:417
+#: libraries/classes/Advisory/Rules.php:448
 msgid "Rate of table open"
 msgstr "資料表開啟比率"
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/classes/Advisory/Rules.php:451
 msgid "The rate of opening tables is high."
 msgstr "資料表開啟比率過高。"
 
-#: libraries/advisory_rules_generic.php:422
+#: libraries/classes/Advisory/Rules.php:453
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr "開啟資料表會大量使用磁碟存取。增加 {table_open_cache} 或能避免此問題。"
 
-#: libraries/advisory_rules_generic.php:424
+#: libraries/classes/Advisory/Rules.php:455
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "資料表開啟比率：%s，此值應該低於每小時 10 次"
 
-#: libraries/advisory_rules_generic.php:429
+#: libraries/classes/Advisory/Rules.php:460
 msgid "Percentage of used open files limit"
 msgstr "已使用檔案開啟限制比率"
 
-#: libraries/advisory_rules_generic.php:433
+#: libraries/classes/Advisory/Rules.php:464
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -643,8 +684,8 @@ msgstr ""
 "檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open files)」的錯"
 "誤。"
 
-#: libraries/advisory_rules_generic.php:437
-#: libraries/advisory_rules_generic.php:450
+#: libraries/classes/Advisory/Rules.php:468
+#: libraries/classes/Advisory/Rules.php:481
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -652,101 +693,101 @@ msgstr ""
 "請考慮增加 {open_files_limit}，並在更改 {open_files_limit} 設定後，重新啟動伺"
 "服器，並檢查錯誤記錄是否有異常。"
 
-#: libraries/advisory_rules_generic.php:440
+#: libraries/classes/Advisory/Rules.php:471
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "檔案開啟的數量已達上限的 %s%%，此值應低於 85%%"
 
-#: libraries/advisory_rules_generic.php:445
+#: libraries/classes/Advisory/Rules.php:476
 msgid "Rate of open files"
 msgstr "檔案開啟比率"
 
-#: libraries/advisory_rules_generic.php:448
+#: libraries/classes/Advisory/Rules.php:479
 msgid "The rate of opening files is high."
 msgstr "檔案開啟比率過高。"
 
-#: libraries/advisory_rules_generic.php:453
+#: libraries/classes/Advisory/Rules.php:484
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "檔案開啟次數：%s，此值應該低於每小時 5 次"
 
-#: libraries/advisory_rules_generic.php:459
+#: libraries/classes/Advisory/Rules.php:490
 #, fuzzy, no-php-format
 #| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "立即資料表鎖定 %%"
 
-#: libraries/advisory_rules_generic.php:463
-#: libraries/advisory_rules_generic.php:473
+#: libraries/classes/Advisory/Rules.php:494
+#: libraries/classes/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
 msgstr "太多的資料表鎖定並未立即給予。"
 
-#: libraries/advisory_rules_generic.php:464
-#: libraries/advisory_rules_generic.php:474
+#: libraries/classes/Advisory/Rules.php:495
+#: libraries/classes/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr "最佳化查詢及／或使用 InnoDB 來減少鎖定等待。"
 
-#: libraries/advisory_rules_generic.php:465
+#: libraries/classes/Advisory/Rules.php:496
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "立即資料表鎖定：%s%%，這個值應該在 95%% 以上"
 
-#: libraries/advisory_rules_generic.php:470
+#: libraries/classes/Advisory/Rules.php:501
 msgid "Table lock wait rate"
 msgstr "資料表鎖定等待率"
 
-#: libraries/advisory_rules_generic.php:475
+#: libraries/classes/Advisory/Rules.php:506
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "資料表鎖定等待率：%s，這個值應該低於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:480
+#: libraries/classes/Advisory/Rules.php:511
 msgid "Thread cache"
 msgstr "執行緒快取"
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/classes/Advisory/Rules.php:514
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr "執行緒快取未啟用，將導致建立新的連線到 MySQL 時消耗更多的額外資源。"
 
-#: libraries/advisory_rules_generic.php:484
+#: libraries/classes/Advisory/Rules.php:515
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "設定 {thread_cache_size} 大於 0 以啟用執行緒快取。"
 
-#: libraries/advisory_rules_generic.php:485
+#: libraries/classes/Advisory/Rules.php:516
 msgid "The thread cache is set to 0"
 msgstr "執行緒快取目前設定為 0"
 
-#: libraries/advisory_rules_generic.php:490
+#: libraries/classes/Advisory/Rules.php:521
 #, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "執行緒快取命中率 %%"
 
-#: libraries/advisory_rules_generic.php:494
+#: libraries/classes/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
 msgstr "執行緒快取並不是很有效率。"
 
-#: libraries/advisory_rules_generic.php:495
+#: libraries/classes/Advisory/Rules.php:526
 msgid "Increase {thread_cache_size}."
 msgstr "增加 {thread_cache_size}。"
 
-#: libraries/advisory_rules_generic.php:496
+#: libraries/classes/Advisory/Rules.php:527
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "執行緒快取命中率：%s%%，這個值應該在 80%% 以上"
 
-#: libraries/advisory_rules_generic.php:501
+#: libraries/classes/Advisory/Rules.php:532
 msgid "Threads that are slow to launch"
 msgstr "執行緒的緩慢啟動"
 
-#: libraries/advisory_rules_generic.php:505
+#: libraries/classes/Advisory/Rules.php:536
 msgid "There are too many threads that are slow to launch."
 msgstr "有太多執行緒啟動得很慢。"
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/classes/Advisory/Rules.php:538
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -754,42 +795,42 @@ msgstr ""
 "因為這是很簡單的事件，所以發生通常是因為系統已經超越負荷。請仔細監控系統負"
 "載。"
 
-#: libraries/advisory_rules_generic.php:510
+#: libraries/classes/Advisory/Rules.php:541
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s 個執行緒啟動花了超過 %s 秒，這個值應該是 0"
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/classes/Advisory/Rules.php:546
 msgid "Slow launch time"
 msgstr "緩慢啟動時間"
 
-#: libraries/advisory_rules_generic.php:518
+#: libraries/classes/Advisory/Rules.php:549
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time 已超過 2 秒。"
 
-#: libraries/advisory_rules_generic.php:520
+#: libraries/classes/Advisory/Rules.php:551
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
 "將 {slow_launch_time} 設為 1 或 2 秒， 以正確紀錄緩慢啟動的執行緒數量。"
 
-#: libraries/advisory_rules_generic.php:522
+#: libraries/classes/Advisory/Rules.php:553
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time 目前設定為 %s"
 
-#: libraries/advisory_rules_generic.php:528
+#: libraries/classes/Advisory/Rules.php:559
 msgid "Percentage of used connections"
 msgstr "連線百分比"
 
-#: libraries/advisory_rules_generic.php:531
+#: libraries/classes/Advisory/Rules.php:563
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr "最大的連線數已經很接近 {max_connections}。"
 
-#: libraries/advisory_rules_generic.php:533
+#: libraries/classes/Advisory/Rules.php:566
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -798,23 +839,23 @@ msgstr ""
 "增加 {max_connections} 或減少 {wait_timeout} 可以使得未正常結束的資料庫連線者"
 "快一些被清除。並且確保用來連進來的程式能正確的結束資料庫連線。"
 
-#: libraries/advisory_rules_generic.php:537
+#: libraries/classes/Advisory/Rules.php:570
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr "Max_used_connections 已達 max_connections 的 %s%%，這個值應低於 80%%"
 
-#: libraries/advisory_rules_generic.php:542
+#: libraries/classes/Advisory/Rules.php:575
 msgid "Percentage of aborted connections"
 msgstr "斷線百分比"
 
-#: libraries/advisory_rules_generic.php:545
-#: libraries/advisory_rules_generic.php:559
+#: libraries/classes/Advisory/Rules.php:578
+#: libraries/classes/Advisory/Rules.php:592
 msgid "Too many connections are aborted."
 msgstr "有太多的連線發生中斷。"
 
-#: libraries/advisory_rules_generic.php:547
-#: libraries/advisory_rules_generic.php:561
+#: libraries/classes/Advisory/Rules.php:580
+#: libraries/classes/Advisory/Rules.php:594
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
@@ -824,32 +865,32 @@ msgstr ""
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">此文章</a>。"
 
-#: libraries/advisory_rules_generic.php:551
+#: libraries/classes/Advisory/Rules.php:584
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "所有連線中有 %s%% 的連線被中斷，此值應低於 1%%"
 
-#: libraries/advisory_rules_generic.php:556
+#: libraries/classes/Advisory/Rules.php:589
 msgid "Rate of aborted connections"
 msgstr "中斷連線比率"
 
-#: libraries/advisory_rules_generic.php:565
+#: libraries/classes/Advisory/Rules.php:598
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr "斷線的比率是 %s，此值應小於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:570
+#: libraries/classes/Advisory/Rules.php:603
 msgid "Percentage of aborted clients"
 msgstr "用戶端連線不正常中斷比例"
 
-#: libraries/advisory_rules_generic.php:573
-#: libraries/advisory_rules_generic.php:587
+#: libraries/classes/Advisory/Rules.php:606
+#: libraries/classes/Advisory/Rules.php:620
 msgid "Too many clients are aborted."
 msgstr "有太多的用戶端連線被中斷。"
 
-#: libraries/advisory_rules_generic.php:575
-#: libraries/advisory_rules_generic.php:589
+#: libraries/classes/Advisory/Rules.php:608
+#: libraries/classes/Advisory/Rules.php:622
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -858,50 +899,50 @@ msgstr ""
 "通常是用戶端未正確結束 MySQL 的連線，可能是由於網路的問題或使用的程式未正確關"
 "閉資料庫的連線，請檢查您的網路及程式碼。"
 
-#: libraries/advisory_rules_generic.php:579
+#: libraries/classes/Advisory/Rules.php:612
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "有 %s%% 的用戶端不正常中斷連線，此值應低於 2%%"
 
-#: libraries/advisory_rules_generic.php:584
+#: libraries/classes/Advisory/Rules.php:617
 msgid "Rate of aborted clients"
 msgstr "用戶端連線不正常中斷比率"
 
-#: libraries/advisory_rules_generic.php:593
+#: libraries/classes/Advisory/Rules.php:626
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr "用戶端連線不正常中斷比率為 %s，此值應低於每小時 1 次"
 
-#: libraries/advisory_rules_generic.php:599
+#: libraries/classes/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
 msgstr "是否已停用 InnoDB？"
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/classes/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
 msgstr "未啟用 InnoDB。"
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/classes/Advisory/Rules.php:637
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "通常會建議使用 InnoDB 資料表引擎。"
 
-#: libraries/advisory_rules_generic.php:605
+#: libraries/classes/Advisory/Rules.php:638
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb 目前設定為 'value'"
 
-#: libraries/advisory_rules_generic.php:609
-#: libraries/advisory_rules_generic.php:633
+#: libraries/classes/Advisory/Rules.php:642
+#: libraries/classes/Advisory/Rules.php:669
 msgid "InnoDB log size"
 msgstr "InnoDB 記錄大小"
 
-#: libraries/advisory_rules_generic.php:613
-#: libraries/advisory_rules_generic.php:640
+#: libraries/classes/Advisory/Rules.php:647
+#: libraries/classes/Advisory/Rules.php:677
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr "不適當的 InnoDB 記錄檔大小，應與 InnoDB 緩衝池呈比例。"
 
-#: libraries/advisory_rules_generic.php:615
-#: libraries/advisory_rules_generic.php:642
+#: libraries/classes/Advisory/Rules.php:650
+#: libraries/classes/Advisory/Rules.php:680
 #, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
@@ -933,23 +974,23 @@ msgstr ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
-#: libraries/advisory_rules_generic.php:626
-#: libraries/advisory_rules_generic.php:653
+#: libraries/classes/Advisory/Rules.php:662
+#: libraries/classes/Advisory/Rules.php:692
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr "InnoDB 記錄檔與 InnoDB 緩衝池大小比例為 %s%%，此值不應低於 20%%"
 
-#: libraries/advisory_rules_generic.php:660
+#: libraries/classes/Advisory/Rules.php:699
 msgid "Max InnoDB log size"
 msgstr "InnoDB 記錄上限"
 
-#: libraries/advisory_rules_generic.php:664
+#: libraries/classes/Advisory/Rules.php:704
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 記錄檔不夠大。"
 
-#: libraries/advisory_rules_generic.php:666
+#: libraries/classes/Advisory/Rules.php:706
 #, fuzzy, no-php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
@@ -981,20 +1022,20 @@ msgstr ""
 "blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
 "章</a>"
 
-#: libraries/advisory_rules_generic.php:676
+#: libraries/classes/Advisory/Rules.php:717
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "InnoDB 記錄檔固定大小為 %s MB"
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/classes/Advisory/Rules.php:722
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB 緩衝池大小"
 
-#: libraries/advisory_rules_generic.php:685
+#: libraries/classes/Advisory/Rules.php:726
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB 緩衝池太小了。"
 
-#: libraries/advisory_rules_generic.php:687
+#: libraries/classes/Advisory/Rules.php:728
 #, fuzzy, no-php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -1027,7 +1068,7 @@ msgstr ""
 "\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">這篇文章</a>"
 
-#: libraries/advisory_rules_generic.php:697
+#: libraries/classes/Advisory/Rules.php:738
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1039,15 +1080,15 @@ msgstr ""
 "也許因為沒有太多的 InnoDB 資料表或其他服務同時運行於此電腦，所以這樣也許十分"
 "適用於您的系統。"
 
-#: libraries/advisory_rules_generic.php:707
+#: libraries/classes/Advisory/Rules.php:748
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM 並行新增"
 
-#: libraries/advisory_rules_generic.php:710
+#: libraries/classes/Advisory/Rules.php:751
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "將之設定為 1，以啟用 {concurrent_insert}"
 
-#: libraries/advisory_rules_generic.php:712
+#: libraries/classes/Advisory/Rules.php:753
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1057,19 +1098,19 @@ msgstr ""
 "href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html"
 "\">MySQL 說明文件</a>"
 
-#: libraries/advisory_rules_generic.php:716
+#: libraries/classes/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
 
-#: libraries/advisory_rules_mysql_before80003.php:9
+#: libraries/classes/Advisory/Rules.php:772
 msgid "Query cache disabled"
 msgstr "已停用查詢快取"
 
-#: libraries/advisory_rules_mysql_before80003.php:12
+#: libraries/classes/Advisory/Rules.php:775
 msgid "The query cache is not enabled."
 msgstr "未啟用查詢快取。"
 
-#: libraries/advisory_rules_mysql_before80003.php:14
+#: libraries/classes/Advisory/Rules.php:777
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -1080,46 +1121,46 @@ msgstr ""
 "{query_cache_size} 設定為兩位數的 MiB 值，並將 {query_cache_type} 設定為 ON。"
 "<b>注意：</b>若已啟用 memcached，則可忽略這個建議。"
 
-#: libraries/advisory_rules_mysql_before80003.php:18
+#: libraries/classes/Advisory/Rules.php:781
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 已設為 0 或 query_cache_type 已設為 OFF"
 
-#: libraries/advisory_rules_mysql_before80003.php:23
+#: libraries/classes/Advisory/Rules.php:786
 #, fuzzy, no-php-format
 #| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "查詢快取效能(%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/classes/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "查詢快取命中率過低，效能不佳。"
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/classes/Advisory/Rules.php:791
 msgid "Consider increasing {query_cache_limit}."
 msgstr "請考慮增加 {query_cache_limit}。"
 
-#: libraries/advisory_rules_mysql_before80003.php:29
+#: libraries/classes/Advisory/Rules.php:792
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "查詢快取命中率 %s%% 低於 20%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:34
+#: libraries/classes/Advisory/Rules.php:797
 msgid "Query Cache usage"
 msgstr "查詢快取使用狀況"
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/classes/Advisory/Rules.php:802
 #, fuzzy, no-php-format
 #| msgid "Less than 80%% of the query cache is being utilized."
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "查詢快取的使用比例低於 80%%。"
 
-#: libraries/advisory_rules_mysql_before80003.php:41
+#: libraries/classes/Advisory/Rules.php:804
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr "可能是 {query_cache_limit} 太低所引起的。清空查詢快取可能改善狀況。"
 
-#: libraries/advisory_rules_mysql_before80003.php:45
+#: libraries/classes/Advisory/Rules.php:808
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1127,15 +1168,15 @@ msgid ""
 msgstr ""
 "目前的閒置查詢快取記憶體，為全部查詢快取的大小的 %s%%；這個值應高於 80%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:52
+#: libraries/classes/Advisory/Rules.php:815
 msgid "Query cache fragmentation"
 msgstr "查詢快取片段狀況"
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/classes/Advisory/Rules.php:819
 msgid "The query cache is considerably fragmented."
 msgstr "查詢快取資料過於分散。"
 
-#: libraries/advisory_rules_mysql_before80003.php:58
+#: libraries/classes/Advisory/Rules.php:821
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -1153,7 +1194,7 @@ msgstr ""
 "詢大小的平均值，使用以下公式：(query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 
-#: libraries/advisory_rules_mysql_before80003.php:66
+#: libraries/classes/Advisory/Rules.php:829
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1163,17 +1204,17 @@ msgstr ""
 "快取資料目前的分散率為 %s%%；若分散率是 100%%，代表查詢快取變成直接替換資料，"
 "無快取作用。此值應低於 20%%。"
 
-#: libraries/advisory_rules_mysql_before80003.php:73
+#: libraries/classes/Advisory/Rules.php:836
 msgid "Query cache low memory prunes"
 msgstr "查詢快取低記憶體清理"
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/classes/Advisory/Rules.php:840
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr "由於查詢快取記憶體不足，已快取的查詢會被移除。"
 
-#: libraries/advisory_rules_mysql_before80003.php:79
+#: libraries/classes/Advisory/Rules.php:842
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -1182,44 +1223,44 @@ msgstr ""
 "可能需要增加 {query_cache_size}；但是請注意，維護快取額外消耗的資源通常的主因"
 "是過度增加快取，因此請逐次小幅增加，並監視結果。"
 
-#: libraries/advisory_rules_mysql_before80003.php:84
+#: libraries/classes/Advisory/Rules.php:847
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr "刪除與新增查詢的比例是 %s%%。此值越低越好 (警戒比例：0.1%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:91
+#: libraries/classes/Advisory/Rules.php:854
 msgid "Query cache max size"
 msgstr "查詢快取最大大小"
 
-#: libraries/advisory_rules_mysql_before80003.php:96
+#: libraries/classes/Advisory/Rules.php:859
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr "查詢快取超過 128 MB，過大的查詢快取可能會引起額外的維謢開銷。"
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/classes/Advisory/Rules.php:863
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr "視乎個別情況，減少這個值可能可以提高效能。"
 
-#: libraries/advisory_rules_mysql_before80003.php:102
+#: libraries/classes/Advisory/Rules.php:865
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "目前查詢快取大小：%s"
 
-#: libraries/advisory_rules_mysql_before80003.php:107
+#: libraries/classes/Advisory/Rules.php:870
 msgid "Query cache min result size"
 msgstr "查詢快取最小結果大小"
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/classes/Advisory/Rules.php:874
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr "查詢快取結果集的上限為預設的 1 MB。"
 
-#: libraries/advisory_rules_mysql_before80003.php:113
+#: libraries/classes/Advisory/Rules.php:876
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -1236,50 +1277,9 @@ msgstr ""
 "結果是不適合快取的 (往往因資料表更新而失效)，那麼增加 {query_cache_limit} 就"
 "反而會降低效率。"
 
-#: libraries/advisory_rules_mysql_before80003.php:120
+#: libraries/classes/Advisory/Rules.php:883
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit 目前設定為 1 MB"
-
-#: libraries/classes/Advisor.php:234
-#, php-format
-msgid "Error when evaluating: %s"
-msgstr "評估此項目時發生錯誤：%s"
-
-#: libraries/classes/Advisor.php:261
-#, php-format
-msgid "Failed evaluating precondition for rule '%s'."
-msgstr "在檢查預先狀況時，條件「%s」失敗。"
-
-#: libraries/classes/Advisor.php:281
-#, php-format
-msgid "Failed calculating value for rule '%s'."
-msgstr "在計算值時，條件「%s」失敗。"
-
-#: libraries/classes/Advisor.php:300
-#, php-format
-msgid "Failed running test for rule '%s'."
-msgstr "在執行測試時，條件「%s」失敗。"
-
-#: libraries/classes/Advisor.php:328
-#, php-format
-msgid "Failed formatting string for rule '%s'."
-msgstr "無法產生規則「%s」的格式化文字。"
-
-#: libraries/classes/Advisor.php:413
-msgid "per second"
-msgstr "每秒"
-
-#: libraries/classes/Advisor.php:416
-msgid "per minute"
-msgstr "每分鐘"
-
-#: libraries/classes/Advisor.php:419
-msgid "per hour"
-msgstr "每小時"
-
-#: libraries/classes/Advisor.php:422
-msgid "per day"
-msgstr "每天"
 
 #: libraries/classes/BrowseForeigners.php:200
 msgid "Search:"
@@ -4413,7 +4413,7 @@ msgstr "自訂"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4790,7 +4790,7 @@ msgstr "無書籤"
 msgid "SQL Query Console"
 msgstr "SQL 查詢主控台"
 
-#: libraries/classes/Controllers/AbstractController.php:73
+#: libraries/classes/Controllers/AbstractController.php:74
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
 #: libraries/classes/DbTableExists.php:45
@@ -4976,7 +4976,7 @@ msgstr "是"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:317
 #: libraries/classes/Controllers/Table/ReplaceController.php:418
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:720 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "無更改"
 
@@ -6002,7 +6002,7 @@ msgstr "狀態"
 
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:472
 #: libraries/classes/Plugins/Export/ExportOdt.php:594
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
@@ -6475,7 +6475,7 @@ msgstr "第二正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:419
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
 #: libraries/classes/Normalization.php:375
 msgid "Done"
 msgstr "完成"
@@ -7172,20 +7172,27 @@ msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "無效的匯出類型"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+msgid ""
+"You can not open, save or delete your page layout, as IndexedDB is not "
+"working in your browser and your phpMyAdmin configuration storage is not "
+"configured for this."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "已有 %s 資料表！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "隱藏"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7194,274 +7201,274 @@ msgid "Show"
 msgstr "顯示"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "January"
 msgstr "一月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "February"
 msgstr "二月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "March"
 msgstr "三月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "April"
 msgstr "四月"
 
 #. l10n: Month name
 #. l10n: Short month name for May
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 msgid "May"
 msgstr "五月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "June"
 msgstr "六月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 msgid "July"
 msgstr "七月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgid "August"
 msgstr "八月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgid "September"
 msgstr "九月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgid "October"
 msgstr "十月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgid "November"
 msgstr "十一月"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 msgid "December"
 msgstr "十二月"
 
 #. l10n: Short month name for January
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #: libraries/classes/Util.php:664
 msgid "Jan"
 msgstr "1月"
 
 #. l10n: Short month name for February
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:666
 msgid "Feb"
 msgstr "2月"
 
 #. l10n: Short month name for March
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:668
 msgid "Mar"
 msgstr "3月"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:670
 msgid "Apr"
 msgstr "4月"
 
 #. l10n: Short month name for June
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:674
 msgid "Jun"
 msgstr "6月"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #: libraries/classes/Util.php:676
 msgid "Jul"
 msgstr "7月"
 
 #. l10n: Short month name for August
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #: libraries/classes/Util.php:678
 msgid "Aug"
 msgstr "8月"
 
 #. l10n: Short month name for September
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #: libraries/classes/Util.php:680
 msgid "Sep"
 msgstr "9月"
 
 #. l10n: Short month name for October
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #: libraries/classes/Util.php:682
 msgid "Oct"
 msgstr "10月"
 
 #. l10n: Short month name for November
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #: libraries/classes/Util.php:684
 msgid "Nov"
 msgstr "11月"
 
 #. l10n: Short month name for December
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:686
 msgid "Dec"
 msgstr "12月"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/config.values.php:197
 msgid "Sunday"
 msgstr "星期日"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #: libraries/config.values.php:191
 msgid "Monday"
 msgstr "星期一"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
 #: libraries/config.values.php:192
 msgid "Tuesday"
 msgstr "星期二"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #: libraries/config.values.php:193
 msgid "Wednesday"
 msgstr "星期三"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #: libraries/config.values.php:194
 msgid "Thursday"
 msgstr "星期四"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
 #: libraries/config.values.php:195
 msgid "Friday"
 msgstr "星期五"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #: libraries/config.values.php:196
 msgid "Saturday"
 msgstr "星期六"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 msgid "Sun"
 msgstr "週日"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
 #: libraries/classes/Util.php:692
 msgid "Mon"
 msgstr "週一"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
 #: libraries/classes/Util.php:694
 msgid "Tue"
 msgstr "週二"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #: libraries/classes/Util.php:696
 msgid "Wed"
 msgstr "週三"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
 #: libraries/classes/Util.php:698
 msgid "Thu"
 msgstr "週四"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
 #: libraries/classes/Util.php:700
 msgid "Fri"
 msgstr "週五"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
 #: libraries/classes/Util.php:702
 msgid "Sat"
 msgstr "週六"
 
 #. l10n: Minimal week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
 msgid "Mo"
 msgstr "一"
 
 #. l10n: Minimal week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
 msgid "Tu"
 msgstr "二"
 
 #. l10n: Minimal week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
 msgid "We"
 msgstr "三"
 
 #. l10n: Minimal week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
 msgid "Th"
 msgstr "四"
 
 #. l10n: Minimal week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
 msgid "Fr"
 msgstr "五"
 
 #. l10n: Minimal week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
 msgid "Sa"
 msgstr "六"
 
 #. l10n: Column header for week of the year in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
 msgid "Wk"
 msgstr "週"
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -7469,23 +7476,23 @@ msgid "none"
 msgstr "none"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
 msgid "Hour"
 msgstr "時"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
 msgid "Minute"
 msgstr "分"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
 msgid "Second"
 msgstr "秒"
 
 # 這應該是使用於選擇日期的月曆
 #. l10n: Previous month. Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -7493,93 +7500,93 @@ msgid "Prev"
 msgstr "上個月"
 
 #. l10n: Next month. Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
 msgid "Next"
 msgstr "下個月"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
 msgid "Today"
 msgstr "今天"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
 msgid "This field is required"
 msgstr "此欄位為必填"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
 msgid "Please fix this field"
 msgstr "請修正此欄位"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
 msgid "Please enter a valid email address"
 msgstr "請輸入有效電子郵件位址"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
 msgid "Please enter a valid URL"
 msgstr "請輸入有效網址"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
 msgid "Please enter a valid date"
 msgstr "請輸入有效日期"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
 msgid "Please enter a valid date ( ISO )"
 msgstr "請輸入有效日期 ( ISO )"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 msgid "Please enter a valid number"
 msgstr "請輸入有效數字"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
 msgid "Please enter a valid credit card number"
 msgstr "請輸入有效信用卡號"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
 msgid "Please enter only digits"
 msgstr "請輸入數字"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
 msgid "Please enter the same value again"
 msgstr "請再輸入一次"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
 msgid "Please enter no more than {0} characters"
 msgstr "請輸入不超過 {0} 個字元"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
 msgid "Please enter at least {0} characters"
 msgstr "請輸入不少於 {0} 個字元"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "請輸入介於  {0} 與 {1} 個字元長度的值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
 msgid "Please enter a value between {0} and {1}"
 msgstr "請輸入介於  {0} 與 {1} 間的值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:832
 msgid "Please enter a value less than or equal to {0}"
 msgstr "請輸入小於或等於 {0} 的值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "請輸入大於或等於 {0} 的值"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:834
 msgid "Please enter a valid date or time"
 msgstr "請輸入有效的日期或時間"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:835
 msgid "Please enter a valid HEX input"
 msgstr "請輸入有效的十六進位值"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:837
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:840
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -9903,7 +9910,7 @@ msgstr "顯示 SQL 查詢"
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 ID：%1$d"
 
-#: libraries/classes/LanguageManager.php:971
+#: libraries/classes/LanguageManager.php:979
 msgid "Ignoring unsupported language code."
 msgstr "忽略不支援的語言代碼。"
 

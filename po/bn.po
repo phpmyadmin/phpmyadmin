@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-20 00:16+0000\n"
+"POT-Creation-Date: 2022-02-27 00:17+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,15 +15,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.11-dev\n"
 
-#: libraries/advisory_rules_generic.php:9
+#: libraries/classes/Advisory/Advisor.php:240
+#, php-format
+msgid "Error when evaluating: %s"
+msgstr "PDF তৈরীর সময় ভুল: %s"
+
+#: libraries/classes/Advisory/Advisor.php:267
+#, php-format
+msgid "Failed evaluating precondition for rule '%s'."
+msgstr ""
+
+#: libraries/classes/Advisory/Advisor.php:287
+#, php-format
+msgid "Failed calculating value for rule '%s'."
+msgstr "%s রুলের মান নির্ধারণ করতে ব্যর্থ হয়েছে।"
+
+#: libraries/classes/Advisory/Advisor.php:306
+#, php-format
+msgid "Failed running test for rule '%s'."
+msgstr "%s রুলের টেস্টটি রান করতে ব্যর্থ হয়েছে।"
+
+#: libraries/classes/Advisory/Advisor.php:334
+#, php-format
+msgid "Failed formatting string for rule '%s'."
+msgstr "'%s' নিয়মের জন্য লেখা গঠন করতে ব্যর্থ হয়েছি।"
+
+#: libraries/classes/Advisory/Advisor.php:419
+msgid "per second"
+msgstr "প্রতি সেকেন্ডে"
+
+#: libraries/classes/Advisory/Advisor.php:422
+msgid "per minute"
+msgstr "প্রতি মিনিটে"
+
+#: libraries/classes/Advisory/Advisor.php:425
+msgid "per hour"
+msgstr "প্রতি ঘন্টায়"
+
+#: libraries/classes/Advisory/Advisor.php:428
+msgid "per day"
+msgstr "প্রতি দিন"
+
+#: libraries/classes/Advisory/Rules.php:34
 msgid "Uptime below one day"
 msgstr "এক দিনের চাইতে কম চালু আছে"
 
-#: libraries/advisory_rules_generic.php:12
+#: libraries/classes/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "চালু আছে ১ দিনের চাইতে কম, কার্যক্ষমতা নির্ধারন করন সম্ভবত সঠিক হবে না।"
 
-#: libraries/advisory_rules_generic.php:14
+#: libraries/classes/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -31,16 +72,16 @@ msgstr ""
 "বেশী সঠিক গড় পাওয়ার জন্য সার্ভারটিকে ১ দিনের চাইতে বেশী সময় চালু রাখার এবং তার "
 "পর নিরিক্ষাকারী ব্যাবহারের সুপারিশ করা হচ্ছে"
 
-#: libraries/advisory_rules_generic.php:17
+#: libraries/classes/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
 msgstr "চালু আছে মাত্র %s"
 
-#: libraries/advisory_rules_generic.php:22
+#: libraries/classes/Advisory/Rules.php:47
 msgid "Questions below 1,000"
 msgstr "প্রশ্নসমূহ ১,০০০ এর নীচে"
 
-#: libraries/advisory_rules_generic.php:26
+#: libraries/classes/Advisory/Rules.php:51
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -48,29 +89,29 @@ msgstr ""
 "১,০০০ এর চাইতে কম প্রশ্ন এই সার্ভারে ব্যাবহার করা হয়েছে। সুপারিশ সঠিক নাও হতে "
 "পারে।"
 
-#: libraries/advisory_rules_generic.php:30
+#: libraries/classes/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
 "একটি বিশাল পরিমান অনুসন্ধান চালানোর জন্য সার্ভারটি অনেক সময়ের জন্য চালু রাখুন।"
 
-#: libraries/advisory_rules_generic.php:32
+#: libraries/classes/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "বর্তমান প্রশ্নের সংখ্যা:%s"
 
-#: libraries/advisory_rules_generic.php:37
+#: libraries/classes/Advisory/Rules.php:62
 msgid "Percentage of slow queries"
 msgstr "ধীর অনুসন্ধানের সংখ্যা"
 
-#: libraries/advisory_rules_generic.php:41
+#: libraries/classes/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr "সমস্ত অনুসন্ধানের তুলনা করে এর মধ্যে প্রচুর ধীর অনুসন্ধান পাওয়া গেছে।"
 
-#: libraries/advisory_rules_generic.php:43
-#: libraries/advisory_rules_generic.php:56
+#: libraries/classes/Advisory/Rules.php:68
+#: libraries/classes/Advisory/Rules.php:81
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -78,32 +119,32 @@ msgstr ""
 "আপনি {long_query_time} বাড়াতে পারেন বা ধীর অনুসন্ধান লগে তালিকাভুক্ত অনুসন্ধান গুলো "
 "অপটিমাইজ করেন"
 
-#: libraries/advisory_rules_generic.php:45
+#: libraries/classes/Advisory/Rules.php:70
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "ধীর অনুসন্ধান হার 5%% হবে, আপনার মান %s%%।"
 
-#: libraries/advisory_rules_generic.php:50
+#: libraries/classes/Advisory/Rules.php:75
 msgid "Slow query rate"
 msgstr "ধীর অনুসন্ধান হার"
 
-#: libraries/advisory_rules_generic.php:54
+#: libraries/classes/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr "সার্ভার চালু রাখার সময়ের ভিত্তিতে উচ্চ হারে ধীর অনুসন্ধান পাওয়া গেছে।"
 
-#: libraries/advisory_rules_generic.php:58
+#: libraries/classes/Advisory/Rules.php:84
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr "প্রতি ঘন্টায় আপনার ধীর অনুসন্ধান হার %s, এটি প্রতি ঘন্টায় 1%% কম হবে।"
 
-#: libraries/advisory_rules_generic.php:63
+#: libraries/classes/Advisory/Rules.php:90
 msgid "Long query time"
 msgstr "দীর্ঘ্য অনুসন্ধান সময়"
 
-#: libraries/advisory_rules_generic.php:67
+#: libraries/classes/Advisory/Rules.php:94
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -111,7 +152,7 @@ msgstr ""
 "{long_query_time} সময় ১০ সেকেন্ড বা তার বেশী নির্ধারন করা হয়েছে, তাই শুধু মাত্র "
 "যে সমস্ত অনুসন্ধান ১০ সেকেন্ডের বেশী সময় নেয় তা লগ করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:71
+#: libraries/classes/Advisory/Rules.php:98
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -119,22 +160,22 @@ msgstr ""
 "আপনার সিস্টেমের উপর ভিত্তি করে{long_query_time}'র জন্য একটি ছোট মান নির্ধারন "
 "করতে বলা হচ্ছে, সাধারনত এই মানটি ১-৫ সেকেন্ড রাখতে বলা হচ্ছে।"
 
-#: libraries/advisory_rules_generic.php:74
+#: libraries/classes/Advisory/Rules.php:101
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time %ds সেকেন্ডে নির্ধারন করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:79
-#: libraries/advisory_rules_generic.php:92
+#: libraries/classes/Advisory/Rules.php:106
+#: libraries/classes/Advisory/Rules.php:119
 msgid "Slow query logging"
 msgstr "ধীর অনুসন্ধান লগ করছি"
 
-#: libraries/advisory_rules_generic.php:83
-#: libraries/advisory_rules_generic.php:96
+#: libraries/classes/Advisory/Rules.php:110
+#: libraries/classes/Advisory/Rules.php:123
 msgid "The slow query log is disabled."
 msgstr "slow_query_log নিষ্ক্রিয় করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:85
+#: libraries/classes/Advisory/Rules.php:112
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -142,11 +183,11 @@ msgstr ""
 "ধীর অনুসন্ধান লগ কার্যকর করতে {log_slow_queries} কে 'ON' নির্ধারন করুন। এতে "
 "খারাপভাবে কাজ করা অনুসন্ধানগুলো ঠিক করতে সাহায্য করবে।"
 
-#: libraries/advisory_rules_generic.php:88
+#: libraries/classes/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries 'OFF' নির্ধারন করা আছে"
 
-#: libraries/advisory_rules_generic.php:98
+#: libraries/classes/Advisory/Rules.php:125
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -154,19 +195,19 @@ msgstr ""
 "ধীর অনুসন্ধান লগ করার জন্য {slow_query_log} কে 'ON' নির্ধারন করুন। ইহা বাজে "
 "কার্যকারিতার অনুসন্ধান পরীক্ষা করতে সাহয্য করবে।"
 
-#: libraries/advisory_rules_generic.php:101
+#: libraries/classes/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log 'OFF' সেট করা আছে"
 
-#: libraries/advisory_rules_generic.php:106
+#: libraries/classes/Advisory/Rules.php:133
 msgid "Release Series"
 msgstr "প্রকাশিত ধারাবাহিক"
 
-#: libraries/advisory_rules_generic.php:109
+#: libraries/classes/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
 msgstr "সার্ভার সংস্করনটি ৫.১ এর ছোট।"
 
-#: libraries/advisory_rules_generic.php:111
+#: libraries/classes/Advisory/Rules.php:138
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -174,23 +215,23 @@ msgstr ""
 "আপনাকে উন্নত করতে হবে, সাময়িক সংস্করন MySQL ৫.১ কার্যকারিতা উন্নত করা হয়েছে "
 "MySQL 5.5 আরও বেশী।"
 
-#: libraries/advisory_rules_generic.php:113
-#: libraries/advisory_rules_generic.php:127
-#: libraries/advisory_rules_generic.php:138
+#: libraries/classes/Advisory/Rules.php:140
+#: libraries/classes/Advisory/Rules.php:154
+#: libraries/classes/Advisory/Rules.php:165
 #, php-format
 msgid "Current version: %s"
 msgstr "বর্তমান সংস্করন: %s"
 
-#: libraries/advisory_rules_generic.php:118
-#: libraries/advisory_rules_generic.php:132
+#: libraries/classes/Advisory/Rules.php:145
+#: libraries/classes/Advisory/Rules.php:159
 msgid "Minor Version"
 msgstr "ছোট সংস্করন"
 
-#: libraries/advisory_rules_generic.php:122
+#: libraries/classes/Advisory/Rules.php:149
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "সংস্করনটি ৫.১.৩০ এর ছোট (৫.১ এর প্রথম জিএ সংস্করন)।"
 
-#: libraries/advisory_rules_generic.php:124
+#: libraries/classes/Advisory/Rules.php:151
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -198,26 +239,26 @@ msgstr ""
 "আপনাকে উন্নত করতে হবে, সাময়িক সংস্করন MySQL ৫.১ কার্যকারিতা উন্নত করা হয়েছে "
 "MySQL 5.5 এ আরও বেশী।"
 
-#: libraries/advisory_rules_generic.php:136
+#: libraries/classes/Advisory/Rules.php:163
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "সংস্করনটি ৫.৫.৮ এর ছোট (৫.৫ এর প্রথম জিএ সংস্করন)।"
 
-#: libraries/advisory_rules_generic.php:137
+#: libraries/classes/Advisory/Rules.php:164
 #, fuzzy
 #| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr "আপনি অবশ্যই MySQL ৫.৫ এর সুস্থিত সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/advisory_rules_generic.php:143
-#: libraries/advisory_rules_generic.php:156
+#: libraries/classes/Advisory/Rules.php:170
+#: libraries/classes/Advisory/Rules.php:183
 msgid "Distribution"
 msgstr "বন্টন"
 
-#: libraries/advisory_rules_generic.php:146
+#: libraries/classes/Advisory/Rules.php:173
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "সংস্করনটি মুল থেকে তৈরী করা, MySQL এর দাপ্তরিক বাইনারী নয়।"
 
-#: libraries/advisory_rules_generic.php:148
+#: libraries/classes/Advisory/Rules.php:175
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -227,15 +268,15 @@ msgstr ""
 "ব্যবহর করছেন। MySQL সহায়কটি শুধু অফিসিয়াল বাইনারীতেই সঠিক হয়, অন্য কোন প্যাকেজ "
 "বন্টনে নয় (যেমন RedHat, Debian/Ubuntu etc)।"
 
-#: libraries/advisory_rules_generic.php:152
+#: libraries/classes/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
 msgstr "'source' পাওয়া গেছে version_comment এ"
 
-#: libraries/advisory_rules_generic.php:159
+#: libraries/classes/Advisory/Rules.php:186
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "MySQL বাইনারীর জন্য MySQL সহায়িকাটিই একমাত্র দাপ্তরিক সঠিক।"
 
-#: libraries/advisory_rules_generic.php:161
+#: libraries/classes/Advisory/Rules.php:188
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
@@ -243,19 +284,19 @@ msgstr ""
 "পারকোনা ডকুমেন্টেশান এখানে <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 
-#: libraries/advisory_rules_generic.php:164
+#: libraries/classes/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
 msgstr "'percona' পাওয়া গেছে version_comment এ"
 
-#: libraries/advisory_rules_generic.php:168
+#: libraries/classes/Advisory/Rules.php:195
 msgid "MySQL Architecture"
 msgstr "MySQL নকশা"
 
-#: libraries/advisory_rules_generic.php:172
+#: libraries/classes/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL ৬৪ বিট হিসাবে তৈরী করা নয়।"
 
-#: libraries/advisory_rules_generic.php:174
+#: libraries/classes/Advisory/Rules.php:201
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -264,20 +305,20 @@ msgstr ""
 "আপনার মেমোরী ৩জিবির উপরে(সার্ভারটি মনে হয় localhost এ), তাই MySQL সম্পূর্ন "
 "মেমোরী ব্যাবহর করতে পারবে না। আপনি 64-bit সংস্করন ইনস্টল করে দেখতে পারেন।"
 
-#: libraries/advisory_rules_generic.php:178
+#: libraries/classes/Advisory/Rules.php:205
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "হোস্টের প্রাপ্ত মেমোরী : %s"
 
-#: libraries/advisory_rules_generic.php:184
+#: libraries/classes/Advisory/Rules.php:211
 msgid "Query caching method"
 msgstr "অনুসন্ধান ক্যাশ করার পদ্ধতি"
 
-#: libraries/advisory_rules_generic.php:188
+#: libraries/classes/Advisory/Rules.php:215
 msgid "Suboptimal caching method."
 msgstr "সহযোগী ক্যাশ করার পদ্ধতি।"
 
-#: libraries/advisory_rules_generic.php:190
+#: libraries/classes/Advisory/Rules.php:217
 #, fuzzy
 #| msgid ""
 #| "You are using the MySQL Query cache with a fairly high traffic database. "
@@ -295,7 +336,7 @@ msgstr ""
 "com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> ব্যবহার করতে পারেন, "
 "বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
 
-#: libraries/advisory_rules_generic.php:196
+#: libraries/classes/Advisory/Rules.php:223
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -304,17 +345,17 @@ msgstr ""
 "অনুসন্ধান ক্যাশ কার্যকর করা হয়েছে এবং প্রতি সেকেন্ডে %d অনুসন্ধান চলছে। যদি সেকেন্ডে "
 "১০০ অনুসন্ধান প্রতি সেকেন্ডে হয় তবে এই নিয়মটি কার্যকর হবে।"
 
-#: libraries/advisory_rules_generic.php:204
+#: libraries/classes/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "সর্টের হার যা সাময়িক টেবল তৈরী করে"
 
-#: libraries/advisory_rules_generic.php:208
-#: libraries/advisory_rules_generic.php:221
+#: libraries/classes/Advisory/Rules.php:235
+#: libraries/classes/Advisory/Rules.php:250
 msgid "Too many sorts are causing temporary tables."
 msgstr "অনেক সংখ্যক সর্ট সাময়িক টেবল তৈরী করছে।"
 
-#: libraries/advisory_rules_generic.php:210
-#: libraries/advisory_rules_generic.php:223
+#: libraries/classes/Advisory/Rules.php:237
+#: libraries/classes/Advisory/Rules.php:252
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
@@ -322,32 +363,32 @@ msgstr ""
 "আপনার সিস্টেমের মেমোরীর উপর ভিত্তি করে {sort_buffer_size} এবং/অথবা "
 "{read_rnd_buffer_size} বাড়ান।"
 
-#: libraries/advisory_rules_generic.php:213
+#: libraries/classes/Advisory/Rules.php:241
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr "সমস্ত সর্টের %s%% সাময়িক টেবল তৈরী করছে, এই মানটি 10%% এর কম হবে।"
 
-#: libraries/advisory_rules_generic.php:218
+#: libraries/classes/Advisory/Rules.php:247
 msgid "Rate of sorts that cause temporary tables"
 msgstr "সর্টের হার যেগুলো সাময়িক টেবল তৈরী করছে"
 
-#: libraries/advisory_rules_generic.php:226
+#: libraries/classes/Advisory/Rules.php:255
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr "সাময়িক টেবলের গড়: %s প্রতি ঘন্টায় এটি ১ এর কম হবে।"
 
-#: libraries/advisory_rules_generic.php:231
+#: libraries/classes/Advisory/Rules.php:260
 msgid "Sort rows"
 msgstr "গুছানো রো"
 
-#: libraries/advisory_rules_generic.php:234
+#: libraries/classes/Advisory/Rules.php:263
 msgid "There are lots of rows being sorted."
 msgstr "অনেক রো সর্ট করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:236
+#: libraries/classes/Advisory/Rules.php:265
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -358,20 +399,20 @@ msgstr ""
 "তা যেন ইনডেক্স করা কলাম ORDER BY অংশে ব্যবহার করে তা নিশ্চিত করুন, এতে দ্রুত সর্টিং "
 "এর ফলাফল পাওয়া যাবে।"
 
-#: libraries/advisory_rules_generic.php:240
+#: libraries/classes/Advisory/Rules.php:269
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "সর্টেড রো'র গড়:%s"
 
-#: libraries/advisory_rules_generic.php:246
+#: libraries/classes/Advisory/Rules.php:275
 msgid "Rate of joins without indexes"
 msgstr "ইনডেক্স বিহীন জোড়ার হার"
 
-#: libraries/advisory_rules_generic.php:249
+#: libraries/classes/Advisory/Rules.php:278
 msgid "There are too many joins without indexes."
 msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী।"
 
-#: libraries/advisory_rules_generic.php:251
+#: libraries/classes/Advisory/Rules.php:280
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
@@ -379,20 +420,20 @@ msgstr ""
 "এতে বোঝা যায় সংযোগগুলো সর্ম্পুন টেবল স্ক্যান করছে। সংযোগে ব্যবহৃত স্তম্ভগুলোতে ইনডেক্স "
 "যোগ করলে সংযুক্ত টেবলগুলোর গতি অনেক বেড়ে যাবে।"
 
-#: libraries/advisory_rules_generic.php:254
+#: libraries/classes/Advisory/Rules.php:283
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr "টেবল জোড়ার গড়:%s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:259
+#: libraries/classes/Advisory/Rules.php:288
 msgid "Rate of reading first index entry"
 msgstr "ইনডেক্সের প্রথম বিষটি পড়ার হার"
 
-#: libraries/advisory_rules_generic.php:262
+#: libraries/classes/Advisory/Rules.php:291
 msgid "The rate of reading the first index entry is high."
 msgstr "ইনডেক্সের প্রথম বিষটি পড়ার হার বেশী।"
 
-#: libraries/advisory_rules_generic.php:264
+#: libraries/classes/Advisory/Rules.php:293
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -407,20 +448,20 @@ msgstr ""
 "স্ক্যানের পরিমান কমতে এবং/অথবা গতি বাড়তে পারে। এছাড়া অনুসন্ধান গুলো পুনরায় লেখে "
 "সর্ম্পুন ইনডেক্স স্ক্যান কমানো যেতে পারে।"
 
-#: libraries/advisory_rules_generic.php:270
+#: libraries/classes/Advisory/Rules.php:299
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr "ইনডেক্স স্ক্যানের গড়:%s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:275
+#: libraries/classes/Advisory/Rules.php:304
 msgid "Rate of reading fixed position"
 msgstr "স্থির অবস্থান পড়ার হার"
 
-#: libraries/advisory_rules_generic.php:278
+#: libraries/classes/Advisory/Rules.php:307
 msgid "The rate of reading data from a fixed position is high."
 msgstr "স্থির অবস্থানের তথ্য পড়ার হার বেশী।"
 
-#: libraries/advisory_rules_generic.php:280
+#: libraries/classes/Advisory/Rules.php:309
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -430,22 +471,22 @@ msgstr ""
 "স্ক্যান করে, সংযোগ অনুসন্ধানগুলো সহ যে গুলো ইনডেক্স ব্যাবহার করে না। যেখানে সম্ভব "
 "ইনডেক্স যোগ করেন।"
 
-#: libraries/advisory_rules_generic.php:283
+#: libraries/classes/Advisory/Rules.php:313
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr "স্থির অবস্থানের তথ্য পড়ার গড়:%s, প্রতি ঘন্টায় এটি ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:288
+#: libraries/classes/Advisory/Rules.php:319
 msgid "Rate of reading next table row"
 msgstr "টেবলের পরবর্তী রো পড়ার হার"
 
-#: libraries/advisory_rules_generic.php:291
+#: libraries/classes/Advisory/Rules.php:322
 msgid "The rate of reading the next table row is high."
 msgstr "টেবলের পরবর্তী রো পড়ার হার বেশী।"
 
-#: libraries/advisory_rules_generic.php:293
+#: libraries/classes/Advisory/Rules.php:324
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -453,23 +494,23 @@ msgstr ""
 "এর দ্বারা বুঝা যায় অনেক অনুসন্ধান সর্ম্পুন টেবল স্ক্যান করছে। যেখানে সম্ভব ইনডেক্স যোগ "
 "করুন।"
 
-#: libraries/advisory_rules_generic.php:295
+#: libraries/classes/Advisory/Rules.php:326
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr "টেবলের পরবর্তী রো পড়ার হার: %s, এর মান প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:301
+#: libraries/classes/Advisory/Rules.php:332
 #, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
 msgstr "tmp_table_size বনাম max_heap_table_size"
 
-#: libraries/advisory_rules_generic.php:304
+#: libraries/classes/Advisory/Rules.php:335
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
 msgstr "{tmp_table_size} এবং {max_heap_table_size} এক নয়।"
 
-#: libraries/advisory_rules_generic.php:306
+#: libraries/classes/Advisory/Rules.php:337
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -480,23 +521,23 @@ msgstr ""
 "আকার বুঝতে চায়। তাই যদি আপনি মেমরী টেবলের সীমা বাড়াতে চান তবে অন্য মানটি "
 "পরিবর্তন করতে হবে।"
 
-#: libraries/advisory_rules_generic.php:310
+#: libraries/classes/Advisory/Rules.php:341
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "বর্তমান মান tmp_table_size: %s, max_heap_table_size: %s"
 
-#: libraries/advisory_rules_generic.php:316
+#: libraries/classes/Advisory/Rules.php:347
 msgid "Percentage of temp tables on disk"
 msgstr "ডিস্কের সাময়িক টেবলের শতকরা হার"
 
-#: libraries/advisory_rules_generic.php:320
-#: libraries/advisory_rules_generic.php:341
+#: libraries/classes/Advisory/Rules.php:351
+#: libraries/classes/Advisory/Rules.php:372
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr "অনেক সাময়িক টেবল মেমরীতে না রেখে ডিস্কে রাখতে হবে।"
 
-#: libraries/advisory_rules_generic.php:322
+#: libraries/classes/Advisory/Rules.php:353
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -512,18 +553,18 @@ msgstr ""
 "পুনরায় লেখতে পারেন। এতে যেমন বলা হয়েছে <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/internal-temporary-tables.html\">MySQL Documentation</a>"
 
-#: libraries/advisory_rules_generic.php:331
+#: libraries/classes/Advisory/Rules.php:362
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr "%s%% সব সাময়িক টেবল ডিস্কের রাখতে হবে, এই মানটি 25%% কম হবে"
 
-#: libraries/advisory_rules_generic.php:337
+#: libraries/classes/Advisory/Rules.php:368
 msgid "Temp disk rate"
 msgstr "সাময়িক ডিস্ক হার"
 
-#: libraries/advisory_rules_generic.php:343
+#: libraries/classes/Advisory/Rules.php:374
 #, fuzzy
 #| msgid ""
 #| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
@@ -548,22 +589,22 @@ msgstr ""
 "পুনরায় লেখতে পারেন। এতে যেমন বলা হয়েছে <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/internal-temporary-tables.html\">MySQL Documentation</a>"
 
-#: libraries/advisory_rules_generic.php:352
+#: libraries/classes/Advisory/Rules.php:383
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr "ডিস্কে লেখা সাময়িক টেবলের হার:%s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:359
+#: libraries/classes/Advisory/Rules.php:390
 msgid "MyISAM key buffer size"
 msgstr "MyISAM কী বাফার সাইজ"
 
-#: libraries/advisory_rules_generic.php:362
+#: libraries/classes/Advisory/Rules.php:393
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "কী বাফার নির্ধারন করা হয়নি। MyISAM ইনডেক্স ক্যাশ করা হবে না।"
 
-#: libraries/advisory_rules_generic.php:364
+#: libraries/classes/Advisory/Rules.php:395
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -571,25 +612,25 @@ msgstr ""
 "{key_buffer_size} নির্ধারন আপনার MyISAM ইনডেক্সের উপর নির্ভর করে। ৬৪মে শুরুর জন্য "
 "ভাল।"
 
-#: libraries/advisory_rules_generic.php:366
+#: libraries/classes/Advisory/Rules.php:397
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size হয় ০"
 
-#: libraries/advisory_rules_generic.php:371
+#: libraries/classes/Advisory/Rules.php:402
 #, fuzzy, no-php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "সর্বোচ্চ %% MyISAM কী বাফার এখন পর্যন্ত ব্যবহৃত হয়েছে"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:393
+#: libraries/classes/Advisory/Rules.php:407
+#: libraries/classes/Advisory/Rules.php:424
 #, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "MyISAM কী বাফার (index cache)ব্যবহৃত %% হল অল্প।"
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:395
+#: libraries/classes/Advisory/Rules.php:409
+#: libraries/classes/Advisory/Rules.php:426
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -598,7 +639,7 @@ msgstr ""
 "আপনার {key_buffer_size} কমানো প্রয়োজন, টেবলগুলো পুনপরীক্ষা করে দেখুন ইনডেক্স মুছা "
 "হয়েছে কিনা বা অনুসন্ধান পরীক্ষা করুন এবং প্রত্যাশিত ইনডেক্সগুলু ব্যবহার হচ্ছে কিনা দেখুন।"
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/classes/Advisory/Rules.php:413
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -606,43 +647,43 @@ msgstr ""
 "এখন পর্যন্ত সর্বোচ্চ %% MyISAM কী বাফার ব্যবহৃত হয়েছে: %s%%, এই মানাটি 95%% এর "
 "বেশী হবে"
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/classes/Advisory/Rules.php:418
 msgid "Percentage of MyISAM key buffer used"
 msgstr "ব্যবহৃত MyISAM কী বাফারের হার"
 
-#: libraries/advisory_rules_generic.php:399
+#: libraries/classes/Advisory/Rules.php:430
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr "%% MyISAM কী বাফার এখন পর্যন্ত ব্যবহৃত হয়েছে: %s%%, এই মানটি 95%% উপরে হবে"
 
-#: libraries/advisory_rules_generic.php:404
+#: libraries/classes/Advisory/Rules.php:435
 msgid "Percentage of index reads from memory"
 msgstr "মেমোরী থেকে ইনডেক্স পড়ার শতকরা হার"
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/classes/Advisory/Rules.php:440
 #, fuzzy, no-php-format
 #| msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "%% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
 
-#: libraries/advisory_rules_generic.php:410
+#: libraries/classes/Advisory/Rules.php:441
 msgid "You may need to increase {key_buffer_size}."
 msgstr "আপনার {key_buffer_size} বাড়াতে হবে।"
 
-#: libraries/advisory_rules_generic.php:411
+#: libraries/classes/Advisory/Rules.php:442
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "মেমরী থেকে পড়া:%s%%, এই মানটি 95%% উপরে হবে"
 
-#: libraries/advisory_rules_generic.php:417
+#: libraries/classes/Advisory/Rules.php:448
 msgid "Rate of table open"
 msgstr "টেবল খোলার হার"
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/classes/Advisory/Rules.php:451
 msgid "The rate of opening tables is high."
 msgstr "টেবল খোলার হার অনেক বেশী।"
 
-#: libraries/advisory_rules_generic.php:422
+#: libraries/classes/Advisory/Rules.php:453
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -650,16 +691,16 @@ msgstr ""
 "টেবল খোলার জন্য মুল্যবান ডিস্ক I/O প্রয়োজন। {table_open_cache} বাড়ালে এটা এড়ানো "
 "যেতে পারে।"
 
-#: libraries/advisory_rules_generic.php:424
+#: libraries/classes/Advisory/Rules.php:455
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "খোলা টেবলের হার:%s, এর মান প্রতি ঘন্টায় ১০ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:429
+#: libraries/classes/Advisory/Rules.php:460
 msgid "Percentage of used open files limit"
 msgstr "খোলা ফাইল সীমার ব্যবহৃত হার"
 
-#: libraries/advisory_rules_generic.php:433
+#: libraries/classes/Advisory/Rules.php:464
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -671,8 +712,8 @@ msgstr ""
 "খোলা ফাইলের সংখ্যা সর্বোচ্চ সংখ্যক খোলা ফাইলের কাছাকাছি। একটি \"Too many open "
 "files\" ভুল আপনি দেখতে পারেন।"
 
-#: libraries/advisory_rules_generic.php:437
-#: libraries/advisory_rules_generic.php:450
+#: libraries/classes/Advisory/Rules.php:468
+#: libraries/classes/Advisory/Rules.php:481
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -680,100 +721,100 @@ msgstr ""
 "{open_files_limit} এর পরিমান বাড়ান এবং সার্ভার পুনরায় চালু করার সময় ভুলের লগ "
 "পরীক্ষা করে দেখুন।"
 
-#: libraries/advisory_rules_generic.php:440
+#: libraries/classes/Advisory/Rules.php:471
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "খোলা ফাইলের সংখ্যা নিধারিত সীমার %s%% । ইহা 85%% এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:445
+#: libraries/classes/Advisory/Rules.php:476
 msgid "Rate of open files"
 msgstr "ফাইল খোলার হার"
 
-#: libraries/advisory_rules_generic.php:448
+#: libraries/classes/Advisory/Rules.php:479
 msgid "The rate of opening files is high."
 msgstr "ফাইল খোলার হার বেশী।"
 
-#: libraries/advisory_rules_generic.php:453
+#: libraries/classes/Advisory/Rules.php:484
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "ফাইল খোলার হার:%s, এর মান প্রতি ঘন্টায় ৫ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:459
+#: libraries/classes/Advisory/Rules.php:490
 #, no-php-format
 msgid "Immediate table locks %"
 msgstr "তাৎক্ষনিক টেবল লক %"
 
-#: libraries/advisory_rules_generic.php:463
-#: libraries/advisory_rules_generic.php:473
+#: libraries/classes/Advisory/Rules.php:494
+#: libraries/classes/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
 msgstr "অনেক টেবিল লক তাৎক্ষনিক পাওয়া যায়নি।"
 
-#: libraries/advisory_rules_generic.php:464
-#: libraries/advisory_rules_generic.php:474
+#: libraries/classes/Advisory/Rules.php:495
+#: libraries/classes/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr "লক অপেক্ষা কমাতে অনুসন্ধান অপটিমাইজ করুন এবং/অথবা InnoDB ব্যবহার করুন।"
 
-#: libraries/advisory_rules_generic.php:465
+#: libraries/classes/Advisory/Rules.php:496
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "তাৎক্ষনিক টেবল লক:%s%%, এর মান 95%% বেশী হবে"
 
-#: libraries/advisory_rules_generic.php:470
+#: libraries/classes/Advisory/Rules.php:501
 msgid "Table lock wait rate"
 msgstr "টেবল লক অপেক্ষার হার"
 
-#: libraries/advisory_rules_generic.php:475
+#: libraries/classes/Advisory/Rules.php:506
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "টেবল লক অপেক্ষার হার:%s, এর মান প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:480
+#: libraries/classes/Advisory/Rules.php:511
 msgid "Thread cache"
 msgstr "থ্র্যাড ক্যাশ"
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/classes/Advisory/Rules.php:514
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr "থ্রেড ক্যাশ অকার্যকর আছে, MySQL এ নতুন সংযোগ অতিরিক্ত বোঝার কারন হতে পারে।"
 
-#: libraries/advisory_rules_generic.php:484
+#: libraries/classes/Advisory/Rules.php:515
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "{thread_cache_size} > ০ নির্ধারন করে থ্রেড ক্যাশ কার্যকর করেন।"
 
-#: libraries/advisory_rules_generic.php:485
+#: libraries/classes/Advisory/Rules.php:516
 msgid "The thread cache is set to 0"
 msgstr "থ্রেড ক্যাশ ০ নির্ধারন করা হয়েছে"
 
-#: libraries/advisory_rules_generic.php:490
+#: libraries/classes/Advisory/Rules.php:521
 #, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "থ্রেড ক্যাশ হিটের হার %%"
 
-#: libraries/advisory_rules_generic.php:494
+#: libraries/classes/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
 msgstr "থ্রেড ক্যাশ দক্ষ নয়।"
 
-#: libraries/advisory_rules_generic.php:495
+#: libraries/classes/Advisory/Rules.php:526
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} বাড়ান।"
 
-#: libraries/advisory_rules_generic.php:496
+#: libraries/classes/Advisory/Rules.php:527
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "থ্রেড ক্যাশ হিট রেট: %s%%,এই মানটি 80%% বেশী হবে"
 
-#: libraries/advisory_rules_generic.php:501
+#: libraries/classes/Advisory/Rules.php:532
 msgid "Threads that are slow to launch"
 msgstr "থ্রেড গুলো কাজের জন্য ধীর"
 
-#: libraries/advisory_rules_generic.php:505
+#: libraries/classes/Advisory/Rules.php:536
 msgid "There are too many threads that are slow to launch."
 msgstr "প্রচুর থ্রেড আছে যেগুলো কাজের জন্য ধীর।"
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/classes/Advisory/Rules.php:538
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -781,42 +822,42 @@ msgstr ""
 "সাধারনত সিস্টেমের কাজের পরিমান বেশী হলে এমন হয় সাধারন কাজের মত। আপনি সিস্টেমের "
 "লোড সর্তকভাবে পর্যবেক্ষন করে দেখেত পারেন।"
 
-#: libraries/advisory_rules_generic.php:510
+#: libraries/classes/Advisory/Rules.php:541
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s থ্রেডটি আরম্ভ হতে %s সেকেন্ডের বেশী সময় নিচ্ছে, এটি ০ হওয়া উচিত"
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/classes/Advisory/Rules.php:546
 msgid "Slow launch time"
 msgstr "ধীর আরম্ভের সময়"
 
-#: libraries/advisory_rules_generic.php:518
+#: libraries/classes/Advisory/Rules.php:549
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time 2s উপরে।"
 
-#: libraries/advisory_rules_generic.php:520
+#: libraries/classes/Advisory/Rules.php:551
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
 "ধীরে আরম্ভ হওয়া থ্রেডগুলো গণনার জন্য{slow_launch_time}1s বা 2s এ নির্ধারন করুন।"
 
-#: libraries/advisory_rules_generic.php:522
+#: libraries/classes/Advisory/Rules.php:553
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time %s নির্ধরন করা হয়েছে"
 
-#: libraries/advisory_rules_generic.php:528
+#: libraries/classes/Advisory/Rules.php:559
 msgid "Percentage of used connections"
 msgstr "ব্যবহৃত সংযোগের হার"
 
-#: libraries/advisory_rules_generic.php:531
+#: libraries/classes/Advisory/Rules.php:563
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr "ব্যবহৃত সংযোগের সংখ্যা {max_connections} মানের কাছাকাছি হয়ে যাচ্ছে।"
 
-#: libraries/advisory_rules_generic.php:533
+#: libraries/classes/Advisory/Rules.php:566
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -826,23 +867,23 @@ msgstr ""
 "ত্বত্তাবধানকারী ঠিকভাবে বন্ধ হবে না তাড়াতাড়ি ধ্বংস হবে। কোড ডাটাবেইজ "
 "ত্বত্তাবধানকারীকে সঠিক ভাবে বন্ধ করছে তা নিশ্চিত করুন।"
 
-#: libraries/advisory_rules_generic.php:537
+#: libraries/classes/Advisory/Rules.php:570
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr "max_connections এর Max_used_connections %s%%, এটা 80%% নীচে থাকবে"
 
-#: libraries/advisory_rules_generic.php:542
+#: libraries/classes/Advisory/Rules.php:575
 msgid "Percentage of aborted connections"
 msgstr "বাতিলকৃত সংযোগের হার"
 
-#: libraries/advisory_rules_generic.php:545
-#: libraries/advisory_rules_generic.php:559
+#: libraries/classes/Advisory/Rules.php:578
+#: libraries/classes/Advisory/Rules.php:592
 msgid "Too many connections are aborted."
 msgstr "প্রচুর সংযোগ বাতিল করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:547
-#: libraries/advisory_rules_generic.php:561
+#: libraries/classes/Advisory/Rules.php:580
+#: libraries/classes/Advisory/Rules.php:594
 #, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
@@ -858,32 +899,32 @@ msgstr ""
 "mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> সংযোগটি চিহ্নিত করতে সাহায্য করবে।"
 
-#: libraries/advisory_rules_generic.php:551
+#: libraries/classes/Advisory/Rules.php:584
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "সমস্ত সংযোগের %s%% বাতিল করা হয়েছে। এর মান 1%% কম হবে"
 
-#: libraries/advisory_rules_generic.php:556
+#: libraries/classes/Advisory/Rules.php:589
 msgid "Rate of aborted connections"
 msgstr "বাতিলকৃত সংযোগের হার"
 
-#: libraries/advisory_rules_generic.php:565
+#: libraries/classes/Advisory/Rules.php:598
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr "বাতিলকৃত সংযোগের হার %s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:570
+#: libraries/classes/Advisory/Rules.php:603
 msgid "Percentage of aborted clients"
 msgstr "বাতিলকৃত গ্রাহকের হার"
 
-#: libraries/advisory_rules_generic.php:573
-#: libraries/advisory_rules_generic.php:587
+#: libraries/classes/Advisory/Rules.php:606
+#: libraries/classes/Advisory/Rules.php:620
 msgid "Too many clients are aborted."
 msgstr "অনেক বেশী সংখ্যক গ্রাহককে বাতিল করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:575
-#: libraries/advisory_rules_generic.php:589
+#: libraries/classes/Advisory/Rules.php:608
+#: libraries/classes/Advisory/Rules.php:622
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -893,50 +934,50 @@ msgstr ""
 "করে না। এটা নেটওয়ার্ক বা কোডের কারনে হতে পারে যা ডাটাবেইজ ত্বত্তাবধানকারীকে "
 "সঠিকভাবে বন্ধ করে না। নেটওর্য়াক এবং কোড পরীক্ষা করুন।"
 
-#: libraries/advisory_rules_generic.php:579
+#: libraries/classes/Advisory/Rules.php:612
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "সমস্ত গ্রাহকের %s%% বাতিল করা হয়েছে। এই মানটি অবশ্যই 2%% কম হবে"
 
-#: libraries/advisory_rules_generic.php:584
+#: libraries/classes/Advisory/Rules.php:617
 msgid "Rate of aborted clients"
 msgstr "বাতিলকৃত গ্রাহকের হার"
 
-#: libraries/advisory_rules_generic.php:593
+#: libraries/classes/Advisory/Rules.php:626
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr "বাতিলকৃত গ্রাহকের হার %s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:599
+#: libraries/classes/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB কি অকার্যকর করা আছ?"
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/classes/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB কার্যকর করা হয়নি।"
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/classes/Advisory/Rules.php:637
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "টেবলের জন্য InnoDB সাধারনত ভাল ব্যবস্থা।"
 
-#: libraries/advisory_rules_generic.php:605
+#: libraries/classes/Advisory/Rules.php:638
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb 'র মান 'value' সেট করা হয়েছে"
 
-#: libraries/advisory_rules_generic.php:609
-#: libraries/advisory_rules_generic.php:633
+#: libraries/classes/Advisory/Rules.php:642
+#: libraries/classes/Advisory/Rules.php:669
 msgid "InnoDB log size"
 msgstr "InnoDB লগের আকার"
 
-#: libraries/advisory_rules_generic.php:613
-#: libraries/advisory_rules_generic.php:640
+#: libraries/classes/Advisory/Rules.php:647
+#: libraries/classes/Advisory/Rules.php:677
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr "InnoDB বাফার পুলের ভিত্তিতে InnoDB লগের আকারটি সঠিক নয়।"
 
-#: libraries/advisory_rules_generic.php:615
-#: libraries/advisory_rules_generic.php:642
+#: libraries/classes/Advisory/Rules.php:650
+#: libraries/classes/Advisory/Rules.php:680
 #, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -958,8 +999,8 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a> দেখতে পারেন"
 
-#: libraries/advisory_rules_generic.php:626
-#: libraries/advisory_rules_generic.php:653
+#: libraries/classes/Advisory/Rules.php:662
+#: libraries/classes/Advisory/Rules.php:692
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -968,15 +1009,15 @@ msgstr ""
 "আপনার InnoDB লগের আকার %s%% InnoDB বাফার পুলের উপর ভিত্তি করে, এটি 20%% এর কম "
 "হতে পারবে না"
 
-#: libraries/advisory_rules_generic.php:660
+#: libraries/classes/Advisory/Rules.php:699
 msgid "Max InnoDB log size"
 msgstr "InnoDB লগের সর্বোচ্চ আকার"
 
-#: libraries/advisory_rules_generic.php:664
+#: libraries/classes/Advisory/Rules.php:704
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB লগ ফাইলের আকার অত্যন্ত বড়।"
 
-#: libraries/advisory_rules_generic.php:666
+#: libraries/classes/Advisory/Rules.php:706
 #, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
@@ -996,20 +1037,20 @@ msgstr ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">এই ব্লগ এন্ট্রি</a> দেখতে পারেন"
 
-#: libraries/advisory_rules_generic.php:676
+#: libraries/classes/Advisory/Rules.php:717
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "আপনার InnoDB লগের সঠিক আকার হল %s মেবা"
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/classes/Advisory/Rules.php:722
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB বাফার পুলের আকার"
 
-#: libraries/advisory_rules_generic.php:685
+#: libraries/classes/Advisory/Rules.php:726
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB বাফার পুলের আকার বেশ ছোট।"
 
-#: libraries/advisory_rules_generic.php:687
+#: libraries/classes/Advisory/Rules.php:728
 #, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -1033,7 +1074,7 @@ msgstr ""
 "কমে যাবে। <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">এই আর্টিকেল</a> দেখুন"
 
-#: libraries/advisory_rules_generic.php:697
+#: libraries/classes/Advisory/Rules.php:738
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1046,15 +1087,15 @@ msgstr ""
 "টেবল না থাকে তবে এটি সম্ভবত আপনার সিস্টেমের জন্য পর্যাপ্ত হবে বা অন্য কোন সার্ভিস "
 "আপনার এই মেশিনে হয়ত চলছে।"
 
-#: libraries/advisory_rules_generic.php:707
+#: libraries/classes/Advisory/Rules.php:748
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM একত্রে ইনসার্টসমূহ"
 
-#: libraries/advisory_rules_generic.php:710
+#: libraries/classes/Advisory/Rules.php:751
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "কার্যকর করুন {concurrent_insert} ১ এ সেট করে"
 
-#: libraries/advisory_rules_generic.php:712
+#: libraries/classes/Advisory/Rules.php:753
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1064,19 +1105,19 @@ msgstr ""
 "সমস্যা কমাবে। <a href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-"
 "inserts.html\">MySQL Documentation</a> দেখুন"
 
-#: libraries/advisory_rules_generic.php:716
+#: libraries/classes/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
 
-#: libraries/advisory_rules_mysql_before80003.php:9
+#: libraries/classes/Advisory/Rules.php:772
 msgid "Query cache disabled"
 msgstr "অনুসন্ধান ক্যাশ অকার্যকর"
 
-#: libraries/advisory_rules_mysql_before80003.php:12
+#: libraries/classes/Advisory/Rules.php:775
 msgid "The query cache is not enabled."
 msgstr "অনুসন্ধান ক্যাশ অকার্যকর রয়েছে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:14
+#: libraries/classes/Advisory/Rules.php:777
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -1088,39 +1129,39 @@ msgstr ""
 "টি 'ON' নির্ধারন করুন। <b>টিকা:</b> আপনি যদি memcached ব্যাবহার করেন তবে এটি "
 "কার্যকর করার প্রয়োজন নাই।"
 
-#: libraries/advisory_rules_mysql_before80003.php:18
+#: libraries/classes/Advisory/Rules.php:781
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size ০ নির্ধারন করা হয়েছে বা query_cache_type বন্ধ আছে"
 
-#: libraries/advisory_rules_mysql_before80003.php:23
+#: libraries/classes/Advisory/Rules.php:786
 #, fuzzy, no-php-format
 #| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "অনুসন্ধান ক্যাশের দক্ষতা (%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/classes/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "অনুসন্ধান ক্যাশ ঠিকভাবে কাজ করছে না, হিটের হার খুব কম।"
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/classes/Advisory/Rules.php:791
 msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit} বাড়াতে পারেন।"
 
-#: libraries/advisory_rules_mysql_before80003.php:29
+#: libraries/classes/Advisory/Rules.php:792
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "বর্তমান অনুসন্ধান ক্যাশ হিটের হার হল %s%% যা ২০%%'র নীচে"
 
-#: libraries/advisory_rules_mysql_before80003.php:34
+#: libraries/classes/Advisory/Rules.php:797
 msgid "Query Cache usage"
 msgstr "অনুসন্ধান ক্যাশের ব্যবহার"
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/classes/Advisory/Rules.php:802
 #, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "অনুসন্ধান ক্যাশের 80%'র কম ব্যবহৃত হচ্ছে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:41
+#: libraries/classes/Advisory/Rules.php:804
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -1128,7 +1169,7 @@ msgstr ""
 "অনেক কম {query_cache_limit} কারনে এমন হতে পারে। অনুসন্ধান ক্যাশ ফ্লাশ করলে "
 "সাহায্য করতে পারে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:45
+#: libraries/classes/Advisory/Rules.php:808
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1137,15 +1178,15 @@ msgstr ""
 "বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই "
 "80%% বেশী থাকবে"
 
-#: libraries/advisory_rules_mysql_before80003.php:52
+#: libraries/classes/Advisory/Rules.php:815
 msgid "Query cache fragmentation"
 msgstr "অনুসন্ধান ক্যাশ ফ্রেগম্যানটেশন"
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/classes/Advisory/Rules.php:819
 msgid "The query cache is considerably fragmented."
 msgstr "অনুসন্ধান ক্যাশটি অনেক বেশী ফ্র্যাগমেন্টেড।"
 
-#: libraries/advisory_rules_mysql_before80003.php:58
+#: libraries/classes/Advisory/Rules.php:821
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -1157,7 +1198,7 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:66
+#: libraries/classes/Advisory/Rules.php:829
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1165,17 +1206,17 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:73
+#: libraries/classes/Advisory/Rules.php:836
 msgid "Query cache low memory prunes"
 msgstr "অনৃসনাধ ক্যাশে অল্প মেমোরী"
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/classes/Advisory/Rules.php:840
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr "ক্যাশের অনুসন্ধান মূছা হয়েছে অল্প ক্যাশ অনুসন্ধান ক্যাশ মেমরীর কারনে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:79
+#: libraries/classes/Advisory/Rules.php:842
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -1184,7 +1225,7 @@ msgstr ""
 "আপনি {query_cache_size} বাড়াতে চাইতে পারেন, মনে রাখবেন ক্যাশ রক্ষণাবেক্ষণ এর "
 "আকারের উপর ভিত্তি করে বাড়তে পারে, তাই অল্প করে বাড়িয়ে এর ফলাফল পর্যবেক্ষণ করুন।"
 
-#: libraries/advisory_rules_mysql_before80003.php:84
+#: libraries/classes/Advisory/Rules.php:847
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -1193,38 +1234,38 @@ msgstr ""
 "ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
 "(০.১%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:91
+#: libraries/classes/Advisory/Rules.php:854
 msgid "Query cache max size"
 msgstr "অনুসন্ধান ক্যাশের সর্বোচ্চ আকার"
 
-#: libraries/advisory_rules_mysql_before80003.php:96
+#: libraries/classes/Advisory/Rules.php:859
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
 "অনুসন্ধান ক্যাশের আকার ১২৮ মেবা'র বেশী। বড় ক্যাশ রক্ষণাবেক্ষণে সমস্য হতে পারে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/classes/Advisory/Rules.php:863
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr "আপনার সিস্টেমের উপর নির্ভর করে, এই মানটি কমালে কার্যক্ষমতা বাড়তে পারে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:102
+#: libraries/classes/Advisory/Rules.php:865
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "বর্তমান অনুসন্ধান ক্যাশের আকার:%s"
 
-#: libraries/advisory_rules_mysql_before80003.php:107
+#: libraries/classes/Advisory/Rules.php:870
 msgid "Query cache min result size"
 msgstr "অনুসন্ধান ক্যাশের স্বল্পতম ফলের আকার"
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/classes/Advisory/Rules.php:874
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr "ফলাফলের সর্বোচ্চ আকার অনুসন্ধান ক্যাশে স্বাভাবিক হল ১মেবা।"
 
-#: libraries/advisory_rules_mysql_before80003.php:113
+#: libraries/classes/Advisory/Rules.php:876
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -1236,50 +1277,9 @@ msgid ""
 "might reduce efficiency."
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:120
+#: libraries/classes/Advisory/Rules.php:883
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit ১ মেবা নিধারণ করা হয়েছে"
-
-#: libraries/classes/Advisor.php:234
-#, php-format
-msgid "Error when evaluating: %s"
-msgstr "PDF তৈরীর সময় ভুল: %s"
-
-#: libraries/classes/Advisor.php:261
-#, php-format
-msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
-
-#: libraries/classes/Advisor.php:281
-#, php-format
-msgid "Failed calculating value for rule '%s'."
-msgstr "%s রুলের মান নির্ধারণ করতে ব্যর্থ হয়েছে।"
-
-#: libraries/classes/Advisor.php:300
-#, php-format
-msgid "Failed running test for rule '%s'."
-msgstr "%s রুলের টেস্টটি রান করতে ব্যর্থ হয়েছে।"
-
-#: libraries/classes/Advisor.php:328
-#, php-format
-msgid "Failed formatting string for rule '%s'."
-msgstr "'%s' নিয়মের জন্য লেখা গঠন করতে ব্যর্থ হয়েছি।"
-
-#: libraries/classes/Advisor.php:413
-msgid "per second"
-msgstr "প্রতি সেকেন্ডে"
-
-#: libraries/classes/Advisor.php:416
-msgid "per minute"
-msgstr "প্রতি মিনিটে"
-
-#: libraries/classes/Advisor.php:419
-msgid "per hour"
-msgstr "প্রতি ঘন্টায়"
-
-#: libraries/classes/Advisor.php:422
-msgid "per day"
-msgstr "প্রতি দিন"
 
 #: libraries/classes/BrowseForeigners.php:200
 msgid "Search:"
@@ -4692,7 +4692,7 @@ msgstr "পরিবর্তন"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -5143,7 +5143,7 @@ msgstr "সর্ম্পক মুছা"
 msgid "SQL Query Console"
 msgstr "SQL অনুসন্ধান বক্স"
 
-#: libraries/classes/Controllers/AbstractController.php:73
+#: libraries/classes/Controllers/AbstractController.php:74
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
 #: libraries/classes/DbTableExists.php:45
@@ -5334,7 +5334,7 @@ msgstr "হ্যাঁ"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:317
 #: libraries/classes/Controllers/Table/ReplaceController.php:418
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:720 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "পরিবর্তন নয়"
 
@@ -6443,7 +6443,7 @@ msgstr "অবস্থা"
 
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:472
 #: libraries/classes/Plugins/Export/ExportOdt.php:594
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
@@ -6969,7 +6969,7 @@ msgstr ""
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:419
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
 #: libraries/classes/Normalization.php:375
 msgid "Done"
 msgstr "সম্পন্ন"
@@ -7745,7 +7745,14 @@ msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "রফতানীর ধরন সঠিক নয়"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+msgid ""
+"You can not open, save or delete your page layout, as IndexedDB is not "
+"working in your browser and your phpMyAdmin configuration storage is not "
+"configured for this."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7753,13 +7760,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "টেবিল %s পুর্ব থেকেই আছে!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "লুকাও"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7768,275 +7775,275 @@ msgid "Show"
 msgstr "দেখাও"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "January"
 msgstr "জানুয়ারী"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "February"
 msgstr "ফেব্রুয়ারী"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "March"
 msgstr "মার্চ"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "April"
 msgstr "এপ্রিল"
 
 #. l10n: Month name
 #. l10n: Short month name for May
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 msgid "May"
 msgstr "মে"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "June"
 msgstr "জুন"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 msgid "July"
 msgstr "জুলাই"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgid "August"
 msgstr "অগাষ্ট"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgid "September"
 msgstr "সেপ্টেম্বর"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgid "October"
 msgstr "অক্টোবর"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgid "November"
 msgstr "নভেম্বর"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 msgid "December"
 msgstr "ডিসেম্বর"
 
 #. l10n: Short month name for January
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #: libraries/classes/Util.php:664
 msgid "Jan"
 msgstr "জান"
 
 #. l10n: Short month name for February
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 #: libraries/classes/Util.php:666
 msgid "Feb"
 msgstr "ফেব"
 
 #. l10n: Short month name for March
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
 #: libraries/classes/Util.php:668
 msgid "Mar"
 msgstr "মার"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
 #: libraries/classes/Util.php:670
 msgid "Apr"
 msgstr "এপ্রি"
 
 #. l10n: Short month name for June
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:734
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
 #: libraries/classes/Util.php:674
 msgid "Jun"
 msgstr "জুন"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
 #: libraries/classes/Util.php:676
 msgid "Jul"
 msgstr "জুল"
 
 #. l10n: Short month name for August
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:738
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
 #: libraries/classes/Util.php:678
 msgid "Aug"
 msgstr "আগ"
 
 #. l10n: Short month name for September
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:740
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
 #: libraries/classes/Util.php:680
 msgid "Sep"
 msgstr "সেপ"
 
 #. l10n: Short month name for October
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:742
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
 #: libraries/classes/Util.php:682
 msgid "Oct"
 msgstr "অক্ট"
 
 #. l10n: Short month name for November
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:744
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
 #: libraries/classes/Util.php:684
 msgid "Nov"
 msgstr "নভে"
 
 #. l10n: Short month name for December
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:746
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
 #: libraries/classes/Util.php:686
 msgid "Dec"
 msgstr "ডিসে"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:748
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
 #: libraries/config.values.php:197
 msgid "Sunday"
 msgstr "রবিবার"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:750
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
 #: libraries/config.values.php:191
 msgid "Monday"
 msgstr "সোমবার"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:752
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
 #: libraries/config.values.php:192
 msgid "Tuesday"
 msgstr "মঙ্গলবার"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:754
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #: libraries/config.values.php:193
 msgid "Wednesday"
 msgstr "বুধবার"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:756
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #: libraries/config.values.php:194
 msgid "Thursday"
 msgstr "বৃহস্পতিবার"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:758
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
 #: libraries/config.values.php:195
 msgid "Friday"
 msgstr "শুক্রবার"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:760
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #: libraries/config.values.php:196
 msgid "Saturday"
 msgstr "শনিবার"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:762
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
 msgid "Sun"
 msgstr "রবি"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:764
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
 #: libraries/classes/Util.php:692
 msgid "Mon"
 msgstr "সোম"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:766
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
 #: libraries/classes/Util.php:694
 msgid "Tue"
 msgstr "মঙ্গল"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:768
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
 #: libraries/classes/Util.php:696
 msgid "Wed"
 msgstr "বৃধ"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:770
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
 #: libraries/classes/Util.php:698
 msgid "Thu"
 msgstr "বৃহস্পতি"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:772
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
 #: libraries/classes/Util.php:700
 msgid "Fri"
 msgstr "শুক্র"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:774
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
 #: libraries/classes/Util.php:702
 msgid "Sat"
 msgstr "শনি"
 
 #. l10n: Minimal week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:776
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
 msgid "Su"
 msgstr "রবি"
 
 #. l10n: Minimal week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:778
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
 msgid "Mo"
 msgstr "সোম"
 
 #. l10n: Minimal week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:780
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
 msgid "Tu"
 msgstr "মঙ্গ"
 
 #. l10n: Minimal week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:782
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
 msgid "We"
 msgstr "বুধ"
 
 #. l10n: Minimal week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:784
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
 msgid "Th"
 msgstr "বৃহ"
 
 #. l10n: Minimal week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:786
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
 msgid "Fr"
 msgstr "শুক্র"
 
 #. l10n: Minimal week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:788
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:792
 msgid "Sa"
 msgstr "শনি"
 
 #. l10n: Column header for week of the year in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:790
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:794
 msgid "Wk"
 msgstr "সপ্তাহ"
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -8044,22 +8051,22 @@ msgid "none"
 msgstr "- কিছু না -"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
 msgid "Hour"
 msgstr "ঘন্টা"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
 msgid "Minute"
 msgstr "মিনিট"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
 msgid "Second"
 msgstr "সেকেন্ড"
 
 #. l10n: Previous month. Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -8067,7 +8074,7 @@ msgid "Prev"
 msgstr "পূর্ববর্তী"
 
 #. l10n: Next month. Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:813
 #, fuzzy
 #| msgctxt "Next month"
 #| msgid "Next"
@@ -8075,118 +8082,118 @@ msgid "Next"
 msgstr "পরবর্তী"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
 msgid "Today"
 msgstr "আজ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
 msgid "This field is required"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:815
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "আক্ষরীক ক্ষেত্র ব্যবহার করুন"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid email address"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:817
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:819
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date ( ISO )"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:821
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "একটি কার্যকর দৈর্ঘ্য দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:823
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter the same value again"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:825
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter at least {0} characters"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:827
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a value between {0} and {1}"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:832
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "একটি কার্যকর দৈর্ঘ্য দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:829
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:834
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid date or time"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:835
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "একটি কার্যকর নাম্বার দিন!"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:837
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:840
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -10647,7 +10654,7 @@ msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছ�
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d"
 
-#: libraries/classes/LanguageManager.php:971
+#: libraries/classes/LanguageManager.php:979
 msgid "Ignoring unsupported language code."
 msgstr ""
 
