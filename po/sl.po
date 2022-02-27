@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-02-27 00:17+0000\n"
-"PO-Revision-Date: 2022-02-21 15:48+0000\n"
+"PO-Revision-Date: 2022-02-28 21:57+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -7449,6 +7449,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Ne morete odpreti, shraniti ali izbrisati postavitve strani, saj IndexedDB v "
+"vašem brskalniku ne deluje in vaša hramba konfiguracije phpMyAdmin ni "
+"konfigurirana za to."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
