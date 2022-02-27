@@ -18,12 +18,12 @@ class DeleteConfirmControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $GLOBALS['sql_query'] = 'SELECT * FROM `test_table`.`test_table`';
+        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`';
         $_POST = [
             'db' => 'test_db',
             'table' => 'test_table',
             'rows_to_delete' => ['`test_table`.`id` = 2', '`test_table`.`id` = 3'],
-            'sql_query' => 'SELECT * FROM `test_table`.`test_table`',
+            'sql_query' => 'SELECT * FROM `test_db`.`test_table`',
         ];
 
         $this->dummyDbi->addSelectDb('test_db');
@@ -35,7 +35,7 @@ class DeleteConfirmControllerTest extends AbstractTestCase
             'db' => 'test_db',
             'table' => 'test_table',
             'selected' => ['`test_table`.`id` = 2', '`test_table`.`id` = 3'],
-            'sql_query' => 'SELECT * FROM `test_table`.`test_table`',
+            'sql_query' => 'SELECT * FROM `test_db`.`test_table`',
             'is_foreign_key_check' => true,
         ]);
 
