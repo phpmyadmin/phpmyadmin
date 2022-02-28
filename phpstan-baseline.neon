@@ -146,11 +146,6 @@ parameters:
 			path: libraries/classes/Common.php
 
 		-
-			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\Container\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
 			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$DEFAULT_DELIMITER \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/Common.php

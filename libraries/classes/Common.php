@@ -32,6 +32,7 @@ use function ini_get;
 use function ini_set;
 use function is_array;
 use function is_scalar;
+use function is_string;
 use function mb_internal_encoding;
 use function mb_strlen;
 use function mb_strpos;
@@ -148,7 +149,10 @@ final class Common
          */
         $sql_query = '';
         if ($request->isPost()) {
-            $sql_query = $request->getParsedBodyParam('sql_query', '');
+            $sql_query = $request->getParsedBodyParam('sql_query');
+            if (! is_string($sql_query)) {
+                $sql_query = '';
+            }
         }
 
         $containerBuilder->setParameter('sql_query', $sql_query);
