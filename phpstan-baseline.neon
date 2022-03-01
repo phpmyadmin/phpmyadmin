@@ -2586,7 +2586,7 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnMapFromSql\\(\\) has parameter \\$view_columns with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnMapFromSql\\(\\) has parameter \\$viewColumns with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2746,7 +2746,7 @@ parameters:
 			path: libraries/classes/Dbal/DbalInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getColumnMapFromSql\\(\\) has parameter \\$view_columns with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getColumnMapFromSql\\(\\) has parameter \\$viewColumns with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 
