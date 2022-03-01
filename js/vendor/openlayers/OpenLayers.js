@@ -1,5 +1,5 @@
 /*!
-  * OpenLayers v6.9.0 (https://openlayers.org/)
+  * OpenLayers v6.13.0 (https://openlayers.org/)
   * Copyright 2005-present, OpenLayers Contributors All rights reserved.
   * Licensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)
   *

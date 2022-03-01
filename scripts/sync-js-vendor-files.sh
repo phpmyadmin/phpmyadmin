@@ -71,11 +71,11 @@ echo 'Updating OpenLayers'
 cp ./node_modules/ol/ol.css ./js/vendor/openlayers/theme/ol.css
 npx webpack-cli --config ./js/config/ol/webpack.config.js
 echo "/*!
-  * OpenLayers v$(yarn -s info ol version) (https://openlayers.org/)
+  * OpenLayers v$(yarn info -s ol version) (https://openlayers.org/)
   * Copyright 2005-present, OpenLayers Contributors All rights reserved.
   * Licensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)
   *
-  * @license $(yarn -s info ol license)
+  * @license $(yarn info -s ol license)
   */
 $(cat ./js/vendor/openlayers/OpenLayers.js)" > ./js/vendor/openlayers/OpenLayers.js
 echo 'Updating sprintf'

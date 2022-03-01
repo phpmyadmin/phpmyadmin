@@ -424,7 +424,7 @@ this.zxcvbnts.core = (function (exports) {
         this.matchers = {};
         this.l33tTable = l33tTable;
         this.dictionary = {
-          userInput: []
+          userInputs: []
         };
         this.rankedDictionaries = {};
         this.translations = translationKeys;
@@ -480,31 +480,45 @@ this.zxcvbnts.core = (function (exports) {
       setRankedDictionaries() {
         const rankedDictionaries = {};
         Object.keys(this.dictionary).forEach(name => {
-          const list = this.dictionary[name];
-
-          if (name === 'userInputs') {
-            const sanitizedInputs = [];
-            list.forEach(input => {
-              const inputType = typeof input;
-
-              if (inputType === 'string' || inputType === 'number' || inputType === 'boolean') {
-                sanitizedInputs.push(input.toString().toLowerCase());
-              }
-            });
-            rankedDictionaries[name] = buildRankedDictionary(sanitizedInputs);
-          } else {
-            rankedDictionaries[name] = buildRankedDictionary(list);
-          }
+          rankedDictionaries[name] = this.getRankedDictionary(name);
         });
         this.rankedDictionaries = rankedDictionaries;
       }
 
-      addMatcher(name, matcher) {
-        if (this.matchers[name]) {
-          throw new Error('Matcher already exists');
+      getRankedDictionary(name) {
+        const list = this.dictionary[name];
+
+        if (name === 'userInputs') {
+          const sanitizedInputs = [];
+          list.forEach(input => {
+            const inputType = typeof input;
+
+            if (inputType === 'string' || inputType === 'number' || inputType === 'boolean') {
+              sanitizedInputs.push(input.toString().toLowerCase());
+            }
+          });
+          return buildRankedDictionary(sanitizedInputs);
         }
 
-        this.matchers[name] = matcher;
+        return buildRankedDictionary(list);
+      }
+
+      extendUserInputsDictionary(dictionary) {
+        if (this.dictionary.userInputs) {
+          this.dictionary.userInputs = [...this.dictionary.userInputs, ...dictionary];
+        } else {
+          this.dictionary.userInputs = dictionary;
+        }
+
+        this.rankedDictionaries.userInputs = this.getRankedDictionary('userInputs');
+      }
+
+      addMatcher(name, matcher) {
+        if (this.matchers[name]) {
+          console.info('Matcher already exists');
+        } else {
+          this.matchers[name] = matcher;
+        }
       }
 
     }
@@ -1283,7 +1297,8 @@ this.zxcvbnts.core = (function (exports) {
         const optimalMatchSequence = [];
         let k = passwordLength - 1; // find the final best sequence length and score
 
-        let sequenceLength = 0;
+        let sequenceLength = 0; // eslint-disable-next-line no-loss-of-precision
+
         let g = 2e308;
         const temp = this.optimal.g[k]; // safety check for empty passwords
 
@@ -1414,6 +1429,7 @@ this.zxcvbnts.core = (function (exports) {
      */
 
     class MatchRepeat {
+      // eslint-disable-next-line max-statements
       match({
         password,
         omniMatch
@@ -1437,20 +1453,45 @@ this.zxcvbnts.core = (function (exports) {
           if (match) {
             const j = match.index + match[0].length - 1;
             const baseGuesses = this.getBaseGuesses(baseToken, omniMatch);
-            matches.push({
-              pattern: 'repeat',
-              i: match.index,
-              j,
-              token: match[0],
-              baseToken,
-              baseGuesses,
-              repeatCount: match[0].length / baseToken.length
-            });
+            matches.push(this.normalizeMatch(baseToken, j, match, baseGuesses));
             lastIndex = j + 1;
           }
         }
 
+        const hasPromises = matches.some(match => {
+          return match instanceof Promise;
+        });
+
+        if (hasPromises) {
+          return Promise.all(matches);
+        }
+
         return matches;
+      } // eslint-disable-next-line max-params
+
+
+      normalizeMatch(baseToken, j, match, baseGuesses) {
+        const baseMatch = {
+          pattern: 'repeat',
+          i: match.index,
+          j,
+          token: match[0],
+          baseToken,
+          baseGuesses: 0,
+          repeatCount: match[0].length / baseToken.length
+        };
+
+        if (baseGuesses instanceof Promise) {
+          return baseGuesses.then(resolvedBaseGuesses => {
+            return { ...baseMatch,
+              baseGuesses: resolvedBaseGuesses
+            };
+          });
+        }
+
+        return { ...baseMatch,
+          baseGuesses
+        };
       }
 
       getGreedyMatch(password, lastIndex) {
@@ -1502,7 +1543,16 @@ this.zxcvbnts.core = (function (exports) {
       }
 
       getBaseGuesses(baseToken, omniMatch) {
-        const baseAnalysis = scoring.mostGuessableMatchSequence(baseToken, omniMatch.match(baseToken));
+        const matches = omniMatch.match(baseToken);
+
+        if (matches instanceof Promise) {
+          return matches.then(resolvedMatches => {
+            const baseAnalysis = scoring.mostGuessableMatchSequence(baseToken, resolvedMatches);
+            return baseAnalysis.guesses;
+          });
+        }
+
+        const baseAnalysis = scoring.mostGuessableMatchSequence(baseToken, matches);
         return baseAnalysis.guesses;
       }
 
@@ -1758,6 +1808,7 @@ this.zxcvbnts.core = (function (exports) {
           date: MatchDate,
           dictionary: MatchDictionary,
           regex: MatchRegex,
+          // @ts-ignore => TODO resolve this type issue. This is because it is possible to be async
           repeat: MatchRepeat,
           sequence: MatchSequence,
           spatial: MatchSpatial
@@ -1766,6 +1817,7 @@ this.zxcvbnts.core = (function (exports) {
 
       match(password) {
         const matches = [];
+        const promises = [];
         const matchers = [...Object.keys(this.matchers), ...Object.keys(Options$1.matchers)];
         matchers.forEach(key => {
           if (!this.matchers[key] && !Options$1.matchers[key]) {
@@ -1774,11 +1826,29 @@ this.zxcvbnts.core = (function (exports) {
 
           const Matcher = this.matchers[key] ? this.matchers[key] : Options$1.matchers[key].Matching;
           const usedMatcher = new Matcher();
-          extend(matches, usedMatcher.match({
+          const result = usedMatcher.match({
             password,
             omniMatch: this
-          }));
+          });
+
+          if (result instanceof Promise) {
+            result.then(response => {
+              extend(matches, response);
+            });
+            promises.push(result);
+          } else {
+            extend(matches, result);
+          }
         });
+
+        if (promises.length > 0) {
+          return new Promise(resolve => {
+            Promise.all(promises).then(() => {
+              resolve(sorted(matches));
+            });
+          });
+        }
+
         return sorted(matches);
       }
 
@@ -1827,7 +1897,12 @@ this.zxcvbnts.core = (function (exports) {
           offlineSlowHashing1e4PerSecond: guesses / 1e4,
           offlineFastHashing1e10PerSecond: guesses / 1e10
         };
-        const crackTimesDisplay = {};
+        const crackTimesDisplay = {
+          onlineThrottling100PerHour: '',
+          onlineNoThrottling10PerSecond: '',
+          offlineSlowHashing1e4PerSecond: '',
+          offlineFastHashing1e10PerSecond: ''
+        };
         Object.keys(crackTimesSeconds).forEach(scenario => {
           const seconds = crackTimesSeconds[scenario];
           crackTimesDisplay[scenario] = this.displayTime(seconds);
@@ -2113,13 +2188,10 @@ this.zxcvbnts.core = (function (exports) {
 
     const time = () => new Date().getTime();
 
-    const zxcvbn = password => {
+    const createReturnValue = (resolvedMatches, password, start) => {
       const feedback = new Feedback();
-      const matching = new Matching();
       const timeEstimates = new TimeEstimates();
-      const start = time();
-      const matches = matching.match(password);
-      const matchSequence = scoring.mostGuessableMatchSequence(password, matches);
+      const matchSequence = scoring.mostGuessableMatchSequence(password, resolvedMatches);
       const calcTime = time() - start;
       const attackTimes = timeEstimates.estimateAttackTimes(matchSequence.guesses);
       return {
@@ -2130,6 +2202,24 @@ this.zxcvbnts.core = (function (exports) {
       };
     };
 
+    const zxcvbn = (password, userInputs) => {
+      if (userInputs) {
+        Options$1.extendUserInputsDictionary(userInputs);
+      }
+
+      const matching = new Matching();
+      const start = time();
+      const matches = matching.match(password);
+
+      if (matches instanceof Promise) {
+        return matches.then(resolvedMatches => {
+          return createReturnValue(resolvedMatches, password, start);
+        });
+      }
+
+      return createReturnValue(matches, password, start);
+    };
+
     exports.ZxcvbnOptions = Options$1;
     exports.zxcvbn = zxcvbn;
 
@@ -2137,5 +2227,5 @@ this.zxcvbnts.core = (function (exports) {
 
     return exports;
 
-}({}));
+})({});
 //# sourceMappingURL=zxcvbn-ts.js.map
