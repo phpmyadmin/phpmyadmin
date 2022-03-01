@@ -10,6 +10,8 @@ use TCPDF;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisPoint
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisPointTest extends GisGeomTestCase
 {

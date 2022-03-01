@@ -14,6 +14,8 @@ use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometryCollection
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisGeometryCollectionTest extends AbstractTestCase
 {

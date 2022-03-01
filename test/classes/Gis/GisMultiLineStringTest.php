@@ -12,6 +12,8 @@ use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiLineString
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisMultiLineStringTest extends GisGeomTestCase
 {

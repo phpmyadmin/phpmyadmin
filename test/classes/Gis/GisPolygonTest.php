@@ -12,6 +12,8 @@ use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisPolygon
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisPolygonTest extends GisGeomTestCase
 {

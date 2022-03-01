@@ -12,6 +12,8 @@ use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiPoint
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisMultiPointTest extends GisGeomTestCase
 {

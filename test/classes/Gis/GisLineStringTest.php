@@ -12,6 +12,8 @@ use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisLineString
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisLineStringTest extends GisGeomTestCase
 {
