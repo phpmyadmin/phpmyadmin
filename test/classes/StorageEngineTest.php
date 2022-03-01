@@ -55,7 +55,8 @@ class StorageEngineTest extends AbstractTestCase
     }
 
     /**
-     * Test for getStorageEngines
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testGetStorageEngines(): void
     {

@@ -100,7 +100,8 @@ class TransformationsTest extends AbstractTestCase
     }
 
     /**
-     * Test for getting available types.
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testGetTypes(): void
     {
