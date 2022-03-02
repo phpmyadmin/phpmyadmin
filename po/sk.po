@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-03-02 10:57+0000\n"
+"PO-Revision-Date: 2022-03-03 21:58+0000\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/5-1/sk/"
 ">\n"
@@ -434,7 +434,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:306
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} a {max_heap_table_size} nie sú rovnaké."
 
 #: libraries/advisory_rules_generic.php:308
 msgid ""
@@ -447,7 +447,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:312
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Aktuálne hodnoty sú tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules_generic.php:318
 msgid "Percentage of temp tables on disk"
@@ -18588,8 +18588,6 @@ msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -18656,7 +18654,7 @@ msgstr "Navigačná lišta tabuľky"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(aktuálny)"
 
 #: templates/transformation_overview.twig:1
 #, fuzzy
