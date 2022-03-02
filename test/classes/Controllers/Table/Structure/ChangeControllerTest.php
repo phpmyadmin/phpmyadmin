@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\Structure\ChangeController;
+use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
@@ -36,9 +37,8 @@ class ChangeControllerTest extends AbstractTestCase
         $ctrl = new ChangeController(
             $response,
             new Template(),
-            new Relation($this->dbi),
-            new Transformations(),
-            $this->dbi
+            $this->dbi,
+            new ColumnsDefinition($this->dbi, new Relation($this->dbi), new Transformations())
         );
 
         $method->invokeArgs($ctrl, [null]);

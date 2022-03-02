@@ -1045,8 +1045,8 @@ return [
                 '$template' => '@template',
                 '$transformations' => '@transformations',
                 '$config' => '@config',
-                '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$columnsDefinition' => '@table_columns_definition',
             ],
         ],
         Table\ChangeController::class => [
@@ -1081,8 +1081,8 @@ return [
                 '$template' => '@template',
                 '$transformations' => '@transformations',
                 '$config' => '@config',
-                '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$columnsDefinition' => '@table_columns_definition',
             ],
         ],
         Table\DeleteConfirmController::class => [
@@ -1398,9 +1398,8 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$relation' => '@relation',
-                '$transformations' => '@transformations',
                 '$dbi' => '@dbi',
+                '$columnsDefinition' => '@table_columns_definition',
             ],
         ],
         Table\Structure\FulltextController::class => [

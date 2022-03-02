@@ -201,6 +201,10 @@ return [
             'class' => PhpMyAdmin\Server\Status\Processes::class,
             'arguments' => ['@dbi'],
         ],
+        'table_columns_definition' => [
+            'class' => PhpMyAdmin\Table\ColumnsDefinition::class,
+            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$transformations' => '@transformations'],
+        ],
         'table_indexes' => [
             'class' => PhpMyAdmin\Table\Indexes::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -241,13 +242,14 @@ class CreateControllerTest extends AbstractTestCase
             'disable_is' => false,
         ]);
 
+        $transformations = new Transformations();
         (new CreateController(
             $response,
             $template,
-            new Transformations(),
+            $transformations,
             new Config(),
-            $relation,
-            $this->dbi
+            $this->dbi,
+            new ColumnsDefinition($this->dbi, $relation, $transformations)
         ))();
 
         $this->assertSame($expected, $response->getHTMLResult());

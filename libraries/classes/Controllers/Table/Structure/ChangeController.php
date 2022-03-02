@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -20,26 +18,21 @@ use function count;
 
 final class ChangeController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
-
-    /** @var Transformations */
-    private $transformations;
-
     /** @var DatabaseInterface */
     private $dbi;
+
+    /** @var ColumnsDefinition */
+    private $columnsDefinition;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        Transformations $transformations,
-        DatabaseInterface $dbi
+        DatabaseInterface $dbi,
+        ColumnsDefinition $columnsDefinition
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->transformations = $transformations;
         $this->dbi = $dbi;
+        $this->columnsDefinition = $columnsDefinition;
     }
 
     public function __invoke(): void
@@ -107,16 +100,7 @@ final class ChangeController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
-        $templateData = ColumnsDefinition::displayForm(
-            $this->transformations,
-            $this->relation,
-            $this->dbi,
-            $action,
-            $num_fields,
-            null,
-            $selected,
-            $fields_meta
-        );
+        $templateData = $this->columnsDefinition->displayForm($action, $num_fields, null, $selected, $fields_meta);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

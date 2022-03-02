@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
@@ -36,25 +35,25 @@ class CreateController extends AbstractController
     /** @var Config */
     private $config;
 
-    /** @var Relation */
-    private $relation;
-
     /** @var DatabaseInterface */
     private $dbi;
+
+    /** @var ColumnsDefinition */
+    private $columnsDefinition;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Transformations $transformations,
         Config $config,
-        Relation $relation,
-        DatabaseInterface $dbi
+        DatabaseInterface $dbi,
+        ColumnsDefinition $columnsDefinition
     ) {
         parent::__construct($response, $template);
         $this->transformations = $transformations;
         $this->config = $config;
-        $this->relation = $relation;
         $this->dbi = $dbi;
+        $this->columnsDefinition = $columnsDefinition;
     }
 
     public function __invoke(): void
@@ -161,13 +160,7 @@ class CreateController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
-        $templateData = ColumnsDefinition::displayForm(
-            $this->transformations,
-            $this->relation,
-            $this->dbi,
-            $action,
-            $num_fields
-        );
+        $templateData = $this->columnsDefinition->displayForm($action, $num_fields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }
