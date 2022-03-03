@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use SplFileInfo;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -143,6 +144,7 @@ final class CacheWarmupCommand extends Command
         );
 
         $output->writeln('Warming templates', OutputInterface::VERBOSITY_VERY_VERBOSE);
+        /** @var SplFileInfo $file */
         foreach ($templates as $file) {
             // Skip test files
             if (str_contains($file->getPathname(), '/test/')) {

@@ -174,21 +174,6 @@
       <code>$row[0]</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Command/CacheWarmupCommand.php">
-    <MixedArgument occurrences="2">
-      <code>$file-&gt;getPathname()</code>
-      <code>$file-&gt;getPathname()</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$file</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="4">
-      <code>getExtension</code>
-      <code>getPathname</code>
-      <code>getPathname</code>
-      <code>isFile</code>
-    </MixedMethodCall>
-  </file>
   <file src="libraries/classes/Command/FixPoTwigCommand.php">
     <MixedArrayAccess occurrences="3">
       <code>$replace[0]</code>
@@ -4001,14 +3986,13 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Transformation/WrapperController.php">
-    <MixedArgument occurrences="12">
+    <MixedArgument occurrences="11">
       <code>$_GET['where_clause_sign'] ?? ''</code>
       <code>$cn ?? ''</code>
       <code>$db</code>
       <code>$mime_map[$transform_key]['mimetype']</code>
       <code>$mime_map[$transform_key]['transformation_options'] ?? ''</code>
-      <code>$mime_type ?? ''</code>
-      <code>$mime_type ?? ''</code>
+      <code>$mime_type</code>
       <code>$option</code>
       <code>$srcHeight / $ratioWidth</code>
       <code>$srcWidth / $ratioHeight</code>

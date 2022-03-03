@@ -2836,18 +2836,8 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:__construct\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/MysqliResult.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/MysqliResult.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:\\$result type has no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
@@ -3122,11 +3112,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setMessageInformation\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setParamForLinkForeignKeyRelatedTables\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<int\\|string, array\\>\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -6306,11 +6291,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Dia/Dia.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|false and 12 results in an error\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
@@ -6327,11 +6307,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -6391,11 +6366,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Parameter \\#2 \\$master_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\RelationStatsPdf constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -6444,6 +6414,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Binary operation \"\\+\" between int\\|string\\|false and 1\\.5 results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/RelationStats.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:getXy\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -6497,11 +6472,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\RelationStatsSvg constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
