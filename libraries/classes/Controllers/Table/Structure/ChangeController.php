@@ -11,7 +11,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function __;
 use function count;
@@ -62,7 +61,7 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(?array $selected): void
     {
-        global $action, $num_fields;
+        global $num_fields;
 
         if (empty($selected)) {
             $selected[] = $_REQUEST['field'];
@@ -90,8 +89,6 @@ final class ChangeController extends AbstractController
 
         $num_fields = count($fields_meta);
 
-        $action = Url::getFromRoute('/table/structure/save');
-
         /**
          * Form for changing properties.
          */
@@ -100,7 +97,13 @@ final class ChangeController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
-        $templateData = $this->columnsDefinition->displayForm($action, $num_fields, null, $selected, $fields_meta);
+        $templateData = $this->columnsDefinition->displayForm(
+            '/table/structure/save',
+            $num_fields,
+            null,
+            $selected,
+            $fields_meta
+        );
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

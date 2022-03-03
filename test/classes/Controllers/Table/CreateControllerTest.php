@@ -169,7 +169,7 @@ class CreateControllerTest extends AbstractTestCase
             'is_backup' => false,
             'fields_meta' => null,
             'relation_parameters' => $relation->getRelationParameters(),
-            'action' => 'index.php?route=/table/create&lang=en',
+            'action' => '/table/create',
             'form_params' => [
                 'db' => 'test_db',
                 'reload' => 1,

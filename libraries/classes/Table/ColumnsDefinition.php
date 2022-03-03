@@ -13,7 +13,6 @@ use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function array_keys;
@@ -54,11 +53,11 @@ final class ColumnsDefinition
     }
 
     /**
-     * @param string      $action      Action
      * @param int         $num_fields  The number of fields
      * @param string|null $regenerate  Use regeneration
      * @param array|null  $selected    Selected
      * @param array|null  $fields_meta Fields meta
+     * @psalm-param '/table/create'|'/table/add-field'|'/table/structure/save' $action
      *
      * @return array<string, mixed>
      */
@@ -75,7 +74,6 @@ final class ColumnsDefinition
             'server',
             'db',
             'table',
-            'action',
             'num_fields',
         ]);
 
@@ -83,10 +81,10 @@ final class ColumnsDefinition
         $content_cells = [];
         $form_params = ['db' => $db];
 
-        if ($action == Url::getFromRoute('/table/create')) {
+        if ($action === '/table/create') {
             $form_params['reload'] = 1;
         } else {
-            if ($action == Url::getFromRoute('/table/add-field')) {
+            if ($action === '/table/add-field') {
                 $form_params = array_merge(
                     $form_params,
                     [
@@ -117,8 +115,7 @@ final class ColumnsDefinition
             }
         }
 
-        $is_backup = ($action != Url::getFromRoute('/table/create')
-            && $action != Url::getFromRoute('/table/add-field'));
+        $is_backup = $action !== '/table/create' && $action !== '/table/add-field';
 
         $relationParameters = $this->relation->getRelationParameters();
 

@@ -59,7 +59,7 @@ class AddFieldController extends AbstractController
 
     public function __invoke(): void
     {
-        global $errorUrl, $message, $action, $active_page, $sql_query;
+        global $errorUrl, $message, $active_page, $sql_query;
         global $num_fields, $regenerate, $result, $db, $table;
 
         $this->addScriptFiles(['table/structure.js']);
@@ -174,14 +174,10 @@ class AddFieldController extends AbstractController
         DbTableExists::check($db, $table);
 
         $active_page = Url::getFromRoute('/table/structure');
-        /**
-         * Display the form
-         */
-        $action = Url::getFromRoute('/table/add-field');
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
-        $templateData = $this->columnsDefinition->displayForm($action, $num_fields, $regenerate);
+        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $num_fields, $regenerate);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

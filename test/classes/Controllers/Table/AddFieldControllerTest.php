@@ -171,7 +171,7 @@ class AddFieldControllerTest extends AbstractTestCase
             'is_backup' => false,
             'fields_meta' => null,
             'relation_parameters' => $relation->getRelationParameters(),
-            'action' => 'index.php?route=/table/add-field&lang=en',
+            'action' => '/table/add-field',
             'form_params' => [
                 'db' => 'test_db',
                 'field_where' => 'after',

@@ -58,7 +58,7 @@ class CreateController extends AbstractController
 
     public function __invoke(): void
     {
-        global $num_fields, $action, $sql_query, $result, $db, $table;
+        global $num_fields, $sql_query, $result, $db, $table;
 
         Util::checkParameters(['db']);
 
@@ -99,8 +99,6 @@ class CreateController extends AbstractController
         $createAddField = new CreateAddField($this->dbi);
 
         $num_fields = $createAddField->getNumberOfFieldsFromRequest();
-
-        $action = Url::getFromRoute('/table/create');
 
         /**
          * The form used to define the structure of the table has been submitted
@@ -160,7 +158,7 @@ class CreateController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
-        $templateData = $this->columnsDefinition->displayForm($action, $num_fields);
+        $templateData = $this->columnsDefinition->displayForm('/table/create', $num_fields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }
