@@ -68,7 +68,7 @@ final class CollationController extends AbstractController
          */
         if (isset($_POST['change_all_tables_collations']) && $_POST['change_all_tables_collations'] === 'on') {
             [$tables] = Util::getDbInfo($db, '');
-            foreach ($tables as $tableName => $data) {
+            foreach ($tables as ['Name' => $tableName]) {
                 if ($this->dbi->getTable($db, $tableName)->isView()) {
                     // Skip views, we can not change the collation of a view.
                     // issue #15283
