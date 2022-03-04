@@ -816,11 +816,12 @@ class InsertEdit
         // HTML5 data-* attribute data-type
         $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
         $fieldsize = $this->getColumnSize($column, $extractedColumnspec['spec_in_brackets']);
-        $htmlOutput = $backupField . "\n";
-        if ($column['is_char'] && ($GLOBALS['cfg']['CharEditing'] === 'textarea' || str_contains($data, "\n"))) {
-            $htmlOutput .= "\n";
+
+        $isTextareaRequired = $column['is_char']
+            && ($GLOBALS['cfg']['CharEditing'] === 'textarea' || str_contains($data, "\n"));
+        if ($isTextareaRequired) {
             $GLOBALS['cfg']['CharEditing'] = $defaultCharEditing;
-            $htmlOutput .= $this->getTextarea(
+            $htmlField = $this->getTextarea(
                 $column,
                 $backupField,
                 $columnNameAppendix,
@@ -834,7 +835,7 @@ class InsertEdit
                 $readOnly
             );
         } else {
-            $htmlOutput .= $this->getHtmlInput(
+            $htmlField = $this->getHtmlInput(
                 $column,
                 $columnNameAppendix,
                 $specialChars,
@@ -846,38 +847,15 @@ class InsertEdit
                 $dataType,
                 $readOnly
             );
-
-            if (
-                preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])
-                && ! str_contains($column['Extra'], 'DEFAULT_GENERATED')
-            ) {
-                $htmlOutput .= '<input type="hidden" name="virtual'
-                    . $columnNameAppendix . '" value="1">';
-            }
-
-            if ($column['Extra'] === 'auto_increment') {
-                $htmlOutput .= '<input type="hidden" name="auto_increment'
-                    . $columnNameAppendix . '" value="1">';
-            }
-
-            if (substr($column['pma_type'], 0, 9) === 'timestamp') {
-                $htmlOutput .= '<input type="hidden" name="fields_type'
-                    . $columnNameAppendix . '" value="timestamp">';
-            }
-
-            if (substr($column['pma_type'], 0, 4) === 'date') {
-                $type = substr($column['pma_type'], 0, 8) === 'datetime' ? 'datetime' : 'date';
-                $htmlOutput .= '<input type="hidden" name="fields_type'
-                    . $columnNameAppendix . '" value="' . $type . '">';
-            }
-
-            if ($column['True_Type'] === 'bit') {
-                $htmlOutput .= '<input type="hidden" name="fields_type'
-                    . $columnNameAppendix . '" value="bit">';
-            }
         }
 
-        return $htmlOutput;
+        return $this->template->render('table/insert/value_column_for_other_datatype', [
+            'html_field' => $htmlField,
+            'backup_field' => $backupField,
+            'is_textarea' => $isTextareaRequired,
+            'columnNameAppendix' => $columnNameAppendix,
+            'column' => $column,
+        ]);
     }
 
     /**
