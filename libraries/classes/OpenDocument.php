@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use function strftime;
 
 /**
- * Simplfied OpenDocument creator class
+ * Simplified OpenDocument creator class
  */
 class OpenDocument
 {
