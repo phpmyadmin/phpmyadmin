@@ -132,6 +132,32 @@ class GisVisualizationTest extends AbstractTestCase
     }
 
     /**
+     * Modify the query for an MySQL 8.0 version and trim the SQL end character
+     */
+    public function testModifyQueryTrimSqlEnd(): void
+    {
+        $queryString = $this->callFunction(
+            GisVisualization::getByData([], [
+                'mysqlVersion' => 80000,
+                'spatialColumn' => 'abc',
+                'isMariaDB' => false,
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                'SELECT 1 FROM foo;',
+                0,
+                0,
+            ]
+        );
+
+        $this->assertEquals(
+            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM (SELECT 1 FROM foo) AS `temp_gis`',
+            $queryString
+        );
+    }
+
+    /**
      * Modify the query for an MySQL 8.0 version using a label column
      */
     public function testModifyQueryLabelColumn(): void
