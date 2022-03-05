@@ -7,7 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function strftime;
+use DateTime;
+use const DATE_W3C;
 
 /**
  * Simplified OpenDocument creator class
@@ -35,6 +36,9 @@ EOT;
      */
     public static function create($mime, $data)
     {
+        // Use the same date method as other PHP libs
+        // https://github.com/PHPOffice/PhpSpreadsheet/blob/1.22.0/src/PhpSpreadsheet/Writer/Ods/Meta.php#L49
+        $dateTimeCreation = (new DateTime())->format(DATE_W3C);
         $data = [
             $mime,
             $data,
@@ -47,7 +51,7 @@ EOT;
             . '<meta:generator>phpMyAdmin ' . PMA_VERSION . '</meta:generator>'
             . '<meta:initial-creator>phpMyAdmin ' . PMA_VERSION
             . '</meta:initial-creator>'
-            . '<meta:creation-date>' . @strftime('%Y-%m-%dT%H:%M:%S')
+            . '<meta:creation-date>' . $dateTimeCreation
             . '</meta:creation-date>'
             . '</office:meta>'
             . '</office:document-meta>',
