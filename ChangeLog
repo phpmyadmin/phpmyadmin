@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue #16853 Add better error handling when IndexedDB is not working
 - issue        Fixed incorrect escaping of special MySQL characters on some pages
 - issue #17188 Fix GIS visualization with an edited query
+- issue #17418 Remove the use of the deprecated `strftime` function in OpenDocument exports
 
 5.1.3 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
