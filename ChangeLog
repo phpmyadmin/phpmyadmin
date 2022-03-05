@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue #16816 Disable editing to system schemas
 - issue #16853 Add better error handling when IndexedDB is not working
 - issue        Fixed incorrect escaping of special MySQL characters on some pages
+- issue #17188 Fix GIS visualization with an edited query
 
 5.1.3 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
