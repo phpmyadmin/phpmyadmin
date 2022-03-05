@@ -29,6 +29,7 @@ use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
 use function is_string;
+use function rtrim;
 
 /**
  * Handles visualization of GIS data
@@ -237,7 +238,7 @@ class GisVisualization
             . ') AS ' . Util::backquote('srid') . ' ';
 
         // Append the original query as the inner query
-        $modified_query .= 'FROM (' . $sql_query . ') AS '
+        $modified_query .= 'FROM (' . rtrim($sql_query, ';') . ') AS '
             . Util::backquote('temp_gis');
 
         // LIMIT clause
