@@ -2999,9 +2999,9 @@ class InsertEdit
     /**
      * Function to determine Insert/Edit rows
      *
-     * @param string $where_clause where clause
-     * @param string $db           current database
-     * @param string $table        current table
+     * @param string|null $where_clause where clause
+     * @param string      $db           current database
+     * @param string      $table        current table
      *
      * @return array
      */
