@@ -102,19 +102,22 @@
         }
     },
     "scripts": {
-        "phpcbf": "phpcbf",
-        "phpcs": "phpcs",
-        "phpstan": "phpstan analyse",
-        "psalm": "psalm",
-        "phpunit": "phpunit --color=always",
+        "phpcbf": "@php phpcbf",
+        "phpcs": "@php phpcs",
+        "phpstan": "@php phpstan analyse",
+        "psalm": "@php psalm",
+        "phpunit": "@php phpunit --color=always",
         "test": [
             "@phpcs",
             "@phpstan",
             "@psalm",
             "@phpunit"
         ],
-        "update:baselines": "phpstan analyse --generate-baseline && psalm --set-baseline=psalm-baseline.xml",
-        "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations"
+        "update:baselines": [
+            "@php phpstan analyse --generate-baseline",
+            "@php psalm --set-baseline=psalm-baseline.xml"
+        ],
+        "twig-lint": "@php scripts/console lint:twig templates --ansi --show-deprecations"
     },
     "config":{
         "sort-packages": true,
