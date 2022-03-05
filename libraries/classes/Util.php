@@ -2885,8 +2885,8 @@ class Util
             $tblGroupSql = '';
             $whereAdded = false;
             if (Core::isValid($_REQUEST['tbl_group'])) {
-                $group = self::escapeMysqlWildcards($_REQUEST['tbl_group']);
-                $groupWithSeparator = self::escapeMysqlWildcards(
+                $group = $dbi->escapeMysqlLikeString($_REQUEST['tbl_group']);
+                $groupWithSeparator = $dbi->escapeMysqlLikeString(
                     $_REQUEST['tbl_group']
                     . $GLOBALS['cfg']['NavigationTreeTableSeparator']
                 );
