@@ -931,11 +931,9 @@ class CoreTest extends AbstractNetworkTestCase
 
     public function testPopulateRequestWithEncryptedQueryParams(): void
     {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryption', true);
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryption', true);
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = ['pos' => '0', 'eq' => Url::encryptQuery('{"db":"test_db","table":"test_table"}')];
         $_REQUEST = $_GET;
@@ -964,11 +962,9 @@ class CoreTest extends AbstractNetworkTestCase
         array $encrypted,
         array $decrypted
     ): void {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryption', true);
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryption', true);
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = $encrypted;
         $_REQUEST = $encrypted;

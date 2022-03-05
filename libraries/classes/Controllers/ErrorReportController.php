@@ -46,8 +46,6 @@ class ErrorReportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         /** @var string $exceptionType */
         $exceptionType = $request->getParsedBodyParam('exception_type', '');
         /** @var string|null $sendErrorReport */
@@ -101,7 +99,7 @@ class ErrorReportController extends AbstractController
 
                 /* Message to show to the user */
                 if ($success) {
-                    if ($automatic === 'true' || $cfg['SendErrorReports'] === 'always') {
+                    if ($automatic === 'true' || $GLOBALS['cfg']['SendErrorReports'] === 'always') {
                         $msg = __(
                             'An error has been detected and an error report has been '
                             . 'automatically submitted based on your settings.'
@@ -152,7 +150,7 @@ class ErrorReportController extends AbstractController
                 }
             }
         } elseif ($getSettings) {
-            $this->response->addJSON('report_setting', $cfg['SendErrorReports']);
+            $this->response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
         } elseif ($exceptionType === 'js') {
             $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());

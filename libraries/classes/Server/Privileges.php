@@ -744,12 +744,10 @@ class Privileges
         $user = null,
         $host = null
     ) {
-        global $pred_username, $pred_hostname, $username, $hostname, $new_username;
-
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
 
-        if (isset($username) && strlen($username) === 0) {
-            $pred_username = 'any';
+        if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
+            $GLOBALS['pred_username'] = 'any';
         }
 
         $currentUser = $this->dbi->fetchValue('SELECT USER();');
@@ -765,17 +763,17 @@ class Privileges
             );
         }
 
-        if (! isset($pred_hostname) && isset($hostname)) {
-            switch (mb_strtolower($hostname)) {
+        if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
+            switch (mb_strtolower($GLOBALS['hostname'])) {
                 case 'localhost':
                 case '127.0.0.1':
-                    $pred_hostname = 'localhost';
+                    $GLOBALS['pred_hostname'] = 'localhost';
                     break;
                 case '%':
-                    $pred_hostname = 'any';
+                    $GLOBALS['pred_hostname'] = 'any';
                     break;
                 default:
-                    $pred_hostname = 'userdefined';
+                    $GLOBALS['pred_hostname'] = 'userdefined';
                     break;
             }
         }
@@ -795,13 +793,13 @@ class Privileges
         }
 
         return $this->template->render('server/privileges/login_information_fields', [
-            'pred_username' => $pred_username ?? null,
-            'pred_hostname' => $pred_hostname ?? null,
+            'pred_username' => $GLOBALS['pred_username'] ?? null,
+            'pred_hostname' => $GLOBALS['pred_hostname'] ?? null,
             'username_length' => $usernameLength,
             'hostname_length' => $hostnameLength,
-            'username' => $username ?? null,
-            'new_username' => $new_username ?? null,
-            'hostname' => $hostname ?? null,
+            'username' => $GLOBALS['username'] ?? null,
+            'new_username' => $GLOBALS['new_username'] ?? null,
+            'hostname' => $GLOBALS['hostname'] ?? null,
             'this_host' => $thisHost,
             'is_change' => $mode === 'change',
             'auth_plugin' => $authPlugin,
@@ -857,8 +855,6 @@ class Privileges
         $username = null,
         $hostname = null
     ) {
-        global $dbi;
-
         /* Fallback (standard) value */
         $authenticationPlugin = 'mysql_native_password';
         $serverVersion = $this->dbi->getVersion();
@@ -866,9 +862,9 @@ class Privileges
         if (isset($username, $hostname) && $mode === 'change') {
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE `User` = "'
-                . $dbi->escapeString($username)
+                . $GLOBALS['dbi']->escapeString($username)
                 . '" AND `Host` = "'
-                . $dbi->escapeString($hostname)
+                . $GLOBALS['dbi']->escapeString($hostname)
                 . '" LIMIT 1'
             );
             // Table 'mysql'.'user' may not exist for some previous
@@ -881,9 +877,9 @@ class Privileges
 
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE `User` = "'
-                . $dbi->escapeString($username)
+                . $GLOBALS['dbi']->escapeString($username)
                 . '" AND `Host` = "'
-                . $dbi->escapeString($hostname)
+                . $GLOBALS['dbi']->escapeString($hostname)
                 . '"'
             );
             if (is_array($row) && isset($row['plugin'])) {
@@ -932,8 +928,6 @@ class Privileges
      */
     public function updatePassword($errorUrl, $username, $hostname)
     {
-        global $dbi;
-
         // similar logic in /user-password
         $message = null;
 
@@ -1012,8 +1006,8 @@ class Privileges
                     . " `authentication_string` = '" . $hashedPassword
                     . "', `Password` = '', "
                     . " `plugin` = '" . $authenticationPlugin . "'"
-                    . " WHERE `User` = '" . $dbi->escapeString($username)
-                    . "' AND Host = '" . $dbi->escapeString($hostname) . "';";
+                    . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
+                    . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
             } else {
                 // USE 'SET PASSWORD ...' syntax for rest of the versions
                 // Backup the old value, to be reset later
@@ -1021,8 +1015,8 @@ class Privileges
                 $origValue = $row['@@old_passwords'];
                 $updatePluginQuery = 'UPDATE `mysql`.`user` SET'
                     . " `plugin` = '" . $authenticationPlugin . "'"
-                    . " WHERE `User` = '" . $dbi->escapeString($username)
-                    . "' AND Host = '" . $dbi->escapeString($hostname) . "';";
+                    . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
+                    . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
 
                 // Update the plugin for the user
                 if (! $this->dbi->tryQuery($updatePluginQuery)) {
@@ -3082,8 +3076,6 @@ class Privileges
         $dbname,
         $tablename
     ) {
-        global $cfg;
-
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
             . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
@@ -3143,10 +3135,10 @@ class Privileges
             }
         }
 
-        $databaseUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $databaseUrlTitle = Util::getTitleForTarget($cfg['DefaultTabDatabase']);
-        $tableUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $tableUrlTitle = Util::getTitleForTarget($cfg['DefaultTabTable']);
+        $databaseUrl = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $databaseUrlTitle = Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabDatabase']);
+        $tableUrl = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $tableUrlTitle = Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
 
         $changePassword = '';
         $userGroup = '';

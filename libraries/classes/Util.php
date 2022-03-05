@@ -203,8 +203,6 @@ class Util
      */
     public static function getMySQLDocuURL(string $link, string $anchor = ''): string
     {
-        global $dbi;
-
         // Fixup for newly used names:
         $link = str_replace('_', '-', mb_strtolower($link));
 
@@ -214,8 +212,8 @@ class Util
 
         $mysql = '5.5';
         $lang = 'en';
-        if (isset($dbi)) {
-            $serverVersion = $dbi->getVersion();
+        if (isset($GLOBALS['dbi'])) {
+            $serverVersion = $GLOBALS['dbi']->getVersion();
             if ($serverVersion >= 80000) {
                 $mysql = '8.0';
             } elseif ($serverVersion >= 50700) {
@@ -266,8 +264,6 @@ class Util
      */
     private static function checkRowCount($db, array $table)
     {
-        global $dbi;
-
         $rowCount = 0;
 
         if ($table['Rows'] === null) {
@@ -283,7 +279,7 @@ class Util
             $tableIsView = $table['TABLE_TYPE'] === 'VIEW';
 
             if ($tableIsView || Utilities::isSystemSchema($db)) {
-                $rowCount = $dbi
+                $rowCount = $GLOBALS['dbi']
                     ->getTable($db, $table['Name'])
                     ->countRecords();
             }
@@ -301,11 +297,9 @@ class Util
      */
     public static function getTableList($db): array
     {
-        global $dbi;
-
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
-        $tables = $dbi->getTablesFull($db);
+        $tables = $GLOBALS['dbi']->getTablesFull($db);
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($tables, 'strnatcasecmp');
@@ -865,8 +859,6 @@ class Util
         string $conditionKey,
         string $condition
     ): array {
-        global $dbi;
-
         if ($row === null) {
             return ['IS NULL', $condition];
         }
@@ -911,7 +903,7 @@ class Util
                 . self::printableBitValue((int) $row, (int) $meta->length) . "'";
         } else {
             $conditionValue = '= \''
-                . $dbi->escapeString($row) . '\'';
+                . $GLOBALS['dbi']->escapeString($row) . '\'';
         }
 
         return [$conditionValue, $condition];
@@ -938,8 +930,6 @@ class Util
         $restrictToTable = false,
         array $expressions = []
     ): array {
-        global $dbi;
-
         $primaryKey = '';
         $uniqueKey = '';
         $nonPrimaryCondition = '';
@@ -981,7 +971,7 @@ class Util
             // because there is some caching in the function).
             if (
                 $meta->table !== $meta->orgtable
-                && ! $dbi->getTable($GLOBALS['db'], $meta->table)->isView()
+                && ! $GLOBALS['dbi']->getTable($GLOBALS['db'], $meta->table)->isView()
             ) {
                 $meta->table = $meta->orgtable;
             }
@@ -1609,8 +1599,6 @@ class Util
         $escape = null,
         array $updates = []
     ) {
-        global $dbi;
-
         /* Content */
         $vars = [];
         $vars['http_host'] = Core::getenv('HTTP_HOST');
@@ -1675,7 +1663,7 @@ class Util
 
         /* Fetch columns list if required */
         if (str_contains($string, '@COLUMNS@')) {
-            $columnsList = $dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
+            $columnsList = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
             // sometimes the table no longer exists at this point
             if ($columnsList !== null) {
@@ -1711,13 +1699,11 @@ class Util
      */
     public static function getSupportedDatatypes($html = false, $selected = '')
     {
-        global $dbi;
-
         if ($html) {
             $retval = Generator::getSupportedDatatypes($selected);
         } else {
             $retval = [];
-            foreach ($dbi->types->getColumns() as $value) {
+            foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
                 if (is_array($value)) {
                     foreach ($value as $subvalue) {
                         if ($subvalue === '-') {
@@ -1769,11 +1755,9 @@ class Util
      */
     public static function currentUserHasPrivilege(string $priv, ?string $db = null, ?string $tbl = null): bool
     {
-        global $dbi;
-
         // Get the username for the current user in the format
         // required to use in the information schema database.
-        [$user, $host] = $dbi->getCurrentUserAndHost();
+        [$user, $host] = $GLOBALS['dbi']->getCurrentUserAndHost();
 
         // MySQL is started with --skip-grant-tables
         if ($user === '') {
@@ -1791,7 +1775,7 @@ class Util
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
         // Check global privileges first.
-        $userPrivileges = $dbi->fetchValue(
+        $userPrivileges = $GLOBALS['dbi']->fetchValue(
             sprintf(
                 $query,
                 'USER_PRIVILEGES',
@@ -1812,13 +1796,13 @@ class Util
         }
 
         $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
-        $schemaPrivileges = $dbi->fetchValue(
+        $schemaPrivileges = $GLOBALS['dbi']->fetchValue(
             sprintf(
                 $query,
                 'SCHEMA_PRIVILEGES',
                 $username,
                 $priv,
-                $dbi->escapeString($db)
+                $GLOBALS['dbi']->escapeString($db)
             )
         );
         if ($schemaPrivileges) {
@@ -1829,14 +1813,14 @@ class Util
         // find any valid privileges, try table-wise privileges.
         if ($tbl !== null) {
             $query .= " AND TABLE_NAME='%s'";
-            $tablePrivileges = $dbi->fetchValue(
+            $tablePrivileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    $dbi->escapeString($db),
-                    $dbi->escapeString($tbl)
+                    $GLOBALS['dbi']->escapeString($db),
+                    $GLOBALS['dbi']->escapeString($tbl)
                 )
             );
             if ($tablePrivileges) {
@@ -1860,13 +1844,11 @@ class Util
      */
     public static function getServerType(): string
     {
-        global $dbi;
-
-        if ($dbi->isMariaDB()) {
+        if ($GLOBALS['dbi']->isMariaDB()) {
             return 'MariaDB';
         }
 
-        if ($dbi->isPercona()) {
+        if ($GLOBALS['dbi']->isPercona()) {
             return 'Percona Server';
         }
 
@@ -2067,9 +2049,7 @@ class Util
      */
     public static function getCollateForIS()
     {
-        global $dbi;
-
-        $names = $dbi->getLowerCaseNames();
+        $names = $GLOBALS['dbi']->getLowerCaseNames();
         if ($names === '0') {
             return 'COLLATE utf8_bin';
         }
@@ -2149,8 +2129,6 @@ class Util
      */
     public static function getDbInfo($db, string $subPart)
     {
-        global $cfg, $dbi;
-
         /**
          * limits for table list
          */
@@ -2168,7 +2146,7 @@ class Util
         /**
          * whether to display extended stats
          */
-        $isShowStats = $cfg['ShowStats'];
+        $isShowStats = $GLOBALS['cfg']['ShowStats'];
 
         /**
          * whether selected db is information_schema
@@ -2189,8 +2167,8 @@ class Util
         $tooltipAliasName = [];
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if ($cfg['SkipLockedTables'] === true) {
-            $dbInfoResult = $dbi->query(
+        if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
+            $dbInfoResult = $GLOBALS['dbi']->query(
                 'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;'
             );
 
@@ -2245,7 +2223,7 @@ class Util
                     $tableGroup = $_REQUEST['tbl_group'];
                     // include the table with the exact name of the group if such
                     // exists
-                    $groupTable = $dbi->getTablesFull(
+                    $groupTable = $GLOBALS['dbi']->getTablesFull(
                         $db,
                         $tableGroup,
                         false,
@@ -2262,7 +2240,7 @@ class Util
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $dbi->getTables($db);
+                $tables = $GLOBALS['dbi']->getTables($db);
                 $totalNumTables = count($tables);
                 if ($subPart !== '_export') {
                     // fetch the details for a possible limited subset
@@ -2272,7 +2250,7 @@ class Util
             }
 
             // We must use union operator here instead of array_merge to preserve numerical keys
-            $tables = $groupTable + $dbi->getTablesFull(
+            $tables = $groupTable + $GLOBALS['dbi']->getTablesFull(
                 $db,
                 $groupWithSeparator !== false ? $groupWithSeparator : '',
                 $groupWithSeparator !== false,
@@ -2322,8 +2300,6 @@ class Util
      */
     public static function getTablesWhenOpen($db, ResultInterface $dbInfoResult): array
     {
-        global $dbi;
-
         $sotCache = [];
         $tables = [];
 
@@ -2363,7 +2339,7 @@ class Util
                 }
             }
 
-            $dbInfoResult = $dbi->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
+            $dbInfoResult = $GLOBALS['dbi']->query('SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql);
             unset($tblGroupSql, $whereAdded);
 
             if ($dbInfoResult->numRows() > 0) {
@@ -2385,7 +2361,7 @@ class Util
                 if (count($names) > 0) {
                     $tables = array_merge(
                         $tables,
-                        $dbi->getTablesFull($db, $names)
+                        $GLOBALS['dbi']->getTablesFull($db, $names)
                     );
                 }
 

@@ -68,8 +68,6 @@ class ImportMediawiki extends ImportPlugin
      */
     public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
-        global $error, $timeout_passed, $finished;
-
         // Defaults for parser
 
         // The buffer that will be used to store chunks read from the imported file
@@ -97,7 +95,7 @@ class ImportMediawiki extends ImportPlugin
 
         $in_table_header = false;
 
-        while (! $finished && ! $error && ! $timeout_passed) {
+        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {
@@ -129,7 +127,7 @@ class ImportMediawiki extends ImportPlugin
             $full_buffer_lines_count = count($buffer_lines);
             // If the reading is not finalized, the final line of the current chunk
             // will not be complete
-            if (! $finished) {
+            if (! $GLOBALS['finished']) {
                 $last_chunk_line = $buffer_lines[--$full_buffer_lines_count];
             }
 
@@ -275,7 +273,7 @@ class ImportMediawiki extends ImportPlugin
                         __('Invalid format of mediawiki input on line: <br>%s.')
                     );
                     $message->addParam($cur_buffer_line);
-                    $error = true;
+                    $GLOBALS['error'] = true;
                 }
             }
         }
@@ -331,13 +329,11 @@ class ImportMediawiki extends ImportPlugin
      */
     private function setTableName(&$table_name): void
     {
-        global $dbi;
-
         if (! empty($table_name)) {
             return;
         }
 
-        $result = $dbi->fetchResult('SHOW TABLES');
+        $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
         // todo check if the name below already exists
         $table_name = 'TABLE ' . (count($result) + 1);
     }
@@ -382,12 +378,10 @@ class ImportMediawiki extends ImportPlugin
      */
     private function executeImportTables(array &$tables, array &$analyses, array &$sql_data): void
     {
-        global $db;
-
         // $db_name : The currently selected database name, if applicable
         //            No backquotes
         // $options : An associative array of options
-        [$db_name, $options] = $this->getDbnameAndOptions($db, 'mediawiki_DB');
+        [$db_name, $options] = $this->getDbnameAndOptions($GLOBALS['db'], 'mediawiki_DB');
 
         // Array of SQL strings
         // Non-applicable parameters

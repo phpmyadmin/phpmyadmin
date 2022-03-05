@@ -72,11 +72,9 @@ class ReplicationGui
      */
     public function getHtmlForPrimaryReplication(): string
     {
-        global $dbi;
-
         if (! isset($_POST['repl_clear_scr'])) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable('primary', true, false);
-            $replicas = $dbi->fetchResult('SHOW SLAVE HOSTS', null, null);
+            $replicas = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['primary_add_user'] = true;
@@ -124,9 +122,7 @@ class ReplicationGui
         $serverReplicaStatus,
         array $serverReplicaReplication
     ): string {
-        global $dbi;
-
-        $serverReplicaMultiReplication = $dbi->fetchResult('SHOW ALL SLAVES STATUS');
+        $serverReplicaMultiReplication = $GLOBALS['dbi']->fetchResult('SHOW ALL SLAVES STATUS');
         if ($serverReplicaStatus) {
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['sr_take_action'] = true;
@@ -255,9 +251,7 @@ class ReplicationGui
         $isHidden = false,
         $hasTitle = true
     ): string {
-        global $dbi;
-
-        $replicationInfo = new ReplicationInfo($dbi);
+        $replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
         $replicationInfo->load($_POST['primary_connection'] ?? null);
 
         $replicationVariables = $replicationInfo->primaryVariables;
@@ -325,9 +319,7 @@ class ReplicationGui
      */
     public function getUsernameHostnameLength(): array
     {
-        global $dbi;
-
-        $fieldsInfo = $dbi->getColumns('mysql', 'user');
+        $fieldsInfo = $GLOBALS['dbi']->getColumns('mysql', 'user');
         $usernameLength = 16;
         $hostnameLength = 41;
         foreach ($fieldsInfo as $val) {
@@ -359,8 +351,6 @@ class ReplicationGui
      */
     public function getHtmlForReplicationPrimaryAddReplicaUser(): string
     {
-        global $dbi;
-
         [
             $usernameLength,
             $hostnameLength,
@@ -375,7 +365,7 @@ class ReplicationGui
             $username = $GLOBALS['new_username'] ?? $_POST['username'];
         }
 
-        $currentUser = $dbi->fetchValue('SELECT USER();');
+        $currentUser = $GLOBALS['dbi']->fetchValue('SELECT USER();');
         if (! empty($currentUser)) {
             $userHost = str_replace(
                 "'",
@@ -489,13 +479,11 @@ class ReplicationGui
 
     public function handleRequestForReplicaChangePrimary(): bool
     {
-        global $dbi;
-
         $sr = [
-            'username' => $dbi->escapeString($_POST['username']),
-            'pma_pw' => $dbi->escapeString($_POST['pma_pw']),
-            'hostname' => $dbi->escapeString($_POST['hostname']),
-            'port' => (int) $dbi->escapeString($_POST['text_port']),
+            'username' => $GLOBALS['dbi']->escapeString($_POST['username']),
+            'pma_pw' => $GLOBALS['dbi']->escapeString($_POST['pma_pw']),
+            'hostname' => $GLOBALS['dbi']->escapeString($_POST['hostname']),
+            'port' => (int) $GLOBALS['dbi']->escapeString($_POST['text_port']),
         ];
 
         $_SESSION['replication']['m_username'] = $sr['username'];
@@ -561,14 +549,12 @@ class ReplicationGui
 
     public function handleRequestForReplicaServerControl(): bool
     {
-        global $dbi;
-
         /** @var string|null $control */
         $control = $_POST['sr_replica_control_param'] ?? null;
 
         if ($_POST['sr_replica_action'] === 'reset') {
             $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
-            $qReset = $dbi->tryQuery('RESET SLAVE;');
+            $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
             $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
 
             $result = $qStop !== false && $qStop !== -1 &&
@@ -589,15 +575,13 @@ class ReplicationGui
 
     public function handleRequestForReplicaSkipError(): bool
     {
-        global $dbi;
-
         $count = 1;
         if (isset($_POST['sr_skip_errors_count'])) {
             $count = $_POST['sr_skip_errors_count'] * 1;
         }
 
         $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
-        $qSkip = $dbi->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $count . ';');
+        $qSkip = $GLOBALS['dbi']->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $count . ';');
         $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
 
         return $qStop !== false && $qStop !== -1 &&

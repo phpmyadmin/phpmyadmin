@@ -97,15 +97,13 @@ class FileListing
      */
     public function supportedDecompressions(): string
     {
-        global $cfg;
-
         $compressions = '';
 
-        if ($cfg['GZipDump'] && function_exists('gzopen')) {
+        if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
             $compressions = 'gz';
         }
 
-        if ($cfg['BZipDump'] && function_exists('bzopen')) {
+        if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
             if (! empty($compressions)) {
                 $compressions .= '|';
             }
@@ -113,7 +111,7 @@ class FileListing
             $compressions .= 'bz2';
         }
 
-        if ($cfg['ZipDump'] && function_exists('gzinflate')) {
+        if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzinflate')) {
             if (! empty($compressions)) {
                 $compressions .= '|';
             }

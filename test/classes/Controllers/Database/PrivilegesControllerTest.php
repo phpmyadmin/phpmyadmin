@@ -31,12 +31,10 @@ class PrivilegesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        global $dbi, $db, $server, $cfg, $PMA_PHP_SELF;
-
-        $db = 'db';
-        $server = 0;
-        $cfg['Server']['DisableIS'] = false;
-        $PMA_PHP_SELF = 'index.php';
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $privileges = [];
 
@@ -48,15 +46,15 @@ class PrivilegesControllerTest extends AbstractTestCase
             ResponseRenderer::getInstance(),
             new Template(),
             $serverPrivileges,
-            $dbi
-        ))(['checkprivsdb' => $db]);
+            $GLOBALS['dbi']
+        ))(['checkprivsdb' => $GLOBALS['db']]);
 
         $this->assertStringContainsString(
-            Url::getCommon(['db' => $db], ''),
+            Url::getCommon(['db' => $GLOBALS['db']], ''),
             $actual
         );
 
-        $this->assertStringContainsString($db, $actual);
+        $this->assertStringContainsString($GLOBALS['db'], $actual);
 
         $this->assertStringContainsString(
             __('User'),
@@ -89,7 +87,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            Url::getCommon(['checkprivsdb' => $db]),
+            Url::getCommon(['checkprivsdb' => $GLOBALS['db']]),
             $actual
         );
     }

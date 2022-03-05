@@ -37,16 +37,14 @@ final class IndexRenameController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table, $urlParams, $cfg, $errorUrl;
-
         if (! isset($_POST['create_edit_table'])) {
             Util::checkParameters(['db', 'table']);
 
-            $urlParams = ['db' => $db, 'table' => $table];
-            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $errorUrl .= Url::getCommon($urlParams, '&');
+            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-            DbTableExists::check($db, $table);
+            DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
         }
 
         if (isset($_POST['index'])) {

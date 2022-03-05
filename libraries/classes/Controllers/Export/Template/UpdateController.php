@@ -33,8 +33,6 @@ final class UpdateController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         $templateId = (int) $request->getParsedBodyParam('templateId');
         /** @var string $templateData */
         $templateData = $request->getParsedBodyParam('templateData', '');
@@ -46,7 +44,7 @@ final class UpdateController extends AbstractController
 
         $template = ExportTemplate::fromArray([
             'id' => $templateId,
-            'username' => $cfg['Server']['user'],
+            'username' => $GLOBALS['cfg']['Server']['user'],
             'data' => $templateData,
         ]);
         $result = $this->model->update(

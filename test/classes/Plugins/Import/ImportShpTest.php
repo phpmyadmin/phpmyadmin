@@ -28,6 +28,19 @@ class ImportShpTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['error'] = null;
+        $GLOBALS['buffer'] = null;
+        $GLOBALS['maximum_time'] = null;
+        $GLOBALS['charset_conversion'] = null;
+        $GLOBALS['import_run_buffer'] = null;
+        $GLOBALS['eof'] = null;
+        $GLOBALS['db'] = '';
+        $GLOBALS['skip_queries'] = null;
+        $GLOBALS['max_sql_len'] = null;
+        $GLOBALS['sql_query'] = '';
+        $GLOBALS['executed_queries'] = null;
+        $GLOBALS['run_query'] = null;
+        $GLOBALS['go_sql'] = null;
 
         $GLOBALS['server'] = 0;
         //setting
@@ -114,13 +127,14 @@ class ImportShpTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
-        global $import_notice, $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
+        $GLOBALS['db'] = '';
 
         //Test function called
         $this->runImport('test/test_data/dresden_osm.shp.zip');
 
-        $this->assertMessages($import_notice);
+        $this->assertMessages($GLOBALS['import_notice']);
 
         $endsWith = "13.737122 51.0542065)))'))";
 
@@ -135,7 +149,7 @@ class ImportShpTest extends AbstractTestCase
             . '13.7372661 51.0540944,'
             . '13.7370842 51.0541711,'
             . $endsWith,
-            $sql_query
+            $GLOBALS['sql_query']
         );
     }
 
@@ -149,8 +163,9 @@ class ImportShpTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
-        global $import_notice, $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
+        $GLOBALS['db'] = '';
 
         //Test function called
         $this->runImport('test/test_data/timezone.shp.zip');
@@ -158,7 +173,7 @@ class ImportShpTest extends AbstractTestCase
         // asset that all sql are executed
         $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
-            $sql_query
+            $GLOBALS['sql_query']
         );
 
         // dbase extension will generate different sql statement
@@ -167,26 +182,29 @@ class ImportShpTest extends AbstractTestCase
                 'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
                 . '(`SPATIAL` geometry, `ID` int(2), `AUTHORITY` varchar(25), `NAME` varchar(42)) '
                 . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;',
-                $sql_query
+                $GLOBALS['sql_query']
             );
 
             $this->assertStringContainsString(
                 'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`, `ID`, `AUTHORITY`, `NAME`) VALUES',
-                $sql_query
+                $GLOBALS['sql_query']
             );
         } else {
             $this->assertStringContainsString(
                 'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` (`SPATIAL` geometry)',
-                $sql_query
+                $GLOBALS['sql_query']
             );
 
-            $this->assertStringContainsString('INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES', $sql_query);
+            $this->assertStringContainsString(
+                'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES',
+                $GLOBALS['sql_query']
+            );
         }
 
-        $this->assertStringContainsString("GeomFromText('POINT(1294523.1759236", $sql_query);
+        $this->assertStringContainsString("GeomFromText('POINT(1294523.1759236", $GLOBALS['sql_query']);
 
         //asset that all databases and tables are imported
-        $this->assertMessages($import_notice);
+        $this->assertMessages($GLOBALS['import_notice']);
     }
 
     /**

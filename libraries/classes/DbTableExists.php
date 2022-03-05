@@ -22,18 +22,16 @@ final class DbTableExists
 
     private static function checkDatabase(string $db): void
     {
-        global $dbi, $is_db, $message, $show_as_php, $sql_query;
-
-        if (! empty($is_db)) {
+        if (! empty($GLOBALS['is_db'])) {
             return;
         }
 
-        $is_db = false;
+        $GLOBALS['is_db'] = false;
         if ($db !== '') {
-            $is_db = @$dbi->selectDb($db);
+            $GLOBALS['is_db'] = @$GLOBALS['dbi']->selectDb($db);
         }
 
-        if ($is_db || defined('IS_TRANSFORMATION_WRAPPER')) {
+        if ($GLOBALS['is_db'] || defined('IS_TRANSFORMATION_WRAPPER')) {
             return;
         }
 
@@ -50,16 +48,16 @@ final class DbTableExists
 
         $urlParams = ['reload' => 1];
 
-        if (isset($message)) {
-            $urlParams['message'] = $message;
+        if (isset($GLOBALS['message'])) {
+            $urlParams['message'] = $GLOBALS['message'];
         }
 
-        if (! empty($sql_query)) {
-            $urlParams['sql_query'] = $sql_query;
+        if (! empty($GLOBALS['sql_query'])) {
+            $urlParams['sql_query'] = $GLOBALS['sql_query'];
         }
 
-        if (isset($show_as_php)) {
-            $urlParams['show_as_php'] = $show_as_php;
+        if (isset($GLOBALS['show_as_php'])) {
+            $urlParams['show_as_php'] = $GLOBALS['show_as_php'];
         }
 
         Core::sendHeaderLocation('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
@@ -69,24 +67,22 @@ final class DbTableExists
 
     private static function checkTable(string $db, string $table): void
     {
-        global $containerBuilder, $dbi, $is_table;
-
-        if (! empty($is_table) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
+        if (! empty($GLOBALS['is_table']) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
             return;
         }
 
-        $is_table = false;
+        $GLOBALS['is_table'] = false;
         if ($table !== '') {
-            $is_table = $dbi->getCache()->getCachedTableContent([$db, $table], false);
-            if ($is_table) {
+            $GLOBALS['is_table'] = $GLOBALS['dbi']->getCache()->getCachedTableContent([$db, $table], false);
+            if ($GLOBALS['is_table']) {
                 return;
             }
 
-            $result = $dbi->tryQuery('SHOW TABLES LIKE \'' . $dbi->escapeString($table) . '\';');
-            $is_table = $result && $result->numRows();
+            $result = $GLOBALS['dbi']->tryQuery('SHOW TABLES LIKE \'' . $GLOBALS['dbi']->escapeString($table) . '\';');
+            $GLOBALS['is_table'] = $result && $result->numRows();
         }
 
-        if ($is_table) {
+        if ($GLOBALS['is_table']) {
             return;
         }
 
@@ -99,16 +95,16 @@ final class DbTableExists
              * SHOW TABLES doesn't show temporary tables, so try select
              * (as it can happen just in case temporary table, it should be fast):
              */
-            $result = $dbi->tryQuery('SELECT COUNT(*) FROM ' . Util::backquote($table) . ';');
-            $is_table = $result && $result->numRows();
+            $result = $GLOBALS['dbi']->tryQuery('SELECT COUNT(*) FROM ' . Util::backquote($table) . ';');
+            $GLOBALS['is_table'] = $result && $result->numRows();
         }
 
-        if ($is_table) {
+        if ($GLOBALS['is_table']) {
             return;
         }
 
         /** @var SqlController $controller */
-        $controller = $containerBuilder->get(SqlController::class);
+        $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
         $controller();
 
         exit;

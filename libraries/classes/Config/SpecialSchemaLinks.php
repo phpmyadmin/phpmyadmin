@@ -64,9 +64,7 @@ class SpecialSchemaLinks
      */
     public static function get(): array
     {
-        global $cfg;
-
-        $defaultPage = './' . Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $defaultPage = './' . Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
 
         return [
             'mysql' => [

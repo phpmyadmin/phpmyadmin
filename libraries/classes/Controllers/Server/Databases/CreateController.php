@@ -34,8 +34,6 @@ final class CreateController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db;
-
         $params = [
             'new_db' => $_POST['new_db'] ?? null,
             'db_collation' => $_POST['db_collation'] ?? null,
@@ -58,8 +56,8 @@ final class CreateController extends AbstractController
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
         if (! empty($params['db_collation'])) {
             [$databaseCharset] = explode('_', $params['db_collation']);
-            $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
-            $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+            $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
             if (
                 array_key_exists($databaseCharset, $charsets)
                 && array_key_exists($params['db_collation'], $collations[$databaseCharset])
@@ -75,19 +73,19 @@ final class CreateController extends AbstractController
 
         if (! $result) {
             // avoid displaying the not-created db name in header or navi panel
-            $db = '';
+            $GLOBALS['db'] = '';
 
             $message = Message::rawError($this->dbi->getError());
             $json = ['message' => $message];
 
             $this->response->setRequestStatus(false);
         } else {
-            $db = $params['new_db'];
+            $GLOBALS['db'] = $params['new_db'];
 
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($params['new_db']);
 
-            $scriptName = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
 
             $json = [
                 'message' => $message,

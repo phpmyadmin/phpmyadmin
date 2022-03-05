@@ -19,16 +19,13 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-/** @psalm-suppress InvalidGlobal */
-global $cfg;
-
 // phpcs:disable PSR1.Files.SideEffects
 define('PHPMYADMIN', true);
 // phpcs:enable
 
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
-if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
+if (@file_exists(CONFIG_FILE) && ! $GLOBALS['cfg']['DBG']['demo']) {
     Core::fatalError(__('Configuration already exists, setup is disabled!'));
 }
 

@@ -27,8 +27,6 @@ class CheckRelationsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        global $db, $cfg;
-
         /** @var string|null $createPmaDb */
         $createPmaDb = $request->getParsedBodyParam('create_pmadb');
         /** @var string|null $fixAllPmaDb */
@@ -45,7 +43,7 @@ class CheckRelationsController extends AbstractController
 
         // If request for creating all PMA tables.
         if (isset($fixAllPmaDb)) {
-            $this->relation->fixPmaTables($db);
+            $this->relation->fixPmaTables($GLOBALS['db']);
         }
 
         // If request for creating missing PMA tables.
@@ -58,8 +56,8 @@ class CheckRelationsController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('relation/check_relations', [
-            'db' => $db,
-            'zero_conf' => $cfg['ZeroConf'],
+            'db' => $GLOBALS['db'],
+            'zero_conf' => $GLOBALS['cfg']['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),
             'sql_dir' => SQL_DIR,
             'config_storage_database_name' => $cfgStorageDbName,

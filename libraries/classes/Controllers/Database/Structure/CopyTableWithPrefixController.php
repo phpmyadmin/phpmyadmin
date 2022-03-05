@@ -31,8 +31,6 @@ final class CopyTableWithPrefixController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $message;
-
         $selected = $_POST['selected'] ?? [];
         $fromPrefix = $_POST['from_prefix'] ?? null;
         $toPrefix = $_POST['to_prefix'] ?? null;
@@ -44,9 +42,9 @@ final class CopyTableWithPrefixController extends AbstractController
             $newTableName = $toPrefix . mb_substr($current, mb_strlen((string) $fromPrefix));
 
             Table::moveCopy(
-                $db,
+                $GLOBALS['db'],
                 $current,
-                $db,
+                $GLOBALS['db'],
                 $newTableName,
                 'data',
                 false,
@@ -55,10 +53,10 @@ final class CopyTableWithPrefixController extends AbstractController
             );
         }
 
-        $message = Message::success();
+        $GLOBALS['message'] = Message::success();
 
         if (empty($_POST['message'])) {
-            $_POST['message'] = $message;
+            $_POST['message'] = $GLOBALS['message'];
         }
 
         ($this->structureController)();

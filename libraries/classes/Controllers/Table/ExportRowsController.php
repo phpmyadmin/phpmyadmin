@@ -28,8 +28,6 @@ final class ExportRowsController extends AbstractController
 
     public function __invoke(): void
     {
-        global $active_page, $single_table, $where_clause;
-
         if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
@@ -38,20 +36,20 @@ final class ExportRowsController extends AbstractController
         }
 
         // Needed to allow SQL export
-        $single_table = true;
+        $GLOBALS['single_table'] = true;
 
         // As we got the rows to be exported from the
         // 'rows_to_delete' checkbox, we use the index of it as the
         // indicating WHERE clause. Then we build the array which is used
         // for the /table/change script.
-        $where_clause = [];
+        $GLOBALS['where_clause'] = [];
         if (isset($_POST['rows_to_delete']) && is_array($_POST['rows_to_delete'])) {
             foreach ($_POST['rows_to_delete'] as $i_where_clause) {
-                $where_clause[] = $i_where_clause;
+                $GLOBALS['where_clause'][] = $i_where_clause;
             }
         }
 
-        $active_page = Url::getFromRoute('/table/export');
+        $GLOBALS['active_page'] = Url::getFromRoute('/table/export');
 
         ($this->exportController)();
     }

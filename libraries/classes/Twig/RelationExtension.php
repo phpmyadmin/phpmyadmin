@@ -17,9 +17,7 @@ class RelationExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        global $dbi;
-
-        $relation = new Relation($dbi);
+        $relation = new Relation($GLOBALS['dbi']);
 
         return [
             new TwigFunction(

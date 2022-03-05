@@ -30,8 +30,6 @@ class SqlController extends AbstractController
 
     public function __invoke(): void
     {
-        global $goto, $back, $db, $cfg, $errorUrl;
-
         $this->addScriptFiles([
             'makegrid.js',
             'vendor/jquery/jquery.uitablefilter.js',
@@ -45,8 +43,8 @@ class SqlController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -56,11 +54,11 @@ class SqlController extends AbstractController
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $goto = Url::getFromRoute('/database/sql');
-        $back = $goto;
+        $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
+        $GLOBALS['back'] = $GLOBALS['goto'];
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
-            $db,
+            $GLOBALS['db'],
             '',
             true,
             false,

@@ -35,8 +35,6 @@ final class MakeConsistentController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $message;
-
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -47,9 +45,9 @@ final class MakeConsistentController extends AbstractController
         }
 
         $centralColumns = new CentralColumns($this->dbi);
-        $error = $centralColumns->makeConsistentWithList($db, $selected);
+        $error = $centralColumns->makeConsistentWithList($GLOBALS['db'], $selected);
 
-        $message = $error instanceof Message ? $error : Message::success(__('Success!'));
+        $GLOBALS['message'] = $error instanceof Message ? $error : Message::success(__('Success!'));
 
         unset($_POST['submit_mult']);
 

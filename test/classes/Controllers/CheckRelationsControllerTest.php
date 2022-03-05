@@ -19,6 +19,8 @@ class CheckRelationsControllerTest extends AbstractTestCase
     public function testCheckRelationsController(): void
     {
         $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 

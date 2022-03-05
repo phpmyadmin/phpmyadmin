@@ -2367,15 +2367,13 @@ class InsertEdit
 
     private function isColumnBinary(array $column, bool $isUpload): bool
     {
-        global $cfg;
-
-        if (! $cfg['ShowFunctionFields']) {
+        if (! $GLOBALS['cfg']['ShowFunctionFields']) {
             return false;
         }
 
-        return ($cfg['ProtectBinary'] === 'blob' && $column['is_blob'] && ! $isUpload)
-            || ($cfg['ProtectBinary'] === 'all' && $column['is_binary'])
-            || ($cfg['ProtectBinary'] === 'noblob' && $column['is_binary']);
+        return ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'] && ! $isUpload)
+            || ($GLOBALS['cfg']['ProtectBinary'] === 'all' && $column['is_binary'])
+            || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && $column['is_binary']);
     }
 
     /**

@@ -125,8 +125,6 @@ class Export
      */
     public function outputHandler(?string $line): bool
     {
-        global $time_start, $save_filename;
-
         // Kanji encoding convert feature
         if ($GLOBALS['output_kanji_conversion']) {
             $line = Encoding::kanjiStrConv($line, $GLOBALS['knjenc'], $GLOBALS['xkana'] ?? '');
@@ -157,7 +155,7 @@ class Export
                             $GLOBALS['message'] = Message::error(
                                 __('Insufficient space to save the file %s.')
                             );
-                            $GLOBALS['message']->addParam($save_filename);
+                            $GLOBALS['message']->addParam($GLOBALS['save_filename']);
 
                             return false;
                         }
@@ -170,8 +168,8 @@ class Export
                 }
             } else {
                 $timeNow = time();
-                if ($time_start >= $timeNow + 30) {
-                    $time_start = $timeNow;
+                if ($GLOBALS['time_start'] >= $timeNow + 30) {
+                    $GLOBALS['time_start'] = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             }
@@ -193,14 +191,14 @@ class Export
                     $GLOBALS['message'] = Message::error(
                         __('Insufficient space to save the file %s.')
                     );
-                    $GLOBALS['message']->addParam($save_filename);
+                    $GLOBALS['message']->addParam($GLOBALS['save_filename']);
 
                     return false;
                 }
 
                 $timeNow = time();
-                if ($time_start >= $timeNow + 30) {
-                    $time_start = $timeNow;
+                if ($GLOBALS['time_start'] >= $timeNow + 30) {
+                    $GLOBALS['time_start'] = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             } else {
@@ -1153,29 +1151,27 @@ class Export
      */
     public function showPage(string $exportType): void
     {
-        global $active_page, $containerBuilder;
-
         if ($exportType === 'server') {
-            $active_page = Url::getFromRoute('/server/export');
+            $GLOBALS['active_page'] = Url::getFromRoute('/server/export');
             /** @var ServerExportController $controller */
-            $controller = $containerBuilder->get(ServerExportController::class);
+            $controller = $GLOBALS['containerBuilder']->get(ServerExportController::class);
             $controller();
 
             return;
         }
 
         if ($exportType === 'database') {
-            $active_page = Url::getFromRoute('/database/export');
+            $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
             /** @var DatabaseExportController $controller */
-            $controller = $containerBuilder->get(DatabaseExportController::class);
+            $controller = $GLOBALS['containerBuilder']->get(DatabaseExportController::class);
             $controller();
 
             return;
         }
 
-        $active_page = Url::getFromRoute('/table/export');
+        $GLOBALS['active_page'] = Url::getFromRoute('/table/export');
         /** @var TableExportController $controller */
-        $controller = $containerBuilder->get(TableExportController::class);
+        $controller = $GLOBALS['containerBuilder']->get(TableExportController::class);
         $controller();
     }
 

@@ -413,17 +413,16 @@ class StructureControllerTest extends AbstractTestCase
      */
     public function testGetValuesForMroongaTable(): void
     {
-        global $containerBuilder;
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
         $GLOBALS['db'] = 'testdb';
         $GLOBALS['table'] = 'mytable';
 
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
 
         /** @var StructureController $structureController */
-        $structureController = $containerBuilder->get(StructureController::class);
+        $structureController = $GLOBALS['containerBuilder']->get(StructureController::class);
 
         $this->assertSame(
             [

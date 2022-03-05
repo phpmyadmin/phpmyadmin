@@ -23,6 +23,7 @@ class ReplaceControllerTest extends AbstractTestCase
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
         $GLOBALS['server'] = 1;
+        $GLOBALS['showtable'] = null;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         parent::loadResponseIntoContainerBuilder();
         $GLOBALS['db'] = 'my_db';
@@ -52,7 +53,6 @@ class ReplaceControllerTest extends AbstractTestCase
 
     public function testReplace(): void
     {
-        global $containerBuilder;
         $GLOBALS['urlParams'] = [];
         ResponseRenderer::getInstance()->setAjax(true);
         $_POST['db'] = $GLOBALS['db'];
@@ -89,10 +89,10 @@ class ReplaceControllerTest extends AbstractTestCase
             ],
         ];
         $GLOBALS['goto'] = 'index.php?route=/sql';
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var ReplaceController $replaceController */
-        $replaceController = $containerBuilder->get(ReplaceController::class);
+        $replaceController = $GLOBALS['containerBuilder']->get(ReplaceController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
         $replaceController();
@@ -109,7 +109,6 @@ class ReplaceControllerTest extends AbstractTestCase
 
     public function testIsInsertRow(): void
     {
-        global $containerBuilder;
         $GLOBALS['urlParams'] = [];
         $GLOBALS['goto'] = 'index.php?route=/sql';
         $_POST['insert_rows'] = 5;
@@ -130,10 +129,10 @@ class ReplaceControllerTest extends AbstractTestCase
             []
         );
 
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var ReplaceController $replaceController */
-        $replaceController = $containerBuilder->get(ReplaceController::class);
+        $replaceController = $GLOBALS['containerBuilder']->get(ReplaceController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');

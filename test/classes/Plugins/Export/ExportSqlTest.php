@@ -65,6 +65,11 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
+        $GLOBALS['sql_constraints'] = null;
+        $GLOBALS['sql_backquotes'] = null;
+        $GLOBALS['sql_indexes'] = null;
+        $GLOBALS['sql_auto_increments'] = null;
+
         $this->object = new ExportSql();
     }
 
@@ -1070,6 +1075,7 @@ class ExportSqlTest extends AbstractTestCase
 
         // case 3
         $GLOBALS['sql_views_as_tables'] = false;
+        $GLOBALS['sql_backquotes'] = null;
 
         ob_start();
         $this->assertTrue(

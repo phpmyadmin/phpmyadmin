@@ -269,9 +269,7 @@ class TriggersTest extends AbstractTestCase
         string $query,
         int $num_err
     ): void {
-        global $errors;
-
-        $errors = [];
+        $GLOBALS['errors'] = [];
 
         $_POST['item_definer'] = $definer;
         $_POST['item_name'] = $name;
@@ -282,7 +280,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
 
         $this->assertEquals($query, $this->triggers->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        $this->assertCount($num_err, $GLOBALS['errors']);
     }
 
     /**

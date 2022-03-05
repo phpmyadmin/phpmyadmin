@@ -28,8 +28,6 @@ class TwoFactorController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg;
-
         $route = Routing::getCurrentRoute();
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -40,7 +38,7 @@ class TwoFactorController extends AbstractController
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        $twoFactor = new TwoFactor($cfg['Server']['user']);
+        $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
 
         if (isset($_POST['2fa_remove'])) {
             if (! $twoFactor->check(true)) {

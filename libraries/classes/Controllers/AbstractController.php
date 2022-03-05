@@ -48,25 +48,23 @@ abstract class AbstractController
 
     protected function hasDatabase(): bool
     {
-        global $db, $is_db, $errno, $dbi, $message;
-
-        if (isset($is_db) && $is_db) {
+        if (isset($GLOBALS['is_db']) && $GLOBALS['is_db']) {
             return true;
         }
 
-        $is_db = false;
-        if (strlen($db) > 0) {
-            $is_db = $dbi->selectDb($db);
+        $GLOBALS['is_db'] = false;
+        if (strlen($GLOBALS['db']) > 0) {
+            $GLOBALS['is_db'] = $GLOBALS['dbi']->selectDb($GLOBALS['db']);
             // This "Command out of sync" 2014 error may happen, for example
             // after calling a MySQL procedure; at this point we can't select
             // the db but it's not necessarily wrong
-            if ($dbi->getError() && $errno == 2014) {
-                $is_db = true;
-                unset($errno);
+            if ($GLOBALS['dbi']->getError() && $GLOBALS['errno'] == 2014) {
+                $GLOBALS['is_db'] = true;
+                unset($GLOBALS['errno']);
             }
         }
 
-        if (strlen($db) === 0 || ! $is_db) {
+        if (strlen($GLOBALS['db']) === 0 || ! $GLOBALS['is_db']) {
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON(
@@ -79,8 +77,8 @@ abstract class AbstractController
 
             // Not a valid db name -> back to the welcome page
             $params = ['reload' => '1'];
-            if (isset($message)) {
-                $params['message'] = $message;
+            if (isset($GLOBALS['message'])) {
+                $params['message'] = $GLOBALS['message'];
             }
 
             $this->redirect('/', $params);
@@ -88,7 +86,7 @@ abstract class AbstractController
             return false;
         }
 
-        return $is_db;
+        return $GLOBALS['is_db'];
     }
 
     /**

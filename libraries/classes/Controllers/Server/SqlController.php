@@ -36,8 +36,6 @@ class SqlController extends AbstractController
 
     public function __invoke(): void
     {
-        global $errorUrl;
-
         $this->addScriptFiles([
             'makegrid.js',
             'vendor/jquery/jquery.uitablefilter.js',
@@ -48,7 +46,7 @@ class SqlController extends AbstractController
         $pageSettings = new PageSettings('Sql');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

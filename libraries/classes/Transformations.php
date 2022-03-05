@@ -282,9 +282,7 @@ class Transformations
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
-        global $dbi;
-
-        $relation = new Relation($dbi);
+        $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return null;
@@ -304,14 +302,14 @@ class Transformations
                     . '`input_transformation_options`'
             . ' FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo)
-            . ' WHERE `db_name` = \'' . $dbi->escapeString($db) . '\''
-            . ' AND `table_name` = \'' . $dbi->escapeString($table) . '\''
+            . ' WHERE `db_name` = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
+            . ' AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table) . '\''
             . ' AND ( `mimetype` != \'\'' . (! $strict ?
                 ' OR `transformation` != \'\''
                 . ' OR `transformation_options` != \'\''
                 . ' OR `input_transformation` != \'\''
                 . ' OR `input_transformation_options` != \'\'' : '') . ')';
-        $result = $dbi->fetchResult($com_qry, 'column_name', null, DatabaseInterface::CONNECT_CONTROL);
+        $result = $GLOBALS['dbi']->fetchResult($com_qry, 'column_name', null, DatabaseInterface::CONNECT_CONTROL);
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)
@@ -360,9 +358,7 @@ class Transformations
         $inputTransformOpts,
         $forcedelete = false
     ): bool {
-        global $dbi;
-
-        $relation = new Relation($dbi);
+        $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return false;
@@ -386,11 +382,11 @@ class Transformations
                     `comment`
                FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
             . Util::backquote($browserTransformationFeature->columnInfo) . '
-              WHERE `db_name`     = \'' . $dbi->escapeString($db) . '\'
-                AND `table_name`  = \'' . $dbi->escapeString($table) . '\'
-                AND `column_name` = \'' . $dbi->escapeString($key) . '\'';
+              WHERE `db_name`     = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
+                AND `table_name`  = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
+                AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key) . '\'';
 
-        $test_rs = $dbi->queryAsControlUser($test_qry);
+        $test_rs = $GLOBALS['dbi']->queryAsControlUser($test_qry);
 
         if ($test_rs->numRows() > 0) {
             $row = $test_rs->fetchAssoc();
@@ -401,15 +397,15 @@ class Transformations
                     . Util::backquote($browserTransformationFeature->columnInfo)
                     . ' SET '
                     . '`mimetype` = \''
-                    . $dbi->escapeString($mimetype) . '\', '
+                    . $GLOBALS['dbi']->escapeString($mimetype) . '\', '
                     . '`transformation` = \''
-                    . $dbi->escapeString($transformation) . '\', '
+                    . $GLOBALS['dbi']->escapeString($transformation) . '\', '
                     . '`transformation_options` = \''
-                    . $dbi->escapeString($transformationOpts) . '\', '
+                    . $GLOBALS['dbi']->escapeString($transformationOpts) . '\', '
                     . '`input_transformation` = \''
-                    . $dbi->escapeString($inputTransform) . '\', '
+                    . $GLOBALS['dbi']->escapeString($inputTransform) . '\', '
                     . '`input_transformation_options` = \''
-                    . $dbi->escapeString($inputTransformOpts) . '\'';
+                    . $GLOBALS['dbi']->escapeString($inputTransformOpts) . '\'';
             } else {
                 $upd_query = 'DELETE FROM '
                     . Util::backquote($browserTransformationFeature->database)
@@ -417,10 +413,10 @@ class Transformations
             }
 
             $upd_query .= '
-                WHERE `db_name`     = \'' . $dbi->escapeString($db) . '\'
-                  AND `table_name`  = \'' . $dbi->escapeString($table)
+                WHERE `db_name`     = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
+                  AND `table_name`  = \'' . $GLOBALS['dbi']->escapeString($table)
                     . '\'
-                  AND `column_name` = \'' . $dbi->escapeString($key)
+                  AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key)
                     . '\'';
         } elseif ($has_value) {
             $upd_query = 'INSERT INTO '
@@ -430,18 +426,18 @@ class Transformations
                 . 'transformation, transformation_options, '
                 . 'input_transformation, input_transformation_options) '
                 . ' VALUES('
-                . '\'' . $dbi->escapeString($db) . '\','
-                . '\'' . $dbi->escapeString($table) . '\','
-                . '\'' . $dbi->escapeString($key) . '\','
-                . '\'' . $dbi->escapeString($mimetype) . '\','
-                . '\'' . $dbi->escapeString($transformation) . '\','
-                . '\'' . $dbi->escapeString($transformationOpts) . '\','
-                . '\'' . $dbi->escapeString($inputTransform) . '\','
-                . '\'' . $dbi->escapeString($inputTransformOpts) . '\')';
+                . '\'' . $GLOBALS['dbi']->escapeString($db) . '\','
+                . '\'' . $GLOBALS['dbi']->escapeString($table) . '\','
+                . '\'' . $GLOBALS['dbi']->escapeString($key) . '\','
+                . '\'' . $GLOBALS['dbi']->escapeString($mimetype) . '\','
+                . '\'' . $GLOBALS['dbi']->escapeString($transformation) . '\','
+                . '\'' . $GLOBALS['dbi']->escapeString($transformationOpts) . '\','
+                . '\'' . $GLOBALS['dbi']->escapeString($inputTransform) . '\','
+                . '\'' . $GLOBALS['dbi']->escapeString($inputTransformOpts) . '\')';
         }
 
         if (isset($upd_query)) {
-            return (bool) $dbi->queryAsControlUser($upd_query);
+            return (bool) $GLOBALS['dbi']->queryAsControlUser($upd_query);
         }
 
         return false;
@@ -461,9 +457,7 @@ class Transformations
      */
     public function clear($db, $table = '', $column = ''): bool
     {
-        global $dbi;
-
-        $relation = new Relation($dbi);
+        $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return false;
@@ -485,6 +479,6 @@ class Transformations
             $delete_sql .= '`db_name` = \'' . $db . '\' ';
         }
 
-        return (bool) $dbi->tryQuery($delete_sql);
+        return (bool) $GLOBALS['dbi']->tryQuery($delete_sql);
     }
 }

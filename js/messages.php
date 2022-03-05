@@ -6,9 +6,6 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\OutputBuffering;
 
-/** @psalm-suppress InvalidGlobal */
-global $containerBuilder;
-
 if (! defined('ROOT_PATH')) {
     // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -47,7 +44,7 @@ header('Content-Type: text/javascript; charset=UTF-8');
 // Cache output in client - the nocache query parameter makes sure that this file is reloaded when config changes.
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
-$isMinimumCommon = true;
+$GLOBALS['isMinimumCommon'] = true;
 // phpcs:disable PSR1.Files.SideEffects
 define('PMA_PATH_TO_BASEDIR', '../');
 define('PMA_NO_SESSION', true);
@@ -63,5 +60,5 @@ register_shutdown_function(static function (): void {
 });
 
 /** @var JavaScriptMessagesController $controller */
-$controller = $containerBuilder->get(JavaScriptMessagesController::class);
+$controller = $GLOBALS['containerBuilder']->get(JavaScriptMessagesController::class);
 $controller();

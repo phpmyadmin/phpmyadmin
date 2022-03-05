@@ -28,8 +28,6 @@ final class DropFormController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db;
-
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -39,7 +37,7 @@ final class DropFormController extends AbstractController
             return;
         }
 
-        $views = $this->dbi->getVirtualTables($db);
+        $views = $this->dbi->getVirtualTables($GLOBALS['db']);
 
         $fullQueryViews = '';
         $fullQuery = '';
@@ -63,7 +61,7 @@ final class DropFormController extends AbstractController
             $fullQuery .= $fullQueryViews . ';<br>' . "\n";
         }
 
-        $urlParams = ['db' => $db];
+        $urlParams = ['db' => $GLOBALS['db']];
         foreach ($selected as $selectedValue) {
             $urlParams['selected'][] = $selectedValue;
         }

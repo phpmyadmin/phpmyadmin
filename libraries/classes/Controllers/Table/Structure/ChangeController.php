@@ -61,8 +61,6 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(?array $selected): void
     {
-        global $num_fields;
-
         if (empty($selected)) {
             $selected[] = $_REQUEST['field'];
             $selected_cnt = 1;
@@ -87,7 +85,7 @@ final class ChangeController extends AbstractController
             }
         }
 
-        $num_fields = count($fields_meta);
+        $GLOBALS['num_fields'] = count($fields_meta);
 
         /**
          * Form for changing properties.
@@ -99,7 +97,7 @@ final class ChangeController extends AbstractController
 
         $templateData = $this->columnsDefinition->displayForm(
             '/table/structure/save',
-            $num_fields,
+            $GLOBALS['num_fields'],
             null,
             $selected,
             $fields_meta

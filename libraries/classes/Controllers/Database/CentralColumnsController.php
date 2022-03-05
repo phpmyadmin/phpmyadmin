@@ -35,8 +35,6 @@ class CentralColumnsController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db, $message, $pos, $num_cols;
-
         if (isset($_POST['edit_save'])) {
             echo $this->editSave([
                 'col_name' => $_POST['col_name'] ?? null,
@@ -99,7 +97,7 @@ class CentralColumnsController extends AbstractController
         }
 
         if (isset($_POST['multi_edit_central_column_save'])) {
-            $message = $this->updateMultipleColumn([
+            $GLOBALS['message'] = $this->updateMultipleColumn([
                 'db' => $_POST['db'] ?? null,
                 'orig_col_name' => $_POST['orig_col_name'] ?? null,
                 'field_name' => $_POST['field_name'] ?? null,
@@ -112,9 +110,9 @@ class CentralColumnsController extends AbstractController
                 'field_null' => $_POST['field_null'] ?? null,
                 'col_extra' => $_POST['col_extra'] ?? null,
             ]);
-            if (! is_bool($message)) {
+            if (! is_bool($GLOBALS['message'])) {
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
+                $this->response->addJSON('message', $GLOBALS['message']);
             }
         }
 
@@ -130,20 +128,24 @@ class CentralColumnsController extends AbstractController
             'total_rows' => $_POST['total_rows'] ?? null,
         ]);
 
-        $pos = 0;
+        $GLOBALS['pos'] = 0;
         if (isset($_POST['pos']) && is_numeric($_POST['pos'])) {
-            $pos = (int) $_POST['pos'];
+            $GLOBALS['pos'] = (int) $_POST['pos'];
         }
 
-        $num_cols = $this->centralColumns->getColumnsCount($db, $pos, (int) $cfg['MaxRows']);
-        $message = Message::success(
-            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $num_cols)
+        $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
+            $GLOBALS['db'],
+            $GLOBALS['pos'],
+            (int) $GLOBALS['cfg']['MaxRows']
+        );
+        $GLOBALS['message'] = Message::success(
+            sprintf(__('Showing rows %1$s - %2$s.'), $GLOBALS['pos'] + 1, $GLOBALS['pos'] + $GLOBALS['num_cols'])
         );
         if (! isset($tmp_msg) || $tmp_msg === true) {
             return;
         }
 
-        $message = $tmp_msg;
+        $GLOBALS['message'] = $tmp_msg;
     }
 
     /**
@@ -151,8 +153,6 @@ class CentralColumnsController extends AbstractController
      */
     public function main(array $params): void
     {
-        global $text_dir;
-
         if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
             $totalRows = (int) $params['total_rows'];
         } else {
@@ -164,7 +164,12 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $params['pos'];
         }
 
-        $variables = $this->centralColumns->getTemplateVariablesForMain($GLOBALS['db'], $totalRows, $pos, $text_dir);
+        $variables = $this->centralColumns->getTemplateVariablesForMain(
+            $GLOBALS['db'],
+            $totalRows,
+            $pos,
+            $GLOBALS['text_dir']
+        );
 
         $this->render('database/central_columns/main', $variables);
     }

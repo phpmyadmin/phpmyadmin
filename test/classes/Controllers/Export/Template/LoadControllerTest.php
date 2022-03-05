@@ -20,8 +20,6 @@ class LoadControllerTest extends AbstractTestCase
 {
     public function testLoad(): void
     {
-        global $cfg;
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -33,7 +31,7 @@ class LoadControllerTest extends AbstractTestCase
             'export_templates' => 'table',
         ])->toArray();
 
-        $cfg['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
 
         $response = new ResponseRenderer();
         $request = $this->createStub(ServerRequest::class);

@@ -60,15 +60,13 @@ class ImportXml extends ImportPlugin
      */
     public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
-        global $error, $timeout_passed, $finished, $db;
-
         $buffer = '';
 
         /**
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (! $finished && ! $error && ! $timeout_passed) {
+        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -338,9 +336,9 @@ class ImportXml extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        if (strlen((string) $db)) {
+        if (strlen((string) $GLOBALS['db'])) {
             /* Override the database name in the XML file, if one is selected */
-            $db_name = $db;
+            $db_name = $GLOBALS['db'];
             $options = ['create_db' => false];
         } else {
             /* Set database collation/charset */

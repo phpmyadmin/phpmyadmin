@@ -58,27 +58,23 @@ class HttpRequest
 
     public function __construct()
     {
-        global $cfg;
-
-        $this->proxyUrl = $cfg['ProxyUrl'];
-        $this->proxyUser = $cfg['ProxyUser'];
-        $this->proxyPass = $cfg['ProxyPass'];
+        $this->proxyUrl = $GLOBALS['cfg']['ProxyUrl'];
+        $this->proxyUser = $GLOBALS['cfg']['ProxyUser'];
+        $this->proxyPass = $GLOBALS['cfg']['ProxyPass'];
     }
 
     public static function setProxySettingsFromEnv(): void
     {
-        global $cfg;
-
         $httpProxy = getenv('http_proxy');
         $urlInfo = parse_url((string) $httpProxy);
         if (PHP_SAPI !== 'cli' || ! is_array($urlInfo)) {
             return;
         }
 
-        $cfg['ProxyUrl'] = ($urlInfo['host'] ?? '')
+        $GLOBALS['cfg']['ProxyUrl'] = ($urlInfo['host'] ?? '')
             . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
-        $cfg['ProxyUser'] = $urlInfo['user'] ?? '';
-        $cfg['ProxyPass'] = $urlInfo['pass'] ?? '';
+        $GLOBALS['cfg']['ProxyUser'] = $urlInfo['user'] ?? '';
+        $GLOBALS['cfg']['ProxyPass'] = $urlInfo['pass'] ?? '';
     }
 
     /**

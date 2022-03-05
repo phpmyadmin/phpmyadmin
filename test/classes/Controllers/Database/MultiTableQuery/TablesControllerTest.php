@@ -32,9 +32,8 @@ class TablesControllerTest extends AbstractTestCase
         ];
         $_GET['db'] = 'test';
 
-        global $containerBuilder;
         /** @var TablesController $multiTableQueryController */
-        $multiTableQueryController = $containerBuilder->get(TablesController::class);
+        $multiTableQueryController = $GLOBALS['containerBuilder']->get(TablesController::class);
         $multiTableQueryController();
         $this->assertSame(
             [

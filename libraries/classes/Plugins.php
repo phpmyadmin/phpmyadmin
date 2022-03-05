@@ -58,9 +58,7 @@ class Plugins
      */
     public static function getPlugin(string $type, string $format, $param = null): ?object
     {
-        global $plugin_param;
-
-        $plugin_param = $param;
+        $GLOBALS['plugin_param'] = $param;
         $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
         $pluginFormat = mb_strtoupper($format[0]) . mb_strtolower(mb_substr($format, 1));
         $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s%s', $pluginType, $pluginType, $pluginFormat);
@@ -78,9 +76,7 @@ class Plugins
      */
     public static function getExport(string $type, bool $singleTable): array
     {
-        global $plugin_param;
-
-        $plugin_param = ['export_type' => $type, 'single_table' => $singleTable];
+        $GLOBALS['plugin_param'] = ['export_type' => $type, 'single_table' => $singleTable];
 
         return self::getPlugins('Export');
     }
@@ -92,9 +88,7 @@ class Plugins
      */
     public static function getImport(string $type): array
     {
-        global $plugin_param;
-
-        $plugin_param = $type;
+        $GLOBALS['plugin_param'] = $type;
 
         return self::getPlugins('Import');
     }
@@ -600,15 +594,14 @@ class Plugins
 
     public static function getAuthPlugin(): AuthenticationPlugin
     {
-        global $cfg;
-
         /** @psalm-var class-string $class */
-        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
+        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication'
+            . ucfirst(strtolower($GLOBALS['cfg']['Server']['auth_type']));
 
         if (! class_exists($class)) {
             Core::fatalError(
                 __('Invalid authentication method set in configuration:')
-                    . ' ' . $cfg['Server']['auth_type']
+                    . ' ' . $GLOBALS['cfg']['Server']['auth_type']
             );
         }
 

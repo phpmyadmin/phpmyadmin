@@ -549,8 +549,6 @@ class Operations
      */
     public function getPartitionMaintenanceChoices(): array
     {
-        global $db, $table;
-
         $choices = [
             'ANALYZE' => __('Analyze'),
             'CHECK' => __('Check'),
@@ -560,7 +558,7 @@ class Operations
             'TRUNCATE' => __('Truncate'),
         ];
 
-        $partitionMethod = Partition::getPartitionMethod($db, $table);
+        $partitionMethod = Partition::getPartitionMethod($GLOBALS['db'], $GLOBALS['table']);
 
         // add COALESCE or DROP option to choices array depending on Partition method
         if (
@@ -587,34 +585,32 @@ class Operations
         array $urlParams,
         $hasRelationFeature
     ): array {
-        global $db, $table;
-
         if (! $hasRelationFeature) {
             return [];
         }
 
         $foreigners = [];
-        $this->dbi->selectDb($db);
-        $foreign = $this->relation->getForeigners($db, $table, '', 'internal');
+        $this->dbi->selectDb($GLOBALS['db']);
+        $foreign = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
         foreach ($foreign as $master => $arr) {
             $joinQuery = 'SELECT '
-                . Util::backquote($table) . '.*'
-                . ' FROM ' . Util::backquote($table)
+                . Util::backquote($GLOBALS['table']) . '.*'
+                . ' FROM ' . Util::backquote($GLOBALS['table'])
                 . ' LEFT JOIN '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
                 . Util::backquote($arr['foreign_table']);
 
-            if ($arr['foreign_table'] == $table) {
-                $foreignTable = $table . '1';
+            if ($arr['foreign_table'] == $GLOBALS['table']) {
+                $foreignTable = $GLOBALS['table'] . '1';
                 $joinQuery .= ' AS ' . Util::backquote($foreignTable);
             } else {
                 $foreignTable = $arr['foreign_table'];
             }
 
             $joinQuery .= ' ON '
-                . Util::backquote($table) . '.'
+                . Util::backquote($GLOBALS['table']) . '.'
                 . Util::backquote($master)
                 . ' = '
                 . Util::backquote($arr['foreign_db'])
@@ -627,7 +623,7 @@ class Operations
                 . Util::backquote($foreignTable) . '.'
                 . Util::backquote($arr['foreign_field'])
                 . ' IS NULL AND '
-                . Util::backquote($table) . '.'
+                . Util::backquote($GLOBALS['table']) . '.'
                 . Util::backquote($master)
                 . ' IS NOT NULL';
             $thisUrlParams = array_merge(
@@ -676,8 +672,6 @@ class Operations
         $transactional,
         $tbl_collation
     ) {
-        global $auto_increment;
-
         $table_alters = [];
 
         if (isset($_POST['comment']) && urldecode($_POST['prev_comment']) !== $_POST['comment']) {
@@ -728,8 +722,8 @@ class Operations
         if (
             $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
             && ! empty($_POST['new_auto_increment'])
-            && (! isset($auto_increment)
-            || $_POST['new_auto_increment'] !== $auto_increment)
+            && (! isset($GLOBALS['auto_increment'])
+            || $_POST['new_auto_increment'] !== $GLOBALS['auto_increment'])
             && $_POST['new_auto_increment'] !== $_POST['hidden_auto_increment']
         ) {
             $table_alters[] = 'auto_increment = '

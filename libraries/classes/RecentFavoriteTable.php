@@ -70,9 +70,7 @@ class RecentFavoriteTable
     {
         $this->template = $template;
 
-        global $dbi;
-
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->tableType = $type;
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id])) {
@@ -117,13 +115,11 @@ class RecentFavoriteTable
      */
     public function getFromDb(): array
     {
-        global $dbi;
-
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable() .
-            " WHERE `username` = '" . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
+            " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
-        $result = $dbi->tryQueryAsControlUser($sql_query);
+        $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
         if ($result) {
             $value = $result->fetchValue();
             if (is_string($value)) {
@@ -141,16 +137,14 @@ class RecentFavoriteTable
      */
     public function saveToDb()
     {
-        global $dbi;
-
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)' .
-                " VALUES ('" . $dbi->escapeString($username) . "', '"
-                . $dbi->escapeString(
+                " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
+                . $GLOBALS['dbi']->escapeString(
                     json_encode($this->tables)
                 ) . "')";
 
-        $success = $dbi->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
+        $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
 
         if (! $success) {
             $error_msg = '';
@@ -166,7 +160,7 @@ class RecentFavoriteTable
 
             $message = Message::error($error_msg);
             $message->addMessage(
-                Message::rawError($dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
+                Message::rawError($GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)),
                 '<br><br>'
             );
 
@@ -269,10 +263,8 @@ class RecentFavoriteTable
      */
     public function add($db, $table)
     {
-        global $dbi;
-
         // If table does not exist, do not add._getPmaTable()
-        if (! $dbi->getColumns($db, $table)) {
+        if (! $GLOBALS['dbi']->getColumns($db, $table)) {
             return true;
         }
 
@@ -304,15 +296,13 @@ class RecentFavoriteTable
      */
     public function removeIfInvalid($db, $table)
     {
-        global $dbi;
-
         foreach ($this->tables as $tbl) {
             if ($tbl['db'] != $db || $tbl['table'] != $table) {
                 continue;
             }
 
             // TODO Figure out a better way to find the existence of a table
-            if (! $dbi->getColumns($tbl['db'], $tbl['table'])) {
+            if (! $GLOBALS['dbi']->getColumns($tbl['db'], $tbl['table'])) {
                 return $this->remove($tbl['db'], $tbl['table']);
             }
         }

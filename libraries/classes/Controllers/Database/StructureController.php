@@ -135,8 +135,6 @@ class StructureController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db, $errorUrl;
-
         $parameters = [
             'sort' => $_REQUEST['sort'] ?? null,
             'sort_order' => $_REQUEST['sort_order'] ?? null,
@@ -144,8 +142,8 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -162,7 +160,7 @@ class StructureController extends AbstractController
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
             $this->redirect('/database/structure', [
                 'db' => $GLOBALS['db'],
-                'pos' => max(0, $this->totalNumTables - $cfg['MaxTableList']),
+                'pos' => max(0, $this->totalNumTables - $GLOBALS['cfg']['MaxTableList']),
                 'reload' => 1,
             ]);
         }
@@ -193,7 +191,7 @@ class StructureController extends AbstractController
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
-                $cfg['MaxTableList']
+                $GLOBALS['cfg']['MaxTableList']
             );
 
             $tableList = $this->displayTableList($replicaInfo);

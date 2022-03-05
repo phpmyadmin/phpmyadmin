@@ -39,8 +39,6 @@ final class SetValuesController extends AbstractController
      */
     public function __invoke(): void
     {
-        global $db, $table;
-
         $this->checkUserPrivileges->getPrivileges();
 
         $column = $_POST['column'];
@@ -48,7 +46,7 @@ final class SetValuesController extends AbstractController
         $fullValues = $_POST['get_full_values'] ?? false;
         $whereClause = $_POST['where_clause'] ?? null;
 
-        $values = $this->sql->getValuesForColumn($db, $table, $column);
+        $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));
@@ -59,7 +57,12 @@ final class SetValuesController extends AbstractController
 
         // If the $currentValue was truncated, we should fetch the correct full values from the table.
         if ($fullValues && ! empty($whereClause)) {
-            $currentValue = $this->sql->getFullValuesForSetColumn($db, $table, $column, $whereClause);
+            $currentValue = $this->sql->getFullValuesForSetColumn(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $column,
+                $whereClause
+            );
         }
 
         // Converts characters of $currentValue to HTML entities.

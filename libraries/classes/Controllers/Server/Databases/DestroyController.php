@@ -45,13 +45,11 @@ final class DestroyController extends AbstractController
 
     public function __invoke(): void
     {
-        global $selected, $errorUrl, $cfg, $dblist, $reload;
-
         $selected_dbs = $_POST['selected_dbs'] ?? null;
 
         if (
             ! $this->response->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $cfg['AllowUserDropDatabase'])
+            || (! $this->dbi->isSuperUser() && ! $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
             $json = ['message' => $message];
@@ -73,20 +71,20 @@ final class DestroyController extends AbstractController
             return;
         }
 
-        $errorUrl = Url::getFromRoute('/server/databases');
-        $selected = $selected_dbs;
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/server/databases');
+        $GLOBALS['selected'] = $selected_dbs;
         $numberOfDatabases = count($selected_dbs);
 
         foreach ($selected_dbs as $database) {
             $this->relationCleanup->database($database);
             $aQuery = 'DROP DATABASE ' . Util::backquote($database);
-            $reload = true;
+            $GLOBALS['reload'] = true;
 
             $this->dbi->query($aQuery);
             $this->transformations->clear($database);
         }
 
-        $dblist->databases->build();
+        $GLOBALS['dblist']->databases->build();
 
         $message = Message::success(
             _ngettext(

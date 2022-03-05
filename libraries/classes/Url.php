@@ -47,8 +47,6 @@ class Url
         $indent = 0,
         $skip = []
     ) {
-        global $config;
-
         if (is_array($db)) {
             $params =& $db;
         } else {
@@ -66,7 +64,7 @@ class Url
             $params['server'] = $GLOBALS['server'];
         }
 
-        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        if (empty($GLOBALS['config']->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -211,20 +209,20 @@ class Url
      */
     public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true)
     {
-        global $config;
-
         // avoid overwriting when creating navigation panel links to servers
         if (
             isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])
-            && ! $config->get('is_setup')
+            && ! $GLOBALS['config']->get('is_setup')
         ) {
             $params['server'] = $GLOBALS['server'];
         }
 
         // Can be null when the user is missing an extension.
-        if ($config !== null && empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        if (
+            $GLOBALS['config'] !== null && empty($GLOBALS['config']->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])
+        ) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -245,11 +243,9 @@ class Url
      */
     public static function buildHttpQuery($params, $encrypt = true)
     {
-        global $config;
-
         $separator = self::getArgSeparator();
 
-        if (! $encrypt || ! $config->get('URLQueryEncryption')) {
+        if (! $encrypt || ! $GLOBALS['config']->get('URLQueryEncryption')) {
             return http_build_query($params, '', $separator);
         }
 

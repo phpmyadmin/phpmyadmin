@@ -40,8 +40,6 @@ final class ImportController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table, $urlParams, $SESSION_KEY, $cfg, $errorUrl;
-
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
         $pageSettingsHtml = $pageSettings->getHTML();
@@ -50,16 +48,16 @@ final class ImportController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
-        $urlParams['goto'] = Url::getFromRoute('/table/import');
-        $urlParams['back'] = Url::getFromRoute('/table/import');
+        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/import');
+        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/import');
 
-        [$SESSION_KEY, $uploadId] = Ajax::uploadProgressSetup();
+        [$GLOBALS['SESSION_KEY'], $uploadId] = Ajax::uploadProgressSetup();
 
         $importList = Plugins::getImport('table');
 
@@ -80,14 +78,14 @@ final class ImportController extends AbstractController
         $localImportFile = $_REQUEST['local_import_file'] ?? null;
         $compressions = Import::getCompressions();
 
-        $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        $idKey = $_SESSION[$SESSION_KEY]['handler']::getIdKey();
+        $idKey = $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey();
         $hiddenInputs = [
             $idKey => $uploadId,
             'import_type' => 'table',
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
         ];
 
         $default = isset($_GET['format']) ? (string) $_GET['format'] : Plugins::getDefault('Import', 'format');
@@ -101,10 +99,10 @@ final class ImportController extends AbstractController
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,
-            'handler' => $_SESSION[$SESSION_KEY]['handler'],
+            'handler' => $_SESSION[$GLOBALS['SESSION_KEY']]['handler'],
             'hidden_inputs' => $hiddenInputs,
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'max_upload_size' => $maxUploadSize,
             'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),
             'plugins_choice' => $choice,
@@ -113,18 +111,18 @@ final class ImportController extends AbstractController
             'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
             'is_upload' => $GLOBALS['config']->get('enable_upload'),
-            'upload_dir' => $cfg['UploadDir'] ?? null,
+            'upload_dir' => $GLOBALS['cfg']['UploadDir'] ?? null,
             'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
             'compressions' => $compressions,
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),
-            'import_charset' => $cfg['Import']['charset'] ?? null,
+            'import_charset' => $GLOBALS['cfg']['Import']['charset'] ?? null,
             'timeout_passed' => $timeoutPassed,
             'offset' => $offset,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'user_upload_dir' => Util::userDir((string) ($cfg['UploadDir'] ?? '')),
+            'user_upload_dir' => Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? '')),
             'local_files' => Import::getLocalFiles($importList),
         ]);
     }

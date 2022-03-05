@@ -31,8 +31,6 @@ class NormalizationControllerTest extends AbstractTestCase
 
     public function testGetNewTables3NF(): void
     {
-        global $containerBuilder;
-
         $_POST['getNewTables3NF'] = 1;
         $_POST['tables'] = json_encode([
             'test_tbl' => [
@@ -61,10 +59,10 @@ class NormalizationControllerTest extends AbstractTestCase
         ]);
 
         $GLOBALS['goto'] = 'index.php?route=/sql';
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
-        $normalizationController = $containerBuilder->get(NormalizationController::class);
+        $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $normalizationController();
 
         $this->assertResponseWasSuccessfull();
@@ -104,8 +102,6 @@ class NormalizationControllerTest extends AbstractTestCase
 
     public function testGetNewTables2NF(): void
     {
-        global $containerBuilder;
-
         $_POST['getNewTables2NF'] = 1;
         $_POST['pd'] = json_encode([
             'ID, task' => [],
@@ -113,10 +109,10 @@ class NormalizationControllerTest extends AbstractTestCase
         ]);
 
         $GLOBALS['goto'] = 'index.php?route=/sql';
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
-        $normalizationController = $containerBuilder->get(NormalizationController::class);
+        $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $normalizationController();
         $this->expectOutputString(
             '<p><b>In order to put the original table \'test_tbl\' into Second normal'
@@ -128,8 +124,6 @@ class NormalizationControllerTest extends AbstractTestCase
 
     public function testCreateNewTables2NF(): void
     {
-        global $containerBuilder;
-
         $_POST['createNewTables2NF'] = 1;
         $_POST['pd'] = json_encode([
             'ID, task' => [],
@@ -141,10 +135,10 @@ class NormalizationControllerTest extends AbstractTestCase
         ]);
 
         $GLOBALS['goto'] = 'index.php?route=/sql';
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
-        $normalizationController = $containerBuilder->get(NormalizationController::class);
+        $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $normalizationController();
         $this->assertAllSelectsConsumed();
@@ -164,8 +158,6 @@ class NormalizationControllerTest extends AbstractTestCase
 
     public function testCreateNewTables3NF(): void
     {
-        global $containerBuilder;
-
         $_POST['createNewTables3NF'] = 1;
         $_POST['newTables'] = json_encode([
             'test_tbl' => [
@@ -181,10 +173,10 @@ class NormalizationControllerTest extends AbstractTestCase
         ]);
 
         $GLOBALS['goto'] = 'index.php?route=/sql';
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
-        $normalizationController = $containerBuilder->get(NormalizationController::class);
+        $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $normalizationController();
         $this->assertAllSelectsConsumed();

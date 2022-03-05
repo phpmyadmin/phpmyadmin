@@ -29,8 +29,6 @@ final class RealRowCountController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db, $errorUrl;
-
         $parameters = [
             'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
             'table' => $_REQUEST['table'] ?? null,
@@ -38,8 +36,8 @@ final class RealRowCountController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;

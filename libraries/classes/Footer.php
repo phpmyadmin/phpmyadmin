@@ -62,13 +62,11 @@ class Footer
      */
     public function __construct()
     {
-        global $dbi;
-
         $this->template = new Template();
         $this->isEnabled = true;
         $this->scripts = new Scripts();
         $this->isMinimal = false;
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -140,20 +138,18 @@ class Footer
      */
     public function getSelfUrl(): string
     {
-        global $db, $table, $server;
-
         $params = [];
         $params['route'] = Routing::getCurrentRoute();
 
-        if (isset($db) && strlen($db) > 0) {
-            $params['db'] = $db;
+        if (isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0) {
+            $params['db'] = $GLOBALS['db'];
         }
 
-        if (isset($table) && strlen($table) > 0) {
-            $params['table'] = $table;
+        if (isset($GLOBALS['table']) && strlen($GLOBALS['table']) > 0) {
+            $params['table'] = $GLOBALS['table'];
         }
 
-        $params['server'] = $server;
+        $params['server'] = $GLOBALS['server'];
 
         // needed for server privileges tabs
         if (isset($_GET['viewing_mode']) && in_array($_GET['viewing_mode'], ['server', 'db', 'table'])) {
@@ -208,8 +204,6 @@ class Footer
      */
     private function setHistory(): void
     {
-        global $dbi;
-
         if (
             (
                 isset($_REQUEST['no_history'])
@@ -218,8 +212,8 @@ class Footer
             )
             || ! empty($GLOBALS['error_message'])
             || empty($GLOBALS['sql_query'])
-            || ! isset($dbi)
-            || ! $dbi->isConnected()
+            || ! isset($GLOBALS['dbi'])
+            || ! $GLOBALS['dbi']->isConnected()
         ) {
             return;
         }

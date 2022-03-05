@@ -19,13 +19,11 @@ class UpdateControllerTest extends AbstractTestCase
 {
     public function testUpdate(): void
     {
-        global $cfg;
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $cfg['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
 
         $response = new ResponseRenderer();
         $request = $this->createStub(ServerRequest::class);

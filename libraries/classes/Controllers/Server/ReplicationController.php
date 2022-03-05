@@ -41,15 +41,13 @@ class ReplicationController extends AbstractController
 
     public function __invoke(): void
     {
-        global $urlParams, $errorUrl;
-
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
             'primary_configure' => $_POST['primary_configure'] ?? null,
             'replica_configure' => $_POST['replica_configure'] ?? null,
             'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
         ];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -64,7 +62,7 @@ class ReplicationController extends AbstractController
         $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
 
         if (isset($params['url_params']) && is_array($params['url_params'])) {
-            $urlParams = $params['url_params'];
+            $GLOBALS['urlParams'] = $params['url_params'];
         }
 
         if ($this->dbi->isSuperUser()) {
@@ -93,7 +91,7 @@ class ReplicationController extends AbstractController
         }
 
         $this->render('server/replication/index', [
-            'url_params' => $urlParams,
+            'url_params' => $GLOBALS['urlParams'],
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
             'is_primary' => $primaryInfo['status'],

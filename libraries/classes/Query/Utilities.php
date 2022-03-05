@@ -136,8 +136,6 @@ class Utilities
      */
     public static function usortComparisonCallback(array $a, array $b, string $sortBy, string $sortOrder): int
     {
-        global $cfg;
-
         /* No sorting when key is not present */
         if (! isset($a[$sortBy], $b[$sortBy])) {
             return 0;
@@ -145,7 +143,7 @@ class Utilities
 
         // produces f.e.:
         // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
-        $compare = $cfg['NaturalOrder'] ? strnatcasecmp(
+        $compare = $GLOBALS['cfg']['NaturalOrder'] ? strnatcasecmp(
             (string) $a[$sortBy],
             (string) $b[$sortBy]
         ) : strcasecmp(

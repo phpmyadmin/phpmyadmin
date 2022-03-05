@@ -252,10 +252,8 @@ class VersionInformation
      */
     protected function getMySQLVersion()
     {
-        global $dbi;
-
-        if (isset($dbi)) {
-            return $dbi->getVersionString();
+        if (isset($GLOBALS['dbi'])) {
+            return $GLOBALS['dbi']->getVersionString();
         }
 
         return null;

@@ -421,9 +421,7 @@ class DbiDummy implements DbiExtension
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
-        global $cached_affected_rows;
-
-        return $cached_affected_rows ?? 0;
+        return $GLOBALS['cached_affected_rows'] ?? 0;
     }
 
     /**

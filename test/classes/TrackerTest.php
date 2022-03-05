@@ -33,6 +33,7 @@ class TrackerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = '';
         $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['export_type'] = null;
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([

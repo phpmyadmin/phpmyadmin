@@ -89,8 +89,6 @@ class Core
         string $error_message,
         $message_args = null
     ): void {
-        global $dbi;
-
         /* Use format string if applicable */
         if (is_string($message_args)) {
             $error_message = sprintf($error_message, $message_args);
@@ -103,7 +101,7 @@ class Core
          * (this can happen on early fatal error)
          */
         if (
-            isset($dbi, $GLOBALS['config'])
+            isset($GLOBALS['dbi'], $GLOBALS['config'])
             && $GLOBALS['config']->get('is_setup') === false
             && ResponseRenderer::getInstance()->isAjax()
         ) {
@@ -192,8 +190,6 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
-        global $errorHandler;
-
         $message = 'The %s extension is missing. Please check your PHP configuration.';
 
         /* Gettext does not have to be loaded yet here */
@@ -213,7 +209,7 @@ class Core
             return;
         }
 
-        $errorHandler->addError($message, E_USER_WARNING, '', 0, false);
+        $GLOBALS['errorHandler']->addError($message, E_USER_WARNING, '', 0, false);
     }
 
     /**
@@ -225,9 +221,7 @@ class Core
      */
     public static function getTableCount(string $db): int
     {
-        global $dbi;
-
-        $tables = $dbi->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
+        $tables = $GLOBALS['dbi']->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
 
         if ($tables) {
             return $tables->numRows();
@@ -763,8 +757,6 @@ class Core
      */
     public static function setPostAsGlobal(array $post_patterns): void
     {
-        global $containerBuilder;
-
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
                 if (! preg_match($one_post_pattern, $post_key)) {
@@ -772,7 +764,7 @@ class Core
                 }
 
                 $GLOBALS[$post_key] = $_POST[$post_key];
-                $containerBuilder->setParameter($post_key, $GLOBALS[$post_key]);
+                $GLOBALS['containerBuilder']->setParameter($post_key, $GLOBALS[$post_key]);
             }
         }
     }
@@ -949,11 +941,9 @@ class Core
      */
     public static function signSqlQuery($sqlQuery)
     {
-        global $cfg;
-
         $secret = $_SESSION[' HMAC_secret '] ?? '';
 
-        return hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
+        return hash_hmac('sha256', $sqlQuery, $secret . $GLOBALS['cfg']['blowfish_secret']);
     }
 
     /**
@@ -964,10 +954,8 @@ class Core
      */
     public static function checkSqlQuerySignature($sqlQuery, $signature): bool
     {
-        global $cfg;
-
         $secret = $_SESSION[' HMAC_secret '] ?? '';
-        $hmac = hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
+        $hmac = hash_hmac('sha256', $sqlQuery, $secret . $GLOBALS['cfg']['blowfish_secret']);
 
         return hash_equals($hmac, $signature);
     }

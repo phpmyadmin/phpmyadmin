@@ -206,13 +206,11 @@ class ExportCodegen extends ExportPlugin
      */
     private function handleNHibernateCSBody($db, $table, $crlf, array $aliases = [])
     {
-        global $dbi;
-
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        $result = $dbi->query(
+        $result = $GLOBALS['dbi']->query(
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),
@@ -315,8 +313,6 @@ class ExportCodegen extends ExportPlugin
         $crlf,
         array $aliases = []
     ) {
-        global $dbi;
-
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -328,7 +324,7 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '    <class '
             . 'name="' . self::cgMakeIdentifier($table_alias) . '" '
             . 'table="' . self::cgMakeIdentifier($table_alias) . '">';
-        $result = $dbi->query(
+        $result = $GLOBALS['dbi']->query(
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),

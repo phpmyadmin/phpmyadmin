@@ -35,9 +35,7 @@ class UserPreferences
 
     public function __construct()
     {
-        global $dbi;
-
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
     }
 
@@ -72,8 +70,6 @@ class UserPreferences
      */
     public function load()
     {
-        global $dbi;
-
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->userPreferencesFeature === null) {
             // no pmadb table, use session storage
@@ -97,9 +93,13 @@ class UserPreferences
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $dbi->escapeString((string) $relationParameters->user)
+            . $GLOBALS['dbi']->escapeString((string) $relationParameters->user)
             . '\'';
-        $row = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
+        $row = $GLOBALS['dbi']->fetchSingleRow(
+            $query,
+            DatabaseInterface::FETCH_ASSOC,
+            DatabaseInterface::CONNECT_CONTROL
+        );
 
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],
@@ -117,8 +117,6 @@ class UserPreferences
      */
     public function save(array $config_array)
     {
-        global $dbi;
-
         $relationParameters = $this->relation->getRelationParameters();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
@@ -144,34 +142,37 @@ class UserPreferences
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `username` FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $dbi->escapeString($relationParameters->user)
+            . $GLOBALS['dbi']->escapeString($relationParameters->user)
             . '\'';
 
-        $has_config = $dbi->fetchValue($query, 0, DatabaseInterface::CONNECT_CONTROL);
+        $has_config = $GLOBALS['dbi']->fetchValue($query, 0, DatabaseInterface::CONNECT_CONTROL);
         $config_data = json_encode($config_array);
         if ($has_config) {
             $query = 'UPDATE ' . $query_table
                 . ' SET `timevalue` = NOW(), `config_data` = \''
-                . $dbi->escapeString($config_data)
+                . $GLOBALS['dbi']->escapeString($config_data)
                 . '\''
                 . ' WHERE `username` = \''
-                . $dbi->escapeString($relationParameters->user)
+                . $GLOBALS['dbi']->escapeString($relationParameters->user)
                 . '\'';
         } else {
             $query = 'INSERT INTO ' . $query_table
                 . ' (`username`, `timevalue`,`config_data`) '
                 . 'VALUES (\''
-                . $dbi->escapeString($relationParameters->user) . '\', NOW(), '
-                . '\'' . $dbi->escapeString($config_data) . '\')';
+                . $GLOBALS['dbi']->escapeString($relationParameters->user) . '\', NOW(), '
+                . '\'' . $GLOBALS['dbi']->escapeString($config_data) . '\')';
         }
 
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
 
-        if (! $dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
-            $message->addMessage(Message::error($dbi->getError(DatabaseInterface::CONNECT_CONTROL)), '<br><br>');
+            $message->addMessage(
+                Message::error($GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)),
+                '<br><br>'
+            );
             if (! $this->hasAccessToDatabase($relationParameters->db)) {
                 /**
                  * When phpMyAdmin cached the configuration storage parameters, it checked if the database can be

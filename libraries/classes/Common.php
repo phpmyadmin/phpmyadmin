@@ -81,22 +81,17 @@ final class Common
      */
     public static function run(): void
     {
-        global $containerBuilder, $errorHandler, $config, $server, $dbi;
-        global $lang, $cfg, $isConfigLoading, $auth_plugin, $theme;
-        global $urlParams, $isMinimumCommon, $sql_query, $token_mismatch;
-
         $request = self::getRequest();
 
         $route = Routing::getCurrentRoute();
 
         if ($route === '/import-status') {
-            $isMinimumCommon = true;
+            $GLOBALS['isMinimumCommon'] = true;
         }
 
-        $containerBuilder = Core::getContainerBuilder();
+        $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
 
-        /** @var ErrorHandler $errorHandler */
-        $errorHandler = $containerBuilder->get('error_handler');
+        $GLOBALS['errorHandler'] = $GLOBALS['containerBuilder']->get('error_handler');
 
         self::checkRequiredPhpExtensions();
         self::configurePhpSettings();
@@ -104,24 +99,22 @@ final class Common
 
         /* parsing configuration file                  LABEL_parsing_config_file      */
 
-        /** @var bool $isConfigLoading Indication for the error handler */
-        $isConfigLoading = false;
+        /** Indication for the error handler */
+        $GLOBALS['isConfigLoading'] = false;
 
         register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
         /**
          * Force reading of config file, because we removed sensitive values
          * in the previous iteration.
-         *
-         * @var Config $config
          */
-        $config = $containerBuilder->get('config');
+        $GLOBALS['config'] = $GLOBALS['containerBuilder']->get('config');
 
         /**
          * include session handling after the globals, to prevent overwriting
          */
         if (! defined('PMA_NO_SESSION')) {
-            Session::setUp($config, $errorHandler);
+            Session::setUp($GLOBALS['config'], $GLOBALS['errorHandler']);
         }
 
         $request = Core::populateRequestWithEncryptedQueryParams($request);
@@ -135,27 +128,27 @@ final class Common
          *
          * @global array $urlParams
          */
-        $urlParams = [];
-        $containerBuilder->setParameter('url_params', $urlParams);
+        $GLOBALS['urlParams'] = [];
+        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
 
-        self::setGotoAndBackGlobals($containerBuilder, $config);
+        self::setGotoAndBackGlobals($GLOBALS['containerBuilder'], $GLOBALS['config']);
         self::checkTokenRequestParam();
-        self::setDatabaseAndTableFromRequest($containerBuilder, $request);
+        self::setDatabaseAndTableFromRequest($GLOBALS['containerBuilder'], $request);
 
         /**
          * SQL query to be executed
          *
          * @global string $sql_query
          */
-        $sql_query = '';
+        $GLOBALS['sql_query'] = '';
         if ($request->isPost()) {
-            $sql_query = $request->getParsedBodyParam('sql_query');
-            if (! is_string($sql_query)) {
-                $sql_query = '';
+            $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query');
+            if (! is_string($GLOBALS['sql_query'])) {
+                $GLOBALS['sql_query'] = '';
             }
         }
 
-        $containerBuilder->setParameter('sql_query', $sql_query);
+        $GLOBALS['containerBuilder']->setParameter('sql_query', $GLOBALS['sql_query']);
 
         //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
         //$_REQUEST['server']; // checked later in this file
@@ -173,38 +166,37 @@ final class Common
          * check for errors occurred while loading configuration
          * this check is done here after loading language files to present errors in locale
          */
-        $config->checkPermissions();
-        $config->checkErrors();
+        $GLOBALS['config']->checkPermissions();
+        $GLOBALS['config']->checkErrors();
 
         self::checkServerConfiguration();
         self::checkRequest();
 
         /* setup servers                                       LABEL_setup_servers    */
 
-        $config->checkServers();
+        $GLOBALS['config']->checkServers();
 
         /**
          * current server
          *
          * @global integer $server
          */
-        $server = $config->selectServer();
-        $urlParams['server'] = $server;
-        $containerBuilder->setParameter('server', $server);
-        $containerBuilder->setParameter('url_params', $urlParams);
+        $GLOBALS['server'] = $GLOBALS['config']->selectServer();
+        $GLOBALS['urlParams']['server'] = $GLOBALS['server'];
+        $GLOBALS['containerBuilder']->setParameter('server', $GLOBALS['server']);
+        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
 
-        $cfg = $config->settings;
+        $GLOBALS['cfg'] = $GLOBALS['config']->settings;
 
         /* setup themes                                          LABEL_theme_setup    */
 
-        $theme = ThemeManager::initializeTheme();
+        $GLOBALS['theme'] = ThemeManager::initializeTheme();
 
-        /** @var DatabaseInterface $dbi */
-        $dbi = null;
+        $GLOBALS['dbi'] = null;
 
-        if (isset($isMinimumCommon)) {
-            $config->loadUserPreferences();
-            $containerBuilder->set('theme_manager', ThemeManager::getInstance());
+        if (isset($GLOBALS['isMinimumCommon'])) {
+            $GLOBALS['config']->loadUserPreferences();
+            $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
             Tracker::enable();
 
             return;
@@ -215,19 +207,19 @@ final class Common
          *
          * @todo should be done in PhpMyAdmin\Config
          */
-        $config->setCookie('pma_lang', (string) $lang);
+        $GLOBALS['config']->setCookie('pma_lang', (string) $GLOBALS['lang']);
 
         ThemeManager::getInstance()->setThemeCookie();
 
-        $dbi = DatabaseInterface::load();
-        $containerBuilder->set(DatabaseInterface::class, $dbi);
-        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
+        $GLOBALS['dbi'] = DatabaseInterface::load();
+        $GLOBALS['containerBuilder']->set(DatabaseInterface::class, $GLOBALS['dbi']);
+        $GLOBALS['containerBuilder']->setAlias('dbi', DatabaseInterface::class);
 
-        if (! empty($cfg['Server'])) {
-            $config->getLoginCookieValidityFromCache($server);
+        if (! empty($GLOBALS['cfg']['Server'])) {
+            $GLOBALS['config']->getLoginCookieValidityFromCache($GLOBALS['server']);
 
-            $auth_plugin = Plugins::getAuthPlugin();
-            $auth_plugin->authenticate();
+            $GLOBALS['auth_plugin'] = Plugins::getAuthPlugin();
+            $GLOBALS['auth_plugin']->authenticate();
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
             if ($route === '/import' && ($_POST['format'] ?? '') === 'ldi') {
@@ -237,21 +229,21 @@ final class Common
                 // phpcs:enable
             }
 
-            self::connectToDatabaseServer($dbi, $auth_plugin);
+            self::connectToDatabaseServer($GLOBALS['dbi'], $GLOBALS['auth_plugin']);
 
-            $auth_plugin->rememberCredentials();
+            $GLOBALS['auth_plugin']->rememberCredentials();
 
-            $auth_plugin->checkTwoFactor();
+            $GLOBALS['auth_plugin']->checkTwoFactor();
 
             /* Log success */
-            Logging::logUser($cfg['Server']['user']);
+            Logging::logUser($GLOBALS['cfg']['Server']['user']);
 
-            if ($dbi->getVersion() < $cfg['MysqlMinVersion']['internal']) {
+            if ($GLOBALS['dbi']->getVersion() < $GLOBALS['cfg']['MysqlMinVersion']['internal']) {
                 Core::fatalError(
                     __('You should upgrade to %s %s or later.'),
                     [
                         'MySQL',
-                        $cfg['MysqlMinVersion']['human'],
+                        $GLOBALS['cfg']['MysqlMinVersion']['human'],
                     ]
                 );
             }
@@ -276,7 +268,7 @@ final class Common
          * There is no point in even attempting to process
          * an ajax request if there is a token mismatch
          */
-        if ($response->isAjax() && $request->isPost() && $token_mismatch) {
+        if ($response->isAjax() && $request->isPost() && $GLOBALS['token_mismatch']) {
             $response->setRequestStatus(false);
             $response->addJSON(
                 'message',
@@ -285,25 +277,25 @@ final class Common
             exit;
         }
 
-        Profiling::check($dbi, $response);
+        Profiling::check($GLOBALS['dbi'], $response);
 
-        $containerBuilder->set('response', ResponseRenderer::getInstance());
+        $GLOBALS['containerBuilder']->set('response', ResponseRenderer::getInstance());
 
         // load user preferences
-        $config->loadUserPreferences();
+        $GLOBALS['config']->loadUserPreferences();
 
-        $containerBuilder->set('theme_manager', ThemeManager::getInstance());
+        $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
 
         /* Tell tracker that it can actually work */
         Tracker::enable();
 
-        if (empty($server) || ! isset($cfg['ZeroConf']) || $cfg['ZeroConf'] !== true) {
+        if (empty($GLOBALS['server']) || ! isset($GLOBALS['cfg']['ZeroConf']) || $GLOBALS['cfg']['ZeroConf'] !== true) {
             return;
         }
 
         /** @var Relation $relation */
-        $relation = $containerBuilder->get('relation');
-        $dbi->postConnectControl($relation);
+        $relation = $GLOBALS['containerBuilder']->get('relation');
+        $GLOBALS['dbi']->postConnectControl($relation);
     }
 
     /**
@@ -381,31 +373,29 @@ final class Common
      */
     public static function cleanupPathInfo(): void
     {
-        global $PMA_PHP_SELF;
-
-        $PMA_PHP_SELF = Core::getenv('PHP_SELF');
-        if (empty($PMA_PHP_SELF)) {
-            $PMA_PHP_SELF = urldecode(Core::getenv('REQUEST_URI'));
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
+        if (empty($GLOBALS['PMA_PHP_SELF'])) {
+            $GLOBALS['PMA_PHP_SELF'] = urldecode(Core::getenv('REQUEST_URI'));
         }
 
         $_PATH_INFO = Core::getenv('PATH_INFO');
-        if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
-            $question_pos = mb_strpos($PMA_PHP_SELF, '?');
+        if (! empty($_PATH_INFO) && ! empty($GLOBALS['PMA_PHP_SELF'])) {
+            $question_pos = mb_strpos($GLOBALS['PMA_PHP_SELF'], '?');
             if ($question_pos != false) {
-                $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $question_pos);
+                $GLOBALS['PMA_PHP_SELF'] = mb_substr($GLOBALS['PMA_PHP_SELF'], 0, $question_pos);
             }
 
-            $path_info_pos = mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
+            $path_info_pos = mb_strrpos($GLOBALS['PMA_PHP_SELF'], $_PATH_INFO);
             if ($path_info_pos !== false) {
-                $path_info_part = mb_substr($PMA_PHP_SELF, $path_info_pos, mb_strlen($_PATH_INFO));
+                $path_info_part = mb_substr($GLOBALS['PMA_PHP_SELF'], $path_info_pos, mb_strlen($_PATH_INFO));
                 if ($path_info_part == $_PATH_INFO) {
-                    $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $path_info_pos);
+                    $GLOBALS['PMA_PHP_SELF'] = mb_substr($GLOBALS['PMA_PHP_SELF'], 0, $path_info_pos);
                 }
             }
         }
 
         $path = [];
-        foreach (explode('/', $PMA_PHP_SELF) as $part) {
+        foreach (explode('/', $GLOBALS['PMA_PHP_SELF']) as $part) {
             // ignore parts that have no value
             if (empty($part) || $part === '.') {
                 continue;
@@ -423,22 +413,20 @@ final class Common
             // as there is nothing sane to do
         }
 
-        $PMA_PHP_SELF = htmlspecialchars('/' . implode('/', $path));
+        $GLOBALS['PMA_PHP_SELF'] = htmlspecialchars('/' . implode('/', $path));
     }
 
     private static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
     {
-        global $goto, $back, $urlParams;
-
         // Holds page that should be displayed.
-        $goto = '';
-        $container->setParameter('goto', $goto);
+        $GLOBALS['goto'] = '';
+        $container->setParameter('goto', $GLOBALS['goto']);
 
         if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
-            $goto = $_REQUEST['goto'];
-            $urlParams['goto'] = $goto;
-            $container->setParameter('goto', $goto);
-            $container->setParameter('url_params', $urlParams);
+            $GLOBALS['goto'] = $_REQUEST['goto'];
+            $GLOBALS['urlParams']['goto'] = $GLOBALS['goto'];
+            $container->setParameter('goto', $GLOBALS['goto']);
+            $container->setParameter('url_params', $GLOBALS['urlParams']);
         } else {
             if ($config->issetCookie('goto')) {
                 $config->removeCookie('goto');
@@ -449,8 +437,8 @@ final class Common
 
         if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
             // Returning page.
-            $back = $_REQUEST['back'];
-            $container->setParameter('back', $back);
+            $GLOBALS['back'] = $_REQUEST['back'];
+            $container->setParameter('back', $GLOBALS['back']);
 
             return;
         }
@@ -472,21 +460,19 @@ final class Common
      */
     public static function checkTokenRequestParam(): void
     {
-        global $token_mismatch, $token_provided;
-
-        $token_mismatch = true;
-        $token_provided = false;
+        $GLOBALS['token_mismatch'] = true;
+        $GLOBALS['token_provided'] = false;
 
         if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
             return;
         }
 
         if (isset($_POST['token']) && is_scalar($_POST['token']) && strlen((string) $_POST['token']) > 0) {
-            $token_provided = true;
-            $token_mismatch = ! @hash_equals($_SESSION[' PMA_token '], (string) $_POST['token']);
+            $GLOBALS['token_provided'] = true;
+            $GLOBALS['token_mismatch'] = ! @hash_equals($_SESSION[' PMA_token '], (string) $_POST['token']);
         }
 
-        if (! $token_mismatch) {
+        if (! $GLOBALS['token_mismatch']) {
             return;
         }
 
@@ -512,28 +498,26 @@ final class Common
         ContainerInterface $containerBuilder,
         ServerRequest $request
     ): void {
-        global $db, $table, $urlParams;
-
         try {
-            $db = DatabaseName::fromValue($request->getParam('db'))->getName();
+            $GLOBALS['db'] = DatabaseName::fromValue($request->getParam('db'))->getName();
         } catch (InvalidArgumentException $exception) {
-            $db = '';
+            $GLOBALS['db'] = '';
         }
 
         try {
-            Assert::stringNotEmpty($db);
-            $table = TableName::fromValue($request->getParam('table'))->getName();
+            Assert::stringNotEmpty($GLOBALS['db']);
+            $GLOBALS['table'] = TableName::fromValue($request->getParam('table'))->getName();
         } catch (InvalidArgumentException $exception) {
-            $table = '';
+            $GLOBALS['table'] = '';
         }
 
-        if (! is_array($urlParams)) {
-            $urlParams = [];
+        if (! is_array($GLOBALS['urlParams'])) {
+            $GLOBALS['urlParams'] = [];
         }
 
-        $urlParams['db'] = $db;
-        $urlParams['table'] = $table;
-        $containerBuilder->setParameter('url_params', $urlParams);
+        $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
+        $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
+        $containerBuilder->setParameter('url_params', $GLOBALS['urlParams']);
     }
 
     /**
@@ -594,14 +578,12 @@ final class Common
 
     private static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void
     {
-        global $cfg;
-
         /**
          * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
          * user but the true user link must be open after this one so it would be default one for all the scripts).
          */
         $controlLink = false;
-        if ($cfg['Server']['controluser'] !== '') {
+        if ($GLOBALS['cfg']['Server']['controluser'] !== '') {
             $controlLink = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
         }
 

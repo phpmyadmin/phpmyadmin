@@ -38,8 +38,6 @@ class GetFieldController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table;
-
         $this->response->disable();
 
         /* Check parameters */
@@ -49,16 +47,16 @@ class GetFieldController extends AbstractController
         ]);
 
         /* Select database */
-        if (! $this->dbi->selectDb($db)) {
+        if (! $this->dbi->selectDb($GLOBALS['db'])) {
             Generator::mysqlDie(
-                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
+                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($GLOBALS['db'])),
                 '',
                 false
             );
         }
 
         /* Check if table exists */
-        if (! $this->dbi->getColumns($db, $table)) {
+        if (! $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'])) {
             Generator::mysqlDie(__('Invalid table name'));
         }
 
@@ -75,7 +73,7 @@ class GetFieldController extends AbstractController
 
         /* Grab data */
         $sql = 'SELECT ' . Util::backquote($_GET['transform_key'])
-            . ' FROM ' . Util::backquote($table)
+            . ' FROM ' . Util::backquote($GLOBALS['table'])
             . ' WHERE ' . $_GET['where_clause'] . ';';
         $result = $this->dbi->fetchValue($sql);
 
@@ -93,7 +91,7 @@ class GetFieldController extends AbstractController
         ini_set('url_rewriter.tags', '');
 
         Core::downloadHeader(
-            $table . '-' . $_GET['transform_key'] . '.bin',
+            $GLOBALS['table'] . '-' . $_GET['transform_key'] . '.bin',
             Mime::detect($result),
             mb_strlen($result, '8bit')
         );

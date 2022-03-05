@@ -47,7 +47,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLinkNull(): void
     {
-        global $cfg;
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['server'] = 99;
         $database = $GLOBALS['db'];
@@ -355,8 +354,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetServerSSL(): void
     {
-        global $cfg;
-
         $sslNotUsed = '<span class="">SSL is not being used</span>'
         . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
@@ -367,7 +364,7 @@ class GeneratorTest extends AbstractTestCase
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'host' => '127.0.0.1',
         ];
@@ -376,29 +373,29 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL()
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'host' => 'custom.host',
         ];
-        $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
+        $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
         $this->assertEquals(
             $sslNotUsedCaution,
             Generator::getServerSSL()
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'host' => 'custom.host',
         ];
-        $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
+        $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
 
         $this->assertEquals(
             $sslNotUsed,
             Generator::getServerSSL()
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'ssl_verify' => true,
             'host' => 'custom.host',
@@ -409,7 +406,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL()
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => true,
             'ssl_verify' => false,
             'host' => 'custom.host',
@@ -423,7 +420,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL()
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => true,
             'ssl_verify' => true,
             'host' => 'custom.host',
@@ -437,7 +434,7 @@ class GeneratorTest extends AbstractTestCase
             Generator::getServerSSL()
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => true,
             'ssl_verify' => true,
             'ssl_ca' => '/etc/ssl/ca.crt',

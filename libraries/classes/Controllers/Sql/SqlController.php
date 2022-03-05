@@ -51,11 +51,6 @@ class SqlController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db, $display_query, $sql_query, $table;
-        global $ajax_reload, $goto, $errorUrl, $find_real_end, $unlim_num_rows, $import_text, $disp_query;
-        global $extra_data, $message_to_show, $sql_data, $disp_message, $complete_query;
-        global $is_gotofile, $back, $table_from_sql;
-
         $this->checkUserPrivileges->getPrivileges();
 
         $pageSettings = new PageSettings('Browse');
@@ -74,59 +69,60 @@ class SqlController extends AbstractController
         /**
          * Set ajax_reload in the response if it was already set
          */
-        if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
-            $this->response->addJSON('ajax_reload', $ajax_reload);
+        if (isset($GLOBALS['ajax_reload']) && $GLOBALS['ajax_reload']['reload'] === true) {
+            $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
         }
 
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $is_gotofile = true;
-        if (empty($goto)) {
-            if (empty($table)) {
-                $goto = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $GLOBALS['is_gotofile'] = true;
+        if (empty($GLOBALS['goto'])) {
+            if (empty($GLOBALS['table'])) {
+                $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             } else {
-                $goto = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+                $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             }
         }
 
-        if (! isset($errorUrl)) {
-            $errorUrl = ! empty($back) ? $back : $goto;
-            $errorUrl .= Url::getCommon(
+        if (! isset($GLOBALS['errorUrl'])) {
+            $GLOBALS['errorUrl'] = ! empty($GLOBALS['back']) ? $GLOBALS['back'] : $GLOBALS['goto'];
+            $GLOBALS['errorUrl'] .= Url::getCommon(
                 ['db' => $GLOBALS['db']],
-                ! str_contains($errorUrl, '?') ? '?' : '&'
+                ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&'
             );
             if (
-                (mb_strpos(' ' . $errorUrl, 'db_') !== 1 || ! str_contains($errorUrl, '?route=/database/'))
-                && strlen($table) > 0
+                (mb_strpos(' ' . $GLOBALS['errorUrl'], 'db_') !== 1
+                    || ! str_contains($GLOBALS['errorUrl'], '?route=/database/'))
+                && strlen($GLOBALS['table']) > 0
             ) {
-                $errorUrl .= '&amp;table=' . urlencode($table);
+                $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode($GLOBALS['table']);
             }
         }
 
         // Coming from a bookmark dialog
         if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
-            $sql_query = $_POST['bkm_fields']['bkm_sql_query'];
+            $GLOBALS['sql_query'] = $_POST['bkm_fields']['bkm_sql_query'];
         } elseif (isset($_POST['sql_query'])) {
-            $sql_query = $_POST['sql_query'];
+            $GLOBALS['sql_query'] = $_POST['sql_query'];
         } elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
             if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
-                $sql_query = $_GET['sql_query'];
+                $GLOBALS['sql_query'] = $_GET['sql_query'];
             }
         }
 
         // This one is just to fill $db
         if (isset($_POST['bkm_fields']['bkm_database'])) {
-            $db = $_POST['bkm_fields']['bkm_database'];
+            $GLOBALS['db'] = $_POST['bkm_fields']['bkm_database'];
         }
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
-            $sql_query = $this->sql->getDefaultSqlQueryForBrowse($db, $table);
+        if (empty($GLOBALS['sql_query']) && strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
+            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse($GLOBALS['db'], $GLOBALS['table']);
 
             // set $goto to what will be displayed if query returns 0 rows
-            $goto = '';
+            $GLOBALS['goto'] = '';
         } else {
             // Now we can check the parameters
             Util::checkParameters(['sql_query']);
@@ -137,12 +133,12 @@ class SqlController extends AbstractController
          */
         [
             $analyzed_sql_results,
-            $db,
-            $table_from_sql,
-        ] = ParseAnalyze::sqlQuery($sql_query, $db);
+            $GLOBALS['db'],
+            $GLOBALS['table_from_sql'],
+        ] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
 
-        if ($table != $table_from_sql && ! empty($table_from_sql)) {
-            $table = $table_from_sql;
+        if ($GLOBALS['table'] != $GLOBALS['table_from_sql'] && ! empty($GLOBALS['table_from_sql'])) {
+            $GLOBALS['table'] = $GLOBALS['table_from_sql'];
         }
 
         /**
@@ -155,7 +151,7 @@ class SqlController extends AbstractController
         if (
             $this->sql->hasNoRightsToDropDatabase(
                 $analyzed_sql_results,
-                $cfg['AllowUserDropDatabase'],
+                $GLOBALS['cfg']['AllowUserDropDatabase'],
                 $this->dbi->isSuperUser()
             )
         ) {
@@ -163,22 +159,22 @@ class SqlController extends AbstractController
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
                 false,
-                $errorUrl
+                $GLOBALS['errorUrl']
             );
         }
 
         /**
          * Need to find the real end of rows?
          */
-        if (isset($find_real_end) && $find_real_end) {
-            $unlim_num_rows = $this->sql->findRealEndOfRows($db, $table);
+        if (isset($GLOBALS['find_real_end']) && $GLOBALS['find_real_end']) {
+            $GLOBALS['unlim_num_rows'] = $this->sql->findRealEndOfRows($GLOBALS['db'], $GLOBALS['table']);
         }
 
         /**
          * Bookmark add
          */
         if (isset($_POST['store_bkm'])) {
-            $this->addBookmark($goto);
+            $this->addBookmark($GLOBALS['goto']);
 
             return;
         }
@@ -186,30 +182,30 @@ class SqlController extends AbstractController
         /**
          * Sets or modifies the $goto variable if required
          */
-        if ($goto === Url::getFromRoute('/sql')) {
-            $is_gotofile = false;
-            $goto = Url::getFromRoute('/sql', [
-                'db' => $db,
-                'table' => $table,
-                'sql_query' => $sql_query,
+        if ($GLOBALS['goto'] === Url::getFromRoute('/sql')) {
+            $GLOBALS['is_gotofile'] = false;
+            $GLOBALS['goto'] = Url::getFromRoute('/sql', [
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
+                'sql_query' => $GLOBALS['sql_query'],
             ]);
         }
 
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $analyzed_sql_results,
-            $is_gotofile,
-            $db,
-            $table,
-            $find_real_end ?? null,
-            $import_text ?? null,
-            $extra_data ?? null,
-            $message_to_show ?? null,
-            $sql_data ?? null,
-            $goto,
-            isset($disp_query) ? $display_query : null,
-            $disp_message ?? null,
-            $sql_query,
-            $complete_query ?? null
+            $GLOBALS['is_gotofile'],
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            $GLOBALS['find_real_end'] ?? null,
+            $GLOBALS['import_text'] ?? null,
+            $GLOBALS['extra_data'] ?? null,
+            $GLOBALS['message_to_show'] ?? null,
+            $GLOBALS['sql_data'] ?? null,
+            $GLOBALS['goto'],
+            isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
+            $GLOBALS['disp_message'] ?? null,
+            $GLOBALS['sql_query'],
+            $GLOBALS['complete_query'] ?? null
         ));
     }
 

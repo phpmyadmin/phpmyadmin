@@ -103,15 +103,13 @@ class ImportOds extends ImportPlugin
      */
     public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
-        global $db, $error, $timeout_passed, $finished;
-
         $buffer = '';
 
         /**
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (! $finished && ! $error && ! $timeout_passed) {
+        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -215,7 +213,7 @@ class ImportOds extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        [$db_name, $options] = $this->getDbnameAndOptions($db, 'ODS_DB');
+        [$db_name, $options] = $this->getDbnameAndOptions($GLOBALS['db'], 'ODS_DB');
 
         /* Non-applicable parameters */
         $create = null;

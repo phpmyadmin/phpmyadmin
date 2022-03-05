@@ -16,6 +16,9 @@ class DeleteRowsControllerTest extends AbstractTestCase
 {
     public function testDeleteRowsController(): void
     {
+        $this->setTheme();
+        $GLOBALS['goto'] = null;
+        $GLOBALS['showtable'] = null;
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['urlParams'] = [];

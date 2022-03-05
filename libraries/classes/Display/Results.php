@@ -1403,8 +1403,6 @@ class Results
      */
     private function getFullOrPartialTextButtonOrLink(): string
     {
-        global $theme;
-
         $urlParamsFullText = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -1425,7 +1423,7 @@ class Results
         }
 
         $tmpImage = '<img class="fulltext" src="'
-            . ($theme instanceof Theme ? $theme->getImgPath($tmpImageFile) : '')
+            . ($GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getImgPath($tmpImageFile) : '')
             . '" alt="' . $tmpTxt . '" title="' . $tmpTxt . '">';
 
         return Generator::linkOrButton(Url::getFromRoute('/sql'), $urlParamsFullText, $tmpImage);
@@ -2101,7 +2099,6 @@ class Results
         $isLimitedDisplay = false
     ) {
         // Mostly because of browser transformations, to make the row-data accessible in a plugin.
-        global $row;
 
         $tableBodyHtml = '';
 
@@ -2143,7 +2140,7 @@ class Results
         // delete/edit options correctly for tables without keys.
 
         $whereClauseMap = $this->properties['whereClauseMap'];
-        while ($row = $dtResult->fetchRow()) {
+        while ($GLOBALS['row'] = $dtResult->fetchRow()) {
             // add repeating headers
             if (
                 ($rowNumber !== 0) && ($_SESSION['tmpval']['repeat_cells'] > 0)
@@ -2206,7 +2203,7 @@ class Results
                 [$whereClause, $clauseIsUnique, $conditionArray] = Util::getUniqueCondition(
                     $this->properties['fields_cnt'],
                     $this->properties['fields_meta'],
-                    $row,
+                    $GLOBALS['row'],
                     false,
                     $this->properties['table'],
                     $expressions
@@ -2231,7 +2228,7 @@ class Results
                     $clauseIsUnique,
                     $urlSqlQuery,
                     $displayParts->deleteLink,
-                    (int) $row[0]
+                    (int) $GLOBALS['row'][0]
                 );
 
                 // 1.3 Displays the links at left if required
@@ -2293,7 +2290,7 @@ class Results
             }
 
             $tableBodyHtml .= $this->getRowValues(
-                $row,
+                $GLOBALS['row'],
                 $rowNumber,
                 $colOrder,
                 $map,

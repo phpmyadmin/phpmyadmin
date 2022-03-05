@@ -33,8 +33,6 @@ final class LoadController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         $templateId = (int) $request->getParsedBodyParam('templateId');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
@@ -45,7 +43,7 @@ final class LoadController extends AbstractController
         $template = $this->model->load(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $cfg['Server']['user'],
+            $GLOBALS['cfg']['Server']['user'],
             $templateId
         );
 

@@ -162,28 +162,26 @@ class Menu
      */
     private function getBreadcrumbs(): string
     {
-        global $cfg;
-
         $server = [];
         $database = [];
         $table = [];
 
-        if (empty($cfg['Server']['host'])) {
-            $cfg['Server']['host'] = '';
+        if (empty($GLOBALS['cfg']['Server']['host'])) {
+            $GLOBALS['cfg']['Server']['host'] = '';
         }
 
-        $server['name'] = ! empty($cfg['Server']['verbose'])
-            ? $cfg['Server']['verbose'] : $cfg['Server']['host'];
-        $server['name'] .= empty($cfg['Server']['port'])
-            ? '' : ':' . $cfg['Server']['port'];
-        $server['url'] = Util::getUrlForOption($cfg['DefaultTabServer'], 'server');
+        $server['name'] = ! empty($GLOBALS['cfg']['Server']['verbose'])
+            ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
+        $server['name'] .= empty($GLOBALS['cfg']['Server']['port'])
+            ? '' : ':' . $GLOBALS['cfg']['Server']['port'];
+        $server['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
 
         if ($this->db !== '') {
             $database['name'] = $this->db;
-            $database['url'] = Util::getUrlForOption($cfg['DefaultTabDatabase'], 'database');
+            $database['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             if ($this->table !== '') {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getUrlForOption($cfg['DefaultTabTable'], 'table');
+                $table['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
                 $tableObj = $this->dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';

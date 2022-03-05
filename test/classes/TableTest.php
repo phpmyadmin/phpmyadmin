@@ -943,9 +943,7 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase2(): void
     {
-        global $dbi;
-
-        $dbi->getCache()->cacheTableContent(
+        $GLOBALS['dbi']->getCache()->cacheTableContent(
             ['PMA', 'PMA_BookMark'],
             ['ENGINE' => 'MERGE']
         );
@@ -961,9 +959,7 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase3(): void
     {
-        global $dbi;
-
-        $dbi->getCache()->cacheTableContent(
+        $GLOBALS['dbi']->getCache()->cacheTableContent(
             ['PMA', 'PMA_BookMark'],
             ['ENGINE' => 'MRG_MYISAM']
         );

@@ -34,13 +34,11 @@ final class QueryAnalyzerController extends AbstractController
 
     public function __invoke(): void
     {
-        global $errorUrl;
-
         $params = [
             'database' => $_POST['database'] ?? null,
             'query' => $_POST['query'] ?? null,
         ];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

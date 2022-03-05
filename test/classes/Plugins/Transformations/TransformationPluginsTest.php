@@ -49,9 +49,9 @@ class TransformationPluginsTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         // For Application Octetstream Download plugin
-        global $row, $fields_meta;
-        $fields_meta = [];
-        $row = [
+
+        $GLOBALS['fields_meta'] = [];
+        $GLOBALS['row'] = [
             'pma' => 'aaa',
             'pca' => 'bbb',
         ];

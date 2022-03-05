@@ -18,9 +18,8 @@ class SearchTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        global $dbi;
 
-        $this->search = new Search($dbi);
+        $this->search = new Search($GLOBALS['dbi']);
     }
 
     public function testBuildSqlQuery(): void
