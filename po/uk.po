@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-27 00:17+0000\n"
+"POT-Creation-Date: 2022-03-06 00:14+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1412,7 +1412,7 @@ msgstr "Пошук:"
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
-#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
@@ -1790,16 +1790,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "В'єтнамська"
 
-#: libraries/classes/Common.php:247
+#: libraries/classes/Common.php:251
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Вам необхідно оновити до %s %s або пізнішої."
 
-#: libraries/classes/Common.php:279
+#: libraries/classes/Common.php:283
 msgid "Error: Token mismatch"
 msgstr "Помилка: невідповідний токен"
 
-#: libraries/classes/Common.php:493
+#: libraries/classes/Common.php:497
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1807,7 +1807,7 @@ msgstr ""
 "Не вдалося встановити сеанс cookie. Можливо, ви використовуєте HTTP замість "
 "HTTPS для доступу phpMyAdmin."
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:554
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1816,7 +1816,7 @@ msgstr ""
 "У конфігурації PHP увімкнено mbstring.func_overload. Цей параметр несумісний "
 "з phpMyAdmin і може викликати пошкодження деяких даних!"
 
-#: libraries/classes/Common.php:567
+#: libraries/classes/Common.php:571
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1824,11 +1824,11 @@ msgstr ""
 "Функції ini_get та/або ini_set відключені в php.ini. phpMyAdmin вимагає цих "
 "функцій!"
 
-#: libraries/classes/Common.php:578
+#: libraries/classes/Common.php:582
 msgid "GLOBALS overwrite attempt"
 msgstr "спроба перезапису GLOBALS"
 
-#: libraries/classes/Common.php:588
+#: libraries/classes/Common.php:592
 msgid "possible exploit"
 msgstr "можливе використання"
 
@@ -5153,7 +5153,7 @@ msgid "No collation provided."
 msgstr "Зіставлення не надано."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
-#: libraries/classes/Controllers/Table/CreateController.php:71
+#: libraries/classes/Controllers/Table/CreateController.php:70
 msgid "The database name is empty!"
 msgstr "Відсутнє ім'я бази даних!"
 
@@ -5794,7 +5794,7 @@ msgid "Please select column(s) for the index."
 msgstr "Будь ласка, виберіть стовпець(і) для індексу."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
-#: templates/columns_definitions/column_definitions_form.twig:157
+#: templates/columns_definitions/column_definitions_form.twig:156
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/table/index_form.twig:240
 #: templates/table/index_rename_form.twig:28
@@ -5853,8 +5853,8 @@ msgstr "Видалення вибраних користувачів"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: libraries/classes/Tracking.php:237 libraries/classes/Tracking.php:641
-#: templates/columns_definitions/column_definitions_form.twig:176
-#: templates/columns_definitions/column_definitions_form.twig:181
+#: templates/columns_definitions/column_definitions_form.twig:175
+#: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
@@ -6930,7 +6930,7 @@ msgid "No dependencies selected!"
 msgstr "Жодної залежності не обрано!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:445
-#: templates/columns_definitions/column_definitions_form.twig:160
+#: templates/columns_definitions/column_definitions_form.twig:159
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
 #: templates/database/central_columns/main.twig:272
@@ -7008,7 +7008,7 @@ msgstr "Вміст точки даних"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2001
+#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:1978
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Ігнорувати"
@@ -8896,7 +8896,7 @@ msgstr "Закладку %s створено."
 msgid "Bookmark not created!"
 msgstr "Закладка не створена!"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:150
+#: libraries/classes/Controllers/Table/AddFieldController.php:149
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:221
 #: libraries/classes/Table/Indexes.php:85
@@ -8923,13 +8923,13 @@ msgstr "У таблиці відсутні стовпці чисел для по
 msgid "No data to display"
 msgstr "Немає даних для відображення"
 
-#: libraries/classes/Controllers/Table/CreateController.php:83
+#: libraries/classes/Controllers/Table/CreateController.php:82
 #: libraries/classes/Controllers/Table/GetFieldController.php:54
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Бази даних \"%s\" не існує."
 
-#: libraries/classes/Controllers/Table/CreateController.php:93
+#: libraries/classes/Controllers/Table/CreateController.php:92
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Таблиця %s вже існує!"
@@ -8962,7 +8962,7 @@ msgstr "Ваш SQL запит було виконано вдало."
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:43
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:43
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:57
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:49
 #: libraries/classes/Controllers/Table/Structure/FulltextController.php:45
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:48
 #: libraries/classes/Controllers/Table/Structure/SpatialController.php:45
@@ -9022,7 +9022,7 @@ msgstr "Подання"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:60
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:863 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:717 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -9041,7 +9041,7 @@ msgstr "Внутрішні зв'язки успішно оновлені."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Рядок: %1$s, Стовпець: %2$s, Помилка: %3$s"
 
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:89
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:81
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Не вдалося отримати опис стовпця %s!"
@@ -9338,7 +9338,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Немає події з ім'ям %1$s в базі даних %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1131
+#: libraries/classes/DatabaseInterface.php:1130
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9350,19 +9350,19 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin в даний час використовує стандартний "
 "часовий пояс сервера бази даних."
 
-#: libraries/classes/DatabaseInterface.php:1176
+#: libraries/classes/DatabaseInterface.php:1175
 msgid "Failed to set configured collation connection!"
 msgstr "Не вдалося встановити конфігурацію співставлення підключення!"
 
-#: libraries/classes/DatabaseInterface.php:1869
+#: libraries/classes/DatabaseInterface.php:1868
 msgid "Missing connection parameters!"
 msgstr "Відсутні параметри з'єднання!"
 
-#: libraries/classes/DatabaseInterface.php:1894
+#: libraries/classes/DatabaseInterface.php:1893
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Помилка при вказуванні з'єднання для controluser в конфігурації."
 
-#: libraries/classes/DatabaseInterface.php:2286
+#: libraries/classes/DatabaseInterface.php:2285
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Дивіться %sнашу документацію%s для отримання додаткової інформації."
@@ -9653,8 +9653,8 @@ msgid "Full texts"
 msgstr "Повні тексти"
 
 #: libraries/classes/Display/Results.php:1764
-#: libraries/classes/Display/Results.php:1790 libraries/classes/Util.php:2574
-#: libraries/classes/Util.php:2597 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1790 libraries/classes/Util.php:2572
+#: libraries/classes/Util.php:2595 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9667,8 +9667,8 @@ msgid "Descending"
 msgstr "За спаданням"
 
 #: libraries/classes/Display/Results.php:1772
-#: libraries/classes/Display/Results.php:1782 libraries/classes/Util.php:2566
-#: libraries/classes/Util.php:2589 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1782 libraries/classes/Util.php:2564
+#: libraries/classes/Util.php:2587 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -10395,12 +10395,12 @@ msgstr "Функція"
 msgid "Type"
 msgstr "Тип"
 
-#: libraries/classes/InsertEdit.php:718 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Встановлений Вами каталог для завантаження файлів недоступний."
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:725
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10410,15 +10410,15 @@ msgstr "Встановлений Вами каталог для завантаж
 msgid "Or"
 msgstr "Або"
 
-#: libraries/classes/InsertEdit.php:727
+#: libraries/classes/InsertEdit.php:726
 msgid "web server upload directory:"
 msgstr "каталог завантаження веб-сервера:"
 
-#: libraries/classes/InsertEdit.php:1334 libraries/classes/Sql.php:965
+#: libraries/classes/InsertEdit.php:1311 libraries/classes/Sql.php:965
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: libraries/classes/InsertEdit.php:1358 libraries/classes/Sql.php:945
+#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:945
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор вставленого рядка: %1$d"
@@ -12101,7 +12101,7 @@ msgid "Table of contents"
 msgstr "Зміст"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:620
-#: templates/columns_definitions/column_definitions_form.twig:72
+#: templates/columns_definitions/column_definitions_form.twig:71
 #: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
@@ -13830,7 +13830,7 @@ msgstr "%s днів, %s годин, %s хвилин і %s секунд"
 msgid "Users"
 msgstr "Користувачі"
 
-#: libraries/classes/Util.php:2558
+#: libraries/classes/Util.php:2556
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Сортувати"
@@ -14057,36 +14057,36 @@ msgstr "перший"
 msgid "after %s"
 msgstr "після %s"
 
-#: templates/columns_definitions/column_definitions_form.twig:23
+#: templates/columns_definitions/column_definitions_form.twig:22
 #: templates/database/create_table.twig:6
 #: templates/database/operations/index.twig:30
 msgid "Table name"
 msgstr "Ім'я таблиці"
 
-#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/columns_definitions/column_definitions_form.twig:31
 #: templates/console/display.twig:99
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
 msgstr "Додати"
 
-#: templates/columns_definitions/column_definitions_form.twig:40
+#: templates/columns_definitions/column_definitions_form.twig:39
 msgid "column(s)"
 msgstr "стовпець(і)"
 
-#: templates/columns_definitions/column_definitions_form.twig:74
+#: templates/columns_definitions/column_definitions_form.twig:73
 msgid "Collation:"
 msgstr "Порівняння:"
 
-#: templates/columns_definitions/column_definitions_form.twig:77
+#: templates/columns_definitions/column_definitions_form.twig:76
 msgid "Storage Engine:"
 msgstr "Тип таблиць:"
 
-#: templates/columns_definitions/column_definitions_form.twig:82
+#: templates/columns_definitions/column_definitions_form.twig:81
 msgid "Connection:"
 msgstr "З'єднання:"
 
-#: templates/columns_definitions/column_definitions_form.twig:113
+#: templates/columns_definitions/column_definitions_form.twig:112
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 #, fuzzy
@@ -14094,24 +14094,24 @@ msgstr "З'єднання:"
 msgid "Storage engine"
 msgstr "Механізми зберігання"
 
-#: templates/columns_definitions/column_definitions_form.twig:136
+#: templates/columns_definitions/column_definitions_form.twig:135
 msgid "PARTITION definition:"
 msgstr "Визначення розділів:"
 
-#: templates/columns_definitions/column_definitions_form.twig:154
+#: templates/columns_definitions/column_definitions_form.twig:153
 #, fuzzy
 #| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Помістити експорт у транзакцію"
 
-#: templates/columns_definitions/column_definitions_form.twig:166
+#: templates/columns_definitions/column_definitions_form.twig:165
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
 
-#: templates/columns_definitions/column_definitions_form.twig:175
+#: templates/columns_definitions/column_definitions_form.twig:174
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
 #: templates/export.twig:81 templates/modals/add_index.twig:5

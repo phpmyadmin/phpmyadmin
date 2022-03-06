@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-02-27 00:17+0000\n"
+"POT-Creation-Date: 2022-03-06 00:14+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1487,7 +1487,7 @@ msgstr "Cari:"
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
-#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
@@ -1865,16 +1865,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: libraries/classes/Common.php:247
+#: libraries/classes/Common.php:251
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/classes/Common.php:279
+#: libraries/classes/Common.php:283
 msgid "Error: Token mismatch"
 msgstr "Error: Token tidak cocok"
 
-#: libraries/classes/Common.php:493
+#: libraries/classes/Common.php:497
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1882,7 +1882,7 @@ msgstr ""
 "Gagal mengatur cookie sesi. Mungkin Anda menggunakan HTTP, bukan HTTPS untuk "
 "mengakses phpMyAdmin."
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:554
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1891,7 +1891,7 @@ msgstr ""
 "Anda mengaktifkan Fungsi mbstring.func_overload pada konfigurasi PHP. "
 "Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
 
-#: libraries/classes/Common.php:567
+#: libraries/classes/Common.php:571
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1899,11 +1899,11 @@ msgstr ""
 "Fungsi ini_get dan / atau ini_set dinonaktifkan di php.ini. phpMyAdmin "
 "membutuhkan fungsi-fungsi ini!"
 
-#: libraries/classes/Common.php:578
+#: libraries/classes/Common.php:582
 msgid "GLOBALS overwrite attempt"
 msgstr "upaya penimpaan GLOBALS"
 
-#: libraries/classes/Common.php:588
+#: libraries/classes/Common.php:592
 msgid "possible exploit"
 msgstr "memungkinkan mengeksploitasi"
 
@@ -5366,7 +5366,7 @@ msgid "No collation provided."
 msgstr "Tidak ada pemeriksaan yang tersedia."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
-#: libraries/classes/Controllers/Table/CreateController.php:71
+#: libraries/classes/Controllers/Table/CreateController.php:70
 msgid "The database name is empty!"
 msgstr "Nama database kosong!"
 
@@ -6018,7 +6018,7 @@ msgid "Please select column(s) for the index."
 msgstr "Pilih kolom untuk di index."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
-#: templates/columns_definitions/column_definitions_form.twig:157
+#: templates/columns_definitions/column_definitions_form.twig:156
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/table/index_form.twig:240
 #: templates/table/index_rename_form.twig:28
@@ -6079,8 +6079,8 @@ msgstr "Hapus pengguna yang dipilih"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: libraries/classes/Tracking.php:237 libraries/classes/Tracking.php:641
-#: templates/columns_definitions/column_definitions_form.twig:176
-#: templates/columns_definitions/column_definitions_form.twig:181
+#: templates/columns_definitions/column_definitions_form.twig:175
+#: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
@@ -7160,7 +7160,7 @@ msgid "No dependencies selected!"
 msgstr "Dependensi belum dipilih!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:445
-#: templates/columns_definitions/column_definitions_form.twig:160
+#: templates/columns_definitions/column_definitions_form.twig:159
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
 #: templates/database/central_columns/main.twig:272
@@ -7237,7 +7237,7 @@ msgstr "Isi titk data"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2001
+#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:1978
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Abaikan"
@@ -9200,7 +9200,7 @@ msgstr "Markah %s telah dibuat."
 msgid "Bookmark not created!"
 msgstr "Bookmark tidak dibuat!"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:150
+#: libraries/classes/Controllers/Table/AddFieldController.php:149
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:221
 #: libraries/classes/Table/Indexes.php:85
@@ -9229,13 +9229,13 @@ msgstr "Tidak ada kolom numerik pada tabel yang dapat dibuat grafik."
 msgid "No data to display"
 msgstr "Tidak ada data untuk ditampilkan"
 
-#: libraries/classes/Controllers/Table/CreateController.php:83
+#: libraries/classes/Controllers/Table/CreateController.php:82
 #: libraries/classes/Controllers/Table/GetFieldController.php:54
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Basis data '%s' tidak ditemukan."
 
-#: libraries/classes/Controllers/Table/CreateController.php:93
+#: libraries/classes/Controllers/Table/CreateController.php:92
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabel %s sudah ada!"
@@ -9268,7 +9268,7 @@ msgstr "Kueri SQL Anda berhasil dieksekusi."
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:43
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:43
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:57
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:49
 #: libraries/classes/Controllers/Table/Structure/FulltextController.php:45
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:48
 #: libraries/classes/Controllers/Table/Structure/SpatialController.php:45
@@ -9326,7 +9326,7 @@ msgstr "Gambarkan"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:60
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:863 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:717 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -9345,7 +9345,7 @@ msgstr "Hubungan internal sukses diperbarui."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Baris: %1$s, Kolom: %2$s, Kesalahan: %3$s"
 
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:89
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:81
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
@@ -9671,7 +9671,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Tidak ada event dengan nama %1$s ditemukan dalam basis data %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1131
+#: libraries/classes/DatabaseInterface.php:1130
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -9688,20 +9688,20 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin saat ini menggunakan zona waktu semula "
 "dari server database."
 
-#: libraries/classes/DatabaseInterface.php:1176
+#: libraries/classes/DatabaseInterface.php:1175
 msgid "Failed to set configured collation connection!"
 msgstr "Gagal untuk menyetel pemeriksaan koneksi yang telah terkonfigurasi!"
 
-#: libraries/classes/DatabaseInterface.php:1869
+#: libraries/classes/DatabaseInterface.php:1868
 msgid "Missing connection parameters!"
 msgstr "Parameter koneksi hilang!"
 
-#: libraries/classes/DatabaseInterface.php:1894
+#: libraries/classes/DatabaseInterface.php:1893
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Koneksi untuk controluser yang di definisikan di konfigurasi Anda gagal."
 
-#: libraries/classes/DatabaseInterface.php:2286
+#: libraries/classes/DatabaseInterface.php:2285
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Lihat %sdokumentasi kami%s untuk informasi lebih lanjut."
@@ -10006,8 +10006,8 @@ msgid "Full texts"
 msgstr "Teks penuh"
 
 #: libraries/classes/Display/Results.php:1764
-#: libraries/classes/Display/Results.php:1790 libraries/classes/Util.php:2574
-#: libraries/classes/Util.php:2597 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1790 libraries/classes/Util.php:2572
+#: libraries/classes/Util.php:2595 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -10020,8 +10020,8 @@ msgid "Descending"
 msgstr "Menurun"
 
 #: libraries/classes/Display/Results.php:1772
-#: libraries/classes/Display/Results.php:1782 libraries/classes/Util.php:2566
-#: libraries/classes/Util.php:2589 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1782 libraries/classes/Util.php:2564
+#: libraries/classes/Util.php:2587 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -10755,13 +10755,13 @@ msgstr "Fungsi"
 msgid "Type"
 msgstr "Jenis"
 
-#: libraries/classes/InsertEdit.php:718 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi."
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:725
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10771,15 +10771,15 @@ msgstr ""
 msgid "Or"
 msgstr "Atau"
 
-#: libraries/classes/InsertEdit.php:727
+#: libraries/classes/InsertEdit.php:726
 msgid "web server upload directory:"
 msgstr "direktori unggahan server web:"
 
-#: libraries/classes/InsertEdit.php:1334 libraries/classes/Sql.php:965
+#: libraries/classes/InsertEdit.php:1311 libraries/classes/Sql.php:965
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: libraries/classes/InsertEdit.php:1358 libraries/classes/Sql.php:945
+#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:945
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -12528,7 +12528,7 @@ msgid "Table of contents"
 msgstr "Daftar Isi"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:620
-#: templates/columns_definitions/column_definitions_form.twig:72
+#: templates/columns_definitions/column_definitions_form.twig:71
 #: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
@@ -14320,7 +14320,7 @@ msgstr "%s hari, %s jam, %s menit dan %s detik"
 msgid "Users"
 msgstr "Pengguna"
 
-#: libraries/classes/Util.php:2558
+#: libraries/classes/Util.php:2556
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Urutan"
@@ -14548,42 +14548,42 @@ msgstr "pertama"
 msgid "after %s"
 msgstr "setelah %s"
 
-#: templates/columns_definitions/column_definitions_form.twig:23
+#: templates/columns_definitions/column_definitions_form.twig:22
 #: templates/database/create_table.twig:6
 #: templates/database/operations/index.twig:30
 msgid "Table name"
 msgstr "Nama tabel"
 
-#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/columns_definitions/column_definitions_form.twig:31
 #: templates/console/display.twig:99
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
 msgstr "Tambah"
 
-#: templates/columns_definitions/column_definitions_form.twig:40
+#: templates/columns_definitions/column_definitions_form.twig:39
 #, fuzzy
 #| msgid "Add column(s)"
 msgid "column(s)"
 msgstr "Tambahkan kolom"
 
-#: templates/columns_definitions/column_definitions_form.twig:74
+#: templates/columns_definitions/column_definitions_form.twig:73
 #, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
 msgstr "Penyortiran"
 
-#: templates/columns_definitions/column_definitions_form.twig:77
+#: templates/columns_definitions/column_definitions_form.twig:76
 #, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
 msgstr "Mesin Penyimpanan"
 
-#: templates/columns_definitions/column_definitions_form.twig:82
+#: templates/columns_definitions/column_definitions_form.twig:81
 msgid "Connection:"
 msgstr "Koneksi:"
 
-#: templates/columns_definitions/column_definitions_form.twig:113
+#: templates/columns_definitions/column_definitions_form.twig:112
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 #, fuzzy
@@ -14591,26 +14591,26 @@ msgstr "Koneksi:"
 msgid "Storage engine"
 msgstr "Mesin Penyimpanan"
 
-#: templates/columns_definitions/column_definitions_form.twig:136
+#: templates/columns_definitions/column_definitions_form.twig:135
 #, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
 msgstr "Definisi PARTITION"
 
-#: templates/columns_definitions/column_definitions_form.twig:154
+#: templates/columns_definitions/column_definitions_form.twig:153
 #, fuzzy
 #| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Jalankan ekspor dalam transaksi"
 
-#: templates/columns_definitions/column_definitions_form.twig:166
+#: templates/columns_definitions/column_definitions_form.twig:165
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
 
-#: templates/columns_definitions/column_definitions_form.twig:175
+#: templates/columns_definitions/column_definitions_form.twig:174
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
 #: templates/export.twig:81 templates/modals/add_index.twig:5
