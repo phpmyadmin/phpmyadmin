@@ -15,8 +15,6 @@ final class DropColumnConfirmationController extends AbstractController
 {
     public function __invoke(): void
     {
-        global $db, $table, $urlParams, $errorUrl, $cfg;
-
         $selected = $_POST['selected_fld'] ?? null;
 
         if (empty($selected)) {
@@ -28,11 +26,11 @@ final class DropColumnConfirmationController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $this->render('table/structure/drop_confirm', [
             'db' => $GLOBALS['db'],

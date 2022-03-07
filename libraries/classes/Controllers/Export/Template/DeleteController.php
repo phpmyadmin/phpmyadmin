@@ -32,8 +32,6 @@ final class DeleteController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         $templateId = (int) $request->getParsedBodyParam('templateId');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
@@ -44,7 +42,7 @@ final class DeleteController extends AbstractController
         $result = $this->model->delete(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $cfg['Server']['user'],
+            $GLOBALS['cfg']['Server']['user'],
             $templateId
         );
 

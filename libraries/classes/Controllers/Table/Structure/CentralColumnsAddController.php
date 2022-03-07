@@ -34,8 +34,6 @@ final class CentralColumnsAddController extends AbstractController
 
     public function __invoke(): void
     {
-        global $message;
-
         $selected = $_POST['selected_fld'] ?? [];
 
         if (empty($selected)) {
@@ -48,11 +46,11 @@ final class CentralColumnsAddController extends AbstractController
         $centralColsError = $this->centralColumns->syncUniqueColumns($selected, false);
 
         if ($centralColsError instanceof Message) {
-            $message = $centralColsError;
+            $GLOBALS['message'] = $centralColsError;
         }
 
-        if (empty($message)) {
-            $message = Message::success();
+        if (empty($GLOBALS['message'])) {
+            $GLOBALS['message'] = Message::success();
         }
 
         ($this->structureController)();

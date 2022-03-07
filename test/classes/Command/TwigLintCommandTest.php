@@ -28,15 +28,13 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function setUp(): void
     {
-        global $cfg, $config;
-
         if (! class_exists(Command::class)) {
             $this->markTestSkipped('The Symfony Console is missing');
         }
 
         parent::setUp();
-        $cfg['environment'] = 'development';
-        $config = null;
+        $GLOBALS['cfg']['environment'] = 'development';
+        $GLOBALS['config'] = null;
 
         $this->command = new TwigLintCommand();
     }

@@ -26,10 +26,8 @@ class Plugins
      */
     public function getAll(): array
     {
-        global $cfg;
-
         $sql = 'SHOW PLUGINS';
-        if (! $cfg['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql = 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME';
         }
 

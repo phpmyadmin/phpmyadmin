@@ -67,10 +67,8 @@ class Navigation
      */
     public function getDisplay(): string
     {
-        global $cfg;
-
         $logo = [
-            'is_displayed' => $cfg['NavigationDisplayLogo'],
+            'is_displayed' => $GLOBALS['cfg']['NavigationDisplayLogo'],
             'has_link' => false,
             'link' => '#',
             'attributes' => ' target="_blank" rel="noopener noreferrer"',
@@ -80,13 +78,13 @@ class Navigation
         $response = ResponseRenderer::getInstance();
         if (! $response->isAjax()) {
             $logo['source'] = $this->getLogoSource();
-            $logo['has_link'] = (string) $cfg['NavigationLogoLink'] !== '';
-            $logo['link'] = trim((string) $cfg['NavigationLogoLink']);
+            $logo['has_link'] = (string) $GLOBALS['cfg']['NavigationLogoLink'] !== '';
+            $logo['link'] = trim((string) $GLOBALS['cfg']['NavigationLogoLink']);
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
 
-            if ($cfg['NavigationLogoLinkWindow'] === 'main') {
+            if ($GLOBALS['cfg']['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
                     $hasStartChar = strpos($logo['link'], '?');
                     $logo['link'] .= Url::getCommon(
@@ -102,7 +100,7 @@ class Navigation
                 }
             }
 
-            if ($cfg['NavigationDisplayServers'] && count($cfg['Servers']) > 1) {
+            if ($GLOBALS['cfg']['NavigationDisplayServers'] && count($GLOBALS['cfg']['Servers']) > 1) {
                 $serverSelect = Select::render(true, true);
             }
 
@@ -114,7 +112,7 @@ class Navigation
         }
 
         if (! $response->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
-            if ($cfg['ShowDatabasesNavigationAsTree']) {
+            if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
                 $navRender = $this->tree->renderState();
             } else {
@@ -128,19 +126,19 @@ class Navigation
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
             'logo' => $logo,
-            'config_navigation_width' => $cfg['NavigationWidth'],
-            'is_synced' => $cfg['NavigationLinkWithMainPanel'],
-            'is_highlighted' => $cfg['NavigationTreePointerEnable'],
-            'is_autoexpanded' => $cfg['NavigationTreeAutoexpandSingleDb'],
+            'config_navigation_width' => $GLOBALS['cfg']['NavigationWidth'],
+            'is_synced' => $GLOBALS['cfg']['NavigationLinkWithMainPanel'],
+            'is_highlighted' => $GLOBALS['cfg']['NavigationTreePointerEnable'],
+            'is_autoexpanded' => $GLOBALS['cfg']['NavigationTreeAutoexpandSingleDb'],
             'server' => $GLOBALS['server'],
-            'auth_type' => $cfg['Server']['auth_type'],
-            'is_servers_displayed' => $cfg['NavigationDisplayServers'],
-            'servers' => $cfg['Servers'],
+            'auth_type' => $GLOBALS['cfg']['Server']['auth_type'],
+            'is_servers_displayed' => $GLOBALS['cfg']['NavigationDisplayServers'],
+            'servers' => $GLOBALS['cfg']['Servers'],
             'server_select' => $serverSelect ?? '',
             'navigation_tree' => $navRender,
             'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
             'navigation_settings' => $navigationSettings ?? '',
-            'is_drag_drop_import_enabled' => $cfg['enable_drag_drop_import'] === true,
+            'is_drag_drop_import_enabled' => $GLOBALS['cfg']['enable_drag_drop_import'] === true,
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }
@@ -288,15 +286,13 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        global $theme;
-
-        if ($theme instanceof Theme) {
-            if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {
-                return $theme->getPath() . '/img/logo_left.png';
+        if ($GLOBALS['theme'] instanceof Theme) {
+            if (@file_exists($GLOBALS['theme']->getFsPath() . 'img/logo_left.png')) {
+                return $GLOBALS['theme']->getPath() . '/img/logo_left.png';
             }
 
-            if (@file_exists($theme->getFsPath() . 'img/pma_logo2.png')) {
-                return $theme->getPath() . '/img/pma_logo2.png';
+            if (@file_exists($GLOBALS['theme']->getFsPath() . 'img/pma_logo2.png')) {
+                return $GLOBALS['theme']->getPath() . '/img/pma_logo2.png';
             }
         }
 

@@ -125,8 +125,6 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetDataRowAction(): void
     {
-        global $containerBuilder;
-
         parent::setGlobalDbi();
         parent::loadDbiIntoContainerBuilder();
         parent::loadResponseIntoContainerBuilder();
@@ -161,11 +159,11 @@ class SearchControllerTest extends AbstractTestCase
             ]
         );
 
-        $containerBuilder->setParameter('db', 'PMA');
-        $containerBuilder->setParameter('table', 'PMA_BookMark');
+        $GLOBALS['containerBuilder']->setParameter('db', 'PMA');
+        $GLOBALS['containerBuilder']->setParameter('table', 'PMA_BookMark');
 
         /** @var SearchController $ctrl */
-        $ctrl = $containerBuilder->get(SearchController::class);
+        $ctrl = $GLOBALS['containerBuilder']->get(SearchController::class);
 
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';

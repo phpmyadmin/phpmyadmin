@@ -37,6 +37,7 @@ class RoutinesTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['is_reload_priv'] = false;
+        $GLOBALS['errors'] = [];
 
         $this->routines = new Routines(
             $GLOBALS['dbi'],
@@ -1135,11 +1136,9 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
-        global $errors, $cfg;
+        $GLOBALS['cfg']['ShowFunctionFields'] = false;
 
-        $cfg['ShowFunctionFields'] = false;
-
-        $errors = [];
+        $GLOBALS['errors'] = [];
 
         $old_dbi = $GLOBALS['dbi'] ?? null;
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1180,7 +1179,7 @@ class RoutinesTest extends AbstractTestCase
         unset($_POST);
         $_POST = $request;
         $this->assertEquals($query, $routines->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        $this->assertCount($num_err, $GLOBALS['errors']);
 
         // reset
         $GLOBALS['dbi'] = $old_dbi;

@@ -23,9 +23,7 @@ final class ThemeSetController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg;
-
-        if (! $cfg['ThemeManager'] || ! isset($_POST['set_theme'])) {
+        if (! $GLOBALS['cfg']['ThemeManager'] || ! isset($_POST['set_theme'])) {
             $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
 
             return;

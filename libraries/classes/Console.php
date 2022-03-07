@@ -44,10 +44,8 @@ class Console
      */
     public function __construct()
     {
-        global $dbi;
-
         $this->isEnabled = true;
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
     }
 
@@ -75,16 +73,14 @@ class Console
      */
     public static function getBookmarkContent(): string
     {
-        global $dbi;
-
         $template = new Template();
-        $relation = new Relation($dbi);
+        $relation = new Relation($GLOBALS['dbi']);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
         if ($bookmarkFeature === null) {
             return '';
         }
 
-        $bookmarks = Bookmark::getList($bookmarkFeature, $dbi, $GLOBALS['cfg']['Server']['user']);
+        $bookmarks = Bookmark::getList($bookmarkFeature, $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user']);
         $count_bookmarks = count($bookmarks);
         if ($count_bookmarks > 0) {
             $welcomeMessage = sprintf(

@@ -27,8 +27,6 @@ class ShowEngineControllerTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setTheme();
 
-        global $dbi;
-
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -39,7 +37,7 @@ class ShowEngineControllerTest extends AbstractTestCase
         $request = $this->createMock(ServerRequest::class);
         $this->dummyDbi->addSelectDb('mysql');
 
-        (new ShowEngineController($response, new Template(), $dbi))($request, [
+        (new ShowEngineController($response, new Template(), $GLOBALS['dbi']))($request, [
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);

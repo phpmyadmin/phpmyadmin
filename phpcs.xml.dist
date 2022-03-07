@@ -25,6 +25,8 @@
         <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
     </rule>
 
+    <rule ref="Squiz.PHP.GlobalKeyword"/>
+
     <!-- Rules that should be followed, but are not required -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>4</severity>

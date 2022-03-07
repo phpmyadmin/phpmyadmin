@@ -88,23 +88,23 @@ class StructureController extends AbstractController
 
     public function __invoke(): void
     {
-        global $reread_info, $showtable, $db, $table, $cfg, $errorUrl;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-
         $this->dbi->selectDb($GLOBALS['db']);
-        $reread_info = $this->tableObj->getStatusInfo(null, true);
-        $showtable = $this->tableObj->getStatusInfo(null, (isset($reread_info) && $reread_info));
+        $GLOBALS['reread_info'] = $this->tableObj->getStatusInfo(null, true);
+        $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(
+            null,
+            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info'])
+        );
 
         if ($this->tableObj->isView()) {
-            $tbl_is_view = true;
-            $tbl_storage_engine = __('View');
+            $GLOBALS['tbl_is_view'] = true;
+            $GLOBALS['tbl_storage_engine'] = __('View');
         } else {
-            $tbl_is_view = false;
-            $tbl_storage_engine = $this->tableObj->getStorageEngine();
+            $GLOBALS['tbl_is_view'] = false;
+            $GLOBALS['tbl_storage_engine'] = $this->tableObj->getStorageEngine();
         }
 
-        $tbl_collation = $this->tableObj->getCollation();
-        $table_info_num_rows = $this->tableObj->getNumRows();
+        $GLOBALS['tbl_collation'] = $this->tableObj->getCollation();
+        $GLOBALS['table_info_num_rows'] = $this->tableObj->getNumRows();
 
         $pageSettings = new PageSettings('TableStructure');
         $this->response->addHTML($pageSettings->getErrorHTML());
@@ -119,12 +119,12 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $isSystemSchema = Utilities::isSystemSchema($db);
-        $url_params = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($url_params, '&');
+        $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
+        $url_params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($url_params, '&');
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $primary = Index::getPrimary($GLOBALS['table'], $GLOBALS['db']);
         $columns_with_index = $this->dbi
@@ -164,8 +164,6 @@ class StructureController extends AbstractController
         array $columns_with_index,
         bool $isSystemSchema
     ) {
-        global $tbl_is_view, $tbl_storage_engine;
-
         $route = Routing::getCurrentRoute();
 
         // prepare comments
@@ -259,9 +257,9 @@ class StructureController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'db_is_system_schema' => $isSystemSchema,
-            'tbl_is_view' => $tbl_is_view,
+            'tbl_is_view' => $GLOBALS['tbl_is_view'],
             'mime_map' => $mime_map,
-            'tbl_storage_engine' => $tbl_storage_engine,
+            'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,
             'columns_list' => $columns_list,
@@ -296,69 +294,70 @@ class StructureController extends AbstractController
      */
     protected function getTableStats(bool $isSystemSchema)
     {
-        global $showtable, $tbl_is_view;
-        global $tbl_storage_engine, $table_info_num_rows, $tbl_collation;
-
-        if (empty($showtable)) {
-            $showtable = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
+        if (empty($GLOBALS['showtable'])) {
+            $GLOBALS['showtable'] = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);
         }
 
-        if (is_string($showtable)) {
-            $showtable = [];
+        if (is_string($GLOBALS['showtable'])) {
+            $GLOBALS['showtable'] = [];
         }
 
-        if (empty($showtable['Data_length'])) {
-            $showtable['Data_length'] = 0;
+        if (empty($GLOBALS['showtable']['Data_length'])) {
+            $GLOBALS['showtable']['Data_length'] = 0;
         }
 
-        if (empty($showtable['Index_length'])) {
-            $showtable['Index_length'] = 0;
+        if (empty($GLOBALS['showtable']['Index_length'])) {
+            $GLOBALS['showtable']['Index_length'] = 0;
         }
 
-        $is_innodb = (isset($showtable['Type'])
-            && $showtable['Type'] === 'InnoDB');
+        $is_innodb = (isset($GLOBALS['showtable']['Type'])
+            && $GLOBALS['showtable']['Type'] === 'InnoDB');
 
         $mergetable = $this->tableObj->isMerge();
 
         // this is to display for example 261.2 MiB instead of 268k KiB
         $max_digits = 3;
         $decimals = 1;
-        [$data_size, $data_unit] = Util::formatByteDown($showtable['Data_length'], $max_digits, $decimals);
+        [$data_size, $data_unit] = Util::formatByteDown($GLOBALS['showtable']['Data_length'], $max_digits, $decimals);
         if ($mergetable === false) {
-            [$index_size, $index_unit] = Util::formatByteDown($showtable['Index_length'], $max_digits, $decimals);
+            [$index_size, $index_unit] = Util::formatByteDown(
+                $GLOBALS['showtable']['Index_length'],
+                $max_digits,
+                $decimals
+            );
         }
 
-        if (isset($showtable['Data_free'])) {
-            [$free_size, $free_unit] = Util::formatByteDown($showtable['Data_free'], $max_digits, $decimals);
+        if (isset($GLOBALS['showtable']['Data_free'])) {
+            [$free_size, $free_unit] = Util::formatByteDown($GLOBALS['showtable']['Data_free'], $max_digits, $decimals);
             [$effect_size, $effect_unit] = Util::formatByteDown(
-                $showtable['Data_length']
-                + $showtable['Index_length']
-                - $showtable['Data_free'],
+                $GLOBALS['showtable']['Data_length']
+                + $GLOBALS['showtable']['Index_length']
+                - $GLOBALS['showtable']['Data_free'],
                 $max_digits,
                 $decimals
             );
         } else {
             [$effect_size, $effect_unit] = Util::formatByteDown(
-                $showtable['Data_length']
-                + $showtable['Index_length'],
+                $GLOBALS['showtable']['Data_length']
+                + $GLOBALS['showtable']['Index_length'],
                 $max_digits,
                 $decimals
             );
         }
 
         [$tot_size, $tot_unit] = Util::formatByteDown(
-            $showtable['Data_length'] + $showtable['Index_length'],
+            $GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length'],
             $max_digits,
             $decimals
         );
 
         $avg_size = '';
         $avg_unit = '';
-        if ($table_info_num_rows > 0) {
+        if ($GLOBALS['table_info_num_rows'] > 0) {
             [$avg_size, $avg_unit] = Util::formatByteDown(
-                ($showtable['Data_length']
-                + $showtable['Index_length'])
-                / $showtable['Rows'],
+                ($GLOBALS['showtable']['Data_length']
+                + $GLOBALS['showtable']['Index_length'])
+                / $GLOBALS['showtable']['Rows'],
                 6,
                 1
             );
@@ -369,7 +368,11 @@ class StructureController extends AbstractController
         $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
 
         $tableCollation = [];
-        $collation = Charsets::findCollationByName($this->dbi, $GLOBALS['cfg']['Server']['DisableIS'], $tbl_collation);
+        $collation = Charsets::findCollationByName(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            $GLOBALS['tbl_collation']
+        );
         if ($collation !== null) {
             $tableCollation = [
                 'name' => $collation->getName(),
@@ -380,11 +383,11 @@ class StructureController extends AbstractController
         return $this->template->render('table/structure/display_table_stats', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'showtable' => $showtable,
-            'table_info_num_rows' => $table_info_num_rows,
-            'tbl_is_view' => $tbl_is_view,
+            'showtable' => $GLOBALS['showtable'],
+            'table_info_num_rows' => $GLOBALS['table_info_num_rows'],
+            'tbl_is_view' => $GLOBALS['tbl_is_view'],
             'db_is_system_schema' => $isSystemSchema,
-            'tbl_storage_engine' => $tbl_storage_engine,
+            'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
             'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,
             'mergetable' => $mergetable,

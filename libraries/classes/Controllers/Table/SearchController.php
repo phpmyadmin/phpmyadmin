@@ -171,15 +171,13 @@ class SearchController extends AbstractController
      */
     public function __invoke(): void
     {
-        global $db, $table, $urlParams, $cfg, $errorUrl;
-
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -283,23 +281,21 @@ class SearchController extends AbstractController
      */
     public function displaySelectionFormAction(): void
     {
-        global $goto, $cfg;
-
-        if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        if (! isset($GLOBALS['goto'])) {
+            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $this->render('table/search/index', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'goto' => $goto,
+            'goto' => $GLOBALS['goto'],
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
             'column_types' => $this->columnTypes,
             'column_collations' => $this->columnCollations,
-            'default_sliders_state' => $cfg['InitialSlidersState'],
-            'max_rows' => intval($cfg['MaxRows']),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
         ]);
     }
 

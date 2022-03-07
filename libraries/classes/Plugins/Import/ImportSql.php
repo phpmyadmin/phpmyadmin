@@ -38,14 +38,12 @@ class ImportSql extends ImportPlugin
 
     protected function setProperties(): ImportPluginProperties
     {
-        global $dbi;
-
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('SQL');
         $importPluginProperties->setExtension('sql');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $compats = $dbi->getCompatibilities();
+        $compats = $GLOBALS['dbi']->getCompatibilities();
         if (count($compats) > 0) {
             $values = [];
             foreach ($compats as $val) {
@@ -101,10 +99,8 @@ class ImportSql extends ImportPlugin
      */
     public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
-        global $error, $timeout_passed, $dbi;
-
         // Handle compatibility options.
-        $this->setSQLMode($dbi, $_REQUEST);
+        $this->setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {
@@ -118,7 +114,7 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while (! $error && (! $timeout_passed)) {
+        while (! $GLOBALS['error'] && (! $GLOBALS['timeout_passed'])) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
@@ -152,7 +148,7 @@ class ImportSql extends ImportPlugin
         }
 
         // Extracting remaining statements.
-        while (! $error && ! $timeout_passed && ! empty($bq->query)) {
+        while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed'] && ! empty($bq->query)) {
             $statement = $bq->extract(true);
             if (empty($statement)) {
                 continue;

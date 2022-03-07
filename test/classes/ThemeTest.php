@@ -28,13 +28,11 @@ class ThemeTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
-        global $theme;
-
         parent::setUp();
         parent::setTheme();
         $this->object = new Theme();
-        $this->backup = $theme;
-        $theme = $this->object;
+        $this->backup = $GLOBALS['theme'];
+        $GLOBALS['theme'] = $this->object;
         parent::setGlobalConfig();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = '99';
@@ -46,10 +44,8 @@ class ThemeTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
-        global $theme;
-
         parent::tearDown();
-        $theme = $this->backup;
+        $GLOBALS['theme'] = $this->backup;
     }
 
     /**

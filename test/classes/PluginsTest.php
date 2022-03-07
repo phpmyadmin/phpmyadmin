@@ -13,11 +13,9 @@ class PluginsTest extends AbstractTestCase
 {
     public function testGetExport(): void
     {
-        global $plugin_param;
-
         $GLOBALS['server'] = 1;
         $plugins = Plugins::getExport('database', false);
-        $this->assertEquals(['export_type' => 'database', 'single_table' => false], $plugin_param);
+        $this->assertEquals(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
         $this->assertIsArray($plugins);
         $this->assertCount(14, $plugins);
         $this->assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
@@ -25,10 +23,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetImport(): void
     {
-        global $plugin_param;
-
         $plugins = Plugins::getImport('database');
-        $this->assertEquals('database', $plugin_param);
+        $this->assertEquals('database', $GLOBALS['plugin_param']);
         $this->assertIsArray($plugins);
         $this->assertCount(6, $plugins);
         $this->assertContainsOnlyInstancesOf(Plugins\ImportPlugin::class, $plugins);
@@ -56,21 +52,19 @@ class PluginsTest extends AbstractTestCase
         string $option,
         ?bool $timeoutPassed
     ): void {
-        global $cfg, $strLatexContinued, $strLatexStructure, $timeout_passed;
-
         $_GET = [];
         $_REQUEST = [];
         if ($timeoutPassed !== null) {
-            $timeout_passed = $timeoutPassed;
+            $GLOBALS['timeout_passed'] = $timeoutPassed;
             $_REQUEST[$option] = $actualGet;
         } elseif ($actualGet !== null) {
             $_GET[$option] = $actualGet;
         }
 
-        $strLatexContinued = '(continued)';
-        $strLatexStructure = 'Structure of table @TABLE@';
+        $GLOBALS['strLatexContinued'] = '(continued)';
+        $GLOBALS['strLatexStructure'] = 'Structure of table @TABLE@';
         /** @psalm-suppress InvalidArrayOffset, PossiblyInvalidArrayAssignment */
-        $cfg[$section][$option] = $actualConfig;
+        $GLOBALS['cfg'][$section][$option] = $actualConfig;
         $default = Plugins::getDefault($section, $option);
         $this->assertSame($expected, $default);
     }
@@ -102,10 +96,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetChoice(): void
     {
-        global $plugin_param;
-
         $GLOBALS['server'] = 1;
-        $plugin_param = ['export_type' => 'database', 'single_table' => false];
+        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $exportList = [
             new Plugins\Export\ExportJson(),
             new Plugins\Export\ExportOds(),

@@ -34,13 +34,11 @@ final class SlowLogController extends AbstractController
 
     public function __invoke(): void
     {
-        global $errorUrl;
-
         $params = [
             'time_start' => $_POST['time_start'] ?? null,
             'time_end' => $_POST['time_end'] ?? null,
         ];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

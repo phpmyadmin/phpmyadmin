@@ -17,10 +17,8 @@ class CryptoTest extends AbstractTestCase
 {
     public function testWithValidKeyFromConfig(): void
     {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
@@ -31,10 +29,8 @@ class CryptoTest extends AbstractTestCase
 
     public function testWithValidKeyFromSession(): void
     {
-        global $config;
-
         $_SESSION = ['URLQueryEncryptionSecretKey' => str_repeat('a', 32)];
-        $config->set('URLQueryEncryptionSecretKey', '');
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', '');
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
@@ -45,10 +41,8 @@ class CryptoTest extends AbstractTestCase
 
     public function testWithNewSessionKey(): void
     {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryptionSecretKey', '');
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', '');
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
@@ -60,17 +54,15 @@ class CryptoTest extends AbstractTestCase
 
     public function testDecryptWithInvalidKey(): void
     {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
         $this->assertNotSame('test', $encrypted);
         $this->assertSame('test', $crypto->decrypt($encrypted));
 
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('b', 32));
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('b', 32));
 
         $crypto = new Crypto();
         $this->assertNull($crypto->decrypt($encrypted));

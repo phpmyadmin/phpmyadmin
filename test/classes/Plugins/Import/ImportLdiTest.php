@@ -31,6 +31,19 @@ class ImportLdiTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['charset_conversion'] = null;
+        $GLOBALS['ldi_terminated'] = null;
+        $GLOBALS['ldi_escaped'] = null;
+        $GLOBALS['ldi_columns'] = null;
+        $GLOBALS['ldi_enclosed'] = null;
+        $GLOBALS['ldi_new_line'] = null;
+        $GLOBALS['import_run_buffer'] = null;
+        $GLOBALS['max_sql_len'] = null;
+        $GLOBALS['sql_query'] = '';
+        $GLOBALS['executed_queries'] = null;
+        $GLOBALS['skip_queries'] = null;
+        $GLOBALS['run_query'] = null;
+        $GLOBALS['go_sql'] = null;
         //setting
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'table';
@@ -139,8 +152,8 @@ class ImportLdiTest extends AbstractTestCase
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
-        global $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
          *
@@ -160,7 +173,7 @@ class ImportLdiTest extends AbstractTestCase
         //asset that all sql are executed
         $this->assertStringContainsString(
             'LOAD DATA INFILE \'test/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
-            $sql_query
+            $GLOBALS['sql_query']
         );
 
         $this->assertTrue($GLOBALS['finished']);
@@ -173,8 +186,7 @@ class ImportLdiTest extends AbstractTestCase
      */
     public function testDoImportInvalidFile(): void
     {
-        global $import_file;
-        $import_file = 'none';
+        $GLOBALS['import_file'] = 'none';
 
         //Test function called
         $this->object->doImport();
@@ -195,12 +207,9 @@ class ImportLdiTest extends AbstractTestCase
      */
     public function testDoImportLDISetting(): void
     {
-        global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
-        $ldi_enclosed, $ldi_new_line, $skip_queries;
-
         //$sql_query_disabled will show the import SQL detail
-        global $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
          *
@@ -211,13 +220,13 @@ class ImportLdiTest extends AbstractTestCase
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
-        $ldi_local_option = true;
-        $ldi_replace = true;
-        $ldi_ignore = true;
-        $ldi_terminated = ',';
-        $ldi_enclosed = ')';
-        $ldi_new_line = 'newline_mark';
-        $skip_queries = true;
+        $GLOBALS['ldi_local_option'] = true;
+        $GLOBALS['ldi_replace'] = true;
+        $GLOBALS['ldi_ignore'] = true;
+        $GLOBALS['ldi_terminated'] = ',';
+        $GLOBALS['ldi_enclosed'] = ')';
+        $GLOBALS['ldi_new_line'] = 'newline_mark';
+        $GLOBALS['skip_queries'] = true;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -229,17 +238,17 @@ class ImportLdiTest extends AbstractTestCase
         //replace
         $this->assertStringContainsString(
             'LOAD DATA LOCAL INFILE \'test/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
-            $sql_query
+            $GLOBALS['sql_query']
         );
 
         //FIELDS TERMINATED
-        $this->assertStringContainsString("FIELDS TERMINATED BY ','", $sql_query);
+        $this->assertStringContainsString("FIELDS TERMINATED BY ','", $GLOBALS['sql_query']);
 
         //LINES TERMINATED
-        $this->assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $sql_query);
+        $this->assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $GLOBALS['sql_query']);
 
         //IGNORE
-        $this->assertStringContainsString('IGNORE 1 LINES', $sql_query);
+        $this->assertStringContainsString('IGNORE 1 LINES', $GLOBALS['sql_query']);
 
         $this->assertTrue($GLOBALS['finished']);
     }

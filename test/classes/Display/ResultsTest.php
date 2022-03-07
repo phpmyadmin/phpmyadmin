@@ -56,6 +56,7 @@ class ResultsTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
+        $this->setTheme();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -1365,18 +1366,16 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable(): void
     {
-        global $db, $table;
-
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
-        $db = 'test_db';
-        $table = 'test_table';
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
         $fieldsMeta = [
             new FieldMetadata(
                 MYSQLI_TYPE_DECIMAL,
@@ -1540,8 +1539,8 @@ class ResultsTest extends AbstractTestCase
                 'number_total_page' => 1,
                 'has_show_all' => true,
                 'hidden_fields' => [
-                    'db' => $db,
-                    'table' => $table,
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
                     'server' => 1,
                     'sql_query' => $query,
                     'is_browse_distinct' => false,
@@ -1553,8 +1552,8 @@ class ResultsTest extends AbstractTestCase
                 'pos' => 0,
                 'sort_by_key' => [
                     'hidden_fields' => [
-                        'db' => $db,
-                        'table' => $table,
+                        'db' => $GLOBALS['db'],
+                        'table' => $GLOBALS['table'],
                         'server' => 1,
                         'sort_by_key' => '1',
                         'session_max_rows' => 25,
@@ -1619,16 +1618,16 @@ class ResultsTest extends AbstractTestCase
                 'has_print_link' => true,
                 'has_export_link' => true,
                 'url_params' => [
-                    'db' => $db,
-                    'table' => $table,
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
                     'printview' => '1',
                     'sql_query' => $query,
                     'single_table' => 'true',
                     'unlim_num_rows' => 3,
                 ],
             ],
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'unique_id' => 1234567890,
             'sql_query' => $query,
             'goto' => '',
@@ -1645,18 +1644,16 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable2(): void
     {
-        global $db, $table;
-
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
-        $db = 'test_db';
-        $table = 'test_table';
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
         $query = 'SELECT COUNT(*) AS `Rows`, `name` FROM `test_table` GROUP BY `name` ORDER BY `name`';
 
-        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
         $fieldsMeta = [
             new FieldMetadata(
                 MYSQLI_TYPE_LONG,
@@ -1796,8 +1793,8 @@ class ResultsTest extends AbstractTestCase
                 'number_total_page' => 1,
                 'has_show_all' => true,
                 'hidden_fields' => [
-                    'db' => $db,
-                    'table' => $table,
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
                     'server' => 1,
                     'sql_query' => $query,
                     'is_browse_distinct' => true,
@@ -1842,16 +1839,16 @@ class ResultsTest extends AbstractTestCase
                 'has_print_link' => true,
                 'has_export_link' => true,
                 'url_params' => [
-                    'db' => $db,
-                    'table' => $table,
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
                     'printview' => '1',
                     'sql_query' => $query,
                     'single_table' => 'true',
                     'unlim_num_rows' => 2,
                 ],
             ],
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'unique_id' => 1234567890,
             'sql_query' => $query,
             'goto' => '',

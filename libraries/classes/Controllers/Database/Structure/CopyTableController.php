@@ -35,15 +35,13 @@ final class CopyTableController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $message;
-
         $selected = $_POST['selected'] ?? [];
         $targetDb = $_POST['target_db'] ?? null;
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
             Table::moveCopy(
-                $db,
+                $GLOBALS['db'],
                 $selected[$i],
                 $targetDb,
                 $selected[$i],
@@ -57,13 +55,13 @@ final class CopyTableController extends AbstractController
                 continue;
             }
 
-            $this->operations->adjustPrivilegesCopyTable($db, $selected[$i], $targetDb, $selected[$i]);
+            $this->operations->adjustPrivilegesCopyTable($GLOBALS['db'], $selected[$i], $targetDb, $selected[$i]);
         }
 
-        $message = Message::success();
+        $GLOBALS['message'] = Message::success();
 
         if (empty($_POST['message'])) {
-            $_POST['message'] = $message;
+            $_POST['message'] = $GLOBALS['message'];
         }
 
         ($this->structureController)();

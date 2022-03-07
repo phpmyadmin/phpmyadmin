@@ -37,19 +37,17 @@ class UserPasswordController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $hostname, $username, $password, $change_password_message, $msg;
-
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         /**
          * Displays an error message and exits if the user isn't allowed to use this
          * script
          */
-        if (! $cfg['ShowChgPassword']) {
-            $cfg['ShowChgPassword'] = $this->dbi->selectDb('mysql');
+        if (! $GLOBALS['cfg']['ShowChgPassword']) {
+            $GLOBALS['cfg']['ShowChgPassword'] = $this->dbi->selectDb('mysql');
         }
 
-        if ($cfg['Server']['auth_type'] === 'config' || ! $cfg['ShowChgPassword']) {
+        if ($GLOBALS['cfg']['Server']['auth_type'] === 'config' || ! $GLOBALS['cfg']['ShowChgPassword']) {
             $this->response->addHTML(Message::error(
                 __('You don\'t have sufficient privileges to be here right now!')
             )->getDisplay());
@@ -63,33 +61,37 @@ class UserPasswordController extends AbstractController
          */
         if (isset($_POST['nopass'])) {
             if ($_POST['nopass'] == '1') {
-                $password = '';
+                $GLOBALS['password'] = '';
             } else {
-                $password = $_POST['pma_pw'];
+                $GLOBALS['password'] = $_POST['pma_pw'];
             }
 
-            $change_password_message = $this->userPassword->setChangePasswordMsg();
-            $msg = $change_password_message['msg'];
+            $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg();
+            $GLOBALS['msg'] = $GLOBALS['change_password_message']['msg'];
 
-            if (! $change_password_message['error']) {
-                $sql_query = $this->userPassword->changePassword($password);
+            if (! $GLOBALS['change_password_message']['error']) {
+                $sql_query = $this->userPassword->changePassword($GLOBALS['password']);
 
                 if ($this->response->isAjax()) {
-                    $sql_query = Generator::getMessage($change_password_message['msg'], $sql_query, 'success');
+                    $sql_query = Generator::getMessage(
+                        $GLOBALS['change_password_message']['msg'],
+                        $sql_query,
+                        'success'
+                    );
                     $this->response->addJSON('message', $sql_query);
 
                     return;
                 }
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
-                $this->response->addHTML(Generator::getMessage($msg, $sql_query, 'success'));
+                $this->response->addHTML(Generator::getMessage($GLOBALS['msg'], $sql_query, 'success'));
                 $this->render('user_password');
 
                 return;
             }
 
             if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $change_password_message['msg']);
+                $this->response->addJSON('message', $GLOBALS['change_password_message']['msg']);
                 $this->response->setRequestStatus(false);
 
                 return;
@@ -102,10 +104,13 @@ class UserPasswordController extends AbstractController
          */
 
         // Displays an error message if required
-        if (isset($msg)) {
-            $this->response->addHTML($msg->getDisplay());
+        if (isset($GLOBALS['msg'])) {
+            $this->response->addHTML($GLOBALS['msg']->getDisplay());
         }
 
-        $this->response->addHTML($this->userPassword->getFormForChangePassword($username, $hostname));
+        $this->response->addHTML($this->userPassword->getFormForChangePassword(
+            $GLOBALS['username'],
+            $GLOBALS['hostname']
+        ));
     }
 }

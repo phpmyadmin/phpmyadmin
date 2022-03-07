@@ -28,9 +28,6 @@ class SearchController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db, $errorUrl, $urlParams, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $tooltip_truename, $tooltip_aliasname, $pos;
-
         $this->addScriptFiles([
             'database/search.js',
             'vendor/stickyfill.min.js',
@@ -40,39 +37,39 @@ class SearchController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
         // If config variable $cfg['UseDbSearch'] is on false : exit.
-        if (! $cfg['UseDbSearch']) {
+        if (! $GLOBALS['cfg']['UseDbSearch']) {
             Generator::mysqlDie(
                 __('Access denied!'),
                 '',
                 false,
-                $errorUrl
+                $GLOBALS['errorUrl']
             );
         }
 
-        $urlParams['goto'] = Url::getFromRoute('/database/search');
+        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance
-        $databaseSearch = new Search($this->dbi, $db, $this->template);
+        $databaseSearch = new Search($this->dbi, $GLOBALS['db'], $this->template);
 
         // Display top links if we are not in an Ajax request
         if (! $this->response->isAjax()) {
             [
-                $tables,
-                $num_tables,
-                $total_num_tables,
-                $sub_part,,,
-                $tooltip_truename,
-                $tooltip_aliasname,
-                $pos,
-            ] = Util::getDbInfo($db, $sub_part ?? '');
+                $GLOBALS['tables'],
+                $GLOBALS['num_tables'],
+                $GLOBALS['total_num_tables'],
+                $GLOBALS['sub_part'],,,
+                $GLOBALS['tooltip_truename'],
+                $GLOBALS['tooltip_aliasname'],
+                $GLOBALS['pos'],
+            ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part'] ?? '');
         }
 
         // Main search form has been submitted, get results

@@ -45,14 +45,12 @@ class ImportController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $cf, $error, $tabHash, $hash, $server;
-
         $route = Routing::getCurrentRoute();
 
-        $cf = new ConfigFile($this->config->baseSettings);
-        $this->userPreferences->pageInit($cf);
+        $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
+        $this->userPreferences->pageInit($GLOBALS['cf']);
 
-        $formDisplay = new ImportForm($cf, 1);
+        $formDisplay = new ImportForm($GLOBALS['cf'], 1);
 
         if (isset($_POST['revert'])) {
             // revert erroneous fields to their default values
@@ -62,25 +60,25 @@ class ImportController extends AbstractController
             return;
         }
 
-        $error = null;
+        $GLOBALS['error'] = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
-            $twoFactor = new TwoFactor($cfg['Server']['user']);
+            $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
             // save settings
-            $result = $this->userPreferences->save($cf->getConfigArray());
+            $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
             // save back the 2FA setting only
             $twoFactor->save();
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences();
-                $tabHash = $_POST['tab_hash'] ?? null;
-                $hash = ltrim($tabHash, '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/import', null, $hash);
+                $GLOBALS['tabHash'] = $_POST['tab_hash'] ?? null;
+                $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
+                $this->userPreferences->redirect('index.php?route=/preferences/import', null, $GLOBALS['hash']);
 
                 return;
             }
 
-            $error = $result;
+            $GLOBALS['error'] = $result;
         }
 
         $this->addScriptFiles(['config.js']);
@@ -98,13 +96,13 @@ class ImportController extends AbstractController
         }
 
         $this->render('preferences/forms/main', [
-            'error' => $error ? $error->getDisplay() : '',
+            'error' => $GLOBALS['error'] ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors ?? null,
             'form' => $formDisplay->getDisplay(
                 true,
                 Url::getFromRoute('/preferences/import'),
-                ['server' => $server]
+                ['server' => $GLOBALS['server']]
             ),
         ]);
 

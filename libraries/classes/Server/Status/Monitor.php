@@ -506,8 +506,6 @@ class Monitor
         string $database,
         string $query
     ): array {
-        global $cached_affected_rows;
-
         $return = [];
 
         if (strlen($database) > 0) {
@@ -524,7 +522,7 @@ class Monitor
         $sqlQuery = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $query);
 
         $this->dbi->tryQuery($sqlQuery);
-        $return['affectedRows'] = $cached_affected_rows;
+        $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
         $result = $this->dbi->tryQuery('EXPLAIN ' . $sqlQuery);
         if ($result !== false) {

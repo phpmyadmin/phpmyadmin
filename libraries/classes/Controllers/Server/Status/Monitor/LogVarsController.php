@@ -34,13 +34,11 @@ final class LogVarsController extends AbstractController
 
     public function __invoke(): void
     {
-        global $errorUrl;
-
         $params = [
             'varName' => $_POST['varName'] ?? null,
             'varValue' => $_POST['varValue'] ?? null,
         ];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

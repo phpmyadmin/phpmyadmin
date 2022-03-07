@@ -148,16 +148,14 @@ class HeaderTest extends AbstractTestCase
         string $expectedXCsp,
         string $expectedWebKitCsp
     ): void {
-        global $cfg;
-
         $header = new Header();
         $date = (string) gmdate(DATE_RFC1123);
 
-        $cfg['AllowThirdPartyFraming'] = $frameOptions;
-        $cfg['CSPAllow'] = $cspAllow;
-        $cfg['CaptchaLoginPrivateKey'] = $privateKey;
-        $cfg['CaptchaLoginPublicKey'] = $publicKey;
-        $cfg['CaptchaCsp'] = $captchaCsp;
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = $frameOptions;
+        $GLOBALS['cfg']['CSPAllow'] = $cspAllow;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = $privateKey;
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = $publicKey;
+        $GLOBALS['cfg']['CaptchaCsp'] = $captchaCsp;
 
         $expected = [
             'X-Frame-Options' => $expectedFrameOptions,

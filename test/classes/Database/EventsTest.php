@@ -310,9 +310,7 @@ class EventsTest extends AbstractTestCase
      */
     public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
-        global $errors;
-
-        $errors = [];
+        $GLOBALS['errors'] = [];
 
         unset($_POST);
         $_POST = $request;
@@ -326,7 +324,7 @@ class EventsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals($query, $this->events->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        $this->assertCount($num_err, $GLOBALS['errors']);
     }
 
     /**

@@ -44,9 +44,8 @@ class ExportOdt extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        global $plugin_param;
         $hide_structure = false;
-        if ($plugin_param['export_type'] === 'table' && ! $plugin_param['single_table']) {
+        if ($GLOBALS['plugin_param']['export_type'] === 'table' && ! $GLOBALS['plugin_param']['single_table']) {
             $hide_structure = true;
         }
 
@@ -227,16 +226,18 @@ class ExportOdt extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
-        global $what, $dbi;
-
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
-        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $GLOBALS['dbi']->query(
+            $sqlQuery,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_UNBUFFERED
+        );
         $fields_cnt = $result->numFields();
         /** @var FieldMetadata[] $fieldsMeta */
-        $fieldsMeta = $dbi->getFieldsMeta($result);
+        $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
 
         $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
             . ' text:is-list-header="true">';
@@ -250,7 +251,7 @@ class ExportOdt extends ExportPlugin
             . ' table:number-columns-repeated="' . $fields_cnt . '"/>';
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS[$what . '_columns'])) {
+        if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
                 $col_as = $field->name;
@@ -280,7 +281,7 @@ class ExportOdt extends ExportPlugin
                 if (! isset($row[$j])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
-                        . htmlspecialchars($GLOBALS[$what . '_null'])
+                        . htmlspecialchars($GLOBALS[$GLOBALS['what'] . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isBinary && $fieldsMeta[$j]->isBlob) {
@@ -340,15 +341,13 @@ class ExportOdt extends ExportPlugin
      */
     public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
-        global $dbi;
-
         $db_alias = $db;
         $view_alias = $view;
         $this->initAlias($aliases, $db_alias, $view_alias);
         /**
          * Gets fields properties
          */
-        $dbi->selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         /**
          * Displays the table structure
@@ -374,7 +373,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $columns = $dbi->getColumns($db, $view);
+        $columns = $GLOBALS['dbi']->getColumns($db, $view);
         foreach ($columns as $column) {
             $col_as = $column['Field'] ?? null;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
@@ -423,8 +422,6 @@ class ExportOdt extends ExportPlugin
         $view = false,
         array $aliases = []
     ): bool {
-        global $dbi;
-
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -434,7 +431,7 @@ class ExportOdt extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $dbi->selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
@@ -498,7 +495,7 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
-        $columns = $dbi->getColumns($db, $table);
+        $columns = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($columns as $column) {
             $col_as = $field_name = $column['Field'];
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -577,8 +574,6 @@ class ExportOdt extends ExportPlugin
      */
     protected function getTriggers($db, $table, array $aliases = [])
     {
-        global $dbi;
-
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -601,7 +596,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $triggers = $dbi->getTriggers($db, $table);
+        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
@@ -666,8 +661,6 @@ class ExportOdt extends ExportPlugin
         $dates = false,
         array $aliases = []
     ): bool {
-        global $dbi;
-
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -693,7 +686,7 @@ class ExportOdt extends ExportPlugin
                 );
                 break;
             case 'triggers':
-                $triggers = $dbi->getTriggers($db, $table);
+                $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
                 if ($triggers) {
                     $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                     . ' text:is-list-header="true">'

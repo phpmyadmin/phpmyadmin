@@ -35,8 +35,6 @@ final class RemoveController extends AbstractController
 
     public function __invoke(): void
     {
-        global $message;
-
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -49,7 +47,7 @@ final class RemoveController extends AbstractController
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->deleteColumnsFromList($_POST['db'], $selected);
 
-        $message = $error instanceof Message ? $error : Message::success(__('Success!'));
+        $GLOBALS['message'] = $error instanceof Message ? $error : Message::success(__('Success!'));
 
         unset($_POST['submit_mult']);
 

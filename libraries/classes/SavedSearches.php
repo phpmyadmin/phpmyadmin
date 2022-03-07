@@ -232,8 +232,6 @@ class SavedSearches
      */
     public function save(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
-        global $dbi;
-
         if ($this->getSearchName() == null) {
             $message = Message::error(
                 __('Please provide a name for this bookmarked search.')
@@ -266,7 +264,7 @@ class SavedSearches
         //If it's an insert.
         if ($this->getId() === null) {
             $wheres = [
-                "search_name = '" . $dbi->escapeString($this->getSearchName())
+                "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName())
                 . "'",
             ];
             $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
@@ -285,15 +283,15 @@ class SavedSearches
             $sqlQuery = 'INSERT INTO ' . $savedSearchesTbl
                 . '(`username`, `db_name`, `search_name`, `search_data`)'
                 . ' VALUES ('
-                . "'" . $dbi->escapeString($this->getUsername()) . "',"
-                . "'" . $dbi->escapeString($this->getDbname()) . "',"
-                . "'" . $dbi->escapeString($this->getSearchName()) . "',"
-                . "'" . $dbi->escapeString(json_encode($this->getCriterias()))
+                . "'" . $GLOBALS['dbi']->escapeString($this->getUsername()) . "',"
+                . "'" . $GLOBALS['dbi']->escapeString($this->getDbname()) . "',"
+                . "'" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "',"
+                . "'" . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias()))
                 . "')";
 
-            $dbi->queryAsControlUser($sqlQuery);
+            $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
 
-            $this->setId($dbi->insertId());
+            $this->setId($GLOBALS['dbi']->insertId());
 
             return true;
         }
@@ -301,7 +299,7 @@ class SavedSearches
         //Else, it's an update.
         $wheres = [
             'id != ' . $this->getId(),
-            "search_name = '" . $dbi->escapeString($this->getSearchName()) . "'",
+            "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'",
         ];
         $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
@@ -318,12 +316,12 @@ class SavedSearches
 
         $sqlQuery = 'UPDATE ' . $savedSearchesTbl
             . "SET `search_name` = '"
-            . $dbi->escapeString($this->getSearchName()) . "', "
+            . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "', "
             . "`search_data` = '"
-            . $dbi->escapeString(json_encode($this->getCriterias())) . "' "
+            . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias())) . "' "
             . 'WHERE id = ' . $this->getId();
 
-        return (bool) $dbi->queryAsControlUser($sqlQuery);
+        return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -331,8 +329,6 @@ class SavedSearches
      */
     public function delete(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
-        global $dbi;
-
         if ($this->getId() == null) {
             $message = Message::error(
                 __('Missing information to delete the search.')
@@ -348,9 +344,9 @@ class SavedSearches
             . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
-            . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "'";
+            . "WHERE id = '" . $GLOBALS['dbi']->escapeString((string) $this->getId()) . "'";
 
-        return (bool) $dbi->queryAsControlUser($sqlQuery);
+        return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -358,8 +354,6 @@ class SavedSearches
      */
     public function load(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
-        global $dbi;
-
         if ($this->getId() == null) {
             $message = Message::error(
                 __('Missing information to load the search.')
@@ -376,9 +370,9 @@ class SavedSearches
             . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
         $sqlQuery = 'SELECT id, search_name, search_data '
             . 'FROM ' . $savedSearchesTbl . ' '
-            . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "' ";
+            . "WHERE id = '" . $GLOBALS['dbi']->escapeString((string) $this->getId()) . "' ";
 
-        $resList = $dbi->queryAsControlUser($sqlQuery);
+        $resList = $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
         $oneResult = $resList->fetchAssoc();
 
         if ($oneResult === []) {
@@ -405,8 +399,6 @@ class SavedSearches
      */
     public function getList(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature, array $wheres = [])
     {
-        global $dbi;
-
         if ($this->getUsername() == null || $this->getDbname() == null) {
             return [];
         }
@@ -417,8 +409,8 @@ class SavedSearches
         $sqlQuery = 'SELECT id, search_name '
             . 'FROM ' . $savedSearchesTbl . ' '
             . 'WHERE '
-            . "username = '" . $dbi->escapeString($this->getUsername()) . "' "
-            . "AND db_name = '" . $dbi->escapeString($this->getDbname()) . "' ";
+            . "username = '" . $GLOBALS['dbi']->escapeString($this->getUsername()) . "' "
+            . "AND db_name = '" . $GLOBALS['dbi']->escapeString($this->getDbname()) . "' ";
 
         foreach ($wheres as $where) {
             $sqlQuery .= 'AND ' . $where . ' ';
@@ -426,7 +418,7 @@ class SavedSearches
 
         $sqlQuery .= 'order by search_name ASC ';
 
-        $resList = $dbi->queryAsControlUser($sqlQuery);
+        $resList = $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
 
         return $resList->fetchAllKeyPair();
     }

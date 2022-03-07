@@ -302,8 +302,6 @@ class ResponseRenderer
      */
     private function ajaxResponse(): string
     {
-        global $dbi;
-
         /* Avoid wrapping in case we're disabled */
         if ($this->isDisabled) {
             return $this->getDisplay();
@@ -328,7 +326,7 @@ class ResponseRenderer
                 $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
             }
 
-            if (isset($dbi)) {
+            if (isset($GLOBALS['dbi'])) {
                 $this->addJSON('menu', $this->getHeader()->getMenu()->getDisplay());
             }
 

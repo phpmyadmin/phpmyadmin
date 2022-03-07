@@ -58,14 +58,12 @@ class CreateController extends AbstractController
 
     public function __invoke(): void
     {
-        global $num_fields, $sql_query, $result, $db, $table;
-
         Util::checkParameters(['db']);
 
         $cfg = $this->config->settings;
 
         /* Check if database name is empty */
-        if (strlen($db) === 0) {
+        if (strlen($GLOBALS['db']) === 0) {
             Generator::mysqlDie(
                 __('The database name is empty!'),
                 '',
@@ -77,28 +75,28 @@ class CreateController extends AbstractController
         /**
          * Selects the database to work with
          */
-        if (! $this->dbi->selectDb($db)) {
+        if (! $this->dbi->selectDb($GLOBALS['db'])) {
             Generator::mysqlDie(
-                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
+                sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($GLOBALS['db'])),
                 '',
                 false,
                 'index.php'
             );
         }
 
-        if ($this->dbi->getColumns($db, $table)) {
+        if ($this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'])) {
             // table exists already
             Generator::mysqlDie(
-                sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
+                sprintf(__('Table %s already exists!'), htmlspecialchars($GLOBALS['table'])),
                 '',
                 false,
-                Url::getFromRoute('/database/structure', ['db' => $db])
+                Url::getFromRoute('/database/structure', ['db' => $GLOBALS['db']])
             );
         }
 
         $createAddField = new CreateAddField($this->dbi);
 
-        $num_fields = $createAddField->getNumberOfFieldsFromRequest();
+        $GLOBALS['num_fields'] = $createAddField->getNumberOfFieldsFromRequest();
 
         /**
          * The form used to define the structure of the table has been submitted
@@ -106,23 +104,23 @@ class CreateController extends AbstractController
         if (isset($_POST['do_save_data'])) {
             // lower_case_table_names=1 `DB` becomes `db`
             if ($this->dbi->getLowerCaseNames() === '1') {
-                $db = mb_strtolower($db);
-                $table = mb_strtolower($table);
+                $GLOBALS['db'] = mb_strtolower($GLOBALS['db']);
+                $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
             }
 
-            $sql_query = $createAddField->getTableCreationQuery($db, $table);
+            $GLOBALS['sql_query'] = $createAddField->getTableCreationQuery($GLOBALS['db'], $GLOBALS['table']);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
-                Core::previewSQL($sql_query);
+                Core::previewSQL($GLOBALS['sql_query']);
 
                 return;
             }
 
             // Executes the query
-            $result = $this->dbi->tryQuery($sql_query);
+            $GLOBALS['result'] = $this->dbi->tryQuery($GLOBALS['sql_query']);
 
-            if ($result) {
+            if ($GLOBALS['result']) {
                 // Update comment table for mime types [MIME]
                 if (isset($_POST['field_mimetype']) && is_array($_POST['field_mimetype']) && $cfg['BrowseMIME']) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
@@ -134,8 +132,8 @@ class CreateController extends AbstractController
                         }
 
                         $this->transformations->setMime(
-                            $db,
-                            $table,
+                            $GLOBALS['db'],
+                            $GLOBALS['table'],
                             $_POST['field_name'][$fieldindex],
                             $mimetype,
                             $_POST['field_transformation'][$fieldindex],
@@ -158,7 +156,7 @@ class CreateController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
-        $templateData = $this->columnsDefinition->displayForm('/table/create', $num_fields);
+        $templateData = $this->columnsDefinition->displayForm('/table/create', $GLOBALS['num_fields']);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

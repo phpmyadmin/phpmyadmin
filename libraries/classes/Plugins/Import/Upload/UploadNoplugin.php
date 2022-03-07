@@ -39,14 +39,12 @@ class UploadNoplugin implements UploadInterface
      */
     public static function getUploadStatus($id)
     {
-        global $SESSION_KEY;
-
         if (trim($id) == '') {
             return null;
         }
 
-        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
-            $_SESSION[$SESSION_KEY][$id] = [
+        if (! array_key_exists($id, $_SESSION[$GLOBALS['SESSION_KEY']])) {
+            $_SESSION[$GLOBALS['SESSION_KEY']][$id] = [
                 'id' => $id,
                 'finished' => false,
                 'percent' => 0,
@@ -56,6 +54,6 @@ class UploadNoplugin implements UploadInterface
             ];
         }
 
-        return $_SESSION[$SESSION_KEY][$id];
+        return $_SESSION[$GLOBALS['SESSION_KEY']][$id];
     }
 }

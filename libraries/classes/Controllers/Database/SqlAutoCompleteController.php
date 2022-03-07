@@ -27,20 +27,18 @@ class SqlAutoCompleteController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db, $sql_autocomplete;
-
-        $sql_autocomplete = true;
-        if ($cfg['EnableAutocompleteForTablesAndColumns']) {
-            $db = $_POST['db'] ?? $db;
-            $sql_autocomplete = [];
-            if ($db) {
-                $tableNames = $this->dbi->getTables($db);
+        $GLOBALS['sql_autocomplete'] = true;
+        if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
+            $GLOBALS['db'] = $_POST['db'] ?? $GLOBALS['db'];
+            $GLOBALS['sql_autocomplete'] = [];
+            if ($GLOBALS['db']) {
+                $tableNames = $this->dbi->getTables($GLOBALS['db']);
                 foreach ($tableNames as $tableName) {
-                    $sql_autocomplete[$tableName] = $this->dbi->getColumns($db, $tableName);
+                    $GLOBALS['sql_autocomplete'][$tableName] = $this->dbi->getColumns($GLOBALS['db'], $tableName);
                 }
             }
         }
 
-        $this->response->addJSON(['tables' => json_encode($sql_autocomplete)]);
+        $this->response->addJSON(['tables' => json_encode($GLOBALS['sql_autocomplete'])]);
     }
 }

@@ -68,8 +68,6 @@ final class ColumnsDefinition
         ?array $selected = null,
         $fields_meta = null
     ): array {
-        global $db, $table, $cfg, $col_priv, $is_reload_priv, $mime_map;
-
         Util::checkParameters([
             'server',
             'db',
@@ -79,7 +77,7 @@ final class ColumnsDefinition
 
         $length_values_input_size = 8;
         $content_cells = [];
-        $form_params = ['db' => $db];
+        $form_params = ['db' => $GLOBALS['db']];
 
         if ($action === '/table/create') {
             $form_params['reload'] = 1;
@@ -96,7 +94,7 @@ final class ColumnsDefinition
                 }
             }
 
-            $form_params['table'] = $table;
+            $form_params['table'] = $GLOBALS['table'];
         }
 
         $form_params['orig_num_fields'] = $num_fields;
@@ -119,16 +117,16 @@ final class ColumnsDefinition
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $comments_map = $this->relation->getComments($db, $table);
+        $comments_map = $this->relation->getComments($GLOBALS['db'], $GLOBALS['table']);
 
         $move_columns = [];
         if (isset($fields_meta)) {
-            $move_columns = $this->dbi->getTable($db, $table)->getColumnsMeta();
+            $move_columns = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getColumnsMeta();
         }
 
         $available_mime = [];
-        if ($relationParameters->browserTransformationFeature !== null && $cfg['BrowseMIME']) {
-            $mime_map = $this->transformations->getMime($db, $table);
+        if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
+            $GLOBALS['mime_map'] = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table']);
             $available_mime = $this->transformations->getAvailableMimeTypes();
         }
 
@@ -154,12 +152,12 @@ final class ColumnsDefinition
             $regenerate = 1;
         }
 
-        $foreigners = $this->relation->getForeigners($db, $table, '', 'foreign');
+        $foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign');
         $child_references = null;
         // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
         // Hence, no need to get child references
         if ($this->dbi->getVersion() < 50606) {
-            $child_references = $this->relation->getChildReferences($db, $table);
+            $child_references = $this->relation->getChildReferences($GLOBALS['db'], $GLOBALS['table']);
         }
 
         for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
@@ -261,8 +259,8 @@ final class ColumnsDefinition
                 $submit_attribute = Util::getValueByKey($_POST, "field_attribute.${columnNumber}", false);
                 $comments_map[$columnMeta['Field']] = Util::getValueByKey($_POST, "field_comments.${columnNumber}");
 
-                $mime_map[$columnMeta['Field']] = array_merge(
-                    $mime_map[$columnMeta['Field']] ?? [],
+                $GLOBALS['mime_map'][$columnMeta['Field']] = array_merge(
+                    $GLOBALS['mime_map'][$columnMeta['Field']] ?? [],
                     [
                         'mimetype' => Util::getValueByKey($_POST, "field_mimetype.${columnNumber}"),
                         'transformation' => Util::getValueByKey(
@@ -284,7 +282,7 @@ final class ColumnsDefinition
                     'STORED GENERATED',
                 ];
                 if (in_array($columnMeta['Extra'], $virtual)) {
-                    $tableObj = new Table($table, $db);
+                    $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
                     $expressions = $tableObj->getColumnGenerationExpression($columnMeta['Field']);
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
@@ -465,14 +463,14 @@ final class ColumnsDefinition
                 'is_backup' => $is_backup,
                 'move_columns' => $move_columns,
                 'available_mime' => $available_mime,
-                'mime_map' => $mime_map ?? [],
+                'mime_map' => $GLOBALS['mime_map'] ?? [],
             ];
         }
 
         $partitionDetails = TablePartitionDefinition::getDetails();
 
-        $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $charsetsList = [];
         foreach ($charsets as $charset) {
             $collationsList = [];
@@ -516,19 +514,19 @@ final class ColumnsDefinition
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($this->dbi->getVersion()),
             'is_integers_length_restricted' => $isIntegersLengthRestricted,
-            'browse_mime' => $cfg['BrowseMIME'] ?? null,
+            'browse_mime' => $GLOBALS['cfg']['BrowseMIME'] ?? null,
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
                 $this->dbi->getVersion()
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => intval($cfg['MaxRows']),
-            'char_editing' => $cfg['CharEditing'] ?? null,
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            'char_editing' => $GLOBALS['cfg']['CharEditing'] ?? null,
             'attribute_types' => $this->dbi->types->getAttributes(),
-            'privs_available' => ($col_priv ?? false) && ($is_reload_priv ?? false),
+            'privs_available' => ($GLOBALS['col_priv'] ?? false) && ($GLOBALS['is_reload_priv'] ?? false),
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
             'have_partitioning' => Partition::havePartitioning(),
             'dbi' => $this->dbi,
-            'disable_is' => $cfg['Server']['DisableIS'],
+            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
         ];
     }
 }

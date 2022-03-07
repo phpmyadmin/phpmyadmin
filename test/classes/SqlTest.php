@@ -50,6 +50,7 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['showtable'] = null;
 
         $relation = new Relation($GLOBALS['dbi']);
         $this->sql = new Sql(
@@ -346,9 +347,7 @@ class SqlTest extends AbstractTestCase
      */
     private function parseAndAnalyze(string $sqlQuery)
     {
-        global $db;
-
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($sqlQuery, $db);
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($sqlQuery, $GLOBALS['db']);
 
         return $analyzedSqlResults;
     }

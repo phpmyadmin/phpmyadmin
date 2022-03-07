@@ -39,13 +39,11 @@ final class EnumValuesController extends AbstractController
      */
     public function __invoke(): void
     {
-        global $db, $table;
-
         $this->checkUserPrivileges->getPrivileges();
 
         $column = $_POST['column'];
         $curr_value = $_POST['curr_value'];
-        $values = $this->sql->getValuesForColumn($db, $table, $column);
+        $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));

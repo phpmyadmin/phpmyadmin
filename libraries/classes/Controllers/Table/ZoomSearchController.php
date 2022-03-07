@@ -94,15 +94,13 @@ class ZoomSearchController extends AbstractController
 
     public function __invoke(): void
     {
-        global $goto, $db, $table, $urlParams, $cfg, $errorUrl;
-
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $this->addScriptFiles([
             'vendor/stickyfill.min.js',
@@ -160,11 +158,11 @@ class ZoomSearchController extends AbstractController
             return;
         }
 
-        if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        if (! isset($GLOBALS['goto'])) {
+            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
-        $this->zoomSubmitAction($dataLabel, $goto);
+        $this->zoomSubmitAction($dataLabel, $GLOBALS['goto']);
     }
 
     /**
@@ -227,10 +225,8 @@ class ZoomSearchController extends AbstractController
      */
     public function displaySelectionFormAction($dataLabel = null): void
     {
-        global $goto;
-
-        if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        if (! isset($GLOBALS['goto'])) {
+            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $column_names = $this->columnNames;
@@ -251,7 +247,7 @@ class ZoomSearchController extends AbstractController
         $this->render('table/zoom_search/index', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'goto' => $goto,
+            'goto' => $GLOBALS['goto'],
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $column_names,

@@ -20,6 +20,7 @@ class ImportControllerTest extends AbstractTestCase
 {
     public function testImportController(): void
     {
+        $this->setTheme();
         $GLOBALS['server'] = 2;
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';

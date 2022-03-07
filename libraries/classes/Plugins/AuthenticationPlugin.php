@@ -77,12 +77,10 @@ abstract class AuthenticationPlugin
      */
     public function storeCredentials(): bool
     {
-        global $cfg;
-
         $this->setSessionAccessTime();
 
-        $cfg['Server']['user'] = $this->user;
-        $cfg['Server']['password'] = $this->password;
+        $GLOBALS['cfg']['Server']['user'] = $this->user;
+        $GLOBALS['cfg']['Server']['password'] = $this->password;
 
         return true;
     }
@@ -109,8 +107,6 @@ abstract class AuthenticationPlugin
      */
     public function logOut(): void
     {
-        global $config;
-
         /* Obtain redirect URL (before doing logout) */
         if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
             $redirect_url = $GLOBALS['cfg']['Server']['LogoutURL'];
@@ -128,7 +124,7 @@ abstract class AuthenticationPlugin
         $server = 0;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
-                if (! $config->issetCookie('pmaAuth-' . $key)) {
+                if (! $GLOBALS['config']->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 
@@ -173,8 +169,6 @@ abstract class AuthenticationPlugin
      */
     public function getErrorMessage($failure)
     {
-        global $dbi;
-
         if ($failure === 'empty-denied') {
             return __('Login without a password is forbidden by configuration (see AllowNoPassword)');
         }
@@ -191,7 +185,7 @@ abstract class AuthenticationPlugin
             );
         }
 
-        $dbi_error = $dbi->getError();
+        $dbi_error = $GLOBALS['dbi']->getError();
         if (! empty($dbi_error)) {
             return htmlspecialchars($dbi_error);
         }
@@ -268,13 +262,11 @@ abstract class AuthenticationPlugin
      */
     public function checkRules(): void
     {
-        global $cfg;
-
         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user based on mod_access in Apache
-        if (isset($cfg['Server']['AllowDeny']['order'])) {
+        if (isset($GLOBALS['cfg']['Server']['AllowDeny']['order'])) {
             $allowDeny_forbidden = false; // default
-            if ($cfg['Server']['AllowDeny']['order'] === 'allow,deny') {
+            if ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'allow,deny') {
                 $allowDeny_forbidden = true;
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
@@ -283,7 +275,7 @@ abstract class AuthenticationPlugin
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] === 'deny,allow') {
+            } elseif ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'deny,allow') {
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
@@ -291,7 +283,7 @@ abstract class AuthenticationPlugin
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] === 'explicit') {
+            } elseif ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'explicit') {
                 if ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = false;
                 } else {
@@ -306,12 +298,12 @@ abstract class AuthenticationPlugin
         }
 
         // is root allowed?
-        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] === 'root') {
+        if (! $GLOBALS['cfg']['Server']['AllowRoot'] && $GLOBALS['cfg']['Server']['user'] === 'root') {
             $this->showFailure('root-denied');
         }
 
         // is a login without password allowed?
-        if ($cfg['Server']['AllowNoPassword'] || $cfg['Server']['password'] !== '') {
+        if ($GLOBALS['cfg']['Server']['AllowNoPassword'] || $GLOBALS['cfg']['Server']['password'] !== '') {
             return;
         }
 

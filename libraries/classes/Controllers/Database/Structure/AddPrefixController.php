@@ -12,8 +12,6 @@ final class AddPrefixController extends AbstractController
 {
     public function __invoke(): void
     {
-        global $db;
-
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -23,7 +21,7 @@ final class AddPrefixController extends AbstractController
             return;
         }
 
-        $params = ['db' => $db];
+        $params = ['db' => $GLOBALS['db']];
         foreach ($selected as $selectedValue) {
             $params['selected'][] = $selectedValue;
         }

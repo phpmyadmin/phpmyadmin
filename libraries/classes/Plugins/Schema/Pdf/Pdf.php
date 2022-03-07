@@ -98,13 +98,11 @@ class Pdf extends PdfLib
         $withDoc,
         $db
     ) {
-        global $dbi;
-
         parent::__construct($orientation, $unit, $paper);
         $this->pageNumber = $pageNumber;
         $this->withDoc = $withDoc;
         $this->db = $db;
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -258,8 +256,6 @@ class Pdf extends PdfLib
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Header(): void
     {
-        global $dbi;
-
         // We only show this if we find something in the new pdf_pages table
 
         // This function must be named "Header" to work with the TCPDF library
@@ -274,9 +270,9 @@ class Pdf extends PdfLib
             $test_query = 'SELECT * FROM '
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
-                . ' WHERE db_name = \'' . $dbi->escapeString($this->db)
+                . ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($this->db)
                 . '\' AND page_nr = \'' . $this->pageNumber . '\'';
-            $test_rs = $dbi->queryAsControlUser($test_query);
+            $test_rs = $GLOBALS['dbi']->queryAsControlUser($test_query);
             $pageDesc = (string) $test_rs->fetchValue('page_descr');
 
             $pg_name = ucfirst($pageDesc);

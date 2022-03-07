@@ -1399,8 +1399,6 @@ class Sql
         $sqlQuery,
         ?string $completeQuery
     ): string {
-        global $showtable;
-
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true && is_object($result)) {
@@ -1415,8 +1413,8 @@ class Sql
         }
 
         // Should be initialized these parameters before parsing
-        if (! is_array($showtable)) {
-            $showtable = null;
+        if (! is_array($GLOBALS['showtable'])) {
+            $GLOBALS['showtable'] = null;
         }
 
         $response = ResponseRenderer::getInstance();
@@ -1526,7 +1524,7 @@ class Sql
             $editable,
             $unlimNumRows,
             $numRows,
-            $showtable,
+            $GLOBALS['showtable'],
             $result,
             $analyzedSqlResults
         );

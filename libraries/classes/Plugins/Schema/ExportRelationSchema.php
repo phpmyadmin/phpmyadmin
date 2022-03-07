@@ -62,13 +62,11 @@ class ExportRelationSchema
      */
     public function __construct($db, $diagram)
     {
-        global $dbi;
-
         $this->db = $db;
         $this->diagram = $diagram;
         $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -247,8 +245,6 @@ class ExportRelationSchema
      */
     protected function getFileName($extension): string
     {
-        global $dbi;
-
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
 
         $filename = $this->db . $extension;
@@ -258,7 +254,7 @@ class ExportRelationSchema
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
-            $_name_rs = $dbi->queryAsControlUser($_name_sql);
+            $_name_rs = $GLOBALS['dbi']->queryAsControlUser($_name_sql);
             $_name_row = $_name_rs->fetchRow();
             $filename = $_name_row[0] . $extension;
         }

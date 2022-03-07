@@ -40,6 +40,10 @@ class ExportCsvTest extends AbstractTestCase
         $GLOBALS['lang'] = '';
         $GLOBALS['text_dir'] = '';
         $GLOBALS['PMA_PHP_SELF'] = '';
+        $GLOBALS['csv_enclosed'] = null;
+        $GLOBALS['csv_separator'] = null;
+        $GLOBALS['save_filename'] = null;
+
         $this->object = new ExportCsv();
     }
 

@@ -36,10 +36,8 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        global $cfg, $dblist, $is_create_db_priv;
-
-        $dblist = new stdClass();
-        $dblist->databases = [
+        $GLOBALS['dblist'] = new stdClass();
+        $GLOBALS['dblist']->databases = [
             'sakila',
             'employees',
         ];
@@ -92,8 +90,8 @@ class DatabasesControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
-        $cfg['ShowCreateDb'] = true;
-        $is_create_db_priv = true;
+        $GLOBALS['cfg']['ShowCreateDb'] = true;
+        $GLOBALS['is_create_db_priv'] = true;
         $_REQUEST['statistics'] = '1';
         $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
         $_REQUEST['sort_order'] = 'desc';

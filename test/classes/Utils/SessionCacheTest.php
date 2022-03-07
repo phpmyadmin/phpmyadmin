@@ -14,11 +14,9 @@ class SessionCacheTest extends TestCase
 {
     public function testGet(): void
     {
-        global $cfg, $server;
-
         $_SESSION = [];
-        $cfg['Server']['user'] = null;
-        $server = 'server';
+        $GLOBALS['cfg']['Server']['user'] = null;
+        $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 5);
         SessionCache::set('test_data_2', 5);
@@ -30,11 +28,9 @@ class SessionCacheTest extends TestCase
 
     public function testRemove(): void
     {
-        global $cfg, $server;
-
         $_SESSION = [];
-        $cfg['Server']['user'] = null;
-        $server = 'server';
+        $GLOBALS['cfg']['Server']['user'] = null;
+        $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 25);
         SessionCache::set('test_data_2', 25);
@@ -47,11 +43,9 @@ class SessionCacheTest extends TestCase
 
     public function testSet(): void
     {
-        global $cfg, $server;
-
         $_SESSION = [];
-        $cfg['Server']['user'] = null;
-        $server = 'server';
+        $GLOBALS['cfg']['Server']['user'] = null;
+        $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 25);
         SessionCache::set('test_data', 5);
@@ -62,11 +56,9 @@ class SessionCacheTest extends TestCase
 
     public function testHas(): void
     {
-        global $cfg, $server;
-
         $_SESSION = [];
-        $cfg['Server']['user'] = null;
-        $server = 'server';
+        $GLOBALS['cfg']['Server']['user'] = null;
+        $GLOBALS['server'] = 'server';
 
         SessionCache::set('test_data', 5);
         SessionCache::set('test_data_2', 5);
@@ -78,11 +70,9 @@ class SessionCacheTest extends TestCase
 
     public function testKeyWithoutUser(): void
     {
-        global $cfg, $server;
-
         $_SESSION = [];
-        $cfg['Server']['user'] = null;
-        $server = 123;
+        $GLOBALS['cfg']['Server']['user'] = null;
+        $GLOBALS['server'] = 123;
 
         SessionCache::set('test_data', 5);
         $this->assertArrayHasKey('cache', $_SESSION);
@@ -95,11 +85,9 @@ class SessionCacheTest extends TestCase
 
     public function testKeyWithUser(): void
     {
-        global $cfg, $server;
-
         $_SESSION = [];
-        $cfg['Server']['user'] = 'test_user';
-        $server = 123;
+        $GLOBALS['cfg']['Server']['user'] = 'test_user';
+        $GLOBALS['server'] = 123;
 
         SessionCache::set('test_data', 5);
         $this->assertArrayHasKey('cache', $_SESSION);

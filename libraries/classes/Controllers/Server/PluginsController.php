@@ -40,9 +40,7 @@ class PluginsController extends AbstractController
 
     public function __invoke(): void
     {
-        global $errorUrl;
-
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

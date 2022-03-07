@@ -96,8 +96,6 @@ abstract class TableStats
         $tableDimension,
         $offline
     ) {
-        global $dbi;
-
         $this->diagram = $diagram;
         $this->db = $db;
         $this->pageNumber = $pageNumber;
@@ -108,7 +106,7 @@ abstract class TableStats
 
         $this->offline = $offline;
 
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->font = new Font();
 
         // checks whether the table exists
@@ -127,10 +125,8 @@ abstract class TableStats
      */
     protected function validateTableAndLoadFields(): void
     {
-        global $dbi;
-
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
-        $result = $dbi->tryQuery($sql);
+        $result = $GLOBALS['dbi']->tryQuery($sql);
         if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
             exit;
@@ -192,9 +188,7 @@ abstract class TableStats
      */
     protected function loadPrimaryKey(): void
     {
-        global $dbi;
-
-        $result = $dbi->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
+        $result = $GLOBALS['dbi']->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
         if ($result->numRows() <= 0) {
             return;
         }

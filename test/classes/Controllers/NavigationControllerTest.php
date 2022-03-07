@@ -16,11 +16,10 @@ class NavigationControllerTest extends AbstractTestCase
 {
     public function testIndex(): void
     {
-        global $containerBuilder;
-
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
         parent::setLanguage();
+        $this->setTheme();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -111,7 +110,7 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         /** @var NavigationController $navigationController */
-        $navigationController = $containerBuilder->get(NavigationController::class);
+        $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
         $navigationController();
@@ -167,8 +166,6 @@ class NavigationControllerTest extends AbstractTestCase
 
     public function testIndexWithPosAndValue(): void
     {
-        global $containerBuilder;
-
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
         parent::setLanguage();
@@ -267,7 +264,7 @@ class NavigationControllerTest extends AbstractTestCase
         );
 
         /** @var NavigationController $navigationController */
-        $navigationController = $containerBuilder->get(NavigationController::class);
+        $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
         $navigationController();

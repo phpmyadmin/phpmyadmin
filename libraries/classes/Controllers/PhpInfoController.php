@@ -20,12 +20,10 @@ class PhpInfoController extends AbstractController
 {
     public function __invoke(): void
     {
-        global $cfg;
-
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();
 
-        if (! $cfg['ShowPhpInfo']) {
+        if (! $GLOBALS['cfg']['ShowPhpInfo']) {
             return;
         }
 

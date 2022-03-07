@@ -243,9 +243,7 @@ class GisVisualization
      */
     private function fetchRawData(): array
     {
-        global $dbi;
-
-        $modified_result = $dbi->tryQuery($this->modifiedSql);
+        $modified_result = $GLOBALS['dbi']->tryQuery($this->modifiedSql);
 
         if ($modified_result === false) {
             return [];

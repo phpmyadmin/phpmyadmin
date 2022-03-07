@@ -84,18 +84,16 @@ class CommonTest extends AbstractTestCase
 
     public function testCheckTokenRequestParam(): void
     {
-        global $token_mismatch, $token_provided;
-
         $_SERVER['REQUEST_METHOD'] = 'GET';
         Common::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
+        $this->assertTrue($GLOBALS['token_mismatch']);
+        $this->assertFalse($GLOBALS['token_provided']);
 
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_POST['test'] = 'test';
         Common::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
+        $this->assertTrue($GLOBALS['token_mismatch']);
+        $this->assertFalse($GLOBALS['token_provided']);
         $this->assertArrayNotHasKey('test', $_POST);
 
         $_SERVER['REQUEST_METHOD'] = 'POST';
@@ -103,8 +101,8 @@ class CommonTest extends AbstractTestCase
         $_POST['test'] = 'test';
         $_SESSION[' PMA_token '] = 'mismatch';
         Common::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertTrue($token_provided);
+        $this->assertTrue($GLOBALS['token_mismatch']);
+        $this->assertTrue($GLOBALS['token_provided']);
         $this->assertArrayNotHasKey('test', $_POST);
 
         $_SERVER['REQUEST_METHOD'] = 'POST';
@@ -112,8 +110,8 @@ class CommonTest extends AbstractTestCase
         $_POST['test'] = 'test';
         $_SESSION[' PMA_token '] = 'token';
         Common::checkTokenRequestParam();
-        $this->assertFalse($token_mismatch);
-        $this->assertTrue($token_provided);
+        $this->assertFalse($GLOBALS['token_mismatch']);
+        $this->assertTrue($GLOBALS['token_provided']);
         $this->assertArrayHasKey('test', $_POST);
         $this->assertEquals('test', $_POST['test']);
     }

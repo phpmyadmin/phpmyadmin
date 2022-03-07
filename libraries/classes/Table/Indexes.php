@@ -44,8 +44,6 @@ final class Indexes
      */
     public function doSaveData(Index $index, bool $renameMode, string $db, string $table): void
     {
-        global $containerBuilder;
-
         $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
             $oldIndexName = $_POST['old_index'];
@@ -106,7 +104,7 @@ final class Indexes
                 );
             } else {
                 /** @var StructureController $controller */
-                $controller = $containerBuilder->get(StructureController::class);
+                $controller = $GLOBALS['containerBuilder']->get(StructureController::class);
                 $controller();
             }
         } else {

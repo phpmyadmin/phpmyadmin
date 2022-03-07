@@ -17,8 +17,6 @@ class OperationsControllerTest extends AbstractTestCase
 {
     public function testOperationsController(): void
     {
-        global $containerBuilder;
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
@@ -34,8 +32,8 @@ class OperationsControllerTest extends AbstractTestCase
         $this->loadDbiIntoContainerBuilder();
         $this->loadResponseIntoContainerBuilder();
 
-        $containerBuilder->setParameter('db', 'test_db');
-        $containerBuilder->setParameter('table', 'test_table');
+        $GLOBALS['containerBuilder']->setParameter('db', 'test_db');
+        $GLOBALS['containerBuilder']->setParameter('table', 'test_table');
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');
@@ -103,7 +101,7 @@ class OperationsControllerTest extends AbstractTestCase
         ]);
 
         /** @var OperationsController $controller */
-        $controller = $containerBuilder->get(OperationsController::class);
+        $controller = $GLOBALS['containerBuilder']->get(OperationsController::class);
         $controller();
 
         $this->assertEquals($expectedOutput, $this->getResponseHtmlResult());

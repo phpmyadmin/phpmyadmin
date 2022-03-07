@@ -188,9 +188,7 @@ class UrlTest extends AbstractTestCase
      */
     public function testBuildHttpQueryWithUrlQueryEncryptionDisabled()
     {
-        global $config;
-
-        $config->set('URLQueryEncryption', false);
+        $GLOBALS['config']->set('URLQueryEncryption', false);
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
         $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
     }
@@ -200,11 +198,9 @@ class UrlTest extends AbstractTestCase
      */
     public function testBuildHttpQueryWithUrlQueryEncryptionEnabled()
     {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryption', true);
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryption', true);
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
         $query = Url::buildHttpQuery($params);
@@ -232,11 +228,9 @@ class UrlTest extends AbstractTestCase
      */
     public function testQueryEncryption()
     {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryption', true);
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryption', true);
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $query = '{"db":"test_db","table":"test_table"}';
         $encrypted = Url::encryptQuery($query);

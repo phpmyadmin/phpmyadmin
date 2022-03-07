@@ -63,29 +63,27 @@ final class EmptyTableController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table, $message, $sql_query;
-
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
         if ($multBtn !== __('Yes')) {
             $this->flash->addMessage('success', __('No change'));
-            $this->redirect('/database/structure', ['db' => $db]);
+            $this->redirect('/database/structure', ['db' => $GLOBALS['db']]);
 
             return;
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
 
-        $sql_query = '';
+        $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
             $aQuery = 'TRUNCATE ';
             $aQuery .= Util::backquote($selected[$i]);
 
-            $sql_query .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb($db);
+            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($GLOBALS['db']);
             $this->dbi->query($aQuery);
         }
 
@@ -99,15 +97,15 @@ final class EmptyTableController extends AbstractController
                 $this->template
             );
 
-            $_REQUEST['pos'] = $sql->calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+            $_REQUEST['pos'] = $sql->calculatePosForLastPage($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['pos']);
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
-        $message = Message::success();
+        $GLOBALS['message'] = Message::success();
 
         if (empty($_POST['message'])) {
-            $_POST['message'] = $message;
+            $_POST['message'] = $GLOBALS['message'];
         }
 
         unset($_POST['mult_btn']);

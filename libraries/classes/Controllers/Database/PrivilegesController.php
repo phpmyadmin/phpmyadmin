@@ -41,9 +41,7 @@ class PrivilegesController extends AbstractController
      */
     public function __invoke(array $params): string
     {
-        global $cfg, $text_dir;
-
-        $scriptName = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {
@@ -54,7 +52,7 @@ class PrivilegesController extends AbstractController
             'is_superuser' => $this->dbi->isSuperUser(),
             'db' => $params['checkprivsdb'],
             'database_url' => $scriptName,
-            'text_dir' => $text_dir,
+            'text_dir' => $GLOBALS['text_dir'],
             'is_createuser' => $this->dbi->isCreateUser(),
             'is_grantuser' => $this->dbi->isGrantUser(),
             'privileges' => $privileges,

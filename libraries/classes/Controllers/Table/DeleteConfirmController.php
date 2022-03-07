@@ -17,8 +17,6 @@ final class DeleteConfirmController extends AbstractController
 {
     public function __invoke(): void
     {
-        global $db, $table, $sql_query, $urlParams, $errorUrl, $cfg;
-
         $selected = $_POST['rows_to_delete'] ?? null;
 
         if (! isset($selected) || ! is_array($selected)) {
@@ -30,17 +28,17 @@ final class DeleteConfirmController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $this->render('table/delete/confirm', [
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'selected' => $selected,
-            'sql_query' => $sql_query,
+            'sql_query' => $GLOBALS['sql_query'],
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
     }

@@ -38,20 +38,16 @@ class CollationsController extends AbstractController
         ?array $charsets = null,
         ?array $collations = null
     ) {
-        global $cfg;
-
         parent::__construct($response, $template);
         $this->dbi = $dbi;
 
-        $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
-        $this->collations = $collations ?? Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+        $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $this->collations = $collations ?? Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
     }
 
     public function __invoke(): void
     {
-        global $errorUrl;
-
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

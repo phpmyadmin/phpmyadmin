@@ -31,6 +31,8 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['sql_indexes'] = null;
+        $GLOBALS['sql_auto_increments'] = null;
         $GLOBALS['dblist'] = (object) ['databases' => ['test_db']];
         $GLOBALS['config']->selectServer();
         $GLOBALS['cfg'] = $GLOBALS['config']->settings;

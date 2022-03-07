@@ -33,8 +33,6 @@ class ProcessesController extends AbstractController
 
     public function __invoke(): void
     {
-        global $errorUrl;
-
         $params = [
             'showExecuting' => $_POST['showExecuting'] ?? null,
             'full' => $_POST['full'] ?? null,
@@ -42,7 +40,7 @@ class ProcessesController extends AbstractController
             'order_by_field' => $_POST['order_by_field'] ?? null,
             'sort_order' => $_POST['sort_order'] ?? null,
         ];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

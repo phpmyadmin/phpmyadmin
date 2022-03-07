@@ -32,8 +32,6 @@ final class FavoriteTableController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $db, $errorUrl;
-
         $parameters = [
             'favorite_table' => $_REQUEST['favorite_table'] ?? null,
             'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
@@ -42,8 +40,8 @@ final class FavoriteTableController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;
@@ -57,7 +55,7 @@ final class FavoriteTableController extends AbstractController
         }
 
         // Required to keep each user's preferences separate.
-        $user = sha1($cfg['Server']['user']);
+        $user = sha1($GLOBALS['cfg']['Server']['user']);
 
         // Request for Synchronization of favorite tables.
         if (isset($parameters['sync_favorite_tables'])) {
@@ -86,7 +84,7 @@ final class FavoriteTableController extends AbstractController
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
-                if ($numTables == $cfg['NumFavoriteTables']) {
+                if ($numTables == $GLOBALS['cfg']['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.

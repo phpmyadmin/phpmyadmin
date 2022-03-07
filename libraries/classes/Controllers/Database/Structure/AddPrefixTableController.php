@@ -35,11 +35,9 @@ final class AddPrefixTableController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $message, $sql_query;
-
         $selected = $_POST['selected'] ?? [];
 
-        $sql_query = '';
+        $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
@@ -47,15 +45,15 @@ final class AddPrefixTableController extends AbstractController
             $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
                 . ' RENAME ' . Util::backquote($newTableName);
 
-            $sql_query .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb($db);
+            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($GLOBALS['db']);
             $this->dbi->query($aQuery);
         }
 
-        $message = Message::success();
+        $GLOBALS['message'] = Message::success();
 
         if (empty($_POST['message'])) {
-            $_POST['message'] = $message;
+            $_POST['message'] = $GLOBALS['message'];
         }
 
         ($this->structureController)();

@@ -39,9 +39,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
 
     public function testQueryAnalyzer(): void
     {
-        global $cached_affected_rows;
-
-        $cached_affected_rows = 'cached_affected_rows';
+        $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
         SessionCache::set('profiling_supported', true);
 
         $value = [

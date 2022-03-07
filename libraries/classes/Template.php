@@ -64,8 +64,6 @@ class Template
 
     public static function getTwigEnvironment(?string $cacheDir): Environment
     {
-        global $cfg, $containerBuilder;
-
         /* Twig expects false when cache is not configured */
         if ($cacheDir === null) {
             $cacheDir = false;
@@ -77,9 +75,9 @@ class Template
             'cache' => $cacheDir,
         ]);
 
-        $twig->addRuntimeLoader(new ContainerRuntimeLoader($containerBuilder));
+        $twig->addRuntimeLoader(new ContainerRuntimeLoader($GLOBALS['containerBuilder']));
 
-        if (is_array($cfg) && ($cfg['environment'] ?? '') === 'development') {
+        if (is_array($GLOBALS['cfg']) && ($GLOBALS['cfg']['environment'] ?? '') === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
             // This will enable debug for the extension to print lines
@@ -87,7 +85,7 @@ class Template
             TransNode::$enableAddDebugInfo = true;
         }
 
-        if ($cfg['environment'] === 'production') {
+        if ($GLOBALS['cfg']['environment'] === 'production') {
             $twig->disableDebug();
             TransNode::$enableAddDebugInfo = false;
         }

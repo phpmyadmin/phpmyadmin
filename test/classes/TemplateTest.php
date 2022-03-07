@@ -31,15 +31,13 @@ class TemplateTest extends AbstractTestCase
      */
     public function testGetTwigEnvironment(): void
     {
-        global $cfg;
-
         $this->loadContainerBuilder();
 
-        $cfg['environment'] = 'production';
+        $GLOBALS['cfg']['environment'] = 'production';
         $twig = Template::getTwigEnvironment(null);
         $this->assertFalse($twig->isDebug());
         $this->assertFalse(TransNode::$enableAddDebugInfo);
-        $cfg['environment'] = 'development';
+        $GLOBALS['cfg']['environment'] = 'development';
         $twig = Template::getTwigEnvironment(null);
         $this->assertTrue($twig->isDebug());
         $this->assertTrue(TransNode::$enableAddDebugInfo);

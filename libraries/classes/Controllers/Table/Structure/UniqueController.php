@@ -36,8 +36,6 @@ final class UniqueController extends AbstractController
 
     public function __invoke(): void
     {
-        global $sql_query, $db, $table, $message;
-
         $selected = $_POST['selected_fld'] ?? [];
 
         if (empty($selected)) {
@@ -49,22 +47,22 @@ final class UniqueController extends AbstractController
 
         $i = 1;
         $selectedCount = count($selected);
-        $sql_query = 'ALTER TABLE ' . Util::backquote($table) . ' ADD UNIQUE(';
+        $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']) . ' ADD UNIQUE(';
 
         foreach ($selected as $field) {
-            $sql_query .= Util::backquote($field);
-            $sql_query .= $i++ === $selectedCount ? ');' : ', ';
+            $GLOBALS['sql_query'] .= Util::backquote($field);
+            $GLOBALS['sql_query'] .= $i++ === $selectedCount ? ');' : ', ';
         }
 
-        $this->dbi->selectDb($db);
-        $result = $this->dbi->tryQuery($sql_query);
+        $this->dbi->selectDb($GLOBALS['db']);
+        $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
 
         if (! $result) {
-            $message = Message::error($this->dbi->getError());
+            $GLOBALS['message'] = Message::error($this->dbi->getError());
         }
 
-        if (empty($message)) {
-            $message = Message::success();
+        if (empty($GLOBALS['message'])) {
+            $GLOBALS['message'] = Message::success();
         }
 
         ($this->structureController)();

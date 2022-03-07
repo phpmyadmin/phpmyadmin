@@ -26,8 +26,6 @@ class SetValuesControllerTest extends AbstractTestCase
 
     public function testError(): void
     {
-        global $containerBuilder, $_POST;
-
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
 
         $_POST = [
@@ -40,10 +38,10 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = $_POST['db'];
         $GLOBALS['table'] = $_POST['table'];
 
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
-        $sqlController = $containerBuilder->get(SetValuesController::class);
+        $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
         $sqlController();
 
         $this->assertResponseWasNotSuccessfull();
@@ -56,8 +54,6 @@ class SetValuesControllerTest extends AbstractTestCase
 
     public function testSuccess(): void
     {
-        global $containerBuilder, $_POST;
-
         $this->dummyDbi->addResult(
             'SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'',
             [
@@ -90,10 +86,10 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = $_POST['db'];
         $GLOBALS['table'] = $_POST['table'];
 
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
-        $sqlController = $containerBuilder->get(SetValuesController::class);
+        $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
         $sqlController();
 
         $this->assertResponseWasSuccessfull();

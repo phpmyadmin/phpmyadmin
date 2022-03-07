@@ -38,11 +38,9 @@ final class ColumnPreferencesController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table;
-
         $this->checkUserPrivileges->getPrivileges();
 
-        $tableObject = $this->dbi->getTable($db, $table);
+        $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
         $status = false;
 
         // set column order

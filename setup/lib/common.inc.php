@@ -32,7 +32,7 @@ require AUTOLOAD_FILE;
 
 chdir('..');
 
-$isMinimumCommon = true;
+$GLOBALS['isMinimumCommon'] = true;
 
 Common::run();
 

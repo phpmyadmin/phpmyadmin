@@ -24,9 +24,7 @@ class NodeDatabaseContainer extends Node
      */
     public function __construct($name)
     {
-        global $dbi;
-
-        $checkUserPrivileges = new CheckUserPrivileges($dbi);
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
         $checkUserPrivileges->getPrivileges();
 
         parent::__construct($name, Node::CONTAINER);

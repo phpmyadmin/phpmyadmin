@@ -44,16 +44,14 @@ final class DropTableController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $message, $reload, $sql_query;
-
-        $reload = $_POST['reload'] ?? $reload ?? null;
+        $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
-        $views = $this->dbi->getVirtualTables($db);
+        $views = $this->dbi->getVirtualTables($GLOBALS['db']);
 
         if ($multBtn !== __('Yes')) {
-            $message = Message::success(__('No change'));
+            $GLOBALS['message'] = Message::success(__('No change'));
 
             if (empty($_POST['message'])) {
                 $_POST['message'] = Message::success();
@@ -67,27 +65,28 @@ final class DropTableController extends AbstractController
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
-        $sql_query = '';
+        $GLOBALS['sql_query'] = '';
         $sqlQueryViews = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            $this->relationCleanup->table($db, $selected[$i]);
+            $this->relationCleanup->table($GLOBALS['db'], $selected[$i]);
             $current = $selected[$i];
 
             if (! empty($views) && in_array($current, $views)) {
                 $sqlQueryViews .= (empty($sqlQueryViews) ? 'DROP VIEW ' : ', ') . Util::backquote($current);
             } else {
-                $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ') . Util::backquote($current);
+                $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')
+                    . Util::backquote($current);
             }
 
-            $reload = 1;
+            $GLOBALS['reload'] = 1;
         }
 
-        if (! empty($sql_query)) {
-            $sql_query .= ';';
+        if (! empty($GLOBALS['sql_query'])) {
+            $GLOBALS['sql_query'] .= ';';
         } elseif (! empty($sqlQueryViews)) {
-            $sql_query = $sqlQueryViews . ';';
+            $GLOBALS['sql_query'] = $sqlQueryViews . ';';
             unset($sqlQueryViews);
         }
 
@@ -102,25 +101,25 @@ final class DropTableController extends AbstractController
             }
         }
 
-        $this->dbi->selectDb($db);
-        $result = $this->dbi->tryQuery($sql_query);
+        $this->dbi->selectDb($GLOBALS['db']);
+        $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
 
         if ($result && ! empty($sqlQueryViews)) {
-            $sql_query .= ' ' . $sqlQueryViews . ';';
+            $GLOBALS['sql_query'] .= ' ' . $sqlQueryViews . ';';
             $result = $this->dbi->tryQuery($sqlQueryViews);
             unset($sqlQueryViews);
         }
 
         if (! $result) {
-            $message = Message::error($this->dbi->getError());
+            $GLOBALS['message'] = Message::error($this->dbi->getError());
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
-        $message = Message::success();
+        $GLOBALS['message'] = Message::success();
 
         if (empty($_POST['message'])) {
-            $_POST['message'] = $message;
+            $_POST['message'] = $GLOBALS['message'];
         }
 
         unset($_POST['mult_btn']);

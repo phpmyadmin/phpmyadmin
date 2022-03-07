@@ -45,9 +45,7 @@ class Routing
 
     public static function skipCache(): bool
     {
-        global $cfg;
-
-        return ($cfg['environment'] ?? '') === 'development';
+        return ($GLOBALS['cfg']['environment'] ?? '') === 'development';
     }
 
     public static function canWriteCache(): bool

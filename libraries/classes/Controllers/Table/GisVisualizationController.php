@@ -41,12 +41,10 @@ final class GisVisualizationController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cfg, $urlParams, $db, $errorUrl;
-
         Util::checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -163,12 +161,12 @@ final class GisVisualizationController extends AbstractController
         /**
          * Displays the page
          */
-        $urlParams['goto'] = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $urlParams['back'] = Url::getFromRoute('/sql');
-        $urlParams['sql_query'] = $sqlQuery;
-        $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
+        $GLOBALS['urlParams']['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/sql');
+        $GLOBALS['urlParams']['sql_query'] = $sqlQuery;
+        $GLOBALS['urlParams']['sql_signature'] = Core::signSqlQuery($sqlQuery);
         $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge(
-            $urlParams,
+            $GLOBALS['urlParams'],
             [
                 'saveToFile' => true,
                 'session_max_rows' => $rows,
@@ -181,7 +179,7 @@ final class GisVisualizationController extends AbstractController
         $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery);
 
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
-            'url_params' => $urlParams,
+            'url_params' => $GLOBALS['urlParams'],
             'download_url' => $downloadUrl,
             'label_candidates' => $labelCandidates,
             'spatial_candidates' => $spatialCandidates,

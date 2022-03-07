@@ -1724,8 +1724,6 @@ class DatabaseInterface implements DbalInterface
 
     public function isGrantUser(): bool
     {
-        global $cfg;
-
         if (SessionCache::has('is_grantuser')) {
             return (bool) SessionCache::get('is_grantuser');
         }
@@ -1736,7 +1734,7 @@ class DatabaseInterface implements DbalInterface
 
         $hasGrantPrivilege = false;
 
-        if ($cfg['Server']['DisableIS']) {
+        if ($GLOBALS['cfg']['Server']['DisableIS']) {
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
@@ -1766,8 +1764,6 @@ class DatabaseInterface implements DbalInterface
 
     public function isCreateUser(): bool
     {
-        global $cfg;
-
         if (SessionCache::has('is_createuser')) {
             return (bool) SessionCache::get('is_createuser');
         }
@@ -1778,7 +1774,7 @@ class DatabaseInterface implements DbalInterface
 
         $hasCreatePrivilege = false;
 
-        if ($cfg['Server']['DisableIS']) {
+        if ($GLOBALS['cfg']['Server']['DisableIS']) {
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {

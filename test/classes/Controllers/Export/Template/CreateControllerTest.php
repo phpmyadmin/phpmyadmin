@@ -21,8 +21,6 @@ class CreateControllerTest extends AbstractTestCase
 {
     public function testCreate(): void
     {
-        global $cfg;
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -34,7 +32,7 @@ class CreateControllerTest extends AbstractTestCase
             'export_templates' => 'table',
         ])->toArray();
 
-        $cfg['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
 
         $response = new ResponseRenderer();
         $template = new Template();

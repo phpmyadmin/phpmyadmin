@@ -10,14 +10,12 @@ class LogoutController
 {
     public function __invoke(): void
     {
-        global $auth_plugin, $token_mismatch;
-
-        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || $token_mismatch) {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || $GLOBALS['token_mismatch']) {
             Core::sendHeaderLocation('./index.php?route=/');
 
             return;
         }
 
-        $auth_plugin->logOut();
+        $GLOBALS['auth_plugin']->logOut();
     }
 }

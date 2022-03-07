@@ -34,8 +34,6 @@ final class CentralColumnsRemoveController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $message;
-
         $selected = $_POST['selected_fld'] ?? [];
 
         if (empty($selected)) {
@@ -45,14 +43,14 @@ final class CentralColumnsRemoveController extends AbstractController
             return;
         }
 
-        $centralColsError = $this->centralColumns->deleteColumnsFromList($db, $selected, false);
+        $centralColsError = $this->centralColumns->deleteColumnsFromList($GLOBALS['db'], $selected, false);
 
         if ($centralColsError instanceof Message) {
-            $message = $centralColsError;
+            $GLOBALS['message'] = $centralColsError;
         }
 
-        if (empty($message)) {
-            $message = Message::success();
+        if (empty($GLOBALS['message'])) {
+            $GLOBALS['message'] = Message::success();
         }
 
         ($this->structureController)();

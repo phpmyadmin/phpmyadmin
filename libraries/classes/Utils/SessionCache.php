@@ -8,12 +8,10 @@ final class SessionCache
 {
     private static function key(): string
     {
-        global $cfg, $server;
+        $key = 'server_' . $GLOBALS['server'];
 
-        $key = 'server_' . $server;
-
-        if (isset($cfg['Server']['user'])) {
-            return $key . '_' . $cfg['Server']['user'];
+        if (isset($GLOBALS['cfg']['Server']['user'])) {
+            return $key . '_' . $GLOBALS['cfg']['Server']['user'];
         }
 
         return $key;

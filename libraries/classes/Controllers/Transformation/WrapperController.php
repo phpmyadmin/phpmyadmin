@@ -54,36 +54,32 @@ class WrapperController extends AbstractController
 
     public function __invoke(): void
     {
-        global $cn, $db, $table, $transform_key, $request_params, $size_params, $where_clause, $row;
-        global $default_ct, $mime_map, $mime_options, $ct, $mime_type, $srcImage, $srcWidth, $srcHeight;
-        global $ratioWidth, $ratioHeight, $destWidth, $destHeight, $destImage;
-
         define('IS_TRANSFORMATION_WRAPPER', true);
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         /**
          * Sets globals from $_REQUEST
          */
-        $request_params = [
+        $GLOBALS['request_params'] = [
             'cn',
             'ct',
             'sql_query',
             'transform_key',
             'where_clause',
         ];
-        $size_params = [
+        $GLOBALS['size_params'] = [
             'newHeight',
             'newWidth',
         ];
-        foreach ($request_params as $one_request_param) {
+        foreach ($GLOBALS['request_params'] as $one_request_param) {
             if (! isset($_REQUEST[$one_request_param])) {
                 continue;
             }
 
-            if (in_array($one_request_param, $size_params)) {
+            if (in_array($one_request_param, $GLOBALS['size_params'])) {
                 $GLOBALS[$one_request_param] = intval($_REQUEST[$one_request_param]);
                 if ($GLOBALS[$one_request_param] > 2000) {
                     $GLOBALS[$one_request_param] = 2000;
@@ -96,9 +92,9 @@ class WrapperController extends AbstractController
         /**
          * Get the list of the fields of the current table
          */
-        $this->dbi->selectDb($db);
-        if (isset($where_clause)) {
-            if (! Core::checkSqlQuerySignature($where_clause, $_GET['where_clause_sign'] ?? '')) {
+        $this->dbi->selectDb($GLOBALS['db']);
+        if (isset($GLOBALS['where_clause'])) {
+            if (! Core::checkSqlQuerySignature($GLOBALS['where_clause'], $_GET['where_clause_sign'] ?? '')) {
                 /* l10n: In case a SQL query did not pass a security check  */
                 Core::fatalError(__('There is an issue with your request.'));
 
@@ -106,94 +102,94 @@ class WrapperController extends AbstractController
             }
 
             $result = $this->dbi->query(
-                'SELECT * FROM ' . Util::backquote($table)
-                . ' WHERE ' . $where_clause . ';'
+                'SELECT * FROM ' . Util::backquote($GLOBALS['table'])
+                . ' WHERE ' . $GLOBALS['where_clause'] . ';'
             );
-            $row = $result->fetchAssoc();
+            $GLOBALS['row'] = $result->fetchAssoc();
         } else {
             $result = $this->dbi->query(
-                'SELECT * FROM ' . Util::backquote($table) . ' LIMIT 1;'
+                'SELECT * FROM ' . Util::backquote($GLOBALS['table']) . ' LIMIT 1;'
             );
-            $row = $result->fetchAssoc();
+            $GLOBALS['row'] = $result->fetchAssoc();
         }
 
         // No row returned
-        if ($row === []) {
+        if ($GLOBALS['row'] === []) {
             return;
         }
 
-        $default_ct = 'application/octet-stream';
+        $GLOBALS['default_ct'] = 'application/octet-stream';
 
         if (
             $relationParameters->columnCommentsFeature !== null
             && $relationParameters->browserTransformationFeature !== null
         ) {
-            $mime_map = $this->transformations->getMime($db, $table) ?? [];
+            $GLOBALS['mime_map'] = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table']) ?? [];
 
-            $mime_options = $this->transformations->getOptions(
-                $mime_map[$transform_key]['transformation_options'] ?? ''
+            $GLOBALS['mime_options'] = $this->transformations->getOptions(
+                $GLOBALS['mime_map'][$GLOBALS['transform_key']]['transformation_options'] ?? ''
             );
 
-            foreach ($mime_options as $option) {
+            foreach ($GLOBALS['mime_options'] as $option) {
                 if (substr($option, 0, 10) !== '; charset=') {
                     continue;
                 }
 
-                $mime_options['charset'] = $option;
+                $GLOBALS['mime_options']['charset'] = $option;
             }
         }
 
         $this->response->getHeader()->sendHttpHeaders();
 
         // [MIME]
-        if (isset($ct) && ! empty($ct)) {
-            $mime_type = $ct;
+        if (isset($GLOBALS['ct']) && ! empty($GLOBALS['ct'])) {
+            $GLOBALS['mime_type'] = $GLOBALS['ct'];
         } else {
-            $mime_type = (! empty($mime_map[$transform_key]['mimetype'])
-                    ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
-                    : $default_ct)
-                . ($mime_options['charset'] ?? '');
+            $GLOBALS['mime_type'] = (! empty($GLOBALS['mime_map'][$GLOBALS['transform_key']]['mimetype'])
+                    ? str_replace('_', '/', $GLOBALS['mime_map'][$GLOBALS['transform_key']]['mimetype'])
+                    : $GLOBALS['default_ct'])
+                . ($GLOBALS['mime_options']['charset'] ?? '');
         }
 
-        Core::downloadHeader($cn ?? '', $mime_type);
+        Core::downloadHeader($GLOBALS['cn'] ?? '', $GLOBALS['mime_type']);
 
         if (! isset($_REQUEST['resize'])) {
-            if (stripos($mime_type, 'html') === false) {
-                echo $row[$transform_key];
+            if (stripos($GLOBALS['mime_type'], 'html') === false) {
+                echo $GLOBALS['row'][$GLOBALS['transform_key']];
             } else {
-                echo htmlspecialchars($row[$transform_key]);
+                echo htmlspecialchars($GLOBALS['row'][$GLOBALS['transform_key']]);
             }
         } else {
             // if image_*__inline.inc.php finds that we can resize,
             // it sets the resize parameter to jpeg or png
 
-            $srcImage = ImageWrapper::fromString($row[$transform_key]);
-            if ($srcImage === null) {
+            $GLOBALS['srcImage'] = ImageWrapper::fromString($GLOBALS['row'][$GLOBALS['transform_key']]);
+            if ($GLOBALS['srcImage'] === null) {
                 return;
             }
 
-            $srcWidth = $srcImage->width();
-            $srcHeight = $srcImage->height();
+            $GLOBALS['srcWidth'] = $GLOBALS['srcImage']->width();
+            $GLOBALS['srcHeight'] = $GLOBALS['srcImage']->height();
 
             // Check to see if the width > height or if width < height
             // if so adjust accordingly to make sure the image
             // stays smaller than the new width and new height
 
-            $ratioWidth = $srcWidth / $_REQUEST['newWidth'];
-            $ratioHeight = $srcHeight / $_REQUEST['newHeight'];
+            $GLOBALS['ratioWidth'] = $GLOBALS['srcWidth'] / $_REQUEST['newWidth'];
+            $GLOBALS['ratioHeight'] = $GLOBALS['srcHeight'] / $_REQUEST['newHeight'];
 
-            if ($ratioWidth < $ratioHeight) {
-                $destWidth = intval(round($srcWidth / $ratioHeight));
-                $destHeight = intval($_REQUEST['newHeight']);
+            if ($GLOBALS['ratioWidth'] < $GLOBALS['ratioHeight']) {
+                $GLOBALS['destWidth'] = intval(round($GLOBALS['srcWidth'] / $GLOBALS['ratioHeight']));
+                $GLOBALS['destHeight'] = intval($_REQUEST['newHeight']);
             } else {
-                $destWidth = intval($_REQUEST['newWidth']);
-                $destHeight = intval(round($srcHeight / $ratioWidth));
+                $GLOBALS['destWidth'] = intval($_REQUEST['newWidth']);
+                $GLOBALS['destHeight'] = intval(round($GLOBALS['srcHeight'] / $GLOBALS['ratioWidth']));
             }
 
             if ($_REQUEST['resize']) {
-                $destImage = ImageWrapper::create($destWidth, $destHeight);
-                if ($destImage === null) {
-                    $srcImage->destroy();
+                $GLOBALS['destImage'] = ImageWrapper::create($GLOBALS['destWidth'], $GLOBALS['destHeight']);
+                if ($GLOBALS['destImage'] === null) {
+                    $GLOBALS['srcImage']->destroy();
 
                     return;
                 }
@@ -201,19 +197,29 @@ class WrapperController extends AbstractController
                 // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
                 // $destWidth, $destHeight, $srcWidth, $srcHeight);
                 // better quality but slower:
-                $destImage->copyResampled($srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
+                $GLOBALS['destImage']->copyResampled(
+                    $GLOBALS['srcImage'],
+                    0,
+                    0,
+                    0,
+                    0,
+                    $GLOBALS['destWidth'],
+                    $GLOBALS['destHeight'],
+                    $GLOBALS['srcWidth'],
+                    $GLOBALS['srcHeight']
+                );
                 if ($_REQUEST['resize'] === 'jpeg') {
-                    $destImage->jpeg(null, 75);
+                    $GLOBALS['destImage']->jpeg(null, 75);
                 }
 
                 if ($_REQUEST['resize'] === 'png') {
-                    $destImage->png();
+                    $GLOBALS['destImage']->png();
                 }
 
-                $destImage->destroy();
+                $GLOBALS['destImage']->destroy();
             }
 
-            $srcImage->destroy();
+            $GLOBALS['srcImage']->destroy();
         }
     }
 }

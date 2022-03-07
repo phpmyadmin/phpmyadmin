@@ -38,9 +38,6 @@ class ExportController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $urlParams, $table, $replaces, $cfg, $errorUrl;
-        global $sql_query, $where_clause, $num_tables, $unlim_num_rows;
-
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
         $pageSettingsHtml = $pageSettings->getHTML();
@@ -49,49 +46,53 @@ class ExportController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        $urlParams['goto'] = Url::getFromRoute('/table/export');
-        $urlParams['back'] = Url::getFromRoute('/table/export');
+        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/export');
+        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/export');
 
         // When we have some query, we need to remove LIMIT from that and possibly
         // generate WHERE clause (if we are asked to export specific rows)
 
-        if (! empty($sql_query)) {
-            $parser = new Parser($sql_query);
+        if (! empty($GLOBALS['sql_query'])) {
+            $parser = new Parser($GLOBALS['sql_query']);
 
             if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
                 // Checking if the WHERE clause has to be replaced.
-                if (! empty($where_clause) && is_array($where_clause)) {
-                    $replaces[] = [
+                if (! empty($GLOBALS['where_clause']) && is_array($GLOBALS['where_clause'])) {
+                    $GLOBALS['replaces'][] = [
                         'WHERE',
-                        'WHERE (' . implode(') OR (', $where_clause) . ')',
+                        'WHERE (' . implode(') OR (', $GLOBALS['where_clause']) . ')',
                     ];
                 }
 
                 // Preparing to remove the LIMIT clause.
-                $replaces[] = [
+                $GLOBALS['replaces'][] = [
                     'LIMIT',
                     '',
                 ];
 
                 // Replacing the clauses.
-                $sql_query = Query::replaceClauses($parser->statements[0], $parser->list, $replaces);
+                $GLOBALS['sql_query'] = Query::replaceClauses(
+                    $parser->statements[0],
+                    $parser->list,
+                    $GLOBALS['replaces']
+                );
             }
         }
 
-        if (! isset($sql_query)) {
-            $sql_query = '';
+        if (! isset($GLOBALS['sql_query'])) {
+            $GLOBALS['sql_query'] = '';
         }
 
-        if (! isset($num_tables)) {
-            $num_tables = 0;
+        if (! isset($GLOBALS['num_tables'])) {
+            $GLOBALS['num_tables'] = 0;
         }
 
-        if (! isset($unlim_num_rows)) {
-            $unlim_num_rows = 0;
+        if (! isset($GLOBALS['unlim_num_rows'])) {
+            $GLOBALS['unlim_num_rows'] = 0;
         }
 
         $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
@@ -114,11 +115,11 @@ class ExportController extends AbstractController
 
         $options = $this->export->getOptions(
             $exportType,
-            $db,
-            $table,
-            $sql_query,
-            $num_tables,
-            $unlim_num_rows,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            $GLOBALS['sql_query'],
+            $GLOBALS['num_tables'],
+            $GLOBALS['unlim_num_rows'],
             $exportList
         );
 

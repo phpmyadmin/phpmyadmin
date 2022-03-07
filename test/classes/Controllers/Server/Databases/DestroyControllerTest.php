@@ -22,8 +22,6 @@ class DestroyControllerTest extends AbstractTestCase
 {
     public function testDropDatabases(): void
     {
-        global $cfg;
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -35,7 +33,7 @@ class DestroyControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $response->setAjax(true);
 
-        $cfg['AllowUserDropDatabase'] = true;
+        $GLOBALS['cfg']['AllowUserDropDatabase'] = true;
 
         $controller = new DestroyController(
             $response,

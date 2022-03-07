@@ -64,8 +64,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showLoginForm(): bool
     {
-        global $conn_error;
-
         $response = ResponseRenderer::getInstance();
 
         /**
@@ -127,8 +125,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $errorMessages = '';
         // Show error message
-        if (! empty($conn_error)) {
-            $errorMessages = Message::rawError((string) $conn_error)->getDisplay();
+        if (! empty($GLOBALS['conn_error'])) {
+            $errorMessages = Message::rawError((string) $GLOBALS['conn_error'])->getDisplay();
         } elseif (isset($_GET['session_expired']) && intval($_GET['session_expired']) == 1) {
             $errorMessages = Message::rawError(
                 __('Your session has expired. Please log in again.')
@@ -226,8 +224,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        global $conn_error;
-
         // Initialization
         /**
          * @global $GLOBALS['pma_auth_server'] the user provided server to
@@ -248,7 +244,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             ) {
                 if (empty($_POST[$GLOBALS['cfg']['CaptchaResponseParam']])) {
-                    $conn_error = __('Missing reCAPTCHA verification, maybe it has been blocked by adblock?');
+                    $GLOBALS['conn_error'] = __(
+                        'Missing reCAPTCHA verification, maybe it has been blocked by adblock?'
+                    );
 
                     return false;
                 }
@@ -283,9 +281,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                     $codes = $resp->getErrorCodes();
 
                     if (in_array('invalid-json', $codes)) {
-                        $conn_error = __('Failed to connect to the reCAPTCHA service!');
+                        $GLOBALS['conn_error'] = __('Failed to connect to the reCAPTCHA service!');
                     } else {
-                        $conn_error = __('Entered captcha is wrong, try again!');
+                        $GLOBALS['conn_error'] = __('Entered captcha is wrong, try again!');
                     }
 
                     return false;
@@ -297,7 +295,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $password = $_POST['pma_password'] ?? '';
             if (strlen($password) >= 1000) {
-                $conn_error = __('Your password is too long. To prevent denial-of-service attacks, ' .
+                $GLOBALS['conn_error'] = __('Your password is too long. To prevent denial-of-service attacks, ' .
                     'phpMyAdmin restricts passwords to less than 1000 characters.');
 
                 return false;
@@ -316,7 +314,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                     $match = preg_match($GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host);
                     if (! $match) {
-                        $conn_error = __('You are not allowed to log in to this MySQL server!');
+                        $GLOBALS['conn_error'] = __('You are not allowed to log in to this MySQL server!');
 
                         return false;
                     }
@@ -423,8 +421,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function storeCredentials(): bool
     {
-        global $cfg;
-
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             /* Allow to specify 'host port' */
             $parts = explode(' ', $GLOBALS['pma_auth_server']);
@@ -436,10 +432,10 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $tmp_port = '';
             }
 
-            if ($cfg['Server']['host'] != $GLOBALS['pma_auth_server']) {
-                $cfg['Server']['host'] = $tmp_host;
+            if ($GLOBALS['cfg']['Server']['host'] != $GLOBALS['pma_auth_server']) {
+                $GLOBALS['cfg']['Server']['host'] = $tmp_host;
                 if (! empty($tmp_port)) {
-                    $cfg['Server']['port'] = $tmp_port;
+                    $GLOBALS['cfg']['Server']['port'] = $tmp_port;
                 }
             }
 
@@ -569,14 +565,12 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showFailure($failure): void
     {
-        global $conn_error;
-
         parent::showFailure($failure);
 
         // Deletes password cookie and displays the login form
         $GLOBALS['config']->removeCookie('pmaAuth-' . $GLOBALS['server']);
 
-        $conn_error = $this->getErrorMessage($failure);
+        $GLOBALS['conn_error'] = $this->getErrorMessage($failure);
 
         $response = ResponseRenderer::getInstance();
 
@@ -661,23 +655,21 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function logOut(): void
     {
-        global $config;
-
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
-                $config->removeCookie('pmaAuth-' . $key);
-                if (! $config->issetCookie('pmaAuth-' . $key)) {
+                $GLOBALS['config']->removeCookie('pmaAuth-' . $key);
+                if (! $GLOBALS['config']->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 
-                $config->removeCookie('pmaAuth-' . $key);
+                $GLOBALS['config']->removeCookie('pmaAuth-' . $key);
             }
         } else {
             $cookieName = 'pmaAuth-' . $GLOBALS['server'];
-            $config->removeCookie($cookieName);
-            if ($config->issetCookie($cookieName)) {
-                $config->removeCookie($cookieName);
+            $GLOBALS['config']->removeCookie($cookieName);
+            if ($GLOBALS['config']->issetCookie($cookieName)) {
+                $GLOBALS['config']->removeCookie($cookieName);
             }
         }
 

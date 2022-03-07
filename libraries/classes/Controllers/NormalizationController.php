@@ -34,15 +34,13 @@ class NormalizationController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table;
-
         if (isset($_POST['getColumns'])) {
             $html = '<option selected disabled>' . __('Select one…') . '</option>'
                 . '<option value="no_such_col">' . __('No such column') . '</option>';
             //get column whose datatype falls under string category
             $html .= $this->normalization->getHtmlForColumnsList(
-                $db,
-                $table,
+                $GLOBALS['db'],
+                $GLOBALS['table'],
                 _pgettext('string types', 'String')
             );
             echo $html;
@@ -52,8 +50,8 @@ class NormalizationController extends AbstractController
 
         if (isset($_POST['splitColumn'])) {
             $num_fields = min(4096, intval($_POST['numFields']));
-            $html = $this->normalization->getHtmlForCreateNewColumn($num_fields, $db, $table);
-            $html .= Url::getHiddenInputs($db, $table);
+            $html = $this->normalization->getHtmlForCreateNewColumn($num_fields, $GLOBALS['db'], $GLOBALS['table']);
+            $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             echo $html;
 
             return;
@@ -62,18 +60,23 @@ class NormalizationController extends AbstractController
         if (isset($_POST['addNewPrimary'])) {
             $num_fields = 1;
             $columnMeta = [
-                'Field' => $table . '_id',
+                'Field' => $GLOBALS['table'] . '_id',
                 'Extra' => 'auto_increment',
             ];
-            $html = $this->normalization->getHtmlForCreateNewColumn($num_fields, $db, $table, $columnMeta);
-            $html .= Url::getHiddenInputs($db, $table);
+            $html = $this->normalization->getHtmlForCreateNewColumn(
+                $num_fields,
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $columnMeta
+            );
+            $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             echo $html;
 
             return;
         }
 
         if (isset($_POST['findPdl'])) {
-            $html = $this->normalization->findPartialDependencies($table, $db);
+            $html = $this->normalization->findPartialDependencies($GLOBALS['table'], $GLOBALS['db']);
             echo $html;
 
             return;
@@ -81,7 +84,7 @@ class NormalizationController extends AbstractController
 
         if (isset($_POST['getNewTables2NF'])) {
             $partialDependencies = json_decode($_POST['pd'], true);
-            $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $table);
+            $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $GLOBALS['table']);
             echo $html;
 
             return;
@@ -90,7 +93,7 @@ class NormalizationController extends AbstractController
         if (isset($_POST['getNewTables3NF'])) {
             $dependencies = json_decode($_POST['pd']);
             $tables = json_decode($_POST['tables'], true);
-            $newTables = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $db);
+            $newTables = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $GLOBALS['db']);
             $this->response->disable();
             Core::headerJSON();
             echo json_encode($newTables);
@@ -108,7 +111,12 @@ class NormalizationController extends AbstractController
         if (isset($_POST['createNewTables2NF'])) {
             $partialDependencies = json_decode($_POST['pd'], true);
             $tablesName = json_decode($_POST['newTablesName']);
-            $res = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
+            $res = $this->normalization->createNewTablesFor2NF(
+                $partialDependencies,
+                $tablesName,
+                $GLOBALS['table'],
+                $GLOBALS['db']
+            );
             $this->response->addJSON($res);
 
             return;
@@ -116,7 +124,7 @@ class NormalizationController extends AbstractController
 
         if (isset($_POST['createNewTables3NF'])) {
             $newtables = json_decode($_POST['newTables'], true);
-            $res = $this->normalization->createNewTablesFor3NF($newtables, $db);
+            $res = $this->normalization->createNewTablesFor3NF($newtables, $GLOBALS['db']);
             $this->response->addJSON($res);
 
             return;
@@ -132,8 +140,8 @@ class NormalizationController extends AbstractController
                 $primary_columns,
                 $newTable,
                 $newColumn,
-                $table,
-                $db
+                $GLOBALS['table'],
+                $GLOBALS['db']
             );
             $this->response->addJSON($res);
 
@@ -141,23 +149,23 @@ class NormalizationController extends AbstractController
         }
 
         if (isset($_POST['step1'])) {
-            $html = $this->normalization->getHtmlFor1NFStep1($db, $table, $normalForm);
+            $html = $this->normalization->getHtmlFor1NFStep1($GLOBALS['db'], $GLOBALS['table'], $normalForm);
             $this->response->addHTML($html);
         } elseif (isset($_POST['step2'])) {
-            $res = $this->normalization->getHtmlContentsFor1NFStep2($db, $table);
+            $res = $this->normalization->getHtmlContentsFor1NFStep2($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
         } elseif (isset($_POST['step3'])) {
-            $res = $this->normalization->getHtmlContentsFor1NFStep3($db, $table);
+            $res = $this->normalization->getHtmlContentsFor1NFStep3($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
         } elseif (isset($_POST['step4'])) {
-            $res = $this->normalization->getHtmlContentsFor1NFStep4($db, $table);
+            $res = $this->normalization->getHtmlContentsFor1NFStep4($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
         } elseif (isset($_POST['step']) && $_POST['step'] == '2.1') {
-            $res = $this->normalization->getHtmlFor2NFstep1($db, $table);
+            $res = $this->normalization->getHtmlFor2NFstep1($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
         } elseif (isset($_POST['step']) && $_POST['step'] == '3.1') {
             $tables = $_POST['tables'];
-            $res = $this->normalization->getHtmlFor3NFstep1($db, $tables);
+            $res = $this->normalization->getHtmlFor3NFstep1($GLOBALS['db'], $tables);
             $this->response->addJSON($res);
         } else {
             $this->response->addHTML($this->normalization->getHtmlForNormalizeTable());

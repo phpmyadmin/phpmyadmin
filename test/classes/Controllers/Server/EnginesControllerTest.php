@@ -33,11 +33,9 @@ class EnginesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        global $dbi;
-
         $response = new ResponseRenderer();
 
-        $controller = new EnginesController($response, new Template(), $dbi);
+        $controller = new EnginesController($response, new Template(), $GLOBALS['dbi']);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller->__invoke();

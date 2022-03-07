@@ -25,11 +25,9 @@ class ListDatabase extends ListAbstract
 {
     public function __construct()
     {
-        global $dbi;
-
         parent::__construct();
 
-        $checkUserPrivileges = new CheckUserPrivileges($dbi);
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
         $checkUserPrivileges->getPrivileges();
 
         $this->build();
@@ -62,8 +60,6 @@ class ListDatabase extends ListAbstract
      */
     protected function retrieve($like_db_name = null)
     {
-        global $dbi;
-
         $database_list = [];
         $command = '';
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -88,7 +84,7 @@ class ListDatabase extends ListAbstract
         }
 
         if ($command) {
-            $database_list = $dbi->fetchResult($command, null, null);
+            $database_list = $GLOBALS['dbi']->fetchResult($command, null, null);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {

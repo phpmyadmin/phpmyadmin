@@ -22,6 +22,7 @@ class AddFieldControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
+        $GLOBALS['regenerate'] = null;
         $GLOBALS['cfg']['Server'] = $GLOBALS['config']->defaultServer;
         $_POST = [
             'db' => 'test_db',

@@ -196,10 +196,8 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function showFailure($failure): void
     {
-        global $dbi;
-
         parent::showFailure($failure);
-        $error = $dbi->getError();
+        $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             Core::fatalError($error);
         } else {

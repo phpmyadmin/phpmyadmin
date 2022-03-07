@@ -41,10 +41,8 @@ abstract class ExportPlugin implements Plugin
 
     final public function __construct()
     {
-        global $dbi;
-
-        $this->relation = new Relation($dbi);
-        $this->export = new Export($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->export = new Export($GLOBALS['dbi']);
         $this->transformations = new Transformations();
         $this->init();
         $this->properties = $this->setProperties();

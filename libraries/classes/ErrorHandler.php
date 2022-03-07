@@ -194,8 +194,6 @@ class ErrorHandler
         string $errfile,
         int $errline
     ): void {
-        global $cfg;
-
         if (Util::isErrorReportingAvailable()) {
             /**
             * Check if Error Control Operator (@) was used, but still show
@@ -207,7 +205,11 @@ class ErrorHandler
                 $isSilenced = error_reporting() == 0;
             }
 
-            if (isset($cfg['environment']) && $cfg['environment'] === 'development' && ! $isSilenced) {
+            if (
+                isset($GLOBALS['cfg']['environment'])
+                && $GLOBALS['cfg']['environment'] === 'development'
+                && ! $isSilenced
+            ) {
                 throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
             }
 

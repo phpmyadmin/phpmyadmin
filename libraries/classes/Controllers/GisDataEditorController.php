@@ -28,9 +28,6 @@ class GisDataEditorController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
-        global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count, $dbi;
-
         /** @var string|null $field */
         $field = $request->getParsedBodyParam('field');
         /** @var array|null $gisDataParam */
@@ -49,12 +46,12 @@ class GisDataEditorController extends AbstractController
         }
 
         // Get data if any posted
-        $gis_data = [];
+        $GLOBALS['gis_data'] = [];
         if (is_array($gisDataParam)) {
-            $gis_data = $gisDataParam;
+            $GLOBALS['gis_data'] = $gisDataParam;
         }
 
-        $gis_types = [
+        $GLOBALS['gis_types'] = [
             'POINT',
             'MULTIPOINT',
             'LINESTRING',
@@ -66,95 +63,103 @@ class GisDataEditorController extends AbstractController
 
         // Extract type from the initial call and make sure that it's a valid one.
         // Extract from field's values if available, if not use the column type passed.
-        if (! isset($gis_data['gis_type'])) {
+        if (! isset($GLOBALS['gis_data']['gis_type'])) {
             if ($type !== '') {
-                $gis_data['gis_type'] = mb_strtoupper($type);
+                $GLOBALS['gis_data']['gis_type'] = mb_strtoupper($type);
             }
 
             if (isset($value) && trim($value) !== '') {
-                $start = substr($value, 0, 1) == "'" ? 1 : 0;
-                $gis_data['gis_type'] = mb_substr($value, $start, (int) mb_strpos($value, '(') - $start);
+                $GLOBALS['start'] = substr($value, 0, 1) == "'" ? 1 : 0;
+                $GLOBALS['gis_data']['gis_type'] = mb_substr(
+                    $value,
+                    $GLOBALS['start'],
+                    (int) mb_strpos($value, '(') - $GLOBALS['start']
+                );
             }
 
-            if (! isset($gis_data['gis_type']) || (! in_array($gis_data['gis_type'], $gis_types))) {
-                $gis_data['gis_type'] = $gis_types[0];
+            if (
+                ! isset($GLOBALS['gis_data']['gis_type'])
+                || (! in_array($GLOBALS['gis_data']['gis_type'], $GLOBALS['gis_types']))
+            ) {
+                $GLOBALS['gis_data']['gis_type'] = $GLOBALS['gis_types'][0];
             }
         }
 
-        $geom_type = $gis_data['gis_type'];
+        $GLOBALS['geom_type'] = $GLOBALS['gis_data']['gis_type'];
 
         // Generate parameters from value passed.
-        $gis_obj = GisFactory::factory($geom_type);
-        if ($gis_obj === false) {
+        $GLOBALS['gis_obj'] = GisFactory::factory($GLOBALS['geom_type']);
+        if ($GLOBALS['gis_obj'] === false) {
             return;
         }
 
         if (isset($value)) {
-            $gis_data = array_merge(
-                $gis_data,
-                $gis_obj->generateParams($value)
+            $GLOBALS['gis_data'] = array_merge(
+                $GLOBALS['gis_data'],
+                $GLOBALS['gis_obj']->generateParams($value)
             );
         }
 
         // Generate Well Known Text
-        $srid = isset($gis_data['srid']) && $gis_data['srid'] != '' ? (int) $gis_data['srid'] : 0;
-        $wkt = $gis_obj->generateWkt($gis_data, 0);
-        $wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
-        $result = "'" . $wkt . "'," . $srid;
+        $GLOBALS['srid'] = isset($GLOBALS['gis_data']['srid']) && $GLOBALS['gis_data']['srid'] != ''
+            ? (int) $GLOBALS['gis_data']['srid'] : 0;
+        $GLOBALS['wkt'] = $GLOBALS['gis_obj']->generateWkt($GLOBALS['gis_data'], 0);
+        $GLOBALS['wkt_with_zero'] = $GLOBALS['gis_obj']->generateWkt($GLOBALS['gis_data'], 0, '0');
+        $GLOBALS['result'] = "'" . $GLOBALS['wkt'] . "'," . $GLOBALS['srid'];
 
         // Generate SVG based visualization
-        $visualizationSettings = [
+        $GLOBALS['visualizationSettings'] = [
             'width' => 450,
             'height' => 300,
             'spatialColumn' => 'wkt',
-            'mysqlVersion' => $dbi->getVersion(),
-            'isMariaDB' => $dbi->isMariaDB(),
+            'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
+            'isMariaDB' => $GLOBALS['dbi']->isMariaDB(),
         ];
-        $data = [
+        $GLOBALS['data'] = [
             [
-                'wkt' => $wkt_with_zero,
-                'srid' => $srid,
+                'wkt' => $GLOBALS['wkt_with_zero'],
+                'srid' => $GLOBALS['srid'],
             ],
         ];
-        $visualization = GisVisualization::getByData($data, $visualizationSettings)
+        $GLOBALS['visualization'] = GisVisualization::getByData($GLOBALS['data'], $GLOBALS['visualizationSettings'])
             ->toImage('svg');
 
-        $open_layers = GisVisualization::getByData($data, $visualizationSettings)
+        $GLOBALS['open_layers'] = GisVisualization::getByData($GLOBALS['data'], $GLOBALS['visualizationSettings'])
             ->asOl();
 
         // If the call is to update the WKT and visualization make an AJAX response
         if ($generate) {
             $this->response->addJSON([
-                'result' => $result,
-                'visualization' => $visualization,
-                'openLayers' => $open_layers,
+                'result' => $GLOBALS['result'],
+                'visualization' => $GLOBALS['visualization'],
+                'openLayers' => $GLOBALS['open_layers'],
             ]);
 
             return;
         }
 
-        $geom_count = 1;
-        if ($geom_type === 'GEOMETRYCOLLECTION') {
-            $geom_count = isset($gis_data[$geom_type]['geom_count'])
-                ? intval($gis_data[$geom_type]['geom_count']) : 1;
-            if (isset($gis_data[$geom_type]['add_geom'])) {
-                $geom_count++;
+        $GLOBALS['geom_count'] = 1;
+        if ($GLOBALS['geom_type'] === 'GEOMETRYCOLLECTION') {
+            $GLOBALS['geom_count'] = isset($GLOBALS['gis_data'][$GLOBALS['geom_type']]['geom_count'])
+                ? intval($GLOBALS['gis_data'][$GLOBALS['geom_type']]['geom_count']) : 1;
+            if (isset($GLOBALS['gis_data'][$GLOBALS['geom_type']]['add_geom'])) {
+                $GLOBALS['geom_count']++;
             }
         }
 
         $templateOutput = $this->template->render('gis_data_editor_form', [
-            'width' => $visualizationSettings['width'],
-            'height' => $visualizationSettings['height'],
+            'width' => $GLOBALS['visualizationSettings']['width'],
+            'height' => $GLOBALS['visualizationSettings']['height'],
             'field' => $field,
             'input_name' => $inputName,
-            'srid' => $srid,
-            'visualization' => $visualization,
-            'open_layers' => $open_layers,
-            'gis_types' => $gis_types,
-            'geom_type' => $geom_type,
-            'geom_count' => $geom_count,
-            'gis_data' => $gis_data,
-            'result' => $result,
+            'srid' => $GLOBALS['srid'],
+            'visualization' => $GLOBALS['visualization'],
+            'open_layers' => $GLOBALS['open_layers'],
+            'gis_types' => $GLOBALS['gis_types'],
+            'geom_type' => $GLOBALS['geom_type'],
+            'geom_count' => $GLOBALS['geom_count'],
+            'gis_data' => $GLOBALS['gis_data'],
+            'result' => $GLOBALS['result'],
         ]);
 
         $this->response->addJSON(['gis_editor' => $templateOutput]);

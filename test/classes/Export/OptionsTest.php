@@ -52,12 +52,10 @@ class OptionsTest extends AbstractTestCase
 
     public function testGetOptions(): void
     {
-        global $cfg;
-
-        $cfg['Export']['method'] = 'XML';
-        $cfg['SaveDir'] = '/tmp';
-        $cfg['ZipDump'] = false;
-        $cfg['GZipDump'] = false;
+        $GLOBALS['cfg']['Export']['method'] = 'XML';
+        $GLOBALS['cfg']['SaveDir'] = '/tmp';
+        $GLOBALS['cfg']['ZipDump'] = false;
+        $GLOBALS['cfg']['GZipDump'] = false;
 
         $export_type = 'server';
         $db = 'PMA';
@@ -110,35 +108,35 @@ class OptionsTest extends AbstractTestCase
                 'db' => $db,
                 'table' => $table,
                 'export_type' => $export_type,
-                'export_method' => $cfg['Export']['method'],
+                'export_method' => $GLOBALS['cfg']['Export']['method'],
                 'template_id' => '',
             ],
-            'export_method' => $cfg['Export']['method'],
+            'export_method' => $GLOBALS['cfg']['Export']['method'],
             'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
-            'exec_time_limit' => $cfg['ExecTimeLimit'],
+            'exec_time_limit' => $GLOBALS['cfg']['ExecTimeLimit'],
             'rows' => [],
             'has_save_dir' => true,
-            'save_dir' => Util::userDir($cfg['SaveDir']),
-            'export_is_checked' => $cfg['Export']['quick_export_onserver'],
-            'export_overwrite_is_checked' => $cfg['Export']['quick_export_onserver_overwrite'],
+            'save_dir' => Util::userDir($GLOBALS['cfg']['SaveDir']),
+            'export_is_checked' => $GLOBALS['cfg']['Export']['quick_export_onserver'],
+            'export_overwrite_is_checked' => $GLOBALS['cfg']['Export']['quick_export_onserver_overwrite'],
             'has_aliases' => false,
             'aliases' => [],
-            'is_checked_lock_tables' => $cfg['Export']['lock_tables'],
-            'is_checked_asfile' => $cfg['Export']['asfile'],
-            'is_checked_as_separate_files' => $cfg['Export']['as_separate_files'],
-            'is_checked_export' => $cfg['Export']['onserver'],
-            'is_checked_export_overwrite' => $cfg['Export']['onserver_overwrite'],
-            'is_checked_remember_file_template' => $cfg['Export']['remember_file_template'],
+            'is_checked_lock_tables' => $GLOBALS['cfg']['Export']['lock_tables'],
+            'is_checked_asfile' => $GLOBALS['cfg']['Export']['asfile'],
+            'is_checked_as_separate_files' => $GLOBALS['cfg']['Export']['as_separate_files'],
+            'is_checked_export' => $GLOBALS['cfg']['Export']['onserver'],
+            'is_checked_export_overwrite' => $GLOBALS['cfg']['Export']['onserver_overwrite'],
+            'is_checked_remember_file_template' => $GLOBALS['cfg']['Export']['remember_file_template'],
             'repopulate' => '',
             'lock_tables' => '',
             'is_encoding_supported' => true,
             'encodings' => Encoding::listEncodings(),
-            'export_charset' => $cfg['Export']['charset'],
-            'export_asfile' => $cfg['Export']['asfile'],
-            'has_zip' => $cfg['ZipDump'],
-            'has_gzip' => $cfg['GZipDump'],
+            'export_charset' => $GLOBALS['cfg']['Export']['charset'],
+            'export_asfile' => $GLOBALS['cfg']['Export']['asfile'],
+            'has_zip' => $GLOBALS['cfg']['ZipDump'],
+            'has_gzip' => $GLOBALS['cfg']['GZipDump'],
             'selected_compression' => 'none',
             'filename_template' => 'user value for test',
         ];

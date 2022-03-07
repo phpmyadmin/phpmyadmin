@@ -60,15 +60,13 @@ class FindReplaceController extends AbstractController
 
     public function __invoke(): void
     {
-        global $db, $table, $urlParams, $cfg, $errorUrl;
-
         Util::checkParameters(['db', 'table']);
 
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        DbTableExists::check($db, $table);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         if (isset($_POST['find'])) {
             $this->findAction();
@@ -127,10 +125,8 @@ class FindReplaceController extends AbstractController
      */
     public function displaySelectionFormAction(): void
     {
-        global $goto;
-
-        if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        if (! isset($GLOBALS['goto'])) {
+            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $column_names = $this->columnNames;
@@ -144,7 +140,7 @@ class FindReplaceController extends AbstractController
         $this->render('table/find_replace/index', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'goto' => $goto,
+            'goto' => $GLOBALS['goto'],
             'column_names' => $column_names,
             'types' => $types,
             'sql_types' => $this->dbi->types,

@@ -14,8 +14,6 @@ class ImportControllerTest extends AbstractTestCase
 {
     public function testIndexParametrized(): void
     {
-        global $containerBuilder, $db, $table, $sql_query;
-
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
         parent::setLanguage();
@@ -24,19 +22,21 @@ class ImportControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['import_run_buffer'] = null;
+
         parent::loadResponseIntoContainerBuilder();
 
         // Some params where not added as they where not required for this test
         $_POST['db'] = 'pma_test';
         $_POST['table'] = 'table1';
-        $db = $_POST['db'];
-        $table = $_POST['table'];
+        $GLOBALS['db'] = $_POST['db'];
+        $GLOBALS['table'] = $_POST['table'];
         $_POST['parameterized'] = 'on';
         $_POST['parameters'] = [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4'];
         $_POST['sql_query'] = 'SELECT A.*' . "\n"
             . 'FROM table1 A' . "\n"
             . 'WHERE A.nomEtablissement = :nomEta AND foo = :1 AND `:a` IS NULL';
-        $sql_query = $_POST['sql_query'];
+        $GLOBALS['sql_query'] = $_POST['sql_query'];
 
         $this->dummyDbi->addResult(
             'SELECT A.* FROM table1 A WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\''
@@ -55,7 +55,7 @@ class ImportControllerTest extends AbstractTestCase
         );
 
         /** @var ImportController $importController */
-        $importController = $containerBuilder->get(ImportController::class);
+        $importController = $GLOBALS['containerBuilder']->get(ImportController::class);
         $this->dummyDbi->addSelectDb('pma_test');
         $this->dummyDbi->addSelectDb('pma_test');
         $importController();

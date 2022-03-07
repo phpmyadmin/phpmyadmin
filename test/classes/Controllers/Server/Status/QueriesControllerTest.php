@@ -51,11 +51,9 @@ class QueriesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        global $dbi;
-
         $response = new ResponseRenderer();
 
-        $controller = new QueriesController($response, new Template(), $this->data, $dbi);
+        $controller = new QueriesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();

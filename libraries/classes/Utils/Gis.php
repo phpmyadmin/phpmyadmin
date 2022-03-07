@@ -22,20 +22,18 @@ final class Gis
      */
     public static function convertToWellKnownText($data, $includeSRID = false): string
     {
-        global $dbi;
-
         // Convert to WKT format
         $hex = bin2hex($data);
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
         $axisOrder = '';
-        $mysqlVersionInt = $dbi->getVersion();
+        $mysqlVersionInt = $GLOBALS['dbi']->getVersion();
         if ($mysqlVersionInt >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
         }
 
-        if ($mysqlVersionInt >= 80001 && ! $dbi->isMariaDb()) {
+        if ($mysqlVersionInt >= 80001 && ! $GLOBALS['dbi']->isMariaDb()) {
             $axisOrder = ', \'axis-order=long-lat\'';
         }
 
@@ -44,7 +42,7 @@ final class Gis
             $wktsql .= ', ' . $spatialSrid . "(x'" . $hex . "')";
         }
 
-        $wktresult = $dbi->tryQuery($wktsql);
+        $wktresult = $GLOBALS['dbi']->tryQuery($wktsql);
         $wktarr = [];
         if ($wktresult) {
             $wktarr = $wktresult->fetchRow();
@@ -129,8 +127,6 @@ final class Gis
         $binary = true,
         $display = false
     ): array {
-        global $dbi;
-
         $funcs = [];
         if ($display) {
             $funcs[] = ['display' => ' '];
@@ -246,7 +242,7 @@ final class Gis
             }
 
             $spatialPrefix = '';
-            if ($dbi->getVersion() >= 50601) {
+            if ($GLOBALS['dbi']->getVersion() >= 50601) {
                 // If MySQL version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
                 $spatialPrefix = 'ST_';

@@ -102,8 +102,6 @@ class Header
      */
     public function __construct()
     {
-        global $db, $table, $dbi;
-
         $this->template = new Template();
 
         $this->isEnabled = true;
@@ -111,7 +109,7 @@ class Header
         $this->bodyId = '';
         $this->title = '';
         $this->console = new Console();
-        $this->menu = new Menu($dbi, $db ?? '', $table ?? '');
+        $this->menu = new Menu($GLOBALS['dbi'], $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
         $this->menuEnabled = true;
         $this->warningsEnabled = true;
         $this->scripts = new Scripts();
@@ -172,8 +170,6 @@ class Header
      */
     public function getJsParams(): array
     {
-        global $db, $table, $dbi;
-
         $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
         $params = [
@@ -182,8 +178,8 @@ class Header
             'opendb_url' => Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => $table ?? '',
-            'db' => $db ?? '',
+            'table' => $GLOBALS['table'] ?? '',
+            'db' => $GLOBALS['db'] ?? '',
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'LimitChars' => $GLOBALS['cfg']['LimitChars'],
@@ -191,7 +187,7 @@ class Header
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
-            'logged_in' => isset($dbi) ? $dbi->isConnected() : false,
+            'logged_in' => isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isConnected() : false,
             'is_https' => $GLOBALS['config']->isHttps(),
             'rootPath' => $GLOBALS['config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
@@ -309,15 +305,13 @@ class Header
      */
     public function getDisplay(): string
     {
-        global $db, $table, $theme, $dbi;
-
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';
         }
 
         $recentTable = '';
         if (empty($_REQUEST['recent_table'])) {
-            $recentTable = $this->addRecentTable($db, $table);
+            $recentTable = $this->addRecentTable($GLOBALS['db'], $GLOBALS['table']);
         }
 
         if ($this->isAjax) {
@@ -327,7 +321,7 @@ class Header
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $themePath = $theme instanceof Theme ? $theme->getPath() : '';
+        $themePath = $GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getPath() : '';
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -380,8 +374,8 @@ class Header
         if ($this->menuEnabled && $GLOBALS['server'] > 0) {
             $nav = new Navigation(
                 $this->template,
-                new Relation($dbi),
-                $dbi
+                new Relation($GLOBALS['dbi']),
+                $GLOBALS['dbi']
             );
             $navigation = $nav->getDisplay();
         }
@@ -572,20 +566,18 @@ class Header
      */
     private function getCspHeaders(): array
     {
-        global $cfg;
-
         $mapTileUrls = ' *.tile.openstreetmap.org';
         $captchaUrl = '';
-        $cspAllow = $cfg['CSPAllow'];
+        $cspAllow = $GLOBALS['cfg']['CSPAllow'];
 
         if (
-            ! empty($cfg['CaptchaLoginPrivateKey'])
-            && ! empty($cfg['CaptchaLoginPublicKey'])
-            && ! empty($cfg['CaptchaApi'])
-            && ! empty($cfg['CaptchaRequestParam'])
-            && ! empty($cfg['CaptchaResponseParam'])
+            ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            && ! empty($GLOBALS['cfg']['CaptchaApi'])
+            && ! empty($GLOBALS['cfg']['CaptchaRequestParam'])
+            && ! empty($GLOBALS['cfg']['CaptchaResponseParam'])
         ) {
-            $captchaUrl = ' ' . $cfg['CaptchaCsp'] . ' ';
+            $captchaUrl = ' ' . $GLOBALS['cfg']['CaptchaCsp'] . ' ';
         }
 
         $headers = [];
@@ -666,13 +658,11 @@ class Header
 
     private function getVariablesForJavaScript(): string
     {
-        global $cfg;
-
         $maxInputVars = ini_get('max_input_vars');
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
-            'first_day_of_calendar' => $cfg['FirstDayOfCalendar'] ?? 0,
+            'first_day_of_calendar' => $GLOBALS['cfg']['FirstDayOfCalendar'] ?? 0,
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

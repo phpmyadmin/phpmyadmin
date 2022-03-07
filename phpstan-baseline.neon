@@ -1016,18 +1016,13 @@ parameters:
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#9 \\$selectedPage of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
+			path: libraries/classes/Controllers/Database/OperationsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$export_sql_plugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
@@ -1166,36 +1161,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Cannot access offset 'date' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Cannot access offset 'ddlog' on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Cannot access offset 'statement' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Cannot access offset 'username' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
 			message: "#^Cannot access offset 'success' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ErrorReportController.php
@@ -1222,11 +1187,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$what of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Variable \\$export_plugin in empty\\(\\) always exists and is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Export/ExportController.php
 
@@ -1266,21 +1226,6 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
-			message: "#^If condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Left side of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/NormalizationController.php
@@ -1309,11 +1254,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$tablesName of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/NormalizationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$file_name of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs type has no value type specified in iterable type array\\.$#"
@@ -1456,11 +1396,6 @@ parameters:
 			path: libraries/classes/Controllers/Setup/ServersController.php
 
 		-
-			message: "#^Comparison operation \"\\>\" between 0 and 0 is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
@@ -1484,11 +1419,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/OperationsController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\PrivilegesController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
@@ -1527,11 +1457,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$relation_fields has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -1691,26 +1616,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'date_from' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Cannot access offset 'date_to' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method PhpMyAdmin\\\\Tracking\\:\\:getEntries\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/TrackingController.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/TrackingController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
@@ -1749,16 +1654,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:\\$originalColumnTypes type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of static method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:fromString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Transformation/WrapperController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Transformation/WrapperController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
@@ -4382,11 +4277,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Import\\:\\:runQuery\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:runQueryPost\\(\\) has parameter \\$importRunBuffer with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
 

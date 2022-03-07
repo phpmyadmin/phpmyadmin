@@ -45,6 +45,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['crlf'] = "\n";
         $this->object = new ExportXml();
     }
 
