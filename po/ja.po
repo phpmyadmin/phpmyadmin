@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2021-12-31 14:51+0000\n"
+"PO-Revision-Date: 2022-03-08 08:59+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5268,14 +5268,12 @@ msgstr ""
 "するようになりました。"
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr ""
-"設定ファイルの中に記述されているパスフレーズ（blowfish_secret）が短すぎます。"
+msgstr "設定ファイルの中に記述されているパスフレーズ（blowfish_secret）の長さが正しく"
+"ありません。 %d バイトでなければなりません。"
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -8973,6 +8971,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"エラー 1045: ユーザーのアクセスが拒否されました。追加のエラー情報が利用できる"
+"可能性もありますが、 %s 制御ディレクティブで非表示になっています。"
 
 #: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -17837,7 +17837,7 @@ msgstr "新しいサーバの追加"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "問題が発生しました。"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
