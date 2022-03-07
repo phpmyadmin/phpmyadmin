@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-06 00:14+0000\n"
-"PO-Revision-Date: 2021-12-31 14:51+0000\n"
+"PO-Revision-Date: 2022-03-08 08:54+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5269,14 +5269,12 @@ msgstr ""
 "するようになりました。"
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr ""
-"設定ファイルの中に記述されているパスフレーズ（blowfish_secret）が短すぎます。"
+msgstr "設定ファイルの中に記述されているパスフレーズ（blowfish_secret）の長さが正しく"
+"ありません。 %d バイトでなければなりません。"
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -7395,6 +7393,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"IndexedDB がブラウザで動作しておらず、 phpMyAdmin 環境保管領域が構成されてい"
+"ないため、ページレイアウトを開いたり、保存したり、削除したりすることができま"
+"せん。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
@@ -9363,6 +9364,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"エラー 1045: ユーザーのアクセスが拒否されました。追加のエラー情報が利用できる"
+"可能性もありますが、 %s 制御ディレクティブで非表示になっています。"
 
 #: libraries/classes/Display/Results.php:853 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -13446,11 +13449,8 @@ msgid "Could not save configuration"
 msgstr "設定が保存できません"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "現在のデータベースでphpMyAdmin環境保管領域を%s作成%s。"
+msgstr "phpMyAdmin 環境保管領域のデータベースにアクセスできませんでした。"
 
 #: libraries/classes/Util.php:131
 #, php-format
@@ -15315,18 +15315,13 @@ msgstr "表示できるトリガがありません。"
 
 #: templates/display/results/checkbox_and_links.twig:16
 #: templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
-#| msgid "You can also edit most values<br>by clicking directly on them."
 msgid "You can also edit most values by clicking directly on them."
-msgstr "ほとんどの値は、直接クリック<br />することでも、編集できます。"
+msgstr "ほとんどの値は、直接クリックすることでも編集できます。"
 
 #: templates/display/results/checkbox_and_links.twig:18
 #: templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br>by double-clicking directly on them."
 msgid "You can also edit most values by double-clicking directly on them."
-msgstr "ほとんどの値は、直接ダブルクリック<br />することでも、編集できます。"
+msgstr "ほとんどの値は、直接ダブルクリックすることでも編集できます。"
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
@@ -17917,7 +17912,7 @@ msgstr "新しいサーバの追加"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "問題が発生しました。"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
