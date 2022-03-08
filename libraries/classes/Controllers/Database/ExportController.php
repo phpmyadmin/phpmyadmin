@@ -50,7 +50,7 @@ final class ExportController extends AbstractController
         // /database/export, in which case we don't obey $cfg['MaxTableList']
         $GLOBALS['sub_part'] = '_export';
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');

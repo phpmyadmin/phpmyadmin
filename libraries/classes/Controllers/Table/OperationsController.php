@@ -77,7 +77,7 @@ class OperationsController extends AbstractController
 
         $this->addScriptFiles(['table/operations.js']);
 
-        Util::checkParameters(['db', 'table']);
+        $this->checkParameters(['db', 'table']);
 
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];

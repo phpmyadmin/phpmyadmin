@@ -6,7 +6,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Context;
@@ -22,7 +21,6 @@ use function array_map;
 use function array_merge;
 use function array_shift;
 use function array_unique;
-use function basename;
 use function bin2hex;
 use function chr;
 use function count;
@@ -798,46 +796,6 @@ class Util
             (string) $minutes,
             (string) $seconds
         );
-    }
-
-    /**
-     * Function added to avoid path disclosures.
-     * Called by each script that needs parameters, it displays
-     * an error message and, by default, stops the execution.
-     *
-     * @param string[] $params  The names of the parameters needed by the calling
-     *                          script
-     * @param bool     $request Check parameters in request
-     */
-    public static function checkParameters($params, $request = false): void
-    {
-        $reportedScriptName = basename($GLOBALS['PMA_PHP_SELF']);
-        $foundError = false;
-        $errorMessage = '';
-        if ($request) {
-            $array = $_REQUEST;
-        } else {
-            $array = $GLOBALS;
-        }
-
-        foreach ($params as $param) {
-            if (isset($array[$param])) {
-                continue;
-            }
-
-            $errorMessage .= $reportedScriptName
-                . ': ' . __('Missing parameter:') . ' '
-                . $param
-                . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
-                . '[br]';
-            $foundError = true;
-        }
-
-        if (! $foundError) {
-            return;
-        }
-
-        Core::fatalError($errorMessage);
     }
 
     /**

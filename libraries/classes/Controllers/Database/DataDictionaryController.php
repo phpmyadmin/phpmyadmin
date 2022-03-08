@@ -42,7 +42,7 @@ class DataDictionaryController extends AbstractController
 
     public function __invoke(): void
     {
-        Util::checkParameters(['db'], true);
+        $this->checkParameters(['db'], true);
 
         $relationParameters = $this->relation->getRelationParameters();
 

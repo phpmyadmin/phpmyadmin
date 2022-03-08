@@ -237,7 +237,7 @@ class OperationsController extends AbstractController
             $this->relation->setDbComment($GLOBALS['db'], $_POST['comment']);
         }
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');

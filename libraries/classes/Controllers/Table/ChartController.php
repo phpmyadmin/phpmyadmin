@@ -81,7 +81,7 @@ class ChartController extends AbstractController
          * Runs common work
          */
         if (strlen($GLOBALS['table']) > 0) {
-            Util::checkParameters(['db', 'table']);
+            $this->checkParameters(['db', 'table']);
 
             $url_params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
@@ -96,7 +96,7 @@ class ChartController extends AbstractController
             $url_params['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             $url_params['back'] = Url::getFromRoute('/sql');
 
-            Util::checkParameters(['db']);
+            $this->checkParameters(['db']);
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
@@ -168,7 +168,7 @@ class ChartController extends AbstractController
     public function ajax(): void
     {
         if (strlen($GLOBALS['table']) > 0 && strlen($GLOBALS['db']) > 0) {
-            Util::checkParameters(['db', 'table']);
+            $this->checkParameters(['db', 'table']);
 
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');

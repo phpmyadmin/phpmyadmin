@@ -95,6 +95,8 @@ final class ChangeController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
+        $this->checkParameters(['server', 'db', 'table', 'num_fields']);
+
         $templateData = $this->columnsDefinition->displayForm(
             '/table/structure/save',
             $GLOBALS['num_fields'],

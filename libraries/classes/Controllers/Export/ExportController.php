@@ -212,7 +212,7 @@ final class ExportController extends AbstractController
             $GLOBALS[$param] = $postParams[$param];
         }
 
-        Util::checkParameters(['what', 'export_type']);
+        $this->checkParameters(['what', 'export_type']);
 
         // sanitize this parameter which will be used below in a file inclusion
         $GLOBALS['what'] = Core::securePath($whatParam);

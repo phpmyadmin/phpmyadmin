@@ -24,7 +24,7 @@ final class DropColumnConfirmationController extends AbstractController
             return;
         }
 
-        Util::checkParameters(['db', 'table']);
+        $this->checkParameters(['db', 'table']);
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');

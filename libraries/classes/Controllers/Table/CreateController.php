@@ -15,7 +15,6 @@ use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;
@@ -58,7 +57,7 @@ class CreateController extends AbstractController
 
     public function __invoke(): void
     {
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
         $cfg = $this->config->settings;
 
@@ -155,6 +154,8 @@ class CreateController extends AbstractController
         $this->response->getHeader()->getMenu()->setTable('');
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+
+        $this->checkParameters(['server', 'db', 'table', 'num_fields']);
 
         $templateData = $this->columnsDefinition->displayForm('/table/create', $GLOBALS['num_fields']);
 
