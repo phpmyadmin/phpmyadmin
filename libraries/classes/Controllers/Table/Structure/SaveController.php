@@ -368,10 +368,7 @@ final class SaveController extends AbstractController
     {
         $changed = false;
 
-        if (
-            Util::getValueByKey($GLOBALS, 'col_priv', false)
-            && Util::getValueByKey($GLOBALS, 'is_reload_priv', false)
-        ) {
+        if (($GLOBALS['col_priv'] ?? false) && ($GLOBALS['is_reload_priv'] ?? false)) {
             $this->dbi->selectDb('mysql');
 
             // For Column specific privileges

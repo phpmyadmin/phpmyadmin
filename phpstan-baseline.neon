@@ -8086,11 +8086,6 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Parameter \\#2 \\$str of function explode expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php

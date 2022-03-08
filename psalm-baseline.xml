@@ -2260,9 +2260,6 @@
     <MixedArgument occurrences="1">
       <code>$_POST['export_type']</code>
     </MixedArgument>
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$_POST['export_type']</code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Server/BinlogController.php">
     <MixedArgument occurrences="2">
@@ -12975,10 +12972,9 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="15">
       <code>$GLOBALS['mime_map'][$columnMeta['Field']] ?? []</code>
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
-      <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['DefaultValue']</code>
@@ -12987,20 +12983,28 @@
       <code>$columnMeta['Field']</code>
       <code>$columnMeta['Type']</code>
       <code>$columnMeta['Type']</code>
+      <code>$extracted_columnspec['attribute'] ?? ''</code>
       <code>$form_params['db']</code>
       <code>$form_params['table']</code>
       <code>$type</code>
       <code>Util::getValueByKey($_POST, "field_key.${columnNumber}", '')</code>
-      <code>Util::getValueByKey($extracted_columnspec, 'attribute', '')</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="9">
+    <MixedArrayAccess occurrences="17">
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
+      <code>$columnMeta['Collation']</code>
+      <code>$columnMeta['Comment']</code>
       <code>$columnMeta['Default']</code>
+      <code>$columnMeta['Default']</code>
+      <code>$columnMeta['DefaultType']</code>
+      <code>$columnMeta['Expression']</code>
+      <code>$columnMeta['Extra']</code>
       <code>$columnMeta['Extra']</code>
       <code>$columnMeta['Field']</code>
       <code>$columnMeta['Field']</code>
       <code>$columnMeta['Null']</code>
+      <code>$columnMeta['Null']</code>
       <code>$columnMeta['Type']</code>
+      <code>$columnMeta['Virtuality']</code>
       <code>$columnMeta['column_status']['isEditable']</code>
       <code>$columnMeta['column_status']['isEditable']</code>
     </MixedArrayAccess>
@@ -13047,6 +13051,9 @@
       <code>$submit_attribute</code>
       <code>$type</code>
     </MixedAssignment>
+    <PossiblyNullArgument occurrences="1">
+      <code>$form_params['db']</code>
+    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Table/Indexes.php">
     <InvalidArrayOffset occurrences="1">
