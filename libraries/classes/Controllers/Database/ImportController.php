@@ -42,7 +42,7 @@ final class ImportController extends AbstractController
 
         $this->addScriptFiles(['import.js']);
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');

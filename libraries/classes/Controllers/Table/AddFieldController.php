@@ -61,8 +61,7 @@ class AddFieldController extends AbstractController
     {
         $this->addScriptFiles(['table/structure.js']);
 
-        // Check parameters
-        Util::checkParameters(['db', 'table']);
+        $this->checkParameters(['db', 'table']);
 
         $cfg = $this->config->settings;
 
@@ -177,6 +176,8 @@ class AddFieldController extends AbstractController
         $GLOBALS['active_page'] = Url::getFromRoute('/table/structure');
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+
+        $this->checkParameters(['server', 'db', 'table', 'num_fields']);
 
         $templateData = $this->columnsDefinition->displayForm(
             '/table/add-field',

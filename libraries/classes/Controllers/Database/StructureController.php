@@ -140,7 +140,7 @@ class StructureController extends AbstractController
             'sort_order' => $_REQUEST['sort_order'] ?? null,
         ];
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');

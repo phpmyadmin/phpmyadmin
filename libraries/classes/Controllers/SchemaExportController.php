@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Export;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Html\MySQLDocumentation;
+
+use function __;
 
 /**
  * Schema export handler
@@ -23,7 +26,12 @@ class SchemaExportController
     public function __invoke(): void
     {
         if (! isset($_POST['export_type'])) {
-            Util::checkParameters(['export_type']);
+            $errorMessage = __('Missing parameter:') . ' export_type'
+                . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
+                . '[br]';
+            Core::fatalError($errorMessage);
+
+            return;
         }
 
         /**

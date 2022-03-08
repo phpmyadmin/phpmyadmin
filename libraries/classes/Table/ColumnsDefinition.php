@@ -68,13 +68,6 @@ final class ColumnsDefinition
         ?array $selected = null,
         $fields_meta = null
     ): array {
-        Util::checkParameters([
-            'server',
-            'db',
-            'table',
-            'num_fields',
-        ]);
-
         $length_values_input_size = 8;
         $content_cells = [];
         $form_params = ['db' => $GLOBALS['db']];

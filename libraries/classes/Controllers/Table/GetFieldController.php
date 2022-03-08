@@ -40,11 +40,7 @@ class GetFieldController extends AbstractController
     {
         $this->response->disable();
 
-        /* Check parameters */
-        Util::checkParameters([
-            'db',
-            'table',
-        ]);
+        $this->checkParameters(['db', 'table']);
 
         /* Select database */
         if (! $this->dbi->selectDb($GLOBALS['db'])) {

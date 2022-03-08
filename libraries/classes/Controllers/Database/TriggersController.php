@@ -39,7 +39,7 @@ class TriggersController extends AbstractController
              * Displays the header and tabs
              */
             if (! empty($GLOBALS['table']) && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']))) {
-                Util::checkParameters(['db', 'table']);
+                $this->checkParameters(['db', 'table']);
 
                 $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
@@ -49,7 +49,7 @@ class TriggersController extends AbstractController
             } else {
                 $GLOBALS['table'] = '';
 
-                Util::checkParameters(['db']);
+                $this->checkParameters(['db']);
 
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
                 $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');

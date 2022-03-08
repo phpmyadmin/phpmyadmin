@@ -58,7 +58,7 @@ final class PrimaryController extends AbstractController
         $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? '';
 
         if (! empty($selected_fld) && ! empty($primary)) {
-            Util::checkParameters(['db', 'table']);
+            $this->checkParameters(['db', 'table']);
 
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');

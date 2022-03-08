@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
+use function basename;
 use function defined;
 use function strlen;
 
@@ -100,5 +102,45 @@ abstract class AbstractController
 
         $uri = './index.php?route=' . $route . Url::getCommonRaw($params, '&');
         Core::sendHeaderLocation($uri);
+    }
+
+    /**
+     * Function added to avoid path disclosures.
+     * Called by each script that needs parameters, it displays
+     * an error message and, by default, stops the execution.
+     *
+     * @param bool $request Check parameters in request
+     * @psalm-param non-empty-list<non-empty-string> $params The names of the parameters needed by the calling script
+     */
+    protected function checkParameters(array $params, bool $request = false): void
+    {
+        $reportedScriptName = basename($GLOBALS['PMA_PHP_SELF']);
+        $foundError = false;
+        $errorMessage = '';
+        if ($request) {
+            $array = $_REQUEST;
+        } else {
+            $array = $GLOBALS;
+        }
+
+        foreach ($params as $param) {
+            if (isset($array[$param]) && $array[$param] !== '') {
+                continue;
+            }
+
+            $errorMessage .= $reportedScriptName
+                . ': ' . __('Missing parameter:') . ' '
+                . $param
+                . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
+                . '[br]';
+            $foundError = true;
+        }
+
+        if (! $foundError) {
+            return;
+        }
+
+        $this->response->setHttpResponseCode(400);
+        Core::fatalError($errorMessage);
     }
 }

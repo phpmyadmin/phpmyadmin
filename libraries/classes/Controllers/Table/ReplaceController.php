@@ -69,7 +69,7 @@ final class ReplaceController extends AbstractController
 
     public function __invoke(): void
     {
-        Util::checkParameters(['db', 'table', 'goto']);
+        $this->checkParameters(['db', 'table', 'goto']);
 
         $this->dbi->selectDb($GLOBALS['db']);
 
