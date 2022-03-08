@@ -53,6 +53,7 @@ jobs:
           --cap-add=NET_RAW
           --restart on-failure
     strategy:
+      fail-fast: false
       matrix:
         test-name:
           - "ChangePassword"
