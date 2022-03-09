@@ -538,7 +538,7 @@ class ExportSql extends ExportPlugin
         array $routines,
         $delimiter
     ) {
-        global $crlf, $dbi;
+        global $crlf, $cfg, $dbi;
 
         $text = $this->exportComment()
             . $this->exportComment($name)
@@ -561,6 +561,13 @@ class ExportSql extends ExportPlugin
                 '',
                 $flag
             );
+            if (! empty($createQuery) && $cfg['Export']['remove_definer_from_definitions']) {
+                // Remove definer clause from routine definitions
+                $parser = new Parser($createQuery);
+                $statement = $parser->statements[0];
+                $statement->options->remove('DEFINER');
+                $createQuery = $statement->build();
+            }
             // One warning per database
             if ($flag) {
                 $usedAlias = true;
@@ -987,7 +994,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportEvents($db): bool
     {
-        global $crlf, $dbi;
+        global $crlf, $cfg, $dbi;
 
         $text = '';
         $delimiter = '$$';
@@ -1013,8 +1020,15 @@ class ExportSql extends ExportPlugin
                         . $delimiter . $crlf;
                 }
 
-                $text .= $dbi->getDefinition($db, 'EVENT', $eventName)
-                    . $delimiter . $crlf . $crlf;
+                $eventDef = $dbi->getDefinition($db, 'EVENT', $eventName);
+                if (! empty($eventDef) && $cfg['Export']['remove_definer_from_definitions']) {
+                    // remove definer clause from the event definition
+                    $parser = new Parser($eventDef);
+                    $statement = $parser->statements[0];
+                    $statement->options->remove('DEFINER');
+                    $eventDef = $statement->build();
+                }
+                $text .= $eventDef . $delimiter . $crlf . $crlf;
             }
 
             $text .= 'DELIMITER ;' . $crlf;
@@ -1414,7 +1428,7 @@ class ExportSql extends ExportPlugin
     ) {
         global $sql_drop_table, $sql_backquotes, $sql_constraints,
                $sql_constraints_query, $sql_indexes, $sql_indexes_query,
-               $sql_auto_increments, $sql_drop_foreign_keys, $dbi;
+               $sql_auto_increments, $sql_drop_foreign_keys, $dbi, $cfg;
 
         $dbAlias = $db;
         $tableAlias = $table;
@@ -1566,7 +1580,7 @@ class ExportSql extends ExportPlugin
                 $statement = $parser->statements[0];
 
                 // exclude definition of current user
-                if (isset($GLOBALS['sql_view_current_user'])) {
+                if ($cfg['Export']['remove_definer_from_definitions'] || isset($GLOBALS['sql_view_current_user'])) {
                     $statement->options->remove('DEFINER');
                 }
 

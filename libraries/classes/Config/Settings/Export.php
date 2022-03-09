@@ -469,6 +469,9 @@ final class Export
      */
     public $yaml_structure_or_data;
 
+    /** @var bool */
+    public $remove_definer_from_definitions;
+
     /**
      * @param array<int|string, mixed> $export
      */
@@ -582,6 +585,7 @@ final class Export
         $this->xml_export_views = $this->setXmlExportViews($export);
         $this->xml_export_contents = $this->setXmlExportContents($export);
         $this->yaml_structure_or_data = $this->setYamlStructureOrData($export);
+        $this->remove_definer_from_definitions = $this->setRemoveDefinerClause($export);
     }
 
     /**
@@ -2007,5 +2011,17 @@ final class Export
         }
 
         return $export['yaml_structure_or_data'];
+    }
+
+    /**
+     * @param array<int|string, mixed> $export
+     */
+    private function setRemoveDefinerClause(array $export): bool
+    {
+        if (! isset($export['remove_definer_from_definitions'])) {
+            return false;
+        }
+
+        return (bool) $export['remove_definer_from_definitions'];
     }
 }
