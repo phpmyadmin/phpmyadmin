@@ -525,9 +525,16 @@ class UtilTest extends AbstractTestCase
             $_SESSION['cache']['server_server']['is_superuser']
         );
 
+        SessionCache::set('mysql_cur_user', 'mysql');
+        $this->assertEquals('mysql', $_SESSION['cache']['server_server']['mysql_cur_user']);
+
         Util::clearUserCache();
         $this->assertArrayNotHasKey(
             'is_superuser',
+            $_SESSION['cache']['server_server']
+        );
+        $this->assertArrayNotHasKey(
+            'mysql_cur_user',
             $_SESSION['cache']['server_server']
         );
     }
