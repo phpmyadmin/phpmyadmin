@@ -2729,6 +2729,15 @@ Export and import settings
 
     .. seealso:: :ref:`faq6_27`
 
+.. config:option:: $cfg['Export']['removeDefinerFromDefinitions']
+
+    :type: boolean
+    :default: false
+
+    Remove DEFINER clause from the event, view and routine definitions.
+
+    .. versionadded:: 5.1.4
+
 .. config:option:: $cfg['Import']
 
     :type: array

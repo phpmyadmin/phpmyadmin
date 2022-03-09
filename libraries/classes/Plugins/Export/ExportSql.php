@@ -557,6 +557,10 @@ class ExportSql extends ExportPlugin
                 '',
                 $flag
             );
+            if ($GLOBALS['cfg']['Export']['removeDefinerFromDefinitions']) {
+                // Remove definer clause from routine definitions
+                $createQuery = preg_replace('/ DEFINER=`[a-zA-Z0-9_\.]*`@`.*?` /', ' ', $createQuery);
+            }
             // One warning per database
             if ($flag) {
                 $usedAlias = true;
@@ -995,8 +999,12 @@ class ExportSql extends ExportPlugin
                         . $delimiter . $GLOBALS['crlf'];
                 }
 
-                $text .= $GLOBALS['dbi']->getDefinition($db, 'EVENT', $eventName)
-                    . $delimiter . $GLOBALS['crlf'] . $GLOBALS['crlf'];
+                $eventDef = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $eventName);
+                if ($GLOBALS['cfg']['Export']['removeDefinerFromDefinitions']) {
+                    // remove definer clause from the event definition
+                    $eventDef = preg_replace('/ DEFINER=`[a-zA-Z0-9\.]*`@`.*?` /', ' ', $eventDef);
+                }
+                $text .= $eventDef . $delimiter . $GLOBALS['crlf'] . $GLOBALS['crlf'];
             }
 
             $text .= 'DELIMITER ;' . $GLOBALS['crlf'];
@@ -1523,6 +1531,10 @@ class ExportSql extends ExportPlugin
              * statement.
              */
             if ($view) {
+                if ($GLOBALS['cfg']['Export']['removeDefinerFromDefinitions']) {
+                    // Remove definer clause from view definition
+                    $createQuery = preg_replace('/ DEFINER=`[a-zA-Z0-9_\.]*`@`.*?` /', ' ', $createQuery);
+                }
                 //TODO: use parser
                 $createQuery = preg_replace(
                     '/' . preg_quote(Util::backquote($db), '/') . '\./',

@@ -1857,6 +1857,11 @@ $cfg['Export']['json_pretty_print'] = false;
 $cfg['Export']['json_unicode'] = true;
 
 /**
+ * @global string $cfg['Export']['removeDefinerFromDefinitions']
+ */
+$cfg['Export']['removeDefinerFromDefinitions'] = false;
+
+/**
  * @global string $cfg['Export']['sql_structure_or_data']
  */
 $cfg['Export']['sql_structure_or_data'] = 'structure_and_data';
