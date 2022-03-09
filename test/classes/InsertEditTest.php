@@ -2484,7 +2484,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="button" class="btn btn-secondary preview_sql" value="Preview SQL" '
+            '<input type="button" class="btn btn-secondary preview_sql control_at_footer" value="Preview SQL" '
             . 'tabindex="7">',
             $result
         );
