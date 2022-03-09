@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2021-08-08 00:09+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"PO-Revision-Date: 2022-03-09 05:34+0000\n"
+"Last-Translator: LightJiao <764166691@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hans/>\n"
+"phpmyadmin/5-2/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -259,21 +259,15 @@ msgid "Suboptimal caching method."
 msgstr "最佳缓存模式。"
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。使用 <a href="
-"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> "
-"代替 MySQL 查询缓存将更好，尤其是当您有多台从服务器的时候。"
+"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。使用 <a href=\"https"
+"://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> 代替 "
+"MySQL 查询缓存将更好，尤其是当您有多台从服务器的时候。"
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -4557,18 +4551,13 @@ msgid "no description"
 msgstr "无说明"
 
 #: libraries/classes/ConfigStorage/Relation.php:1555
-#, fuzzy, php-format
-#| msgid ""
-#| "You do not have necessary privileges to create a database named '%s'. You "
-#| "may go to 'Operations' tab of any database to set up the phpMyAdmin "
-#| "configuration storage there."
+#, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
-msgstr ""
-"您没有权限建立名为“phpmyadmin”的数据库。您可能需要到任一数据库的“操作”页面设"
-"置 phpMyAdmin的储存位置 。"
+msgstr "您没有创建名为“%s”的数据库所需的权限。您可以转到任何数据库的“操作”选项卡，在"
+"那里设置phpMyAdmin配置存储。"
 
 #: libraries/classes/ConfigStorage/UserGroups.php:114
 msgid "View users"
@@ -4960,13 +4949,11 @@ msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "配置文件现在需要一个短语密码。"
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr "配置文件中的密文(blowfish_secret)太短。"
+msgstr "配置文件中的密文(blowfish_secret)太短。它应该有%d字节。"
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -5200,10 +5187,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "您真的要移除分区吗？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "您真的要删除选择的用户吗？"
+msgstr "是否确实要重置副本（重置副本）？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -5419,27 +5404,23 @@ msgstr "关闭"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "锁定"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "解锁"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "日志文件总数"
+msgstr "锁定此账户。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "用户账户"
+msgstr "解锁此账户。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 msgid "Template was created."
@@ -7143,16 +7124,14 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "已成功删除 %1$d 个数据库。"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "已成功移动字段。"
+msgstr "账户%s@%s已经成功锁定。"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "已成功移动字段。"
+msgstr "账户%s@%s已经成功解锁。"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:153
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -7737,26 +7716,17 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "在第一张表上进行了完整表扫描的多表查询数。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
-msgstr "当前由从 SQL 线程打开的临时表的数量。"
+msgstr "副本SQL线程当前打开的临时表数量。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
-msgstr "从 SQL 线程总共重试事务复制数。"
+msgstr "副本SQL线程重试事务的总次数（自启动以来）。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr "如果该值为 ON，则这台服务器是一台已经连接到主服务器的从服务器。"
 
@@ -8566,7 +8536,7 @@ msgstr "服务器要求 SSL 连接，已自动启用 SSL。"
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
-msgstr ""
+msgstr "错误1045:用户的访问被拒绝。其他错误信息可能可用，但被%s配置指令隐藏。"
 
 #: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -11241,14 +11211,10 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "硬件安全密钥（FIDO U2F）"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:214
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."
-msgstr "使用支持FIDO U2F的硬件安全令牌提供身份验证。"
+msgstr "使用支持FIDO U2F的硬件安全令牌（如Yubikey）提供身份验证。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11362,28 +11328,21 @@ msgid "Unknown error"
 msgstr "未知错误"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
 msgstr "无法连接到主服务器 %s 。"
 
 #: libraries/classes/ReplicationGui.php:530
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr "无法读取主服务器日志。主服务器的权限设置可能有问题。"
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
 msgstr "无法修改主服务器！"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "已成功修改主服务器到 %s。"
 
@@ -11453,7 +11412,7 @@ msgstr "旧的 MySQL-4.0 的身份验证"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "不支持帐户锁定。"
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
@@ -11632,18 +11591,14 @@ msgstr "允许锁定当前线程的表。"
 #: libraries/classes/Server/Privileges.php:433
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "回复附属者所需。"
+msgstr "回复从服务器所需。"
 
 #: libraries/classes/Server/Privileges.php:438
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "用户有权询问附属者/控制者在哪里。"
+msgstr "允许用户询问从服务器/主服务器在哪里。"
 
 #: libraries/classes/Server/Privileges.php:448
 #: templates/server/privileges/privileges_table.twig:524
@@ -11877,21 +11832,15 @@ msgid "Show open tables"
 msgstr "显示打开的表"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "显示从服务器"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
 msgstr "显示主服务器状态"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
 msgstr "显示从服务器状态"
 
@@ -13404,8 +13353,6 @@ msgstr "操作"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
 msgstr "新建数据表"
 
@@ -13799,16 +13746,12 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "正在导出数据库“%s”中的数据表"
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "允许修改现有数据表的结构。"
+msgstr "导出所有表的结构。"
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "将视图作为表导出"
+msgstr "导出所有表的数据。"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -14656,10 +14599,8 @@ msgid "Custom - display all possible options"
 msgstr "自定义 - 显示所有可用的选项"
 
 #: templates/export.twig:121
-#, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
-msgstr "要导入的文件："
+msgstr "要导出的文件格式"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -14746,8 +14687,6 @@ msgstr ""
 "内容也将被转换：%s 其他文本将保持原样。参见常见问题FAQ 6.27。"
 
 #: templates/export.twig:398
-#, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "以后也使用此设置"
 
@@ -14776,14 +14715,12 @@ msgid "Export tables as separate files"
 msgstr "将每个表导出为独立的文件"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "跳过大于 %s MiB的数据表"
+msgstr "跳过大于以下值的表："
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "大小以MB为单位。"
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -14962,11 +14899,9 @@ msgid "Theme"
 msgstr "主题"
 
 #: templates/home/index.twig:142
-#, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
-msgstr "仅查看"
+msgstr "查看全部"
 
 #: templates/home/index.twig:157
 msgid "Database server"
@@ -15118,10 +15053,8 @@ msgstr ""
 "zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
-msgstr "下载文件"
+msgstr "上传文件"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -15142,10 +15075,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "从网站服务器上传文件夹 [strong]%s[/strong] 中选择："
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
-msgstr "没有可上传的文件！"
+msgstr "没有要导入的文件！"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -15162,40 +15093,24 @@ msgid ""
 msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
 
 #: templates/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <em>(This might be a good way to import "
-#| "large files, however it can break transactions.)</em>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
-msgstr ""
-"在导入时脚本若检测到接近PHP超时时限（即需要花费很长时间）则允许中断。<em>(这"
-"在导入大文件时是个很好的方法，不过这会中断事务)</em>"
+msgstr "在导入时脚本若检测到接近PHP超时时限（即需要花费很长时间）则允许中断。"
 
 #: templates/import.twig:140
-#, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr ""
-"允许脚本在即将超时时中断导入。尽管这样会中断事务，但在导入大文件时也许是个好"
-"方法。"
+msgstr "尽管这样会中断事务，但在导入大文件时也许是个好方法。"
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "从第一个开始跳过这些数量的查询（对于SQL）："
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "其它选项："
+msgstr "其它选项"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:489
@@ -15750,10 +15665,8 @@ msgid "There are no favorite tables."
 msgstr "表收藏夹为空。"
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmin配置代码段"
+msgstr "phpMyAdmin配置存储"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -15829,10 +15742,8 @@ msgid "OK"
 msgstr "正常"
 
 #: templates/relation/check_relations.twig:62
-#, fuzzy
-#| msgid "General relation features"
 msgid "General relation features:"
-msgstr "基本功能"
+msgstr "一般关系特征："
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -15856,110 +15767,76 @@ msgid "Enabled"
 msgstr "已启用"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "显示功能"
+msgstr "显示功能："
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "设计器和PDF创建"
+msgstr "PDF的设计和创建："
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "显示字段注释"
+msgstr "显示字段注释："
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "浏览器转换"
+msgstr "浏览器转换："
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "请参见文档中关于如何更新您的 column_info 表。"
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "SQL 查询书签"
+msgstr "SQL 查询书签："
 
 #: templates/relation/check_relations.twig:220
-#, fuzzy
-#| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL 历史"
+msgstr "SQL 历史："
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "持久最近使用的表"
+msgstr "最近使用的持久表："
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "持久喜欢的表"
+msgstr "持久喜爱的表格："
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "持久表界面设置"
+msgstr "持久表的UI首选项："
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "追踪"
+msgstr "追踪："
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "用户偏好"
+msgstr "用户偏好："
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "可配置的菜单"
+msgstr "可配置的菜单："
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "隐藏/显示导航项目"
+msgstr "隐藏/显示导航项目："
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "保存按示例查询搜索"
+msgstr "保存按示例查询搜索："
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "管理中央列列表"
+msgstr "管理列的中心列表："
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "记住设计器设置"
+msgstr "记住设计器设置："
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "保存导出模板"
+msgstr "保存导出模板："
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -16046,15 +15923,11 @@ msgstr "没有创建数据库的权限"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
 msgstr "主复制"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
 msgstr "从复制"
 
@@ -16535,15 +16408,11 @@ msgid "Save changes"
 msgstr "保存修改"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
 msgstr "从服务器配置"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
 msgstr "修改或重新配置主服务器"
 
@@ -16560,10 +16429,7 @@ msgid "Port:"
 msgstr "端口："
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -16575,8 +16441,6 @@ msgstr "无权限"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
 msgstr "添加从复制用户"
 
@@ -16591,19 +16455,10 @@ msgid "Generate password:"
 msgstr "生成密码："
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "服务器设置"
+msgstr "主服务器设置"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -16611,9 +16466,9 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"此服务器尚未配置为一个复制进程中的主服务器。你可以选择复制所有但忽略它们中的"
-"某些数据库 (当你想复制大多数数据库时很有用) 或者忽略大多数并仅复制某些数据"
-"库。请选择模式:"
+"此服务器尚未配置为一个复制进程中的主服务器。"
+"你可以选择复制所有但忽略它们中的某些数据库 (当你想复制大多数数据库时很有用) "
+"或者忽略大多数并仅复制某些数据库。请选择模式:"
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -16634,84 +16489,55 @@ msgid ""
 msgstr "现在，将下列行添加到你的 my.cnf 文件最后，然后重新启动 MySQL 服务器。"
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
-msgstr ""
-"当 MySQL 服务器重新启动后，请点击执行按钮。你应该看见一条提示信息说此服务器"
-"<strong>已经</strong>被配置为主服务器。"
+msgstr "当 MySQL 服务器重新启动后，请点击执行按钮。你应该看见一条提示信息说此服务器<s"
+"trong>已经</strong>被配置为主服务器。"
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
 msgstr "此服务器已被配置为一个复制进程中的主服务器。"
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
 msgstr "查看已连接的从服务器"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr "仅通过 --report-host=主机名 参数启动的从服务器可见。"
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "服务器连接:"
+msgstr "主服务器连接:"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "从 SQL 线程未启动！"
+msgstr "从SQL线程未启动！"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "从 IO 线程未启动！"
+msgstr "从IO线程未启动！"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr "服务器已被配置为一个复制进程中的从服务器。你是否要:"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
 msgstr "查看从服务器状态"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
 msgstr "控制从服务器:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "未复制"
+msgstr "重置副本"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -16734,8 +16560,6 @@ msgid "Error management:"
 msgstr "错误管理:"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr "忽略错误可能导致主从服务器间不同步！"
 
@@ -16749,26 +16573,19 @@ msgid "Skip next %s errors."
 msgstr "跳过下一个%s错误。"
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr "此服务器尚未配置为一个复制进程中的从服务器。你想现在%s配置%s吗？"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "导入状态"
+msgstr "主服务器状态"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "复制状态"
+msgstr "从服务器状态"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -17135,27 +16952,17 @@ msgstr ""
 "确。"
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr "此 MySQL 服务器正以<b>主</b>和<b>从</b>服务器运行于<b>复制</b>进程中。"
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr "此 MySQL 服务器正以<b>主</b>服务器运行于<b>复制</b>进程中。"
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr "此 MySQL 服务器正以<b>从</b>服务器运行于<b>复制</b>进程中。"
@@ -17343,7 +17150,7 @@ msgstr "添加服务器"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "出了点问题。"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
