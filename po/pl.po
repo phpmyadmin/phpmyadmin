@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-03-10 16:57+0000\n"
+"Last-Translator: Aleksander <olek_filip@wp.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3415,9 +3415,8 @@ msgid "Export as separate files"
 msgstr "Eksportuj jako osobne pliki"
 
 #: libraries/classes/Config/Descriptions.php:709
-#, fuzzy
 msgid "Remember filename template"
-msgstr "Zapamiętaj nazwę pliku szablonu"
+msgstr "Zapamiętaj szablon nazwy pliku"
 
 #: libraries/classes/Config/Descriptions.php:710
 #: templates/database/operations/index.twig:160
@@ -5829,13 +5828,13 @@ msgstr "Zamknij"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Zablokuj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Odblokuj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
@@ -7371,11 +7370,11 @@ msgstr "Wyczuwam nowe ustawienia, poczekaj chwilę, są one przetwarzane."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "Nazwa kolumny pomyślnie skopiowana do schowka!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "Kopiowanie nazwy kolumny do schowka nie powiodło się!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
@@ -9129,6 +9128,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Błąd 1045: Odmowa dostępu dla użytkownika. Dodatkowe informacje o błędach "
+"mogą być dostępne, ale są ukrywane przez dyrektywę konfiguracyjną %s."
 
 #: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -12157,7 +12158,7 @@ msgstr "Natywne uwierzytelnianie MySQL"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Blokowanie konta nie jest obsługiwane."
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
@@ -15556,7 +15557,7 @@ msgstr "Pomiń tabele większe niż %s MiB"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Rozmiar jest mierzony w MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -18148,7 +18149,7 @@ msgstr "Dodaj nowy serwer"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Coś poszło nie tak."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
