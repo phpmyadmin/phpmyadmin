@@ -17,6 +17,7 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
 use function array_keys;
@@ -255,6 +256,8 @@ abstract class AuthenticationPlugin
         $this->storeCredentials();
         /* Check allow/deny rules */
         $this->checkRules();
+        /* clear user cache */
+        Util::clearUserCache();
     }
 
     /**
