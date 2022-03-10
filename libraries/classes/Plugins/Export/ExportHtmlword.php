@@ -98,6 +98,8 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportHeader(): bool
     {
+        $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
+
         return $this->export->outputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
@@ -179,6 +181,8 @@ class ExportHtmlword extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
+        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);

@@ -46,6 +46,35 @@ class ChangeController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
+        $GLOBALS['unsaved_values'] = $GLOBALS['unsaved_values'] ?? null;
+        $GLOBALS['insert_mode'] = $GLOBALS['insert_mode'] ?? null;
+        $GLOBALS['where_clause_array'] = $GLOBALS['where_clause_array'] ?? null;
+        $GLOBALS['where_clauses'] = $GLOBALS['where_clauses'] ?? null;
+        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+        $GLOBALS['rows'] = $GLOBALS['rows'] ?? null;
+        $GLOBALS['found_unique_key'] = $GLOBALS['found_unique_key'] ?? null;
+        $GLOBALS['after_insert'] = $GLOBALS['after_insert'] ?? null;
+        $GLOBALS['comments_map'] = $GLOBALS['comments_map'] ?? null;
+        $GLOBALS['table_columns'] = $GLOBALS['table_columns'] ?? null;
+        $GLOBALS['chg_evt_handler'] = $GLOBALS['chg_evt_handler'] ?? null;
+        $GLOBALS['timestamp_seen'] = $GLOBALS['timestamp_seen'] ?? null;
+        $GLOBALS['columns_cnt'] = $GLOBALS['columns_cnt'] ?? null;
+        $GLOBALS['tabindex'] = $GLOBALS['tabindex'] ?? null;
+        $GLOBALS['tabindex_for_value'] = $GLOBALS['tabindex_for_value'] ?? null;
+        $GLOBALS['o_rows'] = $GLOBALS['o_rows'] ?? null;
+        $GLOBALS['biggest_max_file_size'] = $GLOBALS['biggest_max_file_size'] ?? null;
+        $GLOBALS['has_blob_field'] = $GLOBALS['has_blob_field'] ?? null;
+        $GLOBALS['jsvkey'] = $GLOBALS['jsvkey'] ?? null;
+        $GLOBALS['vkey'] = $GLOBALS['vkey'] ?? null;
+        $GLOBALS['current_result'] = $GLOBALS['current_result'] ?? null;
+        $GLOBALS['repopulate'] = $GLOBALS['repopulate'] ?? null;
+        $GLOBALS['checked'] = $GLOBALS['checked'] ?? null;
+
         $pageSettings = new PageSettings('Edit');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());

@@ -63,6 +63,8 @@ final class EmptyTableController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 

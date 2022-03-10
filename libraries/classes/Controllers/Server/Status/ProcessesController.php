@@ -33,6 +33,8 @@ class ProcessesController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'showExecuting' => $_POST['showExecuting'] ?? null,
             'full' => $_POST['full'] ?? null,

@@ -35,6 +35,8 @@ final class AddPrefixTableController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         $selected = $_POST['selected'] ?? [];
 
         $GLOBALS['sql_query'] = '';

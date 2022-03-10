@@ -19,6 +19,8 @@ final class UrlRedirector
      */
     public static function redirect(): void
     {
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+
         // Load database service because services.php is not available here
         $GLOBALS['dbi'] = DatabaseInterface::load();
         $GLOBALS['containerBuilder']->set(DatabaseInterface::class, $GLOBALS['dbi']);

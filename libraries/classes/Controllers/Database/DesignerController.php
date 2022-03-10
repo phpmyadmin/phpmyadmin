@@ -38,6 +38,30 @@ class DesignerController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['script_display_field'] = $GLOBALS['script_display_field'] ?? null;
+        $GLOBALS['tab_column'] = $GLOBALS['tab_column'] ?? null;
+        $GLOBALS['tables_all_keys'] = $GLOBALS['tables_all_keys'] ?? null;
+        $GLOBALS['tables_pk_or_unique_keys'] = $GLOBALS['tables_pk_or_unique_keys'] ?? null;
+        $GLOBALS['success'] = $GLOBALS['success'] ?? null;
+        $GLOBALS['page'] = $GLOBALS['page'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['display_page'] = $GLOBALS['display_page'] ?? null;
+        $GLOBALS['selected_page'] = $GLOBALS['selected_page'] ?? null;
+        $GLOBALS['tab_pos'] = $GLOBALS['tab_pos'] ?? null;
+        $GLOBALS['fullTableNames'] = $GLOBALS['fullTableNames'] ?? null;
+        $GLOBALS['script_tables'] = $GLOBALS['script_tables'] ?? null;
+        $GLOBALS['script_contr'] = $GLOBALS['script_contr'] ?? null;
+        $GLOBALS['params'] = $GLOBALS['params'] ?? null;
+        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
+        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
+        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
+        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
+        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
+        $GLOBALS['classes_side_menu'] = $GLOBALS['classes_side_menu'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         if (isset($_POST['dialog'])) {
             if ($_POST['dialog'] === 'edit') {
                 $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'editPage');

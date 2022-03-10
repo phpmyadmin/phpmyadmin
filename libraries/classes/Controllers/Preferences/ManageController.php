@@ -67,6 +67,18 @@ class ManageController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['cf'] = $GLOBALS['cf'] ?? null;
+        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
+        $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
+        $GLOBALS['json'] = $GLOBALS['json'] ?? null;
+        $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
+        $GLOBALS['new_config'] = $GLOBALS['new_config'] ?? null;
+        $GLOBALS['return_url'] = $GLOBALS['return_url'] ?? null;
+        $GLOBALS['form_display'] = $GLOBALS['form_display'] ?? null;
+        $GLOBALS['all_ok'] = $GLOBALS['all_ok'] ?? null;
+        $GLOBALS['params'] = $GLOBALS['params'] ?? null;
+        $GLOBALS['query'] = $GLOBALS['query'] ?? null;
+
         $route = Routing::getCurrentRoute();
 
         $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);

@@ -22,6 +22,9 @@ final class DbTableExists
 
     private static function checkDatabase(string $db, bool $isTransformationWrapper): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['show_as_php'] = $GLOBALS['show_as_php'] ?? null;
+
         if (! empty($GLOBALS['is_db'])) {
             return;
         }
@@ -67,6 +70,8 @@ final class DbTableExists
 
     private static function checkTable(string $db, string $table, bool $isTransformationWrapper): void
     {
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+
         if (! empty($GLOBALS['is_table']) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
             return;
         }

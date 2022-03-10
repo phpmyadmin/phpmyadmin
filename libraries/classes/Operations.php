@@ -672,6 +672,8 @@ class Operations
         $transactional,
         $tbl_collation
     ) {
+        $GLOBALS['auto_increment'] = $GLOBALS['auto_increment'] ?? null;
+
         $table_alters = [];
 
         if (isset($_POST['comment']) && urldecode($_POST['prev_comment']) !== $_POST['comment']) {

@@ -68,6 +68,10 @@ class ImportMediawiki extends ImportPlugin
      */
     public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
+        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
+        $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
+        $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
+
         // Defaults for parser
 
         // The buffer that will be used to store chunks read from the imported file

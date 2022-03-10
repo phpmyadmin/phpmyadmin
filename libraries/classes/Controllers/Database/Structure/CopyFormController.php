@@ -12,6 +12,8 @@ final class CopyFormController extends AbstractController
 {
     public function __invoke(): void
     {
+        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
+
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {

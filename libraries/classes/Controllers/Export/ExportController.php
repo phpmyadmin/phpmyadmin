@@ -50,6 +50,52 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+        $GLOBALS['export_type'] = $GLOBALS['export_type'] ?? null;
+        $GLOBALS['filename_template'] = $GLOBALS['filename_template'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['compression'] = $GLOBALS['compression'] ?? null;
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+        $GLOBALS['asfile'] = $GLOBALS['asfile'] ?? null;
+        $GLOBALS['buffer_needed'] = $GLOBALS['buffer_needed'] ?? null;
+        $GLOBALS['save_on_server'] = $GLOBALS['save_on_server'] ?? null;
+        $GLOBALS['file_handle'] = $GLOBALS['file_handle'] ?? null;
+        $GLOBALS['separate_files'] = $GLOBALS['separate_files'] ?? null;
+        $GLOBALS['output_charset_conversion'] = $GLOBALS['output_charset_conversion'] ?? null;
+        $GLOBALS['output_kanji_conversion'] = $GLOBALS['output_kanji_conversion'] ?? null;
+        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
+        $GLOBALS['export_plugin'] = $GLOBALS['export_plugin'] ?? null;
+        $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
+        $GLOBALS['compression_methods'] = $GLOBALS['compression_methods'] ?? null;
+        $GLOBALS['onserver'] = $GLOBALS['onserver'] ?? null;
+        $GLOBALS['back_button'] = $GLOBALS['back_button'] ?? null;
+        $GLOBALS['refreshButton'] = $GLOBALS['refreshButton'] ?? null;
+        $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
+        $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
+        $GLOBALS['quick_export'] = $GLOBALS['quick_export'] ?? null;
+        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+        $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
+        $GLOBALS['aliases'] = $GLOBALS['aliases'] ?? null;
+        $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
+        $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
+        $GLOBALS['remember_template'] = $GLOBALS['remember_template'] ?? null;
+        $GLOBALS['mime_type'] = $GLOBALS['mime_type'] ?? null;
+        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
+        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['do_relation'] = $GLOBALS['do_relation'] ?? null;
+        $GLOBALS['do_comments'] = $GLOBALS['do_comments'] ?? null;
+        $GLOBALS['do_mime'] = $GLOBALS['do_mime'] ?? null;
+        $GLOBALS['do_dates'] = $GLOBALS['do_dates'] ?? null;
+        $GLOBALS['whatStrucOrData'] = $GLOBALS['whatStrucOrData'] ?? null;
+        $GLOBALS['db_select'] = $GLOBALS['db_select'] ?? null;
+        $GLOBALS['table_structure'] = $GLOBALS['table_structure'] ?? null;
+        $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
+        $GLOBALS['lock_tables'] = $GLOBALS['lock_tables'] ?? null;
+        $GLOBALS['allrows'] = $GLOBALS['allrows'] ?? null;
+        $GLOBALS['limit_to'] = $GLOBALS['limit_to'] ?? null;
+        $GLOBALS['limit_from'] = $GLOBALS['limit_from'] ?? null;
+
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();
 

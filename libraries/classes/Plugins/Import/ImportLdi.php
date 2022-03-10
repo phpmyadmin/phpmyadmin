@@ -91,6 +91,19 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
+        $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
+        $GLOBALS['import_file'] = $GLOBALS['import_file'] ?? null;
+        $GLOBALS['charset_conversion'] = $GLOBALS['charset_conversion'] ?? null;
+        $GLOBALS['ldi_local_option'] = $GLOBALS['ldi_local_option'] ?? null;
+        $GLOBALS['ldi_replace'] = $GLOBALS['ldi_replace'] ?? null;
+        $GLOBALS['ldi_ignore'] = $GLOBALS['ldi_ignore'] ?? null;
+        $GLOBALS['ldi_terminated'] = $GLOBALS['ldi_terminated'] ?? null;
+        $GLOBALS['ldi_enclosed'] = $GLOBALS['ldi_enclosed'] ?? null;
+        $GLOBALS['ldi_escaped'] = $GLOBALS['ldi_escaped'] ?? null;
+        $GLOBALS['ldi_new_line'] = $GLOBALS['ldi_new_line'] ?? null;
+        $GLOBALS['skip_queries'] = $GLOBALS['skip_queries'] ?? null;
+        $GLOBALS['ldi_columns'] = $GLOBALS['ldi_columns'] ?? null;
+
         $compression = '';
         if ($importHandle !== null) {
             $compression = $importHandle->getCompression();

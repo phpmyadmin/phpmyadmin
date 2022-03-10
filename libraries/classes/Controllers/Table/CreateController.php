@@ -57,6 +57,8 @@ class CreateController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
+        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
         $this->checkParameters(['db']);
 
         $cfg = $this->config->settings;

@@ -61,6 +61,8 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(?array $selected): void
     {
+        $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
+
         if (empty($selected)) {
             $selected[] = $_REQUEST['field'];
             $selected_cnt = 1;

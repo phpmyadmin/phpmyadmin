@@ -34,6 +34,8 @@ final class GeneralLogController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'time_start' => $_POST['time_start'] ?? null,
             'time_end' => $_POST['time_end'] ?? null,

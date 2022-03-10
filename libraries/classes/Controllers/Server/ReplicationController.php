@@ -41,6 +41,9 @@ class ReplicationController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
             'primary_configure' => $_POST['primary_configure'] ?? null,

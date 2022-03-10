@@ -344,6 +344,8 @@ class Config
      */
     public function load(?string $source = null): bool
     {
+        $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
+
         $this->loadDefaults();
 
         if ($source !== null) {
@@ -427,6 +429,8 @@ class Config
      */
     public function loadUserPreferences(): void
     {
+        $GLOBALS['isMinimumCommon'] = $GLOBALS['isMinimumCommon'] ?? null;
+
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
         $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])

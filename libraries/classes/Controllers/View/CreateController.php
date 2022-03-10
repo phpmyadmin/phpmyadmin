@@ -45,6 +45,24 @@ class CreateController extends AbstractController
     public function __invoke(): void
     {
         $this->checkParameters(['db']);
+        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['view_algorithm_options'] = $GLOBALS['view_algorithm_options'] ?? null;
+        $GLOBALS['view_with_options'] = $GLOBALS['view_with_options'] ?? null;
+        $GLOBALS['view_security_options'] = $GLOBALS['view_security_options'] ?? null;
+
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['sep'] = $GLOBALS['sep'] ?? null;
+        $GLOBALS['arr'] = $GLOBALS['arr'] ?? null;
+        $GLOBALS['view_columns'] = $GLOBALS['view_columns'] ?? null;
+        $GLOBALS['column_map'] = $GLOBALS['column_map'] ?? null;
+        $GLOBALS['systemDb'] = $GLOBALS['systemDb'] ?? null;
+        $GLOBALS['pma_transformation_data'] = $GLOBALS['pma_transformation_data'] ?? null;
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+        $GLOBALS['new_transformations_sql'] = $GLOBALS['new_transformations_sql'] ?? null;
+        $GLOBALS['view'] = $GLOBALS['view'] ?? null;
+        $GLOBALS['item'] = $GLOBALS['item'] ?? null;
+        $GLOBALS['parts'] = $GLOBALS['parts'] ?? null;
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');

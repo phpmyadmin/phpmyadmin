@@ -45,6 +45,12 @@ class NavigationController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['cf'] = $GLOBALS['cf'] ?? null;
+        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
+        $GLOBALS['tabHash'] = $GLOBALS['tabHash'] ?? null;
+        $GLOBALS['hash'] = $GLOBALS['hash'] ?? null;
+        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+
         $route = Routing::getCurrentRoute();
 
         $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);

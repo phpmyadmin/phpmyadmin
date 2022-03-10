@@ -56,6 +56,37 @@ class PrivilegesController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['post_patterns'] = $GLOBALS['post_patterns'] ?? null;
+        $GLOBALS['username'] = $GLOBALS['username'] ?? null;
+        $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
+        $GLOBALS['dbname'] = $GLOBALS['dbname'] ?? null;
+        $GLOBALS['tablename'] = $GLOBALS['tablename'] ?? null;
+        $GLOBALS['routinename'] = $GLOBALS['routinename'] ?? null;
+        $GLOBALS['db_and_table'] = $GLOBALS['db_and_table'] ?? null;
+        $GLOBALS['dbname_is_wildcard'] = $GLOBALS['dbname_is_wildcard'] ?? null;
+        $GLOBALS['queries'] = $GLOBALS['queries'] ?? null;
+        $GLOBALS['password'] = $GLOBALS['password'] ?? null;
+        $GLOBALS['ret_message'] = $GLOBALS['ret_message'] ?? null;
+        $GLOBALS['ret_queries'] = $GLOBALS['ret_queries'] ?? null;
+        $GLOBALS['queries_for_display'] = $GLOBALS['queries_for_display'] ?? null;
+        $GLOBALS['_add_user_error'] = $GLOBALS['_add_user_error'] ?? null;
+        $GLOBALS['itemType'] = $GLOBALS['itemType'] ?? null;
+        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
+        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
+        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
+        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
+        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
+        $GLOBALS['title'] = $GLOBALS['title'] ?? null;
+        $GLOBALS['export'] = $GLOBALS['export'] ?? null;
+        $GLOBALS['grants'] = $GLOBALS['grants'] ?? null;
+        $GLOBALS['one_grant'] = $GLOBALS['one_grant'] ?? null;
+        $GLOBALS['url_dbname'] = $GLOBALS['url_dbname'] ?? null;
+
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 

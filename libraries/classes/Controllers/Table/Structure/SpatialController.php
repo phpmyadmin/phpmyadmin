@@ -36,6 +36,8 @@ final class SpatialController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         $selected = $_POST['selected_fld'] ?? [];
 
         if (empty($selected)) {

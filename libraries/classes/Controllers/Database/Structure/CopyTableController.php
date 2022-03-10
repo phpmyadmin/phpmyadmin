@@ -35,6 +35,8 @@ final class CopyTableController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         $selected = $_POST['selected'] ?? [];
         $targetDb = $_POST['target_db'] ?? null;
         $selectedCount = count($selected);

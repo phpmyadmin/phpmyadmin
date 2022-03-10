@@ -41,6 +41,8 @@ final class GisVisualizationController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');

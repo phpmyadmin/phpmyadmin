@@ -17,6 +17,9 @@ final class DeleteConfirmController extends AbstractController
 {
     public function __invoke(): void
     {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $selected = $_POST['rows_to_delete'] ?? null;
 
         if (! isset($selected) || ! is_array($selected)) {

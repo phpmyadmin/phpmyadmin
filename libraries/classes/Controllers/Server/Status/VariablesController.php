@@ -32,6 +32,8 @@ class VariablesController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'flush' => $_POST['flush'] ?? null,
             'filterAlert' => $_POST['filterAlert'] ?? null,

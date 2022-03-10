@@ -28,6 +28,21 @@ class GisDataEditorController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
+        $GLOBALS['gis_data'] = $GLOBALS['gis_data'] ?? null;
+        $GLOBALS['gis_types'] = $GLOBALS['gis_types'] ?? null;
+        $GLOBALS['start'] = $GLOBALS['start'] ?? null;
+        $GLOBALS['geom_type'] = $GLOBALS['geom_type'] ?? null;
+        $GLOBALS['gis_obj'] = $GLOBALS['gis_obj'] ?? null;
+        $GLOBALS['srid'] = $GLOBALS['srid'] ?? null;
+        $GLOBALS['wkt'] = $GLOBALS['wkt'] ?? null;
+        $GLOBALS['wkt_with_zero'] = $GLOBALS['wkt_with_zero'] ?? null;
+        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+        $GLOBALS['visualizationSettings'] = $GLOBALS['visualizationSettings'] ?? null;
+        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
+        $GLOBALS['visualization'] = $GLOBALS['visualization'] ?? null;
+        $GLOBALS['open_layers'] = $GLOBALS['open_layers'] ?? null;
+        $GLOBALS['geom_count'] = $GLOBALS['geom_count'] ?? null;
+
         /** @var string|null $field */
         $field = $request->getParsedBodyParam('field');
         /** @var array|null $gisDataParam */

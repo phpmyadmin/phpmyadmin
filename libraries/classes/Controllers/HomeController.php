@@ -63,6 +63,12 @@ class HomeController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['collation_connection'] = $GLOBALS['collation_connection'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['show_query'] = $GLOBALS['show_query'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
             return;
         }
@@ -249,6 +255,8 @@ class HomeController extends AbstractController
 
     private function checkRequirements(): void
     {
+        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+
         $this->checkPhpExtensionsRequirements();
 
         if ($GLOBALS['cfg']['LoginCookieValidityDisableWarning'] == false) {
@@ -389,6 +397,8 @@ class HomeController extends AbstractController
 
     private function checkLanguageStats(): void
     {
+        $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
+
         /**
          * Warning about incomplete translations.
          *

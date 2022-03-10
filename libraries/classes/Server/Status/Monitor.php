@@ -506,6 +506,8 @@ class Monitor
         string $database,
         string $query
     ): array {
+        $GLOBALS['cached_affected_rows'] = $GLOBALS['cached_affected_rows'] ?? null;
+
         $return = [];
 
         if (strlen($database) > 0) {

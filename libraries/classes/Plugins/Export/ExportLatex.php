@@ -53,6 +53,8 @@ class ExportLatex extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
+        $GLOBALS['plugin_param'] = $GLOBALS['plugin_param'] ?? null;
+
         $hide_structure = false;
         if ($GLOBALS['plugin_param']['export_type'] === 'table' && ! $GLOBALS['plugin_param']['single_table']) {
             $hide_structure = true;
@@ -199,6 +201,8 @@ class ExportLatex extends ExportPlugin
      */
     public function exportHeader(): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $head = '% phpMyAdmin LaTeX Dump' . $GLOBALS['crlf']
             . '% version ' . Version::VERSION . $GLOBALS['crlf']
             . '% https://www.phpmyadmin.net/' . $GLOBALS['crlf']
@@ -236,6 +240,8 @@ class ExportLatex extends ExportPlugin
         if (empty($dbAlias)) {
             $dbAlias = $db;
         }
+
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
 
         $head = '% ' . $GLOBALS['crlf']
             . '% ' . __('Database:') . ' \'' . $dbAlias . '\'' . $GLOBALS['crlf']

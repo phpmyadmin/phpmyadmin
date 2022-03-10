@@ -190,6 +190,8 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
+        $GLOBALS['errorHandler'] = $GLOBALS['errorHandler'] ?? null;
+
         $message = 'The %s extension is missing. Please check your PHP configuration.';
 
         /* Gettext does not have to be loaded yet here */
@@ -757,6 +759,8 @@ class Core
      */
     public static function setPostAsGlobal(array $post_patterns): void
     {
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
                 if (! preg_match($one_post_pattern, $post_key)) {

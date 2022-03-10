@@ -34,6 +34,10 @@ final class SqlController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
+        $GLOBALS['back'] = $GLOBALS['back'] ?? null;
+
         $this->addScriptFiles([
             'makegrid.js',
             'vendor/jquery/jquery.uitablefilter.js',

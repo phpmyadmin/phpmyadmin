@@ -41,6 +41,7 @@ class PrivilegesController extends AbstractController
      */
     public function __invoke(array $params): string
     {
+        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
 
         $privileges = [];

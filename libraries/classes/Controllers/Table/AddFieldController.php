@@ -59,6 +59,13 @@ class AddFieldController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
+        $GLOBALS['regenerate'] = $GLOBALS['regenerate'] ?? null;
+        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+
         $this->addScriptFiles(['table/structure.js']);
 
         $this->checkParameters(['db', 'table']);

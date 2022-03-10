@@ -138,6 +138,8 @@ class Footer
      */
     public function getSelfUrl(): string
     {
+        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+
         $params = [];
         $params['route'] = Routing::getCurrentRoute();
 

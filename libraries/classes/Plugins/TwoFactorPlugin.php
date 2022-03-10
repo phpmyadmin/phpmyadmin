@@ -149,6 +149,8 @@ class TwoFactorPlugin
      */
     public function getAppId($return_url)
     {
+        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+
         $url = $GLOBALS['config']->get('PmaAbsoluteUri');
         $parsed = [];
         if (! empty($url)) {

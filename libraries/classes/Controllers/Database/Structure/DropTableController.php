@@ -44,6 +44,8 @@ final class DropTableController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];

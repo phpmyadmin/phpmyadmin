@@ -1801,6 +1801,11 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_column with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
@@ -5116,6 +5121,11 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) has parameter \\$name with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NodeFactory.php
@@ -5476,6 +5486,11 @@ parameters:
 			path: libraries/classes/Pdf.php
 
 		-
+			message: "#^Left side of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Plugins.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getPlugins\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
@@ -5483,6 +5498,11 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 3
 			path: libraries/classes/Plugins.php
 
 		-
@@ -8072,6 +8092,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 

@@ -36,6 +36,11 @@ final class DeleteRowsController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
+        $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
+        $GLOBALS['disp_query'] = $GLOBALS['disp_query'] ?? null;
+        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+
         $mult_btn = $_POST['mult_btn'] ?? '';
         $original_sql_query = $_POST['original_sql_query'] ?? '';
         $selected = $_POST['selected'] ?? [];

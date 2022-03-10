@@ -37,6 +37,9 @@ final class IndexRenameController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         if (! isset($_POST['create_edit_table'])) {
             $this->checkParameters(['db', 'table']);
 

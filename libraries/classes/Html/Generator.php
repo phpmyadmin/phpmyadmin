@@ -272,6 +272,8 @@ class Generator
      */
     public static function getDefaultFunctionForField(array $field, $insertMode): string
     {
+        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
+
         $defaultFunction = '';
 
         // Can we get field class based values?

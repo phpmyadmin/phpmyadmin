@@ -34,6 +34,8 @@ final class QueryAnalyzerController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'database' => $_POST['database'] ?? null,
             'query' => $_POST['query'] ?? null,

@@ -64,6 +64,30 @@ class OperationsController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['reread_info'] = $GLOBALS['reread_info'] ?? null;
+        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
+        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
+        $GLOBALS['show_comment'] = $GLOBALS['show_comment'] ?? null;
+        $GLOBALS['tbl_collation'] = $GLOBALS['tbl_collation'] ?? null;
+        $GLOBALS['table_info_num_rows'] = $GLOBALS['table_info_num_rows'] ?? null;
+        $GLOBALS['row_format'] = $GLOBALS['row_format'] ?? null;
+        $GLOBALS['auto_increment'] = $GLOBALS['auto_increment'] ?? null;
+        $GLOBALS['create_options'] = $GLOBALS['create_options'] ?? null;
+        $GLOBALS['table_alters'] = $GLOBALS['table_alters'] ?? null;
+        $GLOBALS['warning_messages'] = $GLOBALS['warning_messages'] ?? null;
+        $GLOBALS['lowerCaseNames'] = $GLOBALS['lowerCaseNames'] ?? null;
+        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+        $GLOBALS['new_tbl_storage_engine'] = $GLOBALS['new_tbl_storage_engine'] ?? null;
+        $GLOBALS['message_to_show'] = $GLOBALS['message_to_show'] ?? null;
+        $GLOBALS['columns'] = $GLOBALS['columns'] ?? null;
+        $GLOBALS['hideOrderTable'] = $GLOBALS['hideOrderTable'] ?? null;
+        $GLOBALS['indexes'] = $GLOBALS['indexes'] ?? null;
+        $GLOBALS['notNull'] = $GLOBALS['notNull'] ?? null;
+        $GLOBALS['comment'] = $GLOBALS['comment'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $this->checkUserPrivileges->getPrivileges();
 
         // lower_case_table_names=1 `DB` becomes `db`

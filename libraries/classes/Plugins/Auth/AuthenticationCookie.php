@@ -64,6 +64,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showLoginForm(): bool
     {
+        $GLOBALS['conn_error'] = $GLOBALS['conn_error'] ?? null;
+
         $response = ResponseRenderer::getInstance();
 
         /**
@@ -224,6 +226,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
+        $GLOBALS['conn_error'] = $GLOBALS['conn_error'] ?? null;
+
         // Initialization
         /**
          * @global $GLOBALS['pma_auth_server'] the user provided server to
@@ -565,6 +569,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showFailure($failure): void
     {
+        $GLOBALS['conn_error'] = $GLOBALS['conn_error'] ?? null;
+
         parent::showFailure($failure);
 
         // Deletes password cookie and displays the login form
@@ -655,6 +661,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function logOut(): void
     {
+        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {

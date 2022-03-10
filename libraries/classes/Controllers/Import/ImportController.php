@@ -72,6 +72,42 @@ final class ImportController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['collation_connection'] = $GLOBALS['collation_connection'] ?? null;
+        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
+        $GLOBALS['display_query'] = $GLOBALS['display_query'] ?? null;
+        $GLOBALS['ajax_reload'] = $GLOBALS['ajax_reload'] ?? null;
+        $GLOBALS['import_text'] = $GLOBALS['import_text'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['memory_limit'] = $GLOBALS['memory_limit'] ?? null;
+        $GLOBALS['read_limit'] = $GLOBALS['read_limit'] ?? null;
+        $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
+        $GLOBALS['offset'] = $GLOBALS['offset'] ?? null;
+        $GLOBALS['charset_conversion'] = $GLOBALS['charset_conversion'] ?? null;
+        $GLOBALS['timestamp'] = $GLOBALS['timestamp'] ?? null;
+        $GLOBALS['maximum_time'] = $GLOBALS['maximum_time'] ?? null;
+        $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
+        $GLOBALS['import_file'] = $GLOBALS['import_file'] ?? null;
+        $GLOBALS['go_sql'] = $GLOBALS['go_sql'] ?? null;
+        $GLOBALS['sql_file'] = $GLOBALS['sql_file'] ?? null;
+        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
+        $GLOBALS['max_sql_len'] = $GLOBALS['max_sql_len'] ?? null;
+        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
+        $GLOBALS['sql_query_disabled'] = $GLOBALS['sql_query_disabled'] ?? null;
+        $GLOBALS['executed_queries'] = $GLOBALS['executed_queries'] ?? null;
+        $GLOBALS['run_query'] = $GLOBALS['run_query'] ?? null;
+        $GLOBALS['reset_charset'] = $GLOBALS['reset_charset'] ?? null;
+        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+        $GLOBALS['import_file_name'] = $GLOBALS['import_file_name'] ?? null;
+        $GLOBALS['sql_data'] = $GLOBALS['sql_data'] ?? null;
+        $GLOBALS['import_notice'] = $GLOBALS['import_notice'] ?? null;
+        $GLOBALS['read_multiply'] = $GLOBALS['read_multiply'] ?? null;
+        $GLOBALS['my_die'] = $GLOBALS['my_die'] ?? null;
+        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['charset_connection'] = $GLOBALS['charset_connection'] ?? null;
+
         $GLOBALS['charset_of_file'] = $_POST['charset_of_file'] ?? null;
         $GLOBALS['format'] = $_POST['format'] ?? '';
         $GLOBALS['import_type'] = $_POST['import_type'] ?? null;

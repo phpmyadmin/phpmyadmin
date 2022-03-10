@@ -81,6 +81,18 @@ final class Common
      */
     public static function run(): void
     {
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+        $GLOBALS['errorHandler'] = $GLOBALS['errorHandler'] ?? null;
+        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
+        $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
+        $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
+        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['isMinimumCommon'] = $GLOBALS['isMinimumCommon'] ?? null;
+        $GLOBALS['token_mismatch'] = $GLOBALS['token_mismatch'] ?? null;
+
         $request = self::getRequest();
 
         $route = Routing::getCurrentRoute();
@@ -418,6 +430,9 @@ final class Common
 
     private static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
     {
+        $GLOBALS['back'] = $GLOBALS['back'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+
         // Holds page that should be displayed.
         $GLOBALS['goto'] = '';
         $container->setParameter('goto', $GLOBALS['goto']);
@@ -498,6 +513,8 @@ final class Common
         ContainerInterface $containerBuilder,
         ServerRequest $request
     ): void {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+
         try {
             $GLOBALS['db'] = DatabaseName::fromValue($request->getParam('db'))->getName();
         } catch (InvalidArgumentException $exception) {

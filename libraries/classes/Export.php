@@ -125,6 +125,9 @@ class Export
      */
     public function outputHandler(?string $line): bool
     {
+        $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
+        $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
+
         // Kanji encoding convert feature
         if ($GLOBALS['output_kanji_conversion']) {
             $line = Encoding::kanjiStrConv($line, $GLOBALS['knjenc'], $GLOBALS['xkana'] ?? '');
@@ -1151,6 +1154,9 @@ class Export
      */
     public function showPage(string $exportType): void
     {
+        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+
         if ($exportType === 'server') {
             $GLOBALS['active_page'] = Url::getFromRoute('/server/export');
             /** @var ServerExportController $controller */

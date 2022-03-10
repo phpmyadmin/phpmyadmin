@@ -31,6 +31,8 @@ final class CopyTableWithPrefixController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         $selected = $_POST['selected'] ?? [];
         $fromPrefix = $_POST['from_prefix'] ?? null;
         $toPrefix = $_POST['to_prefix'] ?? null;

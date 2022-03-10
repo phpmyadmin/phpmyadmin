@@ -37,6 +37,8 @@ final class ReplacePrefixController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         $selected = $_POST['selected'] ?? [];
         $fromPrefix = $_POST['from_prefix'] ?? '';
         $toPrefix = $_POST['to_prefix'] ?? '';

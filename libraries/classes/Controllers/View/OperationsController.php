@@ -41,8 +41,13 @@ class OperationsController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+        $GLOBALS['warning_messages'] = $GLOBALS['warning_messages'] ?? null;
         $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
 
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $this->addScriptFiles(['table/operations.js']);
 
         $this->checkParameters(['db', 'table']);

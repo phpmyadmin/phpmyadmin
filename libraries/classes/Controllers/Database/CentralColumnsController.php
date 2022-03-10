@@ -35,6 +35,10 @@ class CentralColumnsController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
+        $GLOBALS['num_cols'] = $GLOBALS['num_cols'] ?? null;
+
         if (isset($_POST['edit_save'])) {
             echo $this->editSave([
                 'col_name' => $_POST['col_name'] ?? null,
@@ -153,6 +157,8 @@ class CentralColumnsController extends AbstractController
      */
     public function main(array $params): void
     {
+        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+
         if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
             $totalRows = (int) $params['total_rows'];
         } else {

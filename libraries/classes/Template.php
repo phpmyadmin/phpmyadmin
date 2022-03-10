@@ -64,6 +64,8 @@ class Template
 
     public static function getTwigEnvironment(?string $cacheDir): Environment
     {
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+
         /* Twig expects false when cache is not configured */
         if ($cacheDir === null) {
             $cacheDir = false;

@@ -43,6 +43,8 @@ class BinlogController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'log' => $_POST['log'] ?? null,
             'pos' => $_POST['pos'] ?? null,

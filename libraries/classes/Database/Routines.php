@@ -79,6 +79,7 @@ class Routines
      */
     public function handleEditor(): void
     {
+        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['errors'] = $this->handleRequestCreateOrEdit($GLOBALS['errors'], $GLOBALS['db']);
 
         /**
@@ -178,6 +179,8 @@ class Routines
      */
     public function handleRequestCreateOrEdit(array $errors, $db)
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+
         if (empty($_POST['editor_process_add']) && empty($_POST['editor_process_edit'])) {
             return $errors;
         }
@@ -735,6 +738,8 @@ class Routines
      */
     public function getEditorForm($mode, $operation, array $routine)
     {
+        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
             $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
             $routine['item_param_length'][$i] = htmlentities($routine['item_param_length'][$i], ENT_QUOTES);
@@ -814,6 +819,8 @@ class Routines
         string $itemType,
         bool &$warnedAboutLength
     ): string {
+        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+
         $params = '';
         $warnedAboutDir = false;
 
@@ -899,6 +906,8 @@ class Routines
         string $query,
         bool $warnedAboutLength
     ): string {
+        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+
         $itemReturnType = $_POST['item_returntype'] ?? null;
 
         if (! empty($itemReturnType) && in_array($itemReturnType, Util::getSupportedDatatypes())) {
@@ -951,6 +960,8 @@ class Routines
      */
     public function getQueryFromRequest(): string
     {
+        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+
         $itemType = $_POST['item_type'] ?? '';
         $itemDefiner = $_POST['item_definer'] ?? '';
         $itemName = $_POST['item_name'] ?? '';

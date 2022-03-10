@@ -36,6 +36,16 @@ final class ImportController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
+        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
+        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
+        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
+        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
+        $GLOBALS['SESSION_KEY'] = $GLOBALS['SESSION_KEY'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
         $pageSettingsHtml = $pageSettings->getHTML();

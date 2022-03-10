@@ -1403,6 +1403,8 @@ class Results
      */
     private function getFullOrPartialTextButtonOrLink(): string
     {
+        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+
         $urlParamsFullText = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -2099,6 +2101,8 @@ class Results
         $isLimitedDisplay = false
     ) {
         // Mostly because of browser transformations, to make the row-data accessible in a plugin.
+
+        $GLOBALS['row'] = $GLOBALS['row'] ?? null;
 
         $tableBodyHtml = '';
 

@@ -45,6 +45,9 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
+        $GLOBALS['row'] = $GLOBALS['row'] ?? null;
+        $GLOBALS['fields_meta'] = $GLOBALS['fields_meta'] ?? null;
+
         if (isset($options[0]) && ! empty($options[0])) {
             $cn = $options[0]; // filename
         } else {

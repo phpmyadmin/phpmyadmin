@@ -65,6 +65,8 @@ class UserPassword
      */
     public function changePassword($password): string
     {
+        $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
+
         $hashing_function = $this->changePassHashingFunction();
 
         [$username, $hostname] = $GLOBALS['dbi']->getCurrentUserAndHost();

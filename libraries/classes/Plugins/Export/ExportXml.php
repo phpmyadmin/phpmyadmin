@@ -56,6 +56,8 @@ class ExportXml extends ExportPlugin
      */
     private function initSpecificVariables(): void
     {
+        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+
         $this->setTable($GLOBALS['table']);
         if (! is_array($GLOBALS['tables'])) {
             return;
@@ -173,6 +175,8 @@ class ExportXml extends ExportPlugin
      */
     private function exportDefinitions($db, $type, $dbitype, array $names)
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $head = '';
 
         if ($names) {
@@ -200,6 +204,8 @@ class ExportXml extends ExportPlugin
     public function exportHeader(): bool
     {
         $this->initSpecificVariables();
+
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
         $table = $this->getTable();
         $tables = $this->getTables();
 
@@ -372,6 +378,8 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBHeader($db, $dbAlias = ''): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         if (empty($dbAlias)) {
             $dbAlias = $db;
         }
@@ -396,6 +404,8 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBFooter($db): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
             return $this->export->outputHandler('    </database>' . $GLOBALS['crlf']);
         }

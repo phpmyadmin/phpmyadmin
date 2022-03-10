@@ -744,6 +744,12 @@ class Privileges
         $user = null,
         $host = null
     ) {
+        $GLOBALS['pred_username'] = $GLOBALS['pred_username'] ?? null;
+        $GLOBALS['pred_hostname'] = $GLOBALS['pred_hostname'] ?? null;
+        $GLOBALS['username'] = $GLOBALS['username'] ?? null;
+        $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
+        $GLOBALS['new_username'] = $GLOBALS['new_username'] ?? null;
+
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
 
         if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {

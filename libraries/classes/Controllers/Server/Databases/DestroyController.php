@@ -45,6 +45,11 @@ final class DestroyController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['selected'] = $GLOBALS['selected'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
+        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+
         $selected_dbs = $_POST['selected_dbs'] ?? null;
 
         if (

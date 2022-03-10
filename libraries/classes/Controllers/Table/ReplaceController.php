@@ -69,7 +69,37 @@ final class ReplaceController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $this->checkParameters(['db', 'table', 'goto']);
+
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['mime_map'] = $GLOBALS['mime_map'] ?? null;
+        $GLOBALS['unsaved_values'] = $GLOBALS['unsaved_values'] ?? null;
+        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['disp_query'] = $GLOBALS['disp_query'] ?? null;
+        $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
+        $GLOBALS['goto_include'] = $GLOBALS['goto_include'] ?? null;
+        $GLOBALS['loop_array'] = $GLOBALS['loop_array'] ?? null;
+        $GLOBALS['using_key'] = $GLOBALS['using_key'] ?? null;
+        $GLOBALS['is_insert'] = $GLOBALS['is_insert'] ?? null;
+        $GLOBALS['is_insertignore'] = $GLOBALS['is_insertignore'] ?? null;
+        $GLOBALS['query'] = $GLOBALS['query'] ?? null;
+        $GLOBALS['value_sets'] = $GLOBALS['value_sets'] ?? null;
+        $GLOBALS['func_no_param'] = $GLOBALS['func_no_param'] ?? null;
+        $GLOBALS['func_optional_param'] = $GLOBALS['func_optional_param'] ?? null;
+        $GLOBALS['gis_from_text_functions'] = $GLOBALS['gis_from_text_functions'] ?? null;
+        $GLOBALS['gis_from_wkb_functions'] = $GLOBALS['gis_from_wkb_functions'] ?? null;
+        $GLOBALS['query_fields'] = $GLOBALS['query_fields'] ?? null;
+        $GLOBALS['insert_errors'] = $GLOBALS['insert_errors'] ?? null;
+        $GLOBALS['row_skipped'] = $GLOBALS['row_skipped'] ?? null;
+        $GLOBALS['query_values'] = $GLOBALS['query_values'] ?? null;
+        $GLOBALS['total_affected_rows'] = $GLOBALS['total_affected_rows'] ?? null;
+        $GLOBALS['last_messages'] = $GLOBALS['last_messages'] ?? null;
+        $GLOBALS['warning_messages'] = $GLOBALS['warning_messages'] ?? null;
+        $GLOBALS['error_messages'] = $GLOBALS['error_messages'] ?? null;
+        $GLOBALS['return_to_sql_query'] = $GLOBALS['return_to_sql_query'] ?? null;
 
         $this->dbi->selectDb($GLOBALS['db']);
 

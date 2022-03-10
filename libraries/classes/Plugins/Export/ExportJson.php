@@ -107,6 +107,8 @@ class ExportJson extends ExportPlugin
      */
     public function exportHeader(): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $data = $this->encode([
             'type' => 'header',
             'version' => Version::VERSION,
@@ -124,6 +126,8 @@ class ExportJson extends ExportPlugin
      */
     public function exportFooter(): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         return $this->export->outputHandler(']' . $GLOBALS['crlf']);
     }
 
@@ -135,6 +139,8 @@ class ExportJson extends ExportPlugin
      */
     public function exportDBHeader($db, $dbAlias = ''): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         if (empty($dbAlias)) {
             $dbAlias = $db;
         }

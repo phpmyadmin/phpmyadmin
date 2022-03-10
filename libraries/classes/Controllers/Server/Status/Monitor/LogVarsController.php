@@ -34,6 +34,8 @@ final class LogVarsController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'varName' => $_POST['varName'] ?? null,
             'varValue' => $_POST['varValue'] ?? null,

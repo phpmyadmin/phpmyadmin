@@ -179,6 +179,8 @@ class ThemeManager
      */
     public function getThemeCookie()
     {
+        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+
         $name = $this->getThemeCookieName();
         if ($GLOBALS['config']->issetCookie($name)) {
             return $GLOBALS['config']->getCookie($name);

@@ -79,6 +79,10 @@ class Import
      */
     public function checkTimeout(): bool
     {
+        $GLOBALS['timestamp'] = $GLOBALS['timestamp'] ?? null;
+        $GLOBALS['maximum_time'] = $GLOBALS['maximum_time'] ?? null;
+        $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
+
         if ($GLOBALS['maximum_time'] == 0) {
             return false;
         }
@@ -108,6 +112,11 @@ class Import
      */
     public function executeQuery(string $sql, string $full, array &$sqlData): void
     {
+        $GLOBALS['my_die'] = $GLOBALS['my_die'] ?? null;
+        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
+        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
+        $GLOBALS['sql_query_disabled'] = $GLOBALS['sql_query_disabled'] ?? null;
         $GLOBALS['result'] = $GLOBALS['dbi']->tryQuery($sql);
 
         // USE query changes the database, son need to track
@@ -185,6 +194,16 @@ class Import
         string $full = '',
         array &$sqlData = []
     ): void {
+        $GLOBALS['go_sql'] = $GLOBALS['go_sql'] ?? null;
+        $GLOBALS['complete_query'] = $GLOBALS['complete_query'] ?? null;
+        $GLOBALS['display_query'] = $GLOBALS['display_query'] ?? null;
+        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
+        $GLOBALS['skip_queries'] = $GLOBALS['skip_queries'] ?? null;
+        $GLOBALS['executed_queries'] = $GLOBALS['executed_queries'] ?? null;
+        $GLOBALS['max_sql_len'] = $GLOBALS['max_sql_len'] ?? null;
+        $GLOBALS['sql_query_disabled'] = $GLOBALS['sql_query_disabled'] ?? null;
+        $GLOBALS['run_query'] = $GLOBALS['run_query'] ?? null;
+
         $GLOBALS['read_multiply'] = 1;
         if (! isset($GLOBALS['import_run_buffer'])) {
             // Do we have something to push into buffer?
@@ -346,6 +365,10 @@ class Import
      */
     public function getNextChunk(?File $importHandle = null, int $size = 32768)
     {
+        $GLOBALS['charset_conversion'] = $GLOBALS['charset_conversion'] ?? null;
+        $GLOBALS['charset_of_file'] = $GLOBALS['charset_of_file'] ?? null;
+        $GLOBALS['read_multiply'] = $GLOBALS['read_multiply'] ?? null;
+
         // Add some progression while reading large amount of data
         if ($GLOBALS['read_multiply'] <= 8) {
             $size *= $GLOBALS['read_multiply'];
@@ -985,6 +1008,8 @@ class Import
         ?array $options = null,
         array &$sqlData = []
     ): void {
+        $GLOBALS['import_notice'] = $GLOBALS['import_notice'] ?? null;
+
         /* Needed to quell the beast that is Message */
         $GLOBALS['import_notice'] = null;
 

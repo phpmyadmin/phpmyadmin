@@ -36,6 +36,8 @@ class VariablesController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = ['filter' => $_GET['filter'] ?? null];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 

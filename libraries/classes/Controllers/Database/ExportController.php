@@ -40,6 +40,18 @@ final class ExportController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
+        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
+        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
+        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
+        $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
+        $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
         $pageSettingsHtml = $pageSettings->getHTML();

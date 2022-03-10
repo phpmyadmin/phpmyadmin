@@ -28,6 +28,10 @@ final class ExportRowsController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
+        $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
+
         if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));

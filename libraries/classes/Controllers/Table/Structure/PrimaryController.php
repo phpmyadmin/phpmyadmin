@@ -38,6 +38,10 @@ final class PrimaryController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $selected = $_POST['selected'] ?? [];
         $selected_fld = $_POST['selected_fld'] ?? [];
 

@@ -135,6 +135,8 @@ class StructureController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $parameters = [
             'sort' => $_REQUEST['sort'] ?? null,
             'sort_order' => $_REQUEST['sort_order'] ?? null,

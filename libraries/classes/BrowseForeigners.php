@@ -69,6 +69,8 @@ class BrowseForeigners
         int $indexByDescription,
         string $currentValue
     ): array {
+        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+
         $horizontalCount++;
         $output = '';
 

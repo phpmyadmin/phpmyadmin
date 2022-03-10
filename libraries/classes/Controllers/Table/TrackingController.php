@@ -38,6 +38,19 @@ final class TrackingController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
+        $GLOBALS['entries'] = $GLOBALS['entries'] ?? null;
+        $GLOBALS['filter_ts_from'] = $GLOBALS['filter_ts_from'] ?? null;
+        $GLOBALS['filter_ts_to'] = $GLOBALS['filter_ts_to'] ?? null;
+        $GLOBALS['filter_users'] = $GLOBALS['filter_users'] ?? null;
+        $GLOBALS['selection_schema'] = $GLOBALS['selection_schema'] ?? null;
+        $GLOBALS['selection_data'] = $GLOBALS['selection_data'] ?? null;
+        $GLOBALS['selection_both'] = $GLOBALS['selection_both'] ?? null;
+
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
         define('TABLE_MAY_BE_ABSENT', true);

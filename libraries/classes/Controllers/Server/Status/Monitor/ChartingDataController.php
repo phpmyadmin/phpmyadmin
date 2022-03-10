@@ -34,6 +34,8 @@ final class ChartingDataController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = ['requiredData' => $_POST['requiredData'] ?? null];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 

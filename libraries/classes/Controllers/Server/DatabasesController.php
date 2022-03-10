@@ -76,6 +76,13 @@ class DatabasesController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
+        $GLOBALS['is_create_db_priv'] = $GLOBALS['is_create_db_priv'] ?? null;
+        $GLOBALS['db_to_create'] = $GLOBALS['db_to_create'] ?? null;
+        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
             'pos' => $_REQUEST['pos'] ?? null,

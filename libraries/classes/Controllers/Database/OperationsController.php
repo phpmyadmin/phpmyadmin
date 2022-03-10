@@ -64,6 +64,28 @@ class OperationsController extends AbstractController
 
     public function __invoke(): void
     {
+        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['move'] = $GLOBALS['move'] ?? null;
+        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['tables_full'] = $GLOBALS['tables_full'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['export_sql_plugin'] = $GLOBALS['export_sql_plugin'] ?? null;
+        $GLOBALS['views'] = $GLOBALS['views'] ?? null;
+        $GLOBALS['sqlConstratints'] = $GLOBALS['sqlConstratints'] ?? null;
+        $GLOBALS['local_query'] = $GLOBALS['local_query'] ?? null;
+        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
+        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
+        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
+        $GLOBALS['db_collation'] = $GLOBALS['db_collation'] ?? null;
+        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
+        $GLOBALS['is_information_schema'] = $GLOBALS['is_information_schema'] ?? null;
+        $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
+        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
+
         $this->checkUserPrivileges->getPrivileges();
 
         $this->addScriptFiles(['database/operations.js']);

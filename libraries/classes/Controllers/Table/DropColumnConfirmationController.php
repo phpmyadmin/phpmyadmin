@@ -15,6 +15,9 @@ final class DropColumnConfirmationController extends AbstractController
 {
     public function __invoke(): void
     {
+        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+
         $selected = $_POST['selected_fld'] ?? null;
 
         if (empty($selected)) {

@@ -200,6 +200,8 @@ class ExportOds extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
+        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);

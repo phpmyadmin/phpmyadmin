@@ -87,6 +87,8 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
+        $GLOBALS['plugin_param'] = $GLOBALS['plugin_param'] ?? null;
+
         $hideSql = false;
         $hideStructure = false;
         if ($GLOBALS['plugin_param']['export_type'] === 'table' && ! $GLOBALS['plugin_param']['single_table']) {
@@ -536,6 +538,8 @@ class ExportSql extends ExportPlugin
         array $routines,
         $delimiter
     ) {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $text = $this->exportComment()
             . $this->exportComment($name)
             . $this->exportComment();
@@ -588,6 +592,8 @@ class ExportSql extends ExportPlugin
      */
     public function exportRoutines($db, array $aliases = []): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $dbAlias = $db;
         $this->initAlias($aliases, $dbAlias);
 
@@ -683,6 +689,8 @@ class ExportSql extends ExportPlugin
      */
     public function exportFooter(): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $foot = '';
 
         if (isset($GLOBALS['sql_disable_fk'])) {
@@ -719,6 +727,8 @@ class ExportSql extends ExportPlugin
      */
     public function exportHeader(): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         if (isset($GLOBALS['sql_compatibility'])) {
             $tmpCompat = $GLOBALS['sql_compatibility'];
             if ($tmpCompat === 'NONE') {
@@ -824,6 +834,8 @@ class ExportSql extends ExportPlugin
      */
     public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         if (empty($dbAlias)) {
             $dbAlias = $db;
         }
@@ -885,6 +897,8 @@ class ExportSql extends ExportPlugin
      */
     private function exportUseStatement($db, $compat): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         if (isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] === 'NONE') {
             $result = $this->export->outputHandler(
                 'USE '
@@ -941,6 +955,8 @@ class ExportSql extends ExportPlugin
      */
     public function exportDBFooter($db): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $result = true;
 
         //add indexes to the sql dump file
@@ -971,6 +987,8 @@ class ExportSql extends ExportPlugin
      */
     public function exportEvents($db): bool
     {
+        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
+
         $text = '';
         $delimiter = '$$';
 
@@ -1388,6 +1406,15 @@ class ExportSql extends ExportPlugin
         $updateIndexesIncrements = true,
         array $aliases = []
     ) {
+        $GLOBALS['sql_drop_table'] = $GLOBALS['sql_drop_table'] ?? null;
+        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+        $GLOBALS['sql_constraints'] = $GLOBALS['sql_constraints'] ?? null;
+        $GLOBALS['sql_constraints_query'] = $GLOBALS['sql_constraints_query'] ?? null;
+        $GLOBALS['sql_indexes'] = $GLOBALS['sql_indexes'] ?? null;
+        $GLOBALS['sql_indexes_query'] = $GLOBALS['sql_indexes_query'] ?? null;
+        $GLOBALS['sql_auto_increments'] = $GLOBALS['sql_auto_increments'] ?? null;
+        $GLOBALS['sql_drop_foreign_keys'] = $GLOBALS['sql_drop_foreign_keys'] ?? null;
+
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -1844,6 +1871,8 @@ class ExportSql extends ExportPlugin
         $doMime = false,
         array $aliases = []
     ) {
+        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -2150,6 +2179,9 @@ class ExportSql extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
+        $GLOBALS['current_row'] = $GLOBALS['current_row'] ?? null;
+        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
             return true;
