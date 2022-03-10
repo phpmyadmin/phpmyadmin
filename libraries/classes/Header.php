@@ -97,6 +97,9 @@ class Header
     /** @var Template */
     private $template;
 
+    /** @var bool */
+    private $isTransformationWrapper = false;
+
     /**
      * Creates a new class instance
      */
@@ -522,7 +525,10 @@ class Header
 
         $headers = array_merge($headers, Core::getNoCacheHeaders());
 
-        if (! defined('IS_TRANSFORMATION_WRAPPER')) {
+        /**
+         * A different Content-Type is set in {@see \PhpMyAdmin\Controllers\Transformation\WrapperController}.
+         */
+        if (! $this->isTransformationWrapper) {
             // Define the charset to be used
             $headers['Content-Type'] = 'text/html; charset=utf-8';
         }
@@ -665,5 +671,10 @@ class Header
             'first_day_of_calendar' => $GLOBALS['cfg']['FirstDayOfCalendar'] ?? 0,
             'max_input_vars' => $maxInputVarsValue,
         ]);
+    }
+
+    public function setIsTransformationWrapper(bool $isTransformationWrapper): void
+    {
+        $this->isTransformationWrapper = $isTransformationWrapper;
     }
 }

@@ -16,7 +16,6 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 use function __;
-use function define;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
@@ -54,11 +53,11 @@ class WrapperController extends AbstractController
 
     public function __invoke(): void
     {
-        define('IS_TRANSFORMATION_WRAPPER', true);
+        $this->response->getHeader()->setIsTransformationWrapper(true);
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table'], true);
 
         /**
          * Sets globals from $_REQUEST

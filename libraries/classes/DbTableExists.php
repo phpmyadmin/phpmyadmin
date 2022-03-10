@@ -14,13 +14,13 @@ final class DbTableExists
     /**
      * Ensure the database and the table exist (else move to the "parent" script) and display headers.
      */
-    public static function check(string $db, string $table): void
+    public static function check(string $db, string $table, bool $isTransformationWrapper = false): void
     {
-        self::checkDatabase($db);
-        self::checkTable($db, $table);
+        self::checkDatabase($db, $isTransformationWrapper);
+        self::checkTable($db, $table, $isTransformationWrapper);
     }
 
-    private static function checkDatabase(string $db): void
+    private static function checkDatabase(string $db, bool $isTransformationWrapper): void
     {
         if (! empty($GLOBALS['is_db'])) {
             return;
@@ -31,7 +31,7 @@ final class DbTableExists
             $GLOBALS['is_db'] = @$GLOBALS['dbi']->selectDb($db);
         }
 
-        if ($GLOBALS['is_db'] || defined('IS_TRANSFORMATION_WRAPPER')) {
+        if ($GLOBALS['is_db'] || $isTransformationWrapper) {
             return;
         }
 
@@ -65,7 +65,7 @@ final class DbTableExists
         exit;
     }
 
-    private static function checkTable(string $db, string $table): void
+    private static function checkTable(string $db, string $table, bool $isTransformationWrapper): void
     {
         if (! empty($GLOBALS['is_table']) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
             return;
@@ -86,7 +86,7 @@ final class DbTableExists
             return;
         }
 
-        if (defined('IS_TRANSFORMATION_WRAPPER')) {
+        if ($isTransformationWrapper) {
             exit;
         }
 
