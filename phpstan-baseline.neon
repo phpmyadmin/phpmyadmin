@@ -8511,16 +8511,6 @@ parameters:
 			path: libraries/classes/Transformations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:configure\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/TwoFactor.php

@@ -63,11 +63,11 @@ class Transformations
      *
      * @param string $optionString comma separated options
      *
-     * @return array options
+     * @return string[]
      */
-    public function getOptions($optionString)
+    public function getOptions($optionString): array
     {
-        if (strlen($optionString) === 0) {
+        if ($optionString === '') {
             return [];
         }
 
@@ -278,9 +278,16 @@ class Transformations
      * @param bool   $strict   whether to include only results having a mimetype set
      * @param bool   $fullName whether to use full column names as the key
      *
-     * @return array|null [field_name][field_key] = field_value
+     * @psalm-return array<string, array{
+     *     column_name: string,
+     *     mimetype: string,
+     *     transformation: string,
+     *     transformation_options: string,
+     *     input_transformation: string,
+     *     input_transformation_options: string
+     * }>|null
      */
-    public function getMime($db, $table, $strict = false, $fullName = false)
+    public function getMime($db, $table, $strict = false, $fullName = false): ?array
     {
         $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
@@ -309,6 +316,17 @@ class Transformations
                 . ' OR `transformation_options` != \'\''
                 . ' OR `input_transformation` != \'\''
                 . ' OR `input_transformation_options` != \'\'' : '') . ')';
+
+        /**
+         * @psalm-var array<string, array{
+         *     column_name: string,
+         *     mimetype: string,
+         *     transformation: string,
+         *     transformation_options: string,
+         *     input_transformation: string,
+         *     input_transformation_options: string
+         * }> $result
+         */
         $result = $GLOBALS['dbi']->fetchResult($com_qry, 'column_name', null, DatabaseInterface::CONNECT_CONTROL);
 
         foreach ($result as $column => $values) {

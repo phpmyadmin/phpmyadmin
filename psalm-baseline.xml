@@ -1071,15 +1071,11 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
-    <MixedArgument occurrences="4">
-      <code>$mimeMap[$row['Field']]['mimetype']</code>
+    <MixedArgument occurrences="3">
       <code>$row['Field']</code>
       <code>$row['Type']</code>
       <code>$tableName</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$mimeMap[$row['Field']]['mimetype']</code>
-    </MixedArrayAccess>
     <MixedArrayOffset occurrences="5">
       <code>$columnsComments[$row['Field']]</code>
       <code>$mimeMap[$row['Field']]</code>
@@ -3730,10 +3726,9 @@
     <InvalidArgument occurrences="1">
       <code>$GLOBALS['insert_errors']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="35">
+    <MixedArgument occurrences="31">
       <code>$GLOBALS['error_messages']</code>
       <code>$GLOBALS['last_messages']</code>
-      <code>$GLOBALS['mime_map'][$column_name]['input_transformation_options']</code>
       <code>$GLOBALS['total_affected_rows']</code>
       <code>$GLOBALS['total_affected_rows']</code>
       <code>$GLOBALS['warning_messages']</code>
@@ -3741,7 +3736,6 @@
       <code>$_POST['rel_fields_list']</code>
       <code>$_POST['table']</code>
       <code>$_POST['transform_fields_list']</code>
-      <code>$column_name</code>
       <code>$column_name</code>
       <code>$column_name</code>
       <code>$current_value</code>
@@ -3763,8 +3757,6 @@
       <code>$relation_field</code>
       <code>$relation_field</code>
       <code>$relation_field_value</code>
-      <code>$transformation</code>
-      <code>$transformation[$type]</code>
       <code>$where_clause</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="4">
@@ -3773,12 +3765,10 @@
       <code>$key</code>
       <code>$rownumber</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
+    <MixedArrayAccess occurrences="3">
       <code>$_POST['fields_name']['multi_edit']</code>
       <code>$extra_data['relations']</code>
       <code>$multi_edit_columns[$key]</code>
-      <code>$transformation[$type]</code>
-      <code>$transformation['column_name']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="4">
       <code>$GLOBALS['urlParams']['where_clause'][]</code>
@@ -3789,7 +3779,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$GLOBALS['mime_map'][$column_name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="55">
+    <MixedAssignment occurrences="53">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['cfg']['InsertRows']</code>
       <code>$GLOBALS['containerBuilder']</code>
@@ -3825,7 +3815,6 @@
       <code>$clauseIsUnique</code>
       <code>$column_name</code>
       <code>$column_name</code>
-      <code>$column_name</code>
       <code>$curr_rel_field</code>
       <code>$current_value</code>
       <code>$extra_data['row_count']</code>
@@ -3843,7 +3832,6 @@
       <code>$one_where_clause</code>
       <code>$relation_field</code>
       <code>$relation_field_value</code>
-      <code>$transformation</code>
       <code>$where_clause</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="10">
@@ -3858,8 +3846,7 @@
       <code>get</code>
       <code>new $classname()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="4">
-      <code>$GLOBALS['mime_map'][$column_name]['input_transformation']</code>
+    <MixedOperand occurrences="3">
       <code>$relation_field_value</code>
       <code>$where_clause</code>
       <code>$where_clause</code>
@@ -4434,21 +4421,18 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Transformation/WrapperController.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="8">
       <code>$GLOBALS['cn'] ?? ''</code>
       <code>$GLOBALS['mime_map'][$GLOBALS['transform_key']]['mimetype']</code>
-      <code>$GLOBALS['mime_map'][$GLOBALS['transform_key']]['transformation_options'] ?? ''</code>
       <code>$GLOBALS['mime_type']</code>
       <code>$GLOBALS['mime_type']</code>
       <code>$GLOBALS['srcHeight'] / $GLOBALS['ratioWidth']</code>
       <code>$GLOBALS['srcWidth'] / $GLOBALS['ratioHeight']</code>
       <code>$GLOBALS['where_clause']</code>
       <code>$_GET['where_clause_sign'] ?? ''</code>
-      <code>$option</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['mime_map'][$GLOBALS['transform_key']]</code>
-      <code>$GLOBALS['mime_map'][$GLOBALS['transform_key']]['transformation_options']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="6">
       <code>$GLOBALS['mime_map'][$GLOBALS['transform_key']]</code>
@@ -4466,7 +4450,7 @@
       <code>$GLOBALS['row'][$GLOBALS['transform_key']]</code>
       <code>$GLOBALS['row'][$GLOBALS['transform_key']]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="24">
+    <MixedAssignment occurrences="23">
       <code>$GLOBALS[$one_request_param]</code>
       <code>$GLOBALS['cn']</code>
       <code>$GLOBALS['ct']</code>
@@ -4490,7 +4474,6 @@
       <code>$GLOBALS['srcWidth']</code>
       <code>$GLOBALS['transform_key']</code>
       <code>$GLOBALS['where_clause']</code>
-      <code>$option</code>
     </MixedAssignment>
     <MixedOperand occurrences="6">
       <code>$GLOBALS['mime_options']['charset'] ?? ''</code>
@@ -8206,11 +8189,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <MixedArgument occurrences="81">
+    <MixedArgument occurrences="80">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
-      <code>$columnMime</code>
       <code>$columnMime['input_transformation_options']</code>
       <code>$column['Default']</code>
       <code>$column['Default']</code>
@@ -8343,12 +8325,11 @@
       <code>$mimeMap[$tableColumn['Field']]</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="38">
+    <MixedAssignment occurrences="37">
       <code>$GLOBALS['cfg']['ShowFieldTypesInDataEditView']</code>
       <code>$GLOBALS['cfg']['ShowFunctionFields']</code>
       <code>$_SESSION['edit_next']</code>
       <code>$afterInsert</code>
-      <code>$columnMime</code>
       <code>$column['pma_type']</code>
       <code>$currCellEditedValues</code>
       <code>$currentRow[$column['Field']]</code>
@@ -14254,27 +14235,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Transformations.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="1">
       <code>$upd_query</code>
-      <code>$values['mimetype']</code>
-      <code>$values['transformation']</code>
-      <code>$values['transformation']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$values['mimetype']</code>
-      <code>$values['transformation']</code>
-      <code>$values['transformation']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$values['mimetype']</code>
-      <code>$values['transformation']</code>
-      <code>$values['transformation']</code>
-      <code>$values['transformation']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
-      <code>$result[$column]</code>
-      <code>$values</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
