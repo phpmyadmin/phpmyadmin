@@ -25,6 +25,7 @@ use function mb_strtolower;
 use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
+use function rtrim;
 
 use const PNG_ALL_FILTERS;
 
@@ -220,7 +221,7 @@ class GisVisualization
             . ') AS ' . Util::backquote('srid') . ' ';
 
         // Append the original query as the inner query
-        $modified_query .= 'FROM (' . $sql_query . ') AS '
+        $modified_query .= 'FROM (' . rtrim($sql_query, ';') . ') AS '
             . Util::backquote('temp_gis');
 
         // LIMIT clause

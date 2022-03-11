@@ -3349,9 +3349,7 @@ class Privileges
         if ($createDb1) {
             // Create database with same name and grant all privileges
             $query = 'CREATE DATABASE IF NOT EXISTS '
-                . Util::backquote(
-                    $this->dbi->escapeString($username)
-                ) . ';';
+                . Util::backquote($username) . ';';
             $sqlQuery .= $query;
             if (! $this->dbi->tryQuery($query)) {
                 $message = Message::rawError($this->dbi->getError());
@@ -3365,9 +3363,7 @@ class Privileges
 
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
-                    Util::escapeMysqlWildcards(
-                        $this->dbi->escapeString($username)
-                    )
+                    Util::escapeMysqlWildcards($username)
                 ) . '.* TO \''
                 . $this->dbi->escapeString($username)
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
@@ -3381,9 +3377,7 @@ class Privileges
             // Grant all privileges on wildcard name (username\_%)
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
-                    Util::escapeMysqlWildcards(
-                        $this->dbi->escapeString($username)
-                    ) . '\_%'
+                    Util::escapeMysqlWildcards($username) . '\_%'
                 ) . '.* TO \''
                 . $this->dbi->escapeString($username)
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';

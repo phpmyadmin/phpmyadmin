@@ -54,6 +54,7 @@ use function stripos;
 use function strlen;
 use function strtolower;
 use function strtoupper;
+use function strtr;
 use function substr;
 use function syslog;
 use function trigger_error;
@@ -505,9 +506,7 @@ class DatabaseInterface implements DbalInterface
                             ) . '\')';
                     } else {
                         $sql .= " `Name` LIKE '"
-                            . Util::escapeMysqlWildcards(
-                                $this->escapeString($table, $link)
-                            )
+                            . $this->escapeMysqlLikeString($table, $link)
                             . "%'";
                     }
 
@@ -905,7 +904,7 @@ class DatabaseInterface implements DbalInterface
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
-            Util::escapeMysqlWildcards($this->escapeString($column)),
+            $this->escapeMysqlLikeString($column),
             $full
         );
         /** @var array<string, array> $fields */
@@ -2135,6 +2134,19 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $this->extension->escapeString($this->links[$link], $str);
+    }
+
+    /**
+     * returns properly escaped string for use in MySQL LIKE clauses
+     *
+     * @param string $str  string to be escaped
+     * @param int    $link optional database link to use
+     *
+     * @return string a MySQL escaped LIKE string
+     */
+    public function escapeMysqlLikeString(string $str, int $link = self::CONNECT_USER)
+    {
+        return $this->escapeString(strtr($str, ['\\' => '\\\\', '_' => '\\_', '%' => '\\%']), $link);
     }
 
     /**

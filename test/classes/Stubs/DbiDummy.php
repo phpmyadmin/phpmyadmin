@@ -1768,7 +1768,7 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query' => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\_users%'",
+                'query' => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\\\\_users%'",
                 'result' => [],
             ],
             [
@@ -2389,7 +2389,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['1']],
             ],
             [
-                'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` LIKE \'PMA\_table%\'',
+                'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` LIKE \'PMA\\\\_table%\'',
                 'columns' => ['Name', 'Engine'],
                 'result' => [['PMA_table', 'InnoDB']],
             ],
@@ -2443,7 +2443,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SHOW FULL COLUMNS FROM `testdb`.`mytable` LIKE \'\_id\'',
+                'query' => 'SHOW FULL COLUMNS FROM `testdb`.`mytable` LIKE \'\\\\_id\'',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     [
@@ -2548,7 +2548,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\_table%\'',
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\\\\_table%\'',
                 'columns' => ['Name', 'Engine', 'Rows'],
                 'result' => [['test_table', 'InnoDB', '3']],
             ],
@@ -2713,7 +2713,7 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query' => 'SHOW TABLE STATUS FROM `my_db` WHERE `Name` LIKE \'test\_tbl%\'',
+                'query' => 'SHOW TABLE STATUS FROM `my_db` WHERE `Name` LIKE \'test\\\\_tbl%\'',
                 'result' => [],
             ],
             [

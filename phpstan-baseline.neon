@@ -121,6 +121,21 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
+			message: "#^Cannot call method getExtension\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Command/CacheWarmupCommand.php
+
+		-
+			message: "#^Cannot call method getPathname\\(\\) on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Command/CacheWarmupCommand.php
+
+		-
+			message: "#^Cannot call method isFile\\(\\) on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Command/CacheWarmupCommand.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:display\\(\\) has parameter \\$filesInfo with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
@@ -151,7 +166,7 @@ parameters:
 			path: libraries/classes/Common.php
 
 		-
-			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\Container\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\DependencyInjection\\\\Container\\:\\:setParameter\\(\\) expects array\\|bool\\|float\\|int\\|string\\|UnitEnum\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Common.php
 
@@ -1286,6 +1301,11 @@ parameters:
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
+			message: "#^Left side of \\|\\| is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
@@ -1771,6 +1791,11 @@ parameters:
 			path: libraries/classes/Controllers/Transformation/WrapperController.php
 
 		-
+			message: "#^Variable \\$mime_type on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Transformation/WrapperController.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php
@@ -1912,6 +1937,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateMultipleColumn\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
@@ -2701,6 +2731,11 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
+			message: "#^Parameter \\#2 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeMysqlLikeString\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -2846,18 +2881,8 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:__construct\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/MysqliResult.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/MysqliResult.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:\\$result type has no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
@@ -3212,11 +3237,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setMessageInformation\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setParamForLinkForeignKeyRelatedTables\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<int\\|string, array\\>\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -5326,6 +5346,11 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) has parameter \\$name with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NodeFactory.php
@@ -5686,6 +5711,11 @@ parameters:
 			path: libraries/classes/Pdf.php
 
 		-
+			message: "#^Left side of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Plugins.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getPlugins\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
@@ -5693,6 +5723,11 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 3
 			path: libraries/classes/Plugins.php
 
 		-
@@ -6391,11 +6426,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Dia/Dia.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|false and 12 results in an error\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
@@ -6412,11 +6442,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -6476,11 +6501,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Parameter \\#2 \\$master_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\RelationStatsPdf constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -6529,6 +6549,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Binary operation \"\\+\" between int\\|string\\|false and 1\\.5 results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/RelationStats.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:getXy\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -6582,11 +6607,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\RelationStatsSvg constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
@@ -8302,6 +8322,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 

@@ -188,6 +188,7 @@ cleanup_composer_vendors() {
         vendor/twig/twig/.editorconfig \
         vendor/twig/twig/.php_cs.dist \
         vendor/twig/twig/drupal_test.sh \
+        vendor/twig/twig/.php-cs-fixer.dist.php \
         vendor/webmozart/assert/.editorconfig \
         vendor/webmozart/assert/.github/ \
         vendor/webmozart/assert/.php_cs \

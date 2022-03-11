@@ -93,7 +93,7 @@
         "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^1.4.5",
+        "phpstan/phpstan": "^1.4.8",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-webmozart-assert": "^1.0",
         "phpunit/phpunit": "^8.5 || ^9.5",
@@ -102,7 +102,7 @@
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^5.2.3",
         "tecnickcom/tcpdf": "^6.4.4",
-        "vimeo/psalm": "^4.19"
+        "vimeo/psalm": "^4.22"
     },
     "extra": {
         "branch-alias": {
@@ -110,19 +110,22 @@
         }
     },
     "scripts": {
-        "phpcbf": "phpcbf",
-        "phpcs": "phpcs",
-        "phpstan": "phpstan analyse",
-        "psalm": "psalm --no-diff",
-        "phpunit": "phpunit --color=always",
+        "phpcbf": "@php phpcbf",
+        "phpcs": "@php phpcs",
+        "phpstan": "@php phpstan analyse",
+        "psalm": "@php psalm --no-diff",
+        "phpunit": "@php phpunit --color=always",
         "test": [
             "@phpcs",
             "@phpstan",
             "@psalm",
             "@phpunit"
         ],
-        "update:baselines": "phpstan analyse --generate-baseline && psalm --set-baseline=psalm-baseline.xml",
-        "twig-lint": "php scripts/console lint:twig --ansi --show-deprecations"
+        "update:baselines": [
+            "@php phpstan analyse --generate-baseline",
+            "@php psalm --set-baseline=psalm-baseline.xml"
+        ],
+        "twig-lint": "@php scripts/console lint:twig --ansi --show-deprecations"
     },
     "config":{
         "sort-packages": true,
