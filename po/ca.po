@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
 "PO-Revision-Date: 2022-03-12 11:57+0000\n"
-"Last-Translator: Omar Macías Molina <omar.maciasmolina@gmail.com>\n"
+"Last-Translator: roger <616steam@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ca/>\n"
 "Language: ca\n"
@@ -5964,7 +5964,7 @@ msgstr "Valors Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "Please enter the SQL query first."
-msgstr "Introduïu la cerca SQL primer"
+msgstr "Introduïu primer la consulta SQL."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 msgid "The host name is empty!"
