@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-03-11 11:41+0000\n"
+"PO-Revision-Date: 2022-03-12 11:57+0000\n"
 "Last-Translator: Omar Macías Molina <omar.maciasmolina@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ca/>\n"
@@ -7362,9 +7362,8 @@ msgid "%d object(s) created."
 msgstr "%d objecte(s) creat(s)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
-#, fuzzy
 msgid "Column name"
-msgstr "Nom de les columnes"
+msgstr "Nom de la columna"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
