@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Sanitize;
 
 use function __;
-use function htmlspecialchars;
 use function sprintf;
 use function str_replace;
 
@@ -653,10 +652,7 @@ class Descriptions
             'DisplayServersList_name' => __('Display servers as a list'),
             'DisableMultiTableMaintenance_name' => __('Disable multi table maintenance'),
             'ExecTimeLimit_name' => __('Maximum execution time'),
-            'Export_lock_tables_name' => sprintf(
-                __('Use %s statement'),
-                htmlspecialchars('<code>LOCK TABLES</code>')
-            ),
+            'Export_lock_tables_name' => __('Use [code]LOCK TABLES[/code] statement'),
             'Export_asfile_name' => __('Save as file'),
             'Export_charset_name' => __('Character set of the file'),
             'Export_codegen_format_name' => __('Format'),

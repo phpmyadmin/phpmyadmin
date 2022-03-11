@@ -2274,8 +2274,8 @@ class Util
                 && is_scalar($_REQUEST['tbl_group'])
                 && strlen((string) $_REQUEST['tbl_group']) > 0
             ) {
-                $group = self::escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
-                $groupWithSeparator = self::escapeMysqlWildcards(
+                $group = $GLOBALS['dbi']->escapeMysqlLikeString((string) $_REQUEST['tbl_group']);
+                $groupWithSeparator = $GLOBALS['dbi']->escapeMysqlLikeString(
                     $_REQUEST['tbl_group']
                     . $GLOBALS['cfg']['NavigationTreeTableSeparator']
                 );

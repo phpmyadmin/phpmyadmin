@@ -2591,6 +2591,11 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
+			message: "#^Parameter \\#2 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeMysqlLikeString\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php

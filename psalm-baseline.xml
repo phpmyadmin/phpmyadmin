@@ -5763,7 +5763,7 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="50">
+    <MixedArgument occurrences="51">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
@@ -5774,6 +5774,7 @@
       <code>$grant</code>
       <code>$host</code>
       <code>$host</code>
+      <code>$link</code>
       <code>$link</code>
       <code>$link</code>
       <code>$link</code>
@@ -15689,8 +15690,12 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="9">
       <code>$dataSet</code>
+      <code>$queryString</code>
+      <code>$queryString</code>
+      <code>$queryString</code>
+      <code>$queryString</code>
       <code>$queryString</code>
       <code>$queryString</code>
       <code>$queryString</code>
@@ -16001,6 +16006,14 @@
       <code>assertIsArray</code>
       <code>assertIsArray</code>
       <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/OpenDocumentTest.php">
+    <MixedArgument occurrences="1">
+      <code>$zipExtension-&gt;getContents($tmpFile, '/meta\.xml/')['data']</code>
+    </MixedArgument>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertNotFalse</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/PdfTest.php">

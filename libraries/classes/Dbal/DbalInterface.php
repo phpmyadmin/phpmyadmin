@@ -635,6 +635,16 @@ interface DbalInterface
     public function escapeString(string $str, $link = DatabaseInterface::CONNECT_USER);
 
     /**
+     * returns properly escaped string for use in MySQL LIKE clauses
+     *
+     * @param string $str  string to be escaped
+     * @param int    $link optional database link to use
+     *
+     * @return string a MySQL escaped LIKE string
+     */
+    public function escapeMysqlLikeString(string $str, int $link = DatabaseInterface::CONNECT_USER);
+
+    /**
      * Checks if this database server is running on Amazon RDS.
      */
     public function isAmazonRds(): bool;
