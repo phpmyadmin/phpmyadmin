@@ -60,3 +60,7 @@ composer.lock
 /node_modules/
 phpstan.neon
 /setup/styles.css.map
+/js/vendor/openlayers/OpenLayers.js.LICENSE.txt
+/js/vendor/zxcvbn-ts.js
+/js/vendor/zxcvbn-ts.js.map
+/setup/styles.rtl.css
