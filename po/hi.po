@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-03-13 13:59+0000\n"
+"Last-Translator: bashishtha <bashishtha.singh@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-9/hi/>"
 "\n"
 "Language: hi\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -336,10 +336,8 @@ msgid "Multi-table query"
 msgstr "बोहोत सारे टेबल आदेश"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query by example"
-msgstr "क्वेरी कैश"
+msgstr "उदाहरण से क्वेरी"
 
 #: db_qbe.php:168
 #, php-format
@@ -533,15 +531,12 @@ msgid "Output"
 msgstr "आउटपुट"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"\"फलन \" स्तंभ से \"GeomFromText\" चुनें और \"Value\" क्षेत्र में नीचे स्ट्रिंग पेस्ट करे."
+"\"फंक्शन\" कॉलम से \"ST_GeomFromText\" चुनें और स्ट्रिंग को \"Value\" क्षेत्"
+"र में नीचे पेस्ट करें."
 
 #: import.php:73
 msgid "Succeeded"
@@ -782,17 +777,17 @@ msgstr ""
 "सूचना देना बंद कि गइ है."
 
 #: index.php:543
-#, fuzzy
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"आपका PHP पैरामीटर [a https: //secure.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank] 1session.gc_maxlifetime [/ a] 2 कुकी "
-"की वैधता की तुलना में कम है PhpMyAdmin में, इस वजह से, आपका लॉगिन phpMyAdmin में "
-"कॉन्फ़िगर की तुलना में जल्दी समाप्त हो सकता है।"
+"PhpMyAdmin में आपका PHP पैरामीटर\n"
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank] session.gc_maxlifetime[/a] कुकी की वैधता की तुलना में कम "
+"है, इस वजह से, आपका लॉगिन phpMyAdmin में कॉन्फ़ि़गर की गई अवधि से पहले समाप्"
+"त हो सकता है."
 
 #: index.php:562
 #, fuzzy
