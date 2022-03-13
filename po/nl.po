@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-13 00:15+0000\n"
-"PO-Revision-Date: 2022-02-21 11:58+0000\n"
+"PO-Revision-Date: 2022-03-14 14:57+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -3263,7 +3263,7 @@ msgstr "Maximale uitvoertijd"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Gebruik de [code]LOCK TABLES[/code] opdracht"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -7549,6 +7549,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"U kan geen pagina layout openen, bewaren of verwijderen omdat IndexedDB niet "
+"werkt in uw browser en uw phpMyAdmin configuratie opslag hiervoor niet is "
+"geconfigureerd."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
