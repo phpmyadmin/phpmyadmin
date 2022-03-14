@@ -1139,22 +1139,27 @@ class Privileges
      */
     public function getRequireClause()
     {
-        $arr = isset($_POST['ssl_type']) ? $_POST : $GLOBALS;
-        if (isset($arr['ssl_type']) && $arr['ssl_type'] === 'SPECIFIED') {
+        /** @var string|null $sslType */
+        $sslType = $_POST['ssl_type'] ?? $GLOBALS['ssl_type'] ?? null;
+        /** @var string|null $sslCipher */
+        $sslCipher = $_POST['ssl_cipher'] ?? $GLOBALS['ssl_cipher'] ?? null;
+        /** @var string|null $x509Issuer */
+        $x509Issuer = $_POST['x509_issuer'] ?? $GLOBALS['x509_issuer'] ?? null;
+        /** @var string|null $x509Subject */
+        $x509Subject = $_POST['x509_subject'] ?? $GLOBALS['x509_subject'] ?? null;
+
+        if ($sslType === 'SPECIFIED') {
             $require = [];
-            if (! empty($arr['ssl_cipher'])) {
-                $require[] = "CIPHER '"
-                        . $this->dbi->escapeString($arr['ssl_cipher']) . "'";
+            if (is_string($sslCipher) && $sslCipher !== '') {
+                $require[] = 'CIPHER \'' . $this->dbi->escapeString($sslCipher) . '\'';
             }
 
-            if (! empty($arr['x509_issuer'])) {
-                $require[] = "ISSUER '"
-                        . $this->dbi->escapeString($arr['x509_issuer']) . "'";
+            if (is_string($x509Issuer) && $x509Issuer !== '') {
+                $require[] = 'ISSUER \'' . $this->dbi->escapeString($x509Issuer) . '\'';
             }
 
-            if (! empty($arr['x509_subject'])) {
-                $require[] = "SUBJECT '"
-                        . $this->dbi->escapeString($arr['x509_subject']) . "'";
+            if (is_string($x509Subject) && $x509Subject !== '') {
+                $require[] = 'SUBJECT \'' . $this->dbi->escapeString($x509Subject) . '\'';
             }
 
             if (count($require)) {
@@ -1162,9 +1167,9 @@ class Privileges
             } else {
                 $requireClause = ' REQUIRE NONE';
             }
-        } elseif (isset($arr['ssl_type']) && $arr['ssl_type'] === 'X509') {
+        } elseif ($sslType === 'X509') {
             $requireClause = ' REQUIRE X509';
-        } elseif (isset($arr['ssl_type']) && $arr['ssl_type'] === 'ANY') {
+        } elseif ($sslType === 'ANY') {
             $requireClause = ' REQUIRE SSL';
         } else {
             $requireClause = ' REQUIRE NONE';

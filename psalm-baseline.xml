@@ -12501,7 +12501,7 @@
     <InvalidReturnType occurrences="1">
       <code>array</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="68">
+    <MixedArgument occurrences="65">
       <code>$GLOBALS['dbname']</code>
       <code>$_GET['initial']</code>
       <code>$_GET['initial']</code>
@@ -12527,9 +12527,6 @@
       <code>$_POST['username']</code>
       <code>$alterRealSqlQuery</code>
       <code>$alterSqlQuery</code>
-      <code>$arr['ssl_cipher']</code>
-      <code>$arr['x509_issuer']</code>
-      <code>$arr['x509_subject']</code>
       <code>$createUserReal</code>
       <code>$currentDb</code>
       <code>$eachUser</code>
