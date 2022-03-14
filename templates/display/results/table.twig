@@ -4,9 +4,82 @@
       <tr>
         <td class="navigation_separator"></td>
 
-        {{ navigation.move_backward_buttons|raw }}
+        {% if navigation.pos and not navigation.is_showing_all %}
+          <td>
+            <form action="{{ url('/sql') }}" method="post">
+              {{ get_hidden_inputs(db, table) }}
+              <input type="hidden" name="sql_query" value="{{ sql_query }}">
+              <input type="hidden" name="pos" value="0">
+              <input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}">
+              <input type="hidden" name="goto" value="{{ goto }}">
+              {% set begin_text %}
+                {{- show_icons('TableNavigationLinksMode') ? '<<' }}
+                {%- if show_text('TableNavigationLinksMode') -%}
+                  &nbsp;{% trans %}Begin{% context %}First page{% endtrans %}
+                {%- endif -%}
+              {% endset %}
+              <input type="submit" name="navig" class="btn btn-secondary ajax" value="{{ begin_text }}" title="{% trans %}Begin{% context %}First page{% endtrans %}">
+            </form>
+          </td>
+
+          <td>
+            <form action="{{ url('/sql') }}" method="post">
+              {{ get_hidden_inputs(db, table) }}
+              <input type="hidden" name="sql_query" value="{{ sql_query }}">
+              <input type="hidden" name="pos" value="{{ navigation.pos_previous }}">
+              <input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}">
+              <input type="hidden" name="goto" value="{{ goto }}">
+              {% set previous_text %}
+                {{- show_icons('TableNavigationLinksMode') ? '<' }}
+                {%- if show_text('TableNavigationLinksMode') -%}
+                  &nbsp;{% trans %}Previous{% context %}Previous page{% endtrans %}
+                {%- endif -%}
+              {% endset %}
+              <input type="submit" name="navig" class="btn btn-secondary ajax" value="{{ previous_text }}" title="{% trans %}Previous{% context %}Previous page{% endtrans %}">
+            </form>
+          </td>
+        {% endif %}
+
         {{ navigation.page_selector|raw }}
-        {{ navigation.move_forward_buttons|raw }}
+
+        {% if not navigation.is_last_page %}
+          <td>
+            <form action="{{ url('/sql') }}" method="post">
+              {{ get_hidden_inputs(db, table) }}
+              <input type="hidden" name="sql_query" value="{{ sql_query }}">
+              <input type="hidden" name="pos" value="{{ navigation.pos_next }}">
+              <input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}">
+              <input type="hidden" name="goto" value="{{ goto }}">
+              {% set next_text %}
+                {%- if show_text('TableNavigationLinksMode') -%}
+                  {% trans %}Next{% context %}Next page{% endtrans %}&nbsp;
+                {%- endif -%}
+                {{ show_icons('TableNavigationLinksMode') ? '>' -}}
+              {% endset %}
+              <input type="submit" name="navig" class="btn btn-secondary ajax" value="{{ next_text }}" title="{% trans %}Next{% context %}Next page{% endtrans %}">
+            </form>
+          </td>
+
+          <td>
+            <form action="{{ url('/sql') }}" method="post"{{ navigation.onsubmit|raw }}>
+              {{ get_hidden_inputs(db, table) }}
+              <input type="hidden" name="sql_query" value="{{ sql_query }}">
+              <input type="hidden" name="pos" value="{{ navigation.pos_last }}">
+              <input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}">
+              <input type="hidden" name="goto" value="{{ goto }}">
+              {% if navigation.has_real_end_input %}
+                <input id="real_end_input" type="hidden" name="find_real_end" value="1">
+              {% endif %}
+              {% set end_text %}
+                {%- if show_text('TableNavigationLinksMode') -%}
+                  {% trans %}End{% context %}Last page{% endtrans %}&nbsp;
+                {%- endif -%}
+                {{ show_icons('TableNavigationLinksMode') ? '>>' -}}
+              {% endset %}
+              <input type="submit" name="navig" class="btn btn-secondary ajax" value="{{ end_text }}" title="{% trans %}End{% context %}Last page{% endtrans %}">
+            </form>
+          </td>
+        {% endif %}
 
         {% if navigation.number_total_page > 1 %}
           <td><div class="navigation_separator">|</div></td>

@@ -98,62 +98,6 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for navigation buttons
-     *
-     * @param string $caption        iconic caption for button
-     * @param string $title          text for button
-     * @param int    $pos            position for next query
-     * @param string $html_sql_query query ready for display
-     *
-     * @dataProvider providerForTestGetTableNavigationButton
-     */
-    public function testGetTableNavigationButton(
-        string $caption,
-        string $title,
-        int $pos,
-        string $html_sql_query
-    ): void {
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $_SESSION[' PMA_token '] = 'token';
-
-        $actual = $this->callFunction(
-            $this->object,
-            DisplayResults::class,
-            'getTableNavigationButton',
-            [
-                &$caption,
-                $title,
-                $pos,
-                $html_sql_query,
-                true,
-            ]
-        );
-
-        $this->assertStringContainsString('<form action="index.php?route=/sql', $actual);
-        $this->assertStringContainsString('" method="post" >', $actual);
-        $this->assertStringContainsString('name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"', $actual);
-        $this->assertStringContainsString('name="pos" value="1"', $actual);
-        $this->assertStringContainsString('value="btn" title="Submit"', $actual);
-    }
-
-    /**
-     * Provider for testGetTableNavigationButton
-     *
-     * @return array array data for testGetTableNavigationButton
-     */
-    public function providerForTestGetTableNavigationButton(): array
-    {
-        return [
-            [
-                'btn',
-                'Submit',
-                1,
-                'SELECT * FROM `pma_bookmark` WHERE 1',
-            ],
-        ];
-    }
-
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
     {
         $this->assertEquals(
@@ -1533,9 +1477,7 @@ class ResultsTest extends AbstractTestCase
                 'success'
             ),
             'navigation' => [
-                'move_backward_buttons' => '',
                 'page_selector' => '',
-                'move_forward_buttons' => '',
                 'number_total_page' => 1,
                 'has_show_all' => true,
                 'hidden_fields' => [
@@ -1576,6 +1518,7 @@ class ResultsTest extends AbstractTestCase
                         ],
                     ],
                 ],
+                'is_last_page' => true,
             ],
             'headers' => [
                 'column_order' => [
@@ -1787,9 +1730,7 @@ class ResultsTest extends AbstractTestCase
                 'success'
             ),
             'navigation' => [
-                'move_backward_buttons' => '',
                 'page_selector' => '',
-                'move_forward_buttons' => '',
                 'number_total_page' => 1,
                 'has_show_all' => true,
                 'hidden_fields' => [
@@ -1805,6 +1746,7 @@ class ResultsTest extends AbstractTestCase
                 'max_rows' => 25,
                 'pos' => 0,
                 'sort_by_key' => [],
+                'is_last_page' => true,
             ],
             'headers' => [
                 'column_order' => [],

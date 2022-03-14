@@ -33,7 +33,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
 use function __;
-use function _pgettext;
 use function array_filter;
 use function array_keys;
 use function array_merge;
@@ -660,64 +659,6 @@ class Results
     }
 
     /**
-     * Get a navigation button
-     *
-     * @see     getMoveBackwardButtonsForTableNavigation(),
-     *          getMoveForwardButtonsForTableNavigation()
-     *
-     * @param string $caption         iconic caption for button
-     * @param string $title           text for button
-     * @param int    $pos             position for next query
-     * @param string $htmlSqlQuery    query ready for display
-     * @param bool   $back            whether 'begin' or 'previous'
-     * @param string $onsubmit        optional onsubmit clause
-     * @param string $inputForRealEnd optional hidden field for special treatment
-     *
-     * @return string                     html content
-     */
-    private function getTableNavigationButton(
-        $caption,
-        $title,
-        $pos,
-        $htmlSqlQuery,
-        $back,
-        $onsubmit = '',
-        $inputForRealEnd = ''
-    ): string {
-        $captionOutput = '';
-        if ($back) {
-            if (Util::showIcons('TableNavigationLinksMode')) {
-                $captionOutput .= $caption;
-            }
-
-            if (Util::showText('TableNavigationLinksMode')) {
-                $captionOutput .= '&nbsp;' . $title;
-            }
-        } else {
-            if (Util::showText('TableNavigationLinksMode')) {
-                $captionOutput .= $title;
-            }
-
-            if (Util::showIcons('TableNavigationLinksMode')) {
-                $captionOutput .= '&nbsp;' . $caption;
-            }
-        }
-
-        return $this->template->render('display/results/table_navigation_button', [
-            'db' => $this->properties['db'],
-            'table' => $this->properties['table'],
-            'sql_query' => $htmlSqlQuery,
-            'pos' => $pos,
-            'is_browse_distinct' => $this->properties['is_browse_distinct'],
-            'goto' => $this->properties['goto'],
-            'input_for_real_end' => $inputForRealEnd,
-            'caption_output' => $captionOutput,
-            'title' => $title,
-            'onsubmit' => $onsubmit,
-        ]);
-    }
-
-    /**
      * Possibly return a page selector for table navigation
      *
      * @return array{string, int} ($output, $nbTotalPage)
@@ -775,15 +716,6 @@ class Results
     ): array {
         $isShowingAll = $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS;
 
-        // Move to the beginning or to the previous page
-        $moveBackwardButtons = '';
-        if ($_SESSION['tmpval']['pos'] && ! $isShowingAll) {
-            $moveBackwardButtons = $this->getMoveBackwardButtonsForTableNavigation(
-                htmlspecialchars($this->properties['sql_query']),
-                $posPrevious
-            );
-        }
-
         $pageSelector = '';
         $numberTotalPage = 1;
         if (! $isShowingAll) {
@@ -793,22 +725,24 @@ class Results
             ] = $this->getHtmlPageSelector();
         }
 
-        // Move to the next page or to the last one
-        $moveForwardButtons = '';
-        if (
-            // view with unknown number of rows
-            ($this->properties['unlim_num_rows'] === -1 || $this->properties['unlim_num_rows'] === false)
-            || (! $isShowingAll
-            && intval($_SESSION['tmpval']['pos']) + intval($_SESSION['tmpval']['max_rows'])
-                < $this->properties['unlim_num_rows']
-            && $this->properties['num_rows'] >= $_SESSION['tmpval']['max_rows'])
-        ) {
-            $moveForwardButtons = $this->getMoveForwardButtonsForTableNavigation(
-                htmlspecialchars($this->properties['sql_query']),
-                $posNext,
-                $isInnodb
-            );
-        }
+        $isLastPage = $this->properties['unlim_num_rows'] !== -1 && $this->properties['unlim_num_rows'] !== false
+            && ($isShowingAll
+                || intval($_SESSION['tmpval']['pos']) + intval($_SESSION['tmpval']['max_rows'])
+                >= $this->properties['unlim_num_rows']
+                || $this->properties['num_rows'] < $_SESSION['tmpval']['max_rows']);
+
+        $onsubmit = ' onsubmit="return '
+            . (intval($_SESSION['tmpval']['pos'])
+            + intval($_SESSION['tmpval']['max_rows'])
+            < $this->properties['unlim_num_rows']
+            && $this->properties['num_rows'] >= intval($_SESSION['tmpval']['max_rows'])
+                ? 'true'
+                : 'false') . ';"';
+
+        $hasRealEndInput = $isInnodb && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount'];
+        $posLast = @((int) ceil(
+            (int) $this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']
+        ) - 1) * intval($_SESSION['tmpval']['max_rows']);
 
         $hiddenFields = [
             'db' => $this->properties['db'],
@@ -820,9 +754,7 @@ class Results
         ];
 
         return [
-            'move_backward_buttons' => $moveBackwardButtons,
             'page_selector' => $pageSelector,
-            'move_forward_buttons' => $moveForwardButtons,
             'number_total_page' => $numberTotalPage,
             'has_show_all' => $GLOBALS['cfg']['ShowAll'] || ($this->properties['unlim_num_rows'] <= 500),
             'hidden_fields' => $hiddenFields,
@@ -831,93 +763,13 @@ class Results
             'max_rows' => $_SESSION['tmpval']['max_rows'],
             'pos' => $_SESSION['tmpval']['pos'],
             'sort_by_key' => $sortByKeyData,
+            'pos_previous' => $posPrevious,
+            'pos_next' => $posNext,
+            'pos_last' => $posLast,
+            'is_last_page' => $isLastPage,
+            'has_real_end_input' => $hasRealEndInput,
+            'onsubmit' => $onsubmit,
         ];
-    }
-
-    /**
-     * Prepare move backward buttons - previous and first
-     *
-     * @see getTableNavigation()
-     *
-     * @param string $htmlSqlQuery the sql encoded by html special characters
-     * @param int    $posPrev      the offset for the "previous" page
-     *
-     * @return string                 html content
-     */
-    private function getMoveBackwardButtonsForTableNavigation(
-        string $htmlSqlQuery,
-        int $posPrev
-    ): string {
-        return $this->getTableNavigationButton(
-            '&lt;&lt;',
-            _pgettext('First page', 'Begin'),
-            0,
-            $htmlSqlQuery,
-            true
-        )
-        . $this->getTableNavigationButton(
-            '&lt;',
-            _pgettext('Previous page', 'Previous'),
-            $posPrev,
-            $htmlSqlQuery,
-            true
-        );
-    }
-
-    /**
-     * Prepare move forward buttons - next and last
-     *
-     * @see getTableNavigation()
-     *
-     * @param string $htmlSqlQuery the sql encoded by htmlspecialchars()
-     * @param int    $posNext      the offset for the "next" page
-     * @param bool   $isInnodb     whether it's InnoDB or not
-     *
-     * @return string   html content
-     */
-    private function getMoveForwardButtonsForTableNavigation(
-        string $htmlSqlQuery,
-        int $posNext,
-        bool $isInnodb
-    ): string {
-        // display the Next button
-        $buttonsHtml = $this->getTableNavigationButton(
-            '&gt;',
-            _pgettext('Next page', 'Next'),
-            $posNext,
-            $htmlSqlQuery,
-            false
-        );
-
-        $inputForRealEnd = '';
-        // prepare some options for the End button
-        if ($isInnodb && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount']) {
-            $inputForRealEnd = '<input id="real_end_input" type="hidden" name="find_real_end" value="1">';
-            // no backquote around this message
-        }
-
-        $maxRows = (int) $_SESSION['tmpval']['max_rows'];
-        $onsubmit = 'onsubmit="return '
-            . (intval($_SESSION['tmpval']['pos'])
-                + $maxRows
-                < $this->properties['unlim_num_rows']
-                && $this->properties['num_rows'] >= $maxRows
-            ? 'true'
-            : 'false') . '"';
-
-        // display the End button
-        return $buttonsHtml . $this->getTableNavigationButton(
-            '&gt;&gt;',
-            _pgettext('Last page', 'End'),
-            @((int) ceil(
-                (int) $this->properties['unlim_num_rows']
-                / $_SESSION['tmpval']['max_rows']
-            ) - 1) * $maxRows,
-            $htmlSqlQuery,
-            false,
-            $onsubmit,
-            $inputForRealEnd
-        );
     }
 
     /**
@@ -3728,6 +3580,7 @@ class Results
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'text_dir' => $this->properties['text_dir'],
+            'is_browse_distinct' => $this->properties['is_browse_distinct'],
         ]);
     }
 

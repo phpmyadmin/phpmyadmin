@@ -9451,11 +9451,6 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:providerForTestGetTableNavigationButton\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:providerSetConfigParamsForDisplayTable\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
@@ -9562,7 +9557,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 9
+			count: 4
 			path: test/classes/Display/ResultsTest.php
 
 		-

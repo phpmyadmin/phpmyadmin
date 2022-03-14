@@ -6119,6 +6119,7 @@
       <code>$whereClause</code>
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
       <code>(int) $this-&gt;properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']</code>
+      <code>(int) $this-&gt;properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']</code>
       <code>empty($field-&gt;database) ? $this-&gt;properties['db'] : $field-&gt;database</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="6">
@@ -6129,7 +6130,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="64">
+    <MixedArrayAccess occurrences="65">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6152,10 +6153,11 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
+      <code>$_SESSION['tmpval']['max_rows']</code>
+      <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
-      <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -15446,8 +15448,7 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Display/ResultsTest.php">
-    <MixedArgument occurrences="21">
-      <code>$actual</code>
+    <MixedArgument occurrences="20">
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults['is_analyse']</code>
@@ -15495,15 +15496,13 @@
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
-      <code>$actual</code>
+    <MixedAssignment occurrences="4">
       <code>$output</code>
       <code>$output</code>
       <code>$output</code>
       <code>$output</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="7">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="6">
       <code>array</code>
       <code>array</code>
       <code>array</code>
