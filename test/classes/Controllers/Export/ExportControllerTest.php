@@ -170,6 +170,9 @@ SQL;
         $exportController = new ExportController(new ResponseRenderer(), new Template(), new Export($this->dbi));
         $exportController($request);
         $output = $this->getActualOutputForAssertion();
+
+        $this->assertStringNotContainsString('Missing parameter: what', $output);
+        $this->assertStringNotContainsString('Missing parameter: export_type', $output);
         $this->assertStringContainsString(htmlspecialchars($expectedOutput), $output);
     }
 }
