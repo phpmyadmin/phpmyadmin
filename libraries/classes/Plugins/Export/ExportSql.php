@@ -2415,7 +2415,7 @@ class ExportSql extends ExportPlugin
                     $insertLine = '(' . implode(', ', $values) . ')';
                     $insertLineSize = mb_strlen($insertLine);
                     $sqlMaxSize = $GLOBALS['sql_max_query_size'];
-                    if (isset($sqlMaxSize) && $sqlMaxSize > 0 && $querySize + $insertLineSize > $sqlMaxSize) {
+                    if ($sqlMaxSize > 0 && $querySize + $insertLineSize > $sqlMaxSize) {
                         if (! $this->export->outputHandler(';' . $crlf)) {
                             return false;
                         }
