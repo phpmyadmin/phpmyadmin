@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2021-03-21 21:41+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2022-03-16 01:57+0000\n"
+"Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4619,14 +4619,15 @@ msgstr "URL para la API de reCaptcha v2"
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
+"Fragmento de contenido de política de seguridad para la API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:972
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parámetro de solicitud para la API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parámetro de respuesta para la API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:974
 #, fuzzy
@@ -5239,7 +5240,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:258
 msgid "No collation provided."
-msgstr ""
+msgstr "No se proporcionó reglas de clasificación."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
 #: libraries/classes/Controllers/Table/CreateController.php:72
@@ -6003,13 +6004,13 @@ msgstr "Cerrar"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
@@ -7295,6 +7296,8 @@ msgstr "Borrar página"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Algunas tablas guardadas en esta página pueden haber sido renombradas o "
+"eliminadas."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:10
@@ -7562,11 +7565,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "¡El nombre de la columna se copió con éxito en el portapapeles!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "¡Error al copiar el nombre de la columna en el portapapeles!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
@@ -7675,7 +7678,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Solicitud inválida enviada a la clave de seguridad."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
@@ -7689,7 +7692,7 @@ msgstr "Error desconocido"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "El cliente no soporta la clave de seguridad."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
@@ -9376,6 +9379,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Error 1045: Acceso denegado para el usuario. Puede haber información "
+"adicional del error disponible, pero está oculta debido a la directiva de "
+"configuración %s."
 
 #: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -9883,6 +9889,8 @@ msgstr "El volcado ha sido guardado al archivo %s."
 #: libraries/classes/Export.php:981
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
+"No se admite la exportación de una consulta sin procesar para este método de "
+"exportación."
 
 #: libraries/classes/File.php:231
 msgid "File was not an uploaded file."
@@ -9992,7 +10000,7 @@ msgstr "La función de PHP password_hash() con opciones por defecto."
 
 #: libraries/classes/Html/Generator.php:358
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "Función de PHP password_hash()"
 
 #: libraries/classes/Html/Generator.php:640
 msgid "Skip Explain SQL"
@@ -11494,7 +11502,7 @@ msgstr "Valor %s"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:339
 msgid "Use simple view export"
-msgstr ""
+msgstr "Usar la exportación de vista simple"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:378
 msgid ""
@@ -12065,6 +12073,10 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Está utilizando el campo de opciones de línea de comandos de la "
+"transformación externa, que ha quedado obsoleto por motivos de seguridad. "
+"Añada todas las opciones de línea de comandos directamente a la definición "
+"en %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:29
 msgid ""
@@ -12408,6 +12420,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"El caché de enrutamiento no pudo ser escrito, necesita ajustar los permisos "
+"en la carpeta/archivo \"%s\""
 
 #: libraries/classes/Routing.php:158
 #, php-format
@@ -12476,7 +12490,7 @@ msgstr "Autenticación de MySQL nativo"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "No se admite el bloqueo de cuenta."
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
@@ -13578,6 +13592,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Destinado al almacenamiento de direcciones IPv6, así como direcciones IPv4, "
+"asumiendo el mapeo convencional de direcciones IPv4 en direcciones IPv6"
 
 #: libraries/classes/Types.php:746
 msgctxt "numeric types"
@@ -14059,6 +14075,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"El ancho de columna de los tipos enteros se ignora en su versión de MySQL a "
+"menos que defina una columna TINYINT (1)"
 
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
@@ -16002,7 +16020,7 @@ msgstr "Omitir tablas mayores a"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "El tamaño es medido en MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -16677,7 +16695,7 @@ msgstr "Ingrese una entrada HEX válida"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Esta columna no puede contener un valor de 32 caracteres"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16685,6 +16703,9 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Estas funciones están pensadas para devolver un resultado binario; para "
+"evitar resultados inconsistentes, debe almacenarlo en una columna BINARY, "
+"VARBINARY o BLOB."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -17794,7 +17815,7 @@ msgstr "Permite crear el almacenamiento de rutinas."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "No se usa MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
@@ -18816,7 +18837,7 @@ msgstr "Añadir un nuevo servidor"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Algo salió mal."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
