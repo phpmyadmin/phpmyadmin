@@ -143,7 +143,6 @@ abstract class AbstractController
             return;
         }
 
-        $this->response->setHttpResponseCode(400);
         Core::fatalError($errorMessage);
     }
 }
