@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-01-03 16:54+0000\n"
-"Last-Translator: Emanuel <emanuel12m@gmail.com>\n"
+"PO-Revision-Date: 2022-03-16 01:57+0000\n"
+"Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5290,7 +5290,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:272
 msgid "No collation provided."
-msgstr ""
+msgstr "No se proporcionó reglas de clasificación."
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
@@ -7568,11 +7568,9 @@ msgstr ""
 # and REPLACE)
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "Tipo de exportación inválido"
+msgstr "Solicitud inválida enviada a la clave de seguridad."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
@@ -10096,6 +10094,8 @@ msgstr "El volcado ha sido guardado al archivo %s."
 #: libraries/classes/Export.php:990
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
+"No se admite la exportación de una consulta sin procesar para este método de "
+"exportación."
 
 #: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
@@ -10222,7 +10222,7 @@ msgstr "La función de PHP password_hash() con opciones por defecto."
 
 #: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "Función de PHP password_hash()"
 
 #: libraries/classes/Html/Generator.php:668
 msgid "Skip Explain SQL"
@@ -13863,6 +13863,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Destinado al almacenamiento de direcciones IPv6, así como direcciones IPv4, "
+"asumiendo el mapeo convencional de direcciones IPv4 en direcciones IPv6"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -17477,7 +17479,7 @@ msgstr "Permite crear el almacenamiento de rutinas."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr "No se usa en MariaDB."
+msgstr "No se usa MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
 #, fuzzy
