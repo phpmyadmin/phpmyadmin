@@ -40,7 +40,9 @@ final class FavoriteTableController extends AbstractController
             'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
         ];
 
-        $this->checkParameters(['db']);
+        if ($GLOBALS['db'] === '') {
+            return;
+        }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
