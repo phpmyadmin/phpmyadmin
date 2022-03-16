@@ -226,6 +226,11 @@ parameters:
 			path: libraries/classes/Controllers/ImportController.php
 
 		-
+			message: "#^Left side of \\|\\| is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ImportController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ImportController.php
@@ -376,12 +381,32 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
+			message: "#^Left side of && is always false\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
+			message: "#^Left side of \\|\\| is always true\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{host\\: non\\-empty\\-string, scheme\\?\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
 		-
+			message: "#^Right side of && is always true\\.$#"
+			count: 1
+			path: libraries/classes/Core.php
+
+		-
 			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, bool\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
 
@@ -701,6 +726,11 @@ parameters:
 			path: libraries/classes/Export.php
 
 		-
+			message: "#^Left side of && is always false\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
@@ -717,11 +747,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$what of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Result of && is always false\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -1266,6 +1291,11 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) should return PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node but returns object\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NodeFactory.php
@@ -1331,6 +1361,11 @@ parameters:
 			path: libraries/classes/Plugins.php
 
 		-
+			message: "#^Left side of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Plugins.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getHtmlForProperty\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
@@ -1348,6 +1383,11 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 3
 			path: libraries/classes/Plugins.php
 
 		-
@@ -2136,6 +2176,11 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
+			message: "#^If condition is always false\\.$#"
+			count: 1
+			path: libraries/classes/Relation.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkRelationsParam\\(\\) should return array\\<string\\> but returns array\\<string, bool\\|string\\|null\\>\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
@@ -2252,6 +2297,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#6 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, array\\|string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Right side of \\|\\| is always true\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -2401,6 +2451,11 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Right side of && is always true\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/StorageEngine.php
@@ -2428,6 +2483,11 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs \\(array\\) in isset\\(\\) is not nullable\\.$#"
 			count: 3
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
+			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -2597,6 +2657,11 @@ parameters:
 
 		-
 			message: "#^Empty array passed to foreach\\.$#"
+			count: 1
+			path: test/classes/Config/DescriptionTest.php
+
+		-
+			message: "#^If condition is always false\\.$#"
 			count: 1
 			path: test/classes/Config/DescriptionTest.php
 

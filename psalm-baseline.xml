@@ -1652,16 +1652,6 @@
     <InvalidArgument occurrences="1">
       <code>[]</code>
     </InvalidArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$extracted</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAssignment occurrences="2">
-      <code>$analyses[$table_no][Import::FORMATTEDSQL]</code>
-      <code>$analyses[$table_no][Import::TYPES]</code>
-    </PossiblyInvalidArrayAssignment>
-    <PossiblyUndefinedMethod occurrences="1">
-      <code>getShape</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportSql.php">
     <InvalidArgument occurrences="2"/>
