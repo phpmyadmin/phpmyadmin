@@ -1976,7 +1976,8 @@ class InsertEdit
             )
             . '</td>'
             . '<td colspan="3" class="right vmiddle">'
-            . '<input type="button" class="btn btn-secondary preview_sql" value="' . __('Preview SQL') . '"'
+            . '<input type="button" class="btn btn-secondary preview_sql control_at_footer"'
+            . ' value="' . __('Preview SQL') . '"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '">'
             . '<input type="reset" class="btn btn-secondary control_at_footer" value="' . __('Reset') . '"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '">'
