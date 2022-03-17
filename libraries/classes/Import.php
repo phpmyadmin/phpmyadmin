@@ -901,7 +901,7 @@ class Import
      *
      * @todo    Handle the error case more elegantly
      */
-    public function analyzeTable(array &$table)
+    public function analyzeTable(array $table)
     {
         /* Get number of rows in table */
         $numRows = count($table[self::ROWS]);
@@ -1003,7 +1003,7 @@ class Import
     public function buildSql(
         string $dbName,
         array &$tables,
-        ?array &$analyses = null,
+        ?array $analyses = null,
         ?array &$additionalSql = null,
         ?array $options = null,
         array &$sqlData = []

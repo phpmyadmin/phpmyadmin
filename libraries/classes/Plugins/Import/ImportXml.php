@@ -227,6 +227,7 @@ class ImportXml extends ImportPlugin
             ->children();
 
         $data_present = false;
+        $analyses = null;
 
         /**
          * Only attempt to analyze/collect data if there is data present
