@@ -18,7 +18,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 use function __;
-use function count;
 use function implode;
 use function mb_strlen;
 use function preg_replace;
@@ -44,7 +43,7 @@ class ImportSql extends ImportPlugin
         $importPluginProperties->setOptionsText(__('Options'));
 
         $compats = $GLOBALS['dbi']->getCompatibilities();
-        if (count($compats) > 0) {
+        if ($compats !== []) {
             $values = [];
             foreach ($compats as $val) {
                 $values[$val] = $val;
@@ -181,7 +180,7 @@ class ImportSql extends ImportPlugin
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
 
-        if (count($sql_modes) <= 0) {
+        if ($sql_modes === []) {
             return;
         }
 
