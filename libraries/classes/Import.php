@@ -1234,34 +1234,26 @@ class Import
         $tablePattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
         /* Check a third pattern to make sure its not a "USE `db_name`;" statement */
 
-        $regs = [];
-
-        $inTables = false;
-
-        $additionalSqlLength = $additionalSql === null ? 0 : count($additionalSql);
-        for ($i = 0; $i < $additionalSqlLength; ++$i) {
-            preg_match($viewPattern, $additionalSql[$i], $regs);
-
-            if (count($regs) === 0) {
-                preg_match($tablePattern, $additionalSql[$i], $regs);
-            }
-
-            if (count($regs)) {
-                for ($n = 0; $n < $numTables; ++$n) {
-                    if ($regs[1] === $tables[$n][self::TBL_NAME]) {
-                        $inTables = true;
-                        break;
-                    }
-                }
-
-                if (! $inTables) {
-                    $tables[] = [self::TBL_NAME => $regs[1]];
-                }
-            }
-
-            /* Reset the array */
+        /** @var string $sql */
+        foreach ($additionalSql ?? [] as $sql) {
             $regs = [];
-            $inTables = false;
+            preg_match($viewPattern, $sql, $regs);
+
+            if ($regs === []) {
+                preg_match($tablePattern, $sql, $regs);
+            }
+
+            if ($regs === []) {
+                continue;
+            }
+
+            for ($n = 0; $n < $numTables; ++$n) {
+                if ($regs[1] === $tables[$n][self::TBL_NAME]) {
+                    continue 2;
+                }
+            }
+
+            $tables[] = [self::TBL_NAME => $regs[1]];
         }
 
         $params = ['db' => $dbName];
