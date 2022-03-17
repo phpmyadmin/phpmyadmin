@@ -157,10 +157,7 @@ class Import
 
             if (($aNumRows > 0) || $isUseQuery) {
                 $sqlData['valid_sql'][] = $sql;
-                if (! isset($sqlData['valid_queries'])) {
-                    $sqlData['valid_queries'] = 0;
-                }
-
+                $sqlData['valid_queries'] = $sqlData['valid_queries'] ?? 0;
                 $sqlData['valid_queries']++;
             }
         }
@@ -246,10 +243,7 @@ class Import
                 $GLOBALS['sql_query'] = $this->importRunBuffer;
                 $sqlData['valid_sql'][] = $this->importRunBuffer;
                 $sqlData['valid_full'][] = $this->importRunBuffer;
-                if (! isset($sqlData['valid_queries'])) {
-                    $sqlData['valid_queries'] = 0;
-                }
-
+                $sqlData['valid_queries'] = $sqlData['valid_queries'] ?? 0;
                 $sqlData['valid_queries']++;
             } elseif ($GLOBALS['run_query']) {
                 /* Handle rollback from go_sql */
