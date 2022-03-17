@@ -116,13 +116,13 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while (! $GLOBALS['error'] && (! $GLOBALS['timeout_passed'])) {
+        while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
 
             // If there is no full statement, we are looking for more data.
-            if (empty($statement)) {
+            if ($statement === false || $statement === '') {
                 // Importing new data.
                 $newData = $this->import->getNextChunk($importHandle);
 
@@ -152,7 +152,7 @@ class ImportSql extends ImportPlugin
         // Extracting remaining statements.
         while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed'] && ! empty($bq->query)) {
             $statement = $bq->extract(true);
-            if (empty($statement)) {
+            if ($statement === false || $statement === '') {
                 continue;
             }
 
