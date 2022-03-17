@@ -34,7 +34,6 @@ use function preg_replace;
 use function sprintf;
 use function str_contains;
 use function str_starts_with;
-use function strcmp;
 use function strlen;
 use function strpos;
 use function substr;
@@ -638,7 +637,7 @@ class Import
         /**
          * If the cell is NULL, don't treat it as a varchar
          */
-        if (! strcmp('NULL', $cell)) {
+        if ($cell === 'NULL') {
             return $lastCumulativeSize;
         }
 
@@ -859,7 +858,7 @@ class Import
          * Else, we call it varchar for simplicity
          */
 
-        if (! strcmp('NULL', (string) $cell)) {
+        if ($cell === 'NULL') {
             if ($lastCumulativeType === null || $lastCumulativeType == self::NONE) {
                 return self::NONE;
             }
@@ -873,8 +872,8 @@ class Import
 
         if (
             $cell == (string) (float) $cell
-            && str_contains((string) $cell, '.')
-            && mb_substr_count((string) $cell, '.') === 1
+            && str_contains($cell, '.')
+            && mb_substr_count($cell, '.') === 1
         ) {
             return self::DECIMAL;
         }
@@ -973,7 +972,7 @@ class Import
         /* Check to ensure that all types are valid */
         $len = count($types);
         for ($n = 0; $n < $len; ++$n) {
-            if (strcmp((string) self::NONE, (string) $types[$n])) {
+            if ((string) $types[$n] !== (string) self::NONE) {
                 continue;
             }
 
@@ -1176,7 +1175,7 @@ class Import
                         }
 
                         /* Don't put quotes around NULL fields */
-                        if (! strcmp((string) $tables[$i][self::ROWS][$j][$k], 'NULL')) {
+                        if ((string) $tables[$i][self::ROWS][$j][$k] === 'NULL') {
                             $isVarchar = false;
                         }
 
@@ -1249,7 +1248,7 @@ class Import
 
             if (count($regs)) {
                 for ($n = 0; $n < $numTables; ++$n) {
-                    if (! strcmp($regs[1], $tables[$n][self::TBL_NAME])) {
+                    if ($regs[1] === $tables[$n][self::TBL_NAME]) {
                         $inTables = true;
                         break;
                     }
