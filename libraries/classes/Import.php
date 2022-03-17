@@ -728,8 +728,8 @@ class Import
                 /* New val if M or D is greater than current largest */
                 if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
                     /* Take the largest of both types */
-                    return (string) (($size[self::M] > $oldM ? $size[self::M] : $oldM)
-                        . ',' . ($size[self::D] > $oldD ? $size[self::D] : $oldD));
+                    return ($size[self::M] > $oldM ? $size[self::M] : $oldM)
+                        . ',' . ($size[self::D] > $oldD ? $size[self::D] : $oldD);
                 }
 
                 return $lastCumulativeSize;
@@ -791,7 +791,7 @@ class Import
                 $oldM = $this->getDecimalPrecision($lastCumulativeSize);
                 $oldD = $this->getDecimalScale($lastCumulativeSize);
                 $oldInt = $oldM - $oldD;
-                $newInt = mb_strlen((string) $cell);
+                $newInt = mb_strlen($cell);
 
                 /* See which has the larger integer length */
                 if ($oldInt >= $newInt) {
