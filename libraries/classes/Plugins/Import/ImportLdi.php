@@ -186,8 +186,8 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ')';
         }
 
-        $this->import->runQuery($sql, $sql, $sql_data);
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery($sql, $sql_data);
+        $this->import->runQuery('', $sql_data);
         $GLOBALS['finished'] = true;
     }
 

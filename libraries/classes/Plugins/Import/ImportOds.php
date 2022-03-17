@@ -228,7 +228,7 @@ class ImportOds extends ImportPlugin
         unset($tables, $analyses);
 
         /* Commit any possible data in buffers */
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sql_data);
     }
 
     /**

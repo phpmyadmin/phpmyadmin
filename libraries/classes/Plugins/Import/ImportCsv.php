@@ -544,7 +544,7 @@ class ImportCsv extends AbstractImportCsv
                      * @todo maybe we could add original line to verbose
                      * SQL in comment
                      */
-                    $this->import->runQuery($sql, $sql, $sql_data);
+                    $this->import->runQuery($sql, $sql_data);
                 }
 
                 $line++;
@@ -633,7 +633,7 @@ class ImportCsv extends AbstractImportCsv
         }
 
         // Commit any possible data in buffers
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sql_data);
 
         if (count($values) == 0 || $GLOBALS['error'] !== false) {
             return;

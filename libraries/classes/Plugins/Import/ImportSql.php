@@ -146,7 +146,7 @@ class ImportSql extends ImportPlugin
             }
 
             // Executing the query.
-            $this->import->runQuery($statement, $statement, $sql_data);
+            $this->import->runQuery($statement, $sql_data);
         }
 
         // Extracting remaining statements.
@@ -156,11 +156,11 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $this->import->runQuery($statement, $statement, $sql_data);
+            $this->import->runQuery($statement, $sql_data);
         }
 
         // Finishing.
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sql_data);
     }
 
     /**

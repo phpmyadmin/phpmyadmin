@@ -557,10 +557,7 @@ class ImportTest extends AbstractTestCase
         $GLOBALS['run_query'] = true;
         $sqlData = [];
 
-        $query = 'SELECT 1';
-        $full = 'SELECT 1';
-
-        $this->import->runQuery($query, $full, $sqlData);
+        $this->import->runQuery('SELECT 1', $sqlData);
 
         $this->assertSame([], $sqlData);
         $this->assertSame([
@@ -571,10 +568,7 @@ class ImportTest extends AbstractTestCase
         $this->assertNull($GLOBALS['complete_query']);
         $this->assertNull($GLOBALS['display_query']);
 
-        $query = 'SELECT 2';
-        $full = 'SELECT 2';
-
-        $this->import->runQuery($query, $full, $sqlData);
+        $this->import->runQuery('SELECT 2', $sqlData);
 
         $this->assertSame([
             'valid_sql' => ['SELECT 1;'],
@@ -589,10 +583,7 @@ class ImportTest extends AbstractTestCase
         $this->assertSame('SELECT 1;', $GLOBALS['complete_query']);
         $this->assertSame('SELECT 1;', $GLOBALS['display_query']);
 
-        $query = '';
-        $full = '';
-
-        $this->import->runQuery($query, $full, $sqlData);
+        $this->import->runQuery('', $sqlData);
 
         $this->assertSame([
             'valid_sql' => [

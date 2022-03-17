@@ -359,6 +359,6 @@ class ImportXml extends ImportPlugin
         unset($analyses, $tables, $create);
 
         /* Commit any possible data in buffers */
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sql_data);
     }
 }

@@ -185,12 +185,10 @@ class Import
      * of last SELECT, SHOW or HANDLER results and similar nice stuff.
      *
      * @param string $sql     query to run
-     * @param string $full    query to display, this might be commented
      * @param array  $sqlData SQL parse data storage
      */
     public function runQuery(
         string $sql = '',
-        string $full = '',
         array &$sqlData = []
     ): void {
         $GLOBALS['go_sql'] = $GLOBALS['go_sql'] ?? null;
@@ -206,7 +204,7 @@ class Import
         $GLOBALS['read_multiply'] = 1;
         if (! isset($GLOBALS['import_run_buffer'])) {
             // Do we have something to push into buffer?
-            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql, $full);
+            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql);
 
             return;
         }
@@ -215,7 +213,7 @@ class Import
         if ($GLOBALS['skip_queries'] > 0) {
             $GLOBALS['skip_queries']--;
             // Do we have something to push into buffer?
-            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql, $full);
+            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql);
 
             return;
         }
@@ -296,7 +294,7 @@ class Import
         }
 
         // Do we have something to push into buffer?
-        $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql, $full);
+        $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql);
 
         // In case of ROLLBACK, notify the user.
         if (! isset($_POST['rollback_query'])) {
@@ -310,20 +308,15 @@ class Import
      * Return import run buffer
      *
      * @param string $sql  SQL query
-     * @param string $full Query to display
      *
      * @return array|null Buffer of queries for import
      */
-    public function runQueryPost(string $sql, string $full): ?array
+    public function runQueryPost(string $sql): ?array
     {
-        if (! empty($sql) || ! empty($full)) {
-            return [
-                'sql' => $sql . ';',
-                'full' => $full . ';',
-            ];
-        }
-
-        return null;
+        return $sql !== '' ? [
+            'sql' => $sql . ';',
+            'full' => $sql . ';',
+        ] : null;
     }
 
     /**
@@ -1040,7 +1033,7 @@ class Import
         /* Execute the SQL statements create above */
         $sqlLength = count($sql);
         for ($i = 0; $i < $sqlLength; ++$i) {
-            $this->runQuery($sql[$i], $sql[$i], $sqlData);
+            $this->runQuery($sql[$i], $sqlData);
         }
 
         /* No longer needed */
@@ -1071,7 +1064,7 @@ class Import
             for ($i = 0; $i < $additionalSqlLength; ++$i) {
                 $additionalSql[$i] = preg_replace($pattern, $replacement, $additionalSql[$i]);
                 /* Execute the resulting statements */
-                $this->runQuery($additionalSql[$i], $additionalSql[$i], $sqlData);
+                $this->runQuery($additionalSql[$i], $sqlData);
             }
         }
 
@@ -1124,7 +1117,7 @@ class Import
                  * after it is formed so that we don't have
                  * to store them in a (possibly large) buffer
                  */
-                $this->runQuery($tempSQLStr, $tempSQLStr, $sqlData);
+                $this->runQuery($tempSQLStr, $sqlData);
             }
         }
 
@@ -1216,7 +1209,7 @@ class Import
              * after it is formed so that we don't have
              * to store them in a (possibly large) buffer
              */
-            $this->runQuery($tempSQLStr, $tempSQLStr, $sqlData);
+            $this->runQuery($tempSQLStr, $sqlData);
         }
 
         /* No longer needed */
