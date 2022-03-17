@@ -67,7 +67,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['conn_error'] = $GLOBALS['conn_error'] ?? null;
 
         $response = ResponseRenderer::getInstance();
-
+        include ROOT_PATH . 'google_auth.inc.php';
         /**
          * When sending login modal after session has expired, send the
          * new token explicitly with the response to update the token

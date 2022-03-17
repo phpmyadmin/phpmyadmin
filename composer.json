@@ -49,6 +49,7 @@
         "ext-xml": "*",
         "composer/ca-bundle": "^1.2",
         "google/recaptcha": "^1.1",
+        "google/apiclient": "^2.0",
         "nikic/fast-route": "^1.3",
         "paragonie/sodium_compat": "^1.17",
         "phpmyadmin/motranslator": "^5.0",
