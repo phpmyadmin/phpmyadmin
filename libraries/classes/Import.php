@@ -213,51 +213,42 @@ class Import
             return;
         }
 
-        if (trim($this->importRunBuffer) !== '') {
-            $GLOBALS['max_sql_len'] = max(
-                $GLOBALS['max_sql_len'],
-                mb_strlen($this->importRunBuffer)
-            );
+        $GLOBALS['max_sql_len'] = max(
+            $GLOBALS['max_sql_len'],
+            mb_strlen($this->importRunBuffer)
+        );
+        if (! $GLOBALS['sql_query_disabled']) {
+            $GLOBALS['sql_query'] .= $this->importRunBuffer;
+        }
+
+        $GLOBALS['executed_queries']++;
+
+        if ($GLOBALS['run_query'] && $GLOBALS['executed_queries'] < 50) {
+            $GLOBALS['go_sql'] = true;
+
             if (! $GLOBALS['sql_query_disabled']) {
-                $GLOBALS['sql_query'] .= $this->importRunBuffer;
+                $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
+                $GLOBALS['display_query'] = $GLOBALS['sql_query'];
+            } else {
+                $GLOBALS['complete_query'] = '';
+                $GLOBALS['display_query'] = '';
             }
 
-            $GLOBALS['executed_queries']++;
+            $GLOBALS['sql_query'] = $this->importRunBuffer;
+            $sqlData[] = $this->importRunBuffer;
+        } elseif ($GLOBALS['run_query']) {
+            /* Handle rollback from go_sql */
+            if ($GLOBALS['go_sql'] && $sqlData !== []) {
+                $queries = $sqlData;
+                $sqlData = [];
+                $GLOBALS['go_sql'] = false;
 
-            if ($GLOBALS['run_query'] && $GLOBALS['executed_queries'] < 50) {
-                $GLOBALS['go_sql'] = true;
-
-                if (! $GLOBALS['sql_query_disabled']) {
-                    $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
-                    $GLOBALS['display_query'] = $GLOBALS['sql_query'];
-                } else {
-                    $GLOBALS['complete_query'] = '';
-                    $GLOBALS['display_query'] = '';
+                foreach ($queries as $query) {
+                    $this->executeQuery($query, $sqlData);
                 }
-
-                $GLOBALS['sql_query'] = $this->importRunBuffer;
-                $sqlData[] = $this->importRunBuffer;
-            } elseif ($GLOBALS['run_query']) {
-                /* Handle rollback from go_sql */
-                if ($GLOBALS['go_sql'] && $sqlData !== []) {
-                    $queries = $sqlData;
-                    $sqlData = [];
-                    $GLOBALS['go_sql'] = false;
-
-                    foreach ($queries as $query) {
-                        $this->executeQuery($query, $sqlData);
-                    }
-                }
-
-                $this->executeQuery($this->importRunBuffer, $sqlData);
             }
-        } elseif (! empty($this->importRunBuffer)) {
-            if ($GLOBALS['go_sql']) {
-                $GLOBALS['complete_query'] .= $this->importRunBuffer;
-                $GLOBALS['display_query'] .= $this->importRunBuffer;
-            } elseif (! $GLOBALS['sql_query_disabled']) {
-                $GLOBALS['sql_query'] .= $this->importRunBuffer;
-            }
+
+            $this->executeQuery($this->importRunBuffer, $sqlData);
         }
 
         // check length of query unless we decided to pass it to /sql
@@ -956,7 +947,7 @@ class Import
      * @param array|null $analyses      Analyses of the tables
      * @param array|null $additionalSql Additional SQL statements to be executed
      * @param array|null $options       Associative array of options
-     * @param string[]   $sqlData       2-element array with sql data
+     * @param string[]   $sqlData       List of SQL statements to be executed
      */
     public function buildSql(
         string $dbName,
