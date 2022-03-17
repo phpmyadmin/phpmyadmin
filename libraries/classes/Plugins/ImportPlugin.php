@@ -46,6 +46,8 @@ abstract class ImportPlugin implements Plugin
 
     /**
      * Handles the whole import logic
+     *
+     * @return string[]
      */
     abstract public function doImport(?File $importHandle = null): array;
 

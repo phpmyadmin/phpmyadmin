@@ -93,6 +93,8 @@ class ImportSql extends ImportPlugin
 
     /**
      * Handles the whole import logic
+     *
+     * @return string[]
      */
     public function doImport(?File $importHandle = null): array
     {

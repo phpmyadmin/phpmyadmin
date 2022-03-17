@@ -86,6 +86,8 @@ class ImportLdi extends AbstractImportCsv
 
     /**
      * Handles the whole import logic
+     *
+     * @return string[]
      */
     public function doImport(?File $importHandle = null): array
     {
