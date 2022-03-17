@@ -44,6 +44,16 @@ Code status
     :alt: Infection MSI
     :target: https://infection.github.io
 
+Create Build
+------------
+
+You can create a build using the following command:
+
+```
+scripts/create-release.sh <current_release> <branch_name> --ci
+```
+**Note** Make sure you have 'Sphinx' installed.
+
 
 Download
 --------
