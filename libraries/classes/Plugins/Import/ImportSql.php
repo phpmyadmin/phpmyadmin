@@ -169,7 +169,7 @@ class ImportSql extends ImportPlugin
      * @param DatabaseInterface $dbi     Database interface
      * @param array             $request Request array
      */
-    private function setSQLMode($dbi, array $request): void
+    private function setSQLMode(DatabaseInterface $dbi, array $request): void
     {
         $sql_modes = [];
         if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
@@ -184,8 +184,6 @@ class ImportSql extends ImportPlugin
             return;
         }
 
-        $dbi->tryQuery(
-            'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
-        );
+        $dbi->tryQuery('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
     }
 }
