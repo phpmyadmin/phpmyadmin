@@ -108,11 +108,10 @@ class Import
      * Runs query inside import buffer. This is needed to allow displaying
      * of last SELECT, SHOW or HANDLER results and similar nice stuff.
      *
-     * @param string $sql     query to run
-     * @param string $full    query to display, this might be commented
-     * @param array  $sqlData SQL parse data storage
+     * @param string   $sql     query to run
+     * @param string[] $sqlData SQL parse data storage
      */
-    public function executeQuery(string $sql, string $full, array &$sqlData): void
+    public function executeQuery(string $sql, array &$sqlData): void
     {
         $GLOBALS['my_die'] = $GLOBALS['my_die'] ?? null;
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
@@ -132,7 +131,7 @@ class Import
             }
 
             $GLOBALS['my_die'][] = [
-                'sql' => $full,
+                'sql' => $sql,
                 'error' => $GLOBALS['dbi']->getError(),
             ];
 
@@ -156,9 +155,7 @@ class Import
             }
 
             if (($aNumRows > 0) || $isUseQuery) {
-                $sqlData['valid_sql'][] = $sql;
-                $sqlData['valid_queries'] = $sqlData['valid_queries'] ?? 0;
-                $sqlData['valid_queries']++;
+                $sqlData[] = $sql;
             }
         }
 
@@ -184,13 +181,11 @@ class Import
      * Runs query inside import buffer. This is needed to allow displaying
      * of last SELECT, SHOW or HANDLER results and similar nice stuff.
      *
-     * @param string $sql     query to run
-     * @param array  $sqlData SQL parse data storage
+     * @param string   $sql     query to run
+     * @param string[] $sqlData SQL parse data storage
      */
-    public function runQuery(
-        string $sql = '',
-        array &$sqlData = []
-    ): void {
+    public function runQuery(string $sql, array &$sqlData): void
+    {
         $GLOBALS['go_sql'] = $GLOBALS['go_sql'] ?? null;
         $GLOBALS['complete_query'] = $GLOBALS['complete_query'] ?? null;
         $GLOBALS['display_query'] = $GLOBALS['display_query'] ?? null;
@@ -241,31 +236,20 @@ class Import
                 }
 
                 $GLOBALS['sql_query'] = $this->importRunBuffer;
-                $sqlData['valid_sql'][] = $this->importRunBuffer;
-                $sqlData['valid_full'][] = $this->importRunBuffer;
-                $sqlData['valid_queries'] = $sqlData['valid_queries'] ?? 0;
-                $sqlData['valid_queries']++;
+                $sqlData[] = $this->importRunBuffer;
             } elseif ($GLOBALS['run_query']) {
                 /* Handle rollback from go_sql */
-                if ($GLOBALS['go_sql'] && isset($sqlData['valid_full'])) {
-                    $queries = $sqlData['valid_sql'];
-                    $fulls = $sqlData['valid_full'];
-                    $count = $sqlData['valid_queries'];
+                if ($GLOBALS['go_sql'] && $sqlData !== []) {
+                    $queries = $sqlData;
+                    $sqlData = [];
                     $GLOBALS['go_sql'] = false;
 
-                    $sqlData['valid_sql'] = [];
-                    $sqlData['valid_queries'] = 0;
-                    unset($sqlData['valid_full']);
-                    for ($i = 0; $i < $count; $i++) {
-                        $this->executeQuery($queries[$i], $fulls[$i], $sqlData);
+                    foreach ($queries as $query) {
+                        $this->executeQuery($query, $sqlData);
                     }
                 }
 
-                $this->executeQuery(
-                    $this->importRunBuffer,
-                    $this->importRunBuffer,
-                    $sqlData
-                );
+                $this->executeQuery($this->importRunBuffer, $sqlData);
             }
         } elseif (! empty($this->importRunBuffer)) {
             if ($GLOBALS['go_sql']) {
@@ -972,7 +956,7 @@ class Import
      * @param array|null $analyses      Analyses of the tables
      * @param array|null $additionalSql Additional SQL statements to be executed
      * @param array|null $options       Associative array of options
-     * @param array      $sqlData       2-element array with sql data
+     * @param string[]   $sqlData       2-element array with sql data
      */
     public function buildSql(
         string $dbName,

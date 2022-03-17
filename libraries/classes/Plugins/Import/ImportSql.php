@@ -93,10 +93,8 @@ class ImportSql extends ImportPlugin
 
     /**
      * Handles the whole import logic
-     *
-     * @param array $sql_data 2-element array with sql data
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(?File $importHandle = null): array
     {
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
         $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
@@ -115,6 +113,8 @@ class ImportSql extends ImportPlugin
          * @global bool $GLOBALS ['finished']
          */
         $GLOBALS['finished'] = false;
+
+        $sqlStatements = [];
 
         while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             // Getting the first statement, the remaining data and the last
@@ -146,7 +146,7 @@ class ImportSql extends ImportPlugin
             }
 
             // Executing the query.
-            $this->import->runQuery($statement, $sql_data);
+            $this->import->runQuery($statement, $sqlStatements);
         }
 
         // Extracting remaining statements.
@@ -156,11 +156,13 @@ class ImportSql extends ImportPlugin
                 continue;
             }
 
-            $this->import->runQuery($statement, $sql_data);
+            $this->import->runQuery($statement, $sqlStatements);
         }
 
         // Finishing.
-        $this->import->runQuery('', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
+
+        return $sqlStatements;
     }
 
     /**

@@ -100,7 +100,6 @@ final class ImportController extends AbstractController
         $GLOBALS['reset_charset'] = $GLOBALS['reset_charset'] ?? null;
         $GLOBALS['result'] = $GLOBALS['result'] ?? null;
         $GLOBALS['import_file_name'] = $GLOBALS['import_file_name'] ?? null;
-        $GLOBALS['sql_data'] = $GLOBALS['sql_data'] ?? null;
         $GLOBALS['import_notice'] = $GLOBALS['import_notice'] ?? null;
         $GLOBALS['read_multiply'] = $GLOBALS['read_multiply'] ?? null;
         $GLOBALS['my_die'] = $GLOBALS['my_die'] ?? null;
@@ -597,10 +596,7 @@ final class ImportController extends AbstractController
 
         // This array contain the data like number of valid sql queries in the statement
         // and complete valid sql statement (which affected for rows)
-        $GLOBALS['sql_data'] = [
-            'valid_sql' => [],
-            'valid_queries' => 0,
-        ];
+        $queriesToBeExecuted = [];
 
         if (! $GLOBALS['error']) {
             /**
@@ -624,7 +620,7 @@ final class ImportController extends AbstractController
             // Do the real import
             $default_fk_check = ForeignKey::handleDisableCheckInit();
             try {
-                $import_plugin->doImport($importHandle ?? null, $GLOBALS['sql_data']);
+                $queriesToBeExecuted = $import_plugin->doImport($importHandle ?? null);
                 ForeignKey::handleDisableCheckCleanup($default_fk_check);
             } catch (Throwable $e) {
                 ForeignKey::handleDisableCheckCleanup($default_fk_check);
@@ -741,16 +737,15 @@ final class ImportController extends AbstractController
         }
 
         if ($GLOBALS['go_sql']) {
-            if (! empty($GLOBALS['sql_data']) && ($GLOBALS['sql_data']['valid_queries'] > 1)) {
+            if ($queriesToBeExecuted !== []) {
                 $_SESSION['is_multi_query'] = true;
-                $sql_queries = $GLOBALS['sql_data']['valid_sql'];
             } else {
-                $sql_queries = [$GLOBALS['sql_query']];
+                $queriesToBeExecuted = [$GLOBALS['sql_query']];
             }
 
             $html_output = '';
 
-            foreach ($sql_queries as $GLOBALS['sql_query']) {
+            foreach ($queriesToBeExecuted as $GLOBALS['sql_query']) {
                 // parse sql query
                 [
                     $analyzed_sql_results,

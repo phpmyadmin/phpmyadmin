@@ -61,7 +61,6 @@ class SqlController extends AbstractController
         $GLOBALS['disp_query'] = $GLOBALS['disp_query'] ?? null;
         $GLOBALS['extra_data'] = $GLOBALS['extra_data'] ?? null;
         $GLOBALS['message_to_show'] = $GLOBALS['message_to_show'] ?? null;
-        $GLOBALS['sql_data'] = $GLOBALS['sql_data'] ?? null;
         $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
         $GLOBALS['complete_query'] = $GLOBALS['complete_query'] ?? null;
         $GLOBALS['is_gotofile'] = $GLOBALS['is_gotofile'] ?? null;
@@ -216,7 +215,7 @@ class SqlController extends AbstractController
             $GLOBALS['import_text'] ?? null,
             $GLOBALS['extra_data'] ?? null,
             $GLOBALS['message_to_show'] ?? null,
-            $GLOBALS['sql_data'] ?? null,
+            null,
             $GLOBALS['goto'],
             isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
             $GLOBALS['disp_message'] ?? null,

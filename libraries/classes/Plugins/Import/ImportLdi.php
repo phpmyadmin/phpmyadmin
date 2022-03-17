@@ -86,10 +86,8 @@ class ImportLdi extends AbstractImportCsv
 
     /**
      * Handles the whole import logic
-     *
-     * @param array $sql_data 2-element array with sql data
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(?File $importHandle = null): array
     {
         $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
         $GLOBALS['import_file'] = $GLOBALS['import_file'] ?? null;
@@ -104,6 +102,7 @@ class ImportLdi extends AbstractImportCsv
         $GLOBALS['skip_queries'] = $GLOBALS['skip_queries'] ?? null;
         $GLOBALS['ldi_columns'] = $GLOBALS['ldi_columns'] ?? null;
 
+        $sqlStatements = [];
         $compression = '';
         if ($importHandle !== null) {
             $compression = $importHandle->getCompression();
@@ -116,7 +115,7 @@ class ImportLdi extends AbstractImportCsv
             );
             $GLOBALS['error'] = true;
 
-            return;
+            return [];
         }
 
         $sql = 'LOAD DATA';
@@ -186,9 +185,11 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ')';
         }
 
-        $this->import->runQuery($sql, $sql_data);
-        $this->import->runQuery('', $sql_data);
+        $this->import->runQuery($sql, $sqlStatements);
+        $this->import->runQuery('', $sqlStatements);
         $GLOBALS['finished'] = true;
+
+        return $sqlStatements;
     }
 
     public function isAvailable(): bool
