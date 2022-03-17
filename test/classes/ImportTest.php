@@ -26,7 +26,6 @@ class ImportTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
-        $GLOBALS['import_run_buffer'] = null;
         $GLOBALS['complete_query'] = null;
         $GLOBALS['display_query'] = null;
         $GLOBALS['skip_queries'] = null;
@@ -560,10 +559,6 @@ class ImportTest extends AbstractTestCase
         $this->import->runQuery('SELECT 1', $sqlData);
 
         $this->assertSame([], $sqlData);
-        $this->assertSame([
-            'sql' => 'SELECT 1;',
-            'full' => 'SELECT 1;',
-        ], $GLOBALS['import_run_buffer']);
         $this->assertSame('', $GLOBALS['sql_query']);
         $this->assertNull($GLOBALS['complete_query']);
         $this->assertNull($GLOBALS['display_query']);
@@ -575,10 +570,6 @@ class ImportTest extends AbstractTestCase
             'valid_full' => ['SELECT 1;'],
             'valid_queries' => 1,
         ], $sqlData);
-        $this->assertSame([
-            'sql' => 'SELECT 2;',
-            'full' => 'SELECT 2;',
-        ], $GLOBALS['import_run_buffer']);
         $this->assertSame('SELECT 1;', $GLOBALS['sql_query']);
         $this->assertSame('SELECT 1;', $GLOBALS['complete_query']);
         $this->assertSame('SELECT 1;', $GLOBALS['display_query']);
@@ -597,7 +588,6 @@ class ImportTest extends AbstractTestCase
             'valid_queries' => 2,
         ], $sqlData);
 
-        $this->assertNull($GLOBALS['import_run_buffer']);
         $this->assertSame('SELECT 2;', $GLOBALS['sql_query']);
         $this->assertSame('SELECT 1;SELECT 2;', $GLOBALS['complete_query']);
         $this->assertSame('SELECT 1;SELECT 2;', $GLOBALS['display_query']);

@@ -29,7 +29,6 @@ class ImportSqlTest extends AbstractTestCase
         $GLOBALS['timeout_passed'] = null;
         $GLOBALS['maximum_time'] = null;
         $GLOBALS['charset_conversion'] = null;
-        $GLOBALS['import_run_buffer'] = null;
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['max_sql_len'] = null;
         $GLOBALS['sql_query'] = '';

@@ -65,6 +65,9 @@ class Import
     public const SIZES = 1;
     public const FORMATTEDSQL = 2;
 
+    /** @var string|null importRunBuffer */
+    private $importRunBuffer = null;
+
     public function __construct()
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -202,9 +205,9 @@ class Import
         $GLOBALS['run_query'] = $GLOBALS['run_query'] ?? null;
 
         $GLOBALS['read_multiply'] = 1;
-        if (! isset($GLOBALS['import_run_buffer'])) {
+        if ($this->importRunBuffer === null) {
             // Do we have something to push into buffer?
-            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql);
+            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 
             return;
         }
@@ -213,18 +216,18 @@ class Import
         if ($GLOBALS['skip_queries'] > 0) {
             $GLOBALS['skip_queries']--;
             // Do we have something to push into buffer?
-            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql);
+            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 
             return;
         }
 
-        if (! empty($GLOBALS['import_run_buffer']['sql']) && trim($GLOBALS['import_run_buffer']['sql']) != '') {
+        if (trim($this->importRunBuffer) !== '') {
             $GLOBALS['max_sql_len'] = max(
                 $GLOBALS['max_sql_len'],
-                mb_strlen($GLOBALS['import_run_buffer']['sql'])
+                mb_strlen($this->importRunBuffer)
             );
             if (! $GLOBALS['sql_query_disabled']) {
-                $GLOBALS['sql_query'] .= $GLOBALS['import_run_buffer']['full'];
+                $GLOBALS['sql_query'] .= $this->importRunBuffer;
             }
 
             $GLOBALS['executed_queries']++;
@@ -240,9 +243,9 @@ class Import
                     $GLOBALS['display_query'] = '';
                 }
 
-                $GLOBALS['sql_query'] = $GLOBALS['import_run_buffer']['sql'];
-                $sqlData['valid_sql'][] = $GLOBALS['import_run_buffer']['sql'];
-                $sqlData['valid_full'][] = $GLOBALS['import_run_buffer']['full'];
+                $GLOBALS['sql_query'] = $this->importRunBuffer;
+                $sqlData['valid_sql'][] = $this->importRunBuffer;
+                $sqlData['valid_full'][] = $this->importRunBuffer;
                 if (! isset($sqlData['valid_queries'])) {
                     $sqlData['valid_queries'] = 0;
                 }
@@ -265,17 +268,17 @@ class Import
                 }
 
                 $this->executeQuery(
-                    $GLOBALS['import_run_buffer']['sql'],
-                    $GLOBALS['import_run_buffer']['full'],
+                    $this->importRunBuffer,
+                    $this->importRunBuffer,
                     $sqlData
                 );
             }
-        } elseif (! empty($GLOBALS['import_run_buffer']['full'])) {
+        } elseif (! empty($this->importRunBuffer)) {
             if ($GLOBALS['go_sql']) {
-                $GLOBALS['complete_query'] .= $GLOBALS['import_run_buffer']['full'];
-                $GLOBALS['display_query'] .= $GLOBALS['import_run_buffer']['full'];
+                $GLOBALS['complete_query'] .= $this->importRunBuffer;
+                $GLOBALS['display_query'] .= $this->importRunBuffer;
             } elseif (! $GLOBALS['sql_query_disabled']) {
-                $GLOBALS['sql_query'] .= $GLOBALS['import_run_buffer']['full'];
+                $GLOBALS['sql_query'] .= $this->importRunBuffer;
             }
         }
 
@@ -294,7 +297,7 @@ class Import
         }
 
         // Do we have something to push into buffer?
-        $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql);
+        $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 
         // In case of ROLLBACK, notify the user.
         if (! isset($_POST['rollback_query'])) {
@@ -302,21 +305,6 @@ class Import
         }
 
         $GLOBALS['msg'] .= __('[ROLLBACK occurred.]');
-    }
-
-    /**
-     * Return import run buffer
-     *
-     * @param string $sql  SQL query
-     *
-     * @return array|null Buffer of queries for import
-     */
-    public function runQueryPost(string $sql): ?array
-    {
-        return $sql !== '' ? [
-            'sql' => $sql . ';',
-            'full' => $sql . ';',
-        ] : null;
     }
 
     /**

@@ -34,7 +34,6 @@ class ImportXmlTest extends AbstractTestCase
         $GLOBALS['maximum_time'] = null;
         $GLOBALS['charset_conversion'] = null;
         $GLOBALS['db'] = '';
-        $GLOBALS['import_run_buffer'] = null;
         $GLOBALS['skip_queries'] = null;
         $GLOBALS['max_sql_len'] = null;
         $GLOBALS['sql_query_disabled'] = null;
