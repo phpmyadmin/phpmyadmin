@@ -329,9 +329,9 @@ class Import
     /**
      * Looks for the presence of USE to possibly change current db
      *
-     * @param string $buffer buffer to examine
-     * @param string $db     current db
-     * @param bool   $reload reload
+     * @param string|null $buffer buffer to examine
+     * @param string|null $db     current db
+     * @param bool|null   $reload reload
      *
      * @return array (current or new db, whether to reload)
      */
@@ -843,7 +843,7 @@ class Import
     /**
      * Determines what MySQL type a cell is
      *
-     * @param int         $lastCumulativeType Last cumulative column type
+     * @param int|null    $lastCumulativeType Last cumulative column type
      *                                        (VARCHAR or INT or BIGINT or DECIMAL or NONE)
      * @param string|null $cell               String representation of the cell for which
      *                                        a best-fit type is to be determined
