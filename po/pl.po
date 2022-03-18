@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-03-10 16:57+0000\n"
-"Last-Translator: Aleksander <olek_filip@wp.pl>\n"
+"PO-Revision-Date: 2022-03-19 18:57+0000\n"
+"Last-Translator: DarekRepos <duda.dariusz.dd@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -4458,7 +4458,7 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "URL for reCAPTCHA v2 API"
-msgstr "Adres URL API reCAPTCHA v2"
+msgstr "URL do reCAPTCHA v2 API"
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
