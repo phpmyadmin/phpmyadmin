@@ -3376,12 +3376,6 @@
       <code>$GLOBALS['goto']</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/DropColumnConfirmationController.php">
-    <MixedAssignment occurrences="2">
-      <code>$GLOBALS['errorUrl']</code>
-      <code>$selected</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Controllers/Table/DropColumnController.php">
     <MixedArgument occurrences="4">
       <code>$field</code>

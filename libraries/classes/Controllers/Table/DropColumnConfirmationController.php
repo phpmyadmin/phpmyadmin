@@ -5,40 +5,47 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Http\ServerRequest;
+use Webmozart\Assert\Assert;
+use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 
 final class DropColumnConfirmationController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        try {
+            $db = DatabaseName::fromValue($request->getParsedBodyParam('db'));
+            $table = TableName::fromValue($request->getParsedBodyParam('table'));
+        } catch (InvalidArgumentException $exception) {
+            $this->response->setHttpResponseCode(400);
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('Table not found.'));
 
-        $selected = $_POST['selected_fld'] ?? null;
+            return;
+        }
 
-        if (empty($selected)) {
+        $fields = $request->getParsedBodyParam('selected_fld');
+        try {
+            Assert::allStringNotEmpty($fields);
+        } catch (InvalidArgumentException $exception) {
+            $this->response->setHttpResponseCode(400);
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
             return;
         }
 
-        $this->checkParameters(['db', 'table']);
-
-        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
-
-        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+        DbTableExists::check($db->getName(), $table->getName());
 
         $this->render('table/structure/drop_confirm', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-            'fields' => $selected,
+            'db' => $db->getName(),
+            'table' => $table->getName(),
+            'fields' => $fields,
         ]);
     }
 }
