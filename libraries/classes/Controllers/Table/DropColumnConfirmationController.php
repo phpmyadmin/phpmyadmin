@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidIdentifierName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -18,20 +19,17 @@ final class DropColumnConfirmationController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
+        $fields = $request->getParsedBodyParam('selected_fld');
         try {
             $db = DatabaseName::fromValue($request->getParsedBodyParam('db'));
             $table = TableName::fromValue($request->getParsedBodyParam('table'));
-        } catch (InvalidArgumentException $exception) {
+            Assert::allStringNotEmpty($fields);
+        } catch (InvalidIdentifierName $exception) {
             $this->response->setHttpResponseCode(400);
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('Table not found.'));
+            $this->response->addJSON('message', $exception->getMessage());
 
             return;
-        }
-
-        $fields = $request->getParsedBodyParam('selected_fld');
-        try {
-            Assert::allStringNotEmpty($fields);
         } catch (InvalidArgumentException $exception) {
             $this->response->setHttpResponseCode(400);
             $this->response->setRequestStatus(false);

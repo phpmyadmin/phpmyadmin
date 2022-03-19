@@ -6,14 +6,14 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidDatabaseName;
+use PhpMyAdmin\Dbal\InvalidTableName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\SqlParser\Lexer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webmozart\Assert\Assert;
-use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 use function array_pop;
@@ -517,14 +517,13 @@ final class Common
 
         try {
             $GLOBALS['db'] = DatabaseName::fromValue($request->getParam('db'))->getName();
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidDatabaseName $exception) {
             $GLOBALS['db'] = '';
         }
 
         try {
-            Assert::stringNotEmpty($GLOBALS['db']);
             $GLOBALS['table'] = TableName::fromValue($request->getParam('table'))->getName();
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidTableName $exception) {
             $GLOBALS['table'] = '';
         }
 

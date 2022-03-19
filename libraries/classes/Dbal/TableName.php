@@ -28,20 +28,35 @@ final class TableName implements Stringable
     /**
      * @param mixed $name
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidTableName
      */
     private function __construct($name)
     {
-        Assert::stringNotEmpty($name);
-        Assert::maxLength($name, self::MAX_LENGTH);
-        Assert::notEndsWith($name, ' ');
+        try {
+            Assert::stringNotEmpty($name);
+        } catch (InvalidArgumentException $exception) {
+            throw InvalidTableName::fromEmptyName();
+        }
+
+        try {
+            Assert::maxLength($name, self::MAX_LENGTH);
+        } catch (InvalidArgumentException $exception) {
+            throw InvalidTableName::fromLongName(self::MAX_LENGTH);
+        }
+
+        try {
+            Assert::notEndsWith($name, ' ');
+        } catch (InvalidArgumentException $exception) {
+            throw InvalidTableName::fromNameWithTrailingSpace();
+        }
+
         $this->name = $name;
     }
 
     /**
      * @param mixed $name
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidTableName
      */
     public static function fromValue($name): self
     {

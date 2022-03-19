@@ -28,20 +28,35 @@ final class DatabaseName implements Stringable
     /**
      * @param mixed $name
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidDatabaseName
      */
     private function __construct($name)
     {
-        Assert::stringNotEmpty($name);
-        Assert::maxLength($name, self::MAX_LENGTH);
-        Assert::notEndsWith($name, ' ');
+        try {
+            Assert::stringNotEmpty($name);
+        } catch (InvalidArgumentException $exception) {
+            throw InvalidDatabaseName::fromEmptyName();
+        }
+
+        try {
+            Assert::maxLength($name, self::MAX_LENGTH);
+        } catch (InvalidArgumentException $exception) {
+            throw InvalidDatabaseName::fromLongName(self::MAX_LENGTH);
+        }
+
+        try {
+            Assert::notEndsWith($name, ' ');
+        } catch (InvalidArgumentException $exception) {
+            throw InvalidDatabaseName::fromNameWithTrailingSpace();
+        }
+
         $this->name = $name;
     }
 
     /**
      * @param mixed $name
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidDatabaseName
      */
     public static function fromValue($name): self
     {
