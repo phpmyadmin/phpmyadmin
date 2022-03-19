@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidIdentifierName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -17,7 +18,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
-use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 use function htmlspecialchars;
@@ -65,7 +65,7 @@ class WrapperController extends AbstractController
         try {
             $db = DatabaseName::fromValue($request->getParam('db'));
             $table = TableName::fromValue($request->getParam('table'));
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidIdentifierName $exception) {
             return;
         }
 

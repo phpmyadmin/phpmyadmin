@@ -5,69 +5,60 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Dbal;
 
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidDatabaseName;
 use PHPUnit\Framework\TestCase;
-use Webmozart\Assert\InvalidArgumentException;
 
 use function str_repeat;
 
 /**
  * @covers \PhpMyAdmin\Dbal\DatabaseName
+ * @covers \PhpMyAdmin\Dbal\InvalidDatabaseName
  */
 class DatabaseNameTest extends TestCase
 {
-    public function testEmptyName(): void
+    /**
+     * @dataProvider providerForTestValidNames
+     */
+    public function testValidName(string $validName): void
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected a different value than "".');
-        DatabaseName::fromValue('');
+        $name = DatabaseName::fromValue($validName);
+        $this->assertEquals($validName, $name->getName());
+        $this->assertEquals($validName, (string) $name);
     }
 
-    public function testNameWithTrailingWhitespace(): void
+    /**
+     * @return iterable<int, string[]>
+     */
+    public function providerForTestValidNames(): iterable
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected a value not to end with " ". Got: "a "');
-        DatabaseName::fromValue('a ');
-    }
-
-    public function testLongName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage(
-            'Expected a value to contain at most 64 characters. Got: '
-            . '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
-        );
-        DatabaseName::fromValue(str_repeat('a', 65));
-    }
-
-    public function testValidName(): void
-    {
-        $name = DatabaseName::fromValue('name');
-        $this->assertEquals('name', $name->getName());
-        $this->assertEquals('name', (string) $name);
+        yield ['name'];
+        yield ['0'];
+        yield [str_repeat('a', 64)];
     }
 
     /**
      * @param mixed $name
      *
-     * @dataProvider providerForTestInvalidMixedNames
+     * @dataProvider providerForTestInvalidNames
      */
-    public function testInvalidMixedNames($name, string $exceptionMessage): void
+    public function testInvalidNames($name, string $exceptionMessage): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidDatabaseName::class);
         $this->expectExceptionMessage($exceptionMessage);
         DatabaseName::fromValue($name);
     }
 
     /**
-     * @return mixed[][]
-     * @psalm-return non-empty-list<array{mixed, string}>
+     * @return iterable<string, mixed[]>
+     * @psalm-return iterable<string, array{mixed, non-empty-string}>
      */
-    public function providerForTestInvalidMixedNames(): array
+    public function providerForTestInvalidNames(): iterable
     {
-        return [
-            [null, 'Expected a string. Got: NULL'],
-            [1, 'Expected a string. Got: integer'],
-            [['db'], 'Expected a string. Got: array'],
-        ];
+        yield 'null' => [null, 'The database name must be a non-empty string.'];
+        yield 'integer' => [1, 'The database name must be a non-empty string.'];
+        yield 'array' => [['database'], 'The database name must be a non-empty string.'];
+        yield 'empty string' => ['', 'The database name must be a non-empty string.'];
+        yield 'too long name' => [str_repeat('a', 65), 'The database name cannot be longer than 64 characters.'];
+        yield 'trailing space' => ['a ', 'The database name cannot end with a space character.'];
     }
 }

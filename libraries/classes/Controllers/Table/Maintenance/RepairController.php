@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Maintenance;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidIdentifierName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -60,7 +61,7 @@ final class RepairController extends AbstractController
             foreach ($selectedTablesParam as $table) {
                 $selectedTables[] = TableName::fromValue($table);
             }
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidIdentifierName $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message->getDisplay());

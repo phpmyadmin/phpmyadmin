@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Partition;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidIdentifierName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -40,7 +41,7 @@ final class DropController extends AbstractController
             Assert::stringNotEmpty($partitionName);
             $database = DatabaseName::fromValue($request->getParam('db'));
             $table = TableName::fromValue($request->getParam('table'));
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidIdentifierName | InvalidArgumentException $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());
 

@@ -75,7 +75,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         $this->assertSame(400, $response->getHttpResponseCode());
         $this->assertFalse($response->hasSuccessState());
-        $this->assertSame(['message' => 'Table not found.'], $response->getJSONResult());
+        $this->assertSame(['message' => 'The database name must be a non-empty string.'], $response->getJSONResult());
         $this->assertSame('', $response->getHTMLResult());
     }
 }
