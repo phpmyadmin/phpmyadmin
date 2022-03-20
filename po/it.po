@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-03-20 17:45+0000\n"
+"PO-Revision-Date: 2022-03-21 17:56+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "it/>\n"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries è impostato a  'OFF'"
+msgstr "log_slow_queries è impostato a 'OFF'"
 
 #: libraries/advisory_rules_generic.php:98
 msgid ""
@@ -168,7 +168,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:101
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log è impostato a  'OFF'"
+msgstr "slow_query_log è impostato a 'OFF'"
 
 #: libraries/advisory_rules_generic.php:106
 msgid "Release Series"
@@ -1304,7 +1304,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "La dimensione attuale della cache delle delle query è: %s"
+msgstr "La dimensione attuale della cache delle query è: %s"
 
 #: libraries/advisory_rules_mysql_before80003.php:107
 msgid "Query cache min result size"
@@ -4866,8 +4866,8 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Se lo ritieni necessario, usa ulteriori impostazioni di protezione - "
-"%1sautenticazione degli host%2s e %3slista di proxy fidati%4s. Comunque, la "
+"Se lo ritieni necessario, usa ulteriori impostazioni di protezione - %1$"
+"sautenticazione host%2$s e %3$slista di proxy fidati%4$s. Comunque, la "
 "protezione a basata su IP potrebbe non essere affidabile se il tuo indirizzo "
 "IP pubblico appartiene ad un ISP (Internet Service Provider) che lo "
 "condivide con migliaia di utenti, incluso te."
@@ -8455,9 +8455,9 @@ msgid ""
 "tables or use replication."
 msgstr ""
 "Numero di volte in cui un blocco tabella (table lock) non poteva essere "
-"eseguito immediatamente ed è stato necessario un ciclo  di attesa. Se questo "
+"eseguito immediatamente ed è stato necessario un ciclo di attesa. Se questo "
 "valore è alto, e hai problemi di performance, dovresti per prima cosa "
-"ottimizzare le tue query, poi  suddividere la tua o le tue tabelle, oppure "
+"ottimizzare le tue query, poi suddividere la tua o le tue tabelle, oppure "
 "utilizzare la replicazione."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:504
@@ -8564,7 +8564,7 @@ msgstr "Nessuna query SQL era impostata per estrarre dati."
 #: libraries/classes/Controllers/Table/ChartController.php:145
 msgid "No numeric columns present in the table to plot."
 msgstr ""
-"Nella tabella  non sono presenti campi numerici da visualizzare graficamente."
+"Nella tabella non sono presenti campi numerici da visualizzare graficamente."
 
 #: libraries/classes/Controllers/Table/ChartController.php:208
 msgid "No data to display"
@@ -10666,14 +10666,14 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Per poter mettere la tabella originale  '%1$s' nella Seconda forma "
+"Per poter mettere la tabella originale '%1$s' nella Seconda forma "
 "normalizzata dobbiamo creare le tabelle seguenti:"
 
 #: libraries/classes/Normalization.php:535
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
-"Il secondo passaggio di normalizzazione per la tabella  '%1$s' è completo."
+"Il secondo passaggio di normalizzazione per la tabella '%1$s' è completo."
 
 #: libraries/classes/Normalization.php:591
 #: libraries/classes/Normalization.php:764
@@ -10687,8 +10687,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Per poter mettere la tabella originale  '%1$s' nella Terza forma "
-"normalizzata dobbiamo creare le tabelle seguenti:"
+"Per poter mettere la tabella originale '%1$s' nella Terza forma normalizzata "
+"dobbiamo creare le tabelle seguenti:"
 
 #: libraries/classes/Normalization.php:695
 msgid "The third step of normalization is complete."
@@ -11321,7 +11321,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:137
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Aggiunge un commento personalizzato al header (\\n  per tornare a capo):"
+"Aggiunge un commento personalizzato al header (\\n"
+" per tornare a capo):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:143
 msgid ""
@@ -11705,8 +11706,7 @@ msgstr "Shape File ESRI"
 #: libraries/classes/Plugins/Import/ImportShp.php:163
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
-"C'è stato un errore durante l'importazione del file shape ESRI:  \"%s\"."
+msgstr "C'è stato un errore durante l'importazione del file shape ESRI: \"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:193
 #, php-format
@@ -15865,8 +15865,8 @@ msgid ""
 "at %s."
 msgstr ""
 "Stai utilizzando il server dimostrativo. Puoi fare qualsiasi cosa, ma per "
-"favore non cambiare gli utenti root, debian-sys-maint e pma.\n"
-"Maggiori informazioni sono disponibili su %s."
+"favore non cambiare gli utenti root, debian-sys-maint e pma. Maggiori "
+"informazioni sono disponibili su %s."
 
 #: templates/home/index.twig:32
 msgid "General settings"
