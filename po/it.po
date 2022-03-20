@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-06-11 10:32+0000\n"
-"Last-Translator: Leonardo Pantani <leonardo.pantani@gmail.com>\n"
+"PO-Revision-Date: 2022-03-21 17:55+0000\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -660,8 +660,8 @@ msgid ""
 "at %s."
 msgstr ""
 "Stai utilizzando il server dimostrativo. Puoi fare qualsiasi cosa, ma per "
-"favore non cambiare gli utenti root, debian-sys-maint e pma.\n"
-"Maggiori informazioni sono disponibili su %s."
+"favore non cambiare gli utenti root, debian-sys-maint e pma. Maggiori "
+"informazioni sono disponibili su %s."
 
 #: index.php:216
 msgid "General settings"
@@ -3590,12 +3590,9 @@ msgid "accent-sensitive"
 msgstr "accent-sensitive"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "accent-sensitive"
+msgstr "kana-sensitive"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -6817,7 +6814,7 @@ msgstr "Nessuna query SQL era impostata per estrarre dati."
 #: libraries/classes/Controllers/Table/TableChartController.php:160
 msgid "No numeric columns present in the table to plot."
 msgstr ""
-"Nella tabella  non sono presenti campi numerici da visualizzare graficamente."
+"Nella tabella non sono presenti campi numerici da visualizzare graficamente."
 
 #: libraries/classes/Controllers/Table/TableChartController.php:228
 msgid "No data to display"
@@ -6995,18 +6992,14 @@ msgstr ""
 "installazione!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Il salvataggio della configurazione non è pronto per la funzionalità della "
-"lista centrale dei campi."
+"La configurazione di phpMyAdmin non consente di impostare un campo di "
+"visualizzazione (Display Features)."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -8878,14 +8871,14 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Per poter mettere la tabella originale  '%1$s' nella Seconda forma "
+"Per poter mettere la tabella originale '%1$s' nella Seconda forma "
 "normalizzata dobbiamo creare le tabelle seguenti:"
 
 #: libraries/classes/Normalization.php:505
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
-"Il secondo passaggio di normalizzazione per la tabella  '%1$s' è completo."
+"Il secondo passaggio di normalizzazione per la tabella '%1$s' è completo."
 
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
@@ -8899,8 +8892,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Per poter mettere la tabella originale  '%1$s' nella Terza forma "
-"normalizzata dobbiamo creare le tabelle seguenti:"
+"Per poter mettere la tabella originale '%1$s' nella Terza forma normalizzata "
+"dobbiamo creare le tabelle seguenti:"
 
 #: libraries/classes/Normalization.php:639
 msgid "The third step of normalization is complete."
@@ -9590,7 +9583,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:111
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Aggiunge un commento personalizzato al header (\\n  per tornare a capo):"
+"Aggiunge un commento personalizzato al header (\\n"
+" per tornare a capo):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:117
 msgid ""
@@ -9956,8 +9950,7 @@ msgstr "Shape File ESRI"
 #: libraries/classes/Plugins/Import/ImportShp.php:161
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
-"C'è stato un errore durante l'importazione del file shape ESRI:  \"%s\"."
+msgstr "C'è stato un errore durante l'importazione del file shape ESRI: \"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:191
 #, php-format
@@ -10123,18 +10116,6 @@ msgstr ""
 "seconda opzione, dovete avere la prima opzione settata ad una stringa vuota."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10151,13 +10132,14 @@ msgstr ""
 "via standard input. Restituisce lo standard output dell'applicazione. "
 "L'impostazione predefinita è Tidy, per stampare in maniera corretta il "
 "codice HTML. Per motivi di sicurezza, dovete editare manualmente il file "
-"libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php e "
-"inserire gli strumenti che volete rendere disponibili. La prima opzione è il "
-"numero del programma che volete utilizzare e la seconda sono i parametri per "
-"il programma. La terza opzione, se impostata a 1, convertirà l'output "
-"utilizzando htmlspecialchars() (Default 1). La quarta opzione, se impostata "
-"a 1, inserirà un NOWRAP al contenuto della cella così che l'intero output "
-"sarà mostrato sulla stessa riga (Default 1)."
+"libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php e inserire gli strumenti che volete "
+"rendere disponibili. La prima opzione è il numero del programma che volete "
+"utilizzare. La seconda opzione dovrebbe essere blank per ragioni storiche. "
+"La terza opzione, se impostata a 1, convertirà l'output utilizzando "
+"htmlspecialchars() (Default 1). La quarta opzione, se impostata a 1, "
+"inserirà un NOWRAP al contenuto della cella così che l'intero output sarà "
+"mostrato sulla stessa riga (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10168,7 +10150,7 @@ msgid ""
 msgstr ""
 "Stai utilizzando un campo opzione da linea di comando di trasformazione "
 "esterna, che è stato deprecato per ragioni di sicurezza. Imposta tutte le "
-"opzioni linea di comando direttamente alla definizione in %s."
+"opzioni a linea di comando direttamente alla definizione in %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -13119,9 +13101,9 @@ msgid ""
 "tables or use replication."
 msgstr ""
 "Numero di volte in cui un blocco tabella (table lock) non poteva essere "
-"eseguito immediatamente ed è stato necessario un ciclo  di attesa. Se questo "
+"eseguito immediatamente ed è stato necessario un ciclo di attesa. Se questo "
 "valore è alto, e hai problemi di performance, dovresti per prima cosa "
-"ottimizzare le tue query, poi  suddividere la tua o le tue tabelle, oppure "
+"ottimizzare le tue query, poi suddividere la tua o le tue tabelle, oppure "
 "utilizzare la replicazione."
 
 #: libraries/classes/Server/Status/Variables.php:754
@@ -14582,10 +14564,8 @@ msgstr "Nome tabella non valido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Ci sono troppe join prive di indici."
+msgstr "C'è un problema con la tua richiesta."
 
 #: tbl_replace.php:258
 #, php-format
@@ -16731,7 +16711,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries è impostato a  'OFF'"
+msgstr "log_slow_queries è impostato a 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:95
 msgid ""
@@ -16744,7 +16724,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log è impostato a  'OFF'"
+msgstr "slow_query_log è impostato a 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:100
 msgid "Release Series"
@@ -17877,7 +17857,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:50
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "La dimensione attuale della cache delle delle query è: %s"
+msgstr "La dimensione attuale della cache delle query è: %s"
 
 #: libraries/advisory_rules_mysql_before80003.txt:52
 msgid "Query cache min result size"
