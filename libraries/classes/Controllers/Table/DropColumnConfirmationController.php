@@ -25,15 +25,11 @@ final class DropColumnConfirmationController extends AbstractController
             $table = TableName::fromValue($request->getParsedBodyParam('table'));
             Assert::allStringNotEmpty($fields);
         } catch (InvalidIdentifierName $exception) {
-            $this->response->setHttpResponseCode(400);
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $exception->getMessage());
+            $this->sendErrorResponse($exception->getMessage());
 
             return;
         } catch (InvalidArgumentException $exception) {
-            $this->response->setHttpResponseCode(400);
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('No column selected.'));
+            $this->sendErrorResponse(__('No column selected.'));
 
             return;
         }

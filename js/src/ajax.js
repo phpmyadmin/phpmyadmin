@@ -895,6 +895,23 @@ $(document).on('ajaxError', function (event, request) {
         var details = '';
         var state = request.state();
 
+        if (
+            'responseJSON' in request &&
+            'isErrorResponse' in request.responseJSON &&
+            request.responseJSON.isErrorResponse
+        ) {
+            Functions.ajaxShowMessage(
+                '<div class="alert alert-danger" role="alert">' +
+                Functions.escapeHtml(request.responseJSON.error) +
+                '</div>',
+                false
+            );
+            AJAX.active = false;
+            AJAX.xhr = null;
+
+            return;
+        }
+
         if (request.status !== 0) {
             details += '<div>' + Functions.escapeHtml(Functions.sprintf(Messages.strErrorCode, request.status)) + '</div>';
         }
