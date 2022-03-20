@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-20 00:15+0000\n"
-"PO-Revision-Date: 2022-03-14 14:57+0000\n"
+"PO-Revision-Date: 2022-03-22 12:57+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -9462,40 +9462,30 @@ msgstr ""
 "vendar so skrite zaradi konfiguracijske direktive %s."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "Ime zbirke podatkov je prazno!"
+msgstr "Ime zbirke podatkov mora biti neprazen niz."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Prosimo, ne vnesete več kot {0} znakov"
+msgstr "Ime zbirke podatkov ne more biti daljše od %d znakov."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
-msgstr "Besede so ločene s presledkom (\" \")."
+msgstr "Ime zbirke podatkov se ne more končati s presledkom."
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "Ime tabele je prazno!"
+msgstr "Ime tabele mora biti neprazen niz."
 
 #: libraries/classes/Dbal/InvalidTableName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Prosimo, ne vnesete več kot {0} znakov"
+msgstr "Ime tabele ne more biti daljše od %d znakov."
 
 #: libraries/classes/Dbal/InvalidTableName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
-msgstr "Besede so ločene s presledkom (\" \")."
+msgstr "Ime tabele se ne more končati s presledkom."
 
 #: libraries/classes/Display/Results.php:1271
 #: templates/display/results/table.twig:202
@@ -18127,20 +18117,16 @@ msgid "Bookmark this SQL query"
 msgstr "Označi to poizvedbo SQL"
 
 #: templates/sql/bookmark.twig:14
-#, fuzzy
-#| msgid "Bookmark table"
 msgid "Bookmark label:"
-msgstr "Tabela zaznamkov"
+msgstr "Oznaka zaznamka:"
 
 #: templates/sql/bookmark.twig:20 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr "Dovoli dostop do zaznamka vsem uporabnikom"
 
 #: templates/sql/bookmark.twig:24
-#, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
-msgstr "Ustvari zaznamek"
+msgstr "Ustvari nov zaznamek"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
@@ -18871,10 +18857,8 @@ msgid "Next autoindex"
 msgstr "Naslednji samodejni indeks"
 
 #: templates/table/structure/drop_confirm.twig:2
-#, fuzzy
-#| msgid "DROP columns %s from the table %s"
 msgid "Dropping columns from the table"
-msgstr "ZAVRZI stolpce %s v tabeli %s"
+msgstr "Odstranjevanje stolpcev v tabeli"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
