@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-20 00:15+0000\n"
-"PO-Revision-Date: 2022-03-14 14:57+0000\n"
+"PO-Revision-Date: 2022-03-22 12:57+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -9575,40 +9575,30 @@ msgstr ""
 "misschien beschikbaar maar is verborgen door de %s configuratie regel."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "De databasenaam is leeg!"
+msgstr "De databasenaam mag geen leeg veld zijn."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Vul a.u,b, niet meer dan {0} tekens in"
+msgstr "De database naam kan niet langer zijn dan %d tekens."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
-msgstr "Woorden worden gesplitst door een spatiekarakter (\" \")."
+msgstr "De database naam kan niet eindigen op een spatie."
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "De tabelnaam is leeg!"
+msgstr "De tabelnaam mag niet leeg zijn."
 
 #: libraries/classes/Dbal/InvalidTableName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Vul a.u,b, niet meer dan {0} tekens in"
+msgstr "De tabel naam kan niet langer zijn dan %d tekens."
 
 #: libraries/classes/Dbal/InvalidTableName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
-msgstr "Woorden worden gesplitst door een spatiekarakter (\" \")."
+msgstr "De tabelnaam kan niet eindigen op een spatie."
 
 #: libraries/classes/Display/Results.php:1271
 #: templates/display/results/table.twig:202
@@ -18317,20 +18307,16 @@ msgid "Bookmark this SQL query"
 msgstr "Deze SQL-query opslaan als bladwijzer"
 
 #: templates/sql/bookmark.twig:14
-#, fuzzy
-#| msgid "Bookmark table"
 msgid "Bookmark label:"
-msgstr "Bladwijzertabel"
+msgstr "Bladwijzer label:"
 
 #: templates/sql/bookmark.twig:20 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
 #: templates/sql/bookmark.twig:24
-#, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
-msgstr "Bladwijzer aanmaken"
+msgstr "Nieuwe bladwijzer aanmaken"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
@@ -19068,10 +19054,8 @@ msgid "Next autoindex"
 msgstr "Volgende automatische indexwaarde"
 
 #: templates/table/structure/drop_confirm.twig:2
-#, fuzzy
-#| msgid "DROP columns %s from the table %s"
 msgid "Dropping columns from the table"
-msgstr "Verwijder (DROP) kolommen %s uit tabel %s"
+msgstr "Verwijderen (DROP) kolommen uit de tabel"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
