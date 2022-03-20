@@ -28,6 +28,8 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
 
         $response = new ResponseRenderer();
+        $response->setAjax(true);
+
         $template = new Template();
         $expected = $template->render('table/structure/drop_confirm', [
             'db' => 'test_db',
@@ -53,11 +55,16 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
+        $response->setAjax(true);
+
         (new DropColumnConfirmationController($response, new Template()))($request);
 
         $this->assertSame(400, $response->getHttpResponseCode());
         $this->assertFalse($response->hasSuccessState());
-        $this->assertSame(['message' => 'No column selected.'], $response->getJSONResult());
+        $this->assertSame([
+            'isErrorResponse' => true,
+            'message' => 'No column selected.'
+        ], $response->getJSONResult());
         $this->assertSame('', $response->getHTMLResult());
     }
 
@@ -71,11 +78,16 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
+        $response->setAjax(true);
+
         (new DropColumnConfirmationController($response, new Template()))($request);
 
         $this->assertSame(400, $response->getHttpResponseCode());
         $this->assertFalse($response->hasSuccessState());
-        $this->assertSame(['message' => 'The database name must be a non-empty string.'], $response->getJSONResult());
+        $this->assertSame([
+            'isErrorResponse' => true,
+            'message' => 'The database name must be a non-empty string.'
+        ], $response->getJSONResult());
         $this->assertSame('', $response->getHTMLResult());
     }
 }

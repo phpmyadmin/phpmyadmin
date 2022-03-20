@@ -146,4 +146,22 @@ abstract class AbstractController
         $this->response->setHttpResponseCode(400);
         Core::fatalError($errorMessage);
     }
+
+    /**
+     * @psalm-param int<400,599> $statusCode
+     */
+    protected function sendErrorResponse(string $message, int $statusCode = 400): void
+    {
+        $this->response->setHttpResponseCode($statusCode);
+        $this->response->setRequestStatus(false);
+
+        if ($this->response->isAjax()) {
+            $this->response->addJSON('isErrorResponse', true);
+            $this->response->addJSON('message', $message);
+
+            return;
+        }
+
+        $this->response->addHTML(Message::error($message)->getDisplay());
+    }
 }
