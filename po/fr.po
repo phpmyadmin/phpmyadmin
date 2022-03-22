@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-20 00:15+0000\n"
-"PO-Revision-Date: 2022-03-22 12:57+0000\n"
-"Last-Translator: aberwag <aberwag@gmail.com>\n"
+"PO-Revision-Date: 2022-03-24 16:56+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -9615,10 +9615,8 @@ msgstr ""
 "masquées par la directive de configuration %s."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "Le nom de la base de données est vide !"
+msgstr "Le nom de la base de données doit être une chaîne non vide."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
 #, fuzzy, php-format
