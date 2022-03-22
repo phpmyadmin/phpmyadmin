@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-03-23 08:58+0000\n"
+"Last-Translator: hsinpaio <hsinpaio@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hant/>\n"
+"phpmyadmin/5-2/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -265,21 +265,15 @@ msgid "Suboptimal caching method."
 msgstr "次佳的查詢快取方法。"
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"您正在於一台有相當大流量的資料庫使用 MySQL 查詢快取。可以考慮改用 <a href="
-"\"HTTP://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> 來"
-"取代 MySQL 查詢快取，特別是當您使用多台次要備援資料庫，。"
+"您正在於一台流量大的資料庫使用 MySQL 查詢快取。可以考慮改用 <a href=\"HTTP"
+"://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> 來取代 "
+"MySQL 查詢快取，特別是當您使用多台次要備援資料庫，。"
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -559,10 +553,9 @@ msgstr "MyISAM 鍵值緩衝區最大使用 %%"
 
 #: libraries/advisory_rules_generic.php:376
 #: libraries/advisory_rules_generic.php:393
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM 鍵值緩衝區 (索引快取) %% 使用率過低。"
+msgstr "MyISAM 索引緩衝區 %% 使用率過低。"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
@@ -594,10 +587,9 @@ msgid "Percentage of index reads from memory"
 msgstr "從記憶體中讀取索引的比率"
 
 #: libraries/advisory_rules_generic.php:409
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "索引使用 MyISAM 鍵值緩衝區的比率太低。"
+msgstr "使用 MyISAM 索引緩衝區的比率太低。"
 
 #: libraries/advisory_rules_generic.php:410
 msgid "You may need to increase {key_buffer_size}."
@@ -632,16 +624,10 @@ msgid "Percentage of used open files limit"
 msgstr "已使用檔案開啟限制比率"
 
 #: libraries/advisory_rules_generic.php:433
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open files)」的錯"
-"誤。"
+msgstr "檔案開啟數量接近上限，可能會收到「開啟過多檔案(Too many open files)」的錯誤。"
 
 #: libraries/advisory_rules_generic.php:437
 #: libraries/advisory_rules_generic.php:450
@@ -672,10 +658,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "檔案開啟次數：%s，此值應該低於每小時 5 次"
 
 #: libraries/advisory_rules_generic.php:459
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "立即資料表鎖定 %%"
+msgstr "立即鎖定資料表 %%"
 
 #: libraries/advisory_rules_generic.php:463
 #: libraries/advisory_rules_generic.php:473
@@ -902,18 +887,7 @@ msgstr "不適當的 InnoDB 記錄檔大小，應與 InnoDB 緩衝池呈比例�
 
 #: libraries/advisory_rules_generic.php:615
 #: libraries/advisory_rules_generic.php:642
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -925,12 +899,13 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"特別在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 "
-"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 25%%。不論如何，這個值"
-"越大，在資料庫當機時還原資料庫的時間將越長，所以這個值不應該高於 256 MB。請注"
-"意，若要修改這個值，必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 "
-"my.cnf 設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 {innodb_log_file_size} "
+"為 {innodb_buffer_pool_size} 的 "
+"25%%。在資料庫當機時，值大小與還原資料庫的使用時間相關聯，"
+"所以這個值不應該高於 256 MB。請注意，若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules_generic.php:626
@@ -950,17 +925,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 記錄檔不夠大。"
 
 #: libraries/advisory_rules_generic.php:666
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -974,12 +939,12 @@ msgid ""
 msgstr ""
 "通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就足夠。"
 "過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參閱<a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">此篇文章</a>。若要修改這個值，必須先關閉伺服器並刪除"
-"所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服器並檢查錯誤"
-"記錄查看是否一切順利。請參閱<a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">此篇文章</a>。若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -995,18 +960,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB 緩衝池太小了。"
 
 #: libraries/advisory_rules_generic.php:687
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1019,13 +973,14 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"InnoDB 緩衝池對 InnoDB 資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝"
-"區。如果資料庫伺服器僅以 InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服"
-"器)，可以將最高 80%% 的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服"
-"務和非 InnoDB 資料表的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太"
-"高，系統會開始將記憶體資料置換到磁碟，因而大大降低效能。請參閱<a href="
-"\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">這篇文章</a>"
+"InnoDB 緩衝區對 InnoDB "
+"資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝區。如果資料庫伺服器僅以 "
+"InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服器)，可以將最高 80%% "
+"的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服務和非 InnoDB 資料表"
+"的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太高，系統會開始將記憶體"
+"資料置換到磁碟，因而大大降低效能。請參閱<a href=\"https://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\""
+">這篇文章</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1085,10 +1040,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 已設為 0 或 query_cache_type 已設為 OFF"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "查詢快取效能(%%)"
+msgstr "查詢快取效能(%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1108,10 +1062,9 @@ msgid "Query Cache usage"
 msgstr "查詢快取使用狀況"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "查詢快取的使用比例低於 80%%。"
+msgstr "查詢快取的使用低於 80%。"
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -1441,7 +1394,7 @@ msgstr "二進位"
 #: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "無填充"
 
 #: libraries/classes/Charsets/Collation.php:339
 msgctxt "Collation"
@@ -1696,7 +1649,7 @@ msgstr ""
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
-msgstr ""
+msgstr "php.ini中禁用了ini_get及ini_set函數。 phpMyAdmin需要這些函數！"
 
 #: libraries/classes/Common.php:577
 msgid "GLOBALS overwrite attempt"
@@ -1747,48 +1700,34 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "允許在匯入時使用 bzip2 壓縮。"
 
 #: libraries/classes/Config/Descriptions.php:106
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "請輸入reCaptcha V2服務的API網址。"
 
 #: libraries/classes/Config/Descriptions.php:107
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "輸入與 reCAPTCHA v2 相容的 API 的 Content-Security-Policy 片段。"
 
 #: libraries/classes/Config/Descriptions.php:108
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "輸入與 reCAPTCHA v2 相容 API 使用的請求參數。"
 
 #: libraries/classes/Config/Descriptions.php:109
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "輸入 reCAPTCHA v2 兼容 API 使用的請求參數。"
 
 #: libraries/classes/Config/Descriptions.php:110
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入公開金鑰。"
+msgstr "請輸入您網域使用reCaptcha服務的公開金鑰。"
 
 #: libraries/classes/Config/Descriptions.php:111
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "請輸入您網域使用 reCaptcha 服務的私密金鑰。"
 
 #: libraries/classes/Config/Descriptions.php:112
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "請輸入使用 reCaptcha 服務的驗證網址。"
 
 #: libraries/classes/Config/Descriptions.php:114
 msgid ""
@@ -1872,8 +1811,9 @@ msgstr "設定 Script 允許執行的時間限制 (以秒計算，[kbd]0[/kbd] �
 #: libraries/classes/Config/Descriptions.php:185
 #: libraries/classes/Config/Descriptions.php:731
 #: libraries/classes/Plugins/Export/ExportSql.php:345
+#, fuzzy
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "排除當前的使用者定義"
 
 #: libraries/classes/Config/Descriptions.php:187
 msgid ""
