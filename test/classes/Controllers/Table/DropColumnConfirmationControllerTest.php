@@ -63,7 +63,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame([
             'isErrorResponse' => true,
-            'message' => 'No column selected.'
+            'message' => 'No column selected.',
         ], $response->getJSONResult());
         $this->assertSame('', $response->getHTMLResult());
     }
@@ -86,7 +86,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame([
             'isErrorResponse' => true,
-            'message' => 'The database name must be a non-empty string.'
+            'message' => 'The database name must be a non-empty string.',
         ], $response->getJSONResult());
         $this->assertSame('', $response->getHTMLResult());
     }

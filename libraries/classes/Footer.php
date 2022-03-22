@@ -277,7 +277,7 @@ class Footer
                     $url = $this->getSelfUrl();
                 }
 
-                $this->scripts->addCode('var debugSQLInfo = ' . $this->getDebugMessage() . ';');
+                $this->scripts->addCode('window.ConsoleDebug.debugSqlInfo = ' . $this->getDebugMessage() . ';');
                 $errorMessages = $this->getErrorMessages();
                 $scripts = $this->scripts->getDisplay();
 
