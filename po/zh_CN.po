@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-03-12 07:02+0000\n"
+"PO-Revision-Date: 2022-03-25 16:09+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -674,7 +674,7 @@ msgstr "服务器类型："
 
 #: index.php:351
 msgid "Server connection:"
-msgstr "服务器连接:"
+msgstr "服务器连接："
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
@@ -734,7 +734,7 @@ msgstr "官方主页"
 
 #: index.php:472
 msgid "Contribute"
-msgstr "贡献"
+msgstr "提供贡献"
 
 #: index.php:479
 msgid "Get support"
@@ -742,11 +742,11 @@ msgstr "获取支持"
 
 #: index.php:486
 msgid "List of changes"
-msgstr "更新列表"
+msgstr "变更清单"
 
 #: index.php:493 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr "授权"
+msgstr "许可证协议"
 
 #: index.php:513
 msgid ""
@@ -13161,19 +13161,19 @@ msgstr "执行"
 
 #: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
-msgstr "SSL未被使用"
+msgstr "SSL 未被使用"
 
 #: libraries/classes/Util.php:3866
 msgid "SSL is used with disabled verification"
-msgstr "SSL在禁用验证的状态下使用"
+msgstr "SSL 在禁用验证的状态下使用"
 
 #: libraries/classes/Util.php:3868
 msgid "SSL is used without certification authority"
-msgstr "SSL在没有证书颁发机构的情况下使用"
+msgstr "SSL 在没有证书颁发机构的情况下使用"
 
 #: libraries/classes/Util.php:3871
 msgid "SSL is used"
-msgstr "已使用SSL"
+msgstr "已使用 SSL"
 
 #: libraries/classes/Util.php:3992
 msgid "Users"
