@@ -1,8 +1,7 @@
-/**
- * Used in or for console
- *
- * @package phpMyAdmin-Console
- */
+import $ from 'jquery';
+import CodeMirror from 'codemirror';
+
+/* global AJAX, CommonParams, Functions, Messages, Navigation */
 
 /**
  * Console object
@@ -49,6 +48,12 @@ var Console = {
      * @access private
      */
     isInitialized: false,
+
+    /**
+     * @type {Object|string|null}
+     */
+    debugSqlInfo: null,
+
     /**
      * Used for console initialize, reinit is ok, just some variable assignment
      *
@@ -1131,11 +1136,6 @@ var ConsoleBookmarks = {
 };
 
 var ConsoleDebug = {
-    /**
-     * @type {Object|string|null}
-     */
-    debugSqlInfo: null,
-
     config: {
         groupQueries: false,
         orderBy: 'exec', // Possible 'exec' => Execution order, 'time' => Time taken, 'count'
@@ -1211,12 +1211,12 @@ var ConsoleDebug = {
         });
 
         // Show SQL debug info for first page load
-        if (ConsoleDebug.debugSqlInfo === null) {
+        if (Console.debugSqlInfo === null) {
             return;
         }
 
         $('#pma_console').find('.button.debug').removeClass('hide');
-        ConsoleDebug.showLog(ConsoleDebug.debugSqlInfo);
+        ConsoleDebug.showLog(Console.debugSqlInfo);
     },
     formatFunctionCall: function (dbgStep) {
         var functionName = '';
@@ -1530,9 +1530,6 @@ var ConsoleDebug = {
     }
 };
 
-/**
- * Executed on page load
- */
-$(function () {
-    Console.initialize();
-});
+window.Console = Console;
+
+export { Console };

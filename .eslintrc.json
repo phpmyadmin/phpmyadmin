@@ -5,6 +5,10 @@
         "plugin:compat/recommended"
     ],
     "plugins": ["no-jquery"],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
     "env": {
         "browser": true,
         "es6": true,
