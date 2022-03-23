@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-20 00:15+0000\n"
-"PO-Revision-Date: 2022-03-10 02:07+0000\n"
-"Last-Translator: LightJiao <764166691@qq.com>\n"
+"PO-Revision-Date: 2022-03-24 16:56+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -2907,7 +2907,7 @@ msgstr "最长执行时间"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "使用[code]LOCK TABLES[/code]语句"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -8932,40 +8932,30 @@ msgid ""
 msgstr "错误1045:用户的访问被拒绝。其他错误信息可能可用，但被%s配置指令隐藏。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "数据库名不能为空！"
+msgstr "数据库名必须为一个非空的字符串。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "请输入不超过{0}位字符"
+msgstr "数据库名称不得超过%d位字符。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
-msgstr "每个单词用空格（“ ”）分开。"
+msgstr "数据库名称不能以空格字符结尾。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "表名不能为空！"
+msgstr "表名必须是非空字符串。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "请输入不超过{0}位字符"
+msgstr "表名长度不可超过%d位字符。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
-msgstr "每个单词用空格（“ ”）分开。"
+msgstr "表名不能以空格字符结尾。"
 
 #: libraries/classes/Display/Results.php:1271
 #: templates/display/results/table.twig:202
@@ -9486,19 +9476,19 @@ msgstr "功能 %s 受到一个已知缺陷的影响，参见 %s"
 
 #: libraries/classes/Html/Generator.php:240
 msgid "SSL is not being used"
-msgstr "SSL未被使用"
+msgstr "SSL 未被使用"
 
 #: libraries/classes/Html/Generator.php:245
 msgid "SSL is used with disabled verification"
-msgstr "SSL在禁用验证的状态下使用"
+msgstr "SSL 在禁用验证的状态下使用"
 
 #: libraries/classes/Html/Generator.php:247
 msgid "SSL is used without certification authority"
-msgstr "SSL在没有证书颁发机构的情况下使用"
+msgstr "SSL 在没有证书颁发机构的情况下使用"
 
 #: libraries/classes/Html/Generator.php:250
 msgid "SSL is used"
-msgstr "已使用SSL"
+msgstr "已使用 SSL"
 
 #: libraries/classes/Html/Generator.php:353
 msgid "The PHP function password_hash() with default options."
@@ -15247,7 +15237,7 @@ msgstr "服务器类型："
 
 #: templates/home/index.twig:169
 msgid "Server connection:"
-msgstr "服务器连接:"
+msgstr "服务器连接："
 
 #: templates/home/index.twig:177
 msgid "Protocol version:"
@@ -15291,7 +15281,7 @@ msgstr "官方主页"
 
 #: templates/home/index.twig:254
 msgid "Contribute"
-msgstr "贡献"
+msgstr "提供贡献"
 
 #: templates/home/index.twig:259
 msgid "Get support"
@@ -15299,11 +15289,11 @@ msgstr "获取支持"
 
 #: templates/home/index.twig:264
 msgid "List of changes"
-msgstr "更新列表"
+msgstr "变更清单"
 
 #: templates/home/index.twig:269 templates/server/plugins/index.twig:30
 msgid "License"
-msgstr "授权"
+msgstr "许可证协议"
 
 #: templates/home/index.twig:284
 msgid "phpMyAdmin Themes"
@@ -16633,7 +16623,7 @@ msgstr "仅通过 --report-host=主机名 参数启动的从服务器可见。"
 
 #: templates/server/replication/replica_configuration.twig:5
 msgid "Primary connection:"
-msgstr "主服务器连接:"
+msgstr "主服务器连接："
 
 #: templates/server/replication/replica_configuration.twig:25
 msgid "Replica SQL Thread not running!"
@@ -17278,20 +17268,16 @@ msgid "Bookmark this SQL query"
 msgstr "将此 SQL 查询加为书签"
 
 #: templates/sql/bookmark.twig:14
-#, fuzzy
-#| msgid "Bookmark table"
 msgid "Bookmark label:"
-msgstr "书签表"
+msgstr "书签标签："
 
 #: templates/sql/bookmark.twig:20 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr "让所有用户均可访问此书签"
 
 #: templates/sql/bookmark.twig:24
-#, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
-msgstr "创建书签"
+msgstr "创建新书签"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
@@ -18017,10 +18003,8 @@ msgid "Next autoindex"
 msgstr "下一个自增值"
 
 #: templates/table/structure/drop_confirm.twig:2
-#, fuzzy
-#| msgid "DROP columns %s from the table %s"
 msgid "Dropping columns from the table"
-msgstr "将列 %s 从表 %s 中删除"
+msgstr "从表中删除列"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
