@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-01-22 16:59-0300\n"
-"PO-Revision-Date: 2022-03-09 05:34+0000\n"
-"Last-Translator: LightJiao <764166691@qq.com>\n"
+"PO-Revision-Date: 2022-03-24 17:55+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -9083,19 +9083,19 @@ msgstr "功能 %s 受到一个已知缺陷的影响，参见 %s"
 
 #: libraries/classes/Html/Generator.php:242
 msgid "SSL is not being used"
-msgstr "SSL未被使用"
+msgstr "SSL 未被使用"
 
 #: libraries/classes/Html/Generator.php:247
 msgid "SSL is used with disabled verification"
-msgstr "SSL在禁用验证的状态下使用"
+msgstr "SSL 在禁用验证的状态下使用"
 
 #: libraries/classes/Html/Generator.php:249
 msgid "SSL is used without certification authority"
-msgstr "SSL在没有证书颁发机构的情况下使用"
+msgstr "SSL 在没有证书颁发机构的情况下使用"
 
 #: libraries/classes/Html/Generator.php:252
 msgid "SSL is used"
-msgstr "已使用SSL"
+msgstr "已使用 SSL"
 
 #: libraries/classes/Html/Generator.php:357
 msgid "The PHP function password_hash() with default options."
@@ -14918,7 +14918,7 @@ msgstr "服务器类型："
 
 #: templates/home/index.twig:169
 msgid "Server connection:"
-msgstr "服务器连接:"
+msgstr "服务器连接："
 
 #: templates/home/index.twig:177
 msgid "Protocol version:"
@@ -14962,7 +14962,7 @@ msgstr "官方主页"
 
 #: templates/home/index.twig:254
 msgid "Contribute"
-msgstr "贡献"
+msgstr "提供贡献"
 
 #: templates/home/index.twig:259
 msgid "Get support"
@@ -14970,11 +14970,11 @@ msgstr "获取支持"
 
 #: templates/home/index.twig:264
 msgid "List of changes"
-msgstr "更新列表"
+msgstr "变更清单"
 
 #: templates/home/index.twig:269 templates/server/plugins/index.twig:30
 msgid "License"
-msgstr "授权"
+msgstr "许可证协议"
 
 #: templates/home/index.twig:284
 msgid "phpMyAdmin Themes"
@@ -16512,7 +16512,7 @@ msgstr "仅通过 --report-host=主机名 参数启动的从服务器可见。"
 
 #: templates/server/replication/replica_configuration.twig:5
 msgid "Primary connection:"
-msgstr "主服务器连接:"
+msgstr "主服务器连接："
 
 #: templates/server/replication/replica_configuration.twig:25
 msgid "Replica SQL Thread not running!"
