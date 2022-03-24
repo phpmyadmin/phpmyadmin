@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import CodeMirror from 'codemirror';
+import { Config } from './console/config.js';
 
 /* global AJAX, CommonParams, Functions, Messages, Navigation */
 
@@ -34,11 +35,6 @@ var Console = {
      */
     $requestForm: null,
     /**
-     * @var {object}, contain console config
-     * @access private
-     */
-    config: null,
-    /**
      * @var {boolean}, if console element exist, it'll be true
      * @access public
      */
@@ -65,7 +61,7 @@ var Console = {
         }
 
         Functions.configGet('Console', false, (data) => {
-            Console.config = data;
+            Config.init(data);
             Console.setupAfterInit();
         });
     },
@@ -99,19 +95,19 @@ var Console = {
         // Event binds shouldn't run again
         if (Console.isInitialized === false) {
             // Load config first
-            if (Console.config.AlwaysExpand === true) {
+            if (Config.AlwaysExpand) {
                 $('#pma_console_options input[name=always_expand]').prop('checked', true);
             }
-            if (Console.config.StartHistory === true) {
+            if (Config.StartHistory) {
                 $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
             }
-            if (Console.config.CurrentQuery === true) {
+            if (Config.CurrentQuery) {
                 $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
             }
-            if (Console.config.EnterExecutes === true) {
+            if (Config.EnterExecutes) {
                 $('#pma_console_options').find('input[name=enter_executes]').prop('checked', true);
             }
-            if (Console.config.DarkTheme === true) {
+            if (Config.DarkTheme) {
                 $('#pma_console_options').find('input[name=dark_theme]').prop('checked', true);
                 $('#pma_console').find('>.content').addClass('console_dark_theme');
             }
@@ -165,7 +161,7 @@ var Console = {
             });
 
             $('#pma_console_options').find('input[type=checkbox]').on('change', function () {
-                Console.updateConfig();
+                Config.update();
             });
 
             $('#pma_console_options').find('.button.default').on('click', function () {
@@ -174,11 +170,11 @@ var Console = {
                 $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
                 $('#pma_console_options').find('input[name=enter_executes]').prop('checked', false);
                 $('#pma_console_options').find('input[name=dark_theme]').prop('checked', false);
-                Console.updateConfig();
+                Config.update();
             });
 
             $('#pma_console_options').find('input[name=enter_executes]').on('change', function () {
-                ConsoleMessages.showInstructions(Console.config.EnterExecutes);
+                ConsoleMessages.showInstructions(Config.EnterExecutes);
             });
 
             $(document).on('ajaxComplete', function (event, xhr, ajaxOptions) {
@@ -203,7 +199,7 @@ var Console = {
         }
 
         // Change console mode from cookie
-        switch (Console.config.Mode) {
+        switch (Config.Mode) {
         case 'collapse':
             Console.collapse();
             break;
@@ -215,7 +211,7 @@ var Console = {
             Console.scrollBottom();
             break;
         default:
-            Console.setConfig('Mode', 'info');
+            Config.set('Mode', 'info');
             Console.info();
         }
     },
@@ -265,7 +261,7 @@ var Console = {
         } else if (data && data.reloadQuerywindow) {
             if (data.reloadQuerywindow.sql_query.length > 0) {
                 ConsoleMessages.appendQuery(data.reloadQuerywindow, 'successed')
-                    .$message.addClass(Console.config.CurrentQuery ? '' : 'hide');
+                    .$message.addClass(Config.CurrentQuery ? '' : 'hide');
             }
         }
     },
@@ -275,8 +271,8 @@ var Console = {
      * @return {void}
      */
     collapse: function () {
-        Console.setConfig('Mode', 'collapse');
-        var pmaConsoleHeight = Math.max(92, Console.config.Height);
+        Config.set('Mode', 'collapse');
+        var pmaConsoleHeight = Math.max(92, Config.Height);
 
         Console.$consoleToolbar.addClass('collapsed');
         Console.$consoleAllContents.height(pmaConsoleHeight);
@@ -295,11 +291,11 @@ var Console = {
      * @return {void}
      */
     show: function (inputFocus) {
-        Console.setConfig('Mode', 'show');
+        Config.set('Mode', 'show');
 
-        var pmaConsoleHeight = Math.max(92, Console.config.Height);
+        var pmaConsoleHeight = Math.max(92, Config.Height);
         // eslint-disable-next-line compat/compat
-        pmaConsoleHeight = Math.min(Console.config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
+        pmaConsoleHeight = Math.min(Config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
         Console.$consoleContent.css({ display:'block' });
         if (Console.$consoleToolbar.hasClass('collapsed')) {
             Console.$consoleToolbar.removeClass('collapsed');
@@ -332,14 +328,10 @@ var Console = {
      * @return {void}
      */
     toggle: function () {
-        switch (Console.config.Mode) {
-        case 'collapse':
-        case 'info':
-            Console.show(true);
-            break;
-        case 'show':
+        if (Config.Mode === 'show') {
             Console.collapse();
-            break;
+        } else {
+            Console.show(true);
         }
     },
     /**
@@ -395,28 +387,6 @@ var Console = {
             $targetCard.removeClass('show');
         }
     },
-    /**
-     * Used for update console config
-     *
-     * @return {void}
-     */
-    updateConfig: function () {
-        Console.setConfig('AlwaysExpand', $('#pma_console_options input[name=always_expand]').prop('checked'));
-        Console.setConfig('StartHistory', $('#pma_console_options').find('input[name=start_history]').prop('checked'));
-        Console.setConfig('CurrentQuery', $('#pma_console_options').find('input[name=current_query]').prop('checked'));
-        Console.setConfig('EnterExecutes', $('#pma_console_options').find('input[name=enter_executes]').prop('checked'));
-        Console.setConfig('DarkTheme', $('#pma_console_options').find('input[name=dark_theme]').prop('checked'));
-        /* Setting the dark theme of the console*/
-        if (Console.config.DarkTheme) {
-            $('#pma_console').find('>.content').addClass('console_dark_theme');
-        } else {
-            $('#pma_console').find('>.content').removeClass('console_dark_theme');
-        }
-    },
-    setConfig: function (key, value) {
-        Console.config[key] = value;
-        Functions.configSet('Console/' + key, value);
-    },
     isSelect: function (queryString) {
         var regExp = /^SELECT\s+/i;
         return regExp.test(queryString);
@@ -440,7 +410,7 @@ var ConsoleResizer = {
      * @return {void}
      */
     mouseDown: function (event) {
-        if (Console.config.Mode !== 'show') {
+        if (Config.Mode !== 'show') {
             return;
         }
         ConsoleResizer.posY = event.pageY;
@@ -485,7 +455,7 @@ var ConsoleResizer = {
      * @return {void}
      */
     mouseUp: function () {
-        Console.setConfig('Height', ConsoleResizer.resultHeight);
+        Config.set('Height', ConsoleResizer.resultHeight);
         Console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
@@ -653,7 +623,7 @@ var ConsoleInput = {
      */
     keyDown: function (event) {
         // Execute command
-        if (Console.config.EnterExecutes) {
+        if (Config.EnterExecutes) {
             // Enter, but not in combination with Shift (which writes a new line).
             if (!event.shiftKey && event.keyCode === 13) {
                 ConsoleInput.execute();
@@ -835,7 +805,7 @@ var ConsoleMessages = {
         var now = new Date();
         var $newMessage =
             $('<div class="message ' +
-                (Console.config.AlwaysExpand ? 'expanded' : 'collapsed') +
+                (Config.AlwaysExpand ? 'expanded' : 'collapsed') +
                 '" msgid="' + msgId + '"><div class="action_content"></div></div>');
         switch (msgType) {
         case 'query':
@@ -1044,10 +1014,10 @@ var ConsoleMessages = {
      */
     initialize: function () {
         ConsoleMessages.messageEventBinds($('#pma_console').find('.message:not(.binded)'));
-        if (Console.config.StartHistory) {
+        if (Config.StartHistory) {
             ConsoleMessages.showHistory();
         }
-        ConsoleMessages.showInstructions(Console.config.EnterExecutes);
+        ConsoleMessages.showInstructions(Config.EnterExecutes);
     }
 };
 
@@ -1136,11 +1106,6 @@ var ConsoleBookmarks = {
 };
 
 var ConsoleDebug = {
-    config: {
-        groupQueries: false,
-        orderBy: 'exec', // Possible 'exec' => Execution order, 'time' => Time taken, 'count'
-        order: 'asc' // Possible 'asc', 'desc'
-    },
     lastDebugInfo: {
         debugInfo: null,
         url: null
@@ -1153,16 +1118,16 @@ var ConsoleDebug = {
             }
         });
 
-        if (Console.config.GroupQueries) {
+        if (Config.GroupQueries) {
             $('#debug_console').addClass('grouped');
         } else {
             $('#debug_console').addClass('ungrouped');
-            if (Console.config.OrderBy === 'count') {
+            if (Config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         }
-        var orderBy = Console.config.OrderBy;
-        var order = Console.config.Order;
+        var orderBy = Config.OrderBy;
+        var order = Config.Order;
         $('#debug_console').find('.button.order_by.sort_' + orderBy).addClass('active');
         $('#debug_console').find('.button.order.order_' + order).addClass('active');
 
@@ -1170,18 +1135,18 @@ var ConsoleDebug = {
         $('#debug_console').find('.button.group_queries').on('click', function () {
             $('#debug_console').addClass('grouped');
             $('#debug_console').removeClass('ungrouped');
-            Console.setConfig('GroupQueries', true);
+            Config.set('GroupQueries', true);
             ConsoleDebug.refresh();
-            if (Console.config.OrderBy === 'count') {
+            if (Config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').removeClass('active');
             }
         });
         $('#debug_console').find('.button.ungroup_queries').on('click', function () {
             $('#debug_console').addClass('ungrouped');
             $('#debug_console').removeClass('grouped');
-            Console.setConfig('GroupQueries', false);
+            Config.set('GroupQueries', false);
             ConsoleDebug.refresh();
-            if (Console.config.OrderBy === 'count') {
+            if (Config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         });
@@ -1190,11 +1155,11 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order_by').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('sort_time')) {
-                Console.setConfig('OrderBy', 'time');
+                Config.set('OrderBy', 'time');
             } else if ($this.hasClass('sort_exec')) {
-                Console.setConfig('OrderBy', 'exec');
+                Config.set('OrderBy', 'exec');
             } else if ($this.hasClass('sort_count')) {
-                Console.setConfig('OrderBy', 'count');
+                Config.set('OrderBy', 'count');
             }
             ConsoleDebug.refresh();
         });
@@ -1203,9 +1168,9 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('order_asc')) {
-                Console.setConfig('Order', 'asc');
+                Config.set('Order', 'asc');
             } else if ($this.hasClass('order_desc')) {
-                Console.setConfig('Order', 'desc');
+                Config.set('Order', 'desc');
             }
             ConsoleDebug.refresh();
         });
@@ -1468,7 +1433,7 @@ var ConsoleDebug = {
 
         // For sorting queries
         function sortByTime (a, b) {
-            var order = ((Console.config.Order === 'asc') ? 1 : -1);
+            var order = Config.Order === 'asc' ? 1 : -1;
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
                 var timeA = 0;
@@ -1487,14 +1452,14 @@ var ConsoleDebug = {
         }
 
         function sortByCount (a, b) {
-            var order = ((Console.config.Oorder === 'asc') ? 1 : -1);
+            var order = Config.Order === 'asc' ? 1 : -1;
             return (a.length - b.length) * order;
         }
 
-        var orderBy = Console.config.OrderBy;
-        var order = Console.config.Order;
+        var orderBy = Config.OrderBy;
+        var order = Config.Order;
 
-        if (Console.config.GroupQueries) {
+        if (Config.GroupQueries) {
             // Sort queries
             if (orderBy === 'time') {
                 uniqueQueries.sort(sortByTime);
