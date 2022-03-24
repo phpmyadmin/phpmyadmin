@@ -95,6 +95,10 @@ module.exports = [
             path: path.resolve(__dirname, 'js/dist'),
             iife: false,
         },
+        externals: {
+            jquery: 'jQuery',
+            codemirror: 'CodeMirror',
+        },
         module: {
             rules: [
                 {

@@ -6,8 +6,6 @@
  * @requires    jQueryUI
  */
 
-/* global Console */ // js/console.js
-
 /**
  * Register key events on load
  */
@@ -54,12 +52,12 @@ $(function () {
             return;
         }
         if (e.ctrlKey && e.altKey && e.keyCode === keyC) {
-            Console.toggle();
+            window.Console.toggle();
         }
 
         if (e.ctrlKey && e.keyCode === keyK) {
             e.preventDefault();
-            Console.toggle();
+            window.Console.toggle();
         }
 
         if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
@@ -72,7 +70,7 @@ $(function () {
             databaseOp = true;
         } else if (e.keyCode === keyK) {
             e.preventDefault();
-            Console.toggle();
+            window.Console.toggle();
         } else if (e.keyCode === keyS) {
             if (databaseOp === true) {
                 isTable = CommonParams.get('table');
