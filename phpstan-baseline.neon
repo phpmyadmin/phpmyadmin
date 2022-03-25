@@ -9011,11 +9011,6 @@ parameters:
 			path: libraries/classes/Utils/HttpRequest.php
 
 		-
-			message: "#^Parameter \\#2 \\$httpStatus of method PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:response\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php

@@ -14,6 +14,7 @@ use function tempnam;
 use function unlink;
 
 /**
+ * @covers \PhpMyAdmin\OpenDocument
  * @requires extension zip
  */
 class OpenDocumentTest extends AbstractTestCase
