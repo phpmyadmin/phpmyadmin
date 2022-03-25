@@ -376,27 +376,7 @@ parameters:
 			path: libraries/classes/Controllers/ViewCreateController.php
 
 		-
-			message: "#^Comparison operation \"\\<\" between 1 and 43 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Left side of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Left side of \\|\\| is always true\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{host\\: non\\-empty\\-string, scheme\\?\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 

@@ -631,10 +631,19 @@ class Core
             header('Content-Disposition: attachment; filename="' . $filename . '"');
         }
         header('Content-Type: ' . $mimetype);
+
+        /** @var string $browserAgent */
+        $browserAgent = $GLOBALS['PMA_Config']->get('PMA_USR_BROWSER_AGENT');
+        /** @var string $browserVersion */
+        $browserVersion = $GLOBALS['PMA_Config']->get('PMA_USR_BROWSER_VER');
+
+        /**
+         * @see https://github.com/phpmyadmin/phpmyadmin/issues/11283
+         */
+        $notChromeOrLessThan43 = $browserAgent != 'CHROME' || $browserVersion < 43;
+
         // inform the server that compression has been done,
         // to avoid a double compression (for example with Apache + mod_deflate)
-        $notChromeOrLessThan43 = PMA_USR_BROWSER_AGENT != 'CHROME' // see bug #4942
-            || (PMA_USR_BROWSER_AGENT == 'CHROME' && PMA_USR_BROWSER_VER < 43);
         if (strpos($mimetype, 'gzip') !== false && $notChromeOrLessThan43) {
             header('Content-Encoding: gzip');
         }
