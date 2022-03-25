@@ -200,6 +200,13 @@ class GitTest extends AbstractTestCase
 
         $commit = $this->object->checkGitRevision();
 
+        if (
+            $commit === null
+            && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_17bf8b7309919f8ac593d7c563b31472780ee83b'])
+        ) {
+            $this->markTestSkipped('Unable to get remote commit information.');
+        }
+
         $this->assertIsArray($commit);
         $this->assertArrayHasKey('hash', $commit);
         $this->assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
@@ -316,6 +323,13 @@ class GitTest extends AbstractTestCase
         );
 
         $commit = $this->object->checkGitRevision();
+
+        if (
+            $commit === null
+            && ! isset($_SESSION['PMA_VERSION_REMOTECOMMIT_17bf8b7309919f8ac593d7c563b31472780ee83b'])
+        ) {
+            $this->markTestSkipped('Unable to get remote commit information.');
+        }
 
         $this->assertIsArray($commit);
         $this->assertArrayHasKey('hash', $commit);
