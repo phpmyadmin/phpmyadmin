@@ -491,10 +491,6 @@ class Core
             $headers['Content-Length'] = (string) $length;
         }
 
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
         foreach ($headers as $name => $value) {
             header(sprintf('%s: %s', $name, $value));
         }

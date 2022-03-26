@@ -17,6 +17,10 @@ use function bin2hex;
  */
 class GetFieldControllerTest extends AbstractTestCase
 {
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testGetFieldController(): void
     {
         $GLOBALS['db'] = 'test_db';
