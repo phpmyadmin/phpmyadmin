@@ -72,6 +72,9 @@ jobs:
                     - { php-version: 'nightly', composer-options: '--ignore-platform-req=php+', experimental: true, os: ubuntu-latest }
         steps:
             - uses: actions/checkout@v2
+              with:
+                  # Fetch some commits for Scrutinizer coverage upload
+                  fetch-depth: 15
             - name: Install gettext
               run: sudo apt-get install -y gettext
             - name: Generate mo files
@@ -128,6 +131,9 @@ jobs:
                 extension: ["dbase", "recode"]
         steps:
             - uses: actions/checkout@v2
+              with:
+                  # Fetch some commits for Scrutinizer coverage upload
+                  fetch-depth: 15
             - name: Install gettext
               run: sudo apt-get install -y gettext
             - name: Generate mo files
