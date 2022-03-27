@@ -103,10 +103,10 @@ jobs:
                 name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
             - name: Send coverage to Scrutinizer
               uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
+              # Do not run this step on forked versions of the main repository (example: contributor forks)
+              if: github.repository == 'phpmyadmin/phpmyadmin'
               with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
+                  cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
             - name: Send coverage to Codacy
               # Upload can fail on forks or if the secret is missing
               continue-on-error: true
@@ -157,10 +157,10 @@ jobs:
                 name: php-7.1-${{ matrix.extension }}-enabled
             - name: Send coverage to Scrutinizer
               uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
+              # Do not run this step on forked versions of the main repository (example: contributor forks)
+              if: github.repository == 'phpmyadmin/phpmyadmin'
               with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
+                  cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
             - name: Send coverage to Codacy
               # Upload can fail on forks or if the secret is missing
               continue-on-error: true
