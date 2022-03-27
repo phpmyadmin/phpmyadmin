@@ -108,9 +108,11 @@ jobs:
               with:
                   cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
             - name: Send coverage to Codacy
+              uses: codacy/codacy-coverage-reporter-action@v1
+              # Do not run this step on forked versions of the main repository (example: contributor forks)
+              if: github.repository == 'phpmyadmin/phpmyadmin'
               # Upload can fail on forks or if the secret is missing
               continue-on-error: true
-              uses: codacy/codacy-coverage-reporter-action@master
               with:
                 project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
                 coverage-reports: build/logs/clover.xml
@@ -162,9 +164,11 @@ jobs:
               with:
                   cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
             - name: Send coverage to Codacy
+              uses: codacy/codacy-coverage-reporter-action@v1
+              # Do not run this step on forked versions of the main repository (example: contributor forks)
+              if: github.repository == 'phpmyadmin/phpmyadmin'
               # Upload can fail on forks or if the secret is missing
               continue-on-error: true
-              uses: codacy/codacy-coverage-reporter-action@master
               with:
                 project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
                 coverage-reports: build/logs/clover.xml
