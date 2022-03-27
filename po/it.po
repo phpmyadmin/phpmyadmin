@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-03-20 00:15+0000\n"
+"POT-Creation-Date: 2022-03-27 00:18+0000\n"
 "PO-Revision-Date: 2022-03-22 12:57+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1093,9 +1093,9 @@ msgstr ""
 "Di solito è sufficiente impostare {innodb_log_file_size} al 25% della "
 "dimensione di {innodb_buffer_pool_size}. Un {innodb_log_file_size} molto "
 "grande rallenta considerevolmente il tempo di ripristino in seguito ad un "
-"crash del database. Vedere anche <a href=\"https://www.percona.com/blog/2006/"
-"07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. È "
-"necessario fare uno shutdown del server, rimuovere i file log InnoDB, "
+"crash del database. Vedere anche <a href=\"https://www.percona.com/"
+"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. "
+"È necessario fare uno shutdown del server, rimuovere i file log InnoDB, "
 "impostare il nuovo valore in my.cnf, avviare il server, quindi controllare "
 "nei log degli errori se tutto è andato a buon fine. Consultare anche <a href="
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
@@ -2273,9 +2273,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Il numero massimo di byte che uno script può allocare, ad esempio "
-"[kbd]32M[/kbd] ([kbd]-1[/kbd] per nessun limite e [kbd]0[/kbd] per nessun "
-"cambiamento)."
+"Il numero massimo di byte che uno script può allocare, ad esempio [kbd]32M[/"
+"kbd] ([kbd]-1[/kbd] per nessun limite e [kbd]0[/kbd] per nessun cambiamento)."
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -4866,8 +4865,8 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Se lo ritieni necessario, usa ulteriori impostazioni di protezione - %1$"
-"sautenticazione host%2$s e %3$slista di proxy fidati%4$s. Comunque, la "
+"Se lo ritieni necessario, usa ulteriori impostazioni di protezione - "
+"%1$sautenticazione host%2$s e %3$slista di proxy fidati%4$s. Comunque, la "
 "protezione a basata su IP potrebbe non essere affidabile se il tuo indirizzo "
 "IP pubblico appartiene ad un ISP (Internet Service Provider) che lo "
 "condivide con migliaia di utenti, incluso te."
@@ -5300,7 +5299,7 @@ msgstr "Sì"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
 #: libraries/classes/Controllers/Table/ReplaceController.php:448
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:710 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nessun cambiamento"
 
@@ -8987,7 +8986,7 @@ msgstr "La tabella %s esiste già!"
 msgid "Your SQL query has been executed successfully."
 msgstr "La query SQL è stata eseguita con successo."
 
-#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:36
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
 #: libraries/classes/Controllers/Table/DropColumnController.php:50
 #: libraries/classes/Controllers/Table/Structure/AddIndexController.php:45
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
@@ -9150,7 +9149,7 @@ msgstr "Cambia password"
 msgid "View name can not be empty!"
 msgstr "Nome vista non può essere vuoto!"
 
-#: libraries/classes/Core.php:199 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:197 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "L'estensione %s è mancante. Controlla la tua configurazione di PHP."
@@ -11711,8 +11710,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:137
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Aggiunge un commento personalizzato al header (\\n"
-" per tornare a capo):"
+"Aggiunge un commento personalizzato al header (\\n per tornare a capo):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:143
 msgid ""
@@ -12096,7 +12094,8 @@ msgstr "Shape File ESRI"
 #: libraries/classes/Plugins/Import/ImportShp.php:169
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "C'è stato un errore durante l'importazione del file shape ESRI: \"%s\"."
+msgstr ""
+"C'è stato un errore durante l'importazione del file shape ESRI: \"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:199
 #, php-format
@@ -12301,14 +12300,13 @@ msgstr ""
 "via standard input. Restituisce lo standard output dell'applicazione. "
 "L'impostazione predefinita è Tidy, per stampare in maniera corretta il "
 "codice HTML. Per motivi di sicurezza, dovete editare manualmente il file "
-"libraries/classes/Plugins/Transformations/Abs/"
-"ExternalTransformationsPlugin.php e inserire gli strumenti che volete "
-"rendere disponibili. La prima opzione è il numero del programma che volete "
-"utilizzare. La seconda opzione dovrebbe essere blank per ragioni storiche. "
-"La terza opzione, se impostata a 1, convertirà l'output utilizzando "
-"htmlspecialchars() (Default 1). La quarta opzione, se impostata a 1, "
-"inserirà un NOWRAP al contenuto della cella così che l'intero output sarà "
-"mostrato sulla stessa riga (Default 1)."
+"libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin."
+"php e inserire gli strumenti che volete rendere disponibili. La prima "
+"opzione è il numero del programma che volete utilizzare. La seconda opzione "
+"dovrebbe essere blank per ragioni storiche. La terza opzione, se impostata a "
+"1, convertirà l'output utilizzando htmlspecialchars() (Default 1). La quarta "
+"opzione, se impostata a 1, inserirà un NOWRAP al contenuto della cella così "
+"che l'intero output sarà mostrato sulla stessa riga (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:120
 #, php-format

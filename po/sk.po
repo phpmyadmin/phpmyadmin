@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-03-20 00:15+0000\n"
+"POT-Creation-Date: 2022-03-27 00:18+0000\n"
 "PO-Revision-Date: 2022-03-03 21:56+0000\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5092,7 +5092,7 @@ msgstr "Áno"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
 #: libraries/classes/Controllers/Table/ReplaceController.php:448
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:710 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Žiadna zmena"
 
@@ -8677,7 +8677,7 @@ msgstr "Tabuľka %s už existuje!"
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL dopyt bol úspešne vykonaný."
 
-#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:36
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
 #: libraries/classes/Controllers/Table/DropColumnController.php:50
 #: libraries/classes/Controllers/Table/Structure/AddIndexController.php:45
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
@@ -8842,7 +8842,7 @@ msgstr "Zmeniť heslo"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:199 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:197 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chýba rozšírenie %s. Skontrolujte prosín nastavenia PHP."

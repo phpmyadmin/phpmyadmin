@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-03-20 00:15+0000\n"
+"POT-Creation-Date: 2022-03-27 00:18+0000\n"
 "PO-Revision-Date: 2022-03-22 12:57+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5250,7 +5250,7 @@ msgstr "Ja"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
 #: libraries/classes/Controllers/Table/ReplaceController.php:448
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:710 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Geen verandering"
 
@@ -8914,7 +8914,7 @@ msgstr "Tabel %s bestaat reeds!"
 msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd."
 
-#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:36
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
 #: libraries/classes/Controllers/Table/DropColumnController.php:50
 #: libraries/classes/Controllers/Table/Structure/AddIndexController.php:45
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
@@ -9075,7 +9075,7 @@ msgstr "Wachtwoord wijzigen"
 msgid "View name can not be empty!"
 msgstr "View naam kan niet leeg zijn!"
 
-#: libraries/classes/Core.php:199 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:197 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
