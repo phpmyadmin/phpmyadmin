@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-27 00:18+0000\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-03-29 23:08+0000\n"
+"Last-Translator: Eotones <eotones@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -542,15 +542,6 @@ msgid "Temp disk rate"
 msgstr "暫存磁碟比率"
 
 #: libraries/classes/Advisory/Rules.php:374
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -561,10 +552,10 @@ msgid ""
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助，但某些暫存資料表"
-"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存"
-"資料表中儲存 BLOB 或 TEXT 類型的欄位，或者使用長度大於 512 位元組的欄位，如 "
-"<a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables."
-"html\">MySQL 說明文件</a>所提到的狀況"
+"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，"
+"避免在暫存資料表中儲存 BLOB 或 TEXT 類型的欄位，或者使用長度大於 512 "
+"位元組的欄位，如 <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
+"temporary-tables.html\">MySQL 說明文件</a>所提到的狀況"
 
 #: libraries/classes/Advisory/Rules.php:383
 #, php-format
@@ -1442,7 +1433,7 @@ msgstr "二進位"
 #: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "無填充"
 
 #: libraries/classes/Charsets/Collation.php:339
 msgctxt "Collation"
@@ -1768,10 +1759,8 @@ msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
 
 #: libraries/classes/Config/Descriptions.php:108
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "輸入 reCAPTCHA v2 兼容 API 使用的請求參數。"
 
 #: libraries/classes/Config/Descriptions.php:109
 #, fuzzy
@@ -2114,16 +2103,12 @@ msgstr ""
 "「下一頁」的連結。"
 
 #: libraries/classes/Config/Descriptions.php:287
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"執行 script 時可配置的記憶體大小，例如 [kbd]32MB[/kbd] ([kbd]-1[/kbd] 為不限"
-"制、[kbd]0[/kbd] 為不作變更)。"
+"執行 script 時可配置的記憶體大小，例如 [kbd]32MB[/kbd] ([kbd]-1[/kbd] "
+"為不限制、[kbd]0[/kbd] 為不作變更)。"
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -2579,8 +2564,6 @@ msgid ""
 msgstr "決定是否顯示 phpMyAdmin 產生的 SQL 指令。"
 
 #: libraries/classes/Config/Descriptions.php:504
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr "允許顯示資料庫和資料表的統計資訊 (如：空間使用情況)。"
 
@@ -3520,7 +3503,7 @@ msgstr "忽略多行指令的錯誤"
 
 #: libraries/classes/Config/Descriptions.php:789
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "啟用拖放匯入"
 
 #: libraries/classes/Config/Descriptions.php:790
 msgid "Partial import: allow interrupt"
@@ -4891,8 +4874,6 @@ msgstr "存取遭拒！"
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:53
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:53
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:53
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "尚未選擇資料表。"
 
@@ -5086,21 +5067,19 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
-"閣下伺服器的控制使用者 (controluser) 正在使用預設密碼 (controlpass)，很容易被"
-"入侵；請務必變更密碼 pma，以修復此安全問題。"
+"您伺服器的控制使用者（controluser）和密碼（controlpass）正在使用預設值運行，"
+"可能會遭到入侵；請務必變更控制使用者「pma」的密碼 ，以解決這個安全漏洞。"
 
 #: libraries/classes/Controllers/HomeController.php:325
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "設定檔案需要設定加密密碼(blowfish_secret)。"
 
 #: libraries/classes/Controllers/HomeController.php:333
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr "設定的秘密密鑰(blowfish_secret)過短。"
+msgstr "設定檔中的秘密密鑰(blowfish_secret)長度不正確。長度應為 %d 位元組。"
 
 #: libraries/classes/Controllers/HomeController.php:350
 msgid ""
@@ -5418,10 +5397,8 @@ msgstr "編輯索引"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:113
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "刪除索引"
+msgstr "重新命名索引"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
 #: templates/table/index_form.twig:234
@@ -5564,17 +5541,13 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "記錄檔案總數"
+msgstr "鎖定此帳號。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "使用者帳號"
+msgstr "解鎖此帳號。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:148
 msgid "Template was created."
@@ -5805,8 +5778,6 @@ msgstr "無"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:214
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL 查詢"
 
@@ -6838,8 +6809,6 @@ msgid "%d object(s) created."
 msgstr "已建立 %d 個物件。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:546
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "欄位名稱"
 
@@ -7149,11 +7118,9 @@ msgstr ""
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:681
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "不明錯誤"
+msgstr "未知的安全金鑰錯誤。"
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
@@ -7163,19 +7130,15 @@ msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "未能啟用安全金鑰 (%s)。"
+msgstr "未能啟用安全金鑰。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "無效的匯出類型"
+msgstr "無效的安全金鑰。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgid ""
@@ -7498,9 +7461,6 @@ msgstr "秒"
 # 這應該是使用於選擇日期的月曆
 #. l10n: Previous month. Display text for previous month link in calendar
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:811
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "上個月"
 
@@ -7564,11 +7524,11 @@ msgstr "請輸入不少於 {0} 個字元"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:830
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr "請輸入介於  {0} 與 {1} 個字元長度的值"
+msgstr "請輸入介於 {0} 與 {1} 個字元長度的值"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:831
 msgid "Please enter a value between {0} and {1}"
-msgstr "請輸入介於  {0} 與 {1} 間的值"
+msgstr "請輸入介於 {0} 與 {1} 間的值"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:832
 msgid "Please enter a value less than or equal to {0}"
@@ -7677,21 +7637,17 @@ msgstr "已建立資料庫 %1$s。"
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] ""
-"已成功刪除 %1$d 個資料庫。\n"
-"已成功刪除 %1$d 個資料庫。"
+msgstr[0] "已成功刪除 %1$d 個資料庫。"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "已成功移動欄位。"
+msgstr "帳號 %s@%s 已成功鎖定。"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "已成功移動欄位。"
+msgstr "帳號 %s@%s 已成功解鎖。"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:165
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8266,17 +8222,15 @@ msgstr "使用在關聯表上使用範圍搜尋的多表查詢的數量。"
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr ""
-"沒有使用索引但在每行之後檢查索引使用的多表查詢數 (如果該值不為 0，您應該仔細"
-"檢查是否已經為資料表建立了適當的索引)。"
+msgstr "沒有使用索引但在每行之後檢查索引使用的多表查詢數。 (如果該值不為 "
+"0，您應該仔細檢查是否已經為資料表建立了適當的索引。)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
-msgstr ""
-"在第一個資料表上使用範圍查詢的多表查詢數 (即使該值很大，通常也不會有致命的影"
-"響)。"
+msgstr "在第一個資料表上使用範圍查詢的多表查詢數。 "
+"(即使該值很大，通常也不會有致命的影響。)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of joins that did a full scan of the first table."
@@ -8500,14 +8454,10 @@ msgid "No column selected."
 msgstr "尚未選擇欄位。"
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:79
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] ""
-"已成功刪除 %1$d 個資料庫。\n"
-"已成功刪除 %1$d 個資料庫。"
+msgstr[0] "已成功刪除 %1$d 個欄位。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:56
 msgid "Invalid table name"
@@ -9138,16 +9088,13 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "請填寫資料庫名稱！"
+msgstr "資料庫名稱必須是一個非空的字串。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "請輸入不超過 {0} 個字元"
+msgstr "資料庫名稱不能超過 %d 個字元。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
 #, fuzzy
@@ -9156,16 +9103,13 @@ msgid "The database name cannot end with a space character."
 msgstr "每個字詞用(半形)空格分隔。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "資料表名稱不能為空！"
+msgstr "資料表名稱必須是一個非空的字串。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "請輸入不超過 {0} 個字元"
+msgstr "資料表名稱不能超過 %d 個字元。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:27
 #, fuzzy
@@ -9717,7 +9661,7 @@ msgstr ""
 
 #: libraries/classes/Html/Generator.php:354
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP函數"
 
 #: libraries/classes/Html/Generator.php:632
 msgid "Skip Explain SQL"
@@ -10706,7 +10650,7 @@ msgstr "輸入驗證碼錯誤，請再嘗試！"
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
-msgstr ""
+msgstr "您的密碼太長。為了防止阻斷服務攻擊，phpMyAdmin將密碼限制在1000個字元以內。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:321
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11792,12 +11736,10 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "將使用 (IPv4/IPv6) 格式的網際網路位址，轉換為二進位"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:27
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "將使用 (IPv4/IPv6) 格式的網際網路位址，轉換為二進位"
+msgstr "將使用 (IPv4/IPv6) 格式的網際網路位址，轉換為長整數。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:24
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -13441,8 +13383,6 @@ msgstr "連線："
 #: templates/columns_definitions/column_definitions_form.twig:112
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
 msgstr "儲存引擎"
 
@@ -13475,10 +13415,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "載入中…"
+msgstr "載入中"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -13987,10 +13925,9 @@ msgid "See table structure"
 msgstr "檢視資料表結構"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "全選"
+msgstr "選擇「%s」"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -14304,12 +14241,10 @@ msgid "OFF"
 msgstr "關閉"
 
 #: templates/database/export/index.twig:61
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "，@DATABASE@ 會以資料庫名稱取代"
+msgstr "@SERVER@ 會以伺服器名稱取代，@DATABASE@ 會以資料庫名稱取代。"
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
@@ -14425,14 +14360,10 @@ msgstr "新資料庫名稱"
 #: templates/table/operations/index.twig:77
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "您的權限不足以執行此操作；請參閱說明文件了解詳細資訊"
+msgstr "您的權限不足以執行此操作；請參閱說明文件了解詳細資訊。"
 
 #: templates/database/operations/index.twig:83
 msgid "Remove database"
@@ -14617,21 +14548,15 @@ msgid "Modify:"
 msgstr "修改："
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "新增／刪除準則列"
+msgstr "新增／刪除準則列："
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "新增／刪除欄位"
+msgstr "新增／刪除欄位："
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "使用資料表"
 
@@ -14683,14 +14608,10 @@ msgid "Is deterministic"
 msgstr "確定性"
 
 #: templates/database/routines/editor_form.twig:131
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
-msgstr "無足夠權限執行此操作，請參閱說明文件了解詳情"
+msgstr "無足夠權限執行此操作，請參閱說明文件了解詳情。"
 
 #: templates/database/routines/editor_form.twig:144
 msgid "Security type"
@@ -14894,10 +14815,8 @@ msgid ""
 msgstr "此動作可能會變更部份欄位的定義。[br]是否確定要繼續執行？"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "選項"
+msgstr "選項："
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15235,8 +15154,6 @@ msgid "Update"
 msgstr "更新"
 
 #: templates/export.twig:72
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "顯示 SQL 查詢"
 
@@ -15338,20 +15255,15 @@ msgid "File name template:"
 msgstr "檔案名稱模版："
 
 #: templates/export.twig:388
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"此值會以 %1$sstrftime%2$s 來解讀，所以可以使用時間格式的字串。除此之外，以下"
-"資料格式也會轉換：%3$s。其他的文字則會保持原樣。請參閱%4$s常見問題 (FAQ)%5$s"
-"了解詳情。"
+"此值會以 'strftime' "
+"函數來解讀，所以可以使用時間格式的字串。除此之外，以下資料格式也會轉換：%s "
+"其他的文字則會保持原樣。請參閱常見問題 FAQ 6.27 了解詳情。"
 
 #: templates/export.twig:398
 #, fuzzy
@@ -15519,10 +15431,9 @@ msgid "no branch"
 msgstr "沒有分支"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "從 %2$s 分支的 %1$s"
+msgstr "從 %s 分支"
 
 #: templates/home/git_info.twig:25
 #, php-format
@@ -15736,10 +15647,8 @@ msgid "Upload a file"
 msgstr "下載檔案"
 
 #: templates/import.twig:43
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "要匯入的檔案："
+msgstr "選擇要匯入的檔案"
 
 #: templates/import.twig:50 templates/import.twig:77
 #: templates/preferences/manage/main.twig:22
@@ -15806,17 +15715,13 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "由第一行開始跳過此數量的查詢 (SQL)："
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "其他選項："
+msgstr "其他選項"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:489
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "重新命名為"
+msgstr "重新命名"
 
 #: templates/indexes.twig:45
 #: templates/table/structure/display_structure.twig:495
@@ -15931,7 +15836,7 @@ msgstr "顯示隱藏的導覽樹項目。"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
-msgstr ""
+msgstr "取消隱藏"
 
 #: templates/navigation/main.twig:25 templates/navigation/main.twig:26
 msgid "Home"
@@ -15950,16 +15855,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 說明文件"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "說明文件"
+msgstr "MariaDB 說明文件"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "說明文件"
+msgstr "MySQL 說明文件"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
@@ -16240,10 +16141,8 @@ msgid "OK"
 msgstr "好"
 
 #: templates/relation/check_relations.twig:62
-#, fuzzy
-#| msgid "General relation features"
 msgid "General relation features:"
-msgstr "一般關聯功能"
+msgstr "一般關聯功能："
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -16267,54 +16166,40 @@ msgid "Enabled"
 msgstr "已啓用"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "顯示功能"
+msgstr "顯示功能："
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "設計並建立 PDF"
+msgstr "設計並建立 PDF："
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "顯示欄位備註"
+msgstr "顯示欄位備註："
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "瀏覽器轉換"
+msgstr "瀏覽器轉換："
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "若要更新 column_info 資料表，請參閱說明文件。"
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "SQL 查詢書籤"
+msgstr "SQL 查詢書籤："
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "SQL 紀錄："
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "使用最近的資料表"
+msgstr "使用最近的資料表："
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "保留最愛資料表"
+msgstr "保留最愛資料表："
 
 #: templates/relation/check_relations.twig:295
 #, fuzzy
@@ -16323,52 +16208,36 @@ msgid "Persistent tables' UI preferences:"
 msgstr "一律使用資料表的「介面偏好」"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "追蹤"
+msgstr "追蹤："
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "使用者偏好"
+msgstr "使用者偏好："
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "配置選單"
+msgstr "配置選單："
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "隱藏／顯示導覽項目"
+msgstr "隱藏／顯示導覽項目："
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "儲存 QBE 查詢"
+msgstr "儲存 QBE 查詢："
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "管理欄位的中央清單"
+msgstr "管理欄位的中央清單："
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "記住設計器設定"
+msgstr "記住設計器設定："
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "儲存匯出樣板"
+msgstr "儲存匯出樣板："
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -16512,10 +16381,8 @@ msgid "Unknown storage engine."
 msgstr "不明儲存引擎。"
 
 #: templates/server/export/index.twig:26
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ 會以伺服器名稱取代"
+msgstr "@SERVER@ 會以伺服器名稱取代。"
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16604,10 +16471,8 @@ msgstr ""
 "加密連線</i>」。"
 
 #: templates/server/privileges/choose_user_group.twig:5
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "使用者群組"
+msgstr "使用者群組："
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -16830,7 +16695,7 @@ msgstr "允許建立預存程序。"
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "未在 MariaDB 上使用。"
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
@@ -17260,34 +17125,24 @@ msgid "Possible performance issues"
 msgstr "可能影響執行效率的問題"
 
 #: templates/server/status/advisor/index.twig:76
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "問題"
+msgstr "問題："
 
 #: templates/server/status/advisor/index.twig:79
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "建議"
+msgstr "建議："
 
 #: templates/server/status/advisor/index.twig:82
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "實際狀況"
+msgstr "實際狀況："
 
 #: templates/server/status/advisor/index.twig:85
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "使用的變數 / 公式"
+msgstr "使用的變數 / 公式："
 
 #: templates/server/status/advisor/index.twig:88
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "檢驗方式"
+msgstr "檢驗方式："
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -17542,10 +17397,8 @@ msgstr "查詢數量"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "每小時"
+msgstr "ø 每小時"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17697,10 +17550,8 @@ msgid "Configuration file"
 msgstr "設定檔案"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "無法讀取設定檔！"
+msgstr "生成的設定檔"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
@@ -17868,10 +17719,8 @@ msgid "Bookmarked SQL query"
 msgstr "SQL 查詢書籤"
 
 #: templates/sql/query.twig:160
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "書籤"
+msgstr "書籤："
 
 #: templates/sql/query.twig:169
 msgid "shared"
@@ -17980,12 +17829,11 @@ msgid "Save chart as image"
 msgstr "另存圖表為影像"
 
 #: templates/table/export/index.twig:12
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr "，@DATABASE@ 會以資料庫名稱取代"
+msgstr "@SERVER@ 會以伺服器名稱取代，@DATABASE@ 會以資料庫名稱取代，@TABLE@ "
+"會以資料表名稱取代。"
 
 #: templates/table/export/index.twig:7
 #, php-format
@@ -18069,8 +17917,6 @@ msgid "Index choice:"
 msgstr "索引選擇："
 
 #: templates/table/index_form.twig:54
-#, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
 msgstr "進階選項"
 
@@ -18245,10 +18091,8 @@ msgid "Remove partitioning"
 msgstr "刪除分割"
 
 #: templates/table/operations/index.twig:513
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "檢查引用整全性："
+msgstr "檢查引用整全性"
 
 #: templates/table/operations/view.twig:12
 msgid "Rename view to"
@@ -18263,10 +18107,8 @@ msgid "Relation view"
 msgstr "關聯檢視"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "已分區"
+msgstr "分析分區"
 
 #: templates/table/partition/check.twig:2
 #, fuzzy
@@ -18524,10 +18366,9 @@ msgid "at beginning of table"
 msgstr "於資料表起始"
 
 #: templates/table/structure/display_structure.twig:552
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "在&nbsp;%s&nbsp;個欄位建立索引"
+msgstr "在第%s個欄位建立索引"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
