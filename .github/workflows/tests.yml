@@ -11,7 +11,6 @@ on:
 jobs:
     multi-arch-tests-php:
         name: Test on php ${{ matrix.php-version }} (${{ matrix.arch }})
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         runs-on: ubuntu-latest
         continue-on-error: ${{ matrix.experimental }}
         strategy:
@@ -60,7 +59,6 @@ jobs:
                 name: phpunit-${{ matrix.php-version }}-${{ matrix.arch }}
     test-php:
         name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         runs-on: ${{ matrix.os }}
         continue-on-error: ${{ matrix.experimental }}
         strategy:
@@ -123,7 +121,6 @@ jobs:
     test-php-optional-extensions:
         name: Test on php (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
         runs-on: ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         strategy:
             matrix:
                 php-version: ["7.1"]
@@ -182,7 +179,6 @@ jobs:
     test-php-random:
         name: Test (random) on php ${{ matrix.php-version }} and ${{ matrix.os }}
         runs-on: ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         strategy:
             matrix:
                 php-version: ["7.4"]
@@ -218,7 +214,6 @@ jobs:
     test-js:
         name: Test javascript files
         runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v1
