@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-03-31 13:10+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri@delta-net.ge>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ka/>\n"
 "Language: ka\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1338,7 +1338,7 @@ msgstr "გადასვლა"
 #: templates/table/structure/display_structure.twig:414
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
-msgstr ""
+msgstr "გასაღებისსახელი"
 
 #: libraries/classes/BrowseForeigners.php:220
 #: libraries/classes/BrowseForeigners.php:222
@@ -3556,7 +3556,7 @@ msgstr "CSV"
 
 #: libraries/classes/Config/Descriptions.php:761
 msgid "Developer"
-msgstr ""
+msgstr "პროგრამისტი"
 
 #: libraries/classes/Config/Descriptions.php:762
 msgid "Edit mode"
@@ -3733,7 +3733,7 @@ msgstr "Warning"
 #: libraries/classes/Config/Descriptions.php:795
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "კონსოლი"
 
 #: libraries/classes/Config/Descriptions.php:796
 msgid "GZip"
@@ -4673,7 +4673,7 @@ msgstr "SQL მოთხოვნები"
 #: libraries/classes/Config/Descriptions.php:994
 #: templates/sql/profiling_chart.twig:9
 msgid "Order"
-msgstr ""
+msgstr "დალაგება"
 
 #: libraries/classes/Config/Descriptions.php:995
 msgid "Order by"
@@ -4881,7 +4881,7 @@ msgstr "Host authentication order"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:23
 msgid "Quick"
-msgstr ""
+msgstr "სწრაფი"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:27
 #, fuzzy
@@ -4982,7 +4982,7 @@ msgstr "ექსპორტი"
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:88
 #: templates/preferences/header.twig:18
 msgid "Features"
-msgstr ""
+msgstr "თვისებები"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:41
 msgid "CSV using LOAD DATA"
@@ -5454,7 +5454,7 @@ msgstr "უცნობი"
 #: libraries/classes/Controllers/Database/StructureController.php:1280
 #: libraries/classes/Controllers/Database/StructureController.php:1303
 msgid "Success!"
-msgstr ""
+msgstr "წარმატება!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:1454
 #: libraries/classes/Controllers/Database/StructureController.php:1537
@@ -5638,15 +5638,13 @@ msgid "Incomplete params"
 msgstr "სრული ჩასმები"
 
 #: libraries/classes/Controllers/ImportController.php:134
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "მიუწვდომელია!"
+msgstr "წარმატებულია"
 
 #: libraries/classes/Controllers/ImportController.php:138
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
-msgstr ""
+msgstr "შეცდომა"
 
 #: libraries/classes/Controllers/ImportController.php:244
 #, php-format
@@ -5710,7 +5708,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "დადასტურება"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:36
 #, fuzzy, php-format
@@ -6046,7 +6044,7 @@ msgstr "Remove selected users"
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:47
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 #, fuzzy
@@ -6074,7 +6072,7 @@ msgstr "სტრიქონი წაიშალა"
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:98
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
-msgstr ""
+msgstr "სხვა"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:145
@@ -6263,9 +6261,8 @@ msgstr "%s table(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#, fuzzy
 msgid "Questions"
-msgstr "სპარსული"
+msgstr "კითხვები"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: templates/server/status/status/index.twig:14
@@ -6275,10 +6272,8 @@ msgstr "ტრაფიკი"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Menu.php:573 libraries/classes/Util.php:2480
 #: templates/server/status/monitor/index.twig:12
-#, fuzzy
-#| msgid "General relation features"
 msgid "Settings"
-msgstr "General relation features"
+msgstr "პარამეტრები"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #, fuzzy
@@ -6429,7 +6424,7 @@ msgstr "Report title"
 #. l10n: As in differential values
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid "Differential"
-msgstr ""
+msgstr "განსხვავება"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:243
 #, php-format
@@ -6438,7 +6433,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid "Unit"
-msgstr ""
+msgstr "ერთეული"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "From slow log"
@@ -6502,10 +6497,8 @@ msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:270
-#, fuzzy
-#| msgid "Analyze"
 msgid "Analyzing…"
-msgstr "Analyze"
+msgstr "ანალიზი…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 #, fuzzy
@@ -6548,40 +6541,31 @@ msgid "Profiling results"
 msgstr "Profiling"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
-#, fuzzy
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "ცხრილი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#, fuzzy
 msgid "Chart"
-msgstr "სიმბოლოთა ნაკრებები"
+msgstr "გრაფიკი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: templates/export.twig:171
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "მონაცემთა ბაზა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 #: templates/export.twig:185
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "ცხრილი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #: templates/export.twig:198
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
-msgstr "სვეტები"
+msgstr "სვეტი"
 
 #. l10n: A collection of available filters
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:284
@@ -6592,9 +6576,8 @@ msgstr "ცხრილების ჩვენების პარამე�
 
 #. l10n: Filter as in "Start Filtering"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:286
-#, fuzzy
 msgid "Filter"
-msgstr "ფაილები"
+msgstr "ფილტრი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "Filter queries by word/regexp:"
@@ -6613,10 +6596,8 @@ msgstr "ჩასმული სტრიქონების რაოდე�
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 #: libraries/classes/Engines/Innodb.php:141
 #: templates/server/databases/index.twig:256
-#, fuzzy
-#| msgid "Total"
 msgid "Total:"
-msgstr "სულ"
+msgstr "სულ:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #, fuzzy
@@ -6719,15 +6700,13 @@ msgstr "Other core settings"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr ""
+msgstr "გადატარება"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 #: templates/navigation/main.twig:58
 #: templates/server/status/monitor/index.twig:95
-#, fuzzy
-#| msgid "Load"
 msgid "Loading…"
-msgstr "ჩატვირთვა"
+msgstr "ჩატვირთვა…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
@@ -6834,8 +6813,6 @@ msgid "Failed to get real row count."
 msgstr "Failed to write file to disk."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
 msgstr "ძებნა"
 
@@ -6852,16 +6829,12 @@ msgid "Show search results"
 msgstr "SQL Query box"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:365
-#, fuzzy
-#| msgid "Browse"
 msgid "Browsing"
 msgstr "არჩევა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:366
-#, fuzzy
-#| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "%s-ის წაშლა"
+msgstr "წაშლა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #, php-format
@@ -6964,7 +6937,7 @@ msgstr "ცვლადი"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #: libraries/classes/Normalization.php:1046
 msgid "Pick"
-msgstr ""
+msgstr "აირჩიეთ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #, fuzzy
@@ -7000,10 +6973,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
-#, fuzzy
-#| msgid "Attributes"
 msgid "Continue"
-msgstr "ატრიბუტები"
+msgstr "გაგრძელება"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 msgid "Add primary key"
@@ -7043,10 +7014,8 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 #: libraries/classes/Normalization.php:385
 #: templates/javascript/variables.twig:15
-#, fuzzy
-#| msgid "Donate"
 msgid "Done"
-msgstr "შემოწირულობა"
+msgstr "დასრულდა."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid "Confirm partial dependencies"
@@ -7090,7 +7059,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Step"
-msgstr ""
+msgstr "ბიჯი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "The following actions will be performed:"
@@ -7247,7 +7216,7 @@ msgstr "ასლი"
 #: templates/gis_data_editor_form.twig:135
 #: templates/gis_data_editor_form.twig:187
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #: templates/gis_data_editor_form.twig:76
@@ -7255,11 +7224,11 @@ msgstr ""
 #: templates/gis_data_editor_form.twig:137
 #: templates/gis_data_editor_form.twig:189
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 msgid "Point"
-msgstr ""
+msgstr "წერტილი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #, php-format
@@ -7267,19 +7236,17 @@ msgid "Point %d"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Lines terminated by"
+msgstr "სტრიქონის ხაზი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
-msgstr ""
+msgstr "მრავალკუთხედი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:159
 msgid "Geometry"
-msgstr ""
+msgstr "გეომეტრია"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #, fuzzy
@@ -7421,7 +7388,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr ""
+msgstr "უსათაურო"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #, fuzzy
@@ -7532,8 +7499,6 @@ msgid "Original length"
 msgstr "საწყისი მდებარეობა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:587
-#, fuzzy
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "გაუქმება"
 
@@ -7544,7 +7509,7 @@ msgstr "შეწყვეტილია"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
-msgstr ""
+msgstr "წარმატებულია"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #, fuzzy
@@ -7614,10 +7579,8 @@ msgstr "პაროლის შეცვლა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #: templates/table/structure/display_structure.twig:132
-#, fuzzy
-#| msgid "Mon"
 msgid "More"
-msgstr "ორშ"
+msgstr "მეტი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 #, fuzzy
@@ -7835,15 +7798,15 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "Weak"
-msgstr ""
+msgstr "სუსტი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Good"
-msgstr ""
+msgstr "კარგი"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 msgid "Strong"
-msgstr ""
+msgstr "ძლიერი"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
@@ -9049,11 +9012,11 @@ msgstr "კონფიგურაციის შენახვა ან ჩ
 
 #: libraries/classes/Database/CentralColumns.php:665
 msgid "YES"
-msgstr ""
+msgstr "დიახ"
 
 #: libraries/classes/Database/CentralColumns.php:665
 msgid "NO"
-msgstr ""
+msgstr "არა"
 
 #: libraries/classes/Database/Designer/Common.php:568
 #, fuzzy
@@ -9304,7 +9267,7 @@ msgstr "ან"
 #: libraries/classes/Database/Qbe.php:794
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
 msgid "And:"
-msgstr ""
+msgstr "და:"
 
 #: libraries/classes/Database/Qbe.php:799
 msgid "Ins"
@@ -9447,7 +9410,7 @@ msgstr "შეცვლა"
 
 #: libraries/classes/Database/Routines.php:878
 msgid "Parameters"
-msgstr ""
+msgstr "პარამეტრები"
 
 #: libraries/classes/Database/Routines.php:886
 #, fuzzy
@@ -9478,7 +9441,7 @@ msgstr "სახელი"
 #: templates/columns_definitions/table_fields_definitions.twig:16
 #: templates/database/central_columns/edit.twig:8
 msgid "Length/Values"
-msgstr ""
+msgstr "სიგრძე/მნიშვნელობები"
 
 #: libraries/classes/Database/Routines.php:890
 #: libraries/classes/Import.php:1350 libraries/classes/Import.php:1384
@@ -9584,7 +9547,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:450
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
-msgstr ""
+msgstr "აღმწერი"
 
 #: libraries/classes/Database/Routines.php:1001
 #, fuzzy
@@ -9935,7 +9898,7 @@ msgstr "სტრიქონი წაიშალა"
 #: libraries/classes/Display/Results.php:3359
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
-msgstr ""
+msgstr "მოკვლა"
 
 #: libraries/classes/Display/Results.php:4074
 #, fuzzy
@@ -10022,7 +9985,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:146
 msgid "pages"
-msgstr ""
+msgstr "გვერდები"
 
 #: libraries/classes/Engines/Innodb.php:160
 msgid "Free pages"
@@ -10765,7 +10728,7 @@ msgstr "მოქმედებები"
 #: libraries/classes/Relation.php:316 libraries/classes/Util.php:2500
 #: libraries/classes/Util.php:2514
 msgid "Tracking"
-msgstr ""
+msgstr "ტრეკინგი"
 
 #: libraries/classes/Menu.php:370 libraries/classes/Menu.php:469
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:24
@@ -10850,7 +10813,7 @@ msgstr "ძრავები"
 #: libraries/classes/Menu.php:616 libraries/classes/Util.php:2485
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
-msgstr ""
+msgstr "დამატებები"
 
 #: libraries/classes/Message.php:255
 #, fuzzy, php-format
@@ -10970,12 +10933,12 @@ msgstr "სვეტების სახელები"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:36
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 #, fuzzy
@@ -10993,7 +10956,7 @@ msgstr "Show grid"
 #: templates/database/events/index.twig:104
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
@@ -11005,16 +10968,16 @@ msgstr "ფუნქციები"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:38
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:36
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "ჩაკეცვა/ამოკეცვა"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
@@ -11026,7 +10989,7 @@ msgstr "პროცედურები"
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:38
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:29
 #, fuzzy
@@ -11037,13 +11000,13 @@ msgstr "პროცედურები"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:39
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:36
 #: templates/database/triggers/footer.twig:2
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
@@ -11057,7 +11020,7 @@ msgstr "ხედო"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:39
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: libraries/classes/Normalization.php:227
 msgid "Make all columns atomic"
@@ -11339,7 +11302,7 @@ msgstr ""
 #: libraries/classes/Operations.php:600
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
-msgstr ""
+msgstr "ანალიზი"
 
 #: libraries/classes/Operations.php:601
 #: templates/table/structure/display_partitions.twig:94
@@ -11354,7 +11317,7 @@ msgstr "ოპტიმიზება"
 #: libraries/classes/Operations.php:603
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
-msgstr ""
+msgstr "თავიდან აგება"
 
 #: libraries/classes/Operations.php:604
 #: templates/table/structure/display_partitions.twig:124
@@ -11389,7 +11352,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:283
 #: templates/table/structure/display_structure.twig:463
 msgid "Drop"
-msgstr ""
+msgstr "გადაგდება"
 
 #: libraries/classes/Operations.php:618
 #, fuzzy
@@ -11610,7 +11573,7 @@ msgstr "სტრუქტურა"
 #: libraries/config.values.php:337 libraries/config.values.php:345
 #: libraries/config.values.php:350
 msgid "data"
-msgstr ""
+msgstr "მონაცემები"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:67
 #: libraries/classes/Plugins/Export/ExportLatex.php:103
@@ -12993,7 +12956,7 @@ msgstr "სერვერის კონფიგურაცია"
 
 #: libraries/classes/ReplicationGui.php:472
 msgid "Success."
-msgstr ""
+msgstr "წარმატება."
 
 #: libraries/classes/ReplicationGui.php:473
 #, fuzzy
@@ -14103,7 +14066,7 @@ msgstr ""
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "რიცხვობრივი"
 
 #: libraries/classes/Types.php:741
 #, fuzzy
@@ -14320,23 +14283,23 @@ msgstr "შემდეგი"
 #: libraries/config.values.php:90 libraries/config.values.php:108
 #: libraries/config.values.php:128 libraries/config.values.php:140
 msgid "Both"
-msgstr ""
+msgstr "ორივე"
 
 #: libraries/config.values.php:105
 msgid "Nowhere"
-msgstr ""
+msgstr "არსად"
 
 #: libraries/config.values.php:106
 msgid "Left"
-msgstr ""
+msgstr "მარცხნივ"
 
 #: libraries/config.values.php:107
 msgid "Right"
-msgstr ""
+msgstr "მარჯვნივ"
 
 #: libraries/config.values.php:143
 msgid "Click"
-msgstr ""
+msgstr "წკაპი"
 
 #: libraries/config.values.php:144
 msgid "Double click"
@@ -14360,7 +14323,7 @@ msgstr "მოგესალმებათ %s"
 
 #: libraries/config.values.php:186
 msgid "Open"
-msgstr ""
+msgstr "გახსნა"
 
 #: libraries/config.values.php:187
 #, fuzzy
@@ -14382,11 +14345,11 @@ msgstr "სამ"
 
 #: libraries/config.values.php:193 templates/javascript/variables.twig:51
 msgid "Wednesday"
-msgstr ""
+msgstr "ოთხშაბათი"
 
 #: libraries/config.values.php:194 templates/javascript/variables.twig:52
 msgid "Thursday"
-msgstr ""
+msgstr "ხუთშაბათი"
 
 #: libraries/config.values.php:195 templates/javascript/variables.twig:53
 #, fuzzy
@@ -14396,7 +14359,7 @@ msgstr "პარ"
 
 #: libraries/config.values.php:196 templates/javascript/variables.twig:54
 msgid "Saturday"
-msgstr ""
+msgstr "შაბათი"
 
 #: libraries/config.values.php:197 templates/javascript/variables.twig:48
 #, fuzzy
@@ -14829,12 +14792,12 @@ msgstr "გარდაქმნის პარამეტრები"
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Collapse"
-msgstr ""
+msgstr "ჩაკეცვა"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Expand"
-msgstr ""
+msgstr "ამოკეცვა"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -15512,11 +15475,11 @@ msgstr ""
 
 #: templates/database/events/index.twig:137
 msgid "ON"
-msgstr ""
+msgstr "ჩართული"
 
 #: templates/database/events/index.twig:148
 msgid "OFF"
-msgstr ""
+msgstr "გამორთული"
 
 #: templates/database/export/index.twig:62
 msgid ""
@@ -15751,7 +15714,7 @@ msgstr "გლობალულრი"
 #: templates/database/privileges/index.twig:50
 #: templates/table/privileges/index.twig:52
 msgid "database-specific"
-msgstr ""
+msgstr "ბაზაზე-დამოკიდებული"
 
 #: templates/database/privileges/index.twig:52
 #: templates/table/privileges/index.twig:54
@@ -15772,7 +15735,7 @@ msgstr "Routines"
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "ახალი"
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
@@ -15796,7 +15759,7 @@ msgstr ""
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:5
 msgid "Ins:"
-msgstr ""
+msgstr "ჩასმ:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
 #, fuzzy
@@ -15806,7 +15769,7 @@ msgstr "და"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
-msgstr ""
+msgstr "წაშლ:"
 
 #: templates/database/qbe/selection_form.twig:12
 #: templates/table/find_replace/index.twig:38
@@ -15908,7 +15871,7 @@ msgstr ""
 #: templates/database/routines/row.twig:42
 #: templates/database/routines/row.twig:46
 msgid "Execute"
-msgstr ""
+msgstr "შესრულება"
 
 #: templates/database/search/main.twig:5
 msgid "Search in database"
@@ -15988,7 +15951,7 @@ msgstr "პარ"
 
 #: templates/database/structure/change_prefix_form.twig:13
 msgid "To"
-msgstr ""
+msgstr "მიმღები"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -16194,7 +16157,7 @@ msgstr "შეიქმნა"
 #: templates/database/tracking/tables.twig:16
 #: templates/table/tracking/main.twig:30
 msgid "Updated"
-msgstr ""
+msgstr "განახლებულია"
 
 #: templates/database/tracking/tables.twig:61
 #: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
@@ -16433,7 +16396,7 @@ msgstr ""
 
 #: templates/export.twig:138 templates/export.twig:279
 msgid "Output:"
-msgstr ""
+msgstr "გამოტანა:"
 
 #: templates/export.twig:143 templates/export.twig:309
 #, fuzzy, php-format
@@ -16604,7 +16567,7 @@ msgstr ""
 
 #: templates/gis_data_editor_form.twig:73
 msgid "Point:"
-msgstr ""
+msgstr "წერტილი:"
 
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
@@ -16650,7 +16613,7 @@ msgstr "გეომეტრიის დამატება"
 
 #: templates/gis_data_editor_form.twig:214
 msgid "Output"
-msgstr ""
+msgstr "გამოტანილი"
 
 #: templates/gis_data_editor_form.twig:216
 msgid ""
@@ -16817,7 +16780,7 @@ msgstr "ცვლილების გარეშე"
 
 #: templates/home/index.twig:225 templates/server/plugins/index.twig:30
 msgid "License"
-msgstr ""
+msgstr "ლიცენზია"
 
 #: templates/import/javascript.twig:12
 msgid ""
@@ -16834,7 +16797,7 @@ msgstr ""
 #: templates/import/javascript.twig:14
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/წმ."
 
 #: templates/import/javascript.twig:15
 msgid "About %MIN min. %SEC sec. remaining."
@@ -16997,32 +16960,24 @@ msgstr "შემდეგი"
 
 #. l10n: Display text for current month link in calendar
 #: templates/javascript/variables.twig:18
-#, fuzzy
-#| msgid "Total"
 msgid "Today"
-msgstr "სულ"
+msgstr "დღეს"
 
 #: templates/javascript/variables.twig:20
-#, fuzzy
-#| msgid "Binary"
 msgid "January"
-msgstr "ბინარული"
+msgstr "იანვარი"
 
 #: templates/javascript/variables.twig:21
 msgid "February"
-msgstr ""
+msgstr "თებერვალი"
 
 #: templates/javascript/variables.twig:22
-#, fuzzy
-#| msgid "Mar"
 msgid "March"
-msgstr "მარ"
+msgstr "მარტი"
 
 #: templates/javascript/variables.twig:23
-#, fuzzy
-#| msgid "Apr"
 msgid "April"
-msgstr "აპრ"
+msgstr "აპრილი"
 
 #. l10n: Short month name for May
 #: templates/javascript/variables.twig:24
@@ -17031,16 +16986,12 @@ msgid "May"
 msgstr "მაი"
 
 #: templates/javascript/variables.twig:25
-#, fuzzy
-#| msgid "Jun"
 msgid "June"
-msgstr "ივნ"
+msgstr "ივნისი"
 
 #: templates/javascript/variables.twig:26
-#, fuzzy
-#| msgid "Jul"
 msgid "July"
-msgstr "ივლ"
+msgstr "ივლისი"
 
 #: templates/javascript/variables.twig:27
 #, fuzzy
@@ -17050,7 +17001,7 @@ msgstr "აგვ"
 
 #: templates/javascript/variables.twig:28
 msgid "September"
-msgstr ""
+msgstr "სექტემბერი"
 
 #: templates/javascript/variables.twig:29
 #, fuzzy
@@ -17060,11 +17011,11 @@ msgstr "ოქტ"
 
 #: templates/javascript/variables.twig:30
 msgid "November"
-msgstr ""
+msgstr "ნოემბერი"
 
 #: templates/javascript/variables.twig:31
 msgid "December"
-msgstr ""
+msgstr "დეკემბერი"
 
 #. l10n: Short week day name for Sunday
 #: templates/javascript/variables.twig:57
@@ -17132,7 +17083,7 @@ msgstr "ვიკი"
 
 #: templates/javascript/variables.twig:82
 msgid "Hour"
-msgstr ""
+msgstr "საათი"
 
 #: templates/javascript/variables.twig:83
 #, fuzzy
@@ -17774,7 +17725,7 @@ msgstr "MySQL სერვერზე შესვლა შეუძლებ�
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
-msgstr ""
+msgstr "დამატება"
 
 #: templates/server/plugins/index.twig:28 templates/table/tracking/main.twig:28
 #, fuzzy
@@ -17783,7 +17734,7 @@ msgstr "სპარსული"
 
 #: templates/server/plugins/index.twig:29
 msgid "Author"
-msgstr ""
+msgstr "ავტორი"
 
 #: templates/server/plugins/index.twig:41
 msgid "inactive"
@@ -18012,7 +17963,7 @@ msgstr "პაროლი არაა"
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
 msgid "Re-type"
-msgstr ""
+msgstr "თავიდან აკრეფა"
 
 #: templates/server/privileges/login_information_fields.twig:68
 #, fuzzy
@@ -18529,11 +18480,11 @@ msgstr ""
 
 #: templates/server/status/base.twig:26
 msgid "Monitor"
-msgstr ""
+msgstr "თვალყური"
 
 #: templates/server/status/base.twig:31
 msgid "Advisor"
-msgstr ""
+msgstr "მრჩეველი"
 
 #: templates/server/status/monitor/index.twig:8
 #, fuzzy
@@ -18543,7 +18494,7 @@ msgstr "Startup"
 
 #: templates/server/status/monitor/index.twig:16
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "ინსტრუქციები/მორგება"
 
 #: templates/server/status/monitor/index.twig:20
 msgid "Done dragging (rearranging) charts"
@@ -18799,7 +18750,7 @@ msgstr ""
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:38
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
@@ -19062,7 +19013,7 @@ msgstr "დრო"
 
 #: templates/sql/profiling_chart.twig:55
 msgid "Calls"
-msgstr ""
+msgstr "გამოძახებები"
 
 #: templates/sql/profiling_chart.twig:59
 #, fuzzy
@@ -19109,7 +19060,7 @@ msgstr "ცხრილის ჩანიშვნა"
 
 #: templates/sql/query.twig:156
 msgid "shared"
-msgstr ""
+msgstr "გაზიარებული"
 
 #: templates/sql/query.twig:169
 msgid "View only"
@@ -19142,7 +19093,7 @@ msgstr "სვეტები"
 #: templates/table/chart/tbl_chart.twig:20
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "ხაზი"
 
 #: templates/table/chart/tbl_chart.twig:24
 #, fuzzy
@@ -19154,7 +19105,7 @@ msgstr "ძრავები"
 #: templates/table/chart/tbl_chart.twig:28
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "ფართობი"
 
 #: templates/table/chart/tbl_chart.twig:32
 #, fuzzy
@@ -19529,7 +19480,7 @@ msgstr "დაყოფილი"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
-msgstr ""
+msgstr "ცხრილზე-დამოკიდებული"
 
 #: templates/table/relation/common_form.twig:9
 #, fuzzy
