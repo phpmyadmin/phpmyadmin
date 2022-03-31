@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2022-04-02 14:06+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri@delta-net.ge>\n"
+"Last-Translator: Malkhazi Dartsmelidze <malkhazidartsmelidze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
 "Language: ka\n"
@@ -3383,7 +3383,7 @@ msgstr "საათში"
 
 #: libraries/classes/Advisor.php:634
 msgid "per day"
-msgstr ""
+msgstr "დღეში"
 
 #: libraries/classes/BrowseForeigners.php:193
 msgid "Search:"
