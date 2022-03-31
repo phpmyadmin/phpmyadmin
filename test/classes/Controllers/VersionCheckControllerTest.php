@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\VersionInformation;
 
 use function json_encode;
 use function time;
@@ -47,7 +48,7 @@ class VersionCheckControllerTest extends AbstractTestCase
             'timestamp' => time(),
         ];
 
-        (new VersionCheckController(new ResponseRenderer(), new Template()))();
+        (new VersionCheckController(new ResponseRenderer(), new Template(), new VersionInformation()))();
 
         $output = $this->getActualOutputForAssertion();
         $this->assertTrue(isset($_GET['ajax_request']));

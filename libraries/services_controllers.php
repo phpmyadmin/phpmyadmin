@@ -1569,6 +1569,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
+                '$versionInformation' => '@version_information',
             ],
         ],
         View\CreateController::class => [

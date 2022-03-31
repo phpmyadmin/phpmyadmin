@@ -239,6 +239,9 @@ return [
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
         ],
+        'version_information' => [
+            'class' => PhpMyAdmin\VersionInformation::class,
+        ],
         PhpMyAdmin\DatabaseInterface::class => 'dbi',
         PhpMyAdmin\FlashMessages::class => 'flash',
         PhpMyAdmin\ResponseRenderer::class => 'response',
