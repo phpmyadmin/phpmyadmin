@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-03-27 00:18+0000\n"
 "PO-Revision-Date: 2022-04-02 14:07+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri@delta-net.ge>\n"
+"Last-Translator: Malkhazi Dartsmelidze <malkhazidartsmelidze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
 "Language: ka\n"
@@ -55,7 +55,7 @@ msgstr "საათში"
 
 #: libraries/classes/Advisory/Advisor.php:428
 msgid "per day"
-msgstr ""
+msgstr "დღეში"
 
 #: libraries/classes/Advisory/Rules.php:34
 msgid "Uptime below one day"
