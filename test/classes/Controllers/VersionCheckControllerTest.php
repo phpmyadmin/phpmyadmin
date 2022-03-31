@@ -12,6 +12,8 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use function json_encode;
 use function time;
 
+use const PHP_VERSION_ID;
+
 /**
  * @covers \PhpMyAdmin\Controllers\VersionCheckController
  */
@@ -49,6 +51,10 @@ class VersionCheckControllerTest extends AbstractTestCase
 
         $output = $this->getActualOutputForAssertion();
         $this->assertTrue(isset($_GET['ajax_request']));
-        $this->assertSame('{"version":"5.1.3","date":"2022-02-11"}', $output);
+        if (PHP_VERSION_ID < 80100) {
+            $this->assertSame('{"version":"5.1.3","date":"2022-02-11"}', $output);
+        } else {
+            $this->assertSame('{"version":"","date":""}', $output);
+        }
     }
 }
