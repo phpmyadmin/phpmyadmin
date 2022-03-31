@@ -117,7 +117,7 @@ class Footer
      */
     public function getDebugMessage(): string
     {
-        $retval = '\'null\'';
+        $retval = '\'false\'';
         if ($GLOBALS['cfg']['DBG']['sql'] && empty($_REQUEST['no_debug']) && ! empty($_SESSION['debug'])) {
             // Remove recursions and iterators from $_SESSION['debug']
             self::removeRecursion($_SESSION['debug']);
