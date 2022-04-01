@@ -1535,6 +1535,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$themeManager' => '@theme_manager',
+                '$userPreferences' => '@user_preferences',
             ],
         ],
         Transformation\OverviewController::class => [

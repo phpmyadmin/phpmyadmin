@@ -4386,16 +4386,12 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['ThemeManager']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="2">
-      <code>$_POST['set_theme']</code>
+    <MixedArgument occurrences="1">
       <code>$preferences['config_data']</code>
     </MixedArgument>
     <MixedArrayAssignment occurrences="1">
       <code>$preferences['config_data']['ThemeDefault']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="1">
-      <code>$preferences['config_data']['ThemeDefault']</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Transformation/OverviewController.php">
     <MixedArgument occurrences="1">
