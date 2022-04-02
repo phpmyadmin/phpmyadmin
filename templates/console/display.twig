@@ -1,17 +1,29 @@
 <div id="pma_console_container" class="d-print-none">
   <div id="pma_console">
-    {# Console toolbar #}
-    {% include 'console/toolbar.twig' with {
-      'parent_div_classes': 'collapsed',
-      'content_array': [
-        {0: 'switch_button console_switch', 1: 'Console'|trans, 'image': image},
-        ['button clear', 'Clear'|trans],
-        ['button history', 'History'|trans],
-        ['button options', 'Options'|trans],
-        has_bookmark_feature ? ['button bookmarks', 'Bookmarks'|trans] : null,
-        ['button debug hide', 'Debug SQL'|trans]
-      ]
-    } only %}
+    <div class="toolbar collapsed">
+      <div class="switch_button console_switch">
+        {{ get_image('console', 'SQL Query Console'|trans) }}
+        <span>{{ 'Console'|trans }}</span>
+      </div>
+      <div class="button clear">
+        <span>{{ 'Clear'|trans }}</span>
+      </div>
+      <div class="button history">
+        <span>{{ 'History'|trans }}</span>
+      </div>
+      <div class="button options">
+        <span>{{ 'Options'|trans }}</span>
+      </div>
+      {% if has_bookmark_feature %}
+        <div class="button bookmarks">
+          <span>{{ 'Bookmarks'|trans }}</span>
+        </div>
+      {% endif %}
+      <div class="button debug hide">
+        <span>{{ 'Debug SQL'|trans }}</span>
+      </div>
+    </div>
+
     {# Console messages #}
     <div class="content">
       <div class="console_message_container">
@@ -54,21 +66,39 @@
     <div class="mid_layer"></div>
     {# Debug SQL card #}
     <div class="card" id="debug_console">
-      {% include 'console/toolbar.twig' with {
-        'parent_div_classes': '',
-        'content_array': [
-          ['button order order_asc', 'ascending'|trans],
-          ['button order order_desc', 'descending'|trans],
-          ['text', 'Order:'|trans],
-          ['switch_button', 'Debug SQL'|trans],
-          ['button order_by sort_count', 'Count'|trans],
-          ['button order_by sort_exec', 'Execution order'|trans],
-          ['button order_by sort_time', 'Time taken'|trans],
-          ['text', 'Order by:'|trans],
-          ['button group_queries', 'Group queries'|trans],
-          ['button ungroup_queries', 'Ungroup queries'|trans]
-        ]
-      } only %}
+      <div class="toolbar">
+        <div class="button order order_asc">
+          <span>{{ 'ascending'|trans }}</span>
+        </div>
+        <div class="button order order_desc">
+          <span>{{ 'descending'|trans }}</span>
+        </div>
+        <div class="text">
+          <span>{{ 'Order:'|trans }}</span>
+        </div>
+        <div class="switch_button">
+          <span>{{ 'Debug SQL'|trans }}</span>
+        </div>
+        <div class="button order_by sort_count">
+          <span>{{ 'Count'|trans }}</span>
+        </div>
+        <div class="button order_by sort_exec">
+          <span>{{ 'Execution order'|trans }}</span>
+        </div>
+        <div class="button order_by sort_time">
+          <span>{{ 'Time taken'|trans }}</span>
+        </div>
+        <div class="text">
+          <span>{{ 'Order by:'|trans }}</span>
+        </div>
+        <div class="button group_queries">
+          <span>{{ 'Group queries'|trans }}</span>
+        </div>
+        <div class="button ungroup_queries">
+          <span>{{ 'Ungroup queries'|trans }}</span>
+        </div>
+      </div>
+
       <div class="content debug">
         <div class="message welcome"></div>
         <div class="debugLog"></div>
@@ -89,25 +119,29 @@
     </div> <!-- Debug SQL card -->
     {% if has_bookmark_feature %}
       <div class="card" id="pma_bookmarks">
-        {% include 'console/toolbar.twig' with {
-          'parent_div_classes': '',
-          'content_array': [
-            ['switch_button', 'Bookmarks'|trans],
-            ['button refresh', 'Refresh'|trans],
-            ['button add', 'Add'|trans]
-          ]
-        } only %}
+        <div class="toolbar">
+          <div class="switch_button">
+            <span>{{ 'Bookmarks'|trans }}</span>
+          </div>
+          <div class="button refresh">
+            <span>{{ 'Refresh'|trans }}</span>
+          </div>
+          <div class="button add">
+            <span>{{ 'Add'|trans }}</span>
+          </div>
+        </div>
+
         <div class="content bookmark">
           {{ bookmark_content|raw }}
         </div>
         <div class="mid_layer"></div>
         <div class="card add">
-          {% include 'console/toolbar.twig' with {
-            'parent_div_classes': '',
-            'content_array': [
-              ['switch_button', 'Add bookmark'|trans]
-            ]
-          } only %}
+          <div class="toolbar">
+            <div class="switch_button">
+              <span>{{ 'Add bookmark'|trans }}</span>
+            </div>
+          </div>
+
           <div class="content add_bookmark">
             <div class="options">
               <label>
@@ -130,13 +164,15 @@
     {% endif %}
     {# Options card #}
     <div class="card" id="pma_console_options">
-      {% include 'console/toolbar.twig' with {
-        'parent_div_classes': '',
-        'content_array': [
-          ['switch_button', 'Options'|trans],
-          ['button default', 'Set default'|trans]
-        ]
-      } only %}
+      <div class="toolbar">
+        <div class="switch_button">
+          <span>{{ 'Options'|trans }}</span>
+        </div>
+        <div class="button default">
+          <span>{{ 'Set default'|trans }}</span>
+        </div>
+      </div>
+
       <div class="content">
         <label>
           <input type="checkbox" name="always_expand">{% trans 'Always expand query messages' %}

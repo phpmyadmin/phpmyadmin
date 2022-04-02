@@ -121,13 +121,11 @@ class Console
         }
 
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        $image = Html\Generator::getImage('console', __('SQL Query Console'));
         $_sql_history = $this->relation->getHistory($GLOBALS['cfg']['Server']['user']);
         $bookmarkContent = static::getBookmarkContent();
 
         return $this->template->render('console/display', [
             'has_bookmark_feature' => $bookmarkFeature !== null,
-            'image' => $image,
             'sql_history' => $_sql_history,
             'bookmark_content' => $bookmarkContent,
         ]);
