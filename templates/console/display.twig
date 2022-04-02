@@ -34,25 +34,21 @@
         {% if sql_history is not empty %}
           {% for record in sql_history|reverse %}
             <div class="message history collapsed hide{{ record['sqlquery'] matches '@^SELECT[[:space:]]+@i' ? ' select' }}" targetdb="{{ record['db'] }}" targettable="{{ record['table'] }}">
-              {% include 'console/query_action.twig' with {
-                'parent_div_classes': 'action_content',
-                'content_array': [
-                  ['action collapse', 'Collapse'|trans],
-                  ['action expand', 'Expand'|trans],
-                  ['action requery', 'Requery'|trans],
-                  ['action edit', 'Edit'|trans],
-                  ['action explain', 'Explain'|trans],
-                  ['action profiling', 'Profiling'|trans],
-                  has_bookmark_feature ? ['action bookmark', 'Bookmark'|trans] : null,
-                  ['text failed', 'Query failed'|trans],
-                  {0: 'text targetdb', 1: 'Database'|trans, 'extraSpan': record['db']},
-                  {
-                    0: 'text query_time',
-                    1: 'Queried time'|trans,
-                    'extraSpan': record['timevalue'] is defined ? record['timevalue'] : 'During current session'|trans
-                  }
-                ]
-              } only %}
+              <div class="action_content">
+                <span class="action collapse">{{ 'Collapse'|trans }}</span>
+                <span class="action expand">{{ 'Expand'|trans }}</span>
+                <span class="action requery">{{ 'Requery'|trans }}</span>
+                <span class="action edit">{{ 'Edit'|trans }}</span>
+                <span class="action explain">{{ 'Explain'|trans }}</span>
+                <span class="action profiling">{{ 'Profiling'|trans }}</span>
+                {% if has_bookmark_feature %}
+                  <span class="action bookmark">{{ 'Bookmark'|trans }}</span>
+                {% endif %}
+                <span class="text failed">{{ 'Query failed'|trans }}</span>
+                <span class="text targetdb">{{ 'Database'|trans }}: <span>{{ record['db'] }}</span></span>
+                <span class="text query_time">{{ 'Queried time'|trans }}: <span>{{ record['timevalue'] is defined ? record['timevalue'] : 'During current session'|trans }}</span></span>
+              </div>
+
               <span class="query">{{ record['sqlquery'] }}</span>
             </div>
           {% endfor %}
@@ -104,17 +100,15 @@
         <div class="debugLog"></div>
       </div> <!-- Content -->
       <div class="templates">
-        {% include 'console/query_action.twig' with {
-          'parent_div_classes': 'debug_query action_content',
-          'content_array': [
-            ['action collapse', 'Collapse'|trans],
-            ['action expand', 'Expand'|trans],
-            ['action dbg_show_trace', 'Show trace'|trans],
-            ['action dbg_hide_trace', 'Hide trace'|trans],
-            ['text count hide', 'Count'|trans],
-            ['text time', 'Time taken'|trans]
-          ]
-        } only %}
+        <div class="debug_query action_content">
+          <span class="action collapse">{{ 'Collapse'|trans }}</span>
+          <span class="action expand">{{ 'Expand'|trans }}</span>
+          <span class="action dbg_show_trace">{{ 'Show trace'|trans }}</span>
+          <span class="action dbg_hide_trace">{{ 'Hide trace'|trans }}</span>
+          <span class="text count hide">{{ 'Count'|trans }}</span>
+          <span class="text time">{{ 'Time taken'|trans }}</span>
+        </div>
+
       </div> <!-- Template -->
     </div> <!-- Debug SQL card -->
     {% if has_bookmark_feature %}
@@ -201,21 +195,20 @@
     </div> <!-- Options card -->
     <div class="templates">
       {# Templates for console message actions #}
-      {% include 'console/query_action.twig' with {
-        'parent_div_classes': 'query_actions',
-        'content_array': [
-          ['action collapse', 'Collapse'|trans],
-          ['action expand', 'Expand'|trans],
-          ['action requery', 'Requery'|trans],
-          ['action edit', 'Edit'|trans],
-          ['action explain', 'Explain'|trans],
-          ['action profiling', 'Profiling'|trans],
-          has_bookmark_feature ? ['action bookmark', 'Bookmark'|trans] : null,
-          ['text failed', 'Query failed'|trans],
-          {0: 'text targetdb', 1: 'Database'|trans, 'extraSpan': ''},
-          {0: 'text query_time', 1: 'Queried time'|trans, 'extraSpan': ''}
-        ]
-      } only %}
+      <div class="query_actions">
+        <span class="action collapse">{{ 'Collapse'|trans }}</span>
+        <span class="action expand">{{ 'Expand'|trans }}</span>
+        <span class="action requery">{{ 'Requery'|trans }}</span>
+        <span class="action edit">{{ 'Edit'|trans }}</span>
+        <span class="action explain">{{ 'Explain'|trans }}</span>
+        <span class="action profiling">{{ 'Profiling'|trans }}</span>
+        {% if has_bookmark_feature %}
+          <span class="action bookmark">{{ 'Bookmark'|trans }}</span>
+        {% endif %}
+        <span class="text failed">{{ 'Query failed'|trans }}</span>
+        <span class="text targetdb">{{ 'Database'|trans }}: <span></span></span>
+        <span class="text query_time">{{ 'Queried time'|trans }}: <span></span></span>
+      </div>
     </div>
   </div> <!-- #console end -->
 </div> <!-- #console_container end -->
