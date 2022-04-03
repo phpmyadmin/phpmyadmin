@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-03 00:16+0000\n"
-"PO-Revision-Date: 2022-03-24 16:56+0000\n"
+"PO-Revision-Date: 2022-04-04 10:11+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -9619,34 +9619,27 @@ msgid "The database name must be a non-empty string."
 msgstr "Le nom de la base de données doit être une chaîne non vide."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Merci de saisir au maximum {0} caractères"
+msgstr ""
+"Le nom de la base de données ne peut pas être plus grand que %d caractères."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
-msgstr "Séparer les mots par une espace (« »)."
+msgstr "Le nom de la base de données ne peut pas se terminer par une espace."
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "Le nom de la table est vide !"
+msgstr "Le nom de la table doit être une chaîne de caractères non vide."
 
 #: libraries/classes/Dbal/InvalidTableName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Merci de saisir au maximum {0} caractères"
+msgstr "Le nom de la table ne peut pas être plus long que %d caractères."
 
 #: libraries/classes/Dbal/InvalidTableName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
-msgstr "Séparer les mots par une espace (« »)."
+msgstr "Le nom de la table ne peut pas se terminer par une espace."
 
 #: libraries/classes/Display/Results.php:1271
 #: templates/display/results/table.twig:202
@@ -16283,7 +16276,7 @@ msgstr "Avertissement"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "Avis"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
@@ -18390,20 +18383,16 @@ msgid "Bookmark this SQL query"
 msgstr "Conserver cette requête SQL dans les signets"
 
 #: templates/sql/bookmark.twig:14
-#, fuzzy
-#| msgid "Bookmark table"
 msgid "Bookmark label:"
-msgstr "Mettre la table en signet"
+msgstr "Mettre la table en signet :"
 
 #: templates/sql/bookmark.twig:20 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr "Signet visible pour les autres utilisateurs"
 
 #: templates/sql/bookmark.twig:24
-#, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
-msgstr "Créer un signet"
+msgstr "Créer un nouveau signet"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
@@ -19141,10 +19130,8 @@ msgid "Next autoindex"
 msgstr "Prochain index automatique"
 
 #: templates/table/structure/drop_confirm.twig:2
-#, fuzzy
-#| msgid "DROP columns %s from the table %s"
 msgid "Dropping columns from the table"
-msgstr "Supprimer (DROP) les colonnes %s de la table %s"
+msgstr "Supprimer des colonnes de la table"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
