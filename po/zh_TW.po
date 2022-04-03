@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-03-27 00:18+0000\n"
+"POT-Creation-Date: 2022-04-03 00:16+0000\n"
 "PO-Revision-Date: 2022-03-29 23:08+0000\n"
 "Last-Translator: Eotones <eotones@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -552,10 +552,10 @@ msgid ""
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助，但某些暫存資料表"
-"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，"
-"避免在暫存資料表中儲存 BLOB 或 TEXT 類型的欄位，或者使用長度大於 512 "
-"位元組的欄位，如 <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
-"temporary-tables.html\">MySQL 說明文件</a>所提到的狀況"
+"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存"
+"資料表中儲存 BLOB 或 TEXT 類型的欄位，或者使用長度大於 512 位元組的欄位，如 "
+"<a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables."
+"html\">MySQL 說明文件</a>所提到的狀況"
 
 #: libraries/classes/Advisory/Rules.php:383
 #, php-format
@@ -2107,8 +2107,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"執行 script 時可配置的記憶體大小，例如 [kbd]32MB[/kbd] ([kbd]-1[/kbd] "
-"為不限制、[kbd]0[/kbd] 為不作變更)。"
+"執行 script 時可配置的記憶體大小，例如 [kbd]32MB[/kbd] ([kbd]-1[/kbd] 為不限"
+"制、[kbd]0[/kbd] 為不作變更)。"
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -5022,13 +5022,13 @@ msgstr "類型錯誤！"
 msgid "Bad parameters!"
 msgstr "參數出錯！"
 
-#: libraries/classes/Controllers/HomeController.php:99
+#: libraries/classes/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr "已經登出一台伺服器；如要完全登出 phpMyAdmin，則需要登出所有伺服器。"
 
-#: libraries/classes/Controllers/HomeController.php:200
+#: libraries/classes/Controllers/HomeController.php:203
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5036,12 +5036,12 @@ msgid ""
 msgstr ""
 "尚未設定 phpMyAdmin 設定儲存空間，部份延伸功能將無法使用。 %s了解原因%s。 "
 
-#: libraries/classes/Controllers/HomeController.php:206
+#: libraries/classes/Controllers/HomeController.php:209
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "或者前往任一個資料庫的「操作」分頁設定。"
 
-#: libraries/classes/Controllers/HomeController.php:270
+#: libraries/classes/Controllers/HomeController.php:274
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5053,7 +5053,7 @@ msgstr ""
 "短於在 phpMyAdmin 設定的 cookie 有效時間，因此登入連線有效時間可能比在 "
 "phpMyAdmin 設定的時間要短。"
 
-#: libraries/classes/Controllers/HomeController.php:290
+#: libraries/classes/Controllers/HomeController.php:294
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5061,7 +5061,7 @@ msgstr ""
 "phpMyAdmin 所設定的登入 cookie 儲存時間小於 phpMyAdmin 的 cookie 有效時間，因"
 "此登入連線有效期間會比在 phpMyAdmin 設定的時間要短。"
 
-#: libraries/classes/Controllers/HomeController.php:309
+#: libraries/classes/Controllers/HomeController.php:313
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5070,18 +5070,18 @@ msgstr ""
 "您伺服器的控制使用者（controluser）和密碼（controlpass）正在使用預設值運行，"
 "可能會遭到入侵；請務必變更控制使用者「pma」的密碼 ，以解決這個安全漏洞。"
 
-#: libraries/classes/Controllers/HomeController.php:325
+#: libraries/classes/Controllers/HomeController.php:329
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "設定檔案需要設定加密密碼(blowfish_secret)。"
 
-#: libraries/classes/Controllers/HomeController.php:333
+#: libraries/classes/Controllers/HomeController.php:337
 #, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr "設定檔中的秘密密鑰(blowfish_secret)長度不正確。長度應為 %d 位元組。"
 
-#: libraries/classes/Controllers/HomeController.php:350
+#: libraries/classes/Controllers/HomeController.php:354
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5092,14 +5092,14 @@ msgstr ""
 "成之後移除該資料夾，否則會有未經授權的人下載你的設定檔而對伺服器安全性造成威"
 "脅。"
 
-#: libraries/classes/Controllers/HomeController.php:371
+#: libraries/classes/Controllers/HomeController.php:375
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "伺服器執行了 Suhosin。請參閱%s說明文件%s進一步了解可能會有的問題。"
 
-#: libraries/classes/Controllers/HomeController.php:385
+#: libraries/classes/Controllers/HomeController.php:389
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5108,7 +5108,7 @@ msgstr ""
 "無法存取 $cfg['TempDir'] (%s)。phpMyAdmin 會無法快取模版，並且會因為此原因變"
 "得很慢。"
 
-#: libraries/classes/Controllers/HomeController.php:442
+#: libraries/classes/Controllers/HomeController.php:446
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5117,7 +5117,7 @@ msgstr ""
 "找不到 PHP 的 mbstring 擴充套件，且您正使用多位元組字元編碼。 若沒有 "
 "mbstring 擴充套件 phpMyAdmin 將無法正確分割字串，這可能造成奇怪的錯誤。"
 
-#: libraries/classes/Controllers/HomeController.php:460
+#: libraries/classes/Controllers/HomeController.php:464
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5487,7 +5487,7 @@ msgstr "正在刪除已選擇的使用者"
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
-#: templates/home/index.twig:285 templates/home/index.twig:293
+#: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/add_index.twig:6 templates/modals/build_query.twig:6
 #: templates/modals/build_query.twig:16 templates/modals/change_password.twig:6
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -6157,7 +6157,7 @@ msgid "Apply"
 msgstr "套用"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
-#: templates/home/index.twig:289 templates/navigation/main.twig:58
+#: templates/home/index.twig:300 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -8222,15 +8222,17 @@ msgstr "使用在關聯表上使用範圍搜尋的多表查詢的數量。"
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr "沒有使用索引但在每行之後檢查索引使用的多表查詢數。 (如果該值不為 "
-"0，您應該仔細檢查是否已經為資料表建立了適當的索引。)"
+msgstr ""
+"沒有使用索引但在每行之後檢查索引使用的多表查詢數。 (如果該值不為 0，您應該仔"
+"細檢查是否已經為資料表建立了適當的索引。)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
-msgstr "在第一個資料表上使用範圍查詢的多表查詢數。 "
-"(即使該值很大，通常也不會有致命的影響。)"
+msgstr ""
+"在第一個資料表上使用範圍查詢的多表查詢數。 (即使該值很大，通常也不會有致命的"
+"影響。)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of joins that did a full scan of the first table."
@@ -10650,7 +10652,8 @@ msgstr "輸入驗證碼錯誤，請再嘗試！"
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
-msgstr "您的密碼太長。為了防止阻斷服務攻擊，phpMyAdmin將密碼限制在1000個字元以內。"
+msgstr ""
+"您的密碼太長。為了防止阻斷服務攻擊，phpMyAdmin將密碼限制在1000個字元以內。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:321
 msgid "You are not allowed to log in to this MySQL server!"
@@ -15261,9 +15264,8 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"此值會以 'strftime' "
-"函數來解讀，所以可以使用時間格式的字串。除此之外，以下資料格式也會轉換：%s "
-"其他的文字則會保持原樣。請參閱常見問題 FAQ 6.27 了解詳情。"
+"此值會以 'strftime' 函數來解讀，所以可以使用時間格式的字串。除此之外，以下資"
+"料格式也會轉換：%s 其他的文字則會保持原樣。請參閱常見問題 FAQ 6.27 了解詳情。"
 
 #: templates/export.twig:398
 #, fuzzy
@@ -15561,13 +15563,21 @@ msgstr "版本沿革"
 msgid "License"
 msgstr "授權"
 
-#: templates/home/index.twig:284
+#: templates/home/index.twig:280 templates/setup/error.twig:2
+msgid "Warning"
+msgstr "警告"
+
+#: templates/home/index.twig:282
+msgid "Notice"
+msgstr ""
+
+#: templates/home/index.twig:295
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin 主頁 (外部連結，英文)"
 
-#: templates/home/index.twig:295
+#: templates/home/index.twig:306
 msgid "Get more themes!"
 msgstr "取得更多的佈景主題！"
 
@@ -17557,10 +17567,6 @@ msgstr "生成的設定檔"
 msgid "Download"
 msgstr "下載"
 
-#: templates/setup/error.twig:2
-msgid "Warning"
-msgstr "警告"
-
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
 msgstr "送出的表單中有錯誤"
@@ -17832,8 +17838,9 @@ msgstr "另存圖表為影像"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr "@SERVER@ 會以伺服器名稱取代，@DATABASE@ 會以資料庫名稱取代，@TABLE@ "
-"會以資料表名稱取代。"
+msgstr ""
+"@SERVER@ 會以伺服器名稱取代，@DATABASE@ 會以資料庫名稱取代，@TABLE@ 會以資料"
+"表名稱取代。"
 
 #: templates/table/export/index.twig:7
 #, php-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-03-27 00:18+0000\n"
+"POT-Creation-Date: 2022-04-03 00:16+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5597,7 +5597,7 @@ msgstr "खोटा प्रकार!"
 msgid "Bad parameters!"
 msgstr "गलत पैरामीटर्स!"
 
-#: libraries/classes/Controllers/HomeController.php:99
+#: libraries/classes/Controllers/HomeController.php:102
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5605,7 +5605,7 @@ msgstr ""
 "आप एक सर्वर से लॉग आउट किए गए थे, phpMyAdmin से पूरी तरह लॉग आउट करने के लिए आपको "
 "सभी सर्वर से लॉगआउट करने की आवश्यकता है|"
 
-#: libraries/classes/Controllers/HomeController.php:200
+#: libraries/classes/Controllers/HomeController.php:203
 #, fuzzy, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
@@ -5617,12 +5617,12 @@ msgstr ""
 "लिंक्ड टेबलओं के साथ काम करने के लिए अतिरिक्त सुविधाओं को निष्क्रिय कर दिया गया है. क्यों ये "
 "किया गया है, जानने के लिए %shere%s पर क्लिक करें. "
 
-#: libraries/classes/Controllers/HomeController.php:206
+#: libraries/classes/Controllers/HomeController.php:209
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "या फिर किसि भी डाटाबेस के कार्रवाई टॅब पर जाकर उसे सेतअप करे."
 
-#: libraries/classes/Controllers/HomeController.php:270
+#: libraries/classes/Controllers/HomeController.php:274
 #, fuzzy
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
@@ -5635,7 +5635,7 @@ msgstr ""
 "की वैधता की तुलना में कम है PhpMyAdmin में, इस वजह से, आपका लॉगिन phpMyAdmin में "
 "कॉन्फ़िगर की तुलना में जल्दी समाप्त हो सकता है।"
 
-#: libraries/classes/Controllers/HomeController.php:290
+#: libraries/classes/Controllers/HomeController.php:294
 #, fuzzy
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
@@ -5644,18 +5644,18 @@ msgstr ""
 "लॉगिन कुकी स्टोर phpMyAdmin में कॉन्फ़िगर की गई कुकी की वैधता से कम है, इस वजह से, आपका "
 "लॉगिन phpMyAdmin में कॉन्फ़िगर की तुलना में शीघ्र ही समाप्त हो जाएगा।"
 
-#: libraries/classes/Controllers/HomeController.php:309
+#: libraries/classes/Controllers/HomeController.php:313
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:325
+#: libraries/classes/Controllers/HomeController.php:329
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "कॉन्फ़िगरेशन फ़ाइल को एक गुप्त पदबंध की जरूरत है (ब्लोफिश सिक्रेट)."
 
-#: libraries/classes/Controllers/HomeController.php:333
+#: libraries/classes/Controllers/HomeController.php:337
 #, fuzzy, php-format
 #| msgid ""
 #| "The secret passphrase in configuration (blowfish_secret) is too short."
@@ -5664,7 +5664,7 @@ msgid ""
 "length. It should be %d bytes long."
 msgstr "कॉन्फ़िगरेशन फ़ाइल का गुप्त पदबंध छोटा है."
 
-#: libraries/classes/Controllers/HomeController.php:350
+#: libraries/classes/Controllers/HomeController.php:354
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5676,21 +5676,21 @@ msgstr ""
 "हो जाये उसे मिटा दे। वर्ना अनधिकृत लोग जो आपका कॉन्फ़िगरेशन डाउनलोड करेंगे उनसे आपकी "
 "सर्वर की सुरक्षा खतरेमे आ सकती है।"
 
-#: libraries/classes/Controllers/HomeController.php:371
+#: libraries/classes/Controllers/HomeController.php:375
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "सर्वर Suhosin के साथ चल रहा है. कॄपया %s के प्रलेखन %s  को परामर्श करें."
 
-#: libraries/classes/Controllers/HomeController.php:385
+#: libraries/classes/Controllers/HomeController.php:389
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:442
+#: libraries/classes/Controllers/HomeController.php:446
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5700,7 +5700,7 @@ msgstr ""
 "रहे हैं। Mbstring विस्तार के बिना phpMyAdmin सही ढंग से string को विभाजित करने में "
 "असमर्थ है और इसके अप्रत्याशित परिणाम हो सकते हैं।"
 
-#: libraries/classes/Controllers/HomeController.php:460
+#: libraries/classes/Controllers/HomeController.php:464
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -6126,7 +6126,7 @@ msgstr "चयनित प्रयोक्ताओं को हटाये
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
-#: templates/home/index.twig:285 templates/home/index.twig:293
+#: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/add_index.twig:6 templates/modals/build_query.twig:6
 #: templates/modals/build_query.twig:16 templates/modals/change_password.twig:6
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -6865,7 +6865,7 @@ msgid "Apply"
 msgstr "लागू करे"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
-#: templates/home/index.twig:289 templates/navigation/main.twig:58
+#: templates/home/index.twig:300 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -17020,13 +17020,21 @@ msgstr "परिवर्तनों की सूची"
 msgid "License"
 msgstr "लाइसेंस"
 
-#: templates/home/index.twig:284
+#: templates/home/index.twig:280 templates/setup/error.twig:2
+msgid "Warning"
+msgstr "चेतावनी"
+
+#: templates/home/index.twig:282
+msgid "Notice"
+msgstr ""
+
+#: templates/home/index.twig:295
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin मुखपृष्ठ"
 
-#: templates/home/index.twig:295
+#: templates/home/index.twig:306
 msgid "Get more themes!"
 msgstr "अधिक प्रसंग पाएं!"
 
@@ -19226,10 +19234,6 @@ msgstr "विन्यास सहेज नहीं सकते"
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
 msgstr "डाउनलोड"
-
-#: templates/setup/error.twig:2
-msgid "Warning"
-msgstr "चेतावनी"
 
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
