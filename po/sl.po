@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-03 00:16+0000\n"
-"PO-Revision-Date: 2022-03-22 12:57+0000\n"
+"PO-Revision-Date: 2022-04-04 10:11+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -16051,7 +16051,7 @@ msgstr "Opozorilo"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "Obvestilo"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
