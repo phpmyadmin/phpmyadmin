@@ -990,7 +990,7 @@ class Util
         ) {
             // do not build a too big condition
             if (mb_strlen((string) $row) < 5000) {
-                $condition .= '=0x' . bin2hex((string) $row) . ' AND';
+                $condition .= '= CAST(0x' . bin2hex((string) $row) . ' AS BINARY)';
             } else {
                 $condition = '';
             }
