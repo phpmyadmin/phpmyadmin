@@ -1841,7 +1841,7 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{host\\: non\\-empty\\-string, scheme\\?\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
+			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{scheme\\?\\: string, host\\: non\\-empty\\-string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -4594,11 +4594,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\IndexColumn\\:\\:set\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/IndexColumn.php
-
-		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:analyzeTableColumnsArray\\(\\) has parameter \\$column with no value type specified in iterable type array\\.$#"
@@ -9032,6 +9027,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Parameter \\#2 \\$version2 of function version_compare expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
 

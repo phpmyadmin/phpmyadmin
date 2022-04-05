@@ -24,6 +24,7 @@ use function gmdate;
 use function hash_equals;
 use function hash_hmac;
 use function header;
+use function header_remove;
 use function htmlspecialchars;
 use function http_build_query;
 use function in_array;
@@ -483,10 +484,23 @@ class Core
 
         $headers['Content-Type'] = $mimetype;
 
+        /** @var string $browserAgent */
+        $browserAgent = $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT');
+
         // inform the server that compression has been done,
         // to avoid a double compression (for example with Apache + mod_deflate)
-        if (str_contains($mimetype, 'gzip') && $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') !== 'CHROME') {
-            $headers['Content-Encoding'] = 'gzip';
+        if (str_contains($mimetype, 'gzip')) {
+            /**
+             * @see https://github.com/phpmyadmin/phpmyadmin/issues/11283
+             */
+            if ($browserAgent !== 'CHROME') {
+                $headers['Content-Encoding'] = 'gzip';
+            }
+        } else {
+            // The default output in PMA uses gzip,
+            // so if we want to output uncompressed file, we should reset the encoding.
+            // See PHP bug https://github.com/php/php-src/issues/8218
+            header_remove('Content-Encoding');
         }
 
         $headers['Content-Transfer-Encoding'] = 'binary';

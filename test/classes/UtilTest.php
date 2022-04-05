@@ -183,7 +183,7 @@ class UtilTest extends AbstractTestCase
                 . ' AND `table`.`field4` = 123.456 AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
                 . ' AND `table`.`field7` = \'value\' AND `table`.`field8` = \'value\''
                 . ' AND `table`.`field9` = CAST(0x76616c7565 AS BINARY)'
-                . ' AND `table`.`field10` =0x76616c7565 AND'
+                . ' AND `table`.`field10` = CAST(0x76616c7565 AS BINARY)'
                 . ' AND `table`.`field12` = b\'0001\'',
                 false,
                 [
