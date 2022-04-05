@@ -168,29 +168,26 @@
       </div>
 
       <div class="content">
-        <label>
-          <input type="checkbox" name="always_expand">{% trans 'Always expand query messages' %}
-        </label>
-        <br>
-        <label>
-          <input type="checkbox" name="start_history">{% trans 'Show query history at start' %}
-        </label>
-        <br>
-        <label>
-          <input type="checkbox" name="current_query">{% trans 'Show current browsing query' %}
-        </label>
-        <br>
-        <label>
-          <input type="checkbox" name="enter_executes">
-          {% trans %}
-            Execute queries on Enter and insert new line with Shift+Enter. To make this permanent, view settings.
-          {% endtrans %}
-        </label>
-        <br>
-        <label>
-          <input type="checkbox" name="dark_theme">{% trans 'Switch to dark theme' %}
-        </label>
-        <br>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsAlwaysExpandCheckbox" name="always_expand">
+          <label class="form-check-label" for="consoleOptionsAlwaysExpandCheckbox">{{ 'Always expand query messages'|trans }}</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsStartHistoryCheckbox" name="start_history">
+          <label class="form-check-label" for="consoleOptionsStartHistoryCheckbox">{{ 'Show query history at start'|trans }}</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsCurrentQueryCheckbox" name="current_query">
+          <label class="form-check-label" for="consoleOptionsCurrentQueryCheckbox">{{ 'Show current browsing query'|trans }}</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsEnterExecutesCheckbox" name="enter_executes">
+          <label class="form-check-label" for="consoleOptionsEnterExecutesCheckbox">{{ 'Execute queries on Enter and insert new line with Shift+Enter. To make this permanent, view settings.'|trans }}</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsDarkThemeCheckbox" name="dark_theme">
+          <label class="form-check-label" for="consoleOptionsDarkThemeCheckbox">{{ 'Switch to dark theme'|trans }}</label>
+        </div>
       </div>
     </div> <!-- Options card -->
     <div class="templates">

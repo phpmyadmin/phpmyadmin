@@ -96,19 +96,19 @@ var Console = {
         if (Console.isInitialized === false) {
             // Load config first
             if (Config.AlwaysExpand) {
-                $('#pma_console_options input[name=always_expand]').prop('checked', true);
+                document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked = true;
             }
             if (Config.StartHistory) {
-                $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
+                document.getElementById('consoleOptionsStartHistoryCheckbox').checked = true;
             }
             if (Config.CurrentQuery) {
-                $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
+                document.getElementById('consoleOptionsCurrentQueryCheckbox').checked = true;
             }
             if (Config.EnterExecutes) {
-                $('#pma_console_options').find('input[name=enter_executes]').prop('checked', true);
+                document.getElementById('consoleOptionsEnterExecutesCheckbox').checked = true;
             }
             if (Config.DarkTheme) {
-                $('#pma_console_options').find('input[name=dark_theme]').prop('checked', true);
+                document.getElementById('consoleOptionsDarkThemeCheckbox').checked = true;
                 $('#pma_console').find('>.content').addClass('console_dark_theme');
             }
 
@@ -165,15 +165,15 @@ var Console = {
             });
 
             $('#pma_console_options').find('.button.default').on('click', function () {
-                $('#pma_console_options input[name=always_expand]').prop('checked', false);
-                $('#pma_console_options').find('input[name=start_history]').prop('checked', false);
-                $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
-                $('#pma_console_options').find('input[name=enter_executes]').prop('checked', false);
-                $('#pma_console_options').find('input[name=dark_theme]').prop('checked', false);
+                document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked = false;
+                document.getElementById('consoleOptionsStartHistoryCheckbox').checked = false;
+                document.getElementById('consoleOptionsCurrentQueryCheckbox').checked = true;
+                document.getElementById('consoleOptionsEnterExecutesCheckbox').checked = false;
+                document.getElementById('consoleOptionsDarkThemeCheckbox').checked = false;
                 Config.update();
             });
 
-            $('#pma_console_options').find('input[name=enter_executes]').on('change', function () {
+            $('#consoleOptionsEnterExecutesCheckbox').on('change', function () {
                 ConsoleMessages.showInstructions(Config.EnterExecutes);
             });
 
