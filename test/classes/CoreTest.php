@@ -604,14 +604,9 @@ class CoreTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for unserializing
-     *
-     * @param string $url      URL to test
-     * @param mixed  $expected Expected result
-     *
      * @dataProvider provideTestIsAllowedDomain
      */
-    public function testIsAllowedDomain(string $url, $expected): void
+    public function testIsAllowedDomain(string $url, bool $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
         $this->assertEquals(
@@ -621,45 +616,36 @@ class CoreTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test data provider
-     *
-     * @return array
+     * @return array<int, array<int, bool|string>>
+     * @psalm-return list<array{string, bool}>
      */
     public function provideTestIsAllowedDomain(): array
     {
         return [
-            [
-                'https://www.phpmyadmin.net/',
-                true,
-            ],
-            [
-                'http://duckduckgo.com\\@github.com',
-                false,
-            ],
-            [
-                'https://github.com/',
-                true,
-            ],
-            [
-                'https://github.com:123/',
-                false,
-            ],
-            [
-                'https://user:pass@github.com:123/',
-                false,
-            ],
-            [
-                'https://user:pass@github.com/',
-                false,
-            ],
-            [
-                'https://server.local/',
-                true,
-            ],
-            [
-                './relative/',
-                false,
-            ],
+            ['', false],
+            ['//', false],
+            ['https://www.phpmyadmin.net/', true],
+            ['https://www.phpmyadmin.net:123/', false],
+            ['http://duckduckgo.com\\@github.com', false],
+            ['https://user:pass@github.com:123/', false],
+            ['https://user:pass@github.com/', false],
+            ['https://server.local/', true],
+            ['./relative/', false],
+            ['//wiki.phpmyadmin.net', true],
+            ['//www.phpmyadmin.net', true],
+            ['//phpmyadmin.net', true],
+            ['//demo.phpmyadmin.net', true],
+            ['//docs.phpmyadmin.net', true],
+            ['//dev.mysql.com', true],
+            ['//bugs.mysql.com', true],
+            ['//mariadb.org', true],
+            ['//mariadb.com', true],
+            ['//php.net', true],
+            ['//www.php.net', true],
+            ['//github.com', true],
+            ['//www.github.com', true],
+            ['//www.percona.com', true],
+            ['//mysqldatabaseadministration.blogspot.com', true],
         ];
     }
 

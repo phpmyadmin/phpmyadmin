@@ -1701,11 +1701,6 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{host\\: non\\-empty\\-string, scheme\\?\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:buildColumnCreationStatement\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
@@ -9049,11 +9044,6 @@ parameters:
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 7
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:provideTestIsAllowedDomain\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:provideTestSafeUnserialize\\(\\) return type has no value type specified in iterable type array\\.$#"

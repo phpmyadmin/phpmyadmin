@@ -629,30 +629,17 @@ class Core
      */
     public static function isAllowedDomain(string $url): bool
     {
-        $arr = parse_url($url);
-
-        if (! is_array($arr)) {
-            $arr = [];
-        }
-
-        // We need host to be set
-        if (! isset($arr['host']) || strlen($arr['host']) == 0) {
+        $parsedUrl = parse_url($url);
+        if (
+            ! is_array($parsedUrl)
+            || ! isset($parsedUrl['host'])
+            || isset($parsedUrl['user'])
+            || isset($parsedUrl['pass'])
+            || isset($parsedUrl['port'])
+        ) {
             return false;
         }
 
-        // We do not want these to be present
-        $blocked = [
-            'user',
-            'pass',
-            'port',
-        ];
-        foreach ($blocked as $part) {
-            if (isset($arr[$part]) && strlen((string) $arr[$part]) != 0) {
-                return false;
-            }
-        }
-
-        $domain = $arr['host'];
         $domainAllowList = [
             /* Include current domain */
             $_SERVER['SERVER_NAME'],
@@ -680,7 +667,7 @@ class Core
             'mysqldatabaseadministration.blogspot.com',
         ];
 
-        return in_array($domain, $domainAllowList);
+        return in_array($parsedUrl['host'], $domainAllowList, true);
     }
 
     /**

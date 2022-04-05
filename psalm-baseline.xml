@@ -15269,8 +15269,7 @@
       <code>$arr['sarr'][0]</code>
       <code>$arr['sarr'][0]</code>
     </MixedArrayAccess>
-    <MixedInferredReturnType occurrences="6">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="5">
       <code>array</code>
       <code>array</code>
       <code>array</code>
