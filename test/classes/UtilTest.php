@@ -345,7 +345,7 @@ class UtilTest extends AbstractTestCase
             )
         );
         $this->assertSame(
-            ['', '=0x626c6f6f6f626262 AND'],
+            ['', '= CAST(0x626c6f6f6f626262 AS BINARY)'],
             $this->callFunction(
                 null,
                 Util::class,
@@ -364,7 +364,7 @@ class UtilTest extends AbstractTestCase
             )
         );
         $this->assertSame(
-            ['', '`table`.`tbl2`=0x626c6f6f6f626262 AND'],
+            ['', '`table`.`tbl2`= CAST(0x626c6f6f6f626262 AS BINARY)'],
             $this->callFunction(
                 null,
                 Util::class,
