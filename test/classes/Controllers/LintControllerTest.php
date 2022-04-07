@@ -16,13 +16,33 @@ use function json_encode;
  */
 class LintControllerTest extends AbstractTestCase
 {
-    public function testInvoke(): void
+    public function testWithoutParams(): void
+    {
+        $_POST = [];
+
+        $this->getLintController()();
+
+        $output = $this->getActualOutputForAssertion();
+        $this->assertJson($output);
+        $this->assertJsonStringEqualsJsonString('[]', $output);
+    }
+
+    public function testWithoutSqlErrors(): void
+    {
+        $_POST['sql_query'] = 'SELECT * FROM `actor` WHERE `actor_id` = 1;';
+
+        $this->getLintController()();
+
+        $output = $this->getActualOutputForAssertion();
+        $this->assertJson($output);
+        $this->assertJsonStringEqualsJsonString('[]', $output);
+    }
+
+    public function testWithSqlErrors(): void
     {
         $_POST['sql_query'] = 'SELECT * FROM `actor` WHEREE `actor_id` = 1;';
 
-        (new LintController(new ResponseRenderer(), new Template()))();
-
-        $expectedJson = [
+        $expectedJson = json_encode([
             [
                 'message' => 'An alias was previously found. (near <code>`actor_id`</code>)',
                 'fromLine' => 0,
@@ -55,10 +75,18 @@ class LintControllerTest extends AbstractTestCase
                 'toColumn' => 43,
                 'severity' => 'error',
             ],
-        ];
+        ]);
+        $this->assertNotFalse($expectedJson);
+
+        $this->getLintController()();
 
         $output = $this->getActualOutputForAssertion();
         $this->assertJson($output);
-        $this->assertJsonStringEqualsJsonString(json_encode($expectedJson), $output);
+        $this->assertJsonStringEqualsJsonString($expectedJson, $output);
+    }
+
+    private function getLintController(): LintController
+    {
+        return new LintController(new ResponseRenderer(), new Template());
     }
 }
