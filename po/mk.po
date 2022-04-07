@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-04-08 08:32+0000\n"
+"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
 "Language: mk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -9917,7 +9917,7 @@ msgstr ""
 #: libraries/classes/Export.php:436 libraries/classes/Export.php:447
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "На веб серверот не му е допуштено да ја сочува  податотеката %s."
+msgstr "На веб серверот не му е дозволено да го сочува фајлот %s."
 
 #: libraries/classes/Export.php:490
 #, php-format
@@ -11085,7 +11085,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin се обиде да се поврзе на MySQL сервер, но серверот тоа не го "
 "допушти. Проверете го називот на host-от, корисничката сметка и лозинка во "
-"config.inc.php и уверите се дека одговараат на  податоците кои сте ги добили "
+"config.inc.php и уверите се дека одговараат на податоците кои сте ги добили "
 "од администраторот на MySQL серверот."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:158
