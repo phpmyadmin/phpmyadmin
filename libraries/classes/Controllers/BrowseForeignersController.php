@@ -53,7 +53,7 @@ class BrowseForeignersController extends AbstractController
             return;
         }
 
-        $this->response->getFooter()->setMinimal();
+        $this->response->setMinimalFooter();
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();
         $header->setBodyId('body_browse_foreigners');

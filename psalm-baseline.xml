@@ -16030,11 +16030,6 @@
       <code>401</code>
       <code>401</code>
     </InvalidArgument>
-    <MixedArgument occurrences="3">
-      <code>$body_id</code>
-      <code>$set_minimal</code>
-      <code>$set_title</code>
-    </MixedArgument>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>

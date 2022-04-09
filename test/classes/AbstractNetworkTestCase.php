@@ -51,7 +51,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
                 'setRequestStatus',
                 'addJSON',
                 'addHTML',
-                'getFooter',
+                'setMinimalFooter',
                 'getHeader',
                 'httpResponseCode',
             ])

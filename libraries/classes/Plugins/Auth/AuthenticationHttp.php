@@ -76,8 +76,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->setHttpResponseCode(401);
 
         /* HTML header */
-        $footer = $response->getFooter();
-        $footer->setMinimal();
+        $response->setMinimalFooter();
         $header = $response->getHeader();
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();

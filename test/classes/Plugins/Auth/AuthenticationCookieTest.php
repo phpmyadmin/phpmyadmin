@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
-use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
@@ -100,16 +99,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->with()
             ->will($this->returnValue(false));
 
-        // mock footer
-        $mockFooter = $this->getMockBuilder(Footer::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['setMinimal'])
-            ->getMock();
-
-        $mockFooter->expects($this->once())
-            ->method('setMinimal')
-            ->with();
-
         // mock header
 
         $mockHeader = $this->getMockBuilder(Header::class)
@@ -143,9 +132,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         // set mocked headers and footers
 
         $mockResponse->expects($this->once())
-            ->method('getFooter')
-            ->with()
-            ->will($this->returnValue($mockFooter));
+            ->method('setMinimalFooter')
+            ->with();
 
         $mockResponse->expects($this->once())
             ->method('getHeader')
@@ -257,9 +245,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->will($this->returnValue(false));
 
         $mockResponse->expects($this->once())
-            ->method('getFooter')
-            ->with()
-            ->will($this->returnValue(new Footer()));
+            ->method('setMinimalFooter')
+            ->with();
 
         $mockResponse->expects($this->once())
             ->method('getHeader')
@@ -332,9 +319,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->will($this->returnValue(false));
 
         $mockResponse->expects($this->once())
-            ->method('getFooter')
-            ->with()
-            ->will($this->returnValue(new Footer()));
+            ->method('setMinimalFooter')
+            ->with();
 
         $mockResponse->expects($this->once())
             ->method('getHeader')

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
@@ -53,25 +52,10 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     }
 
     /**
-     * @param mixed   $set_minimal set minimal
-     * @param mixed   $body_id     body id
-     * @param mixed   $set_title   set title
-     * @param mixed[] ...$headers  headers
+     * @param mixed[] ...$headers
      */
-    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers): void
+    public function doMockResponse(int $set_minimal, int $body_id, int $set_title, ...$headers): void
     {
-        // mock footer
-        $mockFooter = $this->getMockBuilder(Footer::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['setMinimal'])
-            ->getMock();
-
-        $mockFooter->expects($this->exactly($set_minimal))
-            ->method('setMinimal')
-            ->with();
-
-        // mock header
-
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
             ->onlyMethods(
@@ -98,10 +82,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         // set mocked headers and footers
         $mockResponse = $this->mockResponse($headers);
 
-        $mockResponse->expects($this->exactly($set_title))
-            ->method('getFooter')
-            ->with()
-            ->will($this->returnValue($mockFooter));
+        $mockResponse->expects($this->exactly($set_minimal))
+            ->method('setMinimalFooter')
+            ->with();
 
         $mockResponse->expects($this->exactly($set_title))
             ->method('getHeader')

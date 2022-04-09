@@ -271,7 +271,7 @@ final class Common
         } else { // end server connecting
             $response = ResponseRenderer::getInstance();
             $response->getHeader()->disableMenuAndConsole();
-            $response->getFooter()->setMinimal();
+            $response->setMinimalFooter();
         }
 
         $response = ResponseRenderer::getInstance();

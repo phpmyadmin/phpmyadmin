@@ -244,16 +244,6 @@ class ResponseRenderer
     }
 
     /**
-     * Returns a PhpMyAdmin\Footer object
-     *
-     * @return Footer
-     */
-    public function getFooter()
-    {
-        return $this->footer;
-    }
-
-    /**
      * Append HTML code to the current output buffer
      */
     public function addHTML(string $content): void
@@ -331,7 +321,7 @@ class ResponseRenderer
             }
 
             $this->addJSON('scripts', $this->getHeader()->getScripts()->getFiles());
-            $this->addJSON('selflink', $this->getFooter()->getSelfUrl());
+            $this->addJSON('selflink', $this->footer->getSelfUrl());
             $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->footer->getDebugMessage();
@@ -494,7 +484,7 @@ class ResponseRenderer
             return true;
         }
 
-        $this->getFooter()->setMinimal();
+        $this->setMinimalFooter();
         $header = $this->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle('phpMyAdmin');
@@ -502,5 +492,20 @@ class ResponseRenderer
         $header->disableWarnings();
 
         return false;
+    }
+
+    public function setMinimalFooter(): void
+    {
+        $this->footer->setMinimal();
+    }
+
+    public function getSelfUrl(): string
+    {
+        return $this->footer->getSelfUrl();
+    }
+
+    public function getFooterScripts(): Scripts
+    {
+        return $this->footer->getScripts();
     }
 }

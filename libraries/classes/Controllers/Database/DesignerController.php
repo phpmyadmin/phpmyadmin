@@ -226,7 +226,7 @@ class DesignerController extends AbstractController
             $GLOBALS['params']['db'] = $_GET['db'];
         }
 
-        $this->response->getFooter()->setMinimal();
+        $this->response->setMinimalFooter();
         $header = $this->response->getHeader();
         $header->setBodyId('designer_body');
 

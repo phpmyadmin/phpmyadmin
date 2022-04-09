@@ -81,8 +81,7 @@ class AuthenticationConfig extends AuthenticationPlugin
 
         /* HTML header */
         $response = ResponseRenderer::getInstance();
-        $response->getFooter()
-            ->setMinimal();
+        $response->setMinimalFooter();
         $header = $response->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));

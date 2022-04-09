@@ -10306,11 +10306,6 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$count of method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\) expects int, mixed given\\.$#"
-			count: 6
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php

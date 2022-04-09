@@ -630,6 +630,6 @@ class ErrorHandler
 
         // The errors are already sent from the response.
         // Just focus on errors division upon load event.
-        $response->getFooter()->getScripts()->addCode($jsCode);
+        $response->getFooterScripts()->addCode($jsCode);
     }
 }
