@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-03 00:16+0000\n"
+"POT-Creation-Date: 2022-04-10 00:16+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3315,7 +3315,7 @@ msgid "Confirm DROP queries"
 msgstr "ड्रॉप क्वरीों की पुष्टि"
 
 #: libraries/classes/Config/Descriptions.php:635
-#: templates/console/display.twig:11 templates/console/display.twig:64
+#: templates/console/display.twig:23 templates/console/display.twig:76
 msgid "Debug SQL"
 msgstr "डिबग SQL"
 
@@ -3931,7 +3931,7 @@ msgid "Warnings"
 msgstr "चेतावनी"
 
 #: libraries/classes/Config/Descriptions.php:785
-#: templates/console/display.twig:4
+#: templates/console/display.twig:6
 msgid "Console"
 msgstr ""
 
@@ -4612,8 +4612,8 @@ msgstr "बंद टेबलओं को छोड़"
 #: libraries/classes/Display/Results.php:2756
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
+#: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:265
 #: templates/database/central_columns/main.twig:376
 #: templates/database/central_columns/main.twig:377
@@ -4640,7 +4640,7 @@ msgstr "SQL की व्याख्या"
 
 #: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Export.php:593 libraries/classes/Html/Generator.php:704
-#: templates/console/display.twig:99
+#: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
 msgid "Refresh"
@@ -4678,8 +4678,8 @@ msgstr "क्षेत्र रोयाँ"
 #: libraries/classes/Server/Privileges.php:1818
 #: libraries/classes/Server/Privileges.php:1820
 #: libraries/classes/Server/Status/Processes.php:126
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184 templates/server/databases/index.twig:106
+#: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
+#: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
 #: templates/server/privileges/privileges_table.twig:257
 #: templates/server/privileges/user_properties.twig:22
@@ -4814,19 +4814,19 @@ msgid "Enable Zero Configuration mode"
 msgstr "सर्वर विन्यास"
 
 #: libraries/classes/Config/Descriptions.php:976
-#: templates/console/display.twig:153
+#: templates/console/display.twig:177
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL इतिहास क्वेरी टेबल"
 
 #: libraries/classes/Config/Descriptions.php:977
-#: templates/console/display.twig:149
+#: templates/console/display.twig:173
 msgid "Always expand query messages"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:978
-#: templates/console/display.twig:157
+#: templates/console/display.twig:181
 msgid "Show current browsing query"
 msgstr ""
 
@@ -4835,7 +4835,7 @@ msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:980
-#: templates/console/display.twig:168
+#: templates/console/display.twig:189
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
@@ -4852,7 +4852,7 @@ msgid "Console mode"
 msgstr "ब्राउज़ करें"
 
 #: libraries/classes/Config/Descriptions.php:983
-#: templates/console/display.twig:64
+#: templates/console/display.twig:91
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
@@ -5053,7 +5053,7 @@ msgstr "आयात करें"
 msgid "Default transformations"
 msgstr "सामग्री दिखाने"
 
-#: libraries/classes/Config/PageSettings.php:135
+#: libraries/classes/Config/PageSettings.php:133
 #, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -5332,12 +5332,6 @@ msgstr[1] ""
 msgid "No bookmarks"
 msgstr "कोई पुस्तक चिन्ह नहीं"
 
-#: libraries/classes/Console.php:124
-#, fuzzy
-#| msgid "SQL Query box"
-msgid "SQL Query Console"
-msgstr "SQL क्वरी बॉक्स"
-
 #: libraries/classes/Controllers/AbstractController.php:77
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:71
@@ -5419,9 +5413,9 @@ msgid ""
 msgstr "phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया है। %sजानें क्यों%s ।"
 
 #: libraries/classes/Controllers/Database/SearchController.php:60
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:88
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
 #: libraries/classes/Plugins/AuthenticationPlugin.php:179
 msgid "Access denied!"
 msgstr "प्रवेश निषेध!"
@@ -5534,7 +5528,7 @@ msgstr "हाँ"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
 #: libraries/classes/Controllers/Table/ReplaceController.php:448
-#: libraries/classes/Core.php:710 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:711 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "कोइ बदलाव नहीं"
 
@@ -6930,7 +6924,7 @@ msgid "Adding primary key"
 msgstr "प्राथमिक कुंजी जोड़ें"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#: templates/console/display.twig:129 templates/database/designer/main.twig:337
+#: templates/console/display.twig:150 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
 #: templates/database/designer/main.twig:869
@@ -7084,7 +7078,8 @@ msgstr "क्वॅरी बॉक्स दिखाएँ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 #: libraries/classes/Display/Results.php:2824
-#: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
+#: libraries/classes/Tracking.php:258
+#: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
 #: templates/database/central_columns/main.twig:381
@@ -9453,7 +9448,7 @@ msgstr "पासव्रड बदलिये"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:197 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:198 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s विस्तार गायब है. कृपया अपने PHP विन्यास की जाँच करें।"
@@ -10602,8 +10597,8 @@ msgstr "php कोड के बिना"
 msgid "Submit query"
 msgstr "क्वरी भेजें"
 
-#: libraries/classes/Html/Generator.php:725 templates/console/display.twig:31
-#: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
+#: libraries/classes/Html/Generator.php:725 templates/console/display.twig:43
+#: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "रूपरेखा"
 
@@ -10677,7 +10672,7 @@ msgstr "इसकी संरचना को संपादित करन�
 #: libraries/classes/Plugins/Import/ImportShp.php:70
 #: libraries/classes/Plugins/Import/ImportSql.php:44
 #: libraries/classes/Plugins/Import/ImportXml.php:51
-#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/console/display.twig:15 templates/console/display.twig:163
 #: templates/database/designer/database_tables.twig:114
 #: templates/database/routines/editor_form.twig:53
 #: templates/table/structure/display_table_stats.twig:97
@@ -11583,14 +11578,14 @@ msgstr "डाटा पढने की अनुमति देता है"
 msgid "Cannot connect: invalid settings."
 msgstr "अमान्य सेटिंग्स: कनेक्ट नहीं कर सकते हैं।"
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:93
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:87
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:92
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:86
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s मे स्वागत है"
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:107
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:106
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -11599,7 +11594,7 @@ msgstr ""
 "आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script"
 "%2$s का उपयोग करें."
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:128
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:127
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -11610,7 +11605,7 @@ msgstr ""
 "अपने मेजबान विन्यास में, यूसर नाम और पासवर्ड की जाँच करें और इत्मीनान कर ले की ये "
 "उपयोगकरता नाम और पासवर्ड MySQL सर्वर के व्यवस्थापक द्वारा दी गई जानकारी के अनुरूप हैं."
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:149
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:148
 msgid "Retry to connect"
 msgstr ""
 
@@ -11644,7 +11639,7 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL सर्वर में प्रवेश नहीं कर सकते"
 
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:92
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
 msgid "Wrong username/password. Access denied."
 msgstr "यूसरनेम/पासवर्ड गलत है।  प्रवेश निषेध।"
 
@@ -14450,7 +14445,7 @@ msgid "Table name"
 msgstr "टेबल का नाम"
 
 #: templates/columns_definitions/column_definitions_form.twig:31
-#: templates/console/display.twig:99
+#: templates/console/display.twig:124
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
 #, fuzzy
@@ -14776,168 +14771,174 @@ msgstr "मूलभूत मान को बहाल"
 msgid "Allow users to customize this value"
 msgstr "कर्ता को इस मूल्य को अनुकूलित करने की अनुमति दें"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:38
+#: templates/console/display.twig:104 templates/console/display.twig:196
 msgid "Collapse"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:8 templates/console/display.twig:39
+#: templates/console/display.twig:105 templates/console/display.twig:197
 msgid "Expand"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:9 templates/console/display.twig:40
+#: templates/console/display.twig:198
 #, fuzzy
 #| msgid "Query"
 msgid "Requery"
 msgstr "उप-क्वरी"
 
-#: templates/console/display.twig:7 templates/setup/home/index.twig:166
+#: templates/console/display.twig:5
+#, fuzzy
+#| msgid "SQL Query box"
+msgid "SQL Query Console"
+msgstr "SQL क्वरी बॉक्स"
+
+#: templates/console/display.twig:9 templates/setup/home/index.twig:166
 #: templates/sql/query.twig:38
 msgid "Clear"
 msgstr "स्पष्ट"
 
-#: templates/console/display.twig:7
+#: templates/console/display.twig:12
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "SQL- इतिहास"
 
-#: templates/console/display.twig:11 templates/console/display.twig:99
+#: templates/console/display.twig:19 templates/console/display.twig:118
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "बुकमार्क टेबल"
 
-#: templates/console/display.twig:20
+#: templates/console/display.twig:31
 #, fuzzy
 msgid "Press Ctrl+Enter to execute query"
 msgstr "SQL क्वरी"
 
-#: templates/console/display.twig:23
+#: templates/console/display.twig:32
 #, fuzzy
 msgid "Press Enter to execute query"
 msgstr "SQL क्वरी"
 
-#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/display.twig:42 templates/console/display.twig:200
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
 msgstr "SQL की व्याख्या"
 
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/console/display.twig:45 templates/console/display.twig:203
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
 msgstr "बुकमार्क टेबल"
 
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/console/display.twig:47 templates/console/display.twig:205
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "क्वेरी कैश"
 
-#: templates/console/display.twig:42 templates/console/display.twig:184
+#: templates/console/display.twig:49 templates/console/display.twig:207
 #, fuzzy
 #| msgid "Query execution time"
 msgid "Queried time"
 msgstr "क्वॅरी क्रियान्वन में लगा समय"
 
-#: templates/console/display.twig:47
+#: templates/console/display.twig:49
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "वर्तमान त्रुटि को छोड़"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:67
 #, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "आरोही"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:70
 #, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "अवरोही"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:73
 #, fuzzy
 #| msgid "Other"
 msgid "Order:"
 msgstr "अन्य"
 
-#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/console/display.twig:79 templates/console/display.twig:108
 #: templates/table/find_replace/replace_preview.twig:16
 #, fuzzy
 #| msgid "Column"
 msgid "Count"
 msgstr "स्तम्भ"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:82
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Execution order"
 msgstr "डिफ़ॉल्ट सॉर्ट क्रम"
 
-#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/console/display.twig:85 templates/console/display.twig:109
 msgid "Time taken"
 msgstr ""
 
-#: templates/console/display.twig:64 templates/table/search/index.twig:146
+#: templates/console/display.twig:88 templates/table/search/index.twig:146
 #, fuzzy
 #| msgid "Other"
 msgid "Order by:"
 msgstr "अन्य"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:94
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "SQL क्वरी"
 
-#: templates/console/display.twig:84
+#: templates/console/display.twig:106
 #, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
 msgstr "रंग दिखाओ"
 
-#: templates/console/display.twig:84
+#: templates/console/display.twig:107
 #, fuzzy
 #| msgid "Add index"
 msgid "Hide trace"
 msgstr "अनुक्रमणिका जोड़"
 
-#: templates/console/display.twig:112
+#: templates/console/display.twig:135
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "संबंध हटाना"
 
-#: templates/console/display.twig:121
+#: templates/console/display.twig:142
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "लेबल"
 
-#: templates/console/display.twig:124
+#: templates/console/display.twig:145
 msgid "Target database"
 msgstr "लक्ष्य डेटाबेस"
 
-#: templates/console/display.twig:127
+#: templates/console/display.twig:148
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "संबंध हटाना"
 
-#: templates/console/display.twig:140
+#: templates/console/display.twig:166
 #, fuzzy
 #| msgid "Restore default value"
 msgid "Set default"
 msgstr "मूलभूत मान को बहाल"
 
-#: templates/console/display.twig:162
+#: templates/console/display.twig:185
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-03 00:16+0000\n"
+"POT-Creation-Date: 2022-04-10 00:16+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2950,7 +2950,7 @@ msgid "Confirm DROP queries"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:635
-#: templates/console/display.twig:11 templates/console/display.twig:64
+#: templates/console/display.twig:23 templates/console/display.twig:76
 msgid "Debug SQL"
 msgstr ""
 
@@ -3593,7 +3593,7 @@ msgid "Warnings"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:785
-#: templates/console/display.twig:4
+#: templates/console/display.twig:6
 msgid "Console"
 msgstr ""
 
@@ -4295,8 +4295,8 @@ msgstr "Açıq tüşämä tezmäse"
 #: libraries/classes/Display/Results.php:2756
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
+#: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:265
 #: templates/database/central_columns/main.twig:376
 #: templates/database/central_columns/main.twig:377
@@ -4323,7 +4323,7 @@ msgstr "SQL Centekläw"
 
 #: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Export.php:593 libraries/classes/Html/Generator.php:704
-#: templates/console/display.twig:99
+#: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
 msgid "Refresh"
@@ -4361,8 +4361,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1818
 #: libraries/classes/Server/Privileges.php:1820
 #: libraries/classes/Server/Status/Processes.php:126
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184 templates/server/databases/index.twig:106
+#: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
+#: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
 #: templates/server/privileges/privileges_table.twig:257
 #: templates/server/privileges/user_properties.twig:22
@@ -4498,19 +4498,19 @@ msgid "Enable Zero Configuration mode"
 msgstr "Töp köyläneşen yökläp bulmadı: \"%1$s\""
 
 #: libraries/classes/Config/Descriptions.php:976
-#: templates/console/display.twig:153
+#: templates/console/display.twig:177
 #, fuzzy
 #| msgid "Flush query cache"
 msgid "Show query history at start"
 msgstr "Soraw alxäteren awdar"
 
 #: libraries/classes/Config/Descriptions.php:977
-#: templates/console/display.twig:149
+#: templates/console/display.twig:173
 msgid "Always expand query messages"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:978
-#: templates/console/display.twig:157
+#: templates/console/display.twig:181
 msgid "Show current browsing query"
 msgstr ""
 
@@ -4519,7 +4519,7 @@ msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:980
-#: templates/console/display.twig:168
+#: templates/console/display.twig:189
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
@@ -4534,7 +4534,7 @@ msgid "Console mode"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:983
-#: templates/console/display.twig:64
+#: templates/console/display.twig:91
 #, fuzzy
 msgid "Group queries"
 msgstr "SQL-soraw"
@@ -4730,7 +4730,7 @@ msgstr "Yökläw"
 msgid "Default transformations"
 msgstr "Beleşmä"
 
-#: libraries/classes/Config/PageSettings.php:135
+#: libraries/classes/Config/PageSettings.php:133
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
@@ -4989,11 +4989,6 @@ msgstr[0] ""
 msgid "No bookmarks"
 msgstr "Ezläw"
 
-#: libraries/classes/Console.php:124
-#, fuzzy
-msgid "SQL Query Console"
-msgstr "SQL-soraw"
-
 #: libraries/classes/Controllers/AbstractController.php:77
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:71
@@ -5082,9 +5077,9 @@ msgstr ""
 "qabızu öçen, %sbonda çirtäse%s."
 
 #: libraries/classes/Controllers/Database/SearchController.php:60
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:88
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
 #: libraries/classes/Plugins/AuthenticationPlugin.php:179
 msgid "Access denied!"
 msgstr "İreşep Bulmadı!"
@@ -5197,7 +5192,7 @@ msgstr "Äye"
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
 #: libraries/classes/Controllers/Table/ReplaceController.php:448
-#: libraries/classes/Core.php:710 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:711 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Üzgäreşsez"
 
@@ -6595,7 +6590,7 @@ msgid "Adding primary key"
 msgstr "%s alan östäw"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#: templates/console/display.twig:129 templates/database/designer/main.twig:337
+#: templates/console/display.twig:150 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
 #: templates/database/designer/main.twig:869
@@ -6756,7 +6751,8 @@ msgstr "SQL-soraw"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 #: libraries/classes/Display/Results.php:2824
-#: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
+#: libraries/classes/Tracking.php:258
+#: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
 #: templates/database/central_columns/main.twig:381
@@ -9158,7 +9154,7 @@ msgstr "Sersüz üzgärtü"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:197 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:198 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -10326,8 +10322,8 @@ msgstr "PHP Kodısız"
 msgid "Submit query"
 msgstr "Sorawnı Yulla"
 
-#: libraries/classes/Html/Generator.php:725 templates/console/display.twig:31
-#: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
+#: libraries/classes/Html/Generator.php:725 templates/console/display.twig:43
+#: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr ""
 
@@ -10392,7 +10388,7 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:70
 #: libraries/classes/Plugins/Import/ImportSql.php:44
 #: libraries/classes/Plugins/Import/ImportXml.php:51
-#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/console/display.twig:15 templates/console/display.twig:163
 #: templates/database/designer/database_tables.twig:114
 #: templates/database/routines/editor_form.twig:53
 #: templates/table/structure/display_table_stats.twig:97
@@ -11296,21 +11292,21 @@ msgstr "Eçtälekne uqu xoquqı."
 msgid "Cannot connect: invalid settings."
 msgstr "Totaşa almím: yaraqsız köyläwlär."
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:93
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:87
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:92
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:86
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s siña İsäñme di"
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:107
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:106
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:128
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:127
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -11322,7 +11318,7 @@ msgstr ""
 "sersüzlär tikäserep, alarnı MySQL idäräçese birgän mäğlümät belän çağıştırıp "
 "qarísı qala."
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:149
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:148
 msgid "Retry to connect"
 msgstr ""
 
@@ -11354,7 +11350,7 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL servergä totaşılıp bulmadı"
 
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:92
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
 msgid "Wrong username/password. Access denied."
 msgstr "Atama/sersüzeñ yalğış buluına kürä ireşep bulmadı."
 
@@ -14241,7 +14237,7 @@ msgid "Table name"
 msgstr "tüşämä adı"
 
 #: templates/columns_definitions/column_definitions_form.twig:31
-#: templates/console/display.twig:99
+#: templates/console/display.twig:124
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
 #, fuzzy
@@ -14584,162 +14580,167 @@ msgstr ""
 msgid "Allow users to customize this value"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:38
+#: templates/console/display.twig:104 templates/console/display.twig:196
 msgid "Collapse"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:8 templates/console/display.twig:39
+#: templates/console/display.twig:105 templates/console/display.twig:197
 msgid "Expand"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:9 templates/console/display.twig:40
+#: templates/console/display.twig:198
 #, fuzzy
 #| msgid "in query"
 msgid "Requery"
 msgstr "sorawda"
 
-#: templates/console/display.twig:7 templates/setup/home/index.twig:166
+#: templates/console/display.twig:5
+#, fuzzy
+msgid "SQL Query Console"
+msgstr "SQL-soraw"
+
+#: templates/console/display.twig:9 templates/setup/home/index.twig:166
 #: templates/sql/query.twig:38
 #, fuzzy
 msgid "Clear"
 msgstr "Täqwim"
 
-#: templates/console/display.twig:7
+#: templates/console/display.twig:12
 #, fuzzy
 #| msgid "SQL history"
 msgid "History"
 msgstr "SQL-taríxı"
 
-#: templates/console/display.twig:11 templates/console/display.twig:99
+#: templates/console/display.twig:19 templates/console/display.twig:118
 #, fuzzy
 #| msgid "Search"
 msgid "Bookmarks"
 msgstr "Ezläw"
 
-#: templates/console/display.twig:20
+#: templates/console/display.twig:31
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Tamğalanğan soraw cibärü"
 
-#: templates/console/display.twig:23
+#: templates/console/display.twig:32
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Press Enter to execute query"
 msgstr "Tamğalanğan soraw cibärü"
 
-#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/display.twig:42 templates/console/display.twig:200
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
 msgstr "SQL Centekläw"
 
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/console/display.twig:45 templates/console/display.twig:203
 #, fuzzy
 #| msgid "Search"
 msgid "Bookmark"
 msgstr "Ezläw"
 
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/console/display.twig:47 templates/console/display.twig:205
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "Soraw alxätere"
 
-#: templates/console/display.twig:42 templates/console/display.twig:184
+#: templates/console/display.twig:49 templates/console/display.twig:207
 msgid "Queried time"
 msgstr ""
 
-#: templates/console/display.twig:47
+#: templates/console/display.twig:49
 msgid "During current session"
 msgstr ""
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:67
 #, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "Artıp"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:70
 #, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "Kimep"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:73
 msgid "Order:"
 msgstr ""
 
-#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/console/display.twig:79 templates/console/display.twig:108
 #: templates/table/find_replace/replace_preview.twig:16
 #, fuzzy
 #| msgid "Column names"
 msgid "Count"
 msgstr "Alan iseme"
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:82
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Execution order"
 msgstr "Tamğalanğan soraw cibärü"
 
-#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/console/display.twig:85 templates/console/display.twig:109
 msgid "Time taken"
 msgstr ""
 
-#: templates/console/display.twig:64 templates/table/search/index.twig:146
+#: templates/console/display.twig:88 templates/table/search/index.twig:146
 msgid "Order by:"
 msgstr ""
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:94
 #, fuzzy
 msgid "Ungroup queries"
 msgstr "SQL-soraw"
 
-#: templates/console/display.twig:84
+#: templates/console/display.twig:106
 #, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
 msgstr "Tösle kürsät"
 
-#: templates/console/display.twig:84
+#: templates/console/display.twig:107
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide trace"
 msgstr "Tezeşlär"
 
-#: templates/console/display.twig:112
+#: templates/console/display.twig:135
 #, fuzzy
 #| msgid "Search"
 msgid "Add bookmark"
 msgstr "Ezläw"
 
-#: templates/console/display.twig:121
+#: templates/console/display.twig:142
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Yarlıq"
 
-#: templates/console/display.twig:124
+#: templates/console/display.twig:145
 #, fuzzy
 msgid "Target database"
 msgstr "Biremlektä ezläw: "
 
-#: templates/console/display.twig:127
+#: templates/console/display.twig:148
 #, fuzzy
 #| msgid "Search"
 msgid "Share this bookmark"
 msgstr "Ezläw"
 
-#: templates/console/display.twig:140
+#: templates/console/display.twig:166
 #, fuzzy
 msgid "Set default"
 msgstr "Biremdän alu"
 
-#: templates/console/display.twig:162
+#: templates/console/display.twig:185
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."

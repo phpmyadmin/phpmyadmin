@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-03 00:16+0000\n"
+"POT-Creation-Date: 2022-04-10 00:16+0000\n"
 "PO-Revision-Date: 2020-08-16 22:12+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Berber <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2671,7 +2671,7 @@ msgid "Confirm DROP queries"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:635
-#: templates/console/display.twig:11 templates/console/display.twig:64
+#: templates/console/display.twig:23 templates/console/display.twig:76
 msgid "Debug SQL"
 msgstr ""
 
@@ -3224,7 +3224,7 @@ msgid "Warnings"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:785
-#: templates/console/display.twig:4
+#: templates/console/display.twig:6
 msgid "Console"
 msgstr ""
 
@@ -3827,8 +3827,8 @@ msgstr ""
 #: libraries/classes/Display/Results.php:2756
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
+#: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:265
 #: templates/database/central_columns/main.twig:376
 #: templates/database/central_columns/main.twig:377
@@ -3855,7 +3855,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Export.php:593 libraries/classes/Html/Generator.php:704
-#: templates/console/display.twig:99
+#: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
 msgid "Refresh"
@@ -3889,8 +3889,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1818
 #: libraries/classes/Server/Privileges.php:1820
 #: libraries/classes/Server/Status/Processes.php:126
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184 templates/server/databases/index.twig:106
+#: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
+#: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
 #: templates/server/privileges/privileges_table.twig:257
 #: templates/server/privileges/user_properties.twig:22
@@ -4017,17 +4017,17 @@ msgid "Enable Zero Configuration mode"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:976
-#: templates/console/display.twig:153
+#: templates/console/display.twig:177
 msgid "Show query history at start"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:977
-#: templates/console/display.twig:149
+#: templates/console/display.twig:173
 msgid "Always expand query messages"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:978
-#: templates/console/display.twig:157
+#: templates/console/display.twig:181
 msgid "Show current browsing query"
 msgstr ""
 
@@ -4036,7 +4036,7 @@ msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:980
-#: templates/console/display.twig:168
+#: templates/console/display.twig:189
 msgid "Switch to dark theme"
 msgstr ""
 
@@ -4049,7 +4049,7 @@ msgid "Console mode"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:983
-#: templates/console/display.twig:64
+#: templates/console/display.twig:91
 msgid "Group queries"
 msgstr ""
 
@@ -4234,7 +4234,7 @@ msgstr ""
 msgid "Default transformations"
 msgstr ""
 
-#: libraries/classes/Config/PageSettings.php:135
+#: libraries/classes/Config/PageSettings.php:133
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
@@ -4477,10 +4477,6 @@ msgstr[1] ""
 msgid "No bookmarks"
 msgstr ""
 
-#: libraries/classes/Console.php:124
-msgid "SQL Query Console"
-msgstr ""
-
 #: libraries/classes/Controllers/AbstractController.php:77
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:71
@@ -4560,9 +4556,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Database/SearchController.php:60
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:88
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
 #: libraries/classes/Plugins/AuthenticationPlugin.php:179
 msgid "Access denied!"
 msgstr ""
@@ -4671,7 +4667,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
 #: libraries/classes/Controllers/Table/ReplaceController.php:448
-#: libraries/classes/Core.php:710 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:711 templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
 
@@ -5876,7 +5872,7 @@ msgid "Adding primary key"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#: templates/console/display.twig:129 templates/database/designer/main.twig:337
+#: templates/console/display.twig:150 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
 #: templates/database/designer/main.twig:869
@@ -6017,7 +6013,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 #: libraries/classes/Display/Results.php:2824
-#: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
+#: libraries/classes/Tracking.php:258
+#: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
 #: templates/database/central_columns/main.twig:381
@@ -8171,7 +8168,7 @@ msgstr ""
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:197 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:198 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -9207,8 +9204,8 @@ msgstr ""
 msgid "Submit query"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:725 templates/console/display.twig:31
-#: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
+#: libraries/classes/Html/Generator.php:725 templates/console/display.twig:43
+#: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr ""
 
@@ -9271,7 +9268,7 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:70
 #: libraries/classes/Plugins/Import/ImportSql.php:44
 #: libraries/classes/Plugins/Import/ImportXml.php:51
-#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/console/display.twig:15 templates/console/display.twig:163
 #: templates/database/designer/database_tables.twig:114
 #: templates/database/routines/editor_form.twig:53
 #: templates/table/structure/display_table_stats.twig:97
@@ -10113,21 +10110,21 @@ msgstr ""
 msgid "Cannot connect: invalid settings."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:93
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:87
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:92
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:86
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:107
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:106
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:128
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:127
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -10135,7 +10132,7 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:149
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:148
 msgid "Retry to connect"
 msgstr ""
 
@@ -10165,7 +10162,7 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:92
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
 msgid "Wrong username/password. Access denied."
 msgstr ""
 
@@ -12709,7 +12706,7 @@ msgid "Table name"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:31
-#: templates/console/display.twig:99
+#: templates/console/display.twig:124
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
@@ -12970,124 +12967,128 @@ msgstr ""
 msgid "Allow users to customize this value"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:38
+#: templates/console/display.twig:104 templates/console/display.twig:196
 msgid "Collapse"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:8 templates/console/display.twig:39
+#: templates/console/display.twig:105 templates/console/display.twig:197
 msgid "Expand"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:9 templates/console/display.twig:40
+#: templates/console/display.twig:198
 msgid "Requery"
 msgstr ""
 
-#: templates/console/display.twig:7 templates/setup/home/index.twig:166
+#: templates/console/display.twig:5
+msgid "SQL Query Console"
+msgstr ""
+
+#: templates/console/display.twig:9 templates/setup/home/index.twig:166
 #: templates/sql/query.twig:38
 msgid "Clear"
 msgstr ""
 
-#: templates/console/display.twig:7
+#: templates/console/display.twig:12
 msgid "History"
 msgstr ""
 
-#: templates/console/display.twig:11 templates/console/display.twig:99
+#: templates/console/display.twig:19 templates/console/display.twig:118
 msgid "Bookmarks"
 msgstr ""
 
-#: templates/console/display.twig:20
+#: templates/console/display.twig:31
 msgid "Press Ctrl+Enter to execute query"
 msgstr ""
 
-#: templates/console/display.twig:23
+#: templates/console/display.twig:32
 msgid "Press Enter to execute query"
 msgstr ""
 
-#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/display.twig:42 templates/console/display.twig:200
 msgid "Explain"
 msgstr ""
 
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/console/display.twig:45 templates/console/display.twig:203
 msgid "Bookmark"
 msgstr ""
 
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/console/display.twig:47 templates/console/display.twig:205
 msgid "Query failed"
 msgstr ""
 
-#: templates/console/display.twig:42 templates/console/display.twig:184
+#: templates/console/display.twig:49 templates/console/display.twig:207
 msgid "Queried time"
 msgstr ""
 
-#: templates/console/display.twig:47
+#: templates/console/display.twig:49
 msgid "During current session"
 msgstr ""
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:67
 msgid "ascending"
 msgstr ""
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:70
 msgid "descending"
 msgstr ""
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:73
 msgid "Order:"
 msgstr ""
 
-#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/console/display.twig:79 templates/console/display.twig:108
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr ""
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:82
 msgid "Execution order"
 msgstr ""
 
-#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/console/display.twig:85 templates/console/display.twig:109
 msgid "Time taken"
 msgstr ""
 
-#: templates/console/display.twig:64 templates/table/search/index.twig:146
+#: templates/console/display.twig:88 templates/table/search/index.twig:146
 msgid "Order by:"
 msgstr ""
 
-#: templates/console/display.twig:64
+#: templates/console/display.twig:94
 msgid "Ungroup queries"
 msgstr ""
 
-#: templates/console/display.twig:84
+#: templates/console/display.twig:106
 msgid "Show trace"
 msgstr ""
 
-#: templates/console/display.twig:84
+#: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr ""
 
-#: templates/console/display.twig:112
+#: templates/console/display.twig:135
 msgid "Add bookmark"
 msgstr ""
 
-#: templates/console/display.twig:121
+#: templates/console/display.twig:142
 msgid "Label"
 msgstr ""
 
-#: templates/console/display.twig:124
+#: templates/console/display.twig:145
 msgid "Target database"
 msgstr ""
 
-#: templates/console/display.twig:127
+#: templates/console/display.twig:148
 msgid "Share this bookmark"
 msgstr ""
 
-#: templates/console/display.twig:140
+#: templates/console/display.twig:166
 msgid "Set default"
 msgstr ""
 
-#: templates/console/display.twig:162
+#: templates/console/display.twig:185
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
