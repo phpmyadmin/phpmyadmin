@@ -632,7 +632,7 @@ interface DbalInterface
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(string $str, $link = DatabaseInterface::CONNECT_USER);
+    public function escapeString(string $str, $link = DatabaseInterface::CONNECT_USER): string;
 
     /**
      * returns properly escaped string for use in MySQL LIKE clauses

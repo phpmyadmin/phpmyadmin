@@ -5733,9 +5733,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$this-&gt;extension === null</code>
-    </DocblockTypeContradiction>
     <EmptyArrayAccess occurrences="1">
       <code>$resultTarget[]</code>
     </EmptyArrayAccess>
@@ -10017,8 +10014,10 @@
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="37">
-      <code>$GLOBALS['current_row']</code>
+    <MixedArrayTypeCoercion occurrences="1">
+      <code>$row[$j]</code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment occurrences="36">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_backquotes']</code>
       <code>$GLOBALS['sql_backquotes']</code>
@@ -10125,9 +10124,7 @@
     <PropertyTypeCoercion occurrences="1">
       <code>$field-&gt;key-&gt;columns</code>
     </PropertyTypeCoercion>
-    <RedundantCastGivenDocblockType occurrences="3">
-      <code>(int) $fieldsMeta[$j]-&gt;length</code>
-      <code>(string) $createQuery</code>
+    <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
     <RedundantCondition occurrences="1">

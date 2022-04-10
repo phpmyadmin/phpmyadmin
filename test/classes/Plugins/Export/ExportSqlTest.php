@@ -740,12 +740,12 @@ class ExportSqlTest extends AbstractTestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
-        $result = $method->invoke($this->object, 'db', 'view', "\n", false);
+        $result = $method->invoke($this->object, 'db', 'view', "\n");
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS `view`(\n" .
             "    `fname` char COLLATE utf-8 DEFAULT NULL COMMENT 'cmt'\n" .
-            ")\n",
+            ");\n",
             $result
         );
     }

@@ -500,14 +500,17 @@ class TrackerTest extends AbstractTestCase
                     [
                         [
                             "pma'db",
+                            DatabaseInterface::CONNECT_USER,
                             "pma\'db",
                         ],
                         [
                             "pma'table",
+                            DatabaseInterface::CONNECT_USER,
                             "pma\'table",
                         ],
                         [
                             '1.0',
+                            DatabaseInterface::CONNECT_USER,
                             '1.0',
                         ],
                     ]
