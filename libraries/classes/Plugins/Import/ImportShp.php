@@ -75,9 +75,9 @@ class ImportShp extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(?File $importHandle = null): array
     {
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
         $GLOBALS['import_file'] = $GLOBALS['import_file'] ?? null;
@@ -86,7 +86,7 @@ class ImportShp extends ImportPlugin
         $GLOBALS['finished'] = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
-            return;
+            return [];
         }
 
         /** @see ImportShp::readFromBuffer() */
@@ -104,7 +104,7 @@ class ImportShp extends ImportPlugin
                 );
                 $GLOBALS['message']->addParam($importHandle->getError());
 
-                return;
+                return [];
             }
         }
 
@@ -170,7 +170,7 @@ class ImportShp extends ImportPlugin
             );
             $GLOBALS['message']->addParam($shp->lastError);
 
-            return;
+            return [];
         }
 
         switch ($shp->shapeType) {
@@ -200,7 +200,7 @@ class ImportShp extends ImportPlugin
                 );
                 $GLOBALS['message']->addParam($shp->getShapeName());
 
-                return;
+                return [];
         }
 
         if (isset($gis_type)) {
@@ -248,7 +248,7 @@ class ImportShp extends ImportPlugin
                 __('The imported file does not contain any data!')
             );
 
-            return;
+            return [];
         }
 
         // Column names for spatial column and the rest of the columns,
@@ -299,7 +299,8 @@ class ImportShp extends ImportPlugin
 
         // Created and execute necessary SQL statements from data
         $null_param = null;
-        $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
+        $sqlStatements = [];
+        $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sqlStatements);
 
         unset($tables, $analyses);
 
@@ -307,7 +308,9 @@ class ImportShp extends ImportPlugin
         $GLOBALS['error'] = false;
 
         // Commit any possible data in buffers
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
+
+        return $sqlStatements;
     }
 
     /**

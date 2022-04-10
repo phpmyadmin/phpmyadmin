@@ -18,7 +18,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 use function __;
-use function count;
 use function implode;
 use function mb_strlen;
 use function preg_replace;
@@ -44,7 +43,7 @@ class ImportSql extends ImportPlugin
         $importPluginProperties->setOptionsText(__('Options'));
 
         $compats = $GLOBALS['dbi']->getCompatibilities();
-        if (count($compats) > 0) {
+        if ($compats !== []) {
             $values = [];
             foreach ($compats as $val) {
                 $values[$val] = $val;
@@ -95,9 +94,9 @@ class ImportSql extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(?File $importHandle = null): array
     {
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
         $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
@@ -117,13 +116,15 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while (! $GLOBALS['error'] && (! $GLOBALS['timeout_passed'])) {
+        $sqlStatements = [];
+
+        while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
 
             // If there is no full statement, we are looking for more data.
-            if (empty($statement)) {
+            if ($statement === false || $statement === '') {
                 // Importing new data.
                 $newData = $this->import->getNextChunk($importHandle);
 
@@ -147,21 +148,23 @@ class ImportSql extends ImportPlugin
             }
 
             // Executing the query.
-            $this->import->runQuery($statement, $statement, $sql_data);
+            $this->import->runQuery($statement, $sqlStatements);
         }
 
         // Extracting remaining statements.
         while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed'] && ! empty($bq->query)) {
             $statement = $bq->extract(true);
-            if (empty($statement)) {
+            if ($statement === false || $statement === '') {
                 continue;
             }
 
-            $this->import->runQuery($statement, $statement, $sql_data);
+            $this->import->runQuery($statement, $sqlStatements);
         }
 
         // Finishing.
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
+
+        return $sqlStatements;
     }
 
     /**
@@ -170,7 +173,7 @@ class ImportSql extends ImportPlugin
      * @param DatabaseInterface $dbi     Database interface
      * @param array             $request Request array
      */
-    private function setSQLMode($dbi, array $request): void
+    private function setSQLMode(DatabaseInterface $dbi, array $request): void
     {
         $sql_modes = [];
         if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
@@ -181,12 +184,10 @@ class ImportSql extends ImportPlugin
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
 
-        if (count($sql_modes) <= 0) {
+        if ($sql_modes === []) {
             return;
         }
 
-        $dbi->tryQuery(
-            'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
-        );
+        $dbi->tryQuery('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
     }
 }

@@ -22,7 +22,6 @@ class ImportControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['import_run_buffer'] = null;
 
         parent::loadResponseIntoContainerBuilder();
 

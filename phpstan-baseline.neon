@@ -4251,17 +4251,7 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:buildSql\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Import\\:\\:buildSql\\(\\) has parameter \\$tables with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
 
@@ -4281,21 +4271,6 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:runQuery\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:runQueryPost\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Offset int\\<0, max\\> does not exist on array\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
 			path: libraries/classes/Import.php
@@ -4303,6 +4278,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: libraries/classes/Import.php
 
 		-
@@ -5971,11 +5951,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:getColumnNames\\(\\) has parameter \\$columnNames with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportCsv.php
@@ -5996,22 +5971,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportLdi\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:executeImportTables\\(\\) has parameter \\$analyses with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:executeImportTables\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
@@ -6022,11 +5982,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:explodeMarkup\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportMediawiki\\:\\:importDataOneTable\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
@@ -6054,11 +6009,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$str of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverColumns\\(\\) has parameter \\$col_names with no value type specified in iterable type array\\.$#"
@@ -6126,24 +6076,9 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportShp\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportSql\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportSql.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportSql\\:\\:setSQLMode\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportSql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportXml\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
 			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
@@ -6174,11 +6109,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadSession\\:\\:getUploadStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\:\\:doImport\\(\\) has parameter \\$sql_data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ImportPlugin.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\:\\:getDbnameAndOptions\\(\\) return type has no value type specified in iterable type array\\.$#"

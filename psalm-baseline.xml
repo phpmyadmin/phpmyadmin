@@ -2324,7 +2324,7 @@
       <code>$_SESSION['Import_message']['message']</code>
       <code>$_SESSION['Import_message']['message']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="43">
+    <MixedAssignment occurrences="42">
       <code>$GLOBALS['MAX_FILE_SIZE']</code>
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['ajax_reload']</code>
@@ -2358,7 +2358,6 @@
       <code>$GLOBALS['run_query']</code>
       <code>$GLOBALS['show_as_php']</code>
       <code>$GLOBALS['skip_queries']</code>
-      <code>$GLOBALS['sql_data']</code>
       <code>$GLOBALS['sql_file']</code>
       <code>$GLOBALS['sql_query_disabled']</code>
       <code>$GLOBALS['table']</code>
@@ -2398,8 +2397,7 @@
       <code>$GLOBALS['offset'] == 0</code>
       <code>$GLOBALS['result'] === false</code>
     </RedundantCondition>
-    <TypeDoesNotContainType occurrences="4">
-      <code>! empty($GLOBALS['sql_data']) &amp;&amp; ($GLOBALS['sql_data']['valid_queries'] &gt; 1)</code>
+    <TypeDoesNotContainType occurrences="3">
       <code>$GLOBALS['finished']</code>
       <code>$GLOBALS['result']</code>
       <code>$GLOBALS['timeout_passed']</code>
@@ -3127,7 +3125,7 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="21">
+    <MixedArgument occurrences="20">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
@@ -3140,7 +3138,6 @@
       <code>$GLOBALS['extra_data'] ?? null</code>
       <code>$GLOBALS['find_real_end'] ?? null</code>
       <code>$GLOBALS['message_to_show'] ?? null</code>
-      <code>$GLOBALS['sql_data'] ?? null</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['table']</code>
@@ -3155,7 +3152,7 @@
       <code>$_POST['bkm_fields']['bkm_label']</code>
       <code>$_POST['bkm_fields']['bkm_label']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="18">
       <code>$GLOBALS['ajax_reload']</code>
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['db']</code>
@@ -3167,7 +3164,6 @@
       <code>$GLOBALS['find_real_end']</code>
       <code>$GLOBALS['is_gotofile']</code>
       <code>$GLOBALS['message_to_show']</code>
-      <code>$GLOBALS['sql_data']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
@@ -7800,20 +7796,11 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Import.php">
-    <MixedArgument occurrences="37">
+    <MixedArgument occurrences="27">
       <code>$GLOBALS['charset_of_file']</code>
-      <code>$GLOBALS['import_run_buffer']['full']</code>
-      <code>$GLOBALS['import_run_buffer']['sql']</code>
-      <code>$GLOBALS['import_run_buffer']['sql']</code>
-      <code>$GLOBALS['import_run_buffer']['sql']</code>
       <code>$GLOBALS['reload']</code>
-      <code>$GLOBALS['sql_query']</code>
       <code>$active</code>
       <code>$additionalSql[$i]</code>
-      <code>$additionalSql[$i]</code>
-      <code>$additionalSql[$i]</code>
-      <code>$fulls[$i]</code>
-      <code>$queries[$i]</code>
       <code>$size</code>
       <code>$size</code>
       <code>$size</code>
@@ -7837,16 +7824,13 @@
       <code>$tables[$i][self::ROWS]</code>
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$i][self::TBL_NAME]</code>
-      <code>$tables[$n][self::TBL_NAME]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="24">
+    <MixedArrayAccess occurrences="22">
       <code>$analyses[$i][self::FORMATTEDSQL][$colCount]</code>
       <code>$analyses[$i][self::SIZES]</code>
       <code>$analyses[$i][self::TYPES]</code>
       <code>$analyses[$i][self::TYPES]</code>
       <code>$analyses[$i][self::TYPES]</code>
-      <code>$fulls[$i]</code>
-      <code>$queries[$i]</code>
       <code>$table[self::ROWS][$j][$i]</code>
       <code>$table[self::TBL_NAME]</code>
       <code>$tables[$i][self::COL_NAMES]</code>
@@ -7865,16 +7849,13 @@
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$n][self::TBL_NAME]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
+    <MixedArrayAssignment occurrences="1">
       <code>$GLOBALS['my_die'][]</code>
-      <code>$sqlData['valid_full'][]</code>
-      <code>$sqlData['valid_sql'][]</code>
-      <code>$sqlData['valid_sql'][]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="1">
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="44">
+    <MixedAssignment occurrences="36">
       <code>$GLOBALS['charset_conversion']</code>
       <code>$GLOBALS['charset_of_file']</code>
       <code>$GLOBALS['executed_queries']</code>
@@ -7894,7 +7875,6 @@
       <code>$GLOBALS['run_query']</code>
       <code>$GLOBALS['skip_queries']</code>
       <code>$GLOBALS['skip_queries']</code>
-      <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query_disabled']</code>
       <code>$GLOBALS['sql_query_disabled']</code>
       <code>$GLOBALS['timeout_passed']</code>
@@ -7903,18 +7883,11 @@
       <code>$cellValue</code>
       <code>$charset</code>
       <code>$collation</code>
-      <code>$count</code>
       <code>$createDb</code>
-      <code>$fulls</code>
       <code>$importPlugin</code>
       <code>$queries</code>
-      <code>$queries</code>
       <code>$size</code>
       <code>$size</code>
-      <code>$sqlData['valid_full'][]</code>
-      <code>$sqlData['valid_queries']</code>
-      <code>$sqlData['valid_queries']</code>
-      <code>$sqlData['valid_sql'][]</code>
       <code>$sqlDelimiter</code>
       <code>$sqlQuery</code>
       <code>$table</code>
@@ -7927,12 +7900,8 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="23">
+    <MixedOperand occurrences="17">
       <code>$GLOBALS['executed_queries']</code>
-      <code>$GLOBALS['import_run_buffer']['full']</code>
-      <code>$GLOBALS['import_run_buffer']['full']</code>
-      <code>$GLOBALS['import_run_buffer']['full']</code>
-      <code>$GLOBALS['import_run_buffer']['full']</code>
       <code>$GLOBALS['maximum_time']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['read_multiply']</code>
@@ -7949,8 +7918,6 @@
       <code>$size[self::D]</code>
       <code>$size[self::D] &gt; $oldD ? $size[self::D] : $oldD</code>
       <code>$size[self::M] &gt; $oldM ? $size[self::M] : $oldM</code>
-      <code>$sqlData['valid_queries']</code>
-      <code>$sqlData['valid_queries']</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="3">
       <code>$size[self::FULL]</code>
@@ -7972,9 +7939,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['charset_of_file']</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="1">
-      <code>$additionalSql[$i]</code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullOperand occurrences="5">
       <code>$GLOBALS['executed_queries']</code>
       <code>$GLOBALS['maximum_time']</code>
@@ -7982,11 +7946,6 @@
       <code>$GLOBALS['read_multiply']</code>
       <code>$GLOBALS['timestamp']</code>
     </PossiblyNullOperand>
-    <RedundantCast occurrences="4">
-      <code>(string) $cell</code>
-      <code>(string) $cell</code>
-      <code>(string) $cell</code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/Import/Ajax.php">
     <MixedArrayAccess occurrences="1">
@@ -10801,9 +10760,6 @@
       <code>! $GLOBALS['finished']</code>
       <code>$GLOBALS['finished']</code>
     </RedundantCondition>
-    <ReferenceConstraintViolation occurrences="1">
-      <code>$analyses</code>
-    </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportOds.php">
     <MixedArgument occurrences="17">
@@ -10913,6 +10869,10 @@
       <code>$record-&gt;dbfData</code>
       <code>$record-&gt;shpData</code>
     </MixedPropertyFetch>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$sqlStatements</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
     <PossiblyNullArgument occurrences="4">
       <code>$GLOBALS['buffer']</code>
       <code>$GLOBALS['buffer']</code>
@@ -15709,9 +15669,7 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/ImportTest.php">
-    <DocblockTypeContradiction occurrences="8">
-      <code>assertNull</code>
-      <code>assertSame</code>
+    <DocblockTypeContradiction occurrences="6">
       <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>

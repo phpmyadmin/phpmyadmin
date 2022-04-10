@@ -56,9 +56,9 @@ class ImportXml extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(?File $importHandle = null): array
     {
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
         $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
@@ -117,7 +117,7 @@ class ImportXml extends ImportPlugin
             unset($xml);
             $GLOBALS['finished'] = false;
 
-            return;
+            return [];
         }
 
         /**
@@ -180,7 +180,7 @@ class ImportXml extends ImportPlugin
             unset($xml);
             $GLOBALS['finished'] = false;
 
-            return;
+            return [];
         }
 
         /**
@@ -227,6 +227,7 @@ class ImportXml extends ImportPlugin
             ->children();
 
         $data_present = false;
+        $analyses = null;
 
         /**
          * Only attempt to analyze/collect data if there is data present
@@ -353,11 +354,14 @@ class ImportXml extends ImportPlugin
         }
 
         /* Created and execute necessary SQL statements from data */
-        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
+        $sqlStatements = [];
+        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sqlStatements);
 
         unset($analyses, $tables, $create);
 
         /* Commit any possible data in buffers */
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
+
+        return $sqlStatements;
     }
 }

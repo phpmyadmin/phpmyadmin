@@ -34,7 +34,6 @@ use function preg_replace;
 use function sprintf;
 use function str_contains;
 use function str_starts_with;
-use function strcmp;
 use function strlen;
 use function strpos;
 use function substr;
@@ -65,6 +64,9 @@ class Import
     public const TYPES = 0;
     public const SIZES = 1;
     public const FORMATTEDSQL = 2;
+
+    /** @var string|null importRunBuffer */
+    private $importRunBuffer = null;
 
     public function __construct()
     {
@@ -106,11 +108,10 @@ class Import
      * Runs query inside import buffer. This is needed to allow displaying
      * of last SELECT, SHOW or HANDLER results and similar nice stuff.
      *
-     * @param string $sql     query to run
-     * @param string $full    query to display, this might be commented
-     * @param array  $sqlData SQL parse data storage
+     * @param string   $sql     query to run
+     * @param string[] $sqlData SQL parse data storage
      */
-    public function executeQuery(string $sql, string $full, array &$sqlData): void
+    public function executeQuery(string $sql, array &$sqlData): void
     {
         $GLOBALS['my_die'] = $GLOBALS['my_die'] ?? null;
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
@@ -130,7 +131,7 @@ class Import
             }
 
             $GLOBALS['my_die'][] = [
-                'sql' => $full,
+                'sql' => $sql,
                 'error' => $GLOBALS['dbi']->getError(),
             ];
 
@@ -154,12 +155,7 @@ class Import
             }
 
             if (($aNumRows > 0) || $isUseQuery) {
-                $sqlData['valid_sql'][] = $sql;
-                if (! isset($sqlData['valid_queries'])) {
-                    $sqlData['valid_queries'] = 0;
-                }
-
-                $sqlData['valid_queries']++;
+                $sqlData[] = $sql;
             }
         }
 
@@ -185,15 +181,11 @@ class Import
      * Runs query inside import buffer. This is needed to allow displaying
      * of last SELECT, SHOW or HANDLER results and similar nice stuff.
      *
-     * @param string $sql     query to run
-     * @param string $full    query to display, this might be commented
-     * @param array  $sqlData SQL parse data storage
+     * @param string   $sql     query to run
+     * @param string[] $sqlData SQL parse data storage
      */
-    public function runQuery(
-        string $sql = '',
-        string $full = '',
-        array &$sqlData = []
-    ): void {
+    public function runQuery(string $sql, array &$sqlData): void
+    {
         $GLOBALS['go_sql'] = $GLOBALS['go_sql'] ?? null;
         $GLOBALS['complete_query'] = $GLOBALS['complete_query'] ?? null;
         $GLOBALS['display_query'] = $GLOBALS['display_query'] ?? null;
@@ -205,9 +197,9 @@ class Import
         $GLOBALS['run_query'] = $GLOBALS['run_query'] ?? null;
 
         $GLOBALS['read_multiply'] = 1;
-        if (! isset($GLOBALS['import_run_buffer'])) {
+        if ($this->importRunBuffer === null) {
             // Do we have something to push into buffer?
-            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql, $full);
+            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 
             return;
         }
@@ -216,70 +208,47 @@ class Import
         if ($GLOBALS['skip_queries'] > 0) {
             $GLOBALS['skip_queries']--;
             // Do we have something to push into buffer?
-            $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql, $full);
+            $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 
             return;
         }
 
-        if (! empty($GLOBALS['import_run_buffer']['sql']) && trim($GLOBALS['import_run_buffer']['sql']) != '') {
-            $GLOBALS['max_sql_len'] = max(
-                $GLOBALS['max_sql_len'],
-                mb_strlen($GLOBALS['import_run_buffer']['sql'])
-            );
+        $GLOBALS['max_sql_len'] = max(
+            $GLOBALS['max_sql_len'],
+            mb_strlen($this->importRunBuffer)
+        );
+        if (! $GLOBALS['sql_query_disabled']) {
+            $GLOBALS['sql_query'] .= $this->importRunBuffer;
+        }
+
+        $GLOBALS['executed_queries']++;
+
+        if ($GLOBALS['run_query'] && $GLOBALS['executed_queries'] < 50) {
+            $GLOBALS['go_sql'] = true;
+
             if (! $GLOBALS['sql_query_disabled']) {
-                $GLOBALS['sql_query'] .= $GLOBALS['import_run_buffer']['full'];
+                $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
+                $GLOBALS['display_query'] = $GLOBALS['sql_query'];
+            } else {
+                $GLOBALS['complete_query'] = '';
+                $GLOBALS['display_query'] = '';
             }
 
-            $GLOBALS['executed_queries']++;
+            $GLOBALS['sql_query'] = $this->importRunBuffer;
+            $sqlData[] = $this->importRunBuffer;
+        } elseif ($GLOBALS['run_query']) {
+            /* Handle rollback from go_sql */
+            if ($GLOBALS['go_sql'] && $sqlData !== []) {
+                $queries = $sqlData;
+                $sqlData = [];
+                $GLOBALS['go_sql'] = false;
 
-            if ($GLOBALS['run_query'] && $GLOBALS['executed_queries'] < 50) {
-                $GLOBALS['go_sql'] = true;
-
-                if (! $GLOBALS['sql_query_disabled']) {
-                    $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
-                    $GLOBALS['display_query'] = $GLOBALS['sql_query'];
-                } else {
-                    $GLOBALS['complete_query'] = '';
-                    $GLOBALS['display_query'] = '';
+                foreach ($queries as $query) {
+                    $this->executeQuery($query, $sqlData);
                 }
-
-                $GLOBALS['sql_query'] = $GLOBALS['import_run_buffer']['sql'];
-                $sqlData['valid_sql'][] = $GLOBALS['import_run_buffer']['sql'];
-                $sqlData['valid_full'][] = $GLOBALS['import_run_buffer']['full'];
-                if (! isset($sqlData['valid_queries'])) {
-                    $sqlData['valid_queries'] = 0;
-                }
-
-                $sqlData['valid_queries']++;
-            } elseif ($GLOBALS['run_query']) {
-                /* Handle rollback from go_sql */
-                if ($GLOBALS['go_sql'] && isset($sqlData['valid_full'])) {
-                    $queries = $sqlData['valid_sql'];
-                    $fulls = $sqlData['valid_full'];
-                    $count = $sqlData['valid_queries'];
-                    $GLOBALS['go_sql'] = false;
-
-                    $sqlData['valid_sql'] = [];
-                    $sqlData['valid_queries'] = 0;
-                    unset($sqlData['valid_full']);
-                    for ($i = 0; $i < $count; $i++) {
-                        $this->executeQuery($queries[$i], $fulls[$i], $sqlData);
-                    }
-                }
-
-                $this->executeQuery(
-                    $GLOBALS['import_run_buffer']['sql'],
-                    $GLOBALS['import_run_buffer']['full'],
-                    $sqlData
-                );
             }
-        } elseif (! empty($GLOBALS['import_run_buffer']['full'])) {
-            if ($GLOBALS['go_sql']) {
-                $GLOBALS['complete_query'] .= $GLOBALS['import_run_buffer']['full'];
-                $GLOBALS['display_query'] .= $GLOBALS['import_run_buffer']['full'];
-            } elseif (! $GLOBALS['sql_query_disabled']) {
-                $GLOBALS['sql_query'] .= $GLOBALS['import_run_buffer']['full'];
-            }
+
+            $this->executeQuery($this->importRunBuffer, $sqlData);
         }
 
         // check length of query unless we decided to pass it to /sql
@@ -297,7 +266,7 @@ class Import
         }
 
         // Do we have something to push into buffer?
-        $GLOBALS['import_run_buffer'] = $this->runQueryPost($sql, $full);
+        $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 
         // In case of ROLLBACK, notify the user.
         if (! isset($_POST['rollback_query'])) {
@@ -308,31 +277,11 @@ class Import
     }
 
     /**
-     * Return import run buffer
-     *
-     * @param string $sql  SQL query
-     * @param string $full Query to display
-     *
-     * @return array|null Buffer of queries for import
-     */
-    public function runQueryPost(string $sql, string $full): ?array
-    {
-        if (! empty($sql) || ! empty($full)) {
-            return [
-                'sql' => $sql . ';',
-                'full' => $full . ';',
-            ];
-        }
-
-        return null;
-    }
-
-    /**
      * Looks for the presence of USE to possibly change current db
      *
-     * @param string $buffer buffer to examine
-     * @param string $db     current db
-     * @param bool   $reload reload
+     * @param string|null $buffer buffer to examine
+     * @param string|null $db     current db
+     * @param bool|null   $reload reload
      *
      * @return array (current or new db, whether to reload)
      */
@@ -638,7 +587,7 @@ class Import
         /**
          * If the cell is NULL, don't treat it as a varchar
          */
-        if (! strcmp('NULL', $cell)) {
+        if ($cell === 'NULL') {
             return $lastCumulativeSize;
         }
 
@@ -728,8 +677,8 @@ class Import
                 /* New val if M or D is greater than current largest */
                 if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
                     /* Take the largest of both types */
-                    return (string) (($size[self::M] > $oldM ? $size[self::M] : $oldM)
-                        . ',' . ($size[self::D] > $oldD ? $size[self::D] : $oldD));
+                    return ($size[self::M] > $oldM ? $size[self::M] : $oldM)
+                        . ',' . ($size[self::D] > $oldD ? $size[self::D] : $oldD);
                 }
 
                 return $lastCumulativeSize;
@@ -791,7 +740,7 @@ class Import
                 $oldM = $this->getDecimalPrecision($lastCumulativeSize);
                 $oldD = $this->getDecimalScale($lastCumulativeSize);
                 $oldInt = $oldM - $oldD;
-                $newInt = mb_strlen((string) $cell);
+                $newInt = mb_strlen($cell);
 
                 /* See which has the larger integer length */
                 if ($oldInt >= $newInt) {
@@ -844,7 +793,7 @@ class Import
     /**
      * Determines what MySQL type a cell is
      *
-     * @param int         $lastCumulativeType Last cumulative column type
+     * @param int|null    $lastCumulativeType Last cumulative column type
      *                                        (VARCHAR or INT or BIGINT or DECIMAL or NONE)
      * @param string|null $cell               String representation of the cell for which
      *                                        a best-fit type is to be determined
@@ -859,7 +808,7 @@ class Import
          * Else, we call it varchar for simplicity
          */
 
-        if (! strcmp('NULL', (string) $cell)) {
+        if ($cell === 'NULL') {
             if ($lastCumulativeType === null || $lastCumulativeType == self::NONE) {
                 return self::NONE;
             }
@@ -873,8 +822,8 @@ class Import
 
         if (
             $cell == (string) (float) $cell
-            && str_contains((string) $cell, '.')
-            && mb_substr_count((string) $cell, '.') === 1
+            && str_contains($cell, '.')
+            && mb_substr_count($cell, '.') === 1
         ) {
             return self::DECIMAL;
         }
@@ -901,7 +850,7 @@ class Import
      *
      * @todo    Handle the error case more elegantly
      */
-    public function analyzeTable(array &$table)
+    public function analyzeTable(array $table)
     {
         /* Get number of rows in table */
         $numRows = count($table[self::ROWS]);
@@ -973,7 +922,7 @@ class Import
         /* Check to ensure that all types are valid */
         $len = count($types);
         for ($n = 0; $n < $len; ++$n) {
-            if (strcmp((string) self::NONE, (string) $types[$n])) {
+            if ((string) $types[$n] !== (string) self::NONE) {
                 continue;
             }
 
@@ -998,12 +947,12 @@ class Import
      * @param array|null $analyses      Analyses of the tables
      * @param array|null $additionalSql Additional SQL statements to be executed
      * @param array|null $options       Associative array of options
-     * @param array      $sqlData       2-element array with sql data
+     * @param string[]   $sqlData       List of SQL statements to be executed
      */
     public function buildSql(
         string $dbName,
         array &$tables,
-        ?array &$analyses = null,
+        ?array $analyses = null,
         ?array &$additionalSql = null,
         ?array $options = null,
         array &$sqlData = []
@@ -1041,7 +990,7 @@ class Import
         /* Execute the SQL statements create above */
         $sqlLength = count($sql);
         for ($i = 0; $i < $sqlLength; ++$i) {
-            $this->runQuery($sql[$i], $sql[$i], $sqlData);
+            $this->runQuery($sql[$i], $sqlData);
         }
 
         /* No longer needed */
@@ -1072,7 +1021,7 @@ class Import
             for ($i = 0; $i < $additionalSqlLength; ++$i) {
                 $additionalSql[$i] = preg_replace($pattern, $replacement, $additionalSql[$i]);
                 /* Execute the resulting statements */
-                $this->runQuery($additionalSql[$i], $additionalSql[$i], $sqlData);
+                $this->runQuery($additionalSql[$i], $sqlData);
             }
         }
 
@@ -1125,7 +1074,7 @@ class Import
                  * after it is formed so that we don't have
                  * to store them in a (possibly large) buffer
                  */
-                $this->runQuery($tempSQLStr, $tempSQLStr, $sqlData);
+                $this->runQuery($tempSQLStr, $sqlData);
             }
         }
 
@@ -1176,7 +1125,7 @@ class Import
                         }
 
                         /* Don't put quotes around NULL fields */
-                        if (! strcmp((string) $tables[$i][self::ROWS][$j][$k], 'NULL')) {
+                        if ((string) $tables[$i][self::ROWS][$j][$k] === 'NULL') {
                             $isVarchar = false;
                         }
 
@@ -1217,7 +1166,7 @@ class Import
              * after it is formed so that we don't have
              * to store them in a (possibly large) buffer
              */
-            $this->runQuery($tempSQLStr, $tempSQLStr, $sqlData);
+            $this->runQuery($tempSQLStr, $sqlData);
         }
 
         /* No longer needed */
@@ -1235,34 +1184,26 @@ class Import
         $tablePattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
         /* Check a third pattern to make sure its not a "USE `db_name`;" statement */
 
-        $regs = [];
-
-        $inTables = false;
-
-        $additionalSqlLength = $additionalSql === null ? 0 : count($additionalSql);
-        for ($i = 0; $i < $additionalSqlLength; ++$i) {
-            preg_match($viewPattern, $additionalSql[$i], $regs);
-
-            if (count($regs) === 0) {
-                preg_match($tablePattern, $additionalSql[$i], $regs);
-            }
-
-            if (count($regs)) {
-                for ($n = 0; $n < $numTables; ++$n) {
-                    if (! strcmp($regs[1], $tables[$n][self::TBL_NAME])) {
-                        $inTables = true;
-                        break;
-                    }
-                }
-
-                if (! $inTables) {
-                    $tables[] = [self::TBL_NAME => $regs[1]];
-                }
-            }
-
-            /* Reset the array */
+        /** @var string $sql */
+        foreach ($additionalSql ?? [] as $sql) {
             $regs = [];
-            $inTables = false;
+            preg_match($viewPattern, $sql, $regs);
+
+            if ($regs === []) {
+                preg_match($tablePattern, $sql, $regs);
+            }
+
+            if ($regs === []) {
+                continue;
+            }
+
+            for ($n = 0; $n < $numTables; ++$n) {
+                if ($regs[1] === $tables[$n][self::TBL_NAME]) {
+                    continue 2;
+                }
+            }
+
+            $tables[] = [self::TBL_NAME => $regs[1]];
         }
 
         $params = ['db' => $dbName];
