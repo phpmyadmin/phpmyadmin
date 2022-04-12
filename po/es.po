@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-03-16 01:54+0000\n"
+"PO-Revision-Date: 2022-04-14 00:12+0000\n"
 "Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "es/>\n"
@@ -931,7 +931,8 @@ msgstr "Eliminando clave foránea."
 
 #: js/messages.php:64
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Esta operación podría llevar algún tiempo. ¿Proceder de todas formas?"
+msgstr ""
+"Esta operación podría llevar demorar mucho tiempo. ¿Proceder de todas formas?"
 
 #: js/messages.php:66
 #, php-format
@@ -953,12 +954,12 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Está intentando reducir el número de filas, pero ya ha introducido datos en "
+"Estas intentando reducir el número de filas, pero ya ha introducido datos en "
 "esas filas que se perderán. ¿Desea continuar?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "¿Realmente desea eliminar el/los usuario/s seleccionado/s?"
+msgstr "¿Realmente desea eliminar los usuarios seleccionados?"
 
 #: js/messages.php:76
 msgid "Do you really want to delete this central column?"
@@ -1004,7 +1005,7 @@ msgstr ""
 
 #: js/messages.php:95
 msgid "Garbled Data"
-msgstr "Datos confusos"
+msgstr "Datos ilegibles"
 
 #: js/messages.php:97
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1520,7 +1521,7 @@ msgid ""
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Esta columna muestra la cantidad de consultas idénticas que fueron "
-"agrupadas. Sin embargo, sólo la consulta SQL en sí es es utilizada para "
+"agrupadas. Sin embargo, sólo la consulta SQL en sí es utilizada para "
 "agrupar, por lo que los demás atributos de las consultas como el tiempo de "
 "inicio podría diferir."
 
@@ -4466,9 +4467,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Configure la base de datos de phpMyAdmin para obtener acceso a funciones "
-"adicionales, mire [doc@linked-tables]linked-tables infrastructure[/doc] en "
-"la documentación."
+"Configure la confuguración de almacenamiento de phpMyAdmin para obtener "
+"acceso a funciones adicionales, vea [doc@linked-tables] Configuración de "
+"almacenamiento de phpMyAdmin[/doc] en la documentación."
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -5372,9 +5373,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Puerto alternativo para conectarse al servidor que posee el almacenamiento "
-"de configuración; deje vacío para utilizar el puerto predeterminado o el "
-"puerto ya definido si el el servidor de control es el mismo."
+"Un puerto alternativo para conectarse al servidor que posee el "
+"almacenamiento de configuración; deje vacío para utilizar el puerto "
+"predeterminado o el puerto ya definido si el servidor de control es el mismo."
 
 #: libraries/classes/Config/Descriptions.php:1036
 msgid "Control port"
@@ -6729,7 +6730,7 @@ msgstr "La base de datos %1$s ha sido creada."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d bases de datos han sido eliminadas exitosamente."
+msgstr[0] "%1$d base de datos ha sido eliminadas exitosamente."
 msgstr[1] "%1$d bases de datos han sido eliminadas exitosamente."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
@@ -6973,8 +6974,8 @@ msgctxt ""
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"La configuración de almacenamiento de phpMyAdmin no está preparada para "
-"\"Mostrar Características\"."
+"El almacenamiento de configuración de phpMyAdmin no está configurado para "
+"\"Características de visualización\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -8508,7 +8509,7 @@ msgstr ""
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "Se encontró %s resultado adicional"
-msgstr[1] "Se encontró %s resultado adicional"
+msgstr[1] "Se encontraron %s resultados adicionales"
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
@@ -8770,7 +8771,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:341
 msgid "No repeating group"
-msgstr "Niguna columna redundante"
+msgstr "Sin grupo repetitivo"
 
 #: libraries/classes/Normalization.php:370
 msgid "Step 2."
@@ -9297,8 +9298,7 @@ msgstr "El servidor MySQL no autorizó su acceso"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:338
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
-"Ha habilitado el factor de doble autentificación, confirme su inicio de "
-"sesión por favor."
+"Tienes activo el factor de doble autenticacion, por favor confirma tu acceso."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
@@ -10118,11 +10118,11 @@ msgstr ""
 "manualmente el archivo libraries/classes/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php y agregar las herramientas que permitirá "
 "ejecutar. La primera opción será el número del programa que querrá utilizar. "
-"La segunda opción debería estar en blanco por razones históricas. La tercera "
-"opción, si está establecida en 1 (Predeterminado 1, se convertirá la salida "
-"utilizando htmlspecialchars() ). La cuarta opción, si está establecida en 1 ("
-"Predeterminado 1), evitará separar la salida en varias líneas asegurando que "
-"aparezca completa en una sola línea."
+"La segunda debería ser en blanco por razones históricas. Si el tercer "
+"parámetro es 1 (el valor predeterminado), se convertirá la salida utilizando "
+"htmlspecialchars(). La cuarta opción, de ser 1 (el valor predeterminado), "
+"evitará separar la salida en varias líneas asegurando que aparezca completa "
+"en una sola línea."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -13164,7 +13164,7 @@ msgstr "Ver usuarios"
 #: libraries/classes/Server/UserGroups.php:159
 #: libraries/classes/Server/UserGroups.php:225
 msgid "Add user group"
-msgstr "Agregar groupo de usuarios"
+msgstr "Agregar grupo de usuarios"
 
 #: libraries/classes/Server/UserGroups.php:228
 #, php-format
@@ -13300,7 +13300,7 @@ msgstr "Obtener consulta almacenada automáticamente"
 
 #: libraries/classes/SqlQueryForm.php:260
 msgid "Bind parameters"
-msgstr "Parámetros enlazados"
+msgstr "Vincular parámetros"
 
 #: libraries/classes/SqlQueryForm.php:308
 msgid "Bookmark this SQL query:"
@@ -13680,8 +13680,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
-"Una máscara de bits (M), almacenando M bits por valor (valor predeterminado "
-"de 1, máximo de 64)"
+"Una máscara de bits (M), almacenando M bits por valor (predeterminado de 1, "
+"máximo de 64)"
 
 #: libraries/classes/Types.php:258
 msgid ""
@@ -14570,10 +14570,8 @@ msgstr "El nombre de la tabla no es válido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Hay demasiadas uniones («JOIN») sin índices."
+msgstr "Hay un problema con tu petición."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14953,10 +14951,9 @@ msgid "See table structure"
 msgstr "Ver estructura de tabla"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Seleccionar todo"
+msgstr "Seleccionar \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -15134,7 +15131,7 @@ msgstr "Exportando filas de la tabla \"%s\""
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
-msgstr "Estado del factor de doble autentificación"
+msgstr "Estado de autenticación de dos factores"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
@@ -15166,8 +15163,8 @@ msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"El factor de doble autentificación no está disponible, habilite el "
-"almacenamiento de configuración phpMyAdmin para utilizarlo."
+"La autenticación de dos factores no está disponible, habilite el "
+"almacenamiento de configuración de phpMyAdmin para usarla."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
@@ -15175,12 +15172,12 @@ msgstr "Ha activado el doble factor de autentificación."
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
 msgid "Disable two-factor authentication"
-msgstr "Desactivar el factor de doble autentificación"
+msgstr "Desactivar la autenticación de doble factor"
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
 msgid "Configure two-factor authentication"
-msgstr "Configurar factor de doble autentificación"
+msgstr "Configurar autenticación de doble factor"
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
@@ -15227,7 +15224,7 @@ msgstr "Criterios de búsqueda adicionales"
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
 msgid "Authentication code:"
-msgstr "Código de autentificación:"
+msgstr "Codigo de autenticación:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -15482,7 +15479,7 @@ msgstr "definición de la PARTICIÓN:"
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
-msgstr "Confirmar la desactivación del factor de doble autentificación"
+msgstr "Confirmar la desactivación de la autenticación de dos factores"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
@@ -15593,7 +15590,7 @@ msgstr "Motores de almacenamiento"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Character sets and collations"
-msgstr "Conjunto de caracteres y cotejamientos"
+msgstr "Conjunto de caracteres y sus cotejamientos"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -16171,8 +16168,8 @@ msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"El factor de doble autentificación configurado no está disponible, por favor "
-"instale las dependencias que faltan."
+"La autenticación de dos factores configurada no está disponible, instale las "
+"dependencias que faltan."
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -16195,7 +16192,7 @@ msgstr "Ninguna"
 
 #: templates/prefs_twofactor_configure.twig:8
 msgid "Enable two-factor authentication"
-msgstr "Activar factor de doble autentificación"
+msgstr "Habilitar el doble factor de autenticación"
 
 # male gender due to referring to encoding modes
 #: templates/encoding/kanji_encoding_form.twig:6
@@ -16357,7 +16354,7 @@ msgstr "Ocultar/mostrar todo"
 
 #: templates/database/designer/table_list.twig:14
 msgid "Hide/Show tables with no relationship"
-msgstr "Ocultar / Mostrar tablas sin relación"
+msgstr "Ocultar/Mostrar tablas sin relación"
 
 #: templates/database/designer/table_list.twig:25
 msgid "Number of tables:"
@@ -16370,32 +16367,32 @@ msgstr "Ventana de consulta"
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
 msgid "select table"
-msgstr "Seleccionar tabla"
+msgstr "seleccionar tabla"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
 msgid "select column"
-msgstr "Seleccionar columna"
+msgstr "seleccionar columna"
 
 #: templates/database/multi_table_query/form.twig:46
 msgid "Table alias"
-msgstr "Alias de tabla"
+msgstr "Alias de la tabla"
 
 #: templates/database/multi_table_query/form.twig:47
 msgid "Column alias"
-msgstr "Alias de columna"
+msgstr "Alias de la columna"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
-msgstr "Utilice esta columna en las condiciones"
+msgstr "Utilice esta columna en el punto"
 
 #: templates/database/multi_table_query/form.twig:53
 msgid "criteria"
-msgstr "condiciones"
+msgstr "criterio"
 
 #: templates/database/multi_table_query/form.twig:67
 msgid "Add as"
-msgstr "Añadir como"
+msgstr "Agregar \"as\""
 
 #: templates/database/multi_table_query/form.twig:112
 msgid "Another column"
@@ -16411,7 +16408,7 @@ msgstr "Eliminar esta columna"
 
 #: templates/database/multi_table_query/form.twig:175
 msgid "Update query"
-msgstr "Actualizar consulta"
+msgstr "Actualizar la consulta"
 
 #: templates/server/binlog/log_selector.twig:5
 msgid "Select binary log to view"
@@ -16459,7 +16456,7 @@ msgstr "No existe una previsualización disponible."
 
 #: templates/theme_preview.twig:13
 msgid "Take it"
-msgstr "Tómelo"
+msgstr "Escoger"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
