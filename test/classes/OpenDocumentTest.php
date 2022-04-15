@@ -27,7 +27,8 @@ class OpenDocumentTest extends AbstractTestCase
         );
         $this->assertNotFalse($document);
 
-        $tmpFile = (string) tempnam('./', 'open-document-test');
+        $tmpFile = tempnam('./', 'open-document-test');
+        $this->assertNotFalse($tmpFile);
         $this->assertNotFalse(file_put_contents($tmpFile, $document), 'The temp file should be written');
 
         $zipExtension = new ZipExtension(new ZipArchive());
@@ -49,6 +50,8 @@ class OpenDocumentTest extends AbstractTestCase
         );
 
         $this->assertSame(5, $zipExtension->getNumberOfFiles($tmpFile));
+        // Unset to close any file that were left open.
+        unset($zipExtension);
         $this->assertTrue(unlink($tmpFile));
     }
 }

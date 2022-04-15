@@ -5846,7 +5846,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colFits is unused\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colFits is never written, only read\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
@@ -5871,7 +5871,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth is unused\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth is never written, only read\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
@@ -6816,11 +6816,6 @@ parameters:
 			path: libraries/classes/Sanitize.php
 
 		-
-			message: "#^Cannot assign offset 'criteria'\\|'criteriaAndOrColumn'\\|'criteriaAndOrRow'\\|'criteriaColumn'\\|'criteriaShow'\\|'criteriaSort'\\|'rows'\\|'TableList' to array\\|string\\.$#"
-			count: 1
-			path: libraries/classes/SavedSearches.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SavedSearches\\:\\:getCriterias\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
@@ -7504,6 +7499,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Setup\\\\Index\\:\\:messagesShowHtml\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Setup/Index.php
+
+		-
+			message: "#^Cannot access property \\$where on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
@@ -10804,6 +10804,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Selenium\\\\ExportTest\\:\\:testTableExport\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/selenium/ExportTest.php
+
+		-
+			message: "#^Cannot access property \\$automation_session on mixed\\.$#"
+			count: 1
+			path: test/selenium/TestBase.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:waitForElement\\(\\) should return Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement but returns mixed\\.$#"

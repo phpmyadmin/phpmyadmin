@@ -10086,9 +10086,6 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="1">
-      <code>isset($sqlMaxSize)</code>
-    </RedundantCondition>
     <ReferenceConstraintViolation occurrences="2">
       <code>return $sqlQuery;</code>
       <code>return $statement-&gt;build();</code>
