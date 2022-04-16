@@ -12,7 +12,7 @@ jobs:
     lint-node:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - uses: actions/setup-node@v1
               with:
                   node-version: 12
@@ -20,7 +20,7 @@ jobs:
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
             - name: yarn cache
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -36,7 +36,7 @@ jobs:
     lint-php-files:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use php 7.1
               uses: shivammathur/setup-php@v2
               with:
@@ -47,14 +47,14 @@ jobs:
               id: composer-cache
               run: |
                 echo "::set-output name=dir::$(composer config cache-files-dir)"
-            - uses: actions/cache@v2
+            - uses: actions/cache@v3
               with:
                 path: ${{ steps.composer-cache.outputs.dir }}
                 key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
                 restore-keys: |
                   ${{ runner.os }}-composer-
             - name: Cache coding-standard
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: .phpcs-cache
                   key: phpcs-cache
@@ -71,7 +71,7 @@ jobs:
     analyse-php:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use php 7.2
               uses: shivammathur/setup-php@v2
               with:
@@ -81,7 +81,7 @@ jobs:
               id: composer-cache
               run: |
                 echo "::set-output name=dir::$(composer config cache-files-dir)"
-            - uses: actions/cache@v2
+            - uses: actions/cache@v3
               with:
                 path: ${{ steps.composer-cache.outputs.dir }}
                 key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
