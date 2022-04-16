@@ -9,7 +9,6 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use PHPUnit\Framework\MockObject\MockObject;
 
 use function __;
 
@@ -18,12 +17,6 @@ use function __;
  */
 class ImportLdiTest extends AbstractTestCase
 {
-    /** @var ImportLdi */
-    protected $object;
-
-    /** @var DatabaseInterface */
-    protected $dbi;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -66,24 +59,6 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['cfg']['Import']['ldi_columns'] = '';
         $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
         $GLOBALS['table'] = 'phpmyadmintest';
-
-        //Mock DBI
-        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $this->dbi;
-
-        $this->object = new ImportLdi();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-        unset($this->object);
     }
 
     /**
@@ -93,7 +68,7 @@ class ImportLdiTest extends AbstractTestCase
      */
     public function testGetProperties(): void
     {
-        $properties = $this->object->getProperties();
+        $properties = (new ImportLdi())->getProperties();
         $this->assertEquals(
             __('CSV using LOAD DATA'),
             $properties->getText()
@@ -111,12 +86,8 @@ class ImportLdiTest extends AbstractTestCase
      */
     public function testGetPropertiesAutoLdi(): void
     {
-        /**
-         * The \PhpMyAdmin\DatabaseInterface mocked object
-         *
-         * @var MockObject $dbi
-         */
-        $dbi = $this->dbi;
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $GLOBALS['dbi'] = $dbi;
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -130,8 +101,7 @@ class ImportLdiTest extends AbstractTestCase
             ->will($this->returnValue('ON'));
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
-        $this->object = new ImportLdi();
-        $properties = $this->object->getProperties();
+        $properties = (new ImportLdi())->getProperties();
         $this->assertTrue($GLOBALS['cfg']['Import']['ldi_local_option']);
         $this->assertEquals(
             __('CSV using LOAD DATA'),
@@ -153,12 +123,7 @@ class ImportLdiTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         $GLOBALS['sql_query_disabled'] = false;
-        /**
-         * The \PhpMyAdmin\DatabaseInterface mocked object
-         *
-         * @var MockObject $dbi
-         */
-        $dbi = $this->dbi;
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
@@ -167,7 +132,7 @@ class ImportLdiTest extends AbstractTestCase
         $importHandle->open();
 
         //Test function called
-        $this->object->doImport($importHandle);
+        (new ImportLdi())->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(
@@ -188,7 +153,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['import_file'] = 'none';
 
         //Test function called
-        $this->object->doImport();
+        (new ImportLdi())->doImport();
 
         // We handle only some kind of data!
         $this->assertStringContainsString(
@@ -209,12 +174,7 @@ class ImportLdiTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         $GLOBALS['sql_query_disabled'] = false;
-        /**
-         * The \PhpMyAdmin\DatabaseInterface mocked object
-         *
-         * @var MockObject $dbi
-         */
-        $dbi = $this->dbi;
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
@@ -231,7 +191,7 @@ class ImportLdiTest extends AbstractTestCase
         $importHandle->open();
 
         //Test function called
-        $this->object->doImport($importHandle);
+        (new ImportLdi())->doImport($importHandle);
 
         //asset that all sql are executed
         //replace
