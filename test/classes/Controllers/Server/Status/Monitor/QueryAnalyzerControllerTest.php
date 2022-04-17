@@ -9,6 +9,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -17,28 +18,10 @@ use PhpMyAdmin\Utils\SessionCache;
  */
 class QueryAnalyzerControllerTest extends AbstractTestCase
 {
-    /** @var Data */
-    private $data;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $GLOBALS['text_dir'] = 'ltr';
-        parent::setGlobalConfig();
-        parent::setTheme();
-
-        $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['Server']['host'] = 'localhost';
-
-        $this->data = new Data();
-    }
-
     public function testQueryAnalyzer(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
         SessionCache::set('profiling_supported', true);
 
@@ -51,21 +34,18 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $response->setAjax(true);
 
-        $controller = new QueryAnalyzerController(
-            $response,
-            new Template(),
-            $this->data,
-            new Monitor($GLOBALS['dbi']),
-            $GLOBALS['dbi']
-        );
+        $dummyDbi = new DbiDummy();
+        $dbi = $this->getDatabaseInterface($dummyDbi);
+
+        $controller = new QueryAnalyzerController($response, new Template(), new Data(), new Monitor($dbi), $dbi);
 
         $_POST['database'] = 'database';
         $_POST['query'] = 'query';
 
-        $this->dummyDbi->addSelectDb('mysql');
-        $this->dummyDbi->addSelectDb('database');
+        $dummyDbi->addSelectDb('mysql');
+        $dummyDbi->addSelectDb('database');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
         $this->assertEquals('cached_affected_rows', $ret['message']['affectedRows']);

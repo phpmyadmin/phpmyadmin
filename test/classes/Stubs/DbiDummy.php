@@ -550,6 +550,11 @@ class DbiDummy implements DbiExtension
         return $this->filoQueries[$result];
     }
 
+    public function assertAllSelectsConsumed(): void
+    {
+        Assert::assertSame([], $this->getUnUsedDatabaseSelects(), 'Some database selects where not used!');
+    }
+
     private function init(): void
     {
         /**
