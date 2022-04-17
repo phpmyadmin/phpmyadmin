@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-10 00:16+0000\n"
+"POT-Creation-Date: 2022-04-17 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3297,14 +3297,14 @@ msgstr "Pune numele coloanelor în primul rând"
 #: libraries/classes/Config/Descriptions.php:661
 #: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Config/Descriptions.php:799
-#: libraries/classes/Plugins/Import/ImportCsv.php:679
+#: libraries/classes/Plugins/Import/ImportCsv.php:683
 msgid "Columns enclosed with"
 msgstr "Coloane închise cu"
 
 #: libraries/classes/Config/Descriptions.php:662
 #: libraries/classes/Config/Descriptions.php:794
 #: libraries/classes/Config/Descriptions.php:800
-#: libraries/classes/Plugins/Import/ImportCsv.php:690
+#: libraries/classes/Plugins/Import/ImportCsv.php:694
 msgid "Columns escaped with"
 msgstr "Coloane escapate cu"
 
@@ -3326,13 +3326,13 @@ msgstr "Înlătură caracterele CRLF în coloane"
 #: libraries/classes/Config/Descriptions.php:665
 #: libraries/classes/Config/Descriptions.php:797
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:668
 msgid "Columns terminated with"
 msgstr "Coloane terminate cu"
 
 #: libraries/classes/Config/Descriptions.php:666
 #: libraries/classes/Config/Descriptions.php:792
-#: libraries/classes/Plugins/Import/ImportCsv.php:697
+#: libraries/classes/Plugins/Import/ImportCsv.php:701
 msgid "Lines terminated with"
 msgstr "Linii terminate cu"
 
@@ -4647,7 +4647,7 @@ msgstr "Personalizat"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/Import.php:1315 libraries/classes/Menu.php:245
+#: libraries/classes/Import.php:1256 libraries/classes/Menu.php:245
 #: libraries/classes/Menu.php:355
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
@@ -5087,7 +5087,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Nu am putut încărca modulele de export, te rog verifică-ți instalarea!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:80
-#: libraries/classes/Controllers/Import/ImportController.php:612
+#: libraries/classes/Controllers/Import/ImportController.php:608
 #: libraries/classes/Controllers/Server/ImportController.php:59
 #: libraries/classes/Controllers/Table/ImportController.php:70
 msgid "Could not load import plugins, please check your installation!"
@@ -5427,20 +5427,20 @@ msgstr ""
 "această cauză, unele funcționalități, cum ar fi raportarea erorilor sau "
 "verificarea versiunii, sunt dezactivate."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
+#: libraries/classes/Controllers/Import/ImportController.php:134
 msgid "Incomplete params"
 msgstr "Parametrii incompleți"
 
-#: libraries/classes/Controllers/Import/ImportController.php:149
+#: libraries/classes/Controllers/Import/ImportController.php:148
 msgid "Succeeded"
 msgstr "A reușit"
 
-#: libraries/classes/Controllers/Import/ImportController.php:153
+#: libraries/classes/Controllers/Import/ImportController.php:152
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Failed"
 msgstr "A eșuat"
 
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:253
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5449,17 +5449,17 @@ msgstr ""
 "Probabil ai încercat să încarci un fișier care este prea mare. Te rog "
 "consultă %sdocumentația%s pentru o soluție ocolitoare pentru această limită."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:652
+#: libraries/classes/Controllers/Import/ImportController.php:411
+#: libraries/classes/Controllers/Import/ImportController.php:648
 msgid "Showing bookmark"
 msgstr "Arăt semn de carte"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:648
+#: libraries/classes/Controllers/Import/ImportController.php:437
+#: libraries/classes/Controllers/Import/ImportController.php:644
 msgid "The bookmark has been deleted."
 msgstr "Semnul de carte a fost șters."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:554
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5469,7 +5469,7 @@ msgstr ""
 "fie dimensiunea fișierului a depășit dimensiunea maximă permisă de "
 "configurarea ta PHP. Vezi [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:660
+#: libraries/classes/Controllers/Import/ImportController.php:656
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5477,7 +5477,7 @@ msgstr[0] "Importul a fost finalizat cu succes, o interogare executată."
 msgstr[1] "Importul a fost finalizat cu succes, %d interogări executate."
 msgstr[2] "Importul a fost finalizat cu succes, %d de interogări executate."
 
-#: libraries/classes/Controllers/Import/ImportController.php:692
+#: libraries/classes/Controllers/Import/ImportController.php:688
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5486,7 +5486,7 @@ msgstr ""
 "Timpul de executare a scriptului a expirat, dacă vrei să termini importul, "
 "te rog %sretrimite același fișier%s și importul va fi reluat."
 
-#: libraries/classes/Controllers/Import/ImportController.php:702
+#: libraries/classes/Controllers/Import/ImportController.php:698
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5495,8 +5495,8 @@ msgstr ""
 "obicei asta înseamnă că phpMyAdmin nu va putea finaliza acest import decât "
 "dacă mărești limitele de timp php."
 
-#: libraries/classes/Controllers/Import/ImportController.php:773
-#: libraries/classes/Controllers/Sql/SqlController.php:175
+#: libraries/classes/Controllers/Import/ImportController.php:768
+#: libraries/classes/Controllers/Sql/SqlController.php:174
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Declarațiile „ELIMINĂ BAZA DE DATE” sunt dezactivate."
 
@@ -6078,7 +6078,7 @@ msgstr "Te rog adaugă cel puțin o variabilă la serie!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1067
-#: libraries/classes/Plugins/Export/ExportSql.php:2208
+#: libraries/classes/Plugins/Export/ExportSql.php:2178
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -7961,7 +7961,7 @@ msgid "Two-factor authentication has been configured."
 msgstr "Autentificarea pe două niveluri a fost configurată."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:314
-#: libraries/classes/Import.php:148
+#: libraries/classes/Import.php:149
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/display_structure.twig:230
@@ -8744,13 +8744,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Conexiune nesigură"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:248
+#: libraries/classes/Controllers/Sql/SqlController.php:247
 #: libraries/classes/Sql.php:1155
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:255
+#: libraries/classes/Controllers/Sql/SqlController.php:254
 msgid "Bookmark not created!"
 msgstr "Semn de carte necreat!"
 
@@ -8849,7 +8849,7 @@ msgstr "Există prea multe asocieri fără indexuri."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:79
 #: libraries/classes/Database/Routines.php:1245
-#: libraries/classes/Import.php:153 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
 #: libraries/classes/Sql.php:968
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
@@ -8876,7 +8876,7 @@ msgstr "Vezi"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:92
-#: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:137
+#: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
@@ -10134,30 +10134,30 @@ msgstr "Analiză statică:"
 msgid "%d errors were found during analysis."
 msgstr "Au fost găsite %d erori în timpul analizei."
 
-#: libraries/classes/Import.php:307 libraries/classes/Sql.php:982
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:982
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
 
-#: libraries/classes/Import.php:1274
+#: libraries/classes/Import.php:1215
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Structurile următoare fie au fost create ori fie modificate. Aici poți:"
 
-#: libraries/classes/Import.php:1276
+#: libraries/classes/Import.php:1217
 msgid "View a structure's contents by clicking on its name."
 msgstr "Vezi conținutul unei structuri dând clic pe numele ei."
 
-#: libraries/classes/Import.php:1277
+#: libraries/classes/Import.php:1218
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Modifică orice setare dând clic pe legătura corespondentă „Opțiuni”."
 
-#: libraries/classes/Import.php:1278
+#: libraries/classes/Import.php:1219
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editează structura urmărind legătura „Structură”."
 
-#: libraries/classes/Import.php:1282 libraries/classes/Import.php:1316
+#: libraries/classes/Import.php:1223 libraries/classes/Import.php:1257
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:45
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -10178,7 +10178,7 @@ msgstr "Editează structura urmărind legătura „Structură”."
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
 #: libraries/classes/Plugins/Import/ImportOds.php:53
 #: libraries/classes/Plugins/Import/ImportShp.php:70
-#: libraries/classes/Plugins/Import/ImportSql.php:44
+#: libraries/classes/Plugins/Import/ImportSql.php:43
 #: libraries/classes/Plugins/Import/ImportXml.php:51
 #: templates/console/display.twig:15 templates/console/display.twig:163
 #: templates/database/designer/database_tables.twig:114
@@ -10187,32 +10187,32 @@ msgstr "Editează structura urmărind legătura „Structură”."
 msgid "Options"
 msgstr "Opțiuni"
 
-#: libraries/classes/Import.php:1285
+#: libraries/classes/Import.php:1226
 #, php-format
 msgid "Go to database: %s"
 msgstr "Du-te la baza de date: %s"
 
-#: libraries/classes/Import.php:1291 libraries/classes/Import.php:1334
+#: libraries/classes/Import.php:1232 libraries/classes/Import.php:1275
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Editează setările pentru %s"
 
-#: libraries/classes/Import.php:1319
+#: libraries/classes/Import.php:1260
 #, php-format
 msgid "Go to table: %s"
 msgstr "Du-te la tabelul: %s"
 
-#: libraries/classes/Import.php:1327
+#: libraries/classes/Import.php:1268
 #, php-format
 msgid "Structure of %s"
 msgstr "Structura %s"
 
-#: libraries/classes/Import.php:1345
+#: libraries/classes/Import.php:1286
 #, php-format
 msgid "Go to view: %s"
 msgstr "Du-te la vizualizarea: %s"
 
-#: libraries/classes/Import.php:1371
+#: libraries/classes/Import.php:1312
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10376,7 +10376,7 @@ msgstr "Urmărire"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:552
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2078
+#: libraries/classes/Plugins/Export/ExportSql.php:2053
 #: libraries/classes/Plugins/Export/ExportTexytext.php:535
 #: libraries/classes/Plugins/Export/ExportXml.php:120
 #: libraries/classes/Util.php:1908 libraries/classes/Util.php:1924
@@ -10401,7 +10401,7 @@ msgstr "Rutine"
 #: libraries/classes/Menu.php:416
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1006
+#: libraries/classes/Plugins/Export/ExportSql.php:996
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 #: libraries/classes/Util.php:1907 templates/database/events/index.twig:3
 msgid "Events"
@@ -11267,7 +11267,7 @@ msgstr "Opțiuni dump date"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:193
 #: libraries/classes/Plugins/Export/ExportOdt.php:249
-#: libraries/classes/Plugins/Export/ExportSql.php:2333
+#: libraries/classes/Plugins/Export/ExportSql.php:2303
 #: libraries/classes/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "Eliminarea datelor din tabel"
@@ -11359,21 +11359,21 @@ msgstr "Definiție"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:542
 #: libraries/classes/Plugins/Export/ExportOdt.php:675
-#: libraries/classes/Plugins/Export/ExportSql.php:2064
+#: libraries/classes/Plugins/Export/ExportSql.php:2039
 #: libraries/classes/Plugins/Export/ExportTexytext.php:515
 msgid "Table structure for table"
 msgstr "Structură tabel pentru tabel"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:560
 #: libraries/classes/Plugins/Export/ExportOdt.php:707
-#: libraries/classes/Plugins/Export/ExportSql.php:2115
+#: libraries/classes/Plugins/Export/ExportSql.php:2090
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 msgid "Structure for view"
 msgstr "Structură pentru vizualizare"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2147
+#: libraries/classes/Plugins/Export/ExportSql.php:2122
 #: libraries/classes/Plugins/Export/ExportTexytext.php:557
 msgid "Stand-in structure for view"
 msgstr "Substitut structură pentru vizualizare"
@@ -11471,7 +11471,7 @@ msgid "PHP Version:"
 msgstr "Versiune PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:939
+#: libraries/classes/Plugins/Export/ExportSql.php:931
 #: libraries/classes/Plugins/Export/ExportXml.php:389
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:200
 #: templates/database/structure/copy_form.twig:5
@@ -11480,7 +11480,7 @@ msgid "Database:"
 msgstr "Bază de date:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:315
-#: libraries/classes/Plugins/Export/ExportSql.php:2208
+#: libraries/classes/Plugins/Export/ExportSql.php:2178
 msgid "Data:"
 msgstr "Date:"
 
@@ -11598,7 +11598,7 @@ msgid "Data creation options"
 msgstr "Opțiuni creare date"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2290
+#: libraries/classes/Plugins/Export/ExportSql.php:2260
 msgid "Truncate table before insert"
 msgstr "Trunchiază tabelul înainte de inserare"
 
@@ -11680,96 +11680,96 @@ msgid "It appears your database uses routines;"
 msgstr "Se pare că baza ta de date folosește rutine;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:577
-#: libraries/classes/Plugins/Export/ExportSql.php:1597
-#: libraries/classes/Plugins/Export/ExportSql.php:2103
+#: libraries/classes/Plugins/Export/ExportSql.php:1576
+#: libraries/classes/Plugins/Export/ExportSql.php:2078
 msgid "alias export may not work reliably in all cases."
 msgstr "exportul aliasului poate să nu funcționeze fiabil în toate cazurile."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1050
+#: libraries/classes/Plugins/Export/ExportSql.php:1040
 msgid "Metadata"
 msgstr "Metadate"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1116
+#: libraries/classes/Plugins/Export/ExportSql.php:1106
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadate pentru tabelul %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1123
+#: libraries/classes/Plugins/Export/ExportSql.php:1113
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadate pentru baza de date %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1441
+#: libraries/classes/Plugins/Export/ExportSql.php:1420
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "Creare:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1451
+#: libraries/classes/Plugins/Export/ExportSql.php:1430
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "Ultima actualizare:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1461
+#: libraries/classes/Plugins/Export/ExportSql.php:1440
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "Ultima verificare:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1512
+#: libraries/classes/Plugins/Export/ExportSql.php:1491
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Eroare la citirea structurii tabelului %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1594
+#: libraries/classes/Plugins/Export/ExportSql.php:1573
 msgid "It appears your database uses views;"
 msgstr "Se pare că baza ta de date folosește vizualizări;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1761
+#: libraries/classes/Plugins/Export/ExportSql.php:1740
 msgid "Constraints for dumped tables"
 msgstr "Constrângeri pentru tabele eliminate"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1762
+#: libraries/classes/Plugins/Export/ExportSql.php:1741
 msgid "Constraints for table"
 msgstr "Constrângeri pentru tabele"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1789
+#: libraries/classes/Plugins/Export/ExportSql.php:1768
 msgid "Indexes for dumped tables"
 msgstr "Indexuri pentru tabele eliminate"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1790
+#: libraries/classes/Plugins/Export/ExportSql.php:1769
 msgid "Indexes for table"
 msgstr "Indexuri pentru tabele"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1826
+#: libraries/classes/Plugins/Export/ExportSql.php:1805
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT pentru tabele eliminate"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1827
+#: libraries/classes/Plugins/Export/ExportSql.php:1806
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT pentru tabele"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1902
+#: libraries/classes/Plugins/Export/ExportSql.php:1881
 #, fuzzy
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TIPURI DE MIME PENTRU TABELE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1927
+#: libraries/classes/Plugins/Export/ExportSql.php:1906
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELAȚII PENTRU TABELE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2100
+#: libraries/classes/Plugins/Export/ExportSql.php:2075
 msgid "It appears your table uses triggers;"
 msgstr "Se pare că tabelul tău folosește declanșatori;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2130
+#: libraries/classes/Plugins/Export/ExportSql.php:2105
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Structură pentru vizualizarea %s exportată ca un tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2150
+#: libraries/classes/Plugins/Export/ExportSql.php:2125
 msgid "(See below for the actual view)"
 msgstr "(Vezi mai jos vizualizarea actuală)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2223
+#: libraries/classes/Plugins/Export/ExportSql.php:2193
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Eroare la citirea datelor pentru tabelul %s:"
@@ -11833,26 +11833,26 @@ msgstr ""
 msgid "Column names:"
 msgstr "Nume coloane:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:284
-#: libraries/classes/Plugins/Import/ImportCsv.php:643
+#: libraries/classes/Plugins/Import/ImportCsv.php:286
+#: libraries/classes/Plugins/Import/ImportCsv.php:645
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format invalid pentru intrarea CSV pe linia %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:502
+#: libraries/classes/Plugins/Import/ImportCsv.php:504
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Număr de coloane invalid în intrarea CSV pe linia %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:662
-#: libraries/classes/Plugins/Import/ImportCsv.php:677
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
-#: libraries/classes/Plugins/Import/ImportCsv.php:695
+#: libraries/classes/Plugins/Import/ImportCsv.php:666
+#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:692
+#: libraries/classes/Plugins/Import/ImportCsv.php:699
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Parametru invalid pentru importul CSV: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:827
+#: libraries/classes/Plugins/Import/ImportCsv.php:831
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11865,7 +11865,7 @@ msgstr ""
 msgid "Column names: "
 msgstr "Nume coloane: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:115
+#: libraries/classes/Plugins/Import/ImportLdi.php:116
 msgid "This plugin does not support compressed imports!"
 msgstr "Acest modul nu suportă importuri comprimate!"
 
@@ -11873,7 +11873,7 @@ msgstr "Acest modul nu suportă importuri comprimate!"
 msgid "MediaWiki Table"
 msgstr "Tabel MediaWiki"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:277
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:279
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Format invalid pentru intrarea mediawiki pe linia: <br>%s."
@@ -11887,7 +11887,7 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportOds.php:155
+#: libraries/classes/Plugins/Import/ImportOds.php:156
 #: libraries/classes/Plugins/Import/ImportXml.php:114
 #: libraries/classes/Plugins/Import/ImportXml.php:177
 msgid ""
@@ -11897,7 +11897,7 @@ msgstr ""
 "Fișierul XML specificat a fost fie deteriorat ori fie incomplet. Te rog "
 "corectează problema și reîncearcă."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:165
+#: libraries/classes/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Nu am putut interpreta foaia de calcul OpenDocument!"
 
@@ -11920,11 +11920,11 @@ msgstr "Extensia spațială MySQL nu acceptă tipul ESRI „%s”."
 msgid "The imported file does not contain any data!"
 msgstr "Fișierul importat nu conține niciun fel de date!"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:63
+#: libraries/classes/Plugins/Import/ImportSql.php:62
 msgid "SQL compatibility mode:"
 msgstr "Mod compatibilitate SQL:"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:75
+#: libraries/classes/Plugins/Import/ImportSql.php:74
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Nu folosi <code>AUTO_INCREMENT</code> pentru valorile zero"
 
