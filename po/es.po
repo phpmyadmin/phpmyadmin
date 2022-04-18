@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-04-14 00:12+0000\n"
+"PO-Revision-Date: 2022-04-19 18:08+0000\n"
 "Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "es/>\n"
@@ -544,8 +544,8 @@ msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Seleccione «ST_GeomFromText» de la columna \"Función\" y pegue la cadena "
-"ubicada debajo en el campo \"Valor\"."
+"Seleccione «ST_GeomFromText» de la columna \"Función\" y pegue el texto mas "
+"abajo en el campo \"Valor\"."
 
 #: import.php:73
 msgid "Succeeded"
@@ -2692,7 +2692,7 @@ msgstr ""
 "características no funcionan adecuadamente para usted. Es probable que el "
 "navegador no soporte el almacenamiento de información o se alcanzó el límite "
 "de cuota. En Firefox, el almacenamiento corrupto también puede causar "
-"problemas, limpiar sus \"Datos offline de sitios web\"  puede ayudar. En "
+"problemas, limpiar sus \"Datos offline de sitios web\" puede ayudar. En "
 "Safari, este problema es causado comúnmente por la \"Navegación en modo "
 "privado\"."
 
@@ -2747,7 +2747,7 @@ msgstr "Ha fallado la activación de la llave de seguridad (%s)."
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "¡La tabla %s ya existe!"
+msgstr "La tabla %s ya existe!"
 
 #: js/messages.php:756 libraries/classes/InsertEdit.php:289
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
@@ -3577,7 +3577,7 @@ msgstr "dependiente de acentos"
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "Sensible al kanatipo"
+msgstr "sensible a kana"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -3592,7 +3592,7 @@ msgstr "binario"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr "sin relleno"
+msgstr "sin espacios"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -14685,7 +14685,7 @@ msgstr "Guardar salida a un archivo"
 #: templates/display/export/options_output.twig:51
 #, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Omitir tablas mayores a %s MiB"
+msgstr "Omitir tablas de más de %s MiB"
 
 #: templates/table/search/table_header.twig:9
 #: templates/database/designer/having_query_panel.twig:30
@@ -15177,7 +15177,7 @@ msgstr "Desactivar la autenticación de doble factor"
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
 msgid "Configure two-factor authentication"
-msgstr "Configurar autenticación de doble factor"
+msgstr "Configurar autenticación en dos pasos"
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
