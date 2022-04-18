@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2022-04-19 18:08+0000\n"
-"Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
+"Last-Translator: Luis45ccs <luis45ccs@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "es/>\n"
 "Language: es\n"
@@ -931,8 +931,7 @@ msgstr "Eliminando clave foránea."
 
 #: js/messages.php:64
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
-"Esta operación podría llevar demorar mucho tiempo. ¿Proceder de todas formas?"
+msgstr "Esta operación podría tardar mucho tiempo. ¿Proceder de todas formas?"
 
 #: js/messages.php:66
 #, php-format
@@ -979,15 +978,15 @@ msgstr ""
 
 #: js/messages.php:84
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "¿Desea realmente TRUNCAR las particiones seleccionadas?"
+msgstr "¿Desea realmente CORTAR las particiones seleccionadas?"
 
 #: js/messages.php:86
 msgid "Do you really want to remove partitioning?"
-msgstr "¿Desea realmente eliminar el particionado?"
+msgstr "¿Desea realmente eliminar las particiones?"
 
 #: js/messages.php:87
 msgid "Do you really want to RESET SLAVE?"
-msgstr "¿Realmente deseas ejecutar RESET SLAVE?"
+msgstr "¿Realmente deseas ejecutar RESET SLAVE ( inicializar el esclavo)?"
 
 #: js/messages.php:89
 msgid ""
@@ -1005,7 +1004,7 @@ msgstr ""
 
 #: js/messages.php:95
 msgid "Garbled Data"
-msgstr "Datos ilegibles"
+msgstr "Datos Dañados"
 
 #: js/messages.php:97
 msgid "Are you sure you wish to change the collation and convert the data?"
