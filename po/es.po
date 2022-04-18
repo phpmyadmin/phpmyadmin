@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-04-14 00:11+0000\n"
+"PO-Revision-Date: 2022-04-19 18:10+0000\n"
 "Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "es/>\n"
@@ -605,17 +605,15 @@ msgid "key_buffer_size is 0"
 msgstr "«key_buffer_size» es 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Porcentaje máximo del búfer de claves MyISAM usado en algún momento"
+msgstr "% máximo del búfer de claves MyISAM usado en algún momento"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "El porcentaje del búfer de claves MyISAM (caché de índices) es bajo."
+msgstr "El % de búfer de claves MyISAM (caché de índices) es bajo."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -1522,7 +1520,7 @@ msgstr "dependiente de acentos"
 #: libraries/classes/Charsets/Collation.php:300
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "Sensible al kanatipo"
+msgstr "sensible a kana"
 
 #: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
@@ -1537,7 +1535,7 @@ msgstr "binario"
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr "sin relleno"
+msgstr "sin espacios"
 
 #: libraries/classes/Charsets/Collation.php:326
 msgctxt "Collation"
@@ -1811,10 +1809,8 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Habilitar compresión bzip2, para las operaciones de importación."
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
+msgstr "Ingrese la URL de su API compatible con reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
@@ -1845,10 +1841,8 @@ msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
 
 #: libraries/classes/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
+msgstr "Ingrese la URL de verificación de su sitio para su servicio reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -5607,8 +5601,7 @@ msgstr "Eliminando clave foránea."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
-"Esta operación podría llevar demorar mucho tiempo. ¿Proceder de todas formas?"
+msgstr "Esta operación podría tardar mucho tiempo. ¿Proceder de todas formas?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 #, php-format
@@ -5630,8 +5623,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Estas intentando reducir el número de filas, pero ya ha introducido datos en "
-"esas filas que se perderán. ¿Desea continuar?"
+"Estás intentando reducir el número de filas, pero ya hay datos en esas filas "
+"que se perderán. ¿Quieres continuar?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -5655,15 +5648,15 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:66
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "¿Desea realmente TRUNCAR las particiones seleccionadas?"
+msgstr "¿Desea realmente CORTAR las particiones seleccionadas?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:67
 msgid "Do you really want to remove partitioning?"
-msgstr "¿Desea realmente eliminar el particionado?"
+msgstr "¿Desea realmente eliminar las particiones?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:68
 msgid "Do you really want to RESET SLAVE?"
-msgstr "¿Realmente deseas ejecutar RESET SLAVE?"
+msgstr "¿Realmente deseas ejecutar RESET SLAVE ( inicializar el esclavo)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 msgid ""
@@ -5681,7 +5674,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:76
 msgid "Garbled Data"
-msgstr "Datos ilegibles"
+msgstr "Datos Dañados"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:78
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -7445,11 +7438,12 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 "Hubo un problema accediendo al almacenamiento del navegador, algunas "
-"características no funcionan. Es probable que el navegador no soporte el "
-"almacenamiento de información o se alcanzó el límite de cuota. En Firefox, "
-"el almacenamiento corrupto también puede causar problemas, limpiar sus "
-"\"Datos offline de sitios web\" puede ayudar. En Safari, este problema es "
-"causado comúnmente por la \"Navegación en modo privado\"."
+"características no funcionan adecuadamente para usted. Es probable que el "
+"navegador no soporte el almacenamiento de información o se alcanzó el límite "
+"de cuota. En Firefox, el almacenamiento corrupto también puede causar "
+"problemas, limpiar sus \"Datos offline de sitios web\" puede ayudar. En "
+"Safari, este problema es causado comúnmente por la \"Navegación en modo "
+"privado\"."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 msgid "Copy tables to"
@@ -7533,7 +7527,7 @@ msgstr "Llave de seguridad inválida."
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "¡La tabla %s ya existe!"
+msgstr "La tabla %s ya existe!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #: libraries/classes/InsertEdit.php:339
@@ -15260,8 +15254,6 @@ msgid "Returns"
 msgstr "Retorna"
 
 #: templates/database/routines/index.twig:62
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "Nuevo"
@@ -15820,10 +15812,9 @@ msgid "View output as text"
 msgstr "Ver salida como texto"
 
 #: templates/export.twig:400
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Omitir tablas mayores a"
+msgstr "Omitir tablas de más de %s MiB"
 
 #: templates/export.twig:406 templates/import.twig:204
 msgid "Format-specific options:"
@@ -16115,10 +16106,8 @@ msgid "Browse your computer:"
 msgstr "Buscar en su ordenador:"
 
 #: templates/import.twig:62
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Buscar en su ordenador:"
+msgstr "Buscar en su ordenador"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
@@ -16675,7 +16664,7 @@ msgstr ""
 #: templates/preferences/two_factor/main.twig:57
 #: templates/preferences/two_factor/main.twig:70
 msgid "Configure two-factor authentication"
-msgstr "Configurar autenticación de doble factor"
+msgstr "Configurar autenticación en dos pasos"
 
 #: templates/preferences/two_factor/configure.twig:12
 msgid "Enable two-factor authentication"
@@ -16809,10 +16798,8 @@ msgid "Character sets and collations"
 msgstr "Conjunto de caracteres y sus cotejamientos"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Predeterminado"
+msgstr "(predeterminado)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17672,19 +17659,15 @@ msgstr "Velocidad de actualización"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:36
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d second"
 msgstr "%d segundo"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d seconds"
-msgstr "%d segundo"
+msgstr "%d segundos"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:42
@@ -17900,10 +17883,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "por hora"
+msgstr "ø por hora"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18067,10 +18048,8 @@ msgid "Show form"
 msgstr "Mostrar el formulario"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Mostrar elementos ocultos"
+msgstr "Mostrar mensajes ocultos"
 
 #: templates/setup/home/index.twig:73
 msgid "There are no configured servers"
@@ -18374,10 +18353,8 @@ msgid "Index choice:"
 msgstr "Opción de índice:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced options"
-msgstr "Opciones activas"
+msgstr "Opciones avanzadas"
 
 #: templates/table/index_form.twig:59
 msgid "Key block size:"
@@ -18405,27 +18382,21 @@ msgid "Continue insertion with %s rows"
 msgstr "Continuar inserción con %s filas"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Revise"
+msgstr "Suma de control"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "Modificar el ORDER BY de la tabla"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(solamente)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Mover tabla a (Base de datos<b>.</b>tabla)"
+msgstr "Mover tabla a (Base de datos.tabla)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -18444,10 +18415,8 @@ msgid "Change all column collations"
 msgstr "Cambiar todas las intercalaciones de columna"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Copiar tabla a (base de datos<b>.</b>tabla)"
+msgstr "Copiar tabla a (base de datos.tabla)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -18500,46 +18469,32 @@ msgid "Relation view"
 msgstr "Vista de relaciones"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "particionado"
+msgstr "Analizar partición"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "particionado"
+msgstr "Revisar partición"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "particionado"
+msgstr "Eliminar partición"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Remueva la partición"
+msgstr "Optimizar la partición"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Sub división"
+msgstr "Reconstruir partición"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Remueva la partición"
+msgstr "Reparar la partición"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Sub división"
+msgstr "Truncar la partición"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18813,8 +18768,6 @@ msgstr "Desactivar ahora"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -18871,10 +18824,8 @@ msgstr "¡Obtener más temas!"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Barra de navegación mediante tablas"
+msgstr "Alternar navegación"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
@@ -18882,10 +18833,8 @@ msgid "(current)"
 msgstr "(actual)"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "MIME-types disponibles"
+msgstr "Tipo de medios disponibles"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -18893,8 +18842,6 @@ msgstr "Transformaciones de visualización en el navegador disponibles"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Descripción"
