@@ -55,10 +55,11 @@ class ChartControllerTest extends AbstractTestCase
             ),
         ];
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'table_for_chart\';', [['table_for_chart']]);
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'table_for_chart\';', [['table_for_chart']]);
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`table_for_chart`;',
             [
                 ['1', '7', '2022-02-08'],
@@ -69,6 +70,8 @@ class ChartControllerTest extends AbstractTestCase
             ['id', 'amount', 'date'],
             $fieldsMeta
         );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
         $template = new Template();
@@ -91,7 +94,7 @@ class ChartControllerTest extends AbstractTestCase
             ],
         ]);
 
-        (new ChartController($response, $template, $this->dbi))();
+        (new ChartController($response, $template, $dbi))();
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

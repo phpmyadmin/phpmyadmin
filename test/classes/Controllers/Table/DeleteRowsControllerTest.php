@@ -33,23 +33,26 @@ class DeleteRowsControllerTest extends AbstractTestCase
             'mult_btn' => 'Yes',
         ];
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', []);
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', []);
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`test_table` LIMIT 0, 25',
             [['1', 'abcd', '2011-01-20 02:00:02'], ['2', 'foo', '2010-01-20 02:00:02']],
             ['id', 'name', 'datetimefield']
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\''
             . ' AND TABLE_NAME = \'test_table\' AND IS_UPDATABLE = \'YES\'',
             [],
             ['TABLE_NAME']
         );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
-        (new DeleteRowsController($response, new Template(), $this->dbi))();
+        (new DeleteRowsController($response, new Template(), $dbi))();
         $actual = $response->getHTMLResult();
         $this->assertStringContainsString(
             '<div class="alert alert-success" role="alert">Your SQL query has been executed successfully.</div>',

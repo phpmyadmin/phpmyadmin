@@ -189,14 +189,19 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setGlobalDbi(): void
     {
-        $this->dummyDbi = new DbiDummy();
-        $this->dbi = $this->getDatabaseInterface($this->dummyDbi);
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
     }
 
-    protected function getDatabaseInterface(?DbiExtension $extension = null): DatabaseInterface
+    protected function createDatabaseInterface(?DbiExtension $extension = null): DatabaseInterface
     {
-        return new DatabaseInterface($extension ?? new DbiDummy());
+        return new DatabaseInterface($extension ?? $this->createDbiDummy());
+    }
+
+    protected function createDbiDummy(): DbiDummy
+    {
+        return new DbiDummy();
     }
 
     protected function setGlobalConfig(): void

@@ -32,8 +32,11 @@ class AddFieldControllerTest extends AbstractTestCase
             'after_field' => 'datetimefield',
         ];
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $contentCell = [
             'column_number' => 0,
@@ -165,7 +168,7 @@ class AddFieldControllerTest extends AbstractTestCase
             'mime_map' => [],
         ];
 
-        $relation = new Relation($this->dbi);
+        $relation = new Relation($dbi);
         $response = new ResponseRenderer();
         $template = new Template();
         $expected = $template->render('columns_definitions/column_definitions_form', [
@@ -236,14 +239,14 @@ class AddFieldControllerTest extends AbstractTestCase
             'is_integers_length_restricted' => false,
             'browse_mime' => true,
             'supports_stored_keyword' => false,
-            'server_version' => $this->dbi->getVersion(),
+            'server_version' => $dbi->getVersion(),
             'max_rows' => 25,
             'char_editing' => 'input',
             'attribute_types' => ['', 'BINARY', 'UNSIGNED', 'UNSIGNED ZEROFILL', 'on update CURRENT_TIMESTAMP'],
             'privs_available' => false,
             'max_length' => 1024,
             'have_partitioning' => true,
-            'dbi' => $this->dbi,
+            'dbi' => $dbi,
             'disable_is' => true,
         ]);
 
@@ -253,8 +256,8 @@ class AddFieldControllerTest extends AbstractTestCase
             $template,
             $transformations,
             new Config(),
-            $this->dbi,
-            new ColumnsDefinition($this->dbi, $relation, $transformations)
+            $dbi,
+            new ColumnsDefinition($dbi, $relation, $transformations)
         ))();
 
         $this->assertSame($expected, $response->getHTMLResult());

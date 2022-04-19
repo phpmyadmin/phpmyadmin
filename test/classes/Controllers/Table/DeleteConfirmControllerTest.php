@@ -26,8 +26,11 @@ class DeleteConfirmControllerTest extends AbstractTestCase
             'sql_query' => 'SELECT * FROM `test_db`.`test_table`',
         ];
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
         $template = new Template();

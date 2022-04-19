@@ -22,14 +22,17 @@ class ChangeControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`test_table` LIMIT 1;',
             [['1', 'abcd', '2011-01-20 02:00:02']],
             ['id', 'name', 'datetimefield']
         );
-        $this->dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addSelectDb('test_db');
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
         $pageSettings = new PageSettings('Edit');
@@ -37,8 +40,8 @@ class ChangeControllerTest extends AbstractTestCase
         (new ChangeController(
             $response,
             new Template(),
-            new InsertEdit($this->dbi),
-            new Relation($this->dbi)
+            new InsertEdit($dbi),
+            new Relation($dbi)
         ))();
         $actual = $response->getHTMLResult();
 

@@ -35,7 +35,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $response->setAjax(true);
 
         $dummyDbi = new DbiDummy();
-        $dbi = $this->getDatabaseInterface($dummyDbi);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $controller = new QueryAnalyzerController($response, new Template(), new Data(), new Monitor($dbi), $dbi);
 

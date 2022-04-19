@@ -27,10 +27,13 @@ class CreateControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server'] = $GLOBALS['config']->defaultServer;
         $_POST = ['db' => 'test_db', 'table' => 'new_test_table', 'num_fields' => '2'];
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW COLUMNS FROM `test_db`.`new_test_table`', false);
-        $this->dummyDbi->addResult('SHOW FULL COLUMNS FROM `test_db`.`new_test_table`', false);
-        $this->dummyDbi->addResult('SHOW CREATE TABLE `test_db`.`new_test_table`', false);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW COLUMNS FROM `test_db`.`new_test_table`', false);
+        $dummyDbi->addResult('SHOW FULL COLUMNS FROM `test_db`.`new_test_table`', false);
+        $dummyDbi->addResult('SHOW CREATE TABLE `test_db`.`new_test_table`', false);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $contentCell = [
             'column_number' => 0,
@@ -162,7 +165,7 @@ class CreateControllerTest extends AbstractTestCase
             'mime_map' => [],
         ];
 
-        $relation = new Relation($this->dbi);
+        $relation = new Relation($dbi);
         $response = new ResponseRenderer();
         $template = new Template();
         $expected = $template->render('columns_definitions/column_definitions_form', [
@@ -231,14 +234,14 @@ class CreateControllerTest extends AbstractTestCase
             'is_integers_length_restricted' => false,
             'browse_mime' => true,
             'supports_stored_keyword' => false,
-            'server_version' => $this->dbi->getVersion(),
+            'server_version' => $dbi->getVersion(),
             'max_rows' => 25,
             'char_editing' => 'input',
             'attribute_types' => ['', 'BINARY', 'UNSIGNED', 'UNSIGNED ZEROFILL', 'on update CURRENT_TIMESTAMP'],
             'privs_available' => false,
             'max_length' => 1024,
             'have_partitioning' => true,
-            'dbi' => $this->dbi,
+            'dbi' => $dbi,
             'disable_is' => false,
         ]);
 
@@ -248,8 +251,8 @@ class CreateControllerTest extends AbstractTestCase
             $template,
             $transformations,
             new Config(),
-            $this->dbi,
-            new ColumnsDefinition($this->dbi, $relation, $transformations)
+            $dbi,
+            new ColumnsDefinition($dbi, $relation, $transformations)
         ))();
 
         $this->assertSame($expected, $response->getHTMLResult());
