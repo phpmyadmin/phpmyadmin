@@ -29,17 +29,19 @@ class DropColumnControllerTest extends AbstractTestCase
         ];
         $_SESSION = [' PMA_token ' => 'token'];
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', []);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', []);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $this->assertArrayNotHasKey('flashMessages', $_SESSION);
 
         (new DropColumnController(
             new ResponseRenderer(),
             new Template(),
-            $this->dbi,
+            $dbi,
             new FlashMessages(),
-            new RelationCleanup($this->dbi, new Relation($this->dbi))
+            new RelationCleanup($dbi, new Relation($dbi))
         ))();
 
         $this->assertArrayHasKey('flashMessages', $_SESSION);

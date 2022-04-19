@@ -24,8 +24,11 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
             ['selected_fld', null, ['name', 'datetimefield']],
         ]);
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
         $response->setAjax(true);

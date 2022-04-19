@@ -36,8 +36,9 @@ class GisVisualizationControllerTest extends AbstractTestCase
         $_SESSION['tmpval'] = [];
         $_SESSION['tmpval']['max_rows'] = 'all';
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
             'SELECT * FROM `gis_all`',
             [['POINT', 'POINT(100 250)']],
             ['name', 'shape'],
@@ -46,12 +47,14 @@ class GisVisualizationControllerTest extends AbstractTestCase
                 new FieldMetadata(MYSQLI_TYPE_GEOMETRY, 0, (object) []),
             ]
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT ST_ASTEXT(`shape`) AS `shape`, ST_SRID(`shape`) AS `srid`'
             . ' FROM (SELECT * FROM `gis_all`) AS `temp_gis` LIMIT 0, 25',
             [['POINT(100 250)', '0']],
             ['shape', 'srid']
         );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $params = [
             'goto' => 'index.php?route=/database/structure&server=2&lang=en',
@@ -107,7 +110,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        (new GisVisualizationController($response, $template, $this->dbi))();
+        (new GisVisualizationController($response, $template, $dbi))();
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

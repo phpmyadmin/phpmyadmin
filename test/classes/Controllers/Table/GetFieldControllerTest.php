@@ -30,8 +30,9 @@ class GetFieldControllerTest extends AbstractTestCase
         $_GET['where_clause'] = '`table_with_blob`.`id` = 1';
         $_GET['where_clause_sign'] = Core::signSqlQuery('`table_with_blob`.`id` = 1');
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
             'SHOW COLUMNS FROM `test_db`.`table_with_blob`',
             [
                 ['id', 'int(11)', 'NO', 'PRI', null, 'auto_increment'],
@@ -39,18 +40,20 @@ class GetFieldControllerTest extends AbstractTestCase
             ],
             ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra']
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW INDEXES FROM `test_db`.`table_with_blob`',
             [['table_with_blob', 'PRIMARY', 'id']],
             ['Table', 'Key_name', 'Column_name']
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT `file` FROM `table_with_blob` WHERE `table_with_blob`.`id` = 1;',
             [[bin2hex('FILE')]],
             ['file']
         );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
-        (new GetFieldController(new ResponseRenderer(), new Template(), $this->dbi))();
+        (new GetFieldController(new ResponseRenderer(), new Template(), $dbi))();
         $this->expectOutputString('46494c45');
     }
 }

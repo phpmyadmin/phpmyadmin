@@ -28,7 +28,10 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['single_table'] = '1';
 
-        $this->dummyDbi->addResult('SELECT COUNT(*) FROM `test_db`.`test_table`', [['3']]);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult('SELECT COUNT(*) FROM `test_db`.`test_table`', [['3']]);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
         $pageSettings = new PageSettings('Export');
@@ -90,7 +93,7 @@ class ExportControllerTest extends AbstractTestCase
         (new ExportController(
             $response,
             $template,
-            new Options(new Relation($this->dbi), new TemplateModel($this->dbi))
+            new Options(new Relation($dbi), new TemplateModel($dbi))
         ))();
         $this->assertSame($expected, $response->getHTMLResult());
     }

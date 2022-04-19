@@ -30,9 +30,12 @@ class ImportControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server'] = $GLOBALS['config']->defaultServer;
         $_GET['format'] = 'xml';
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
-        $this->dummyDbi->addResult('SELECT @@local_infile;', [['1']]);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dummyDbi->addResult('SELECT @@local_infile;', [['1']]);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $importList = Plugins::getImport('table');
         $choice = Plugins::getChoice($importList, 'xml');
@@ -70,14 +73,14 @@ class ImportControllerTest extends AbstractTestCase
             'timeout_passed' => null,
             'offset' => null,
             'can_convert_kanji' => false,
-            'charsets' => Charsets::getCharsets($this->dbi, false),
+            'charsets' => Charsets::getCharsets($dbi, false),
             'is_foreign_key_check' => true,
             'user_upload_dir' => '',
             'local_files' => '',
         ]);
 
         $response = new ResponseRenderer();
-        (new ImportController($response, $template, $this->dbi))();
+        (new ImportController($response, $template, $dbi))();
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

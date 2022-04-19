@@ -25,9 +25,12 @@ class IndexRenameControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['lang'] = 'en';
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'test_table\';', [['test_table']]);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $template = new Template();
         $expected = $template->render('table/index_rename_form', [
@@ -36,7 +39,7 @@ class IndexRenameControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        (new IndexRenameController($response, $template, $this->dbi, new Indexes($response, $template, $this->dbi)))();
+        (new IndexRenameController($response, $template, $dbi, new Indexes($response, $template, $dbi)))();
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }
