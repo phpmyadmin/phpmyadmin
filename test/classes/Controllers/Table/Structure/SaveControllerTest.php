@@ -67,12 +67,14 @@ class SaveControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
-        $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult(
             'ALTER TABLE `test_table` CHANGE `name` `new_name` VARCHAR(21)'
             . ' CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;',
             []
         );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $mock = $this->createMock(StructureController::class);
         $mock->expects($this->once())->method('__invoke');
@@ -80,9 +82,9 @@ class SaveControllerTest extends AbstractTestCase
         (new SaveController(
             new ResponseRenderer(),
             new Template(),
-            new Relation($this->dbi),
+            new Relation($dbi),
             new Transformations(),
-            $this->dbi,
+            $dbi,
             $mock
         ))();
 
@@ -97,6 +99,8 @@ class SaveControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
 
+        $dbi = $this->createDatabaseInterface();
+
         $class = new ReflectionClass(SaveController::class);
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
@@ -104,9 +108,9 @@ class SaveControllerTest extends AbstractTestCase
         $ctrl = new SaveController(
             new ResponseRenderer(),
             new Template(),
-            new Relation($this->dbi),
+            new Relation($dbi),
             new Transformations(),
-            $this->dbi,
+            $dbi,
             $this->createStub(StructureController::class)
         );
 

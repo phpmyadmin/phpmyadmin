@@ -22,9 +22,12 @@ class SimulateDmlTest extends AbstractTestCase
     public function testGetMatchedRows(string $sqlQuery, string $simulatedQuery): void
     {
         $GLOBALS['db'] = 'PMA';
-        $object = new SimulateDml($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addSelectDb('PMA');
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $object = new SimulateDml($dbi);
         $parser = new Parser($sqlQuery);
-        $this->dummyDbi->addSelectDb('PMA');
 
         $simulatedData = $object->getMatchedRows($sqlQuery, $parser, $parser->statements[0]);
 

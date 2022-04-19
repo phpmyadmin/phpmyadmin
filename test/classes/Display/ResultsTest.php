@@ -1593,7 +1593,10 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $query = 'SELECT COUNT(*) AS `Rows`, `name` FROM `test_table` GROUP BY `name` ORDER BY `name`';
 
-        $object = new DisplayResults($this->dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $object = new DisplayResults($dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
@@ -1606,7 +1609,7 @@ class ResultsTest extends AbstractTestCase
             new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'name']),
         ];
 
-        $this->dummyDbi->addResult($query, [['2', 'abcd'], ['1', 'foo']], ['Rows', 'name'], $fieldsMeta);
+        $dummyDbi->addResult($query, [['2', 'abcd'], ['1', 'foo']], ['Rows', 'name'], $fieldsMeta);
 
         $object->setProperties(
             2,
@@ -1641,7 +1644,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['repeat_cells'] = 0;
         $_SESSION['tmpval']['query']['f2a8e80312ca180031ad773b573adbe1']['max_rows'] = 25;
 
-        $dtResult = $this->dbi->tryQuery($query);
+        $dtResult = $dbi->tryQuery($query);
 
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => false,
