@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #17418 Remove the use of the deprecated `strftime` function in OpenDocument exports
 - issue #17111 Enable tabindex recompute on preview button while insert new rows
 - issue #17474 Fix invalid SQL generated when PRIMARY/UNIQUE key contains a POINT column
+- issue #17484 Fix setup's CSS not loading when the URL doesn't have a trailing slash
 
 5.1.3 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
