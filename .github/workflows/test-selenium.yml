@@ -14,7 +14,7 @@ env:
 jobs:
   selenium:
     name: "Selenium"
-    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[ci selenium skip]')"
+    if: "!contains(github.event.head_commit.message, '[ci selenium skip]')"
     runs-on: "ubuntu-latest"
     services:
       database-server:
@@ -80,7 +80,7 @@ jobs:
           - "Xss"
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Refresh apt cache
         run: sudo apt-get update
@@ -113,7 +113,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache Yarn dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
