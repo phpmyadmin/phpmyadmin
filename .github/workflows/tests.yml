@@ -11,7 +11,6 @@ on:
 jobs:
   multi-arch-tests-php:
     name: Test on PHP ${{ matrix.php-version }} (${{ matrix.arch }})
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
@@ -27,7 +26,7 @@ jobs:
           - { php-version: '7', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Write script
         # tcpdf allowed memory exhausted needs the memory_limit workaround
@@ -60,7 +59,6 @@ jobs:
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
     strategy:
@@ -77,7 +75,7 @@ jobs:
             composer-options: '--ignore-platform-req=php+'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -130,7 +128,6 @@ jobs:
   test-php-optional-extensions:
     name: Test on PHP (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     strategy:
       matrix:
         php-version: ["7.2"]
@@ -138,7 +135,7 @@ jobs:
         extension: ["dbase", "recode"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -190,10 +187,9 @@ jobs:
   test-js:
     name: Test javascript files
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node
         uses: actions/setup-node@v1
@@ -205,7 +201,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache Yarn dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}

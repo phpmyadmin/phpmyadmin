@@ -11,10 +11,9 @@ on:
 jobs:
   lint-node:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node
         uses: actions/setup-node@v1
@@ -26,7 +25,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache Yarn dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -44,13 +43,12 @@ jobs:
 
   lint-php-files:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     strategy:
       matrix:
         php-version: ["7.2"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -68,7 +66,7 @@ jobs:
           composer-options: "--ignore-platform-req=ext-zip"
 
       - name: Cache coding-standard
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .phpcs-cache
           key: phpcs-cache
@@ -84,13 +82,12 @@ jobs:
 
   analyse-php:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     strategy:
       matrix:
         php-version: ["7.2"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
