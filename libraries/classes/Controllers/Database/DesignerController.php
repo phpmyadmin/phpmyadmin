@@ -87,12 +87,10 @@ class DesignerController extends AbstractController
                 } elseif ($this->designerCommon->getPageExists($_POST['selected_value'])) {
                     $this->response->addJSON(
                         'message',
-                        /* l10n: The user tries to save a page with an existing name in Designer */
-                        __(
-                            sprintf(
-                                'There already exists a page named "%s" please rename it to something else.',
-                                htmlspecialchars($_POST['selected_value'])
-                            )
+                        sprintf(
+                            /* l10n: The user tries to save a page with an existing name in Designer */
+                            __('There already exists a page named "%s" please rename it to something else.'),
+                            htmlspecialchars($_POST['selected_value'])
                         )
                     );
                     $this->response->setRequestStatus(false);
