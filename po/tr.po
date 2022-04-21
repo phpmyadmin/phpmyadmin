@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2021-12-19 15:27+0000\n"
+"PO-Revision-Date: 2022-04-23 11:51+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.12.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5071,6 +5071,7 @@ msgstr "Gösterilen satır %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"\"%s\" adında bir sayfa zaten var, lütfen başka bir adla yeniden adlandırın."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -7424,6 +7425,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"IndexedDB tarayıcınızda çalışmadığından ve phpMyAdmin yapılandırma "
+"depolamanız bunun için yapılandırılmadığından sayfa düzeninizi açamaz, "
+"kaydedemez veya silemezsiniz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -9350,6 +9354,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Hata 1045: Kullanıcı için erişim reddedildi. Ek hata bilgileri mevcut "
+"olabilir, ancak %s yapılandırma yönergesi tarafından gizleniyor."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -13570,12 +13576,8 @@ msgid "Could not save configuration"
 msgstr "Yapılandırma kaydedilemedi"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"Şu anki veritabanında phpMyAdmin yapılandırma depolaması %soluşturun%s."
+msgstr "phpMyAdmin yapılandırma depolama veritabanına erişilemedi."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -17834,7 +17836,7 @@ msgstr "Yeni sunucu ekle"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Bir şeyler ters gitti."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
