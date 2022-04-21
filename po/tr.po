@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 19:09+0000\n"
 "PO-Revision-Date: 2022-04-21 19:35+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -5039,6 +5039,7 @@ msgstr "Gösterilen satır %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"\"%s\" adında bir sayfa zaten var, lütfen başka bir adla yeniden adlandırın."
 
 #: libraries/classes/Controllers/Database/ExportController.php:89
 #: libraries/classes/Controllers/Database/TrackingController.php:138
