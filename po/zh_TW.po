@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-17 00:18+0000\n"
+"POT-Creation-Date: 2022-04-21 19:09+0000\n"
 "PO-Revision-Date: 2022-03-29 23:08+0000\n"
 "Last-Translator: Eotones <eotones@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1860,7 +1860,7 @@ msgid ""
 msgstr "設定 Script 允許執行的時間限制 (以秒計算，[kbd]0[/kbd] 為不設限)。"
 
 #: libraries/classes/Config/Descriptions.php:184
-#: libraries/classes/Config/Descriptions.php:727
+#: libraries/classes/Config/Descriptions.php:728
 #: libraries/classes/Plugins/Export/ExportSql.php:345
 msgid "Exclude definition of current user"
 msgstr ""
@@ -2757,7 +2757,7 @@ msgid "Whether to show row links even in the absence of a unique key."
 msgstr "是否顯示缺少獨一鍵的資料列連結。"
 
 #: libraries/classes/Config/Descriptions.php:575
-#: libraries/classes/Config/Descriptions.php:857
+#: libraries/classes/Config/Descriptions.php:858
 msgid "Disable shortcut keys"
 msgstr "關閉快速鍵"
 
@@ -3021,7 +3021,7 @@ msgid "Save as file"
 msgstr "另存新檔"
 
 #: libraries/classes/Config/Descriptions.php:657
-#: libraries/classes/Config/Descriptions.php:791
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Character set of the file"
 msgstr "檔案編碼"
 
@@ -3042,7 +3042,7 @@ msgstr "壓縮"
 #: libraries/classes/Config/Descriptions.php:679
 #: libraries/classes/Config/Descriptions.php:692
 #: libraries/classes/Config/Descriptions.php:694
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:741
 #: libraries/classes/Plugins/Export/ExportCsv.php:87
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:84
@@ -3053,15 +3053,15 @@ msgid "Put columns names in the first row"
 msgstr "將欄位名稱儲存至第一行"
 
 #: libraries/classes/Config/Descriptions.php:661
-#: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Config/Descriptions.php:799
+#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:800
 #: libraries/classes/Plugins/Import/ImportCsv.php:683
 msgid "Columns enclosed with"
 msgstr "內容分隔符號："
 
 #: libraries/classes/Config/Descriptions.php:662
-#: libraries/classes/Config/Descriptions.php:794
-#: libraries/classes/Config/Descriptions.php:800
+#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:694
 msgid "Columns escaped with"
 msgstr "內容跳脫符號："
@@ -3072,7 +3072,7 @@ msgstr "內容跳脫符號："
 #: libraries/classes/Config/Descriptions.php:685
 #: libraries/classes/Config/Descriptions.php:693
 #: libraries/classes/Config/Descriptions.php:697
-#: libraries/classes/Config/Descriptions.php:741
+#: libraries/classes/Config/Descriptions.php:742
 msgid "Replace NULL with"
 msgstr "將 NULL 取代為"
 
@@ -3082,14 +3082,14 @@ msgid "Remove CRLF characters within columns"
 msgstr "將欄位之間的換行符號(CRLF)移除"
 
 #: libraries/classes/Config/Descriptions.php:665
-#: libraries/classes/Config/Descriptions.php:797
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Plugins/Import/ImportCsv.php:668
 msgid "Columns terminated with"
 msgstr "欄位內容換行字元為"
 
 #: libraries/classes/Config/Descriptions.php:666
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:701
 msgid "Lines terminated with"
 msgstr "換行符號："
@@ -3113,8 +3113,8 @@ msgstr "資料表名稱模板"
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:690
 #: libraries/classes/Config/Descriptions.php:699
-#: libraries/classes/Config/Descriptions.php:736
-#: libraries/classes/Config/Descriptions.php:742
+#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:743
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:55
 #: libraries/classes/Plugins/Export/ExportLatex.php:88
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
@@ -3133,7 +3133,7 @@ msgstr "包含資料表標題"
 
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
-#: libraries/classes/Config/Descriptions.php:730
+#: libraries/classes/Config/Descriptions.php:731
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:384
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
 #: libraries/classes/Plugins/Export/ExportOdt.php:488
@@ -3164,7 +3164,7 @@ msgstr "標籤鍵值"
 
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:696
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:734
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:391
 #: libraries/classes/Plugins/Export/ExportOdt.php:495
 #: libraries/classes/Plugins/Export/ExportTexytext.php:391
@@ -3176,7 +3176,7 @@ msgstr "媒體類型"
 
 #: libraries/classes/Config/Descriptions.php:686
 #: libraries/classes/Config/Descriptions.php:698
-#: libraries/classes/Config/Descriptions.php:735
+#: libraries/classes/Config/Descriptions.php:736
 msgid "Relationships"
 msgstr "關聯"
 
@@ -3206,117 +3206,123 @@ msgid "Remember filename template"
 msgstr "記錄模板檔案名稱"
 
 #: libraries/classes/Config/Descriptions.php:706
+#, fuzzy
+#| msgid "Remove columns from central list"
+msgid "Remove DEFINER clause from definitions"
+msgstr "從中央清單移除欄位"
+
+#: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
 msgstr "加入自動遞增(AUTO_INCREMENT)值"
 
-#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:708
 msgid "Enclose table and column names with backquotes"
 msgstr "在資料表名稱及欄位名稱前後加上反引號(`)"
 
-#: libraries/classes/Config/Descriptions.php:708
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:811
 msgid "SQL compatibility mode"
 msgstr "SQL 相容模式"
 
-#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:710
 msgid "Creation/Update/Check dates"
 msgstr "建立／更新／檢查日期"
 
-#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Use delayed inserts"
 msgstr "使用延遲新增"
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:712
 #: libraries/classes/Plugins/Export/ExportSql.php:183
 msgid "Disable foreign key checks"
 msgstr "關閉外鍵檢查"
 
-#: libraries/classes/Config/Descriptions.php:712
+#: libraries/classes/Config/Descriptions.php:713
 #: libraries/classes/Plugins/Export/ExportSql.php:197
 msgid "Export views as tables"
 msgstr "將檢視表匯出成資料表"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:714
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "自 phpMyAdmin 設定儲存空間匯出相關的 Metadata"
 
-#: libraries/classes/Config/Descriptions.php:714
 #: libraries/classes/Config/Descriptions.php:715
-#: libraries/classes/Config/Descriptions.php:717
-#: libraries/classes/Config/Descriptions.php:720
+#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:718
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:722
-#: libraries/classes/Config/Descriptions.php:734
+#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:735
 #: templates/database/operations/index.twig:155
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
 msgstr "加入 %s"
 
-#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:724
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "將 BINARY 與 BLOB 欄位以 16 進位顯示"
 
-#: libraries/classes/Config/Descriptions.php:725
+#: libraries/classes/Config/Descriptions.php:726
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr "加入 IF NOT EXISTS (效率較差，因索引會在建立資料表時產生)"
 
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:351
 #, php-format
 msgid "%s view"
 msgstr "%s 檢視"
 
-#: libraries/classes/Config/Descriptions.php:729
+#: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
 msgstr "使用忽略錯誤的新增(INSERT IGNORE)"
 
-#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:732
 msgid "Syntax to use when inserting data"
 msgstr "新增資料時使用的語法"
 
-#: libraries/classes/Config/Descriptions.php:732
+#: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/Plugins/Export/ExportSql.php:488
 msgid "Maximal length of created query"
 msgstr "建立查詢指令的最大長度"
 
-#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:738
 msgid "Export type"
 msgstr "匯出類型"
 
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:739
 #: libraries/classes/Plugins/Export/ExportSql.php:169
 msgid "Enclose export in a transaction"
 msgstr "匯出資料時，將之包含在交易之內"
 
-#: libraries/classes/Config/Descriptions.php:739
+#: libraries/classes/Config/Descriptions.php:740
 msgid "Export time in UTC"
 msgstr "匯出時間使用世界協調時間(UTC)"
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
 msgstr "外鍵下拉選單排序"
 
-#: libraries/classes/Config/Descriptions.php:744
+#: libraries/classes/Config/Descriptions.php:745
 msgid "Foreign key limit"
 msgstr "外鍵數量限制"
 
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:746
 msgid "Foreign key checks"
 msgstr "外鍵檢查"
 
-#: libraries/classes/Config/Descriptions.php:746
+#: libraries/classes/Config/Descriptions.php:747
 msgid "First day of calendar"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:747
-#: libraries/classes/Config/Descriptions.php:758 libraries/classes/Menu.php:478
-#: libraries/classes/Util.php:1883 libraries/config.values.php:155
+#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:478
+#: libraries/classes/Util.php:1884 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3324,60 +3330,60 @@ msgstr ""
 msgid "Databases"
 msgstr "資料庫"
 
-#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:749
 msgid "Browse mode"
 msgstr "瀏覽模式"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:751
 #: libraries/classes/Config/Forms/User/ExportForm.php:82
 #: libraries/classes/Config/Forms/User/ImportForm.php:35
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/classes/Config/Descriptions.php:751
+#: libraries/classes/Config/Descriptions.php:752
 msgid "Developer"
 msgstr "開發人員"
 
-#: libraries/classes/Config/Descriptions.php:752
+#: libraries/classes/Config/Descriptions.php:753
 msgid "Edit mode"
 msgstr "編輯模式"
 
-#: libraries/classes/Config/Descriptions.php:753
+#: libraries/classes/Config/Descriptions.php:754
 msgid "Export defaults"
 msgstr "匯出預設選項"
 
-#: libraries/classes/Config/Descriptions.php:754
+#: libraries/classes/Config/Descriptions.php:755
 msgid "General"
 msgstr "一般"
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:756
 msgid "Import defaults"
 msgstr "匯入預設選項"
 
-#: libraries/classes/Config/Descriptions.php:756
+#: libraries/classes/Config/Descriptions.php:757
 msgid "Import / export"
 msgstr "匯入／匯出"
 
-#: libraries/classes/Config/Descriptions.php:757
+#: libraries/classes/Config/Descriptions.php:758
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/classes/Config/Descriptions.php:759
+#: libraries/classes/Config/Descriptions.php:760
 #: libraries/classes/Config/Forms/User/NaviForm.php:68
 #: templates/preferences/header.twig:30
 msgid "Navigation panel"
 msgstr "導覽面板"
 
-#: libraries/classes/Config/Descriptions.php:760
+#: libraries/classes/Config/Descriptions.php:761
 msgid "Navigation tree"
 msgstr "導覽樹"
 
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:762
 #: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "伺服器"
 
-#: libraries/classes/Config/Descriptions.php:762
+#: libraries/classes/Config/Descriptions.php:763
 #: libraries/classes/Controllers/Server/DatabasesController.php:309
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
@@ -3388,701 +3394,701 @@ msgstr "伺服器"
 msgid "Tables"
 msgstr "資料表"
 
-#: libraries/classes/Config/Descriptions.php:763
+#: libraries/classes/Config/Descriptions.php:764
 #: libraries/classes/Config/Forms/User/MainForm.php:90
 #: templates/preferences/header.twig:36
 msgid "Main panel"
 msgstr "主面板"
 
-#: libraries/classes/Config/Descriptions.php:764
+#: libraries/classes/Config/Descriptions.php:765
 msgid "Microsoft Office"
 msgstr "微軟 Office"
 
-#: libraries/classes/Config/Descriptions.php:766
+#: libraries/classes/Config/Descriptions.php:767
 msgid "Other core settings"
 msgstr "其他核心設定"
 
-#: libraries/classes/Config/Descriptions.php:767
+#: libraries/classes/Config/Descriptions.php:768
 msgid "Page titles"
 msgstr "頁面標題"
 
-#: libraries/classes/Config/Descriptions.php:768
+#: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
 msgstr "安全性"
 
-#: libraries/classes/Config/Descriptions.php:769
+#: libraries/classes/Config/Descriptions.php:770
 msgid "Basic settings"
 msgstr "基本設定"
 
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:771
 msgid "Authentication"
 msgstr "認證"
 
-#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Config/Descriptions.php:772
 msgid "Server configuration"
 msgstr "伺服器設定"
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:773
 msgid "Configuration storage"
 msgstr "設定儲存空間"
 
-#: libraries/classes/Config/Descriptions.php:773
+#: libraries/classes/Config/Descriptions.php:774
 msgid "Changes tracking"
 msgstr "修改追蹤"
 
-#: libraries/classes/Config/Descriptions.php:774 libraries/classes/Menu.php:253
+#: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
 #: libraries/classes/Menu.php:360 libraries/classes/Menu.php:483
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1884
-#: libraries/classes/Util.php:1899 libraries/classes/Util.php:1916
+#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1885
+#: libraries/classes/Util.php:1900 libraries/classes/Util.php:1917
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/Descriptions.php:775
+#: libraries/classes/Config/Descriptions.php:776
 msgid "SQL Query box"
 msgstr "SQL 查詢框"
 
-#: libraries/classes/Config/Descriptions.php:776
+#: libraries/classes/Config/Descriptions.php:777
 #: libraries/classes/Config/Forms/User/SqlForm.php:48
 #: templates/preferences/header.twig:24
 msgid "SQL queries"
 msgstr "SQL 查詢"
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:778
 msgid "Startup"
 msgstr "首頁"
 
-#: libraries/classes/Config/Descriptions.php:778
+#: libraries/classes/Config/Descriptions.php:779
 msgid "Database structure"
 msgstr "資料庫結構"
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:780
 #: libraries/classes/Plugins/Export/ExportPdf.php:258
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "資料表結構"
 
-#: libraries/classes/Config/Descriptions.php:780
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Tabs"
 msgstr "分頁"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:782
 msgid "Display relational schema"
 msgstr "顯示關聯綱要"
 
-#: libraries/classes/Config/Descriptions.php:782
+#: libraries/classes/Config/Descriptions.php:783
 msgid "Text fields"
 msgstr "文字欄位"
 
-#: libraries/classes/Config/Descriptions.php:783
+#: libraries/classes/Config/Descriptions.php:784
 msgid "Texy! text"
 msgstr "Texy! 文字"
 
-#: libraries/classes/Config/Descriptions.php:784
+#: libraries/classes/Config/Descriptions.php:785
 msgid "Warnings"
 msgstr "警告訊息"
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:6
 msgid "Console"
 msgstr "主控台"
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Extra parameters for iconv"
 msgstr "iconv 的額外參數"
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:789
 msgid "Ignore multiple statement errors"
 msgstr "忽略多行指令的錯誤"
 
-#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Enable drag and drop import"
 msgstr "啟用拖放匯入"
 
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Partial import: allow interrupt"
 msgstr "部分匯入：允許中斷"
 
-#: libraries/classes/Config/Descriptions.php:795
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:802
 #: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "插入(INSERT)動作出錯時，不中斷匯入"
 
-#: libraries/classes/Config/Descriptions.php:796
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:797
+#: libraries/classes/Config/Descriptions.php:804
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "加入 ON DUPLICATE KEY UPDATE"
 
-#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:799
 msgid "Format of imported file"
 msgstr "匯入檔案的格式"
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "使用本地(LOCAL)關鍵字"
 
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:806
 msgid "Column names in first row"
 msgstr "第一行資料為欄位名稱"
 
-#: libraries/classes/Config/Descriptions.php:806
+#: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Plugins/Import/ImportOds.php:74
 msgid "Do not import empty rows"
 msgstr "不匯入空資料列"
 
-#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:808
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "匯入貨幣 ($5.00 會以 5.00 匯入)"
 
-#: libraries/classes/Config/Descriptions.php:808
+#: libraries/classes/Config/Descriptions.php:809
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "以小數匯入百分比 (12.00% 會以 .12 匯入)"
 
-#: libraries/classes/Config/Descriptions.php:809
+#: libraries/classes/Config/Descriptions.php:810
 msgid "Partial import: skip queries"
 msgstr "部分匯入：跳過查詢"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:812
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "不要將數值為零的資料加上自動遞增(AUTO_INCREMENT)屬性"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:813
 msgid "Read as multibytes"
 msgstr "以多位元讀取"
 
-#: libraries/classes/Config/Descriptions.php:813
+#: libraries/classes/Config/Descriptions.php:814
 msgid "Initial state for sliders"
 msgstr "捲軸起始狀態"
 
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Number of inserted rows"
 msgstr "新增的列數"
 
-#: libraries/classes/Config/Descriptions.php:815
+#: libraries/classes/Config/Descriptions.php:816
 msgid "Limit column characters"
 msgstr "限制欄位字元數"
 
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:817
 msgid "Delete all cookies on logout"
 msgstr "登出時刪除所有 cookie"
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Recall user name"
 msgstr "顯示上次登入的帳號"
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Login cookie store"
 msgstr "儲存登入 cookie"
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:820
 msgid "Login cookie validity"
 msgstr "登入 cookie 有效期限"
 
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Bigger textarea for LONGTEXT"
 msgstr "放大 LONGTEXT 欄位的輸入框"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:822
 msgid "Maximum displayed SQL length"
 msgstr "顯示 SQL 指令的長度限制"
 
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:823
 msgid "Maximum databases"
 msgstr "資料庫數量上限"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:824
 msgid "Maximum items on first level"
 msgstr "導覽樹第一層項目數量上限"
 
-#: libraries/classes/Config/Descriptions.php:824
+#: libraries/classes/Config/Descriptions.php:825
 msgid "Maximum items in branch"
 msgstr "導覽樹分支的項目數量上限"
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:826
 msgid "Maximum number of rows to display"
 msgstr "可顯示的資料列數量上限"
 
-#: libraries/classes/Config/Descriptions.php:826
+#: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum tables"
 msgstr "資料表數量上限"
 
-#: libraries/classes/Config/Descriptions.php:827
+#: libraries/classes/Config/Descriptions.php:828
 msgid "Memory limit"
 msgstr "記憶體限制"
 
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:829
 msgid "Show databases navigation as tree"
 msgstr "以樹狀顯示資料庫導覽面版"
 
-#: libraries/classes/Config/Descriptions.php:829
+#: libraries/classes/Config/Descriptions.php:830
 msgid "Navigation panel width"
 msgstr "導覽面板寬度"
 
-#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: libraries/classes/Navigation/NavigationTree.php:1354
 msgid "Link with main panel"
 msgstr "連結主面板"
 
-#: libraries/classes/Config/Descriptions.php:831
+#: libraries/classes/Config/Descriptions.php:832
 msgid "Display logo"
 msgstr "顯示標誌"
 
-#: libraries/classes/Config/Descriptions.php:832
+#: libraries/classes/Config/Descriptions.php:833
 msgid "Logo link URL"
 msgstr "標誌連結網址"
 
-#: libraries/classes/Config/Descriptions.php:833
+#: libraries/classes/Config/Descriptions.php:834
 msgid "Logo link target"
 msgstr "標誌連結目標"
 
-#: libraries/classes/Config/Descriptions.php:834
+#: libraries/classes/Config/Descriptions.php:835
 msgid "Display servers selection"
 msgstr "顯示伺服器選擇"
 
-#: libraries/classes/Config/Descriptions.php:835
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Target for quick access icon"
 msgstr "快速存取圖示要顯示的目標頁面"
 
-#: libraries/classes/Config/Descriptions.php:836
+#: libraries/classes/Config/Descriptions.php:837
 msgid "Target for second quick access icon"
 msgstr "第二快速存取圖示的目標頁面"
 
-#: libraries/classes/Config/Descriptions.php:837
+#: libraries/classes/Config/Descriptions.php:838
 msgid "Minimum number of items to display the filter box"
 msgstr "設定顯示篩選框的項目數量下限"
 
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:840
 msgid "Minimum number of databases to display the database filter box"
 msgstr "設定顯示篩選框的資料庫數量下限"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:842
 msgid "Group items in the tree"
 msgstr "將導覽樹的項目分組"
 
-#: libraries/classes/Config/Descriptions.php:842
+#: libraries/classes/Config/Descriptions.php:843
 msgid "Database tree separator"
 msgstr "資料庫導覽樹的分隔符號"
 
-#: libraries/classes/Config/Descriptions.php:843
+#: libraries/classes/Config/Descriptions.php:844
 msgid "Table tree separator"
 msgstr "資料表導覽樹的分隔符號"
 
-#: libraries/classes/Config/Descriptions.php:844
+#: libraries/classes/Config/Descriptions.php:845
 msgid "Maximum table tree depth"
 msgstr "資料表導覽樹深度限制"
 
-#: libraries/classes/Config/Descriptions.php:845
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Enable highlighting"
 msgstr "開啟加強標示"
 
-#: libraries/classes/Config/Descriptions.php:846
+#: libraries/classes/Config/Descriptions.php:847
 msgid "Enable navigation tree expansion"
 msgstr "開啟導覽樹展開功能"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:848
 msgid "Show tables in tree"
 msgstr "在導覽樹顯示資料表"
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:849
 msgid "Show views in tree"
 msgstr "在導覽樹顯示檢視表"
 
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:850
 msgid "Show functions in tree"
 msgstr "在導覽樹顯示函式"
 
-#: libraries/classes/Config/Descriptions.php:850
+#: libraries/classes/Config/Descriptions.php:851
 msgid "Show procedures in tree"
 msgstr "在導覽樹顯示預存程序"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:852
 msgid "Show events in tree"
 msgstr "在導覽樹顯示事件"
 
-#: libraries/classes/Config/Descriptions.php:852
+#: libraries/classes/Config/Descriptions.php:853
 msgid "Expand single database"
 msgstr "展開單一資料庫"
 
-#: libraries/classes/Config/Descriptions.php:853
+#: libraries/classes/Config/Descriptions.php:854
 msgid "Recently used tables"
 msgstr "最近使用的資料表"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:855
 #: libraries/classes/RecentFavoriteTable.php:245
 msgid "Favorite tables"
 msgstr "最愛資料表"
 
-#: libraries/classes/Config/Descriptions.php:855
+#: libraries/classes/Config/Descriptions.php:856
 msgid "Where to show the table row links"
 msgstr "資料列的連結顯示位置"
 
-#: libraries/classes/Config/Descriptions.php:856
+#: libraries/classes/Config/Descriptions.php:857
 msgid "Show row links anyway"
 msgstr "一定顯示資料列連結"
 
-#: libraries/classes/Config/Descriptions.php:858
+#: libraries/classes/Config/Descriptions.php:859
 msgid "Natural order"
 msgstr "自然排序"
 
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:860
 msgid "Table navigation bar"
 msgstr "資料表導覽列"
 
-#: libraries/classes/Config/Descriptions.php:860
+#: libraries/classes/Config/Descriptions.php:861
 msgid "GZip output buffering"
 msgstr "GZip 輸出緩衝"
 
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Default sorting order"
 msgstr "預設排序"
 
-#: libraries/classes/Config/Descriptions.php:862
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Persistent connections"
 msgstr "持續連線"
 
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:864
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "缺少 phpMyAdmin 設定儲存空間資料表"
 
-#: libraries/classes/Config/Descriptions.php:864
+#: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
 msgstr "MySQL 保留字警告"
 
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:866
 msgid "How to display the menu tabs"
 msgstr "如何顯示選單分頁"
 
-#: libraries/classes/Config/Descriptions.php:866
+#: libraries/classes/Config/Descriptions.php:867
 msgid "How to display various action links"
 msgstr "如何顯示各種操作連結"
 
-#: libraries/classes/Config/Descriptions.php:867
+#: libraries/classes/Config/Descriptions.php:868
 msgid "Protect binary columns"
 msgstr "保護二進位欄位"
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:869
 msgid "Permanent query history"
 msgstr "保存查詢歷史記錄"
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:870
 msgid "Query history length"
 msgstr "查詢歷史記錄數量"
 
-#: libraries/classes/Config/Descriptions.php:870
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Recoding engine"
 msgstr "編碼引擎"
 
-#: libraries/classes/Config/Descriptions.php:871
+#: libraries/classes/Config/Descriptions.php:872
 msgid "Remember table's sorting"
 msgstr "記住資料表的排序"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:873
 msgid "Primary key default sort order"
 msgstr "主鍵預設排序"
 
-#: libraries/classes/Config/Descriptions.php:873
+#: libraries/classes/Config/Descriptions.php:874
 msgid "Repeat headers"
 msgstr "重複顯示標題"
 
-#: libraries/classes/Config/Descriptions.php:874
+#: libraries/classes/Config/Descriptions.php:875
 msgid "Grid editing: trigger action"
 msgstr "表格編輯：觸發器動作"
 
-#: libraries/classes/Config/Descriptions.php:875
+#: libraries/classes/Config/Descriptions.php:876
 msgid "Relational display"
 msgstr "關聯顯示"
 
-#: libraries/classes/Config/Descriptions.php:876
+#: libraries/classes/Config/Descriptions.php:877
 msgid "Grid editing: save all edited cells at once"
 msgstr "表格編輯：一次過儲存所有已編輯資料"
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:878
 msgid "Save directory"
 msgstr "儲存資料夾"
 
-#: libraries/classes/Config/Descriptions.php:878
+#: libraries/classes/Config/Descriptions.php:879
 msgid "Host authorization order"
 msgstr "主機授權排序"
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:880
 msgid "Host authorization rules"
 msgstr "主機授權規則"
 
-#: libraries/classes/Config/Descriptions.php:880
+#: libraries/classes/Config/Descriptions.php:881
 msgid "Allow logins without a password"
 msgstr "允許不使用密碼登入"
 
-#: libraries/classes/Config/Descriptions.php:881
+#: libraries/classes/Config/Descriptions.php:882
 msgid "Allow root login"
 msgstr "允許 root 使用者登入"
 
-#: libraries/classes/Config/Descriptions.php:882
+#: libraries/classes/Config/Descriptions.php:883
 msgid "Session timezone"
 msgstr "連線階段時區"
 
-#: libraries/classes/Config/Descriptions.php:883
+#: libraries/classes/Config/Descriptions.php:884
 msgid "HTTP Realm"
 msgstr "HTTP 提示資訊"
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:885
 #: templates/setup/home/index.twig:50
 msgid "Authentication type"
 msgstr "認證方式"
 
-#: libraries/classes/Config/Descriptions.php:885
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Bookmark table"
 msgstr "書籤表"
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:887
 msgid "Column information table"
 msgstr "欄位資訊表"
 
-#: libraries/classes/Config/Descriptions.php:887
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Compress connection"
 msgstr "壓縮連線"
 
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:889
 msgid "Control user password"
 msgstr "控制使用者的密碼"
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:890
 msgid "Control user"
 msgstr "控制使用者"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:891
 msgid "Control host"
 msgstr "控制主機"
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:892
 msgid "Control port"
 msgstr "控制連接埠"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:893
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "停用資訊綱要(INFORMATION_SCHEMA)"
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:894
 msgid "Hide databases"
 msgstr "隱藏資料庫"
 
-#: libraries/classes/Config/Descriptions.php:894
+#: libraries/classes/Config/Descriptions.php:895
 msgid "SQL query history table"
 msgstr "SQL 查詢紀錄表"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:896
 msgid "Server hostname"
 msgstr "伺服器主機名稱"
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Logout URL"
 msgstr "登出網址"
 
-#: libraries/classes/Config/Descriptions.php:897
+#: libraries/classes/Config/Descriptions.php:898
 msgid "Maximal number of table preferences to store"
 msgstr "資料表偏好設定的儲存最大值"
 
-#: libraries/classes/Config/Descriptions.php:898
+#: libraries/classes/Config/Descriptions.php:899
 msgid "QBE saved searches table"
 msgstr "使用範例查詢(QBE)已儲存搜尋的資料表"
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:900
 msgid "Export templates table"
 msgstr "匯出樣板資料表"
 
-#: libraries/classes/Config/Descriptions.php:900
+#: libraries/classes/Config/Descriptions.php:901
 msgid "Central columns table"
 msgstr "中央欄位資料表"
 
-#: libraries/classes/Config/Descriptions.php:901
+#: libraries/classes/Config/Descriptions.php:902
 msgid "Show only listed databases"
 msgstr "僅顯示清單中的資料庫"
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:903
 msgid "Password for config auth"
 msgstr "config 認證方式的密碼"
 
-#: libraries/classes/Config/Descriptions.php:903
+#: libraries/classes/Config/Descriptions.php:904
 msgid "PDF schema: pages table"
 msgstr "PDF 綱要：資料表頁"
 
-#: libraries/classes/Config/Descriptions.php:904
+#: libraries/classes/Config/Descriptions.php:905
 #: templates/database/operations/index.twig:122
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "資料庫名稱"
 
-#: libraries/classes/Config/Descriptions.php:905
+#: libraries/classes/Config/Descriptions.php:906
 msgid "Server port"
 msgstr "伺服器連接埠"
 
-#: libraries/classes/Config/Descriptions.php:906
+#: libraries/classes/Config/Descriptions.php:907
 msgid "Recently used table"
 msgstr "最近使用的資料表"
 
-#: libraries/classes/Config/Descriptions.php:907
+#: libraries/classes/Config/Descriptions.php:908
 msgid "Favorites table"
 msgstr "最愛資料表"
 
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:909
 msgid "Relation table"
 msgstr "關聯表"
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:910
 msgid "Signon session name"
 msgstr "登入工作階段名稱"
 
-#: libraries/classes/Config/Descriptions.php:910
+#: libraries/classes/Config/Descriptions.php:911
 msgid "Signon URL"
 msgstr "登入網址"
 
-#: libraries/classes/Config/Descriptions.php:911
+#: libraries/classes/Config/Descriptions.php:912
 msgid "Server socket"
 msgstr "伺服器套接字(socket)"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:913
 msgid "Use SSL"
 msgstr "使用 SSL"
 
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:914
 msgid "Designer and PDF schema: table coordinates"
 msgstr "設計器與 PDF 綱要：資料表座標"
 
-#: libraries/classes/Config/Descriptions.php:914
+#: libraries/classes/Config/Descriptions.php:915
 msgid "Display columns table"
 msgstr "顯示欄位表"
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:916
 msgid "UI preferences table"
 msgstr "「介面偏好」資料表"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:917
 msgid "Add DROP DATABASE"
 msgstr "加入 DROP DATABASE"
 
-#: libraries/classes/Config/Descriptions.php:917
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
 msgstr "加入 DROP TABLE"
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:919
 msgid "Add DROP VIEW"
 msgstr "加入 DROP VIEW"
 
-#: libraries/classes/Config/Descriptions.php:919
+#: libraries/classes/Config/Descriptions.php:920
 msgid "Statements to track"
 msgstr "要追蹤的指令"
 
-#: libraries/classes/Config/Descriptions.php:920
+#: libraries/classes/Config/Descriptions.php:921
 msgid "SQL query tracking table"
 msgstr "SQL 查詢追蹤表"
 
-#: libraries/classes/Config/Descriptions.php:921
+#: libraries/classes/Config/Descriptions.php:922
 msgid "Automatically create versions"
 msgstr "自動建立版本"
 
-#: libraries/classes/Config/Descriptions.php:922
+#: libraries/classes/Config/Descriptions.php:923
 msgid "User preferences storage table"
 msgstr "使用者偏好表"
 
-#: libraries/classes/Config/Descriptions.php:923
+#: libraries/classes/Config/Descriptions.php:924
 msgid "Users table"
 msgstr "使用者資料表"
 
-#: libraries/classes/Config/Descriptions.php:924
+#: libraries/classes/Config/Descriptions.php:925
 msgid "User groups table"
 msgstr "使用者群組資料表"
 
-#: libraries/classes/Config/Descriptions.php:925
+#: libraries/classes/Config/Descriptions.php:926
 msgid "Hidden navigation items table"
 msgstr "隱藏導覽項目資料表"
 
-#: libraries/classes/Config/Descriptions.php:926
+#: libraries/classes/Config/Descriptions.php:927
 msgid "User for config auth"
 msgstr "config 認證方式的帳號"
 
-#: libraries/classes/Config/Descriptions.php:927
+#: libraries/classes/Config/Descriptions.php:928
 msgid "Verbose name of this server"
 msgstr "伺服器詳細名稱"
 
-#: libraries/classes/Config/Descriptions.php:928
+#: libraries/classes/Config/Descriptions.php:929
 msgid "Allow to display all the rows"
 msgstr "允許顯示所有資料列"
 
-#: libraries/classes/Config/Descriptions.php:929
+#: libraries/classes/Config/Descriptions.php:930
 msgid "Show password change form"
 msgstr "顯示更改密碼表單"
 
-#: libraries/classes/Config/Descriptions.php:930
+#: libraries/classes/Config/Descriptions.php:931
 msgid "Show create database form"
 msgstr "顯示建立資料庫表單"
 
-#: libraries/classes/Config/Descriptions.php:931
+#: libraries/classes/Config/Descriptions.php:932
 msgid "Show table comments"
 msgstr "顯示資料表備註"
 
-#: libraries/classes/Config/Descriptions.php:932
+#: libraries/classes/Config/Descriptions.php:933
 msgid "Show creation timestamp"
 msgstr "顯示建立時間"
 
-#: libraries/classes/Config/Descriptions.php:933
+#: libraries/classes/Config/Descriptions.php:934
 msgid "Show last update timestamp"
 msgstr "顯示最後更新時間"
 
-#: libraries/classes/Config/Descriptions.php:934
+#: libraries/classes/Config/Descriptions.php:935
 msgid "Show last check timestamp"
 msgstr "顯示最後檢查時間"
 
-#: libraries/classes/Config/Descriptions.php:935
+#: libraries/classes/Config/Descriptions.php:936
 msgid "Show table charset"
 msgstr "顯示資料表字元集"
 
-#: libraries/classes/Config/Descriptions.php:936
+#: libraries/classes/Config/Descriptions.php:937
 msgid "Show field types"
 msgstr "顯示欄位類型"
 
-#: libraries/classes/Config/Descriptions.php:937
+#: libraries/classes/Config/Descriptions.php:938
 msgid "Show function fields"
 msgstr "顯示函式欄位"
 
-#: libraries/classes/Config/Descriptions.php:938
+#: libraries/classes/Config/Descriptions.php:939
 msgid "Show hint"
 msgstr "顯示提示"
 
-#: libraries/classes/Config/Descriptions.php:939
+#: libraries/classes/Config/Descriptions.php:940
 msgid "Show phpinfo() link"
 msgstr "顯示 phpinfo() 連結"
 
-#: libraries/classes/Config/Descriptions.php:940
+#: libraries/classes/Config/Descriptions.php:941
 msgid "Show detailed MySQL server information"
 msgstr "顯示 MySQL 伺服器詳細資訊"
 
-#: libraries/classes/Config/Descriptions.php:941
+#: libraries/classes/Config/Descriptions.php:942
 msgid "Show SQL queries"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/classes/Config/Descriptions.php:942 templates/sql/query.twig:127
+#: libraries/classes/Config/Descriptions.php:943 templates/sql/query.twig:127
 msgid "Retain query box"
 msgstr "繼續顯示查詢框"
 
-#: libraries/classes/Config/Descriptions.php:943
+#: libraries/classes/Config/Descriptions.php:944
 msgid "Show statistics"
 msgstr "顯示統計"
 
-#: libraries/classes/Config/Descriptions.php:944
+#: libraries/classes/Config/Descriptions.php:945
 msgid "Skip locked tables"
 msgstr "忽略鎖定的資料表"
 
-#: libraries/classes/Config/Descriptions.php:945
+#: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 #: libraries/classes/Display/Results.php:2756
@@ -4109,12 +4115,12 @@ msgstr "忽略鎖定的資料表"
 msgid "Edit"
 msgstr "編輯"
 
-#: libraries/classes/Config/Descriptions.php:946
+#: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Html/Generator.php:624
 msgid "Explain SQL"
 msgstr "SQL 語句分析"
 
-#: libraries/classes/Config/Descriptions.php:947
+#: libraries/classes/Config/Descriptions.php:948
 #: libraries/classes/Export.php:593 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
@@ -4122,28 +4128,28 @@ msgstr "SQL 語句分析"
 msgid "Refresh"
 msgstr "重新整理"
 
-#: libraries/classes/Config/Descriptions.php:948
+#: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/Html/Generator.php:688
 msgid "Create PHP code"
 msgstr "建立 PHP 程式碼"
 
-#: libraries/classes/Config/Descriptions.php:949
+#: libraries/classes/Config/Descriptions.php:950
 msgid "Suhosin warning"
 msgstr "Suhosin 的警告"
 
-#: libraries/classes/Config/Descriptions.php:950
+#: libraries/classes/Config/Descriptions.php:951
 msgid "Login cookie validity warning"
 msgstr "登入 Cookie 有效期警告"
 
-#: libraries/classes/Config/Descriptions.php:951
+#: libraries/classes/Config/Descriptions.php:952
 msgid "Textarea columns"
 msgstr "文字框寬度 (字數)"
 
-#: libraries/classes/Config/Descriptions.php:952
+#: libraries/classes/Config/Descriptions.php:953
 msgid "Textarea rows"
 msgstr "文字框列數"
 
-#: libraries/classes/Config/Descriptions.php:953
+#: libraries/classes/Config/Descriptions.php:954
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:185
 #: libraries/classes/Plugins/Export/ExportTexytext.php:124
@@ -4166,16 +4172,16 @@ msgstr "文字框列數"
 msgid "Database"
 msgstr "資料庫"
 
-#: libraries/classes/Config/Descriptions.php:954
+#: libraries/classes/Config/Descriptions.php:955
 msgid "Default title"
 msgstr "預設標題"
 
-#: libraries/classes/Config/Descriptions.php:955
+#: libraries/classes/Config/Descriptions.php:956
 #: templates/server/status/base.twig:6
 msgid "Server"
 msgstr "伺服器"
 
-#: libraries/classes/Config/Descriptions.php:956
+#: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:464
 #: libraries/classes/Server/Privileges.php:1824
 #: libraries/classes/Server/Privileges.php:1826
@@ -4198,140 +4204,140 @@ msgstr "伺服器"
 msgid "Table"
 msgstr "資料表"
 
-#: libraries/classes/Config/Descriptions.php:957
+#: libraries/classes/Config/Descriptions.php:958
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "信任的代理伺服器 IP 允許／拒絕清單"
 
-#: libraries/classes/Config/Descriptions.php:958
+#: libraries/classes/Config/Descriptions.php:959
 msgid "Upload directory"
 msgstr "上傳資料夾"
 
-#: libraries/classes/Config/Descriptions.php:959
+#: libraries/classes/Config/Descriptions.php:960
 msgid "Use database search"
 msgstr "使用資料庫搜尋"
 
-#: libraries/classes/Config/Descriptions.php:960
+#: libraries/classes/Config/Descriptions.php:961
 msgid "Enable the Developer tab in settings"
 msgstr "啓用設定選項中的開發人員分頁"
 
-#: libraries/classes/Config/Descriptions.php:961
+#: libraries/classes/Config/Descriptions.php:962
 #: libraries/classes/Setup/Index.php:128 libraries/classes/Setup/Index.php:151
 #: libraries/classes/Setup/Index.php:163 libraries/classes/Setup/Index.php:176
 #: libraries/classes/Setup/Index.php:185 libraries/classes/Setup/Index.php:193
 msgid "Version check"
 msgstr "檢查更新"
 
-#: libraries/classes/Config/Descriptions.php:962
+#: libraries/classes/Config/Descriptions.php:963
 #, fuzzy
 #| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "代理伺服器網址"
 
-#: libraries/classes/Config/Descriptions.php:963
+#: libraries/classes/Config/Descriptions.php:964
 msgid "Proxy username"
 msgstr "代理伺服器使用者名稱"
 
-#: libraries/classes/Config/Descriptions.php:964
+#: libraries/classes/Config/Descriptions.php:965
 msgid "Proxy password"
 msgstr "代理伺服器密碼"
 
-#: libraries/classes/Config/Descriptions.php:965
+#: libraries/classes/Config/Descriptions.php:966
 msgid "ZIP"
 msgstr "ZIP 壓縮"
 
-#: libraries/classes/Config/Descriptions.php:966
+#: libraries/classes/Config/Descriptions.php:967
 msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:967
+#: libraries/classes/Config/Descriptions.php:968
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:968
+#: libraries/classes/Config/Descriptions.php:969
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:969
+#: libraries/classes/Config/Descriptions.php:970
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:970
+#: libraries/classes/Config/Descriptions.php:971
 #, fuzzy
 #| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
 msgstr "驗證碼的公開金鑰"
 
-#: libraries/classes/Config/Descriptions.php:971
+#: libraries/classes/Config/Descriptions.php:972
 #, fuzzy
 #| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
 msgstr "驗證碼的公開金鑰"
 
-#: libraries/classes/Config/Descriptions.php:972
+#: libraries/classes/Config/Descriptions.php:973
 msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:973
+#: libraries/classes/Config/Descriptions.php:974
 msgid "Send error reports"
 msgstr "傳送錯誤報告"
 
-#: libraries/classes/Config/Descriptions.php:974
+#: libraries/classes/Config/Descriptions.php:975
 msgid "Enter executes queries in console"
 msgstr "於主控台執行查詢的輸入鍵"
 
-#: libraries/classes/Config/Descriptions.php:975
+#: libraries/classes/Config/Descriptions.php:976
 msgid "Enable Zero Configuration mode"
 msgstr "開啟零設定模式"
 
-#: libraries/classes/Config/Descriptions.php:976
+#: libraries/classes/Config/Descriptions.php:977
 #: templates/console/display.twig:177
 msgid "Show query history at start"
 msgstr "於一開始顯示查詢記錄"
 
-#: libraries/classes/Config/Descriptions.php:977
+#: libraries/classes/Config/Descriptions.php:978
 #: templates/console/display.twig:173
 msgid "Always expand query messages"
 msgstr "必定展開查詢訊息"
 
-#: libraries/classes/Config/Descriptions.php:978
+#: libraries/classes/Config/Descriptions.php:979
 #: templates/console/display.twig:181
 msgid "Show current browsing query"
 msgstr "顯示目前瀏覽的查詢"
 
-#: libraries/classes/Config/Descriptions.php:979
+#: libraries/classes/Config/Descriptions.php:980
 #, fuzzy
 #| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr "按 Enter 執行查詢，輸入新一行則用 Shift + Enter"
 
-#: libraries/classes/Config/Descriptions.php:980
+#: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:189
 msgid "Switch to dark theme"
 msgstr "切換為深色主題"
 
-#: libraries/classes/Config/Descriptions.php:981
+#: libraries/classes/Config/Descriptions.php:982
 msgid "Console height"
 msgstr "主控台高度"
 
-#: libraries/classes/Config/Descriptions.php:982
+#: libraries/classes/Config/Descriptions.php:983
 msgid "Console mode"
 msgstr "主控台模式"
 
-#: libraries/classes/Config/Descriptions.php:983
+#: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:91
 msgid "Group queries"
 msgstr "群組查詢"
 
-#: libraries/classes/Config/Descriptions.php:984
+#: libraries/classes/Config/Descriptions.php:985
 #: templates/sql/profiling_chart.twig:9
 msgid "Order"
 msgstr "排序"
 
-#: libraries/classes/Config/Descriptions.php:985
+#: libraries/classes/Config/Descriptions.php:986
 msgid "Order by"
 msgstr "排序依"
 
-#: libraries/classes/Config/Descriptions.php:986
+#: libraries/classes/Config/Descriptions.php:987
 msgid "Server connection collation"
 msgstr "伺服器連線編碼與排序"
 
@@ -4401,8 +4407,8 @@ msgstr "自訂"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:1424 libraries/classes/Util.php:1898
-#: libraries/classes/Util.php:1915 libraries/config.values.php:60
+#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1899
+#: libraries/classes/Util.php:1916 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4446,8 +4452,8 @@ msgstr "OpenDocument/OpenOffice 文字檔"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:380
 #: libraries/classes/Menu.php:511 libraries/classes/Server/Privileges.php:1512
-#: libraries/classes/Util.php:1887 libraries/classes/Util.php:1902
-#: libraries/classes/Util.php:1919 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:1888 libraries/classes/Util.php:1903
+#: libraries/classes/Util.php:1920 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4490,8 +4496,8 @@ msgstr "使用 LOAD DATA 的 CSV"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:390
-#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1888
-#: libraries/classes/Util.php:1903 libraries/classes/Util.php:1920
+#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1889
+#: libraries/classes/Util.php:1904 libraries/classes/Util.php:1921
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -4794,6 +4800,13 @@ msgstr "在本系統找不到 %s 檔案，詳情請參閱 %s。"
 msgid "Showing rows %1$s - %2$s."
 msgstr "正在顯示第 %1$s - %2$s 列。"
 
+#. l10n: The user tries to save a page with an existing name in Designer
+#: libraries/classes/Controllers/Database/DesignerController.php:113
+#, php-format
+msgid ""
+"There already exists a page named \"%s\" please rename it to something else."
+msgstr ""
+
 #: libraries/classes/Controllers/Database/ExportController.php:89
 #: libraries/classes/Controllers/Database/TrackingController.php:138
 #: libraries/classes/Controllers/Export/ExportController.php:349
@@ -4850,7 +4863,7 @@ msgstr "已停用 phpMyAdmin 設定儲存空間。%s了解原因%s。"
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
-#: libraries/classes/Plugins/AuthenticationPlugin.php:179
+#: libraries/classes/Plugins/AuthenticationPlugin.php:180
 msgid "Access denied!"
 msgstr "存取遭拒！"
 
@@ -5741,7 +5754,7 @@ msgid "Traffic"
 msgstr "流量"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1889
+#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1890
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "設定"
@@ -5757,7 +5770,7 @@ msgstr "請至少增加一個變數到資料序列！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1067
-#: libraries/classes/Plugins/Export/ExportSql.php:2178
+#: libraries/classes/Plugins/Export/ExportSql.php:2197
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -5964,7 +5977,7 @@ msgstr "輸出說明"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:488
 #: libraries/classes/Server/Status/Processes.php:138
-#: libraries/classes/Util.php:1885 libraries/config.values.php:157
+#: libraries/classes/Util.php:1886 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -9127,8 +9140,8 @@ msgid "Full texts"
 msgstr "完整內容"
 
 #: libraries/classes/Display/Results.php:1616
-#: libraries/classes/Display/Results.php:1642 libraries/classes/Util.php:2506
-#: libraries/classes/Util.php:2529 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1642 libraries/classes/Util.php:2507
+#: libraries/classes/Util.php:2530 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9141,8 +9154,8 @@ msgid "Descending"
 msgstr "遞減"
 
 #: libraries/classes/Display/Results.php:1624
-#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2498
-#: libraries/classes/Util.php:2521 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2499
+#: libraries/classes/Util.php:2522 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9878,7 +9891,7 @@ msgstr "%1$s (<code>%2$s</code> 附近)"
 
 #: libraries/classes/Menu.php:238
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1914
+#: libraries/classes/Util.php:1429 libraries/classes/Util.php:1915
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -9888,8 +9901,8 @@ msgstr "瀏覽"
 
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:364
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1900
-#: libraries/classes/Util.php:1917 libraries/config.values.php:64
+#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1901
+#: libraries/classes/Util.php:1918 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -9901,7 +9914,7 @@ msgstr "搜尋"
 
 #: libraries/classes/Menu.php:268
 #: libraries/classes/Navigation/Nodes/NodeTable.php:303
-#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1918
+#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1919
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -9911,8 +9924,8 @@ msgid "Insert"
 msgstr "新增"
 
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:404
-#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1905
-#: libraries/classes/Util.php:1921 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1906
+#: libraries/classes/Util.php:1922 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9921,14 +9934,14 @@ msgid "Privileges"
 msgstr "權限"
 
 #: libraries/classes/Menu.php:305 libraries/classes/Menu.php:315
-#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1429
-#: libraries/classes/Util.php:1904 libraries/classes/Util.php:1922
+#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1430
+#: libraries/classes/Util.php:1905 libraries/classes/Util.php:1923
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "操作"
 
 #: libraries/classes/Menu.php:321 libraries/classes/Menu.php:430
-#: libraries/classes/Util.php:1909 libraries/classes/Util.php:1923
+#: libraries/classes/Util.php:1910 libraries/classes/Util.php:1924
 msgid "Tracking"
 msgstr "追蹤"
 
@@ -9938,10 +9951,10 @@ msgstr "追蹤"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:552
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2053
+#: libraries/classes/Plugins/Export/ExportSql.php:2072
 #: libraries/classes/Plugins/Export/ExportTexytext.php:535
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1908 libraries/classes/Util.php:1924
+#: libraries/classes/Util.php:1909 libraries/classes/Util.php:1925
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "觸發器"
@@ -9951,11 +9964,11 @@ msgstr "觸發器"
 msgid "Database seems to be empty!"
 msgstr "資料庫是空的！"
 
-#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1901
+#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1902
 msgid "Query"
 msgstr "查詢"
 
-#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1906
+#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1907
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "預存程序"
@@ -9963,17 +9976,17 @@ msgstr "預存程序"
 #: libraries/classes/Menu.php:416
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:996
+#: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1907 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1908 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "事件"
 
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1910
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1911
 msgid "Designer"
 msgstr "設計器"
 
-#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1911
+#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1912
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "中央欄位"
@@ -9983,12 +9996,12 @@ msgid "User accounts"
 msgstr "使用者帳號"
 
 #: libraries/classes/Menu.php:536 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1890 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1891 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "二進位記錄"
 
 #: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1891
+#: libraries/classes/Util.php:1892
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -9996,21 +10009,21 @@ msgid "Replication"
 msgstr "備援"
 
 #: libraries/classes/Menu.php:549 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1892 libraries/config.values.php:159
+#: libraries/classes/Util.php:1893 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "變數"
 
-#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1893
+#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1894
 msgid "Charsets"
 msgstr "字元集"
 
-#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1895
+#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1896
 msgid "Engines"
 msgstr "引擎"
 
-#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1894
+#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1895
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "附加元件"
@@ -10165,7 +10178,7 @@ msgstr "事件"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:626
+#: libraries/classes/Plugins/Export/ExportSql.php:634
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "函式"
@@ -10186,7 +10199,7 @@ msgstr "展開／摺疊"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:615
+#: libraries/classes/Plugins/Export/ExportSql.php:623
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "程序"
@@ -10664,24 +10677,24 @@ msgstr "帳號／密碼錯誤，存取遭拒。"
 msgid "Can not find signon authentication script:"
 msgstr "找不到 signon 認證指令："
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:175
+#: libraries/classes/Plugins/AuthenticationPlugin.php:176
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "禁止無密碼登入 (請參閱 AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:184
+#: libraries/classes/Plugins/AuthenticationPlugin.php:185
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:197
-#: libraries/classes/Plugins/AuthenticationPlugin.php:200
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
+#: libraries/classes/Plugins/AuthenticationPlugin.php:201
 msgid "Cannot log in to the MySQL server"
 msgstr "無法登入 MySQL 伺服器"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:339
+#: libraries/classes/Plugins/AuthenticationPlugin.php:342
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "已啟用雙因素認證，請確認登入。"
 
@@ -10778,7 +10791,7 @@ msgstr "資料傾印選項"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:193
 #: libraries/classes/Plugins/Export/ExportOdt.php:249
-#: libraries/classes/Plugins/Export/ExportSql.php:2303
+#: libraries/classes/Plugins/Export/ExportSql.php:2322
 #: libraries/classes/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "傾印資料表的資料"
@@ -10870,21 +10883,21 @@ msgstr "定義"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:542
 #: libraries/classes/Plugins/Export/ExportOdt.php:675
-#: libraries/classes/Plugins/Export/ExportSql.php:2039
+#: libraries/classes/Plugins/Export/ExportSql.php:2058
 #: libraries/classes/Plugins/Export/ExportTexytext.php:515
 msgid "Table structure for table"
 msgstr "資料表結構"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:560
 #: libraries/classes/Plugins/Export/ExportOdt.php:707
-#: libraries/classes/Plugins/Export/ExportSql.php:2090
+#: libraries/classes/Plugins/Export/ExportSql.php:2109
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 msgid "Structure for view"
 msgstr "檢視表結構"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2122
+#: libraries/classes/Plugins/Export/ExportSql.php:2141
 #: libraries/classes/Plugins/Export/ExportTexytext.php:557
 msgid "Stand-in structure for view"
 msgstr "替換檢視表以便查看"
@@ -10952,7 +10965,7 @@ msgid "Put columns names in the first row:"
 msgstr "首行儲存欄位名稱："
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:746
+#: libraries/classes/Plugins/Export/ExportSql.php:754
 #: libraries/classes/Plugins/Export/ExportXml.php:231
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -10960,26 +10973,26 @@ msgid "Host:"
 msgstr "主機："
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:753
+#: libraries/classes/Plugins/Export/ExportSql.php:761
 #: libraries/classes/Plugins/Export/ExportXml.php:237
 msgid "Generation Time:"
 msgstr "產生時間："
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:757
+#: libraries/classes/Plugins/Export/ExportSql.php:765
 #: libraries/classes/Plugins/Export/ExportXml.php:239
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "伺服器版本："
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:759
+#: libraries/classes/Plugins/Export/ExportSql.php:767
 #: libraries/classes/Plugins/Export/ExportXml.php:240
 msgid "PHP Version:"
 msgstr "PHP 版本："
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:931
+#: libraries/classes/Plugins/Export/ExportSql.php:939
 #: libraries/classes/Plugins/Export/ExportXml.php:389
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:200
 #: templates/database/structure/copy_form.twig:5
@@ -10988,7 +11001,7 @@ msgid "Database:"
 msgstr "資料庫："
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:315
-#: libraries/classes/Plugins/Export/ExportSql.php:2178
+#: libraries/classes/Plugins/Export/ExportSql.php:2197
 msgid "Data:"
 msgstr "資料："
 
@@ -11100,7 +11113,7 @@ msgid "Data creation options"
 msgstr "資料建立選項"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2260
+#: libraries/classes/Plugins/Export/ExportSql.php:2279
 msgid "Truncate table before insert"
 msgstr "資料表新增資料前，先清除舊資料"
 
@@ -11175,100 +11188,100 @@ msgstr ""
 "傾印 TIMESTAMP 欄位時，使用 UTC 時間 <i>(令 TIMESTAMP 欄位匯出的資料，可以重"
 "新載入到不同時區的伺服器)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:574
+#: libraries/classes/Plugins/Export/ExportSql.php:582
 msgid "It appears your database uses routines;"
 msgstr "資料庫使用了預存程序；"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:577
-#: libraries/classes/Plugins/Export/ExportSql.php:1576
-#: libraries/classes/Plugins/Export/ExportSql.php:2078
+#: libraries/classes/Plugins/Export/ExportSql.php:585
+#: libraries/classes/Plugins/Export/ExportSql.php:1595
+#: libraries/classes/Plugins/Export/ExportSql.php:2097
 msgid "alias export may not work reliably in all cases."
 msgstr "別名匯出可能無法在所有情況正常運作。"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1040
+#: libraries/classes/Plugins/Export/ExportSql.php:1056
 msgid "Metadata"
 msgstr "元資料"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1106
+#: libraries/classes/Plugins/Export/ExportSql.php:1122
 #, php-format
 msgid "Metadata for table %s"
 msgstr "資料表 %s 的元資料"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1113
+#: libraries/classes/Plugins/Export/ExportSql.php:1129
 #, php-format
 msgid "Metadata for database %s"
 msgstr "資料庫 %s 的元資料"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1420
+#: libraries/classes/Plugins/Export/ExportSql.php:1436
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "建立時間："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1430
+#: libraries/classes/Plugins/Export/ExportSql.php:1446
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "最後更新："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1440
+#: libraries/classes/Plugins/Export/ExportSql.php:1456
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "最後檢查："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1491
+#: libraries/classes/Plugins/Export/ExportSql.php:1507
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "讀取資料表 %s 的結構時出現錯誤："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1573
+#: libraries/classes/Plugins/Export/ExportSql.php:1592
 msgid "It appears your database uses views;"
 msgstr "資料庫使用了檢視表；"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1740
+#: libraries/classes/Plugins/Export/ExportSql.php:1759
 msgid "Constraints for dumped tables"
 msgstr "已傾印資料表的限制式"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1741
+#: libraries/classes/Plugins/Export/ExportSql.php:1760
 msgid "Constraints for table"
 msgstr "資料表的限制式"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1768
+#: libraries/classes/Plugins/Export/ExportSql.php:1787
 msgid "Indexes for dumped tables"
 msgstr "已傾印資料表的索引"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1769
+#: libraries/classes/Plugins/Export/ExportSql.php:1788
 msgid "Indexes for table"
 msgstr "資料表索引"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1805
+#: libraries/classes/Plugins/Export/ExportSql.php:1824
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "在傾印的資料表使用自動遞增(AUTO_INCREMENT)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1806
+#: libraries/classes/Plugins/Export/ExportSql.php:1825
 msgid "AUTO_INCREMENT for table"
 msgstr "使用資料表自動遞增(AUTO_INCREMENT)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1881
+#: libraries/classes/Plugins/Export/ExportSql.php:1900
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "資料表媒體類型表"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1906
+#: libraries/classes/Plugins/Export/ExportSql.php:1925
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "資料表的關聯"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2075
+#: libraries/classes/Plugins/Export/ExportSql.php:2094
 msgid "It appears your table uses triggers;"
 msgstr "資料表使用了觸發器；"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2105
+#: libraries/classes/Plugins/Export/ExportSql.php:2124
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "將檢視表 %s 結構匯出成資料表"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2125
+#: libraries/classes/Plugins/Export/ExportSql.php:2144
 msgid "(See below for the actual view)"
 msgstr "(請參考以下實際畫面)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2193
+#: libraries/classes/Plugins/Export/ExportSql.php:2212
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "讀取資料表 %s 的資料時出現錯誤："
@@ -13122,11 +13135,11 @@ msgstr "上午"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
-#: libraries/classes/Util.php:1886
+#: libraries/classes/Util.php:1887
 msgid "Users"
 msgstr "使用者"
 
-#: libraries/classes/Util.php:2490
+#: libraries/classes/Util.php:2491
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "排序"

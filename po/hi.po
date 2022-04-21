@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-17 00:18+0000\n"
+"POT-Creation-Date: 2022-04-21 19:09+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1968,7 +1968,7 @@ msgid ""
 msgstr "एक स्क्रिप्ट को चलने की अवधि सेकंड में दें, (शून्य - कोई सीमा नहीं के लिए)"
 
 #: libraries/classes/Config/Descriptions.php:184
-#: libraries/classes/Config/Descriptions.php:727
+#: libraries/classes/Config/Descriptions.php:728
 #: libraries/classes/Plugins/Export/ExportSql.php:345
 msgid "Exclude definition of current user"
 msgstr ""
@@ -3091,7 +3091,7 @@ msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:575
-#: libraries/classes/Config/Descriptions.php:857
+#: libraries/classes/Config/Descriptions.php:858
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
@@ -3430,7 +3430,7 @@ msgid "Save as file"
 msgstr "फ़ाइल के रूप में सहेजें"
 
 #: libraries/classes/Config/Descriptions.php:657
-#: libraries/classes/Config/Descriptions.php:791
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Character set of the file"
 msgstr "फ़ाइल का चरित्र सेट"
 
@@ -3451,7 +3451,7 @@ msgstr "संक्षिप्तीकरण"
 #: libraries/classes/Config/Descriptions.php:679
 #: libraries/classes/Config/Descriptions.php:692
 #: libraries/classes/Config/Descriptions.php:694
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:741
 #: libraries/classes/Plugins/Export/ExportCsv.php:87
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:84
@@ -3462,8 +3462,8 @@ msgid "Put columns names in the first row"
 msgstr "काँलम नाम प्रथम रो में"
 
 #: libraries/classes/Config/Descriptions.php:661
-#: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Config/Descriptions.php:799
+#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:800
 #: libraries/classes/Plugins/Import/ImportCsv.php:683
 #, fuzzy
 #| msgid "Column names"
@@ -3471,8 +3471,8 @@ msgid "Columns enclosed with"
 msgstr "कोलम के नाम"
 
 #: libraries/classes/Config/Descriptions.php:662
-#: libraries/classes/Config/Descriptions.php:794
-#: libraries/classes/Config/Descriptions.php:800
+#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:694
 #, fuzzy
 #| msgid "Column names"
@@ -3485,7 +3485,7 @@ msgstr "कोलम के नाम"
 #: libraries/classes/Config/Descriptions.php:685
 #: libraries/classes/Config/Descriptions.php:693
 #: libraries/classes/Config/Descriptions.php:697
-#: libraries/classes/Config/Descriptions.php:741
+#: libraries/classes/Config/Descriptions.php:742
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with"
@@ -3497,8 +3497,8 @@ msgid "Remove CRLF characters within columns"
 msgstr "CRLF चरित्र को कोलम से हटायें"
 
 #: libraries/classes/Config/Descriptions.php:665
-#: libraries/classes/Config/Descriptions.php:797
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Plugins/Import/ImportCsv.php:668
 #, fuzzy
 #| msgid "Columns terminated by"
@@ -3506,7 +3506,7 @@ msgid "Columns terminated with"
 msgstr "काँलम समाप्त होता है"
 
 #: libraries/classes/Config/Descriptions.php:666
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:701
 #, fuzzy
 #| msgid "Lines terminated by"
@@ -3532,8 +3532,8 @@ msgstr "टेबल नाम टेम्पलेट"
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:690
 #: libraries/classes/Config/Descriptions.php:699
-#: libraries/classes/Config/Descriptions.php:736
-#: libraries/classes/Config/Descriptions.php:742
+#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:743
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:55
 #: libraries/classes/Plugins/Export/ExportLatex.php:88
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
@@ -3552,7 +3552,7 @@ msgstr "टैब शीर्षक में शामिल"
 
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
-#: libraries/classes/Config/Descriptions.php:730
+#: libraries/classes/Config/Descriptions.php:731
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:384
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
 #: libraries/classes/Plugins/Export/ExportOdt.php:488
@@ -3583,7 +3583,7 @@ msgstr "लेबल कुंजी"
 
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:696
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:734
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:391
 #: libraries/classes/Plugins/Export/ExportOdt.php:495
 #: libraries/classes/Plugins/Export/ExportTexytext.php:391
@@ -3597,7 +3597,7 @@ msgstr "MIME प्रकार"
 
 #: libraries/classes/Config/Descriptions.php:686
 #: libraries/classes/Config/Descriptions.php:698
-#: libraries/classes/Config/Descriptions.php:735
+#: libraries/classes/Config/Descriptions.php:736
 #, fuzzy
 #| msgid "Relations"
 msgid "Relationships"
@@ -3631,126 +3631,130 @@ msgid "Remember filename template"
 msgstr "टेम्पलेट फ़ाइल नाम याद रखें"
 
 #: libraries/classes/Config/Descriptions.php:706
+msgid "Remove DEFINER clause from definitions"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT मूल्य जोडें"
 
-#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:708
 msgid "Enclose table and column names with backquotes"
 msgstr "टेबल और फील्ड के नाम को backquotes से बंद करें"
 
-#: libraries/classes/Config/Descriptions.php:708
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:811
 msgid "SQL compatibility mode"
 msgstr "SQL संगतता मोड"
 
-#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:710
 msgid "Creation/Update/Check dates"
 msgstr "निर्माण/अद्यतन/जाँच दिनांक"
 
-#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Use delayed inserts"
 msgstr "विलंबित इनसर्टस"
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:712
 #: libraries/classes/Plugins/Export/ExportSql.php:183
 msgid "Disable foreign key checks"
 msgstr "निष्क्रिय विदेशी कुंजी चेक"
 
-#: libraries/classes/Config/Descriptions.php:712
+#: libraries/classes/Config/Descriptions.php:713
 #: libraries/classes/Plugins/Export/ExportSql.php:197
 #, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
 msgstr "\"%s\" डेटाबेस से रो निर्यात"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:714
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "phpMyAdmin विन्यास भंडारण टेबल लापता"
 
-#: libraries/classes/Config/Descriptions.php:714
 #: libraries/classes/Config/Descriptions.php:715
-#: libraries/classes/Config/Descriptions.php:717
-#: libraries/classes/Config/Descriptions.php:720
+#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:718
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:722
-#: libraries/classes/Config/Descriptions.php:734
+#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:735
 #: templates/database/operations/index.twig:155
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
 msgstr "%s जोडें"
 
-#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:724
 #, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "BLOB के लिए hexadecimal का प्रयोग करें"
 
-#: libraries/classes/Config/Descriptions.php:725
+#: libraries/classes/Config/Descriptions.php:726
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:351
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s view"
 msgstr "सत्र मूल्य"
 
-#: libraries/classes/Config/Descriptions.php:729
+#: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
 msgstr "आवेषण उपेक्षा का प्रयोग करें"
 
-#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:732
 msgid "Syntax to use when inserting data"
 msgstr "डेटा दल्तें समय वाक्यविन्यास का उपयोग करें"
 
-#: libraries/classes/Config/Descriptions.php:732
+#: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/Plugins/Export/ExportSql.php:488
 msgid "Maximal length of created query"
 msgstr "क्वेरी के अधिकतम लंबाई"
 
-#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:738
 msgid "Export type"
 msgstr "निर्यात प्रकार"
 
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:739
 #: libraries/classes/Plugins/Export/ExportSql.php:169
 msgid "Enclose export in a transaction"
 msgstr "एक सौदे में बंद निर्यात"
 
-#: libraries/classes/Config/Descriptions.php:739
+#: libraries/classes/Config/Descriptions.php:740
 msgid "Export time in UTC"
 msgstr "UTC में निर्यात समय"
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
 msgstr "विदेशी कुंजी ड्रॉपडाउन क्रम"
 
-#: libraries/classes/Config/Descriptions.php:744
+#: libraries/classes/Config/Descriptions.php:745
 msgid "Foreign key limit"
 msgstr "विदेशी कुंजी सीमा"
 
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:746
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key checks"
 msgstr "निष्क्रिय विदेशी कुंजी चेक"
 
-#: libraries/classes/Config/Descriptions.php:746
+#: libraries/classes/Config/Descriptions.php:747
 msgid "First day of calendar"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:747
-#: libraries/classes/Config/Descriptions.php:758 libraries/classes/Menu.php:478
-#: libraries/classes/Util.php:1883 libraries/config.values.php:155
+#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:478
+#: libraries/classes/Util.php:1884 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3758,45 +3762,45 @@ msgstr ""
 msgid "Databases"
 msgstr "डाटाबेस"
 
-#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:749
 msgid "Browse mode"
 msgstr "ब्राउज़ करें"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:751
 #: libraries/classes/Config/Forms/User/ExportForm.php:82
 #: libraries/classes/Config/Forms/User/ImportForm.php:35
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/classes/Config/Descriptions.php:751
+#: libraries/classes/Config/Descriptions.php:752
 msgid "Developer"
 msgstr "डेवलपर"
 
-#: libraries/classes/Config/Descriptions.php:752
+#: libraries/classes/Config/Descriptions.php:753
 msgid "Edit mode"
 msgstr "संपादन मोड"
 
-#: libraries/classes/Config/Descriptions.php:753
+#: libraries/classes/Config/Descriptions.php:754
 msgid "Export defaults"
 msgstr "निर्यात डिफ़ॉल्ट"
 
-#: libraries/classes/Config/Descriptions.php:754
+#: libraries/classes/Config/Descriptions.php:755
 msgid "General"
 msgstr "सामान्य"
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:756
 msgid "Import defaults"
 msgstr "आयात"
 
-#: libraries/classes/Config/Descriptions.php:756
+#: libraries/classes/Config/Descriptions.php:757
 msgid "Import / export"
 msgstr "आयात / निर्यात"
 
-#: libraries/classes/Config/Descriptions.php:757
+#: libraries/classes/Config/Descriptions.php:758
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/classes/Config/Descriptions.php:759
+#: libraries/classes/Config/Descriptions.php:760
 #: libraries/classes/Config/Forms/User/NaviForm.php:68
 #: templates/preferences/header.twig:30
 #, fuzzy
@@ -3804,18 +3808,18 @@ msgstr "LaTeX"
 msgid "Navigation panel"
 msgstr "नेविगेशन फ्रेम"
 
-#: libraries/classes/Config/Descriptions.php:760
+#: libraries/classes/Config/Descriptions.php:761
 #, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation tree"
 msgstr "नेविगेशन फ्रेम"
 
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:762
 #: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "सर्वर"
 
-#: libraries/classes/Config/Descriptions.php:762
+#: libraries/classes/Config/Descriptions.php:763
 #: libraries/classes/Controllers/Server/DatabasesController.php:309
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
@@ -3826,7 +3830,7 @@ msgstr "सर्वर"
 msgid "Tables"
 msgstr "टेबल"
 
-#: libraries/classes/Config/Descriptions.php:763
+#: libraries/classes/Config/Descriptions.php:764
 #: libraries/classes/Config/Forms/User/MainForm.php:90
 #: templates/preferences/header.twig:36
 #, fuzzy
@@ -3834,73 +3838,73 @@ msgstr "टेबल"
 msgid "Main panel"
 msgstr "मुख्य फ्रेम"
 
-#: libraries/classes/Config/Descriptions.php:764
+#: libraries/classes/Config/Descriptions.php:765
 msgid "Microsoft Office"
 msgstr "माइक्रोसॉफ्ट ऑफिस"
 
-#: libraries/classes/Config/Descriptions.php:766
+#: libraries/classes/Config/Descriptions.php:767
 msgid "Other core settings"
 msgstr "अन्य मुख्य सेटिंग्स"
 
-#: libraries/classes/Config/Descriptions.php:767
+#: libraries/classes/Config/Descriptions.php:768
 msgid "Page titles"
 msgstr "पृष्ठ शीर्षक"
 
-#: libraries/classes/Config/Descriptions.php:768
+#: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
 msgstr "सुरक्षा"
 
-#: libraries/classes/Config/Descriptions.php:769
+#: libraries/classes/Config/Descriptions.php:770
 msgid "Basic settings"
 msgstr "मूल सेटिंग्स"
 
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:771
 msgid "Authentication"
 msgstr "प्रमाणीकरण"
 
-#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Config/Descriptions.php:772
 msgid "Server configuration"
 msgstr "सर्वर विन्यास"
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:773
 msgid "Configuration storage"
 msgstr "विन्यास भंडारण"
 
-#: libraries/classes/Config/Descriptions.php:773
+#: libraries/classes/Config/Descriptions.php:774
 msgid "Changes tracking"
 msgstr "परिवर्तन ट्रैकिंग"
 
-#: libraries/classes/Config/Descriptions.php:774 libraries/classes/Menu.php:253
+#: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
 #: libraries/classes/Menu.php:360 libraries/classes/Menu.php:483
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1884
-#: libraries/classes/Util.php:1899 libraries/classes/Util.php:1916
+#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1885
+#: libraries/classes/Util.php:1900 libraries/classes/Util.php:1917
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/Descriptions.php:775
+#: libraries/classes/Config/Descriptions.php:776
 msgid "SQL Query box"
 msgstr "SQL क्वरी बॉक्स"
 
-#: libraries/classes/Config/Descriptions.php:776
+#: libraries/classes/Config/Descriptions.php:777
 #: libraries/classes/Config/Forms/User/SqlForm.php:48
 #: templates/preferences/header.twig:24
 msgid "SQL queries"
 msgstr "SQL क्वरी"
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:778
 msgid "Startup"
 msgstr "स्टार्टअप"
 
-#: libraries/classes/Config/Descriptions.php:778
+#: libraries/classes/Config/Descriptions.php:779
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
 msgstr "यूसर के लिए डेटाबेस"
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:780
 #: libraries/classes/Plugins/Export/ExportPdf.php:258
 #: templates/table/page_with_secondary_tabs.twig:5
 #, fuzzy
@@ -3908,180 +3912,180 @@ msgstr "यूसर के लिए डेटाबेस"
 msgid "Table structure"
 msgstr "यूसर के लिए डेटाबेस"
 
-#: libraries/classes/Config/Descriptions.php:780
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Tabs"
 msgstr "टैब्स"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:782
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display relational schema"
 msgstr "PDF स्कीमा दिखाओ"
 
-#: libraries/classes/Config/Descriptions.php:782
+#: libraries/classes/Config/Descriptions.php:783
 msgid "Text fields"
 msgstr "पाठ फ़ील्ड"
 
-#: libraries/classes/Config/Descriptions.php:783
+#: libraries/classes/Config/Descriptions.php:784
 msgid "Texy! text"
 msgstr "Texy! टेक्स्ट"
 
-#: libraries/classes/Config/Descriptions.php:784
+#: libraries/classes/Config/Descriptions.php:785
 msgid "Warnings"
 msgstr "चेतावनी"
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:6
 msgid "Console"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Extra parameters for iconv"
 msgstr "iconv के लिए अतिरिक्त पैरामीटर"
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:789
 msgid "Ignore multiple statement errors"
 msgstr "कई बयान त्रुटियों उपेक्षा"
 
-#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Enable drag and drop import"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Partial import: allow interrupt"
 msgstr "आंशिक आयात दखल की अनुमति"
 
-#: libraries/classes/Config/Descriptions.php:795
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:802
 #: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "इन्सर्ट त्रुटी मैं मत छोड़ों"
 
-#: libraries/classes/Config/Descriptions.php:796
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:797
+#: libraries/classes/Config/Descriptions.php:804
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:799
 msgid "Format of imported file"
 msgstr "आयात की गई फ़ाइल का प्रारूप"
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "कीवर्ड LOCAL का प्रयोग"
 
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:806
 msgid "Column names in first row"
 msgstr "कोलम के नाम पहली रो में"
 
-#: libraries/classes/Config/Descriptions.php:806
+#: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Plugins/Import/ImportOds.php:74
 msgid "Do not import empty rows"
 msgstr "खाली रोयाँ आयात नहीं"
 
-#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:808
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "आयात मुद्राओं ($5.00 से 5.00)"
 
-#: libraries/classes/Config/Descriptions.php:808
+#: libraries/classes/Config/Descriptions.php:809
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "प्रतिशत को उचित दशमलव के रूप में आयात करें"
 
-#: libraries/classes/Config/Descriptions.php:809
+#: libraries/classes/Config/Descriptions.php:810
 msgid "Partial import: skip queries"
 msgstr "आंशिक आयात: क्वरीों को छोड़"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:812
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "शुन्य मूल्य के लिए AUTO_INCREMENT का प्रयोग न करें"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:813
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
 msgstr "गलतियाँ पढ़ें"
 
-#: libraries/classes/Config/Descriptions.php:813
+#: libraries/classes/Config/Descriptions.php:814
 msgid "Initial state for sliders"
 msgstr "स्लाइडर्स के लिए प्रारंभिक अवस्था"
 
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Number of inserted rows"
 msgstr "डाली गयी पक्न्तियों"
 
-#: libraries/classes/Config/Descriptions.php:815
+#: libraries/classes/Config/Descriptions.php:816
 msgid "Limit column characters"
 msgstr "काँलम वर्ण सीमा"
 
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:817
 msgid "Delete all cookies on logout"
 msgstr "लॉगआउट पर सभी कुकीज़ हटाना"
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Recall user name"
 msgstr "याद यूसर नाम"
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Login cookie store"
 msgstr "लॉगिन कुकी भंडार"
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:820
 msgid "Login cookie validity"
 msgstr "लॉगिन कुकी वैधता"
 
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Bigger textarea for LONGTEXT"
 msgstr "LONGTEST के लिए बड़ा आकर"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:822
 msgid "Maximum displayed SQL length"
 msgstr "SQL प्रदर्शित अधिकतम लम्बाई"
 
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:823
 msgid "Maximum databases"
 msgstr "डेटाबेस की अधिकतम संख्या"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:824
 #, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum items on first level"
 msgstr "अस्थायी सोर्ट फ़ाइलों के लिए अधिकतम आकार"
 
-#: libraries/classes/Config/Descriptions.php:824
+#: libraries/classes/Config/Descriptions.php:825
 msgid "Maximum items in branch"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:826
 msgid "Maximum number of rows to display"
 msgstr "प्रदर्शित रो की अधिकतम संख्या"
 
-#: libraries/classes/Config/Descriptions.php:826
+#: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum tables"
 msgstr "अधिकतम सारणी"
 
-#: libraries/classes/Config/Descriptions.php:827
+#: libraries/classes/Config/Descriptions.php:828
 msgid "Memory limit"
 msgstr "स्मृति सीमा"
 
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:829
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show databases navigation as tree"
 msgstr "बाईं फ्रेम में लोगो देखियें"
 
-#: libraries/classes/Config/Descriptions.php:829
+#: libraries/classes/Config/Descriptions.php:830
 #, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel width"
 msgstr "नेविगेशन फ्रेम"
 
-#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: libraries/classes/Navigation/NavigationTree.php:1354
 #, fuzzy
@@ -4089,524 +4093,524 @@ msgstr "नेविगेशन फ्रेम"
 msgid "Link with main panel"
 msgstr "मुख्य फ्रेम को अनुकूलित करें"
 
-#: libraries/classes/Config/Descriptions.php:831
+#: libraries/classes/Config/Descriptions.php:832
 msgid "Display logo"
 msgstr "लोगो प्रदर्शन करें"
 
-#: libraries/classes/Config/Descriptions.php:832
+#: libraries/classes/Config/Descriptions.php:833
 msgid "Logo link URL"
 msgstr "लोगो लिंक URL"
 
-#: libraries/classes/Config/Descriptions.php:833
+#: libraries/classes/Config/Descriptions.php:834
 msgid "Logo link target"
 msgstr "लोगो लिंक लक्ष्य"
 
-#: libraries/classes/Config/Descriptions.php:834
+#: libraries/classes/Config/Descriptions.php:835
 msgid "Display servers selection"
 msgstr "सर्वर चयन प्रदशित करें"
 
-#: libraries/classes/Config/Descriptions.php:835
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Target for quick access icon"
 msgstr "त्वरित पहुँच आइकन के लिए लक्ष्य"
 
-#: libraries/classes/Config/Descriptions.php:836
+#: libraries/classes/Config/Descriptions.php:837
 #, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
 msgstr "त्वरित पहुँच आइकन के लिए लक्ष्य"
 
-#: libraries/classes/Config/Descriptions.php:837
+#: libraries/classes/Config/Descriptions.php:838
 #, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
 msgstr "टेबल फिल्टर बॉक्स प्रदर्शित करने के लिए टेबल की न्यूनतम संख्या"
 
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:840
 #, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
 msgstr "टेबल फिल्टर बॉक्स प्रदर्शित करने के लिए टेबल की न्यूनतम संख्या"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:842
 msgid "Group items in the tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:842
+#: libraries/classes/Config/Descriptions.php:843
 msgid "Database tree separator"
 msgstr "डेटाबेस स्तर अलगानेवाला"
 
-#: libraries/classes/Config/Descriptions.php:843
+#: libraries/classes/Config/Descriptions.php:844
 msgid "Table tree separator"
 msgstr "टेबल स्तर अलगानेवाला"
 
-#: libraries/classes/Config/Descriptions.php:844
+#: libraries/classes/Config/Descriptions.php:845
 msgid "Maximum table tree depth"
 msgstr "अधिकतम टेबल स्तर गहराई"
 
-#: libraries/classes/Config/Descriptions.php:845
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Enable highlighting"
 msgstr "उजागर सक्षम"
 
-#: libraries/classes/Config/Descriptions.php:846
+#: libraries/classes/Config/Descriptions.php:847
 #, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "प्रतिष्ठित नेविगेशन पट्टी"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:848
 #, fuzzy
 #| msgid "Show tables"
 msgid "Show tables in tree"
 msgstr "टेबल दिखाओ"
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:849
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "संस्करण दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:850
 msgid "Show functions in tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:850
+#: libraries/classes/Config/Descriptions.php:851
 #, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
 msgstr "प्रोसेस दिखाओ"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:852
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
 msgstr "संस्करण दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:852
+#: libraries/classes/Config/Descriptions.php:853
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Expand single database"
 msgstr "डॅटाबेस प्रतिलिपिकरण"
 
-#: libraries/classes/Config/Descriptions.php:853
+#: libraries/classes/Config/Descriptions.php:854
 #, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
 msgstr "लापता टेबलएं"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:855
 #: libraries/classes/RecentFavoriteTable.php:245
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "प्रक्रियां"
 
-#: libraries/classes/Config/Descriptions.php:855
+#: libraries/classes/Config/Descriptions.php:856
 msgid "Where to show the table row links"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:856
+#: libraries/classes/Config/Descriptions.php:857
 msgid "Show row links anyway"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:858
+#: libraries/classes/Config/Descriptions.php:859
 msgid "Natural order"
 msgstr "प्राकृतिक आदेश"
 
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:860
 #, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
 msgstr "प्रतिष्ठित नेविगेशन पट्टी"
 
-#: libraries/classes/Config/Descriptions.php:860
+#: libraries/classes/Config/Descriptions.php:861
 msgid "GZip output buffering"
 msgstr "GZip आउटपुट बफरिंग"
 
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Default sorting order"
 msgstr "डिफ़ॉल्ट सॉर्ट क्रम"
 
-#: libraries/classes/Config/Descriptions.php:862
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Persistent connections"
 msgstr "के लिए"
 
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:864
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "phpMyAdmin विन्यास भंडारण टेबल लापता"
 
-#: libraries/classes/Config/Descriptions.php:864
+#: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:866
 #, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
 msgstr "सभी रोयों को प्रदर्शित करने की अनुमति"
 
-#: libraries/classes/Config/Descriptions.php:866
+#: libraries/classes/Config/Descriptions.php:867
 msgid "How to display various action links"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:867
+#: libraries/classes/Config/Descriptions.php:868
 msgid "Protect binary columns"
 msgstr "बाइनरी काँलम की रक्षा"
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:869
 msgid "Permanent query history"
 msgstr "स्थायी क्वरी इतिहास"
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:870
 msgid "Query history length"
 msgstr "क्वरी इतिहास लंबाई"
 
-#: libraries/classes/Config/Descriptions.php:870
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Recoding engine"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:871
+#: libraries/classes/Config/Descriptions.php:872
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "टेबल का नाम बदलें"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:873
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
 msgstr "डिफ़ॉल्ट सॉर्ट क्रम"
 
-#: libraries/classes/Config/Descriptions.php:873
+#: libraries/classes/Config/Descriptions.php:874
 msgid "Repeat headers"
 msgstr "हेडर दोहराना"
 
-#: libraries/classes/Config/Descriptions.php:874
+#: libraries/classes/Config/Descriptions.php:875
 msgid "Grid editing: trigger action"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:875
+#: libraries/classes/Config/Descriptions.php:876
 #, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
 msgstr "संबंधपरक प्रदर्शन स्तंभ"
 
-#: libraries/classes/Config/Descriptions.php:876
+#: libraries/classes/Config/Descriptions.php:877
 msgid "Grid editing: save all edited cells at once"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:878
 msgid "Save directory"
 msgstr "निर्देशिका बचाना"
 
-#: libraries/classes/Config/Descriptions.php:878
+#: libraries/classes/Config/Descriptions.php:879
 msgid "Host authorization order"
 msgstr "होस्ट प्राधिकरण आदेश"
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:880
 msgid "Host authorization rules"
 msgstr "होस्ट प्राधिकरण नियम"
 
-#: libraries/classes/Config/Descriptions.php:880
+#: libraries/classes/Config/Descriptions.php:881
 msgid "Allow logins without a password"
 msgstr "पासवर्ड के बिना प्रवेश की अनुमति"
 
-#: libraries/classes/Config/Descriptions.php:881
+#: libraries/classes/Config/Descriptions.php:882
 msgid "Allow root login"
 msgstr "रूट लॉगिन की अनुमति"
 
-#: libraries/classes/Config/Descriptions.php:882
+#: libraries/classes/Config/Descriptions.php:883
 #, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
 msgstr "सत्र मूल्य"
 
-#: libraries/classes/Config/Descriptions.php:883
+#: libraries/classes/Config/Descriptions.php:884
 msgid "HTTP Realm"
 msgstr "http दायरे"
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:885
 #: templates/setup/home/index.twig:50
 msgid "Authentication type"
 msgstr "प्रमाणीकरण पद्धति का उपयोग"
 
-#: libraries/classes/Config/Descriptions.php:885
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Bookmark table"
 msgstr "बुकमार्क टेबल"
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:887
 msgid "Column information table"
 msgstr "काँलम जानकारी टेबल"
 
-#: libraries/classes/Config/Descriptions.php:887
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Compress connection"
 msgstr "कनेक्शन संक्षिप्त करना"
 
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:889
 msgid "Control user password"
 msgstr "यूसर पासवर्ड नियंत्रण"
 
-#: libraries/classes/Config/Descriptions.php:889
-msgid "Control user"
-msgstr "नियंत्रण यूसर"
-
 #: libraries/classes/Config/Descriptions.php:890
-#, fuzzy
-#| msgid "Control user"
-msgid "Control host"
+msgid "Control user"
 msgstr "नियंत्रण यूसर"
 
 #: libraries/classes/Config/Descriptions.php:891
 #, fuzzy
 #| msgid "Control user"
-msgid "Control port"
+msgid "Control host"
 msgstr "नियंत्रण यूसर"
 
 #: libraries/classes/Config/Descriptions.php:892
+#, fuzzy
+#| msgid "Control user"
+msgid "Control port"
+msgstr "नियंत्रण यूसर"
+
+#: libraries/classes/Config/Descriptions.php:893
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA का उपयोग असमर्थ करें"
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:894
 msgid "Hide databases"
 msgstr "डेटाबेस छिपाना"
 
-#: libraries/classes/Config/Descriptions.php:894
+#: libraries/classes/Config/Descriptions.php:895
 msgid "SQL query history table"
 msgstr "SQL इतिहास क्वेरी टेबल"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:896
 msgid "Server hostname"
 msgstr "सर्वर होस्ट नाम"
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Logout URL"
 msgstr "लॉगआउट URL"
 
-#: libraries/classes/Config/Descriptions.php:897
+#: libraries/classes/Config/Descriptions.php:898
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "प्रदर्शित टेबल की अधिकतम संख्या"
 
-#: libraries/classes/Config/Descriptions.php:898
+#: libraries/classes/Config/Descriptions.php:899
 msgid "QBE saved searches table"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:900
 #, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export templates table"
 msgstr "\"%s\" डेटाबेस से रो निर्यात"
 
-#: libraries/classes/Config/Descriptions.php:900
+#: libraries/classes/Config/Descriptions.php:901
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns table"
 msgstr "पाठ क्षेत्रपाठ क्षेत्र कोलम"
 
-#: libraries/classes/Config/Descriptions.php:901
+#: libraries/classes/Config/Descriptions.php:902
 msgid "Show only listed databases"
 msgstr "केवल सूचीबद्ध डेटाबेस दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:903
 msgid "Password for config auth"
 msgstr "विन्यास प्राधिकरण के लिए पासवर्ड"
 
-#: libraries/classes/Config/Descriptions.php:903
+#: libraries/classes/Config/Descriptions.php:904
 msgid "PDF schema: pages table"
 msgstr "PDF स्कीमा: पृष्ठों टेबल"
 
-#: libraries/classes/Config/Descriptions.php:904
+#: libraries/classes/Config/Descriptions.php:905
 #: templates/database/operations/index.twig:122
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "डेटाबेस नाम"
 
-#: libraries/classes/Config/Descriptions.php:905
+#: libraries/classes/Config/Descriptions.php:906
 msgid "Server port"
 msgstr "सर्वर"
 
-#: libraries/classes/Config/Descriptions.php:906
+#: libraries/classes/Config/Descriptions.php:907
 #, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
 msgstr "याद यूसर नाम"
 
-#: libraries/classes/Config/Descriptions.php:907
+#: libraries/classes/Config/Descriptions.php:908
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites table"
 msgstr "प्रक्रियां"
 
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:909
 msgid "Relation table"
 msgstr "संबंध टेबल"
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:910
 msgid "Signon session name"
 msgstr "signon सत्र नाम"
 
-#: libraries/classes/Config/Descriptions.php:910
+#: libraries/classes/Config/Descriptions.php:911
 msgid "Signon URL"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:911
+#: libraries/classes/Config/Descriptions.php:912
 msgid "Server socket"
 msgstr "सर्वर गर्तिका"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:913
 msgid "Use SSL"
 msgstr "SSL का उपयोग"
 
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:914
 msgid "Designer and PDF schema: table coordinates"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:914
+#: libraries/classes/Config/Descriptions.php:915
 msgid "Display columns table"
 msgstr "काँलम टेबल दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:916
 #, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
 msgstr "यूसर वरीयताओं की भंडारण टेबल"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:917
 msgid "Add DROP DATABASE"
 msgstr "ड्रॉप डेटाबेस जोड़ें"
 
-#: libraries/classes/Config/Descriptions.php:917
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
 msgstr "ड्रॉप टेबल जोड़ें"
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:919
 msgid "Add DROP VIEW"
 msgstr "DROP VIEW जोडें"
 
-#: libraries/classes/Config/Descriptions.php:919
+#: libraries/classes/Config/Descriptions.php:920
 msgid "Statements to track"
 msgstr "बयान ट्रैक करने के लिए"
 
-#: libraries/classes/Config/Descriptions.php:920
+#: libraries/classes/Config/Descriptions.php:921
 msgid "SQL query tracking table"
 msgstr "SQL क्वरी ट्रैकिंग टेबल"
 
-#: libraries/classes/Config/Descriptions.php:921
+#: libraries/classes/Config/Descriptions.php:922
 msgid "Automatically create versions"
 msgstr "स्वतः संस्करण बनाना"
 
-#: libraries/classes/Config/Descriptions.php:922
+#: libraries/classes/Config/Descriptions.php:923
 msgid "User preferences storage table"
 msgstr "यूसर वरीयताओं की भंडारण टेबल"
 
-#: libraries/classes/Config/Descriptions.php:923
+#: libraries/classes/Config/Descriptions.php:924
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "टेबल का उपयोग करो"
 
-#: libraries/classes/Config/Descriptions.php:924
+#: libraries/classes/Config/Descriptions.php:925
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "होस्ट टेबल का उपयोग करें"
 
-#: libraries/classes/Config/Descriptions.php:925
+#: libraries/classes/Config/Descriptions.php:926
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:926
+#: libraries/classes/Config/Descriptions.php:927
 msgid "User for config auth"
 msgstr "विन्यास प्राधिकरण के लिए यूसर"
 
-#: libraries/classes/Config/Descriptions.php:927
+#: libraries/classes/Config/Descriptions.php:928
 msgid "Verbose name of this server"
 msgstr "इस सर्वर का वाचाल नाम"
 
-#: libraries/classes/Config/Descriptions.php:928
+#: libraries/classes/Config/Descriptions.php:929
 msgid "Allow to display all the rows"
 msgstr "सभी रोयों को प्रदर्शित करने की अनुमति"
 
-#: libraries/classes/Config/Descriptions.php:929
+#: libraries/classes/Config/Descriptions.php:930
 msgid "Show password change form"
 msgstr "पासवर्ड बदलने के फार्म"
 
-#: libraries/classes/Config/Descriptions.php:930
+#: libraries/classes/Config/Descriptions.php:931
 msgid "Show create database form"
 msgstr "डेटाबेस बनाने का फार्म"
 
-#: libraries/classes/Config/Descriptions.php:931
+#: libraries/classes/Config/Descriptions.php:932
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
 msgstr "टेबल की टिप्पणी"
 
-#: libraries/classes/Config/Descriptions.php:932
+#: libraries/classes/Config/Descriptions.php:933
 #, fuzzy
 #| msgid "Show more actions"
 msgid "Show creation timestamp"
 msgstr "अधिक क्रियाएँ दिखाओ"
 
-#: libraries/classes/Config/Descriptions.php:933
+#: libraries/classes/Config/Descriptions.php:934
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show last update timestamp"
 msgstr "मास्टर अवस्था"
 
-#: libraries/classes/Config/Descriptions.php:934
+#: libraries/classes/Config/Descriptions.php:935
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show last check timestamp"
 msgstr "मास्टर अवस्था"
 
-#: libraries/classes/Config/Descriptions.php:935
+#: libraries/classes/Config/Descriptions.php:936
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table charset"
 msgstr "टेबल की टिप्पणी"
 
-#: libraries/classes/Config/Descriptions.php:936
+#: libraries/classes/Config/Descriptions.php:937
 msgid "Show field types"
 msgstr "फ़ील्ड प्रकार दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:937
+#: libraries/classes/Config/Descriptions.php:938
 msgid "Show function fields"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:938
+#: libraries/classes/Config/Descriptions.php:939
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "ग्रिड दिखाओ"
 
-#: libraries/classes/Config/Descriptions.php:939
+#: libraries/classes/Config/Descriptions.php:940
 msgid "Show phpinfo() link"
 msgstr "phpinfo() लिंक दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:940
+#: libraries/classes/Config/Descriptions.php:941
 msgid "Show detailed MySQL server information"
 msgstr "विस्तृत mysql सर्वर जानकारी"
 
-#: libraries/classes/Config/Descriptions.php:941
+#: libraries/classes/Config/Descriptions.php:942
 msgid "Show SQL queries"
 msgstr "SQL प्रशन दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:942 templates/sql/query.twig:127
+#: libraries/classes/Config/Descriptions.php:943 templates/sql/query.twig:127
 #, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
 msgstr "क्वरी बॉक्स छुपा"
 
-#: libraries/classes/Config/Descriptions.php:943
+#: libraries/classes/Config/Descriptions.php:944
 msgid "Show statistics"
 msgstr "आँकड़े दिखाएँ"
 
-#: libraries/classes/Config/Descriptions.php:944
+#: libraries/classes/Config/Descriptions.php:945
 msgid "Skip locked tables"
 msgstr "बंद टेबलओं को छोड़"
 
-#: libraries/classes/Config/Descriptions.php:945
+#: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 #: libraries/classes/Display/Results.php:2756
@@ -4633,12 +4637,12 @@ msgstr "बंद टेबलओं को छोड़"
 msgid "Edit"
 msgstr "सम्पादन"
 
-#: libraries/classes/Config/Descriptions.php:946
+#: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Html/Generator.php:624
 msgid "Explain SQL"
 msgstr "SQL की व्याख्या"
 
-#: libraries/classes/Config/Descriptions.php:947
+#: libraries/classes/Config/Descriptions.php:948
 #: libraries/classes/Export.php:593 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
@@ -4646,32 +4650,32 @@ msgstr "SQL की व्याख्या"
 msgid "Refresh"
 msgstr "ताज़ा करना"
 
-#: libraries/classes/Config/Descriptions.php:948
+#: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/Html/Generator.php:688
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP Code बनाओ"
 
-#: libraries/classes/Config/Descriptions.php:949
+#: libraries/classes/Config/Descriptions.php:950
 msgid "Suhosin warning"
 msgstr "Suhosin चेतावनी"
 
-#: libraries/classes/Config/Descriptions.php:950
+#: libraries/classes/Config/Descriptions.php:951
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "लॉगिन कुकी वैधता"
 
-#: libraries/classes/Config/Descriptions.php:951
+#: libraries/classes/Config/Descriptions.php:952
 msgid "Textarea columns"
 msgstr "पाठ क्षेत्रपाठ क्षेत्र कोलम"
 
-#: libraries/classes/Config/Descriptions.php:952
+#: libraries/classes/Config/Descriptions.php:953
 msgid "Textarea rows"
 msgstr "क्षेत्र रोयाँ"
 
-#: libraries/classes/Config/Descriptions.php:953
+#: libraries/classes/Config/Descriptions.php:954
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:185
 #: libraries/classes/Plugins/Export/ExportTexytext.php:124
@@ -4694,16 +4698,16 @@ msgstr "क्षेत्र रोयाँ"
 msgid "Database"
 msgstr "डाटाबेस"
 
-#: libraries/classes/Config/Descriptions.php:954
+#: libraries/classes/Config/Descriptions.php:955
 msgid "Default title"
 msgstr "डिफ़ॉल्ट शीर्षक"
 
-#: libraries/classes/Config/Descriptions.php:955
+#: libraries/classes/Config/Descriptions.php:956
 #: templates/server/status/base.twig:6
 msgid "Server"
 msgstr "सर्वर"
 
-#: libraries/classes/Config/Descriptions.php:956
+#: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:464
 #: libraries/classes/Server/Privileges.php:1824
 #: libraries/classes/Server/Privileges.php:1826
@@ -4726,152 +4730,152 @@ msgstr "सर्वर"
 msgid "Table"
 msgstr "टेबल"
 
-#: libraries/classes/Config/Descriptions.php:957
+#: libraries/classes/Config/Descriptions.php:958
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "विश्वसनीय proxies की सूची IP अनुमति / इनकार के लिए"
 
-#: libraries/classes/Config/Descriptions.php:958
+#: libraries/classes/Config/Descriptions.php:959
 msgid "Upload directory"
 msgstr "अपलोड निर्देशिका"
 
-#: libraries/classes/Config/Descriptions.php:959
+#: libraries/classes/Config/Descriptions.php:960
 msgid "Use database search"
 msgstr "डेटाबेस खोज का प्रयोग"
 
-#: libraries/classes/Config/Descriptions.php:960
+#: libraries/classes/Config/Descriptions.php:961
 msgid "Enable the Developer tab in settings"
 msgstr "सेटिंग्स में डेवलपर टैब को सक्रिय करें"
 
-#: libraries/classes/Config/Descriptions.php:961
+#: libraries/classes/Config/Descriptions.php:962
 #: libraries/classes/Setup/Index.php:128 libraries/classes/Setup/Index.php:151
 #: libraries/classes/Setup/Index.php:163 libraries/classes/Setup/Index.php:176
 #: libraries/classes/Setup/Index.php:185 libraries/classes/Setup/Index.php:193
 msgid "Version check"
 msgstr "संस्करण की जांच"
 
-#: libraries/classes/Config/Descriptions.php:962
+#: libraries/classes/Config/Descriptions.php:963
 msgid "Proxy URL"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:963
+#: libraries/classes/Config/Descriptions.php:964
 #, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "यूसर नाम"
 
-#: libraries/classes/Config/Descriptions.php:964
+#: libraries/classes/Config/Descriptions.php:965
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "पासवर्ड"
 
-#: libraries/classes/Config/Descriptions.php:965
+#: libraries/classes/Config/Descriptions.php:966
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:966
+#: libraries/classes/Config/Descriptions.php:967
 msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:967
+#: libraries/classes/Config/Descriptions.php:968
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:968
+#: libraries/classes/Config/Descriptions.php:969
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:969
+#: libraries/classes/Config/Descriptions.php:970
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:970
+#: libraries/classes/Config/Descriptions.php:971
 msgid "Public key for reCAPTCHA"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:971
+#: libraries/classes/Config/Descriptions.php:972
 msgid "Private key for reCAPTCHA"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:972
+#: libraries/classes/Config/Descriptions.php:973
 msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:973
+#: libraries/classes/Config/Descriptions.php:974
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
 msgstr "सर्वर"
 
-#: libraries/classes/Config/Descriptions.php:974
+#: libraries/classes/Config/Descriptions.php:975
 msgid "Enter executes queries in console"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:975
+#: libraries/classes/Config/Descriptions.php:976
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "सर्वर विन्यास"
 
-#: libraries/classes/Config/Descriptions.php:976
+#: libraries/classes/Config/Descriptions.php:977
 #: templates/console/display.twig:177
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL इतिहास क्वेरी टेबल"
 
-#: libraries/classes/Config/Descriptions.php:977
+#: libraries/classes/Config/Descriptions.php:978
 #: templates/console/display.twig:173
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:978
+#: libraries/classes/Config/Descriptions.php:979
 #: templates/console/display.twig:181
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:979
+#: libraries/classes/Config/Descriptions.php:980
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:980
+#: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:189
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
 msgstr "नकल की टेबल पर स्विच करें"
 
-#: libraries/classes/Config/Descriptions.php:981
+#: libraries/classes/Config/Descriptions.php:982
 msgid "Console height"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:982
+#: libraries/classes/Config/Descriptions.php:983
 #, fuzzy
 #| msgid "Browse mode"
 msgid "Console mode"
 msgstr "ब्राउज़ करें"
 
-#: libraries/classes/Config/Descriptions.php:983
+#: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:91
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL क्वरी"
 
-#: libraries/classes/Config/Descriptions.php:984
+#: libraries/classes/Config/Descriptions.php:985
 #: templates/sql/profiling_chart.twig:9
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "अन्य"
 
-#: libraries/classes/Config/Descriptions.php:985
+#: libraries/classes/Config/Descriptions.php:986
 #, fuzzy
 #| msgid "Other"
 msgid "Order by"
 msgstr "अन्य"
 
-#: libraries/classes/Config/Descriptions.php:986
+#: libraries/classes/Config/Descriptions.php:987
 msgid "Server connection collation"
 msgstr "MySQL जोडणी मिलान"
 
@@ -4945,8 +4949,8 @@ msgstr "कस्टम"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:1424 libraries/classes/Util.php:1898
-#: libraries/classes/Util.php:1915 libraries/config.values.php:60
+#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1899
+#: libraries/classes/Util.php:1916 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4994,8 +4998,8 @@ msgstr "दस्तावेज़ खोलें"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:380
 #: libraries/classes/Menu.php:511 libraries/classes/Server/Privileges.php:1512
-#: libraries/classes/Util.php:1887 libraries/classes/Util.php:1902
-#: libraries/classes/Util.php:1919 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:1888 libraries/classes/Util.php:1903
+#: libraries/classes/Util.php:1920 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -5038,8 +5042,8 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:390
-#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1888
-#: libraries/classes/Util.php:1903 libraries/classes/Util.php:1920
+#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1889
+#: libraries/classes/Util.php:1904 libraries/classes/Util.php:1921
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5360,6 +5364,13 @@ msgstr "%s फ़ाइल सिस्टम  में उपलब्ध न�
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s रौ दिखा रहे है।"
 
+#. l10n: The user tries to save a page with an existing name in Designer
+#: libraries/classes/Controllers/Database/DesignerController.php:113
+#, php-format
+msgid ""
+"There already exists a page named \"%s\" please rename it to something else."
+msgstr ""
+
 #: libraries/classes/Controllers/Database/ExportController.php:89
 #: libraries/classes/Controllers/Database/TrackingController.php:138
 #: libraries/classes/Controllers/Export/ExportController.php:349
@@ -5416,7 +5427,7 @@ msgstr "phpMyAdmin विन्यास भंडारण को निष्�
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
-#: libraries/classes/Plugins/AuthenticationPlugin.php:179
+#: libraries/classes/Plugins/AuthenticationPlugin.php:180
 msgid "Access denied!"
 msgstr "प्रवेश निषेध!"
 
@@ -6401,7 +6412,7 @@ msgid "Traffic"
 msgstr "व्यस्तता"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1889
+#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1890
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "सेटिंग्स"
@@ -6419,7 +6430,7 @@ msgstr "कृपया, श्रृंखला में कम से कम
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1067
-#: libraries/classes/Plugins/Export/ExportSql.php:2178
+#: libraries/classes/Plugins/Export/ExportSql.php:2197
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -6646,7 +6657,7 @@ msgstr "परिणाम को समझाएँ"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:488
 #: libraries/classes/Server/Status/Processes.php:138
-#: libraries/classes/Util.php:1885 libraries/config.values.php:157
+#: libraries/classes/Util.php:1886 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -10042,8 +10053,8 @@ msgid "Full texts"
 msgstr "पूर्ण पाठ"
 
 #: libraries/classes/Display/Results.php:1616
-#: libraries/classes/Display/Results.php:1642 libraries/classes/Util.php:2506
-#: libraries/classes/Util.php:2529 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1642 libraries/classes/Util.php:2507
+#: libraries/classes/Util.php:2530 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -10056,8 +10067,8 @@ msgid "Descending"
 msgstr "अवरोही"
 
 #: libraries/classes/Display/Results.php:1624
-#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2498
-#: libraries/classes/Util.php:2521 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2499
+#: libraries/classes/Util.php:2522 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -10810,7 +10821,7 @@ msgstr ""
 
 #: libraries/classes/Menu.php:238
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1914
+#: libraries/classes/Util.php:1429 libraries/classes/Util.php:1915
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10820,8 +10831,8 @@ msgstr "ब्राउज़"
 
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:364
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1900
-#: libraries/classes/Util.php:1917 libraries/config.values.php:64
+#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1901
+#: libraries/classes/Util.php:1918 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10833,7 +10844,7 @@ msgstr "ढूंढें"
 
 #: libraries/classes/Menu.php:268
 #: libraries/classes/Navigation/Nodes/NodeTable.php:303
-#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1918
+#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1919
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10843,8 +10854,8 @@ msgid "Insert"
 msgstr "इनसर्ट"
 
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:404
-#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1905
-#: libraries/classes/Util.php:1921 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1906
+#: libraries/classes/Util.php:1922 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10853,14 +10864,14 @@ msgid "Privileges"
 msgstr "प्रिविलेज"
 
 #: libraries/classes/Menu.php:305 libraries/classes/Menu.php:315
-#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1429
-#: libraries/classes/Util.php:1904 libraries/classes/Util.php:1922
+#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1430
+#: libraries/classes/Util.php:1905 libraries/classes/Util.php:1923
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "कार्रवाई"
 
 #: libraries/classes/Menu.php:321 libraries/classes/Menu.php:430
-#: libraries/classes/Util.php:1909 libraries/classes/Util.php:1923
+#: libraries/classes/Util.php:1910 libraries/classes/Util.php:1924
 msgid "Tracking"
 msgstr "नज़र रखना"
 
@@ -10870,10 +10881,10 @@ msgstr "नज़र रखना"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:552
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2053
+#: libraries/classes/Plugins/Export/ExportSql.php:2072
 #: libraries/classes/Plugins/Export/ExportTexytext.php:535
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1908 libraries/classes/Util.php:1924
+#: libraries/classes/Util.php:1909 libraries/classes/Util.php:1925
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "ट्रिगर"
@@ -10883,11 +10894,11 @@ msgstr "ट्रिगर"
 msgid "Database seems to be empty!"
 msgstr "डाटाबेस खाली लग रहा है!"
 
-#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1901
+#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1902
 msgid "Query"
 msgstr "क्वरी"
 
-#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1906
+#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1907
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "नियमित कार्य"
@@ -10895,17 +10906,17 @@ msgstr "नियमित कार्य"
 #: libraries/classes/Menu.php:416
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:996
+#: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1907 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1908 templates/database/events/index.twig:3
 msgid "Events"
 msgstr ""
 
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1910
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1911
 msgid "Designer"
 msgstr "डिजाइनर"
 
-#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1911
+#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1912
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Textarea columns"
@@ -10919,12 +10930,12 @@ msgid "User accounts"
 msgstr "यूसर"
 
 #: libraries/classes/Menu.php:536 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1890 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1891 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "बाइनरी लोग"
 
 #: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1891
+#: libraries/classes/Util.php:1892
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10932,21 +10943,21 @@ msgid "Replication"
 msgstr "प्रतिकृति"
 
 #: libraries/classes/Menu.php:549 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1892 libraries/config.values.php:159
+#: libraries/classes/Util.php:1893 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "प्रक्रियां"
 
-#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1893
+#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1894
 msgid "Charsets"
 msgstr "चरित्र सेट"
 
-#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1895
+#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1896
 msgid "Engines"
 msgstr "इंजन"
 
-#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1894
+#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1895
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr ""
@@ -11124,7 +11135,7 @@ msgstr "घटना"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:626
+#: libraries/classes/Plugins/Export/ExportSql.php:634
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr ""
@@ -11145,7 +11156,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:615
+#: libraries/classes/Plugins/Export/ExportSql.php:623
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "प्रक्रियाओं"
@@ -11649,24 +11660,24 @@ msgstr "यूसरनेम/पासवर्ड गलत है।  प्�
 msgid "Can not find signon authentication script:"
 msgstr "विन्यास प्रमाणीकरण"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:175
+#: libraries/classes/Plugins/AuthenticationPlugin.php:176
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:184
+#: libraries/classes/Plugins/AuthenticationPlugin.php:185
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:197
-#: libraries/classes/Plugins/AuthenticationPlugin.php:200
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
+#: libraries/classes/Plugins/AuthenticationPlugin.php:201
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL सर्वर में प्रवेश नहीं कर सकते"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:339
+#: libraries/classes/Plugins/AuthenticationPlugin.php:342
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -11771,7 +11782,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:193
 #: libraries/classes/Plugins/Export/ExportOdt.php:249
-#: libraries/classes/Plugins/Export/ExportSql.php:2303
+#: libraries/classes/Plugins/Export/ExportSql.php:2322
 #: libraries/classes/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr ""
@@ -11865,21 +11876,21 @@ msgstr "वर्णन"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:542
 #: libraries/classes/Plugins/Export/ExportOdt.php:675
-#: libraries/classes/Plugins/Export/ExportSql.php:2039
+#: libraries/classes/Plugins/Export/ExportSql.php:2058
 #: libraries/classes/Plugins/Export/ExportTexytext.php:515
 msgid "Table structure for table"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:560
 #: libraries/classes/Plugins/Export/ExportOdt.php:707
-#: libraries/classes/Plugins/Export/ExportSql.php:2090
+#: libraries/classes/Plugins/Export/ExportSql.php:2109
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 msgid "Structure for view"
 msgstr "वीएव के लिए संरचना"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2122
+#: libraries/classes/Plugins/Export/ExportSql.php:2141
 #: libraries/classes/Plugins/Export/ExportTexytext.php:557
 msgid "Stand-in structure for view"
 msgstr ""
@@ -11961,7 +11972,7 @@ msgid "Put columns names in the first row:"
 msgstr "काँलम नाम प्रथम रो में"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:746
+#: libraries/classes/Plugins/Export/ExportSql.php:754
 #: libraries/classes/Plugins/Export/ExportXml.php:231
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -11971,7 +11982,7 @@ msgid "Host:"
 msgstr "होस्ट"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:753
+#: libraries/classes/Plugins/Export/ExportSql.php:761
 #: libraries/classes/Plugins/Export/ExportXml.php:237
 #, fuzzy
 #| msgid "Generation Time"
@@ -11979,14 +11990,14 @@ msgid "Generation Time:"
 msgstr "समय पर बनाया"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:757
+#: libraries/classes/Plugins/Export/ExportSql.php:765
 #: libraries/classes/Plugins/Export/ExportXml.php:239
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "सर्वर संस्करण :"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:759
+#: libraries/classes/Plugins/Export/ExportSql.php:767
 #: libraries/classes/Plugins/Export/ExportXml.php:240
 #, fuzzy
 #| msgid "Version"
@@ -11994,7 +12005,7 @@ msgid "PHP Version:"
 msgstr "संस्करण"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:931
+#: libraries/classes/Plugins/Export/ExportSql.php:939
 #: libraries/classes/Plugins/Export/ExportXml.php:389
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:200
 #: templates/database/structure/copy_form.twig:5
@@ -12005,7 +12016,7 @@ msgid "Database:"
 msgstr "डाटाबेस"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:315
-#: libraries/classes/Plugins/Export/ExportSql.php:2178
+#: libraries/classes/Plugins/Export/ExportSql.php:2197
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -12134,7 +12145,7 @@ msgid "Data creation options"
 msgstr "परिवर्तन के विकल्प"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2260
+#: libraries/classes/Plugins/Export/ExportSql.php:2279
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -12197,118 +12208,118 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:574
+#: libraries/classes/Plugins/Export/ExportSql.php:582
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:577
-#: libraries/classes/Plugins/Export/ExportSql.php:1576
-#: libraries/classes/Plugins/Export/ExportSql.php:2078
+#: libraries/classes/Plugins/Export/ExportSql.php:585
+#: libraries/classes/Plugins/Export/ExportSql.php:1595
+#: libraries/classes/Plugins/Export/ExportSql.php:2097
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1040
+#: libraries/classes/Plugins/Export/ExportSql.php:1056
 #, fuzzy
 #| msgid "Metadata Headers"
 msgid "Metadata"
 msgstr "मेटाडेटा हेडर"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1106
+#: libraries/classes/Plugins/Export/ExportSql.php:1122
 #, fuzzy, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for table %s"
 msgstr "मेटाडेटा हेडर"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1113
+#: libraries/classes/Plugins/Export/ExportSql.php:1129
 #, fuzzy, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for database %s"
 msgstr "मेटाडेटा हेडर"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1420
+#: libraries/classes/Plugins/Export/ExportSql.php:1436
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "रचना:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1430
+#: libraries/classes/Plugins/Export/ExportSql.php:1446
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "पिछला नवीनीकरण:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1440
+#: libraries/classes/Plugins/Export/ExportSql.php:1456
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "पिछली जाँच:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1491
+#: libraries/classes/Plugins/Export/ExportSql.php:1507
 #, fuzzy, php-format
 #| msgid "Tracking report for table `%s`"
 msgid "Error reading structure for table %s:"
 msgstr "टेबल `%s` की ट्रैकिंग रिपोर्ट"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1573
+#: libraries/classes/Plugins/Export/ExportSql.php:1592
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1740
+#: libraries/classes/Plugins/Export/ExportSql.php:1759
 msgid "Constraints for dumped tables"
 msgstr "दुम्प टेबलओं के लिए प्रतिबन्ध"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1741
+#: libraries/classes/Plugins/Export/ExportSql.php:1760
 msgid "Constraints for table"
 msgstr "टेबल के लिए प्रतिबन्ध"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1768
+#: libraries/classes/Plugins/Export/ExportSql.php:1787
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "दुम्प टेबलओं के लिए प्रतिबन्ध"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1769
+#: libraries/classes/Plugins/Export/ExportSql.php:1788
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "टेबल में:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1805
+#: libraries/classes/Plugins/Export/ExportSql.php:1824
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "शुन्य मूल्य के लिए AUTO_INCREMENT का प्रयोग न करें"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1806
+#: libraries/classes/Plugins/Export/ExportSql.php:1825
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT मूल्य जोडें"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1881
+#: libraries/classes/Plugins/Export/ExportSql.php:1900
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "टेबल के लिए MIME प्रकार"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1906
+#: libraries/classes/Plugins/Export/ExportSql.php:1925
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "टेबल के लिए संबंध"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2075
+#: libraries/classes/Plugins/Export/ExportSql.php:2094
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2105
+#: libraries/classes/Plugins/Export/ExportSql.php:2124
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "वीएव के लिए संरचना"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2125
+#: libraries/classes/Plugins/Export/ExportSql.php:2144
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2193
+#: libraries/classes/Plugins/Export/ExportSql.php:2212
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
@@ -14182,13 +14193,13 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s दिन, %s घंटे, %s मिनट and %s सेकंड"
 
-#: libraries/classes/Util.php:1886
+#: libraries/classes/Util.php:1887
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "यूसर"
 
-#: libraries/classes/Util.php:2490
+#: libraries/classes/Util.php:2491
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "सॉर्ट"

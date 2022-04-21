@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-17 00:18+0000\n"
+"POT-Creation-Date: 2022-04-21 19:09+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2098,7 +2098,7 @@ msgstr ""
 "untuk tak terbatas)."
 
 #: libraries/classes/Config/Descriptions.php:184
-#: libraries/classes/Config/Descriptions.php:727
+#: libraries/classes/Config/Descriptions.php:728
 #: libraries/classes/Plugins/Export/ExportSql.php:345
 msgid "Exclude definition of current user"
 msgstr "Kecualikan definisi dari pengguna sekarang"
@@ -3195,7 +3195,7 @@ msgid "Whether to show row links even in the absence of a unique key."
 msgstr "Apakah untuk menampilkan link baris bahkan tanpa adanya unique key."
 
 #: libraries/classes/Config/Descriptions.php:575
-#: libraries/classes/Config/Descriptions.php:857
+#: libraries/classes/Config/Descriptions.php:858
 msgid "Disable shortcut keys"
 msgstr "Nonaktifkan tombol shortcut"
 
@@ -3475,7 +3475,7 @@ msgid "Save as file"
 msgstr "Simpan sebagai berkas"
 
 #: libraries/classes/Config/Descriptions.php:657
-#: libraries/classes/Config/Descriptions.php:791
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Character set of the file"
 msgstr "Set karakter berkas"
 
@@ -3496,7 +3496,7 @@ msgstr "Kompresi"
 #: libraries/classes/Config/Descriptions.php:679
 #: libraries/classes/Config/Descriptions.php:692
 #: libraries/classes/Config/Descriptions.php:694
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:741
 #: libraries/classes/Plugins/Export/ExportCsv.php:87
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:84
@@ -3507,15 +3507,15 @@ msgid "Put columns names in the first row"
 msgstr "Masukkan nama kolom pada baris pertama"
 
 #: libraries/classes/Config/Descriptions.php:661
-#: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Config/Descriptions.php:799
+#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:800
 #: libraries/classes/Plugins/Import/ImportCsv.php:683
 msgid "Columns enclosed with"
 msgstr "Kolom diapit oleh"
 
 #: libraries/classes/Config/Descriptions.php:662
-#: libraries/classes/Config/Descriptions.php:794
-#: libraries/classes/Config/Descriptions.php:800
+#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:694
 msgid "Columns escaped with"
 msgstr "Kolom diloloskan oleh"
@@ -3526,7 +3526,7 @@ msgstr "Kolom diloloskan oleh"
 #: libraries/classes/Config/Descriptions.php:685
 #: libraries/classes/Config/Descriptions.php:693
 #: libraries/classes/Config/Descriptions.php:697
-#: libraries/classes/Config/Descriptions.php:741
+#: libraries/classes/Config/Descriptions.php:742
 msgid "Replace NULL with"
 msgstr "Ganti NULL dengan"
 
@@ -3536,14 +3536,14 @@ msgid "Remove CRLF characters within columns"
 msgstr "Hapus karakter CRLF dalam kolom"
 
 #: libraries/classes/Config/Descriptions.php:665
-#: libraries/classes/Config/Descriptions.php:797
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Plugins/Import/ImportCsv.php:668
 msgid "Columns terminated with"
 msgstr "Kolom diakhiri oleh"
 
 #: libraries/classes/Config/Descriptions.php:666
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:701
 msgid "Lines terminated with"
 msgstr "Baris diakhir dengan"
@@ -3567,8 +3567,8 @@ msgstr "Templat nama tabel"
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:690
 #: libraries/classes/Config/Descriptions.php:699
-#: libraries/classes/Config/Descriptions.php:736
-#: libraries/classes/Config/Descriptions.php:742
+#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:743
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:55
 #: libraries/classes/Plugins/Export/ExportLatex.php:88
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
@@ -3587,7 +3587,7 @@ msgstr "Masukkan judul halaman tabel"
 
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
-#: libraries/classes/Config/Descriptions.php:730
+#: libraries/classes/Config/Descriptions.php:731
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:384
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
 #: libraries/classes/Plugins/Export/ExportOdt.php:488
@@ -3618,7 +3618,7 @@ msgstr "Kunci nama"
 
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:696
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:734
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:391
 #: libraries/classes/Plugins/Export/ExportOdt.php:495
 #: libraries/classes/Plugins/Export/ExportTexytext.php:391
@@ -3632,7 +3632,7 @@ msgstr "Jenis MIME"
 
 #: libraries/classes/Config/Descriptions.php:686
 #: libraries/classes/Config/Descriptions.php:698
-#: libraries/classes/Config/Descriptions.php:735
+#: libraries/classes/Config/Descriptions.php:736
 msgid "Relationships"
 msgstr "Relasi"
 
@@ -3661,63 +3661,68 @@ msgstr "Ekspor sebagai file terpisah"
 msgid "Remember filename template"
 msgstr "Ingat templat nama berkas"
 
-# Imperative verb
 #: libraries/classes/Config/Descriptions.php:706
+#, fuzzy
+msgid "Remove DEFINER clause from definitions"
+msgstr "Menghapus kolom dari daftar pusat"
+
+# Imperative verb
+#: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
 msgstr "Tambahkan nilai AUTO_INCREMENT"
 
-#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:708
 msgid "Enclose table and column names with backquotes"
 msgstr "Apit nama tabel dan kolom dengan tanda petik balik"
 
-#: libraries/classes/Config/Descriptions.php:708
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:811
 msgid "SQL compatibility mode"
 msgstr "Modus kompatibilitas SQL"
 
-#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:710
 msgid "Creation/Update/Check dates"
 msgstr "Tanggal Pembuatan/Pembaruan/Pemeriksaan"
 
-#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Use delayed inserts"
 msgstr "Gunakan perintah INSERT memperlambat"
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:712
 #: libraries/classes/Plugins/Export/ExportSql.php:183
 msgid "Disable foreign key checks"
 msgstr "Tanpa pemeriksaan kunci asing"
 
-#: libraries/classes/Config/Descriptions.php:712
+#: libraries/classes/Config/Descriptions.php:713
 #: libraries/classes/Plugins/Export/ExportSql.php:197
 msgid "Export views as tables"
 msgstr "Mengekspor tampilan sebagai tabel"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:714
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr "Ekspor metadata terkait dari penyimpanan konfigurasi phpMyAdmin"
 
-#: libraries/classes/Config/Descriptions.php:714
 #: libraries/classes/Config/Descriptions.php:715
-#: libraries/classes/Config/Descriptions.php:717
-#: libraries/classes/Config/Descriptions.php:720
+#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:718
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:722
-#: libraries/classes/Config/Descriptions.php:734
+#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:735
 #: templates/database/operations/index.twig:155
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
 msgstr "Tambahkan %s"
 
-#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:724
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Gunakan heksadesimal untuk BINARY & BLOB"
 
-#: libraries/classes/Config/Descriptions.php:725
+#: libraries/classes/Config/Descriptions.php:726
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -3725,58 +3730,58 @@ msgstr ""
 "Tambahkan IF NOT EXIST(kurang efisien sebagai indeks akan dihasilkan selama "
 "pembuatan tabel)"
 
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:351
 #, fuzzy, php-format
 #| msgid "%s value"
 msgid "%s view"
 msgstr "Nilai %s"
 
-#: libraries/classes/Config/Descriptions.php:729
+#: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
 msgstr "Gunakan INSERT dengan IGNORE"
 
-#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:732
 msgid "Syntax to use when inserting data"
 msgstr "Sintaks yang digunakan sewaktu menambahkan data"
 
-#: libraries/classes/Config/Descriptions.php:732
+#: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/Plugins/Export/ExportSql.php:488
 msgid "Maximal length of created query"
 msgstr "Panjang maksimum kueri yang dibuat"
 
-#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:738
 msgid "Export type"
 msgstr "Jenis ekspor"
 
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:739
 #: libraries/classes/Plugins/Export/ExportSql.php:169
 msgid "Enclose export in a transaction"
 msgstr "Jalankan ekspor dalam transaksi"
 
-#: libraries/classes/Config/Descriptions.php:739
+#: libraries/classes/Config/Descriptions.php:740
 msgid "Export time in UTC"
 msgstr "Ekspor waktu dalam UTC"
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
 msgstr "Urutan tarik turun foreign key"
 
-#: libraries/classes/Config/Descriptions.php:744
+#: libraries/classes/Config/Descriptions.php:745
 msgid "Foreign key limit"
 msgstr "Batas kunci luar"
 
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:746
 msgid "Foreign key checks"
 msgstr "Pemeriksaan kunci asing"
 
-#: libraries/classes/Config/Descriptions.php:746
+#: libraries/classes/Config/Descriptions.php:747
 msgid "First day of calendar"
 msgstr "Hari pertama di kalender"
 
-#: libraries/classes/Config/Descriptions.php:747
-#: libraries/classes/Config/Descriptions.php:758 libraries/classes/Menu.php:478
-#: libraries/classes/Util.php:1883 libraries/config.values.php:155
+#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:478
+#: libraries/classes/Util.php:1884 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3784,60 +3789,60 @@ msgstr "Hari pertama di kalender"
 msgid "Databases"
 msgstr "Basis data"
 
-#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:749
 msgid "Browse mode"
 msgstr "Modus jelajah"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:751
 #: libraries/classes/Config/Forms/User/ExportForm.php:82
 #: libraries/classes/Config/Forms/User/ImportForm.php:35
 msgid "CSV"
 msgstr "Data CSV"
 
-#: libraries/classes/Config/Descriptions.php:751
+#: libraries/classes/Config/Descriptions.php:752
 msgid "Developer"
 msgstr "Pengembang"
 
-#: libraries/classes/Config/Descriptions.php:752
+#: libraries/classes/Config/Descriptions.php:753
 msgid "Edit mode"
 msgstr "Modus edit"
 
-#: libraries/classes/Config/Descriptions.php:753
+#: libraries/classes/Config/Descriptions.php:754
 msgid "Export defaults"
 msgstr "Bawaan ekspor"
 
-#: libraries/classes/Config/Descriptions.php:754
+#: libraries/classes/Config/Descriptions.php:755
 msgid "General"
 msgstr "Umum"
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:756
 msgid "Import defaults"
 msgstr "Bawaan impor"
 
-#: libraries/classes/Config/Descriptions.php:756
+#: libraries/classes/Config/Descriptions.php:757
 msgid "Import / export"
 msgstr "Impor / ekspor"
 
-#: libraries/classes/Config/Descriptions.php:757
+#: libraries/classes/Config/Descriptions.php:758
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/classes/Config/Descriptions.php:759
+#: libraries/classes/Config/Descriptions.php:760
 #: libraries/classes/Config/Forms/User/NaviForm.php:68
 #: templates/preferences/header.twig:30
 msgid "Navigation panel"
 msgstr "Panel navigasi"
 
-#: libraries/classes/Config/Descriptions.php:760
+#: libraries/classes/Config/Descriptions.php:761
 msgid "Navigation tree"
 msgstr "Panel navigasi"
 
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:762
 #: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "Server"
 
-#: libraries/classes/Config/Descriptions.php:762
+#: libraries/classes/Config/Descriptions.php:763
 #: libraries/classes/Controllers/Server/DatabasesController.php:309
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
@@ -3848,706 +3853,706 @@ msgstr "Server"
 msgid "Tables"
 msgstr "Tabel"
 
-#: libraries/classes/Config/Descriptions.php:763
+#: libraries/classes/Config/Descriptions.php:764
 #: libraries/classes/Config/Forms/User/MainForm.php:90
 #: templates/preferences/header.twig:36
 msgid "Main panel"
 msgstr "Panel utama"
 
-#: libraries/classes/Config/Descriptions.php:764
+#: libraries/classes/Config/Descriptions.php:765
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: libraries/classes/Config/Descriptions.php:766
+#: libraries/classes/Config/Descriptions.php:767
 msgid "Other core settings"
 msgstr "Pengaturan utama lain"
 
-#: libraries/classes/Config/Descriptions.php:767
+#: libraries/classes/Config/Descriptions.php:768
 msgid "Page titles"
 msgstr "Judul halaman"
 
-#: libraries/classes/Config/Descriptions.php:768
+#: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
 msgstr "Keamanan"
 
-#: libraries/classes/Config/Descriptions.php:769
+#: libraries/classes/Config/Descriptions.php:770
 msgid "Basic settings"
 msgstr "Pengaturan dasar"
 
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:771
 msgid "Authentication"
 msgstr "Autentikasi"
 
-#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Config/Descriptions.php:772
 msgid "Server configuration"
 msgstr "Konfigurasi server"
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:773
 msgid "Configuration storage"
 msgstr "Penyimpanan konfigurasi"
 
-#: libraries/classes/Config/Descriptions.php:773
+#: libraries/classes/Config/Descriptions.php:774
 msgid "Changes tracking"
 msgstr "Pelacakan perubahan"
 
-#: libraries/classes/Config/Descriptions.php:774 libraries/classes/Menu.php:253
+#: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
 #: libraries/classes/Menu.php:360 libraries/classes/Menu.php:483
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1884
-#: libraries/classes/Util.php:1899 libraries/classes/Util.php:1916
+#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1885
+#: libraries/classes/Util.php:1900 libraries/classes/Util.php:1917
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/Descriptions.php:775
+#: libraries/classes/Config/Descriptions.php:776
 msgid "SQL Query box"
 msgstr "Kotak Kueri SQL"
 
-#: libraries/classes/Config/Descriptions.php:776
+#: libraries/classes/Config/Descriptions.php:777
 #: libraries/classes/Config/Forms/User/SqlForm.php:48
 #: templates/preferences/header.twig:24
 msgid "SQL queries"
 msgstr "Kueri SQL"
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:778
 msgid "Startup"
 msgstr "Awal"
 
-#: libraries/classes/Config/Descriptions.php:778
+#: libraries/classes/Config/Descriptions.php:779
 msgid "Database structure"
 msgstr "Stuktur basis data"
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:780
 #: libraries/classes/Plugins/Export/ExportPdf.php:258
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "Struktur tabel"
 
-#: libraries/classes/Config/Descriptions.php:780
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Tabs"
 msgstr "Tab"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:782
 msgid "Display relational schema"
 msgstr "Tampilkan skema relasi"
 
-#: libraries/classes/Config/Descriptions.php:782
+#: libraries/classes/Config/Descriptions.php:783
 msgid "Text fields"
 msgstr "Isian teks"
 
-#: libraries/classes/Config/Descriptions.php:783
+#: libraries/classes/Config/Descriptions.php:784
 msgid "Texy! text"
 msgstr "Teks Texy!"
 
-#: libraries/classes/Config/Descriptions.php:784
+#: libraries/classes/Config/Descriptions.php:785
 msgid "Warnings"
 msgstr "Peringatan"
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:6
 msgid "Console"
 msgstr "Konsol"
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Extra parameters for iconv"
 msgstr "Parameter tambahan untuk iconv"
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:789
 msgid "Ignore multiple statement errors"
 msgstr "Abaikan galat perintah jamak"
 
-#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Enable drag and drop import"
 msgstr "Aktifkan impor seret dan lepas"
 
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Partial import: allow interrupt"
 msgstr "Impor parsial: izinkan interupsi"
 
-#: libraries/classes/Config/Descriptions.php:795
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:802
 #: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "Jangan gugurkan sewaktu galat INSERT"
 
-#: libraries/classes/Config/Descriptions.php:796
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:797
+#: libraries/classes/Config/Descriptions.php:804
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Tambahkan ON DUPLICATE KEY UPDATE"
 
-#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:799
 msgid "Format of imported file"
 msgstr "Format berkas impor"
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "Gunakan kata kunci LOCAL"
 
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:806
 msgid "Column names in first row"
 msgstr "Nama kolom pada baris pertama"
 
-#: libraries/classes/Config/Descriptions.php:806
+#: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Plugins/Import/ImportOds.php:74
 msgid "Do not import empty rows"
 msgstr "Jangan impor baris kosong"
 
-#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:808
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Impor mata uang ($5.00 menjadi 5.00)"
 
-#: libraries/classes/Config/Descriptions.php:808
+#: libraries/classes/Config/Descriptions.php:809
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Impor persentase menjadi nilai desimal (12.00% menjadi .12)"
 
-#: libraries/classes/Config/Descriptions.php:809
+#: libraries/classes/Config/Descriptions.php:810
 msgid "Partial import: skip queries"
 msgstr "Impor parsial: lewati kueri"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:812
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:813
 msgid "Read as multibytes"
 msgstr "Baca sebagai multibytes"
 
-#: libraries/classes/Config/Descriptions.php:813
+#: libraries/classes/Config/Descriptions.php:814
 msgid "Initial state for sliders"
 msgstr "Kondisi awal slider"
 
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Number of inserted rows"
 msgstr "Jumlah baris tambahan"
 
-#: libraries/classes/Config/Descriptions.php:815
+#: libraries/classes/Config/Descriptions.php:816
 msgid "Limit column characters"
 msgstr "Batas karakter kolom"
 
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:817
 msgid "Delete all cookies on logout"
 msgstr "Hapus semua kuki sewaktu keluar"
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Recall user name"
 msgstr "Ingat nama pengguna"
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Login cookie store"
 msgstr "Penyimpanan kuki masuk"
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:820
 msgid "Login cookie validity"
 msgstr "Validitas kuki masuk"
 
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Textarea lebih besar untuk LONGTEXT"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:822
 msgid "Maximum displayed SQL length"
 msgstr "Panjang SQL maksimum yang ditayangkan"
 
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:823
 msgid "Maximum databases"
 msgstr "Basis data maksimum"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:824
 msgid "Maximum items on first level"
 msgstr "Item maksimum di tingkat pertama"
 
-#: libraries/classes/Config/Descriptions.php:824
+#: libraries/classes/Config/Descriptions.php:825
 msgid "Maximum items in branch"
 msgstr "Item maksimal di cabang"
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:826
 msgid "Maximum number of rows to display"
 msgstr "Jumlah maksimum baris yang ditampilkan"
 
-#: libraries/classes/Config/Descriptions.php:826
+#: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum tables"
 msgstr "Tabel maksimum"
 
-#: libraries/classes/Config/Descriptions.php:827
+#: libraries/classes/Config/Descriptions.php:828
 msgid "Memory limit"
 msgstr "Limit memori"
 
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:829
 msgid "Show databases navigation as tree"
 msgstr "Tampilkan cabang navigasi databases"
 
-#: libraries/classes/Config/Descriptions.php:829
+#: libraries/classes/Config/Descriptions.php:830
 msgid "Navigation panel width"
 msgstr "Lebar panel navigasi"
 
-#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: libraries/classes/Navigation/NavigationTree.php:1354
 msgid "Link with main panel"
 msgstr "Link ke panel utama"
 
-#: libraries/classes/Config/Descriptions.php:831
+#: libraries/classes/Config/Descriptions.php:832
 msgid "Display logo"
 msgstr "Tampilkan logo"
 
-#: libraries/classes/Config/Descriptions.php:832
+#: libraries/classes/Config/Descriptions.php:833
 msgid "Logo link URL"
 msgstr "URL tautan logo"
 
-#: libraries/classes/Config/Descriptions.php:833
+#: libraries/classes/Config/Descriptions.php:834
 msgid "Logo link target"
 msgstr "Sasaran tautan logo"
 
-#: libraries/classes/Config/Descriptions.php:834
+#: libraries/classes/Config/Descriptions.php:835
 msgid "Display servers selection"
 msgstr "Tampilkan pilihan server"
 
-#: libraries/classes/Config/Descriptions.php:835
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Target for quick access icon"
 msgstr "Target ikon akses cepat"
 
-#: libraries/classes/Config/Descriptions.php:836
+#: libraries/classes/Config/Descriptions.php:837
 msgid "Target for second quick access icon"
 msgstr "Target buat ikon akses cepat kedua"
 
-#: libraries/classes/Config/Descriptions.php:837
+#: libraries/classes/Config/Descriptions.php:838
 msgid "Minimum number of items to display the filter box"
 msgstr "Jumlah minimum item yang ditampilkan di kotak tabel filter"
 
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:840
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Jumlah minimum database yang ditampilkan di kotak tabel filter"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:842
 msgid "Group items in the tree"
 msgstr "Item Group di pohon"
 
-#: libraries/classes/Config/Descriptions.php:842
+#: libraries/classes/Config/Descriptions.php:843
 msgid "Database tree separator"
 msgstr "Pemisah hierarki basis data"
 
-#: libraries/classes/Config/Descriptions.php:843
+#: libraries/classes/Config/Descriptions.php:844
 msgid "Table tree separator"
 msgstr "Pemisah hierarki tabel"
 
-#: libraries/classes/Config/Descriptions.php:844
+#: libraries/classes/Config/Descriptions.php:845
 msgid "Maximum table tree depth"
 msgstr "Kedalaman hierarki tabel maksimum"
 
-#: libraries/classes/Config/Descriptions.php:845
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Enable highlighting"
 msgstr "Aktifkan penyorotan"
 
-#: libraries/classes/Config/Descriptions.php:846
+#: libraries/classes/Config/Descriptions.php:847
 msgid "Enable navigation tree expansion"
 msgstr "Bolehkan perluasan pohon navigasi"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:848
 msgid "Show tables in tree"
 msgstr "Tampilkan tabel pada cabang"
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:849
 msgid "Show views in tree"
 msgstr "Tampilkan Views dalam bentuk bercabang"
 
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:850
 msgid "Show functions in tree"
 msgstr "Tampilkan Fungsi dalam bentuk bercabang"
 
-#: libraries/classes/Config/Descriptions.php:850
+#: libraries/classes/Config/Descriptions.php:851
 msgid "Show procedures in tree"
 msgstr "Tampilkan prosedur di percabangan"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:852
 msgid "Show events in tree"
 msgstr "Tunjukkan events dalam pohon"
 
-#: libraries/classes/Config/Descriptions.php:852
+#: libraries/classes/Config/Descriptions.php:853
 #, fuzzy
 #| msgid "Copying database"
 msgid "Expand single database"
 msgstr "Menyalin database"
 
-#: libraries/classes/Config/Descriptions.php:853
+#: libraries/classes/Config/Descriptions.php:854
 msgid "Recently used tables"
 msgstr "Tabel yang terakhir digunakan"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:855
 #: libraries/classes/RecentFavoriteTable.php:245
 msgid "Favorite tables"
 msgstr "Tabel favorit"
 
-#: libraries/classes/Config/Descriptions.php:855
+#: libraries/classes/Config/Descriptions.php:856
 msgid "Where to show the table row links"
 msgstr "Tempat menampilkan tautan baris tabel"
 
-#: libraries/classes/Config/Descriptions.php:856
+#: libraries/classes/Config/Descriptions.php:857
 msgid "Show row links anyway"
 msgstr "Tampilkan link baris bagaimanapun"
 
-#: libraries/classes/Config/Descriptions.php:858
+#: libraries/classes/Config/Descriptions.php:859
 msgid "Natural order"
 msgstr "Urutan alami"
 
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:860
 msgid "Table navigation bar"
 msgstr "Bar tabel navigasi"
 
-#: libraries/classes/Config/Descriptions.php:860
+#: libraries/classes/Config/Descriptions.php:861
 msgid "GZip output buffering"
 msgstr "Penyanggaan keluaran GZip"
 
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Default sorting order"
 msgstr "Urutan bawaan"
 
-#: libraries/classes/Config/Descriptions.php:862
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Persistent connections"
 msgstr "Koneksi persisten"
 
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:864
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
-#: libraries/classes/Config/Descriptions.php:864
+#: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
 msgstr "Peringatan! kata telah digunakan MySQL"
 
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:866
 msgid "How to display the menu tabs"
 msgstr "Atur tampilan tab menu"
 
-#: libraries/classes/Config/Descriptions.php:866
+#: libraries/classes/Config/Descriptions.php:867
 msgid "How to display various action links"
 msgstr "Bagaimana menampilkan berbagai link tindakan"
 
-#: libraries/classes/Config/Descriptions.php:867
+#: libraries/classes/Config/Descriptions.php:868
 msgid "Protect binary columns"
 msgstr "Lindungi kolom biner"
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:869
 msgid "Permanent query history"
 msgstr "Riwayat kueri permanen"
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:870
 msgid "Query history length"
 msgstr "Panjang riwayat kueri"
 
-#: libraries/classes/Config/Descriptions.php:870
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Recoding engine"
 msgstr "Mesin pengode ulang"
 
-#: libraries/classes/Config/Descriptions.php:871
+#: libraries/classes/Config/Descriptions.php:872
 msgid "Remember table's sorting"
 msgstr "Ingat urutan tabel"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:873
 msgid "Primary key default sort order"
 msgstr "Urutan bawaan Primary Key"
 
-#: libraries/classes/Config/Descriptions.php:873
+#: libraries/classes/Config/Descriptions.php:874
 msgid "Repeat headers"
 msgstr "Ulangi judul"
 
-#: libraries/classes/Config/Descriptions.php:874
+#: libraries/classes/Config/Descriptions.php:875
 msgid "Grid editing: trigger action"
 msgstr "Pengeditan Grid: trigger action"
 
-#: libraries/classes/Config/Descriptions.php:875
+#: libraries/classes/Config/Descriptions.php:876
 msgid "Relational display"
 msgstr "Tampilan berelasi"
 
-#: libraries/classes/Config/Descriptions.php:876
+#: libraries/classes/Config/Descriptions.php:877
 msgid "Grid editing: save all edited cells at once"
 msgstr "Pengeditan Grid: Simpan semua sel yang diedit sekaligus"
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:878
 msgid "Save directory"
 msgstr "Direktori penyimpanan"
 
-#: libraries/classes/Config/Descriptions.php:878
+#: libraries/classes/Config/Descriptions.php:879
 msgid "Host authorization order"
 msgstr "Urutan otorisasi inang"
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:880
 msgid "Host authorization rules"
 msgstr "Aturan otorisasi inang"
 
-#: libraries/classes/Config/Descriptions.php:880
+#: libraries/classes/Config/Descriptions.php:881
 msgid "Allow logins without a password"
 msgstr "Izinkan masuk tanpa sandi"
 
-#: libraries/classes/Config/Descriptions.php:881
+#: libraries/classes/Config/Descriptions.php:882
 msgid "Allow root login"
 msgstr "Izinkan masuk root"
 
-#: libraries/classes/Config/Descriptions.php:882
+#: libraries/classes/Config/Descriptions.php:883
 msgid "Session timezone"
 msgstr "Sesi zona waktu"
 
-#: libraries/classes/Config/Descriptions.php:883
+#: libraries/classes/Config/Descriptions.php:884
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:885
 #: templates/setup/home/index.twig:50
 msgid "Authentication type"
 msgstr "Jenis autentikasi"
 
-#: libraries/classes/Config/Descriptions.php:885
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Bookmark table"
 msgstr "Tabel markah"
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:887
 msgid "Column information table"
 msgstr "Tabel informasi kolom"
 
-#: libraries/classes/Config/Descriptions.php:887
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Compress connection"
 msgstr "Pampatkan koneksi"
 
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:889
 msgid "Control user password"
 msgstr "Sandi pengguna pengendali"
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:890
 msgid "Control user"
 msgstr "Pengguna pengendali"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:891
 msgid "Control host"
 msgstr "Inang pengendali"
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:892
 msgid "Control port"
 msgstr "Port kontrol"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:893
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Noaktifkan penggunaan INFORMATION_SCHEMA"
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:894
 msgid "Hide databases"
 msgstr "Sembunyikan basis data"
 
-#: libraries/classes/Config/Descriptions.php:894
+#: libraries/classes/Config/Descriptions.php:895
 msgid "SQL query history table"
 msgstr "Tabel riwayat kueri SQL"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:896
 msgid "Server hostname"
 msgstr "Nama inang server"
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Logout URL"
 msgstr "URL keluar"
 
-#: libraries/classes/Config/Descriptions.php:897
+#: libraries/classes/Config/Descriptions.php:898
 msgid "Maximal number of table preferences to store"
 msgstr "Jumlah maksimal preferensi tabel untuk menyimpan"
 
-#: libraries/classes/Config/Descriptions.php:898
+#: libraries/classes/Config/Descriptions.php:899
 msgid "QBE saved searches table"
 msgstr "QBE menyimpan tabel pencarian"
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:900
 msgid "Export templates table"
 msgstr "Mengekspor templates sebagai tabel"
 
-#: libraries/classes/Config/Descriptions.php:900
+#: libraries/classes/Config/Descriptions.php:901
 msgid "Central columns table"
 msgstr "Kolom tengah tabel"
 
-#: libraries/classes/Config/Descriptions.php:901
+#: libraries/classes/Config/Descriptions.php:902
 msgid "Show only listed databases"
 msgstr "Tampilkan hanya basis data terdaftar"
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:903
 msgid "Password for config auth"
 msgstr "Sandi untuk autentikasi config"
 
-#: libraries/classes/Config/Descriptions.php:903
+#: libraries/classes/Config/Descriptions.php:904
 msgid "PDF schema: pages table"
 msgstr "Skema PDF: tabel halaman"
 
-#: libraries/classes/Config/Descriptions.php:904
+#: libraries/classes/Config/Descriptions.php:905
 #: templates/database/operations/index.twig:122
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "Nama basis data"
 
-#: libraries/classes/Config/Descriptions.php:905
+#: libraries/classes/Config/Descriptions.php:906
 msgid "Server port"
 msgstr "Porta server"
 
-#: libraries/classes/Config/Descriptions.php:906
+#: libraries/classes/Config/Descriptions.php:907
 msgid "Recently used table"
 msgstr "Tabel yang baru digunakan"
 
-#: libraries/classes/Config/Descriptions.php:907
+#: libraries/classes/Config/Descriptions.php:908
 msgid "Favorites table"
 msgstr "Tabel favorit"
 
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:909
 msgid "Relation table"
 msgstr "Tabel relasi"
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:910
 msgid "Signon session name"
 msgstr "Nama sesi Signon"
 
-#: libraries/classes/Config/Descriptions.php:910
+#: libraries/classes/Config/Descriptions.php:911
 msgid "Signon URL"
 msgstr "URL Signon"
 
-#: libraries/classes/Config/Descriptions.php:911
+#: libraries/classes/Config/Descriptions.php:912
 msgid "Server socket"
 msgstr "Socket server"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:913
 msgid "Use SSL"
 msgstr "Gunakan SSL"
 
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:914
 #, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Skema PDF: koordinat tabel"
 
-#: libraries/classes/Config/Descriptions.php:914
+#: libraries/classes/Config/Descriptions.php:915
 msgid "Display columns table"
 msgstr "Tabel kolom tampilan"
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:916
 msgid "UI preferences table"
 msgstr "Tabel preferensi UI"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:917
 msgid "Add DROP DATABASE"
 msgstr "Tambahkan DROP DATABASE"
 
-#: libraries/classes/Config/Descriptions.php:917
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
 msgstr "Tambahkan DROP TABLE"
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:919
 msgid "Add DROP VIEW"
 msgstr "Tambahkan DROP VIEW"
 
-#: libraries/classes/Config/Descriptions.php:919
+#: libraries/classes/Config/Descriptions.php:920
 msgid "Statements to track"
 msgstr "Statement untuk dilacak"
 
-#: libraries/classes/Config/Descriptions.php:920
+#: libraries/classes/Config/Descriptions.php:921
 msgid "SQL query tracking table"
 msgstr "Tabel pelacakan kueri SQL"
 
-#: libraries/classes/Config/Descriptions.php:921
+#: libraries/classes/Config/Descriptions.php:922
 msgid "Automatically create versions"
 msgstr "Buat versi secara otomatis"
 
-#: libraries/classes/Config/Descriptions.php:922
+#: libraries/classes/Config/Descriptions.php:923
 msgid "User preferences storage table"
 msgstr "Tabel penyimpanan preferensi pengguna"
 
-#: libraries/classes/Config/Descriptions.php:923
+#: libraries/classes/Config/Descriptions.php:924
 msgid "Users table"
 msgstr "Tabel pengguna"
 
-#: libraries/classes/Config/Descriptions.php:924
+#: libraries/classes/Config/Descriptions.php:925
 msgid "User groups table"
 msgstr "Tabel grup pengguna"
 
-#: libraries/classes/Config/Descriptions.php:925
+#: libraries/classes/Config/Descriptions.php:926
 msgid "Hidden navigation items table"
 msgstr "Tabel item navigasi tersembunyi"
 
-#: libraries/classes/Config/Descriptions.php:926
+#: libraries/classes/Config/Descriptions.php:927
 msgid "User for config auth"
 msgstr "Pengguna autentikasi config"
 
-#: libraries/classes/Config/Descriptions.php:927
+#: libraries/classes/Config/Descriptions.php:928
 msgid "Verbose name of this server"
 msgstr "Nama deskriptif server"
 
-#: libraries/classes/Config/Descriptions.php:928
+#: libraries/classes/Config/Descriptions.php:929
 msgid "Allow to display all the rows"
 msgstr "Izinkan tampilan semua baris"
 
-#: libraries/classes/Config/Descriptions.php:929
+#: libraries/classes/Config/Descriptions.php:930
 msgid "Show password change form"
 msgstr "Tampilkan formulir penggantian sandi"
 
-#: libraries/classes/Config/Descriptions.php:930
+#: libraries/classes/Config/Descriptions.php:931
 msgid "Show create database form"
 msgstr "Tampilkan formulir pembuatan basis data"
 
-#: libraries/classes/Config/Descriptions.php:931
+#: libraries/classes/Config/Descriptions.php:932
 msgid "Show table comments"
 msgstr "Tampilkan komentar tabel"
 
-#: libraries/classes/Config/Descriptions.php:932
+#: libraries/classes/Config/Descriptions.php:933
 msgid "Show creation timestamp"
 msgstr "Tampilkan timestamp pembuatan"
 
-#: libraries/classes/Config/Descriptions.php:933
+#: libraries/classes/Config/Descriptions.php:934
 #, fuzzy
 msgid "Show last update timestamp"
 msgstr "Tampilkan pembaruan timestamp terakhir"
 
-#: libraries/classes/Config/Descriptions.php:934
+#: libraries/classes/Config/Descriptions.php:935
 msgid "Show last check timestamp"
 msgstr "Tampilkan cek timestamp terakhir"
 
-#: libraries/classes/Config/Descriptions.php:935
+#: libraries/classes/Config/Descriptions.php:936
 msgid "Show table charset"
 msgstr "Tampilkan tabel set karakter"
 
-#: libraries/classes/Config/Descriptions.php:936
+#: libraries/classes/Config/Descriptions.php:937
 msgid "Show field types"
 msgstr "Tampilkan jenis isian"
 
-#: libraries/classes/Config/Descriptions.php:937
+#: libraries/classes/Config/Descriptions.php:938
 msgid "Show function fields"
 msgstr "Tampilkan isian fungsi"
 
-#: libraries/classes/Config/Descriptions.php:938
+#: libraries/classes/Config/Descriptions.php:939
 msgid "Show hint"
 msgstr "Tampilkan petunjuk"
 
-#: libraries/classes/Config/Descriptions.php:939
+#: libraries/classes/Config/Descriptions.php:940
 msgid "Show phpinfo() link"
 msgstr "Tampilkan tautan phpinfo()"
 
-#: libraries/classes/Config/Descriptions.php:940
+#: libraries/classes/Config/Descriptions.php:941
 msgid "Show detailed MySQL server information"
 msgstr "Tampilkan informasi detail server MySQL"
 
-#: libraries/classes/Config/Descriptions.php:941
+#: libraries/classes/Config/Descriptions.php:942
 msgid "Show SQL queries"
 msgstr "Tampilkan kueri SQL"
 
-#: libraries/classes/Config/Descriptions.php:942 templates/sql/query.twig:127
+#: libraries/classes/Config/Descriptions.php:943 templates/sql/query.twig:127
 msgid "Retain query box"
 msgstr "Menahan kotak kueri"
 
-#: libraries/classes/Config/Descriptions.php:943
+#: libraries/classes/Config/Descriptions.php:944
 msgid "Show statistics"
 msgstr "Tampilkan statistik"
 
-#: libraries/classes/Config/Descriptions.php:944
+#: libraries/classes/Config/Descriptions.php:945
 msgid "Skip locked tables"
 msgstr "Lewati tabel terkunci"
 
-#: libraries/classes/Config/Descriptions.php:945
+#: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 #: libraries/classes/Display/Results.php:2756
@@ -4574,12 +4579,12 @@ msgstr "Lewati tabel terkunci"
 msgid "Edit"
 msgstr "Ubah"
 
-#: libraries/classes/Config/Descriptions.php:946
+#: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Html/Generator.php:624
 msgid "Explain SQL"
 msgstr "Jelaskan SQL"
 
-#: libraries/classes/Config/Descriptions.php:947
+#: libraries/classes/Config/Descriptions.php:948
 #: libraries/classes/Export.php:593 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
@@ -4587,30 +4592,30 @@ msgstr "Jelaskan SQL"
 msgid "Refresh"
 msgstr "Segarkan"
 
-#: libraries/classes/Config/Descriptions.php:948
+#: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/Html/Generator.php:688
 msgid "Create PHP code"
 msgstr "Buat kode PHP"
 
-#: libraries/classes/Config/Descriptions.php:949
+#: libraries/classes/Config/Descriptions.php:950
 msgid "Suhosin warning"
 msgstr "Peringatan Suhosin"
 
-#: libraries/classes/Config/Descriptions.php:950
+#: libraries/classes/Config/Descriptions.php:951
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "Validitas kuki masuk"
 
-#: libraries/classes/Config/Descriptions.php:951
+#: libraries/classes/Config/Descriptions.php:952
 msgid "Textarea columns"
 msgstr "Kolom textarea"
 
-#: libraries/classes/Config/Descriptions.php:952
+#: libraries/classes/Config/Descriptions.php:953
 msgid "Textarea rows"
 msgstr "Baris textarea"
 
-#: libraries/classes/Config/Descriptions.php:953
+#: libraries/classes/Config/Descriptions.php:954
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:185
 #: libraries/classes/Plugins/Export/ExportTexytext.php:124
@@ -4633,16 +4638,16 @@ msgstr "Baris textarea"
 msgid "Database"
 msgstr "Basis data"
 
-#: libraries/classes/Config/Descriptions.php:954
+#: libraries/classes/Config/Descriptions.php:955
 msgid "Default title"
 msgstr "Judul bawaan"
 
-#: libraries/classes/Config/Descriptions.php:955
+#: libraries/classes/Config/Descriptions.php:956
 #: templates/server/status/base.twig:6
 msgid "Server"
 msgstr "Server"
 
-#: libraries/classes/Config/Descriptions.php:956
+#: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:464
 #: libraries/classes/Server/Privileges.php:1824
 #: libraries/classes/Server/Privileges.php:1826
@@ -4665,167 +4670,167 @@ msgstr "Server"
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/classes/Config/Descriptions.php:957
+#: libraries/classes/Config/Descriptions.php:958
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Daftar proksi tepercaya untuk allow/deny IP"
 
-#: libraries/classes/Config/Descriptions.php:958
+#: libraries/classes/Config/Descriptions.php:959
 msgid "Upload directory"
 msgstr "Direktori unggahan"
 
-#: libraries/classes/Config/Descriptions.php:959
+#: libraries/classes/Config/Descriptions.php:960
 msgid "Use database search"
 msgstr "Gunakan pencarian basis data"
 
-#: libraries/classes/Config/Descriptions.php:960
+#: libraries/classes/Config/Descriptions.php:961
 msgid "Enable the Developer tab in settings"
 msgstr "Aktifkan tab pengembang dalam pengaturan"
 
-#: libraries/classes/Config/Descriptions.php:961
+#: libraries/classes/Config/Descriptions.php:962
 #: libraries/classes/Setup/Index.php:128 libraries/classes/Setup/Index.php:151
 #: libraries/classes/Setup/Index.php:163 libraries/classes/Setup/Index.php:176
 #: libraries/classes/Setup/Index.php:185 libraries/classes/Setup/Index.php:193
 msgid "Version check"
 msgstr "Pemeriksaan versi"
 
-#: libraries/classes/Config/Descriptions.php:962
+#: libraries/classes/Config/Descriptions.php:963
 #, fuzzy
 #| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "Alamat proxy"
 
-#: libraries/classes/Config/Descriptions.php:963
+#: libraries/classes/Config/Descriptions.php:964
 msgid "Proxy username"
 msgstr "Nama Pengguna Proxy"
 
-#: libraries/classes/Config/Descriptions.php:964
+#: libraries/classes/Config/Descriptions.php:965
 msgid "Proxy password"
 msgstr "Password proxy"
 
-#: libraries/classes/Config/Descriptions.php:965
+#: libraries/classes/Config/Descriptions.php:966
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:966
+#: libraries/classes/Config/Descriptions.php:967
 #, fuzzy
 #| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA v2 API"
 msgstr "URL untuk situs reCaptcha verifikasi"
 
-#: libraries/classes/Config/Descriptions.php:967
+#: libraries/classes/Config/Descriptions.php:968
 #, fuzzy
 #| msgid "Content-Security-Policy snippet for reCaptcha v2 API"
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr "Cuplikan Content-Security-Policy untuk API reCaptcha v2"
 
-#: libraries/classes/Config/Descriptions.php:968
+#: libraries/classes/Config/Descriptions.php:969
 #, fuzzy
 #| msgid "Request parameter for reCaptcha v2 API"
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr "Parameter permintaan untuk reCaptcha v2 API"
 
-#: libraries/classes/Config/Descriptions.php:969
+#: libraries/classes/Config/Descriptions.php:970
 #, fuzzy
 #| msgid "Request parameter for reCaptcha v2 API"
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr "Parameter permintaan untuk reCaptcha v2 API"
 
-#: libraries/classes/Config/Descriptions.php:970
+#: libraries/classes/Config/Descriptions.php:971
 #, fuzzy
 #| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
 msgstr "Kunci publik untuk reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:971
+#: libraries/classes/Config/Descriptions.php:972
 #, fuzzy
 #| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
 msgstr "Kunci publik untuk reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:972
+#: libraries/classes/Config/Descriptions.php:973
 #, fuzzy
 #| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA siteverify"
 msgstr "URL untuk situs reCaptcha verifikasi"
 
-#: libraries/classes/Config/Descriptions.php:973
+#: libraries/classes/Config/Descriptions.php:974
 msgid "Send error reports"
 msgstr "Kirim laporan kesalahan"
 
-#: libraries/classes/Config/Descriptions.php:974
+#: libraries/classes/Config/Descriptions.php:975
 #, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
 msgstr "Kueri tereksekusi"
 
-#: libraries/classes/Config/Descriptions.php:975
+#: libraries/classes/Config/Descriptions.php:976
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "Konfigurasi server"
 
-#: libraries/classes/Config/Descriptions.php:976
+#: libraries/classes/Config/Descriptions.php:977
 #: templates/console/display.twig:177
 msgid "Show query history at start"
 msgstr "Tampilkan riwayat kueri di awal"
 
-#: libraries/classes/Config/Descriptions.php:977
+#: libraries/classes/Config/Descriptions.php:978
 #: templates/console/display.twig:173
 msgid "Always expand query messages"
 msgstr "Selalu tampilkan pesan kueri"
 
-#: libraries/classes/Config/Descriptions.php:978
+#: libraries/classes/Config/Descriptions.php:979
 #: templates/console/display.twig:181
 #, fuzzy
 #| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "Tampilkan kueri saat ini"
 
-#: libraries/classes/Config/Descriptions.php:979
+#: libraries/classes/Config/Descriptions.php:980
 #, fuzzy
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 "Mengeksekusi query pada Masukkan dan memasukkan baris baru dengan Shift + "
 "Enter. Untuk membuat ini permanen, pengaturan tampilan."
 
-#: libraries/classes/Config/Descriptions.php:980
+#: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:189
 msgid "Switch to dark theme"
 msgstr "Beralih ke tema gelap"
 
-#: libraries/classes/Config/Descriptions.php:981
+#: libraries/classes/Config/Descriptions.php:982
 #, fuzzy
 #| msgid "Console"
 msgid "Console height"
 msgstr "Konsol"
 
-#: libraries/classes/Config/Descriptions.php:982
+#: libraries/classes/Config/Descriptions.php:983
 #, fuzzy
 #| msgid "Console"
 msgid "Console mode"
 msgstr "Konsol"
 
-#: libraries/classes/Config/Descriptions.php:983
+#: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:91
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "Kueri SQL"
 
-#: libraries/classes/Config/Descriptions.php:984
+#: libraries/classes/Config/Descriptions.php:985
 #: templates/sql/profiling_chart.twig:9
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "Lainnya"
 
-#: libraries/classes/Config/Descriptions.php:985
+#: libraries/classes/Config/Descriptions.php:986
 #, fuzzy
 #| msgid "Other"
 msgid "Order by"
 msgstr "Lainnya"
 
-#: libraries/classes/Config/Descriptions.php:986
+#: libraries/classes/Config/Descriptions.php:987
 msgid "Server connection collation"
 msgstr "Penyortiran koneksi server"
 
@@ -4895,8 +4900,8 @@ msgstr "Kustom"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:1424 libraries/classes/Util.php:1898
-#: libraries/classes/Util.php:1915 libraries/config.values.php:60
+#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1899
+#: libraries/classes/Util.php:1916 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4940,8 +4945,8 @@ msgstr "Teks OpenDocument"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:380
 #: libraries/classes/Menu.php:511 libraries/classes/Server/Privileges.php:1512
-#: libraries/classes/Util.php:1887 libraries/classes/Util.php:1902
-#: libraries/classes/Util.php:1919 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:1888 libraries/classes/Util.php:1903
+#: libraries/classes/Util.php:1920 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4984,8 +4989,8 @@ msgstr "CSV menggunakan LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:390
-#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1888
-#: libraries/classes/Util.php:1903 libraries/classes/Util.php:1920
+#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1889
+#: libraries/classes/Util.php:1904 libraries/classes/Util.php:1921
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5339,6 +5344,13 @@ msgstr ""
 msgid "Showing rows %1$s - %2$s."
 msgstr "Tampilkan baris %1$s s/d %2$s."
 
+#. l10n: The user tries to save a page with an existing name in Designer
+#: libraries/classes/Controllers/Database/DesignerController.php:113
+#, php-format
+msgid ""
+"There already exists a page named \"%s\" please rename it to something else."
+msgstr ""
+
 #: libraries/classes/Controllers/Database/ExportController.php:89
 #: libraries/classes/Controllers/Database/TrackingController.php:138
 #: libraries/classes/Controllers/Export/ExportController.php:349
@@ -5399,7 +5411,7 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
-#: libraries/classes/Plugins/AuthenticationPlugin.php:179
+#: libraries/classes/Plugins/AuthenticationPlugin.php:180
 msgid "Access denied!"
 msgstr "Akses ditolak!"
 
@@ -6349,7 +6361,7 @@ msgid "Traffic"
 msgstr "Lalu Lintas"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1889
+#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1890
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Pengaturan"
@@ -6365,7 +6377,7 @@ msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1067
-#: libraries/classes/Plugins/Export/ExportSql.php:2178
+#: libraries/classes/Plugins/Export/ExportSql.php:2197
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -6581,7 +6593,7 @@ msgstr "Jelaskan hasil"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:488
 #: libraries/classes/Server/Status/Processes.php:138
-#: libraries/classes/Util.php:1885 libraries/config.values.php:157
+#: libraries/classes/Util.php:1886 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -10013,8 +10025,8 @@ msgid "Full texts"
 msgstr "Teks penuh"
 
 #: libraries/classes/Display/Results.php:1616
-#: libraries/classes/Display/Results.php:1642 libraries/classes/Util.php:2506
-#: libraries/classes/Util.php:2529 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1642 libraries/classes/Util.php:2507
+#: libraries/classes/Util.php:2530 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -10027,8 +10039,8 @@ msgid "Descending"
 msgstr "Menurun"
 
 #: libraries/classes/Display/Results.php:1624
-#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2498
-#: libraries/classes/Util.php:2521 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2499
+#: libraries/classes/Util.php:2522 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -10808,7 +10820,7 @@ msgstr "%1$s (dekat <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:238
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1914
+#: libraries/classes/Util.php:1429 libraries/classes/Util.php:1915
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10818,8 +10830,8 @@ msgstr "Jelajahi"
 
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:364
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1900
-#: libraries/classes/Util.php:1917 libraries/config.values.php:64
+#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1901
+#: libraries/classes/Util.php:1918 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10831,7 +10843,7 @@ msgstr "Cari"
 
 #: libraries/classes/Menu.php:268
 #: libraries/classes/Navigation/Nodes/NodeTable.php:303
-#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1918
+#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1919
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10841,8 +10853,8 @@ msgid "Insert"
 msgstr "Tambahkan"
 
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:404
-#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1905
-#: libraries/classes/Util.php:1921 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1906
+#: libraries/classes/Util.php:1922 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10851,14 +10863,14 @@ msgid "Privileges"
 msgstr "Hak Akses"
 
 #: libraries/classes/Menu.php:305 libraries/classes/Menu.php:315
-#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1429
-#: libraries/classes/Util.php:1904 libraries/classes/Util.php:1922
+#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1430
+#: libraries/classes/Util.php:1905 libraries/classes/Util.php:1923
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Operasi"
 
 #: libraries/classes/Menu.php:321 libraries/classes/Menu.php:430
-#: libraries/classes/Util.php:1909 libraries/classes/Util.php:1923
+#: libraries/classes/Util.php:1910 libraries/classes/Util.php:1924
 msgid "Tracking"
 msgstr "Pelacakan"
 
@@ -10868,10 +10880,10 @@ msgstr "Pelacakan"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:552
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2053
+#: libraries/classes/Plugins/Export/ExportSql.php:2072
 #: libraries/classes/Plugins/Export/ExportTexytext.php:535
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1908 libraries/classes/Util.php:1924
+#: libraries/classes/Util.php:1909 libraries/classes/Util.php:1925
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Trigger"
@@ -10881,11 +10893,11 @@ msgstr "Trigger"
 msgid "Database seems to be empty!"
 msgstr "Basis data kelihatannya kosong!"
 
-#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1901
+#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1902
 msgid "Query"
 msgstr "Kueri"
 
-#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1906
+#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1907
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Routine"
@@ -10893,17 +10905,17 @@ msgstr "Routine"
 #: libraries/classes/Menu.php:416
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:996
+#: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1907 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1908 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Event"
 
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1910
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1911
 msgid "Designer"
 msgstr "Desainer"
 
-#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1911
+#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1912
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Tengah kolom"
@@ -10913,12 +10925,12 @@ msgid "User accounts"
 msgstr "Akun pengguna"
 
 #: libraries/classes/Menu.php:536 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1890 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1891 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Log biner"
 
 #: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1891
+#: libraries/classes/Util.php:1892
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10926,21 +10938,21 @@ msgid "Replication"
 msgstr "Replikasi"
 
 #: libraries/classes/Menu.php:549 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1892 libraries/config.values.php:159
+#: libraries/classes/Util.php:1893 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Variabel"
 
-#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1893
+#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1894
 msgid "Charsets"
 msgstr "Set Karakter"
 
-#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1895
+#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1896
 msgid "Engines"
 msgstr "Mesin"
 
-#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1894
+#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1895
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Plugin"
@@ -11103,7 +11115,7 @@ msgstr "Kejadian"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:626
+#: libraries/classes/Plugins/Export/ExportSql.php:634
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "Fungsi"
@@ -11124,7 +11136,7 @@ msgstr "Bentangkan/Tutup"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:615
+#: libraries/classes/Plugins/Export/ExportSql.php:623
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "Prosedur"
@@ -11676,14 +11688,14 @@ msgstr "Nama pengguna/kata sandi salah. Akses ditolak."
 msgid "Can not find signon authentication script:"
 msgstr "Tidak dapat menemukan script otentikasi signon:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:175
+#: libraries/classes/Plugins/AuthenticationPlugin.php:176
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Masuk tanpa kata sandi tidak diperbolehkan dalam konfigurasi (lihat "
 "AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:184
+#: libraries/classes/Plugins/AuthenticationPlugin.php:185
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
@@ -11692,12 +11704,12 @@ msgstr ""
 "anda secara otomatis logout karenta tidak aktif selama %s detik. Jika anda "
 "log in lagi, ada bisa melanjutkan kerja anda dimana anda log out."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:197
-#: libraries/classes/Plugins/AuthenticationPlugin.php:200
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
+#: libraries/classes/Plugins/AuthenticationPlugin.php:201
 msgid "Cannot log in to the MySQL server"
 msgstr "Gagal masuk ke MySQL server"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:339
+#: libraries/classes/Plugins/AuthenticationPlugin.php:342
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Anda mengaktifkan otentikasi 2 langkah, silahkan konfirmasi login anda."
@@ -11796,7 +11808,7 @@ msgstr "Opsi dump data"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:193
 #: libraries/classes/Plugins/Export/ExportOdt.php:249
-#: libraries/classes/Plugins/Export/ExportSql.php:2303
+#: libraries/classes/Plugins/Export/ExportSql.php:2322
 #: libraries/classes/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "Dumping data untuk tabel"
@@ -11888,21 +11900,21 @@ msgstr "Definisi"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:542
 #: libraries/classes/Plugins/Export/ExportOdt.php:675
-#: libraries/classes/Plugins/Export/ExportSql.php:2039
+#: libraries/classes/Plugins/Export/ExportSql.php:2058
 #: libraries/classes/Plugins/Export/ExportTexytext.php:515
 msgid "Table structure for table"
 msgstr "Struktur dari tabel"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:560
 #: libraries/classes/Plugins/Export/ExportOdt.php:707
-#: libraries/classes/Plugins/Export/ExportSql.php:2090
+#: libraries/classes/Plugins/Export/ExportSql.php:2109
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 msgid "Structure for view"
 msgstr "Struktur untuk view"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2122
+#: libraries/classes/Plugins/Export/ExportSql.php:2141
 #: libraries/classes/Plugins/Export/ExportTexytext.php:557
 msgid "Stand-in structure for view"
 msgstr "Stand-in struktur untuk tampilan"
@@ -11973,7 +11985,7 @@ msgid "Put columns names in the first row:"
 msgstr "Masukkan nama kolom pada baris pertama:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:746
+#: libraries/classes/Plugins/Export/ExportSql.php:754
 #: libraries/classes/Plugins/Export/ExportXml.php:231
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -11983,26 +11995,26 @@ msgid "Host:"
 msgstr "Host:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:753
+#: libraries/classes/Plugins/Export/ExportSql.php:761
 #: libraries/classes/Plugins/Export/ExportXml.php:237
 msgid "Generation Time:"
 msgstr "Waktu pembuatan:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:757
+#: libraries/classes/Plugins/Export/ExportSql.php:765
 #: libraries/classes/Plugins/Export/ExportXml.php:239
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "Versi server:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:759
+#: libraries/classes/Plugins/Export/ExportSql.php:767
 #: libraries/classes/Plugins/Export/ExportXml.php:240
 msgid "PHP Version:"
 msgstr "Versi PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:931
+#: libraries/classes/Plugins/Export/ExportSql.php:939
 #: libraries/classes/Plugins/Export/ExportXml.php:389
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:200
 #: templates/database/structure/copy_form.twig:5
@@ -12013,7 +12025,7 @@ msgid "Database:"
 msgstr "Basis data"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:315
-#: libraries/classes/Plugins/Export/ExportSql.php:2178
+#: libraries/classes/Plugins/Export/ExportSql.php:2197
 msgid "Data:"
 msgstr "Data:"
 
@@ -12139,7 +12151,7 @@ msgid "Data creation options"
 msgstr "Opsi pembuatan data"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2260
+#: libraries/classes/Plugins/Export/ExportSql.php:2279
 msgid "Truncate table before insert"
 msgstr "Potong tabel sebelum dimasukkan"
 
@@ -12218,110 +12230,110 @@ msgstr ""
 "Dump kolom TIMESTAMP di UTC <i>(memungkinkan kolom TIMESTAMP akan dibuang "
 "dan mengisi antara server di zona waktu yang berbeda)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:574
+#: libraries/classes/Plugins/Export/ExportSql.php:582
 #, fuzzy
 msgid "It appears your database uses routines;"
 msgstr "Tampaknya database Anda menggunakan fungsi;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:577
-#: libraries/classes/Plugins/Export/ExportSql.php:1576
-#: libraries/classes/Plugins/Export/ExportSql.php:2078
+#: libraries/classes/Plugins/Export/ExportSql.php:585
+#: libraries/classes/Plugins/Export/ExportSql.php:1595
+#: libraries/classes/Plugins/Export/ExportSql.php:2097
 #, fuzzy
 msgid "alias export may not work reliably in all cases."
 msgstr "ekspor alias mungkin tidak bekerja andal dalam semua kasus."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1040
+#: libraries/classes/Plugins/Export/ExportSql.php:1056
 msgid "Metadata"
 msgstr "Metadata"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1106
+#: libraries/classes/Plugins/Export/ExportSql.php:1122
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadata untuk tabel %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1113
+#: libraries/classes/Plugins/Export/ExportSql.php:1129
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadata untuk database %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1420
+#: libraries/classes/Plugins/Export/ExportSql.php:1436
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "Pembuatan:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1430
+#: libraries/classes/Plugins/Export/ExportSql.php:1446
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "Pembaruan terakhir:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1440
+#: libraries/classes/Plugins/Export/ExportSql.php:1456
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "Pemeriksaan terakhir:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1491
+#: libraries/classes/Plugins/Export/ExportSql.php:1507
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Kesalahan membaca struktur untuk tabel %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1573
+#: libraries/classes/Plugins/Export/ExportSql.php:1592
 #, fuzzy
 msgid "It appears your database uses views;"
 msgstr "Tampaknya database Anda menggunakan pandangan;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1740
+#: libraries/classes/Plugins/Export/ExportSql.php:1759
 msgid "Constraints for dumped tables"
 msgstr "Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1741
+#: libraries/classes/Plugins/Export/ExportSql.php:1760
 msgid "Constraints for table"
 msgstr "Ketidakleluasaan untuk tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1768
+#: libraries/classes/Plugins/Export/ExportSql.php:1787
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1769
+#: libraries/classes/Plugins/Export/ExportSql.php:1788
 msgid "Indexes for table"
 msgstr "Indeks untuk tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1805
+#: libraries/classes/Plugins/Export/ExportSql.php:1824
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT untuk tabel yang dibuang"
 
 # Imperative verb
-#: libraries/classes/Plugins/Export/ExportSql.php:1806
+#: libraries/classes/Plugins/Export/ExportSql.php:1825
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT untuk tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1881
+#: libraries/classes/Plugins/Export/ExportSql.php:1900
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "JENIS MIME UNTUK TABEL"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1906
+#: libraries/classes/Plugins/Export/ExportSql.php:1925
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "HUBUNGAN RELASI UNTUK TABEL"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2075
+#: libraries/classes/Plugins/Export/ExportSql.php:2094
 msgid "It appears your table uses triggers;"
 msgstr "Tampaknya tabel Anda menggunakan pemicu;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2105
+#: libraries/classes/Plugins/Export/ExportSql.php:2124
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktur untuk view %s diekspor sebagai tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2125
+#: libraries/classes/Plugins/Export/ExportSql.php:2144
 msgid "(See below for the actual view)"
 msgstr "(Lihat di bawah untuk tampilan aktual)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2193
+#: libraries/classes/Plugins/Export/ExportSql.php:2212
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Kesalahan membaca data untuk tabel %s:"
@@ -14323,11 +14335,11 @@ msgstr "AM"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s hari, %s jam, %s menit dan %s detik"
 
-#: libraries/classes/Util.php:1886
+#: libraries/classes/Util.php:1887
 msgid "Users"
 msgstr "Pengguna"
 
-#: libraries/classes/Util.php:2490
+#: libraries/classes/Util.php:2491
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Urutan"
