@@ -1266,6 +1266,7 @@ class Util
         SessionCache::remove('is_superuser');
         SessionCache::remove('is_createuser');
         SessionCache::remove('is_grantuser');
+        SessionCache::remove('mysql_cur_user');
     }
 
     /**

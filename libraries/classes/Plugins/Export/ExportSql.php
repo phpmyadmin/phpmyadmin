@@ -568,6 +568,7 @@ class ExportSql extends ExportPlugin
                 $statement->options->remove('DEFINER');
                 $createQuery = $statement->build();
             }
+
             // One warning per database
             if ($flag) {
                 $usedAlias = true;
@@ -1028,6 +1029,7 @@ class ExportSql extends ExportPlugin
                     $statement->options->remove('DEFINER');
                     $eventDef = $statement->build();
                 }
+
                 $text .= $eventDef . $delimiter . $crlf . $crlf;
             }
 

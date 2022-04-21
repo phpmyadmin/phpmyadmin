@@ -9684,7 +9684,7 @@
       <code>$tableAlias</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="1">
-      <code>$dbi-&gt;getDefinition($db, 'EVENT', $eventName)</code>
+      <code>$eventDef</code>
     </PossiblyNullOperand>
     <PropertyTypeCoercion occurrences="1">
       <code>$field-&gt;key-&gt;columns</code>
@@ -16033,7 +16033,8 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/UtilTest.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="3">
+      <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
       <code>$result[0]</code>
     </MixedArgument>
@@ -16041,7 +16042,9 @@
       <code>$keyword</code>
       <code>$keyword</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="4">
+      <code>$_SESSION['cache']['server_server']</code>
+      <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
     </MixedArrayAccess>
