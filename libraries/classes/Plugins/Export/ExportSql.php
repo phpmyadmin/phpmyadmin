@@ -561,6 +561,14 @@ class ExportSql extends ExportPlugin
                 '',
                 $flag
             );
+            if (! empty($createQuery) && $GLOBALS['cfg']['Export']['remove_definer_from_definitions']) {
+                // Remove definer clause from routine definitions
+                $parser = new Parser($createQuery);
+                $statement = $parser->statements[0];
+                $statement->options->remove('DEFINER');
+                $createQuery = $statement->build();
+            }
+
             // One warning per database
             if ($flag) {
                 $usedAlias = true;
@@ -1003,8 +1011,16 @@ class ExportSql extends ExportPlugin
                         . $delimiter . $GLOBALS['crlf'];
                 }
 
-                $text .= $GLOBALS['dbi']->getDefinition($db, 'EVENT', $eventName)
-                    . $delimiter . $GLOBALS['crlf'] . $GLOBALS['crlf'];
+                $eventDef = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $eventName);
+                if (! empty($eventDef) && $GLOBALS['cfg']['Export']['remove_definer_from_definitions']) {
+                    // remove definer clause from the event definition
+                    $parser = new Parser($eventDef);
+                    $statement = $parser->statements[0];
+                    $statement->options->remove('DEFINER');
+                    $eventDef = $statement->build();
+                }
+
+                $text .= $eventDef . $delimiter . $GLOBALS['crlf'] . $GLOBALS['crlf'];
             }
 
             $text .= 'DELIMITER ;' . $GLOBALS['crlf'];
@@ -1544,7 +1560,10 @@ class ExportSql extends ExportPlugin
                 $statement = $parser->statements[0];
 
                 // exclude definition of current user
-                if (isset($GLOBALS['sql_view_current_user'])) {
+                if (
+                    $GLOBALS['cfg']['Export']['remove_definer_from_definitions']
+                    || isset($GLOBALS['sql_view_current_user'])
+                ) {
                     $statement->options->remove('DEFINER');
                 }
 

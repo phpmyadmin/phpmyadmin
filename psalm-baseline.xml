@@ -9894,6 +9894,11 @@
       <code>$GLOBALS['asfile']</code>
       <code>$GLOBALS['sql_if_not_exists']</code>
     </InvalidArgument>
+    <InvalidArrayOffset occurrences="3">
+      <code>$GLOBALS['cfg']['Export']</code>
+      <code>$GLOBALS['cfg']['Export']</code>
+      <code>$GLOBALS['cfg']['Export']</code>
+    </InvalidArrayOffset>
     <MixedArgument occurrences="50">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_auto_increments']</code>
@@ -9953,7 +9958,10 @@
       <code>$indexes</code>
       <code>$indexesFulltext</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="11">
+    <MixedArrayAccess occurrences="14">
+      <code>$GLOBALS['cfg']['Export']['remove_definer_from_definitions']</code>
+      <code>$GLOBALS['cfg']['Export']['remove_definer_from_definitions']</code>
+      <code>$GLOBALS['cfg']['Export']['remove_definer_from_definitions']</code>
       <code>$aliases[$oldDatabase]['tables']</code>
       <code>$columnAliases[$column['name']]</code>
       <code>$definition['Type']</code>
@@ -10078,7 +10086,7 @@
       <code>$GLOBALS['crlf']</code>
       <code>$GLOBALS['crlf']</code>
       <code>$GLOBALS['crlf']</code>
-      <code>$GLOBALS['dbi']-&gt;getDefinition($db, 'EVENT', $eventName)</code>
+      <code>$eventDef</code>
     </PossiblyNullOperand>
     <PropertyTypeCoercion occurrences="1">
       <code>$field-&gt;key-&gt;columns</code>
@@ -16636,7 +16644,8 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/UtilTest.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="3">
+      <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
       <code>$result[0]</code>
     </MixedArgument>
@@ -16644,7 +16653,9 @@
       <code>$keyword</code>
       <code>$keyword</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="4">
+      <code>$_SESSION['cache']['server_server']</code>
+      <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
     </MixedArrayAccess>

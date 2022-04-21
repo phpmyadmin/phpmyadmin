@@ -703,6 +703,7 @@ class Descriptions
             'Export_quick_export_onserver_name' => __('Save on server'),
             'Export_quick_export_onserver_overwrite_name' => __('Overwrite existing file(s)'),
             'Export_remember_file_template_name' => __('Remember filename template'),
+            'Export_remove_definer_from_definitions_name' => __('Remove DEFINER clause from definitions'),
             'Export_sql_auto_increment_name' => __('Add AUTO_INCREMENT value'),
             'Export_sql_backquotes_name' => __('Enclose table and column names with backquotes'),
             'Export_sql_compatibility_name' => __('SQL compatibility mode'),
