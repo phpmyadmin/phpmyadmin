@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-01-22 16:59-0300\n"
+"POT-Creation-Date: 2022-04-21 15:54-0300\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
-"Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/5-2/uz/>"
-"\n"
+"Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/5-2/uz/"
+">\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,9 +847,9 @@ msgstr "Вақтинчалик жадваллар тузишга рухсат б
 #: libraries/advisory_rules_generic.php:547
 #: libraries/advisory_rules_generic.php:561
 msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href="
-"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">This article</a> might help you track down the source."
+"Connections are usually aborted when they cannot be authorized. <a "
+"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
+"of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:551
@@ -980,12 +980,12 @@ msgstr ""
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
-"recovery time after a database crash considerably. See also <a href="
-"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"recovery time after a database crash considerably. See also <a "
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
 "remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"then check the error logs if everything went fine. See also <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
@@ -1016,9 +1016,9 @@ msgid ""
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">this article</a>"
+"swapping, which decreases performance significantly. See also <a "
+"href=\"https://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:697
@@ -1118,8 +1118,8 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:45
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is "
+"%s%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:52
@@ -1801,13 +1801,13 @@ msgstr ""
 msgid "possible exploit"
 msgstr ""
 
+#: libraries/classes/Config/Descriptions.php:69
 #: libraries/classes/Config/Descriptions.php:70
 #: libraries/classes/Config/Descriptions.php:71
-#: libraries/classes/Config/Descriptions.php:72
 msgid "Users cannot set a higher value"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:90
+#: libraries/classes/Config/Descriptions.php:89
 #, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
@@ -1817,21 +1817,21 @@ msgstr ""
 "Агар ёқилган бўлса, фойдаланувчи cookie-аутентификация вақтида логин "
 "формасига исталган MySQL-серверникиритиши мумкин."
 
-#: libraries/classes/Config/Descriptions.php:93
+#: libraries/classes/Config/Descriptions.php:92
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:98
+#: libraries/classes/Config/Descriptions.php:97
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:103
+#: libraries/classes/Config/Descriptions.php:102
 #, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
@@ -1843,7 +1843,7 @@ msgstr ""
 "[kbd]cookie[/kbd]-аутентификация усулида cookie-ларни шифрлаш учун "
 "ишлатиладиган сирли ибора"
 
-#: libraries/classes/Config/Descriptions.php:105
+#: libraries/classes/Config/Descriptions.php:104
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
@@ -1853,37 +1853,37 @@ msgstr ""
 "Импорт ва экспорт операцияларида    [a@https://en.wikipedia.org/wiki/"
 "Bzip2]bzip2[/a] ёрдамида сиқишни ёқиш"
 
-#: libraries/classes/Config/Descriptions.php:106
+#: libraries/classes/Config/Descriptions.php:105
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:107
+#: libraries/classes/Config/Descriptions.php:106
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:108
+#: libraries/classes/Config/Descriptions.php:107
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:109
+#: libraries/classes/Config/Descriptions.php:108
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:110
+#: libraries/classes/Config/Descriptions.php:109
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:111
+#: libraries/classes/Config/Descriptions.php:110
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:112
+#: libraries/classes/Config/Descriptions.php:111
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:114
+#: libraries/classes/Config/Descriptions.php:113
 #, fuzzy
 #| msgid ""
 #| "ines which type of editing controls should be used for CHAR and CHAR "
@@ -1899,31 +1899,31 @@ msgstr ""
 "чеклашга имкон беради, [kbd]textarea[/kbd] - майдонларда бир неча қаторлар "
 "ишлатиш имконини беради"
 
-#: libraries/classes/Config/Descriptions.php:119
+#: libraries/classes/Config/Descriptions.php:118
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:124
+#: libraries/classes/Config/Descriptions.php:123
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:127
+#: libraries/classes/Config/Descriptions.php:126
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:130
+#: libraries/classes/Config/Descriptions.php:129
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:133
+#: libraries/classes/Config/Descriptions.php:132
 #, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
@@ -1937,7 +1937,7 @@ msgstr ""
 "хотира талаб этмайди; агар Сизда gzip/bzip2 файллари тузишда муаммо юзага "
 "келса, ушбу хусусиятни ўчириб қўйинг"
 
-#: libraries/classes/Config/Descriptions.php:137
+#: libraries/classes/Config/Descriptions.php:136
 #, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
@@ -1949,33 +1949,33 @@ msgstr ""
 "Маълумот йўқолиши мумкин бўлган вазиятларда огоҳлантириш (\"Сиз ҳақиқатдан "
 "ҳам …\") кўрсатиш керакми"
 
-#: libraries/classes/Config/Descriptions.php:140
+#: libraries/classes/Config/Descriptions.php:139
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Жадвал ва майдон номларини тескари қўштирноққа олиш"
 
-#: libraries/classes/Config/Descriptions.php:143
-#: libraries/classes/Config/Descriptions.php:147
-#: libraries/classes/Config/Descriptions.php:151
-#: libraries/classes/Config/Descriptions.php:155
-#: libraries/classes/Config/Descriptions.php:159
-#: libraries/classes/Config/Descriptions.php:163
-#: libraries/classes/Config/Descriptions.php:167
-#: libraries/classes/Config/Descriptions.php:171
-#: libraries/classes/Config/Descriptions.php:175
+#: libraries/classes/Config/Descriptions.php:142
+#: libraries/classes/Config/Descriptions.php:146
+#: libraries/classes/Config/Descriptions.php:150
+#: libraries/classes/Config/Descriptions.php:154
+#: libraries/classes/Config/Descriptions.php:158
+#: libraries/classes/Config/Descriptions.php:162
+#: libraries/classes/Config/Descriptions.php:166
+#: libraries/classes/Config/Descriptions.php:170
+#: libraries/classes/Config/Descriptions.php:174
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:179
+#: libraries/classes/Config/Descriptions.php:178
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:183
+#: libraries/classes/Config/Descriptions.php:182
 #, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
@@ -1987,13 +1987,13 @@ msgstr ""
 "Скрипт ишлаши мумкин бўлган секундлар сони (чегарамаслик учун [kbd]0[/kbd] "
 "киритинг)"
 
-#: libraries/classes/Config/Descriptions.php:185
-#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:184
+#: libraries/classes/Config/Descriptions.php:728
 #: libraries/classes/Plugins/Export/ExportSql.php:345
 msgid "Exclude definition of current user"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:187
+#: libraries/classes/Config/Descriptions.php:186
 #, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
@@ -2005,13 +2005,13 @@ msgstr ""
 "Ташқи калит менюсининг тартиблаш усули: [kbd]content[/kbd] - мурожаат "
 "маълумотлари бўйича, [kbd]id[/kbd] - калит қийматлар бўйича"
 
-#: libraries/classes/Config/Descriptions.php:191
+#: libraries/classes/Config/Descriptions.php:190
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:196
+#: libraries/classes/Config/Descriptions.php:195
 #, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
@@ -2023,7 +2023,7 @@ msgstr ""
 "Эсда тутинг, phpMyAdmin - бу фақатгина фойдаланувчи интерфейси бўлиб, унинг "
 "хусусиятлари MySQL-серверининг функцияларини чегараламайди"
 
-#: libraries/classes/Config/Descriptions.php:199
+#: libraries/classes/Config/Descriptions.php:198
 #, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
@@ -2035,7 +2035,7 @@ msgstr ""
 "Кенгайтирилган сервер конфигуарцияси, агар уларнинг маъносини аниқ "
 "билмасангиз, яхшиси, уларга тегманг."
 
-#: libraries/classes/Config/Descriptions.php:202
+#: libraries/classes/Config/Descriptions.php:201
 #, fuzzy
 #| msgid ""
 #| "figure phpMyAdmin database to gain access to additional features, see ../"
@@ -2051,159 +2051,159 @@ msgstr ""
 "Documentation.html#linked-tables]уланган жадваллар инфратузилмасини[/a] "
 "қараб чиқинг"
 
-#: libraries/classes/Config/Descriptions.php:207
+#: libraries/classes/Config/Descriptions.php:206
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:210
+#: libraries/classes/Config/Descriptions.php:209
 #, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
 msgstr "Кўриб чиқиш усулини созлаш"
 
+#: libraries/classes/Config/Descriptions.php:210
 #: libraries/classes/Config/Descriptions.php:211
-#: libraries/classes/Config/Descriptions.php:212
-#: libraries/classes/Config/Descriptions.php:219
+#: libraries/classes/Config/Descriptions.php:218
+#: libraries/classes/Config/Descriptions.php:224
 #: libraries/classes/Config/Descriptions.php:225
-#: libraries/classes/Config/Descriptions.php:226
-#: libraries/classes/Config/Descriptions.php:231
+#: libraries/classes/Config/Descriptions.php:230
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options."
 msgstr "Экспорт афзалликларини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:213
+#: libraries/classes/Config/Descriptions.php:212
 msgid "Settings for phpMyAdmin developers."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:214
+#: libraries/classes/Config/Descriptions.php:213
 #, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
 msgstr "Таҳрирлаш усулини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:215
+#: libraries/classes/Config/Descriptions.php:214
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
 msgstr "Экспорт афзалликларини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:216
+#: libraries/classes/Config/Descriptions.php:215
 msgid "Set some commonly used options."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:217
+#: libraries/classes/Config/Descriptions.php:216
 #, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
 msgstr "Импорт афзалликларини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:218
+#: libraries/classes/Config/Descriptions.php:217
 #, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
 msgstr "Импорт ва экспорт каталоглари ва қисиш усулларини белгилаш"
 
-#: libraries/classes/Config/Descriptions.php:220
+#: libraries/classes/Config/Descriptions.php:219
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
 msgstr "Маълумотлар базаларини кўрсатиш афзалликлари"
 
-#: libraries/classes/Config/Descriptions.php:221
+#: libraries/classes/Config/Descriptions.php:220
 #, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel."
 msgstr "Навигация панели кўринишини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:222
+#: libraries/classes/Config/Descriptions.php:221
 #, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize the navigation tree."
 msgstr "Навигация панелини мослаштириш"
 
-#: libraries/classes/Config/Descriptions.php:223
+#: libraries/classes/Config/Descriptions.php:222
 #, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
 msgstr "Серверлар кўринишини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:224
+#: libraries/classes/Config/Descriptions.php:223
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
 msgstr "Жадваллар кўринишини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:227
+#: libraries/classes/Config/Descriptions.php:226
 #, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
 msgstr "Бошқа жойга сиғмаган созланишлар"
 
-#: libraries/classes/Config/Descriptions.php:228
+#: libraries/classes/Config/Descriptions.php:227
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings."
 msgstr "Аутентификация усули"
 
-#: libraries/classes/Config/Descriptions.php:229
+#: libraries/classes/Config/Descriptions.php:228
 #, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
 msgstr "Сервернинг уланиш параметрларини киритиш"
 
-#: libraries/classes/Config/Descriptions.php:230
+#: libraries/classes/Config/Descriptions.php:229
 #, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
 msgstr "SQL сўровлари қутисида кўрсатиладиган боғларни созлаш"
 
-#: libraries/classes/Config/Descriptions.php:232
+#: libraries/classes/Config/Descriptions.php:231
 #, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings."
 msgstr "SQL сўровлари"
 
-#: libraries/classes/Config/Descriptions.php:233
+#: libraries/classes/Config/Descriptions.php:232
 #, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
 msgstr "Бошланғич саҳифани созлаш"
 
-#: libraries/classes/Config/Descriptions.php:234
+#: libraries/classes/Config/Descriptions.php:233
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:235
+#: libraries/classes/Config/Descriptions.php:234
 msgid "Settings for the table structure (list of columns)."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:236
+#: libraries/classes/Config/Descriptions.php:235
 #, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
 msgstr "Ёрлиқлар қандай ишлашини танланг"
 
-#: libraries/classes/Config/Descriptions.php:237
+#: libraries/classes/Config/Descriptions.php:236
 #, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields."
 msgstr "Экспорт танловларини мослаштириш"
 
-#: libraries/classes/Config/Descriptions.php:238
+#: libraries/classes/Config/Descriptions.php:237
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Экспорт афзалликларини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:239
+#: libraries/classes/Config/Descriptions.php:238
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:241
+#: libraries/classes/Config/Descriptions.php:240
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -2213,7 +2213,7 @@ msgstr ""
 "Импорт ва экспорт операцияларида    [a@https://en.wikipedia.org/wiki/"
 "Gzip]gzip[/a] ёрдамида сиқишни ёқиш"
 
-#: libraries/classes/Config/Descriptions.php:243
+#: libraries/classes/Config/Descriptions.php:242
 #, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
@@ -2225,7 +2225,7 @@ msgstr ""
 "Агар ёқилган бўлса, phpMyAdmin, ҳатто сўровлардан бири барбод бўлганда ҳам, "
 "кўп қисмли сўровларни ҳисоблашни давом этади"
 
-#: libraries/classes/Config/Descriptions.php:247
+#: libraries/classes/Config/Descriptions.php:246
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -2235,7 +2235,7 @@ msgstr ""
 "бериш. Бу катта файлларни юклаш учун яхши усул, лекин у транзакцияларни "
 "бузиши мумкин."
 
-#: libraries/classes/Config/Descriptions.php:252
+#: libraries/classes/Config/Descriptions.php:251
 #, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
@@ -2247,29 +2247,30 @@ msgstr ""
 "Импорт файл формати; ёдда тутингки, ушбу рўйхат (маълумотлар базаси, жадвал) "
 "жойлашишига боғлиқ ва фақат SQL ишлайди"
 
+#: libraries/classes/Config/Descriptions.php:254
 #: libraries/classes/Config/Descriptions.php:255
-#: libraries/classes/Config/Descriptions.php:256
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:257
+#: libraries/classes/Config/Descriptions.php:256
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start."
 msgstr "Файл бошидаги эътибор бериш керак бўлмаган қаторлар (сўровлар) сони"
 
-#: libraries/classes/Config/Descriptions.php:259
+#: libraries/classes/Config/Descriptions.php:258
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Агар РОСТ (TRUE) ўрнатилган бўлса, чиқишда барча серверларнинг \"cookies"
-"\"лари ўчирилади; агар ЁЛҒОН (FALSE) ўрнатилган бўлса, фақат жорий сервердан "
-"чиқиш амалга оширилади. Агар бир нечта серверларга уланганбўлса, унда ЁЛҒОН "
-"(FALSE) танлови бошқа серверлардан чиқиш унитилишига олиб келиши мумкин."
+"Агар РОСТ (TRUE) ўрнатилган бўлса, чиқишда барча серверларнинг "
+"\"cookies\"лари ўчирилади; агар ЁЛҒОН (FALSE) ўрнатилган бўлса, фақат жорий "
+"сервердан чиқиш амалга оширилади. Агар бир нечта серверларга уланганбўлса, "
+"унда ЁЛҒОН (FALSE) танлови бошқа серверлардан чиқиш унитилишига олиб келиши "
+"мумкин."
 
-#: libraries/classes/Config/Descriptions.php:264
+#: libraries/classes/Config/Descriptions.php:263
 #, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
@@ -2281,7 +2282,7 @@ msgstr ""
 "cookie-аутентификация усулидан фойдаланилганда олдинги логин сессияси қайта "
 "чақирилиб олиниши керакми"
 
-#: libraries/classes/Config/Descriptions.php:268
+#: libraries/classes/Config/Descriptions.php:267
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -2293,13 +2294,13 @@ msgstr ""
 "сақланади ва браузер ойнаси ёпилган заҳоти ўчирилади. Бу қиймат ишончсиз "
 "муҳитлар учун тавсия этилади."
 
-#: libraries/classes/Config/Descriptions.php:274
+#: libraries/classes/Config/Descriptions.php:273
 #, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "SQL сўрови кўрсатилганда ишлатиладиган белгиларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:277
+#: libraries/classes/Config/Descriptions.php:276
 #, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
@@ -2309,7 +2310,7 @@ msgstr ""
 "Биринчи жадвалга нисбатан тўлалигича қидирув ишлатган ҳолда бажарилган "
 "бирлашма сўровлар сони."
 
-#: libraries/classes/Config/Descriptions.php:280
+#: libraries/classes/Config/Descriptions.php:279
 #, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
@@ -2319,7 +2320,7 @@ msgstr ""
 "Биринчи жадвалга нисбатан тўлалигича қидирув ишлатган ҳолда бажарилган "
 "бирлашма сўровлар сони."
 
-#: libraries/classes/Config/Descriptions.php:283
+#: libraries/classes/Config/Descriptions.php:282
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -2327,7 +2328,7 @@ msgstr ""
 "Натижаларда кўрсатиладиган қаторлар сони. Агар натижалар қатори кўрсатилган "
 "қийматдан кўп бўлса, \"Олдинги\" ва \"Кейинги\" боғланишлар кўрсатилади."
 
-#: libraries/classes/Config/Descriptions.php:288
+#: libraries/classes/Config/Descriptions.php:287
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -2339,15 +2340,15 @@ msgstr ""
 "Скрипт учун ажратиладиган байлардаги хотира миқдори, масалан [kbd]32M[/kbd] "
 "([kbd]0[/kbd] - чегараланмаган)."
 
-#: libraries/classes/Config/Descriptions.php:292
+#: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:295
+#: libraries/classes/Config/Descriptions.php:294
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:298
+#: libraries/classes/Config/Descriptions.php:297
 #, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
@@ -2359,7 +2360,7 @@ msgstr ""
 "Боғланган саҳифани бош ойнада ([kbd]бош[/kbd]) ёки янги ойнада ([kbd]янги[/"
 "kbd]) очиш"
 
-#: libraries/classes/Config/Descriptions.php:301
+#: libraries/classes/Config/Descriptions.php:300
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid ""
@@ -2367,7 +2368,7 @@ msgid ""
 "display a filter box."
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:304
+#: libraries/classes/Config/Descriptions.php:303
 #, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
@@ -2379,86 +2380,86 @@ msgstr ""
 "Енгил версия; маълумотлар базаларини дарахтда кўрсатиш (қуйида белгиланган "
 "сатр билан бўлинади)"
 
-#: libraries/classes/Config/Descriptions.php:308
+#: libraries/classes/Config/Descriptions.php:307
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:311
+#: libraries/classes/Config/Descriptions.php:310
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:314
+#: libraries/classes/Config/Descriptions.php:313
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:316
+#: libraries/classes/Config/Descriptions.php:315
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:317
+#: libraries/classes/Config/Descriptions.php:316
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel."
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:318
+#: libraries/classes/Config/Descriptions.php:317
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "URL where logo in the navigation panel will point to."
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:319
+#: libraries/classes/Config/Descriptions.php:318
 #, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Чап рамканинг юқори қисмида сервер танловини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:320
+#: libraries/classes/Config/Descriptions.php:319
 #, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
 msgstr "Маълумотлар базаларини дарахтнинг турли даражаларига бўлувчи сатр"
 
-#: libraries/classes/Config/Descriptions.php:321
+#: libraries/classes/Config/Descriptions.php:320
 #, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
 msgstr "Жадвалларни дарахтнинг турли даражаларига бўлувчи сатр"
 
-#: libraries/classes/Config/Descriptions.php:322
+#: libraries/classes/Config/Descriptions.php:321
 #, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
 msgstr "Сичқонча курсори турган серверни белгилаш"
 
-#: libraries/classes/Config/Descriptions.php:323
+#: libraries/classes/Config/Descriptions.php:322
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:324
+#: libraries/classes/Config/Descriptions.php:323
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:325
+#: libraries/classes/Config/Descriptions.php:324
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:326
+#: libraries/classes/Config/Descriptions.php:325
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:328
+#: libraries/classes/Config/Descriptions.php:327
 #, fuzzy
 #| msgid ""
 #| "d]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -2470,20 +2471,20 @@ msgstr ""
 "[kbd]SMART[/kbd] – яъни, TIME, DATE, DATETIME ва TIMESTAMP туридаги "
 "майдонлар учун камайиш тартибида, акс ҳолда кўпайиш тартибида"
 
-#: libraries/classes/Config/Descriptions.php:332
+#: libraries/classes/Config/Descriptions.php:331
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:337
+#: libraries/classes/Config/Descriptions.php:336
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:341
+#: libraries/classes/Config/Descriptions.php:340
 #, fuzzy
 #| msgid ""
 #| "ble if you want DB-based query history (requires phpMyAdmin configuration "
@@ -2498,13 +2499,13 @@ msgstr ""
 "танловни ёқинг (pmadb талаб этилади). Ушбу танлов ўчирилган бўлса, ойна "
 "ёпилган заҳоти сўровлар тарихи йўқолади."
 
-#: libraries/classes/Config/Descriptions.php:346
+#: libraries/classes/Config/Descriptions.php:345
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:349
+#: libraries/classes/Config/Descriptions.php:348
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -2516,7 +2517,7 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/bookmark]Хатчўп[/a] ишлатмаслик учун бўш "
 "қолдиринг, асли: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:352
+#: libraries/classes/Config/Descriptions.php:351
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -2528,7 +2529,7 @@ msgstr ""
 "Устун изоҳлари/\"mime\"-турлари ҳақидаги маълумотларни ишлатмаслик учун бўш "
 "қолдиринг, асли: [kbd]pma_column_info[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:355
+#: libraries/classes/Config/Descriptions.php:354
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -2542,20 +2543,20 @@ msgstr ""
 "батафсил маълумот [a@https://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/"
 "a]да мавжуд"
 
-#: libraries/classes/Config/Descriptions.php:359
+#: libraries/classes/Config/Descriptions.php:358
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:362
+#: libraries/classes/Config/Descriptions.php:361
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:367
+#: libraries/classes/Config/Descriptions.php:366
 #, fuzzy
 #| msgid ""
 #| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
@@ -2570,7 +2571,7 @@ msgstr ""
 "bugs/2606/]\"PMA bug tracker\"[/a] ва [a@https://bugs.mysql."
 "com/19588]\"MySQL Bugs\"[/a]ларга қаранг"
 
-#: libraries/classes/Config/Descriptions.php:371
+#: libraries/classes/Config/Descriptions.php:370
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
@@ -2582,13 +2583,13 @@ msgstr ""
 "Агар SQL сўровлар тарихидан фойдаланмоқчи бўлмасангиз, бўш қолдиринг, асл "
 "қиймати: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:374
+#: libraries/classes/Config/Descriptions.php:373
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:378
+#: libraries/classes/Config/Descriptions.php:377
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -2599,7 +2600,7 @@ msgstr ""
 "Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:381
+#: libraries/classes/Config/Descriptions.php:380
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -2610,7 +2611,7 @@ msgstr ""
 "Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:384
+#: libraries/classes/Config/Descriptions.php:383
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
@@ -2622,7 +2623,7 @@ msgstr ""
 "PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: "
 "[kbd]\"pma_table_coords\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:387
+#: libraries/classes/Config/Descriptions.php:386
 #, fuzzy
 #| msgid ""
 #| " can use MySQL wildcard characters (% and _), escape them if you want use "
@@ -2636,7 +2637,7 @@ msgstr ""
 "олдига тескари эгри чизиқ (\\) қўйишингиз керак, масалан \\\"my\\_db\\"
 "\" (лекин \"my_db\" эмас)"
 
-#: libraries/classes/Config/Descriptions.php:392
+#: libraries/classes/Config/Descriptions.php:391
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -2646,7 +2647,7 @@ msgstr ""
 "Агар PDF-схема ишлатмасангиз, бўш қолдиринг, асл қиймати: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:395
+#: libraries/classes/Config/Descriptions.php:394
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@https://"
@@ -2659,10 +2660,10 @@ msgid ""
 msgstr ""
 "Алоқалар, хатчўплар ва PDF имкониятлари учун ишлатиладиган база.  Батафсил "
 "маълумот учун [a@https://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]га "
-"қаранг. Агар фойдаланмасангиз, бўшқолдиринг. Асл қиймати: [kbd]\"phpmyadmin"
-"\"[/kbd]"
+"қаранг. Агар фойдаланмасангиз, бўшқолдиринг. Асл қиймати: "
+"[kbd]\"phpmyadmin\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:400
+#: libraries/classes/Config/Descriptions.php:399
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -2673,7 +2674,7 @@ msgstr ""
 "Агар SQL сўровлар тарихидан фойдаланмоқчи бўлмасангиз, бўш қолдиринг, асл "
 "қиймати: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:404
+#: libraries/classes/Config/Descriptions.php:403
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -2684,7 +2685,7 @@ msgstr ""
 "Агар SQL сўровлар тарихидан фойдаланмоқчи бўлмасангиз, бўш қолдиринг, асл "
 "қиймати: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:408
+#: libraries/classes/Config/Descriptions.php:407
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -2696,7 +2697,7 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/relation]Алоқа боғланишлари[/a]ни "
 "ишлатмаслик учун, бўш қолдиринг, асл қиймати: [kbd]\"pma_relation\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:413
+#: libraries/classes/Config/Descriptions.php:412
 #, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -2707,7 +2708,7 @@ msgstr ""
 "Намуна  учун [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]аутентификация усуллари[/a]га қаранг"
 
-#: libraries/classes/Config/Descriptions.php:416
+#: libraries/classes/Config/Descriptions.php:415
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
@@ -2719,7 +2720,7 @@ msgstr ""
 "PDF-схемадан фойдаланмаслик учун бўш қолдиринг, асл қиймати: "
 "[kbd]\"pma_table_coords\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:419
+#: libraries/classes/Config/Descriptions.php:418
 #, fuzzy
 #| msgid ""
 #| "le to describe the display fields, leave blank for no support; gested: "
@@ -2731,7 +2732,7 @@ msgstr ""
 "Кўрсатиладиган майдонлар шарҳлари сақланадиган жадвал, ишлатмаслик учун бўш "
 "қолдиринг, асл қиймати: [kbd]\"pma_table_info\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:423
+#: libraries/classes/Config/Descriptions.php:422
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -2742,29 +2743,29 @@ msgstr ""
 "Агар SQL сўровлар тарихидан фойдаланмоқчи бўлмасангиз, бўш қолдиринг, асл "
 "қиймати: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:427
+#: libraries/classes/Config/Descriptions.php:426
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:431
+#: libraries/classes/Config/Descriptions.php:430
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:435
+#: libraries/classes/Config/Descriptions.php:434
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:439
+#: libraries/classes/Config/Descriptions.php:438
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:442
+#: libraries/classes/Config/Descriptions.php:441
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -2775,13 +2776,13 @@ msgstr ""
 "Агар SQL сўровлар тарихидан фойдаланмоқчи бўлмасангиз, бўш қолдиринг, асл "
 "қиймати: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:445
+#: libraries/classes/Config/Descriptions.php:444
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:448
+#: libraries/classes/Config/Descriptions.php:447
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -2792,21 +2793,21 @@ msgstr ""
 "Агар SQL сўровлар тарихидан фойдаланмоқчи бўлмасангиз, бўш қолдиринг, асл "
 "қиймати: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:451
+#: libraries/classes/Config/Descriptions.php:450
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:456
+#: libraries/classes/Config/Descriptions.php:455
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:461
+#: libraries/classes/Config/Descriptions.php:460
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -2817,78 +2818,78 @@ msgstr ""
 "Агар SQL сўровлар тарихидан фойдаланмоқчи бўлмасангиз, бўш қолдиринг, асл "
 "қиймати: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:465
+#: libraries/classes/Config/Descriptions.php:464
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "MySQL сервери ишлаётган хост сервер номи."
 
-#: libraries/classes/Config/Descriptions.php:467
+#: libraries/classes/Config/Descriptions.php:466
 #, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
 msgstr "Агар ишлатилмаса бўш қолдиринг"
 
-#: libraries/classes/Config/Descriptions.php:468
+#: libraries/classes/Config/Descriptions.php:467
 #, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
 msgstr "Асл қоидаларни ишлатиш учун бўш қолдиринг"
 
-#: libraries/classes/Config/Descriptions.php:469
+#: libraries/classes/Config/Descriptions.php:468
 #, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 "HTTP Авторизация вақтида кўрсатиладиган Оддий HTTP Авторизация Бўлими номи"
 
-#: libraries/classes/Config/Descriptions.php:470
+#: libraries/classes/Config/Descriptions.php:469
 #, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
 msgstr "Фойдаланиладиган аутентификация усули"
 
-#: libraries/classes/Config/Descriptions.php:471
+#: libraries/classes/Config/Descriptions.php:470
 #, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
 msgstr "MySQL сервеига уланишни қисиш"
 
-#: libraries/classes/Config/Descriptions.php:472
+#: libraries/classes/Config/Descriptions.php:471
 #, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 "Мунтазам иборалар(PCRE)га тўғри келадиган маълумотлар базаларини яшириш"
 
-#: libraries/classes/Config/Descriptions.php:473
+#: libraries/classes/Config/Descriptions.php:472
 #, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL сервери ишлаётган хост номи"
 
-#: libraries/classes/Config/Descriptions.php:474
-#: libraries/classes/Config/Descriptions.php:478
+#: libraries/classes/Config/Descriptions.php:473
+#: libraries/classes/Config/Descriptions.php:477
 #, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr ""
 "Агар \"config\" аутентификация усулидан фойдаланмасангиз, бўш қолдиринг"
 
-#: libraries/classes/Config/Descriptions.php:475
+#: libraries/classes/Config/Descriptions.php:474
 #, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "MySQL сервери тинглайдиган порт, асл қийматни қолдириш учун бўш қолдиринг"
 
-#: libraries/classes/Config/Descriptions.php:476
+#: libraries/classes/Config/Descriptions.php:475
 #, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "MySQL сервери тинглайдиган сокет, асл қиймати учун бўш қолдиринг"
 
-#: libraries/classes/Config/Descriptions.php:477
+#: libraries/classes/Config/Descriptions.php:476
 #, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
@@ -2896,7 +2897,7 @@ msgstr ""
 "SSL (Secure Sockets Layer - ҳимояланган сокетлар протоколи) уланишдан "
 "фойдаланиш"
 
-#: libraries/classes/Config/Descriptions.php:480
+#: libraries/classes/Config/Descriptions.php:479
 #, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
@@ -2911,27 +2912,27 @@ msgstr ""
 "Эсда тутинг, ушбу танловни ёқишингиз [kbd]\"config\"[/kbd] аутентификация "
 "усулидаги паролга таъсир этмайди"
 
-#: libraries/classes/Config/Descriptions.php:485
+#: libraries/classes/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:488
+#: libraries/classes/Config/Descriptions.php:487
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:491
+#: libraries/classes/Config/Descriptions.php:490
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:494
+#: libraries/classes/Config/Descriptions.php:493
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:497
+#: libraries/classes/Config/Descriptions.php:496
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
@@ -2943,31 +2944,31 @@ msgstr ""
 "[a@https://www.php.net/manual/function.phpinfo.php]\"phpinfo()\"[/a] "
 "функцияси натижасига боғ кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:499
+#: libraries/classes/Config/Descriptions.php:498
 #, fuzzy
 #| msgid "ther a user should be displayed a \"show all (records)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Фойдаланувчига \"барча (ёзувлар)ни кўрсатиш\" тугмаси кўрсатилсинми?"
 
-#: libraries/classes/Config/Descriptions.php:500
+#: libraries/classes/Config/Descriptions.php:499
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:501
+#: libraries/classes/Config/Descriptions.php:500
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:502
+#: libraries/classes/Config/Descriptions.php:501
 #, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
 msgstr "Таҳрирлаш/қўйиш режимида функциялар майдонини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:503
+#: libraries/classes/Config/Descriptions.php:502
 msgid "Whether to show hint or not."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:504
+#: libraries/classes/Config/Descriptions.php:503
 #, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -2976,7 +2977,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin томонидан генерация қилинган SQL сўровларини кўрсатиш керакми"
 
-#: libraries/classes/Config/Descriptions.php:505
+#: libraries/classes/Config/Descriptions.php:504
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (e.g. space usage)."
@@ -2984,7 +2985,7 @@ msgstr ""
 "Маълумотлар базалари ва жадваллар статискасини (масалан, дискда эгаллаган "
 "жойи) кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:507
+#: libraries/classes/Config/Descriptions.php:506
 #, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
@@ -2994,7 +2995,7 @@ msgstr ""
 "Ишлатилаётган жадвалларни белгилаш ва қулфланган жадваллари мавжуд бўлган "
 "маълумотлар базаларини кўришга имкон бериш"
 
-#: libraries/classes/Config/Descriptions.php:510
+#: libraries/classes/Config/Descriptions.php:509
 #, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
@@ -3006,7 +3007,7 @@ msgstr ""
 "[kbd]cookie[/kbd]-аутентификация усулида cookie-ларни шифрлаш учун "
 "ишлатиладиган сирли ибора"
 
-#: libraries/classes/Config/Descriptions.php:513
+#: libraries/classes/Config/Descriptions.php:512
 #, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
@@ -3019,19 +3020,19 @@ msgstr ""
 "[kbd]cookie[/kbd]-аутентификация усулида cookie-ларни шифрлаш учун "
 "ишлатиладиган сирли ибора"
 
-#: libraries/classes/Config/Descriptions.php:518
+#: libraries/classes/Config/Descriptions.php:517
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:521
+#: libraries/classes/Config/Descriptions.php:520
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:524
+#: libraries/classes/Config/Descriptions.php:523
 #, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
@@ -3049,13 +3050,13 @@ msgstr ""
 "келаётган HTTP_X_FORWARDED_FOR (X-Forwarded-For) сарлавҳани ишончли деб "
 "қабул қилишини таъминлайди: [br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:530
+#: libraries/classes/Config/Descriptions.php:529
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:533
+#: libraries/classes/Config/Descriptions.php:532
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -3063,20 +3064,20 @@ msgid ""
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:539
+#: libraries/classes/Config/Descriptions.php:538
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:545
+#: libraries/classes/Config/Descriptions.php:544
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:549
+#: libraries/classes/Config/Descriptions.php:548
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -3087,156 +3088,156 @@ msgstr ""
 "pmadb усули ишлатилмоқда, лекин phpMyAdmin конфигурацион файлида "
 "фойдаланувчи белгиланмаган"
 
-#: libraries/classes/Config/Descriptions.php:552
+#: libraries/classes/Config/Descriptions.php:551
 msgid "Highlight selected rows."
 msgstr "Танланган қаторларни белгилаш."
 
-#: libraries/classes/Config/Descriptions.php:553
+#: libraries/classes/Config/Descriptions.php:552
 #, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Сичқонча курсори кўрсатиб турган қаторни белгилаш"
 
-#: libraries/classes/Config/Descriptions.php:554
+#: libraries/classes/Config/Descriptions.php:553
 #, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR майдонларидаги устунлар сони"
 
-#: libraries/classes/Config/Descriptions.php:555
+#: libraries/classes/Config/Descriptions.php:554
 #, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR майдонларидаги қаторлар сони"
 
-#: libraries/classes/Config/Descriptions.php:556
+#: libraries/classes/Config/Descriptions.php:555
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:557
+#: libraries/classes/Config/Descriptions.php:556
 #, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
 msgstr "Маълумотлар базасига киришда кўрсатиладиган ёрлиқ"
 
-#: libraries/classes/Config/Descriptions.php:558
+#: libraries/classes/Config/Descriptions.php:557
 #, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
 msgstr "Серверга киришда кўрсатиладиган ёрлиқ"
 
-#: libraries/classes/Config/Descriptions.php:559
+#: libraries/classes/Config/Descriptions.php:558
 #, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
 msgstr "Жадвалга киришда кўрсатиладиган ёрлиқ"
 
-#: libraries/classes/Config/Descriptions.php:560
+#: libraries/classes/Config/Descriptions.php:559
 #, fuzzy
 #| msgid "Propose table structure"
 msgid "Whether the table structure actions should be hidden."
 msgstr "Жадвал тузилиши таҳлили"
 
-#: libraries/classes/Config/Descriptions.php:561
+#: libraries/classes/Config/Descriptions.php:560
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:562
+#: libraries/classes/Config/Descriptions.php:561
 msgid "Show server listing as a list instead of a drop down."
 msgstr ""
 "Серверлар рўйхатини пастга тушадиган меню ўрнига оддий рўйхат шаклида "
 "кўрсатиш."
 
-#: libraries/classes/Config/Descriptions.php:563
+#: libraries/classes/Config/Descriptions.php:562
 #, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Агар камроқ қиймат бўлса, пастга тушувчи меню ишлатилади"
 
-#: libraries/classes/Config/Descriptions.php:564
+#: libraries/classes/Config/Descriptions.php:563
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:565
+#: libraries/classes/Config/Descriptions.php:564
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:566
+#: libraries/classes/Config/Descriptions.php:565
 #, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
 msgstr "Бир вақтнинг ўзиданечта қатор қўйилиши мумкин"
 
-#: libraries/classes/Config/Descriptions.php:567
+#: libraries/classes/Config/Descriptions.php:566
 #, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr "SQL сўрови кўрсатилганда ишлатиладиган белгиларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:568
+#: libraries/classes/Config/Descriptions.php:567
 #, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "cookie-логин усули қанча вақт (секундларда) яроқли бўлишини белгиланг"
 
-#: libraries/classes/Config/Descriptions.php:569
+#: libraries/classes/Config/Descriptions.php:568
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:570
+#: libraries/classes/Config/Descriptions.php:569
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list."
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:571
+#: libraries/classes/Config/Descriptions.php:570
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:572
+#: libraries/classes/Config/Descriptions.php:571
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:573
+#: libraries/classes/Config/Descriptions.php:572
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:574
+#: libraries/classes/Config/Descriptions.php:573
 msgid "These are Edit, Copy and Delete links."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:575
+#: libraries/classes/Config/Descriptions.php:574
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:576
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:575
+#: libraries/classes/Config/Descriptions.php:858
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
 msgstr "Ташқи калитларни текширишни ўчириш"
 
-#: libraries/classes/Config/Descriptions.php:577
+#: libraries/classes/Config/Descriptions.php:576
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:578
+#: libraries/classes/Config/Descriptions.php:577
+#: libraries/classes/Config/Descriptions.php:580
 #: libraries/classes/Config/Descriptions.php:581
-#: libraries/classes/Config/Descriptions.php:582
 #, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
 msgstr "Фақат пиктограмма, фақат матн ёки ҳар иккисини ишлатиш"
 
-#: libraries/classes/Config/Descriptions.php:579
+#: libraries/classes/Config/Descriptions.php:578
 #, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -3244,99 +3245,99 @@ msgstr ""
 "HTTP орқали маълумот узатишда юқори тезликка эришиш учун GZip буферизациядан "
 "фойдаланинг"
 
-#: libraries/classes/Config/Descriptions.php:580
+#: libraries/classes/Config/Descriptions.php:579
 #, fuzzy
 #| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
 msgstr "MySQL маълумотлар базаларида доимий уланишлардан фойдаланиш"
 
-#: libraries/classes/Config/Descriptions.php:583
+#: libraries/classes/Config/Descriptions.php:582
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "BLOB ва BINARY майдонларини таҳирлашни ман этиш"
 
-#: libraries/classes/Config/Descriptions.php:584
+#: libraries/classes/Config/Descriptions.php:583
 #, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
 msgstr "Журналда сақланадиган сўровлар сони"
 
-#: libraries/classes/Config/Descriptions.php:585
+#: libraries/classes/Config/Descriptions.php:584
 #, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Кодировкаларни бир-бирига ўтказишда фойдаланиладиган функцияларни танланг"
 
-#: libraries/classes/Config/Descriptions.php:586
+#: libraries/classes/Config/Descriptions.php:585
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:587
+#: libraries/classes/Config/Descriptions.php:586
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:588
+#: libraries/classes/Config/Descriptions.php:587
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:589
+#: libraries/classes/Config/Descriptions.php:588
 #, fuzzy
 #| msgid "Servers display options"
 msgid "For display Options"
 msgstr "Серверлар кўринишини созлаш"
 
-#: libraries/classes/Config/Descriptions.php:590
+#: libraries/classes/Config/Descriptions.php:589
 #, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
 msgstr "Сервердаги экспорт файллар сақланадиган директория"
 
-#: libraries/classes/Config/Descriptions.php:591
+#: libraries/classes/Config/Descriptions.php:590
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:592
+#: libraries/classes/Config/Descriptions.php:591
 msgid "Title of browser window when a database is selected."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:593
+#: libraries/classes/Config/Descriptions.php:592
 msgid "Title of browser window when nothing is selected."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:594
+#: libraries/classes/Config/Descriptions.php:593
 msgid "Title of browser window when a server is selected."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:595
+#: libraries/classes/Config/Descriptions.php:594
 msgid "Title of browser window when a table is selected."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:596
+#: libraries/classes/Config/Descriptions.php:595
 #, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr "Серверда импорт файллари сақланадиган директория"
 
-#: libraries/classes/Config/Descriptions.php:597
+#: libraries/classes/Config/Descriptions.php:596
 #, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
 msgstr ""
 "Маълумотлар базаси ичидаги маълумотларни тўлалигича қидиришга рухсат бериш"
 
-#: libraries/classes/Config/Descriptions.php:598
+#: libraries/classes/Config/Descriptions.php:597
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:599
+#: libraries/classes/Config/Descriptions.php:598
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:600
+#: libraries/classes/Config/Descriptions.php:599
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -3346,234 +3347,232 @@ msgstr ""
 "Импорт ва экспорт операцияларида    [a@https://en.wikipedia.org/wiki/"
 "Gzip]gzip[/a] ёрдамида сиқишни ёқиш"
 
-#: libraries/classes/Config/Descriptions.php:601
+#: libraries/classes/Config/Descriptions.php:600
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:618
+#: libraries/classes/Config/Descriptions.php:617
 msgid "Allow login to any MySQL server"
 msgstr "Исталган MySQL-серверга логин қилишга рухсат бериш"
 
-#: libraries/classes/Config/Descriptions.php:619
+#: libraries/classes/Config/Descriptions.php:618
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
 msgstr "MySQL серверига уланиб бўлмади"
 
-#: libraries/classes/Config/Descriptions.php:620
+#: libraries/classes/Config/Descriptions.php:619
 msgid "Allow third party framing"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:621
+#: libraries/classes/Config/Descriptions.php:620
 msgid "Show \"Drop database\" link to normal users"
 msgstr "\"Маълумотлар базасини ўчириш\" боғини фойдаланувчиларга кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:622
+#: libraries/classes/Config/Descriptions.php:621
 msgid "Blowfish secret"
 msgstr "Сирли калит сўз (Blowfish)"
 
-#: libraries/classes/Config/Descriptions.php:623
+#: libraries/classes/Config/Descriptions.php:622
 msgid "Row marker"
 msgstr "Қатор маркери"
 
-#: libraries/classes/Config/Descriptions.php:624
+#: libraries/classes/Config/Descriptions.php:623
 msgid "Highlight pointer"
 msgstr "Кўрсатгични белгилаш"
 
-#: libraries/classes/Config/Descriptions.php:625
+#: libraries/classes/Config/Descriptions.php:624
 msgid "Bzip2"
 msgstr "Bzip2"
 
-#: libraries/classes/Config/Descriptions.php:626
+#: libraries/classes/Config/Descriptions.php:625
 #, fuzzy
 #| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "CHAR майдонларини таҳрирлаш"
 
-#: libraries/classes/Config/Descriptions.php:627
+#: libraries/classes/Config/Descriptions.php:626
 msgid "Enable CodeMirror"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:628
+#: libraries/classes/Config/Descriptions.php:627
 #, fuzzy
 #| msgid "Enabled"
 msgid "Enable linter"
 msgstr "Фаоллаштирилган"
 
-#: libraries/classes/Config/Descriptions.php:629
+#: libraries/classes/Config/Descriptions.php:628
 #, fuzzy
 #| msgid "Customize export options"
 msgid "Minimum size for input field"
 msgstr "Экспорт танловларини мослаштириш"
 
-#: libraries/classes/Config/Descriptions.php:630
+#: libraries/classes/Config/Descriptions.php:629
 #, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Вақтинчалик индекс файлларининг максимал ҳажми"
 
-#: libraries/classes/Config/Descriptions.php:631
+#: libraries/classes/Config/Descriptions.php:630
 msgid "CHAR textarea columns"
 msgstr "CHAR майдонидаги устунлар сони"
 
-#: libraries/classes/Config/Descriptions.php:632
+#: libraries/classes/Config/Descriptions.php:631
 msgid "CHAR textarea rows"
 msgstr "CHAR майдонидаги қаторлар сони"
 
-#: libraries/classes/Config/Descriptions.php:633
+#: libraries/classes/Config/Descriptions.php:632
 msgid "Check config file permissions"
 msgstr "Конфигурацион файлнинг ёзиш рухсатларини текширинг"
 
-#: libraries/classes/Config/Descriptions.php:634
+#: libraries/classes/Config/Descriptions.php:633
 msgid "Compress on the fly"
 msgstr "Бирйўла қисиш"
 
-#: libraries/classes/Config/Descriptions.php:635
+#: libraries/classes/Config/Descriptions.php:634
 msgid "Confirm DROP queries"
 msgstr "DROP-сўровларини тасдиқлаш"
 
-#: libraries/classes/Config/Descriptions.php:636
+#: libraries/classes/Config/Descriptions.php:635
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:637
+#: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Plugins/Schema/SchemaDia.php:66
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:76
 msgid "Paper size"
 msgstr "Қоғоз ўлчами"
 
-#: libraries/classes/Config/Descriptions.php:638
+#: libraries/classes/Config/Descriptions.php:637
 msgid "Default database tab"
 msgstr "Маълумотлар базаси ёрлиғи"
 
-#: libraries/classes/Config/Descriptions.php:639
+#: libraries/classes/Config/Descriptions.php:638
 msgid "Default server tab"
 msgstr "Сервер ёрлиғи"
 
-#: libraries/classes/Config/Descriptions.php:640
+#: libraries/classes/Config/Descriptions.php:639
 msgid "Default table tab"
 msgstr "Жадвал ёрлиғи"
 
-#: libraries/classes/Config/Descriptions.php:641
+#: libraries/classes/Config/Descriptions.php:640
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enable autocomplete for table and column names"
 msgstr "Жадвал ва майдон номларини тескари қўштирноққа олиш"
 
-#: libraries/classes/Config/Descriptions.php:642
+#: libraries/classes/Config/Descriptions.php:641
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show column comments"
 msgstr "Жадвал изоҳи"
 
-#: libraries/classes/Config/Descriptions.php:643
+#: libraries/classes/Config/Descriptions.php:642
 #, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
 msgstr "Жадвал тузилиши таҳлили"
 
-#: libraries/classes/Config/Descriptions.php:644
+#: libraries/classes/Config/Descriptions.php:643
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Default transformations for Hex"
 msgstr "Асл тартиблаш қоидаси"
 
-#: libraries/classes/Config/Descriptions.php:645
+#: libraries/classes/Config/Descriptions.php:644
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Default transformations for Substring"
 msgstr "Ўгиришлар параметрлари"
 
-#: libraries/classes/Config/Descriptions.php:646
+#: libraries/classes/Config/Descriptions.php:645
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
 msgstr "Асл тартиблаш қоидаси"
 
-#: libraries/classes/Config/Descriptions.php:647
+#: libraries/classes/Config/Descriptions.php:646
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Default transformations for External"
 msgstr "Асл тартиблаш қоидаси"
 
-#: libraries/classes/Config/Descriptions.php:648
+#: libraries/classes/Config/Descriptions.php:647
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
 msgstr "Ўгиришлар параметрлари"
 
-#: libraries/classes/Config/Descriptions.php:649
+#: libraries/classes/Config/Descriptions.php:648
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
 msgstr "Асл тартиблаш қоидаси"
 
-#: libraries/classes/Config/Descriptions.php:650
+#: libraries/classes/Config/Descriptions.php:649
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Default transformations for Inline"
 msgstr "Ўгиришлар параметрлари"
 
-#: libraries/classes/Config/Descriptions.php:651
+#: libraries/classes/Config/Descriptions.php:650
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
 msgstr "Ўгиришлар параметрлари"
 
-#: libraries/classes/Config/Descriptions.php:652
+#: libraries/classes/Config/Descriptions.php:651
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Default transformations for TextLink"
 msgstr "Ўгиришлар параметрлари"
 
-#: libraries/classes/Config/Descriptions.php:653
+#: libraries/classes/Config/Descriptions.php:652
 msgid "Display servers as a list"
 msgstr "Серверлар рўйхатини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:654
+#: libraries/classes/Config/Descriptions.php:653
 #, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
 msgstr "Жадвалга хизмат кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:655
+#: libraries/classes/Config/Descriptions.php:654
 msgid "Maximum execution time"
 msgstr "Максимум бажарилиш вақти"
 
-#: libraries/classes/Config/Descriptions.php:657 templates/export.twig:347
-#, fuzzy, php-format
-#| msgid "Statements"
-msgid "Use %s statement"
-msgstr "Тавсиф"
+#: libraries/classes/Config/Descriptions.php:655
+msgid "Use [code]LOCK TABLES[/code] statement"
+msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:660
+#: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
 msgstr "Файл каби сақлаш"
 
-#: libraries/classes/Config/Descriptions.php:661
-#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:657
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Character set of the file"
 msgstr "Файл кодировкаси"
 
-#: libraries/classes/Config/Descriptions.php:662
-#: libraries/classes/Config/Descriptions.php:678 templates/import.twig:165
+#: libraries/classes/Config/Descriptions.php:658
+#: libraries/classes/Config/Descriptions.php:674 templates/import.twig:165
 #: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Формат"
 
-#: libraries/classes/Config/Descriptions.php:663
+#: libraries/classes/Config/Descriptions.php:659
 msgid "Compression"
 msgstr "Сиқиш"
 
-#: libraries/classes/Config/Descriptions.php:664
-#: libraries/classes/Config/Descriptions.php:671
+#: libraries/classes/Config/Descriptions.php:660
+#: libraries/classes/Config/Descriptions.php:667
+#: libraries/classes/Config/Descriptions.php:675
 #: libraries/classes/Config/Descriptions.php:679
-#: libraries/classes/Config/Descriptions.php:683
-#: libraries/classes/Config/Descriptions.php:696
-#: libraries/classes/Config/Descriptions.php:698
-#: libraries/classes/Config/Descriptions.php:744
+#: libraries/classes/Config/Descriptions.php:692
+#: libraries/classes/Config/Descriptions.php:694
+#: libraries/classes/Config/Descriptions.php:741
 #: libraries/classes/Plugins/Export/ExportCsv.php:88
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:85
@@ -3585,83 +3584,83 @@ msgstr "Сиқиш"
 msgid "Put columns names in the first row"
 msgstr "Майдон номларини биринчи қаторга жойлаштириш"
 
-#: libraries/classes/Config/Descriptions.php:665
-#: libraries/classes/Config/Descriptions.php:797
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:661
+#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:800
 #: libraries/classes/Plugins/Import/ImportCsv.php:666
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
 msgstr "Майдон қийматлари қуйидаги белги ичига олинган "
 
-#: libraries/classes/Config/Descriptions.php:666
-#: libraries/classes/Config/Descriptions.php:798
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:662
+#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:677
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with"
 msgstr "Белги олдида қуйидаги белги мавжуд "
 
-#: libraries/classes/Config/Descriptions.php:667
-#: libraries/classes/Config/Descriptions.php:673
-#: libraries/classes/Config/Descriptions.php:680
-#: libraries/classes/Config/Descriptions.php:689
+#: libraries/classes/Config/Descriptions.php:663
+#: libraries/classes/Config/Descriptions.php:669
+#: libraries/classes/Config/Descriptions.php:676
+#: libraries/classes/Config/Descriptions.php:685
+#: libraries/classes/Config/Descriptions.php:693
 #: libraries/classes/Config/Descriptions.php:697
-#: libraries/classes/Config/Descriptions.php:701
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:742
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with"
 msgstr "NULL қийматни қуйидагига алмаштириш"
 
-#: libraries/classes/Config/Descriptions.php:668
-#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:664
+#: libraries/classes/Config/Descriptions.php:670
 #, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove CRLF characters within columns"
 msgstr "Майдонлар ичидаги сатрдан-сатрга кўчириш белгиларини олиб ташлаш"
 
-#: libraries/classes/Config/Descriptions.php:669
-#: libraries/classes/Config/Descriptions.php:801
-#: libraries/classes/Config/Descriptions.php:808
+#: libraries/classes/Config/Descriptions.php:665
+#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Plugins/Import/ImportCsv.php:651
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated with"
 msgstr "Қаторлар бўлувчиси"
 
-#: libraries/classes/Config/Descriptions.php:670
-#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:666
+#: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:684
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with"
 msgstr "Қаторлар бўлувчиси"
 
-#: libraries/classes/Config/Descriptions.php:672
+#: libraries/classes/Config/Descriptions.php:668
 #, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel-версияси"
 
-#: libraries/classes/Config/Descriptions.php:675
+#: libraries/classes/Config/Descriptions.php:671
 msgid "Database name template"
 msgstr "Маълумотлар базаси номи шаблони"
 
-#: libraries/classes/Config/Descriptions.php:676
+#: libraries/classes/Config/Descriptions.php:672
 msgid "Server name template"
 msgstr "Сервер номи шаблони"
 
-#: libraries/classes/Config/Descriptions.php:677
+#: libraries/classes/Config/Descriptions.php:673
 msgid "Table name template"
 msgstr "Жадвал номи шаблони"
 
-#: libraries/classes/Config/Descriptions.php:681
-#: libraries/classes/Config/Descriptions.php:694
-#: libraries/classes/Config/Descriptions.php:703
-#: libraries/classes/Config/Descriptions.php:740
-#: libraries/classes/Config/Descriptions.php:746
+#: libraries/classes/Config/Descriptions.php:677
+#: libraries/classes/Config/Descriptions.php:690
+#: libraries/classes/Config/Descriptions.php:699
+#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:743
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:56
 #: libraries/classes/Plugins/Export/ExportLatex.php:88
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
@@ -3675,14 +3674,14 @@ msgstr "Жадвал номи шаблони"
 msgid "Dump table"
 msgstr "Жадваллар сони: \"%s\""
 
-#: libraries/classes/Config/Descriptions.php:682
+#: libraries/classes/Config/Descriptions.php:678
 #: libraries/classes/Plugins/Export/ExportLatex.php:79
 msgid "Include table caption"
 msgstr "Жадвалга сарлавҳа қўшиш"
 
-#: libraries/classes/Config/Descriptions.php:684
-#: libraries/classes/Config/Descriptions.php:699
-#: libraries/classes/Config/Descriptions.php:734
+#: libraries/classes/Config/Descriptions.php:680
+#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:731
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:386
 #: libraries/classes/Plugins/Export/ExportLatex.php:544
 #: libraries/classes/Plugins/Export/ExportOdt.php:490
@@ -3696,24 +3695,24 @@ msgstr "Жадвалга сарлавҳа қўшиш"
 msgid "Comments"
 msgstr "Изоҳлар"
 
-#: libraries/classes/Config/Descriptions.php:685
-#: libraries/classes/Config/Descriptions.php:691
+#: libraries/classes/Config/Descriptions.php:681
+#: libraries/classes/Config/Descriptions.php:687
 msgid "Table caption"
 msgstr "Жадвал сарлавҳаси"
 
-#: libraries/classes/Config/Descriptions.php:686
-#: libraries/classes/Config/Descriptions.php:692
+#: libraries/classes/Config/Descriptions.php:682
+#: libraries/classes/Config/Descriptions.php:688
 msgid "Continued table caption"
 msgstr "Жадвал сарлавҳаси (давоми)"
 
-#: libraries/classes/Config/Descriptions.php:687
-#: libraries/classes/Config/Descriptions.php:693
+#: libraries/classes/Config/Descriptions.php:683
+#: libraries/classes/Config/Descriptions.php:689
 msgid "Label key"
 msgstr "Белги идентификатори"
 
-#: libraries/classes/Config/Descriptions.php:688
-#: libraries/classes/Config/Descriptions.php:700
-#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:684
+#: libraries/classes/Config/Descriptions.php:696
+#: libraries/classes/Config/Descriptions.php:734
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportOdt.php:497
 #: libraries/classes/Plugins/Export/ExportTexytext.php:393
@@ -3725,82 +3724,86 @@ msgstr "Белги идентификатори"
 msgid "Media type"
 msgstr "MIME тури"
 
-#: libraries/classes/Config/Descriptions.php:690
-#: libraries/classes/Config/Descriptions.php:702
-#: libraries/classes/Config/Descriptions.php:739
+#: libraries/classes/Config/Descriptions.php:686
+#: libraries/classes/Config/Descriptions.php:698
+#: libraries/classes/Config/Descriptions.php:736
 #, fuzzy
 #| msgid "Relations"
 msgid "Relationships"
 msgstr "Алоқалар"
 
-#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:691
 #, fuzzy
 #| msgid "Export type"
 msgid "Export method"
 msgstr "Эскпорт тури"
 
-#: libraries/classes/Config/Descriptions.php:704
-#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:700
+#: libraries/classes/Config/Descriptions.php:703
 msgid "Save on server"
 msgstr "Серверга сақлаш"
 
-#: libraries/classes/Config/Descriptions.php:705
-#: libraries/classes/Config/Descriptions.php:708 templates/export.twig:182
+#: libraries/classes/Config/Descriptions.php:701
+#: libraries/classes/Config/Descriptions.php:704 templates/export.twig:182
 #: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr "Мавжуд файл(лар) устидан ёзиш"
 
-#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:702
 #, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
 msgstr "горизонтал (айлантирилган сарлавҳалар)"
 
-#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:705
 #, fuzzy
 #| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Файл номи шаблонини ёдда сақлаш"
 
-#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:706
+msgid "Remove DEFINER clause from definitions"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT қўшиш"
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:708
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Жадвал ва майдон номларини тескари қўштирноққа олиш"
 
-#: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:811
 msgid "SQL compatibility mode"
 msgstr "SQL билан мослик режими"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:710
 msgid "Creation/Update/Check dates"
 msgstr "Тузиш, янгилаш ва текшириш саналари"
 
-#: libraries/classes/Config/Descriptions.php:714
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Use delayed inserts"
 msgstr "Кечиктирилган қўйиш (DELAYED INSERTS) дан фойдаланиш"
 
-#: libraries/classes/Config/Descriptions.php:715
+#: libraries/classes/Config/Descriptions.php:712
 #: libraries/classes/Plugins/Export/ExportSql.php:183
 msgid "Disable foreign key checks"
 msgstr "Ташқи калитларни текширишни ўчириш"
 
-#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:713
 #: libraries/classes/Plugins/Export/ExportSql.php:197
 #, fuzzy
 #| msgid "Export views"
 msgid "Export views as tables"
 msgstr "Кўринишларни экспорт қилиш"
 
-#: libraries/classes/Config/Descriptions.php:717
+#: libraries/classes/Config/Descriptions.php:714
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -3809,87 +3812,87 @@ msgstr ""
 "pmadb усули ишлатилмоқда, лекин phpMyAdmin конфигурацион файлида "
 "фойдаланувчи белгиланмаган"
 
+#: libraries/classes/Config/Descriptions.php:715
+#: libraries/classes/Config/Descriptions.php:716
 #: libraries/classes/Config/Descriptions.php:718
-#: libraries/classes/Config/Descriptions.php:719
 #: libraries/classes/Config/Descriptions.php:721
-#: libraries/classes/Config/Descriptions.php:724
-#: libraries/classes/Config/Descriptions.php:725
-#: libraries/classes/Config/Descriptions.php:726
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:722
+#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:735
 #: templates/database/operations/index.twig:155
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
 msgstr "\"%s\" қўшиш"
 
-#: libraries/classes/Config/Descriptions.php:727
+#: libraries/classes/Config/Descriptions.php:724
 #, fuzzy
 #| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "BLOB туридаги маълумотларни ўн олтилик шаклда намойиш этиш"
 
-#: libraries/classes/Config/Descriptions.php:729
+#: libraries/classes/Config/Descriptions.php:726
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:732
+#: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:351
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s view"
 msgstr "Сессия қийматлари"
 
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
 msgstr "Эътибор бермаслик (IGNORE) қўйилмалардан фойдаланиш"
 
-#: libraries/classes/Config/Descriptions.php:735
+#: libraries/classes/Config/Descriptions.php:732
 msgid "Syntax to use when inserting data"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:736
+#: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/Plugins/Export/ExportSql.php:488
 msgid "Maximal length of created query"
 msgstr "Тузилаёган сўровнинг максимал узунлиги"
 
-#: libraries/classes/Config/Descriptions.php:741
+#: libraries/classes/Config/Descriptions.php:738
 #, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
 msgstr "Жадвалларни экспорт қилиш"
 
-#: libraries/classes/Config/Descriptions.php:742
+#: libraries/classes/Config/Descriptions.php:739
 #: libraries/classes/Plugins/Export/ExportSql.php:169
 msgid "Enclose export in a transaction"
 msgstr "Транзакцияга экспортни қўшиш"
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:740
 msgid "Export time in UTC"
 msgstr "Вақтни UTC шаклда экспорт қилиш"
 
-#: libraries/classes/Config/Descriptions.php:747
+#: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
 msgstr "Ташқи калит менюси тартиби"
 
-#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:745
 msgid "Foreign key limit"
 msgstr "Ташқи калит чегаралари"
 
-#: libraries/classes/Config/Descriptions.php:749
+#: libraries/classes/Config/Descriptions.php:746
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key checks"
 msgstr "Ташқи калитларни текширишни ўчириш"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:747
 msgid "First day of calendar"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:751
-#: libraries/classes/Config/Descriptions.php:762 libraries/classes/Menu.php:480
-#: libraries/classes/Util.php:1943 libraries/config.values.php:155
+#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:480
+#: libraries/classes/Util.php:1944 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3897,47 +3900,47 @@ msgstr ""
 msgid "Databases"
 msgstr "Маълумотлар базалари"
 
-#: libraries/classes/Config/Descriptions.php:752
+#: libraries/classes/Config/Descriptions.php:749
 msgid "Browse mode"
 msgstr "Кўриб чиқиш усул"
 
-#: libraries/classes/Config/Descriptions.php:754
+#: libraries/classes/Config/Descriptions.php:751
 #: libraries/classes/Config/Forms/User/ExportForm.php:82
 #: libraries/classes/Config/Forms/User/ImportForm.php:35
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:752
 msgid "Developer"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:756
+#: libraries/classes/Config/Descriptions.php:753
 msgid "Edit mode"
 msgstr "Таҳрирлаш усули"
 
-#: libraries/classes/Config/Descriptions.php:757
+#: libraries/classes/Config/Descriptions.php:754
 msgid "Export defaults"
 msgstr "Экспорт"
 
-#: libraries/classes/Config/Descriptions.php:758
+#: libraries/classes/Config/Descriptions.php:755
 #, fuzzy
 #| msgid "Generate"
 msgid "General"
 msgstr "Генерация қилиш"
 
-#: libraries/classes/Config/Descriptions.php:759
+#: libraries/classes/Config/Descriptions.php:756
 msgid "Import defaults"
 msgstr "Импорт"
 
-#: libraries/classes/Config/Descriptions.php:760
+#: libraries/classes/Config/Descriptions.php:757
 msgid "Import / export"
 msgstr "Импорт/Экспорт"
 
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:758
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/classes/Config/Descriptions.php:763
+#: libraries/classes/Config/Descriptions.php:760
 #: libraries/classes/Config/Forms/User/NaviForm.php:68
 #: templates/preferences/header.twig:30
 #, fuzzy
@@ -3945,18 +3948,18 @@ msgstr "LaTeX"
 msgid "Navigation panel"
 msgstr "Навигация панели"
 
-#: libraries/classes/Config/Descriptions.php:764
+#: libraries/classes/Config/Descriptions.php:761
 #, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation tree"
 msgstr "Навигация панели"
 
-#: libraries/classes/Config/Descriptions.php:765
+#: libraries/classes/Config/Descriptions.php:762
 #: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "Серверлар"
 
-#: libraries/classes/Config/Descriptions.php:766
+#: libraries/classes/Config/Descriptions.php:763
 #: libraries/classes/Controllers/Server/DatabasesController.php:307
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
@@ -3967,7 +3970,7 @@ msgstr "Серверлар"
 msgid "Tables"
 msgstr "Жадваллар"
 
-#: libraries/classes/Config/Descriptions.php:767
+#: libraries/classes/Config/Descriptions.php:764
 #: libraries/classes/Config/Forms/User/MainForm.php:90
 #: templates/preferences/header.twig:36
 #, fuzzy
@@ -3975,79 +3978,79 @@ msgstr "Жадваллар"
 msgid "Main panel"
 msgstr "Асосий рамка"
 
-#: libraries/classes/Config/Descriptions.php:768
+#: libraries/classes/Config/Descriptions.php:765
 msgid "Microsoft Office"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:767
 msgid "Other core settings"
 msgstr "Бошқа созланишлар"
 
-#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Config/Descriptions.php:768
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
 msgstr "Саҳифа рақами: "
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
 msgstr "Хавфсизлик"
 
-#: libraries/classes/Config/Descriptions.php:773
+#: libraries/classes/Config/Descriptions.php:770
 msgid "Basic settings"
 msgstr "Асосий созланишлар"
 
-#: libraries/classes/Config/Descriptions.php:774
+#: libraries/classes/Config/Descriptions.php:771
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
 msgstr "Аутентификация усули"
 
-#: libraries/classes/Config/Descriptions.php:775
+#: libraries/classes/Config/Descriptions.php:772
 msgid "Server configuration"
 msgstr "Сервер конфигурацияси"
 
-#: libraries/classes/Config/Descriptions.php:776
+#: libraries/classes/Config/Descriptions.php:773
 #, fuzzy
 #| msgid "Configuration file"
 msgid "Configuration storage"
 msgstr "Конфигурацион файл"
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:774
 msgid "Changes tracking"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:778 libraries/classes/Menu.php:255
+#: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:255
 #: libraries/classes/Menu.php:362 libraries/classes/Menu.php:485
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1477 libraries/classes/Util.php:1944
-#: libraries/classes/Util.php:1959 libraries/classes/Util.php:1976
+#: libraries/classes/Util.php:1478 libraries/classes/Util.php:1945
+#: libraries/classes/Util.php:1960 libraries/classes/Util.php:1977
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:776
 msgid "SQL Query box"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Config/Descriptions.php:780
+#: libraries/classes/Config/Descriptions.php:777
 #: libraries/classes/Config/Forms/User/SqlForm.php:48
 #: templates/preferences/header.twig:24
 msgid "SQL queries"
 msgstr "SQL сўровлари"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:778
 msgid "Startup"
 msgstr "Бошланғич"
 
-#: libraries/classes/Config/Descriptions.php:782
+#: libraries/classes/Config/Descriptions.php:779
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
 msgstr "Фойдаланувчи учун маълумотлар базаси"
 
-#: libraries/classes/Config/Descriptions.php:783
+#: libraries/classes/Config/Descriptions.php:780
 #: libraries/classes/Plugins/Export/ExportPdf.php:258
 #: templates/table/page_with_secondary_tabs.twig:5
 #, fuzzy
@@ -4055,191 +4058,191 @@ msgstr "Фойдаланувчи учун маълумотлар базаси"
 msgid "Table structure"
 msgstr "Фойдаланувчи учун маълумотлар базаси"
 
-#: libraries/classes/Config/Descriptions.php:784
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Tabs"
 msgstr "Ёрлиқлар"
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:782
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Алоқалар схемаси"
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:783
 #, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
 msgstr "Матнмайдонини ишлатиш"
 
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:784
 msgid "Texy! text"
 msgstr "Texy! матн"
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:785
 #, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
 msgstr "Огоҳлантириш"
 
-#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:4
 msgid "Console"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/classes/Config/Descriptions.php:791
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Extra parameters for iconv"
 msgstr "iconv учун қўшимча параметрлар"
 
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:789
 msgid "Ignore multiple statement errors"
 msgstr "Кўп қисмли сўровлардаги хатоларга эътибор бермаслик"
 
-#: libraries/classes/Config/Descriptions.php:793
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Enable drag and drop import"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Partial import: allow interrupt"
 msgstr "Қисман импорт: узишга рухсат бериш"
 
-#: libraries/classes/Config/Descriptions.php:799
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:802
 #: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:800
-#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:797
+#: libraries/classes/Config/Descriptions.php:804
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:799
 msgid "Format of imported file"
 msgstr "Импорт қилинаётган файл формати"
 
-#: libraries/classes/Config/Descriptions.php:806
+#: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "\"LOCAL\" калит сўзини ишлатиш"
 
-#: libraries/classes/Config/Descriptions.php:809
+#: libraries/classes/Config/Descriptions.php:806
 msgid "Column names in first row"
 msgstr "Биринчи қаторга устун номлари"
 
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Plugins/Import/ImportOds.php:74
 msgid "Do not import empty rows"
 msgstr "Бўш қаторларни импорт қилмаслик"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:808
 #, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Пул бирликларини импорт қилиш (масалан, $5.00 ни 5.00 га)"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:809
 #, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 "Фоизларни мос ўнли касрлар каби импорт қилиш (масалан, 12.00% ўрнига 0.12)"
 
-#: libraries/classes/Config/Descriptions.php:813
+#: libraries/classes/Config/Descriptions.php:810
 msgid "Partial import: skip queries"
 msgstr "Қисман импорт: сўровларга эътибор бермаслик"
 
-#: libraries/classes/Config/Descriptions.php:815
+#: libraries/classes/Config/Descriptions.php:812
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ноль қийматлари учун \"AUTO_INCREMENT\" ишлатмаслик"
 
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:813
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
 msgstr "Буферни ўқишда қолдиришлар мавжуд"
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:814
 msgid "Initial state for sliders"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Number of inserted rows"
 msgstr "Қўйилган қаторлар сони"
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:816
 msgid "Limit column characters"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:817
 msgid "Delete all cookies on logout"
 msgstr "Чиқишда барча \"cookies\"ларни ўчириш"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Recall user name"
 msgstr "Фойдаланувчи номини чақириб олиш"
 
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Login cookie store"
 msgstr "Логин маълумотини cookie-да сақлаш"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:820
 msgid "Login cookie validity"
 msgstr "cookie-логин яроқлиги"
 
-#: libraries/classes/Config/Descriptions.php:824
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Bigger textarea for LONGTEXT"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:822
 msgid "Maximum displayed SQL length"
 msgstr "SQL сўровининг максимал узунлиги"
 
-#: libraries/classes/Config/Descriptions.php:826
+#: libraries/classes/Config/Descriptions.php:823
 msgid "Maximum databases"
 msgstr "Маълумотлар базаларининг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:827
+#: libraries/classes/Config/Descriptions.php:824
 #, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum items on first level"
 msgstr "Вақтинчалик индекс файлларининг максимал ҳажми"
 
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:825
 msgid "Maximum items in branch"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:829
+#: libraries/classes/Config/Descriptions.php:826
 msgid "Maximum number of rows to display"
 msgstr "Кўрсатиладиган қаторларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum tables"
 msgstr "Максимал жадваллар сони"
 
-#: libraries/classes/Config/Descriptions.php:831
+#: libraries/classes/Config/Descriptions.php:828
 msgid "Memory limit"
 msgstr "Хотира миқдори"
 
-#: libraries/classes/Config/Descriptions.php:832
+#: libraries/classes/Config/Descriptions.php:829
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show databases navigation as tree"
 msgstr "Чап рамкада логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:833
+#: libraries/classes/Config/Descriptions.php:830
 #, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel width"
 msgstr "Навигация панели"
 
-#: libraries/classes/Config/Descriptions.php:834
+#: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #: libraries/classes/Navigation/NavigationTree.php:1354
 #, fuzzy
@@ -4247,347 +4250,347 @@ msgstr "Навигация панели"
 msgid "Link with main panel"
 msgstr "Асосий рамкани мослаштириш"
 
-#: libraries/classes/Config/Descriptions.php:835
+#: libraries/classes/Config/Descriptions.php:832
 msgid "Display logo"
 msgstr "Логотипни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:836
+#: libraries/classes/Config/Descriptions.php:833
 msgid "Logo link URL"
 msgstr "Логотип боғланган URL"
 
-#: libraries/classes/Config/Descriptions.php:837
+#: libraries/classes/Config/Descriptions.php:834
 msgid "Logo link target"
 msgstr "Логотип боғланган нишон"
 
-#: libraries/classes/Config/Descriptions.php:838
+#: libraries/classes/Config/Descriptions.php:835
 msgid "Display servers selection"
 msgstr "Сервер танловини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Target for quick access icon"
 msgstr "Тезкор мурожаат пиктограммаси учун нишон"
 
-#: libraries/classes/Config/Descriptions.php:840
+#: libraries/classes/Config/Descriptions.php:837
 #, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
 msgstr "Тезкор мурожаат пиктограммаси учун нишон"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:838
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of items to display the filter box"
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:843
+#: libraries/classes/Config/Descriptions.php:840
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:845
+#: libraries/classes/Config/Descriptions.php:842
 msgid "Group items in the tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:846
+#: libraries/classes/Config/Descriptions.php:843
 msgid "Database tree separator"
 msgstr "Маълумотлар базаси дарахтининг бўлувчиси"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:844
 msgid "Table tree separator"
 msgstr "Жадвал дарахтининг бўлувчиси"
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:845
 msgid "Maximum table tree depth"
 msgstr "Жадваллар дарахтининг максимум чуқурлиги"
 
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Enable highlighting"
 msgstr "Белгилашни ёқиш"
 
-#: libraries/classes/Config/Descriptions.php:850
+#: libraries/classes/Config/Descriptions.php:847
 #, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "Пиктограммали навигация менюси"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:848
 #, fuzzy
 #| msgid "Show tables"
 msgid "Show tables in tree"
 msgstr "Жадвалларни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:852
+#: libraries/classes/Config/Descriptions.php:849
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "Версияларни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:853
+#: libraries/classes/Config/Descriptions.php:850
 #, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
 msgstr "Фукнциялармайдонини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:851
 #, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
 msgstr "Жараёнлар рўйхати"
 
-#: libraries/classes/Config/Descriptions.php:855
+#: libraries/classes/Config/Descriptions.php:852
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
 msgstr "Версияларни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:856
+#: libraries/classes/Config/Descriptions.php:853
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Expand single database"
 msgstr "Маълумотлар базасидан қуйидагига нусха олиш"
 
-#: libraries/classes/Config/Descriptions.php:857
+#: libraries/classes/Config/Descriptions.php:854
 #, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
 msgstr "Кузатилмаган жадваллар"
 
-#: libraries/classes/Config/Descriptions.php:858
+#: libraries/classes/Config/Descriptions.php:855
 #: libraries/classes/RecentFavoriteTable.php:251
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "Ўзгарувчилар"
 
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:856
 msgid "Where to show the table row links"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:860
+#: libraries/classes/Config/Descriptions.php:857
 msgid "Show row links anyway"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:862
+#: libraries/classes/Config/Descriptions.php:859
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Жадвал сортировкасини ўзгартириш"
 
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:860
 #, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
 msgstr "Пиктограммали навигация менюси"
 
-#: libraries/classes/Config/Descriptions.php:864
+#: libraries/classes/Config/Descriptions.php:861
 msgid "GZip output buffering"
 msgstr "GZip буферизация"
 
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Default sorting order"
 msgstr "Асл тартиблаш қоидаси"
 
-#: libraries/classes/Config/Descriptions.php:866
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Persistent connections"
 msgstr "Доимий уланишлар"
 
-#: libraries/classes/Config/Descriptions.php:867
+#: libraries/classes/Config/Descriptions.php:864
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:866
 #, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
 msgstr "Барча қаторларни кўрсатишга рухсат бериш"
 
-#: libraries/classes/Config/Descriptions.php:870
+#: libraries/classes/Config/Descriptions.php:867
 msgid "How to display various action links"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:871
+#: libraries/classes/Config/Descriptions.php:868
 #, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Бинар (иккилик) майдонларни ҳимоялаш"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:869
 msgid "Permanent query history"
 msgstr "Доимий сўровлар тарихи"
 
-#: libraries/classes/Config/Descriptions.php:873
+#: libraries/classes/Config/Descriptions.php:870
 msgid "Query history length"
 msgstr "Сўровлар тарихи узунлиги"
 
-#: libraries/classes/Config/Descriptions.php:874
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Recoding engine"
 msgstr "Кодировкалаш функцияси"
 
-#: libraries/classes/Config/Descriptions.php:875
+#: libraries/classes/Config/Descriptions.php:872
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "Жадвал номини ўзгартириш"
 
-#: libraries/classes/Config/Descriptions.php:876
+#: libraries/classes/Config/Descriptions.php:873
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
 msgstr "Асл тартиблаш қоидаси"
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:874
 #, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "Оқимли тиклаш"
 
-#: libraries/classes/Config/Descriptions.php:878
+#: libraries/classes/Config/Descriptions.php:875
 msgid "Grid editing: trigger action"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:876
 #, fuzzy
 #| msgid "Relational display field"
 msgid "Relational display"
 msgstr "Алоқадор майдон қиймати"
 
-#: libraries/classes/Config/Descriptions.php:880
+#: libraries/classes/Config/Descriptions.php:877
 msgid "Grid editing: save all edited cells at once"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:881
+#: libraries/classes/Config/Descriptions.php:878
 msgid "Save directory"
 msgstr "Сақлаш директорияси"
 
-#: libraries/classes/Config/Descriptions.php:882
+#: libraries/classes/Config/Descriptions.php:879
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Аутентификация тартиби"
 
-#: libraries/classes/Config/Descriptions.php:883
+#: libraries/classes/Config/Descriptions.php:880
 #, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Аутентификация қоидалари"
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:881
 msgid "Allow logins without a password"
 msgstr "Паролсиз қиришга рухсат бериш"
 
-#: libraries/classes/Config/Descriptions.php:885
+#: libraries/classes/Config/Descriptions.php:882
 msgid "Allow root login"
 msgstr "\"root\"га киришга рухсат бериш"
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:883
 #, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
 msgstr "Сессия қийматлари"
 
-#: libraries/classes/Config/Descriptions.php:887
+#: libraries/classes/Config/Descriptions.php:884
 msgid "HTTP Realm"
 msgstr "HTTP Бўлими"
 
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:885
 #: templates/setup/home/index.twig:50
 msgid "Authentication type"
 msgstr "Аутентификация усули"
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Bookmark table"
 msgstr "Хатчўплар жадвали"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:887
 msgid "Column information table"
 msgstr "Устун маълумотлари жадвали"
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Compress connection"
 msgstr "Уланишни қисиш"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:889
 msgid "Control user password"
 msgstr "Назорат фойдаланувчиси пароли"
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:890
 msgid "Control user"
 msgstr "Назорат фойдаланувчиси"
 
-#: libraries/classes/Config/Descriptions.php:894
+#: libraries/classes/Config/Descriptions.php:891
 #, fuzzy
 #| msgid "Control user"
 msgid "Control host"
 msgstr "Назорат фойдаланувчиси"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:892
 #, fuzzy
 #| msgid "Control user"
 msgid "Control port"
 msgstr "Назорат фойдаланувчиси"
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:893
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA ишлатишни ўчириш"
 
-#: libraries/classes/Config/Descriptions.php:897
+#: libraries/classes/Config/Descriptions.php:894
 msgid "Hide databases"
 msgstr "Базаларни яшириш"
 
-#: libraries/classes/Config/Descriptions.php:898
+#: libraries/classes/Config/Descriptions.php:895
 msgid "SQL query history table"
 msgstr "SQL сўровлари тарихи жадвали"
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:896
 msgid "Server hostname"
 msgstr "Сервер хост номи"
 
-#: libraries/classes/Config/Descriptions.php:900
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Logout URL"
 msgstr "Чиқиш URL"
 
-#: libraries/classes/Config/Descriptions.php:901
+#: libraries/classes/Config/Descriptions.php:898
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Жадваллар рўйхатида кўрсатиладиган жадвалларнинг максимал сони"
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:899
 #, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
 msgstr "Тобе сервер статуси жадвалини кўриш"
 
-#: libraries/classes/Config/Descriptions.php:903
+#: libraries/classes/Config/Descriptions.php:900
 #, fuzzy
 #| msgid "Export views"
 msgid "Export templates table"
 msgstr "Кўринишларни экспорт қилиш"
 
-#: libraries/classes/Config/Descriptions.php:904
+#: libraries/classes/Config/Descriptions.php:901
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Central columns table"
 msgstr "CHAR майдонидаги устунлар сони"
 
-#: libraries/classes/Config/Descriptions.php:905
+#: libraries/classes/Config/Descriptions.php:902
 msgid "Show only listed databases"
 msgstr "Фақат рўйхатдаги базаларни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:906
+#: libraries/classes/Config/Descriptions.php:903
 msgid "Password for config auth"
 msgstr "\"config\" аутентификация усули пароли"
 
-#: libraries/classes/Config/Descriptions.php:907
+#: libraries/classes/Config/Descriptions.php:904
 msgid "PDF schema: pages table"
 msgstr "PDF-схема: саҳифалар жадвали"
 
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:905
 #: templates/database/operations/index.twig:122
 #: templates/server/databases/index.twig:24
 #, fuzzy
@@ -4595,207 +4598,207 @@ msgstr "PDF-схема: саҳифалар жадвали"
 msgid "Database name"
 msgstr "маълумотлар базаси номи"
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:906
 msgid "Server port"
 msgstr "Сервер порти"
 
-#: libraries/classes/Config/Descriptions.php:910
+#: libraries/classes/Config/Descriptions.php:907
 #, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
 msgstr "Фойдаланувчи номини чақириб олиш"
 
-#: libraries/classes/Config/Descriptions.php:911
+#: libraries/classes/Config/Descriptions.php:908
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites table"
 msgstr "Ўзгарувчилар"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:909
 msgid "Relation table"
 msgstr "Алоқалар жадвали"
 
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:910
 msgid "Signon session name"
 msgstr "Кириш сессияси номи"
 
-#: libraries/classes/Config/Descriptions.php:914
+#: libraries/classes/Config/Descriptions.php:911
 msgid "Signon URL"
 msgstr "Кириш URL"
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:912
 msgid "Server socket"
 msgstr "Сервер сокети"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:913
 msgid "Use SSL"
 msgstr "SSL уланишдан фойдаланиш"
 
-#: libraries/classes/Config/Descriptions.php:917
+#: libraries/classes/Config/Descriptions.php:914
 #, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "PDF-схема: жадвал координаталари"
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:915
 #, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Майдонлар жадвалини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:919
+#: libraries/classes/Config/Descriptions.php:916
 #, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
 msgstr "Жадвални дефрагментациялаш"
 
-#: libraries/classes/Config/Descriptions.php:920
+#: libraries/classes/Config/Descriptions.php:917
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:921
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:922
+#: libraries/classes/Config/Descriptions.php:919
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:923
+#: libraries/classes/Config/Descriptions.php:920
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Тавсиф"
 
-#: libraries/classes/Config/Descriptions.php:924
+#: libraries/classes/Config/Descriptions.php:921
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL сўровлари тарихи жадвали"
 
-#: libraries/classes/Config/Descriptions.php:925
+#: libraries/classes/Config/Descriptions.php:922
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Автоматик тиклаш режими"
 
-#: libraries/classes/Config/Descriptions.php:926
+#: libraries/classes/Config/Descriptions.php:923
 msgid "User preferences storage table"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:927
+#: libraries/classes/Config/Descriptions.php:924
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "Жадвалларни ишлатиш"
 
-#: libraries/classes/Config/Descriptions.php:928
+#: libraries/classes/Config/Descriptions.php:925
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "Хостлар жадвалидан фойдаланиш"
 
-#: libraries/classes/Config/Descriptions.php:929
+#: libraries/classes/Config/Descriptions.php:926
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:930
+#: libraries/classes/Config/Descriptions.php:927
 msgid "User for config auth"
 msgstr "\"config\" аутентификация усули фойдаланувчиси"
 
-#: libraries/classes/Config/Descriptions.php:931
+#: libraries/classes/Config/Descriptions.php:928
 msgid "Verbose name of this server"
 msgstr "Ушбу сервернинг кенгайтирилган номи"
 
-#: libraries/classes/Config/Descriptions.php:932
+#: libraries/classes/Config/Descriptions.php:929
 msgid "Allow to display all the rows"
 msgstr "Барча қаторларни кўрсатишга рухсат бериш"
 
-#: libraries/classes/Config/Descriptions.php:933
+#: libraries/classes/Config/Descriptions.php:930
 msgid "Show password change form"
 msgstr "Паролни ўзгартириш формасини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:934
+#: libraries/classes/Config/Descriptions.php:931
 msgid "Show create database form"
 msgstr "Маълумотлар базаси тузиш формасини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:935
+#: libraries/classes/Config/Descriptions.php:932
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
 msgstr "Жадвал изоҳи"
 
-#: libraries/classes/Config/Descriptions.php:936
+#: libraries/classes/Config/Descriptions.php:933
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show creation timestamp"
 msgstr "Версияларни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:937
+#: libraries/classes/Config/Descriptions.php:934
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show last update timestamp"
 msgstr "Уланган бош серверларни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:938
+#: libraries/classes/Config/Descriptions.php:935
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show last check timestamp"
 msgstr "Уланган бош серверларни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:939
+#: libraries/classes/Config/Descriptions.php:936
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table charset"
 msgstr "Жадвал изоҳи"
 
-#: libraries/classes/Config/Descriptions.php:940
+#: libraries/classes/Config/Descriptions.php:937
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Очиқ жадваллар рўйхати"
 
-#: libraries/classes/Config/Descriptions.php:941
+#: libraries/classes/Config/Descriptions.php:938
 msgid "Show function fields"
 msgstr "Фукнциялармайдонини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:942
+#: libraries/classes/Config/Descriptions.php:939
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "Тўрни кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:943
+#: libraries/classes/Config/Descriptions.php:940
 msgid "Show phpinfo() link"
 msgstr "\"phpinfo()\" функциясига боғ кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:944
+#: libraries/classes/Config/Descriptions.php:941
 msgid "Show detailed MySQL server information"
 msgstr "MySQL сервери ҳақида батафсил маълумот кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:945
+#: libraries/classes/Config/Descriptions.php:942
 msgid "Show SQL queries"
 msgstr "Show SQL сўровларини кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:946 templates/sql/query.twig:127
+#: libraries/classes/Config/Descriptions.php:943 templates/sql/query.twig:127
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Retain query box"
 msgstr "SQL сўровлари қутиси"
 
-#: libraries/classes/Config/Descriptions.php:947
+#: libraries/classes/Config/Descriptions.php:944
 msgid "Show statistics"
 msgstr "Статискани кўрсатиш"
 
-#: libraries/classes/Config/Descriptions.php:948
+#: libraries/classes/Config/Descriptions.php:945
 msgid "Skip locked tables"
 msgstr "Қулфланган жадвалларни ташлаб кетишлик"
 
-#: libraries/classes/Config/Descriptions.php:949
+#: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2961
+#: libraries/classes/Display/Results.php:2962
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4819,12 +4822,12 @@ msgstr "Қулфланган жадвалларни ташлаб кетишли�
 msgid "Edit"
 msgstr "Таҳрирлаш"
 
-#: libraries/classes/Config/Descriptions.php:950
+#: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Html/Generator.php:632
 msgid "Explain SQL"
 msgstr "Сўров таҳлили"
 
-#: libraries/classes/Config/Descriptions.php:951
+#: libraries/classes/Config/Descriptions.php:948
 #: libraries/classes/Export.php:592 libraries/classes/Html/Generator.php:712
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
@@ -4832,36 +4835,36 @@ msgstr "Сўров таҳлили"
 msgid "Refresh"
 msgstr "Янгилаш"
 
-#: libraries/classes/Config/Descriptions.php:952
+#: libraries/classes/Config/Descriptions.php:949
 #: libraries/classes/Html/Generator.php:696
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP-код"
 
-#: libraries/classes/Config/Descriptions.php:953
+#: libraries/classes/Config/Descriptions.php:950
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:954
+#: libraries/classes/Config/Descriptions.php:951
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "cookie-логин яроқлиги"
 
-#: libraries/classes/Config/Descriptions.php:955
+#: libraries/classes/Config/Descriptions.php:952
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "CHAR майдонидаги устунлар сони"
 
-#: libraries/classes/Config/Descriptions.php:956
+#: libraries/classes/Config/Descriptions.php:953
 #, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "CHAR майдонидаги қаторлар сони"
 
-#: libraries/classes/Config/Descriptions.php:957
+#: libraries/classes/Config/Descriptions.php:954
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:141
 #: libraries/classes/Plugins/Export/ExportOdt.php:185
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
@@ -4884,18 +4887,18 @@ msgstr "CHAR майдонидаги қаторлар сони"
 msgid "Database"
 msgstr "Маълумотлар базаси"
 
-#: libraries/classes/Config/Descriptions.php:958
+#: libraries/classes/Config/Descriptions.php:955
 #, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
 msgstr "Жадвал ёрлиғи"
 
-#: libraries/classes/Config/Descriptions.php:959
+#: libraries/classes/Config/Descriptions.php:956
 #: templates/server/status/base.twig:6
 msgid "Server"
 msgstr "Сервер"
 
-#: libraries/classes/Config/Descriptions.php:960
+#: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:466
 #: libraries/classes/Server/Privileges.php:1818
 #: libraries/classes/Server/Privileges.php:1820
@@ -4918,149 +4921,149 @@ msgstr "Сервер"
 msgid "Table"
 msgstr "Жадвал"
 
-#: libraries/classes/Config/Descriptions.php:961
+#: libraries/classes/Config/Descriptions.php:958
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "IP бўйича рухсат бериш/рад этиш учун ишонарли прокси-серверлар рўйхати"
 
-#: libraries/classes/Config/Descriptions.php:962
+#: libraries/classes/Config/Descriptions.php:959
 msgid "Upload directory"
 msgstr "Импорт  директорияси"
 
-#: libraries/classes/Config/Descriptions.php:963
+#: libraries/classes/Config/Descriptions.php:960
 msgid "Use database search"
 msgstr "Базани қидиришдан фойдаланиш"
 
-#: libraries/classes/Config/Descriptions.php:964
+#: libraries/classes/Config/Descriptions.php:961
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:965
+#: libraries/classes/Config/Descriptions.php:962
 #: libraries/classes/Setup/Index.php:128 libraries/classes/Setup/Index.php:151
 #: libraries/classes/Setup/Index.php:163 libraries/classes/Setup/Index.php:176
 #: libraries/classes/Setup/Index.php:185 libraries/classes/Setup/Index.php:193
 msgid "Version check"
 msgstr "Версияни текшириш"
 
-#: libraries/classes/Config/Descriptions.php:966
+#: libraries/classes/Config/Descriptions.php:963
 msgid "Proxy URL"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:967
+#: libraries/classes/Config/Descriptions.php:964
 #, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "Фойдаланувчи"
 
-#: libraries/classes/Config/Descriptions.php:968
+#: libraries/classes/Config/Descriptions.php:965
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "Парол"
 
-#: libraries/classes/Config/Descriptions.php:969
+#: libraries/classes/Config/Descriptions.php:966
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:970
+#: libraries/classes/Config/Descriptions.php:967
 msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:971
+#: libraries/classes/Config/Descriptions.php:968
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:972
+#: libraries/classes/Config/Descriptions.php:969
 msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:973
+#: libraries/classes/Config/Descriptions.php:970
 msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:974
+#: libraries/classes/Config/Descriptions.php:971
 msgid "Public key for reCAPTCHA"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:975
+#: libraries/classes/Config/Descriptions.php:972
 msgid "Private key for reCAPTCHA"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:976
+#: libraries/classes/Config/Descriptions.php:973
 msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:977
+#: libraries/classes/Config/Descriptions.php:974
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
 msgstr "Сервер порти"
 
-#: libraries/classes/Config/Descriptions.php:978
+#: libraries/classes/Config/Descriptions.php:975
 #, fuzzy
 msgid "Enter executes queries in console"
 msgstr "SQL сўровлари"
 
-#: libraries/classes/Config/Descriptions.php:979
+#: libraries/classes/Config/Descriptions.php:976
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "Сервер конфигурацияси"
 
-#: libraries/classes/Config/Descriptions.php:980
+#: libraries/classes/Config/Descriptions.php:977
 #: templates/console/display.twig:153
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL сўровлари тарихи жадвали"
 
-#: libraries/classes/Config/Descriptions.php:981
+#: libraries/classes/Config/Descriptions.php:978
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:982
+#: libraries/classes/Config/Descriptions.php:979
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:983
+#: libraries/classes/Config/Descriptions.php:980
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:984
+#: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:168
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
 msgstr "Нусха олинган жадвалга ўтиш"
 
-#: libraries/classes/Config/Descriptions.php:985
+#: libraries/classes/Config/Descriptions.php:982
 msgid "Console height"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:986
+#: libraries/classes/Config/Descriptions.php:983
 #, fuzzy
 #| msgid "Browse mode"
 msgid "Console mode"
 msgstr "Кўриб чиқиш усул"
 
-#: libraries/classes/Config/Descriptions.php:987
+#: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:64
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL сўровлари"
 
-#: libraries/classes/Config/Descriptions.php:988
+#: libraries/classes/Config/Descriptions.php:985
 #: templates/sql/profiling_chart.twig:9
 msgid "Order"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:989
+#: libraries/classes/Config/Descriptions.php:986
 msgid "Order by"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:990
+#: libraries/classes/Config/Descriptions.php:987
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
@@ -5139,14 +5142,14 @@ msgstr "Рангни танлаш"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:301
-#: libraries/classes/Util.php:1476 libraries/classes/Util.php:1958
-#: libraries/classes/Util.php:1975 libraries/config.values.php:60
+#: libraries/classes/Util.php:1477 libraries/classes/Util.php:1959
+#: libraries/classes/Util.php:1976 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -5194,8 +5197,8 @@ msgstr "OpenDocument матн"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1506
-#: libraries/classes/Util.php:1947 libraries/classes/Util.php:1962
-#: libraries/classes/Util.php:1979 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:1948 libraries/classes/Util.php:1963
+#: libraries/classes/Util.php:1980 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -5238,8 +5241,8 @@ msgstr "\"LOAD DATA\" ишлатилган CSV"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
-#: libraries/classes/Menu.php:518 libraries/classes/Util.php:1948
-#: libraries/classes/Util.php:1963 libraries/classes/Util.php:1980
+#: libraries/classes/Menu.php:518 libraries/classes/Util.php:1949
+#: libraries/classes/Util.php:1964 libraries/classes/Util.php:1981
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5280,13 +5283,13 @@ msgid ""
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1227
+#: libraries/classes/Config.php:1228
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Сервер рақами нотўғри: \"%s\""
 
-#: libraries/classes/Config.php:1240
+#: libraries/classes/Config.php:1241
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -5489,11 +5492,11 @@ msgstr ""
 "тиклаш[/a] учун махсус функциялар (\"%s\") керак, лекин улар тизимингизда "
 "топилмади."
 
-#: libraries/classes/ConfigStorage/Relation.php:1353
+#: libraries/classes/ConfigStorage/Relation.php:1361
 msgid "no description"
 msgstr "тавсиф мавжуд эмас"
 
-#: libraries/classes/ConfigStorage/Relation.php:1555
+#: libraries/classes/ConfigStorage/Relation.php:1563
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5664,6 +5667,13 @@ msgstr ""
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s -дан %2$s гача қаторларни кўрсатиш"
 
+#. l10n: The user tries to save a page with an existing name in Designer
+#: libraries/classes/Controllers/Database/DesignerController.php:92
+#, php-format
+msgid ""
+"There already exists a page named \"%s\" please rename it to something else."
+msgstr ""
+
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
 #: libraries/classes/Controllers/Export/ExportController.php:442
@@ -5731,7 +5741,7 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:103
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
-#: libraries/classes/Plugins/AuthenticationPlugin.php:183
+#: libraries/classes/Plugins/AuthenticationPlugin.php:184
 msgid "Access denied!"
 msgstr "Рухсат берилмади!"
 
@@ -5785,11 +5795,11 @@ msgid "Table %s has been emptied."
 msgstr "\"%s\" жадвали тозаланди."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3970
+#: libraries/classes/Display/Results.php:3971
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to "
+"%sdocumentation%s."
 msgstr ""
 "Ушбу намойиш камида кўрсатилган миқдорда қаторларга эга. Батафсил маълумот "
 "учун %sдокументацияга%s қаранг."
@@ -5845,7 +5855,7 @@ msgstr "Ҳа"
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:419
-#: libraries/classes/Core.php:716 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:728 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ўзгариш йўқ"
 
@@ -6777,7 +6787,7 @@ msgid "Traffic"
 msgstr "Трафик"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
-#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1949
+#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1950
 #: templates/server/status/monitor/index.twig:12
 #, fuzzy
 #| msgid "settings"
@@ -6796,8 +6806,8 @@ msgid "Please add at least one variable to the series!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:208
-#: libraries/classes/Display/Results.php:1260
-#: libraries/classes/Plugins/Export/ExportSql.php:2210
+#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Plugins/Export/ExportSql.php:2226
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -7024,7 +7034,7 @@ msgstr "Сўров таҳлили"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 #: libraries/classes/Menu.php:490
 #: libraries/classes/Server/Status/Processes.php:138
-#: libraries/classes/Util.php:1945 libraries/config.values.php:157
+#: libraries/classes/Util.php:1946 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -7475,7 +7485,7 @@ msgid "Show query box"
 msgstr "SQL сўровлари қутиси"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3029
+#: libraries/classes/Display/Results.php:3030
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7764,13 +7774,13 @@ msgstr "Маълумотлар файли кўрсатгичи ҳажми"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2001
+#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2000
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Эътибор бермаслик"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2965
+#: libraries/classes/Display/Results.php:2966
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -8228,7 +8238,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:634
-#: libraries/classes/ErrorHandler.php:425
+#: libraries/classes/ErrorHandler.php:444
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -8391,7 +8401,14 @@ msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Экспорт тури нотугри"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+msgid ""
+"You can not open, save or delete your page layout, as IndexedDB is not "
+"working in your browser and your phpMyAdmin configuration storage is not "
+"configured for this."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -8399,13 +8416,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "\"%s\" номли жадвал мавжуд!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #: libraries/classes/InsertEdit.php:327
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Яшириш"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -9320,8 +9337,8 @@ msgstr ""
 #: libraries/classes/Controllers/Setup/HomeController.php:47
 #, fuzzy
 #| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
+#| "If your server is also configured to accept HTTPS requests follow "
+#| "[a@%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
@@ -9405,7 +9422,7 @@ msgstr "\"%s\" номли жадвал мавжуд!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3682 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3683 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -9477,7 +9494,7 @@ msgstr "Намойиш"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:863 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:717 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -9585,7 +9602,7 @@ msgstr "Ушбу саҳифага кириш учун Сизда етарли ҳ
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:201 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:200 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -9838,7 +9855,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
 
-#: libraries/classes/DatabaseInterface.php:1127
+#: libraries/classes/DatabaseInterface.php:1130
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9846,25 +9863,25 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1172
+#: libraries/classes/DatabaseInterface.php:1175
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Failed to set configured collation connection!"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
-#: libraries/classes/DatabaseInterface.php:1865
+#: libraries/classes/DatabaseInterface.php:1868
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing connection parameters!"
 msgstr "Муолажалар"
 
-#: libraries/classes/DatabaseInterface.php:1890
+#: libraries/classes/DatabaseInterface.php:1893
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "\"config.inc.php\" конфигурацион файлининг \"controluser\" директивасида "
 "кўрсатилган фойдаланувчи ёрдамида уланиб бўлмади."
 
-#: libraries/classes/DatabaseInterface.php:2282
+#: libraries/classes/DatabaseInterface.php:2298
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -10154,7 +10171,7 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:896 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 #, fuzzy
 #| msgid "Begin"
@@ -10162,7 +10179,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Боши"
 
-#: libraries/classes/Display/Results.php:903 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:904 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 #, fuzzy
@@ -10171,7 +10188,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Орқага"
 
-#: libraries/classes/Display/Results.php:929 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:930 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 #, fuzzy
@@ -10180,7 +10197,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Кейинги"
 
-#: libraries/classes/Display/Results.php:954 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:955 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 #, fuzzy
 #| msgid "End"
@@ -10188,23 +10205,23 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Охири"
 
-#: libraries/classes/Display/Results.php:1467
+#: libraries/classes/Display/Results.php:1468
 #: templates/display/results/table.twig:129
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Маълумотларни қисқартириб кўрсатиш"
 
-#: libraries/classes/Display/Results.php:1471
+#: libraries/classes/Display/Results.php:1472
 #: templates/display/results/table.twig:133
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Маълумотларни кенгайтирилган ҳолда кўрсатиш"
 
-#: libraries/classes/Display/Results.php:1812
-#: libraries/classes/Display/Results.php:1838 libraries/classes/Util.php:2574
-#: libraries/classes/Util.php:2597 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1813
+#: libraries/classes/Display/Results.php:1839 libraries/classes/Util.php:2575
+#: libraries/classes/Util.php:2598 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -10216,9 +10233,9 @@ msgstr "Маълумотларни кенгайтирилган ҳолда кў�
 msgid "Descending"
 msgstr "Камайиш тартибида"
 
-#: libraries/classes/Display/Results.php:1820
-#: libraries/classes/Display/Results.php:1830 libraries/classes/Util.php:2566
-#: libraries/classes/Util.php:2589 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1821
+#: libraries/classes/Display/Results.php:1831 libraries/classes/Util.php:2567
+#: libraries/classes/Util.php:2590 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -10230,48 +10247,48 @@ msgstr "Камайиш тартибида"
 msgid "Ascending"
 msgstr "Ўсиш тартибида"
 
-#: libraries/classes/Display/Results.php:3005
-#: libraries/classes/Display/Results.php:3020
+#: libraries/classes/Display/Results.php:3006
+#: libraries/classes/Display/Results.php:3021
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Ёзув ўчирилди"
 
-#: libraries/classes/Display/Results.php:3052
+#: libraries/classes/Display/Results.php:3053
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Тугатиш"
 
-#: libraries/classes/Display/Results.php:3613
+#: libraries/classes/Display/Results.php:3614
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Тахминий бўлиши мумкин. [doc@faq3-11]\"FAQ 3.11\"[/doc]га қаранг"
 
-#: libraries/classes/Display/Results.php:3979
+#: libraries/classes/Display/Results.php:3980
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Ёзувларни кўрсатиш"
 
-#: libraries/classes/Display/Results.php:3993
+#: libraries/classes/Display/Results.php:3994
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3998
+#: libraries/classes/Display/Results.php:3999
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "жами"
 
-#: libraries/classes/Display/Results.php:4011 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4012 libraries/classes/Sql.php:973
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Сўров %01.4f секунд вақт олди"
 
-#: libraries/classes/Display/Results.php:4342
+#: libraries/classes/Display/Results.php:4343
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -10631,17 +10648,17 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:101
+#: libraries/classes/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:409
+#: libraries/classes/ErrorHandler.php:428
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "Импорт"
 
-#: libraries/classes/ErrorHandler.php:414 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:433 templates/error/report_form.twig:25
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -10983,12 +11000,12 @@ msgstr "Функция"
 msgid "Type"
 msgstr "Тур"
 
-#: libraries/classes/InsertEdit.php:718 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Кўрсатилган каталокка юклаб бўлмади."
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:725
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10998,22 +11015,22 @@ msgstr "Кўрсатилган каталокка юклаб бўлмади."
 msgid "Or"
 msgstr "Ёки"
 
-#: libraries/classes/InsertEdit.php:727
+#: libraries/classes/InsertEdit.php:726
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "Юклаш каталогидан"
 
-#: libraries/classes/InsertEdit.php:1334 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1333 libraries/classes/Sql.php:964
 msgid "Showing SQL query"
 msgstr "SQL-сўровни кўрсатиш"
 
-#: libraries/classes/InsertEdit.php:1358 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1357 libraries/classes/Sql.php:944
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Киритилган қатор идентификатори: %1$d"
 
-#: libraries/classes/LanguageManager.php:971
+#: libraries/classes/LanguageManager.php:979
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -11029,7 +11046,7 @@ msgstr ""
 
 #: libraries/classes/Menu.php:240
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1480 libraries/classes/Util.php:1974
+#: libraries/classes/Util.php:1481 libraries/classes/Util.php:1975
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -11039,8 +11056,8 @@ msgstr "Кўриб чиқиш"
 
 #: libraries/classes/Menu.php:259 libraries/classes/Menu.php:366
 #: libraries/classes/Navigation/Nodes/NodeTable.php:304
-#: libraries/classes/Util.php:1478 libraries/classes/Util.php:1960
-#: libraries/classes/Util.php:1977 libraries/config.values.php:64
+#: libraries/classes/Util.php:1479 libraries/classes/Util.php:1961
+#: libraries/classes/Util.php:1978 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -11052,7 +11069,7 @@ msgstr "Қидириш"
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:307
-#: libraries/classes/Util.php:1479 libraries/classes/Util.php:1978
+#: libraries/classes/Util.php:1480 libraries/classes/Util.php:1979
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -11062,8 +11079,8 @@ msgid "Insert"
 msgstr "Қўйиш"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:406
-#: libraries/classes/Server/Privileges.php:2842 libraries/classes/Util.php:1965
-#: libraries/classes/Util.php:1981 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2842 libraries/classes/Util.php:1966
+#: libraries/classes/Util.php:1982 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -11072,14 +11089,14 @@ msgid "Privileges"
 msgstr "Привилегиялар"
 
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:317
-#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1481
-#: libraries/classes/Util.php:1964 libraries/classes/Util.php:1982
+#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1482
+#: libraries/classes/Util.php:1965 libraries/classes/Util.php:1983
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Операциялар"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:432
-#: libraries/classes/Util.php:1969 libraries/classes/Util.php:1983
+#: libraries/classes/Util.php:1970 libraries/classes/Util.php:1984
 msgid "Tracking"
 msgstr "Кузатиш"
 
@@ -11089,10 +11106,10 @@ msgstr "Кузатиш"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:558
 #: libraries/classes/Plugins/Export/ExportOdt.php:703
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2081
+#: libraries/classes/Plugins/Export/ExportSql.php:2097
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1968 libraries/classes/Util.php:1984
+#: libraries/classes/Util.php:1969 libraries/classes/Util.php:1985
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Триггерлар"
@@ -11102,11 +11119,11 @@ msgstr "Триггерлар"
 msgid "Database seems to be empty!"
 msgstr "Маълумотлар базаси бўш!"
 
-#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1961
+#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1962
 msgid "Query"
 msgstr "Сўров"
 
-#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1966
+#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1967
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Муолажалар"
@@ -11114,17 +11131,17 @@ msgstr "Муолажалар"
 #: libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1006
+#: libraries/classes/Plugins/Export/ExportSql.php:1014
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1967 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1968 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Ҳодисалар"
 
-#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1970
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1971
 msgid "Designer"
 msgstr "Дизайнер"
 
-#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1971
+#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1972
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "CHAR textarea columns"
@@ -11138,12 +11155,12 @@ msgid "User accounts"
 msgstr "Фойдаланувчи"
 
 #: libraries/classes/Menu.php:538 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1950 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1951 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Иккилик журнал"
 
 #: libraries/classes/Menu.php:545 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1951
+#: libraries/classes/Util.php:1952
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -11151,21 +11168,21 @@ msgid "Replication"
 msgstr "Репликация (захира нусха кўчириш)"
 
 #: libraries/classes/Menu.php:551 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1952 libraries/config.values.php:159
+#: libraries/classes/Util.php:1953 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Ўзгарувчилар"
 
-#: libraries/classes/Menu.php:556 libraries/classes/Util.php:1953
+#: libraries/classes/Menu.php:556 libraries/classes/Util.php:1954
 msgid "Charsets"
 msgstr "Кодировкалар"
 
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1955
+#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1956
 msgid "Engines"
 msgstr "Жадвал турлари"
 
-#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1954
+#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1955
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr ""
@@ -11346,7 +11363,7 @@ msgstr "Ҳодиса"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:626
+#: libraries/classes/Plugins/Export/ExportSql.php:634
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "Функциялар"
@@ -11367,7 +11384,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:615
+#: libraries/classes/Plugins/Export/ExportSql.php:623
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "Муолажалар"
@@ -11868,26 +11885,26 @@ msgstr "Киритилган маълумотлар нотўғри. Кириш �
 msgid "Can not find signon authentication script:"
 msgstr "Аутентификация усули учун логин танловларини киритиш"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:179
+#: libraries/classes/Plugins/AuthenticationPlugin.php:180
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Паролсиз аутентификация конфигурация томонидан ўчирилган (қаранг "
 "AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:188
+#: libraries/classes/Plugins/AuthenticationPlugin.php:189
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:201
-#: libraries/classes/Plugins/AuthenticationPlugin.php:204
+#: libraries/classes/Plugins/AuthenticationPlugin.php:202
+#: libraries/classes/Plugins/AuthenticationPlugin.php:205
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL серверига уланиб бўлмади"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:345
+#: libraries/classes/Plugins/AuthenticationPlugin.php:348
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -12004,7 +12021,7 @@ msgstr "Маълумотлар базаларини кўрсатиш афзал�
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:194
 #: libraries/classes/Plugins/Export/ExportOdt.php:245
-#: libraries/classes/Plugins/Export/ExportSql.php:2331
+#: libraries/classes/Plugins/Export/ExportSql.php:2347
 #: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr "Жадвал маълумотларини дамп қилиш"
@@ -12098,21 +12115,21 @@ msgstr "Тавсифи"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:681
-#: libraries/classes/Plugins/Export/ExportSql.php:2067
+#: libraries/classes/Plugins/Export/ExportSql.php:2083
 #: libraries/classes/Plugins/Export/ExportTexytext.php:521
 msgid "Table structure for table"
 msgstr "Жадвал тузилиши"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:2118
+#: libraries/classes/Plugins/Export/ExportSql.php:2134
 #: libraries/classes/Plugins/Export/ExportTexytext.php:547
 msgid "Structure for view"
 msgstr "Намойиш этиш учун тузилма"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:572
 #: libraries/classes/Plugins/Export/ExportOdt.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:2150
+#: libraries/classes/Plugins/Export/ExportSql.php:2166
 #: libraries/classes/Plugins/Export/ExportTexytext.php:563
 msgid "Stand-in structure for view"
 msgstr "Намойиш этиш учун тузилма"
@@ -12196,7 +12213,7 @@ msgid "Put columns names in the first row:"
 msgstr "Майдон номларини биринчи қаторга жойлаштириш"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:746
+#: libraries/classes/Plugins/Export/ExportSql.php:754
 #: libraries/classes/Plugins/Export/ExportXml.php:232
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -12206,7 +12223,7 @@ msgid "Host:"
 msgstr "Хост"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:753
+#: libraries/classes/Plugins/Export/ExportSql.php:761
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 #, fuzzy
 #| msgid "Generation Time"
@@ -12214,7 +12231,7 @@ msgid "Generation Time:"
 msgstr "Тузилган сана"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:757
+#: libraries/classes/Plugins/Export/ExportSql.php:765
 #: libraries/classes/Plugins/Export/ExportXml.php:240
 #: templates/home/index.twig:173
 #, fuzzy
@@ -12223,7 +12240,7 @@ msgid "Server version:"
 msgstr "Сервер версияси"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:759
+#: libraries/classes/Plugins/Export/ExportSql.php:767
 #: libraries/classes/Plugins/Export/ExportXml.php:241
 #, fuzzy
 #| msgid "PHP Version"
@@ -12231,7 +12248,7 @@ msgid "PHP Version:"
 msgstr "PHP версиясм"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:246
-#: libraries/classes/Plugins/Export/ExportSql.php:939
+#: libraries/classes/Plugins/Export/ExportSql.php:947
 #: libraries/classes/Plugins/Export/ExportXml.php:390
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
@@ -12242,7 +12259,7 @@ msgid "Database:"
 msgstr "Маълумотлар базаси"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:312
-#: libraries/classes/Plugins/Export/ExportSql.php:2210
+#: libraries/classes/Plugins/Export/ExportSql.php:2226
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -12378,7 +12395,7 @@ msgid "Data creation options"
 msgstr "Ўгиришлар параметрлари"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2288
+#: libraries/classes/Plugins/Export/ExportSql.php:2304
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -12441,118 +12458,118 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:574
+#: libraries/classes/Plugins/Export/ExportSql.php:582
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:577
-#: libraries/classes/Plugins/Export/ExportSql.php:1598
-#: libraries/classes/Plugins/Export/ExportSql.php:2106
+#: libraries/classes/Plugins/Export/ExportSql.php:585
+#: libraries/classes/Plugins/Export/ExportSql.php:1614
+#: libraries/classes/Plugins/Export/ExportSql.php:2122
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1050
+#: libraries/classes/Plugins/Export/ExportSql.php:1066
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "\"%s\" майдонида маълумот йўқ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1118
+#: libraries/classes/Plugins/Export/ExportSql.php:1134
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "\"%s\" майдонида маълумот йўқ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1125
+#: libraries/classes/Plugins/Export/ExportSql.php:1141
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "\"%s\" майдонида маълумот йўқ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1442
+#: libraries/classes/Plugins/Export/ExportSql.php:1458
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 msgid "Creation:"
 msgstr "Тузиш:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1452
+#: libraries/classes/Plugins/Export/ExportSql.php:1468
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 msgid "Last update:"
 msgstr "Охирги янгиланиш:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1462
+#: libraries/classes/Plugins/Export/ExportSql.php:1478
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 msgid "Last check:"
 msgstr "Охирги текширув:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1513
+#: libraries/classes/Plugins/Export/ExportSql.php:1529
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Жадвал тузилиши"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1595
+#: libraries/classes/Plugins/Export/ExportSql.php:1611
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1762
+#: libraries/classes/Plugins/Export/ExportSql.php:1778
 msgid "Constraints for dumped tables"
 msgstr "Сақланган жадвалларнинг ташқи калитида чекловлар"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1763
+#: libraries/classes/Plugins/Export/ExportSql.php:1779
 msgid "Constraints for table"
 msgstr "Жадвалларнинг ташқи калитида чекловлар"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1790
+#: libraries/classes/Plugins/Export/ExportSql.php:1806
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Сақланган жадвалларнинг ташқи калитида чекловлар"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1791
+#: libraries/classes/Plugins/Export/ExportSql.php:1807
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Жадваллардан:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1827
+#: libraries/classes/Plugins/Export/ExportSql.php:1843
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Ноль қийматлари учун \"AUTO_INCREMENT\" ишлатмаслик"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1828
+#: libraries/classes/Plugins/Export/ExportSql.php:1844
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT қўшиш"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1903
+#: libraries/classes/Plugins/Export/ExportSql.php:1919
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "ЖАДВАЛ УЧУН MIME ТУРЛАРИ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1928
+#: libraries/classes/Plugins/Export/ExportSql.php:1944
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "Жадвал алоқалари"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2103
+#: libraries/classes/Plugins/Export/ExportSql.php:2119
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2133
+#: libraries/classes/Plugins/Export/ExportSql.php:2149
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Намойиш этиш учун тузилма"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2153
+#: libraries/classes/Plugins/Export/ExportSql.php:2169
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2221
+#: libraries/classes/Plugins/Export/ExportSql.php:2237
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
@@ -12954,14 +12971,14 @@ msgid ""
 msgstr ""
 "ФАҚАТ LINUX: Ташқи дастурни ишга туширади ёки унга майдон маълумотларини "
 "узатади. Асл қийматда бўлганда, \"Tidy\" (HTML кодни форматлаш) ишлатилади. "
-"Хавфсизлик юзасидан, \"libraries/transformations/text_plain__external.inc.php"
-"\" файлига мавжуд дастурлар ҳақидаги маълумотларни қўлбола киритиб таҳрирлаш "
-"керак. Биринчи параметр ишлатилаётган дастур номери, иккинчи параметр эса "
-"дастур параметрларини белгилайди. Учинчи параметр 1 деб белгиланганда, "
-"маълумотлар \"htmlspecialchars()\" функцияси ёрдамида ўзгартирилади (асл "
-"қиймати: 1). Тўртинчи параметр 1 деб белгиланса, сатрдан-сатрга ўтиш "
-"белгиларига эътибор берилмайди ва барча маълумотлар бир сатрда чиқарилади "
-"(асл қиймати: 1)."
+"Хавфсизлик юзасидан, \"libraries/transformations/text_plain__external.inc."
+"php\" файлига мавжуд дастурлар ҳақидаги маълумотларни қўлбола киритиб "
+"таҳрирлаш керак. Биринчи параметр ишлатилаётган дастур номери, иккинчи "
+"параметр эса дастур параметрларини белгилайди. Учинчи параметр 1 деб "
+"белгиланганда, маълумотлар \"htmlspecialchars()\" функцияси ёрдамида "
+"ўзгартирилади (асл қиймати: 1). Тўртинчи параметр 1 деб белгиланса, сатрдан-"
+"сатрга ўтиш белгиларига эътибор берилмайди ва барча маълумотлар бир сатрда "
+"чиқарилади (асл қиймати: 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:122
 #, php-format
@@ -13337,13 +13354,13 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:158
+#: libraries/classes/Routing.php:163
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Error 404! The page %s was not found."
 msgstr "Манба база"
 
-#: libraries/classes/Routing.php:169
+#: libraries/classes/Routing.php:174
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -13377,7 +13394,7 @@ msgstr "Файл юкланаётган вақтда номаълум хатол
 
 #: libraries/classes/Server/Plugins.php:68
 #: libraries/classes/Server/Privileges.php:788
-#: libraries/classes/Server/Privileges.php:3725
+#: libraries/classes/Server/Privileges.php:3719
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Native MySQL authentication"
@@ -14524,11 +14541,21 @@ msgstr "Профил янгиланди."
 msgid "Password is too long!"
 msgstr "Паролни хешлаш"
 
-#: libraries/classes/UserPreferences.php:167
+#: libraries/classes/UserPreferences.php:173
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
+
+#: libraries/classes/UserPreferences.php:184
+#, fuzzy
+#| msgid ""
+#| "The phpMyAdmin configuration storage has been deactivated. To find out "
+#| "why click %shere%s."
+msgid "The phpMyAdmin configuration storage database could not be accessed."
+msgstr ""
+"PhpMyAdmin нинг баъзи қўшимча имкониятлари фаол эмас. Сабабларини аниқлаш "
+"учун %sбу ерга%s босинг."
 
 #: libraries/classes/Util.php:131
 #, php-format
@@ -14663,13 +14690,13 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "\"%s\" кун, \"%s\" соат, \"%s\" минут ва \"%s\" секунд"
 
-#: libraries/classes/Util.php:1946
+#: libraries/classes/Util.php:1947
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "Фойдаланувчи"
 
-#: libraries/classes/Util.php:2558
+#: libraries/classes/Util.php:2559
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Сортировка қилиш"
@@ -17198,6 +17225,12 @@ msgstr "Устун қўшиш/ўчириш"
 #| msgid "Column names"
 msgid "New column name"
 msgstr "Майдон номлари"
+
+#: templates/export.twig:347
+#, fuzzy, php-format
+#| msgid "Statements"
+msgid "Use %s statement"
+msgstr "Тавсиф"
 
 #: templates/export.twig:356
 #, fuzzy
@@ -21654,8 +21687,9 @@ msgstr "Майдон номлари"
 #~ "Your PHP MySQL library version %s differs from your MySQL server version "
 #~ "%s. This may cause unpredictable behavior."
 #~ msgstr ""
-#~ "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  версияси(\"%s"
-#~ "\")дан фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши мумкин."
+#~ "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  "
+#~ "версияси(\"%s\")дан фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши "
+#~ "мумкин."
 
 #~ msgid "Invalid hostname for server %1$s. Please review your configuration."
 #~ msgstr ""
@@ -22467,8 +22501,8 @@ msgstr "Майдон номлари"
 
 #~ msgid ""
 #~ "The SQL validator could not be initialized. Please check if you have "
-#~ "installed the necessary PHP extensions as described in the %sdocumentation"
-#~ "%s."
+#~ "installed the necessary PHP extensions as described in the "
+#~ "%sdocumentation%s."
 #~ msgstr ""
 #~ "SQL синтаксисини текшириб бўлмади. PHP учун зарур кенгайтмалар "
 #~ "ўрнатилганлигини текширинг, батафсил маълумот учун %sдокументацияга%s "
@@ -22655,8 +22689,8 @@ msgstr "Майдон номлари"
 #, fuzzy
 #~| msgid ""
 #~| "s MySQL server works as %s in <b>replication</b> process. For further "
-#~| "ormation about replication status on the server, please visit the <a f="
-#~| "\"#replication\">replication section</a>."
+#~| "ormation about replication status on the server, please visit the <a "
+#~| "f=\"#replication\">replication section</a>."
 #~ msgid ""
 #~ "For further information about replication status on the server, please "
 #~ "visit the <a href=\"#replication\">replication section</a>."
@@ -22866,9 +22900,9 @@ msgstr "Майдон номлари"
 #~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Агар ушбу танловни [kbd]\"nested\"[/kbd] деб белгиласангиз, фақат жадвал "
-#~ "номининг тахаллуси конфигурацион файлдаги $cfg[\"LeftFrameTableSeparator"
-#~ "\"] директивасида кўрсатилган усулда жадваллар бўлинади, лекин жадвал "
-#~ "номлари ўзгаришсиз қолади"
+#~ "номининг тахаллуси конфигурацион файлдаги "
+#~ "$cfg[\"LeftFrameTableSeparator\"] директивасида кўрсатилган усулда "
+#~ "жадваллар бўлинади, лекин жадвал номлари ўзгаришсиз қолади"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Жадвал номи ўрнига унинг шарҳини кўрсатиш"
@@ -23283,13 +23317,13 @@ msgstr "Майдон номлари"
 #~ msgid ""
 #~ "Enter each value in a separate field, enclosed in single quotes. If you "
 #~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or "
+#~ "'a\\'b')."
 #~ msgstr ""
 #~ "Ўгиришлар парамерлари қийматлари қуйидаги форматда бўлиши шарт: \"a\", "
 #~ "100, \"b\", \"c\"…<br />Тескари эгри чизиқ (\\) ва битталик қўштирноқ "
-#~ "(\") белгилари олдидан тескари эгри чизиқ бўлиши керак, масалан: \"\\\\xyz"
-#~ "\" ёки \"a\\\"b\"."
+#~ "(\") белгилари олдидан тескари эгри чизиқ бўлиши керак, масалан: \"\\"
+#~ "\\xyz\" ёки \"a\\\"b\"."
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
@@ -23298,8 +23332,8 @@ msgstr "Майдон номлари"
 #~ msgstr ""
 #~ "Ўгиришлар парамерлари қийматлари қуйидаги форматда бўлиши шарт: \"a\", "
 #~ "100, \"b\", \"c\"…<br />Тескари эгри чизиқ (\\) ва битталик қўштирноқ "
-#~ "(\") белгилари олдидан тескари эгри чизиқ бўлиши керак, масалан: \"\\\\xyz"
-#~ "\" ёки \"a\\\"b\"."
+#~ "(\") белгилари олдидан тескари эгри чизиқ бўлиши керак, масалан: \"\\"
+#~ "\\xyz\" ёки \"a\\\"b\"."
 
 #~ msgid "server name"
 #~ msgstr "сервер номи"
@@ -23385,8 +23419,8 @@ msgstr "Майдон номлари"
 #~ "conversion. Either configure PHP to enable these extensions or disable "
 #~ "charset conversion in phpMyAdmin."
 #~ msgstr ""
-#~ "Кодировкаларни конвертация қилиш учун керак бўлган \"iconv\" ёки \"recode"
-#~ "\" кенгайтмалари қўшилмаган. Ушбу кенгайтмаларни қўшган ҳолда PHP "
+#~ "Кодировкаларни конвертация қилиш учун керак бўлган \"iconv\" ёки "
+#~ "\"recode\" кенгайтмалари қўшилмаган. Ушбу кенгайтмаларни қўшган ҳолда PHP "
 #~ "дастурини созлаш ёки phpMyAdmin дастурида кодировкаларни конвертация "
 #~ "қилишни фаолсизлантириш керак."
 
