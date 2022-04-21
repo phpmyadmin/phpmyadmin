@@ -164,10 +164,7 @@ return static function (RouteCollector $routes): void {
             $routes->post('/drop-table', [StructureController::class, 'dropTable']);
             $routes->post('/empty-form', [StructureController::class, 'emptyForm']);
             $routes->post('/empty-table', [StructureController::class, 'emptyTable']);
-            $routes->addRoute(['GET', 'POST'], '/favorite-table', [
-                StructureController::class,
-                'addRemoveFavoriteTablesAction',
-            ]);
+            $routes->post('/favorite-table', [StructureController::class, 'addRemoveFavoriteTablesAction']);
             $routes->addRoute(['GET', 'POST'], '/real-row-count', [
                 StructureController::class,
                 'handleRealRowCountRequestAction',
