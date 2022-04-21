@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-01-23 08:23+0000\n"
+"PO-Revision-Date: 2022-04-23 11:50+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3217,7 +3217,7 @@ msgstr "En fazla yürütme süresi"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "[code]LOCK TABLES[/code] ifadesi kullan"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -3407,10 +3407,8 @@ msgid "Remember filename template"
 msgstr "Dosya adı şablonunu hatırla"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Sütunları merkezi listeden kaldır"
+msgstr "Tanımlardan DEFINER yan tümcesini kaldır"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5039,6 +5037,7 @@ msgstr "Gösterilen satır %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"\"%s\" adında bir sayfa zaten var, lütfen başka bir adla yeniden adlandırın."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7498,6 +7497,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"IndexedDB tarayıcınızda çalışmadığından ve phpMyAdmin yapılandırma "
+"depolamanız bunun için yapılandırılmadığından sayfa düzeninizi açamaz, "
+"kaydedemez veya silemezsiniz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, php-format
@@ -13247,12 +13249,8 @@ msgid "Could not save configuration"
 msgstr "Yapılandırma kaydedilemedi"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"Şu anki veritabanında phpMyAdmin yapılandırma depolaması %soluşturun%s."
+msgstr "phpMyAdmin yapılandırma depolama veritabanına erişilemedi."
 
 #: libraries/classes/Util.php:131
 #, php-format
