@@ -8,7 +8,7 @@
         {{ navigation.page_selector|raw }}
         {{ navigation.move_forward_buttons|raw }}
 
-        {% if navigation.number_total_page > 1 %}
+        {% if navigation.number_total_page != 1 %}
           <td><div class="navigation_separator">|</div></td>
         {% endif %}
 

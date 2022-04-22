@@ -933,6 +933,11 @@ class Results
             false
         );
 
+        // If the number of rows is unknown, stop here (don't add the End button)
+        if ($this->properties['unlim_num_rows'] === false) {
+            return $buttonsHtml;
+        }
+
         $inputForRealEnd = '';
         // prepare some options for the End button
         if ($isInnodb && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount']) {
