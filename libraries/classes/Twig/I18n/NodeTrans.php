@@ -74,7 +74,8 @@ class NodeTrans extends TransNode
 
         $function = $this->getTransFunction(
             $this->hasNode('plural'),
-            $this->hasNode('context')
+            $this->hasNode('context'),
+            false
         );
 
         if ($this->hasNode('notes')) {
@@ -145,8 +146,9 @@ class NodeTrans extends TransNode
      * @param bool $plural        Return plural or singular function to use
      * @param bool $hasMsgContext It has message context?
      */
-    protected function getTransFunction($plural, bool $hasMsgContext = false): string
+    protected function getTransFunction($plural, bool $hasMsgContext, bool $hasDomain): string
     {
+
         if ($hasMsgContext) {
             return $plural ? '_ngettext' : '_pgettext';
         }
