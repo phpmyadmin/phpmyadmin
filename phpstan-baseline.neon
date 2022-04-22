@@ -2201,11 +2201,6 @@ parameters:
 			path: libraries/classes/Sanitize.php
 
 		-
-			message: "#^Cannot assign offset 'criteria'\\|'criteriaAndOrColumn'\\|'criteriaAndOrRow'\\|'criteriaColumn'\\|'criteriaShow'\\|'criteriaSort'\\|'rows'\\|'TableList' to array\\|string\\.$#"
-			count: 1
-			path: libraries/classes/SavedSearches.php
-
-		-
 			message: "#^Offset 'criteriaColumn' does not exist on array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
