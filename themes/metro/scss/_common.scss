@@ -2461,6 +2461,8 @@ form.append_fields_form .tblFooters {
   margin-#{$left}: 75%;
   #{$right}: 0;
   width: max-content;
+  max-width: 100%;
+  overflow-wrap: break-word;
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
