@@ -8,6 +8,14 @@
   border-bottom: 0;
 }
 
+.card-img-container {
+  height: $card-img-height;
+  overflow: hidden;
+  img {
+    object-fit: cover;
+  }
+}
+
 .card-footer {
   border-top: 0;
 }
