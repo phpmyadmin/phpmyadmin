@@ -43,9 +43,9 @@ abstract class ExportPlugin implements Plugin
     {
         global $dbi;
 
-        $this->relation = new Relation($dbi);
-        $this->export = new Export($dbi);
-        $this->transformations = new Transformations();
+        $this->relation = $GLOBALS['containerBuilder']->get('relation');
+        $this->export = $GLOBALS['containerBuilder']->get('export');
+        $this->transformations = $GLOBALS['containerBuilder']->get('transformations');
         $this->init();
         $this->properties = $this->setProperties();
     }
