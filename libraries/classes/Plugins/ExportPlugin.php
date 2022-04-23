@@ -40,7 +40,7 @@ abstract class ExportPlugin implements Plugin
     protected $transformations;
 
     /**
-     * @psalm-supress InvalidArrayOffset, MixedAssignment, MixedMethodCall
+     * @psalm-suppress InvalidArrayOffset, MixedAssignment, MixedMethodCall
      */
     final public function __construct()
     {
