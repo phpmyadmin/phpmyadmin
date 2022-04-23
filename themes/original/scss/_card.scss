@@ -21,6 +21,7 @@
 .card-img-container {
   height: $card-img-height;
   overflow: hidden;
+
   img {
     object-fit: cover;
   }

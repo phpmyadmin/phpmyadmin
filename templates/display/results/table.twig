@@ -60,6 +60,7 @@
             </form>
           </td>
 
+          {% if navigation.is_last_page_known %}
           <td>
             <form action="{{ url('/sql') }}" method="post"{{ navigation.onsubmit|raw }}>
               {{ get_hidden_inputs(db, table) }}
@@ -79,9 +80,10 @@
               <input type="submit" name="navig" class="btn btn-secondary ajax" value="{{ end_text }}" title="{% trans %}End{% context %}Last page{% endtrans %}">
             </form>
           </td>
+          {% endif %}
         {% endif %}
 
-        {% if navigation.number_total_page > 1 %}
+        {% if navigation.number_total_page != 1 %}
           <td><div class="navigation_separator">|</div></td>
         {% endif %}
 

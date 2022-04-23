@@ -767,6 +767,7 @@ class Results
             'pos_next' => $posNext,
             'pos_last' => $posLast,
             'is_last_page' => $isLastPage,
+            'is_last_page_known' => $this->properties['unlim_num_rows'] !== false,
             'has_real_end_input' => $hasRealEndInput,
             'onsubmit' => $onsubmit,
         ];

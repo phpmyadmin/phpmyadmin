@@ -367,6 +367,7 @@ div.null_div {
   text-align: center;
   font-style: normal;
   min-width: 50px;
+
   label {
     width: 100%;
     height: 100%;
@@ -374,6 +375,7 @@ div.null_div {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+
     input {
       cursor: pointer;
     }
@@ -1806,6 +1808,8 @@ form.append_fields_form .tblFooters {
   position: absolute;
   margin-left: 75%;
   right: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
