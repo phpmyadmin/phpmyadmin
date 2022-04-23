@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2022-04-23 11:50+0000\n"
+"Last-Translator: Yonjae Lee <yjyj93@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.12.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -19182,13 +19182,11 @@ msgstr "테이블 네비게이션 바"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(현재)"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "사용가능한 MIME 형식"
+msgstr "사용가능한 미디어 형식"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
