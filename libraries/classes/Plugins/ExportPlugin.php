@@ -39,9 +39,11 @@ abstract class ExportPlugin implements Plugin
     /** @var Transformations */
     protected $transformations;
 
+    /**
+     * @psalm-supress InvalidArrayOffset, MixedAssignment, MixedMethodCall
+     */
     final public function __construct()
     {
-        global $dbi;
 
         $this->relation = $GLOBALS['containerBuilder']->get('relation');
         $this->export = $GLOBALS['containerBuilder']->get('export');
