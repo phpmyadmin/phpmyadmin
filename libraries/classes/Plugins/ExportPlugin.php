@@ -44,7 +44,6 @@ abstract class ExportPlugin implements Plugin
      */
     final public function __construct()
     {
-
         $this->relation = $GLOBALS['containerBuilder']->get('relation');
         $this->export = $GLOBALS['containerBuilder']->get('export');
         $this->transformations = $GLOBALS['containerBuilder']->get('transformations');
