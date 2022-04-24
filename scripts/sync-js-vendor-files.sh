@@ -59,8 +59,6 @@ echo 'Updating stickyfill'
 cp ./node_modules/stickyfilljs/dist/stickyfill.min.js js/vendor/stickyfill.min.js
 echo 'Updating blueimp-md5'
 cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
-echo 'Updating jquery.svg.js'
-cp ./node_modules/kbwood-jquery-svg/jquery.svg.js ./js/vendor/jquery/jquery.svg.js
 echo 'Updating jquery-hashchange'
 cp ./node_modules/jquery-hashchange/jquery.ba-hashchange.js ./js/vendor/jquery/jquery.ba-hashchange-2.0.js
 echo 'Updating jquery-uitablefilter'
