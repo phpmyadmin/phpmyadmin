@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-21 19:09+0000\n"
+"POT-Creation-Date: 2022-04-24 00:17+0000\n"
 "PO-Revision-Date: 2022-04-23 11:51+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1391,7 +1391,7 @@ msgstr "Zoeken:"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:263
+#: templates/display/results/table.twig:265
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/modals/add_index.twig:10 templates/modals/change_password.twig:10
 #: templates/modals/create_view.twig:10
@@ -1458,7 +1458,7 @@ msgstr "Paginanummer:"
 
 #: libraries/classes/BrowseForeigners.php:333
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:565
-#: templates/display/results/table.twig:97
+#: templates/display/results/table.twig:99
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
@@ -4339,7 +4339,7 @@ msgstr "Herken vergrendelde tabellen"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/Display/Results.php:2756
+#: libraries/classes/Display/Results.php:2757
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4355,8 +4355,8 @@ msgstr "Herken vergrendelde tabellen"
 #: templates/database/structure/structure_table_row.twig:66
 #: templates/database/triggers/row.twig:28
 #: templates/database/triggers/row.twig:31
-#: templates/display/results/table.twig:300
-#: templates/display/results/table.twig:301 templates/indexes.twig:34
+#: templates/display/results/table.twig:302
+#: templates/display/results/table.twig:303 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:480
@@ -4709,9 +4709,9 @@ msgstr "OpenDocument Tekst"
 #: templates/database/triggers/list.twig:16
 #: templates/database/triggers/list.twig:17
 #: templates/database/triggers/row.twig:41
-#: templates/display/results/table.twig:313
-#: templates/display/results/table.twig:314
-#: templates/display/results/table.twig:346 templates/export.twig:3
+#: templates/display/results/table.twig:315
+#: templates/display/results/table.twig:316
+#: templates/display/results/table.twig:348 templates/export.twig:3
 #: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -5199,7 +5199,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeggemaakt."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3765
+#: libraries/classes/Display/Results.php:3766
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6105,7 +6105,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Voeg tenminste één variabele toe aan de reeks!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
-#: libraries/classes/Display/Results.php:1067
+#: libraries/classes/Display/Results.php:1068
 #: libraries/classes/Plugins/Export/ExportSql.php:2197
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6716,7 +6716,7 @@ msgid "Show query box"
 msgstr "SQL-queryveld tonen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
-#: libraries/classes/Display/Results.php:2824
+#: libraries/classes/Display/Results.php:2825
 #: libraries/classes/Tracking.php:258
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
@@ -6725,8 +6725,8 @@ msgstr "SQL-queryveld tonen"
 #: templates/database/designer/main.twig:388
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
-#: templates/display/results/table.twig:308
-#: templates/display/results/table.twig:309 templates/export.twig:54
+#: templates/display/results/table.twig:310
+#: templates/display/results/table.twig:311 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
@@ -6992,10 +6992,10 @@ msgid "Ignore"
 msgstr "Negeren"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:480
-#: libraries/classes/Display/Results.php:2760
+#: libraries/classes/Display/Results.php:2761
 #: libraries/classes/Html/Generator.php:76
-#: templates/display/results/table.twig:304
-#: templates/display/results/table.twig:305
+#: templates/display/results/table.twig:306
+#: templates/display/results/table.twig:307
 msgid "Copy"
 msgstr "Kopiëren"
 
@@ -7033,7 +7033,7 @@ msgid "Polygon"
 msgstr "Polygoon"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: templates/display/results/table.twig:247
+#: templates/display/results/table.twig:249
 msgid "Geometry"
 msgstr "Geometrie"
 
@@ -8918,7 +8918,7 @@ msgstr "Tabel %s bestaat reeds!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3476 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3477 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd."
@@ -9609,18 +9609,18 @@ msgstr "De tabel naam kan niet langer zijn dan %d tekens."
 msgid "The table name cannot end with a space character."
 msgstr "De tabelnaam kan niet eindigen op een spatie."
 
-#: libraries/classes/Display/Results.php:1271
-#: templates/display/results/table.twig:202
+#: libraries/classes/Display/Results.php:1272
+#: templates/display/results/table.twig:204
 msgid "Partial texts"
 msgstr "Gedeeltelijke teksten"
 
-#: libraries/classes/Display/Results.php:1275
-#: templates/display/results/table.twig:206
+#: libraries/classes/Display/Results.php:1276
+#: templates/display/results/table.twig:208
 msgid "Full texts"
 msgstr "Volledige teksten"
 
-#: libraries/classes/Display/Results.php:1616
-#: libraries/classes/Display/Results.php:1642 libraries/classes/Util.php:2507
+#: libraries/classes/Display/Results.php:1617
+#: libraries/classes/Display/Results.php:1643 libraries/classes/Util.php:2507
 #: libraries/classes/Util.php:2530 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9633,8 +9633,8 @@ msgstr "Volledige teksten"
 msgid "Descending"
 msgstr "Aflopend"
 
-#: libraries/classes/Display/Results.php:1624
-#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2499
+#: libraries/classes/Display/Results.php:1625
+#: libraries/classes/Display/Results.php:1635 libraries/classes/Util.php:2499
 #: libraries/classes/Util.php:2522 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9647,41 +9647,41 @@ msgstr "Aflopend"
 msgid "Ascending"
 msgstr "Oplopend"
 
-#: libraries/classes/Display/Results.php:2800
-#: libraries/classes/Display/Results.php:2815
+#: libraries/classes/Display/Results.php:2801
+#: libraries/classes/Display/Results.php:2816
 msgid "The row has been deleted."
 msgstr "De rij is verwijderd."
 
-#: libraries/classes/Display/Results.php:2847
+#: libraries/classes/Display/Results.php:2848
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "stop proces"
 
-#: libraries/classes/Display/Results.php:3407
+#: libraries/classes/Display/Results.php:3408
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3774
+#: libraries/classes/Display/Results.php:3775
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3788
+#: libraries/classes/Display/Results.php:3789
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d in totaal, %2$d in de query"
 
-#: libraries/classes/Display/Results.php:3793
+#: libraries/classes/Display/Results.php:3794
 #, php-format
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/classes/Display/Results.php:3806 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3807 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
 
-#: libraries/classes/Display/Results.php:4136
+#: libraries/classes/Display/Results.php:4137
 msgid "Link not found!"
 msgstr "Link niet gevonden!"
 
@@ -14486,12 +14486,12 @@ msgid "The central list of columns for the current database is empty"
 msgstr "De centrale lijst met kolommen voor de huidige database is leeg"
 
 #: templates/database/central_columns/main.twig:166
-#: templates/display/results/table.twig:135
+#: templates/display/results/table.twig:137
 msgid "Filter rows"
 msgstr "Filter rijen"
 
 #: templates/database/central_columns/main.twig:167
-#: templates/display/results/table.twig:137
+#: templates/display/results/table.twig:139
 msgid "Search this table"
 msgstr "Zoek in deze tabel"
 
@@ -14554,7 +14554,7 @@ msgstr "Database commentaar:"
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
 #: templates/database/structure/index.twig:19
-#: templates/display/results/table.twig:332
+#: templates/display/results/table.twig:334
 #: templates/table/structure/display_structure.twig:376
 msgid "Print"
 msgstr "Afdrukken"
@@ -14868,8 +14868,8 @@ msgstr "Naam"
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/database/triggers/list.twig:13
-#: templates/display/results/table.twig:296
-#: templates/display/results/table.twig:297 templates/select_all.twig:4
+#: templates/display/results/table.twig:298
+#: templates/display/results/table.twig:299 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:57
 #: templates/server/privileges/privileges_table.twig:268
@@ -15133,8 +15133,8 @@ msgstr "routine"
 #: templates/database/privileges/index.twig:115
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/display/results/table.twig:295
-#: templates/display/results/table.twig:298 templates/select_all.twig:2
+#: templates/display/results/table.twig:297
+#: templates/display/results/table.twig:300 templates/select_all.twig:2
 #: templates/select_all.twig:6
 #: templates/server/privileges/users_overview.twig:120
 #: templates/server/privileges/users_overview.twig:123
@@ -15513,7 +15513,7 @@ msgid "Showing create queries"
 msgstr "Aanmaakquery's worden getoond"
 
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:371 templates/modals/create_view.twig:5
+#: templates/display/results/table.twig:373 templates/modals/create_view.twig:5
 #: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
 msgid "Create view"
 msgstr "VIEW aanmaken"
@@ -15669,82 +15669,82 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Volgende"
 
-#: templates/display/results/table.twig:75
-#: templates/display/results/table.twig:79 templates/list_navigator.twig:42
+#: templates/display/results/table.twig:76
+#: templates/display/results/table.twig:80 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Einde"
 
-#: templates/display/results/table.twig:105
+#: templates/display/results/table.twig:107
 msgid "Save edited data"
 msgstr "Sla aangepaste gegevens op"
 
-#: templates/display/results/table.twig:111
+#: templates/display/results/table.twig:113
 msgid "Restore column order"
 msgstr "Kolomvolgorde herstellen"
 
-#: templates/display/results/table.twig:122 templates/export.twig:149
+#: templates/display/results/table.twig:124 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Aantal rijen:"
 
-#: templates/display/results/table.twig:125
+#: templates/display/results/table.twig:127
 msgid "All"
 msgstr "Alle"
 
-#: templates/display/results/table.twig:143
+#: templates/display/results/table.twig:145
 msgid "Sort by key:"
 msgstr "Sorteren op sleutel:"
 
-#: templates/display/results/table.twig:192
+#: templates/display/results/table.twig:194
 #: templates/table/search/index.twig:102
 msgid "Extra options"
 msgstr "Extra opties"
 
-#: templates/display/results/table.twig:214
+#: templates/display/results/table.twig:216
 msgid "Relational key"
 msgstr "Relationele sleutel"
 
-#: templates/display/results/table.twig:218
+#: templates/display/results/table.twig:220
 msgid "Display column for relationships"
 msgstr "Toon kolom voor relaties"
 
-#: templates/display/results/table.twig:226
+#: templates/display/results/table.twig:228
 msgid "Show binary contents"
 msgstr "Toon binaire inhoud"
 
-#: templates/display/results/table.twig:230
+#: templates/display/results/table.twig:232
 msgid "Show BLOB contents"
 msgstr "Toon BLOB-inhoud"
 
-#: templates/display/results/table.twig:240
+#: templates/display/results/table.twig:242
 msgid "Hide browser transformation"
 msgstr "Browsertransformaties verbergen"
 
-#: templates/display/results/table.twig:252
+#: templates/display/results/table.twig:254
 msgid "Well Known Text"
 msgstr "Goed bekende tekst"
 
-#: templates/display/results/table.twig:256
+#: templates/display/results/table.twig:258
 msgid "Well Known Binary"
 msgstr "Goed gekende binaire waarde"
 
-#: templates/display/results/table.twig:328
+#: templates/display/results/table.twig:330
 #: templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Handelingen voor queryresultaat"
 
-#: templates/display/results/table.twig:334
+#: templates/display/results/table.twig:336
 msgid "Copy to clipboard"
 msgstr "Kopieer naar klembord"
 
-#: templates/display/results/table.twig:353
+#: templates/display/results/table.twig:355
 #: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Grafiek weergeven"
 
-#: templates/display/results/table.twig:361
+#: templates/display/results/table.twig:363
 msgid "Visualize GIS data"
 msgstr "GIS-gegevens visualiseren"
 
@@ -16238,13 +16238,13 @@ msgstr "phpMyAdmin Thema's"
 msgid "Get more themes!"
 msgstr "Bekijk meer thema's!"
 
-#: templates/home/themes.twig:7
+#: templates/home/themes.twig:8
 #, php-format
 msgid "Screenshot of the %s theme."
 msgstr "Schermafdruk van het %s thema."
 
 #. l10n: Choose the theme button in the themes list modal
-#: templates/home/themes.twig:12
+#: templates/home/themes.twig:14
 msgid "Take it"
 msgstr "Gebruik deze"
 
