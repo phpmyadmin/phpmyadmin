@@ -3498,10 +3498,6 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-"kbwood-jquery-svg@https://github.com/kbwood/svg/archive/1.5.0.tar.gz":
-  version "0.0.0"
-  resolved "https://github.com/kbwood/svg/archive/1.5.0.tar.gz#6acaad88192320fa3e498a345ca1c52b7334cb1e"
-
 kind-of@^6.0.2, kind-of@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"

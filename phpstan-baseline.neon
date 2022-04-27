@@ -1061,7 +1061,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/PrivilegesController.php
 
 		-
-			message: "#^Cannot access offset string on mixed\\.$#"
+			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -6347,6 +6347,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$cell_attrs of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, SimpleXMLElement\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
+			message: "#^Parameter \\#1 \\$sheets of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverTables\\(\\) expects array\\|SimpleXMLElement, array\\|SimpleXMLElement\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
