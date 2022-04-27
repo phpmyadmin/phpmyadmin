@@ -32,3 +32,9 @@
   --#{$variable-prefix}table-hover-color: #{$table-hover-color};
   --#{$variable-prefix}table-hover-bg: #{$table-hover-bg};
 }
+
+@media only screen and (min-width: 768px) {
+  .table th.position-sticky {
+    top: 49px;
+  }
+}

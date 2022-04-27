@@ -1085,7 +1085,6 @@ class Sql
         if ($profilingResults !== null) {
             $header = $response->getHeader();
             $scripts = $header->getScripts();
-            $scripts->addFile('vendor/stickyfill.min.js');
             $scripts->addFile('sql.js');
 
             $profiling = $this->getDetailedProfilingStats($profilingResults);
@@ -1495,7 +1494,6 @@ class Sql
 
         if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
-            $scripts->addFile('vendor/stickyfill.min.js');
             $scripts->addFile('sql.js');
             unset($GLOBALS['message']);
             //we don't need to buffer the output in getMessage here.

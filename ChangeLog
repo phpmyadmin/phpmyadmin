@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #16197 Replace the master/slave terminology
 - issue #17257 Replace libraries/vendor_config.php constants with an array
 - issue        Add the Bootstrap theme
+- issue #17499 Remove stickyfilljs JavaScript dependency
 
 5.1.4 (not yet released)
 - issue #17287 Fixed sorting the database list with "statistics" enabled on "Data" column creates a PHP type error

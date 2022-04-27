@@ -55,8 +55,6 @@ echo 'Updating tracekit'
 cp ./node_modules/tracekit/tracekit.js ./js/vendor/tracekit.js
 echo 'Updating u2f-api-polyfill'
 cp ./node_modules/u2f-api-polyfill/u2f-api-polyfill.js ./js/vendor/u2f-api-polyfill.js
-echo 'Updating stickyfill'
-cp ./node_modules/stickyfilljs/dist/stickyfill.min.js js/vendor/stickyfill.min.js
 echo 'Updating jquery-uitablefilter'
 cp ./node_modules/jquery-uitablefilter/jquery.uitablefilter.js js/vendor/jquery/jquery.uitablefilter.js
 echo 'Updating jquery-tablesorter'

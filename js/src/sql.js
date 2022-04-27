@@ -7,7 +7,6 @@
  * @test-module Sql
  */
 
-/* global Stickyfill */
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor */ // js/functions.js
 /* global makeGrid */ // js/makegrid.js
@@ -1089,9 +1088,3 @@ AJAX.registerOnload('sql.js', function () {
     Sql.makeProfilingChart();
     Sql.initProfilingTables();
 });
-
-/**
- * Polyfill to make table headers sticky.
- */
-var elements = $('.sticky');
-Stickyfill.add(elements);
