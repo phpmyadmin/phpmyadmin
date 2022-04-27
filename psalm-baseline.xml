@@ -321,7 +321,7 @@
       <code>$GLOBALS['cfg']['Server']['controluser']</code>
       <code>$GLOBALS['cfg']['Server']['hide_connection_errors']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="16">
       <code>$collation_connection</code>
       <code>$config_data</code>
       <code>$config_data</code>
@@ -330,7 +330,6 @@
       <code>$each_server</code>
       <code>$gd_nfo['GD Version']</code>
       <code>$path</code>
-      <code>$prefs['config_data']</code>
       <code>$request</code>
       <code>$server['verbose']</code>
       <code>$server_index</code>
@@ -363,12 +362,10 @@
       <code>$this-&gt;settings['Servers'][$server]</code>
       <code>$this-&gt;settings['Servers'][$this-&gt;settings['ServerDefault']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="32">
+    <MixedAssignment occurrences="30">
       <code>$GLOBALS['cfg']['LoginCookieValidity']</code>
       <code>$GLOBALS['isConfigLoading']</code>
       <code>$GLOBALS['isMinimumCommon']</code>
-      <code>$_SESSION['cache'][$cache_key]['userprefs_mtime']</code>
-      <code>$_SESSION['cache'][$cache_key]['userprefs_type']</code>
       <code>$collation_connection</code>
       <code>$config_data</code>
       <code>$default_value</code>
@@ -2544,7 +2541,7 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ManageController.php">
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="7">
       <code>$GLOBALS['json']</code>
       <code>$GLOBALS['return_url']</code>
       <code>$GLOBALS['return_url']</code>
@@ -2552,14 +2549,16 @@
       <code>$_FILES['import_file']['tmp_name']</code>
       <code>$configuration['ThemeDefault']</code>
       <code>$configuration['ThemeDefault']</code>
-      <code>$key</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">
       <code>$_FILES['import_file']['error']</code>
       <code>$_FILES['import_file']['tmp_name']</code>
       <code>$_FILES['import_file']['tmp_name']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="17">
+    <MixedAssignment occurrences="16">
       <code>$GLOBALS['all_ok']</code>
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['filename']</code>
@@ -2574,7 +2573,6 @@
       <code>$GLOBALS['return_url']</code>
       <code>$_POST[str_replace('/', '-', (string) $k)]</code>
       <code>$configuration</code>
-      <code>$key</code>
       <code>$v</code>
       <code>$val</code>
     </MixedAssignment>
@@ -4382,12 +4380,6 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['ThemeManager']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="1">
-      <code>$preferences['config_data']</code>
-    </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$preferences['config_data']['ThemeDefault']</code>
-    </MixedArrayAssignment>
   </file>
   <file src="libraries/classes/Controllers/Transformation/OverviewController.php">
     <MixedArgument occurrences="1">
@@ -14138,10 +14130,9 @@
       <code>$result['settings']</code>
       <code>$result['type']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$name</code>
       <code>$result</code>
-      <code>$result['type']</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -14244,27 +14235,19 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/UserPreferences.php">
-    <MixedArgument occurrences="2">
-      <code>$prefs['config_data']</code>
-      <code>$row['config_data']</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$path</code>
       <code>$url_params</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="2">
-      <code>$_SESSION['userconfig']['db']</code>
-      <code>$_SESSION['userconfig']['ts']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$prefs['config_data'][$path]</code>
-    </MixedArrayAssignment>
     <MixedArrayTypeCoercion occurrences="2">
       <code>$allowList[$path]</code>
       <code>$excludeList[$path]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="5">
+      <code>$configData</code>
+      <code>$configData</code>
       <code>$prefs['config_data'][$path]</code>
+      <code>$timestamp</code>
       <code>$value</code>
     </MixedAssignment>
     <PossiblyNullOperand occurrences="1">

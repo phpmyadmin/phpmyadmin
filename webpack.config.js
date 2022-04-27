@@ -144,7 +144,6 @@ module.exports = [
                     { from: path.resolve(__dirname, 'node_modules/tracekit/tracekit.js'), to: path.resolve(__dirname, 'js/vendor/tracekit.js') },
                     { from: path.resolve(__dirname, 'node_modules/u2f-api-polyfill/u2f-api-polyfill.js'), to: path.resolve(__dirname, 'js/vendor/u2f-api-polyfill.js') },
                     { from: path.resolve(__dirname, 'node_modules/stickyfilljs/dist/stickyfill.min.js'), to: path.resolve(__dirname, 'js/vendor/stickyfill.min.js') },
-                    { from: path.resolve(__dirname, 'node_modules/kbwood-jquery-svg/jquery.svg.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.svg.js') },
                     { from: path.resolve(__dirname, 'node_modules/jquery-uitablefilter/jquery.uitablefilter.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.uitablefilter.js') },
                     { from: path.resolve(__dirname, 'node_modules/tablesorter/dist/js/jquery.tablesorter.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.tablesorter.js') },
                     { from: path.resolve(__dirname, 'node_modules/jquery-debounce-throttle/index.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.debounce-1.0.6.js') },

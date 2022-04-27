@@ -16,6 +16,9 @@ use function basename;
 use function htmlspecialchars;
 use function http_build_query;
 use function is_array;
+use function is_int;
+use function is_numeric;
+use function is_string;
 use function json_decode;
 use function json_encode;
 use function str_contains;
@@ -66,23 +69,23 @@ class UserPreferences
      * * mtime - last modification time
      * * type - 'db' (config read from pmadb) or 'session' (read from user session)
      *
-     * @return array
+     * @psalm-return array{config_data: array, mtime: int, type: 'session'|'db'}
      */
-    public function load()
+    public function load(): array
     {
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->userPreferencesFeature === null) {
             // no pmadb table, use session storage
-            if (! isset($_SESSION['userconfig'])) {
-                $_SESSION['userconfig'] = [
-                    'db' => [],
-                    'ts' => time(),
-                ];
+            if (! isset($_SESSION['userconfig']) || ! is_array($_SESSION['userconfig'])) {
+                $_SESSION['userconfig'] = ['db' => [], 'ts' => time()];
             }
 
+            $configData = $_SESSION['userconfig']['db'] ?? null;
+            $timestamp = $_SESSION['userconfig']['ts'] ?? null;
+
             return [
-                'config_data' => $_SESSION['userconfig']['db'],
-                'mtime' => $_SESSION['userconfig']['ts'],
+                'config_data' => is_array($configData) ? $configData : [],
+                'mtime' => is_int($timestamp) ? $timestamp : time(),
                 'type' => 'session',
             ];
         }
@@ -100,10 +103,15 @@ class UserPreferences
             DatabaseInterface::FETCH_ASSOC,
             DatabaseInterface::CONNECT_CONTROL
         );
+        if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
+            return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
+        }
+
+        $configData = is_string($row['config_data']) ? json_decode($row['config_data'], true) : [];
 
         return [
-            'config_data' => $row ? json_decode($row['config_data'], true) : [],
-            'mtime' => $row ? $row['ts'] : time(),
+            'config_data' => is_array($configData) ? $configData : [],
+            'mtime' => is_numeric($row['ts']) ? (int) $row['ts'] : time(),
             'type' => 'db',
         ];
     }
