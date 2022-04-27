@@ -218,6 +218,9 @@ cleanup_composer_vendors() {
         -not -name Random.php \
         -not -name Rijndael.php \
         -print0 | xargs -0 rm
+    # See: https://github.com/phpseclib/phpseclib/issues/1781
+    # if vendor/phpseclib/phpseclib/phpseclib/Crypt/RSA.php is missing then openssl.cnf can be removed
+    rm vendor/phpseclib/phpseclib/phpseclib/openssl.cnf
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
