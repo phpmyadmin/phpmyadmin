@@ -1697,12 +1697,6 @@ form.append_fields_form .tblFooters {
   }
 }
 
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 60px;
-}
-
 .pma_table {
   td {
     position: static;
@@ -2840,12 +2834,6 @@ body {
   .pma-fieldset.tblFooters,
   .tblFooters {
     text-align: left;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .sticky {
-    top: 0;
   }
 }
 

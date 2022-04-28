@@ -33,7 +33,6 @@
     "postcss-cli": "^9.0.1",
     "rtlcss": "^3.3.0",
     "sass": "^1.42.1",
-    "stickyfilljs": "2.1.0",
     "tablesorter": "^2.31.3",
     "tracekit": "0.4.6",
     "u2f-api-polyfill": "0.4.4",
