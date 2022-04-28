@@ -106,7 +106,6 @@ class ZoomSearchController extends AbstractController
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $this->addScriptFiles([
-            'vendor/stickyfill.min.js',
             'makegrid.js',
             'sql.js',
             'vendor/jqplot/jquery.jqplot.js',

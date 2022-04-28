@@ -1111,7 +1111,7 @@ class Results
 
             $displayParams['emptypre'] = $emptyPreCondition ? 4 : 0;
 
-            $buttonHtml .= '<th class="column_action sticky d-print-none"' . $colspan
+            $buttonHtml .= '<th class="column_action position-sticky d-print-none"' . $colspan
                 . '>' . $fullOrPartialTextLink . '</th>';
         } elseif (
             $leftOrBoth
@@ -1125,7 +1125,7 @@ class Results
         } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
-            $buttonHtml .= '<th class="column_action sticky"></th>';
+            $buttonHtml .= '<th class="column_action position-sticky"></th>';
         }
 
         $this->properties['display_params'] = $displayParams;

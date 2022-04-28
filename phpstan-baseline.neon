@@ -8826,6 +8826,11 @@ parameters:
 			path: test/classes/CommonTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Config/FormDisplayTest.php
+
+		-
 			message: "#^Cannot access offset 'pma_testform' on mixed\\.$#"
 			count: 1
 			path: test/classes/Config/FormDisplayTest.php
@@ -10219,6 +10224,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Partitioning\\\\TablePartitionDefinitionTest\\:\\:testGetDetails\\(\\) has parameter \\$partitions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Partitioning/TablePartitionDefinitionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationCookieTest\\:\\:checkRulesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"

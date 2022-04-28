@@ -38,12 +38,7 @@ class SearchController extends AbstractController
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
 
-        $this->addScriptFiles([
-            'database/search.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-            'makegrid.js',
-        ]);
+        $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
         $this->checkParameters(['db']);
 

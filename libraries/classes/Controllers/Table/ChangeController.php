@@ -139,7 +139,6 @@ class ChangeController extends AbstractController
 
         $this->addScriptFiles([
             'makegrid.js',
-            'vendor/stickyfill.min.js',
             'sql.js',
             'table/change.js',
             'vendor/jquery/additional-methods.js',

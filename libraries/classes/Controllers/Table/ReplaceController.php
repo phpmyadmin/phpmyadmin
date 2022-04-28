@@ -108,13 +108,7 @@ final class ReplaceController extends AbstractController
          */
         $GLOBALS['goto_include'] = false;
 
-        $this->addScriptFiles([
-            'makegrid.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-            'indexes.js',
-            'gis_data_editor.js',
-        ]);
+        $this->addScriptFiles(['makegrid.js', 'sql.js', 'indexes.js', 'gis_data_editor.js']);
 
         $insertRows = $_POST['insert_rows'] ?? null;
         if (is_numeric($insertRows) && $insertRows != $GLOBALS['cfg']['InsertRows']) {

@@ -38,12 +38,7 @@ final class SqlController extends AbstractController
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
         $GLOBALS['back'] = $GLOBALS['back'] ?? null;
 
-        $this->addScriptFiles([
-            'makegrid.js',
-            'vendor/jquery/jquery.uitablefilter.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-        ]);
+        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $pageSettings = new PageSettings('Sql');
         $this->response->addHTML($pageSettings->getErrorHTML());
