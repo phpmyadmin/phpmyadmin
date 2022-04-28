@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -21,6 +22,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 use stdClass;
 
@@ -70,7 +72,11 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_indexes'] = null;
         $GLOBALS['sql_auto_increments'] = null;
 
-        $this->object = new ExportSql();
+        $this->object = new ExportSql(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations()
+        );
     }
 
     /**
