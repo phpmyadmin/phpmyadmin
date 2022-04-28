@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -40,7 +42,11 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         parent::setUp();
         $GLOBALS['server'] = 0;
-        $this->object = new ExportHtmlword();
+        $this->object = new ExportHtmlword(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations()
+        );
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -316,6 +322,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
             ->onlyMethods(['formatOneColumnDefinition'])
+            ->disableOriginalConstructor()
             ->getMock();
 
         // case 1
@@ -367,6 +374,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
             ->onlyMethods(['formatOneColumnDefinition'])
+            ->setConstructorArgs([new Relation($GLOBALS['dbi']), new Export($GLOBALS['dbi']), new Transformations()])
             ->getMock();
 
         $keys = [

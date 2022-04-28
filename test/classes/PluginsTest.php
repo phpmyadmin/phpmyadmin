@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Transformations;
 
 /**
  * @covers \PhpMyAdmin\Plugins
@@ -99,10 +102,26 @@ class PluginsTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $exportList = [
-            new Plugins\Export\ExportJson(),
-            new Plugins\Export\ExportOds(),
-            new Plugins\Export\ExportSql(),
-            new Plugins\Export\ExportXml(),
+            new Plugins\Export\ExportJson(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations()
+            ),
+            new Plugins\Export\ExportOds(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations()
+            ),
+            new Plugins\Export\ExportSql(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations()
+            ),
+            new Plugins\Export\ExportXml(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations()
+            ),
         ];
         $actual = Plugins::getChoice($exportList, 'xml');
         $expected = [

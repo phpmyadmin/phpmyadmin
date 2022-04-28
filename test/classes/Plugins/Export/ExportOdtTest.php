@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 use stdClass;
 
@@ -55,7 +57,11 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $this->object = new ExportOdt();
+        $this->object = new ExportOdt(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations()
+        );
     }
 
     /**
@@ -569,6 +575,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(ExportOdt::class)
             ->onlyMethods(['formatOneColumnDefinition'])
+            ->setConstructorArgs([new Relation($GLOBALS['dbi']), new Export($GLOBALS['dbi']), new Transformations()])
             ->getMock();
 
         // case 1

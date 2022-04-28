@@ -22,6 +22,7 @@ use function array_merge;
 use function array_shift;
 use function array_unique;
 use function bin2hex;
+use function call_user_func;
 use function chr;
 use function count;
 use function ctype_digit;
@@ -1599,14 +1600,9 @@ class Util
 
         /* Optional escaping */
         if ($escape !== null) {
-            if (is_array($escape)) {
-                $escapeClass = new $escape[1]();
-                $escapeMethod = $escape[0];
-            }
-
             foreach ($replace as $key => $val) {
-                if (isset($escapeClass, $escapeMethod)) {
-                    $replace[$key] = $escapeClass->$escapeMethod($val);
+                if (is_array($escape)) {
+                    $replace[$key] = (string) call_user_func([$escape[1], $escape[0]], $val);
                 } elseif ($escape === 'backquote') {
                     $replace[$key] = self::backquote($val);
                 } elseif (is_callable($escape)) {

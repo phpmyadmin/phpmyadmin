@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
+use PhpMyAdmin\Transformations;
 
 /**
  * @covers \PhpMyAdmin\Export
@@ -97,7 +99,11 @@ class ExportTest extends AbstractTestCase
      */
     public function testGetFinalFilenameAndMimetypeForFilename(): void
     {
-        $exportPlugin = new ExportPhparray();
+        $exportPlugin = new ExportPhparray(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations()
+        );
         $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
         $this->assertSame([
             'myfilename.php.zip',
