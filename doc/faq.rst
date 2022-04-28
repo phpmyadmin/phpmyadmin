@@ -1904,7 +1904,7 @@ to plot' field. Once you have decided over your criteria, click 'Go'
 to display the plot.
 
 After the plot is generated, you can use the
-mousewheel to zoom in and out of the plot. In addition, panning
+mouse wheel to zoom in and out of the plot. In addition, panning
 feature is enabled to navigate through the plot. You can zoom-in to a
 certain level of detail and use panning to locate your area of
 interest. Clicking on a point opens a dialogue box, displaying field

@@ -153,7 +153,6 @@ class Header
         $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->scripts->addFile('vendor/js.cookie.js');
-        $this->scripts->addFile('vendor/jquery/jquery.mousewheel.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('vendor/jquery/jquery.ba-hashchange-2.0.js');
