@@ -3715,10 +3715,10 @@ jquery-hashchange@^2.0.0:
   resolved "https://registry.yarnpkg.com/jquery-hashchange/-/jquery-hashchange-2.0.0.tgz#905b801803b6928fa8b3655381badf42dc49ba82"
   integrity sha512-9/RrnnUKw7qLy5e4X8nCusAlvXZPpUuNZv9BnpSfSfIY/RJLyhd1N1YRvP03H3RwEdx4TKTWZ59AnBgcrdfC3A==
 
-jquery-migrate@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.3.2.tgz#7829ee24de3054d0d2f42dd093390d8a7b7af01a"
-  integrity sha512-L3gYhr7yEtLUSAeqXSicVa0vRD4aGwjw/bWY8YzrO2o/qDY1BaMyP3oB3bZf5Auy3Hu9ynliio0CTyDWCBPVDw==
+jquery-migrate@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.4.0.tgz#915d6e914c76bd7410a58c86d20fec0052784af9"
+  integrity sha512-K0W02EhZyqjVpyF5pdi+t238cIfQACzMsXiX4AEfEOxPPfiZZFzf3brtFY21FOOEPiWZF4mH04TXHDE6e2YDyg==
 
 jquery-ui-dist@1.12.1:
   version "1.12.1"
