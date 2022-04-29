@@ -3720,10 +3720,12 @@ jquery-migrate@3.4.0:
   resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.4.0.tgz#915d6e914c76bd7410a58c86d20fec0052784af9"
   integrity sha512-K0W02EhZyqjVpyF5pdi+t238cIfQACzMsXiX4AEfEOxPPfiZZFzf3brtFY21FOOEPiWZF4mH04TXHDE6e2YDyg==
 
-jquery-ui-dist@1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/jquery-ui-dist/-/jquery-ui-dist-1.12.1.tgz#5c0815d3cc6f90ff5faaf5b268a6e23b4ca904fa"
-  integrity sha1-XAgV08xvkP9fqvWyaKbiO0ypBPo=
+jquery-ui-dist@1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/jquery-ui-dist/-/jquery-ui-dist-1.13.1.tgz#47dcc1bf9cec141221ece59b2c8eaabad846ec0e"
+  integrity sha512-Y711Pu4BRVrAlL58KSxX4ail74jaCJZaZcdNDLava+MgZeNwmVWmyYiK7KxyoJu1MB73eSunjJvYDbOuNrOA7w==
+  dependencies:
+    jquery ">=1.8.0 <4.0.0"
 
 jquery-ui-timepicker-addon@1.6.3:
   version "1.6.3"
@@ -3740,7 +3742,7 @@ jquery-validation@1.19.3:
   resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.3.tgz#50b350eba8b02bcfd119ba15f199487b7eb64086"
   integrity sha512-iXxCS5W7STthSTMFX/NDZfWHBLbJ1behVK3eAgHXAV8/0vRa9M4tiqHvJMr39VGWHMGdlkhrtrkBuaL2UlE8yw==
 
-jquery@3.6.0, jquery@>=1.2.6, jquery@>=1.5, jquery@>=1.7:
+jquery@3.6.0, jquery@>=1.2.6, jquery@>=1.5, jquery@>=1.7, "jquery@>=1.8.0 <4.0.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
