@@ -8546,27 +8546,12 @@ parameters:
 			path: libraries/classes/UserPreferences.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:checkRowCount\\(\\) has parameter \\$table with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:expandUserString\\(\\) has parameter \\$escape with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:expandUserString\\(\\) has parameter \\$updates with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -10612,11 +10597,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerDuplicateFirstNewline\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerExpandUserString\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
 

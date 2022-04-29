@@ -14329,11 +14329,10 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$array[$p]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="37">
+    <MixedAssignment occurrences="32">
       <code>$array</code>
       <code>$columnNames[]</code>
       <code>$columnNames[]</code>
-      <code>$escapeMethod</code>
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
       <code>$indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name']</code>
       <code>$indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part']</code>
@@ -14347,8 +14346,6 @@
       <code>$p</code>
       <code>$p</code>
       <code>$pos</code>
-      <code>$replace[$key]</code>
-      <code>$replace[$key]</code>
       <code>$requestedSort</code>
       <code>$requestedSortOrder</code>
       <code>$retval[]</code>
@@ -14363,18 +14360,12 @@
       <code>$unit</code>
       <code>$urlParams['tbl_group']</code>
       <code>$urlParams['tbl_type']</code>
-      <code>$val</code>
       <code>$value</code>
       <code>$value</code>
-      <code>$vars[$key]</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>int</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="2">
-      <code>$escapeMethod</code>
-      <code>new $escape[1]()</code>
-    </MixedMethodCall>
     <MixedOperand occurrences="5">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
       <code>$row['Column_name']</code>
@@ -16645,8 +16636,7 @@
     <MixedAssignment occurrences="1">
       <code>$type</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="19">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="18">
       <code>array</code>
       <code>array</code>
       <code>array</code>

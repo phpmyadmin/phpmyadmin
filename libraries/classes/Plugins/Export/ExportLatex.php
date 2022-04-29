@@ -326,14 +326,8 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
                     $GLOBALS['latex_data_caption'],
-                    [
-                        'texEscape',
-                        static::class,
-                    ],
-                    [
-                        'table' => $table_alias,
-                        'database' => $db_alias,
-                    ]
+                    [static::class, 'texEscape'],
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\label{'
                 . Util::expandUserString(
@@ -370,14 +364,8 @@ class ExportLatex extends ExportPlugin
                         '\\caption{'
                         . Util::expandUserString(
                             $GLOBALS['latex_data_continued_caption'],
-                            [
-                                'texEscape',
-                                static::class,
-                            ],
-                            [
-                                'table' => $table_alias,
-                                'database' => $db_alias,
-                            ]
+                            [static::class, 'texEscape'],
+                            ['table' => $table_alias, 'database' => $db_alias]
                         )
                         . '} \\\\ '
                     )
@@ -554,14 +542,8 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_caption'],
-                    [
-                        'texEscape',
-                        static::class,
-                    ],
-                    [
-                        'table' => $table_alias,
-                        'database' => $db_alias,
-                    ]
+                    [static::class, 'texEscape'],
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\label{'
                 . Util::expandUserString(
@@ -582,14 +564,8 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
-                    [
-                        'texEscape',
-                        static::class,
-                    ],
-                    [
-                        'table' => $table_alias,
-                        'database' => $db_alias,
-                    ]
+                    [static::class, 'texEscape'],
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\\\ ' . $crlf;
         }

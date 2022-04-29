@@ -513,7 +513,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for testExpandUserString
      *
-     * @return array
+     * @return array<int, string[]>
      */
     public function providerExpandUserString(): array
     {

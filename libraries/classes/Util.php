@@ -22,7 +22,6 @@ use function array_merge;
 use function array_shift;
 use function array_unique;
 use function bin2hex;
-use function call_user_func;
 use function chr;
 use function count;
 use function ctype_digit;
@@ -43,7 +42,6 @@ use function implode;
 use function in_array;
 use function ini_get;
 use function is_array;
-use function is_callable;
 use function is_object;
 use function is_scalar;
 use function is_string;
@@ -1543,22 +1541,16 @@ class Util
      * Formats user string, expanding @VARIABLES@, accepting strftime format
      * string.
      *
-     * @param string       $string  Text where to do expansion.
-     * @param array|string $escape  Function to call for escaping variable values.
-     *                              Can also be an array of:
-     *                              - the escape method name
-     *                              - the class that contains the method
-     *                              - location of the class (for inclusion)
-     * @param array        $updates Array with overrides for default parameters
-     *                              (obtained from GLOBALS).
-     *
-     * @return string
+     * @param string                     $string  Text where to do expansion.
+     * @param callable|null              $escape  Function to call for escaping variable values.
+     * @param array<string, string|null> $updates Array with overrides for default parameters (obtained from GLOBALS).
+     * @psalm-param callable(string):string|null $escape
      */
     public static function expandUserString(
-        $string,
-        $escape = null,
+        string $string,
+        ?callable $escape = null,
         array $updates = []
-    ) {
+    ): string {
         /* Content */
         $vars = [];
         $vars['http_host'] = Core::getenv('HTTP_HOST');
@@ -1600,15 +1592,7 @@ class Util
 
         /* Optional escaping */
         if ($escape !== null) {
-            foreach ($replace as $key => $val) {
-                if (is_array($escape)) {
-                    $replace[$key] = (string) call_user_func([$escape[1], $escape[0]], $val);
-                } elseif ($escape === 'backquote') {
-                    $replace[$key] = self::backquote($val);
-                } elseif (is_callable($escape)) {
-                    $replace[$key] = $escape($val);
-                }
-            }
+            $replace = array_map($escape, $replace);
         }
 
         /* Backward compatibility in 3.5.x */
@@ -2563,7 +2547,7 @@ class Util
      */
     public static function isInteger($input): bool
     {
-        return ctype_digit((string) $input);
+        return is_scalar($input) && ctype_digit((string) $input);
     }
 
     /**
