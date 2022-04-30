@@ -520,7 +520,7 @@ Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel
         customDict.push(username);
     }
 
-    zxcvbnts.core.ZxcvbnOptions.setOptions({ dictionary: { userInputs: customDict } });
+    zxcvbnts.core.zxcvbnOptions.setOptions({ dictionary: { userInputs: customDict } });
     var zxcvbnObject = zxcvbnts.core.zxcvbn(value);
     var strength = zxcvbnObject.score;
     strength = parseInt(strength);
