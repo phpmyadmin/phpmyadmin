@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-02-27 11:58+0000\n"
-"Last-Translator: Aadel Lahdili <lah.aadel@gmail.com>\n"
+"PO-Revision-Date: 2022-05-02 04:11+0000\n"
+"Last-Translator: شادي جعفر Shadi Gaafar <shadialaghbari@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.11.1-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -45,13 +45,13 @@ msgstr "الأسئلة تحت 1,000"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr ""
+msgstr "تم تشغيل أقل من 1000 سؤال على هذا الخادوم. قد لا تكون التوصيات دقيقة."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "دع الخادوم يعمل لفترة أطول حتى يتم تنفيذ قدر أكبر من الاستعلامات."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -65,7 +65,7 @@ msgstr "النسبة المئوية للاستعلامات البطيئة"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "هناك الكثير من الاستعلامات البطيئة مقارنةً المجموع الكلي للاستعلامات."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
@@ -73,22 +73,22 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"قد ترغب في زيادة المدّة الزمنية للاستعلام {long_query_time} أو تحسين "
+"الاستعلامات المدرجة في سجل الاستعلامات البطيئة."
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "يجب أن يكون مُعدّل الاستعلام البطيء أقل من 5 %%، قيمتك هي %%"
 
 #: libraries/advisory_rules_generic.php:50
-#, fuzzy
-#| msgid "Show query box"
 msgid "Slow query rate"
-msgstr "إظهار صندوق الإستعلام"
+msgstr "معدّل الاستعلام البطيء"
 
 #: libraries/advisory_rules_generic.php:54
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "هناك نسبة مئوية عالية من الاستعلامات البطيئة مقارنة بوقت تشغيل الخادوم."
 
 #: libraries/advisory_rules_generic.php:58
 #, php-format
@@ -2176,6 +2176,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"تمكين إذا كنت تريد سجل الاستعلام المستند إلى قاعدة البيانات (يتطلب تكوين "
+"الإعداد الخاص بوحدة تخزين PhpmyAdmin). إذا تم تعطيل ذلك، فإن هذا يستخدم JS-"
+"Routines لعرض محفوظات الاستعلام (التي فقدت عن طريق إغلاق النافذة)."
 
 #: libraries/classes/Config/Descriptions.php:345
 msgid ""
@@ -2226,6 +2229,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
+"اتركه فارغاً إذا كانت مِيزة محفوظات الاستعلام غير مدعمة، يوصى بـ: [kbd] "
+"pma__history[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:373
 msgid ""
@@ -2592,7 +2597,7 @@ msgstr "عدد الصفوف للنصوص CHAR / VARCHAR."
 #: libraries/classes/Config/Descriptions.php:555
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "تسجيل استعلامات SQL ووقت تنفيذها ، ليتم عرضها في وحدة التحكم"
+msgstr "تسجيل استعلامات SQL ووقت تنفيذها، ليتم عرضها في المِعراض"
 
 #: libraries/classes/Config/Descriptions.php:556
 msgid "Tab that is displayed when entering a database."
@@ -2708,10 +2713,8 @@ msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "منع تعديل الأعمدة من نوع BLOB  و BINARY"
 
 #: libraries/classes/Config/Descriptions.php:583
-#, fuzzy
-#| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
-msgstr "عدد الإستعلامات التي حفظت"
+msgstr "كم عدد الاستعلامات التي يتم الاحتفاظ بها في المحفوظات."
 
 #: libraries/classes/Config/Descriptions.php:584
 #, fuzzy
@@ -3437,7 +3440,7 @@ msgstr "تحذيرات"
 #: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "المِعراض"
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
@@ -3738,11 +3741,11 @@ msgstr "حماية الأعمدة من نوع BINARY"
 
 #: libraries/classes/Config/Descriptions.php:869
 msgid "Permanent query history"
-msgstr ""
+msgstr "محفوظات استعلام دائمة"
 
 #: libraries/classes/Config/Descriptions.php:870
 msgid "Query history length"
-msgstr "طول سجل طلب البحث"
+msgstr "طول محفوظات الاستعلام"
 
 #: libraries/classes/Config/Descriptions.php:871
 msgid "Recoding engine"
@@ -3847,7 +3850,7 @@ msgstr "إخفاء قواعد البيانات"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "SQL query history table"
-msgstr "جدول سجل استعلام SQL"
+msgstr "جدول محفوظات استعلام SQL"
 
 #: libraries/classes/Config/Descriptions.php:896
 msgid "Server hostname"
@@ -4258,10 +4261,8 @@ msgid "Send error reports"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:975
-#, fuzzy
-#| msgid "Issued queries"
 msgid "Enter executes queries in console"
-msgstr "إستعلامات صادرة"
+msgstr "زر الإدخال يقوم بتنفيذ الاستعلامات في المِعراض"
 
 #: libraries/classes/Config/Descriptions.php:976
 #, fuzzy
@@ -4271,10 +4272,8 @@ msgstr "إعداد الخادم"
 
 #: libraries/classes/Config/Descriptions.php:977
 #: templates/console/display.twig:153
-#, fuzzy
-#| msgid "Show query box"
 msgid "Show query history at start"
-msgstr "إظهار صندوق الإستعلام"
+msgstr "إظهار محفوظات الاستعلام"
 
 #: libraries/classes/Config/Descriptions.php:978
 #: templates/console/display.twig:149
@@ -4299,13 +4298,11 @@ msgstr "بدل إلى الجدول المنسوخ"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "Console height"
-msgstr ""
+msgstr "ارتفاع المِعراض"
 
 #: libraries/classes/Config/Descriptions.php:983
-#, fuzzy
-#| msgid "Browse mode"
 msgid "Console mode"
-msgstr "وضع الإستعراض"
+msgstr "وضع المِعراض"
 
 #: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:64
@@ -4769,7 +4766,7 @@ msgstr "لا توجد إشارات مرجعية"
 
 #: libraries/classes/Console.php:128
 msgid "SQL Query Console"
-msgstr "صندوق إستعلام SQL"
+msgstr "مِعراض استعلام SQL"
 
 #: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:343
@@ -9388,11 +9385,9 @@ msgid "Profiling"
 msgstr "جانبي"
 
 #: libraries/classes/Html/Generator.php:746
-#, fuzzy
-#| msgid "Edit mode"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "وضع التعديل"
+msgstr "تحرير مُضمّن"
 
 #: libraries/classes/Html/Generator.php:870
 msgid "Static analysis:"
@@ -13699,10 +13694,8 @@ msgid "Clear"
 msgstr ""
 
 #: templates/console/display.twig:7
-#, fuzzy
-#| msgid "SQL history"
 msgid "History"
-msgstr "نصوص SQL سابقة"
+msgstr "المحفوظات"
 
 #: templates/console/display.twig:11 templates/console/display.twig:99
 #, fuzzy
@@ -16731,10 +16724,8 @@ msgid "Bookmarked SQL query:"
 msgstr "علامة مرجعية SQL-استعلام"
 
 #: templates/relation/check_relations.twig:220
-#, fuzzy
-#| msgid "SQL history"
 msgid "SQL history:"
-msgstr "نصوص SQL سابقة"
+msgstr "محفوظات SQL :"
 
 #: templates/relation/check_relations.twig:245
 #, fuzzy
