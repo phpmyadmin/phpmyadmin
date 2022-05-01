@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-24 00:17+0000\n"
+"POT-Creation-Date: 2022-05-01 00:24+0000\n"
 "PO-Revision-Date: 2022-03-08 08:54+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3301,7 +3301,7 @@ msgstr "テーブルのキャプションを含める"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:731
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:384
-#: libraries/classes/Plugins/Export/ExportLatex.php:543
+#: libraries/classes/Plugins/Export/ExportLatex.php:531
 #: libraries/classes/Plugins/Export/ExportOdt.php:488
 #: libraries/classes/Plugins/Export/ExportTexytext.php:386
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:543
@@ -3488,7 +3488,7 @@ msgstr "カレンダーの最初の曜日"
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:478
-#: libraries/classes/Util.php:1884 libraries/config.values.php:155
+#: libraries/classes/Util.php:1864 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3605,8 +3605,8 @@ msgstr "変更追跡機能"
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
 #: libraries/classes/Menu.php:360 libraries/classes/Menu.php:483
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1885
-#: libraries/classes/Util.php:1900 libraries/classes/Util.php:1917
+#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1865
+#: libraries/classes/Util.php:1880 libraries/classes/Util.php:1897
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4565,8 +4565,8 @@ msgstr "詳細"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1899
-#: libraries/classes/Util.php:1916 libraries/config.values.php:60
+#: libraries/classes/Util.php:1424 libraries/classes/Util.php:1879
+#: libraries/classes/Util.php:1896 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4610,8 +4610,8 @@ msgstr "OpenDocument テキスト"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:380
 #: libraries/classes/Menu.php:511 libraries/classes/Server/Privileges.php:1512
-#: libraries/classes/Util.php:1888 libraries/classes/Util.php:1903
-#: libraries/classes/Util.php:1920 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:1868 libraries/classes/Util.php:1883
+#: libraries/classes/Util.php:1900 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4654,8 +4654,8 @@ msgstr "LOAD DATA 文を使用した CSV の読み込み"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:390
-#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1889
-#: libraries/classes/Util.php:1904 libraries/classes/Util.php:1921
+#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1869
+#: libraries/classes/Util.php:1884 libraries/classes/Util.php:1901
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5048,7 +5048,7 @@ msgstr ""
 "phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧く"
 "ださい。"
 
-#: libraries/classes/Controllers/Database/SearchController.php:60
+#: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
@@ -5122,7 +5122,7 @@ msgstr "不明"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:82
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:523
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:627
-#: libraries/classes/Plugins/Export/ExportLatex.php:624
+#: libraries/classes/Plugins/Export/ExportLatex.php:600
 #: libraries/classes/Plugins/Export/ExportOdt.php:777
 #: libraries/classes/Plugins/Export/ExportTexytext.php:613
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
@@ -5159,7 +5159,7 @@ msgstr "はい"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
-#: libraries/classes/Controllers/Table/ReplaceController.php:448
+#: libraries/classes/Controllers/Table/ReplaceController.php:442
 #: libraries/classes/Core.php:711 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "変更なし"
@@ -5406,7 +5406,7 @@ msgstr ""
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:768
-#: libraries/classes/Controllers/Sql/SqlController.php:174
+#: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
@@ -5797,13 +5797,13 @@ msgstr "その他"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:156
-#: libraries/classes/Util.php:540 libraries/classes/Util.php:572
+#: libraries/classes/Util.php:539 libraries/classes/Util.php:571
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:158
-#: libraries/classes/Util.php:538 libraries/classes/Util.php:570
+#: libraries/classes/Util.php:537 libraries/classes/Util.php:569
 msgid "."
 msgstr "."
 
@@ -5911,45 +5911,45 @@ msgstr "プロセス"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
-#: libraries/classes/Util.php:448
+#: libraries/classes/Util.php:447
 msgid "B"
 msgstr "バイト"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
-#: libraries/classes/Util.php:450
+#: libraries/classes/Util.php:449
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#: libraries/classes/Util.php:452
+#: libraries/classes/Util.php:451
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:200
-#: libraries/classes/Util.php:454
+#: libraries/classes/Util.php:453
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:201
-#: libraries/classes/Util.php:456
+#: libraries/classes/Util.php:455
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:202
-#: libraries/classes/Util.php:458
+#: libraries/classes/Util.php:457
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
-#: libraries/classes/Util.php:460
+#: libraries/classes/Util.php:459
 msgid "EiB"
 msgstr "EiB"
 
@@ -5969,7 +5969,7 @@ msgid "Traffic"
 msgstr "トラフィック"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1890
+#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1870
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "設定"
@@ -6201,7 +6201,7 @@ msgstr "EXPLAIN の結果"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:488
 #: libraries/classes/Server/Status/Processes.php:138
-#: libraries/classes/Util.php:1886 libraries/config.values.php:157
+#: libraries/classes/Util.php:1866 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6480,7 +6480,7 @@ msgstr "文字セットを変更しています"
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:496
 #: libraries/classes/Index.php:524
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:626
-#: libraries/classes/Plugins/Export/ExportLatex.php:624
+#: libraries/classes/Plugins/Export/ExportLatex.php:600
 #: libraries/classes/Plugins/Export/ExportOdt.php:776
 #: libraries/classes/Plugins/Export/ExportTexytext.php:613
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
@@ -7427,7 +7427,7 @@ msgid "Hide"
 msgstr "隠す"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:699
-#: libraries/classes/Controllers/Table/ChangeController.php:216
+#: libraries/classes/Controllers/Table/ChangeController.php:215
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7499,77 +7499,77 @@ msgstr "12 月"
 #. l10n: Short month name for January
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:728
-#: libraries/classes/Util.php:656
+#: libraries/classes/Util.php:655
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name for February
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:730
-#: libraries/classes/Util.php:658
+#: libraries/classes/Util.php:657
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name for March
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:732
-#: libraries/classes/Util.php:660
+#: libraries/classes/Util.php:659
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:734
-#: libraries/classes/Util.php:662
+#: libraries/classes/Util.php:661
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name for June
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:738
-#: libraries/classes/Util.php:666
+#: libraries/classes/Util.php:665
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:740
-#: libraries/classes/Util.php:668
+#: libraries/classes/Util.php:667
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name for August
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
-#: libraries/classes/Util.php:670
+#: libraries/classes/Util.php:669
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name for September
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
-#: libraries/classes/Util.php:672
+#: libraries/classes/Util.php:671
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name for October
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
-#: libraries/classes/Util.php:674
+#: libraries/classes/Util.php:673
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name for November
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:748
-#: libraries/classes/Util.php:676
+#: libraries/classes/Util.php:675
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name for December
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:750
-#: libraries/classes/Util.php:678
+#: libraries/classes/Util.php:677
 msgid "Dec"
 msgstr "12 月"
 
@@ -7622,37 +7622,37 @@ msgstr "日"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:768
-#: libraries/classes/Util.php:684
+#: libraries/classes/Util.php:683
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name for Tuesday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:770
-#: libraries/classes/Util.php:686
+#: libraries/classes/Util.php:685
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name for Wednesday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:772
-#: libraries/classes/Util.php:688
+#: libraries/classes/Util.php:687
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name for Thursday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:774
-#: libraries/classes/Util.php:690
+#: libraries/classes/Util.php:689
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name for Friday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:776
-#: libraries/classes/Util.php:692
+#: libraries/classes/Util.php:691
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name for Saturday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:778
-#: libraries/classes/Util.php:694
+#: libraries/classes/Util.php:693
 msgid "Sat"
 msgstr "土"
 
@@ -8659,13 +8659,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "セキュリティで保護されていない接続"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:247
-#: libraries/classes/Sql.php:1155
+#: libraries/classes/Controllers/Sql/SqlController.php:246
+#: libraries/classes/Sql.php:1154
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:254
+#: libraries/classes/Controllers/Sql/SqlController.php:253
 msgid "Bookmark not created!"
 msgstr "ブックマークが作成されていません!"
 
@@ -8804,7 +8804,7 @@ msgstr "表示カラムは正常に更新されました。"
 msgid "Internal relationships were successfully updated."
 msgstr "内部リレーションは正常に更新されました。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:325
+#: libraries/classes/Controllers/Table/ReplaceController.php:319
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"
@@ -9425,8 +9425,8 @@ msgid "Full texts"
 msgstr "全文"
 
 #: libraries/classes/Display/Results.php:1617
-#: libraries/classes/Display/Results.php:1643 libraries/classes/Util.php:2507
-#: libraries/classes/Util.php:2530 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1643 libraries/classes/Util.php:2487
+#: libraries/classes/Util.php:2510 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9439,8 +9439,8 @@ msgid "Descending"
 msgstr "降順"
 
 #: libraries/classes/Display/Results.php:1625
-#: libraries/classes/Display/Results.php:1635 libraries/classes/Util.php:2499
-#: libraries/classes/Util.php:2522 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1635 libraries/classes/Util.php:2479
+#: libraries/classes/Util.php:2502 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -10134,7 +10134,7 @@ msgstr "関数"
 #: libraries/classes/InsertEdit.php:346
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:368
-#: libraries/classes/Plugins/Export/ExportLatex.php:535
+#: libraries/classes/Plugins/Export/ExportLatex.php:523
 #: libraries/classes/Plugins/Export/ExportOdt.php:370
 #: libraries/classes/Plugins/Export/ExportOdt.php:472
 #: libraries/classes/Plugins/Export/ExportTexytext.php:288
@@ -10211,7 +10211,7 @@ msgstr "%1$s （もしかして <code>%2$s</code>）"
 
 #: libraries/classes/Menu.php:238
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1429 libraries/classes/Util.php:1915
+#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1895
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10221,8 +10221,8 @@ msgstr "表示"
 
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:364
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1901
-#: libraries/classes/Util.php:1918 libraries/config.values.php:64
+#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1881
+#: libraries/classes/Util.php:1898 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10234,7 +10234,7 @@ msgstr "検索"
 
 #: libraries/classes/Menu.php:268
 #: libraries/classes/Navigation/Nodes/NodeTable.php:303
-#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1919
+#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1899
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10244,8 +10244,8 @@ msgid "Insert"
 msgstr "挿入"
 
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:404
-#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1906
-#: libraries/classes/Util.php:1922 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1886
+#: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10254,14 +10254,14 @@ msgid "Privileges"
 msgstr "権限"
 
 #: libraries/classes/Menu.php:305 libraries/classes/Menu.php:315
-#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1430
-#: libraries/classes/Util.php:1905 libraries/classes/Util.php:1923
+#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1429
+#: libraries/classes/Util.php:1885 libraries/classes/Util.php:1903
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "操作"
 
 #: libraries/classes/Menu.php:321 libraries/classes/Menu.php:430
-#: libraries/classes/Util.php:1910 libraries/classes/Util.php:1924
+#: libraries/classes/Util.php:1890 libraries/classes/Util.php:1904
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
@@ -10274,7 +10274,7 @@ msgstr "SQL コマンドの追跡"
 #: libraries/classes/Plugins/Export/ExportSql.php:2072
 #: libraries/classes/Plugins/Export/ExportTexytext.php:535
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1909 libraries/classes/Util.php:1925
+#: libraries/classes/Util.php:1889 libraries/classes/Util.php:1905
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "トリガ"
@@ -10284,11 +10284,11 @@ msgstr "トリガ"
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1902
+#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1882
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1907
+#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1887
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "ルーチン"
@@ -10298,15 +10298,15 @@ msgstr "ルーチン"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1908 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1888 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1911
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1891
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1912
+#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1892
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "主要カラム"
@@ -10316,12 +10316,12 @@ msgid "User accounts"
 msgstr "ユーザアカウント"
 
 #: libraries/classes/Menu.php:536 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1891 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1871 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "バイナリログ"
 
 #: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1892
+#: libraries/classes/Util.php:1872
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10329,21 +10329,21 @@ msgid "Replication"
 msgstr "レプリケーション"
 
 #: libraries/classes/Menu.php:549 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1893 libraries/config.values.php:159
+#: libraries/classes/Util.php:1873 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "変数"
 
-#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1894
+#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1874
 msgid "Charsets"
 msgstr "文字セット"
 
-#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1896
+#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1876
 msgid "Engines"
 msgstr "エンジン"
 
-#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1895
+#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1875
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "プラグイン"
@@ -10439,7 +10439,7 @@ msgstr "新規作成"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:272
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:365
-#: libraries/classes/Plugins/Export/ExportLatex.php:534
+#: libraries/classes/Plugins/Export/ExportLatex.php:522
 #: libraries/classes/Plugins/Export/ExportOdt.php:367
 #: libraries/classes/Plugins/Export/ExportOdt.php:469
 #: libraries/classes/Plugins/Export/ExportTexytext.php:287
@@ -11146,7 +11146,7 @@ msgstr "テーブルのデータのダンプ"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:371
-#: libraries/classes/Plugins/Export/ExportLatex.php:536
+#: libraries/classes/Plugins/Export/ExportLatex.php:524
 #: libraries/classes/Plugins/Export/ExportOdt.php:373
 #: libraries/classes/Plugins/Export/ExportOdt.php:475
 #: libraries/classes/Plugins/Export/ExportTexytext.php:289
@@ -11171,7 +11171,7 @@ msgstr "NULL"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:281
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:374
-#: libraries/classes/Plugins/Export/ExportLatex.php:537
+#: libraries/classes/Plugins/Export/ExportLatex.php:525
 #: libraries/classes/Plugins/Export/ExportOdt.php:376
 #: libraries/classes/Plugins/Export/ExportOdt.php:478
 #: libraries/classes/Plugins/Export/ExportTexytext.php:290
@@ -11192,7 +11192,7 @@ msgid "Default"
 msgstr "デフォルト値"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:378
-#: libraries/classes/Plugins/Export/ExportLatex.php:539
+#: libraries/classes/Plugins/Export/ExportLatex.php:527
 #: libraries/classes/Plugins/Export/ExportOdt.php:482
 #: libraries/classes/Plugins/Export/ExportTexytext.php:382
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:535
@@ -11353,7 +11353,7 @@ msgstr "データベース:"
 msgid "Data:"
 msgstr "データ:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:512
+#: libraries/classes/Plugins/Export/ExportLatex.php:500
 msgid "Structure:"
 msgstr "構造:"
 
@@ -11788,11 +11788,11 @@ msgstr "値がゼロのものに対して <code>AUTO_INCREMENT</code> を使用�
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:586
+#: libraries/classes/Plugins.php:609
 msgid "This format has no options"
 msgstr "この書式にはオプションはありません"
 
-#: libraries/classes/Plugins.php:603
+#: libraries/classes/Plugins.php:626
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定ファイルに無効な認証方法が指定されています:"
 
@@ -11936,7 +11936,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: libraries/classes/Util.php:699
+#: libraries/classes/Util.php:698
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %B %d 日 %H:%M"
 
@@ -12866,7 +12866,7 @@ msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を�
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/classes/Sql.php:1337
+#: libraries/classes/Sql.php:1336
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12875,7 +12875,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: libraries/classes/Sql.php:1351
+#: libraries/classes/Sql.php:1350
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13465,51 +13465,51 @@ msgstr "プロファイルを更新しました。"
 msgid "Password is too long!"
 msgstr "パスワードが長すぎます!"
 
-#: libraries/classes/UserPreferences.php:171
+#: libraries/classes/UserPreferences.php:179
 msgid "Could not save configuration"
 msgstr "設定が保存できません"
 
-#: libraries/classes/UserPreferences.php:185
+#: libraries/classes/UserPreferences.php:193
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmin 環境保管領域のデータベースにアクセスできませんでした。"
 
-#: libraries/classes/Util.php:129
+#: libraries/classes/Util.php:128
 #, php-format
 msgid "Max: %s%s"
 msgstr "最長: %s%s"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:664
+#: libraries/classes/Util.php:663
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:682
+#: libraries/classes/Util.php:681
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "日"
 
-#: libraries/classes/Util.php:720
+#: libraries/classes/Util.php:719
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "午後"
 
-#: libraries/classes/Util.php:722
+#: libraries/classes/Util.php:721
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "午前"
 
-#: libraries/classes/Util.php:793
+#: libraries/classes/Util.php:792
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
-#: libraries/classes/Util.php:1887
+#: libraries/classes/Util.php:1867
 msgid "Users"
 msgstr "ユーザ"
 
-#: libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:2471
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "ソート"
