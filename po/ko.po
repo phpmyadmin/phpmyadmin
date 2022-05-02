@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-05-02 09:53+0000\n"
-"Last-Translator: 가석현 <shga89@naver.com>\n"
+"PO-Revision-Date: 2022-05-03 16:53+0000\n"
+"Last-Translator: dong heonhui <spamhunhee@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
 "Language: ko\n"
@@ -56,10 +56,9 @@ msgid ""
 msgstr "더 많은 양의 쿼리를 실행할 때까지 서버를 더 오래 실행하십시오."
 
 #: libraries/advisory_rules_generic.php:32
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "연결 수"
+msgstr "현재 쿼리 수: %s"
 
 #: libraries/advisory_rules_generic.php:37
 msgid "Percentage of slow queries"
@@ -4792,30 +4791,20 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "데이터베이스 서버가 지원한다면 SSL 연결을 사용해야 합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"만약 이것이 필요하다고 느낀다면, 추가적인 보안 설정을 하세요 - %shost "
-"authentication%s 설정과 %strusted proxies list%s. 하지만 IP 기반 보안은, 당신"
-"이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 않습니다."
+"만약 필요한 경우, %1$shost authentication%2$s 설정과 %3$strusted proxies "
+"list%4$s에서 추가적인 보안 설정을 하세요. 그러나 귀하의 IP가 귀하를 포함하여 "
+"수천 명의 사용자가 연결되어 있는 ISP에 속한 경우에는 IP 기반 보호가 "
+"안정적이지 않을 수 있습니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:195
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -4823,10 +4812,10 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"[kbd]config[/kbd] 권한 타입 설정에 자동 로그인을 위해 사용자명과 암호를 포함"
-"했습니다. 이 설정은 실서비스용으로는 권장하지 않습니다. 누군가가 phpMyAdmin"
-"이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. "
-"%sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
+"[kbd]config[/kbd] 권한 타입에 자동 로그인을 위해 사용자 이름과 암호를 "
+"포함했습니다. 이 설정은 실제 서비스에서는 권장하지 않습니다. phpMyAdmin이 "
+"설치된 주소를 알거나 알아낸 누군가 phpMyAdmin 패널에 접속할 수 있습니다. %1$"
+"sauthentication type%2$s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
 #: libraries/classes/Config/ServerConfigChecks.php:224
 msgid "You allow for connecting to the server without a password."
@@ -4867,18 +4856,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자가 포함되어야 합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:416
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%ssession.gc_maxlifetime%s보다 큰 %sLogin cookie validity%s은 불규칙적으로 세"
-"션 파기를 유발할 수 있습니다(현재 session.gc_maxlifetime은 %d)."
+"%3$ssession.gc_maxlifetime%4$s보다 큰 %1$sLogin cookie validity%2$s은 "
+"불규칙적인 세션 파기를 유발할 수 있습니다(현재 session.gc_maxlifetime은 "
+"%5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:438
 #, php-format
@@ -4899,28 +4885,21 @@ msgstr ""
 "%sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:503
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 compression and decompression%s는 (%s) 기능이 필요한데, 이 기능은 이 "
-"시스템이서는 사용할 수 없습니다."
+"%1$sBzip2 compression and decompression%2$s는 (%3$s) 기능이 필요하지만 "
+"시스템에 없습니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:534
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%sGZip compression and decompression%s은 (%s) 기능이 필요한데, 이 기능은 이 "
-"시스템이서는 사용할 수 없습니다."
+msgstr "%1$sGZip compression and decompression%2$s은 (%3$s) 기능이 필요하지만 "
+"시스템에 없습니다."
 
 #: libraries/classes/ConfigStorage/Relation.php:1361
 msgid "no description"
@@ -5357,13 +5336,12 @@ msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "이제 설정 파일은 암호화 문자열(blowfish_secret)을 필요로 합니다."
 
 #: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr "설정 파일의 암호 (blowfish_secret)가 너무 짧습니다."
+msgstr "설정 파일의 암호 (blowfish_secret)의 길이가 올바르지 않습니다. %d 바이트 "
+"이상이여야 합니다."
 
 #: libraries/classes/Controllers/HomeController.php:342
 msgid ""
@@ -5759,7 +5737,7 @@ msgstr "Y값"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "Please enter the SQL query first."
-msgstr "SQL 질의를 먼저 입력해주세요."
+msgstr "SQL 쿼리를 먼저 입력해주세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 msgid "The host name is empty!"
@@ -7624,16 +7602,14 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d개의 데이터베이스를 삭제했습니다."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "컬럼을 이동했습니다."
+msgstr "%s@%s계정을 성공적으로 잠궜습니다."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "컬럼을 이동했습니다."
+msgstr "%s@%s계정을 성공적으로 잠금 해제 했습니다."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:153
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8478,10 +8454,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "실제 줄 갯수 알아오기 실패."
+msgstr "컬럼 %s의 설명을 가져오는데 실패!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:226
 #: templates/columns_definitions/column_attributes.twig:107
@@ -11199,10 +11174,9 @@ msgid "Last check:"
 msgstr "마지막 검사:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1529
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "테이블 구조"
+msgstr "%s 테이블의 테이블 구조를 읽어오지 못함:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1611
 msgid "It appears your database uses views;"
@@ -11245,20 +11219,18 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2149
-#, fuzzy, php-format
-#| msgid "Structure for view"
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "뷰 구조"
+msgstr "테이블로 내보낸 뷰 %s의 구조"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2169
 msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2237
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "데이터 읽기 오류:"
+msgstr "%s테이블의 데이터 읽기 오류:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:94
 msgid "Object creation options (all are recommended)"
@@ -11746,10 +11718,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "하드웨어 인증 실패!"
+msgstr "2차 인증 인증 실패: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:78
 #, fuzzy
