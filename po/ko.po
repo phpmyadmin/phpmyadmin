@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-04-23 11:50+0000\n"
-"Last-Translator: Yonjae Lee <yjyj93@gmail.com>\n"
+"PO-Revision-Date: 2022-05-02 09:53+0000\n"
+"Last-Translator: dong heonhui <spamhunhee@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12.1-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -46,13 +46,14 @@ msgstr "질문 수가 1,000 미만"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr ""
+msgstr "서버에 1,000개 이하의 쿼리가 실행됐습니다. 권장 사항이 정확하지 않을 수 "
+"있습니다."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "더 많은 양의 쿼리를 실행할 때까지 서버를 더 오래 실행하십시오."
 
 #: libraries/advisory_rules_generic.php:32
 #, fuzzy, php-format
@@ -67,14 +68,15 @@ msgstr "지연된 쿼리 비율"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "전체 쿼리 양에 비해 느린 쿼리가 많이 있습니다."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr ""
+msgstr "{long_query_time}을 늘리거나 느린 쿼리 로그에 나열된 쿼리를 최적화해야 할 수 "
+"있습니다"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
@@ -5756,10 +5758,8 @@ msgid "Y values"
 msgstr "Y값"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "같은 값을 한번 더 입력하세요"
+msgstr "SQL 쿼리를 먼저 입력하세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 msgid "The host name is empty!"
@@ -11310,10 +11310,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:134
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "열(컬럼) 이름: "
+msgstr "열(컬럼) 이름:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:272
 #: libraries/classes/Plugins/Import/ImportCsv.php:631
