@@ -416,6 +416,7 @@ class DatabaseInterface implements DbalInterface
                 $sql .= ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
             }
 
+            /** @var array<string, array<string, array<string, mixed>>> $tables */
             $tables = $this->fetchResult(
                 $sql,
                 [

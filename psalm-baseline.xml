@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.22.0@fc2c6ab4d5fa5d644d8617089f012f3bb84b8703">
+<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
   <file src="index.php">
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['containerBuilder']</code>
@@ -5738,7 +5738,7 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="51">
+    <MixedArgument occurrences="48">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
@@ -5762,9 +5762,6 @@
       <code>$link</code>
       <code>$link</code>
       <code>$link</code>
-      <code>$oneDatabaseTables</code>
-      <code>$oneDatabaseTables</code>
-      <code>$oneTableName</code>
       <code>$password</code>
       <code>$server</code>
       <code>$sql</code>
@@ -5791,13 +5788,12 @@
       <code>$user</code>
       <code>$warningsCount</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
-      <code>$oneDatabaseName</code>
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$tableName</code>
       <code>uksort($eachTables, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="34">
+    <MixedArrayAccess occurrences="33">
       <code>$event['Name']</code>
       <code>$event['Status']</code>
       <code>$event['Type']</code>
@@ -5805,7 +5801,6 @@
       <code>$oneShow['Db']</code>
       <code>$oneShow['Name']</code>
       <code>$oneShow['Type']</code>
-      <code>$oneTableData['Engine']</code>
       <code>$routine['DTD_IDENTIFIER']</code>
       <code>$routine['Db']</code>
       <code>$routine['Definer']</code>
@@ -5853,7 +5848,7 @@
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="42">
+    <MixedAssignment occurrences="37">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$database</code>
@@ -5864,9 +5859,6 @@
       <code>$grant</code>
       <code>$keyIndex</code>
       <code>$map['real_column']</code>
-      <code>$oneDatabaseTables</code>
-      <code>$oneDatabaseTables</code>
-      <code>$oneDatabaseTables</code>
       <code>$oneResult['action_timing']</code>
       <code>$oneResult['definer']</code>
       <code>$oneResult['definition']</code>
@@ -5874,8 +5866,6 @@
       <code>$oneResult['name']</code>
       <code>$oneResult['table']</code>
       <code>$oneShow</code>
-      <code>$oneTableData</code>
-      <code>$oneTableName</code>
       <code>$result</code>
       <code>$resultRows[$row[$key]]</code>
       <code>$resultRows[]</code>
@@ -5897,8 +5887,7 @@
       <code>$trigger['TRIGGER_NAME']</code>
       <code>$warningsCount</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="2">
       <code>array</code>
       <code>string</code>
     </MixedInferredReturnType>
@@ -5913,9 +5902,7 @@
     <MixedPropertyFetch occurrences="1">
       <code>$this-&gt;links[$link]-&gt;warning_count</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="4">
-      <code>$tables[$database]</code>
-      <code>$tables[mb_strtolower($database)]</code>
+    <MixedReturnStatement occurrences="2">
       <code>SessionCache::get('mysql_cur_user')</code>
       <code>reset($columns)</code>
     </MixedReturnStatement>
