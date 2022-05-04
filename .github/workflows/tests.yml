@@ -17,13 +17,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php-version: '7', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '7', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '7', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '7', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '7', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '7', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '7', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '8', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '8', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '8', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '8', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '8', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '8', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '8', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -43,19 +43,20 @@ jobs:
           php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
           musl-locales musl-locales-lang \
           gettext composer git && \
+          composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
           composer update && \
           ./scripts/generate-mo && \
-          php -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
+          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
       - name: Set up multi arch support
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.14 uname -a
+        run: docker run --rm ${{ matrix.arch }}/alpine:3.15 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.14 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.15 sh /app/do-tests.sh
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
