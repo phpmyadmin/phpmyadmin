@@ -36,6 +36,7 @@
     "postcss-cli": "^9.0.1",
     "postcss-loader": "^6.2.1",
     "rtlcss": "^3.3.0",
+    "rtlcss-webpack-plugin": "^4.0.7",
     "sass": "^1.42.1",
     "sass-loader": "^12.4.0",
     "tablesorter": "^2.31.3",
@@ -44,8 +45,7 @@
     "updated-jqplot": "1.0.9",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2",
-    "webpack-concat-files-plugin": "^0.5.2",
-    "webpack-rtl-plugin": "^2.0.0"
+    "webpack-concat-files-plugin": "^0.5.2"
   },
   "devDependencies": {
     "babel-jest": "^27.3.1",

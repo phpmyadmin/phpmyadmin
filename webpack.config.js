@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer');
 const CopyPlugin = require('copy-webpack-plugin');
 const WebpackConcatPlugin = require('webpack-concat-files-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackRTLPlugin = require('webpack-rtl-plugin');
+const RtlCssPlugin = require('rtlcss-webpack-plugin');
 
 module.exports = [
     {
@@ -262,9 +262,8 @@ module.exports = [
                 filename: '[name].css',
                 chunkFilename: '[id].css',
             }),
-            new WebpackRTLPlugin({
+            new RtlCssPlugin({
                 filename: '[name].rtl.css',
-                minify: false,
             }),
         ],
     },
