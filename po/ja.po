@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
 "PO-Revision-Date: 2022-05-05 18:13+0000\n"
-"Last-Translator: Justin Nogossek <justmegaliga10000@gmail.com>\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
 "Language: ja\n"
@@ -5016,7 +5016,7 @@ msgstr "%1$s から %2$s の行の表示。"
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "\"%s\" という名前のページが既にあるので、他の名前に変更してください。"
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
