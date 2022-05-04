@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -250,6 +251,9 @@ class AddFieldControllerTest extends AbstractTestCase
             'disable_is' => true,
         ]);
 
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([['num_fields', null, '1']]);
+
         $transformations = new Transformations();
         (new AddFieldController(
             $response,
@@ -258,7 +262,7 @@ class AddFieldControllerTest extends AbstractTestCase
             new Config(),
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations)
-        ))();
+        ))($request);
 
         $this->assertSame($expected, $response->getHTMLResult());
     }

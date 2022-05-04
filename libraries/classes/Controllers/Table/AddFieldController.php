@@ -11,6 +11,7 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -22,6 +23,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function intval;
 use function is_array;
+use function is_numeric;
 use function min;
 use function strlen;
 
@@ -57,7 +59,7 @@ class AddFieldController extends AbstractController
         $this->columnsDefinition = $columnsDefinition;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
@@ -65,6 +67,9 @@ class AddFieldController extends AbstractController
         $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
         $GLOBALS['regenerate'] = $GLOBALS['regenerate'] ?? null;
         $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+
+        /** @var string|null $numberOfFields */
+        $numberOfFields = $request->getParsedBodyParam('num_fields');
 
         $this->addScriptFiles(['table/structure.js']);
 
@@ -95,8 +100,8 @@ class AddFieldController extends AbstractController
                 4096
             );
             $GLOBALS['regenerate'] = true;
-        } elseif (isset($_POST['num_fields']) && intval($_POST['num_fields']) > 0) {
-            $GLOBALS['num_fields'] = min(4096, intval($_POST['num_fields']));
+        } elseif (is_numeric($numberOfFields) && $numberOfFields > 0) {
+            $GLOBALS['num_fields'] = min(4096, (int) $numberOfFields);
         } else {
             $GLOBALS['num_fields'] = 1;
         }
