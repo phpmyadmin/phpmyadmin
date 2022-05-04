@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-01 00:24+0000\n"
-"PO-Revision-Date: 2022-03-08 08:54+0000\n"
+"PO-Revision-Date: 2022-05-05 18:14+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -3180,7 +3180,7 @@ msgstr "最大実行時間"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "[code]LOCK TABLES[/code] 文を使用してください"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -3370,10 +3370,8 @@ msgid "Remember filename template"
 msgstr "ファイル名のテンプレートを記憶"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "主要カラムリストから削除"
+msgstr "DEFINER 句を定義から削除してください"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -4986,7 +4984,7 @@ msgstr "%1$s から %2$s の行の表示。"
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "\"%s\" という名前のページが既にあるので、他の名前に変更してください。"
 
 #: libraries/classes/Controllers/Database/ExportController.php:89
 #: libraries/classes/Controllers/Database/TrackingController.php:138
@@ -9379,40 +9377,30 @@ msgstr ""
 "可能性もありますが、 %s 制御ディレクティブで非表示になっています。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "データベース名が空です!"
+msgstr "データベース名を空文字列にすることはできません。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "{0}文字以上を入力してください"
+msgstr "データベース名を %d 文字より長くすることはできません。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
-msgstr "各単語は空白文字 (\" \") で区切ってください。"
+msgstr "データベース名を空白文字で終えることはできません。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "テーブル名が空です!"
+msgstr "テーブル名を空文字列にすることはできません。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:22
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "{0}文字以上を入力してください"
+msgstr "テーブル名を %d 文字より長くすることはできません。"
 
 #: libraries/classes/Dbal/InvalidTableName.php:27
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
-msgstr "各単語は空白文字 (\" \") で区切ってください。"
+msgstr "テーブル名を空白文字で終えることはできません。"
 
 #: libraries/classes/Display/Results.php:1272
 #: templates/display/results/table.twig:204
@@ -15924,7 +15912,7 @@ msgstr "警告"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "お知らせ"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
@@ -17983,20 +17971,16 @@ msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマーク"
 
 #: templates/sql/bookmark.twig:14
-#, fuzzy
-#| msgid "Bookmark table"
 msgid "Bookmark label:"
-msgstr "ブックマークテーブル"
+msgstr "ブックマークラベル:"
 
 #: templates/sql/bookmark.twig:20 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr "すべてのユーザがこのブックマークを利用できるようにする"
 
 #: templates/sql/bookmark.twig:24
-#, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
-msgstr "ブックマークの作成"
+msgstr "新しいブックマークの作成"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
@@ -18731,10 +18715,8 @@ msgid "Next autoindex"
 msgstr "次の自動付番"
 
 #: templates/table/structure/drop_confirm.twig:2
-#, fuzzy
-#| msgid "DROP columns %s from the table %s"
 msgid "Dropping columns from the table"
-msgstr "カラム '%s' をテーブル '%s' から削除"
+msgstr "カラムをテーブルから削除"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
