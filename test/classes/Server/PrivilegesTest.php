@@ -684,7 +684,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 1: fieldset
         $this->assertStringContainsString(
-            '<fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">',
+            '<div class="card-footer">',
             $html
         );
 
@@ -695,9 +695,9 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         //validate 3: getHtmlForGlobalOrDbSpecificPrivs
-        $this->assertStringContainsString('<fieldset class="pma-fieldset" id="fieldset_user_global_rights">', $html);
+        $this->assertStringContainsString('<div class="card">', $html);
         $this->assertStringContainsString(
-            '<legend data-submenu-label="' . __('Global') . '">',
+            '<div class="card-header" data-submenu-label="' . __('Global') . '">',
             $html
         );
         $this->assertStringContainsString(
@@ -731,7 +731,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 5: getHtmlForResourceLimits
         $this->assertStringContainsString(
-            '<legend>' . __('Resource limits') . '</legend>',
+            '<div class="card-header">' . __('Resource limits') . '</div>',
             $html
         );
         $this->assertStringContainsString(
@@ -749,7 +749,7 @@ class PrivilegesTest extends AbstractTestCase
             $html
         );
 
-        $this->assertStringContainsString('<legend>SSL</legend>', $html);
+        $this->assertStringContainsString('<div class="card-header">SSL</div>', $html);
         $this->assertStringContainsString('value="NONE"', $html);
         $this->assertStringContainsString('value="ANY"', $html);
         $this->assertStringContainsString('value="X509"', $html);
