@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-01 00:24+0000\n"
 "PO-Revision-Date: 2022-05-05 18:14+0000\n"
-"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
+"Last-Translator: Justin Nogossek <justmegaliga10000@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -7407,9 +7407,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
-"IndexedDB がブラウザで動作しておらず、 phpMyAdmin 環境保管領域が構成されてい"
-"ないため、ページレイアウトを開いたり、保存したり、削除したりすることができま"
-"せん。"
+"IndexedDBがブラウザで機能しておらず、phpMyAdmin構成ストレージがこのように構成"
+"されていないため、ページレイアウトを開いたり、保存したり、削除したりすること"
+"はできません。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
@@ -9373,8 +9373,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"エラー 1045: ユーザーのアクセスが拒否されました。追加のエラー情報が利用できる"
-"可能性もありますが、 %s 制御ディレクティブで非表示になっています。"
+"エラー1045：ユーザーのアクセスが拒否されました。追加のエラー情報が利用できる"
+"場合がありますが、％s構成ディレクティブによって隠されています。"
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
@@ -13459,7 +13459,7 @@ msgstr "設定が保存できません"
 
 #: libraries/classes/UserPreferences.php:193
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "phpMyAdmin 環境保管領域のデータベースにアクセスできませんでした。"
+msgstr "phpMyAdmin構成ストレージデータベースにアクセスできませんでした。"
 
 #: libraries/classes/Util.php:128
 #, php-format
@@ -17964,7 +17964,7 @@ msgstr "新しいサーバの追加"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr "問題が発生しました。"
+msgstr "何かがうまくいかなかった。"
 
 #: templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
