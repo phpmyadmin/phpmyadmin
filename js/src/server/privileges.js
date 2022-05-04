@@ -370,7 +370,7 @@ function addOrUpdateSubmenu () {
     $subNav = $('<ul></ul>').prop('class', 'nav nav-pills m-2');
 
     $('#edit_user_dialog .submenu-item').each(function () {
-        submenuLabel = $(this).find('legend[data-submenu-label]').data('submenu-label');
+        submenuLabel = $(this).find('.js-submenu-label[data-submenu-label]').data('submenu-label');
 
         submenuLink = $('<a></a>')
             .prop('class', 'nav-link')

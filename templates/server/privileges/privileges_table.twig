@@ -3,7 +3,7 @@
   <input type="hidden" name="grant_count" value="{{ row|length }}">
   <input type="hidden" name="column_count" value="{{ columns|length }}">
   <fieldset class="pma-fieldset" id="fieldset_user_priv">
-    <legend data-submenu-label="{% trans 'Table' %}">
+    <legend class="js-submenu-label" data-submenu-label="{% trans 'Table' %}">
       {% trans 'Table-specific privileges' %}
     </legend>
     <p>
@@ -249,8 +249,8 @@
 {% else %}
 
 {% set grant_count = 0 %}
-<div class="card">
-  <div class="card-header" data-submenu-label="
+<div class="card mb-3">
+  <div class="card-header js-submenu-label" data-submenu-label="
     {%- if is_global %}
       {%- trans 'Global' -%}
     {% elseif is_database %}
@@ -866,13 +866,14 @@
     </div>
   {% endif %}
   </div>
+</div>
 <input type="hidden" name="grant_count" value="{{ grant_count - (row['Grant_priv'] is defined ? 1 : 0) }}">
 
 {% endif %}
 
 {% if has_submit %}
-  <div class="card-footer">
+  <div>
     <input type="hidden" name="update_privs" value="1">
-    <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Update user privileges' %}">
   </div>
 {% endif %}

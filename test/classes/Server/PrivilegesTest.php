@@ -682,22 +682,13 @@ class PrivilegesTest extends AbstractTestCase
         $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable();
         $GLOBALS['username'] = 'username';
 
-        //validate 1: fieldset
-        $this->assertStringContainsString(
-            '<div class="card-footer">',
-            $html
-        );
-
         //validate 2: button
-        $this->assertStringContainsString(
-            __('Go'),
-            $html
-        );
+        $this->assertStringContainsString('Update user privileges', $html);
 
         //validate 3: getHtmlForGlobalOrDbSpecificPrivs
         $this->assertStringContainsString('<div class="card">', $html);
         $this->assertStringContainsString(
-            '<div class="card-header" data-submenu-label="' . __('Global') . '">',
+            '<div class="card-header js-submenu-label" data-submenu-label="' . __('Global') . '">',
             $html
         );
         $this->assertStringContainsString(
@@ -1085,10 +1076,7 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         //validate 5: button
-        $this->assertStringContainsString(
-            __('Go'),
-            $html
-        );
+        $this->assertStringContainsString('Create user', $html);
 
         $GLOBALS['dbi'] = $dbi_old;
         $this->serverPrivileges->dbi = $dbi_old;
@@ -1650,7 +1638,7 @@ class PrivilegesTest extends AbstractTestCase
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
         $this->assertStringContainsString('<input type="hidden" name="username" value="pma">', $actual);
         $this->assertStringContainsString('<input type="hidden" name="hostname" value="host">', $actual);
-        $this->assertStringContainsString('<legend data-submenu-label="Table">', $actual);
+        $this->assertStringContainsString('<legend class="js-submenu-label" data-submenu-label="Table">', $actual);
         $this->assertStringContainsString('Table-specific privileges', $actual);
 
         // Test case 2
@@ -1661,7 +1649,7 @@ class PrivilegesTest extends AbstractTestCase
             'z',
         ];
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
-        $this->assertStringContainsString('<legend data-submenu-label="Database">', $actual);
+        $this->assertStringContainsString('<legend class="js-submenu-label" data-submenu-label="Database">', $actual);
         $this->assertStringContainsString('Database-specific privileges', $actual);
     }
 
