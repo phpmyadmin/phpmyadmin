@@ -2659,20 +2659,29 @@ class Results
         if ($this->isSelect($analyzedSqlResults)) {
             $pmatable = new Table($this->properties['table'], $this->properties['db']);
             $colOrder = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+            $fieldsCount = $this->properties['fields_cnt'];
             /* Validate the value */
-            if ($colOrder !== false) {
-                $fieldsCount = $this->properties['fields_cnt'];
+            if (is_array($colOrder)) {
                 foreach ($colOrder as $value) {
                     if ($value < $fieldsCount) {
                         continue;
                     }
 
                     $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
-                    $fieldsCount = false;
+                    break;
+                }
+
+                if ($fieldsCount !== count($colOrder)) {
+                    $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
+                    $colOrder = false;
                 }
             }
 
             $colVisib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
+            if (is_array($colVisib) && $fieldsCount !== count($colVisib)) {
+                $pmatable->removeUiProp(Table::PROP_COLUMN_VISIB);
+                $colVisib = false;
+            }
         } else {
             $colOrder = false;
             $colVisib = false;

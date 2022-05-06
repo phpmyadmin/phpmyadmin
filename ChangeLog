@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 - issue #17335 Fix column visibility dropdown when the column name is too long
 - issue #17445 Fix issue when exporting using Firefox or Safari on PHP 8.1.4
 - issue        Update JavaScript dependencies
+- issue #17428 Fix case where errors were thrown when browsing a table
 
 5.1.3 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
