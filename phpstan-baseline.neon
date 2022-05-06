@@ -2886,11 +2886,6 @@ parameters:
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string and array\\{default_action\\: 'insert'\\} results in an error\\.$#"
 			count: 3
 			path: libraries/classes/Display/Results.php

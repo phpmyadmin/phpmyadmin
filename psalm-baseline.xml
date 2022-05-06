@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.22.0@fc2c6ab4d5fa5d644d8617089f012f3bb84b8703">
+<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -5443,8 +5443,10 @@
       <code>$user</code>
       <code>$warningsCount</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
+    <MixedArgumentTypeCoercion occurrences="6">
       <code>$one_database_name</code>
+      <code>$one_database_tables</code>
+      <code>$one_database_tables</code>
       <code>$table_name</code>
       <code>uksort($each_tables, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
