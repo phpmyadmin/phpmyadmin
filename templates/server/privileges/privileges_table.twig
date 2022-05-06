@@ -2,10 +2,11 @@
 
   <input type="hidden" name="grant_count" value="{{ row|length }}">
   <input type="hidden" name="column_count" value="{{ columns|length }}">
-  <fieldset class="pma-fieldset" id="fieldset_user_priv">
-    <legend class="js-submenu-label" data-submenu-label="{% trans 'Table' %}">
+  <div class="card mb-3" id="fieldset_user_priv">
+    <div class="card-header js-submenu-label" data-submenu-label="{% trans 'Table' %}">
       {% trans 'Table-specific privileges' %}
-    </legend>
+    </div>
+    <div class="card-body">
     <p>
       <small><em>{% trans 'Note: MySQL privilege names are expressed in English.' %}</em></small>
     </p>
@@ -243,8 +244,8 @@
         </div>
       {% endif %}
     </div>
-    <div class="clearfloat"></div>
-  </fieldset>
+    </div>
+  </div>
 
 {% else %}
 
