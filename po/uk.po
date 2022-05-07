@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-05-08 16:10+0000\n"
+"Last-Translator: Vladyslav Anisimov <uniss@ua.fm>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "uk/>\n"
 "Language: uk\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -860,7 +860,7 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
-"$cfg['TempDir'] (%s) недоступний.  phpMyAdmin не може кешувати шаблони "
+"$cfg['TempDir'] (%s) недоступний. phpMyAdmin не може кешувати шаблони "
 "оскільки буде повільним через це."
 
 #: js/messages.php:42
@@ -1858,7 +1858,7 @@ msgstr "Видалення"
 #: js/messages.php:398
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Видалити співставлення для таблиці  %s ?"
+msgstr "Видалити співставлення для таблиці %s ?"
 
 #: js/messages.php:402
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -2260,7 +2260,7 @@ msgid ""
 "those values directly if desired"
 msgstr ""
 "В MySQL додаткові значення, які неможливо вибрати через інтерфейс, при "
-"необхідності введіть  безпосередньо з клавіатури"
+"необхідності введіть безпосередньо з клавіатури"
 
 #: js/messages.php:550
 msgid ""
@@ -2958,9 +2958,8 @@ msgstr "Тж"
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "календар-місяць-рік"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:902
@@ -3163,7 +3162,7 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"Сховище конфігурації не готове через  елементи стовпців основного списку."
+"Сховище конфігурації не готове через елементи стовпців основного списку."
 
 #: libraries/classes/CentralColumns.php:362
 #, php-format
@@ -3694,7 +3693,7 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Визначає, який тип редагування контролю повинен бути використаний для CHAR і "
-"VARCHAR стовпців; [kbd]input[/kbd] - довжина тексту, [kbd]textarea[/kbd]  - "
+"VARCHAR стовпців; [kbd]input[/kbd] - довжина тексту, [kbd]textarea[/kbd] - "
 "дозволена кількість рядків в стовпцях."
 
 #: libraries/classes/Config/Descriptions.php:112
@@ -3786,8 +3785,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"Чи попередження (\"Ви дійсно впевнені…\") повинно бути бути відображене коли "
-"ви можете втратити дані."
+"Чи попередження (\"Ви дійсно впевнені…\") повинно бути відображене коли ви "
+"можете втратити дані."
 
 #: libraries/classes/Config/Descriptions.php:165
 msgid "Confirm DROP queries"
@@ -4718,7 +4717,7 @@ msgstr "Зберігати cookie авторизації"
 
 #: libraries/classes/Config/Descriptions.php:718
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "Визначити, скільки часу (в секундах) дійсні  cookie авторизації."
+msgstr "Визначити, скільки часу (в секундах) дійсні cookie авторизації."
 
 #: libraries/classes/Config/Descriptions.php:720
 msgid "Login cookie validity"
@@ -6067,7 +6066,7 @@ msgstr ""
 "URL-адрес проксі-сервера, який будуть використовувати при добуванні "
 "інформації про останню версію PhpMyAdmin або при поданні звітів про помилки. "
 "Вам це потрібно, якщо сервер, на якому встановлений PhpMyAdmin не має "
-"прямого доступу до Інтернету.  Формат: «hostname:portnumber»."
+"прямого доступу до Інтернету. Формат: «hostname:portnumber»."
 
 #: libraries/classes/Config/Descriptions.php:1417
 msgid "Proxy url"
@@ -6445,8 +6444,8 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sТермін придатності cookie входу%2$s перевищує  %3$sssession."
-"gc_maxlifetime%4$s і може викликати випадкові скидання сеансу  (наразі "
+"%1$sТермін придатності cookie входу%2$s перевищує %3$sssession."
+"gc_maxlifetime%4$s і може викликати випадкові скидання сеансу (наразі "
 "session.gc_maxlifetime рівний %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
@@ -6466,7 +6465,7 @@ msgid ""
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "При використанні [kbd]cookie[/kbd] перевірки автентичності і %sLogin cookie "
-"store%s не  0, %sLogin cookie validity%s повинно бути встановлене на "
+"store%s не 0, %sLogin cookie validity%s повинно бути встановлене на "
 "значення, менше або рівне йому."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
@@ -7567,7 +7566,7 @@ msgid ""
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
 "Буфер, що виділяється при сортуванні індексів MyISAM під час виконання "
-"команди  REPAIR TABLE або під час створення індексів командою CREATE INDEX "
+"команди REPAIR TABLE або під час створення індексів командою CREATE INDEX "
 "або ALTER TABLE."
 
 #: libraries/classes/Engines/Pbxt.php:30
@@ -8342,7 +8341,7 @@ msgstr "Додати префікс"
 
 #: libraries/classes/MultSubmits.php:500
 msgid "Do you really want to execute the following query?"
-msgstr "Ви насправді хочете  виконати даний запит?"
+msgstr "Ви насправді хочете виконати даний запит?"
 
 #: libraries/classes/Navigation/Navigation.php:69
 msgid "An error has occurred while loading the navigation display"
@@ -8632,8 +8631,8 @@ msgid ""
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 "У вас є група стовпців, які при об'єднанні дають наявний стовпець? "
-"Наприклад, якщо у вас є first_name, last_name і full_name, то при об'єднані  "
-"first_name і last_name виходить, що  full_name являється зайвим."
+"Наприклад, якщо у вас є first_name, last_name і full_name, то при об'єднані "
+"first_name і last_name виходить, що full_name являється зайвим."
 
 #: libraries/classes/Normalization.php:295
 msgid ""
@@ -8762,7 +8761,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:505
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr "Завершиться другий крок нормалізації  для таблиці '%1$s'."
+msgstr "Завершиться другий крок нормалізації для таблиці '%1$s'."
 
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
@@ -9782,7 +9781,7 @@ msgstr "Таблиця MediaWiki"
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:276
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Неприпустимий формат вводу mediawiki  в рядку: <br />%s."
+msgstr "Неприпустимий формат вводу mediawiki в рядку: <br />%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:78
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -9940,7 +9939,7 @@ msgid ""
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 "Перетворює значення Boolean на текст (за замовчуванням 'Т' та 'F'). Перший "
-"варіант  для TRUE, другий для FALSE. Ненульові = true."
+"варіант для TRUE, другий для FALSE. Ненульові = true."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:30
 msgid ""
@@ -9996,10 +9995,10 @@ msgstr ""
 "ЛИШЕ LINUX: Запускає зовнішню програму і подає стовпцеві дані через "
 "стандартний ввід. Повертає стандартний вивід програми. Типовою програмою є "
 "Tidy, яка гарно друкує HTML код. З міркувань безпеки Вам потрібно самостійно "
-"відредагувати файл libraries/classes/Plugins/Transformations//Abs/"
+"відредагувати файл libraries/classes/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php та вписати програми дозволені для запуску. "
 "У такому випадку, перша опція - кількість програм, які Ви бажаєте "
-"використовувати. Друга - має бути порожньою з історичних причин. Третя "
+"використовувати. Друга опція має бути порожньою з історичних причин. Третя "
 "опція, встановлена в 1, буде конвертувати вивід, використовуючи "
 "htmlspecialchars() (типово: 1). Четверта опція, встановлена в 1, "
 "запобігатиме перенесенню рядка і виведе усі дані одним рядком (типово: 1)."
@@ -10012,8 +10011,8 @@ msgid ""
 "directly to the definition in %s."
 msgstr ""
 "Ви використовуєте поле параметрів командного рядка зовнішнього перетворення, "
-"яке застаріло з міркувань безпеки. Додайте всі параметри командного рядка "
-"безпосередньо до визначення у %s."
+"яке не підтримується з міркувань безпеки. Додайте всі параметри командного "
+"рядка безпосередньо до визначення в %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -10282,7 +10281,7 @@ msgstr "Показати можливості"
 
 #: libraries/classes/Relation.php:184
 msgid "Designer and creation of PDFs"
-msgstr "Проєктувальник створення  PDF-файлів"
+msgstr "Проєктувальник створення PDF-файлів"
 
 #: libraries/classes/Relation.php:195
 msgid "Displaying Column Comments"
@@ -11037,8 +11036,8 @@ msgstr "Результати виконання порядку %s"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d рядок залежить від останнього оператора всередині процедури."
-msgstr[1] "%d  рядки залежать від останнього оператора всередині процедури."
-msgstr[2] "%d  рядків залежать від останнього оператора всередині процедури."
+msgstr[1] "%d рядки залежать від останнього оператора всередині процедури."
+msgstr[2] "%d рядків залежать від останнього оператора всередині процедури."
 
 #: libraries/classes/Rte/Routines.php:1530
 #: libraries/classes/Rte/Routines.php:1537
@@ -11399,7 +11398,7 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr "Потрібно, що дійсний сертифікат X509, виданий  CA був представлений."
+msgstr "Потрібно, що дійсний сертифікат X509, виданий CA був представлений."
 
 #: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
@@ -11771,7 +11770,7 @@ msgid ""
 msgstr ""
 "Обліковий запис користувача дозволяє наявне підключення будь-якому "
 "користувачеві з локального хоста. Це буде перешкоджати іншим користувачам "
-"підключатися, якщо  їх обліковий запис користувача дозволяє з'єднання з будь-"
+"підключатися, якщо їх обліковий запис користувача дозволяє з'єднання з будь-"
 "якого (%) хоста."
 
 #: libraries/classes/Server/Privileges.php:4758
@@ -12697,7 +12696,7 @@ msgid ""
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 "Кількість фізичних читань індексного блоку з диска. Якщо Key_reads великий, "
-"то значення key_buffer_size швидше за все  замале. Коефіцієнт невдалих "
+"то значення key_buffer_size швидше за все замале. Коефіцієнт невдалих "
 "звернень до кешу може бути обчислений як Key_reads/Key_read_requests."
 
 #: libraries/classes/Server/Status/Variables.php:619
@@ -13074,7 +13073,7 @@ msgstr "Закладка не створена!"
 #: libraries/classes/Sql.php:941
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr "Як стандартний запит на огляд даних використовується закладка  \"%s\"."
+msgstr "Як стандартний запит на огляд даних використовується закладка \"%s\"."
 
 #: libraries/classes/Sql.php:1423
 msgid "Showing as PHP code"
@@ -13107,7 +13106,7 @@ msgstr "Проблеми з індексами таблиці `%s`"
 #: libraries/classes/SqlQueryForm.php:140
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Запустити SQL запит/запити на сервері  “%s”"
+msgstr "Запустити SQL запит/запити на сервері “%s”"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -13562,7 +13561,7 @@ msgid ""
 "spaces to the specified length when stored"
 msgstr ""
 "Рядок фіксованої довжини (0-255, за замовчуванням 1), який завжди "
-"доповнюється пробілами з  правого боку до заданої довжини під час зберігання"
+"доповнюється пробілами з правого боку до заданої довжини під час зберігання"
 
 #: libraries/classes/Types.php:297
 #, php-format
@@ -13628,7 +13627,7 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Сповпець BLOB з максимальною довжиною  255 (2^8 - 1) байтів, зберігається з "
+"Сповпець BLOB з максимальною довжиною 255 (2^8 - 1) байтів, зберігається з "
 "однобайтовим префіксом, що вказує довжину значення"
 
 #: libraries/classes/Types.php:342
@@ -13636,7 +13635,7 @@ msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
-"Сповпець BLOB з максимальною довжиною  16,777,215 (2^24 - 1) байтів, "
+"Сповпець BLOB з максимальною довжиною 16,777,215 (2^24 - 1) байтів, "
 "зберігається з трьох-байтовим префіксом, що вказує довжину значення"
 
 #: libraries/classes/Types.php:348
@@ -13644,15 +13643,15 @@ msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
-"Сповпець BLOB з максимальною довжиною  65,535 (2^16 - 1) байтів, "
-"зберігається з двох-байтовим префіксом, що вказує довжину значення"
+"Сповпець BLOB з максимальною довжиною 65,535 (2^16 - 1) байтів, зберігається "
+"з двох-байтовим префіксом, що вказує довжину значення"
 
 #: libraries/classes/Types.php:353
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Сповпець BLOB з максимальною довжиною  4,294,967,295 чи 4GiB (2^32 - 1) "
+"Сповпець BLOB з максимальною довжиною 4,294,967,295 чи 4GiB (2^32 - 1) "
 "байтів, зберігається з чотирьох-байтовим префіксом, що вказує довжину "
 "значення"
 
@@ -14379,7 +14378,7 @@ msgstr "Неправильна назва таблиці"
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
 msgid "There is an issue with your request."
-msgstr "Виникла проблема з Вашим запитом."
+msgstr "Виникла проблема з вашим запитом."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14401,7 +14400,7 @@ msgstr "Відстежуванні версії були успішно вида
 
 #: tbl_tracking.php:108
 msgid "No versions selected."
-msgstr "Немає вибраних  версій."
+msgstr "Немає вибраних версій."
 
 #: tbl_tracking.php:139
 msgid "SQL statements executed."
@@ -15402,7 +15401,7 @@ msgid ""
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Може бути приблизним. Натисніть на номер, щоб отримати точний підрахунок. "
-"Дивіться  [doc@faq3-11]FAQ 3.11[/doc]."
+"Дивіться [doc@faq3-11]розділ 3.11[/doc] ЧаПів."
 
 #: templates/database/structure/table_header.twig:38
 #: templates/table/index_form.twig:118
@@ -16134,7 +16133,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr "OTP url:"
+msgstr "url для OTP:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
@@ -16535,7 +16534,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "значення long_query_time встановлено на  'OFF'"
+msgstr "значення long_query_time встановлено на 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:100
 msgid "Release Series"
@@ -16676,7 +16675,7 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"Кешування запитів увімкнено, і сервер отримує  %d запитів в секунду. Це "
+"Кешування запитів увімкнено, і сервер отримує %d запитів в секунду. Це "
 "правило спрацьовує, якщо є більш ніж 100 запитів в секунду."
 
 #: libraries/advisory_rules_generic.txt:154
@@ -16757,7 +16756,7 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Це означає сканування всієї таблиці при об'єднанні. Додавання індексів до "
-"стовпців  використаних в операторах об'єднання, значно підвищать швидкість "
+"стовпців використаних в операторах об'єднання, значно підвищать швидкість "
 "об'єднання таблиці."
 
 #: libraries/advisory_rules_generic.txt:181
@@ -16864,10 +16863,10 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
-"Якщо ви навмисно змінили одну зі змінних: Для визначення визначення "
-"максимального розміру пам'яті таблиць сервер використовує менше з двох "
-"значень. Тому, якщо ви хочете збільшити межу пам'ять таблиці, потрібно також "
-"збільшити і значення другої змінної."
+"Якщо ви навмисно змінили одну зі змінних: Для визначення максимального "
+"розміру пам'яті таблиць сервер використовує менше з двох значень. Тому, якщо "
+"ви хочете збільшити межу пам'ять таблиці, потрібно також збільшити і "
+"значення другої змінної."
 
 #: libraries/advisory_rules_generic.txt:210
 #, php-format
@@ -16943,7 +16942,7 @@ msgid ""
 "less than 1 per hour"
 msgstr ""
 "Рівень тимчасових таблиць, що записуються на диск: %s, це значення має бути "
-"меншим  1 на годину"
+"меншим 1 на годину"
 
 #: libraries/advisory_rules_generic.txt:228
 msgid "MyISAM key buffer size"
@@ -17555,9 +17554,9 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"Через сильну  фрагментацію можливо (в подальшому) збільшення "
+"Через сильну фрагментацію можливо (в подальшому) збільшення "
 "Qcache_lowmem_prunes. Це може бути викликано великою кількістю очищень "
-"нижньої пам'яті кешу запитів через через занадто мале значення змінної "
+"нижньої пам'яті кешу запитів через занадто мале значення змінної "
 "{query_cache_size}. Для безпосереднього але нетривалого виправлення ситуації "
 "можна очистити кеш запитів (при цьому можливо блокування кешу запитів на "
 "тривалий час). Також допоможе ретельно налаштування змінної "
@@ -17573,7 +17572,7 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"Кеш у наразі фрагментований на %s%%,  100%% фрагментація означає, що в кеші "
+"Кеш у наразі фрагментований на %s%%, 100%% фрагментація означає, що в кеші "
 "запитів послідовно чергуються вільні і використовувані блоки. Це значення не "
 "повинно перевищувати 20%%."
 
