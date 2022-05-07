@@ -3,7 +3,7 @@
   <ol class="breadcrumb breadcrumb-navbar">
     <li class="breadcrumb-item">
       {{ show_icons('TabsMode') ? get_image('s_host') }}
-      <a href="{{ url(server.url) }}" data-raw-text="{{ server.name }}">
+      <a href="{{ url(server.url) }}" data-raw-text="{{ server.name }}" draggable="false">
         {% if show_text('TabsMode') %}{% trans 'Server:' %}{% endif %}
         {{ server.name }}
       </a>
@@ -12,7 +12,7 @@
     {% if database is not empty %}
       <li class="breadcrumb-item">
         {{ show_icons('TabsMode') ? get_image('s_db') }}
-        <a href="{{ url(database.url, {'db': database.name}) }}" data-raw-text="{{ database.name }}">
+        <a href="{{ url(database.url, {'db': database.name}) }}" data-raw-text="{{ database.name }}" draggable="false">
           {% if show_text('TabsMode') %}{% trans 'Database:' %}{% endif %}
           {{ database.name }}
         </a>
@@ -21,7 +21,7 @@
       {% if table is not empty %}
         <li class="breadcrumb-item">
           {{ show_icons('TabsMode') ? get_image(table.is_view ? 'b_views' : 's_tbl') }}
-          <a href="{{ url(table.url, {'db': database.name, 'table': table.name}) }}" data-raw-text="{{ table.name }}">
+          <a href="{{ url(table.url, {'db': database.name, 'table': table.name}) }}" data-raw-text="{{ table.name }}" draggable="false">
             {% if show_text('TabsMode') %}
               {% if table.is_view %}
                 {% trans 'View:' %}
@@ -34,10 +34,10 @@
         </li>
 
         {% if table.comment is not empty %}
-          <span class="breadcrumb-comment">“{{ table.comment }}”</span>
+          <span class="breadcrumb-comment" draggable="false">“{{ table.comment }}”</span>
         {% endif %}
       {% elseif database.comment is not empty %}
-        <span class="breadcrumb-comment">“{{ database.comment }}”</span>
+        <span class="breadcrumb-comment" draggable="false">“{{ database.comment }}”</span>
       {% endif %}
     {% endif %}
   </ol>
