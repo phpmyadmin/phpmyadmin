@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-05-03 16:53+0000\n"
+"Last-Translator: Erik Fornander <erik@iccmediasport.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "sv/>\n"
 "Language: sv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15850,7 +15850,7 @@ msgstr "Rader:"
 
 #: templates/export.twig:107
 msgid "Dump some row(s)"
-msgstr "Skippa några rader"
+msgstr "Exportera några rader"
 
 #: templates/export.twig:121
 msgid "Row to begin at:"
@@ -15858,7 +15858,7 @@ msgstr "Rad att börja på:"
 
 #: templates/export.twig:130
 msgid "Dump all rows"
-msgstr "Ta bort alla rader"
+msgstr "Exportera alla rader"
 
 #: templates/export.twig:138 templates/export.twig:279
 msgid "Output:"

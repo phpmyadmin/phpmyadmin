@@ -95,17 +95,10 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     var head = document.getElementsByTagName('head')[0];
     var script;
 
-    // Loads a set of small JS file needed for the GIS editor
-    var smallScripts = ['js/vendor/jquery/jquery.svg.js',
-        'js/vendor/jquery/jquery.mousewheel.js',
-        'js/dist/table/gis_visualization.js'];
-
-    for (var i = 0; i < smallScripts.length; i++) {
-        script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = smallScripts[i];
-        head.appendChild(script);
-    }
+    script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'js/dist/table/gis_visualization.js';
+    head.appendChild(script);
 
     // OpenLayers.js is BIG and takes time. So asynchronous loading would not work.
     // Load the JS and do a callback to load the content for the GIS Editor.

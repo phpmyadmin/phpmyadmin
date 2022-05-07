@@ -152,7 +152,7 @@ class HomeController extends AbstractController
             ],
             'values_escaped' => true,
         ];
-        $eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
+        $eol = Core::ifSetOr($_SESSION['eol'], ($GLOBALS['PMA_Config']->get('PMA_IS_WINDOWS') ? 'win' : 'unix'));
         $eolInput = $formDisplayTemplate->displayInput(
             'eol',
             __('End of line'),

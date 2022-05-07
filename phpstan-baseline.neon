@@ -281,11 +281,6 @@ parameters:
 			path: libraries/classes/Controllers/Setup/HomeController.php
 
 		-
-			message: "#^Ternary operator condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/HomeController.php
-
-		-
 			message: "#^Comparison operation \"\\>\" between 0 and 0 is always false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php
@@ -1536,6 +1531,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
+			message: "#^Parameter \\#1 \\$sheets of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverTables\\(\\) expects array\\|SimpleXMLElement, array\\|SimpleXMLElement\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getShape\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportShp.php
@@ -1757,7 +1757,7 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$customLinks on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 15
+			count: 14
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -2641,6 +2641,11 @@ parameters:
 			path: test/classes/Config/DescriptionTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Config/FormDisplayTest.php
+
+		-
 			message: "#^Call to an undefined method object\\:\\:displayErrors\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Config/Forms/FormListTest.php
@@ -2669,6 +2674,21 @@ parameters:
 			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
 			count: 1
 			path: test/classes/Controllers/ExportTemplateControllerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/CoreTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with \\*NEVER\\* will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/CoreTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/CoreTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam\\(\\) should return array\\<array\\<array\\<string\\>\\>\\> but returns array\\<int, array\\<int, array\\<string, array\\|string\\>\\>\\>\\.$#"
@@ -2784,6 +2804,11 @@ parameters:
 			message: "#^PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ExportPluginProperties of property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object is not covariant with PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ImportPluginProperties of overridden property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object\\.$#"
 			count: 1
 			path: test/classes/Properties/Plugins/ExportPluginPropertiesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with string will always evaluate to false\\.$#"
+			count: 2
+			path: test/classes/RelationTest.php
 
 		-
 			message: "#^Binary operation \"\\-\" between object and 1000 results in an error\\.$#"

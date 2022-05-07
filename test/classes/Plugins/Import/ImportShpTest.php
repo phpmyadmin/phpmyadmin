@@ -8,8 +8,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use function define;
-use function defined;
 use function extension_loaded;
 
 /**
@@ -30,9 +28,6 @@ class ImportShpTest extends AbstractTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
-        if (! defined('PMA_IS_WINDOWS')) {
-            define('PMA_IS_WINDOWS', false);
-        }
         $GLOBALS['server'] = 0;
         //setting
         $GLOBALS['plugin_param'] = 'table';

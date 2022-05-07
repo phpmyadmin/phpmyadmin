@@ -453,9 +453,6 @@
     <PossiblyNullIterator occurrences="1">
       <code>$this-&gt;config-&gt;getServers()</code>
     </PossiblyNullIterator>
-    <TypeDoesNotContainType occurrences="1">
-      <code>PMA_IS_WINDOWS</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
     <TypeDoesNotContainType occurrences="1">

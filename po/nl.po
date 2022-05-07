@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-20 13:11+0000\n"
+"PO-Revision-Date: 2022-04-23 11:51+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-1/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-1/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5121,6 +5121,7 @@ msgstr "Weergeven van regels %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Er bestaat al een pagina met naam \"%s\", geef het a.u.b. een andere naam."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -7498,6 +7499,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"U kan geen pagina layout openen, bewaren of verwijderen omdat IndexedDB niet "
+"werkt in uw browser en uw phpMyAdmin configuratie opslag hiervoor niet is "
+"geconfigureerd."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -9446,6 +9450,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Fout 1045: Toegang geweigerd voor gebruiker. Additionele informatie is "
+"misschien beschikbaar maar is verborgen door de %s configuratie regel."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -13706,12 +13712,8 @@ msgid "Could not save configuration"
 msgstr "Opslaan van het configuratiebestand is niet mogelijk"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"%sMaak%s de configuratieopslag van phpMyAdmin aan in de huidige database."
+msgstr "De phpMyAdmin configuratie opslagdatabase kon niet worden benaderd."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -17996,7 +17998,7 @@ msgstr "Een server toevoegen"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Er ging iets verkeerd."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
