@@ -4152,15 +4152,10 @@ class Results
             $sort_direction[] = '';
         }
 
-        $number_of_columns = count($sort_expression_nodirection);
-
         // 1.4 Prepares display of first and last value of the sorted column
         $sorted_column_message = '';
-        for ($i = 0; $i < $number_of_columns; $i++) {
-            $sorted_column_message .= $this->getSortedColumnMessage(
-                $dt_result,
-                $sort_expression_nodirection[$i]
-            );
+        foreach ($sort_expression_nodirection as $expression) {
+            $sorted_column_message .= $this->getSortedColumnMessage($dt_result, $expression);
         }
 
         // 2. ----- Prepare to display the top of the page -----
