@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-01 00:24+0000\n"
+"POT-Creation-Date: 2022-05-08 00:20+0000\n"
 "PO-Revision-Date: 2022-05-06 12:30+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1385,12 +1385,10 @@ msgstr "検索："
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/add_user.twig:36
-#: templates/server/privileges/change_password.twig:70
-#: templates/server/privileges/edit_routine_privileges.twig:102
-#: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/privileges/privileges_table.twig:858
-#: templates/server/privileges/user_properties.twig:149
+#: templates/server/privileges/change_password.twig:72
+#: templates/server/privileges/edit_routine_privileges.twig:106
+#: templates/server/privileges/privileges_summary.twig:104
+#: templates/server/privileges/user_properties.twig:154
 #: templates/server/privileges/users_overview.twig:159
 #: templates/server/replication/change_primary.twig:33
 #: templates/server/replication/primary_add_replica_user.twig:81
@@ -4255,7 +4253,7 @@ msgstr "ロックされているテーブルをスキップする"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/Display/Results.php:2757
+#: libraries/classes/Display/Results.php:2766
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4323,7 +4321,7 @@ msgstr "textarea の行数"
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
-#: templates/server/privileges/privileges_table.twig:257
+#: templates/server/privileges/privileges_table.twig:258
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:71
 #: templates/table/operations/index.twig:56
@@ -4356,7 +4354,7 @@ msgstr "サーバ"
 #: templates/database/triggers/editor_form.twig:27
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
-#: templates/server/privileges/privileges_table.twig:259
+#: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
 #: templates/table/maintenance/checksum.twig:12
@@ -4571,7 +4569,7 @@ msgstr "詳細"
 #: templates/database/central_columns/edit.twig:3
 #: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
-#: templates/server/privileges/privileges_table.twig:352
+#: templates/server/privileges/privileges_table.twig:357
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "構造"
@@ -4582,7 +4580,7 @@ msgstr "構造"
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:319
 #: templates/database/export/index.twig:24
-#: templates/server/privileges/privileges_table.twig:278
+#: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "データ"
@@ -5100,7 +5098,7 @@ msgid "Table %s has been emptied."
 msgstr "テーブル %s を空にしました。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3766
+#: libraries/classes/Display/Results.php:3775
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5136,9 +5134,9 @@ msgstr "不明"
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
 #: templates/server/privileges/new_user_ajax.twig:34
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
+#: templates/server/privileges/privileges_summary.twig:38
+#: templates/server/privileges/privileges_summary.twig:41
+#: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:53
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:28
@@ -5990,7 +5988,7 @@ msgstr "少なくとも１つの系列を追加してください!"
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:305
 #: templates/database/designer/main.twig:588 templates/export.twig:433
-#: templates/server/privileges/privileges_summary.twig:30
+#: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
 #: templates/table/zoom_search/index.twig:62
@@ -6494,9 +6492,9 @@ msgstr "文字セットを変更しています"
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
 #: templates/server/privileges/new_user_ajax.twig:34
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
+#: templates/server/privileges/privileges_summary.twig:38
+#: templates/server/privileges/privileges_summary.twig:41
+#: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:55
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:29
@@ -6591,7 +6589,7 @@ msgid "Show query box"
 msgstr "クエリボックスを表示"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
-#: libraries/classes/Display/Results.php:2825
+#: libraries/classes/Display/Results.php:2834
 #: libraries/classes/Tracking.php:258
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
@@ -6858,7 +6856,7 @@ msgid "Ignore"
 msgstr "無視"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:480
-#: libraries/classes/Display/Results.php:2761
+#: libraries/classes/Display/Results.php:2770
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
@@ -8667,7 +8665,7 @@ msgstr "ブックマーク %s を作成しました。"
 msgid "Bookmark not created!"
 msgstr "ブックマークが作成されていません!"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:156
+#: libraries/classes/Controllers/Table/AddFieldController.php:161
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:221
 #: libraries/classes/Table/Indexes.php:85
@@ -8723,7 +8721,7 @@ msgstr "テーブル %s は既に存在します!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3477 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
@@ -9099,7 +9097,7 @@ msgstr ""
 "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名"
 "前のイベントはありません。"
 
-#: libraries/classes/DatabaseInterface.php:1129
+#: libraries/classes/DatabaseInterface.php:1130
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9110,20 +9108,20 @@ msgstr ""
 "['SessionTimeZone'][/em]の設定を確認してください。phpMyAdminは現在データベー"
 "スサーバのデフォルトのタイムゾーンを使用しています。"
 
-#: libraries/classes/DatabaseInterface.php:1174
+#: libraries/classes/DatabaseInterface.php:1175
 msgid "Failed to set configured collation connection!"
 msgstr "照合順序接続の設定に失敗しました!"
 
-#: libraries/classes/DatabaseInterface.php:1863
+#: libraries/classes/DatabaseInterface.php:1864
 msgid "Missing connection parameters!"
 msgstr "接続パラメータが不足しています！"
 
-#: libraries/classes/DatabaseInterface.php:1888
+#: libraries/classes/DatabaseInterface.php:1889
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました。"
 
-#: libraries/classes/DatabaseInterface.php:2293
+#: libraries/classes/DatabaseInterface.php:2294
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "詳しくは%sドキュメント%sを参照してください。"
@@ -9440,41 +9438,41 @@ msgstr "降順"
 msgid "Ascending"
 msgstr "昇順"
 
-#: libraries/classes/Display/Results.php:2801
-#: libraries/classes/Display/Results.php:2816
+#: libraries/classes/Display/Results.php:2810
+#: libraries/classes/Display/Results.php:2825
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: libraries/classes/Display/Results.php:2848
+#: libraries/classes/Display/Results.php:2857
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "停止"
 
-#: libraries/classes/Display/Results.php:3408
+#: libraries/classes/Display/Results.php:3417
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください。"
 
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3784
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
-#: libraries/classes/Display/Results.php:3789
+#: libraries/classes/Display/Results.php:3798
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "合計 %1$d, クエリで %2$d"
 
-#: libraries/classes/Display/Results.php:3794
+#: libraries/classes/Display/Results.php:3803
 #, php-format
 msgid "%d total"
 msgstr "合計 %d"
 
-#: libraries/classes/Display/Results.php:3807 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4137
+#: libraries/classes/Display/Results.php:4146
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -10160,10 +10158,10 @@ msgstr "指定したアップロードディレクトリが利用できません
 
 #: libraries/classes/InsertEdit.php:725
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
-#: templates/server/privileges/privileges_table.twig:32
-#: templates/server/privileges/privileges_table.twig:59
-#: templates/server/privileges/privileges_table.twig:86
-#: templates/server/privileges/privileges_table.twig:113
+#: templates/server/privileges/privileges_table.twig:33
+#: templates/server/privileges/privileges_table.twig:60
+#: templates/server/privileges/privileges_table.twig:87
+#: templates/server/privileges/privileges_table.twig:114
 #: templates/table/search/index.twig:129
 msgid "Or"
 msgstr "または"
@@ -10235,7 +10233,7 @@ msgstr "挿入"
 #: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
-#: templates/server/privileges/privileges_summary.twig:15
+#: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
 #: templates/table/privileges/index.twig:22
 msgid "Privileges"
@@ -12369,150 +12367,150 @@ msgstr "GRANT 以外のすべての権限を付与する。"
 
 #: libraries/classes/Server/Privileges.php:293
 #: libraries/classes/Server/Privileges.php:360
-#: templates/server/privileges/privileges_table.twig:124
-#: templates/server/privileges/privileges_table.twig:127
-#: templates/server/privileges/privileges_table.twig:323
+#: templates/server/privileges/privileges_table.twig:125
+#: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
+#: templates/server/privileges/privileges_table.twig:329
 msgid "Allows deleting data."
 msgstr "データの削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:298
-#: templates/server/privileges/privileges_table.twig:136
-#: templates/server/privileges/privileges_table.twig:139
-#: templates/server/privileges/privileges_table.twig:361
-#: templates/server/privileges/privileges_table.twig:369
+#: templates/server/privileges/privileges_table.twig:137
+#: templates/server/privileges/privileges_table.twig:140
+#: templates/server/privileges/privileges_table.twig:367
+#: templates/server/privileges/privileges_table.twig:375
 msgid "Allows creating new tables."
 msgstr "新しいテーブルの作成を許可する。"
 
 #: libraries/classes/Server/Privileges.php:303
-#: templates/server/privileges/privileges_table.twig:148
-#: templates/server/privileges/privileges_table.twig:151
-#: templates/server/privileges/privileges_table.twig:409
-#: templates/server/privileges/privileges_table.twig:417
+#: templates/server/privileges/privileges_table.twig:149
+#: templates/server/privileges/privileges_table.twig:152
+#: templates/server/privileges/privileges_table.twig:415
+#: templates/server/privileges/privileges_table.twig:423
 msgid "Allows dropping tables."
 msgstr "テーブルの削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:308
 #: libraries/classes/Server/Privileges.php:400
-#: templates/server/privileges/privileges_table.twig:173
-#: templates/server/privileges/privileges_table.twig:176
-#: templates/server/privileges/privileges_table.twig:393
-#: templates/server/privileges/privileges_table.twig:396
+#: templates/server/privileges/privileges_table.twig:174
+#: templates/server/privileges/privileges_table.twig:177
+#: templates/server/privileges/privileges_table.twig:399
+#: templates/server/privileges/privileges_table.twig:402
 msgid "Allows creating and dropping indexes."
 msgstr "インデックスの作成、削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:313
 #: libraries/classes/Server/Privileges.php:405
-#: templates/server/privileges/privileges_table.twig:185
-#: templates/server/privileges/privileges_table.twig:188
-#: templates/server/privileges/privileges_table.twig:380
-#: templates/server/privileges/privileges_table.twig:383
+#: templates/server/privileges/privileges_table.twig:186
+#: templates/server/privileges/privileges_table.twig:189
+#: templates/server/privileges/privileges_table.twig:386
+#: templates/server/privileges/privileges_table.twig:389
 msgid "Allows altering the structure of existing tables."
 msgstr "既存のテーブル構造の変更を許可する。"
 
 #: libraries/classes/Server/Privileges.php:318
 #: libraries/classes/Server/Privileges.php:444
 #: libraries/classes/Server/Privileges.php:460
-#: templates/server/privileges/privileges_table.twig:197
-#: templates/server/privileges/privileges_table.twig:200
-#: templates/server/privileges/privileges_table.twig:494
-#: templates/server/privileges/privileges_table.twig:497
-#: templates/server/privileges/privileges_table.twig:509
-#: templates/server/privileges/privileges_table.twig:512
+#: templates/server/privileges/privileges_table.twig:198
+#: templates/server/privileges/privileges_table.twig:201
+#: templates/server/privileges/privileges_table.twig:500
+#: templates/server/privileges/privileges_table.twig:503
+#: templates/server/privileges/privileges_table.twig:515
+#: templates/server/privileges/privileges_table.twig:518
 msgid "Allows creating new views."
 msgstr "新しいビューの作成を許可する。"
 
 #: libraries/classes/Server/Privileges.php:323
 #: libraries/classes/Server/Privileges.php:465
 #: libraries/classes/Server/Privileges.php:471
-#: templates/server/privileges/privileges_table.twig:209
-#: templates/server/privileges/privileges_table.twig:212
-#: templates/server/privileges/privileges_table.twig:441
-#: templates/server/privileges/privileges_table.twig:444
+#: templates/server/privileges/privileges_table.twig:210
+#: templates/server/privileges/privileges_table.twig:213
+#: templates/server/privileges/privileges_table.twig:447
+#: templates/server/privileges/privileges_table.twig:450
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW クエリの実行を許可する。"
 
 #: libraries/classes/Server/Privileges.php:328
 #: libraries/classes/Server/Privileges.php:454
-#: templates/server/privileges/privileges_table.twig:221
-#: templates/server/privileges/privileges_table.twig:224
-#: templates/server/privileges/privileges_table.twig:537
-#: templates/server/privileges/privileges_table.twig:540
+#: templates/server/privileges/privileges_table.twig:222
+#: templates/server/privileges/privileges_table.twig:225
+#: templates/server/privileges/privileges_table.twig:543
+#: templates/server/privileges/privileges_table.twig:546
 msgid "Allows creating and dropping triggers."
 msgstr "トリガの作成・削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:345
-#: templates/server/privileges/privileges_table.twig:15
-#: templates/server/privileges/privileges_table.twig:284
+#: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
+#: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "データの読み込みを許可する。"
 
 #: libraries/classes/Server/Privileges.php:350
-#: templates/server/privileges/privileges_table.twig:42
-#: templates/server/privileges/privileges_table.twig:297
+#: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
+#: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "データの挿入、置換を許可する。"
 
 #: libraries/classes/Server/Privileges.php:355
-#: templates/server/privileges/privileges_table.twig:69
-#: templates/server/privileges/privileges_table.twig:310
+#: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
+#: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "データの修正を許可する。"
 
 #: libraries/classes/Server/Privileges.php:365
-#: templates/server/privileges/privileges_table.twig:359
-#: templates/server/privileges/privileges_table.twig:367
+#: templates/server/privileges/privileges_table.twig:365
+#: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "新しいデータベースやテーブルの作成を許可する。"
 
 #: libraries/classes/Server/Privileges.php:370
-#: templates/server/privileges/privileges_table.twig:407
-#: templates/server/privileges/privileges_table.twig:415
+#: templates/server/privileges/privileges_table.twig:413
+#: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "データベースとテーブルの削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:375
-#: templates/server/privileges/privileges_table.twig:599
-#: templates/server/privileges/privileges_table.twig:602
+#: templates/server/privileges/privileges_table.twig:610
+#: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "サーバ設定の再読み込み、サーバキャッシュのフラッシュを許可する。"
 
 #: libraries/classes/Server/Privileges.php:380
-#: templates/server/privileges/privileges_table.twig:612
-#: templates/server/privileges/privileges_table.twig:615
+#: templates/server/privileges/privileges_table.twig:623
+#: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "サーバのシャットダウンを許可する。"
 
 #: libraries/classes/Server/Privileges.php:385
-#: templates/server/privileges/privileges_table.twig:586
-#: templates/server/privileges/privileges_table.twig:589
+#: templates/server/privileges/privileges_table.twig:597
+#: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "全ユーザのプロセスを閲覧できるようにする。"
 
 #: libraries/classes/Server/Privileges.php:390
-#: templates/server/privileges/privileges_table.twig:337
 #: templates/server/privileges/privileges_table.twig:340
+#: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "データのインポート、エクスポートを許可する。"
 
 #: libraries/classes/Server/Privileges.php:395
-#: templates/server/privileges/privileges_table.twig:96
-#: templates/server/privileges/privileges_table.twig:666
+#: templates/server/privileges/privileges_table.twig:97
+#: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "このバージョンの MySQL では無効です。"
 
 #: libraries/classes/Server/Privileges.php:410
-#: templates/server/privileges/privileges_table.twig:625
-#: templates/server/privileges/privileges_table.twig:628
+#: templates/server/privileges/privileges_table.twig:636
+#: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "データベース総一覧へのアクセスを許可する。"
 
 #: libraries/classes/Server/Privileges.php:416
-#: templates/server/privileges/privileges_table.twig:572
-#: templates/server/privileges/privileges_table.twig:576
+#: templates/server/privileges/privileges_table.twig:583
+#: templates/server/privileges/privileges_table.twig:587
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -12523,64 +12521,64 @@ msgstr ""
 "ります。"
 
 #: libraries/classes/Server/Privileges.php:424
-#: templates/server/privileges/privileges_table.twig:428
-#: templates/server/privileges/privileges_table.twig:431
+#: templates/server/privileges/privileges_table.twig:434
+#: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "一時テーブルの作成を許可する。"
 
 #: libraries/classes/Server/Privileges.php:429
-#: templates/server/privileges/privileges_table.twig:653
-#: templates/server/privileges/privileges_table.twig:656
+#: templates/server/privileges/privileges_table.twig:664
+#: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "現在のスレッドのテーブルロックを許可する。"
 
 #: libraries/classes/Server/Privileges.php:434
-#: templates/server/privileges/privileges_table.twig:694
-#: templates/server/privileges/privileges_table.twig:697
+#: templates/server/privileges/privileges_table.twig:705
+#: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr "レプリケーションレプリカでは必要です。"
 
 #: libraries/classes/Server/Privileges.php:439
-#: templates/server/privileges/privileges_table.twig:681
-#: templates/server/privileges/privileges_table.twig:684
+#: templates/server/privileges/privileges_table.twig:692
+#: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "プライマリ/レプリカの照会を許可する。"
 
 #: libraries/classes/Server/Privileges.php:449
-#: templates/server/privileges/privileges_table.twig:524
-#: templates/server/privileges/privileges_table.twig:527
+#: templates/server/privileges/privileges_table.twig:530
+#: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "イベントスケジューラにイベントを設定できるようにする。"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:478
 #: libraries/classes/Server/Privileges.php:487
-#: templates/server/privileges/privileges_table.twig:234
-#: templates/server/privileges/privileges_table.twig:238
+#: templates/server/privileges/privileges_table.twig:235
+#: templates/server/privileges/privileges_table.twig:239
 msgid "Allows deleting historical rows."
 msgstr "実績行の削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:492
-#: templates/server/privileges/privileges_table.twig:454
-#: templates/server/privileges/privileges_table.twig:457
+#: templates/server/privileges/privileges_table.twig:460
+#: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "ストアドルーチンの作成を許可する。"
 
 #: libraries/classes/Server/Privileges.php:497
-#: templates/server/privileges/privileges_table.twig:467
-#: templates/server/privileges/privileges_table.twig:470
+#: templates/server/privileges/privileges_table.twig:473
+#: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "ストアドルーチンの修正と削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:502
-#: templates/server/privileges/privileges_table.twig:707
-#: templates/server/privileges/privileges_table.twig:710
+#: templates/server/privileges/privileges_table.twig:718
+#: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "ユーザアカウントの作成・削除・名前の変更を許可する。"
 
 #: libraries/classes/Server/Privileges.php:507
-#: templates/server/privileges/privileges_table.twig:480
-#: templates/server/privileges/privileges_table.twig:483
+#: templates/server/privileges/privileges_table.twig:486
+#: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "ストアドルーチンの実行を許可する。"
 
@@ -12613,14 +12611,14 @@ msgid "Revoke"
 msgstr "取り消し"
 
 #: libraries/classes/Server/Privileges.php:1819
-#: templates/server/privileges/privileges_table.twig:264
+#: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "データベース固有の権限"
 
 #: libraries/classes/Server/Privileges.php:1825
-#: templates/server/privileges/privileges_summary.twig:18
+#: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
-#: templates/server/privileges/privileges_table.twig:266
+#: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "テーブル固有の権限"
 
@@ -12628,7 +12626,7 @@ msgstr "テーブル固有の権限"
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
-#: templates/server/privileges/edit_routine_privileges.twig:58
+#: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "ルーチン"
 
@@ -14214,7 +14212,7 @@ msgstr "クリックでソート。"
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:154 templates/indexes.twig:15
 #: templates/server/databases/index.twig:163
-#: templates/server/privileges/privileges_summary.twig:22
+#: templates/server/privileges/privileges_summary.twig:23
 #: templates/server/privileges/users_overview.twig:22
 #: templates/server/user_groups/user_groups.twig:21
 #: templates/server/variables/index.twig:30
@@ -14275,10 +14273,10 @@ msgstr "インデックスが定義されていません!"
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:28
 #: templates/database/search/main.twig:43 templates/server/export/index.twig:10
-#: templates/server/privileges/privileges_table.twig:28
-#: templates/server/privileges/privileges_table.twig:55
-#: templates/server/privileges/privileges_table.twig:82
-#: templates/server/privileges/privileges_table.twig:109
+#: templates/server/privileges/privileges_table.twig:29
+#: templates/server/privileges/privileges_table.twig:56
+#: templates/server/privileges/privileges_table.twig:83
+#: templates/server/privileges/privileges_table.twig:110
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
 msgstr "全選択"
@@ -14566,12 +14564,12 @@ msgstr "定義者"
 #: templates/display/results/table.twig:298
 #: templates/display/results/table.twig:299 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
-#: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:268
+#: templates/server/privileges/edit_routine_privileges.twig:58
 #: templates/server/privileges/privileges_table.twig:269
-#: templates/server/privileges/privileges_table.twig:277
-#: templates/server/privileges/privileges_table.twig:351
-#: templates/server/privileges/privileges_table.twig:551
+#: templates/server/privileges/privileges_table.twig:270
+#: templates/server/privileges/privileges_table.twig:279
+#: templates/server/privileges/privileges_table.twig:356
+#: templates/server/privileges/privileges_table.twig:560
 #: templates/server/privileges/users_overview.twig:121
 #: templates/server/privileges/users_overview.twig:122
 #: templates/server/user_groups/edit_user_groups.twig:11
@@ -14772,8 +14770,8 @@ msgid "Users having access to \"%s\""
 msgstr "\"%s\" にアクセスできるユーザ"
 
 #: templates/database/privileges/index.twig:17
-#: templates/server/privileges/login_information_fields.twig:6
-#: templates/server/privileges/login_information_fields.twig:11
+#: templates/server/privileges/login_information_fields.twig:7
+#: templates/server/privileges/login_information_fields.twig:12
 #: templates/server/privileges/users_overview.twig:8
 #: templates/server/replication/change_primary.twig:15
 #: templates/server/replication/primary_add_replica_user.twig:19
@@ -14783,15 +14781,15 @@ msgid "User name"
 msgstr "ユーザ名"
 
 #: templates/database/privileges/index.twig:18
-#: templates/server/privileges/login_information_fields.twig:25
-#: templates/server/privileges/login_information_fields.twig:37
+#: templates/server/privileges/login_information_fields.twig:26
+#: templates/server/privileges/login_information_fields.twig:38
 #: templates/server/privileges/users_overview.twig:9
 #: templates/table/privileges/index.twig:20
 msgid "Host name"
 msgstr "ホスト名"
 
 #: templates/database/privileges/index.twig:21
-#: templates/server/privileges/privileges_summary.twig:16
+#: templates/server/privileges/privileges_summary.twig:17
 #: templates/server/privileges/users_overview.twig:18
 #: templates/table/privileges/index.twig:23
 msgid "Grant"
@@ -14849,7 +14847,7 @@ msgstr "新規作成"
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
-#: templates/server/privileges/add_user.twig:3
+#: templates/server/privileges/add_user.twig:4
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
@@ -16091,8 +16089,8 @@ msgid "Username:"
 msgstr "ユーザ名:"
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:21
-#: templates/server/privileges/login_information_fields.twig:43
+#: templates/server/privileges/change_password.twig:22
+#: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
 msgid "Password:"
@@ -16782,49 +16780,55 @@ msgstr "削除しています"
 msgid "deleted"
 msgstr "削除しました"
 
-#: templates/server/privileges/add_user.twig:12
+#: templates/server/privileges/add_user.twig:13
 msgid "Database for user account"
 msgstr "ユーザアカウント専用データベース"
 
-#: templates/server/privileges/add_user.twig:15
+#: templates/server/privileges/add_user.twig:16
 msgid "Create database with same name and grant all privileges."
 msgstr "同名のデータベースを作成してすべての権限を与える。"
 
-#: templates/server/privileges/add_user.twig:19
+#: templates/server/privileges/add_user.twig:20
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての権限を与える。"
 
-#: templates/server/privileges/add_user.twig:24
+#: templates/server/privileges/add_user.twig:25
 #, php-format
 msgid "Grant all privileges on database %s."
 msgstr "データベース %s へのすべての権限を与える。"
 
-#: templates/server/privileges/change_password.twig:15
+#: templates/server/privileges/add_user.twig:38
+#, fuzzy
+#| msgid "Create %s"
+msgid "Create user"
+msgstr "「%s」を作成"
+
+#: templates/server/privileges/change_password.twig:16
 msgid "No Password"
 msgstr "パスワード無し"
 
-#: templates/server/privileges/change_password.twig:24
+#: templates/server/privileges/change_password.twig:25
 msgid "Enter:"
 msgstr "パスワード："
 
-#: templates/server/privileges/change_password.twig:28
-#: templates/server/privileges/login_information_fields.twig:54
+#: templates/server/privileges/change_password.twig:29
+#: templates/server/privileges/login_information_fields.twig:55
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "強度："
 
-#: templates/server/privileges/change_password.twig:32
-#: templates/server/privileges/login_information_fields.twig:60
+#: templates/server/privileges/change_password.twig:33
+#: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
 msgid "Re-type:"
 msgstr "再入力："
 
-#: templates/server/privileges/change_password.twig:40
+#: templates/server/privileges/change_password.twig:41
 msgid "Password Hashing:"
 msgstr "パスワードハッシュ："
 
-#: templates/server/privileges/change_password.twig:58
+#: templates/server/privileges/change_password.twig:59
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -16854,14 +16858,14 @@ msgid ""
 "currently logged in."
 msgstr "注意: 現在ログインしているユーザの権限を編集しようとしています。"
 
-#: templates/server/privileges/edit_routine_privileges.twig:51
-#: templates/server/privileges/privileges_table.twig:10
-#: templates/server/privileges/privileges_table.twig:272
+#: templates/server/privileges/edit_routine_privileges.twig:52
+#: templates/server/privileges/privileges_table.twig:11
+#: templates/server/privileges/privileges_table.twig:274
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "注意: MySQL の権限名は英語で表示されます。"
 
-#: templates/server/privileges/edit_routine_privileges.twig:63
-#: templates/server/privileges/edit_routine_privileges.twig:67
+#: templates/server/privileges/edit_routine_privileges.twig:65
+#: templates/server/privileges/edit_routine_privileges.twig:69
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
@@ -16869,13 +16873,13 @@ msgstr ""
 "ユーザがこのルーチン内で他のユーザの権限を編集するための権限をユーザに付与す"
 "ることを許可します。"
 
-#: templates/server/privileges/edit_routine_privileges.twig:76
-#: templates/server/privileges/edit_routine_privileges.twig:79
+#: templates/server/privileges/edit_routine_privileges.twig:78
+#: templates/server/privileges/edit_routine_privileges.twig:81
 msgid "Allows altering and dropping this routine."
 msgstr "このルーチンの修正と削除を許可する。"
 
-#: templates/server/privileges/edit_routine_privileges.twig:88
-#: templates/server/privileges/edit_routine_privileges.twig:91
+#: templates/server/privileges/edit_routine_privileges.twig:90
+#: templates/server/privileges/edit_routine_privileges.twig:93
 msgid "Allows executing this routine."
 msgstr "このルーチンの実行を許可する。"
 
@@ -16888,26 +16892,26 @@ msgstr "ユーザアカウントのページ付け"
 msgid "Login Information"
 msgstr "ログイン情報"
 
-#: templates/server/privileges/login_information_fields.twig:4
+#: templates/server/privileges/login_information_fields.twig:5
 #: templates/server/replication/change_primary.twig:14
 #: templates/server/replication/primary_add_replica_user.twig:16
 msgid "User name:"
 msgstr "ユーザ名:"
 
-#: templates/server/privileges/login_information_fields.twig:7
+#: templates/server/privileges/login_information_fields.twig:8
 #: templates/server/replication/primary_add_replica_user.twig:20
 msgid "Any user"
 msgstr "すべてのユーザ"
 
-#: templates/server/privileges/login_information_fields.twig:8
-#: templates/server/privileges/login_information_fields.twig:33
-#: templates/server/privileges/login_information_fields.twig:50
-#: templates/server/privileges/privileges_summary.twig:75
-#: templates/server/privileges/privileges_summary.twig:90
+#: templates/server/privileges/login_information_fields.twig:9
+#: templates/server/privileges/login_information_fields.twig:34
+#: templates/server/privileges/login_information_fields.twig:51
+#: templates/server/privileges/privileges_summary.twig:76
+#: templates/server/privileges/privileges_summary.twig:91
 msgid "Use text field"
 msgstr "テキスト入力項目の値を利用する"
 
-#: templates/server/privileges/login_information_fields.twig:16
+#: templates/server/privileges/login_information_fields.twig:17
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
@@ -16915,31 +16919,31 @@ msgstr ""
 "同じユーザ名のアカウントが既に存在していますが、別のホスト名が設定している可"
 "能性があります。"
 
-#: templates/server/privileges/login_information_fields.twig:22
+#: templates/server/privileges/login_information_fields.twig:23
 msgid "Host name:"
 msgstr "ホスト名:"
 
-#: templates/server/privileges/login_information_fields.twig:27
+#: templates/server/privileges/login_information_fields.twig:28
 #: templates/server/replication/primary_add_replica_user.twig:34
 msgid "Any host"
 msgstr "すべてのホスト"
 
-#: templates/server/privileges/login_information_fields.twig:28
+#: templates/server/privileges/login_information_fields.twig:29
 #: templates/server/replication/primary_add_replica_user.twig:35
 msgid "Local"
 msgstr "ローカル"
 
-#: templates/server/privileges/login_information_fields.twig:30
+#: templates/server/privileges/login_information_fields.twig:31
 #: templates/server/replication/primary_add_replica_user.twig:37
 msgid "This host"
 msgstr "このホスト"
 
-#: templates/server/privileges/login_information_fields.twig:32
+#: templates/server/privileges/login_information_fields.twig:33
 #: templates/server/replication/primary_add_replica_user.twig:39
 msgid "Use host table"
 msgstr "ホストテーブルを使う"
 
-#: templates/server/privileges/login_information_fields.twig:39
+#: templates/server/privileges/login_information_fields.twig:40
 #: templates/server/replication/primary_add_replica_user.twig:44
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
@@ -16948,8 +16952,8 @@ msgstr ""
 "ホストテーブルが使用されている場合、この項目は無視され、代わりに使用されてい"
 "るホストテーブルに格納されている値を設定します。"
 
-#: templates/server/privileges/login_information_fields.twig:45
-#: templates/server/privileges/login_information_fields.twig:53
+#: templates/server/privileges/login_information_fields.twig:46
+#: templates/server/privileges/login_information_fields.twig:54
 #: templates/server/privileges/users_overview.twig:10
 #: templates/server/replication/change_primary.twig:19
 #: templates/server/replication/primary_add_replica_user.twig:52
@@ -16957,29 +16961,29 @@ msgstr ""
 msgid "Password"
 msgstr "パスワード"
 
-#: templates/server/privileges/login_information_fields.twig:47
+#: templates/server/privileges/login_information_fields.twig:48
 msgid "Do not change the password"
 msgstr "パスワードは変更しない"
 
-#: templates/server/privileges/login_information_fields.twig:49
+#: templates/server/privileges/login_information_fields.twig:50
 #: templates/server/replication/primary_add_replica_user.twig:53
 msgid "No password"
 msgstr "パスワード無し"
 
-#: templates/server/privileges/login_information_fields.twig:62
+#: templates/server/privileges/login_information_fields.twig:63
 #: templates/server/replication/primary_add_replica_user.twig:65
 msgid "Re-type"
 msgstr "もう一度入力してください"
 
-#: templates/server/privileges/login_information_fields.twig:68
+#: templates/server/privileges/login_information_fields.twig:69
 msgid "Authentication plugin"
 msgstr "認証プラグイン"
 
-#: templates/server/privileges/login_information_fields.twig:70
+#: templates/server/privileges/login_information_fields.twig:71
 msgid "Password hashing method"
 msgstr "パスワードハッシュ方式"
 
-#: templates/server/privileges/login_information_fields.twig:83
+#: templates/server/privileges/login_information_fields.twig:84
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
@@ -16994,44 +16998,44 @@ msgstr ""
 msgid "Edit user group"
 msgstr "ユーザグループを編集"
 
-#: templates/server/privileges/privileges_summary.twig:20
+#: templates/server/privileges/privileges_summary.twig:21
 msgid "Column-specific privileges"
 msgstr "カラム固有の権限"
 
-#: templates/server/privileges/privileges_summary.twig:54
+#: templates/server/privileges/privileges_summary.twig:55
 msgid "Add privileges on the following database(s):"
 msgstr "以下のデータベースに権限を追加:"
 
-#: templates/server/privileges/privileges_summary.twig:67
+#: templates/server/privileges/privileges_summary.twig:68
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "_ や % というワイルドカードを文字として使用するときは \\ でエスケープしてくだ"
 "さい。"
 
-#: templates/server/privileges/privileges_summary.twig:71
+#: templates/server/privileges/privileges_summary.twig:72
 msgid "Add privileges on the following table:"
 msgstr "以下のテーブルに権限を追加:"
 
-#: templates/server/privileges/privileges_summary.twig:86
+#: templates/server/privileges/privileges_summary.twig:87
 msgid "Add privileges on the following routine:"
 msgstr "以下のルーチンに権限を追加:"
 
-#: templates/server/privileges/privileges_table.twig:35
 #: templates/server/privileges/privileges_table.twig:36
-#: templates/server/privileges/privileges_table.twig:62
+#: templates/server/privileges/privileges_table.twig:37
 #: templates/server/privileges/privileges_table.twig:63
-#: templates/server/privileges/privileges_table.twig:89
+#: templates/server/privileges/privileges_table.twig:64
 #: templates/server/privileges/privileges_table.twig:90
-#: templates/server/privileges/privileges_table.twig:116
+#: templates/server/privileges/privileges_table.twig:91
 #: templates/server/privileges/privileges_table.twig:117
+#: templates/server/privileges/privileges_table.twig:118
 msgctxt "None privileges"
 msgid "None"
 msgstr "なし"
 
-#: templates/server/privileges/privileges_table.twig:160
-#: templates/server/privileges/privileges_table.twig:164
-#: templates/server/privileges/privileges_table.twig:638
-#: templates/server/privileges/privileges_table.twig:642
+#: templates/server/privileges/privileges_table.twig:161
+#: templates/server/privileges/privileges_table.twig:165
+#: templates/server/privileges/privileges_table.twig:649
+#: templates/server/privileges/privileges_table.twig:653
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
@@ -17039,91 +17043,97 @@ msgstr ""
 "ユーザがこのルーチン内で自分を持っている権限でも他のユーザの権限を編集するた"
 "めの権限をユーザに付与することを許可します。"
 
-#: templates/server/privileges/privileges_table.twig:255
+#: templates/server/privileges/privileges_table.twig:256
 msgid "Global"
 msgstr "グローバル"
 
-#: templates/server/privileges/privileges_table.twig:262
+#: templates/server/privileges/privileges_table.twig:263
 #: templates/server/privileges/users_overview.twig:12
 msgid "Global privileges"
 msgstr "グローバル権限"
 
-#: templates/server/privileges/privileges_table.twig:552
+#: templates/server/privileges/privileges_table.twig:561
 msgid "Administration"
 msgstr "管理"
 
-#: templates/server/privileges/privileges_table.twig:559
-#: templates/server/privileges/privileges_table.twig:562
+#: templates/server/privileges/privileges_table.twig:570
+#: templates/server/privileges/privileges_table.twig:573
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "権限テーブルの再読み込みなしでユーザと権限の追加を許可する。"
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Allows creating foreign key relations."
 msgstr "外部キーリレーションの作成を許可します。"
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Not used on MariaDB."
 msgstr "MariaDB では使用されません。"
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Not used for this MySQL version."
 msgstr "MySQL のこのバージョンでは使用されません。"
 
-#: templates/server/privileges/privileges_table.twig:721
+#: templates/server/privileges/privileges_table.twig:735
 msgid "Resource limits"
 msgstr "リソースの制限"
 
-#: templates/server/privileges/privileges_table.twig:723
+#: templates/server/privileges/privileges_table.twig:738
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "注意: オプションを 0 (ゼロ)に設定すると制限を解除します。"
 
-#: templates/server/privileges/privileges_table.twig:729
-#: templates/server/privileges/privileges_table.twig:736
+#: templates/server/privileges/privileges_table.twig:744
+#: templates/server/privileges/privileges_table.twig:751
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "単位時間内にサーバに送信可能なクエリ数を制限する。"
 
-#: templates/server/privileges/privileges_table.twig:742
-#: templates/server/privileges/privileges_table.twig:749
+#: templates/server/privileges/privileges_table.twig:757
+#: templates/server/privileges/privileges_table.twig:764
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
 "単位時間内に実行可能なテーブルないしデータベースの編集コマンド数を制限する。"
 
-#: templates/server/privileges/privileges_table.twig:755
-#: templates/server/privileges/privileges_table.twig:762
+#: templates/server/privileges/privileges_table.twig:770
+#: templates/server/privileges/privileges_table.twig:777
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "単位時間内に可能な新規接続回数を制限する。"
 
-#: templates/server/privileges/privileges_table.twig:768
-#: templates/server/privileges/privileges_table.twig:775
+#: templates/server/privileges/privileges_table.twig:783
+#: templates/server/privileges/privileges_table.twig:790
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "ユーザの同時接続数を制限する。"
 
-#: templates/server/privileges/privileges_table.twig:784
+#: templates/server/privileges/privileges_table.twig:803
 msgid "Does not require SSL-encrypted connections."
 msgstr "SSL で暗号化された接続の必要はありません。"
 
-#: templates/server/privileges/privileges_table.twig:793
+#: templates/server/privileges/privileges_table.twig:812
 msgid "Requires SSL-encrypted connections."
 msgstr "SSL で暗号化された接続が必要です。"
 
-#: templates/server/privileges/privileges_table.twig:802
+#: templates/server/privileges/privileges_table.twig:821
 msgid "Requires a valid X509 certificate."
 msgstr "有効なX509証明書が必要です。"
 
-#: templates/server/privileges/privileges_table.twig:823
+#: templates/server/privileges/privileges_table.twig:842
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr "接続に特定の暗号方式を使用する必要があります。"
 
-#: templates/server/privileges/privileges_table.twig:832
+#: templates/server/privileges/privileges_table.twig:851
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr "CAによって発行された有効なX509証明書が必要です。"
 
-#: templates/server/privileges/privileges_table.twig:841
+#: templates/server/privileges/privileges_table.twig:860
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "この「SUBJECT」を持つ有効なX509証明書が必要です。"
+
+#: templates/server/privileges/privileges_table.twig:878
+#, fuzzy
+#| msgid "Adjust privileges"
+msgid "Update user privileges"
+msgstr "権限を調整"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -17145,24 +17155,24 @@ msgstr "選択したユーザが権限テーブルで見つかりません。"
 msgid "Change login information / Copy user account"
 msgstr "ログイン情報の変更 / ユーザアカウントの複製"
 
-#: templates/server/privileges/user_properties.twig:114
+#: templates/server/privileges/user_properties.twig:115
 msgid "Create a new user account with the same privileges and …"
 msgstr "同じ権限を持つ新しいユーザアカウントを作成…"
 
-#: templates/server/privileges/user_properties.twig:120
+#: templates/server/privileges/user_properties.twig:123
 msgid "… keep the old one."
 msgstr "元のユーザも残す。"
 
-#: templates/server/privileges/user_properties.twig:127
+#: templates/server/privileges/user_properties.twig:130
 msgid "… delete the old one from the user tables."
 msgstr "ユーザテーブルから元のユーザを削除する。"
 
-#: templates/server/privileges/user_properties.twig:134
+#: templates/server/privileges/user_properties.twig:137
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "元のユーザの権限をすべて無効にしてから削除する。"
 
-#: templates/server/privileges/user_properties.twig:141
+#: templates/server/privileges/user_properties.twig:144
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -18969,9 +18979,6 @@ msgstr "カラム名"
 
 #~ msgid ", @TABLE@ will become the table name"
 #~ msgstr "、@TABLE@ はテーブル名に"
-
-#~ msgid "Create %s"
-#~ msgstr "「%s」を作成"
 
 #~ msgid ""
 #~ "You are using PHP's deprecated 'mysql' extension, which is not capable of "

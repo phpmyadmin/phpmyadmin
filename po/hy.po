@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-01 00:24+0000\n"
+"POT-Creation-Date: 2022-05-08 00:20+0000\n"
 "PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1153,12 +1153,10 @@ msgstr "Որոնում՝"
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/add_user.twig:36
-#: templates/server/privileges/change_password.twig:70
-#: templates/server/privileges/edit_routine_privileges.twig:102
-#: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/privileges/privileges_table.twig:858
-#: templates/server/privileges/user_properties.twig:149
+#: templates/server/privileges/change_password.twig:72
+#: templates/server/privileges/edit_routine_privileges.twig:106
+#: templates/server/privileges/privileges_summary.twig:104
+#: templates/server/privileges/user_properties.twig:154
 #: templates/server/privileges/users_overview.twig:159
 #: templates/server/replication/change_primary.twig:33
 #: templates/server/replication/primary_add_replica_user.twig:81
@@ -4029,7 +4027,7 @@ msgstr "Զանցել կողպված աղյուսակները"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/Display/Results.php:2757
+#: libraries/classes/Display/Results.php:2766
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4097,7 +4095,7 @@ msgstr "Գրվածքի դաշտի տողերը"
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
-#: templates/server/privileges/privileges_table.twig:257
+#: templates/server/privileges/privileges_table.twig:258
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:71
 #: templates/table/operations/index.twig:56
@@ -4130,7 +4128,7 @@ msgstr "Սպասարկիչ"
 #: templates/database/triggers/editor_form.twig:27
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
-#: templates/server/privileges/privileges_table.twig:259
+#: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
 #: templates/table/maintenance/checksum.twig:12
@@ -4363,7 +4361,7 @@ msgstr "Ընտելական"
 #: templates/database/central_columns/edit.twig:3
 #: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
-#: templates/server/privileges/privileges_table.twig:352
+#: templates/server/privileges/privileges_table.twig:357
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "Կառուցվածք"
@@ -4374,7 +4372,7 @@ msgstr "Կառուցվածք"
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:319
 #: templates/database/export/index.twig:24
-#: templates/server/privileges/privileges_table.twig:278
+#: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Տվյալներ"
@@ -4879,7 +4877,7 @@ msgid "Table %s has been emptied."
 msgstr "%s աղյուսակը դատարկվել է։"
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3766
+#: libraries/classes/Display/Results.php:3775
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -4917,9 +4915,9 @@ msgstr "անհայտ"
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
 #: templates/server/privileges/new_user_ajax.twig:34
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
+#: templates/server/privileges/privileges_summary.twig:38
+#: templates/server/privileges/privileges_summary.twig:41
+#: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:53
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:28
@@ -5781,7 +5779,7 @@ msgstr "Ավելացրեք առնվազն մեկ փոփոխական այս շա�
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:305
 #: templates/database/designer/main.twig:588 templates/export.twig:433
-#: templates/server/privileges/privileges_summary.twig:30
+#: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
 #: templates/table/zoom_search/index.twig:62
@@ -6301,9 +6299,9 @@ msgstr "Կոդավորման փոփոխում"
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
 #: templates/server/privileges/new_user_ajax.twig:34
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
+#: templates/server/privileges/privileges_summary.twig:38
+#: templates/server/privileges/privileges_summary.twig:41
+#: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:55
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:29
@@ -6397,7 +6395,7 @@ msgid "Show query box"
 msgstr "Ցուցադրել հարցման դաշտը"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
-#: libraries/classes/Display/Results.php:2825
+#: libraries/classes/Display/Results.php:2834
 #: libraries/classes/Tracking.php:258
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
@@ -6668,7 +6666,7 @@ msgid "Ignore"
 msgstr "Անտեսել"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:480
-#: libraries/classes/Display/Results.php:2761
+#: libraries/classes/Display/Results.php:2770
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
@@ -8413,7 +8411,7 @@ msgstr "%s էջանիշը ստեղծվեց։"
 msgid "Bookmark not created!"
 msgstr "Էջանիշը չի ստեղծվել։"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:156
+#: libraries/classes/Controllers/Table/AddFieldController.php:161
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:221
 #: libraries/classes/Table/Indexes.php:85
@@ -8468,7 +8466,7 @@ msgstr "%s աղյուսակը արդեն սիկ առկա է։"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3477 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Ձեր SQL հարցումը հաջողությամբ կատարվեց։"
@@ -8875,7 +8873,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "%2$s տվյալների բազայում %1$s անունով իրադարձությունը չի գտնվել"
 
-#: libraries/classes/DatabaseInterface.php:1129
+#: libraries/classes/DatabaseInterface.php:1130
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -8892,22 +8890,22 @@ msgstr ""
 "[/em]-ի համար։ Տվյալ պահին phpMyAdmin-ը օգտագործում է սպասարկչի լռելյայն "
 "ժամային գոտին։"
 
-#: libraries/classes/DatabaseInterface.php:1174
+#: libraries/classes/DatabaseInterface.php:1175
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1863
+#: libraries/classes/DatabaseInterface.php:1864
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Բացակայող հարաչափը՝"
 
-#: libraries/classes/DatabaseInterface.php:1888
+#: libraries/classes/DatabaseInterface.php:1889
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Չհաջողվեց միանալ որպես controluser, ինչպես այն սահմանված է կազմաձևի մեջ։"
 
-#: libraries/classes/DatabaseInterface.php:2293
+#: libraries/classes/DatabaseInterface.php:2294
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9233,41 +9231,41 @@ msgstr "Ըստ նվազման"
 msgid "Ascending"
 msgstr "Ըստ աճման"
 
-#: libraries/classes/Display/Results.php:2801
-#: libraries/classes/Display/Results.php:2816
+#: libraries/classes/Display/Results.php:2810
+#: libraries/classes/Display/Results.php:2825
 msgid "The row has been deleted."
 msgstr "Տողը ջնջվեց։"
 
-#: libraries/classes/Display/Results.php:2848
+#: libraries/classes/Display/Results.php:2857
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Ավարտել"
 
-#: libraries/classes/Display/Results.php:3408
+#: libraries/classes/Display/Results.php:3417
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Կարող է մոտավոր լինել։ Դիմեք [doc@faq3-11]FAQ 3.11[/doc]։"
 
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3784
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s -ից %2s տողերի ցուցադրում"
 
-#: libraries/classes/Display/Results.php:3789
+#: libraries/classes/Display/Results.php:3798
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "Ընդամենը %1$d,%2$d հարցման մեջ"
 
-#: libraries/classes/Display/Results.php:3794
+#: libraries/classes/Display/Results.php:3803
 #, php-format
 msgid "%d total"
 msgstr "Ընդամենը %d"
 
-#: libraries/classes/Display/Results.php:3807 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Հարցումը տևեց %01.4f վայրկյան։"
 
-#: libraries/classes/Display/Results.php:4137
+#: libraries/classes/Display/Results.php:4146
 msgid "Link not found!"
 msgstr "Հղումներ չեն գտնվել։"
 
@@ -9907,10 +9905,10 @@ msgstr "Վերբեռնումների համար նախատեսված պանակ�
 
 #: libraries/classes/InsertEdit.php:725
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
-#: templates/server/privileges/privileges_table.twig:32
-#: templates/server/privileges/privileges_table.twig:59
-#: templates/server/privileges/privileges_table.twig:86
-#: templates/server/privileges/privileges_table.twig:113
+#: templates/server/privileges/privileges_table.twig:33
+#: templates/server/privileges/privileges_table.twig:60
+#: templates/server/privileges/privileges_table.twig:87
+#: templates/server/privileges/privileges_table.twig:114
 #: templates/table/search/index.twig:129
 msgid "Or"
 msgstr "Կամ"
@@ -9982,7 +9980,7 @@ msgstr "Զետեղել"
 #: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
-#: templates/server/privileges/privileges_summary.twig:15
+#: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
 #: templates/table/privileges/index.twig:22
 msgid "Privileges"
@@ -12023,150 +12021,150 @@ msgstr "Ներառում է բոլոր արտոնությունները բացա
 
 #: libraries/classes/Server/Privileges.php:293
 #: libraries/classes/Server/Privileges.php:360
-#: templates/server/privileges/privileges_table.twig:124
-#: templates/server/privileges/privileges_table.twig:127
-#: templates/server/privileges/privileges_table.twig:323
+#: templates/server/privileges/privileges_table.twig:125
+#: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
+#: templates/server/privileges/privileges_table.twig:329
 msgid "Allows deleting data."
 msgstr "Թույլատրում է տվյալների ջնջումը։"
 
 #: libraries/classes/Server/Privileges.php:298
-#: templates/server/privileges/privileges_table.twig:136
-#: templates/server/privileges/privileges_table.twig:139
-#: templates/server/privileges/privileges_table.twig:361
-#: templates/server/privileges/privileges_table.twig:369
+#: templates/server/privileges/privileges_table.twig:137
+#: templates/server/privileges/privileges_table.twig:140
+#: templates/server/privileges/privileges_table.twig:367
+#: templates/server/privileges/privileges_table.twig:375
 msgid "Allows creating new tables."
 msgstr "Թույլատրում է նոր աղյուսակների ստեղծումը։"
 
 #: libraries/classes/Server/Privileges.php:303
-#: templates/server/privileges/privileges_table.twig:148
-#: templates/server/privileges/privileges_table.twig:151
-#: templates/server/privileges/privileges_table.twig:409
-#: templates/server/privileges/privileges_table.twig:417
+#: templates/server/privileges/privileges_table.twig:149
+#: templates/server/privileges/privileges_table.twig:152
+#: templates/server/privileges/privileges_table.twig:415
+#: templates/server/privileges/privileges_table.twig:423
 msgid "Allows dropping tables."
 msgstr "Թույլատրում է աղյուսակների ջնջումը։"
 
 #: libraries/classes/Server/Privileges.php:308
 #: libraries/classes/Server/Privileges.php:400
-#: templates/server/privileges/privileges_table.twig:173
-#: templates/server/privileges/privileges_table.twig:176
-#: templates/server/privileges/privileges_table.twig:393
-#: templates/server/privileges/privileges_table.twig:396
+#: templates/server/privileges/privileges_table.twig:174
+#: templates/server/privileges/privileges_table.twig:177
+#: templates/server/privileges/privileges_table.twig:399
+#: templates/server/privileges/privileges_table.twig:402
 msgid "Allows creating and dropping indexes."
 msgstr "Թույլատրում է ցուցակագրերի ստեղծումը և ջնջումը։"
 
 #: libraries/classes/Server/Privileges.php:313
 #: libraries/classes/Server/Privileges.php:405
-#: templates/server/privileges/privileges_table.twig:185
-#: templates/server/privileges/privileges_table.twig:188
-#: templates/server/privileges/privileges_table.twig:380
-#: templates/server/privileges/privileges_table.twig:383
+#: templates/server/privileges/privileges_table.twig:186
+#: templates/server/privileges/privileges_table.twig:189
+#: templates/server/privileges/privileges_table.twig:386
+#: templates/server/privileges/privileges_table.twig:389
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:318
 #: libraries/classes/Server/Privileges.php:444
 #: libraries/classes/Server/Privileges.php:460
-#: templates/server/privileges/privileges_table.twig:197
-#: templates/server/privileges/privileges_table.twig:200
-#: templates/server/privileges/privileges_table.twig:494
-#: templates/server/privileges/privileges_table.twig:497
-#: templates/server/privileges/privileges_table.twig:509
-#: templates/server/privileges/privileges_table.twig:512
+#: templates/server/privileges/privileges_table.twig:198
+#: templates/server/privileges/privileges_table.twig:201
+#: templates/server/privileges/privileges_table.twig:500
+#: templates/server/privileges/privileges_table.twig:503
+#: templates/server/privileges/privileges_table.twig:515
+#: templates/server/privileges/privileges_table.twig:518
 msgid "Allows creating new views."
 msgstr "Թույլատրում է նոր ներկայացումների ստեղծումը։"
 
 #: libraries/classes/Server/Privileges.php:323
 #: libraries/classes/Server/Privileges.php:465
 #: libraries/classes/Server/Privileges.php:471
-#: templates/server/privileges/privileges_table.twig:209
-#: templates/server/privileges/privileges_table.twig:212
-#: templates/server/privileges/privileges_table.twig:441
-#: templates/server/privileges/privileges_table.twig:444
+#: templates/server/privileges/privileges_table.twig:210
+#: templates/server/privileges/privileges_table.twig:213
+#: templates/server/privileges/privileges_table.twig:447
+#: templates/server/privileges/privileges_table.twig:450
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Թույլատրում է SHOW CREATE VIEW հարցումների կատարումը։"
 
 #: libraries/classes/Server/Privileges.php:328
 #: libraries/classes/Server/Privileges.php:454
-#: templates/server/privileges/privileges_table.twig:221
-#: templates/server/privileges/privileges_table.twig:224
-#: templates/server/privileges/privileges_table.twig:537
-#: templates/server/privileges/privileges_table.twig:540
+#: templates/server/privileges/privileges_table.twig:222
+#: templates/server/privileges/privileges_table.twig:225
+#: templates/server/privileges/privileges_table.twig:543
+#: templates/server/privileges/privileges_table.twig:546
 msgid "Allows creating and dropping triggers."
 msgstr "Թույլատրում է ձգանների ստեղծումը և ջնջումը։"
 
 #: libraries/classes/Server/Privileges.php:345
-#: templates/server/privileges/privileges_table.twig:15
-#: templates/server/privileges/privileges_table.twig:284
+#: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
+#: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Թույլատրում է տվյալների կարդալը։"
 
 #: libraries/classes/Server/Privileges.php:350
-#: templates/server/privileges/privileges_table.twig:42
-#: templates/server/privileges/privileges_table.twig:297
+#: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
+#: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Թույլատրում է տվյալների զետեղումը և փոխարինումը։"
 
 #: libraries/classes/Server/Privileges.php:355
-#: templates/server/privileges/privileges_table.twig:69
-#: templates/server/privileges/privileges_table.twig:310
+#: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
+#: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Թույլ է տալիս տվյալների փոփոխումը։"
 
 #: libraries/classes/Server/Privileges.php:365
-#: templates/server/privileges/privileges_table.twig:359
-#: templates/server/privileges/privileges_table.twig:367
+#: templates/server/privileges/privileges_table.twig:365
+#: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Թույլատրում է նոր տվյալների բազաների և աղյուսակների ստեղծումը։"
 
 #: libraries/classes/Server/Privileges.php:370
-#: templates/server/privileges/privileges_table.twig:407
-#: templates/server/privileges/privileges_table.twig:415
+#: templates/server/privileges/privileges_table.twig:413
+#: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Թույլատրում է տվյալների բազաների և աղյուսակների ջնջումը։"
 
 #: libraries/classes/Server/Privileges.php:375
-#: templates/server/privileges/privileges_table.twig:599
-#: templates/server/privileges/privileges_table.twig:602
+#: templates/server/privileges/privileges_table.twig:610
+#: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:380
-#: templates/server/privileges/privileges_table.twig:612
-#: templates/server/privileges/privileges_table.twig:615
+#: templates/server/privileges/privileges_table.twig:623
+#: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Թույլատրում է սպասարկչի անջատելը։"
 
 #: libraries/classes/Server/Privileges.php:385
-#: templates/server/privileges/privileges_table.twig:586
-#: templates/server/privileges/privileges_table.twig:589
+#: templates/server/privileges/privileges_table.twig:597
+#: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "Թույլատրում է բոլոր օգտվողների ընթացքների դիտումը։"
 
 #: libraries/classes/Server/Privileges.php:390
-#: templates/server/privileges/privileges_table.twig:337
 #: templates/server/privileges/privileges_table.twig:340
+#: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:395
-#: templates/server/privileges/privileges_table.twig:96
-#: templates/server/privileges/privileges_table.twig:666
+#: templates/server/privileges/privileges_table.twig:97
+#: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:410
-#: templates/server/privileges/privileges_table.twig:625
-#: templates/server/privileges/privileges_table.twig:628
+#: templates/server/privileges/privileges_table.twig:636
+#: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:416
-#: templates/server/privileges/privileges_table.twig:572
-#: templates/server/privileges/privileges_table.twig:576
+#: templates/server/privileges/privileges_table.twig:583
+#: templates/server/privileges/privileges_table.twig:587
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -12174,70 +12172,70 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:424
-#: templates/server/privileges/privileges_table.twig:428
-#: templates/server/privileges/privileges_table.twig:431
+#: templates/server/privileges/privileges_table.twig:434
+#: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Թույլատրում է ժամանակավոր աղյուսակների ստեղծումը։"
 
 #: libraries/classes/Server/Privileges.php:429
-#: templates/server/privileges/privileges_table.twig:653
-#: templates/server/privileges/privileges_table.twig:656
+#: templates/server/privileges/privileges_table.twig:664
+#: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Թույլատրում է աղյուսակների կողպումը՝ տվյալ հոսքի համար։"
 
 #: libraries/classes/Server/Privileges.php:434
-#: templates/server/privileges/privileges_table.twig:694
-#: templates/server/privileges/privileges_table.twig:697
+#: templates/server/privileges/privileges_table.twig:705
+#: templates/server/privileges/privileges_table.twig:708
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
 msgstr "Անհրաժեշտ է ենթարկվող սպասարկիչներին՝ կրկնապատկման ժամանակ։"
 
 #: libraries/classes/Server/Privileges.php:439
-#: templates/server/privileges/privileges_table.twig:681
-#: templates/server/privileges/privileges_table.twig:684
+#: templates/server/privileges/privileges_table.twig:692
+#: templates/server/privileges/privileges_table.twig:695
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Թուլյատրում է հարցնել հիմնական և ենթարկվող սպասարկիչների տեղակայումը։"
 
 #: libraries/classes/Server/Privileges.php:449
-#: templates/server/privileges/privileges_table.twig:524
-#: templates/server/privileges/privileges_table.twig:527
+#: templates/server/privileges/privileges_table.twig:530
+#: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:478
 #: libraries/classes/Server/Privileges.php:487
-#: templates/server/privileges/privileges_table.twig:234
-#: templates/server/privileges/privileges_table.twig:238
+#: templates/server/privileges/privileges_table.twig:235
+#: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
 msgstr "Թույլատրում է տվյալների ջնջումը։"
 
 #: libraries/classes/Server/Privileges.php:492
-#: templates/server/privileges/privileges_table.twig:454
-#: templates/server/privileges/privileges_table.twig:457
+#: templates/server/privileges/privileges_table.twig:460
+#: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Թույլատրում է պահված գործընթացների ստեղծումը։"
 
 #: libraries/classes/Server/Privileges.php:497
-#: templates/server/privileges/privileges_table.twig:467
-#: templates/server/privileges/privileges_table.twig:470
+#: templates/server/privileges/privileges_table.twig:473
+#: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:502
-#: templates/server/privileges/privileges_table.twig:707
-#: templates/server/privileges/privileges_table.twig:710
+#: templates/server/privileges/privileges_table.twig:718
+#: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Թույլատրում է օգտվողների հաշիվների ստեղծումը, ջնջումը և անվանափոխումը։"
 
 #: libraries/classes/Server/Privileges.php:507
-#: templates/server/privileges/privileges_table.twig:480
-#: templates/server/privileges/privileges_table.twig:483
+#: templates/server/privileges/privileges_table.twig:486
+#: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Թույլատրում է պահված գործընթացների կատարումը։"
 
@@ -12270,14 +12268,14 @@ msgid "Revoke"
 msgstr "Հետարկել"
 
 #: libraries/classes/Server/Privileges.php:1819
-#: templates/server/privileges/privileges_table.twig:264
+#: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1825
-#: templates/server/privileges/privileges_summary.twig:18
+#: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
-#: templates/server/privileges/privileges_table.twig:266
+#: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr ""
 
@@ -12285,7 +12283,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
-#: templates/server/privileges/edit_routine_privileges.twig:58
+#: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "Գործընթաց"
 
@@ -13835,7 +13833,7 @@ msgstr "Կտտացրեք՝ դասակարգելու համար։"
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:154 templates/indexes.twig:15
 #: templates/server/databases/index.twig:163
-#: templates/server/privileges/privileges_summary.twig:22
+#: templates/server/privileges/privileges_summary.twig:23
 #: templates/server/privileges/users_overview.twig:22
 #: templates/server/user_groups/user_groups.twig:21
 #: templates/server/variables/index.twig:30
@@ -13900,10 +13898,10 @@ msgstr "Ցուցակագիրը սահմանված չէ։"
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:28
 #: templates/database/search/main.twig:43 templates/server/export/index.twig:10
-#: templates/server/privileges/privileges_table.twig:28
-#: templates/server/privileges/privileges_table.twig:55
-#: templates/server/privileges/privileges_table.twig:82
-#: templates/server/privileges/privileges_table.twig:109
+#: templates/server/privileges/privileges_table.twig:29
+#: templates/server/privileges/privileges_table.twig:56
+#: templates/server/privileges/privileges_table.twig:83
+#: templates/server/privileges/privileges_table.twig:110
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
 msgstr "Ընտրել բոլորը"
@@ -14200,12 +14198,12 @@ msgstr "Սահմանիչ"
 #: templates/display/results/table.twig:298
 #: templates/display/results/table.twig:299 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
-#: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:268
+#: templates/server/privileges/edit_routine_privileges.twig:58
 #: templates/server/privileges/privileges_table.twig:269
-#: templates/server/privileges/privileges_table.twig:277
-#: templates/server/privileges/privileges_table.twig:351
-#: templates/server/privileges/privileges_table.twig:551
+#: templates/server/privileges/privileges_table.twig:270
+#: templates/server/privileges/privileges_table.twig:279
+#: templates/server/privileges/privileges_table.twig:356
+#: templates/server/privileges/privileges_table.twig:560
 #: templates/server/privileges/users_overview.twig:121
 #: templates/server/privileges/users_overview.twig:122
 #: templates/server/user_groups/edit_user_groups.twig:11
@@ -14444,8 +14442,8 @@ msgid "Users having access to \"%s\""
 msgstr "Օգտվողներ՝ \"%s\" մատչման հնարավորությումբ"
 
 #: templates/database/privileges/index.twig:17
-#: templates/server/privileges/login_information_fields.twig:6
-#: templates/server/privileges/login_information_fields.twig:11
+#: templates/server/privileges/login_information_fields.twig:7
+#: templates/server/privileges/login_information_fields.twig:12
 #: templates/server/privileges/users_overview.twig:8
 #: templates/server/replication/change_primary.twig:15
 #: templates/server/replication/primary_add_replica_user.twig:19
@@ -14455,15 +14453,15 @@ msgid "User name"
 msgstr "Օգտանուն"
 
 #: templates/database/privileges/index.twig:18
-#: templates/server/privileges/login_information_fields.twig:25
-#: templates/server/privileges/login_information_fields.twig:37
+#: templates/server/privileges/login_information_fields.twig:26
+#: templates/server/privileges/login_information_fields.twig:38
 #: templates/server/privileges/users_overview.twig:9
 #: templates/table/privileges/index.twig:20
 msgid "Host name"
 msgstr "Խնամորդի անունը"
 
 #: templates/database/privileges/index.twig:21
-#: templates/server/privileges/privileges_summary.twig:16
+#: templates/server/privileges/privileges_summary.twig:17
 #: templates/server/privileges/users_overview.twig:18
 #: templates/table/privileges/index.twig:23
 msgid "Grant"
@@ -14521,7 +14519,7 @@ msgstr "Նոր"
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
-#: templates/server/privileges/add_user.twig:3
+#: templates/server/privileges/add_user.twig:4
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
@@ -15830,8 +15828,8 @@ msgid "Username:"
 msgstr "Օգտանուն՝"
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:21
-#: templates/server/privileges/login_information_fields.twig:43
+#: templates/server/privileges/change_password.twig:22
+#: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
 msgid "Password:"
@@ -16576,54 +16574,60 @@ msgstr "Ջնջում"
 msgid "deleted"
 msgstr "Հեռացնել"
 
-#: templates/server/privileges/add_user.twig:12
+#: templates/server/privileges/add_user.twig:13
 msgid "Database for user account"
 msgstr "Տվյալների բազա՝ օգտվողի հաշվի համար"
 
-#: templates/server/privileges/add_user.twig:15
+#: templates/server/privileges/add_user.twig:16
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Ստեղծել տվյալների բազան նույն անունով և շնորհել բոլոր արտոնությունները։"
 
-#: templates/server/privileges/add_user.twig:19
+#: templates/server/privileges/add_user.twig:20
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Շնորհել բոլոր արտոնությունները դերանշանին համապատասխանող օգտանուններին "
 "(օգտանուն\\_%)։"
 
-#: templates/server/privileges/add_user.twig:24
+#: templates/server/privileges/add_user.twig:25
 #, fuzzy, php-format
 #| msgid "Check privileges for database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "Ստուգել արտոնությունները \"%s\" տվյալների բազայի համար։"
 
-#: templates/server/privileges/change_password.twig:15
+#: templates/server/privileges/add_user.twig:38
+#, fuzzy
+#| msgid "Create"
+msgid "Create user"
+msgstr "Ստեղծել"
+
+#: templates/server/privileges/change_password.twig:16
 msgid "No Password"
 msgstr "Առանց գաղտնաբառի"
 
-#: templates/server/privileges/change_password.twig:24
+#: templates/server/privileges/change_password.twig:25
 msgid "Enter:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:28
-#: templates/server/privileges/login_information_fields.twig:54
+#: templates/server/privileges/change_password.twig:29
+#: templates/server/privileges/login_information_fields.twig:55
 #, fuzzy
 #| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "Տվյալների երկարությունը"
 
-#: templates/server/privileges/change_password.twig:32
-#: templates/server/privileges/login_information_fields.twig:60
+#: templates/server/privileges/change_password.twig:33
+#: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
 msgid "Re-type:"
 msgstr "Հաստատել՝"
 
-#: templates/server/privileges/change_password.twig:40
+#: templates/server/privileges/change_password.twig:41
 msgid "Password Hashing:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:58
+#: templates/server/privileges/change_password.twig:59
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -16653,27 +16657,27 @@ msgid ""
 "currently logged in."
 msgstr ""
 
-#: templates/server/privileges/edit_routine_privileges.twig:51
-#: templates/server/privileges/privileges_table.twig:10
-#: templates/server/privileges/privileges_table.twig:272
+#: templates/server/privileges/edit_routine_privileges.twig:52
+#: templates/server/privileges/privileges_table.twig:11
+#: templates/server/privileges/privileges_table.twig:274
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
 "Նշում՝ MySQL-ի արտոնությունների անվանումները ցուցադրվում են Անգլերենով։"
 
-#: templates/server/privileges/edit_routine_privileges.twig:63
-#: templates/server/privileges/edit_routine_privileges.twig:67
+#: templates/server/privileges/edit_routine_privileges.twig:65
+#: templates/server/privileges/edit_routine_privileges.twig:69
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
 
-#: templates/server/privileges/edit_routine_privileges.twig:76
-#: templates/server/privileges/edit_routine_privileges.twig:79
+#: templates/server/privileges/edit_routine_privileges.twig:78
+#: templates/server/privileges/edit_routine_privileges.twig:81
 msgid "Allows altering and dropping this routine."
 msgstr "Թույլատրում է տվյալ գործընթացի փոփոխումը և ջնջումը։"
 
-#: templates/server/privileges/edit_routine_privileges.twig:88
-#: templates/server/privileges/edit_routine_privileges.twig:91
+#: templates/server/privileges/edit_routine_privileges.twig:90
+#: templates/server/privileges/edit_routine_privileges.twig:93
 msgid "Allows executing this routine."
 msgstr "Թույլատրում է տվյալ գործընթացի կատարումը։"
 
@@ -16688,68 +16692,68 @@ msgstr "Տվյալների բազա՝ օգտվողի հաշվի համար"
 msgid "Login Information"
 msgstr "Հաշվի հավատարմագրերը"
 
-#: templates/server/privileges/login_information_fields.twig:4
+#: templates/server/privileges/login_information_fields.twig:5
 #: templates/server/replication/change_primary.twig:14
 #: templates/server/replication/primary_add_replica_user.twig:16
 msgid "User name:"
 msgstr "Օգտանուն՝"
 
-#: templates/server/privileges/login_information_fields.twig:7
+#: templates/server/privileges/login_information_fields.twig:8
 #: templates/server/replication/primary_add_replica_user.twig:20
 msgid "Any user"
 msgstr "Ցանկացած օգտվող"
 
-#: templates/server/privileges/login_information_fields.twig:8
-#: templates/server/privileges/login_information_fields.twig:33
-#: templates/server/privileges/login_information_fields.twig:50
-#: templates/server/privileges/privileges_summary.twig:75
-#: templates/server/privileges/privileges_summary.twig:90
+#: templates/server/privileges/login_information_fields.twig:9
+#: templates/server/privileges/login_information_fields.twig:34
+#: templates/server/privileges/login_information_fields.twig:51
+#: templates/server/privileges/privileges_summary.twig:76
+#: templates/server/privileges/privileges_summary.twig:91
 msgid "Use text field"
 msgstr "Օգտագործել գրվածքի դաշտը"
 
-#: templates/server/privileges/login_information_fields.twig:16
+#: templates/server/privileges/login_information_fields.twig:17
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: templates/server/privileges/login_information_fields.twig:22
+#: templates/server/privileges/login_information_fields.twig:23
 msgid "Host name:"
 msgstr "Խնամորդի անունը՝"
 
-#: templates/server/privileges/login_information_fields.twig:27
+#: templates/server/privileges/login_information_fields.twig:28
 #: templates/server/replication/primary_add_replica_user.twig:34
 msgid "Any host"
 msgstr "Ցանկացած խնամորդ"
 
-#: templates/server/privileges/login_information_fields.twig:28
+#: templates/server/privileges/login_information_fields.twig:29
 #: templates/server/replication/primary_add_replica_user.twig:35
 msgid "Local"
 msgstr "Տեղային"
 
-#: templates/server/privileges/login_information_fields.twig:30
+#: templates/server/privileges/login_information_fields.twig:31
 #: templates/server/replication/primary_add_replica_user.twig:37
 #, fuzzy
 #| msgid "This Host"
 msgid "This host"
 msgstr "Յաս խնամորդը"
 
-#: templates/server/privileges/login_information_fields.twig:32
+#: templates/server/privileges/login_information_fields.twig:33
 #: templates/server/replication/primary_add_replica_user.twig:39
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Օգտագործել խնամորդի աղյուսակը"
 
-#: templates/server/privileges/login_information_fields.twig:39
+#: templates/server/privileges/login_information_fields.twig:40
 #: templates/server/replication/primary_add_replica_user.twig:44
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
-#: templates/server/privileges/login_information_fields.twig:45
-#: templates/server/privileges/login_information_fields.twig:53
+#: templates/server/privileges/login_information_fields.twig:46
+#: templates/server/privileges/login_information_fields.twig:54
 #: templates/server/privileges/users_overview.twig:10
 #: templates/server/replication/change_primary.twig:19
 #: templates/server/replication/primary_add_replica_user.twig:52
@@ -16757,33 +16761,33 @@ msgstr ""
 msgid "Password"
 msgstr "Գաղտնաբառ"
 
-#: templates/server/privileges/login_information_fields.twig:47
+#: templates/server/privileges/login_information_fields.twig:48
 msgid "Do not change the password"
 msgstr ""
 
-#: templates/server/privileges/login_information_fields.twig:49
+#: templates/server/privileges/login_information_fields.twig:50
 #: templates/server/replication/primary_add_replica_user.twig:53
 #, fuzzy
 #| msgid "No Password"
 msgid "No password"
 msgstr "Առանց գաղտնաբառի"
 
-#: templates/server/privileges/login_information_fields.twig:62
+#: templates/server/privileges/login_information_fields.twig:63
 #: templates/server/replication/primary_add_replica_user.twig:65
 msgid "Re-type"
 msgstr "Հաստատել"
 
-#: templates/server/privileges/login_information_fields.twig:68
+#: templates/server/privileges/login_information_fields.twig:69
 #, fuzzy
 #| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "Վավերացման խրվակ"
 
-#: templates/server/privileges/login_information_fields.twig:70
+#: templates/server/privileges/login_information_fields.twig:71
 msgid "Password hashing method"
 msgstr ""
 
-#: templates/server/privileges/login_information_fields.twig:83
+#: templates/server/privileges/login_information_fields.twig:84
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
@@ -16796,101 +16800,101 @@ msgstr ""
 msgid "Edit user group"
 msgstr "Խմբագրել օգտվողների խումբը"
 
-#: templates/server/privileges/privileges_summary.twig:20
+#: templates/server/privileges/privileges_summary.twig:21
 msgid "Column-specific privileges"
 msgstr ""
 
-#: templates/server/privileges/privileges_summary.twig:54
+#: templates/server/privileges/privileges_summary.twig:55
 msgid "Add privileges on the following database(s):"
 msgstr "Ավելացնել արտոնություններ հետևյալ տվյալների բազա(ներ)ի համար՝"
 
-#: templates/server/privileges/privileges_summary.twig:67
+#: templates/server/privileges/privileges_summary.twig:68
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
-#: templates/server/privileges/privileges_summary.twig:71
+#: templates/server/privileges/privileges_summary.twig:72
 msgid "Add privileges on the following table:"
 msgstr "Ավելացնել արտոնություններ հետևյալ աղյուսակի համար՝"
 
-#: templates/server/privileges/privileges_summary.twig:86
+#: templates/server/privileges/privileges_summary.twig:87
 msgid "Add privileges on the following routine:"
 msgstr "Ավելացնել արտոնություններ հետևյալ գործընթացի համար՝"
 
-#: templates/server/privileges/privileges_table.twig:35
 #: templates/server/privileges/privileges_table.twig:36
-#: templates/server/privileges/privileges_table.twig:62
+#: templates/server/privileges/privileges_table.twig:37
 #: templates/server/privileges/privileges_table.twig:63
-#: templates/server/privileges/privileges_table.twig:89
+#: templates/server/privileges/privileges_table.twig:64
 #: templates/server/privileges/privileges_table.twig:90
-#: templates/server/privileges/privileges_table.twig:116
+#: templates/server/privileges/privileges_table.twig:91
 #: templates/server/privileges/privileges_table.twig:117
+#: templates/server/privileges/privileges_table.twig:118
 msgctxt "None privileges"
 msgid "None"
 msgstr "Չկա"
 
-#: templates/server/privileges/privileges_table.twig:160
-#: templates/server/privileges/privileges_table.twig:164
-#: templates/server/privileges/privileges_table.twig:638
-#: templates/server/privileges/privileges_table.twig:642
+#: templates/server/privileges/privileges_table.twig:161
+#: templates/server/privileges/privileges_table.twig:165
+#: templates/server/privileges/privileges_table.twig:649
+#: templates/server/privileges/privileges_table.twig:653
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:255
+#: templates/server/privileges/privileges_table.twig:256
 msgid "Global"
 msgstr "Ընդհանրական"
 
-#: templates/server/privileges/privileges_table.twig:262
+#: templates/server/privileges/privileges_table.twig:263
 #: templates/server/privileges/users_overview.twig:12
 msgid "Global privileges"
 msgstr "Ընդհանրական արտոնություններ"
 
-#: templates/server/privileges/privileges_table.twig:552
+#: templates/server/privileges/privileges_table.twig:561
 msgid "Administration"
 msgstr "Կառավարում"
 
-#: templates/server/privileges/privileges_table.twig:559
-#: templates/server/privileges/privileges_table.twig:562
+#: templates/server/privileges/privileges_table.twig:570
+#: templates/server/privileges/privileges_table.twig:573
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 #, fuzzy
 #| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
 msgstr "Թույլատրում է պահված գործընթացների ստեղծումը։"
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Not used on MariaDB."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 #, fuzzy
 #| msgid "%s has been disabled for this MySQL server."
 msgid "Not used for this MySQL version."
 msgstr "%s աղյուսակների տեսակը կասեցվել է այս MySQL սպասարկչում։"
 
-#: templates/server/privileges/privileges_table.twig:721
+#: templates/server/privileges/privileges_table.twig:735
 msgid "Resource limits"
 msgstr "Պաշարների օգտագործման սահմանափակումները"
 
-#: templates/server/privileges/privileges_table.twig:723
+#: templates/server/privileges/privileges_table.twig:738
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Նշում՝ այս կայանքների համար 0 (զրոյի) նշանակումը հանում է բոլոր "
 "սահմանափակումները։"
 
-#: templates/server/privileges/privileges_table.twig:729
-#: templates/server/privileges/privileges_table.twig:736
+#: templates/server/privileges/privileges_table.twig:744
+#: templates/server/privileges/privileges_table.twig:751
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Սահմանափակում է օգտվողից սպասարկչին մեկ ժամվա ընթացքում ուղարկվող "
 "հարցումների առավելագույն քանակը։"
 
-#: templates/server/privileges/privileges_table.twig:742
-#: templates/server/privileges/privileges_table.twig:749
+#: templates/server/privileges/privileges_table.twig:757
+#: templates/server/privileges/privileges_table.twig:764
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -16898,42 +16902,48 @@ msgstr ""
 "Սահմանափակում է օգտվողից մեկ ժամվա ընթացքում ուղարկվող աղյուսակների կամ "
 "տվյալների բազաների փոփոխման հարցումների առավելագույն քանակը։"
 
-#: templates/server/privileges/privileges_table.twig:755
-#: templates/server/privileges/privileges_table.twig:762
+#: templates/server/privileges/privileges_table.twig:770
+#: templates/server/privileges/privileges_table.twig:777
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Սահմանափակում է օգտվողից մեկ ժամվա ընթացքում նոր միացումների բացման "
 "առավելագույն քանակը։"
 
-#: templates/server/privileges/privileges_table.twig:768
-#: templates/server/privileges/privileges_table.twig:775
+#: templates/server/privileges/privileges_table.twig:783
+#: templates/server/privileges/privileges_table.twig:790
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Սահմանափակում է մեկ օգտվողի մասով միաժամանակ միացումների առավելագույն քանակը։"
 
-#: templates/server/privileges/privileges_table.twig:784
+#: templates/server/privileges/privileges_table.twig:803
 msgid "Does not require SSL-encrypted connections."
 msgstr "Չի պահանջում SSL ծածկագրմամբ միացում։"
 
-#: templates/server/privileges/privileges_table.twig:793
+#: templates/server/privileges/privileges_table.twig:812
 msgid "Requires SSL-encrypted connections."
 msgstr "Պահանջում է SSL ծածկագրմամբ միացումը։"
 
-#: templates/server/privileges/privileges_table.twig:802
+#: templates/server/privileges/privileges_table.twig:821
 msgid "Requires a valid X509 certificate."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:823
+#: templates/server/privileges/privileges_table.twig:842
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:832
+#: templates/server/privileges/privileges_table.twig:851
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:841
+#: templates/server/privileges/privileges_table.twig:860
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+
+#: templates/server/privileges/privileges_table.twig:878
+#, fuzzy
+#| msgid "Adjust privileges"
+msgid "Update user privileges"
+msgstr "Կարգավորել արտոնությունները"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -16955,24 +16965,24 @@ msgstr ""
 msgid "Change login information / Copy user account"
 msgstr ""
 
-#: templates/server/privileges/user_properties.twig:114
+#: templates/server/privileges/user_properties.twig:115
 msgid "Create a new user account with the same privileges and …"
 msgstr ""
 
-#: templates/server/privileges/user_properties.twig:120
+#: templates/server/privileges/user_properties.twig:123
 msgid "… keep the old one."
 msgstr "… պահել ավելի հինը։"
 
-#: templates/server/privileges/user_properties.twig:127
+#: templates/server/privileges/user_properties.twig:130
 msgid "… delete the old one from the user tables."
 msgstr "… ջնջել օգտվողների աղյուսակներից ավելի հինը։"
 
-#: templates/server/privileges/user_properties.twig:134
+#: templates/server/privileges/user_properties.twig:137
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
-#: templates/server/privileges/user_properties.twig:141
+#: templates/server/privileges/user_properties.twig:144
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -18825,11 +18835,6 @@ msgstr "Սյունակների անուններ"
 
 #~ msgid ", @TABLE@ will become the table name"
 #~ msgstr ", @TABLE@ կփորախինվի աղյուսակի անունով"
-
-#, fuzzy
-#~| msgid "Create"
-#~ msgid "Create %s"
-#~ msgstr "Ստեղծել"
 
 #, fuzzy
 #~| msgid "You do not have the necessary privileges to create an event"

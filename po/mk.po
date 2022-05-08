@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-01 00:24+0000\n"
+"POT-Creation-Date: 2022-05-08 00:20+0000\n"
 "PO-Revision-Date: 2022-04-08 08:32+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1256,12 +1256,10 @@ msgstr "Пребарување"
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/add_user.twig:36
-#: templates/server/privileges/change_password.twig:70
-#: templates/server/privileges/edit_routine_privileges.twig:102
-#: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/privileges/privileges_table.twig:858
-#: templates/server/privileges/user_properties.twig:149
+#: templates/server/privileges/change_password.twig:72
+#: templates/server/privileges/edit_routine_privileges.twig:106
+#: templates/server/privileges/privileges_summary.twig:104
+#: templates/server/privileges/user_properties.twig:154
 #: templates/server/privileges/users_overview.twig:159
 #: templates/server/replication/change_primary.twig:33
 #: templates/server/replication/primary_add_replica_user.twig:81
@@ -4268,7 +4266,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/Display/Results.php:2757
+#: libraries/classes/Display/Results.php:2766
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4340,7 +4338,7 @@ msgstr ""
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
-#: templates/server/privileges/privileges_table.twig:257
+#: templates/server/privileges/privileges_table.twig:258
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:71
 #: templates/table/operations/index.twig:56
@@ -4375,7 +4373,7 @@ msgstr "Сервер"
 #: templates/database/triggers/editor_form.twig:27
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
-#: templates/server/privileges/privileges_table.twig:259
+#: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
 #: templates/table/maintenance/checksum.twig:12
@@ -4605,7 +4603,7 @@ msgstr ""
 #: templates/database/central_columns/edit.twig:3
 #: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
-#: templates/server/privileges/privileges_table.twig:352
+#: templates/server/privileges/privileges_table.twig:357
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "Структура"
@@ -4616,7 +4614,7 @@ msgstr "Структура"
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:319
 #: templates/database/export/index.twig:24
-#: templates/server/privileges/privileges_table.twig:278
+#: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Податоци"
@@ -5115,7 +5113,7 @@ msgid "Table %s has been emptied."
 msgstr "Табелата %s е испразнета."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3766
+#: libraries/classes/Display/Results.php:3775
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5151,9 +5149,9 @@ msgstr "непознат"
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
 #: templates/server/privileges/new_user_ajax.twig:34
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
+#: templates/server/privileges/privileges_summary.twig:38
+#: templates/server/privileges/privileges_summary.twig:41
+#: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:53
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:28
@@ -6056,7 +6054,7 @@ msgstr ""
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:305
 #: templates/database/designer/main.twig:588 templates/export.twig:433
-#: templates/server/privileges/privileges_summary.twig:30
+#: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
 #: templates/table/zoom_search/index.twig:62
@@ -6606,9 +6604,9 @@ msgstr "Кодна страна"
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
 #: templates/server/privileges/new_user_ajax.twig:34
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
+#: templates/server/privileges/privileges_summary.twig:38
+#: templates/server/privileges/privileges_summary.twig:41
+#: templates/server/privileges/privileges_summary.twig:43
 #: templates/server/privileges/users_overview.twig:55
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:29
@@ -6713,7 +6711,7 @@ msgid "Show query box"
 msgstr "SQL упит"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
-#: libraries/classes/Display/Results.php:2825
+#: libraries/classes/Display/Results.php:2834
 #: libraries/classes/Tracking.php:258
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
@@ -7003,7 +7001,7 @@ msgid "Ignore"
 msgstr "Игнорирај"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:480
-#: libraries/classes/Display/Results.php:2761
+#: libraries/classes/Display/Results.php:2770
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
@@ -8828,7 +8826,7 @@ msgstr "Маркерот %s е креиран."
 msgid "Bookmark not created!"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:156
+#: libraries/classes/Controllers/Table/AddFieldController.php:161
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:221
 #: libraries/classes/Table/Indexes.php:85
@@ -8887,7 +8885,7 @@ msgstr "Корисник %s веќе постои!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3477 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -9305,7 +9303,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Табелите не се пронајдени во базата на податоци."
 
-#: libraries/classes/DatabaseInterface.php:1129
+#: libraries/classes/DatabaseInterface.php:1130
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9313,21 +9311,21 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1174
+#: libraries/classes/DatabaseInterface.php:1175
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1863
+#: libraries/classes/DatabaseInterface.php:1864
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing connection parameters!"
 msgstr "Рутини"
 
-#: libraries/classes/DatabaseInterface.php:1888
+#: libraries/classes/DatabaseInterface.php:1889
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2293
+#: libraries/classes/DatabaseInterface.php:2294
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9677,19 +9675,19 @@ msgstr "Опаѓачки редослед"
 msgid "Ascending"
 msgstr "Растечки редослед"
 
-#: libraries/classes/Display/Results.php:2801
-#: libraries/classes/Display/Results.php:2816
+#: libraries/classes/Display/Results.php:2810
+#: libraries/classes/Display/Results.php:2825
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Записот е избришан"
 
-#: libraries/classes/Display/Results.php:2848
+#: libraries/classes/Display/Results.php:2857
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Прекини"
 
-#: libraries/classes/Display/Results.php:3408
+#: libraries/classes/Display/Results.php:3417
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
@@ -9697,30 +9695,30 @@ msgstr ""
 "Бројот на записи може да биде приближен. За подетални информации види "
 "[doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3784
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Приказ на записи од"
 
-#: libraries/classes/Display/Results.php:3789
+#: libraries/classes/Display/Results.php:3798
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3794
+#: libraries/classes/Display/Results.php:3803
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "вкупно"
 
-#: libraries/classes/Display/Results.php:3807 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "време на извршување на упитот %01.4f секунди"
 
-#: libraries/classes/Display/Results.php:4137
+#: libraries/classes/Display/Results.php:4146
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -10389,10 +10387,10 @@ msgstr "Директориумот кој го избравте за праќа�
 
 #: libraries/classes/InsertEdit.php:725
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
-#: templates/server/privileges/privileges_table.twig:32
-#: templates/server/privileges/privileges_table.twig:59
-#: templates/server/privileges/privileges_table.twig:86
-#: templates/server/privileges/privileges_table.twig:113
+#: templates/server/privileges/privileges_table.twig:33
+#: templates/server/privileges/privileges_table.twig:60
+#: templates/server/privileges/privileges_table.twig:87
+#: templates/server/privileges/privileges_table.twig:114
 #: templates/table/search/index.twig:129
 msgid "Or"
 msgstr "или"
@@ -10466,7 +10464,7 @@ msgstr "Нов запис"
 #: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
-#: templates/server/privileges/privileges_summary.twig:15
+#: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
 #: templates/table/privileges/index.twig:22
 msgid "Privileges"
@@ -12764,153 +12762,153 @@ msgstr "Ги вклучува сите привилегии освен GRANT."
 
 #: libraries/classes/Server/Privileges.php:293
 #: libraries/classes/Server/Privileges.php:360
-#: templates/server/privileges/privileges_table.twig:124
-#: templates/server/privileges/privileges_table.twig:127
-#: templates/server/privileges/privileges_table.twig:323
+#: templates/server/privileges/privileges_table.twig:125
+#: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
+#: templates/server/privileges/privileges_table.twig:329
 msgid "Allows deleting data."
 msgstr "Дозволува бришење на податоци."
 
 #: libraries/classes/Server/Privileges.php:298
-#: templates/server/privileges/privileges_table.twig:136
-#: templates/server/privileges/privileges_table.twig:139
-#: templates/server/privileges/privileges_table.twig:361
-#: templates/server/privileges/privileges_table.twig:369
+#: templates/server/privileges/privileges_table.twig:137
+#: templates/server/privileges/privileges_table.twig:140
+#: templates/server/privileges/privileges_table.twig:367
+#: templates/server/privileges/privileges_table.twig:375
 msgid "Allows creating new tables."
 msgstr "Дозволува креирање на нови табела."
 
 #: libraries/classes/Server/Privileges.php:303
-#: templates/server/privileges/privileges_table.twig:148
-#: templates/server/privileges/privileges_table.twig:151
-#: templates/server/privileges/privileges_table.twig:409
-#: templates/server/privileges/privileges_table.twig:417
+#: templates/server/privileges/privileges_table.twig:149
+#: templates/server/privileges/privileges_table.twig:152
+#: templates/server/privileges/privileges_table.twig:415
+#: templates/server/privileges/privileges_table.twig:423
 msgid "Allows dropping tables."
 msgstr "Дозволува бришење на табели."
 
 #: libraries/classes/Server/Privileges.php:308
 #: libraries/classes/Server/Privileges.php:400
-#: templates/server/privileges/privileges_table.twig:173
-#: templates/server/privileges/privileges_table.twig:176
-#: templates/server/privileges/privileges_table.twig:393
-#: templates/server/privileges/privileges_table.twig:396
+#: templates/server/privileges/privileges_table.twig:174
+#: templates/server/privileges/privileges_table.twig:177
+#: templates/server/privileges/privileges_table.twig:399
+#: templates/server/privileges/privileges_table.twig:402
 msgid "Allows creating and dropping indexes."
 msgstr "Дозволува креирање и бришење на клучева."
 
 #: libraries/classes/Server/Privileges.php:313
 #: libraries/classes/Server/Privileges.php:405
-#: templates/server/privileges/privileges_table.twig:185
-#: templates/server/privileges/privileges_table.twig:188
-#: templates/server/privileges/privileges_table.twig:380
-#: templates/server/privileges/privileges_table.twig:383
+#: templates/server/privileges/privileges_table.twig:186
+#: templates/server/privileges/privileges_table.twig:189
+#: templates/server/privileges/privileges_table.twig:386
+#: templates/server/privileges/privileges_table.twig:389
 msgid "Allows altering the structure of existing tables."
 msgstr "Дозволува промена на структурата на постоечките табели."
 
 #: libraries/classes/Server/Privileges.php:318
 #: libraries/classes/Server/Privileges.php:444
 #: libraries/classes/Server/Privileges.php:460
-#: templates/server/privileges/privileges_table.twig:197
-#: templates/server/privileges/privileges_table.twig:200
-#: templates/server/privileges/privileges_table.twig:494
-#: templates/server/privileges/privileges_table.twig:497
-#: templates/server/privileges/privileges_table.twig:509
-#: templates/server/privileges/privileges_table.twig:512
+#: templates/server/privileges/privileges_table.twig:198
+#: templates/server/privileges/privileges_table.twig:201
+#: templates/server/privileges/privileges_table.twig:500
+#: templates/server/privileges/privileges_table.twig:503
+#: templates/server/privileges/privileges_table.twig:515
+#: templates/server/privileges/privileges_table.twig:518
 msgid "Allows creating new views."
 msgstr "Дозволува креирање на нови погледи."
 
 #: libraries/classes/Server/Privileges.php:323
 #: libraries/classes/Server/Privileges.php:465
 #: libraries/classes/Server/Privileges.php:471
-#: templates/server/privileges/privileges_table.twig:209
-#: templates/server/privileges/privileges_table.twig:212
-#: templates/server/privileges/privileges_table.twig:441
-#: templates/server/privileges/privileges_table.twig:444
+#: templates/server/privileges/privileges_table.twig:210
+#: templates/server/privileges/privileges_table.twig:213
+#: templates/server/privileges/privileges_table.twig:447
+#: templates/server/privileges/privileges_table.twig:450
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Дозволува извршување на SHOW CREATE VIEW упити."
 
 #: libraries/classes/Server/Privileges.php:328
 #: libraries/classes/Server/Privileges.php:454
-#: templates/server/privileges/privileges_table.twig:221
-#: templates/server/privileges/privileges_table.twig:224
-#: templates/server/privileges/privileges_table.twig:537
-#: templates/server/privileges/privileges_table.twig:540
+#: templates/server/privileges/privileges_table.twig:222
+#: templates/server/privileges/privileges_table.twig:225
+#: templates/server/privileges/privileges_table.twig:543
+#: templates/server/privileges/privileges_table.twig:546
 #, fuzzy
 msgid "Allows creating and dropping triggers."
 msgstr "Дозволува креирање и бришење на клучева."
 
 #: libraries/classes/Server/Privileges.php:345
-#: templates/server/privileges/privileges_table.twig:15
-#: templates/server/privileges/privileges_table.twig:284
+#: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
+#: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Дозволува читање на податоци."
 
 #: libraries/classes/Server/Privileges.php:350
-#: templates/server/privileges/privileges_table.twig:42
-#: templates/server/privileges/privileges_table.twig:297
+#: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
+#: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Дозволува вметнување и замена на података."
 
 #: libraries/classes/Server/Privileges.php:355
-#: templates/server/privileges/privileges_table.twig:69
-#: templates/server/privileges/privileges_table.twig:310
+#: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
+#: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Дозволува измена на податоци."
 
 #: libraries/classes/Server/Privileges.php:365
-#: templates/server/privileges/privileges_table.twig:359
-#: templates/server/privileges/privileges_table.twig:367
+#: templates/server/privileges/privileges_table.twig:365
+#: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Дозволува креирање на нови бази на податоци и табели."
 
 #: libraries/classes/Server/Privileges.php:370
-#: templates/server/privileges/privileges_table.twig:407
-#: templates/server/privileges/privileges_table.twig:415
+#: templates/server/privileges/privileges_table.twig:413
+#: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Дозволува бришење на бази на податоци и табели."
 
 #: libraries/classes/Server/Privileges.php:375
-#: templates/server/privileges/privileges_table.twig:599
-#: templates/server/privileges/privileges_table.twig:602
+#: templates/server/privileges/privileges_table.twig:610
+#: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Дозволува повтоно вчитување на подесувањата на серверот и празнење на кешот "
 "на серверот."
 
 #: libraries/classes/Server/Privileges.php:380
-#: templates/server/privileges/privileges_table.twig:612
-#: templates/server/privileges/privileges_table.twig:615
+#: templates/server/privileges/privileges_table.twig:623
+#: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Дозволува гасење на серверот."
 
 #: libraries/classes/Server/Privileges.php:385
-#: templates/server/privileges/privileges_table.twig:586
-#: templates/server/privileges/privileges_table.twig:589
+#: templates/server/privileges/privileges_table.twig:597
+#: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:390
-#: templates/server/privileges/privileges_table.twig:337
 #: templates/server/privileges/privileges_table.twig:340
+#: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "Дозволува увоз на податоци и нивен извоз во податотеки."
 
 #: libraries/classes/Server/Privileges.php:395
-#: templates/server/privileges/privileges_table.twig:96
-#: templates/server/privileges/privileges_table.twig:666
+#: templates/server/privileges/privileges_table.twig:97
+#: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Нема ефект во оваа верзији на MySQL."
 
 #: libraries/classes/Server/Privileges.php:410
-#: templates/server/privileges/privileges_table.twig:625
-#: templates/server/privileges/privileges_table.twig:628
+#: templates/server/privileges/privileges_table.twig:636
+#: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Дава пристап на комплетната листа на базите на податоци."
 
 #: libraries/classes/Server/Privileges.php:416
-#: templates/server/privileges/privileges_table.twig:572
-#: templates/server/privileges/privileges_table.twig:576
+#: templates/server/privileges/privileges_table.twig:583
+#: templates/server/privileges/privileges_table.twig:587
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -12921,36 +12919,36 @@ msgstr ""
 "променливи или прекин на процеси наостанатите корисници."
 
 #: libraries/classes/Server/Privileges.php:424
-#: templates/server/privileges/privileges_table.twig:428
-#: templates/server/privileges/privileges_table.twig:431
+#: templates/server/privileges/privileges_table.twig:434
+#: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Дозволува креирање на привремени табели."
 
 #: libraries/classes/Server/Privileges.php:429
-#: templates/server/privileges/privileges_table.twig:653
-#: templates/server/privileges/privileges_table.twig:656
+#: templates/server/privileges/privileges_table.twig:664
+#: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Дозволува заклучување на табели на тековните процеси."
 
 #: libraries/classes/Server/Privileges.php:434
-#: templates/server/privileges/privileges_table.twig:694
-#: templates/server/privileges/privileges_table.twig:697
+#: templates/server/privileges/privileges_table.twig:705
+#: templates/server/privileges/privileges_table.twig:708
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
 msgstr "Потребно заради помошните сервери за репликација."
 
 #: libraries/classes/Server/Privileges.php:439
-#: templates/server/privileges/privileges_table.twig:681
-#: templates/server/privileges/privileges_table.twig:684
+#: templates/server/privileges/privileges_table.twig:692
+#: templates/server/privileges/privileges_table.twig:695
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Дава права на кориснику да праша каде се главните/помошни сервери."
 
 #: libraries/classes/Server/Privileges.php:449
-#: templates/server/privileges/privileges_table.twig:524
-#: templates/server/privileges/privileges_table.twig:527
+#: templates/server/privileges/privileges_table.twig:530
+#: templates/server/privileges/privileges_table.twig:533
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Allows to set up events for the event scheduler."
@@ -12959,34 +12957,34 @@ msgstr "Дозволува заклучување на табели на тек�
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:478
 #: libraries/classes/Server/Privileges.php:487
-#: templates/server/privileges/privileges_table.twig:234
-#: templates/server/privileges/privileges_table.twig:238
+#: templates/server/privileges/privileges_table.twig:235
+#: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
 msgstr "Дозволува бришење на податоци."
 
 #: libraries/classes/Server/Privileges.php:492
-#: templates/server/privileges/privileges_table.twig:454
-#: templates/server/privileges/privileges_table.twig:457
+#: templates/server/privileges/privileges_table.twig:460
+#: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Дозволува креирање на stored рутини."
 
 #: libraries/classes/Server/Privileges.php:497
-#: templates/server/privileges/privileges_table.twig:467
-#: templates/server/privileges/privileges_table.twig:470
+#: templates/server/privileges/privileges_table.twig:473
+#: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "Дозволува промена и бришење на stored рутини."
 
 #: libraries/classes/Server/Privileges.php:502
-#: templates/server/privileges/privileges_table.twig:707
-#: templates/server/privileges/privileges_table.twig:710
+#: templates/server/privileges/privileges_table.twig:718
+#: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Дозволува креирање, бришење и преименување на корсиничките имиња."
 
 #: libraries/classes/Server/Privileges.php:507
-#: templates/server/privileges/privileges_table.twig:480
-#: templates/server/privileges/privileges_table.twig:483
+#: templates/server/privileges/privileges_table.twig:486
+#: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Дозволува извршување на stored рутини."
 
@@ -13021,14 +13019,14 @@ msgid "Revoke"
 msgstr "Забрани"
 
 #: libraries/classes/Server/Privileges.php:1819
-#: templates/server/privileges/privileges_table.twig:264
+#: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Привилегии во врска со базата на податоци"
 
 #: libraries/classes/Server/Privileges.php:1825
-#: templates/server/privileges/privileges_summary.twig:18
+#: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
-#: templates/server/privileges/privileges_table.twig:266
+#: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Привилегии поврзани со табелата"
 
@@ -13036,7 +13034,7 @@ msgstr "Привилегии поврзани со табелата"
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
-#: templates/server/privileges/edit_routine_privileges.twig:58
+#: templates/server/privileges/edit_routine_privileges.twig:59
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -14766,7 +14764,7 @@ msgstr "Кликни за да сортирате."
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:154 templates/indexes.twig:15
 #: templates/server/databases/index.twig:163
-#: templates/server/privileges/privileges_summary.twig:22
+#: templates/server/privileges/privileges_summary.twig:23
 #: templates/server/privileges/users_overview.twig:22
 #: templates/server/user_groups/user_groups.twig:21
 #: templates/server/variables/index.twig:30
@@ -14832,10 +14830,10 @@ msgstr "Клучот не е дефиниран!"
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:28
 #: templates/database/search/main.twig:43 templates/server/export/index.twig:10
-#: templates/server/privileges/privileges_table.twig:28
-#: templates/server/privileges/privileges_table.twig:55
-#: templates/server/privileges/privileges_table.twig:82
-#: templates/server/privileges/privileges_table.twig:109
+#: templates/server/privileges/privileges_table.twig:29
+#: templates/server/privileges/privileges_table.twig:56
+#: templates/server/privileges/privileges_table.twig:83
+#: templates/server/privileges/privileges_table.twig:110
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
 msgstr "Избери се"
@@ -15186,12 +15184,12 @@ msgstr ""
 #: templates/display/results/table.twig:298
 #: templates/display/results/table.twig:299 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
-#: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:268
+#: templates/server/privileges/edit_routine_privileges.twig:58
 #: templates/server/privileges/privileges_table.twig:269
-#: templates/server/privileges/privileges_table.twig:277
-#: templates/server/privileges/privileges_table.twig:351
-#: templates/server/privileges/privileges_table.twig:551
+#: templates/server/privileges/privileges_table.twig:270
+#: templates/server/privileges/privileges_table.twig:279
+#: templates/server/privileges/privileges_table.twig:356
+#: templates/server/privileges/privileges_table.twig:560
 #: templates/server/privileges/users_overview.twig:121
 #: templates/server/privileges/users_overview.twig:122
 #: templates/server/user_groups/edit_user_groups.twig:11
@@ -15433,8 +15431,8 @@ msgid "Users having access to \"%s\""
 msgstr "Корисници кои имаат пристап \"%s\""
 
 #: templates/database/privileges/index.twig:17
-#: templates/server/privileges/login_information_fields.twig:6
-#: templates/server/privileges/login_information_fields.twig:11
+#: templates/server/privileges/login_information_fields.twig:7
+#: templates/server/privileges/login_information_fields.twig:12
 #: templates/server/privileges/users_overview.twig:8
 #: templates/server/replication/change_primary.twig:15
 #: templates/server/replication/primary_add_replica_user.twig:19
@@ -15444,8 +15442,8 @@ msgid "User name"
 msgstr "Назив на корисник"
 
 #: templates/database/privileges/index.twig:18
-#: templates/server/privileges/login_information_fields.twig:25
-#: templates/server/privileges/login_information_fields.twig:37
+#: templates/server/privileges/login_information_fields.twig:26
+#: templates/server/privileges/login_information_fields.twig:38
 #: templates/server/privileges/users_overview.twig:9
 #: templates/table/privileges/index.twig:20
 #, fuzzy
@@ -15454,7 +15452,7 @@ msgid "Host name"
 msgstr "Назив на дневникот"
 
 #: templates/database/privileges/index.twig:21
-#: templates/server/privileges/privileges_summary.twig:16
+#: templates/server/privileges/privileges_summary.twig:17
 #: templates/server/privileges/users_overview.twig:18
 #: templates/table/privileges/index.twig:23
 msgid "Grant"
@@ -15514,7 +15512,7 @@ msgstr ""
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
-#: templates/server/privileges/add_user.twig:3
+#: templates/server/privileges/add_user.twig:4
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
@@ -16951,8 +16949,8 @@ msgid "Username:"
 msgstr "Корисничко име:"
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:21
-#: templates/server/privileges/login_information_fields.twig:43
+#: templates/server/privileges/change_password.twig:22
+#: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
 msgid "Password:"
@@ -17721,56 +17719,62 @@ msgstr "Бришам %s"
 msgid "deleted"
 msgstr "избриши"
 
-#: templates/server/privileges/add_user.twig:12
+#: templates/server/privileges/add_user.twig:13
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database for user account"
 msgstr "Опции за извоз на бази на податоци"
 
-#: templates/server/privileges/add_user.twig:15
+#: templates/server/privileges/add_user.twig:16
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 
-#: templates/server/privileges/add_user.twig:19
+#: templates/server/privileges/add_user.twig:20
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
-#: templates/server/privileges/add_user.twig:24
+#: templates/server/privileges/add_user.twig:25
 #, fuzzy, php-format
 msgid "Grant all privileges on database %s."
 msgstr "Провери привилегии за базата на податоци \"%s\"."
 
-#: templates/server/privileges/change_password.twig:15
+#: templates/server/privileges/add_user.twig:38
+#, fuzzy
+#| msgid "Create User"
+msgid "Create user"
+msgstr "Верзија на серверот"
+
+#: templates/server/privileges/change_password.twig:16
 msgid "No Password"
 msgstr "Нема лозинка"
 
-#: templates/server/privileges/change_password.twig:24
+#: templates/server/privileges/change_password.twig:25
 msgid "Enter:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:28
-#: templates/server/privileges/login_information_fields.twig:54
+#: templates/server/privileges/change_password.twig:29
+#: templates/server/privileges/login_information_fields.twig:55
 #, fuzzy
 #| msgid "Row length"
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "Должина на запис"
 
-#: templates/server/privileges/change_password.twig:32
-#: templates/server/privileges/login_information_fields.twig:60
+#: templates/server/privileges/change_password.twig:33
+#: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
 #, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
 msgstr "Повтори внес"
 
-#: templates/server/privileges/change_password.twig:40
+#: templates/server/privileges/change_password.twig:41
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
 msgstr "Хеширање на лозинката"
 
-#: templates/server/privileges/change_password.twig:58
+#: templates/server/privileges/change_password.twig:59
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -17804,31 +17808,31 @@ msgid ""
 "currently logged in."
 msgstr ""
 
-#: templates/server/privileges/edit_routine_privileges.twig:51
-#: templates/server/privileges/privileges_table.twig:10
-#: templates/server/privileges/privileges_table.twig:272
+#: templates/server/privileges/edit_routine_privileges.twig:52
+#: templates/server/privileges/privileges_table.twig:11
+#: templates/server/privileges/privileges_table.twig:274
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
 "Напомена: MySQL имињата на привилегите мора да бидат со латинични букви"
 
-#: templates/server/privileges/edit_routine_privileges.twig:63
-#: templates/server/privileges/edit_routine_privileges.twig:67
+#: templates/server/privileges/edit_routine_privileges.twig:65
+#: templates/server/privileges/edit_routine_privileges.twig:69
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
 
-#: templates/server/privileges/edit_routine_privileges.twig:76
-#: templates/server/privileges/edit_routine_privileges.twig:79
+#: templates/server/privileges/edit_routine_privileges.twig:78
+#: templates/server/privileges/edit_routine_privileges.twig:81
 #, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
 msgstr "Дозволува промена и бришење на stored рутини."
 
-#: templates/server/privileges/edit_routine_privileges.twig:88
-#: templates/server/privileges/edit_routine_privileges.twig:91
+#: templates/server/privileges/edit_routine_privileges.twig:90
+#: templates/server/privileges/edit_routine_privileges.twig:93
 #, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
@@ -17845,7 +17849,7 @@ msgstr "Промени ги информациите за најавувањет
 msgid "Login Information"
 msgstr "Податоци за најавувањето"
 
-#: templates/server/privileges/login_information_fields.twig:4
+#: templates/server/privileges/login_information_fields.twig:5
 #: templates/server/replication/change_primary.twig:14
 #: templates/server/replication/primary_add_replica_user.twig:16
 #, fuzzy
@@ -17853,64 +17857,64 @@ msgstr "Податоци за најавувањето"
 msgid "User name:"
 msgstr "Назив на корисник"
 
-#: templates/server/privileges/login_information_fields.twig:7
+#: templates/server/privileges/login_information_fields.twig:8
 #: templates/server/replication/primary_add_replica_user.twig:20
 msgid "Any user"
 msgstr "Било кој корисник"
 
-#: templates/server/privileges/login_information_fields.twig:8
-#: templates/server/privileges/login_information_fields.twig:33
-#: templates/server/privileges/login_information_fields.twig:50
-#: templates/server/privileges/privileges_summary.twig:75
-#: templates/server/privileges/privileges_summary.twig:90
+#: templates/server/privileges/login_information_fields.twig:9
+#: templates/server/privileges/login_information_fields.twig:34
+#: templates/server/privileges/login_information_fields.twig:51
+#: templates/server/privileges/privileges_summary.twig:76
+#: templates/server/privileges/privileges_summary.twig:91
 msgid "Use text field"
 msgstr "Користи текст поле"
 
-#: templates/server/privileges/login_information_fields.twig:16
+#: templates/server/privileges/login_information_fields.twig:17
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: templates/server/privileges/login_information_fields.twig:22
+#: templates/server/privileges/login_information_fields.twig:23
 #, fuzzy
 #| msgid "User name"
 msgid "Host name:"
 msgstr "Назив на корисник"
 
-#: templates/server/privileges/login_information_fields.twig:27
+#: templates/server/privileges/login_information_fields.twig:28
 #: templates/server/replication/primary_add_replica_user.twig:34
 msgid "Any host"
 msgstr "Било кој host"
 
-#: templates/server/privileges/login_information_fields.twig:28
+#: templates/server/privileges/login_information_fields.twig:29
 #: templates/server/replication/primary_add_replica_user.twig:35
 msgid "Local"
 msgstr "Локален"
 
-#: templates/server/privileges/login_information_fields.twig:30
+#: templates/server/privileges/login_information_fields.twig:31
 #: templates/server/replication/primary_add_replica_user.twig:37
 #, fuzzy
 #| msgid "This Host"
 msgid "This host"
 msgstr "Овој host"
 
-#: templates/server/privileges/login_information_fields.twig:32
+#: templates/server/privileges/login_information_fields.twig:33
 #: templates/server/replication/primary_add_replica_user.twig:39
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Користи ја табелата на host-от"
 
-#: templates/server/privileges/login_information_fields.twig:39
+#: templates/server/privileges/login_information_fields.twig:40
 #: templates/server/replication/primary_add_replica_user.twig:44
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
-#: templates/server/privileges/login_information_fields.twig:45
-#: templates/server/privileges/login_information_fields.twig:53
+#: templates/server/privileges/login_information_fields.twig:46
+#: templates/server/privileges/login_information_fields.twig:54
 #: templates/server/privileges/users_overview.twig:10
 #: templates/server/replication/change_primary.twig:19
 #: templates/server/replication/primary_add_replica_user.twig:52
@@ -17918,35 +17922,35 @@ msgstr ""
 msgid "Password"
 msgstr "Лозинка"
 
-#: templates/server/privileges/login_information_fields.twig:47
+#: templates/server/privileges/login_information_fields.twig:48
 msgid "Do not change the password"
 msgstr "Немој да ја менуваш лозинката"
 
-#: templates/server/privileges/login_information_fields.twig:49
+#: templates/server/privileges/login_information_fields.twig:50
 #: templates/server/replication/primary_add_replica_user.twig:53
 #, fuzzy
 #| msgid "No Password"
 msgid "No password"
 msgstr "Нема лозинка"
 
-#: templates/server/privileges/login_information_fields.twig:62
+#: templates/server/privileges/login_information_fields.twig:63
 #: templates/server/replication/primary_add_replica_user.twig:65
 msgid "Re-type"
 msgstr "Повтори внес"
 
-#: templates/server/privileges/login_information_fields.twig:68
+#: templates/server/privileges/login_information_fields.twig:69
 #, fuzzy
 #| msgid "Documentation"
 msgid "Authentication plugin"
 msgstr "Документација"
 
-#: templates/server/privileges/login_information_fields.twig:70
+#: templates/server/privileges/login_information_fields.twig:71
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password hashing method"
 msgstr "Хеширање на лозинката"
 
-#: templates/server/privileges/login_information_fields.twig:83
+#: templates/server/privileges/login_information_fields.twig:84
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
@@ -17961,114 +17965,114 @@ msgstr ""
 msgid "Edit user group"
 msgstr "Ажурирање на следниот запис"
 
-#: templates/server/privileges/privileges_summary.twig:20
+#: templates/server/privileges/privileges_summary.twig:21
 msgid "Column-specific privileges"
 msgstr "Привилегии врзани за колоните"
 
-#: templates/server/privileges/privileges_summary.twig:54
+#: templates/server/privileges/privileges_summary.twig:55
 #, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
 msgstr "Додади привилегии на следната база"
 
-#: templates/server/privileges/privileges_summary.twig:67
+#: templates/server/privileges/privileges_summary.twig:68
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Пред џокер знаците _ и % треба да стои знакот \\ ако ги користите самостојно."
 
-#: templates/server/privileges/privileges_summary.twig:71
+#: templates/server/privileges/privileges_summary.twig:72
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
 msgstr "Додади привилегии на следната табела"
 
-#: templates/server/privileges/privileges_summary.twig:86
+#: templates/server/privileges/privileges_summary.twig:87
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
 msgstr "Додади привилегии на следната табела"
 
-#: templates/server/privileges/privileges_table.twig:35
 #: templates/server/privileges/privileges_table.twig:36
-#: templates/server/privileges/privileges_table.twig:62
+#: templates/server/privileges/privileges_table.twig:37
 #: templates/server/privileges/privileges_table.twig:63
-#: templates/server/privileges/privileges_table.twig:89
+#: templates/server/privileges/privileges_table.twig:64
 #: templates/server/privileges/privileges_table.twig:90
-#: templates/server/privileges/privileges_table.twig:116
+#: templates/server/privileges/privileges_table.twig:91
 #: templates/server/privileges/privileges_table.twig:117
+#: templates/server/privileges/privileges_table.twig:118
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "нема"
 
-#: templates/server/privileges/privileges_table.twig:160
-#: templates/server/privileges/privileges_table.twig:164
-#: templates/server/privileges/privileges_table.twig:638
-#: templates/server/privileges/privileges_table.twig:642
+#: templates/server/privileges/privileges_table.twig:161
+#: templates/server/privileges/privileges_table.twig:165
+#: templates/server/privileges/privileges_table.twig:649
+#: templates/server/privileges/privileges_table.twig:653
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:255
+#: templates/server/privileges/privileges_table.twig:256
 #, fuzzy
 #| msgid "global"
 msgid "Global"
 msgstr "глобално"
 
-#: templates/server/privileges/privileges_table.twig:262
+#: templates/server/privileges/privileges_table.twig:263
 #: templates/server/privileges/users_overview.twig:12
 msgid "Global privileges"
 msgstr "Глобални привилегии"
 
-#: templates/server/privileges/privileges_table.twig:552
+#: templates/server/privileges/privileges_table.twig:561
 msgid "Administration"
 msgstr "Администрација"
 
-#: templates/server/privileges/privileges_table.twig:559
-#: templates/server/privileges/privileges_table.twig:562
+#: templates/server/privileges/privileges_table.twig:570
+#: templates/server/privileges/privileges_table.twig:573
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Дозволува додавање на корисници и привилегии без повтроно вчитавање на "
 "табелата на привилегии."
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 #, fuzzy
 #| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
 msgstr "Дозволува креирање на stored рутини."
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Not used on MariaDB."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
 msgstr "Нема ефект во оваа верзији на MySQL."
 
-#: templates/server/privileges/privileges_table.twig:721
+#: templates/server/privileges/privileges_table.twig:735
 msgid "Resource limits"
 msgstr "Ограничување на ресурси"
 
-#: templates/server/privileges/privileges_table.twig:723
+#: templates/server/privileges/privileges_table.twig:738
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Напомена: Поставувањето на овие опции на 0 (нула) ги отстранува "
 "ограничувањата."
 
-#: templates/server/privileges/privileges_table.twig:729
-#: templates/server/privileges/privileges_table.twig:736
+#: templates/server/privileges/privileges_table.twig:744
+#: templates/server/privileges/privileges_table.twig:751
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Го ограничува бројот на упити кои корисникот може да ги постави на серверот "
 "за еден час."
 
-#: templates/server/privileges/privileges_table.twig:742
-#: templates/server/privileges/privileges_table.twig:749
+#: templates/server/privileges/privileges_table.twig:757
+#: templates/server/privileges/privileges_table.twig:764
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -18076,48 +18080,54 @@ msgstr ""
 "Го ограничува бројот на команди кои ги менуваат табелите или базите на "
 "податоци кои корисникот може да ги изврши за еден час."
 
-#: templates/server/privileges/privileges_table.twig:755
-#: templates/server/privileges/privileges_table.twig:762
+#: templates/server/privileges/privileges_table.twig:770
+#: templates/server/privileges/privileges_table.twig:777
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Го ограничува бројот на нови конекции кои корисникот може да ги отвори за "
 "еден час."
 
-#: templates/server/privileges/privileges_table.twig:768
-#: templates/server/privileges/privileges_table.twig:775
+#: templates/server/privileges/privileges_table.twig:783
+#: templates/server/privileges/privileges_table.twig:790
 #, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Го ограничува бројот на нови конекции кои корисникот може да ги отвори за "
 "еден час."
 
-#: templates/server/privileges/privileges_table.twig:784
+#: templates/server/privileges/privileges_table.twig:803
 #, fuzzy
 #| msgid "Connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "Конекции"
 
-#: templates/server/privileges/privileges_table.twig:793
+#: templates/server/privileges/privileges_table.twig:812
 #, fuzzy
 #| msgid "Connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "Конекции"
 
-#: templates/server/privileges/privileges_table.twig:802
+#: templates/server/privileges/privileges_table.twig:821
 msgid "Requires a valid X509 certificate."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:823
+#: templates/server/privileges/privileges_table.twig:842
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:832
+#: templates/server/privileges/privileges_table.twig:851
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:841
+#: templates/server/privileges/privileges_table.twig:860
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
+
+#: templates/server/privileges/privileges_table.twig:878
+#, fuzzy
+#| msgid "Edit Privileges"
+msgid "Update user privileges"
+msgstr "Промена на привилегии"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -18145,26 +18155,26 @@ msgstr "Изабраниот корисник не е пронајден во т
 msgid "Change login information / Copy user account"
 msgstr "Промени ги информациите за најавувањето / Копирај го корисникот"
 
-#: templates/server/privileges/user_properties.twig:114
+#: templates/server/privileges/user_properties.twig:115
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Направи нов корисник со исти привилегии и …"
 
-#: templates/server/privileges/user_properties.twig:120
+#: templates/server/privileges/user_properties.twig:123
 msgid "… keep the old one."
 msgstr "… сочувај го стариот."
 
-#: templates/server/privileges/user_properties.twig:127
+#: templates/server/privileges/user_properties.twig:130
 msgid "… delete the old one from the user tables."
 msgstr "… избриши ги старите од табелата на корисници."
 
-#: templates/server/privileges/user_properties.twig:134
+#: templates/server/privileges/user_properties.twig:137
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… прво одземи ги сите привилегии на корисниците а потоа избриши ги."
 
-#: templates/server/privileges/user_properties.twig:141
+#: templates/server/privileges/user_properties.twig:144
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -20106,11 +20116,6 @@ msgstr "Имиња на колони"
 
 #~ msgid "View dump (schema) of table"
 #~ msgstr "Прикажи содржина (шема) на табелите"
-
-#, fuzzy
-#~| msgid "Create User"
-#~ msgid "Create %s"
-#~ msgstr "Верзија на серверот"
 
 #~ msgid "No activity within %s seconds; please log in again."
 #~ msgstr ""
