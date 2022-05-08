@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-08 00:20+0000\n"
-"PO-Revision-Date: 2022-04-23 11:51+0000\n"
+"PO-Revision-Date: 2022-05-09 09:15+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.1-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -17123,10 +17123,8 @@ msgid "Grant all privileges on database %s."
 msgstr "Alle rechten geven op database %s."
 
 #: templates/server/privileges/add_user.twig:38
-#, fuzzy
-#| msgid "Create %s"
 msgid "Create user"
-msgstr "Maak %s aan"
+msgstr "Maak gebruiker aan"
 
 #: templates/server/privileges/change_password.twig:16
 msgid "No Password"
@@ -17471,10 +17469,8 @@ msgstr ""
 "Vereist dat een geldig X509 certificaat met dit onderwerp wordt aangeboden."
 
 #: templates/server/privileges/privileges_table.twig:878
-#, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
-msgstr "Rechten aanpassen"
+msgstr "Gebruikersrechten aanpassen"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
