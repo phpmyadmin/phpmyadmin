@@ -3458,12 +3458,10 @@ class Results
             $sortDirection[] = '';
         }
 
-        $numberOfColumns = count($sortExpressionNoDirection);
-
         // 1.4 Prepares display of first and last value of the sorted column
         $sortedColumnMessage = '';
-        for ($i = 0; $i < $numberOfColumns; $i++) {
-            $sortedColumnMessage .= $this->getSortedColumnMessage($dtResult, $sortExpressionNoDirection[$i]);
+        foreach ($sortExpressionNoDirection as $expression) {
+            $sortedColumnMessage .= $this->getSortedColumnMessage($dtResult, $expression);
         }
 
         // 2. ----- Prepare to display the top of the page -----
