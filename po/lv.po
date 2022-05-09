@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-05-09 17:08+0000\n"
+"Last-Translator: ytteroy24b4bcffd91b44b4 <mail262626@inbox.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
 "Language: lv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -79,11 +79,13 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Ieteicams palielināt {long_query_time} vai optimizēt lēno vaicājumu žurnālā "
+"uzskaitītos vaicājumus"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Lēno vaicājumu rādītājam jābūt zem 5%%, jūsu vērtība ir %s%%."
 
 #: libraries/advisory_rules_generic.php:50
 msgid "Slow query rate"
@@ -93,6 +95,7 @@ msgstr "Lēnu vaicājumu līmenis"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Salīdzinot ar servera darbības laiku, ir augsts lēnu vaicājumu īpatsvars."
 
 #: libraries/advisory_rules_generic.php:58
 #, php-format
@@ -100,6 +103,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Jums ir lēns vaicājumu ātrums %s stundā, jums vajadzētu būt mazāk nekā 1%% "
+"stundā."
 
 #: libraries/advisory_rules_generic.php:63
 msgid "Long query time"
@@ -110,17 +115,21 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} ir iestatīts uz 10 sekundēm vai vairāk, tāpēc tiek "
+"reģistrēti tikai lēni pieprasījumi, kas aizņem vairāk nekā 10 sekundes."
 
 #: libraries/advisory_rules_generic.php:71
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Ieteicams iestatīt {long_query_time} uz mazāku vērtību atkarībā no jūsu "
+"vides. Parasti tiek ieteikta vērtība 1-5 sekundes."
 
 #: libraries/advisory_rules_generic.php:74
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time pašlaik ir iestatīts uz %ds."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
@@ -137,43 +146,47 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Ieslēdziet lēno vaicājumu reģistrēšanu, iestatot {log_slow_queries} uz 'ON'. "
+"Tas palīdzēs novērst problēmas ar slikti strādājošiem vaicājumiem."
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries ir iestatīts uz 'OFF'"
 
 #: libraries/advisory_rules_generic.php:98
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Ieslēdziet lēnu vaicājumu reģistrēšanu, iestatot {slow_query_log} uz 'ON'. "
+"Tas palīdzēs novērst problēmas ar slikti strādājošiem vaicājumiem."
 
 #: libraries/advisory_rules_generic.php:101
 msgid "slow_query_log is set to 'OFF'"
-msgstr ""
+msgstr "slow_query_log ir iestatīts uz 'OFF'"
 
 #: libraries/advisory_rules_generic.php:106
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Izvēlieties tabulas"
+msgstr "Izlaiduma sērijas"
 
 #: libraries/advisory_rules_generic.php:109
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "MySQL servera versija ir mazāka par 5.1."
 
 #: libraries/advisory_rules_generic.php:111
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Jums vajadzētu veikt jaunināšanu, jo MySQL 5.1 ir uzlabojusies veiktspēja, "
+"bet MySQL 5.5 - vēl vairāk."
 
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
 #: libraries/advisory_rules_generic.php:138
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Tekošā versija"
+msgstr "Pašreizējā versija: %s"
 
 #: libraries/advisory_rules_generic.php:118
 #: libraries/advisory_rules_generic.php:132
@@ -182,17 +195,19 @@ msgstr "Papildversija"
 
 #: libraries/advisory_rules_generic.php:122
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Versija, kas ir mazāka par 5.1.30 (5.1 pirmā GA versija)."
 
 #: libraries/advisory_rules_generic.php:124
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Jums vajadzētu veikt jaunināšanu, jo jaunākajās MySQL 5.1 versijās ir "
+"uzlabota veiktspēja, bet MySQL 5.5 - vēl vairāk."
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Versija, kas ir mazāka par 5.5.8 (5.5 pirmā GA versija)."
 
 #: libraries/advisory_rules_generic.php:137
 msgid "You should upgrade, to a stable version of MySQL 5.5."
@@ -200,14 +215,12 @@ msgstr "Jums ir jāatjauno versija uz MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
-#, fuzzy
-#| msgid "Description"
 msgid "Distribution"
-msgstr "Apraksts"
+msgstr "Izplatīšana"
 
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Versija ir kompilēta no pirmkoda, nevis MySQL oficiālā binālā versija."
 
 #: libraries/advisory_rules_generic.php:148
 msgid ""
@@ -215,6 +228,10 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Ja neesat kompilējis no pirmkoda, iespējams, izmantojat kādu izplatītāja "
+"modificētu pakotni. MySQL rokasgrāmata attiecas tikai uz oficiālajām MySQL "
+"binārajām datubāzēm, nevis uz jebkurām pakotņu distribūcijām (piemēram, "
+"RedHat, Debian/Ubuntu utt.)."
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
@@ -19469,10 +19486,8 @@ msgid "Maximum value:"
 msgstr ""
 
 #: templates/table/start_and_number_of_rows_fieldset.twig:3
-#, fuzzy
-#| msgid "Start"
 msgid "Start row:"
-msgstr "S"
+msgstr "Sākuma līnija:"
 
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:580
@@ -19559,16 +19574,13 @@ msgid "An index has been added on %s."
 msgstr "Indekss tieka pievienots uz %s."
 
 #: templates/table/structure/display_structure.twig:238
-#, fuzzy
 msgid "Distinct values"
-msgstr "Pārlūkot ārējās vērtības"
+msgstr "Atšķirīgās vērtības"
 
 #: templates/table/structure/display_structure.twig:249
 #: templates/table/structure/display_structure.twig:315
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove from central columns"
-msgstr "Noņemt diagrammu"
+msgstr "Noņemt no centrālajām kolonnām"
 
 #: templates/table/structure/display_structure.twig:257
 #: templates/table/structure/display_structure.twig:312
@@ -19637,8 +19649,6 @@ msgid "Effective"
 msgstr "Efektīvs"
 
 #: templates/table/structure/display_table_stats.twig:80
-#, fuzzy
-#| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "Rindas statistika"
 
@@ -19702,9 +19712,8 @@ msgid "Date"
 msgstr "Dati"
 
 #: templates/table/tracking/report_table.twig:6
-#, fuzzy
 msgid "Username"
-msgstr "Lietotājvārds:"
+msgstr "Lietotājvārds"
 
 #: templates/table/zoom_search/index.twig:27
 #, fuzzy
