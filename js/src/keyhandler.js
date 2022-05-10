@@ -5,7 +5,7 @@ var ctrlKeyHistory = 0;
 /**
   * Allows moving around inputs/select by Ctrl+arrows
   *
-  * @param object   event data
+  * @param {object} event data
   */
 function onKeyDownArrowsHandler (event) {
     var e = event || window.event;

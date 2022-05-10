@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -13,11 +12,13 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportPhparray
  * @group medium
  */
 class ExportPhparrayTest extends AbstractTestCase
@@ -31,13 +32,17 @@ class ExportPhparrayTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportPhparray();
     }
 
@@ -60,10 +65,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'PHP array',
@@ -87,10 +89,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -100,10 +99,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -114,10 +110,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
     }
 
     public function testExportHeader(): void
@@ -132,10 +125,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '<?php ',
-            $result
-        );
+        $this->assertStringContainsString('<?php ', $result);
     }
 
     public function testExportFooter(): void
@@ -157,10 +147,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            "/**\n * Database `db`\n */",
-            $result
-        );
+        $this->assertStringContainsString("/**\n * Database `db`\n */", $result);
     }
 
     public function testExportDBFooter(): void
@@ -179,100 +166,49 @@ class ExportPhparrayTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->at(2))
-            ->method('fieldName')
-            ->with(true, 0)
-            ->will($this->returnValue('c1'));
-
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->with(true, 1)
-            ->will($this->returnValue(''));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue([1, 'a']));
-
-        $dbi->expects($this->at(5))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
-
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
-                'table',
+                'test_db',
+                'test_table',
                 "\n",
                 'phpmyadmin.net/err',
-                'SELECT'
+                'SELECT * FROM `test_db`.`test_table`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\n" . '/* `db`.`table` */' . "\n" .
-            '$table = array(' . "\n" .
-            '  array(\'c1\' => 1,\'\' => \'a\')' . "\n" .
+            "\n" . '/* `test_db`.`test_table` */' . "\n" .
+            '$test_table = array(' . "\n" .
+            '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .
+            '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .
+            '  array(\'id\' => \'3\',\'name\' => \'Abcd\',\'datetimefield\' => \'2012-01-20 02:00:02\')' . "\n" .
             ');' . "\n",
             $result
         );
 
         // case 2: test invalid variable name fix
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(0));
-
-        $dbi->expects($this->at(2))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
-
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
+                'test_db',
                 '0`932table',
                 "\n",
                 'phpmyadmin.net/err',
-                'SELECT'
+                'SELECT * FROM `test_db`.`test_table`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            '$_0_932table',
+        $this->assertEquals(
+            "\n" . '/* `test_db`.`0``932table` */' . "\n" .
+            '$_0_932table = array(' . "\n" .
+            '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .
+            '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .
+            '  array(\'id\' => \'3\',\'name\' => \'Abcd\',\'datetimefield\' => \'2012-01-20 02:00:02\')' . "\n" .
+            ');' . "\n",
             $result
         );
     }

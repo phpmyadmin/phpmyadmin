@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+
+use function __;
 use function array_keys;
 use function array_merge;
 use function count;
@@ -21,8 +23,8 @@ use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
-use function strncmp;
 use function strtolower;
 use function strtr;
 use function substr;
@@ -38,10 +40,8 @@ class Sanitize
      * @param string $url   URL to check
      * @param bool   $http  Whether to allow http links
      * @param bool   $other Whether to allow ftp and mailto links
-     *
-     * @return bool True if string can be used as link
      */
-    public static function checkLink($url, $http = false, $other = false)
+    public static function checkLink($url, $http = false, $other = false): bool
     {
         $url = strtolower($url);
         $valid_starts = [
@@ -61,17 +61,21 @@ class Sanitize
                 $valid_starts[$key] = '.' . $value;
             }
         }
+
         if ($other) {
             $valid_starts[] = 'mailto:';
             $valid_starts[] = 'ftp://';
         }
+
         if ($http) {
             $valid_starts[] = 'http://';
         }
+
         if ($is_setup) {
             $valid_starts[] = '?page=form&';
             $valid_starts[] = '?page=servers&';
         }
+
         foreach ($valid_starts as $val) {
             if (substr($url, 0, strlen($val)) == $val) {
                 return true;
@@ -86,7 +90,7 @@ class Sanitize
      */
     public static function isSetup(): bool
     {
-        return $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
+        return $GLOBALS['config'] !== null && $GLOBALS['config']->get('is_setup');
     }
 
     /**
@@ -102,6 +106,7 @@ class Sanitize
         if (! self::checkLink($found[1])) {
             return $found[0];
         }
+
         /* a-z and _ allowed in target */
         if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3])) {
             return $found[0];
@@ -129,11 +134,9 @@ class Sanitize
     /**
      * Callback function for replacing [doc@anchor] links in bb code.
      *
-     * @param array $found Array of preg matches
-     *
-     * @return string Replaced string
+     * @param string[] $found Array of preg matches
      */
-    public static function replaceDocLink(array $found)
+    public static function replaceDocLink(array $found): string
     {
         if (count($found) >= 4) {
             /* doc@page@anchor pattern */
@@ -142,15 +145,16 @@ class Sanitize
         } else {
             /* doc@anchor pattern */
             $anchor = $found[1];
-            if (strncmp('faq', $anchor, 3) == 0) {
+            if (str_starts_with($anchor, 'faq')) {
                 $page = 'faq';
-            } elseif (strncmp('cfg', $anchor, 3) == 0) {
+            } elseif (str_starts_with($anchor, 'cfg')) {
                 $page = 'config';
             } else {
                 /* Guess */
                 $page = 'setup';
             }
         }
+
         $link = MySQLDocumentation::getDocumentationLink($page, $anchor, self::isSetup() ? '../' : './');
 
         return '<a href="' . $link . '" target="documentation">';
@@ -180,20 +184,19 @@ class Sanitize
 
         /* Interpret bb code */
         $replace_pairs = [
-            '[em]'      => '<em>',
-            '[/em]'     => '</em>',
-            '[strong]'  => '<strong>',
+            '[em]' => '<em>',
+            '[/em]' => '</em>',
+            '[strong]' => '<strong>',
             '[/strong]' => '</strong>',
-            '[code]'    => '<code>',
-            '[/code]'   => '</code>',
-            '[kbd]'     => '<kbd>',
-            '[/kbd]'    => '</kbd>',
-            '[br]'      => '<br>',
-            '[/a]'      => '</a>',
-            '[/doc]'      => '</a>',
-            '[sup]'     => '<sup>',
-            '[/sup]'    => '</sup>',
-            // used in common.inc.php:
+            '[code]' => '<code>',
+            '[/code]' => '</code>',
+            '[kbd]' => '<kbd>',
+            '[/kbd]' => '</kbd>',
+            '[br]' => '<br>',
+            '[/a]' => '</a>',
+            '[/doc]' => '</a>',
+            '[sup]' => '<sup>',
+            '[/sup]' => '</sup>',
             '[conferr]' => '<iframe src="show_config_errors.php"><a href='
                 . '"show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
@@ -213,7 +216,8 @@ class Sanitize
         /* Replace documentation links */
         $message = (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
-            static function (array $match) {
+            /** @param string[] $match */
+            static function (array $match): string {
                 return self::replaceDocLink($match);
             },
             $message
@@ -249,6 +253,7 @@ class Sanitize
             // then add the dot to the list of legit characters
             $pattern .= '.';
         }
+
         $pattern .= '-]/';
         $filename = preg_replace($pattern, '_', $filename);
 
@@ -265,8 +270,6 @@ class Sanitize
      * @param bool   $add_backquotes whether to add backquotes to the string or not
      *
      * @return string   the formatted string
-     *
-     * @access public
      */
     public static function jsFormat($a_string = '', $add_backquotes = true)
     {
@@ -315,7 +318,7 @@ class Sanitize
     /**
      * Formats a value for javascript code.
      *
-     * @param string $value String to be formatted.
+     * @param string|bool|int $value String to be formatted.
      *
      * @return int|string formatted value.
      */
@@ -330,7 +333,7 @@ class Sanitize
         }
 
         if (is_int($value)) {
-            return (int) $value;
+            return $value;
         }
 
         return '"' . self::escapeJsString($value) . '"';
@@ -357,6 +360,7 @@ class Sanitize
             foreach ($value as $val) {
                 $result .= self::formatJsVal($val) . ',';
             }
+
             $result .= "];\n";
         } else {
             $result .= self::formatJsVal($value) . ";\n";
@@ -369,8 +373,6 @@ class Sanitize
      * Removes all variables from request except allowed ones.
      *
      * @param string[] $allowList list of variables to allow
-     *
-     * @access public
      */
     public static function removeRequestVars(&$allowList): void
     {
@@ -392,12 +394,15 @@ class Sanitize
             if (isset($_REQUEST[$key]) && ! is_string($_REQUEST[$key])) {
                 unset($_REQUEST[$key]);
             }
+
             if (isset($_POST[$key]) && ! is_string($_POST[$key])) {
                 unset($_POST[$key]);
             }
+
             if (isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])) {
                 unset($_COOKIE[$key]);
             }
+
             if (! isset($_GET[$key]) || is_string($_GET[$key])) {
                 continue;
             }

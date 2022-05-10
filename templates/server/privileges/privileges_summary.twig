@@ -3,13 +3,13 @@
     <input type="hidden" name="username" value="{{ username }}">
     <input type="hidden" name="hostname" value="{{ hostname }}">
 
-    <fieldset>
+    <fieldset class="pma-fieldset">
         <legend data-submenu-label="{{ sub_menu_label }}">
             {{ legend }}
         </legend>
 
         <table class="table table-light table-striped table-hover w-auto">
-            <thead class="thead-light">
+            <thead class="table-light">
                 <tr>
                     <th scope="col">{{ type_label }}</th>
                     <th scope="col">{% trans 'Privileges' %}</th>
@@ -98,7 +98,7 @@
         {% endif %}
     </fieldset>
 
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
     </fieldset>
 </form>

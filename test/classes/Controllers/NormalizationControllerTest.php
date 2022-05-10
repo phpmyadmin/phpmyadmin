@@ -6,15 +6,17 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
 use function json_encode;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\NormalizationController
+ */
 class NormalizationControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalDbi();
@@ -63,7 +65,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
-        $normalizationController->index();
+        $normalizationController();
 
         $this->assertResponseWasSuccessfull();
 
@@ -115,7 +117,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
-        $normalizationController->index();
+        $normalizationController();
         $this->expectOutputString(
             '<p><b>In order to put the original table \'test_tbl\' into Second normal'
             . ' form we need to create the following tables:</b></p><p><input type="text" '
@@ -143,7 +145,9 @@ class NormalizationControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
-        $normalizationController->index();
+        $this->dummyDbi->addSelectDb('my_db');
+        $normalizationController();
+        $this->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();
 
@@ -181,7 +185,9 @@ class NormalizationControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
-        $normalizationController->index();
+        $this->dummyDbi->addSelectDb('my_db');
+        $normalizationController();
+        $this->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();
 

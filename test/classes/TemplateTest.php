@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use Twig\Error\LoaderError;
 
+/**
+ * @covers \PhpMyAdmin\Template
+ */
 class TemplateTest extends AbstractTestCase
 {
     /** @var Template */
@@ -19,6 +23,26 @@ class TemplateTest extends AbstractTestCase
     {
         parent::setUp();
         $this->template = new Template();
+    }
+
+    /**
+     * Test that Twig Environment can be built
+     * and that all Twig extensions are loaded
+     */
+    public function testGetTwigEnvironment(): void
+    {
+        global $cfg;
+
+        $this->loadContainerBuilder();
+
+        $cfg['environment'] = 'production';
+        $twig = Template::getTwigEnvironment(null);
+        $this->assertFalse($twig->isDebug());
+        $this->assertFalse(TransNode::$enableAddDebugInfo);
+        $cfg['environment'] = 'development';
+        $twig = Template::getTwigEnvironment(null);
+        $this->assertTrue($twig->isDebug());
+        $this->assertTrue(TransNode::$enableAddDebugInfo);
     }
 
     /**

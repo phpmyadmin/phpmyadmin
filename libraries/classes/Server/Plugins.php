@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\DatabaseInterface;
 
+use function __;
+
 class Plugins
 {
     /** @var DatabaseInterface */
@@ -30,14 +32,63 @@ class Plugins
         if (! $cfg['Server']['DisableIS']) {
             $sql = 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME';
         }
+
         $result = $this->dbi->query($sql);
         $plugins = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $plugins[] = $this->mapRowToPlugin($row);
         }
-        $this->dbi->freeResult($result);
 
         return $plugins;
+    }
+
+    /**
+     * @return array<int|string, string>
+     */
+    public function getAuthentication(): array
+    {
+        $result = $this->dbi->query(
+            'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` FROM `information_schema`.`PLUGINS`'
+                . ' WHERE `PLUGIN_TYPE` = \'AUTHENTICATION\';'
+        );
+
+        $plugins = [];
+
+        while ($row = $result->fetchAssoc()) {
+            $plugins[$row['PLUGIN_NAME']] = $this->getTranslatedDescription($row['PLUGIN_DESCRIPTION']);
+        }
+
+        return $plugins;
+    }
+
+    private function getTranslatedDescription(string $description): string
+    {
+        // mysql_native_password
+        if ($description === 'Native MySQL authentication') {
+            return __('Native MySQL authentication');
+        }
+
+        // sha256_password
+        if ($description === 'SHA256 password authentication') {
+            return __('SHA256 password authentication');
+        }
+
+        // caching_sha2_password
+        if ($description === 'Caching sha2 authentication') {
+            return __('Caching sha2 authentication');
+        }
+
+        // auth_socket || unix_socket
+        if ($description === 'Unix Socket based authentication') {
+            return __('Unix Socket based authentication');
+        }
+
+        // mysql_old_password
+        if ($description === 'Old MySQL-4.0 authentication') {
+            return __('Old MySQL-4.0 authentication');
+        }
+
+        return $description;
     }
 
     /**

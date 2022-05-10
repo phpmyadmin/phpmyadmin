@@ -8,6 +8,9 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabase
+ */
 class NodeDatabaseTest extends AbstractTestCase
 {
     /**
@@ -16,8 +19,6 @@ class NodeDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['MaxNavigationItems'] = 250;
@@ -31,13 +32,17 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => [
+                    'route' => '/database/structure',
+                    'params' => ['db' => null],
+                ],
+                'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
+                'title' => 'Structure',
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/database/structure',
-            $parent->links['text']
         );
         $this->assertStringContainsString('database', $parent->classes);
     }
@@ -78,23 +83,14 @@ class NodeDatabaseTest extends AbstractTestCase
         $parent = NodeFactory::getInstance('NodeDatabase');
 
         $tables = $parent->getData('tables', 0);
-        $this->assertContains(
-            'test1',
-            $tables
-        );
-        $this->assertContains(
-            'test2',
-            $tables
-        );
+        $this->assertContains('test1', $tables);
+        $this->assertContains('test2', $tables);
 
         $views = $parent->getData('views', 0);
         $this->assertEmpty($views);
 
         $functions = $parent->getData('functions', 0);
-        $this->assertContains(
-            'testFunction',
-            $functions
-        );
+        $this->assertContains('testFunction', $functions);
         $this->assertCount(1, $functions);
 
         $this->assertEmpty($parent->getData('procedures', 0));

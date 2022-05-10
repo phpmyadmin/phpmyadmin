@@ -7,11 +7,11 @@ namespace PhpMyAdmin\Tests\Html;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Html\MySQLDocumentation
+ */
 class MySQLDocumentationTest extends AbstractTestCase
 {
-    /**
-     * @covers \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation
-     */
     public function testShowDocumentation(): void
     {
         $GLOBALS['server'] = '99';

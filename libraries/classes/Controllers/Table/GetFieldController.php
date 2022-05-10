@@ -8,9 +8,11 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Mime;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
+use function __;
 use function htmlspecialchars;
 use function ini_set;
 use function sprintf;
@@ -24,19 +26,18 @@ class GetFieldController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name.
-     * @param string            $table    Table name.
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $table, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table;
 
@@ -62,7 +63,8 @@ class GetFieldController extends AbstractController
             Generator::mysqlDie(__('Invalid table name'));
         }
 
-        if (! isset($_GET['where_clause'])
+        if (
+            ! isset($_GET['where_clause'])
             || ! isset($_GET['where_clause_sign'])
             || ! Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_sign'])
         ) {
@@ -84,6 +86,8 @@ class GetFieldController extends AbstractController
                 __('MySQL returned an empty result set (i.e. zero rows).'),
                 $sql
             );
+
+            return;
         }
 
         /* Avoid corrupting data */

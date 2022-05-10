@@ -7,12 +7,16 @@
     <div class="card mb-2">
       <div class="card-header">{% trans 'Operations' %}</div>
       <div class="card-body">
-        <div class="form-inline">
-          <label for="newNameInput">{% trans 'Rename view to' %}</label>
-          <input id="newNameInput" class="form-control ml-2" type="text" name="new_name" onfocus="this.select()" value="{{ table }}" required>
+        <div class="row row-cols-lg-auto g-3 align-items-center">
+          <div class="col-12">
+            <label for="newNameInput">{% trans 'Rename view to' %}</label>
+          </div>
+          <div class="col-12">
+            <input id="newNameInput" class="form-control" type="text" name="new_name" onfocus="this.select()" value="{{ table }}" required>
+          </div>
         </div>
       </div>
-      <div class="card-footer text-right">
+      <div class="card-footer text-end">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </div>
     </div>

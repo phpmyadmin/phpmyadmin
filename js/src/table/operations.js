@@ -10,7 +10,52 @@ AJAX.registerTeardown('table/operations.js', function () {
     $(document).off('click', '#drop_tbl_anchor.ajax');
     $(document).off('click', '#drop_view_anchor.ajax');
     $(document).off('click', '#truncate_tbl_anchor.ajax');
+    $(document).off('click', '#delete_tbl_anchor.ajax');
 });
+
+/**
+ * Confirm and send POST request
+ *
+ * @param {JQuery} linkObject
+ * @param {'TRUNCATE'|'DELETE'} action
+ *
+ * @return {void}
+ */
+var confirmAndPost = function (linkObject, action) {
+    /**
+     * @var {String} question String containing the question to be asked for confirmation
+     */
+    var question = '';
+    if (action === 'TRUNCATE') {
+        question += Messages.strTruncateTableStrongWarning + ' ';
+    } else if (action === 'DELETE') {
+        question += Messages.strDeleteTableStrongWarning + ' ';
+    }
+    question += Functions.sprintf(Messages.strDoYouReally, linkObject.data('query'));
+    question += Functions.getForeignKeyCheckboxLoader();
+    linkObject.confirm(question, linkObject.attr('href'), function (url) {
+        Functions.ajaxShowMessage(Messages.strProcessingRequest);
+
+        var params = Functions.getJsConfirmCommonParam(this, linkObject.getPostData());
+
+        $.post(url, params, function (data) {
+            if ($('.sqlqueryresults').length !== 0) {
+                $('.sqlqueryresults').remove();
+            }
+            if ($('.result_query').length !== 0) {
+                $('.result_query').remove();
+            }
+            if (typeof data !== 'undefined' && data.success === true) {
+                Functions.ajaxShowMessage(data.message);
+                $('<div class="sqlqueryresults ajax"></div>').prependTo('#page_content');
+                $('.sqlqueryresults').html(data.sql_query);
+                Functions.highlightSql($('#page_content'));
+            } else {
+                Functions.ajaxShowMessage(data.error, false);
+            }
+        });
+    }, Functions.loadForeignKeyCheckbox);
+};
 
 /**
  * jQuery coding for 'Table operations'. Used on /table/operations
@@ -18,8 +63,8 @@ AJAX.registerTeardown('table/operations.js', function () {
  */
 AJAX.registerOnload('table/operations.js', function () {
     /**
-     *Ajax action for submitting the "Copy table"
-     **/
+     * Ajax action for submitting the "Copy table"
+     */
     $(document).on('submit', '#copyTable.ajax', function (event) {
         event.preventDefault();
         var $form = $(this);
@@ -51,7 +96,7 @@ AJAX.registerOnload('table/operations.js', function () {
     });// end of copyTable ajax submit
 
     /**
-     *Ajax action for submitting the "Move table"
+     * Ajax action for submitting the "Move table"
      */
     $(document).on('submit', '#moveTableForm', function (event) {
         event.preventDefault();
@@ -70,7 +115,7 @@ AJAX.registerOnload('table/operations.js', function () {
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
-        }); // end $.post()
+        });
     });
 
     /**
@@ -120,13 +165,13 @@ AJAX.registerOnload('table/operations.js', function () {
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
-            }); // end $.post()
+            });
         }
     });
 
     /**
-     *Ajax events for actions in the "Table maintenance"
-    **/
+     * Ajax events for actions in the "Table maintenance"
+     */
     $(document).on('click', '#tbl_maintenance li a.maintain_action.ajax', function (event) {
         event.preventDefault();
         var $link = $(this);
@@ -166,7 +211,6 @@ AJAX.registerOnload('table/operations.js', function () {
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);
                 Functions.highlightSql($('#page_content'));
-                Functions.initSlider();
                 $('.sqlqueryresults').children('fieldset,br').remove();
                 scrollToTop();
             } else {
@@ -218,13 +262,11 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $link = $(this);
         /**
-         * @var question    String containing the question to be asked for confirmation
+         * @var {String} question String containing the question to be asked for confirmation
          */
         var question = Messages.strDropTableStrongWarning + ' ';
-        question += Functions.sprintf(
-            Messages.strDoYouReally,
-            'DROP TABLE `'  + Functions.escapeHtml(CommonParams.get('db')) + '`.`' + Functions.escapeHtml(CommonParams.get('table') + '`')
-        ) + Functions.getForeignKeyCheckboxLoader();
+        question += Functions.sprintf(Messages.strDoYouReally, $link[0].getAttribute('data-query'));
+        question += Functions.getForeignKeyCheckboxLoader();
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
             var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
@@ -246,7 +288,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
-            }); // end $.post()
+            });
         }, Functions.loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
 
@@ -254,7 +296,7 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $link = $(this);
         /**
-         * @var question    String containing the question to be asked for confirmation
+         * @var {String} question String containing the question to be asked for confirmation
          */
         var question = Messages.strDropTableStrongWarning + ' ';
         question += Functions.sprintf(
@@ -280,42 +322,17 @@ AJAX.registerOnload('table/operations.js', function () {
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
-            }); // end $.post()
+            });
         });
     }); // end of Drop View Ajax action
 
     $(document).on('click', '#truncate_tbl_anchor.ajax', function (event) {
         event.preventDefault();
-        var $link = $(this);
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = Messages.strTruncateTableStrongWarning + ' ';
-        question += Functions.sprintf(
-            Messages.strDoYouReally,
-            'TRUNCATE `' + Functions.escapeHtml(CommonParams.get('db')) + '`.`' + Functions.escapeHtml(CommonParams.get('table') + '`')
-        ) + Functions.getForeignKeyCheckboxLoader();
-        $(this).confirm(question, $(this).attr('href'), function (url) {
-            Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        confirmAndPost($(this), 'TRUNCATE');
+    });
 
-            var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
-
-            $.post(url, params, function (data) {
-                if ($('.sqlqueryresults').length !== 0) {
-                    $('.sqlqueryresults').remove();
-                }
-                if ($('.result_query').length !== 0) {
-                    $('.result_query').remove();
-                }
-                if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
-                    $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
-                    $('.sqlqueryresults').html(data.sql_query);
-                    Functions.highlightSql($('#page_content'));
-                } else {
-                    Functions.ajaxShowMessage(data.error, false);
-                }
-            }); // end $.post()
-        }, Functions.loadForeignKeyCheckbox);
-    }); // end of Truncate Table Ajax action
+    $(document).on('click', '#delete_tbl_anchor.ajax', function (event) {
+        event.preventDefault();
+        confirmAndPost($(this), 'DELETE');
+    });
 }); // end $(document).ready for 'Table operations'

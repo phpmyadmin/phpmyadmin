@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
@@ -15,32 +13,35 @@ use PhpMyAdmin\Import;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
+
+use function __;
 use function intval;
+use function is_numeric;
 
 final class ImportController extends AbstractController
 {
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name.
-     * @param string            $table    Table name.
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $table, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $PMA_Theme, $err_url;
+        global $db, $table, $urlParams, $SESSION_KEY, $cfg, $errorUrl;
 
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -50,14 +51,14 @@ final class ImportController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
-        $url_params['goto'] = Url::getFromRoute('/table/import');
-        $url_params['back'] = Url::getFromRoute('/table/import');
+        $urlParams['goto'] = Url::getFromRoute('/table/import');
+        $urlParams['back'] = Url::getFromRoute('/table/import');
 
         [$SESSION_KEY, $uploadId] = Ajax::uploadProgressSetup();
 
@@ -72,7 +73,7 @@ final class ImportController extends AbstractController
         }
 
         $offset = null;
-        if (Core::isValid($_REQUEST['offset'], 'numeric')) {
+        if (isset($_REQUEST['offset']) && is_numeric($_REQUEST['offset'])) {
             $offset = intval($_REQUEST['offset']);
         }
 
@@ -80,15 +81,7 @@ final class ImportController extends AbstractController
         $localImportFile = $_REQUEST['local_import_file'] ?? null;
         $compressions = Import::getCompressions();
 
-        $allCharsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
-        $charsets = [];
-        /** @var Charset $charset */
-        foreach ($allCharsets as $charset) {
-            $charsets[] = [
-                'name' => $charset->getName(),
-                'description' => $charset->getDescription(),
-            ];
-        }
+        $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
 
         $idKey = $_SESSION[$SESSION_KEY]['handler']::getIdKey();
         $hiddenInputs = [
@@ -98,19 +91,29 @@ final class ImportController extends AbstractController
             'table' => $table,
         ];
 
+        $default = isset($_GET['format']) ? (string) $_GET['format'] : Plugins::getDefault('Import', 'format');
+        $choice = Plugins::getChoice($importList, $default);
+        $options = Plugins::getOptions('Import', $importList);
+        $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
+        $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
+        $maxUploadSize = (int) $GLOBALS['config']->get('max_upload_size');
+
         $this->render('table/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$SESSION_KEY]['handler'],
-            'theme_image_path' => $PMA_Theme->getImgPath(),
             'hidden_inputs' => $hiddenInputs,
             'db' => $db,
             'table' => $table,
-            'max_upload_size' => $max_upload_size,
-            'import_list' => $importList,
+            'max_upload_size' => $maxUploadSize,
+            'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),
+            'plugins_choice' => $choice,
+            'options' => $options,
+            'skip_queries_default' => $skipQueriesDefault,
+            'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
-            'is_upload' => $GLOBALS['is_upload'],
+            'is_upload' => $GLOBALS['config']->get('enable_upload'),
             'upload_dir' => $cfg['UploadDir'] ?? null,
             'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
             'compressions' => $compressions,
@@ -121,7 +124,7 @@ final class ImportController extends AbstractController
             'offset' => $offset,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
             'user_upload_dir' => Util::userDir((string) ($cfg['UploadDir'] ?? '')),
             'local_files' => Import::getLocalFiles($importList),
         ]);

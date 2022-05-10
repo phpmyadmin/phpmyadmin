@@ -3,7 +3,7 @@
     {{ get_hidden_inputs(db) }}
 
     <div class="w-100">
-      <fieldset>
+      <fieldset class="pma-fieldset">
         <legend>
           {{ get_icon('b_usrcheck') }}
           {{ 'Users having access to "%s"'|trans|format('<a href="' ~ database_url ~ get_common({'db': db}, '&') ~ '">' ~ db|escape('html') ~ '</a>')|raw }}
@@ -11,7 +11,7 @@
 
         <div class="table-responsive jsresponsive">
           <table class="table table-light table-striped table-hover w-auto">
-            <thead class="thead-light">
+            <thead class="table-light">
               <tr>
                 <th></th>
                 <th scope="col">{% trans 'User name' %}</th>
@@ -107,8 +107,8 @@
           </table>
         </div>
 
-        <div class="floatleft">
-          <img class="selectallarrow" src="{{ theme_image_path }}arrow_{{ text_dir }}.png" alt="
+        <div class="float-start">
+          <img class="selectallarrow" src="{{ image('arrow_' ~ text_dir ~ '.png') }}" alt="
             {%- trans 'With selected:' %}" width="38" height="22">
           <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
           <label for="usersForm_checkall">{% trans 'Check all' %}</label>
@@ -127,7 +127,7 @@
 {% if is_createuser %}
   <div class="row">
     <div class="col-12">
-      <fieldset id="fieldset_add_user">
+      <fieldset class="pma-fieldset" id="fieldset_add_user">
         <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
         <a id="add_user_anchor" href="{{ url('/server/privileges', {
           'adduser': true,

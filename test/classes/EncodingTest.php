@@ -1,27 +1,25 @@
 <?php
-/**
- * Tests for Charset Conversions
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
-use const PHP_INT_SIZE;
-use function fclose;
+
+use function _setlocale;
 use function file_get_contents;
-use function fopen;
+use function file_put_contents;
 use function function_exists;
-use function fwrite;
 use function mb_convert_encoding;
 use function mb_convert_kana;
-use function unlink;
 use function setlocale;
+use function unlink;
+
 use const LC_ALL;
+use const PHP_INT_SIZE;
 
 /**
- * Tests for Charset Conversions
+ * @covers \PhpMyAdmin\Encoding
  */
 class EncodingTest extends AbstractTestCase
 {
@@ -60,12 +58,11 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
+    /**
+     * @requires extension recode
+     */
     public function testRecode(): void
     {
-        if (! function_exists('recode_string')) {
-            $this->markTestSkipped('recode extension missing');
-        }
-
         Encoding::setEngine(Encoding::ENGINE_RECODE);
         $this->assertEquals(
             'Only That ecole & Can Be My Blame',
@@ -83,13 +80,10 @@ class EncodingTest extends AbstractTestCase
      * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
      *
      * @group extension-iconv
+     * @requires extension iconv
      */
     public function testIconv(): void
     {
-        if (! function_exists('iconv')) {
-            $this->markTestSkipped('iconv extension missing');
-        }
-
         // Set PHP native locale
         if (function_exists('setlocale')) {
             if (setlocale(0, 'POSIX') === false) {
@@ -186,10 +180,7 @@ class EncodingTest extends AbstractTestCase
     {
         $file_str = '教育漢字常用漢字';
         $filename = 'test.kanji';
-        $file = fopen($filename, 'w');
-        $this->assertNotFalse($file);
-        fwrite($file, $file_str);
-        fclose($file);
+        $this->assertNotFalse(file_put_contents($filename, $file_str));
         $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
 
         $result = Encoding::kanjiFileConv($filename, 'JIS', 'kana');
@@ -208,26 +199,11 @@ class EncodingTest extends AbstractTestCase
     public function testEncodingForm(): void
     {
         $actual = Encoding::kanjiEncodingForm();
-        $this->assertStringContainsString(
-            '<input type="radio" name="knjenc"',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'type="radio" name="knjenc"',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<input type="checkbox" name="xkana" value="kana" id="kj-kana">',
-            $actual
-        );
+        $this->assertStringContainsString('<input type="radio" name="knjenc"', $actual);
+        $this->assertStringContainsString('type="radio" name="knjenc"', $actual);
+        $this->assertStringContainsString('<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">', $actual);
+        $this->assertStringContainsString('<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">', $actual);
+        $this->assertStringContainsString('<input type="checkbox" name="xkana" value="kana" id="kj-kana">', $actual);
     }
 
     public function testListEncodings(): void

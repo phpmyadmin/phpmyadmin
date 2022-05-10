@@ -15,11 +15,14 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+
+use function __;
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportMediawiki
  * @group medium
  */
 class ExportMediawikiTest extends AbstractTestCase
@@ -39,6 +42,11 @@ class ExportMediawikiTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportMediawiki();
     }
 
@@ -61,10 +69,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'MediaWiki Table',
@@ -88,10 +93,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -101,10 +103,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -120,10 +119,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            OptionsPropertySubgroup::class,
-            $property
-        );
+        $this->assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
         $this->assertEquals(
             'dump_table',
@@ -137,10 +133,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $sgHeader = $property->getSubGroupHeader();
 
-        $this->assertInstanceOf(
-            RadioPropertyItem::class,
-            $sgHeader
-        );
+        $this->assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 
         $this->assertEquals(
             'structure_or_data',
@@ -158,10 +151,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'caption',
@@ -175,10 +165,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'headers',
@@ -254,7 +241,7 @@ class ExportMediawikiTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
             ->will($this->returnValue($columns));
@@ -310,73 +297,45 @@ class ExportMediawikiTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('getColumnNames')
-            ->with('db', 'table')
-            ->will($this->returnValue(['name1', 'fields']));
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(['r1', 'r2']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(['r3', '']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
 
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
-                'table',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
-                'SELECT'
+                'localhost',
+                'SELECT * FROM `test_db`.`test_table`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertEquals(
             "\n<!--\n" .
-            "Table data for `table`\n" .
+            "Table data for `test_table`\n" .
             "-->\n" .
             "\n" .
             '{| class="wikitable sortable" style="text-align:' .
             "center;\"\n" .
-            "|+'''table'''\n" .
+            "|+'''test_table'''\n" .
             "|-\n" .
-            " ! name1\n" .
-            " ! fields\n" .
+            " ! id\n" .
+            " ! name\n" .
+            " ! datetimefield\n" .
             "|-\n" .
-            " | r1\n" .
-            " | r2\n" .
+            " | 1\n" .
+            " | abcd\n" .
+            " | 2011-01-20 02:00:02\n" .
             "|-\n" .
-            " | r3\n" .
-            " | \n" .
+            " | 2\n" .
+            " | foo\n" .
+            " | 2010-01-20 02:00:02\n" .
+            "|-\n" .
+            " | 3\n" .
+            " | Abcd\n" .
+            " | 2012-01-20 02:00:02\n" .
             "|}\n\n",
             $result
         );

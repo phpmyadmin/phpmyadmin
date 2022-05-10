@@ -6,10 +6,11 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function array_keys;
 use function ksort;
 use function mb_strtolower;
@@ -26,22 +27,22 @@ class PluginsController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, Plugins $plugins, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Plugins $plugins,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
         $this->plugins = $plugins;
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $err_url;
+        global $errorUrl;
 
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -54,6 +55,7 @@ class PluginsController extends AbstractController
         foreach ($serverPlugins as $plugin) {
             $plugins[$plugin->getType()][] = $plugin->toArray();
         }
+
         ksort($plugins);
 
         $cleanTypes = [];

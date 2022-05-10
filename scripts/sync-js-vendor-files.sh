@@ -35,8 +35,6 @@ cp ./node_modules/jquery/dist/jquery.min.map ./js/vendor/jquery/jquery.min.map
 cp ./node_modules/jquery/LICENSE.txt ./js/vendor/jquery/MIT-LICENSE.txt
 echo 'Updating jquery-migrate'
 cp ./node_modules/jquery-migrate/dist/jquery-migrate.js ./js/vendor/jquery/jquery-migrate.js
-echo 'Updating jquery-mousewheel'
-cp ./node_modules/jquery-mousewheel/jquery.mousewheel.js ./js/vendor/jquery/jquery.mousewheel.js
 echo 'Updating jquery-ui'
 cp ./node_modules/jquery-ui-dist/jquery-ui.min.js ./js/vendor/jquery/jquery-ui.min.js
 # https://github.com/devongovett/jquery.event.drag/commit/2db3b7865f31eee6a8145532554f8b02210180bf#diff-ab8497cedd384270de86ee2e9f06530e
@@ -48,27 +46,17 @@ cp ./node_modules/js-cookie/src/js.cookie.js ./js/vendor/js.cookie.js
 echo 'Updating bootstrap'
 cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js ./js/vendor/bootstrap/bootstrap.bundle.min.js
 cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map ./js/vendor/bootstrap/bootstrap.bundle.min.js.map
-echo 'Updating zxcvbn'
-cp ./node_modules/zxcvbn/dist/zxcvbn.js ./js/vendor/zxcvbn.js
-cp ./node_modules/zxcvbn/dist/zxcvbn.js.map ./js/vendor/zxcvbn.js.map
+echo 'Updating zxcvbn-ts'
+cp ./node_modules/@zxcvbn-ts/core/dist/zxcvbn-ts.js ./js/vendor/zxcvbn-ts.js
+cp ./node_modules/@zxcvbn-ts/core/dist/zxcvbn-ts.js.map ./js/vendor/zxcvbn-ts.js.map
 echo 'Updating tracekit'
 cp ./node_modules/tracekit/tracekit.js ./js/vendor/tracekit.js
 echo 'Updating u2f-api-polyfill'
 cp ./node_modules/u2f-api-polyfill/u2f-api-polyfill.js ./js/vendor/u2f-api-polyfill.js
-echo 'Updating stickyfill'
-cp ./node_modules/stickyfilljs/dist/stickyfill.min.js js/vendor/stickyfill.min.js
-echo 'Updating blueimp-md5'
-cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
-echo 'Updating jquery.svg.js'
-cp ./node_modules/kbwood-jquery-svg/jquery.svg.js ./js/vendor/jquery/jquery.svg.js
-echo 'Updating jquery-hashchange'
-cp ./node_modules/jquery-hashchange/jquery.ba-hashchange.js ./js/vendor/jquery/jquery.ba-hashchange-2.0.js
 echo 'Updating jquery-uitablefilter'
 cp ./node_modules/jquery-uitablefilter/jquery.uitablefilter.js js/vendor/jquery/jquery.uitablefilter.js
 echo 'Updating jquery-tablesorter'
 cp ./node_modules/tablesorter/dist/js/jquery.tablesorter.js ./js/vendor/jquery/jquery.tablesorter.js
-echo 'Updating jquery-fullscreen-plugin'
-cp ./node_modules/jquery-fullscreen-plugin/jquery.fullscreen.js ./js/vendor/jquery/jquery.fullscreen.js
 echo 'Updating jquery-debounce'
 cp ./node_modules/jquery-debounce-throttle/index.js ./js/vendor/jquery/jquery.debounce-1.0.6.js
 echo 'Updating jquery-Timepicker-Addon'
@@ -77,11 +65,11 @@ echo 'Updating OpenLayers'
 cp ./node_modules/ol/ol.css ./js/vendor/openlayers/theme/ol.css
 npx webpack-cli --config ./js/config/ol/webpack.config.js
 echo "/*!
-  * OpenLayers v$(yarn -s info ol version) (https://openlayers.org/)
+  * OpenLayers v$(yarn info -s ol version) (https://openlayers.org/)
   * Copyright 2005-present, OpenLayers Contributors All rights reserved.
   * Licensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)
   *
-  * @license $(yarn -s info ol license)
+  * @license $(yarn info -s ol license)
   */
 $(cat ./js/vendor/openlayers/OpenLayers.js)" > ./js/vendor/openlayers/OpenLayers.js
 echo 'Updating sprintf'

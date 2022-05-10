@@ -20,19 +20,19 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Name
      *
-     * @var string
+     * @var string|null
      */
     private $name;
     /**
      * Text
      *
-     * @var string
+     * @var string|null
      */
     private $text;
     /**
      * What to force
      *
-     * @var string
+     * @var string|null
      */
     private $force;
 
@@ -45,6 +45,7 @@ abstract class OptionsPropertyItem extends PropertyItem
         if ($name) {
             $this->name = $name;
         }
+
         if (! $text) {
             return;
         }
@@ -57,7 +58,7 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Gets the name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -68,10 +69,8 @@ abstract class OptionsPropertyItem extends PropertyItem
      * Sets the name
      *
      * @param string $name name
-     *
-     * @return void
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -79,7 +78,7 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Gets the text
      *
-     * @return string
+     * @return string|null
      */
     public function getText()
     {
@@ -90,10 +89,8 @@ abstract class OptionsPropertyItem extends PropertyItem
      * Sets the text
      *
      * @param string $text text
-     *
-     * @return void
      */
-    public function setText($text)
+    public function setText($text): void
     {
         $this->text = $text;
     }
@@ -101,7 +98,7 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Gets the force parameter
      *
-     * @return string
+     * @return string|null
      */
     public function getForce()
     {
@@ -112,10 +109,8 @@ abstract class OptionsPropertyItem extends PropertyItem
      * Sets the force parameter
      *
      * @param string $force force parameter
-     *
-     * @return void
      */
-    public function setForce($force)
+    public function setForce($force): void
     {
         $this->force = $force;
     }

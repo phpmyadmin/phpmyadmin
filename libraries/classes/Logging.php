@@ -9,16 +9,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const LOG_AUTHPRIV;
-use const LOG_NDELAY;
-use const LOG_PID;
-use const LOG_WARNING;
 use function closelog;
 use function date;
 use function error_log;
 use function function_exists;
 use function openlog;
 use function syslog;
+
+use const LOG_AUTHPRIV;
+use const LOG_NDELAY;
+use const LOG_PID;
+use const LOG_WARNING;
 
 /**
  * Misc logging functions
@@ -32,7 +33,7 @@ class Logging
      */
     public static function getLogDestination()
     {
-        $log_file = $GLOBALS['PMA_Config']->get('AuthLog');
+        $log_file = $GLOBALS['config']->get('AuthLog');
 
         /* Autodetect */
         if ($log_file === 'auto') {
@@ -70,23 +71,24 @@ class Logging
      *
      * @param string $user   user name
      * @param string $status status message
-     *
-     * @return void
      */
-    public static function logUser($user, $status = 'ok')
+    public static function logUser($user, $status = 'ok'): void
     {
         if (function_exists('apache_note')) {
             apache_note('userID', $user);
             apache_note('userStatus', $status);
         }
+
         /* Do not log successful authentications */
-        if (! $GLOBALS['PMA_Config']->get('AuthLogSuccess') && $status === 'ok') {
+        if (! $GLOBALS['config']->get('AuthLogSuccess') && $status === 'ok') {
             return;
         }
+
         $log_file = self::getLogDestination();
         if (empty($log_file)) {
             return;
         }
+
         $message = self::getLogMessage($user, $status);
         if ($log_file === 'syslog') {
             if (function_exists('syslog')) {

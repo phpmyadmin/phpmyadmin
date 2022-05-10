@@ -9,9 +9,10 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
-use const PHP_VERSION;
+
+use function __;
 use function array_merge;
 use function defined;
 use function file_exists;
@@ -24,6 +25,8 @@ use function session_start;
 use function session_write_close;
 use function version_compare;
 
+use const PHP_VERSION;
+
 /**
  * Handles the SignOn authentication method
  */
@@ -34,9 +37,9 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @return bool always true (no return indeed)
      */
-    public function showLoginForm()
+    public function showLoginForm(): bool
     {
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
             Core::fatalError('You must set SignonURL!');
@@ -64,16 +67,18 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         /* Sanitize cookie params */
-        $defaultCookieParams = static function (string $key) {
+        $defaultCookieParams = /** @return mixed */ static function (string $key) {
             switch ($key) {
                 case 'lifetime':
                     return 0;
+
                 case 'path':
                     return '/';
+
                 case 'domain':
                     return '';
+
                 case 'secure':
-                    return false;
                 case 'httponly':
                     return false;
             }
@@ -89,7 +94,8 @@ class AuthenticationSignon extends AuthenticationPlugin
             $sessionCookieParams[$key] = $defaultCookieParams($key);
         }
 
-        if (isset($sessionCookieParams['samesite'])
+        if (
+            isset($sessionCookieParams['samesite'])
             && ! in_array($sessionCookieParams['samesite'], ['Lax', 'Strict'])
         ) {
                 // Not a valid value for samesite
@@ -97,6 +103,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
+            /** @psalm-suppress InvalidArgument */
             session_set_cookie_params($sessionCookieParams);
         } else {
             session_set_cookie_params(
@@ -111,16 +118,12 @@ class AuthenticationSignon extends AuthenticationPlugin
 
     /**
      * Gets authentication credentials
-     *
-     * @return bool whether we get authentication settings or not
      */
-    public function readCredentials()
+    public function readCredentials(): bool
     {
         /* Check if we're using same signon server */
         $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
-        if (isset($_SESSION['LAST_SIGNON_URL'])
-            && $_SESSION['LAST_SIGNON_URL'] != $signon_url
-        ) {
+        if (isset($_SESSION['LAST_SIGNON_URL']) && $_SESSION['LAST_SIGNON_URL'] != $signon_url) {
             return false;
         }
 
@@ -129,9 +132,6 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Session name */
         $session_name = $GLOBALS['cfg']['Server']['SignonSession'];
-
-        /* Login URL */
-        $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
 
         /* Current host */
         $single_signon_host = $GLOBALS['cfg']['Server']['host'];
@@ -143,17 +143,17 @@ class AuthenticationSignon extends AuthenticationPlugin
         $single_signon_cfgupdate = [];
 
         /* Handle script based auth */
-        if (! empty($script_name)) {
+        if ($script_name !== '') {
             if (! @file_exists($script_name)) {
                 Core::fatalError(
                     __('Can not find signon authentication script:')
                     . ' ' . $script_name
                 );
             }
+
             include $script_name;
 
-            [$this->user, $this->password]
-                = get_login_credentials($GLOBALS['cfg']['Server']['user']);
+            [$this->user, $this->password] = get_login_credentials($GLOBALS['cfg']['Server']['user']);
         } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
             /* End current session */
             $old_session = session_name();
@@ -162,6 +162,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (! defined('TESTSUITE')) {
                 session_write_close();
             }
+
             /* Load single signon session */
             if (! defined('TESTSUITE')) {
                 $this->setCookieParams();
@@ -177,9 +178,11 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (isset($_SESSION['PMA_single_signon_user'])) {
                 $this->user = $_SESSION['PMA_single_signon_user'];
             }
+
             if (isset($_SESSION['PMA_single_signon_password'])) {
                 $this->password = $_SESSION['PMA_single_signon_password'];
             }
+
             if (isset($_SESSION['PMA_single_signon_host'])) {
                 $single_signon_host = $_SESSION['PMA_single_signon_host'];
             }
@@ -211,12 +214,14 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Restart phpMyAdmin session */
             if (! defined('TESTSUITE')) {
                 $this->setCookieParams($oldCookieParams);
-                if ($old_session !== null) {
+                if ($old_session !== false) {
                     session_name($old_session);
                 }
+
                 if (! empty($old_id)) {
                     session_id($old_id);
                 }
+
                 session_start();
             }
 
@@ -227,10 +232,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             $GLOBALS['cfg']['Server']['port'] = $single_signon_port;
 
             /* Configuration update */
-            $GLOBALS['cfg']['Server'] = array_merge(
-                $GLOBALS['cfg']['Server'],
-                $single_signon_cfgupdate
-            );
+            $GLOBALS['cfg']['Server'] = array_merge($GLOBALS['cfg']['Server'], $single_signon_cfgupdate);
 
             /* Restore our token */
             if (! empty($pma_token)) {
@@ -260,10 +262,8 @@ class AuthenticationSignon extends AuthenticationPlugin
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return void
      */
-    public function showFailure($failure)
+    public function showFailure($failure): void
     {
         parent::showFailure($failure);
 
@@ -286,6 +286,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Set error message */
             $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage($failure);
         }
+
         $this->showLoginForm();
     }
 

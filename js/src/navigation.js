@@ -4,15 +4,14 @@
  * @package phpMyAdmin-Navigation
  */
 
-/* global isStorageSupported, setupConfigTabs, setupRestoreField, setupValidation */ // js/config.js
-/* global RTE */ // js/rte.js
+/* global isStorageSupported, setupRestoreField, setupValidation */ // js/config.js
 
 var Navigation = {};
 
 /**
  * updates the tree state in sessionStorage
  *
- * @returns void
+ * @return {void}
  */
 Navigation.treeStateUpdate = function () {
     // update if session storage is supported
@@ -37,7 +36,10 @@ Navigation.treeStateUpdate = function () {
 /**
  * updates the filter state in sessionStorage
  *
- * @returns void
+ * @param {string} filterName
+ * @param {string} filterValue
+ *
+ * @return {void}
  */
 Navigation.filterStateUpdate = function (filterName, filterValue) {
     if (isStorageSupported('sessionStorage')) {
@@ -57,7 +59,7 @@ Navigation.filterStateUpdate = function (filterName, filterValue) {
 /**
  * restores the filter state on navigation reload
  *
- * @returns void
+ * @return {void}
  */
 Navigation.filterStateRestore = function () {
     if (isStorageSupported('sessionStorage')
@@ -122,7 +124,7 @@ Navigation.filterStateRestore = function () {
  * @param $expandElem expander
  * @param callback    callback function
  *
- * @returns void
+ * @return {void}
  */
 Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     var $destination = null;
@@ -211,7 +213,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
  *
  * @param $expandElem expander
  *
- * @returns void
+ * @return {void}
  */
 Navigation.collapseTreeNode = function ($expandElem) {
     var $children = $expandElem.closest('li').children('div.list_container');
@@ -231,7 +233,7 @@ Navigation.collapseTreeNode = function ($expandElem) {
  * and virtual paths, as well as the positions in the pagination at
  * various levels, if necessary.
  *
- * @return Object
+ * @return {object}
  */
 Navigation.traverseForPaths = function () {
     var params = {
@@ -409,7 +411,7 @@ $(function () {
     /**
      * Bind all "fast filter" events
      */
-    $(document).on('click', '#pma_navigation_tree li.fast_filter span', Navigation.FastFilter.events.clear);
+    $(document).on('click', '#pma_navigation_tree li.fast_filter button.searchClauseClear', Navigation.FastFilter.events.clear);
     $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.focus);
     $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.blur);
     $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.keyup);
@@ -442,55 +444,6 @@ $(function () {
         }
     );
 
-    /** Create a Routine, Trigger or Event */
-    $(document).on('click', 'li.new_procedure a.ajax, li.new_function a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('routine');
-        dialog.editorDialog(1, $(this));
-    });
-    $(document).on('click', 'li.new_trigger a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('trigger');
-        dialog.editorDialog(1, $(this));
-    });
-    $(document).on('click', 'li.new_event a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('event');
-        dialog.editorDialog(1, $(this));
-    });
-
-    /** Edit Routines, Triggers or Events */
-    $(document).on('click', 'li.procedure > a.ajax, li.function > a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('routine');
-        dialog.editorDialog(0, $(this));
-    });
-    $(document).on('click', 'li.trigger > a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('trigger');
-        dialog.editorDialog(0, $(this));
-    });
-    $(document).on('click', 'li.event > a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('event');
-        dialog.editorDialog(0, $(this));
-    });
-
-    /** Execute Routines */
-    $(document).on('click', 'li.procedure div a.ajax img,' +
-        ' li.function div a.ajax img', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('routine');
-        dialog.executeDialog($(this).parent());
-    });
-    /** Export Triggers and Events */
-    $(document).on('click', 'li.trigger div.second a.ajax img,' +
-        ' li.event div.second a.ajax img', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object();
-        dialog.exportDialog($(this).parent());
-    });
-
     /** New index */
     $(document).on('click', '#pma_navigation_tree li.new_index a.ajax', function (event) {
         event.preventDefault();
@@ -514,7 +467,7 @@ $(function () {
     /** New view */
     $(document).on('click', 'li.new_view a.ajax', function (event) {
         event.preventDefault();
-        Functions.createViewDialog($(this));
+        Functions.createViewModal($(this));
     });
 
     /** Hide navigation tree item */
@@ -547,23 +500,8 @@ $(function () {
         $.post($(this).attr('href'), params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 Functions.ajaxRemoveMessage($msg);
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close');
-                };
-                $('<div></div>')
-                    .attr('id', 'unhideNavItemDialog')
-                    .append(data.message)
-                    .dialog({
-                        width: 400,
-                        minWidth: 200,
-                        modal: true,
-                        buttons: buttonOptions,
-                        title: Messages.strUnhideNavItem,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
+                $('#unhideNavItemModal').modal('show');
+                $('#unhideNavItemModal').find('.modal-body').first().html(data.message);
             } else {
                 Functions.ajaxShowMessage(data.error);
             }
@@ -672,7 +610,7 @@ $(function () {
  * @param $expandElem expander
  * @param callback    callback function
  *
- * @returns void
+ * @return {void}
  */
 Navigation.expandTreeNode = function ($expandElem, callback) {
     var $children = $expandElem.closest('li').children('div.list_container');
@@ -724,8 +662,8 @@ Navigation.expandTreeNode = function ($expandElem, callback) {
 /**
  * Auto-scrolls the newly chosen database
  *
- * @param  object   $element    The element to set to view
- * @param  boolean  $forceToTop Whether to force scroll to top
+ * @param {object} $element    The element to set to view
+ * @param {bool}   $forceToTop Whether to force scroll to top
  *
  */
 Navigation.scrollToView = function ($element, $forceToTop) {
@@ -748,7 +686,7 @@ Navigation.scrollToView = function ($element, $forceToTop) {
 /**
  * Expand the navigation and highlight the current database or table/view
  *
- * @returns void
+ * @return {void}
  */
 Navigation.showCurrent = function () {
     var db = CommonParams.get('db');
@@ -882,7 +820,7 @@ Navigation.showCurrent = function () {
     function loadAndHighlightTableOrView ($dbItem, itemName) {
         var $container = $dbItem.children('div.list_container');
         var $expander;
-        var $whichItem = isItemInContainer($container, itemName, 'li.table, li.view');
+        var $whichItem = isItemInContainer($container, itemName, 'li.nav_node_table, li.view');
         // If item already there in some container
         if ($whichItem) {
             // get the relevant container while may also be a subcontainer
@@ -958,7 +896,7 @@ Navigation.showCurrent = function () {
 /**
  * Disable navigation panel settings
  *
- * @return void
+ * @return {void}
  */
 Navigation.disableSettings = function () {
     $('#pma_navigation_settings_icon').addClass('hide');
@@ -969,7 +907,9 @@ Navigation.disableSettings = function () {
  * Ensure that navigation panel settings is properly setup.
  * If not, set it up
  *
- * @return void
+ * @param {string} selflink
+ *
+ * @return {void}
  */
 Navigation.ensureSettings = function (selflink) {
     $('#pma_navigation_settings_icon').removeClass('hide');
@@ -984,7 +924,6 @@ Navigation.ensureSettings = function (selflink) {
                 $('#pma_navi_settings_container').html(data.message);
                 setupRestoreField();
                 setupValidation();
-                setupConfigTabs();
                 $('#pma_navigation_settings').find('form').attr('action', selflink);
             } else {
                 Functions.ajaxShowMessage(data.error);
@@ -998,10 +937,10 @@ Navigation.ensureSettings = function (selflink) {
 /**
  * Reloads the whole navigation tree while preserving its state
  *
- * @param  function     the callback function
- * @param  Object       stored navigation paths
+ * @param {Function} callback the callback function
+ * @param {object} paths stored navigation paths
  *
- * @return void
+ * @return {void}
  */
 Navigation.reload = function (callback, paths) {
     var params = {
@@ -1058,10 +997,10 @@ Navigation.selectCurrentDatabase = function () {
  *
  * This can be called from link click or select change event handlers
  *
- * @param object $this A jQuery object that points to the element that
+ * @param {object} $this A jQuery object that points to the element that
  * initiated the action of changing the page
  *
- * @return void
+ * @return {void}
  */
 Navigation.treePagination = function ($this) {
     var $msgbox = Functions.ajaxShowMessage();
@@ -1125,27 +1064,27 @@ Navigation.treePagination = function ($this) {
 };
 
 /**
- * @var ResizeHandler Custom object that manages the resizing of the navigation
+ * ResizeHandler Custom object that manages the resizing of the navigation
  *
  * XXX: Must only be ever instanciated once
  * XXX: Inside event handlers the 'this' object is accessed as 'event.data.resize_handler'
  */
 Navigation.ResizeHandler = function () {
     /**
-     * @var int panelWidth Used by the collapser to know where to go
+     * @var {number} panelWidth Used by the collapser to know where to go
      *                      back to when uncollapsing the panel
      */
     this.panelWidth = 0;
     /**
-     * @var string left Used to provide support for RTL languages
+     * @var {string} left Used to provide support for RTL languages
      */
     this.left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
     /**
      * Adjusts the width of the navigation panel to the specified value
      *
-     * @param {int} position Navigation width in pixels
+     * @param {number} position Navigation width in pixels
      *
-     * @return void
+     * @return {void}
      */
     this.setWidth = function (position) {
         var pos = position;
@@ -1209,9 +1148,9 @@ Navigation.ResizeHandler = function () {
      * Returns the horizontal position of the mouse,
      * relative to the outer side of the navigation panel
      *
-     * @param int pos Navigation width in pixels
+     * @param {MouseEvent} event
      *
-     * @return void
+     * @return {number} Navigation width in pixels
      */
     this.getPos = function (event) {
         var pos = event.pageX;
@@ -1233,9 +1172,9 @@ Navigation.ResizeHandler = function () {
     /**
      * Returns the HTML code for the arrow symbol used in the collapser
      *
-     * @param int width The width of the panel
+     * @param {number} width The width of the panel
      *
-     * @return string
+     * @return {string}
      */
     this.getSymbol = function (width) {
         if (this.left === 'left') {
@@ -1255,9 +1194,9 @@ Navigation.ResizeHandler = function () {
     /**
      * Event handler for initiating a resize of the panel
      *
-     * @param object e Event data (contains a reference to Navigation.ResizeHandler)
+     * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
      *
-     * @return void
+     * @return {void}
      */
     this.mousedown = function (event) {
         event.preventDefault();
@@ -1271,9 +1210,9 @@ Navigation.ResizeHandler = function () {
     /**
      * Event handler for terminating a resize of the panel
      *
-     * @param {Object} event Event data (contains a reference to Navigation.ResizeHandler)
+     * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
      *
-     * @return void
+     * @return {void}
      */
     this.mouseup = function (event) {
         $('body').css('cursor', '');
@@ -1286,9 +1225,9 @@ Navigation.ResizeHandler = function () {
     /**
      * Event handler for updating the panel during a resize operation
      *
-     * @param {Object} event Event data (contains a reference to Navigation.ResizeHandler)
+     * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
      *
-     * @return void
+     * @return {void}
      */
     this.mousemove = function (event) {
         event.preventDefault();
@@ -1300,9 +1239,9 @@ Navigation.ResizeHandler = function () {
     /**
      * Event handler for collapsing the panel
      *
-     * @param {Object} event Event data (contains a reference to Navigation.ResizeHandler)
+     * @param {object} event Event data (contains a reference to Navigation.ResizeHandler)
      *
-     * @return void
+     * @return {void}
      */
     this.collapse = function (event) {
         event.preventDefault();
@@ -1318,7 +1257,7 @@ Navigation.ResizeHandler = function () {
     /**
      * Event handler for resizing the navigation tree height on window resize
      *
-     * @return void
+     * @return {void}
      */
     this.treeResize = function () {
         var $nav = $('#pma_navigation');
@@ -1343,7 +1282,7 @@ Navigation.ResizeHandler = function () {
     /**
      * Init handlers for the tree resizers
      *
-     * @return void
+     * @return {void}
      */
     this.treeInit = function () {
         const isLoadedOnMobile = $(window).width() < 768;
@@ -1379,41 +1318,42 @@ Navigation.ResizeHandler = function () {
 };
 
 /**
- * @var object FastFilter Handles the functionality that allows filtering
- *                            of the items in a branch of the navigation tree
+ * @var {object} FastFilter Handles the functionality that allows filtering
+ *                          of the items in a branch of the navigation tree
  */
 Navigation.FastFilter = {
     /**
      * Construct for the asynchronous fast filter functionality
      *
-     * @param object $this        A jQuery object pointing to the list container
-     *                            which is the nearest parent of the fast filter
-     * @param string searchClause The query string for the filter
+     * @param {object} $this        A jQuery object pointing to the list container
+     *                              which is the nearest parent of the fast filter
+     * @param {string} searchClause The query string for the filter
      *
-     * @return new Navigation.FastFilter.Filter object
+     * @return {void}
      */
     Filter: function ($this, searchClause) {
         /**
-         * @var object $this A jQuery object pointing to the list container
-         *                   which is the nearest parent of the fast filter
+         * @var {object} $this A jQuery object pointing to the list container
+         *                     which is the nearest parent of the fast filter
          */
         this.$this = $this;
         /**
-         * @var bool searchClause The query string for the filter
+         * @var {boolean} searchClause The query string for the filter
          */
         this.searchClause = searchClause;
         /**
-         * @var object $clone A clone of the original contents
-         *                    of the navigation branch before
-         *                    the fast filter was applied
+         * @var {object} $clone A clone of the original contents
+         *                      of the navigation branch before
+         *                      the fast filter was applied
          */
         this.$clone = $this.clone();
         /**
-         * @var object xhr A reference to the ajax request that is currently running
+         * @var {object} xhr A reference to the ajax request that is currently running
+         * @type {JQuery.jqXHR<any> | null}
          */
         this.xhr = null;
         /**
-         * @var int timeout Used to delay the request for asynchronous search
+         * @var {number} timeout Used to delay the request for asynchronous search
          */
         this.timeout = null;
 
@@ -1428,7 +1368,7 @@ Navigation.FastFilter = {
     /**
      * Gets the query string from the database fast filter form
      *
-     * @return string
+     * @return {string}
      */
     getSearchClause: function () {
         var retval = '';
@@ -1443,7 +1383,9 @@ Navigation.FastFilter = {
      * Gets the query string from a second level item's fast filter form
      * The retrieval is done by traversing the navigation tree backwards
      *
-     * @return string
+     * @param $this
+     *
+     * @return {string}
      */
     getSearchClause2: function ($this) {
         var $filterContainer = $this.closest('div.list_container');
@@ -1592,9 +1534,9 @@ Navigation.FastFilter = {
 /**
  * Handles a change in the search clause
  *
- * @param string searchClause The query string for the filter
+ * @param {string} searchClause The query string for the filter
  *
- * @return void
+ * @return {void}
  */
 Navigation.FastFilter.Filter.prototype.update = function (searchClause) {
     if (this.searchClause !== searchClause) {
@@ -1606,7 +1548,7 @@ Navigation.FastFilter.Filter.prototype.update = function (searchClause) {
  * After a delay of 250mS, initiates a request to retrieve search results
  * Multiple calls to this function will always abort the previous request
  *
- * @return void
+ * @return {void}
  */
 Navigation.FastFilter.Filter.prototype.request = function () {
     var self = this;
@@ -1650,9 +1592,9 @@ Navigation.FastFilter.Filter.prototype.request = function () {
 /**
  * Replaces the contents of the navigation branch with the search results
  *
- * @param string list The search results
+ * @param {string} list The search results
  *
- * @return void
+ * @return {void}
  */
 Navigation.FastFilter.Filter.prototype.swap = function (list) {
     this.$this
@@ -1667,9 +1609,9 @@ Navigation.FastFilter.Filter.prototype.swap = function (list) {
 /**
  * Restores the navigation to the original state after the fast filter is cleared
  *
- * @param bool focus Whether to also focus the input box of the fast filter
+ * @param {boolean} focus Whether to also focus the input box of the fast filter
  *
- * @return void
+ * @return {void}
  */
 Navigation.FastFilter.Filter.prototype.restore = function (focus) {
     if (this.$this.children('ul').first().hasClass('search_results')) {
@@ -1687,9 +1629,9 @@ Navigation.FastFilter.Filter.prototype.restore = function (focus) {
 /**
  * Show full name when cursor hover and name not shown completely
  *
- * @param object $containerELem Container element
+ * @param {object} $containerELem Container element
  *
- * @return void
+ * @return {void}
  */
 Navigation.showFullName = function ($containerELem) {
     $containerELem.find('.hover_show_full').on('mouseenter', function () {

@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\BrowseForeigners;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 /**
@@ -20,31 +21,35 @@ class BrowseForeignersController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param Response         $response
-     * @param BrowseForeigners $browseForeigners
-     * @param Relation         $relation
-     */
-    public function __construct($response, Template $template, $browseForeigners, $relation)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        BrowseForeigners $browseForeigners,
+        Relation $relation
+    ) {
         parent::__construct($response, $template);
         $this->browseForeigners = $browseForeigners;
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'db' => $_POST['db'] ?? null,
-            'table' => $_POST['table'] ?? null,
-            'field' => $_POST['field'] ?? null,
-            'fieldkey' => $_POST['fieldkey'] ?? null,
-            'data' => $_POST['data'] ?? null,
-            'foreign_showAll' => $_POST['foreign_showAll'] ?? null,
-            'foreign_filter' => $_POST['foreign_filter'] ?? null,
-        ];
+        /** @var string|null $database */
+        $database = $request->getParsedBodyParam('db');
+        /** @var string|null $table */
+        $table = $request->getParsedBodyParam('table');
+        /** @var string|null $field */
+        $field = $request->getParsedBodyParam('field');
+        /** @var string $fieldKey */
+        $fieldKey = $request->getParsedBodyParam('fieldkey', '');
+        /** @var string $data */
+        $data = $request->getParsedBodyParam('data', '');
+        /** @var string|null $foreignShowAll */
+        $foreignShowAll = $request->getParsedBodyParam('foreign_showAll');
+        /** @var string $foreignFilter */
+        $foreignFilter = $request->getParsedBodyParam('foreign_filter', '');
 
-        if (! isset($params['db'], $params['table'], $params['field'])) {
+        if (! isset($database, $table, $field)) {
             return;
         }
 
@@ -53,29 +58,24 @@ class BrowseForeignersController extends AbstractController
         $header->disableMenuAndConsole();
         $header->setBodyId('body_browse_foreigners');
 
-        $foreigners = $this->relation->getForeigners(
-            $params['db'],
-            $params['table']
-        );
-        $foreignLimit = $this->browseForeigners->getForeignLimit(
-            $params['foreign_showAll']
-        );
+        $foreigners = $this->relation->getForeigners($database, $table);
+        $foreignLimit = $this->browseForeigners->getForeignLimit($foreignShowAll);
         $foreignData = $this->relation->getForeignData(
             $foreigners,
-            $params['field'],
+            $field,
             true,
-            $params['foreign_filter'] ?? '',
-            $foreignLimit ?? null,
+            $foreignFilter,
+            $foreignLimit ?? '',
             true
         );
 
         $this->response->addHTML($this->browseForeigners->getHtmlForRelationalFieldSelection(
-            $params['db'],
-            $params['table'],
-            $params['field'],
+            $database,
+            $table,
+            $field,
             $foreignData,
-            $params['fieldkey'] ?? '',
-            $params['data'] ?? ''
+            $fieldKey,
+            $data
         ));
     }
 }

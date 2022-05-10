@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
+
 /**
  * Index column wrapper
  */
@@ -15,17 +17,14 @@ class IndexColumn
     /** @var int The column sequence number in the index, starting with 1. */
     private $seqInIndex = 1;
 
-    /**
-     * @var string How the column is sorted in the index. "A" (Ascending) or
-     * NULL (Not sorted)
-     */
+    /** @var string|null How the column is sorted in the index. "A" (Ascending) or NULL (Not sorted) */
     private $collation = null;
 
     /**
      * The number of indexed characters if the column is only partly indexed,
      * NULL if the entire column is indexed.
      *
-     * @var int
+     * @var int|null
      */
     private $subPart = null;
 
@@ -44,7 +43,7 @@ class IndexColumn
      * for small tables. The higher the cardinality, the greater the chance that
      * MySQL uses the index when doing joins.
      *
-     * @var int
+     * @var int|null
      */
     private $cardinality = null;
 
@@ -83,29 +82,33 @@ class IndexColumn
      * Sets parameters of the index column
      *
      * @param array $params an array containing the parameters of the index column
-     *
-     * @return void
      */
-    public function set(array $params)
+    public function set(array $params): void
     {
         if (isset($params['Column_name'])) {
             $this->name = $params['Column_name'];
         }
+
         if (isset($params['Seq_in_index'])) {
             $this->seqInIndex = $params['Seq_in_index'];
         }
+
         if (isset($params['Collation'])) {
             $this->collation = $params['Collation'];
         }
+
         if (isset($params['Cardinality'])) {
             $this->cardinality = $params['Cardinality'];
         }
+
         if (isset($params['Sub_part'])) {
             $this->subPart = $params['Sub_part'];
         }
+
         if (isset($params['Expression'])) {
             $this->expression = $params['Expression'];
         }
+
         if (! isset($params['Null'])) {
             return;
         }
@@ -126,7 +129,7 @@ class IndexColumn
     /**
      * Return the column collation
      *
-     * @return string column collation
+     * @return string|null column collation
      */
     public function getCollation()
     {
@@ -136,7 +139,7 @@ class IndexColumn
     /**
      * Returns the cardinality of the column
      *
-     * @return int cardinality of the column
+     * @return int|null cardinality of the column
      */
     public function getCardinality()
     {
@@ -178,7 +181,7 @@ class IndexColumn
      * Returns the number of indexed characters if the column is only
      * partly indexed
      *
-     * @return int the number of indexed characters
+     * @return int|null the number of indexed characters
      */
     public function getSubPart()
     {
@@ -193,11 +196,11 @@ class IndexColumn
     public function getCompareData()
     {
         return [
-            'Column_name'   => $this->name,
-            'Seq_in_index'  => $this->seqInIndex,
-            'Collation'     => $this->collation,
-            'Sub_part'      => $this->subPart,
-            'Null'          => $this->null,
+            'Column_name' => $this->name,
+            'Seq_in_index' => $this->seqInIndex,
+            'Collation' => $this->collation,
+            'Sub_part' => $this->subPart,
+            'Null' => $this->null,
         ];
     }
 }

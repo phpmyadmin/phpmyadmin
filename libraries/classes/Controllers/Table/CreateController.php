@@ -5,17 +5,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 use function htmlspecialchars;
 use function is_array;
 use function mb_strtolower;
@@ -39,21 +41,15 @@ class CreateController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name.
-     * @param string            $table    Table name.
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         Transformations $transformations,
         Config $config,
         Relation $relation,
-        $dbi
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template, $db, $table);
         $this->transformations = $transformations;
@@ -62,7 +58,7 @@ class CreateController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $num_fields, $action, $sql_query, $result, $db, $table;
 
@@ -114,13 +110,10 @@ class CreateController extends AbstractController
         if (isset($_POST['do_save_data'])) {
             // lower_case_table_names=1 `DB` becomes `db`
             if ($this->dbi->getLowerCaseNames() === '1') {
-                $db = mb_strtolower(
-                    $db
-                );
-                $table = mb_strtolower(
-                    $table
-                );
+                $db = mb_strtolower($db);
+                $table = mb_strtolower($table);
             }
+
             $sql_query = $createAddField->getTableCreationQuery($db, $table);
 
             // If there is a request for SQL previewing.
@@ -129,17 +122,16 @@ class CreateController extends AbstractController
 
                 return;
             }
+
             // Executes the query
             $result = $this->dbi->tryQuery($sql_query);
 
             if ($result) {
                 // Update comment table for mime types [MIME]
-                if (isset($_POST['field_mimetype'])
-                    && is_array($_POST['field_mimetype'])
-                    && $cfg['BrowseMIME']
-                ) {
+                if (isset($_POST['field_mimetype']) && is_array($_POST['field_mimetype']) && $cfg['BrowseMIME']) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                        if (! isset($_POST['field_name'][$fieldindex])
+                        if (
+                            ! isset($_POST['field_name'][$fieldindex])
                             || strlen($_POST['field_name'][$fieldindex]) <= 0
                         ) {
                             continue;

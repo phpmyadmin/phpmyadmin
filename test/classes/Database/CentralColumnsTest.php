@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+
 use function array_slice;
 
+/**
+ * @covers \PhpMyAdmin\Database\CentralColumns
+ */
 class CentralColumnsTest extends AbstractTestCase
 {
     /** @var CentralColumns */
@@ -88,7 +92,6 @@ class CentralColumnsTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -99,16 +102,15 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
 
-        //$_SESSION
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'][1] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'centralcolumnswork' => true,
-            'relwork' => 1,
+            'relwork' => true,
             'db' => 'phpmyadmin',
             'relation' => 'relation',
             'central_columns' => 'pma_central_columns',
-        ];
+        ])->toArray();
 
         // mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -203,8 +205,7 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
-                'SELECT count(db_name) FROM `pma_central_columns` '
-                . "WHERE db_name = 'phpmyadmin';",
+                'SELECT count(db_name) FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL
@@ -229,66 +230,6 @@ class CentralColumnsTest extends AbstractTestCase
 
         $this->assertTrue(
             $this->centralColumns->syncUniqueColumns(
-                ['PMA_table']
-            )
-        );
-    }
-
-    /**
-     * Test for deleteColumnsFromList
-     */
-    public function testDeleteColumnsFromList(): void
-    {
-        $_POST['db'] = 'PMA_db';
-        $_POST['table'] = 'PMA_table';
-
-        // when column exists in the central column list
-        $GLOBALS['dbi']->expects($this->at(4))
-            ->method('fetchResult')
-            ->with(
-                'SELECT col_name FROM `pma_central_columns` '
-                . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
-            )
-            ->will(
-                $this->returnValue(['col1'])
-            );
-
-        $GLOBALS['dbi']->expects($this->at(7))
-            ->method('tryQuery')
-            ->with(
-                'DELETE FROM `pma_central_columns` '
-                . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
-                DatabaseInterface::CONNECT_CONTROL
-            )
-            ->will(
-                $this->returnValue(['col1'])
-            );
-
-        $this->assertTrue(
-            $this->centralColumns->deleteColumnsFromList(
-                $_POST['db'],
-                ['col1'],
-                false
-            )
-        );
-
-        // when column does not exist in the central column list
-        $this->assertInstanceOf(
-            Message::class,
-            $this->centralColumns->deleteColumnsFromList(
-                $_POST['db'],
-                ['column1'],
-                false
-            )
-        );
-
-        $this->assertInstanceOf(
-            Message::class,
-            $this->centralColumns->deleteColumnsFromList(
-                $_POST['db'],
                 ['PMA_table']
             )
         );
@@ -514,8 +455,7 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
-                'SELECT * FROM `pma_central_columns` '
-                . "WHERE db_name = 'phpmyadmin';",
+                'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL
@@ -567,8 +507,7 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin'"
-                . " AND col_name IN ('col1');",
+                'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');',
                 null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL

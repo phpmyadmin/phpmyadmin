@@ -5,24 +5,22 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiPoint;
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
-use function function_exists;
-use function imagecreatetruecolor;
+
 use function preg_match;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisMultiPoint
+ */
 class GisMultiPointTest extends GisGeomTestCase
 {
-    /**
-     * @var    GisMultiPoint
-     * @access protected
-     */
+    /** @var    GisMultiPoint */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -33,8 +31,6 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -170,58 +166,21 @@ class GisMultiPointTest extends GisGeomTestCase
     }
 
     /**
-     * test case for prepareRowAsPng() method
-     *
-     * @param string   $spatial     GIS MULTIPOINT object
-     * @param string   $label       label for the GIS MULTIPOINT object
-     * @param string   $point_color color for the GIS MULTIPOINT object
-     * @param array    $scale_data  array containing data related to scaling
-     * @param resource $image       image object
-     *
-     * @dataProvider providerForPrepareRowAsPng
+     * @requires extension gd
      */
-    public function testPrepareRowAsPng(
-        string $spatial,
-        string $label,
-        string $point_color,
-        array $scale_data,
-        $image
-    ): void {
+    public function testPrepareRowAsPng(): void
+    {
+        $image = ImageWrapper::create(120, 150);
+        $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
-            $spatial,
-            $label,
-            $point_color,
-            $scale_data,
+            'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
+            'image',
+            '#B02EE0',
+            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertImage($return);
-    }
-
-    /**
-     * data provider for testPrepareRowAsPng() test case
-     *
-     * @return array test data for testPrepareRowAsPng() test case
-     */
-    public function providerForPrepareRowAsPng(): array
-    {
-        if (! function_exists('imagecreatetruecolor')) {
-            $this->markTestSkipped('GD extension missing!');
-        }
-
-        return [
-            [
-                'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
-                'image',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                imagecreatetruecolor(120, 150),
-            ],
-        ];
+        $this->assertEquals(120, $return->width());
+        $this->assertEquals(150, $return->height());
     }
 
     /**
@@ -242,14 +201,8 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf(
-            $spatial,
-            $label,
-            $point_color,
-            $scale_data,
-            $pdf
-        );
-        $this->assertInstanceOf('TCPDF', $return);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf);
+        $this->assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
@@ -293,12 +246,7 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg(
-            $spatial,
-            $label,
-            $pointColor,
-            $scaleData
-        );
+        $string = $this->object->prepareRowAsSvg($spatial, $label, $pointColor, $scaleData);
         $this->assertEquals(1, preg_match($output, $string));
     }
 

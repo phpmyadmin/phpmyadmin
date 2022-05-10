@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\MySQLDocumentation;
-use const E_USER_ERROR;
+use function __;
 use function closedir;
 use function count;
 use function explode;
@@ -18,6 +17,8 @@ use function strtolower;
 use function trigger_error;
 use function uasort;
 use function ucfirst;
+
+use const E_USER_ERROR;
 
 /**
  * Language selection manager
@@ -34,7 +35,8 @@ class LanguageManager
      * - Match regular expression
      * - MySQL locale
      *
-     * @var array
+     * @var array<string, string[]>
+     * @psalm-var array<string, array{non-empty-string, non-empty-string, string, non-empty-string, string}>
      */
     private static $languageData = [
         'af' => [
@@ -190,6 +192,13 @@ class LanguageManager
             '',
             'en[_-]gb|english (United Kingdom)',
             'en_GB',
+        ],
+        'enm' => [
+            'enm',
+            'English (Middle)',
+            '',
+            'enm|english (middle)',
+            '',
         ],
         'eo' => [
             'eo',
@@ -757,15 +766,13 @@ class LanguageManager
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';
-            if ($file === '.'
-                || $file === '..'
-                || ! @file_exists($path)
-            ) {
+            if ($file === '.' || $file === '..' || ! @file_exists($path)) {
                 continue;
             }
 
             $result[] = $file;
         }
+
         /* Close the handle */
         closedir($handle);
 
@@ -780,11 +787,11 @@ class LanguageManager
     public function availableLocales()
     {
         if (! $this->availableLocales) {
-            if (! isset($GLOBALS['PMA_Config']) || empty($GLOBALS['PMA_Config']->get('FilterLanguages'))) {
+            if (! isset($GLOBALS['config']) || empty($GLOBALS['config']->get('FilterLanguages'))) {
                 $this->availableLocales = $this->listLocaleDir();
             } else {
                 $this->availableLocales = preg_grep(
-                    '@' . $GLOBALS['PMA_Config']->get('FilterLanguages') . '@',
+                    '@' . $GLOBALS['config']->get('FilterLanguages') . '@',
                     $this->listLocaleDir()
                 );
             }
@@ -795,10 +802,8 @@ class LanguageManager
 
     /**
      * Checks whether there are some languages available
-     *
-     * @return bool
      */
-    public function hasChoice()
+    public function hasChoice(): bool
     {
         return count($this->availableLanguages()) > 1;
     }
@@ -817,13 +822,7 @@ class LanguageManager
                 $lang = strtolower($lang);
                 if (isset(static::$languageData[$lang])) {
                     $data = static::$languageData[$lang];
-                    $this->availableLanguages[$lang] = new Language(
-                        $data[0],
-                        $data[1],
-                        $data[2],
-                        $data[3],
-                        $data[4]
-                    );
+                    $this->availableLanguages[$lang] = new Language($data[0], $data[1], $data[2], $data[3], $data[4]);
                 } else {
                     $this->availableLanguages[$lang] = new Language(
                         $lang,
@@ -892,11 +891,12 @@ class LanguageManager
     public function selectLanguage()
     {
         // check forced language
-        if (! empty($GLOBALS['PMA_Config']->get('Lang'))) {
-            $lang = $this->getLanguage($GLOBALS['PMA_Config']->get('Lang'));
+        if (! empty($GLOBALS['config']->get('Lang'))) {
+            $lang = $this->getLanguage($GLOBALS['config']->get('Lang'));
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedConfig = true;
         }
 
@@ -907,6 +907,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedRequest = true;
         }
 
@@ -916,15 +917,17 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedRequest = true;
         }
 
         // check previous set language
-        if (! empty($GLOBALS['PMA_Config']->getCookie('pma_lang'))) {
-            $lang = $this->getLanguage($GLOBALS['PMA_Config']->getCookie('pma_lang'));
+        if (! empty($GLOBALS['config']->getCookie('pma_lang'))) {
+            $lang = $this->getLanguage($GLOBALS['config']->getCookie('pma_lang'));
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedCookie = true;
         }
 
@@ -953,8 +956,8 @@ class LanguageManager
         }
 
         // Didn't catch any valid lang : we use the default settings
-        if (isset($langs[$GLOBALS['PMA_Config']->get('DefaultLang')])) {
-            return $langs[$GLOBALS['PMA_Config']->get('DefaultLang')];
+        if (isset($langs[$GLOBALS['config']->get('DefaultLang')])) {
+            return $langs[$GLOBALS['config']->get('DefaultLang')];
         }
 
         // Fallback to English
@@ -964,16 +967,11 @@ class LanguageManager
     /**
      * Displays warnings about invalid languages. This needs to be postponed
      * to show messages at time when language is initialized.
-     *
-     * @return void
      */
-    public function showWarnings()
+    public function showWarnings(): void
     {
         // now, that we have loaded the language strings we can send the errors
-        if (! $this->langFailedConfig
-            && ! $this->langFailedCookie
-            && ! $this->langFailedRequest
-        ) {
+        if (! $this->langFailedConfig && ! $this->langFailedCookie && ! $this->langFailedRequest) {
             return;
         }
 
@@ -981,42 +979,5 @@ class LanguageManager
             __('Ignoring unsupported language code.'),
             E_USER_ERROR
         );
-    }
-
-    /**
-     * Returns HTML code for the language selector
-     *
-     * @param Template $template     Template instance
-     * @param bool     $use_fieldset whether to use fieldset for selection
-     * @param bool     $show_doc     whether to show documentation links
-     *
-     * @return string
-     *
-     * @access public
-     */
-    public function getSelectorDisplay(Template $template, $use_fieldset = false, $show_doc = true)
-    {
-        $_form_params = [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ];
-
-        // For non-English, display "Language" with emphasis because it's
-        // not a proper word in the current language; we show it to help
-        // people recognize the dialog
-        $language_title = __('Language')
-            . (__('Language') !== 'Language' ? ' - <em>Language</em>' : '');
-        if ($show_doc) {
-            $language_title .= MySQLDocumentation::showDocumentation('faq', 'faq7-2');
-        }
-
-        $available_languages = $this->sortedLanguages();
-
-        return $template->render('select_lang', [
-            'language_title' => $language_title,
-            'use_fieldset' => $use_fieldset,
-            'available_languages' => $available_languages,
-            '_form_params' => $_form_params,
-        ]);
     }
 }

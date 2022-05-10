@@ -16,6 +16,8 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
+
+use function __;
 use function count;
 use function implode;
 use function mb_strlen;
@@ -26,19 +28,15 @@ use function preg_replace;
  */
 class ImportSql extends ImportPlugin
 {
-    public function __construct()
+    /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
     {
-        parent::__construct();
-        $this->setProperties();
+        return 'sql';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         global $dbi;
 
@@ -57,9 +55,7 @@ class ImportSql extends ImportPlugin
             // create the root group that will be the options field for
             // $importPluginProperties
             // this will be shown as "Format specific options"
-            $importSpecificOptions = new OptionsPropertyRootGroup(
-                'Format Specific Options'
-            );
+            $importSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
             // general options main group
             $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -95,17 +91,15 @@ class ImportSql extends ImportPlugin
             $importPluginProperties->setOptions($importSpecificOptions);
         }
 
-        $this->properties = $importPluginProperties;
+        return $importPluginProperties;
     }
 
     /**
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $error, $timeout_passed, $dbi;
 
@@ -176,20 +170,18 @@ class ImportSql extends ImportPlugin
      *
      * @param DatabaseInterface $dbi     Database interface
      * @param array             $request Request array
-     *
-     * @return void
      */
-    private function setSQLMode($dbi, array $request)
+    private function setSQLMode($dbi, array $request): void
     {
         $sql_modes = [];
-        if (isset($request['sql_compatibility'])
-            && $request['sql_compatibility'] !== 'NONE'
-        ) {
+        if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
             $sql_modes[] = $request['sql_compatibility'];
         }
+
         if (isset($request['sql_no_auto_value_on_zero'])) {
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
+
         if (count($sql_modes) <= 0) {
             return;
         }

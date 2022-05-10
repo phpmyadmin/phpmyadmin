@@ -8,24 +8,25 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\MockObject\MockObject;
 
+use function __;
+
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportLdi
+ */
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */
     protected $object;
 
-    /**
-     * @var DatabaseInterface
-     * @access protected
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -66,8 +67,6 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -106,23 +105,22 @@ class ImportLdiTest extends AbstractTestCase
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
+
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->any())->method('numRows')
+            ->will($this->returnValue($resultStub));
+
+        $resultStub->expects($this->any())->method('numRows')
             ->will($this->returnValue(10));
 
-        $fetchRowResult = ['ON'];
-        $dbi->expects($this->any())->method('fetchRow')
-            ->will($this->returnValue($fetchRowResult));
-
-        $GLOBALS['dbi'] = $dbi;
+        $resultStub->expects($this->any())->method('fetchValue')
+            ->will($this->returnValue('ON'));
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
         $properties = $this->object->getProperties();
-        $this->assertTrue(
-            $GLOBALS['cfg']['Import']['ldi_local_option']
-        );
+        $this->assertTrue($GLOBALS['cfg']['Import']['ldi_local_option']);
         $this->assertEquals(
             __('CSV using LOAD DATA'),
             $properties->getText()
@@ -161,14 +159,11 @@ class ImportLdiTest extends AbstractTestCase
 
         //asset that all sql are executed
         $this->assertStringContainsString(
-            "LOAD DATA INFILE 'test/test_data/db_test_ldi.csv' INTO TABLE "
-            . '`phpmyadmintest`',
+            'LOAD DATA INFILE \'test/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
             $sql_query
         );
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 
     /**
@@ -190,9 +185,7 @@ class ImportLdiTest extends AbstractTestCase
             $GLOBALS['message']->__toString()
         );
 
-        $this->assertTrue(
-            $GLOBALS['error']
-        );
+        $this->assertTrue($GLOBALS['error']);
     }
 
     /**
@@ -235,31 +228,19 @@ class ImportLdiTest extends AbstractTestCase
         //asset that all sql are executed
         //replace
         $this->assertStringContainsString(
-            "LOAD DATA LOCAL INFILE 'test/test_data/db_test_ldi.csv' REPLACE INTO "
-            . 'TABLE `phpmyadmintest`',
+            'LOAD DATA LOCAL INFILE \'test/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
             $sql_query
         );
 
         //FIELDS TERMINATED
-        $this->assertStringContainsString(
-            "FIELDS TERMINATED BY ','",
-            $sql_query
-        );
+        $this->assertStringContainsString("FIELDS TERMINATED BY ','", $sql_query);
 
         //LINES TERMINATED
-        $this->assertStringContainsString(
-            "LINES TERMINATED BY 'newline_mark'",
-            $sql_query
-        );
+        $this->assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $sql_query);
 
         //IGNORE
-        $this->assertStringContainsString(
-            'IGNORE 1 LINES',
-            $sql_query
-        );
+        $this->assertStringContainsString('IGNORE 1 LINES', $sql_query);
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Properties\Options;
 
 use Countable;
+
 use function array_diff;
 use function count;
 use function in_array;
@@ -32,16 +33,13 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      *
      * @param OptionsPropertyItem $property the property instance to be added
      *                                      to the group
-     *
-     * @return void
      */
-    public function addProperty($property)
+    public function addProperty($property): void
     {
-        if (! $this->getProperties() == null
-            && in_array($property, $this->getProperties(), true)
-        ) {
+        if (! $this->getProperties() == null && in_array($property, $this->getProperties(), true)) {
             return;
         }
+
         $this->properties[] = $property;
     }
 
@@ -50,10 +48,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      *
      * @param OptionsPropertyItem $property the property instance to be removed
      *                                      from the group
-     *
-     * @return void
      */
-    public function removeProperty($property)
+    public function removeProperty($property): void
     {
         $this->properties = array_diff(
             $this->getProperties(),
@@ -85,10 +81,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
 
     /**
      * Gets the number of properties
-     *
-     * @return int
      */
-    public function getNrOfProperties()
+    public function getNrOfProperties(): int
     {
         if ($this->properties === null) {
             return 0;
@@ -97,14 +91,10 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
         return count($this->properties);
     }
 
-    // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly, Squiz.WhiteSpace.FunctionSpacing
     /**
      * Countable interface implementation.
-     *
-     * @return int
      */
-    #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return $this->getNrOfProperties();
     }

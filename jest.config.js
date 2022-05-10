@@ -20,6 +20,7 @@ module.exports = {
                 '^phpmyadmin/(.*)$': '<rootDir>/js/src/$1',
                 '^@vendor/(.*)$': '<rootDir>/js/vendor/$1',
             },
+            testEnvironment: 'jsdom',
         }
     ]
 };

@@ -40,8 +40,7 @@ return [
         'test' => 'value >= 5',
         'issue' => __('There is a lot of slow queries compared to the overall amount of Queries.'),
         'recommendation' => __(
-            'You might want to increase {long_query_time}'
-            . ' or optimize the queries listed in the slow query log'
+            'You might want to increase {long_query_time} or optimize the queries listed in the slow query log'
         ),
         'justification' => __('The slow query rate should be below 5%%, your value is %s%%.'),
         'justification_formula' => 'round(value,2)',
@@ -54,8 +53,7 @@ return [
         'test' => 'value * 60 * 60 > 1',
         'issue' => __('There is a high percentage of slow queries compared to the server uptime.'),
         'recommendation' => __(
-            'You might want to increase {long_query_time}'
-            . ' or optimize the queries listed in the slow query log'
+            'You might want to increase {long_query_time} or optimize the queries listed in the slow query log'
         ),
         'justification' => __('You have a slow query rate of %s per hour, you should have less than 1%% per hour.'),
         'justification_formula' => 'ADVISOR_bytime(value,2)',
@@ -192,7 +190,7 @@ return [
             'You are using the MySQL Query cache with a fairly high traffic database.'
             . ' It might be worth considering to use '
             . '<a href="https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html">memcached</a>'
-            . ' instead of the MySQL Query cache, especially if you have multiple slaves.'
+            . ' instead of the MySQL Query cache, especially if you have multiple replicas.'
         ),
         'justification' => __(
             'The query cache is enabled and the server receives %d queries per second.'
@@ -421,8 +419,7 @@ return [
         'test' => 'value*60*60 > 10',
         'issue' => __('The rate of opening tables is high.'),
         'recommendation' => __(
-            'Opening tables requires disk I/O which is costly.'
-            . ' Increasing {table_open_cache} might avoid this.'
+            'Opening tables requires disk I/O which is costly. Increasing {table_open_cache} might avoid this.'
         ),
         'justification' => __('Opened table rate: %s, this value should be less than 10 per hour'),
         'justification_formula' => 'ADVISOR_bytime(value,2)',
@@ -531,9 +528,7 @@ return [
         'name' => __('Percentage of used connections'),
         'formula' => 'Max_used_connections / max_connections * 100',
         'test' => 'value > 80',
-        'issue' => __(
-            'The maximum amount of used connections is getting close to the value of {max_connections}.'
-        ),
+        'issue' => __('The maximum amount of used connections is getting close to the value of {max_connections}.'),
         'recommendation' => __(
             'Increase {max_connections}, or decrease {wait_timeout} so that connections that do not'
             . ' close database handlers properly get killed sooner.'
@@ -615,9 +610,7 @@ return [
         'precondition' => 'innodb_buffer_pool_size > 0 && ! (IS_MARIADB && PMA_MYSQL_INT_VERSION > 100500)',
         'formula' => '(innodb_log_file_size * innodb_log_files_in_group)/ innodb_buffer_pool_size * 100',
         'test' => 'value < 20 && innodb_log_file_size / (1024 * 1024) < 256',
-        'issue' => __(
-            'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'
-        ),
+        'issue' => __('The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'),
         'recommendation' => __(/* xgettext:no-php-format */
             'Especially on a system with a lot of writes to InnoDB tables you should set'
             . ' {innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the bigger this value,'
@@ -644,9 +637,7 @@ return [
         // by the innodb_log_files_in_group system variable.
         'formula' => 'innodb_log_file_size / innodb_buffer_pool_size * 100',
         'test' => 'value < 20 && innodb_log_file_size / (1024 * 1024) < 256',
-        'issue' => __(
-            'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'
-        ),
+        'issue' => __('The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'),
         'recommendation' => __(/* xgettext:no-php-format */
             'Especially on a system with a lot of writes to InnoDB tables you should set'
             . ' {innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the bigger this value,'

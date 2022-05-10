@@ -31,7 +31,7 @@ if (isset($_POST['user'])) {
     $_SESSION['PMA_single_signon_port'] = $_POST['port'];
     /* Update another field of server configuration */
     $_SESSION['PMA_single_signon_cfgupdate'] = ['verbose' => 'Signon test'];
-    $_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(rand()), true));
+    $_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(random_int(0, mt_getrandmax())), true));
     $id = session_id();
     /* Close that session */
     @session_write_close();

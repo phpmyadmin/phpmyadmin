@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -24,13 +24,13 @@ class PrivilegesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, Privileges $privileges, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        Privileges $privileges,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db);
         $this->privileges = $privileges;
         $this->dbi = $dbi;
@@ -39,14 +39,11 @@ class PrivilegesController extends AbstractController
     /**
      * @param array $params Request parameters
      */
-    public function index(array $params): string
+    public function __invoke(array $params): string
     {
-        global $cfg, $text_dir, $PMA_Theme;
+        global $cfg, $text_dir;
 
-        $scriptName = Util::getScriptNameForOption(
-            $cfg['DefaultTabDatabase'],
-            'database'
-        );
+        $scriptName = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {
@@ -57,7 +54,6 @@ class PrivilegesController extends AbstractController
             'is_superuser' => $this->dbi->isSuperUser(),
             'db' => $params['checkprivsdb'],
             'database_url' => $scriptName,
-            'theme_image_path' => $PMA_Theme->getImgPath(),
             'text_dir' => $text_dir,
             'is_createuser' => $this->dbi->isCreateUser(),
             'is_grantuser' => $this->dbi->isGrantUser(),

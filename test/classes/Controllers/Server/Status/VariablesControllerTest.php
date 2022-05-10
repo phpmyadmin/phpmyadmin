@@ -8,8 +8,11 @@ use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\Status\VariablesController
+ */
 class VariablesControllerTest extends AbstractTestCase
 {
     /** @var Data */
@@ -18,9 +21,7 @@ class VariablesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['text_dir'] = 'ltr';
@@ -36,102 +37,47 @@ class VariablesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new VariablesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 
-        $controller->index();
+        $this->dummyDbi->addSelectDb('mysql');
+        $controller();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
+        $this->assertStringContainsString('<div class="card mb-3" id="tableFilter">', $html);
+        $this->assertStringContainsString('index.php?route=/server/status/variables', $html);
+
         $this->assertStringContainsString(
-            '<fieldset id="tableFilter">',
-            $html
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/server/status/variables',
+            '<label class="col-12 col-form-label" for="filterText">Containing the word:</label>',
             $html
         );
 
-        $this->assertStringContainsString(
-            '<label for="filterText">Containing the word:</label>',
-            $html
-        );
+        $this->assertStringContainsString('<label class="form-check-label" for="filterAlert">', $html);
+        $this->assertStringContainsString('Show only alert values', $html);
+        $this->assertStringContainsString('Filter by category', $html);
+        $this->assertStringContainsString('Show unformatted values', $html);
 
-        $this->assertStringContainsString(
-            '<label for="filterAlert">',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Show only alert values',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Filter by category',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Show unformatted values',
-            $html
-        );
+        $this->assertStringContainsString('<div id="linkSuggestions" class="defaultLinks hide"', $html);
 
-        $this->assertStringContainsString(
-            '<div id="linkSuggestions" class="defaultLinks hide"',
-            $html
-        );
-
-        $this->assertStringContainsString(
-            'Related links:',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Flush (close) all tables',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<span class="status_binlog_cache">',
-            $html
-        );
+        $this->assertStringContainsString('Related links:', $html);
+        $this->assertStringContainsString('Flush (close) all tables', $html);
+        $this->assertStringContainsString('<span class="status_binlog_cache">', $html);
 
         $this->assertStringContainsString(
             '<table class="table table-light table-striped table-hover table-sm" id="serverStatusVariables">',
             $html
         );
-        $this->assertStringContainsString(
-            '<th scope="col">Variable</th>',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Value</th>',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Description</th>',
-            $html
-        );
+        $this->assertStringContainsString('<th scope="col">Variable</th>', $html);
+        $this->assertStringContainsString('<th scope="col">Value</th>', $html);
+        $this->assertStringContainsString('<th scope="col">Description</th>', $html);
 
-        $this->assertStringContainsString(
-            'Aborted clients',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<span class="allfine">',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Aborted connects',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Com delete multi',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Com create function',
-            $html
-        );
-        $this->assertStringContainsString(
-            'Com empty query',
-            $html
-        );
+        $this->assertStringContainsString('Aborted clients', $html);
+        $this->assertStringContainsString('<span class="text-success">', $html);
+        $this->assertStringContainsString('Aborted connects', $html);
+        $this->assertStringContainsString('Com delete multi', $html);
+        $this->assertStringContainsString('Com create function', $html);
+        $this->assertStringContainsString('Com empty query', $html);
     }
 }

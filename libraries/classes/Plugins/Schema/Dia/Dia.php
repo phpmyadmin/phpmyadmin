@@ -8,8 +8,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use XMLWriter;
+
 use function ob_end_clean;
 use function ob_get_clean;
 use function strlen;
@@ -19,8 +20,6 @@ use function strlen;
  * helps in developing structure of DIA Schema Export
  *
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
- *
- * @access  public
  */
 class Dia extends XMLWriter
 {
@@ -64,10 +63,6 @@ class Dia extends XMLWriter
      * @param float  $leftMargin   left margin of the paper/document in cm
      * @param float  $rightMargin  right margin of the paper/document in cm
      * @param string $orientation  orientation of the document, portrait or landscape
-     *
-     * @return void
-     *
-     * @access public
      */
     public function startDiaDoc(
         $paper,
@@ -76,12 +71,13 @@ class Dia extends XMLWriter
         $leftMargin,
         $rightMargin,
         $orientation
-    ) {
+    ): void {
+        $isPortrait = 'false';
+
         if ($orientation === 'P') {
             $isPortrait = 'true';
-        } else {
-            $isPortrait = 'false';
         }
+
         $this->startElement('dia:diagram');
         $this->writeAttribute('xmlns:dia', 'http://www.lysator.liu.se/~alla/dia/');
         $this->startElement('dia:diagramdata');
@@ -159,12 +155,8 @@ class Dia extends XMLWriter
      *
      * @see XMLWriter::endElement()
      * @see XMLWriter::endDocument()
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function endDiaDoc()
+    public function endDiaDoc(): void
     {
         $this->endElement();
         $this->endDocument();
@@ -176,18 +168,15 @@ class Dia extends XMLWriter
      * @see    XMLWriter::flush()
      *
      * @param string $fileName name of the dia document
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function showOutput($fileName)
+    public function showOutput($fileName): void
     {
         if (ob_get_clean()) {
             ob_end_clean();
         }
+
         $output = $this->flush();
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         Core::downloadHeader(
             $fileName,
             'application/x-dia-diagram',

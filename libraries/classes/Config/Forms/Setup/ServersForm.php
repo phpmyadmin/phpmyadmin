@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Config\Forms\Setup;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+use function __;
+
 class ServersForm extends BaseForm
 {
     /**

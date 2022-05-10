@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * StructureTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class StructureTest extends TestBase
 {
@@ -54,16 +49,12 @@ class StructureTest extends TestBase
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
-        $this->waitForElement(
-            'cssSelector',
-            'button.submitOK'
-        )->click();
+        $this->waitForElement('cssSelector', 'button.submitOK')->click();
 
         $this->assertNotNull(
             $this->waitForElement(
                 'xpath',
-                "//div[@class='alert alert-success' and contains(., "
-                . "'MySQL returned an empty result')]"
+                '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result\')]'
             )
         );
 
@@ -94,10 +85,7 @@ class StructureTest extends TestBase
         $this->waitForElement('id', 'buttonYes')
             ->click();
 
-        $this->waitForElement(
-            'xpath',
-            "//*[contains(., 'No tables found in database')]"
-        );
+        $this->waitForElement('xpath', "//*[contains(., 'No tables found in database')]");
 
         $this->dbQuery(
             'SHOW TABLES FROM `' . $this->databaseName . '`;',

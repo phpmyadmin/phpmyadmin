@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeColumnContainer
+ */
 class NodeColumnContainerTest extends AbstractTestCase
 {
     /**
@@ -15,20 +18,19 @@ class NodeColumnContainerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
     }
 
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeColumnContainer');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+                'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/table/structure',
-            $parent->links['text']
         );
         $this->assertEquals('columns', $parent->realName);
     }

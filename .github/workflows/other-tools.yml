@@ -9,63 +9,74 @@ on:
       - QA_**
 
 jobs:
-    build-documentation:
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
-              with:
-                python-version: '3.6'
-            - name: Install Sphinx for the documentation build
-              run: pip install 'Sphinx'
-            - name: Build the documentation
-              run: make -C doc html SPHINXOPTS='-n -W -a'
+  build-documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    build-release:
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        steps:
-            - uses: actions/checkout@v2
-            - name: Install gettext
-              run: sudo apt-get install -y gettext
-            - name: Use php 7.1
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: 7.1
-                  extensions: mbstring, iconv, mysqli, zip, gd
-                  tools: composer:v2
-            - name: Get Composer Cache Directory
-              id: composer-cache
-              run: |
-                echo "::set-output name=dir::$(composer config cache-files-dir)"
-            - uses: actions/cache@v2
-              with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-                restore-keys: |
-                  ${{ runner.os }}-composer-
-            - name: Install dependencies
-              run: composer install
-            - uses: actions/setup-node@v1
-              with:
-                  node-version: 12
-            - name: Get yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-            - name: yarn cache
-              uses: actions/cache@v2
-              with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
-            - name: Install modules
-              run: yarn install --non-interactive
-            - uses: actions/setup-python@v2
-              with:
-                python-version: '3.6'
-            - name: Install Sphinx for the documentation build
-              run: pip install 'Sphinx'
-            - name: Build the release
-              run: ./scripts/create-release.sh --ci
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
+
+      - name: Install Sphinx for the documentation build
+        run: pip install 'Sphinx'
+
+      - name: Build the documentation
+        run: make -C doc html SPHINXOPTS='-n -W -a'
+
+  build-release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ["7.2"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install gettext
+        run: sudo apt-get install -y gettext
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, iconv, mysqli, zip, gd
+          tools: composer:v2
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
+        with:
+          dependency-versions: highest
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install modules
+        run: yarn install --non-interactive
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
+
+      - name: Install Sphinx for the documentation build
+        run: pip install 'Sphinx'
+
+      - name: Build the release
+        run: ./scripts/create-release.sh --ci

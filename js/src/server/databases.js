@@ -7,8 +7,6 @@
  * @required    js/functions.js
  */
 
-/* global MicroHistory */ // js/microhistory.js
-
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -44,7 +42,7 @@ AJAX.registerOnload('server/databases.js', function () {
         });
         if (! selectedDbs.length) {
             Functions.ajaxShowMessage(
-                $('<div class="alert alert-primary" role="alert"></div>').text(
+                $('<div class="alert alert-warning" role="alert"></div>').text(
                     Messages.strNoDatabasesSelected
                 ),
                 2000
@@ -57,41 +55,44 @@ AJAX.registerOnload('server/databases.js', function () {
         var question = Messages.strDropDatabaseStrongWarning + ' ' +
             Functions.sprintf(Messages.strDoYouReally, selectedDbs.join('<br>'));
 
-        var argsep = CommonParams.get('arg_separator');
-        $(this).confirm(
-            question,
-            'index.php?route=/server/databases/destroy&' + $(this).serialize() +
-                argsep + 'drop_selected_dbs=1',
-            function (url) {
-                Functions.ajaxShowMessage(Messages.strProcessingRequest, false);
+        const modal = $('#dropDatabaseModal');
+        modal.find('.modal-body').html(question);
+        modal.modal('show');
 
-                var parts = url.split('?');
-                var params = Functions.getJsConfirmCommonParam(this, parts[1]);
+        const url = 'index.php?route=/server/databases/destroy&' + $(this).serialize();
 
-                $.post(parts[0], params, function (data) {
-                    if (typeof data !== 'undefined' && data.success === true) {
-                        Functions.ajaxShowMessage(data.message);
+        $('#dropDatabaseModalDropButton').on('click', function () {
+            Functions.ajaxShowMessage(Messages.strProcessingRequest, false);
 
-                        var $rowsToRemove = $form.find('tr.removeMe');
-                        var $databasesCount = $('#filter-rows-count');
-                        var newCount = parseInt($databasesCount.text(), 10) - $rowsToRemove.length;
-                        $databasesCount.text(newCount);
+            var parts = url.split('?');
+            var params = Functions.getJsConfirmCommonParam(this, parts[1]);
 
-                        $rowsToRemove.remove();
-                        $form.find('tbody').sortTable('.name');
-                        if ($form.find('tbody').find('tr').length === 0) {
-                            // user just dropped the last db on this page
-                            CommonActions.refreshMain();
-                        }
-                        Navigation.reload();
-                    } else {
-                        $form.find('tr.removeMe').removeClass('removeMe');
-                        Functions.ajaxShowMessage(data.error, false);
+            $.post(parts[0], params, function (data) {
+                if (typeof data !== 'undefined' && data.success === true) {
+                    Functions.ajaxShowMessage(data.message);
+
+                    var $rowsToRemove = $form.find('tr.removeMe');
+                    var $databasesCount = $('#filter-rows-count');
+                    var newCount = parseInt($databasesCount.text(), 10) - $rowsToRemove.length;
+                    $databasesCount.text(newCount);
+
+                    $rowsToRemove.remove();
+                    $form.find('tbody').sortTable('.name');
+                    if ($form.find('tbody').find('tr').length === 0) {
+                        // user just dropped the last db on this page
+                        CommonActions.refreshMain();
                     }
-                }); // end $.post()
-            }
-        );
-    }); // end of Drop Database action
+                    Navigation.reload();
+                } else {
+                    $form.find('tr.removeMe').removeClass('removeMe');
+                    Functions.ajaxShowMessage(data.error, false);
+                }
+            });
+
+            modal.modal('hide');
+            $('#dropDatabaseModalDropButton').off('click');
+        });
+    });
 
     /**
      * Attach Ajax event handlers for 'Create Database'.
@@ -126,21 +127,12 @@ AJAX.registerOnload('server/databases.js', function () {
                 var dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
                 var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
-                if (! (history && history.pushState)) {
-                    params += MicroHistory.menus.getRequestParam();
-                }
                 $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }); // end $(document).on()
-
-    /* Don't show filter if number of databases are very few */
-    var databasesCount = $('#filter-rows-count').html();
-    if (databasesCount <= 10) {
-        $('#tableFilter').hide();
-    }
 
     var tableRows = $('.server_databases');
     $.each(tableRows, function () {

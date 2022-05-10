@@ -9,24 +9,29 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Providers\ServerVariables\VoidProvider as ServerVariablesVoidProvider;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
+
+use function __;
 use function htmlspecialchars;
 use function str_replace;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\VariablesController
+ */
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
@@ -59,7 +64,6 @@ class VariablesControllerTest extends AbstractTestCase
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 $serverSessionVariables,
             ],
             [
@@ -67,7 +71,6 @@ class VariablesControllerTest extends AbstractTestCase
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
-                0,
                 $serverGlobalVariables,
             ],
         ];
@@ -82,9 +85,18 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ResponseStub();
 
-        $controller = new VariablesController($response, new Template(), $GLOBALS['dbi']);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $controller->index();
+        /** @var MockObject&DatabaseInterface $dbi */
+        $dbi = $GLOBALS['dbi'];
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with('SHOW SESSION VARIABLES;')
+            ->willReturn($resultStub);
+
+        $controller = new VariablesController($response, new Template(), $dbi);
+
+        $controller();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -95,10 +107,7 @@ class VariablesControllerTest extends AbstractTestCase
             Generator::getIcon('b_close', __('Cancel')),
             $html
         );
-        $this->assertStringContainsString(
-            '<legend>' . __('Filters') . '</legend>',
-            $html
-        );
+        $this->assertStringContainsString('<div class="card-header">' . __('Filters') . '</div>', $html);
         $this->assertStringContainsString(
             __('Containing the word:'),
             $html
@@ -114,16 +123,10 @@ class VariablesControllerTest extends AbstractTestCase
 
         $name = 'auto_increment_increment';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString(
-            $value,
-            $html
-        );
+        $this->assertStringContainsString($value, $html);
         $name = 'auto_increment_offset';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString(
-            $value,
-            $html
-        );
+        $this->assertStringContainsString($value, $html);
     }
 
     /**
@@ -131,7 +134,7 @@ class VariablesControllerTest extends AbstractTestCase
      */
     public function testFormatVariable(): void
     {
-        $controller = new VariablesController(Response::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
         $nameForValueByte = 'byte_variable';
         $nameForValueNotByte = 'not_a_byte_variable';
@@ -146,10 +149,7 @@ class VariablesControllerTest extends AbstractTestCase
         $voidProviderMock
             ->expects($this->exactly(2))
             ->method('getVariableType')
-            ->willReturnOnConsecutiveCalls(
-                'byte',
-                'string'
-            );
+            ->willReturnOnConsecutiveCalls('byte', 'string');
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setAccessible(true);
@@ -162,10 +162,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals(
-            '<abbr title="3">3 B</abbr>',
-            $formattedValue
-        );
+        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
         $this->assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
@@ -179,10 +176,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            '3',
-            $formattedValue
-        );
+        $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
 
         //value is not a number
@@ -196,10 +190,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            'value',
-            $formattedValue
-        );
+        $this->assertEquals('value', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
     }
 
@@ -216,7 +207,7 @@ class VariablesControllerTest extends AbstractTestCase
         $response->setAccessible(true);
         $response->setValue(null);
 
-        $controller = new VariablesController(Response::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
         $nameForValueByte = 'wsrep_replicated_bytes';
         $nameForValueNotByte = 'wsrep_thread_count';
@@ -234,10 +225,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals(
-            '<abbr title="3">3 B</abbr>',
-            $formattedValue
-        );
+        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
         $this->assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
@@ -251,10 +239,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            '3',
-            $formattedValue
-        );
+        $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
 
         //value is not a number
@@ -268,10 +253,37 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            'value',
-            $formattedValue
+        $this->assertEquals('value', $formattedValue);
+        $this->assertFalse($isHtmlFormatted);
+    }
+
+    /**
+     * Test for formatVariable() using VoidProvider
+     */
+    public function testFormatVariableVoidProvider(): void
+    {
+        $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
+        $response->setAccessible(true);
+        $response->setValue(new ServerVariablesVoidProvider());
+
+        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
+
+        $nameForValueByte = 'wsrep_replicated_bytes';
+
+        //name is_numeric and the value type is byte
+        $args = [
+            $nameForValueByte,
+            '3',
+        ];
+
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
         );
+
+        $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
     }
 }

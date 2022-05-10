@@ -8,9 +8,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 use function htmlspecialchars;
 use function rawurldecode;
 
@@ -28,35 +30,35 @@ class ExportRelationSchema
     protected $diagram;
 
     /** @var bool */
-    protected $showColor;
+    protected $showColor = false;
 
     /** @var bool */
-    protected $tableDimension;
+    protected $tableDimension = false;
 
     /** @var bool */
-    protected $sameWide;
+    protected $sameWide = false;
 
     /** @var bool */
-    protected $showKeys;
+    protected $showKeys = false;
 
     /** @var string */
-    protected $orientation;
+    protected $orientation = 'L';
 
     /** @var string */
-    protected $paper;
+    protected $paper = 'A4';
 
     /** @var int */
-    protected $pageNumber;
+    protected $pageNumber = 0;
 
     /** @var bool */
-    protected $offline;
+    protected $offline = false;
 
     /** @var Relation */
     protected $relation;
 
     /**
-     * @param string                                       $db      database name
-     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf|null $diagram schema diagram
+     * @param string                               $db      database name
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|null $diagram schema diagram
      */
     public function __construct($db, $diagram)
     {
@@ -101,10 +103,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to show colors
-     *
-     * @return bool whether to show colors
      */
-    public function isShowColor()
+    public function isShowColor(): bool
     {
         return $this->showColor;
     }
@@ -121,10 +121,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to show table dimensions
-     *
-     * @return bool whether to show table dimensions
      */
-    public function isTableDimension()
+    public function isTableDimension(): bool
     {
         return $this->tableDimension;
     }
@@ -141,10 +139,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to use same width for all tables or not
-     *
-     * @return bool whether to use same width for all tables or not
      */
-    public function isAllTableSameWidth()
+    public function isAllTableSameWidth(): bool
     {
         return $this->sameWide;
     }
@@ -153,8 +149,6 @@ class ExportRelationSchema
      * Set Show only keys
      *
      * @param bool $value show only keys or not
-     *
-     * @access public
      */
     public function setShowKeys(bool $value): void
     {
@@ -163,10 +157,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to show keys
-     *
-     * @return bool whether to show keys
      */
-    public function isShowKeys()
+    public function isShowKeys(): bool
     {
         return $this->showKeys;
     }
@@ -175,8 +167,6 @@ class ExportRelationSchema
      * Set Orientation
      *
      * @param string $value Orientation will be portrait or landscape
-     *
-     * @access public
      */
     public function setOrientation(string $value): void
     {
@@ -197,8 +187,6 @@ class ExportRelationSchema
      * Set type of paper
      *
      * @param string $value paper type can be A4 etc
-     *
-     * @access public
      */
     public function setPaper(string $value): void
     {
@@ -219,8 +207,6 @@ class ExportRelationSchema
      * Set whether the document is generated from client side DB
      *
      * @param bool $value offline or not
-     *
-     * @access public
      */
     public function setOffline(bool $value): void
     {
@@ -229,12 +215,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether the client side database is used
-     *
-     * @return bool
-     *
-     * @access public
      */
-    public function isOffline()
+    public function isOffline(): bool
     {
         return $this->offline;
     }
@@ -267,15 +249,17 @@ class ExportRelationSchema
     {
         global $dbi;
 
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
-        if ($this->pageNumber != -1 && ! $this->offline) {
+        if ($this->pageNumber != -1 && ! $this->offline && $pdfFeature !== null) {
             $_name_sql = 'SELECT page_descr FROM '
-                . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+                . Util::backquote($pdfFeature->database) . '.'
+                . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
-            $_name_rs = $this->relation->queryAsControlUser($_name_sql);
-            $_name_row = $dbi->fetchRow($_name_rs);
+            $_name_rs = $dbi->queryAsControlUser($_name_sql);
+            $_name_row = $_name_rs->fetchRow();
             $filename = $_name_row[0] . $extension;
         }
 
@@ -288,17 +272,14 @@ class ExportRelationSchema
      * @param int    $pageNumber    ID of the chosen page
      * @param string $type          Schema Type
      * @param string $error_message The error message
-     *
-     * @return void
-     *
-     * @access public
      */
-    public static function dieSchema($pageNumber, $type = '', $error_message = '')
+    public static function dieSchema($pageNumber, $type = '', $error_message = ''): void
     {
         echo '<p><strong>' , __('SCHEMA ERROR: ') , $type , '</strong></p>' , "\n";
         if (! empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }
+
         echo '<p>' , "\n";
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";

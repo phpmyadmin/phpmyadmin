@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Pdf;
 
+/**
+ * @covers \PhpMyAdmin\Pdf
+ */
 class PdfTest extends AbstractTestCase
 {
     /**
@@ -15,7 +18,6 @@ class PdfTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
     }
 
     /**
@@ -51,7 +53,7 @@ class PdfTest extends AbstractTestCase
         $pdf = new Pdf();
         $pdf->SetTitle('Title');
         $pdf->Open();
-        $pdf->SetAutoPageBreak(true);
+        $pdf->setAutoPageBreak(true);
         $pdf->Addpage();
         $pdf->SetFont(Pdf::PMA_PDF_FONT, 'B', 14);
         $pdf->Cell(0, 6, 'Cell', 'B', 1, 'C');

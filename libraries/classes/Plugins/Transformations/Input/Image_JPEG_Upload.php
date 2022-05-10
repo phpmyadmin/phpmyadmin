@@ -13,7 +13,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\ImageUploadTransformationsPlugin;
  * Handles the image upload input transformation for JPEG.
  * Has two option: width & height of the thumbnail
  */
-// @codingStandardsIgnoreLine
 class Image_JPEG_Upload extends ImageUploadTransformationsPlugin
 {
     /**

@@ -9,18 +9,18 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Crypto\Crypto;
 
+use function base64_decode;
+use function base64_encode;
 use function htmlentities;
 use function htmlspecialchars;
 use function http_build_query;
+use function in_array;
 use function ini_get;
 use function is_array;
-use function mb_strpos;
-use function strlen;
-use function in_array;
 use function json_encode;
+use function str_contains;
+use function strlen;
 use function strtr;
-use function base64_encode;
-use function base64_decode;
 
 /**
  * Static methods for URL/hidden inputs generating
@@ -40,8 +40,6 @@ class Url
      *                             (can be an array of strings)
      *
      * @return string   string with input fields
-     *
-     * @access public
      */
     public static function getHiddenInputs(
         $db = '',
@@ -49,26 +47,26 @@ class Url
         $indent = 0,
         $skip = []
     ) {
-        global $PMA_Config;
+        global $config;
 
         if (is_array($db)) {
-            $params  =& $db;
+            $params =& $db;
         } else {
             $params = [];
             if (strlen((string) $db) > 0) {
                 $params['db'] = $db;
             }
+
             if (strlen((string) $table) > 0) {
                 $params['table'] = $table;
             }
         }
 
-        if (! empty($GLOBALS['server'])
-            && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
-        ) {
+        if (! empty($GLOBALS['server']) && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
             $params['server'] = $GLOBALS['server'];
         }
-        if (empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+
+        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -176,8 +174,6 @@ class Url
      * @param bool                          $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
-     *
-     * @access public
      */
     public static function getCommon(array $params = [], $divider = '?', $encrypt = true)
     {
@@ -212,25 +208,23 @@ class Url
      * @param bool                              $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
-     *
-     * @access public
      */
     public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true)
     {
-        global $PMA_Config;
+        global $config;
 
         // avoid overwriting when creating navigation panel links to servers
-        if (isset($GLOBALS['server'])
+        if (
+            isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])
-            && ! $PMA_Config->get('is_setup')
+            && ! $config->get('is_setup')
         ) {
             $params['server'] = $GLOBALS['server'];
         }
 
         // Can be null when the user is missing an extension.
-        // See: Core::checkExtensions()
-        if ($PMA_Config !== null && empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        if ($config !== null && empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -244,18 +238,18 @@ class Url
     }
 
     /**
-     * @param array<string, mixed> $params
-     * @param bool                 $encrypt whether to encrypt URL params
+     * @param array<int|string, mixed> $params
+     * @param bool                     $encrypt whether to encrypt URL params
      *
      * @return string
      */
     public static function buildHttpQuery($params, $encrypt = true)
     {
-        global $PMA_Config;
+        global $config;
 
         $separator = self::getArgSeparator();
 
-        if (! $encrypt || ! $PMA_Config->get('URLQueryEncryption')) {
+        if (! $encrypt || ! $config->get('URLQueryEncryption')) {
             return http_build_query($params, '', $separator);
         }
 
@@ -288,30 +282,20 @@ class Url
         }
 
         if ($paramsToEncrypt !== []) {
-            $data['eq'] = self::encryptQuery(json_encode($paramsToEncrypt));
+            $data['eq'] = self::encryptQuery((string) json_encode($paramsToEncrypt));
         }
 
         return http_build_query($data, '', $separator);
     }
 
-    /**
-     * @param string $query
-     *
-     * @return string
-     */
-    public static function encryptQuery($query)
+    public static function encryptQuery(string $query): string
     {
         $crypto = new Crypto();
 
         return strtr(base64_encode($crypto->encrypt($query)), '+/', '-_');
     }
 
-    /**
-     * @param string $query
-     *
-     * @return string|null
-     */
-    public static function decryptQuery($query)
+    public static function decryptQuery(string $query): ?string
     {
         $crypto = new Crypto();
 
@@ -328,8 +312,6 @@ class Url
      *                       currently 'none' or 'html'
      *
      * @return string  character used for separating url parts usually ; or &
-     *
-     * @access public
      */
     public static function getArgSeparator($encode = 'none')
     {
@@ -342,19 +324,21 @@ class Url
             // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
             // /notes.html#h-B.2.2)
             $arg_separator = (string) ini_get('arg_separator.input');
-            if (mb_strpos($arg_separator, ';') !== false) {
+            if (str_contains($arg_separator, ';')) {
                 $separator = ';';
             } elseif (strlen($arg_separator) > 0) {
                 $separator = $arg_separator[0];
             } else {
                 $separator = '&';
             }
+
             $html_separator = htmlentities($separator);
         }
 
         switch ($encode) {
             case 'html':
                 return $html_separator;
+
             case 'text':
             case 'none':
             default:

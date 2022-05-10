@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Types.php
- */
 
 declare(strict_types=1);
 
@@ -10,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Types;
 
 /**
- * Testcase for MySQL types handling.
+ * @covers \PhpMyAdmin\Types
  */
 class TypesTest extends AbstractTestCase
 {
@@ -90,6 +87,7 @@ class TypesTest extends AbstractTestCase
                 'LIKE',
                 'LIKE %...%',
                 'NOT LIKE',
+                'NOT LIKE %...%',
                 '=',
                 '!=',
                 'REGEXP',
@@ -122,6 +120,7 @@ class TypesTest extends AbstractTestCase
                 'LIKE',
                 'LIKE %...%',
                 'NOT LIKE',
+                'NOT LIKE %...%',
                 'IN (...)',
                 'NOT IN (...)',
                 'BETWEEN',
@@ -171,6 +170,7 @@ class TypesTest extends AbstractTestCase
                     'LIKE',
                     'LIKE %...%',
                     'NOT LIKE',
+                    'NOT LIKE %...%',
                     '=',
                     '!=',
                     'REGEXP',
@@ -231,8 +231,7 @@ class TypesTest extends AbstractTestCase
                 'enum',
                 false,
                 '=',
-                '<option value="=" selected="selected">=</option>'
-                . '<option value="!=">!=</option>',
+                '<option value="=" selected="selected">=</option><option value="!=">!=</option>',
             ],
         ];
     }
@@ -682,7 +681,7 @@ class TypesTest extends AbstractTestCase
                 1 => 'VARCHAR',
                 2 => 'TEXT',
                 3 => 'DATE',
-                'Numeric' =>  [
+                'Numeric' => [
                     'TINYINT',
                     'SMALLINT',
                     'MEDIUMINT',
@@ -698,14 +697,14 @@ class TypesTest extends AbstractTestCase
                     'BOOLEAN',
                     'SERIAL',
                 ],
-                'Date and time' =>  [
+                'Date and time' => [
                     'DATE',
                     'DATETIME',
                     'TIMESTAMP',
                     'TIME',
                     'YEAR',
                 ],
-                'String' =>  [
+                'String' => [
                     'CHAR',
                     'VARCHAR',
                     '-',
@@ -725,7 +724,7 @@ class TypesTest extends AbstractTestCase
                     'ENUM',
                     'SET',
                 ],
-                'Spatial' =>  [
+                'Spatial' => [
                     'GEOMETRY',
                     'POINT',
                     'LINESTRING',

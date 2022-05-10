@@ -13,24 +13,24 @@
       <ul class="list-group list-group-flush">
         {% for row in table %}
           <li class="list-group-item">
-            {% if row.Op|lower != 'check' %}
-              <span class="badge badge-secondary">{{ row.Op|title }}</span>
+            {% if row.operation|lower != 'check' %}
+              <span class="badge bg-secondary text-dark">{{ row.operation|title }}</span>
             {% endif %}
 
             {% set badge_variation %}
-              {%- if row.Msg_type|lower == 'error' -%}
-                badge-danger
-              {%- elseif row.Msg_type|lower == 'warning' -%}
-                badge-warning
-              {%- elseif row.Msg_type|lower == 'info' or row.Msg_type|lower == 'note' -%}
-                badge-info
+              {%- if row.type|lower == 'error' -%}
+                bg-danger
+              {%- elseif row.type|lower == 'warning' -%}
+                bg-warning
+              {%- elseif row.type|lower == 'info' or row.type|lower == 'note' -%}
+                bg-info
               {%- else -%}
-                badge-secondary
+                bg-secondary
               {%- endif -%}
             {% endset %}
-            <span class="badge {{ badge_variation }}">{{ row.Msg_type|title }}</span>
+            <span class="badge {{ badge_variation }} text-dark">{{ row.type|title }}</span>
 
-            {{ row.Msg_text }}
+            {{ row.text }}
           </li>
         {% endfor %}
       </ul>

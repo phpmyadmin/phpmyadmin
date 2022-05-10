@@ -1,6 +1,6 @@
 {% set navigation_html %}
   {% if navigation is not empty %}
-    <table class="pma-table navigation nospacing nopadding print_ignore">
+    <table class="navigation d-print-none">
       <tr>
         <td class="navigation_separator"></td>
 
@@ -8,7 +8,7 @@
         {{ navigation.page_selector|raw }}
         {{ navigation.move_forward_buttons|raw }}
 
-        {% if navigation.number_total_page > 1 %}
+        {% if navigation.number_total_page != 1 %}
           <td><div class="navigation_separator">|</div></td>
         {% endif %}
 
@@ -40,7 +40,7 @@
           </div>
         </td>
         <td class="navigation_goto">
-          <form action="{{ url('/sql') }}" method="post" id="maxRowsForm">
+          <form action="{{ url('/sql') }}" method="post" class="maxRowsForm">
             {{ get_hidden_fields(navigation.hidden_fields|merge({
               'pos': navigation.pos,
               'unlim_num_rows': unlim_num_rows
@@ -64,7 +64,17 @@
           {%- trans 'Search this table' %}" data-for="{{ unique_id }}">
         </td>
         <td class="largescreenonly">
-          {{ navigation.sort_by_key|raw }}
+          {% if navigation.sort_by_key is not empty %}
+            <form action="{{ url('/sql') }}" method="post" class="d-print-none">
+              {{ get_hidden_fields(navigation.sort_by_key.hidden_fields) }}
+              {% trans 'Sort by key:' %}
+              <select name="sql_query" class="autosubmit">
+                {% for option in navigation.sort_by_key.options %}
+                  <option value="{{ option.value }}"{{ option.is_selected ? ' selected' }}>{{ option.content }}</option>
+                {% endfor %}
+              </select>
+            </form>
+          {% endif %}
         </td>
         <td class="navigation_separator"></td>
       </tr>
@@ -94,7 +104,7 @@
 {% endif %}
 
 {% if headers.options is not empty %}
-  <form method="post" action="{{ url('/sql') }}" name="displayOptionsForm" class="ajax print_ignore">
+  <form method="post" action="{{ url('/sql') }}" name="displayOptionsForm" class="ajax d-print-none">
     {{ get_hidden_inputs({
       'db': db,
       'table': table,
@@ -103,11 +113,16 @@
       'display_options_form': 1
     }) }}
 
-    <div{% if default_sliders_state != 'disabled' -%}
-      {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Options' %}"
-    {%- endif %}>
+    {% if default_sliders_state != 'disabled' %}
+    <div class="mb-3">
+      <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#extraOptions" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="extraOptions">
+        {% trans 'Extra options' %}
+      </button>
+    </div>
+    <div class="collapse mb-3{{ default_sliders_state == 'open' ? ' show' }}" id="extraOptions">
+    {% endif %}
 
-      <fieldset>
+      <fieldset class="pma-fieldset">
         <div class="formelement">
           <div>
             <input type="radio" name="pftext" id="partialFulltextRadioP{{ unique_id }}" value="P"{{ headers.options.pftext == 'P' ? ' checked' }}>
@@ -171,10 +186,12 @@
         <div class="clearfloat"></div>
       </fieldset>
 
-      <fieldset class="tblFooters">
+      <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </fieldset>
+    {% if default_sliders_state != 'disabled' %}
     </div>
+    {% endif %}
   </form>
 {% endif %}
 
@@ -201,8 +218,8 @@
   </div>
 
 {% if bulk_links is not empty %}
-    <div class="print_ignore">
-      <img class="selectallarrow" src="{{ select_all_arrow }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+    <div class="d-print-none">
+      <img class="selectallarrow" src="{{ image('arrow_' ~ text_dir ~ '.png') }}" width="38" height="22" alt="{% trans 'With selected:' %}">
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
       <label for="resultsForm_{{ unique_id }}_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>
@@ -234,17 +251,11 @@
 {{ navigation_html }}
 
 {% if operations is not empty %}
-  <fieldset class="print_ignore">
+  <fieldset class="pma-fieldset d-print-none">
     <legend>{% trans 'Query results operations' %}</legend>
 
     {% if operations.has_print_link %}
-      {{ link_or_button(
-        '#',
-        null,
-        get_icon('b_print', 'Print'|trans, true),
-        {'id': 'printView', 'class': 'btn'},
-        'print_view'
-      ) }}
+      <button type="button" class="btn btn-link jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
 
       {{ link_or_button(
         '#',

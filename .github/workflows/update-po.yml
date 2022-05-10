@@ -1,0 +1,47 @@
+name: Update translation files
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  update-po:
+    name: Update po files
+    runs-on: ubuntu-latest
+    # Source: https://github.community/t/do-not-run-cron-workflows-in-forks/17636/2?u=williamdes
+    if: (github.event_name == 'schedule' && github.repository == 'phpmyadmin/phpmyadmin') || (github.event_name != 'schedule')
+    strategy:
+      matrix:
+        php-version: ["8.0"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Gettext
+        run: |
+          sudo apt-get install -y gettext
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
+        with:
+          dependency-versions: highest
+
+      - name: Set up git config
+        run: |
+          git config user.name "phpMyAdmin bot"
+          git config user.email bot@phpmyadmin.net
+
+      - name: Update PO files
+        run: |
+          ./scripts/update-po
+
+      - name: Push changes
+        run: |
+          git push

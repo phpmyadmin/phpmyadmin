@@ -23,7 +23,7 @@ p.enum_notice {
       vertical-align: middle;
       width: 50%;
       padding: 0 0 0;
-      padding-#{$left}: 1em;
+      padding-left: 1em;
     }
   }
 
@@ -36,7 +36,7 @@ p.enum_notice {
 
     input {
       margin: 0.1em 0;
-      padding-#{$right}: 2em;
+      padding-right: 2em;
       width: 100%;
     }
 
@@ -47,13 +47,13 @@ p.enum_notice {
 
   input.add_value {
     margin: 0;
-    margin-#{$right}: 0.4em;
+    margin-right: 0.4em;
   }
 }
 
 #enum_editor_output textarea {
   width: 100%;
-  float: $right;
+  float: right;
   margin: 1em 0 0 0;
 }
 
@@ -63,7 +63,7 @@ p.enum_notice {
 
   a {
     position: absolute;
-    #{$left}: 81%;
+    left: 81%;
     bottom: 0.35em;
   }
 }

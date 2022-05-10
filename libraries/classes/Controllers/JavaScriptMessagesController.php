@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Theme;
+
+use function __;
+use function _pgettext;
 use function json_encode;
 
 /**
@@ -19,16 +23,16 @@ final class JavaScriptMessagesController
         $this->setMessages();
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         echo 'var Messages = ' . json_encode($this->messages) . ';';
     }
 
     private function setMessages(): void
     {
-        global $cfg, $PMA_Theme;
+        global $cfg, $theme;
 
-        $ajaxClockSmallGifPath = $PMA_Theme !== null ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
+        $ajaxClockSmallGifPath = $theme instanceof Theme ? $theme->getImgPath('ajax_clock_small.gif') : '';
 
         $this->messages = [
             /* For confirmations */
@@ -40,6 +44,7 @@ final class JavaScriptMessagesController
             ),
             'strDropTableStrongWarning' => __('You are about to DESTROY a complete table!'),
             'strTruncateTableStrongWarning' => __('You are about to TRUNCATE a complete table!'),
+            'strDeleteTableStrongWarning' => __('You are about to DELETE all the rows of the table!'),
             'strDeleteTrackingData' => __('Delete tracking data for this table?'),
             'strDeleteTrackingDataMultiple' => __('Delete tracking data for these tables?'),
             'strDeleteTrackingVersion' => __('Delete tracking data for this version?'),
@@ -65,7 +70,7 @@ final class JavaScriptMessagesController
             ),
             'strTruncatePartitionWarning' => __('Do you really want to TRUNCATE the selected partition(s)?'),
             'strRemovePartitioningWarning' => __('Do you really want to remove partitioning?'),
-            'strResetSlaveWarning' => __('Do you really want to RESET SLAVE?'),
+            'strResetReplicaWarning' => __('Do you really want to reset the replica (RESET REPLICA)?'),
             'strChangeColumnCollation' => __(
                 'This operation will attempt to convert your data to the new collation. In '
                     . 'rare cases, especially where a character doesn\'t exist in the new '
@@ -86,9 +91,7 @@ final class JavaScriptMessagesController
                     . '</b>'
             )
                 . '<br><br>'
-                . __(
-                    'Are you sure you wish to change all the column collations and convert the data?'
-                ),
+                . __('Are you sure you wish to change all the column collations and convert the data?'),
 
             /* For modal dialog buttons */
             'strSaveAndClose' => __('Save & close'),
@@ -132,6 +135,10 @@ final class JavaScriptMessagesController
             'strPasswordNotSame' => __('The passwords aren\'t the same!'),
             'strRemovingSelectedUsers' => __('Removing Selected Users'),
             'strClose' => __('Close'),
+            'strLock' => _pgettext('Lock the account.', 'Lock'),
+            'strUnlock' => _pgettext('Unlock the account.', 'Unlock'),
+            'strLockAccount' => __('Lock this account.'),
+            'strUnlockAccount' => __('Unlock this account.'),
 
             /* For export.js */
             'strTemplateCreated' => __('Template was created.'),
@@ -219,8 +226,7 @@ final class JavaScriptMessagesController
             ),
             'strLongQueryTimeSet' => __('long_query_time is set to %d second(s).'),
             'strSettingsAppliedGlobal' => __(
-                'Following settings will be applied globally and reset to default on server '
-                . 'restart:'
+                'Following settings will be applied globally and reset to default on server restart:'
             ),
             /* l10n: %s is FILE or TABLE */
             'strSetLogOutput' => __('Set log_output to %s'),
@@ -231,8 +237,7 @@ final class JavaScriptMessagesController
             /* l10n: %d seconds */
             'setSetLongQueryTime' => __('Set long_query_time to %d seconds.'),
             'strNoSuperUser' => __(
-                'You can\'t change these variables. Please log in as root or contact'
-                . ' your database administrator.'
+                'You can\'t change these variables. Please log in as root or contact your database administrator.'
             ),
             'strChangeSettings' => __('Change settings'),
             'strCurrentSettings' => __('Current settings'),
@@ -245,9 +250,7 @@ final class JavaScriptMessagesController
 
             'strFromSlowLog' => __('From slow log'),
             'strFromGeneralLog' => __('From general log'),
-            'strServerLogError' => __(
-                'The database name is not known for this query in the server\'s logs.'
-            ),
+            'strServerLogError' => __('The database name is not known for this query in the server\'s logs.'),
             'strAnalysingLogsTitle' => __('Analysing logs'),
             'strAnalysingLogs' => __('Analysing & loading logs. This may take a while.'),
             'strCancelRequest' => __('Cancel request'),
@@ -300,9 +303,7 @@ final class JavaScriptMessagesController
 
             'strAffectedRows' => __('Affected rows:'),
 
-            'strFailedParsingConfig' => __(
-                'Failed parsing config file. It doesn\'t seem to be valid JSON code.'
-            ),
+            'strFailedParsingConfig' => __('Failed parsing config file. It doesn\'t seem to be valid JSON code.'),
             'strFailedBuildingGrid' => __(
                 'Failed building chart grid with imported config. Resetting to default config…'
             ),
@@ -340,6 +341,7 @@ final class JavaScriptMessagesController
                 'network connectivity and server status.'
             ),
             'strNoDatabasesSelected' => __('No databases selected.'),
+            'strNoTableSelected' => __('No table selected.'),
             'strNoAccountSelected' => __('No accounts selected.'),
             'strDroppingColumn' => __('Dropping column'),
             'strAddingPrimaryKey' => __('Adding primary key'),
@@ -372,16 +374,13 @@ final class JavaScriptMessagesController
             'NoExportable' => __('No routine is exportable. Required privileges may be lacking.'),
 
             /* For ENUM/SET editor*/
-            'enum_editor' => __('ENUM/SET editor'),
             'enum_columnVals' => __('Values for column %s'),
             'enum_newColumnVals' => __('Values for a new column'),
             'enum_hint' => __('Enter each value in a separate field.'),
             'enum_addValue' => __('Add %d value(s)'),
 
             /* For import.js */
-            'strImportCSV' => __(
-                'Note: If the file contains multiple tables, they will be combined into one.'
-            ),
+            'strImportCSV' => __('Note: If the file contains multiple tables, they will be combined into one.'),
 
             /* For sql.js */
             'strHideQueryBox' => __('Hide query box'),
@@ -405,14 +404,8 @@ final class JavaScriptMessagesController
                 . 'database %s has columns that are not present in the current table.'
             ),
             'seeMore' => __('See more'),
-            'confirmTitle' => __('Are you sure?'),
-            'makeConsistentMessage' => __(
-                'This action may change some of the columns definition.<br>Are you sure you '
-                . 'want to continue?'
-            ),
-            'strContinue' => __('Continue'),
 
-            /** For normalization */
+            /* For normalization */
             'strAddPrimaryKey' => __('Add primary key'),
             'strPrimaryKeyAdded' => __('Primary key added.'),
             'strToNextStep' => __('Taking you to next step…'),
@@ -431,8 +424,7 @@ final class JavaScriptMessagesController
             'strShowPossiblePd' => __('Show me the possible partial dependencies based on data in the table'),
             'strHidePd' => __('Hide partial dependencies list'),
             'strWaitForPd' => __(
-                'Sit tight! It may take few seconds depending on data size and column count of '
-                . 'the table.'
+                'Sit tight! It may take few seconds depending on data size and column count of the table.'
             ),
             'strStep' => __('Step'),
             'strMoveRepeatingGroup' => '<ol><b>' . __('The following actions will be performed:') . '</b>'
@@ -451,11 +443,8 @@ final class JavaScriptMessagesController
             /* For table/select.js */
             'strHideSearchCriteria' => __('Hide search criteria'),
             'strShowSearchCriteria' => __('Show search criteria'),
-            'strRangeSearch' => __('Range search'),
             'strColumnMax' => __('Column maximum:'),
             'strColumnMin' => __('Column minimum:'),
-            'strMinValue' => __('Minimum value:'),
-            'strMaxValue' => __('Maximum value:'),
 
             /* For table/find_replace.js */
             'strHideFindNReplaceCriteria' => __('Hide find and replace criteria'),
@@ -554,7 +543,7 @@ final class JavaScriptMessagesController
             'strSubmit' => __('Submit'),
 
             /* For makegrid.js (column reordering, show/hide column, grid editing) */
-            'strCellEditHint' => __('Press escape to cancel editing.'),
+            'strCellEditHint' => __('Press escape to cancel editing.<br>- Shift+Enter for a newline.'),
             'strSaveCellWarning' => __(
                 'You have edited some data and they have not been saved. Are you sure you want '
                 . 'to leave this page before saving the data?'
@@ -568,9 +557,7 @@ final class JavaScriptMessagesController
             ),
             'strColMarkHint' => __('Click to mark/unmark.'),
             'strColNameCopyHint' => __('Double-click to copy column name.'),
-            'strColVisibHint' => __(
-                'Click the drop-down arrow<br>to toggle column\'s visibility.'
-            ),
+            'strColVisibHint' => __('Click the drop-down arrow<br>to toggle column\'s visibility.'),
             'strShowAllCol' => __('Show all'),
             'strAlertNonUnique' => __(
                 'This table does not contain a unique column. Features related to the grid '
@@ -578,12 +565,11 @@ final class JavaScriptMessagesController
             ),
             'strEnterValidHex' => __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.'),
             'strShowAllRowsWarning' => __(
-                'Do you really want to see all of the rows? For a big table this could crash '
-                . 'the browser.'
+                'Do you really want to see all of the rows? For a big table this could crash the browser.'
             ),
             'strOriginalLength' => __('Original length'),
 
-            /** Drag & Drop sql import messages */
+            /* Drag & Drop sql import messages */
             'dropImportMessageCancel' => __('cancel'),
             'dropImportMessageAborted' => __('Aborted'),
             'dropImportMessageFailed' => __('Failed'),
@@ -591,10 +577,6 @@ final class JavaScriptMessagesController
             'dropImportImportResultHeader' => __('Import status'),
             'dropImportDropFiles' => __('Drop files here'),
             'dropImportSelectDB' => __('Select database first'),
-
-            /* For Print view */
-            'print' => __('Print'),
-            'back' => __('Back'),
 
             // this approach does not work when the parameter is changed via user prefs
             'strGridEditFeatureHint' => $cfg['GridEditing'] === 'double-click'
@@ -604,8 +586,6 @@ final class JavaScriptMessagesController
                     : ''),
 
             'strGoToLink' => __('Go to link:'),
-            'strColNameCopyTitle' => __('Copy column name.'),
-            'strColNameCopyText' => __('Right-click the column name to copy it to your clipboard.'),
 
             /* password generation */
             'strGeneratePassword' => __('Generate password'),
@@ -618,12 +598,8 @@ final class JavaScriptMessagesController
             /* navigation panel */
             'strShowPanel' => __('Show panel'),
             'strHidePanel' => __('Hide panel'),
-            'strUnhideNavItem' => __('Show hidden navigation tree items.'),
             'linkWithMain' => __('Link with main panel'),
             'unlinkWithMain' => __('Unlink from main panel'),
-
-            /* microhistory */
-            'strInvalidPage' => __('The requested page was not found in the history, it may have expired.'),
 
             /* update */
             'strNewerVersion' => __(
@@ -634,19 +610,11 @@ final class JavaScriptMessagesController
             'strLatestAvailable' => __(', latest stable version:'),
             'strUpToDate' => __('up to date'),
 
-            'strCreateView' => __('Create view'),
-
             /* Error Reporting */
-            'strSendErrorReport' => __('Send error report'),
-            'strSubmitErrorReport' => __('Submit error report'),
-            'strErrorOccurred' => __(
-                'A fatal JavaScript error has occurred. Would you like to send an error report?'
-            ),
+            'strErrorOccurred' => __('A fatal JavaScript error has occurred. Would you like to send an error report?'),
             'strChangeReportSettings' => __('Change report settings'),
             'strShowReportDetails' => __('Show report details'),
-            'strTimeOutError' => __(
-                'Your export is incomplete, due to a low execution time limit at the PHP level!'
-            ),
+            'strTimeOutError' => __('Your export is incomplete, due to a low execution time limit at the PHP level!'),
 
             'strTooManyInputs' => __(
                 'Warning: a form on this page has more than %d fields. On submission, '
@@ -661,24 +629,23 @@ final class JavaScriptMessagesController
                 . '<div>'
                 . '<input id="pma_ignore_errors_popup" type="submit" value="'
                 . __('Ignore')
-                . '" class="btn btn-secondary floatright message_errors_found">'
+                . '" class="btn btn-secondary float-end message_errors_found">'
                 . '<input id="pma_ignore_all_errors_popup" type="submit" value="'
                 . __('Ignore All')
-                . '" class="btn btn-secondary floatright message_errors_found">'
+                . '" class="btn btn-secondary float-end message_errors_found">'
                 . '</div></div>',
 
             'phpErrorsBeingSubmitted' => '<div class="alert alert-danger" role="alert">'
                 . __('Some errors have been detected on the server!')
                 . '<br>'
-                . __(
-                    'As per your settings, they are being submitted currently, please be '
-                    . 'patient.'
-                )
+                . __('As per your settings, they are being submitted currently, please be patient.')
                 . '<br>'
                 . '<img src="'
                 . $ajaxClockSmallGifPath
                 . '" width="16" height="16" alt="ajax clock">'
                 . '</div>',
+            'strCopyColumnSuccess' => __('Column name successfully copied to clipboard!'),
+            'strCopyColumnFailure' => __('Column name copying to clipboard failed!'),
             'strCopyQueryButtonSuccess' => __('Successfully copied!'),
             'strCopyQueryButtonFailure' => __('Copying failed!'),
 
@@ -726,6 +693,10 @@ final class JavaScriptMessagesController
             'strU2FErrorAuthenticate' => _pgettext('U2F error', 'Invalid security key.'),
 
             /* Designer */
+            'strIndexedDBNotWorking' => __(
+                'You can not open, save or delete your page layout, as IndexedDB is not working'
+                . ' in your browser and your phpMyAdmin configuration storage is not configured for this.'
+            ),
             'strTableAlreadyExists' => _pgettext(
                 'The table already exists in the designer and can not be added once more.',
                 'Table %s already exists!'

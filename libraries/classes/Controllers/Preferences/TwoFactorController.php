@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+
+use function __;
 use function count;
 
 class TwoFactorController extends AbstractController
@@ -17,25 +19,22 @@ class TwoFactorController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param Response $response
-     */
-    public function __construct($response, Template $template, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
     {
         parent::__construct($response, $template);
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $route;
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         echo $this->template->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
-            'has_config_storage' => $cfgRelation['userconfigwork'],
+            'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
         $twoFactor = new TwoFactor($cfg['Server']['user']);

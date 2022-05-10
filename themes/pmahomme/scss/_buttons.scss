@@ -1,4 +1,5 @@
-.btn-primary {
+.btn-primary,
+.btn-outline-primary {
   font-weight: $font-weight-bold;
 }
 
@@ -11,4 +12,10 @@
   &:hover {
     background-image: linear-gradient(#fff, #ddd);
   }
+}
+
+.btn-outline-primary,
+.btn-outline-secondary {
+  color: $body-color;
+  border-color: #aaa;
 }

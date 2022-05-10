@@ -9,20 +9,28 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use ReflectionException;
 use ReflectionMethod;
+
+use function base64_decode;
 use function base64_encode;
-use function function_exists;
 use function is_readable;
 use function json_encode;
+use function mb_strlen;
 use function ob_get_clean;
 use function ob_start;
+use function random_bytes;
 use function str_repeat;
 use function str_shuffle;
-use function strlen;
 use function time;
 
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
+
+/**
+ * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie
+ */
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationCookie */
@@ -34,11 +42,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
@@ -76,10 +82,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $mockResponse->expects($this->once())
             ->method('addJSON')
-            ->with(
-                'redirect_flag',
-                '1'
-            );
+            ->with('redirect_flag', '1');
 
         $GLOBALS['conn_error'] = true;
         $this->assertTrue(
@@ -99,7 +102,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         // mock footer
         $mockFooter = $this->getMockBuilder(Footer::class)
             ->disableOriginalConstructor()
-            ->setMethods(['setMinimal'])
+            ->onlyMethods(['setMinimal'])
             ->getMock();
 
         $mockFooter->expects($this->once())
@@ -110,7 +113,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
-            ->setMethods(
+            ->onlyMethods(
                 [
                     'setBodyId',
                     'setTitle',
@@ -157,7 +160,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $mockErrorHandler = $this->getMockBuilder(ErrorHandler::class)
             ->disableOriginalConstructor()
-            ->setMethods(['hasDisplayErrors'])
+            ->onlyMethods(['hasDisplayErrors'])
             ->getMock();
 
         $mockErrorHandler->expects($this->once())
@@ -165,7 +168,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->with()
             ->will($this->returnValue(true));
 
-        $GLOBALS['error_handler'] = $mockErrorHandler;
+        $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
 
     /**
@@ -173,9 +176,12 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      */
     public function testAuthError(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $this->object->user = 'pmauser';
         $GLOBALS['pma_auth_server'] = 'localhost';
 
@@ -190,7 +196,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
         $GLOBALS['cfg']['Servers'] = [1, 2];
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -198,56 +204,43 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            ' id="imLogo"',
-            $result
-        );
+        $this->assertStringContainsString(' id="imLogo"', $result);
 
-        $this->assertStringContainsString(
-            '<div class="alert alert-danger" role="alert">',
-            $result
-        );
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $result);
 
         $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form" ' .
-            'class="disableAjax hide login js-show form-horizontal">',
+            'class="disableAjax hide js-show">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<input type="text" name="pma_servername" id="input_servername" ' .
-            'value="localhost"',
+            '<input type="text" name="pma_servername" id="serverNameInput" value="localhost"',
             $result
         );
 
         $this->assertStringContainsString(
             '<input type="text" name="pma_username" id="input_username" ' .
-            'value="pmauser" size="24" class="textfield" autocomplete="username">',
+            'value="pmauser" class="form-control" autocomplete="username">',
             $result
         );
 
         $this->assertStringContainsString(
             '<input type="password" name="pma_password" id="input_password" ' .
-            'value="" size="24" class="textfield" autocomplete="current-password">',
+            'value="" class="form-control" autocomplete="current-password">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<select name="server" id="select_server" ' .
+            '<select name="server" id="select_server" class="form-select" ' .
             'onchange="document.forms[\'login_form\'].' .
             'elements[\'pma_servername\'].value = \'\'">',
             $result
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="db" value="testDb">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="db" value="testDb">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="table" value="testTable">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
     /**
@@ -285,7 +278,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -299,32 +292,28 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
             $this->assertStringContainsString(
-                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-                'id="sel-lang">',
+                '<select name="lang" class="form-select autosubmit" lang="en" dir="ltr"'
+                . ' id="languageSelect" aria-labelledby="languageSelectLabel">',
                 $result
             );
         }
 
         $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
-            ' class="disableAjax hide login js-show form-horizontal" autocomplete="off">',
+            ' class="disableAjax hide js-show" autocomplete="off">',
             $result
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="server" value="0">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
 
         $this->assertStringContainsString(
-            '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
-            . ' async defer></script>',
+            '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
             $result
         );
 
         $this->assertStringContainsString(
             '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
-            . ' data-callback="Functions_recaptchaCallback" value="Go" type="submit" id="input_go">',
+            . ' data-callback="Functions_recaptchaCallback" value="Log in" type="submit" id="input_go">',
             $result
         );
     }
@@ -365,7 +354,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaMethod'] = 'checkbox';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -379,36 +368,29 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
             $this->assertStringContainsString(
-                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-                'id="sel-lang">',
+                '<select name="lang" class="form-select autosubmit" lang="en" dir="ltr"'
+                . ' id="languageSelect" aria-labelledby="languageSelectLabel">',
                 $result
             );
         }
 
         $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
-            ' class="disableAjax hide login js-show form-horizontal" autocomplete="off">',
+            ' class="disableAjax hide js-show" autocomplete="off">',
             $result
         );
 
+        $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
+
         $this->assertStringContainsString(
-            '<input type="hidden" name="server" value="0">',
+            '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
             $result
         );
 
-        $this->assertStringContainsString(
-            '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
-            . ' async defer></script>',
-            $result
-        );
+        $this->assertStringContainsString('<div class="g-recaptcha" data-sitekey="testpubkey"></div>', $result);
 
         $this->assertStringContainsString(
-            '<div class="g-recaptcha" data-sitekey="testpubkey"></div>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input class="btn btn-primary" value="Go" type="submit" id="input_go">',
+            '<input class="btn btn-primary" value="Log in" type="submit" id="input_go">',
             $result
         );
     }
@@ -428,7 +410,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     public function testAuthHeaderPartial(): void
     {
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['cfg']['Servers'] = [
             1,
@@ -475,18 +457,15 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['config']->set('is_https', false);
         $GLOBALS['cfg']['Servers'] = [1];
 
         $_COOKIE['pmaAuth-0'] = 'test';
 
         $this->object->logOut();
 
-        $this->assertArrayNotHasKey(
-            'pmaAuth-0',
-            $_COOKIE
-        );
+        $this->assertArrayNotHasKey('pmaAuth-0', $_COOKIE);
     }
 
     public function testLogout(): void
@@ -499,8 +478,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['config']->set('is_https', false);
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server'] = ['auth_type' => 'cookie'];
@@ -509,10 +488,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->logOut();
 
-        $this->assertArrayNotHasKey(
-            'pmaAuth-1',
-            $_COOKIE
-        );
+        $this->assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
 
     public function testAuthCheckArbitrary(): void
@@ -532,25 +508,13 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertEquals(
-            'testPMAUser',
-            $this->object->user
-        );
+        $this->assertEquals('testPMAUser', $this->object->user);
 
-        $this->assertEquals(
-            'testPMAPSWD',
-            $this->object->password
-        );
+        $this->assertEquals('testPMAPSWD', $this->object->password);
 
-        $this->assertEquals(
-            'testPMAServer',
-            $GLOBALS['pma_auth_server']
-        );
+        $this->assertEquals('testPMAServer', $GLOBALS['pma_auth_server']);
 
-        $this->assertArrayNotHasKey(
-            'pmaAuth-1',
-            $_COOKIE
-        );
+        $this->assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
 
     public function testAuthCheckInvalidCookie(): void
@@ -575,7 +539,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $_COOKIE['pmaAuth-1'] = '';
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
 
@@ -592,19 +556,19 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = '';
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
         $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['cookieDecrypt'])
+            ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
         $this->object->expects($this->once())
@@ -615,10 +579,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertEquals(
-            'testBF',
-            $this->object->user
-        );
+        $this->assertEquals('testBF', $this->object->user);
     }
 
     public function testAuthCheckDecryptPassword(): void
@@ -630,7 +591,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
         $GLOBALS['cfg']['CaptchaResponseParam'] = '';
@@ -638,15 +599,15 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_SESSION['browser_access_time']['default'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['cookieDecrypt'])
+            ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
-        $this->object->expects($this->at(1))
+        $this->object->expects($this->exactly(2))
             ->method('cookieDecrypt')
             ->will($this->returnValue('{"password":""}'));
 
@@ -654,14 +615,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertTrue(
-            $GLOBALS['from_cookie']
-        );
+        $this->assertTrue($GLOBALS['from_cookie']);
 
-        $this->assertEquals(
-            '',
-            $this->object->password
-        );
+        $this->assertEquals('', $this->object->password);
     }
 
     public function testAuthCheckAuthFails(): void
@@ -672,7 +628,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         $_SESSION['last_access_time'] = 1;
         $GLOBALS['cfg']['CaptchaApi'] = '';
         $GLOBALS['cfg']['CaptchaRequestParam'] = '';
@@ -681,12 +637,12 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
         $_SESSION['browser_access_time']['default'] = -1;
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showFailure', 'cookieDecrypt'])
+            ->onlyMethods(['showFailure', 'cookieDecrypt'])
             ->getMock();
 
         $this->object->expects($this->once())
@@ -721,29 +677,20 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = true;
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
 
         $this->object->storeCredentials();
 
         $this->object->rememberCredentials();
 
-        $this->assertArrayHasKey(
-            'pmaUser-2',
-            $_COOKIE
-        );
+        $this->assertArrayHasKey('pmaUser-2', $_COOKIE);
 
-        $this->assertArrayHasKey(
-            'pmaAuth-2',
-            $_COOKIE
-        );
+        $this->assertArrayHasKey('pmaAuth-2', $_COOKIE);
 
         $arr['password'] = 'testPW';
         $arr['host'] = 'b';
         $arr['port'] = '2';
-        $this->assertEquals(
-            $arr,
-            $GLOBALS['cfg']['Server']
-        );
+        $this->assertEquals($arr, $GLOBALS['cfg']['Server']);
     }
 
     public function testAuthSetUserWithHeaders(): void
@@ -780,7 +727,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -794,8 +741,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
-            'Login without a password is forbidden by configuration'
-            . ' (see AllowNoPassword)'
+            'Login without a password is forbidden by configuration (see AllowNoPassword)'
         );
     }
 
@@ -851,17 +797,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             );
         }
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            $connError
-        );
+        $this->assertEquals($GLOBALS['conn_error'], $connError);
     }
 
     public function testAuthFailsDeny(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -873,17 +816,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('allow-denied');
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            'Access denied!'
-        );
+        $this->assertEquals($GLOBALS['conn_error'], 'Access denied!');
     }
 
     public function testAuthFailsActivity(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -909,7 +849,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -919,9 +859,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(''));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 42;
@@ -932,26 +872,23 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('');
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            '#42 Cannot log in to the MySQL server'
-        );
+        $this->assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
     public function testAuthFailsErrno(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(''));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['server'] = 2;
@@ -965,18 +902,12 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('');
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            'Cannot log in to the MySQL server'
-        );
+        $this->assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }
 
     public function testGetEncryptionSecretEmpty(): void
     {
-        $method = new ReflectionMethod(
-            AuthenticationCookie::class,
-            'getEncryptionSecret'
-        );
+        $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
         $method->setAccessible(true);
 
         $GLOBALS['cfg']['blowfish_secret'] = '';
@@ -984,149 +915,57 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertEquals(
-            $result,
-            $_SESSION['encryption_key']
-        );
-
-        $this->assertEquals(
-            32,
-            strlen($result)
-        );
+        $this->assertSame($result, $_SESSION['encryption_key']);
+        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($result, '8bit'));
     }
 
     public function testGetEncryptionSecretConfigured(): void
     {
-        $method = new ReflectionMethod(
-            AuthenticationCookie::class,
-            'getEncryptionSecret'
-        );
+        $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
         $method->setAccessible(true);
 
-        $GLOBALS['cfg']['blowfish_secret'] = 'notEmpty';
+        $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $GLOBALS['cfg']['blowfish_secret'] = $key;
+        $_SESSION['encryption_key'] = '';
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertEquals(
-            'notEmpty',
-            $result
-        );
+        $this->assertSame($key, $result);
     }
 
-    public function testCookieEncrypt(): void
+    public function testGetSessionEncryptionSecretConfigured(): void
     {
-        $this->object->setIV('testiv09testiv09');
-        // works with the openssl extension active or inactive
-        $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2def'
-            . 'ef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
-            $this->object->cookieEncrypt('data123', 'sec321')
-        );
+        $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
+        $method->setAccessible(true);
+
+        $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $GLOBALS['cfg']['blowfish_secret'] = 'blowfish_secret';
+        $_SESSION['encryption_key'] = $key;
+
+        $result = $method->invoke($this->object, null);
+
+        $this->assertSame($key, $result);
     }
 
-    public function testCookieEncryptPHPSecLib(): void
+    public function testCookieEncryption(): void
     {
-        $this->object->setUseOpenSSL(false);
-        $this->testCookieEncrypt();
-    }
-
-    public function testCookieEncryptOpenSSL(): void
-    {
-        if (! function_exists('openssl_encrypt')) {
-            $this->markTestSkipped('openssl not available');
-        }
-        $this->object->setUseOpenSSL(true);
-        $this->testCookieEncrypt();
-    }
-
-    public function testCookieDecrypt(): void
-    {
-        // works with the openssl extension active or inactive
-        $this->assertEquals(
-            'data123',
-            $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec'
-                . '2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
-                'sec321'
-            )
-        );
-        $this->assertEquals(
-            'root',
-            $this->object->cookieDecrypt(
-                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc'
-                . '571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
-                ':Kb1?)c(r{]-{`HW*hOzuufloK(M~!p'
-            )
-        );
-        $this->assertFalse(
-            $this->object->cookieDecrypt(
-                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc'
-                . '571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
-                'aedzoiefpzf,zf1z7ef6ef84'
-            )
-        );
-    }
-
-    public function testCookieDecryptPHPSecLib(): void
-    {
-        $this->object->setUseOpenSSL(false);
-        $this->testCookieDecrypt();
-    }
-
-    public function testCookieDecryptOpenSSL(): void
-    {
-        if (! function_exists('openssl_encrypt')) {
-            $this->markTestSkipped('openssl not available');
-        }
-        $this->object->setUseOpenSSL(true);
-        $this->testCookieDecrypt();
+        $key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $encrypted = $this->object->cookieEncrypt('data123', $key);
+        $this->assertNotFalse(base64_decode($encrypted, true));
+        $this->assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
     }
 
     public function testCookieDecryptInvalid(): void
     {
-        // works with the openssl extension active or inactive
-        $this->assertFalse(
-            $this->object->cookieDecrypt(
-                '{"iv":0,"mac":0,"payload":0}',
-                'sec321'
-            )
-        );
-    }
+        $this->assertNull($this->object->cookieDecrypt('', ''));
 
-    /**
-     * Test for secret splitting using getAESSecret
-     *
-     * @param string $secret secret
-     * @param string $mac    mac
-     * @param string $aes    aes
-     *
-     * @dataProvider secretsProvider
-     */
-    public function testMACSecretSplit(string $secret, string $mac, string $aes): void
-    {
-        $this->assertNotEmpty($aes);// Useless check
-        $this->assertEquals(
-            $mac,
-            $this->object->getMACSecret($secret)
-        );
-    }
+        $key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
+        $encrypted = $this->object->cookieEncrypt('data123', $key);
+        $this->assertSame('data123', $this->object->cookieDecrypt($encrypted, $key));
 
-    /**
-     * Test for secret splitting using getMACSecret and getAESSecret
-     *
-     * @param string $secret secret
-     * @param string $mac    mac
-     * @param string $aes    aes
-     *
-     * @dataProvider secretsProvider
-     */
-    public function testAESSecretSplit(string $secret, string $mac, string $aes): void
-    {
-        $this->assertNotEmpty($mac);// Useless check
-        $this->assertEquals(
-            $aes,
-            $this->object->getAESSecret($secret)
-        );
+        $this->assertNull($this->object->cookieDecrypt('', $key));
+        $this->assertNull($this->object->cookieDecrypt($encrypted, ''));
+        $this->assertNull($this->object->cookieDecrypt($encrypted, random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES)));
     }
 
     /**
@@ -1134,74 +973,23 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      */
     public function testPasswordChange(): void
     {
+        $GLOBALS['server'] = 1;
         $newPassword = 'PMAPASSWD2';
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $_SESSION['encryption_key'] = '';
-        $this->object->setIV('testiv09testiv09');
 
         $this->object->handlePasswordChange($newPassword);
 
-        $payload = [
-            'password' => $newPassword,
-            'server' => 'b 2',
-        ];
-        $method = new ReflectionMethod(
-            AuthenticationCookie::class,
-            'getSessionEncryptionSecret'
-        );
-        $method->setAccessible(true);
+        $payload = ['password' => $newPassword, 'server' => 'b 2'];
 
-        $encryptedCookie = $this->object->cookieEncrypt(
-            (string) json_encode($payload),
-            $method->invoke($this->object, null)
-        );
-        $this->assertEquals(
+        $this->assertIsString($_COOKIE['pmaAuth-' . $GLOBALS['server']]);
+        $decryptedCookie = $this->object->cookieDecrypt(
             $_COOKIE['pmaAuth-' . $GLOBALS['server']],
-            $encryptedCookie
+            $_SESSION['encryption_key']
         );
-    }
-
-    /**
-     * Data provider for secrets splitting.
-     *
-     * @return array
-     */
-    public function secretsProvider(): array
-    {
-        return [
-            // Optimal case
-            [
-                '1234567890123456abcdefghijklmnop',
-                '1234567890123456',
-                'abcdefghijklmnop',
-            ],
-            // Overlapping secret
-            [
-                '12345678901234567',
-                '1234567890123456',
-                '2345678901234567',
-            ],
-            // Short secret
-            [
-                '1234567890123456',
-                '1234567890123451',
-                '2345678901234562',
-            ],
-            // Really short secret
-            [
-                '12',
-                '1111111111111111',
-                '2222222222222222',
-            ],
-            // Too short secret
-            [
-                '1',
-                '1111111111111111',
-                '1111111111111111',
-            ],
-        ];
+        $this->assertSame(json_encode($payload), $decryptedCookie);
     }
 
     public function testAuthenticate(): void

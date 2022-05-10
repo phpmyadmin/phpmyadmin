@@ -6,17 +6,20 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 use function array_keys;
 use function htmlspecialchars;
-use function in_array;
 use function json_encode;
 use function min;
 use function strlen;
@@ -29,24 +32,22 @@ class ChartController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name.
-     * @param string            $table    Table name.
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $table, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $db, $table, $cfg, $sql_query, $err_url;
+        global $db, $table, $cfg, $sql_query, $errorUrl;
 
-        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
-        ) {
+        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()) {
             $this->ajax();
 
             return;
@@ -56,7 +57,7 @@ class ChartController extends AbstractController
         if (! isset($sql_query) || $sql_query == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))
+                Message::error(__('No SQL query was set to fetch data.'))->getDisplay()
             );
 
             return;
@@ -86,8 +87,8 @@ class ChartController extends AbstractController
             Util::checkParameters(['db', 'table']);
 
             $url_params = ['db' => $db, 'table' => $table];
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $err_url .= Url::getCommon($url_params, '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $errorUrl .= Url::getCommon($url_params, '&');
 
             DbTableExists::check();
 
@@ -95,57 +96,49 @@ class ChartController extends AbstractController
             $url_params['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb($db);
         } elseif (strlen($db) > 0) {
-            $url_params['goto'] = Util::getScriptNameForOption(
-                $cfg['DefaultTabDatabase'],
-                'database'
-            );
+            $url_params['goto'] = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
             $url_params['back'] = Url::getFromRoute('/sql');
 
             Util::checkParameters(['db']);
 
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-            $err_url .= Url::getCommon(['db' => $db], '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $errorUrl .= Url::getCommon(['db' => $db], '&');
 
             if (! $this->hasDatabase()) {
                 return;
             }
         } else {
-            $url_params['goto'] = Util::getScriptNameForOption(
-                $cfg['DefaultTabServer'],
-                'server'
-            );
+            $url_params['goto'] = Util::getScriptNameForOption($cfg['DefaultTabServer'], 'server');
             $url_params['back'] = Url::getFromRoute('/sql');
-            $err_url = Url::getFromRoute('/');
+            $errorUrl = Url::getFromRoute('/');
 
             if ($this->dbi->isSuperUser()) {
                 $this->dbi->selectDb('mysql');
             }
         }
 
-        $data = [];
-
         $result = $this->dbi->tryQuery($sql_query);
-        $fields_meta = $this->dbi->getFieldsMeta($result);
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $data[] = $row;
+        $fields_meta = $row = [];
+        if ($result !== false) {
+            $fields_meta = $this->dbi->getFieldsMeta($result);
+            $row = $result->fetchAssoc();
         }
 
-        $keys = array_keys($data[0]);
-
-        $numeric_types = [
-            'int',
-            'real',
-        ];
-        $numeric_column_count = 0;
-        foreach ($keys as $idx => $key) {
-            if (! in_array($fields_meta[$idx]->type, $numeric_types)) {
-                continue;
+        $keys = array_keys($row);
+        $numericColumnFound = false;
+        foreach (array_keys($keys) as $idx) {
+            if (
+                isset($fields_meta[$idx]) && (
+                $fields_meta[$idx]->isType(FieldMetadata::TYPE_INT)
+                || $fields_meta[$idx]->isType(FieldMetadata::TYPE_REAL)
+                )
+            ) {
+                $numericColumnFound = true;
+                break;
             }
-
-            $numeric_column_count++;
         }
 
-        if ($numeric_column_count == 0) {
+        if (! $numericColumnFound) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(
                 'message',
@@ -158,6 +151,8 @@ class ChartController extends AbstractController
         $url_params['db'] = $db;
         $url_params['reload'] = 1;
 
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sql_query);
+
         /**
          * Displays the page
          */
@@ -165,9 +160,8 @@ class ChartController extends AbstractController
             'url_params' => $url_params,
             'keys' => $keys,
             'fields_meta' => $fields_meta,
-            'numeric_types' => $numeric_types,
-            'numeric_column_count' => $numeric_column_count,
-            'sql_query' => $sql_query,
+            'table_has_a_numeric_column' => $numericColumnFound,
+            'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
         ]);
     }
 
@@ -176,14 +170,14 @@ class ChartController extends AbstractController
      */
     public function ajax(): void
     {
-        global $db, $table, $sql_query, $url_params, $err_url, $cfg;
+        global $db, $table, $sql_query, $urlParams, $errorUrl, $cfg;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
             Util::checkParameters(['db', 'table']);
 
-            $url_params = ['db' => $db, 'table' => $table];
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $err_url .= Url::getCommon($url_params, '&');
+            $urlParams = ['db' => $db, 'table' => $table];
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $errorUrl .= Url::getCommon($urlParams, '&');
 
             DbTableExists::check();
         }
@@ -194,42 +188,40 @@ class ChartController extends AbstractController
          */
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {
-            $statement->limit = new Limit(
-                $_REQUEST['session_max_rows'],
-                $_REQUEST['pos']
-            );
+            $statement->limit = new Limit($_REQUEST['session_max_rows'], $_REQUEST['pos']);
         } else {
             $start = $statement->limit->offset + $_REQUEST['pos'];
-            $rows = min(
-                $_REQUEST['session_max_rows'],
-                $statement->limit->rowCount - $_REQUEST['pos']
-            );
+            $rows = min($_REQUEST['session_max_rows'], $statement->limit->rowCount - $_REQUEST['pos']);
             $statement->limit = new Limit($rows, $start);
         }
+
         $sql_with_limit = $statement->build();
 
-        $data = [];
         $result = $this->dbi->tryQuery($sql_with_limit);
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $data[] = $row;
+        $data = [];
+        if ($result !== false) {
+            $data = $result->fetchAllAssoc();
         }
 
-        if (empty($data)) {
+        if ($data === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No data to display'));
 
             return;
         }
+
         $sanitized_data = [];
 
-        foreach ($data as $data_row_number => $data_row) {
+        foreach ($data as $data_row) {
             $tmp_row = [];
             foreach ($data_row as $data_column => $data_value) {
                 $escaped_value = $data_value === null ? null : htmlspecialchars($data_value);
                 $tmp_row[htmlspecialchars($data_column)] = $escaped_value;
             }
+
             $sanitized_data[] = $tmp_row;
         }
+
         $this->response->setRequestStatus(true);
         $this->response->addJSON('message', null);
         $this->response->addJSON('chartData', json_encode($sanitized_data));

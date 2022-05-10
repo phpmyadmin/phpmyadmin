@@ -5,15 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 
+/**
+ * @covers \PhpMyAdmin\Export\Options
+ */
 class OptionsTest extends AbstractTestCase
 {
     /** @var Options */
@@ -24,16 +27,12 @@ class OptionsTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['server'] = 0;
 
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'PMA';
-
-        //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = '';
 
         $pmaconfig = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()
@@ -43,7 +42,7 @@ class OptionsTest extends AbstractTestCase
             ->method('getUserValue')
             ->will($this->returnValue('user value for test'));
 
-        $GLOBALS['PMA_Config'] = $pmaconfig;
+        $GLOBALS['config'] = $pmaconfig;
 
         $this->export = new Options(
             new Relation($GLOBALS['dbi']),
@@ -84,7 +83,7 @@ class OptionsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $exportList = Plugins::getExport($export_type, true);
-        $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
+        $dropdown = Plugins::getChoice($exportList, 'sql');
 
         //Call the test function
         $actual = $this->export->getOptions(
@@ -115,7 +114,7 @@ class OptionsTest extends AbstractTestCase
                 'template_id' => '',
             ],
             'export_method' => $cfg['Export']['method'],
-            'dropdown' => $dropdown,
+            'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'exec_time_limit' => $cfg['ExecTimeLimit'],

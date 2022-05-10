@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 final class TableController extends AbstractController
@@ -14,17 +14,13 @@ final class TableController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
         $this->dbi = $dbi;
     }
 
-    public function all(): void
+    public function __invoke(): void
     {
         if (! isset($_POST['db'])) {
             $this->response->setRequestStatus(false);

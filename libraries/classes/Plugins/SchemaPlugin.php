@@ -9,7 +9,10 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+
+use function __;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -17,51 +20,56 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
  * methods, but those are not declared here, because they are not implemented
  * by all export plugins.
  */
-abstract class SchemaPlugin
+abstract class SchemaPlugin implements Plugin
 {
     /**
-     * PhpMyAdmin\Properties\Plugins\SchemaPluginProperties object containing
-     * the specific schema export plugin type properties
+     * Object containing the specific schema export plugin type properties.
      *
      * @var SchemaPluginProperties
      */
     protected $properties;
+
+    final public function __construct()
+    {
+        $this->init();
+        $this->properties = $this->setProperties();
+    }
+
+    /**
+     * Plugin specific initializations.
+     */
+    protected function init(): void
+    {
+    }
 
     /**
      * Gets the export specific format plugin properties
      *
      * @return SchemaPluginProperties
      */
-    public function getProperties()
+    public function getProperties(): PluginPropertyItem
     {
         return $this->properties;
     }
 
     /**
-     * Sets the export plugins properties and is implemented by
-     * each schema export plugin
-     *
-     * @return void
+     * Sets the export plugins properties and is implemented by each schema export plugin.
      */
-    abstract protected function setProperties();
+    abstract protected function setProperties(): SchemaPluginProperties;
 
     /**
      * Exports the schema into the specified format.
      *
      * @param string $db database name
-     *
-     * @return bool Whether it succeeded
      */
-    abstract public function exportSchema($db);
+    abstract public function exportSchema($db): bool;
 
     /**
      * Adds export options common to all plugins.
      *
      * @param OptionsPropertyMainGroup $propertyGroup property group
-     *
-     * @return void
      */
-    protected function addCommonOptions(OptionsPropertyMainGroup $propertyGroup)
+    protected function addCommonOptions(OptionsPropertyMainGroup $propertyGroup): void
     {
         $leaf = new BoolPropertyItem('show_color', __('Show color'));
         $propertyGroup->addProperty($leaf);
@@ -82,5 +90,10 @@ abstract class SchemaPlugin
         }
 
         return $ret;
+    }
+
+    public function isAvailable(): bool
+    {
+        return true;
     }
 }

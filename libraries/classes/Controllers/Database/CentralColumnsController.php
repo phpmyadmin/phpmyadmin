@@ -7,12 +7,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+
+use function __;
 use function is_bool;
+use function is_numeric;
 use function parse_str;
 use function sprintf;
 
@@ -21,18 +23,17 @@ class CentralColumnsController extends AbstractController
     /** @var CentralColumns */
     private $centralColumns;
 
-    /**
-     * @param Response       $response
-     * @param string         $db             Database name
-     * @param CentralColumns $centralColumns
-     */
-    public function __construct($response, Template $template, $db, $centralColumns)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        CentralColumns $centralColumns
+    ) {
         parent::__construct($response, $template, $db);
         $this->centralColumns = $centralColumns;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $db, $message, $pos, $num_cols;
 
@@ -66,6 +67,7 @@ class CentralColumnsController extends AbstractController
                 'collation' => $_POST['collation'] ?? null,
             ]);
         }
+
         if (isset($_POST['getColumnList'])) {
             $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
@@ -73,6 +75,7 @@ class CentralColumnsController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['add_column'])) {
             $tmp_msg = $this->addColumn([
                 'table-select' => $_POST['table-select'] ?? null,
@@ -94,6 +97,7 @@ class CentralColumnsController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['multi_edit_central_column_save'])) {
             $message = $this->updateMultipleColumn([
                 'db' => $_POST['db'] ?? null,
@@ -113,6 +117,7 @@ class CentralColumnsController extends AbstractController
                 $this->response->addJSON('message', $message);
             }
         }
+
         if (isset($_POST['delete_save'])) {
             $tmp_msg = $this->deleteSave([
                 'db' => $_POST['db'] ?? null,
@@ -126,14 +131,11 @@ class CentralColumnsController extends AbstractController
         ]);
 
         $pos = 0;
-        if (Core::isValid($_POST['pos'], 'integer')) {
+        if (isset($_POST['pos']) && is_numeric($_POST['pos'])) {
             $pos = (int) $_POST['pos'];
         }
-        $num_cols = $this->centralColumns->getColumnsCount(
-            $db,
-            $pos,
-            (int) $cfg['MaxRows']
-        );
+
+        $num_cols = $this->centralColumns->getColumnsCount($db, $pos, (int) $cfg['MaxRows']);
         $message = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $num_cols)
         );
@@ -149,28 +151,20 @@ class CentralColumnsController extends AbstractController
      */
     public function main(array $params): void
     {
-        global $text_dir, $PMA_Theme;
+        global $text_dir;
 
-        if (! empty($params['total_rows'])
-            && Core::isValid($params['total_rows'], 'integer')
-        ) {
+        if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
             $totalRows = (int) $params['total_rows'];
         } else {
             $totalRows = $this->centralColumns->getCount($this->db);
         }
 
         $pos = 0;
-        if (Core::isValid($params['pos'], 'integer')) {
+        if (isset($params['pos']) && is_numeric($params['pos'])) {
             $pos = (int) $params['pos'];
         }
 
-        $variables = $this->centralColumns->getTemplateVariablesForMain(
-            $this->db,
-            $totalRows,
-            $pos,
-            $PMA_Theme->getImgPath(),
-            $text_dir
-        );
+        $variables = $this->centralColumns->getTemplateVariablesForMain($this->db, $totalRows, $pos, $text_dir);
 
         $this->render('database/central_columns/main', $variables);
     }
@@ -182,16 +176,7 @@ class CentralColumnsController extends AbstractController
      */
     public function getColumnList(array $params): array
     {
-        return $this->centralColumns->getListRaw(
-            $this->db,
-            $params['cur_table'] ?? ''
-        );
-    }
-
-    public function populateColumns(): void
-    {
-        $columns = $this->centralColumns->getColumnsNotInCentralList($this->db, $_POST['selectedTable']);
-        $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
+        return $this->centralColumns->getListRaw($this->db, $params['cur_table'] ?? '');
     }
 
     /**
@@ -265,10 +250,7 @@ class CentralColumnsController extends AbstractController
      */
     public function editPage(array $params): void
     {
-        $rows = $this->centralColumns->getHtmlForEditingPage(
-            $params['selected_fld'],
-            $params['db']
-        );
+        $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
 
         $this->render('database/central_columns/edit', ['rows' => $rows]);
     }
@@ -293,10 +275,6 @@ class CentralColumnsController extends AbstractController
         $name = [];
         parse_str($params['col_name'], $name);
 
-        return $this->centralColumns->deleteColumnsFromList(
-            $params['db'],
-            $name['selected_fld'],
-            false
-        );
+        return $this->centralColumns->deleteColumnsFromList($params['db'], $name['selected_fld'], false);
     }
 }

@@ -12,11 +12,15 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
+
+use function __;
+use function array_keys;
 use function defined;
 use function htmlspecialchars;
 use function intval;
@@ -61,30 +65,24 @@ abstract class AuthenticationPlugin
 
     /**
      * Displays authentication form
-     *
-     * @return bool
      */
-    abstract public function showLoginForm();
+    abstract public function showLoginForm(): bool;
 
     /**
      * Gets authentication credentials
-     *
-     * @return bool
      */
-    abstract public function readCredentials();
+    abstract public function readCredentials(): bool;
 
     /**
      * Set the user and password after last checkings if required
-     *
-     * @return bool
      */
-    public function storeCredentials()
+    public function storeCredentials(): bool
     {
         global $cfg;
 
         $this->setSessionAccessTime();
 
-        $cfg['Server']['user']     = $this->user;
+        $cfg['Server']['user'] = $this->user;
         $cfg['Server']['password'] = $this->password;
 
         return true;
@@ -92,10 +90,8 @@ abstract class AuthenticationPlugin
 
     /**
      * Stores user credentials after successful login.
-     *
-     * @return void
      */
-    public function rememberCredentials()
+    public function rememberCredentials(): void
     {
     }
 
@@ -103,22 +99,18 @@ abstract class AuthenticationPlugin
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return void
      */
-    public function showFailure($failure)
+    public function showFailure($failure): void
     {
         Logging::logUser($this->user, $failure);
     }
 
     /**
      * Perform logout
-     *
-     * @return void
      */
-    public function logOut()
+    public function logOut(): void
     {
-        global $PMA_Config;
+        global $config;
 
         /* Obtain redirect URL (before doing logout) */
         if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
@@ -135,11 +127,9 @@ abstract class AuthenticationPlugin
          * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
          */
         $server = 0;
-        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false
-            && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie'
-        ) {
-            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                if (! $PMA_Config->issetCookie('pmaAuth-' . $key)) {
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
+            foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
+                if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 
@@ -187,10 +177,7 @@ abstract class AuthenticationPlugin
         global $dbi;
 
         if ($failure === 'empty-denied') {
-            return __(
-                'Login without a password is forbidden by configuration'
-                . ' (see AllowNoPassword)'
-            );
+            return __('Login without a password is forbidden by configuration (see AllowNoPassword)');
         }
 
         if ($failure === 'root-denied' || $failure === 'allow-denied') {
@@ -222,10 +209,8 @@ abstract class AuthenticationPlugin
      * Callback when user changes password.
      *
      * @param string $password New password to set
-     *
-     * @return void
      */
-    public function handlePasswordChange($password)
+    public function handlePasswordChange($password): void
     {
     }
 
@@ -234,16 +219,15 @@ abstract class AuthenticationPlugin
      *
      * Tries to workaround PHP 5 session garbage collection which
      * looks at the session file's last modified time
-     *
-     * @return void
      */
-    public function setSessionAccessTime()
+    public function setSessionAccessTime(): void
     {
         if (isset($_REQUEST['guid'])) {
             $guid = (string) $_REQUEST['guid'];
         } else {
             $guid = 'default';
         }
+
         if (isset($_REQUEST['access_time'])) {
             // Ensure access_time is in range <0, LoginCookieValidity + 1>
             // to avoid excessive extension of validity.
@@ -254,6 +238,7 @@ abstract class AuthenticationPlugin
         } else {
             $time = time();
         }
+
         $_SESSION['browser_access_time'][$guid] = $time;
     }
 
@@ -261,10 +246,8 @@ abstract class AuthenticationPlugin
      * High level authentication interface
      *
      * Gets the credentials or shows login form if necessary
-     *
-     * @return void
      */
-    public function authenticate()
+    public function authenticate(): void
     {
         $success = $this->readCredentials();
 
@@ -279,26 +262,27 @@ abstract class AuthenticationPlugin
         $this->storeCredentials();
         /* Check allow/deny rules */
         $this->checkRules();
+        /* clear user cache */
+        Util::clearUserCache();
     }
 
     /**
      * Check configuration defined restrictions for authentication
-     *
-     * @return void
      */
-    public function checkRules()
+    public function checkRules(): void
     {
         global $cfg;
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user based on mod_access in Apache
         if (isset($cfg['Server']['AllowDeny']['order'])) {
-            $allowDeny_forbidden         = false; // default
+            $allowDeny_forbidden = false; // default
             if ($cfg['Server']['AllowDeny']['order'] === 'allow,deny') {
-                $allowDeny_forbidden     = true;
+                $allowDeny_forbidden = true;
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
+
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
@@ -306,6 +290,7 @@ abstract class AuthenticationPlugin
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
+
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
@@ -329,9 +314,7 @@ abstract class AuthenticationPlugin
         }
 
         // is a login without password allowed?
-        if ($cfg['Server']['AllowNoPassword']
-            || $cfg['Server']['password'] !== ''
-        ) {
+        if ($cfg['Server']['AllowNoPassword'] || $cfg['Server']['password'] !== '') {
             return;
         }
 
@@ -351,7 +334,7 @@ abstract class AuthenticationPlugin
             return;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return;
@@ -359,7 +342,8 @@ abstract class AuthenticationPlugin
 
             exit;
         }
-        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
+
+        echo $this->template->render('login/header');
         echo Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
         )->getDisplay();

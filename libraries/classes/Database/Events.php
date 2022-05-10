@@ -7,17 +7,19 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
+use function __;
 use function count;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
-use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
+use function str_contains;
 use function strtoupper;
 use function trim;
 
@@ -60,13 +62,13 @@ class Events
     /** @var Template */
     private $template;
 
-    /** @var Response */
+    /** @var ResponseRenderer */
     private $response;
 
     /**
      * @param DatabaseInterface $dbi      DatabaseInterface instance.
      * @param Template          $template Template instance.
-     * @param Response          $response Response instance.
+     * @param ResponseRenderer  $response Response instance.
      */
     public function __construct(DatabaseInterface $dbi, Template $template, $response)
     {
@@ -77,16 +79,12 @@ class Events
 
     /**
      * Handles editor requests for adding or editing an item
-     *
-     * @return void
      */
-    public function handleEditor()
+    public function handleEditor(): void
     {
         global $db, $table, $errors, $message;
 
-        if (! empty($_POST['editor_process_add'])
-            || ! empty($_POST['editor_process_edit'])
-        ) {
+        if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $sql_query = '';
 
             $item_query = $this->getQueryFromRequest();
@@ -96,11 +94,7 @@ class Events
                 // Execute the created query
                 if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $create_item = $this->dbi->getDefinition(
-                        $db,
-                        'EVENT',
-                        $_POST['item_original_name']
-                    );
+                    $create_item = $this->dbi->getDefinition($db, 'EVENT', $_POST['item_original_name']);
                     $drop_item = 'DROP EVENT IF EXISTS '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
@@ -124,7 +118,9 @@ class Events
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
                             $result = $this->dbi->tryQuery($create_item);
-                            $errors = $this->checkResult($result, $create_item, $errors);
+                            if (! $result) {
+                                $errors = $this->checkResult($create_item, $errors);
+                            }
                         } else {
                             $message = Message::success(
                                 __('Event %1$s has been modified.')
@@ -169,6 +165,7 @@ class Events
                 foreach ($errors as $string) {
                     $message->addHtml('<li>' . $string . '</li>');
                 }
+
                 $message->addHtml('</ul>');
             }
 
@@ -201,20 +198,24 @@ class Events
                             ])
                         );
                     }
+
                     $this->response->addJSON('insert', ! empty($event));
                     $this->response->addJSON('message', $output);
                 } else {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
                 }
+
                 $this->response->addJSON('tableType', 'events');
                 exit;
             }
         }
+
         /**
          * Display a form used to add/edit a trigger, if necessary
          */
-        if (! count($errors)
+        if (
+            ! count($errors)
             && (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
             || (empty($_REQUEST['add_item'])
@@ -223,6 +224,7 @@ class Events
         ) {
             return;
         }
+
         // FIXME: this must be simpler than that
         $operation = '';
         $title = '';
@@ -231,6 +233,7 @@ class Events
         if (! empty($_POST['item_changetype'])) {
             $operation = 'change';
         }
+
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
             $title = __('Add event');
@@ -238,7 +241,8 @@ class Events
             $mode = 'add';
         } elseif (! empty($_REQUEST['edit_item'])) {
             $title = __('Edit event');
-            if (! empty($_REQUEST['item_name'])
+            if (
+                ! empty($_REQUEST['item_name'])
                 && empty($_POST['editor_process_edit'])
                 && empty($_POST['item_changetype'])
             ) {
@@ -249,8 +253,10 @@ class Events
             } else {
                 $item = $this->getDataFromRequest();
             }
+
             $mode = 'edit';
         }
+
         $this->sendEditor($mode, $item, $title, $db, $operation);
     }
 
@@ -279,10 +285,11 @@ class Events
         foreach ($indices as $index) {
             $retval[$index] = $_POST[$index] ?? '';
         }
-        $retval['item_type']        = 'ONE TIME';
+
+        $retval['item_type'] = 'ONE TIME';
         $retval['item_type_toggle'] = 'RECURRING';
         if (isset($_POST['item_type']) && $_POST['item_type'] === 'RECURRING') {
-            $retval['item_type']        = 'RECURRING';
+            $retval['item_type'] = 'RECURRING';
             $retval['item_type_toggle'] = 'ONE TIME';
         }
 
@@ -305,34 +312,37 @@ class Events
         $columns = '`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, '
                  . '`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, '
                  . '`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`';
-        $where   = 'EVENT_SCHEMA ' . Util::getCollateForIS() . '='
+        $where = 'EVENT_SCHEMA ' . Util::getCollateForIS() . '='
                  . "'" . $this->dbi->escapeString($db) . "' "
                  . "AND EVENT_NAME='" . $this->dbi->escapeString($name) . "'";
-        $query   = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
-        $item    = $this->dbi->fetchSingleRow($query);
+        $query = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
+        $item = $this->dbi->fetchSingleRow($query);
         if (! $item) {
             return null;
         }
-        $retval['item_name']   = $item['EVENT_NAME'];
+
+        $retval['item_name'] = $item['EVENT_NAME'];
         $retval['item_status'] = $item['STATUS'];
-        $retval['item_type']   = $item['EVENT_TYPE'];
+        $retval['item_type'] = $item['EVENT_TYPE'];
         if ($retval['item_type'] === 'RECURRING') {
             $retval['item_type_toggle'] = 'ONE TIME';
         } else {
             $retval['item_type_toggle'] = 'RECURRING';
         }
-        $retval['item_execute_at']     = $item['EXECUTE_AT'];
+
+        $retval['item_execute_at'] = $item['EXECUTE_AT'];
         $retval['item_interval_value'] = $item['INTERVAL_VALUE'];
         $retval['item_interval_field'] = $item['INTERVAL_FIELD'];
-        $retval['item_starts']         = $item['STARTS'];
-        $retval['item_ends']           = $item['ENDS'];
-        $retval['item_preserve']       = '';
+        $retval['item_starts'] = $item['STARTS'];
+        $retval['item_ends'] = $item['ENDS'];
+        $retval['item_preserve'] = '';
         if ($item['ON_COMPLETION'] === 'PRESERVE') {
-            $retval['item_preserve']   = " checked='checked'";
+            $retval['item_preserve'] = " checked='checked'";
         }
+
         $retval['item_definition'] = $item['EVENT_DEFINITION'];
-        $retval['item_definer']    = $item['DEFINER'];
-        $retval['item_comment']    = $item['EVENT_COMMENT'];
+        $retval['item_definer'] = $item['DEFINER'];
+        $retval['item_comment'] = $item['EVENT_COMMENT'];
 
         return $retval;
     }
@@ -356,11 +366,11 @@ class Events
 
         if ($operation === 'change') {
             if ($item['item_type'] === 'RECURRING') {
-                $item['item_type']         = 'ONE TIME';
-                $item['item_type_toggle']  = 'RECURRING';
+                $item['item_type'] = 'ONE TIME';
+                $item['item_type_toggle'] = 'RECURRING';
             } else {
-                $item['item_type']         = 'RECURRING';
-                $item['item_type_toggle']  = 'ONE TIME';
+                $item['item_type'] = 'RECURRING';
+                $item['item_type_toggle'] = 'ONE TIME';
             }
         }
 
@@ -386,8 +396,7 @@ class Events
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
-            if (mb_strpos($_POST['item_definer'], '@') !== false
-            ) {
+            if (str_contains($_POST['item_definer'], '@')) {
                 $arr = explode('@', $_POST['item_definer']);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
@@ -395,32 +404,34 @@ class Events
                 $errors[] = __('The definer must be in the "username@hostname" format!');
             }
         }
+
         $query .= 'EVENT ';
         if (! empty($_POST['item_name'])) {
             $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
             $errors[] = __('You must provide an event name!');
         }
+
         $query .= 'ON SCHEDULE ';
-        if (! empty($_POST['item_type'])
-            && in_array($_POST['item_type'], $this->type)
-        ) {
+        if (! empty($_POST['item_type']) && in_array($_POST['item_type'], $this->type)) {
             if ($_POST['item_type'] === 'RECURRING') {
-                if (! empty($_POST['item_interval_value'])
+                if (
+                    ! empty($_POST['item_interval_value'])
                     && ! empty($_POST['item_interval_field'])
                     && in_array($_POST['item_interval_field'], $this->interval)
                 ) {
                     $query .= 'EVERY ' . intval($_POST['item_interval_value']) . ' ';
                     $query .= $_POST['item_interval_field'] . ' ';
                 } else {
-                    $errors[]
-                        = __('You must provide a valid interval value for the event.');
+                    $errors[] = __('You must provide a valid interval value for the event.');
                 }
+
                 if (! empty($_POST['item_starts'])) {
                     $query .= "STARTS '"
                         . $this->dbi->escapeString($_POST['item_starts'])
                         . "' ";
                 }
+
                 if (! empty($_POST['item_ends'])) {
                     $query .= "ENDS '"
                         . $this->dbi->escapeString($_POST['item_ends'])
@@ -432,17 +443,18 @@ class Events
                         . $this->dbi->escapeString($_POST['item_execute_at'])
                         . "' ";
                 } else {
-                    $errors[]
-                        = __('You must provide a valid execution time for the event.');
+                    $errors[] = __('You must provide a valid execution time for the event.');
                 }
             }
         } else {
             $errors[] = __('You must provide a valid type for the event.');
         }
+
         $query .= 'ON COMPLETION ';
         if (empty($_POST['item_preserve'])) {
             $query .= 'NOT ';
         }
+
         $query .= 'PRESERVE ';
         if (! empty($_POST['item_status'])) {
             foreach ($this->status['display'] as $key => $value) {
@@ -452,11 +464,11 @@ class Events
                 }
             }
         }
+
         if (! empty($_POST['item_comment'])) {
-            $query .= "COMMENT '" . $this->dbi->escapeString(
-                $_POST['item_comment']
-            ) . "' ";
+            $query .= "COMMENT '" . $this->dbi->escapeString($_POST['item_comment']) . "' ";
         }
+
         $query .= 'DO ';
         if (! empty($_POST['item_definition'])) {
             $query .= $_POST['item_definition'];
@@ -469,28 +481,19 @@ class Events
 
     public function getEventSchedulerStatus(): bool
     {
-        $state = $this->dbi->fetchValue(
-            'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
-            0,
-            1
-        );
+        $state = (string) $this->dbi->fetchValue('SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'', 1);
 
         return strtoupper($state) === 'ON' || $state === '1';
     }
 
     /**
-     * @param resource|bool $result          Query result
-     * @param string|null   $createStatement Query
-     * @param array         $errors          Errors
+     * @param string|null $createStatement Query
+     * @param array       $errors          Errors
      *
      * @return array
      */
-    private function checkResult($result, $createStatement, array $errors)
+    private function checkResult($createStatement, array $errors)
     {
-        if ($result) {
-            return $errors;
-        }
-
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
         // and now even the backup query does not execute!
@@ -512,10 +515,8 @@ class Events
      * @param string     $title     Title of the editor
      * @param string     $db        Database
      * @param string     $operation Operation 'change' or ''
-     *
-     * @return void
      */
-    private function sendEditor($mode, ?array $item, $title, $db, $operation)
+    private function sendEditor($mode, ?array $item, $title, $db, $operation): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($mode, $operation, $item);
@@ -526,10 +527,11 @@ class Events
                 echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
                 unset($_POST);
             }
+
             exit;
         }
 
-        $message  = __('Error in processing request:') . ' ';
+        $message = __('Error in processing request:') . ' ';
         $message .= sprintf(
             __('No event with name %1$s found in database %2$s.'),
             htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
@@ -560,7 +562,7 @@ class Events
             $exportData = false;
         }
 
-        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
+        $itemName = htmlspecialchars(Util::backquote($itemName));
         if ($exportData !== false) {
             $exportData = htmlspecialchars(trim($exportData));
             $title = sprintf(__('Export of event %s'), $itemName);
@@ -572,10 +574,13 @@ class Events
                 exit;
             }
 
-            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
-                . $exportData . '</textarea>';
-            echo "<fieldset>\n" . '<legend>' . $title . "</legend>\n"
-                . $exportData . "</fieldset>\n";
+            $output = '<div class="container">';
+            $output .= '<h2>' . $title . '</h2>';
+            $output .= '<div class="card"><div class="card-body">';
+            $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
+            $output .= '</div></div></div>';
+
+            $this->response->addHTML($output);
 
             return;
         }
@@ -594,6 +599,6 @@ class Events
             exit;
         }
 
-        echo $message->getDisplay();
+        $this->response->addHTML($message->getDisplay());
     }
 }

@@ -8,11 +8,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use function define;
-use function defined;
+
+use function __;
 use function extension_loaded;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportShp
  * @requires extension zip
  */
 class ImportShpTest extends AbstractTestCase
@@ -23,16 +24,11 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
-        if (! defined('PMA_IS_WINDOWS')) {
-            define('PMA_IS_WINDOWS', false);
-        }
+
         $GLOBALS['server'] = 0;
         //setting
         $GLOBALS['plugin_param'] = 'table';
@@ -78,8 +74,6 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -103,10 +97,7 @@ class ImportShpTest extends AbstractTestCase
             'shp',
             $properties->getExtension()
         );
-        $this->assertEquals(
-            [],
-            $properties->getOptions()
-        );
+        $this->assertNull($properties->getOptions());
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()
@@ -166,8 +157,7 @@ class ImportShpTest extends AbstractTestCase
 
         // asset that all sql are executed
         $this->assertStringContainsString(
-            'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER '
-            . 'SET utf8 COLLATE utf8_general_ci',
+            'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
             $sql_query
         );
 
@@ -190,16 +180,10 @@ class ImportShpTest extends AbstractTestCase
                 $sql_query
             );
 
-            $this->assertStringContainsString(
-                'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES',
-                $sql_query
-            );
+            $this->assertStringContainsString('INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES', $sql_query);
         }
 
-        $this->assertStringContainsString(
-            "GeomFromText('POINT(1294523.1759236",
-            $sql_query
-        );
+        $this->assertStringContainsString("GeomFromText('POINT(1294523.1759236", $sql_query);
 
         //asset that all databases and tables are imported
         $this->assertMessages($import_notice);
@@ -216,26 +200,12 @@ class ImportShpTest extends AbstractTestCase
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString(
-            'Go to database: `SHP_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `SHP_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Go to table: `TBL_NAME`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `TBL_NAME`',
-            $import_notice
-        );
+        $this->assertStringContainsString('Go to database: `SHP_DB`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `SHP_DB`', $import_notice);
+        $this->assertStringContainsString('Go to table: `TBL_NAME`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `TBL_NAME`', $import_notice);
 
         //asset that the import process is finished
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

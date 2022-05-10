@@ -11,6 +11,9 @@ use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
+use PhpMyAdmin\Version;
+
+use function __;
 use function in_array;
 use function max;
 use function min;
@@ -28,7 +31,7 @@ use function sprintf;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @name Svg_Relation_Schema
+ * @property Svg $diagram
  */
 class SvgRelationSchema extends ExportRelationSchema
 {
@@ -51,7 +54,7 @@ class SvgRelationSchema extends ExportRelationSchema
     private $yMin = 100000;
 
     /** @var int */
-    private $tablewidth;
+    private $tablewidth = 0;
 
     /**
      * Upon instantiation This starts writing the SVG XML document
@@ -77,7 +80,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 $this->pageNumber
             )
         );
-        $this->diagram->SetAuthor('phpMyAdmin ' . PMA_VERSION);
+        $this->diagram->SetAuthor('phpMyAdmin ' . Version::VERSION);
         $this->diagram->setFont('Arial');
         $this->diagram->setFontSize(16);
 
@@ -102,6 +105,7 @@ class SvgRelationSchema extends ExportRelationSchema
             if ($this->sameWide) {
                 $this->tables[$table]->width = &$this->tablewidth;
             }
+
             $this->setMinMax($this->tables[$table]);
         }
 
@@ -139,6 +143,7 @@ class SvgRelationSchema extends ExportRelationSchema
                             $this->tableDimension
                         );
                     }
+
                     continue;
                 }
 
@@ -161,6 +166,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 }
             }
         }
+
         if ($seen_a_relation) {
             $this->drawRelations();
         }
@@ -171,10 +177,8 @@ class SvgRelationSchema extends ExportRelationSchema
 
     /**
      * Output RelationStatsSvg Document for download
-     *
-     * @return void
      */
-    public function showOutput()
+    public function showOutput(): void
     {
         $this->diagram->showOutput($this->getFileName('.svg'));
     }
@@ -183,10 +187,8 @@ class SvgRelationSchema extends ExportRelationSchema
      * Sets X and Y minimum and maximum for a table cell
      *
      * @param TableStatsSvg $table The table
-     *
-     * @return void
      */
-    private function setMinMax($table)
+    private function setMinMax($table): void
     {
         $this->xMax = max($this->xMax, $table->x + $table->width);
         $this->yMax = max($this->yMax, $table->y + $table->height);
@@ -207,8 +209,6 @@ class SvgRelationSchema extends ExportRelationSchema
      * @param string $foreignTable   The foreign table name
      * @param string $foreignField   The relation field in the foreign table
      * @param bool   $tableDimension Whether to display table position or not
-     *
-     * @return void
      */
     private function addRelation(
         $masterTable,
@@ -218,7 +218,7 @@ class SvgRelationSchema extends ExportRelationSchema
         $foreignTable,
         $foreignField,
         $tableDimension
-    ) {
+    ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsSvg(
                 $this->diagram,
@@ -233,6 +233,7 @@ class SvgRelationSchema extends ExportRelationSchema
             );
             $this->setMinMax($this->tables[$masterTable]);
         }
+
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsSvg(
                 $this->diagram,
@@ -247,6 +248,7 @@ class SvgRelationSchema extends ExportRelationSchema
             );
             $this->setMinMax($this->tables[$foreignTable]);
         }
+
         $this->relations[] = new RelationStatsSvg(
             $this->diagram,
             $this->tables[$masterTable],
@@ -262,10 +264,8 @@ class SvgRelationSchema extends ExportRelationSchema
      * foreign table's foreign field
      *
      * @see Relation_Stats_Svg::relationDraw()
-     *
-     * @return void
      */
-    private function drawRelations()
+    private function drawRelations(): void
     {
         foreach ($this->relations as $relation) {
             $relation->relationDraw($this->showColor);
@@ -276,10 +276,8 @@ class SvgRelationSchema extends ExportRelationSchema
      * Draws tables
      *
      * @see TableStatsSvg::Table_Stats_tableDraw()
-     *
-     * @return void
      */
-    private function drawTables()
+    private function drawTables(): void
     {
         foreach ($this->tables as $table) {
             $table->tableDraw($this->showColor);

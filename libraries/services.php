@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
+
 return [
     'services' => [
         'advisor' => [
@@ -55,6 +58,7 @@ return [
                 '@http_request',
                 '@relation',
                 '@template',
+                '@config',
             ],
         ],
         'events' => [
@@ -83,11 +87,18 @@ return [
         'expression_language' => [
             'class' => Symfony\Component\ExpressionLanguage\ExpressionLanguage::class,
         ],
+        'flash' => [
+            'class' => PhpMyAdmin\FlashMessages::class,
+        ],
         'http_request' => [
             'class' => PhpMyAdmin\Utils\HttpRequest::class,
         ],
         'import' => [
             'class' => PhpMyAdmin\Import::class,
+        ],
+        'import_simulate_dml' => [
+            'class' => PhpMyAdmin\Import\SimulateDml::class,
+            'arguments' => ['@dbi'],
         ],
         'insert_edit' => [
             'class' => PhpMyAdmin\InsertEdit::class,
@@ -117,15 +128,16 @@ return [
                 '$relation' => '@relation',
             ],
         ],
+        'partitioning_maintenance' => [
+            'class' => PhpMyAdmin\Partitioning\Maintenance::class,
+            'arguments' => ['$dbi' => '@dbi'],
+        ],
         'relation' => [
-            'class' => PhpMyAdmin\Relation::class,
-            'arguments' => [
-                '@dbi',
-                '@template',
-            ],
+            'class' => Relation::class,
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'relation_cleanup' => [
-            'class' => PhpMyAdmin\RelationCleanup::class,
+            'class' => RelationCleanup::class,
             'arguments' => [
                 '@dbi',
                 '@relation',
@@ -142,8 +154,8 @@ return [
             ],
         ],
         'response' => [
-            'class' => PhpMyAdmin\Response::class,
-            'factory' => [PhpMyAdmin\Response::class, 'getInstance'],
+            'class' => PhpMyAdmin\ResponseRenderer::class,
+            'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
         ],
         'server_plugins' => [
             'class' => PhpMyAdmin\Server\Plugins::class,
@@ -156,7 +168,12 @@ return [
                 '@dbi',
                 '@relation',
                 '@relation_cleanup',
+                '@server_plugins',
             ],
+        ],
+        'server_privileges_account_locking' => [
+            'class' => PhpMyAdmin\Server\Privileges\AccountLocking::class,
+            'arguments' => ['@dbi'],
         ],
         'sql' => [
             'class' => PhpMyAdmin\Sql::class,
@@ -180,12 +197,16 @@ return [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
             'arguments' => ['@dbi'],
         ],
+        'status_processes' => [
+            'class' => PhpMyAdmin\Server\Status\Processes::class,
+            'arguments' => ['@dbi'],
+        ],
+        'table_indexes' => [
+            'class' => PhpMyAdmin\Table\Indexes::class,
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+        ],
         'table_maintenance' => [
             'class' => PhpMyAdmin\Table\Maintenance::class,
-            'arguments' => ['$dbi' => '@dbi'],
-        ],
-        'table_partition' => [
-            'class' => PhpMyAdmin\Table\Partition::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
         'table_search' => [
@@ -201,6 +222,7 @@ return [
                 '$sqlQueryForm' => '@sql_query_form',
                 '$template' => '@template',
                 '$relation' => '@relation',
+                '$dbi' => '@dbi',
             ],
         ],
         'transformations' => [
@@ -213,7 +235,8 @@ return [
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
         ],
-        PhpMyAdmin\Response::class => 'response',
         PhpMyAdmin\DatabaseInterface::class => 'dbi',
+        PhpMyAdmin\FlashMessages::class => 'flash',
+        PhpMyAdmin\ResponseRenderer::class => 'response',
     ],
 ];

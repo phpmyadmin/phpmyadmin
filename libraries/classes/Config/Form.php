@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use const E_USER_ERROR;
 use function array_combine;
 use function array_shift;
 use function array_walk;
@@ -23,6 +22,8 @@ use function mb_strrpos;
 use function mb_substr;
 use function str_replace;
 use function trigger_error;
+
+use const E_USER_ERROR;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
@@ -133,11 +134,13 @@ class Form
 
             return [];
         }
+
         if (! is_array($value)) {
             trigger_error($optionPath . ' - not a static value list', E_USER_ERROR);
 
             return [];
         }
+
         // convert array('#', 'a', 'b') to array('a', 'b')
         if (isset($value[0]) && $value[0] === '#') {
             // remove first element ('#')
@@ -155,9 +158,12 @@ class Form
                 $hasStringKeys = true;
                 break;
             }
+
             $keys[] = is_bool($value[$i]) ? (int) $value[$i] : $value[$i];
         }
+
         if (! $hasStringKeys) {
+            /** @var array $value */
             $value = array_combine($keys, $value);
         }
 
@@ -172,16 +178,14 @@ class Form
      * @param mixed $value  Value
      * @param mixed $key    Key
      * @param mixed $prefix Prefix
-     *
-     * @return void
      */
-    private function readFormPathsCallback($value, $key, $prefix)
+    private function readFormPathsCallback($value, $key, $prefix): void
     {
         if (is_array($value)) {
             $prefix .= $key . '/';
             array_walk(
                 $value,
-                function ($value, $key, $prefix) {
+                function ($value, $key, $prefix): void {
                     $this->readFormPathsCallback($value, $key, $prefix);
                 },
                 $prefix
@@ -194,10 +198,12 @@ class Form
             $this->default[$prefix . $key] = $value;
             $value = $key;
         }
+
         // add unique id to group ends
         if ($value === ':group:end') {
             $value .= ':' . self::$groupCounter++;
         }
+
         $this->fields[] = $prefix . $value;
     }
 
@@ -213,16 +219,14 @@ class Form
      * Reads form paths to {@link $fields}
      *
      * @param array $form Form
-     *
-     * @return void
      */
-    protected function readFormPaths(array $form)
+    protected function readFormPaths(array $form): void
     {
         // flatten form fields' paths and save them to $fields
         $this->fields = [];
         array_walk(
             $form,
-            function ($value, $key, $prefix) {
+            function ($value, $key, $prefix): void {
                 $this->readFormPathsCallback($value, $key, $prefix);
             },
             ''
@@ -244,10 +248,8 @@ class Form
 
     /**
      * Reads fields' types to $this->fieldsTypes
-     *
-     * @return void
      */
-    protected function readTypes()
+    protected function readTypes(): void
     {
         $cf = $this->configFile;
         foreach ($this->fields as $name => $path) {
@@ -255,12 +257,14 @@ class Form
                 $this->fieldsTypes[$name] = 'group';
                 continue;
             }
+
             $v = $cf->getDbEntry($path);
             if ($v !== null) {
                 $type = is_array($v) ? 'select' : $v;
             } else {
                 $type = gettype($cf->getDefault($path));
             }
+
             $this->fieldsTypes[$name] = $type;
         }
     }
@@ -297,10 +301,8 @@ class Form
      *
      * @param string $formName Form name
      * @param array  $form     Form
-     *
-     * @return void
      */
-    public function loadForm($formName, array $form)
+    public function loadForm($formName, array $form): void
     {
         $this->name = $formName;
         $form = $this->cleanGroupPaths($form);

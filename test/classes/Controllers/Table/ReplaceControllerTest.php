@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
+ */
 class ReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalDbi();
@@ -29,31 +31,30 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'table_coords' => 'table_name',
-            'displaywork' => 'displaywork',
+            'displaywork' => true,
             'db' => 'information_schema',
             'table_info' => 'table_info',
-            'relwork' => 'relwork',
+            'relwork' => true,
             'relation' => 'relation',
-            'mimework' => 'mimework',
-            'commwork' => 'commwork',
+            'mimework' => true,
+            'commwork' => true,
             'column_info' => 'column_info',
             'pdf_pages' => 'pdf_pages',
-            'bookmarkwork' => 'bookmarkwork',
+            'bookmarkwork' => true,
             'bookmark' => 'bookmark',
-            'uiprefswork' => 'uiprefswork',
+            'uiprefswork' => true,
             'table_uiprefs' => 'table_uiprefs',
-        ];
+        ])->toArray();
     }
 
     public function testReplace(): void
     {
         global $containerBuilder;
-        $GLOBALS['url_params'] = [];
-        Response::getInstance()->setAjax(true);
+        $GLOBALS['urlParams'] = [];
+        ResponseRenderer::getInstance()->setAjax(true);
         $_POST['db'] = $GLOBALS['db'];
         $_POST['table'] = $GLOBALS['table'];
         $_POST['ajax_request'] = 'true';
@@ -92,13 +93,61 @@ class ReplaceControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var ReplaceController $replaceController */
         $replaceController = $containerBuilder->get(ReplaceController::class);
-        $replaceController->index();
+        $this->dummyDbi->addSelectDb('my_db');
+        $this->dummyDbi->addSelectDb('my_db');
+        $replaceController();
+        $this->assertAllSelectsConsumed();
         $this->assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
             $this->getResponseHtmlResult()
         );
         $this->assertStringContainsString(
             'SELECT * FROM `test_tbl`',
+            $this->getResponseHtmlResult()
+        );
+    }
+
+    public function testIsInsertRow(): void
+    {
+        global $containerBuilder;
+        $GLOBALS['urlParams'] = [];
+        $GLOBALS['goto'] = 'index.php?route=/sql';
+        $_POST['insert_rows'] = 5;
+        $_POST['sql_query'] = 'SELECT 1';
+        $GLOBALS['cfg']['InsertRows'] = 2;
+        $GLOBALS['cfg']['Server']['host'] = 'host.tld';
+        $GLOBALS['cfg']['Server']['verbose'] = '';
+
+        $this->dummyDbi->addResult(
+            'SHOW TABLES LIKE \'test_tbl\';',
+            [
+                ['test_tbl'],
+            ]
+        );
+
+        $this->dummyDbi->addResult(
+            'SELECT * FROM `my_db`.`test_tbl` LIMIT 1;',
+            []
+        );
+
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        /** @var ReplaceController $replaceController */
+        $replaceController = $containerBuilder->get(ReplaceController::class);
+        $this->dummyDbi->addSelectDb('my_db');
+        $this->dummyDbi->addSelectDb('my_db');
+        $this->dummyDbi->addSelectDb('my_db');
+        $replaceController();
+        $this->assertAllSelectsConsumed();
+        $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
+        $this->assertStringContainsString(
+            '<form id="continueForm" method="post" '
+            . 'action="index.php?route=/table/replace&lang=en" name="continueForm">',
+            $this->getResponseHtmlResult()
+        );
+        $this->assertStringContainsString(
+            'Continue insertion with         <input type="number" '
+            . 'name="insert_rows" id="insert_rows" value="5" min="1">',
             $this->getResponseHtmlResult()
         );
     }

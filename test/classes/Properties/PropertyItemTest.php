@@ -8,6 +8,9 @@ use PhpMyAdmin\Properties\PropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
+/**
+ * @covers \PhpMyAdmin\Properties\PropertyItem
+ */
 class PropertyItemTest extends AbstractTestCase
 {
     /** @var PropertyItem|MockObject */

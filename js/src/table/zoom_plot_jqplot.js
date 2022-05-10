@@ -1,47 +1,47 @@
 // TODO: change the axis
 /**
- ** @fileoverview JavaScript functions used on /table/search
- **
- ** @requires    jQuery
- ** @requires    js/functions.js
+ * @fileoverview JavaScript functions used on /table/search
+ *
+ * @requires    jQuery
+ * @requires    js/functions.js
  **/
 
 /* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
 
 /**
- **  Display Help/Info
+ *  Display Help/Info
+ * @return {false}
  **/
 function displayHelp () {
-    $('<div></div>')
-        .append(Messages.strDisplayHelp)
-        .appendTo('#page_content')
-        .dialog({
-            width: 450,
-            height: 'auto',
-            title: Messages.strHelpTitle
-        });
+    var modal = $('#helpModal');
+    modal.modal('show');
+    modal.find('.modal-body').first().html(Messages.strDisplayHelp);
+    $('#helpModalLabel').first().html(Messages.strHelpTitle);
     return false;
 }
 
 /**
- ** Extend the array object for max function
- ** @param array
+ * Extend the array object for max function
+ * @param {number[]} array
+ * @return {int}
  **/
 Array.max = function (array) {
     return Math.max.apply(Math, array);
 };
 
 /**
- ** Extend the array object for min function
- ** @param array
+ * Extend the array object for min function
+ * @param {number[]} array
+ * @return {int}
  **/
 Array.min = function (array) {
     return Math.min.apply(Math, array);
 };
 
 /**
- ** Checks if a string contains only numeric value
- ** @param n: String (to be checked)
+ * Checks if a string contains only numeric value
+ * @param {string} n (to be checked)
+ * @return {bool}
  **/
 function isNumeric (n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -49,7 +49,8 @@ function isNumeric (n) {
 
 /**
  ** Checks if an object is empty
- ** @param n: Object (to be checked)
+ * @param {object} obj (to be checked)
+ * @return {bool}
  **/
 function isEmpty (obj) {
     var name;
@@ -60,9 +61,10 @@ function isEmpty (obj) {
 }
 
 /**
- ** Converts a date/time into timestamp
- ** @param val  String Date
- ** @param type String  Field type(datetime/timestamp/time/date)
+ * Converts a date/time into timestamp
+ * @param {string} val Date
+ * @param {string} type Field type(datetime/timestamp/time/date)
+ * @return {any} A value
  **/
 function getTimeStamp (val, type) {
     if (type.toString().search(/datetime/i) !== -1 ||
@@ -77,8 +79,9 @@ function getTimeStamp (val, type) {
 }
 
 /**
- ** Classifies the field type into numeric,timeseries or text
- ** @param field: field type (as in database structure)
+ * Classifies the field type into numeric,timeseries or text
+ * @param {object} field field type (as in database structure)
+ * @return {'text'|'numeric'|'time'}
  **/
 function getType (field) {
     if (field.toString().search(/int/i) !== -1 ||
@@ -273,13 +276,9 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         });
 
     /**
-     ** Set dialog properties for the data display form
-     **/
-    var buttonOptions = {};
-    /*
      * Handle saving of a row in the editor
      */
-    buttonOptions[Messages.strSave] = function () {
+    var dataPointSave = function () {
         // Find changed values by comparing form values with selectedRow Object
         var newValues = {};// Stores the values changed from original
         var sqlTypes = {};
@@ -405,21 +404,14 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                 }
             }); // End $.post
         }// End database update
-        $('#dataDisplay').dialog('close');
     };
-    buttonOptions[Messages.strCancel] = function () {
-        $(this).dialog('close');
-    };
-    $('#dataDisplay').dialog({
-        autoOpen: false,
-        title: Messages.strDataPointContent,
-        modal: true,
-        buttons: buttonOptions,
-        width: $('#dataDisplay').width() + 80,
-        open: function () {
-            $(this).find('input[type=checkbox]').css('margin', '0.5em');
-        }
+
+    $('#dataPointSaveButton').on('click', function () {
+        dataPointSave();
     });
+
+    $('#dataPointModalLabel').first().html(Messages.strDataPointContent);
+
     /**
      * Attach Ajax event handlers for input fields
      * in the dialog. Used to submit the Ajax
@@ -428,8 +420,8 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     $(document).on('keydown', '#dataDisplay :input', function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
-            if (typeof buttonOptions[Messages.strSave] === 'function') {
-                buttonOptions[Messages.strSave].call();
+            if (typeof dataPointSave === 'function') {
+                dataPointSave();
             }
         }
     });
@@ -612,7 +604,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     selectedRow = data.row_info;
                 });
 
-                $('#dataDisplay').dialog('open');
+                $('#dataPointModal').modal('show');
             }
         );
     }

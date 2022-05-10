@@ -14,8 +14,46 @@ var designerTables = [
 // eslint-disable-next-line no-unused-vars
 var DesignerOfflineDB = (function () {
     var designerDB = {};
+
+    /**
+     * @type {IDBDatabase|null}
+     */
     var datastore = null;
 
+    /**
+     * @param {String} table
+     * @return {IDBTransaction}
+     */
+    designerDB.getTransaction = function (table) {
+        return datastore.transaction([table], 'readwrite');
+    };
+
+    /**
+     * @param {String} table
+     * @return {IDBObjectStore}
+     */
+    designerDB.getObjectStore = function (table) {
+        var transaction = designerDB.getTransaction(table);
+        var objStore = transaction.objectStore(table);
+        return objStore;
+    };
+
+    /**
+     * @param {IDBTransaction} transaction
+     * @param {String} table
+     * @return {IDBObjectStore}
+     */
+    designerDB.getCursorRequest = function (transaction, table) {
+        var objStore = transaction.objectStore(table);
+        var keyRange = IDBKeyRange.lowerBound(0);
+        var cursorRequest = objStore.openCursor(keyRange);
+        return cursorRequest;
+    };
+
+    /**
+     * @param {Function} callback
+     * @return {void}
+     */
     designerDB.open = function (callback) {
         var version = 1;
         var request = window.indexedDB.open('pma_designer', version);
@@ -41,18 +79,29 @@ var DesignerOfflineDB = (function () {
 
         request.onsuccess = function (e) {
             datastore = e.target.result;
-            if (typeof callback !== 'undefined' && callback !== null) {
+            if (typeof callback === 'function') {
                 callback(true);
             }
         };
 
-        request.onerror = designerDB.onerror;
+        request.onerror = function () {
+            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+        };
     };
 
+    /**
+     * @param {String} table
+     * @param {String} id
+     * @param {Function} callback
+     * @return {void}
+     */
     designerDB.loadObject = function (table, id, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
+        if (datastore === null) {
+            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            return;
+        }
+
+        var objStore = designerDB.getObjectStore(table);
         var cursorRequest = objStore.get(parseInt(id));
 
         cursorRequest.onsuccess = function (e) {
@@ -62,12 +111,19 @@ var DesignerOfflineDB = (function () {
         cursorRequest.onerror = designerDB.onerror;
     };
 
+    /**
+     * @param {String} table
+     * @param {Function} callback
+     * @return {void}
+     */
     designerDB.loadAllObjects = function (table, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
-        var keyRange = IDBKeyRange.lowerBound(0);
-        var cursorRequest = objStore.openCursor(keyRange);
+        if (datastore === null) {
+            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            return;
+        }
+
+        var transaction = designerDB.getTransaction(table);
+        var cursorRequest = designerDB.getCursorRequest(transaction, table);
         var results = [];
 
         transaction.oncomplete = function () {
@@ -86,12 +142,19 @@ var DesignerOfflineDB = (function () {
         cursorRequest.onerror = designerDB.onerror;
     };
 
+    /**
+     * @param {String} table
+     * @param {Function} callback
+     * @return {void}
+     */
     designerDB.loadFirstObject = function (table, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
-        var keyRange = IDBKeyRange.lowerBound(0);
-        var cursorRequest = objStore.openCursor(keyRange);
+        if (datastore === null) {
+            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            return;
+        }
+
+        var transaction = designerDB.getTransaction(table);
+        var cursorRequest = designerDB.getCursorRequest(transaction, table);
         var firstResult = null;
 
         transaction.oncomplete = function () {
@@ -109,14 +172,23 @@ var DesignerOfflineDB = (function () {
         cursorRequest.onerror = designerDB.onerror;
     };
 
+    /**
+     * @param {String} table
+     * @param {Object} obj
+     * @param {Function} callback
+     * @return {void}
+     */
     designerDB.addObject = function (table, obj, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
+        if (datastore === null) {
+            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            return;
+        }
+
+        var objStore = designerDB.getObjectStore(table);
         var request = objStore.put(obj);
 
         request.onsuccess = function (e) {
-            if (typeof callback !== 'undefined' && callback !== null) {
+            if (typeof callback === 'function') {
                 callback(e.currentTarget.result);
             }
         };
@@ -124,14 +196,23 @@ var DesignerOfflineDB = (function () {
         request.onerror = designerDB.onerror;
     };
 
+    /**
+     * @param {String} table
+     * @param {String} id
+     * @param {Function} callback
+     * @return {void}
+     */
     designerDB.deleteObject = function (table, id, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
+        if (datastore === null) {
+            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            return;
+        }
+
+        var objStore = designerDB.getObjectStore(table);
         var request = objStore.delete(parseInt(id));
 
         request.onsuccess = function () {
-            if (typeof callback !== 'undefined' && callback !== null) {
+            if (typeof callback === 'function') {
                 callback(true);
             }
         };
@@ -139,6 +220,10 @@ var DesignerOfflineDB = (function () {
         request.onerror = designerDB.onerror;
     };
 
+    /**
+     * @param {Error} e
+     * @return {void}
+     */
     designerDB.onerror = function (e) {
         // eslint-disable-next-line no-console
         console.log(e);

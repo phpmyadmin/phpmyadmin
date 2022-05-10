@@ -1,7 +1,7 @@
 <form action="{{ url('/table/structure/primary') }}" method="post">
   {{ get_hidden_inputs({'db': db, 'table': table, 'selected': selected}) }}
 
-  <fieldset class="confirmation">
+  <fieldset class="pma-fieldset confirmation">
     <legend>
       {% trans 'Do you really want to execute the following query?' %}
     </legend>
@@ -18,7 +18,7 @@
     </code>
   </fieldset>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     <input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'Yes' %}">
     <input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'No' %}">
   </fieldset>

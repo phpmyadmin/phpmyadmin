@@ -202,7 +202,7 @@ Basic settings
     :default: false
 
     Setting this to ``true`` allows the user to execute queries by pressing Enter
-    instead of Ctrl+Enter. A new line can be inserted by pressing Shift + Enter.
+    instead of Ctrl+Enter. A new line can be inserted by pressing Shift+Enter.
 
     The behaviour of the console can be temporarily changed using console's
     settings interface.
@@ -630,6 +630,27 @@ Server connection settings
     "phpMyAdmin " and either :config:option:`$cfg['Servers'][$i]['verbose']` or
     :config:option:`$cfg['Servers'][$i]['host']` will be used.
 
+.. _servers_auth_swekey_config:
+.. config:option:: $cfg['Servers'][$i]['auth_swekey_config']
+
+    :type: string
+    :default: ``''``
+
+    .. versionadded:: 3.0.0.0
+
+        This setting was named `$cfg['Servers'][$i]['auth_feebee_config']` and was renamed before the `3.0.0.0` release.
+
+    .. deprecated:: 4.6.4
+
+        This setting was removed because their servers are no longer working and it was not working correctly.
+
+    .. deprecated:: 4.0.10.17
+
+        This setting was removed in a maintenance release because their servers are no longer working and it was not working correctly.
+
+    The name of the file containing swekey ids and login names for hardware
+    authentication. Leave empty to deactivate this feature.
+
 .. _servers_user:
 .. config:option:: $cfg['Servers'][$i]['user']
 
@@ -686,7 +707,7 @@ Server connection settings
 
     .. code-block:: php
 
-        $cfg['Servers'][$i]['only_db'] = array('db1', 'db2');
+        $cfg['Servers'][$i]['only_db'] = ['db1', 'db2'];
 
     .. versionchanged:: 4.0.0
         Previous versions permitted to specify the display order of
@@ -1448,19 +1469,19 @@ Server connection settings
     .. code-block:: none
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow bob from all');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow bob from all'];
         // Allow only 'bob' to connect from any host
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow mary from 192.168.100.[50-100]');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow mary from 192.168.100.[50-100]'];
         // Allow only 'mary' to connect from host 192.168.100.50 through 192.168.100.100
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow % from 192.168.[5-6].10');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow % from 192.168.[5-6].10'];
         // Allow any user to connect from host 192.168.5.10 or 192.168.6.10
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow root from 192.168.5.50','allow % from 192.168.6.10');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow root from 192.168.5.50','allow % from 192.168.6.10'];
         // Allow any user to connect from 192.168.6.10, and additionally allow root to connect from 192.168.5.50
 
 .. config:option:: $cfg['Servers'][$i]['DisableIS']
@@ -2708,6 +2729,15 @@ Export and import settings
 
     .. seealso:: :ref:`faq6_27`
 
+.. config:option:: $cfg['Export']['remove_definer_from_definitions']
+
+    :type: boolean
+    :default: false
+
+    Remove DEFINER clause from the event, view and routine definitions.
+
+    .. versionadded:: 5.2.0
+
 .. config:option:: $cfg['Import']
 
     :type: array
@@ -2917,7 +2947,7 @@ Web server settings
 
     .. code-block:: php
 
-        $cfg['TrustedProxies'] = array('1.2.3.4' => 'HTTP_X_FORWARDED_FOR');
+        $cfg['TrustedProxies'] = ['1.2.3.4' => 'HTTP_X_FORWARDED_FOR'];
 
     The :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` directive uses the
     client's IP address as usual.
@@ -3625,7 +3655,7 @@ Console settings
     :type: boolean
     :default: false
 
-    Execute queries on Enter and insert new line with Shift + Enter
+    Execute queries on Enter and insert new line with Shift+Enter
 
 .. config:option:: $cfg['Console']['DarkTheme']
 
@@ -3670,7 +3700,7 @@ Developer
 .. config:option:: $cfg['DBG']
 
     :type: array
-    :default: array(...)
+    :default: []
 
 .. config:option:: $cfg['DBG']['sql']
 

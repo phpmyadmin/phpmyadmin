@@ -5,23 +5,20 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
-use function function_exists;
-use function imagecreatetruecolor;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisPoint
+ */
 class GisPointTest extends GisGeomTestCase
 {
-    /**
-     * @var    GisPoint
-     * @access protected
-     */
+    /** @var    GisPoint */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -32,8 +29,6 @@ class GisPointTest extends GisGeomTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -185,58 +180,21 @@ class GisPointTest extends GisGeomTestCase
     }
 
     /**
-     * test case for prepareRowAsPng() method
-     *
-     * @param string   $spatial     GIS POINT object
-     * @param string   $label       label for the GIS POINT object
-     * @param string   $point_color color for the GIS POINT object
-     * @param array    $scale_data  array containing data related to scaling
-     * @param resource $image       image object
-     *
-     * @dataProvider providerForPrepareRowAsPng
+     * @requires extension gd
      */
-    public function testPrepareRowAsPng(
-        string $spatial,
-        string $label,
-        string $point_color,
-        array $scale_data,
-        $image
-    ): void {
+    public function testPrepareRowAsPng(): void
+    {
+        $image = ImageWrapper::create(120, 150);
+        $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
-            $spatial,
-            $label,
-            $point_color,
-            $scale_data,
+            'POINT(12 35)',
+            'image',
+            '#B02EE0',
+            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertImage($return);
-    }
-
-    /**
-     * data provider for testPrepareRowAsPng() test case
-     *
-     * @return array test data for testPrepareRowAsPng() test case
-     */
-    public function providerForPrepareRowAsPng(): array
-    {
-        if (! function_exists('imagecreatetruecolor')) {
-            $this->markTestSkipped('GD extension missing!');
-        }
-
-        return [
-            [
-                'POINT(12 35)',
-                'image',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                imagecreatetruecolor(120, 150),
-            ],
-        ];
+        $this->assertEquals(120, $return->width());
+        $this->assertEquals(150, $return->height());
     }
 
     /**
@@ -257,14 +215,8 @@ class GisPointTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf(
-            $spatial,
-            $label,
-            $point_color,
-            $scale_data,
-            $pdf
-        );
-        $this->assertInstanceOf('TCPDF', $return);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf);
+        $this->assertInstanceOf(TCPDF::class, $return);
     }
 
     /**

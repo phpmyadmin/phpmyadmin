@@ -13,6 +13,9 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @coversNothing
+ */
 class PropertyItemsTest extends AbstractTestCase
 {
     public function testBoolText(): void

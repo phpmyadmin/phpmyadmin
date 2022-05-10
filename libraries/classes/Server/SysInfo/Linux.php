@@ -38,10 +38,12 @@ class Linux extends Base
         if ($buf === false) {
             $buf = '';
         }
+
         $pos = mb_strpos($buf, "\n");
         if ($pos === false) {
             $pos = 0;
         }
+
         $nums = preg_split(
             '/\s+/',
             mb_substr(
@@ -63,10 +65,8 @@ class Linux extends Base
 
     /**
      * Checks whether class is supported in this environment
-     *
-     * @return bool true on success
      */
-    public function supported()
+    public function supported(): bool
     {
         return @is_readable('/proc/meminfo') && @is_readable('/proc/stat');
     }
@@ -83,24 +83,21 @@ class Linux extends Base
             return [];
         }
 
-        preg_match_all(
-            SysInfo::MEMORY_REGEXP,
-            $content,
-            $matches
-        );
+        preg_match_all(SysInfo::MEMORY_REGEXP, $content, $matches);
 
+        /** @var array<string, int>|false $mem */
         $mem = array_combine($matches[1], $matches[2]);
         if ($mem === false) {
             return [];
         }
 
         $defaults = [
-            'MemTotal'   => 0,
-            'MemFree'    => 0,
-            'Cached'     => 0,
-            'Buffers'    => 0,
-            'SwapTotal'  => 0,
-            'SwapFree'   => 0,
+            'MemTotal' => 0,
+            'MemFree' => 0,
+            'Cached' => 0,
+            'Buffers' => 0,
+            'SwapTotal' => 0,
+            'SwapFree' => 0,
             'SwapCached' => 0,
         ];
 
@@ -110,7 +107,6 @@ class Linux extends Base
             $mem[$idx] = intval($value);
         }
 
-        /** @var array<string, int> $mem */
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
 

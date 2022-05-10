@@ -7,15 +7,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Response;
-use stdClass;
+use PhpMyAdmin\ResponseRenderer;
+
+use function __;
 use function htmlspecialchars;
 
 /**
  * Handles the json transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Json extends TransformationsPlugin
 {
     public function __construct()
@@ -24,7 +25,7 @@ class Text_Plain_Json extends TransformationsPlugin
             return;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $scripts = $response->getHeader()
             ->getScripts();
         $scripts->addFile('vendor/codemirror/lib/codemirror.js');
@@ -40,21 +41,19 @@ class Text_Plain_Json extends TransformationsPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Formats text as JSON with syntax highlighting.'
-        );
+        return __('Formats text as JSON with syntax highlighting.');
     }
 
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string             $buffer  text to be transformed
+     * @param array              $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         return '<code class="json"><pre>' . "\n"
         . htmlspecialchars($buffer) . "\n"

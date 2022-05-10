@@ -7,9 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
+
+use function __;
+use function _pgettext;
 
 /**
  * Represents a container for functions nodes in the navigation tree
@@ -22,36 +23,25 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Functions'), Node::CONTAINER);
-        $this->icon = Generator::getImage('b_routines', __('Functions'));
+        $this->icon = ['image' => 'b_routines', 'title' => __('Functions')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'type' => 'FUNCTION',
-            ]) . '&amp;db=%1$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'type' => 'FUNCTION',
-            ]) . '&amp;db=%1$s',
+            'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
+            'icon' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
         ];
         $this->realName = 'functions';
 
         $newLabel = _pgettext('Create new function', 'New');
-        $new = NodeFactory::getInstanceForNewNode(
-            $newLabel,
-            'new_function italics'
-        );
-        $new->icon = Generator::getImage('b_routine_add', $newLabel);
+        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_function italics');
+        $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'FUNCTION',
-                'add_item' => 1,
-            ]) . '&amp;db=%2$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'FUNCTION',
-                'add_item' => 1,
-            ]) . '&amp;db=%2$s',
+            'text' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
+            ],
+            'icon' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
+            ],
         ];
         $this->addChild($new);
     }

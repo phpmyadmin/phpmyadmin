@@ -1,27 +1,17 @@
 <?php
-/**
- * Configuration handling.
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
-use const PHP_OS;
-use const PHP_URL_PATH;
-use const PHP_URL_SCHEME;
-use const PHP_VERSION_ID;
+use PhpMyAdmin\Config\Settings;
+
+use function __;
 use function array_filter;
-use function array_flip;
-use function array_intersect_key;
-use function array_keys;
 use function array_merge;
 use function array_replace_recursive;
 use function array_slice;
 use function count;
-use function define;
 use function defined;
 use function error_get_last;
 use function error_reporting;
@@ -34,6 +24,7 @@ use function fopen;
 use function fread;
 use function function_exists;
 use function gd_info;
+use function get_object_vars;
 use function implode;
 use function ini_get;
 use function intval;
@@ -43,7 +34,6 @@ use function is_numeric;
 use function is_readable;
 use function is_string;
 use function is_writable;
-use function max;
 use function mb_strstr;
 use function mb_strtolower;
 use function md5;
@@ -58,26 +48,30 @@ use function realpath;
 use function rtrim;
 use function setcookie;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function stripos;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
 use function time;
 use function trigger_error;
 use function trim;
-use function crc32;
+
+use const ARRAY_FILTER_USE_KEY;
+use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const PHP_OS;
+use const PHP_URL_PATH;
+use const PHP_URL_SCHEME;
+use const PHP_VERSION_ID;
 
 /**
- * Configuration class
+ * Configuration handling
  */
 class Config
 {
-    /** @var string  default config source */
-    public $defaultSource = ROOT_PATH . 'libraries/config.default.php';
-
     /** @var array   default configuration settings */
     public $default = [];
 
@@ -94,16 +88,10 @@ class Config
     public $sourceMtime = 0;
 
     /** @var int */
-    public $defaultSourceMtime = 0;
-
-    /** @var int */
     public $setMtime = 0;
 
     /** @var bool */
     public $errorConfigFile = false;
-
-    /** @var bool */
-    public $errorConfigDefaultFile = false;
 
     /** @var array */
     public $defaultServer = [];
@@ -137,10 +125,6 @@ class Config
      */
     public function checkSystem(): void
     {
-        // All the version handling is now done in the Version class
-        $this->set('PMA_VERSION', Version::VERSION);
-        $this->set('PMA_MAJOR_VERSION', Version::SERIES);
-
         $this->checkWebServerOs();
         $this->checkWebServer();
         $this->checkGd2();
@@ -199,10 +183,9 @@ class Config
      */
     public function checkClient(): void
     {
+        $HTTP_USER_AGENT = '';
         if (Core::getenv('HTTP_USER_AGENT')) {
             $HTTP_USER_AGENT = Core::getenv('HTTP_USER_AGENT');
-        } else {
-            $HTTP_USER_AGENT = '';
         }
 
         // 1. Platform
@@ -211,81 +194,43 @@ class Config
         // 2. browser and version
         // (must check everything else before Mozilla)
 
-        $is_mozilla = preg_match(
-            '@Mozilla/([0-9]\.[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $mozilla_version
-        );
+        $is_mozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $HTTP_USER_AGENT, $mozilla_version);
 
-        if (preg_match(
-            '@Opera(/| )([0-9]\.[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
-        } elseif (preg_match(
-            '@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match(
-            '@Trident/(7)\.0@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (preg_match('@Trident/(7)\.0@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', intval($log_version[1]) + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match(
-            '@OmniWeb/([0-9]{1,3})@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
             // Konqueror 2.2.2 says Konqueror/2.2.2
             // Konqueror 3.0.3 says Konqueror/3
-        } elseif (preg_match(
-            '@(Konqueror/)(.*)(;)@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
             // must check Chrome before Safari
-        } elseif ($is_mozilla
-            && preg_match('@Chrome/([0-9.]*)@', $HTTP_USER_AGENT, $log_version)
-        ) {
+        } elseif ($is_mozilla && preg_match('@Chrome/([0-9.]*)@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
-        } elseif ($is_mozilla
-            && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version)
-        ) {
-            $this->set(
-                'PMA_USR_BROWSER_VER',
-                $log_version[1]
-            );
+        } elseif ($is_mozilla && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
-        } elseif ($is_mozilla
-            && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version)
-        ) {
-            $this->set(
-                'PMA_USR_BROWSER_VER',
-                $mozilla_version[1] . '.' . $log_version[1]
-            );
+        } elseif ($is_mozilla && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $mozilla_version[1] . '.' . $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
-        } elseif (! mb_strstr($HTTP_USER_AGENT, 'compatible')
+        } elseif (
+            ! mb_strstr($HTTP_USER_AGENT, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
-            $this->set(
-                'PMA_USR_BROWSER_VER',
-                $log_version[1]
-            );
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
         } elseif (preg_match('@rv:1\.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
@@ -326,12 +271,12 @@ class Config
             $gd_nfo = gd_info();
             if (mb_strstr($gd_nfo['GD Version'], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
-            } else {
-                $this->set('PMA_IS_GD2', 0);
+
+                return;
             }
-        } else {
-            $this->set('PMA_IS_GD2', 0);
         }
+
+        $this->set('PMA_IS_GD2', 0);
     }
 
     /**
@@ -341,14 +286,17 @@ class Config
     {
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
-        if (Core::getenv('SERVER_SOFTWARE')
+        if (
+            Core::getenv('SERVER_SOFTWARE')
             && stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft') !== false
             && stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS') !== false
         ) {
             $this->set('PMA_IS_IIS', 1);
-        } else {
-            $this->set('PMA_IS_IIS', 0);
+
+            return;
         }
+
+        $this->set('PMA_IS_IIS', 0);
     }
 
     /**
@@ -374,53 +322,18 @@ class Config
 
     /**
      * loads default values from default source
-     *
-     * @return bool success
      */
-    public function loadDefaults(): bool
+    public function loadDefaults(): void
     {
-        global $isConfigLoading;
+        $settings = new Settings([]);
+        $cfg = $settings->toArray();
 
-        /** @var array<string,mixed> $cfg */
-        $cfg = [];
-        if (! @file_exists($this->defaultSource)) {
-            $this->errorConfigDefaultFile = true;
-
-            return false;
-        }
-        $canUseErrorReporting = Util::isErrorReportingAvailable();
-        $oldErrorReporting = null;
-        if ($canUseErrorReporting) {
-            $oldErrorReporting = error_reporting(0);
-        }
-
-        ob_start();
-        $isConfigLoading = true;
-        $eval_result = include $this->defaultSource;
-        $isConfigLoading = false;
-        ob_end_clean();
-
-        if ($canUseErrorReporting) {
-            error_reporting($oldErrorReporting);
-        }
-
-        if ($eval_result === false) {
-            $this->errorConfigDefaultFile = true;
-
-            return false;
-        }
-
-        $this->defaultSourceMtime = filemtime($this->defaultSource);
-
-        $this->defaultServer = $cfg['Servers'][1];
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->defaultServer = get_object_vars($settings->Servers[1]);
         unset($cfg['Servers']);
 
         $this->default = $cfg;
         $this->settings = array_replace_recursive($this->settings, $cfg);
-
-        $this->errorConfigDefaultFile = false;
-
-        return true;
     }
 
     /**
@@ -457,6 +370,7 @@ class Config
 
         ob_start();
         $isConfigLoading = true;
+        /** @psalm-suppress UnresolvableInclude */
         $eval_result = include $this->getSource();
         $isConfigLoading = false;
         ob_end_clean();
@@ -469,7 +383,7 @@ class Config
             $this->errorConfigFile = true;
         } else {
             $this->errorConfigFile = false;
-            $this->sourceMtime = filemtime($this->getSource());
+            $this->sourceMtime = (int) filemtime($this->getSource());
         }
 
         /**
@@ -482,18 +396,14 @@ class Config
          *
          * This could be removed once we consistently handle both values
          * in the functional code as well.
-         *
-         * It could use array_filter(...ARRAY_FILTER_USE_KEY), but it's not
-         * supported on PHP 5.5 and HHVM.
          */
-        $matched_keys = array_filter(
-            array_keys($cfg),
-            static function ($key) {
-                return strpos($key, '/') === false;
-            }
+        $cfg = array_filter(
+            $cfg,
+            static function (string $key): bool {
+                return ! str_contains($key, '/');
+            },
+            ARRAY_FILTER_USE_KEY
         );
-
-        $cfg = array_intersect_key($cfg, array_flip($matched_keys));
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
 
@@ -508,9 +418,7 @@ class Config
         global $dbi;
 
         $collation_connection = $this->get('DefaultConnectionCollation');
-        if (empty($collation_connection)
-            || $collation_connection == $GLOBALS['collation_connection']
-        ) {
+        if (empty($collation_connection) || $collation_connection == $GLOBALS['collation_connection']) {
             return;
         }
 
@@ -523,48 +431,43 @@ class Config
      */
     public function loadUserPreferences(): void
     {
-        $userPreferences = new UserPreferences();
+        global $isMinimumCommon;
+
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
         $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && ! defined('PMA_MINIMUM_COMMON')) {
-            $config_mtime = max($this->defaultSourceMtime, $this->sourceMtime);
+        if ($server > 0 && ! isset($isMinimumCommon)) {
             // cache user preferences, use database only when needed
-            if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
-                || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
+            if (
+                ! isset($_SESSION['cache'][$cache_key]['userprefs'])
+                || $_SESSION['cache'][$cache_key]['config_mtime'] < $this->sourceMtime
             ) {
+                $userPreferences = new UserPreferences();
                 $prefs = $userPreferences->load();
-                $_SESSION['cache'][$cache_key]['userprefs']
-                    = $userPreferences->apply($prefs['config_data']);
+                $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
-                $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
+                $_SESSION['cache'][$cache_key]['config_mtime'] = $this->sourceMtime;
             }
-        } elseif ($server == 0
-            || ! isset($_SESSION['cache'][$cache_key]['userprefs'])
-        ) {
+        } elseif ($server == 0 || ! isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             $this->set('user_preferences', false);
 
             return;
         }
+
         $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
         // type is 'db' or 'session'
-        $this->set(
-            'user_preferences',
-            $_SESSION['cache'][$cache_key]['userprefs_type']
-        );
-        $this->set(
-            'user_preferences_mtime',
-            $_SESSION['cache'][$cache_key]['userprefs_mtime']
-        );
+        $this->set('user_preferences', $_SESSION['cache'][$cache_key]['userprefs_type']);
+        $this->set('user_preferences_mtime', $_SESSION['cache'][$cache_key]['userprefs_mtime']);
 
         // load config array
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
-        if (defined('PMA_MINIMUM_COMMON')) {
+
+        if (isset($isMinimumCommon)) {
             return;
         }
 
@@ -573,15 +476,14 @@ class Config
         // in frames
 
         // save theme
-        /** @var ThemeManager $tmanager */
         $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
-            if ((! isset($config_data['ThemeDefault'])
+            if (
+                (! isset($config_data['ThemeDefault'])
                 && $tmanager->theme->getId() !== 'original')
                 || isset($config_data['ThemeDefault'])
                 && $config_data['ThemeDefault'] != $tmanager->theme->getId()
             ) {
-                // new theme was set in common.inc.php
                 $this->setUserValue(
                     null,
                     'ThemeDefault',
@@ -591,7 +493,8 @@ class Config
             }
         } else {
             // no cookie - read default from settings
-            if ($tmanager->theme !== null
+            if (
+                $tmanager->theme !== null
                 && $this->settings['ThemeDefault'] != $tmanager->theme->getId()
                 && $tmanager->checkTheme($this->settings['ThemeDefault'])
             ) {
@@ -602,7 +505,8 @@ class Config
 
         // save language
         if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
-            if ((! isset($config_data['lang'])
+            if (
+                (! isset($config_data['lang'])
                 && $GLOBALS['lang'] !== 'en')
                 || isset($config_data['lang'])
                 && $GLOBALS['lang'] != $config_data['lang']
@@ -612,9 +516,7 @@ class Config
         } else {
             // read language from settings
             if (isset($config_data['lang'])) {
-                $language = LanguageManager::getInstance()->getLanguage(
-                    $config_data['lang']
-                );
+                $language = LanguageManager::getInstance()->getLanguage($config_data['lang']);
                 if ($language !== false) {
                     $language->activate();
                     $this->setCookie('pma_lang', $language->getCode());
@@ -655,15 +557,19 @@ class Config
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->default);
             }
+
             $result = $userPreferences->persistOption($cfg_path, $new_cfg_value, $default_value);
         }
+
         if ($prefs_type !== 'db' && $cookie_name) {
             // fall back to cookies
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->settings);
             }
+
             $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
+
         Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
         Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
 
@@ -707,8 +613,6 @@ class Config
 
     /**
      * check config source
-     *
-     * @return bool whether source is valid or not
      */
     public function checkConfigSource(): bool
     {
@@ -733,6 +637,7 @@ class Config
                 $contents = @fread($handle, 1); // reading 1 byte is enough to test
                 fclose($handle);
             }
+
             if ($contents === false) {
                 $this->sourceMtime = 0;
                 Core::fatalError(
@@ -776,8 +681,7 @@ class Config
         $this->sourceMtime = 0;
         Core::fatalError(
             __(
-                'Wrong permissions on configuration file, '
-                . 'should not be world writable!'
+                'Wrong permissions on configuration file, should not be world writable!'
             )
         );
     }
@@ -788,25 +692,13 @@ class Config
      */
     public function checkErrors(): void
     {
-        if ($this->errorConfigDefaultFile) {
-            Core::fatalError(
-                sprintf(
-                    __('Could not load default configuration from: %1$s'),
-                    $this->defaultSource
-                )
-            );
-        }
-
         if (! $this->errorConfigFile) {
             return;
         }
 
         $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
             . '[br][br]'
-            . __(
-                'This usually means there is a syntax error in it, '
-                . 'please check any errors shown below.'
-            )
+            . __('This usually means there is a syntax error in it, please check any errors shown below.')
             . '[br][br]'
             . '[conferr]';
         trigger_error($error, E_USER_ERROR);
@@ -836,9 +728,7 @@ class Config
      */
     public function set(string $setting, $value): void
     {
-        if (isset($this->settings[$setting])
-            && $this->settings[$setting] === $value
-        ) {
+        if (isset($this->settings[$setting]) && $this->settings[$setting] === $value) {
             return;
         }
 
@@ -854,26 +744,6 @@ class Config
     public function getSource(): string
     {
         return $this->source;
-    }
-
-    /**
-     * returns a unique value to force a CSS reload if either the config
-     * or the theme changes
-     *
-     * @return int Summary of unix timestamps, to be unique on theme parameters
-     *             change
-     */
-    public function getThemeUniqueValue(): int
-    {
-        global $PMA_Theme;
-
-        return crc32(
-            $this->sourceMtime .
-            $this->defaultSourceMtime .
-            $this->get('user_preferences_mtime') .
-            ($PMA_Theme->mtimeInfo ?? 0) .
-            ($PMA_Theme->filesizeInfo ?? 0)
-        );
     }
 
     /**
@@ -901,7 +771,7 @@ class Config
      * Maximum upload size as limited by PHP
      * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
-     * this section generates $max_upload_size in bytes
+     * this section generates max_upload_size in bytes
      */
     public function checkUploadSize(): void
     {
@@ -929,7 +799,7 @@ class Config
     public function isHttps(): bool
     {
         if ($this->get('is_https') !== null) {
-            return $this->get('is_https');
+            return (bool) $this->get('is_https');
         }
 
         $url = $this->get('PmaAbsoluteUri');
@@ -967,6 +837,8 @@ class Config
 
     /**
      * Get phpMyAdmin root path
+     *
+     * @staticvar string|null $cookie_path
      */
     public function getRootPath(): string
     {
@@ -1012,44 +884,9 @@ class Config
     }
 
     /**
-     * enables backward compatibility
-     */
-    public function enableBc(): void
-    {
-        $GLOBALS['cfg']             = $this->settings;
-        $GLOBALS['default_server']  = $this->defaultServer;
-        unset($this->defaultServer);
-        $GLOBALS['is_upload']       = $this->get('enable_upload');
-        $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
-        $GLOBALS['is_https']        = $this->get('is_https');
-
-        $defines = [
-            'PMA_VERSION',
-            'PMA_MAJOR_VERSION',
-            'PMA_THEME_VERSION',
-            'PMA_THEME_GENERATION',
-            'PMA_IS_WINDOWS',
-            'PMA_IS_GD2',
-            'PMA_USR_OS',
-            'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT',
-        ];
-
-        foreach ($defines as $define) {
-            if (defined($define)) {
-                continue;
-            }
-
-            define($define, $this->get($define));
-        }
-    }
-
-    /**
      * removes cookie
      *
      * @param string $cookieName name of cookie to remove
-     *
-     * @return bool result of setcookie()
      */
     public function removeCookie(string $cookieName): bool
     {
@@ -1058,6 +895,7 @@ class Config
         if ($this->issetCookie($cookieName)) {
             unset($_COOKIE[$httpCookieName]);
         }
+
         if (defined('TESTSUITE')) {
             return true;
         }
@@ -1081,8 +919,6 @@ class Config
      * @param string $default  default value
      * @param int    $validity validity of cookie in seconds (default is one month)
      * @param bool   $httponly whether cookie is only for HTTP (and not for scripts)
-     *
-     * @return bool result of setcookie()
      */
     public function setCookie(
         string $cookie,
@@ -1091,10 +927,7 @@ class Config
         ?int $validity = null,
         bool $httponly = true
     ): bool {
-        global $cfg;
-
-        if (strlen($value) > 0 && $default !== null && $value === $default
-        ) {
+        if (strlen($value) > 0 && $default !== null && $value === $default) {
             // default value is used
             if ($this->issetCookie($cookie)) {
                 // remove cookie
@@ -1123,37 +956,38 @@ class Config
             } else {
                 $validity = time() + $validity;
             }
+
             if (defined('TESTSUITE')) {
                 $_COOKIE[$httpCookieName] = $value;
 
                 return true;
             }
 
+            /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
+            $cookieSameSite = $this->get('CookieSameSite');
+
             if (PHP_VERSION_ID < 70300) {
                 return setcookie(
                     $httpCookieName,
                     $value,
                     $validity,
-                    $this->getRootPath() . '; samesite=' . $cfg['CookieSameSite'],
+                    $this->getRootPath() . '; SameSite=' . $cookieSameSite,
                     '',
                     $this->isHttps(),
                     $httponly
                 );
             }
+
             $optionalParams = [
                 'expires' => $validity,
                 'path' => $this->getRootPath(),
                 'domain' => '',
                 'secure' => $this->isHttps(),
                 'httponly' => $httponly,
-                'samesite' => $cfg['CookieSameSite'],
+                'samesite' => $cookieSameSite,
             ];
 
-            return setcookie(
-                $httpCookieName,
-                $value,
-                $optionalParams
-            );
+            return setcookie($httpCookieName, $value, $optionalParams);
         }
 
         // cookie has already $value as value
@@ -1190,8 +1024,6 @@ class Config
      * isset cookie
      *
      * @param string $cookieName The name of the cookie to check
-     *
-     * @return bool result of issetCookie()
      */
     public function issetCookie(string $cookieName): bool
     {
@@ -1235,7 +1067,7 @@ class Config
     {
         $retval = '';
         if (@file_exists($filename)) {
-            $retval .= '<div id="' . $id . '">';
+            $retval .= '<div id="' . $id . '" class="d-print-none">';
             ob_start();
             include $filename;
             $retval .= ob_get_clean();
@@ -1265,6 +1097,8 @@ class Config
      * Returns temporary dir path
      *
      * @param string $name Directory name
+     *
+     * @staticvar array<string,string|null> $temp_dir
      */
     public function getTempDir(string $name): ?string
     {
@@ -1282,6 +1116,7 @@ class Config
             if (! @is_dir($path)) {
                 @mkdir($path, 0770, true);
             }
+
             if (! @is_dir($path) || ! @is_writable($path)) {
                 $path = null;
             }
@@ -1329,7 +1164,8 @@ class Config
             foreach ($this->settings['Servers'] as $i => $server) {
                 $verboseToLower = mb_strtolower($server['verbose']);
                 $serverToLower = mb_strtolower($request);
-                if ($server['host'] == $request
+                if (
+                    $server['host'] == $request
                     || $server['verbose'] == $request
                     || $verboseToLower == $serverToLower
                     || md5($verboseToLower) === $serverToLower
@@ -1338,6 +1174,7 @@ class Config
                     break;
                 }
             }
+
             if (is_string($request)) {
                 $request = 0;
             }
@@ -1377,34 +1214,37 @@ class Config
         if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
             // No server => create one with defaults
             $this->settings['Servers'] = [1 => $this->defaultServer];
-        } else {
-            // We have server(s) => apply default configuration
-            $new_servers = [];
 
-            foreach ($this->settings['Servers'] as $server_index => $each_server) {
-                // Detect wrong configuration
-                if (! is_int($server_index) || $server_index < 1) {
-                    trigger_error(
-                        sprintf(__('Invalid server index: %s'), $server_index),
-                        E_USER_ERROR
-                    );
-                }
-
-                $each_server = array_merge($this->defaultServer, $each_server);
-
-                // Final solution to bug #582890
-                // If we are using a socket connection
-                // and there is nothing in the verbose server name
-                // or the host field, then generate a name for the server
-                // in the form of "Server 2", localized of course!
-                if (empty($each_server['host']) && empty($each_server['verbose'])) {
-                    $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
-                }
-
-                $new_servers[$server_index] = $each_server;
-            }
-            $this->settings['Servers'] = $new_servers;
+            return;
         }
+
+        // We have server(s) => apply default configuration
+        $new_servers = [];
+
+        foreach ($this->settings['Servers'] as $server_index => $each_server) {
+            // Detect wrong configuration
+            if (! is_int($server_index) || $server_index < 1) {
+                trigger_error(
+                    sprintf(__('Invalid server index: %s'), $server_index),
+                    E_USER_ERROR
+                );
+            }
+
+            $each_server = array_merge($this->defaultServer, $each_server);
+
+            // Final solution to bug #582890
+            // If we are using a socket connection
+            // and there is nothing in the verbose server name
+            // or the host field, then generate a name for the server
+            // in the form of "Server 2", localized of course!
+            if (empty($each_server['host']) && empty($each_server['verbose'])) {
+                $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
+            }
+
+            $new_servers[$server_index] = $each_server;
+        }
+
+        $this->settings['Servers'] = $new_servers;
     }
 
     /**
@@ -1440,6 +1280,7 @@ class Config
             } else {
                 $server['host'] = $cfg['Server']['host'];
             }
+
             // Share the settings if the host is same
             if ($server['host'] == $cfg['Server']['host']) {
                 $shared = [
@@ -1462,10 +1303,12 @@ class Config
                     $server[$item] = $cfg['Server'][$item];
                 }
             }
+
             // Set configured port
             if (! empty($cfg['Server']['controlport'])) {
                 $server['port'] = $cfg['Server']['controlport'];
             }
+
             // Set any configuration with control_ prefix
             foreach ($cfg['Server'] as $key => $val) {
                 if (substr($key, 0, 8) !== 'control_') {
@@ -1482,9 +1325,11 @@ class Config
                     null,
                 ];
             }
+
             if (isset($server['user'])) {
                 $user = $server['user'];
             }
+
             if (isset($server['password'])) {
                 $password = $server['password'];
             }
@@ -1496,12 +1341,15 @@ class Config
         if (empty($server['socket'])) {
             $server['socket'] = null;
         }
+
         if (empty($server['host'])) {
             $server['host'] = 'localhost';
         }
+
         if (! isset($server['ssl'])) {
             $server['ssl'] = false;
         }
+
         if (! isset($server['compress'])) {
             $server['compress'] = false;
         }

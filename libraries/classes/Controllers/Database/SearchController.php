@@ -7,43 +7,35 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 
 class SearchController extends AbstractController
 {
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name.
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template, $db);
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $cfg, $db, $err_url, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
+        global $cfg, $db, $errorUrl, $urlParams, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
 
-        $this->addScriptFiles([
-            'database/search.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-            'makegrid.js',
-        ]);
+        $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -55,10 +47,11 @@ class SearchController extends AbstractController
                 __('Access denied!'),
                 '',
                 false,
-                $err_url
+                $errorUrl
             );
         }
-        $url_params['goto'] = Url::getFromRoute('/database/search');
+
+        $urlParams['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, $db, $this->template);

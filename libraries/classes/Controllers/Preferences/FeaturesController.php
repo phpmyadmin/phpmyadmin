@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\FeaturesForm;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+
 use function define;
 use function ltrim;
 
@@ -25,26 +26,27 @@ class FeaturesController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param Response $response
-     */
+    /** @var Config */
+    private $config;
+
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
         UserPreferences $userPreferences,
-        Relation $relation
+        Relation $relation,
+        Config $config
     ) {
         parent::__construct($response, $template);
         $this->userPreferences = $userPreferences;
         $this->relation = $relation;
+        $this->config = $config;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $cfg, $cf, $error, $tabHash, $hash;
-        global $server, $PMA_Config, $route;
+        global $cfg, $cf, $error, $tabHash, $hash, $server, $route;
 
-        $cf = new ConfigFile($PMA_Config->baseSettings);
+        $cf = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new FeaturesForm($cf, 1);
@@ -52,7 +54,7 @@ class FeaturesController extends AbstractController
         if (isset($_POST['revert'])) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            Core::sendHeaderLocation('./index.php?route=/preferences/features');
+            $this->redirect('/preferences/features');
 
             return;
         }
@@ -67,14 +69,10 @@ class FeaturesController extends AbstractController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $PMA_Config->loadUserPreferences();
+                $this->config->loadUserPreferences();
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
-                $this->userPreferences->redirect(
-                    'index.php?route=/preferences/features',
-                    null,
-                    $hash
-                );
+                $this->userPreferences->redirect('index.php?route=/preferences/features', null, $hash);
 
                 return;
             }
@@ -84,12 +82,12 @@ class FeaturesController extends AbstractController
 
         $this->addScriptFiles(['config.js']);
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
-            'has_config_storage' => $cfgRelation['userconfigwork'],
+            'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
         if ($formDisplay->hasErrors()) {
@@ -101,8 +99,6 @@ class FeaturesController extends AbstractController
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors ?? null,
             'form' => $formDisplay->getDisplay(
-                true,
-                true,
                 true,
                 Url::getFromRoute('/preferences/features'),
                 ['server' => $server]

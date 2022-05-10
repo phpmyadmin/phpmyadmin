@@ -1,16 +1,11 @@
 <?php
-/**
- * Selenium TestCase for user related tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * CreateRemoveUserTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class CreateRemoveUserTest extends TestBase
 {
@@ -24,7 +19,6 @@ class CreateRemoveUserTest extends TestBase
     /**
      * Username for the user
      *
-     * @access private
      * @var string
      */
     private $txtUsername;
@@ -32,7 +26,6 @@ class CreateRemoveUserTest extends TestBase
     /**
      * Password for the user
      *
-     * @access private
      * @var string
      */
     private $txtPassword;
@@ -103,9 +96,7 @@ class CreateRemoveUserTest extends TestBase
         $this->waitForElement('id', 'usersForm');
         $temp = $this->txtUsername . '&amp;#27;localhost';
 
-        $this->byXPath(
-            "(//input[@name='selected_usr[]'])[@value='" . $temp . "']"
-        )->click();
+        $this->byXPath("(//input[@name='selected_usr[]'])[@value='" . $temp . "']")->click();
 
         $this->scrollIntoView('deleteUserCard');
         $this->byId('dropUsersDbCheckbox')->click();

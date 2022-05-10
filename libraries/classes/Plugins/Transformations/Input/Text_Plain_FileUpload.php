@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\TextFileUploadTransformationsPlugin;
 /**
  * Handles the input text file upload transformation for text plain.
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
 {
     /**

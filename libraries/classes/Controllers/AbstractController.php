@@ -6,23 +6,22 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
+use function __;
 use function strlen;
 
 abstract class AbstractController
 {
-    /** @var Response */
+    /** @var ResponseRenderer */
     protected $response;
 
     /** @var Template */
     protected $template;
 
-    /**
-     * @param Response $response
-     */
-    public function __construct($response, Template $template)
+    public function __construct(ResponseRenderer $response, Template $template)
     {
         $this->response = $response;
         $this->template = $template;
@@ -82,12 +81,21 @@ abstract class AbstractController
             if (isset($message)) {
                 $params['message'] = $message;
             }
-            $uri = './index.php?route=/' . Url::getCommonRaw($params, '&');
-            Core::sendHeaderLocation($uri);
+
+            $this->redirect('/', $params);
 
             return false;
         }
 
         return $is_db;
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     */
+    protected function redirect(string $route, array $params = []): void
+    {
+        $uri = './index.php?route=' . $route . Url::getCommonRaw($params, '&');
+        Core::sendHeaderLocation($uri);
     }
 }

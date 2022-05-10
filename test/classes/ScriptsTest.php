@@ -1,20 +1,17 @@
 <?php
-/**
- * Tests for Script.php
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
+use PhpMyAdmin\Version;
 use ReflectionProperty;
-use function define;
-use function defined;
+
 use function rawurlencode;
 
 /**
- * Tests for Script.php
+ * @covers \PhpMyAdmin\Scripts
  */
 class ScriptsTest extends AbstractTestCase
 {
@@ -24,25 +21,16 @@ class ScriptsTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
         $this->object = new Scripts();
-        if (defined('PMA_USR_BROWSER_AGENT')) {
-            return;
-        }
-
-        define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -60,17 +48,11 @@ class ScriptsTest extends AbstractTestCase
         $actual = $this->object->getDisplay();
 
         $this->assertStringContainsString(
-            'src="js/dist/common.js?v=' . rawurlencode(PMA_VERSION) . '"',
+            'src="js/dist/common.js?v=' . rawurlencode(Version::VERSION) . '"',
             $actual
         );
-        $this->assertStringContainsString(
-            '.add(\'common.js\', 1)',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'AJAX.fireOnload(\'common.js\')',
-            $actual
-        );
+        $this->assertStringContainsString('.add(\'common.js\', 1)', $actual);
+        $this->assertStringContainsString('AJAX.fireOnload(\'common.js\')', $actual);
     }
 
     /**
@@ -82,10 +64,7 @@ class ScriptsTest extends AbstractTestCase
 
         $actual = $this->object->getDisplay();
 
-        $this->assertStringContainsString(
-            'alert(\'CodeAdded\');',
-            $actual
-        );
+        $this->assertStringContainsString('alert(\'CodeAdded\');', $actual);
     }
 
     /**

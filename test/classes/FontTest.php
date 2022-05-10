@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Font;
 
+/**
+ * @covers \PhpMyAdmin\Font
+ */
 class FontTest extends AbstractTestCase
 {
     /** @var Font */

@@ -4,22 +4,26 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Plugins\TwoFactor\Application;
-use PhpMyAdmin\TwoFactor;
 use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
+use PhpMyAdmin\Plugins\TwoFactor\Application;
+use PhpMyAdmin\TwoFactor;
+
 use function count;
 use function in_array;
 use function json_encode;
-use const JSON_UNESCAPED_SLASHES;
 use function str_replace;
 
+use const JSON_UNESCAPED_SLASHES;
+
+/**
+ * @covers \PhpMyAdmin\TwoFactor
+ */
 class TwoFactorTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';
@@ -32,6 +36,11 @@ class TwoFactorTest extends AbstractTestCase
         ];
         $GLOBALS['cfg']['NaturalOrder'] = true;
         $this->initStorageConfigAndData();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->assertAllSelectsConsumed();
     }
 
     private function initStorageConfigAndData(): void
@@ -97,10 +106,12 @@ class TwoFactorTest extends AbstractTestCase
         if ($config !== null && ! isset($config['backend'])) {
             $config['backend'] = '';
         }
+
         if ($config !== null && ! isset($config['settings'])) {
             $config['settings'] = [];
         }
 
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->loadResultForConfig($config);
 
         return new TwoFactor($user);
@@ -234,17 +245,19 @@ class TwoFactorTest extends AbstractTestCase
     }
 
     /**
+     * @group extension-iconv
      * @requires extension xmlwriter
+     * @requires extension iconv
      */
     public function testApplication(): void
     {
         parent::setLanguage();
-        parent::loadDefaultConfig();
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('application', $object->getAvailable())) {
             $this->markTestSkipped('google2fa not available');
         }
+
         /* Without providing code this should fail */
         unset($_POST['2fa_code']);
         $this->assertFalse($object->configure('application'));
@@ -292,13 +305,13 @@ class TwoFactorTest extends AbstractTestCase
 
     public function testKey(): void
     {
-        parent::loadDefaultConfig();
         parent::setLanguage();
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('key', $object->getAvailable())) {
             $this->markTestSkipped('u2f-php-server not available');
         }
+
         $_SESSION['registrationRequest'] = null;
         /* Without providing code this should fail */
         unset($_POST['u2f_registration_response']);
@@ -335,18 +348,18 @@ class TwoFactorTest extends AbstractTestCase
     public function testKeyAppId(): void
     {
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'http://demo.example.com');
+        $GLOBALS['config']->set('PmaAbsoluteUri', 'http://demo.example.com');
         $this->assertEquals('http://demo.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'https://demo.example.com:123');
+        $GLOBALS['config']->set('PmaAbsoluteUri', 'https://demo.example.com:123');
         $this->assertEquals('https://demo.example.com:123', $object->getBackend()->getAppId(true));
         $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-        $GLOBALS['PMA_Config']->set('is_https', true);
+        $GLOBALS['config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['config']->set('is_https', true);
         $_SERVER['HTTP_HOST'] = 'pma.example.com';
         $this->assertEquals('https://pma.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
         $this->assertEquals('http://pma.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
     }
@@ -361,6 +374,7 @@ class TwoFactorTest extends AbstractTestCase
         if (! in_array('key', $object->getAvailable())) {
             $this->markTestSkipped('u2f-php-server not available');
         }
+
         $_SESSION['registrationRequest'] = new RegistrationRequest(
             'yKA0x075tjJ-GE7fKTfnzTOSaNUOWQxRd9TWz5aFOg8',
             'http://demo.example.com'

@@ -7,8 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
+
+use function array_merge;
 use function defined;
 use function gmdate;
 use function header;
@@ -16,6 +19,7 @@ use function htmlspecialchars;
 use function implode;
 use function ini_get;
 use function is_bool;
+use function sprintf;
 use function strlen;
 use function strtolower;
 use function urlencode;
@@ -28,71 +32,54 @@ class Header
     /**
      * Scripts instance
      *
-     * @access private
      * @var Scripts
      */
     private $scripts;
     /**
      * PhpMyAdmin\Console instance
      *
-     * @access private
      * @var Console
      */
     private $console;
     /**
      * Menu instance
      *
-     * @access private
      * @var Menu
      */
     private $menu;
-
     /**
      * The page title
      *
-     * @access private
      * @var string
      */
     private $title;
     /**
      * The value for the id attribute for the body tag
      *
-     * @access private
      * @var string
      */
     private $bodyId;
     /**
      * Whether to show the top menu
      *
-     * @access private
      * @var bool
      */
     private $menuEnabled;
     /**
      * Whether to show the warnings
      *
-     * @access private
      * @var bool
      */
     private $warningsEnabled;
     /**
-     * Whether the page is in 'print view' mode
-     *
-     * @access private
-     * @var bool
-     */
-    private $isPrintView;
-    /**
      * Whether we are servicing an ajax request.
      *
-     * @access private
      * @var bool
      */
     private $isAjax;
     /**
      * Whether to display anything
      *
-     * @access private
      * @var bool
      */
     private $isEnabled;
@@ -100,7 +87,6 @@ class Header
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
      *
-     * @access private
      * @var bool
      */
     private $headerIsSent;
@@ -116,7 +102,7 @@ class Header
      */
     public function __construct()
     {
-        global $db, $table;
+        global $db, $table, $dbi;
 
         $this->template = new Template();
 
@@ -125,13 +111,9 @@ class Header
         $this->bodyId = '';
         $this->title = '';
         $this->console = new Console();
-        $this->menu = new Menu(
-            $db ?? '',
-            $table ?? ''
-        );
+        $this->menu = new Menu($dbi, $db ?? '', $table ?? '');
         $this->menuEnabled = true;
         $this->warningsEnabled = true;
-        $this->isPrintView = false;
         $this->scripts = new Scripts();
         $this->addDefaultScripts();
         $this->headerIsSent = false;
@@ -150,13 +132,12 @@ class Header
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('ajax.js');
         $this->scripts->addFile('keyhandler.js');
-        $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
+        $this->scripts->addFile('name-conflict-fixes.js');
+        $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->scripts->addFile('vendor/js.cookie.js');
-        $this->scripts->addFile('vendor/jquery/jquery.mousewheel.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
-        $this->scripts->addFile('vendor/jquery/jquery.ba-hashchange-2.0.js');
         $this->scripts->addFile('vendor/jquery/jquery.debounce-1.0.6.js');
         $this->scripts->addFile('menu_resizer.js');
 
@@ -166,8 +147,6 @@ class Header
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->scripts->addFile('cross_framing_protection.js');
         }
-
-        $this->scripts->addFile('rte.js');
 
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
@@ -199,36 +178,23 @@ class Header
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
-            'opendb_url' => Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            ),
+            'opendb_url' => Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $table ?? '',
             'db' => $db ?? '',
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
-            'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
-            'pma_text_default_tab' => Util::getTitleForTarget(
-                $GLOBALS['cfg']['DefaultTabTable']
-            ),
-            'pma_text_left_default_tab' => Util::getTitleForTarget(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
-            ),
-            'pma_text_left_default_tab2' => Util::getTitleForTarget(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
-            ),
             'LimitChars' => $GLOBALS['cfg']['LimitChars'],
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($dbi) ? $dbi->isConnected() : false,
-            'is_https' => $GLOBALS['PMA_Config']->isHttps(),
-            'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
+            'is_https' => $GLOBALS['config']->isHttps(),
+            'rootPath' => $GLOBALS['config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
         ];
         if (isset($GLOBALS['cfg']['Server'], $GLOBALS['cfg']['Server']['auth_type'])) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
@@ -336,23 +302,13 @@ class Header
     }
 
     /**
-     * Turns on 'print view' mode
-     */
-    public function enablePrintView(): void
-    {
-        $this->disableMenuAndConsole();
-        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
-        $this->isPrintView = true;
-    }
-
-    /**
      * Generates the header
      *
      * @return string The header
      */
     public function getDisplay(): string
     {
-        global $db, $table, $PMA_Theme, $dbi;
+        global $db, $table, $theme, $dbi;
 
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';
@@ -370,8 +326,7 @@ class Header
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
-        $themePath = $PMA_Theme !== null ? $PMA_Theme->getPath() : '';
+        $themePath = $theme instanceof Theme ? $theme->getPath() : '';
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -384,9 +339,7 @@ class Header
             $this->scripts->addFile('vendor/codemirror/addon/hint/sql-hint.js');
             if ($GLOBALS['cfg']['LintEnable']) {
                 $this->scripts->addFile('vendor/codemirror/addon/lint/lint.js');
-                $this->scripts->addFile(
-                    'codemirror/addon/lint/sql-lint.js'
-                );
+                $this->scripts->addFile('codemirror/addon/lint/sql-lint.js');
             }
         }
 
@@ -394,26 +347,26 @@ class Header
             $this->scripts->addFile('vendor/tracekit.js');
             $this->scripts->addFile('error_report.js');
         }
+
         if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
             $this->scripts->addFile('drag_drop_import.js');
         }
-        if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
+
+        if (! $GLOBALS['config']->get('DisableShortcutKeys')) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
 
         $this->scripts->addCode($this->getVariablesForJavaScript());
 
-        $this->scripts->addCode(
-            'ConsoleEnterExecutes='
-            . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
-        );
+        $this->scripts->addCode('ConsoleEnterExecutes=' . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
         $this->scripts->addFiles($this->console->getScripts());
 
         // if database storage for user preferences is transient,
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
         $userprefsOfferImport = false;
-        if ($GLOBALS['PMA_Config']->get('user_preferences') === 'session'
+        if (
+            $GLOBALS['config']->get('user_preferences') === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $userprefsOfferImport = true;
@@ -449,9 +402,7 @@ class Header
         return $this->template->render('header', [
             'lang' => $GLOBALS['lang'],
             'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
-            'is_print_view' => $this->isPrintView,
             'base_dir' => $baseDir,
-            'unique_value' => $uniqueValue,
             'theme_path' => $themePath,
             'version' => $version,
             'text_dir' => $GLOBALS['text_dir'],
@@ -486,13 +437,15 @@ class Header
         } elseif (! empty($_REQUEST['message'])) {
             $message = $_REQUEST['message'];
         }
+
         if (! empty($message)) {
             if (isset($GLOBALS['buffer_message'])) {
-                $buffer_message = $GLOBALS['buffer_message'];
+                $bufferMessage = $GLOBALS['buffer_message'];
             }
+
             $retval .= Generator::getMessage($message);
-            if (isset($buffer_message)) {
-                $GLOBALS['buffer_message'] = $buffer_message;
+            if (isset($bufferMessage)) {
+                $GLOBALS['buffer_message'] = $bufferMessage;
             }
         }
 
@@ -513,52 +466,70 @@ class Header
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
 
+        $headers = $this->getHttpHeaders();
+
+        foreach ($headers as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
+
+        $this->headerIsSent = true;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function getHttpHeaders(): array
+    {
+        $headers = [];
+
         /* Prevent against ClickJacking by disabling framing */
         if (strtolower((string) $GLOBALS['cfg']['AllowThirdPartyFraming']) === 'sameorigin') {
-            header(
-                'X-Frame-Options: SAMEORIGIN'
-            );
+            $headers['X-Frame-Options'] = 'SAMEORIGIN';
         } elseif ($GLOBALS['cfg']['AllowThirdPartyFraming'] !== true) {
-            header(
-                'X-Frame-Options: DENY'
-            );
-        }
-        header(
-            'Referrer-Policy: no-referrer'
-        );
-
-        $cspHeaders = $this->getCspHeaders();
-        foreach ($cspHeaders as $cspHeader) {
-            header($cspHeader);
+            $headers['X-Frame-Options'] = 'DENY';
         }
 
-        // Re-enable possible disabled XSS filters
-        // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
-        header(
-            'X-XSS-Protection: 1; mode=block'
-        );
-        // "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing
-        // a response away from the declared content-type
-        // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
-        header(
-            'X-Content-Type-Options: nosniff'
-        );
-        // Adobe cross-domain-policies
-        // see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html
-        header(
-            'X-Permitted-Cross-Domain-Policies: none'
-        );
-        // Robots meta tag
-        // see https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag
-        header(
-            'X-Robots-Tag: noindex, nofollow'
-        );
-        Core::noCacheHeader();
+        $headers['Referrer-Policy'] = 'no-referrer';
+
+        $headers = array_merge($headers, $this->getCspHeaders());
+
+        /**
+         * Re-enable possible disabled XSS filters.
+         *
+         * @see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+         */
+        $headers['X-XSS-Protection'] = '1; mode=block';
+
+        /**
+         * "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing
+         * a response away from the declared content-type.
+         *
+         * @see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+         */
+        $headers['X-Content-Type-Options'] = 'nosniff';
+
+        /**
+         * Adobe cross-domain-policies.
+         *
+         * @see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html
+         */
+        $headers['X-Permitted-Cross-Domain-Policies'] = 'none';
+
+        /**
+         * Robots meta tag.
+         *
+         * @see https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag
+         */
+        $headers['X-Robots-Tag'] = 'noindex, nofollow';
+
+        $headers = array_merge($headers, Core::getNoCacheHeaders());
+
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             // Define the charset to be used
-            header('Content-Type: text/html; charset=utf-8');
+            $headers['Content-Type'] = 'text/html; charset=utf-8';
         }
-        $this->headerIsSent = true;
+
+        return $headers;
     }
 
     /**
@@ -570,16 +541,17 @@ class Header
         if (strlen($this->title) == 0) {
             if ($GLOBALS['server'] > 0) {
                 if (strlen($GLOBALS['table'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleTable'];
+                    $tempTitle = $GLOBALS['cfg']['TitleTable'];
                 } elseif (strlen($GLOBALS['db'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleDatabase'];
+                    $tempTitle = $GLOBALS['cfg']['TitleDatabase'];
                 } elseif (strlen($GLOBALS['cfg']['Server']['host'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleServer'];
+                    $tempTitle = $GLOBALS['cfg']['TitleServer'];
                 } else {
-                    $temp_title = $GLOBALS['cfg']['TitleDefault'];
+                    $tempTitle = $GLOBALS['cfg']['TitleDefault'];
                 }
+
                 $this->title = htmlspecialchars(
-                    Util::expandUserString($temp_title)
+                    Util::expandUserString($tempTitle)
                 );
             } else {
                 $this->title = 'phpMyAdmin';
@@ -592,7 +564,7 @@ class Header
     /**
      * Get all the CSP allow policy headers
      *
-     * @return string[]
+     * @return array<string, string>
      */
     private function getCspHeaders(): array
     {
@@ -602,64 +574,57 @@ class Header
         $captchaUrl = '';
         $cspAllow = $cfg['CSPAllow'];
 
-        if (! empty($cfg['CaptchaApi'])
+        if (
+            ! empty($cfg['CaptchaLoginPrivateKey'])
+            && ! empty($cfg['CaptchaLoginPublicKey'])
+            && ! empty($cfg['CaptchaApi'])
             && ! empty($cfg['CaptchaRequestParam'])
             && ! empty($cfg['CaptchaResponseParam'])
-            && ! empty($cfg['CaptchaLoginPrivateKey'])
-            && ! empty($cfg['CaptchaLoginPublicKey'])
         ) {
             $captchaUrl = ' ' . $cfg['CaptchaCsp'] . ' ';
         }
 
-        return [
+        $headers = [];
 
-            "Content-Security-Policy: default-src 'self' "
-                . $captchaUrl
-                . $cspAllow . ';'
-                . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
-                . $captchaUrl
-                . $cspAllow . ';'
-                . "style-src 'self' 'unsafe-inline' "
-                . $captchaUrl
-                . $cspAllow
-                . ';'
-                . "img-src 'self' data: "
-                . $cspAllow
-                . $mapTileUrls
-                . $captchaUrl
-                . ';'
-                . "object-src 'none';",
+        $headers['Content-Security-Policy'] = sprintf(
+            'default-src \'self\' %s%s;script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' %s%s;'
+                . 'style-src \'self\' \'unsafe-inline\' %s%s;img-src \'self\' data: %s%s%s;object-src \'none\';',
+            $captchaUrl,
+            $cspAllow,
+            $captchaUrl,
+            $cspAllow,
+            $captchaUrl,
+            $cspAllow,
+            $cspAllow,
+            $mapTileUrls,
+            $captchaUrl
+        );
 
-            "X-Content-Security-Policy: default-src 'self' "
-                . $captchaUrl
-                . $cspAllow . ';'
-                . 'options inline-script eval-script;'
-                . 'referrer no-referrer;'
-                . "img-src 'self' data: "
-                . $cspAllow
-                . $mapTileUrls
-                . $captchaUrl
-                . ';'
-                . "object-src 'none';",
+        $headers['X-Content-Security-Policy'] = sprintf(
+            'default-src \'self\' %s%s;options inline-script eval-script;'
+                . 'referrer no-referrer;img-src \'self\' data: %s%s%s;object-src \'none\';',
+            $captchaUrl,
+            $cspAllow,
+            $cspAllow,
+            $mapTileUrls,
+            $captchaUrl
+        );
 
-            "X-WebKit-CSP: default-src 'self' "
-                . $captchaUrl
-                . $cspAllow . ';'
-                . "script-src 'self' "
-                . $captchaUrl
-                . $cspAllow
-                . " 'unsafe-inline' 'unsafe-eval';"
-                . 'referrer no-referrer;'
-                . "style-src 'self' 'unsafe-inline' "
-                . $captchaUrl
-                . ';'
-                . "img-src 'self' data: "
-                . $cspAllow
-                . $mapTileUrls
-                . $captchaUrl
-                . ';'
-                . "object-src 'none';",
-        ];
+        $headers['X-WebKit-CSP'] = sprintf(
+            'default-src \'self\' %s%s;script-src \'self\' %s%s \'unsafe-inline\' \'unsafe-eval\';'
+                . 'referrer no-referrer;style-src \'self\' \'unsafe-inline\' %s;'
+                . 'img-src \'self\' data: %s%s%s;object-src \'none\';',
+            $captchaUrl,
+            $cspAllow,
+            $captchaUrl,
+            $cspAllow,
+            $captchaUrl,
+            $cspAllow,
+            $mapTileUrls,
+            $captchaUrl
+        );
+
+        return $headers;
     }
 
     /**
@@ -671,18 +636,12 @@ class Header
     private function addRecentTable(string $db, string $table): string
     {
         $retval = '';
-        if ($this->menuEnabled
-            && strlen($table) > 0
-            && $GLOBALS['cfg']['NumRecentTables'] > 0
-        ) {
-            $tmp_result = RecentFavoriteTable::getInstance('recent')->add(
-                $db,
-                $table
-            );
-            if ($tmp_result === true) {
+        if ($this->menuEnabled && strlen($table) > 0 && $GLOBALS['cfg']['NumRecentTables'] > 0) {
+            $tmpResult = RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            if ($tmpResult === true) {
                 $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
-                $error  = $tmp_result;
+                $error = $tmpResult;
                 $retval = $error->getDisplay();
             }
         }
@@ -698,19 +657,18 @@ class Header
      */
     public static function getVersionParameter(): string
     {
-        return 'v=' . urlencode(PMA_VERSION);
+        return 'v=' . urlencode(Version::VERSION);
     }
 
     private function getVariablesForJavaScript(): string
     {
-        global $cfg, $PMA_Theme;
+        global $cfg;
 
         $maxInputVars = ini_get('max_input_vars');
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
             'first_day_of_calendar' => $cfg['FirstDayOfCalendar'] ?? 0,
-            'theme_image_path' => $PMA_Theme !== null ? $PMA_Theme->getImgPath() : '',
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

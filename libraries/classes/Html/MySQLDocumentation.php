@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
+
+use function __;
 use function defined;
 use function file_exists;
 use function htmlspecialchars;
@@ -28,8 +30,6 @@ class MySQLDocumentation
      * @param string      $anchor  anchor to page part
      *
      * @return string  the html link
-     *
-     * @access public
      */
     public static function show(
         $link,
@@ -41,6 +41,7 @@ class MySQLDocumentation
         if ($url === null) {
             $url = Util::getMySQLDocuURL($link, $anchor);
         }
+
         $openLink = '<a href="' . htmlspecialchars($url) . '" target="mysql_doc">';
         $closeLink = '</a>';
 
@@ -65,8 +66,6 @@ class MySQLDocumentation
      * @param bool   $bbcode Optional flag indicating whether to output bbcode
      *
      * @return string  the html link
-     *
-     * @access public
      */
     public static function showDocumentation($page, $anchor = '', $bbcode = false): string
     {
@@ -90,7 +89,8 @@ class MySQLDocumentation
             $url .= '#' . $anchor;
         }
 
-        /* Check if we have built local documentation, however
+        /**
+         * Check if we have built local documentation, however
          * provide consistent URL for testsuite
          */
         if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'doc/html/index.html')) {

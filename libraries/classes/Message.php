@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const ENT_COMPAT;
+use Stringable;
+
+use function __;
+use function _ngettext;
 use function array_unshift;
 use function count;
 use function htmlspecialchars;
@@ -14,6 +17,8 @@ use function is_int;
 use function md5;
 use function sprintf;
 use function strlen;
+
+use const ENT_COMPAT;
 
 /**
  * a single message
@@ -44,32 +49,31 @@ use function strlen;
  * $message->addMessage($hint);
  * </code>
  */
-class Message
+class Message implements Stringable
 {
     public const SUCCESS = 1; // 0001
-    public const NOTICE  = 2; // 0010
-    public const ERROR   = 8; // 1000
+    public const NOTICE = 2; // 0010
+    public const ERROR = 8; // 1000
 
-    public const SANITIZE_NONE   = 0;  // 0000 0000
+    public const SANITIZE_NONE = 0; // 0000 0000
     public const SANITIZE_STRING = 16; // 0001 0000
     public const SANITIZE_PARAMS = 32; // 0010 0000
-    public const SANITIZE_BOOTH  = 48; // 0011 0000
+    public const SANITIZE_BOOTH = 48; // 0011 0000
 
     /**
      * message levels
      *
      * @var array
      */
-    public static $level =  [
+    public static $level = [
         self::SUCCESS => 'success',
-        self::NOTICE  => 'notice',
-        self::ERROR   => 'error',
+        self::NOTICE => 'notice',
+        self::ERROR => 'error',
     ];
 
     /**
      * The message number
      *
-     * @access protected
      * @var int
      */
     protected $number = self::NOTICE;
@@ -77,7 +81,6 @@ class Message
     /**
      * The locale string identifier
      *
-     * @access protected
      * @var    string
      */
     protected $string = '';
@@ -85,7 +88,6 @@ class Message
     /**
      * The formatted message
      *
-     * @access protected
      * @var    string
      */
     protected $message = '';
@@ -93,7 +95,6 @@ class Message
     /**
      * Whether the message was already displayed
      *
-     * @access protected
      * @var bool
      */
     protected $isDisplayed = false;
@@ -101,7 +102,6 @@ class Message
     /**
      * Whether to use BB code when displaying.
      *
-     * @access protected
      * @var bool
      */
     protected $useBBCode = true;
@@ -109,7 +109,6 @@ class Message
     /**
      * Unique id
      *
-     * @access protected
      * @var string
      */
     protected $hash = null;
@@ -117,7 +116,6 @@ class Message
     /**
      * holds parameters
      *
-     * @access protected
      * @var    array
      */
     protected $params = [];
@@ -125,7 +123,6 @@ class Message
     /**
      * holds additional messages
      *
-     * @access protected
      * @var    array
      */
     protected $addedMessages = [];
@@ -354,8 +351,6 @@ class Message
      * and optionally makes this message a success message
      *
      * @param bool $set Whether to make this message of SUCCESS type
-     *
-     * @return bool whether this is a success message or not
      */
     public function isSuccess(bool $set = false): bool
     {
@@ -371,8 +366,6 @@ class Message
      * and optionally makes this message a notice message
      *
      * @param bool $set Whether to make this message of NOTICE type
-     *
-     * @return bool whether this is a notice message or not
      */
     public function isNotice(bool $set = false): bool
     {
@@ -388,8 +381,6 @@ class Message
      * and optionally makes this message an error message
      *
      * @param bool $set Whether to make this message of ERROR type
-     *
-     * @return bool Whether this is an error message or not
      */
     public function isError(bool $set = false): bool
     {
@@ -421,6 +412,7 @@ class Message
         if ($sanitize) {
             $message = self::sanitize($message);
         }
+
         $this->message = $message;
     }
 
@@ -435,6 +427,7 @@ class Message
         if ($sanitize) {
             $string = self::sanitize($string);
         }
+
         $this->string = $string;
     }
 
@@ -519,6 +512,7 @@ class Message
         if (! empty($separator)) {
             $this->addedMessages[] = $separator;
         }
+
         $this->addedMessages[] = $message;
     }
 
@@ -566,6 +560,7 @@ class Message
         if ($sanitize) {
             $params = self::sanitize($params);
         }
+
         $this->params = $params;
     }
 
@@ -596,7 +591,6 @@ class Message
      *
      * @return mixed  the sanitized message(s)
      *
-     * @access public
      * @static
      */
     public static function sanitize($message)
@@ -620,7 +614,6 @@ class Message
      *
      * @return string  the decoded message
      *
-     * @access public
      * @static
      */
     public static function decodeBB(string $message): string
@@ -684,6 +677,7 @@ class Message
         if ($this->isDisplayed()) {
             $message = $this->getMessageWithIcon($message);
         }
+
         if (count($this->getParams()) > 0) {
             $message = self::format($message, $this->getParams());
         }
@@ -766,8 +760,6 @@ class Message
      * sets and returns whether the message was displayed or not
      *
      * @param bool $isDisplayed whether to set displayed flag
-     *
-     * @return bool Message::$isDisplayed
      */
     public function isDisplayed(bool $isDisplayed = false): bool
     {
@@ -794,6 +786,7 @@ class Message
         } else {
             $image = 's_notice';
         }
+
         $message = self::notice(Html\Generator::getImage($image)) . ' ' . $message;
 
         return $message;

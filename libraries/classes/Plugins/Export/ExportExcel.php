@@ -15,17 +15,22 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
+use function __;
+
 /**
  * Handles the export for the CSV-Excel format
  */
 class ExportExcel extends ExportCsv
 {
     /**
-     * Sets the export CSV for Excel properties
-     *
-     * @return void
+     * @psalm-return non-empty-lowercase-string
      */
-    protected function setProperties()
+    public function getName(): string
+    {
+        return 'excel';
+    }
+
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('CSV for MS Excel');
@@ -36,9 +41,7 @@ class ExportExcel extends ExportCsv
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -64,21 +67,20 @@ class ExportExcel extends ExportCsv
         );
         $leaf->setValues(
             [
-                'win'           => 'Windows',
+                'win' => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
                 'mac_excel2008' => 'Excel 2008 / Macintosh',
             ]
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem(
-            'structure_or_data'
-        );
+        $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 }

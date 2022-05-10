@@ -12,6 +12,7 @@
     },
     "globals": {
         "AJAX": "readonly",
+        "bootstrap": "readonly",
         "CodeMirror": "readonly",
         "CommonActions": "readonly",
         "CommonParams": "readonly",
@@ -23,6 +24,15 @@
         "Sql": "readonly"
     },
     "rules": {
+        "valid-jsdoc": ["error", {
+            "prefer": {
+                "returns": "return"
+            },
+            "requireReturn": false,
+            "requireParamType": false,
+            "requireReturnDescription": false,
+            "requireParamDescription": false
+        }],
         "array-bracket-spacing": "error",
         "brace-style": "error",
         "camelcase": "error",
@@ -46,7 +56,6 @@
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "error",
         "no-unneeded-ternary": "error",
-        "no-unused-vars": "off",
         "object-curly-spacing": ["error", "always"],
         "one-var": ["error", "never"],
         "padded-blocks": ["error", "never"],

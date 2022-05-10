@@ -10,7 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * Tests for database search.
+ * @covers \PhpMyAdmin\Database\Search
  */
 class SearchTest extends AbstractTestCase
 {
@@ -20,13 +20,10 @@ class SearchTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
@@ -56,8 +53,6 @@ class SearchTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -138,8 +133,7 @@ class SearchTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
-                'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` ' .
-                    'WHERE FALSE',
+                'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
             ],
             $this->callFunction(
@@ -175,25 +169,10 @@ class SearchTest extends AbstractTestCase
         $this->assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs
-        $this->assertStringContainsString(
-            '<div id="table-info"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<a id="table-link"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<div id="browse-results"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<div id="sqlqueryform"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<button class="btn btn-secondary" id="togglequerybox"',
-            $main
-        );
+        $this->assertStringContainsString('<div id="table-info"', $main);
+        $this->assertStringContainsString('<a id="table-link"', $main);
+        $this->assertStringContainsString('<div id="browse-results"', $main);
+        $this->assertStringContainsString('<div id="sqlqueryform"', $main);
+        $this->assertStringContainsString('<button class="btn btn-secondary" id="togglequerybox"', $main);
     }
 }

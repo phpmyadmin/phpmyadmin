@@ -1,4 +1,4 @@
-<div id="pma_console_container">
+<div id="pma_console_container" class="d-print-none">
     <div id="pma_console">
         {# Console toolbar #}
         {% include 'console/toolbar.twig' with {
@@ -8,7 +8,7 @@
                 ['button clear', 'Clear'|trans],
                 ['button history', 'History'|trans],
                 ['button options', 'Options'|trans],
-                cfg_bookmark is defined ? ['button bookmarks', 'Bookmarks'|trans] : null,
+                has_bookmark_feature ? ['button bookmarks', 'Bookmarks'|trans] : null,
                 ['button debug hide', 'Debug SQL'|trans]
             ]
         } only %}
@@ -37,7 +37,7 @@
                                     ['action edit', 'Edit'|trans],
                                     ['action explain', 'Explain'|trans],
                                     ['action profiling', 'Profiling'|trans],
-                                    cfg_bookmark is defined ? ['action bookmark', 'Bookmark'|trans] : null,
+                                    has_bookmark_feature ? ['action bookmark', 'Bookmark'|trans] : null,
                                     ['text failed', 'Query failed'|trans],
                                     {0: 'text targetdb', 1: 'Database'|trans, 'extraSpan': record['db']},
                                     {
@@ -94,7 +94,7 @@
                 } only %}
             </div> <!-- Template -->
         </div> <!-- Debug SQL card -->
-        {% if cfg_bookmark %}
+        {% if has_bookmark_feature %}
             <div class="card" id="pma_bookmarks">
                 {% include 'console/toolbar.twig' with {
                     'parent_div_classes': '',
@@ -160,7 +160,7 @@
                 <label>
                     <input type="checkbox" name="enter_executes">
                         {% trans %}
-                            Execute queries on Enter and insert new line with Shift + Enter. To make this permanent, view settings.
+                            Execute queries on Enter and insert new line with Shift+Enter. To make this permanent, view settings.
                         {% endtrans %}
                 </label>
                 <br>
@@ -181,7 +181,7 @@
                     ['action edit', 'Edit'|trans],
                     ['action explain', 'Explain'|trans],
                     ['action profiling', 'Profiling'|trans],
-                    cfg_bookmark is defined ? ['action bookmark', 'Bookmark'|trans] : null,
+                    has_bookmark_feature ? ['action bookmark', 'Bookmark'|trans] : null,
                     ['text failed', 'Query failed'|trans],
                     {0: 'text targetdb', 1: 'Database'|trans, 'extraSpan': ''},
                     {0: 'text query_time', 1: 'Queried time'|trans, 'extraSpan': ''}

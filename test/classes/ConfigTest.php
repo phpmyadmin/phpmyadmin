@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\DatabaseInterface;
-use PHPUnit\Framework\Exception;
-use const DIRECTORY_SEPARATOR;
-use const INFO_MODULES;
-use const PHP_OS;
+
 use function array_merge;
 use function array_replace_recursive;
-use function constant;
 use function define;
 use function defined;
-use function filemtime;
+use function file_exists;
+use function file_put_contents;
 use function fileperms;
 use function function_exists;
 use function gd_info;
@@ -29,17 +27,19 @@ use function realpath;
 use function strip_tags;
 use function stristr;
 use function sys_get_temp_dir;
-use function crc32;
+use function tempnam;
+use function unlink;
 
+use const DIRECTORY_SEPARATOR;
+use const INFO_MODULES;
+use const PHP_EOL;
+use const PHP_OS;
+
+/**
+ * @covers \PhpMyAdmin\Config
+ */
 class ConfigTest extends AbstractTestCase
 {
-    /**
-     * Turn off backup globals
-     *
-     * @var bool
-     */
-    protected $backupGlobals = false;
-
     /** @var Config */
     protected $object;
 
@@ -53,14 +53,13 @@ class ConfigTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = new Config();
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
+        $GLOBALS['config'] = new Config(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
@@ -79,6 +78,90 @@ class ConfigTest extends AbstractTestCase
     }
 
     /**
+     * Test for load
+     */
+    public function testLoadConfigs(): void
+    {
+        $defaultConfig = new Config();
+        $tmpConfig = tempnam('./', 'config.test.inc.php');
+        if ($tmpConfig === false) {
+            $this->markTestSkipped('Creating a temporary file does not work');
+        }
+
+        $this->assertFileExists($tmpConfig);
+
+        // end of setup
+
+        // Test loading an empty file does not change the default config
+        $config = new Config($tmpConfig);
+        $this->assertSame($defaultConfig->settings, $config->settings);
+
+        $contents = '<?php' . PHP_EOL
+                    . '$cfg[\'ProtectBinary\'] = true;';
+        file_put_contents($tmpConfig, $contents);
+
+        // Test loading a config changes the setup
+        $config = new Config($tmpConfig);
+        $defaultConfig->settings['ProtectBinary'] = true;
+        $this->assertSame($defaultConfig->settings, $config->settings);
+        $defaultConfig->settings['ProtectBinary'] = 'blob';
+
+        // Teardown
+        unlink($tmpConfig);
+        $this->assertFalse(file_exists($tmpConfig));
+    }
+
+    /**
+     * Test for load
+     */
+    public function testLoadInvalidConfigs(): void
+    {
+        $defaultConfig = new Config();
+        $tmpConfig = tempnam('./', 'config.test.inc.php');
+        if ($tmpConfig === false) {
+            $this->markTestSkipped('Creating a temporary file does not work');
+        }
+
+        $this->assertFileExists($tmpConfig);
+
+        // end of setup
+
+        // Test loading an empty file does not change the default config
+        $config = new Config($tmpConfig);
+        $this->assertSame($defaultConfig->settings, $config->settings);
+
+        $contents = '<?php' . PHP_EOL
+                    . '$cfg[\'fooBar\'] = true;';
+        file_put_contents($tmpConfig, $contents);
+
+        // Test loading a custom key config changes the setup
+        $config = new Config($tmpConfig);
+        $defaultConfig->settings['fooBar'] = true;
+        // Equals because of the key sorting
+        $this->assertEquals($defaultConfig->settings, $config->settings);
+        unset($defaultConfig->settings['fooBar']);
+
+        $contents = '<?php' . PHP_EOL
+                    . '$cfg[\'/InValidKey\'] = true;' . PHP_EOL
+                    . '$cfg[\'In/ValidKey\'] = true;' . PHP_EOL
+                    . '$cfg[\'/InValid/Key\'] = true;' . PHP_EOL
+                    . '$cfg[\'In/Valid/Key\'] = true;' . PHP_EOL
+                    . '$cfg[\'ValidKey\'] = true;';
+        file_put_contents($tmpConfig, $contents);
+
+        // Test loading a custom key config changes the setup
+        $config = new Config($tmpConfig);
+        $defaultConfig->settings['ValidKey'] = true;
+        // Equals because of the key sorting
+        $this->assertEquals($defaultConfig->settings, $config->settings);
+        unset($defaultConfig->settings['ValidKey']);
+
+        // Teardown
+        unlink($tmpConfig);
+        $this->assertFalse(file_exists($tmpConfig));
+    }
+
+    /**
      * Test for CheckSystem
      *
      * @group medium
@@ -87,8 +170,7 @@ class ConfigTest extends AbstractTestCase
     {
         $this->object->checkSystem();
 
-        $this->assertNotEmpty($this->object->get('PMA_VERSION'));
-        $this->assertNotEmpty($this->object->get('PMA_MAJOR_VERSION'));
+        $this->assertIsBool($this->object->get('PMA_IS_WINDOWS'));
     }
 
     /**
@@ -131,6 +213,7 @@ class ConfigTest extends AbstractTestCase
                 $this->object->get('PMA_USR_BROWSER_AGENT')
             );
         }
+
         if ($version == null) {
             return;
         }
@@ -156,8 +239,7 @@ class ConfigTest extends AbstractTestCase
                 '9.80',
             ],
             [
-                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/'
-                . '528.16 OmniWeb/622.8.0.112941',
+                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941',
                 'Mac',
                 'OMNIWEB',
                 '622',
@@ -175,15 +257,13 @@ class ConfigTest extends AbstractTestCase
                 '9.0',
             ],
             [
-                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; '
-                . 'Trident/6.0)',
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)',
                 'Win',
                 'IE',
                 '10.0',
             ],
             [
-                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; '
-                . '.NET4.0C; rv:11.0) like Gecko',
+                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko',
                 'Win',
                 'IE',
                 '11.0',
@@ -217,8 +297,7 @@ class ConfigTest extends AbstractTestCase
                 '1.9',
             ],
             [
-                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; '
-                . 'amd64; en_US) KHTML/4.5.4 (like Gecko)',
+                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)',
                 'Other',
                 'KONQUEROR',
             ],
@@ -229,8 +308,7 @@ class ConfigTest extends AbstractTestCase
                 '5.0',
             ],
             [
-                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 '
-                . 'Firefox/12.0',
+                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
                 'Linux',
                 'FIREFOX',
                 '12.0',
@@ -253,8 +331,6 @@ class ConfigTest extends AbstractTestCase
      */
     public function testCheckGd2(): void
     {
-        $prevIsGb2Val = $this->object->get('PMA_IS_GD2');
-
         $this->object->set('GD2Available', 'yes');
         $this->object->checkGd2();
         $this->assertEquals(1, $this->object->get('PMA_IS_GD2'));
@@ -386,46 +462,23 @@ class ConfigTest extends AbstractTestCase
      */
     public function testLoadDefaults(): void
     {
-        $prevDefaultSource = $this->object->defaultSource;
+        $this->object->defaultServer = [];
+        $this->object->default = [];
+        $this->object->settings = ['is_setup' => false, 'AvailableCharsets' => ['test']];
 
-        $this->object->defaultSource = 'unexisted.file.php';
-        $this->assertFalse($this->object->loadDefaults());
+        $this->object->loadDefaults();
 
-        $this->object->defaultSource = $prevDefaultSource;
+        $settings = new Settings([]);
+        $config = $settings->toArray();
 
-        /** @var array<string,mixed> $cfg */
-        $cfg = [];
-        include $this->object->defaultSource;
-        $loadedConf = $cfg;
-        unset($cfg);
-
-        $this->assertTrue($this->object->loadDefaults());
-
+        $this->assertIsArray($config['Servers']);
+        $this->assertEquals($config['Servers'][1], $this->object->defaultServer);
+        unset($config['Servers']);
+        $this->assertEquals($config, $this->object->default);
         $this->assertEquals(
-            $this->object->defaultSourceMtime,
-            filemtime($prevDefaultSource)
+            array_replace_recursive(['is_setup' => false, 'AvailableCharsets' => ['test']], $config),
+            $this->object->settings
         );
-        $this->assertEquals(
-            $loadedConf['Servers'][1],
-            $this->object->defaultServer
-        );
-
-        unset($loadedConf['Servers']);
-
-        $this->assertEquals($loadedConf, $this->object->default);
-
-        $expectedSettings = array_replace_recursive(
-            $this->object->settings,
-            $loadedConf
-        );
-
-        $this->assertEquals(
-            $expectedSettings,
-            $this->object->settings,
-            'Settings loaded wrong'
-        );
-
-        $this->assertFalse($this->object->errorConfigDefaultFile);
     }
 
     /**
@@ -437,7 +490,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->sourceMtime);
 
-        $this->object->setSource(ROOT_PATH . 'libraries/config.default.php');
+        $this->object->setSource(ROOT_PATH . 'test/test_data/config.inc.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -738,34 +791,6 @@ class ConfigTest extends AbstractTestCase
     }
 
     /**
-     * Test for backward compatibility globals
-     *
-     * @depends testCheckSystem
-     * @depends testCheckWebServer
-     * @depends testLoadDefaults
-     * @group large
-     */
-    public function testEnableBc(): void
-    {
-        $this->object->enableBc();
-
-        $defines = [
-            'PMA_VERSION',
-            'PMA_MAJOR_VERSION',
-            'PMA_IS_WINDOWS',
-            'PMA_IS_GD2',
-            'PMA_USR_OS',
-            'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT',
-        ];
-
-        foreach ($defines as $define) {
-            $this->assertTrue(defined($define));
-            $this->assertEquals(constant($define), $this->object->get($define));
-        }
-    }
-
-    /**
      * Test for getting root path
      *
      * @param string $request  The request URL used for phpMyAdmin
@@ -905,10 +930,6 @@ class ConfigTest extends AbstractTestCase
                 ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
-            [
-                ROOT_PATH . 'libraries/config.default.php',
-                true,
-            ],
         ];
     }
 
@@ -942,22 +963,6 @@ class ConfigTest extends AbstractTestCase
     public function testGetUserValue(): void
     {
         $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
-    }
-
-    /**
-     * Should test getting unique value for theme
-     */
-    public function testGetThemeUniqueValue(): void
-    {
-        $partial_sum = crc32(
-            $this->object->sourceMtime .
-            $this->object->defaultSourceMtime .
-            $this->object->get('user_preferences_mtime') .
-            $GLOBALS['PMA_Theme']->mtimeInfo .
-            $GLOBALS['PMA_Theme']->filesizeInfo
-        );
-
-        $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
     }
 
     /**
@@ -1056,23 +1061,15 @@ class ConfigTest extends AbstractTestCase
      *
      * @param array $settings settings array
      * @param array $expected expected result
-     * @param bool  $error    error
      *
      * @dataProvider serverSettingsProvider
      */
-    public function testCheckServers(array $settings, array $expected, bool $error = false): void
+    public function testCheckServers(array $settings, array $expected): void
     {
-        if ($error) {
-            $this->expectException(Exception::class);
-        }
-
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
-        if ($expected === null) {
-            $expected = $this->object->defaultServer;
-        } else {
-            $expected = array_merge($this->object->defaultServer, $expected);
-        }
+        $expected = array_merge($this->object->defaultServer, $expected);
+
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 
@@ -1099,12 +1096,22 @@ class ConfigTest extends AbstractTestCase
                     'host' => '',
                 ],
             ],
-            'invalid' => [
-                ['invalid' => ['host' => '127.0.0.1']],
-                ['host' => '127.0.0.1'],
-                true,
-            ],
         ];
+    }
+
+    /**
+     * @group with-trigger-error
+     */
+    public function testCheckServersWithInvalidServer(): void
+    {
+        $this->expectError();
+        $this->expectErrorMessage('Invalid server index: invalid');
+
+        $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
+        $this->object->checkServers();
+        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
+
+        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 
     /**

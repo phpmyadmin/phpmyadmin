@@ -1,14 +1,9 @@
 <?php
-/**
- * URL redirector to avoid leaking Referer with some sensitive information.
- */
 
 declare(strict_types=1);
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Common;
+use PhpMyAdmin\UrlRedirector;
 
 if (! defined('ROOT_PATH')) {
     // phpcs:disable PSR1.Files.SideEffects
@@ -16,39 +11,32 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-global $containerBuilder, $dbi;
+if (PHP_VERSION_ID < 70205) {
+    die('<p>PHP 7.2.5+ is required.</p><p>Currently installed version is: ' . PHP_VERSION . '</p>');
+}
 
 // phpcs:disable PSR1.Files.SideEffects
-define('PMA_MINIMUM_COMMON', true);
+define('PHPMYADMIN', true);
 // phpcs:enable
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/constants.php';
 
-// Load database service because services.php is not available here
-$dbi = DatabaseInterface::load();
-$containerBuilder->set(DatabaseInterface::class, $dbi);
-
-// Only output the http headers
-$response = Response::getInstance();
-$response->getHeader()->sendHttpHeaders();
-$response->disable();
-
-if (! Core::isValid($_GET['url'])
-    || ! preg_match('/^https:\/\/[^\n\r]*$/', $_GET['url'])
-    || ! Core::isAllowedDomain($_GET['url'])
-) {
-    Core::sendHeaderLocation('./');
-} else {
-    // JavaScript redirection is necessary. Because if header() is used
-    //  then web browser sometimes does not change the HTTP_REFERER
-    //  field and so with old URL as Referer, token also goes to
-    //  external site.
-    $template = $containerBuilder->get('template');
-    echo $template->render('javascript/redirect', [
-        'url' => Sanitize::escapeJsString($_GET['url']),
-    ]);
-    // Display redirecting msg on screen.
-    // Do not display the value of $_GET['url'] to avoid showing injected content
-    echo __('Taking you to the target site.');
+/**
+ * Activate autoloader
+ */
+if (! @is_readable(AUTOLOAD_FILE)) {
+    die(
+        '<p>File <samp>' . AUTOLOAD_FILE . '</samp> missing or not readable.</p>'
+        . '<p>Most likely you did not run Composer to '
+        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">'
+        . 'install library files</a>.</p>'
+    );
 }
-die;
+
+require AUTOLOAD_FILE;
+
+$isMinimumCommon = true;
+
+Common::run();
+
+UrlRedirector::redirect();

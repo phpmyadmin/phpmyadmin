@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisor;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 
@@ -17,17 +17,13 @@ class AdvisorController extends AbstractController
     /** @var Advisor */
     private $advisor;
 
-    /**
-     * @param Response $response
-     * @param Data     $data
-     */
-    public function __construct($response, Template $template, $data, Advisor $advisor)
+    public function __construct(ResponseRenderer $response, Template $template, Data $data, Advisor $advisor)
     {
         parent::__construct($response, $template, $data);
         $this->advisor = $advisor;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         $data = [];
         if ($this->data->dataLoaded) {

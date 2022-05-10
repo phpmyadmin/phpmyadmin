@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database\Designer;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Version;
+
 use function sprintf;
 
+/**
+ * @covers \PhpMyAdmin\Database\Designer\Common
+ */
 class CommonTest extends AbstractTestCase
 {
     /** @var Common */
@@ -21,12 +28,11 @@ class CommonTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $_SESSION = [
             'relation' => [
                 '1' => [
-                    'PMA_VERSION' => PMA_VERSION,
+                    'version' => Version::VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true,
@@ -63,8 +69,7 @@ class CommonTest extends AbstractTestCase
             WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             );
         $GLOBALS['dbi'] = $dbi;
 
@@ -94,8 +99,7 @@ class CommonTest extends AbstractTestCase
                 . ' WHERE `page_nr` = ' . $pg,
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([$pageName]));
         $GLOBALS['dbi'] = $dbi;
@@ -114,16 +118,15 @@ class CommonTest extends AbstractTestCase
     {
         $pg = 1;
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->exactly(2))
-            ->method('query')
-            ->willReturnOnConsecutiveCalls(
-                true,
-                true
-            );
+            ->method('queryAsControlUser')
+            ->willReturnOnConsecutiveCalls($resultStub, $resultStub);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -155,8 +158,7 @@ class CommonTest extends AbstractTestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([$default_pg]));
         $dbi->expects($this->any())->method('escapeString')
@@ -188,8 +190,7 @@ class CommonTest extends AbstractTestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([]));
         $dbi->expects($this->any())->method('escapeString')
@@ -222,8 +223,7 @@ class CommonTest extends AbstractTestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will($this->returnValue([$default_pg]));
         $dbi->expects($this->any())->method('escapeString')
@@ -349,30 +349,22 @@ class CommonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationRelationDbNotWorking(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
-            'relwork' => false,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
+
         parent::setGlobalDbi();
         $this->loadTestDataForRelationDeleteAddTests(
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             false,
@@ -380,19 +372,17 @@ class CommonTest extends AbstractTestCase
         ], $result);
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationWorkingRelationDb(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
+
         parent::setGlobalDbi();
 
         $this->loadTestDataForRelationDeleteAddTests(
@@ -417,12 +407,7 @@ class CommonTest extends AbstractTestCase
             []
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             true,
@@ -430,19 +415,16 @@ class CommonTest extends AbstractTestCase
         ], $result);
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
 
         parent::setGlobalDbi();
 
@@ -488,12 +470,7 @@ class CommonTest extends AbstractTestCase
             []
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             true,
@@ -501,19 +478,17 @@ class CommonTest extends AbstractTestCase
         ], $result);
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
+
         parent::setGlobalDbi();
 
         $this->loadTestDataForRelationDeleteAddTests(
@@ -538,12 +513,7 @@ class CommonTest extends AbstractTestCase
             false// Delete failed
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             false,

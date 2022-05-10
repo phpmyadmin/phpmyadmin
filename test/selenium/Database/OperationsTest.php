@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * OperationsTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class OperationsTest extends TestBase
 {
@@ -32,10 +27,7 @@ class OperationsTest extends TestBase
         $this->navigateDatabase($this->databaseName);
         $this->expandMore();
         $this->waitForElement('partialLinkText', 'Operations')->click();
-        $this->waitForElement(
-            'xpath',
-            '//div[contains(., \'Rename database to\')]'
-        );
+        $this->waitForElement('xpath', '//div[contains(., \'Rename database to\')]');
     }
 
     /**
@@ -49,9 +41,7 @@ class OperationsTest extends TestBase
 
         $this->getToDBOperations();
         $this->byName('comment')->sendKeys('comment_foobar');
-        $this->byCssSelector(
-            "form#formDatabaseComment input[type='submit']"
-        )->click();
+        $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
         $this->assertNotNull(
             $this->waitForElement(
@@ -72,16 +62,13 @@ class OperationsTest extends TestBase
 
         $new_db_name = $this->databaseName . 'rename';
 
-        $this->scrollIntoView('create_table_form_minimal');
+        $this->scrollIntoView('createTableMinimalForm');
         $this->byCssSelector('form#rename_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
-        $this->waitForElement(
-            'cssSelector',
-            'button.submitOK'
-        )->click();
+        $this->waitForElement('cssSelector', 'button.submitOK')->click();
 
         $this->waitForElement(
             'xpath',
@@ -117,6 +104,7 @@ class OperationsTest extends TestBase
 
         $this->reloadPage();// Reload or scrolling will not work ..
         $new_db_name = $this->databaseName . 'copy';
+        $this->scrollIntoView('renameDbNameInput');
         $this->byCssSelector('form#copy_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 

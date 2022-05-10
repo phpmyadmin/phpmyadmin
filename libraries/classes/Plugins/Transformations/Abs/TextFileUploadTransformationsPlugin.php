@@ -7,8 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
-use stdClass;
+
+use function __;
 use function htmlspecialchars;
 
 /**
@@ -24,22 +26,19 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      */
     public static function getInfo()
     {
-        return __(
-            'File upload functionality for TEXT columns. '
-            . 'It does not have a textarea for input.'
-        );
+        return __('File upload functionality for TEXT columns. It does not have a textarea for input.');
     }
 
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string             $buffer  text to be transformed
+     * @param array              $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         return $buffer;
     }
@@ -78,6 +77,7 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
                 . '" value="' . htmlspecialchars($value) . '">';
         }
+
         $html .= '<input type="file" name="fields_upload'
             . $column_name_appendix . '">';
 

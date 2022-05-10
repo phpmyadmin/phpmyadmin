@@ -37,10 +37,8 @@ $AUTH_MAP = [
  * Simple function to show HTML page with given content.
  *
  * @param string $contents Content to include in page
- *
- * @return void
  */
-function Show_page($contents)
+function Show_page($contents): void
 {
     header('Content-Type: text/html; charset=utf-8');
 
@@ -68,10 +66,8 @@ function Show_page($contents)
  * Display error and exit
  *
  * @param Exception $e Exception object
- *
- * @return void
  */
-function Die_error($e)
+function Die_error($e): void
 {
     $contents = "<div class='relyingparty_results'>\n";
     $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";
@@ -94,6 +90,7 @@ $base = 'http';
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $base .= 's';
 }
+
 $base .= '://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];
 
 $realm = $base . '/';
@@ -101,6 +98,7 @@ $returnTo = $base . dirname($_SERVER['PHP_SELF']);
 if ($returnTo[strlen($returnTo) - 1] !== '/') {
     $returnTo .= '/';
 }
+
 $returnTo .= 'openid.php';
 
 /* Display form */
@@ -115,12 +113,11 @@ OpenID: <input type="text" name="identifier"><br>
 }
 
 /* Grab identifier */
+$identifier = null;
 if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
     $identifier = $_POST['identifier'];
 } elseif (isset($_SESSION['identifier']) && is_string($_SESSION['identifier'])) {
     $identifier = $_SESSION['identifier'];
-} else {
-    $identifier = null;
 }
 
 /* Create OpenID object */
@@ -148,7 +145,7 @@ if (isset($_POST['start'])) {
 if (! count($_POST)) {
     [, $queryString] = explode('?', $_SERVER['REQUEST_URI']);
 } else {
-    // I hate php sometimes
+    // Fetch the raw query body
     $queryString = file_get_contents('php://input');
 }
 
@@ -168,7 +165,7 @@ if (empty($id) || ! isset($AUTH_MAP[$id])) {
 
 $_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
 $_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
-$_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(rand()), true));
+$_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(random_int(0, mt_getrandmax())), true));
 session_write_close();
 /* Redirect to phpMyAdmin (should use absolute URL here!) */
 header('Location: ../index.php');

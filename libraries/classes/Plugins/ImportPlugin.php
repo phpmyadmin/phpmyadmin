@@ -10,16 +10,18 @@ namespace PhpMyAdmin\Plugins;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
+
 use function strlen;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
  * import plugins.
  */
-abstract class ImportPlugin
+abstract class ImportPlugin implements Plugin
 {
     /**
-     * ImportPluginProperties object containing the import plugin properties
+     * Object containing the import plugin properties.
      *
      * @var ImportPluginProperties
      */
@@ -28,39 +30,41 @@ abstract class ImportPlugin
     /** @var Import */
     protected $import;
 
-    public function __construct()
+    final public function __construct()
     {
         $this->import = new Import();
+        $this->init();
+        $this->properties = $this->setProperties();
+    }
+
+    /**
+     * Plugin specific initializations.
+     */
+    protected function init(): void
+    {
     }
 
     /**
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    abstract public function doImport(?File $importHandle = null, array &$sql_data = []);
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
+    abstract public function doImport(?File $importHandle = null, array &$sql_data = []): void;
 
     /**
      * Gets the import specific format plugin properties
      *
      * @return ImportPluginProperties
      */
-    public function getProperties()
+    public function getProperties(): PluginPropertyItem
     {
         return $this->properties;
     }
 
     /**
-     * Sets the export plugins properties and is implemented by each import
-     * plugin
-     *
-     * @return void
+     * Sets the export plugins properties and is implemented by each import plugin.
      */
-    abstract protected function setProperties();
+    abstract protected function setProperties(): ImportPluginProperties;
 
     /**
      * Define DB name and options
@@ -72,17 +76,22 @@ abstract class ImportPlugin
      */
     protected function getDbnameAndOptions($currentDb, $defaultDb)
     {
+        $db_name = $defaultDb;
+        $options = null;
+
         if (strlen((string) $currentDb) > 0) {
             $db_name = $currentDb;
             $options = ['create_db' => false];
-        } else {
-            $db_name = $defaultDb;
-            $options = null;
         }
 
         return [
             $db_name,
             $options,
         ];
+    }
+
+    public function isAvailable(): bool
+    {
+        return true;
     }
 }

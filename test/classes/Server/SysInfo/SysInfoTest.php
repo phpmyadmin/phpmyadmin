@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for sysinfo library
- */
 
 declare(strict_types=1);
 
@@ -12,7 +9,7 @@ use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * tests for sysinfo library
+ * @covers \PhpMyAdmin\Server\SysInfo\SysInfo
  */
 class SysInfoTest extends AbstractTestCase
 {

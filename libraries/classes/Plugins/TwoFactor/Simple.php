@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 
+use function __;
+
 /**
  * Simple two-factor authentication auth asking just for confirmation.
  *
@@ -21,10 +23,8 @@ class Simple extends TwoFactorPlugin
 
     /**
      * Checks authentication, returns true on success
-     *
-     * @return bool
      */
-    public function check()
+    public function check(): bool
     {
         return isset($_POST['2fa_confirm']);
     }

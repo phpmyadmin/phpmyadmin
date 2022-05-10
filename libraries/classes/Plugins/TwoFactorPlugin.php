@@ -11,6 +11,8 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+
+use function __;
 use function is_array;
 use function parse_url;
 use function sprintf;
@@ -39,10 +41,10 @@ class TwoFactorPlugin
     protected $twofactor;
 
     /** @var bool */
-    protected $provided;
+    protected $provided = false;
 
     /** @var string */
-    protected $message;
+    protected $message = '';
 
     /** @var Template */
     public $template;
@@ -55,8 +57,6 @@ class TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         $this->twofactor = $twofactor;
-        $this->provided = false;
-        $this->message = '';
         $this->template = new Template();
     }
 
@@ -84,10 +84,8 @@ class TwoFactorPlugin
 
     /**
      * Checks authentication, returns true on success
-     *
-     * @return bool
      */
-    public function check()
+    public function check(): bool
     {
         return true;
     }
@@ -114,10 +112,8 @@ class TwoFactorPlugin
 
     /**
      * Performs backend configuration
-     *
-     * @return bool
      */
-    public function configure()
+    public function configure(): bool
     {
         return true;
     }
@@ -143,7 +139,7 @@ class TwoFactorPlugin
     }
 
     /**
-     * Return an applicaiton ID
+     * Return an application ID
      *
      * Either hostname or hostname with scheme.
      *
@@ -153,9 +149,9 @@ class TwoFactorPlugin
      */
     public function getAppId($return_url)
     {
-        global $PMA_Config;
+        global $config;
 
-        $url = $PMA_Config->get('PmaAbsoluteUri');
+        $url = $config->get('PmaAbsoluteUri');
         $parsed = [];
         if (! empty($url)) {
             $parsedUrl = parse_url($url);
@@ -164,12 +160,15 @@ class TwoFactorPlugin
                 $parsed = $parsedUrl;
             }
         }
+
         if (! isset($parsed['scheme']) || strlen($parsed['scheme']) === 0) {
-            $parsed['scheme'] = $PMA_Config->isHttps() ? 'https' : 'http';
+            $parsed['scheme'] = $config->isHttps() ? 'https' : 'http';
         }
+
         if (! isset($parsed['host']) || strlen($parsed['host']) === 0) {
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
+
         if ($return_url) {
             $port = '';
             if (isset($parsed['port'])) {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController as Controller;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 abstract class AbstractController extends Controller
@@ -16,12 +16,7 @@ abstract class AbstractController extends Controller
     /** @var string */
     protected $table;
 
-    /**
-     * @param Response $response
-     * @param string   $db       Database name
-     * @param string   $table    Table name
-     */
-    public function __construct($response, Template $template, $db, $table)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, string $table)
     {
         parent::__construct($response, $template);
         $this->db = $db;

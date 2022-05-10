@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\File;
+
 use function bin2hex;
 use function file_get_contents;
 
+/**
+ * @covers \PhpMyAdmin\File
+ */
 class FileTest extends AbstractTestCase
 {
     /**
@@ -16,7 +20,6 @@ class FileTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['charset_conversion'] = false;
     }
 

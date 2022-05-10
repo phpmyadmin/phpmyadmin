@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\TextLinkTransformationsPlugin;
 /**
  * Handles the link transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Link extends TextLinkTransformationsPlugin
 {
     /**

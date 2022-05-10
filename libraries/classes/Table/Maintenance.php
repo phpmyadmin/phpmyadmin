@@ -5,8 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Table\Maintenance\Message;
 use PhpMyAdmin\Util;
+
+use function __;
 use function implode;
 use function sprintf;
 
@@ -21,77 +27,99 @@ final class Maintenance
     }
 
     /**
-     * @param string[] $tables
+     * @param TableName[] $tables
      *
-     * @return array
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
-    public function getAnalyzeTableRows(string $db, array $tables): array
+    public function getAnalyzeTableRows(DatabaseName $db, array $tables): array
     {
-        $backQuotedTables = Util::backquote($tables);
+        $backQuotedTables = [];
+        foreach ($tables as $table) {
+            $backQuotedTables[] = Util::backquote($table->getName());
+        }
+
         $query = 'ANALYZE TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
+        /** @var array<int, array<string, string>> $result */
         $result = $this->dbi->fetchResult($query);
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];
     }
 
     /**
-     * @param string[] $tables
+     * @param TableName[] $tables
      *
-     * @return array
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
-    public function getCheckTableRows(string $db, array $tables): array
+    public function getCheckTableRows(DatabaseName $db, array $tables): array
     {
-        $backQuotedTables = Util::backquote($tables);
+        $backQuotedTables = [];
+        foreach ($tables as $table) {
+            $backQuotedTables[] = Util::backquote($table->getName());
+        }
+
         $query = 'CHECK TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
+        /** @var array<int, array<string, string>> $result */
         $result = $this->dbi->fetchResult($query);
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];
     }
 
     /**
-     * @param string[] $tables
+     * @param TableName[] $tables
      *
-     * @return array
+     * @return array<int, array<string, array<int, array<string, string|null>>>|string>
+     * @psalm-return array{array<int, array<string, string|null>>, string, Warning[]}
      */
-    public function getChecksumTableRows(string $db, array $tables): array
+    public function getChecksumTableRows(DatabaseName $db, array $tables): array
     {
-        $backQuotedTables = Util::backquote($tables);
+        $backQuotedTables = [];
+        foreach ($tables as $table) {
+            $backQuotedTables[] = Util::backquote($table->getName());
+        }
+
         $query = 'CHECKSUM TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
+        /** @var array<int, array<string, string|null>> $rows */
         $rows = $this->dbi->fetchResult($query);
         $warnings = $this->dbi->getWarnings();
 
         return [$rows, $query, $warnings];
     }
 
-    /** @param string[] $tables */
-    public function getIndexesProblems(string $db, array $tables): string
+    /**
+     * @param TableName[] $tables
+     */
+    public function getIndexesProblems(DatabaseName $db, array $tables): string
     {
         $indexesProblems = '';
 
         foreach ($tables as $table) {
-            $check = Index::findDuplicates($table, $db);
+            $check = Index::findDuplicates($table->getName(), $db->getName());
 
             if (empty($check)) {
                 continue;
             }
 
-            $indexesProblems .= sprintf(__('Problems with indexes of table `%s`'), $table);
+            $indexesProblems .= sprintf(__('Problems with indexes of table `%s`'), $table->getName());
             $indexesProblems .= $check;
         }
 
@@ -99,42 +127,56 @@ final class Maintenance
     }
 
     /**
-     * @param string[] $tables
+     * @param TableName[] $tables
      *
-     * @return array
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
-    public function getOptimizeTableRows(string $db, array $tables): array
+    public function getOptimizeTableRows(DatabaseName $db, array $tables): array
     {
-        $backQuotedTables = Util::backquote($tables);
+        $backQuotedTables = [];
+        foreach ($tables as $table) {
+            $backQuotedTables[] = Util::backquote($table->getName());
+        }
+
         $query = 'OPTIMIZE TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
+        /** @var array<int, array<string, string>> $result */
         $result = $this->dbi->fetchResult($query);
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];
     }
 
     /**
-     * @param string[] $tables
+     * @param TableName[] $tables
      *
-     * @return array
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
-    public function getRepairTableRows(string $db, array $tables): array
+    public function getRepairTableRows(DatabaseName $db, array $tables): array
     {
-        $backQuotedTables = Util::backquote($tables);
+        $backQuotedTables = [];
+        foreach ($tables as $table) {
+            $backQuotedTables[] = Util::backquote($table->getName());
+        }
+
         $query = 'REPAIR TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
+        /** @var array<int, array<string, string>> $result */
         $result = $this->dbi->fetchResult($query);
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];

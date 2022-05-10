@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Page-related settings
- */
 
 declare(strict_types=1);
 
@@ -10,6 +7,9 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Config\PageSettings
+ */
 class PageSettingsTest extends AbstractTestCase
 {
     /**
@@ -21,7 +21,6 @@ class PageSettingsTest extends AbstractTestCase
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
@@ -59,10 +58,7 @@ class PageSettingsTest extends AbstractTestCase
             $html
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="submit_save" value="Browse">',
-            $html
-        );
+        $this->assertStringContainsString('<input type="hidden" name="submit_save" value="Browse">', $html);
 
         $this->assertStringContainsString(
             "registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
@@ -82,14 +78,8 @@ class PageSettingsTest extends AbstractTestCase
         $html = $pageSettings->getHTML();
 
         // Test some sample parts
-        $this->assertStringContainsString(
-            '<div id="pma_navigation_settings">',
-            $html
-        );
+        $this->assertStringContainsString('<div id="pma_navigation_settings">', $html);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="submit_save" value="Navi">',
-            $html
-        );
+        $this->assertStringContainsString('<input type="hidden" name="submit_save" value="Navi">', $html);
     }
 }

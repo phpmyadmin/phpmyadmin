@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Plugins\Schema\Dia;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+
+use function __;
 use function in_array;
 use function shuffle;
 use function sprintf;
@@ -19,9 +21,7 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in dia XML document.
  *
- * @see     PMA_DIA
- *
- * @name    Table_Stats_Dia
+ * @property Dia $diagram
  */
 class TableStatsDia extends TableStats
 {
@@ -29,7 +29,7 @@ class TableStatsDia extends TableStats
     public $tableId;
 
     /** @var string */
-    public $tableColor;
+    public $tableColor = '#000000';
 
     /**
      * @param Dia    $diagram    The current dia document
@@ -48,15 +48,7 @@ class TableStatsDia extends TableStats
         $showKeys = false,
         $offline = false
     ) {
-        parent::__construct(
-            $diagram,
-            $db,
-            $pageNumber,
-            $tableName,
-            $showKeys,
-            false,
-            $offline
-        );
+        parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline);
 
         /**
          * Every object in Dia document needs an ID to identify
@@ -67,10 +59,8 @@ class TableStatsDia extends TableStats
 
     /**
      * Displays an error when the table cannot be found.
-     *
-     * @return void
      */
-    protected function showMissingTableError()
+    protected function showMissingTableError(): void
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
@@ -94,12 +84,8 @@ class TableStatsDia extends TableStats
      *                        if showColor is true then an array of $listOfColors
      *                        will be used to choose the random colors for tables
      *                        text we can change/add more colors to this array
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function tableDraw($showColor)
+    public function tableDraw($showColor): void
     {
         if ($showColor) {
             $listOfColors = [
@@ -108,7 +94,7 @@ class TableStatsDia extends TableStats
                 '00FF00',
             ];
             shuffle($listOfColors);
-            $this->tableColor =  '#' . $listOfColors[0] . '';
+            $this->tableColor = '#' . $listOfColors[0] . '';
         } else {
             $this->tableColor = '#000000';
         }
@@ -212,9 +198,11 @@ class TableStatsDia extends TableStats
             if (in_array($field, $this->primary)) {
                 $pm = 'true';
             }
+
             if ($field == $this->displayfield) {
                 $pm = 'false';
             }
+
             $this->diagram->writeRaw(
                 '<dia:attribute name="primary_key">
                     <dia:boolean val="' . $pm . '"/>
@@ -228,6 +216,7 @@ class TableStatsDia extends TableStats
                 </dia:composite>'
             );
         }
+
         $this->diagram->endElement();
         $this->diagram->endElement();
     }

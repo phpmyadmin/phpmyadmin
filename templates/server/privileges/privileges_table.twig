@@ -2,7 +2,7 @@
 
   <input type="hidden" name="grant_count" value="{{ row|length }}">
   <input type="hidden" name="column_count" value="{{ columns|length }}">
-  <fieldset id="fieldset_user_priv">
+  <fieldset class="pma-fieldset" id="fieldset_user_priv">
     <legend data-submenu-label="{% trans 'Table' %}">
       {% trans 'Table-specific privileges' %}
     </legend>
@@ -22,6 +22,12 @@
           </option>
         {% endfor %}
       </select>
+
+      <div>
+        <button class="btn btn-link p-0" id="select_priv_all" type="button" data-select-target="#select_select_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
 
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_Select_priv_none">
@@ -44,6 +50,12 @@
         {% endfor %}
       </select>
 
+      <div>
+        <button class="btn btn-link p-0" id="insert_priv_all" type="button" data-select-target="#select_insert_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
+
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_Insert_priv_none">
         <input type="checkbox" name="Insert_priv_none" id="checkbox_Insert_priv_none" title="
@@ -65,6 +77,12 @@
         {% endfor %}
       </select>
 
+      <div>
+        <button class="btn btn-link p-0" id="update_priv_all" type="button" data-select-target="#select_update_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
+
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_Update_priv_none">
         <input type="checkbox" name="Update_priv_none" id="checkbox_Update_priv_none" title="
@@ -85,6 +103,12 @@
           </option>
         {% endfor %}
       </select>
+
+      <div>
+        <button class="btn btn-link p-0" id="references_priv_all" type="button" data-select-target="#select_references_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
 
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_References_priv_none">
@@ -225,7 +249,7 @@
 {% else %}
 
 {% set grant_count = 0 %}
-<fieldset id="fieldset_user_global_rights">
+<fieldset class="pma-fieldset" id="fieldset_user_global_rights">
   <legend data-submenu-label="
     {%- if is_global %}
       {%- trans 'Global' -%}
@@ -248,7 +272,7 @@
     <small><em>{% trans 'Note: MySQL privilege names are expressed in English.' %}</em></small>
   </p>
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       <input type="checkbox" class="sub_checkall_box" id="checkall_Data_priv" title="{% trans 'Check all' %}">
       <label for="checkall_Data_priv">{% trans 'Data' %}</label>
@@ -322,7 +346,7 @@
     {% endif %}
   </fieldset>
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       <input type="checkbox" class="sub_checkall_box" id="checkall_Structure_priv" title="{% trans 'Check all' %}">
       <label for="checkall_Structure_priv">{% trans 'Structure' %}</label>
@@ -522,7 +546,7 @@
     {% endif %}
   </fieldset>
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       <input type="checkbox" class="sub_checkall_box" id="checkall_Administration_priv" title="{% trans 'Check all' %}">
       <label for="checkall_Administration_priv">{% trans 'Administration' %}</label>
@@ -654,10 +678,10 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Repl_client_priv" id="checkbox_Repl_client_priv" value="Y" title="
-          {%- trans 'Allows the user to ask where the slaves / masters are.' %}"{{ row['Repl_client_priv'] == 'Y' ? ' checked' }}>
+          {%- trans 'Allows the user to ask where the replicas / primaries are.' %}"{{ row['Repl_client_priv'] == 'Y' ? ' checked' }}>
         <label for="checkbox_Repl_client_priv">
           <code>
-            <dfn title="{% trans 'Allows the user to ask where the slaves / masters are.' %}">
+            <dfn title="{% trans 'Allows the user to ask where the replicas / primaries are.' %}">
               REPLICATION CLIENT
             </dfn>
           </code>
@@ -667,10 +691,10 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Repl_slave_priv" id="checkbox_Repl_slave_priv" value="Y" title="
-          {%- trans 'Needed for the replication slaves.' %}"{{ row['Repl_slave_priv'] == 'Y' ? ' checked' }}>
+          {%- trans 'Needed for the replication replicas.' %}"{{ row['Repl_slave_priv'] == 'Y' ? ' checked' }}>
         <label for="checkbox_Repl_slave_priv">
           <code>
-            <dfn title="{% trans 'Needed for the replication slaves.' %}">
+            <dfn title="{% trans 'Needed for the replication replicas.' %}">
               REPLICATION SLAVE
             </dfn>
           </code>
@@ -693,7 +717,7 @@
   </fieldset>
 
   {% if is_global %}
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>{% trans 'Resource limits' %}</legend>
       <p>
         <small><em>{% trans 'Note: Setting these options to 0 (zero) removes the limit.' %}</em></small>
@@ -752,7 +776,7 @@
       </div>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>SSL</legend>
       <div id="require_ssl_div">
         <div class="item">
@@ -829,7 +853,7 @@
 {% endif %}
 
 {% if has_submit %}
-  <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+  <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
     <input type="hidden" name="update_privs" value="1">
     <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
   </fieldset>

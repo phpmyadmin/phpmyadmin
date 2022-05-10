@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const E_USER_ERROR;
+use function __;
 use function file_exists;
 use function file_get_contents;
 use function filemtime;
@@ -18,7 +18,10 @@ use function sprintf;
 use function trigger_error;
 use function trim;
 use function version_compare;
+
 use const DIRECTORY_SEPARATOR;
+
+use const E_USER_ERROR;
 
 /**
  * handles theme
@@ -29,49 +32,28 @@ use const DIRECTORY_SEPARATOR;
  */
 class Theme
 {
-    /**
-     * @var string theme version
-     * @access protected
-     */
+    /** @var string theme version */
     public $version = '0.0.0.0';
 
-    /**
-     * @var string theme name
-     * @access protected
-     */
+    /** @var string theme name */
     public $name = '';
 
-    /**
-     * @var string theme id
-     * @access protected
-     */
+    /** @var string theme id */
     public $id = '';
 
-    /**
-     * @var string theme path
-     * @access protected
-     */
+    /** @var string theme path */
     public $path = '';
 
     /** @var string file system theme path */
     private $fsPath = '';
 
-    /**
-     * @var string image path as an URL
-     * @access protected
-     */
+    /** @var string image path as an URL */
     public $imgPath = '';
 
-    /**
-     * @var string image path on the file-system
-     * @access protected
-     */
+    /** @var string image path on the file-system */
     public $imgPathFs = '';
 
-    /**
-     * @var int last modification time for info file
-     * @access protected
-     */
+    /** @var int last modification time for info file */
     public $mtimeInfo = 0;
 
     /**
@@ -79,43 +61,13 @@ class Theme
      * is identical
      *
      * @var int filesize for info file
-     * @access protected
      */
     public $filesizeInfo = 0;
 
     /**
-     * @var array List of css files to load
-     * @access private
-     */
-    public $cssFiles = [
-        'common',
-        'enum_editor',
-        'gis',
-        'navigation',
-        'designer',
-        'rte',
-        'codemirror',
-        'jqplot',
-        'resizable-menu',
-        'icons',
-    ];
-
-    /** @var Template */
-    public $template;
-
-    public function __construct()
-    {
-        $this->template = new Template();
-    }
-
-    /**
      * Loads theme information
-     *
-     * @return bool whether loading them info was successful or not
-     *
-     * @access public
      */
-    public function loadInfo()
+    public function loadInfo(): bool
     {
         $infofile = $this->getFsPath() . 'theme.json';
         if (! @file_exists($infofile)) {
@@ -125,16 +77,19 @@ class Theme
         if ($this->mtimeInfo === filemtime($infofile)) {
             return true;
         }
+
         $content = @file_get_contents($infofile);
         if ($content === false) {
             return false;
         }
+
         $data = json_decode($content, true);
 
         // Did we get expected data?
         if (! is_array($data)) {
             return false;
         }
+
         // Check that all required data are there
         $members = [
             'name',
@@ -151,7 +106,8 @@ class Theme
         if (! is_array($data['supports'])) {
             return false;
         }
-        if (! in_array(PMA_MAJOR_VERSION, $data['supports'])) {
+
+        if (! in_array(Version::SERIES, $data['supports'])) {
             return false;
         }
 
@@ -164,42 +120,27 @@ class Theme
         return true;
     }
 
-    /**
-     * returns theme object loaded from given folder
-     * or false if theme is invalid
-     *
-     * @param string $folder path to theme
-     * @param string $fsPath file-system path to theme
-     *
-     * @return Theme|false
-     *
-     * @static
-     * @access public
-     */
-    public static function load(string $folder, string $fsPath)
+    public static function load(string $themeUrl, string $themeFsPath, string $themeName): ?self
     {
-        $theme = new Theme();
+        $theme = new self();
 
-        $theme->setPath($folder);
-        $theme->setFsPath($fsPath);
+        $theme->setPath($themeUrl);
+        $theme->setFsPath($themeFsPath);
 
         if (! $theme->loadInfo()) {
-            return false;
+            return null;
         }
 
         $theme->checkImgPath();
+        $theme->setId($themeName);
 
         return $theme;
     }
 
     /**
      * checks image path for existence - if not found use img from fallback theme
-     *
-     * @return bool
-     *
-     * @access public
      */
-    public function checkImgPath()
+    public function checkImgPath(): bool
     {
         // try current theme first
         if (is_dir($this->getFsPath() . 'img' . DIRECTORY_SEPARATOR)) {
@@ -237,8 +178,6 @@ class Theme
      * returns path to theme
      *
      * @return string path to theme
-     *
-     * @access public
      */
     public function getPath()
     {
@@ -259,12 +198,8 @@ class Theme
      * set path to theme
      *
      * @param string $path path to theme
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function setPath($path)
+    public function setPath($path): void
     {
         $this->path = trim($path);
     }
@@ -283,12 +218,8 @@ class Theme
      * sets version
      *
      * @param string $version version to set
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function setVersion($version)
+    public function setVersion($version): void
     {
         $this->version = trim($version);
     }
@@ -297,8 +228,6 @@ class Theme
      * returns version
      *
      * @return string version
-     *
-     * @access public
      */
     public function getVersion()
     {
@@ -310,12 +239,8 @@ class Theme
      * returns true if theme version is equal or higher to $version
      *
      * @param string $version version to compare to
-     *
-     * @return bool true if theme version is equal or higher to $version
-     *
-     * @access public
      */
-    public function checkVersion($version)
+    public function checkVersion($version): bool
     {
         return version_compare($this->getVersion(), $version, 'lt');
     }
@@ -324,12 +249,8 @@ class Theme
      * sets name
      *
      * @param string $name name to set
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = trim($name);
     }
@@ -338,8 +259,6 @@ class Theme
      * returns name
      *
      * @return string name
-     *
-     * @access public
      */
     public function getName()
     {
@@ -350,12 +269,8 @@ class Theme
      * sets id
      *
      * @param string $id new id
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = trim($id);
     }
@@ -364,8 +279,6 @@ class Theme
      * returns id
      *
      * @return string id
-     *
-     * @access public
      */
     public function getId()
     {
@@ -376,12 +289,8 @@ class Theme
      * Sets path to images for the theme
      *
      * @param string $path path to images for this theme as an URL path
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function setImgPath($path)
+    public function setImgPath($path): void
     {
         $this->imgPath = $path;
     }
@@ -405,8 +314,6 @@ class Theme
      * @param string $fallback fallback image
      *
      * @return string image path for this theme
-     *
-     * @access public
      */
     public function getImgPath($file = null, $fallback = null)
     {
@@ -423,29 +330,5 @@ class Theme
         }
 
         return './themes/' . ThemeManager::FALLBACK_THEME . '/img/' . $file;
-    }
-
-    /**
-     * Renders the preview for this theme
-     *
-     * @return string
-     *
-     * @access public
-     */
-    public function getPrintPreview()
-    {
-        $url_params = ['set_theme' => $this->getId()];
-        $screen = null;
-        if (@file_exists($this->getFsPath() . 'screen.png')) {
-            $screen = $this->getPath() . '/screen.png';
-        }
-
-        return $this->template->render('theme_preview', [
-            'url_params' => $url_params,
-            'name' => $this->getName(),
-            'version' => $this->getVersion(),
-            'id' => $this->getId(),
-            'screen' => $screen,
-        ]);
     }
 }

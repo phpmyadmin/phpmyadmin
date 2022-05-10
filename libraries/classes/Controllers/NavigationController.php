@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\SessionCache;
+
+use function __;
 
 /**
  * The navigation panel
@@ -25,11 +27,8 @@ class NavigationController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param Response $response
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
         Navigation $navigation,
         Relation $relation
@@ -39,7 +38,7 @@ class NavigationController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         if (! $this->response->isAjax()) {
             $this->response->addHTML(
@@ -63,13 +62,10 @@ class NavigationController extends AbstractController
             SessionCache::set('dbs_to_test', false);// Empty database list cache, see #14252
         }
 
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->navigationItemsHidingFeature !== null) {
             if (isset($_POST['hideNavItem'])) {
-                if (! empty($_POST['itemName'])
-                    && ! empty($_POST['itemType'])
-                    && ! empty($_POST['dbName'])
-                ) {
+                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
                     $this->navigation->hideNavigationItem(
                         $_POST['itemName'],
                         $_POST['itemType'],
@@ -82,10 +78,7 @@ class NavigationController extends AbstractController
             }
 
             if (isset($_POST['unhideNavItem'])) {
-                if (! empty($_POST['itemName'])
-                    && ! empty($_POST['itemType'])
-                    && ! empty($_POST['dbName'])
-                ) {
+                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
                     $this->navigation->unhideNavigationItem(
                         $_POST['itemName'],
                         $_POST['itemType'],

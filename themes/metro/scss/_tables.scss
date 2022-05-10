@@ -4,7 +4,7 @@
     vertical-align: middle;
   }
 
-  .thead-light {
+  .table-light {
     th {
       font-family: $font-family-bold;
       font-weight: normal;
@@ -14,5 +14,11 @@
         color: $th-color;
       }
     }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .table th.position-sticky {
+    top: 87px;
   }
 }

@@ -5,8 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\ThemeManager;
+
 use function filemtime;
 
+use const DIRECTORY_SEPARATOR;
+
+/**
+ * @covers \PhpMyAdmin\Theme
+ */
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */
@@ -21,14 +28,14 @@ class ThemeTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        global $theme;
+
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         $this->object = new Theme();
-        $this->backup = $GLOBALS['PMA_Theme'];
-        $GLOBALS['PMA_Theme'] = $this->object;
+        $this->backup = $theme;
+        $theme = $this->object;
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = '99';
     }
@@ -39,8 +46,10 @@ class ThemeTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        global $theme;
+
         parent::tearDown();
-        $GLOBALS['PMA_Theme'] = $this->backup;
+        $theme = $this->backup;
     }
 
     /**
@@ -92,7 +101,7 @@ class ThemeTest extends AbstractTestCase
         );
 
         $this->object->setPath(ROOT_PATH . 'themes/original');
-        $this->object->mtimeInfo = filemtime($infofile);
+        $this->object->mtimeInfo = (int) filemtime($infofile);
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Original', $this->object->getName());
     }
@@ -102,16 +111,27 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoad(): void
     {
-        $newTheme = Theme::load('./themes/original', ROOT_PATH . 'themes/original');
+        $newTheme = Theme::load(
+            ThemeManager::getThemesDir() . 'original',
+            ThemeManager::getThemesFsDir() . 'original' . DIRECTORY_SEPARATOR,
+            'original'
+        );
         $this->assertNotNull($newTheme);
+        $this->assertInstanceOf(Theme::class, $newTheme);
     }
 
     /**
      * Test for Theme::load
      */
-    public function testLoadNotExisted(): void
+    public function testLoadNonExistent(): void
     {
-        $this->assertFalse(Theme::load('/path/to/nowhere', '/path/to/nowhere'));
+        $this->assertNull(
+            Theme::load(
+                ThemeManager::getThemesDir() . 'nonexistent',
+                ThemeManager::getThemesFsDir() . 'nonexistent' . DIRECTORY_SEPARATOR,
+                'nonexistent'
+            )
+        );
     }
 
     /**
@@ -197,26 +217,6 @@ class ThemeTest extends AbstractTestCase
         $this->object->setImgPath('/new/path');
 
         $this->assertEquals('/new/path', $this->object->getImgPath());
-    }
-
-    /**
-     * Test for getPrintPreview().
-     */
-    public function testGetPrintPreview(): void
-    {
-        parent::setLanguage();
-        $this->assertStringContainsString(
-            '<h2>' . "\n" . '         (0.0.0.0)',
-            $this->object->getPrintPreview()
-        );
-        $this->assertStringContainsString(
-            'name="" href="index.php?route=/set-theme&set_theme=&server=99&lang=en">',
-            $this->object->getPrintPreview()
-        );
-        $this->assertStringContainsString(
-            'No preview available.',
-            $this->object->getPrintPreview()
-        );
     }
 
     /**

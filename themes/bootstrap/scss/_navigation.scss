@@ -1,9 +1,9 @@
 // Navigation styles for the pmahomme theme
 #pma_navigation {
-  width: $navi-width;
+  width: $navigation-width;
   position: fixed;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   height: 100vh;
   background-color: $gray-100;
   z-index: 800;
@@ -29,8 +29,8 @@
     &.pageselector {
       text-align: center;
       margin: 0;
-      margin-#{$left}: 0.75em;
-      border-#{$left}: 1px solid #666;
+      margin-left: 0.75em;
+      border-left: 1px solid #666;
     }
   }
 
@@ -85,7 +85,7 @@
   height: 100%;
   position: absolute;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   z-index: 0;
 
   > img.throbber {
@@ -95,7 +95,7 @@
 }
 
 #pma_navigation_select_database {
-  text-align: $left;
+  text-align: left;
   padding: 0 0 0;
   border: 0;
   margin: 0;
@@ -103,10 +103,10 @@
 
 #pma_navigation_db_select {
   margin-top: 0.5em;
-  margin-#{$left}: 0.75em;
+  margin-left: 0.75em;
 
   select {
-    background: url('../img/select_bg.png') repeat scroll 0 0;
+    background: linear-gradient($white, #f1f1f1, $white);
     -webkit-border-radius: 2px;
     border-radius: 2px;
     border: 1px solid #bbb;
@@ -135,14 +135,14 @@
 
 #pma_navigation_tree {
   margin: 0;
-  margin-#{$left}: 5px;
+  margin-left: 5px;
   overflow: hidden;
   color: #444;
   height: 74%;
   position: relative;
 
   a {
-    color: $navi-color;
+    color: $black;
     padding-left: 0;
 
     &:hover {
@@ -166,18 +166,18 @@
 
     &.activePointer,
     &.selected {
-      color: $navi-pointer-color;
-      background-color: $navi-pointer-background;
+      color: $black;
+      background-color: #ddd;
     }
 
     .dbItemControls {
-      padding-#{$right}: 4px;
+      padding-right: 4px;
       float: right;
     }
 
     .navItemControls {
       display: none;
-      padding-#{$right}: 4px;
+      padding-right: 4px;
       float: right;
     }
 
@@ -218,7 +218,7 @@
       height: 1.5em;
       min-width: 16px;
       min-height: 16px;
-      float: $left;
+      float: left;
 
       &.double {
         width: 2.5em;
@@ -232,21 +232,21 @@
         min-height: 8px;
         position: absolute;
         bottom: 0.7em;
-        #{$left}: 0.75em;
+        left: 0.75em;
         z-index: 0;
       }
 
       // Top and right segments for the tree element connections
       i {
         display: block;
-        border-#{$left}: 1px solid #666;
+        border-left: 1px solid #666;
         border-bottom: 1px solid #666;
         position: relative;
         z-index: 0;
 
         // Removes top segment
         &.first {
-          border-#{$left}: 0;
+          border-left: 0;
         }
       }
 
@@ -255,44 +255,44 @@
         display: block;
         height: 0.75em;
         bottom: 0;
-        #{$left}: 0.75em;
-        border-#{$left}: 1px solid #666;
+        left: 0.75em;
+        border-left: 1px solid #666;
       }
 
       a,
       u {
         position: absolute;
-        #{$left}: 50%;
+        left: 50%;
         top: 50%;
         z-index: 10;
       }
 
       a + a {
-        #{$left}: 100%;
+        left: 100%;
       }
 
       &.double {
         a,
         u {
-          #{$left}: 33%;
+          left: 33%;
         }
 
         a + a {
-          #{$left}: 85%;
+          left: 85%;
         }
       }
 
       img {
         position: relative;
         top: -0.6em;
-        #{$left}: 0;
-        margin-#{$left}: -7px;
+        left: 0;
+        margin-left: -7px;
       }
     }
 
     &.throbber img {
       top: 2px;
-      #{$left}: 2px;
+      left: 2px;
     }
   }
 
@@ -306,15 +306,15 @@
       i {
         line-height: 1.5em;
         height: 1.5em;
-        padding-#{$left}: 0.3em;
+        padding-left: 0.3em;
       }
     }
   }
 
   .list_container {
-    border-#{$left}: 1px solid #666;
-    margin-#{$left}: 0.75em;
-    padding-#{$left}: 0.75em;
+    border-left: 1px solid #666;
+    margin-left: 0.75em;
+    padding-left: 0.75em;
 
     li.last.database {
       // Revert the effect of the rule that is applied on all the tree
@@ -323,33 +323,23 @@
   }
 
   .last > .list_container {
-    border-#{$left}: 0 solid #666;
+    border-left: 0 solid #666;
   }
 }
 
 // Fast filter
 li.fast_filter {
-  padding-#{$left}: 0.75em;
-  margin-#{$left}: 0.75em;
-  padding-#{$right}: 35px;
-  border-#{$left}: 1px solid #666;
+  padding-left: 0.75em;
+  margin-left: 0.75em;
+  padding-right: 35px;
+  border-left: 1px solid #666;
   list-style: none;
 
   input {
-    margin: 3px 0 0 0;
     font-size: 0.7em;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-#{$left}: 4px;
-    padding-#{$right}: 1.7em;
-    width: 100%;
   }
 
-  span {
-    position: relative;
-    #{$right}: 1.5em;
-    padding: 0.2em;
-    cursor: pointer;
+  .searchClauseClear {
     font-weight: bold;
     color: #800;
     font-size: 0.7em;
@@ -357,34 +347,7 @@ li.fast_filter {
 
   &.db_fast_filter {
     border: 0;
-    margin-#{$left}: 0;
-    margin-#{$right}: 10px;
-  }
-}
-
-// IE10+ has its own reset X
-html.ie {
-  li.fast_filter {
-    span {
-      display: none;
-    }
-
-    input {
-      padding-#{$right}: 0.2em;
-    }
-  }
-
-  &.ie9,
-  &.ie8 {
-    li.fast_filter {
-      span {
-        display: auto;
-      }
-
-      input {
-        padding-#{$right}: 1.7em;
-      }
-    }
+    margin-left: 0;
   }
 }
 
@@ -397,8 +360,8 @@ html.ie {
 }
 
 #navigation_controls {
-  float: $right;
-  padding-#{$right}: 23px;
+  float: right;
+  padding-right: 23px;
 }
 
 // Resize handler
@@ -409,7 +372,7 @@ html.ie {
   cursor: col-resize;
   position: fixed;
   top: 0;
-  #{$left}: 240px;
+  left: 240px;
   z-index: 801;
 }
 
@@ -422,29 +385,29 @@ html.ie {
   font-weight: bold;
   position: fixed;
   top: 0;
-  #{$left}: $navi-width;
+  left: $navigation-width;
   text-align: center;
   cursor: pointer;
   z-index: 800;
-  text-shadow: 0 1px 0 #fff;
-  filter: dropshadow(color = #fff, offx = 0, offy = 1);
+  text-shadow: 0 1px 0 $white;
+  filter: dropshadow(color = $white, offx = 0, offy = 1);
   border: 1px solid rgba($black, 0.125);
 }
 
 // Quick warp links
 .pma_quick_warp {
   margin-top: 5px;
-  margin-#{$left}: 2px;
+  margin-left: 2px;
   position: relative;
 
   .drop_list {
-    float: $left;
-    margin-#{$left}: 3px;
+    float: left;
+    margin-left: 3px;
     padding: 2px 0;
 
     &:hover {
       .drop_button {
-        background: #fff;
+        background: $white;
       }
 
       ul {
@@ -459,15 +422,15 @@ html.ie {
       overflow: hidden;
       overflow-y: auto;
       list-style: none;
-      background: #fff;
+      background: $white;
       border: 1px solid #ddd;
       border-radius: 0.3em;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       box-shadow: 0 0 5px #ccc;
       top: 100%;
-      #{$left}: 3px;
-      #{$right}: 0;
+      left: 3px;
+      right: 0;
       display: none;
       z-index: 802;
     }
@@ -491,8 +454,8 @@ html.ie {
       padding: 0.2em 0.3em;
 
       &.favorite_table_anchor {
-        clear: $left;
-        float: $left;
+        clear: left;
+        float: left;
         padding: 0.1em 0.3em 0;
       }
     }

@@ -10,9 +10,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
+use function __;
 use function array_merge;
 
 final class ExportController extends AbstractController
@@ -23,23 +25,19 @@ final class ExportController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, Options $export, $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, Options $export, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
         $this->export = $export;
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
-        global $tmp_select, $select_item, $err_url;
+        global $tmp_select, $select_item, $errorUrl;
 
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -57,9 +55,11 @@ final class ExportController extends AbstractController
         if (! isset($sql_query)) {
             $sql_query = '';
         }
+
         if (! isset($num_tables)) {
             $num_tables = 0;
         }
+
         if (! isset($unlim_num_rows)) {
             $unlim_num_rows = 0;
         }

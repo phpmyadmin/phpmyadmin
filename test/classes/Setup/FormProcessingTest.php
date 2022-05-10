@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for methods under Formset processing library
- */
 
 declare(strict_types=1);
 
@@ -10,11 +7,12 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+
 use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for methods under Formset processing library
+ * @covers \PhpMyAdmin\Setup\FormProcessing
  */
 class FormProcessingTest extends AbstractNetworkTestCase
 {
@@ -24,8 +22,6 @@ class FormProcessingTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        parent::loadDefaultConfig();
         parent::setLanguage();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -50,7 +46,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
         // case 1
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['process', 'getDisplay'])
+            ->onlyMethods(['process', 'getDisplay'])
             ->getMock();
 
         $formDisplay->expects($this->once())
@@ -59,15 +55,14 @@ class FormProcessingTest extends AbstractNetworkTestCase
             ->will($this->returnValue(false));
 
         $formDisplay->expects($this->once())
-            ->method('getDisplay')
-            ->with(true, true);
+            ->method('getDisplay');
 
         FormProcessing::process($formDisplay);
 
         // case 2
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['process', 'hasErrors', 'displayErrors'])
+            ->onlyMethods(['process', 'hasErrors', 'displayErrors'])
             ->getMock();
 
         $formDisplay->expects($this->once())
@@ -86,30 +81,18 @@ class FormProcessingTest extends AbstractNetworkTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '<div class="error">',
-            $result
-        );
+        $this->assertStringContainsString('<div class="error">', $result);
 
-        $this->assertStringContainsString(
-            'mode=revert',
-            $result
-        );
+        $this->assertStringContainsString('mode=revert', $result);
 
-        $this->assertStringContainsString(
-            '<a class="btn" href="index.php?',
-            $result
-        );
+        $this->assertStringContainsString('<a class="btn" href="index.php?', $result);
 
-        $this->assertStringContainsString(
-            'mode=edit',
-            $result
-        );
+        $this->assertStringContainsString('mode=edit', $result);
 
         // case 3
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['process', 'hasErrors'])
+            ->onlyMethods(['process', 'hasErrors'])
             ->getMock();
 
         $formDisplay->expects($this->once())

@@ -4,15 +4,23 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
+use const MYSQLI_TYPE_SHORT;
+use const MYSQLI_TYPE_TIMESTAMP;
+use const MYSQLI_TYPE_VAR_STRING;
+
+/**
+ * @covers \PhpMyAdmin\Sql
+ */
 class SqlTest extends AbstractTestCase
 {
     /** @var Sql */
@@ -24,9 +32,7 @@ class SqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
-        parent::loadDefaultConfig();
         parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -562,5 +568,178 @@ class SqlTest extends AbstractTestCase
             ]
         );
         $this->assertSame($expectedNumRows, $result);
+    }
+
+    public function testExecuteQueryAndSendQueryResponse(): void
+    {
+        $this->dummyDbi->addSelectDb('sakila');
+        $this->dummyDbi->addResult(
+            'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
+            [
+                ['1', 'Afghanistan', '2006-02-15 04:44:00'],
+                ['2', 'Algeria', '2006-02-15 04:44:00'],
+                ['3', 'American Samoa', '2006-02-15 04:44:00'],
+            ],
+            ['country_id', 'country', 'last_update'],
+            [
+                new FieldMetadata(MYSQLI_TYPE_SHORT, 0, (object) ['length' => 5]),
+                new FieldMetadata(MYSQLI_TYPE_VAR_STRING, 0, (object) ['length' => 200]),
+                new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) ['length' => 19]),
+            ]
+        );
+        $this->dummyDbi->addResult(
+            'SHOW TABLE STATUS FROM `sakila` WHERE `Name` LIKE \'country%\'',
+            [
+                [
+                    'country',
+                    'InnoDB',
+                    '10',
+                    'Dynamic',
+                    '109',
+                    '150',
+                    '16384',
+                    '0',
+                    '0',
+                    '0',
+                    '110',
+                    '2011-12-13 14:15:16',
+                    null,
+                    null,
+                    'utf8mb4_general_ci',
+                    null,
+                    '',
+                    '',
+                    '0',
+                    'N',
+                ],
+            ],
+            [
+                'Name',
+                'Engine',
+                'Version',
+                'Row_format',
+                'Rows',
+                'Avg_row_length',
+                'Data_length',
+                'Max_data_length',
+                'Index_length',
+                'Data_free',
+                'Auto_increment',
+                'Create_time',
+                'Update_time',
+                'Check_time',
+                'Collation',
+                'Checksum',
+                'Create_options',
+                'Comment',
+                'Max_index_length',
+                'Temporary',
+            ]
+        );
+        $this->dummyDbi->addResult(
+            'SHOW CREATE TABLE `sakila`.`country`',
+            [
+                [
+                    'country',
+                    'CREATE TABLE `country` (' . "\n"
+                    . '  `country_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,' . "\n"
+                    . '  `country` varchar(50) NOT NULL,' . "\n"
+                    . '  `last_update` timestamp NOT NULL DEFAULT current_timestamp()'
+                    . ' ON UPDATE current_timestamp(),' . "\n"
+                    . '  PRIMARY KEY (`country_id`)' . "\n"
+                    . ') ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4',
+                ],
+            ],
+            ['Table', 'Create Table']
+        );
+        $this->dummyDbi->addResult('SELECT COUNT(*) FROM `sakila`.`country`', [['109']]);
+        $this->dummyDbi->addResult(
+            'SHOW FULL COLUMNS FROM `sakila`.`country`',
+            [
+                [
+                    'country_id',
+                    'smallint(5) unsigned',
+                    null,
+                    'NO',
+                    'PRI',
+                    null,
+                    'auto_increment',
+                    'select,insert,update,references',
+                    '',
+                ],
+                [
+                    'country',
+                    'varchar(50)',
+                    'utf8mb4_general_ci',
+                    'NO',
+                    '',
+                    null,
+                    '',
+                    'select,insert,update,references',
+                    '',
+                ],
+                [
+                    'last_update',
+                    'timestamp',
+                    null,
+                    'NO',
+                    '',
+                    'current_timestamp()',
+                    'on update current_timestamp()',
+                    'select,insert,update,references',
+                    '',
+                ],
+            ],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment']
+        );
+        $this->dummyDbi->addResult(
+            'SHOW COLUMNS FROM `sakila`.`country`',
+            [
+                ['country_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment'],
+                ['country', 'varchar(50)', 'NO', '', null, ''],
+                ['last_update', 'timestamp', 'NO', '', 'current_timestamp()', 'on update current_timestamp()'],
+            ],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra']
+        );
+        $this->dummyDbi->addResult(
+            'SHOW INDEXES FROM `sakila`.`country`',
+            [['country', '0', 'PRIMARY', 'country_id']],
+            ['Table', 'Non_unique', 'Key_name', 'Column_name']
+        );
+        $this->dummyDbi->addResult(
+            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'sakila\' AND TABLE_NAME = \'country\' AND IS_UPDATABLE = \'YES\'',
+            []
+        );
+        $_SESSION['sql_from_query_box'] = true;
+        $GLOBALS['db'] = 'sakila';
+        $GLOBALS['table'] = 'country';
+        $GLOBALS['sql_query'] = 'SELECT * FROM `sakila`.`country` LIMIT 0, 3;';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['cfg']['Server']['user'] = 'user';
+        $actual = $this->sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            'sakila',
+            'different_table',
+            null,
+            null,
+            null,
+            null,
+            null,
+            'index.php?route=/sql',
+            null,
+            null,
+            'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
+            null
+        );
+        $this->assertStringContainsString('Showing rows 0 -  2 (3 total', $actual);
+        $this->assertStringContainsString('SELECT * FROM `sakila`.`country` LIMIT 0, 3;', $actual);
+        $this->assertStringContainsString('Afghanistan', $actual);
+        $this->assertStringContainsString('Algeria', $actual);
+        $this->assertStringContainsString('American Samoa', $actual);
+        $this->assertStringContainsString('data-type="int"', $actual);
+        $this->assertStringContainsString('data-type="string"', $actual);
+        $this->assertStringContainsString('data-type="timestamp"', $actual);
     }
 }

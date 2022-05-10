@@ -1,0 +1,70 @@
+name: Mutation tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  tests:
+    name: Mutation tests with PHP ${{ matrix.php-version }}
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        php-version: ["8.0"]
+        operating-system: [ubuntu-latest]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fetch github.base_ref (for diffing)
+        if: ${{ github.base_ref != '' }}
+        run: |
+          git fetch --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
+
+      - name: Install Gettext
+        run: |
+          sudo apt-get install -y gettext
+
+      - name: Generate mo files
+        run: ./scripts/generate-mo --quiet
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: pcov
+          ini-values: memory_limit=-1
+          tools: composer:v2, phive
+
+      - name: Install Infection
+        # The GPG key can be found at https://infection.github.io/guide/installation.html
+        run: |
+          phive --no-progress install --target ./build/tools --trust-gpg-keys C5095986493B4AA0 infection
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
+        with:
+          dependency-versions: highest
+
+      - name: Collect coverage report
+        run: |
+          composer run phpunit -- --testsuite unit --stop-on-failure
+
+      - name: Infection
+        if: ${{ github.base_ref != '' }}
+        run: |
+          CHANGED_FILES=$(git diff origin/$GITHUB_BASE_REF --diff-filter=AM --name-only | grep libraries/classes/ | paste -sd "," -);
+          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs \
+            --ignore-msi-with-no-mutations \
+            --filter=$CHANGED_FILES
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+
+      - name: Infection
+        if: ${{ github.base_ref == '' }}
+        run: |
+          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}

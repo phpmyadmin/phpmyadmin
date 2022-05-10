@@ -25,11 +25,11 @@
 
   <div class="table-responsive">
     <table id="serverVariables" class="table table-light table-striped table-hover table-sm">
-      <thead class="thead-light">
+      <thead class="table-light">
         <tr>
           <th scope="col">{% trans 'Action' %}</th>
           <th scope="col">{% trans 'Variable' %}</th>
-          <th scope="col" class="text-right">{% trans 'Value' %}</th>
+          <th scope="col" class="text-end">{% trans 'Value' %}</th>
         </tr>
       </thead>
 
@@ -45,7 +45,7 @@
                 </span>
               {% endif %}
             </td>
-            <td class="var-name font-weight-bold">
+            <td class="var-name fw-bold">
               {% if variable.doc_link != null %}
                 <span title="{{ variable.name|replace({'_': ' '}) }}">
                   {{ variable.doc_link|raw }}
@@ -54,7 +54,7 @@
                 {{ variable.name|replace({'_': ' '}) }}
               {% endif %}
             </td>
-            <td class="var-value text-right text-monospace{{ is_superuser ? ' editable' }}">
+            <td class="var-value text-end font-monospace{{ is_superuser ? ' editable' }}">
               {% if variable.is_escaped %}
                 {{ variable.value|raw }}
               {% else %}
@@ -67,7 +67,7 @@
             <tr class="var-row" data-filter-row="{{ variable.name|upper }}">
               <td></td>
               <td class="var-name font-italic">{{ variable.name|replace({'_': ' '}) }} ({% trans 'Session value' %})</td>
-              <td class="var-value text-right text-monospace">{{ variable.session_value }}</td>
+              <td class="var-value text-end font-monospace">{{ variable.session_value }}</td>
             </tr>
           {% endif %}
         {% endfor %}

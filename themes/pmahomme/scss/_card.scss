@@ -9,17 +9,8 @@
 
 .card,
 .card-footer {
-  @if $direction == rtl {
-    text-shadow: -1px 1px 2px #fff inset;
-    -moz-box-shadow: -1px 1px 2px #fff inset;
-    -webkit-box-shadow: -1px 1px 2px #fff inset;
-    box-shadow: -1px 1px 2px #fff inset;
-  } @else {
-    text-shadow: 1px 1px 2px #fff inset;
-    -moz-box-shadow: 1px 1px 2px #fff inset;
-    -webkit-box-shadow: 1px 1px 2px #fff inset;
-    box-shadow: 1px 1px 2px #fff inset;
-  }
+  text-shadow: 1px 1px 2px #fff;
+  box-shadow: 1px 1px 2px #fff inset;
 }
 
 .card-header {
@@ -32,14 +23,10 @@
   padding: 5px 10px;
   border: 1px solid #aaa;
   font-size: 1em;
-  -moz-box-shadow: 3px 3px 15px #bbb;
-  -webkit-box-shadow: 3px 3px 15px #bbb;
   box-shadow: 3px 3px 15px #bbb;
 
   &,
   &:first-child {
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border-radius: 2px;
   }
 }
@@ -50,8 +37,7 @@
   padding: 0.5em;
 }
 
-#maincontainer .card-header,
-.accordion > .card > .card-header {
+#maincontainer .card-header {
   position: static;
   width: auto;
   margin: 0;
@@ -66,16 +52,7 @@
   .card {
     background-color: $navi-background;
     border: $card-border-width solid #999;
-
-    @if $direction == rtl {
-      -moz-box-shadow: -2px 2px 5px #ccc;
-      -webkit-box-shadow: -2px 2px 5px #ccc;
-      box-shadow: -2px 2px 5px #ccc;
-    } @else {
-      -moz-box-shadow: 2px 2px 5px #ccc;
-      -webkit-box-shadow: 2px 2px 5px #ccc;
-      box-shadow: 2px 2px 5px #ccc;
-    }
+    box-shadow: 2px 2px 5px #ccc;
 
     > .card-header + .card-body {
       padding-top: $card-spacer-x;
@@ -89,32 +66,6 @@
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: 1px 1px 15px #999 inset;
-    -webkit-box-shadow: 1px 1px 15px #999 inset;
     box-shadow: 1px 1px 15px #999 inset;
-  }
-}
-
-.accordion {
-  > .card {
-    margin-top: 0;
-    margin-bottom: 0;
-
-    > .card-header {
-      background-color: inherit;
-      box-shadow: none;
-
-      .btn {
-        color: #235a81;
-
-        &:active {
-          box-shadow: none;
-        }
-      }
-    }
-
-    .card-body {
-      background-color: #fff;
-    }
   }
 }

@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
+
 use function chr;
 
 /**
- * Test for mime detection.
+ * @covers \PhpMyAdmin\Mime
  */
 class MimeTest extends AbstractTestCase
 {

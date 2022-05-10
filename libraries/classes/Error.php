@@ -5,23 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Throwable;
-use const DIRECTORY_SEPARATOR;
-use const E_COMPILE_ERROR;
-use const E_COMPILE_WARNING;
-use const E_CORE_ERROR;
-use const E_CORE_WARNING;
-use const E_DEPRECATED;
-use const E_ERROR;
-use const E_NOTICE;
-use const E_PARSE;
-use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
-use const E_USER_DEPRECATED;
-use const E_USER_ERROR;
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
-use const E_WARNING;
-use const PATH_SEPARATOR;
+
 use function array_pop;
 use function array_slice;
 use function basename;
@@ -44,6 +28,24 @@ use function serialize;
 use function str_replace;
 use function var_export;
 
+use const DIRECTORY_SEPARATOR;
+use const E_COMPILE_ERROR;
+use const E_COMPILE_WARNING;
+use const E_CORE_ERROR;
+use const E_CORE_WARNING;
+use const E_DEPRECATED;
+use const E_ERROR;
+use const E_NOTICE;
+use const E_PARSE;
+use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_WARNING;
+use const PATH_SEPARATOR;
+
 /**
  * a single error
  */
@@ -54,23 +56,23 @@ class Error extends Message
      *
      * @var array
      */
-    public static $errortype =  [
-        0                    => 'Internal error',
-        E_ERROR              => 'Error',
-        E_WARNING            => 'Warning',
-        E_PARSE              => 'Parsing Error',
-        E_NOTICE             => 'Notice',
-        E_CORE_ERROR         => 'Core Error',
-        E_CORE_WARNING       => 'Core Warning',
-        E_COMPILE_ERROR      => 'Compile Error',
-        E_COMPILE_WARNING    => 'Compile Warning',
-        E_USER_ERROR         => 'User Error',
-        E_USER_WARNING       => 'User Warning',
-        E_USER_NOTICE        => 'User Notice',
-        E_STRICT             => 'Runtime Notice',
-        E_DEPRECATED         => 'Deprecation Notice',
-        E_USER_DEPRECATED    => 'Deprecation Notice',
-        E_RECOVERABLE_ERROR  => 'Catchable Fatal Error',
+    public static $errortype = [
+        0 => 'Internal error',
+        E_ERROR => 'Error',
+        E_WARNING => 'Warning',
+        E_PARSE => 'Parsing Error',
+        E_NOTICE => 'Notice',
+        E_CORE_ERROR => 'Core Error',
+        E_CORE_WARNING => 'Core Warning',
+        E_COMPILE_ERROR => 'Compile Error',
+        E_COMPILE_WARNING => 'Compile Warning',
+        E_USER_ERROR => 'User Error',
+        E_USER_WARNING => 'User Warning',
+        E_USER_NOTICE => 'User Notice',
+        E_STRICT => 'Runtime Notice',
+        E_DEPRECATED => 'Deprecation Notice',
+        E_USER_DEPRECATED => 'Deprecation Notice',
+        E_RECOVERABLE_ERROR => 'Catchable Fatal Error',
     ];
 
     /**
@@ -78,23 +80,23 @@ class Error extends Message
      *
      * @var array
      */
-    public static $errorlevel =  [
-        0                    => 'error',
-        E_ERROR              => 'error',
-        E_WARNING            => 'error',
-        E_PARSE              => 'error',
-        E_NOTICE             => 'notice',
-        E_CORE_ERROR         => 'error',
-        E_CORE_WARNING       => 'error',
-        E_COMPILE_ERROR      => 'error',
-        E_COMPILE_WARNING    => 'error',
-        E_USER_ERROR         => 'error',
-        E_USER_WARNING       => 'error',
-        E_USER_NOTICE        => 'notice',
-        E_STRICT             => 'notice',
-        E_DEPRECATED         => 'notice',
-        E_USER_DEPRECATED    => 'notice',
-        E_RECOVERABLE_ERROR  => 'error',
+    public static $errorlevel = [
+        0 => 'error',
+        E_ERROR => 'error',
+        E_WARNING => 'error',
+        E_PARSE => 'error',
+        E_NOTICE => 'notice',
+        E_CORE_ERROR => 'error',
+        E_CORE_WARNING => 'error',
+        E_COMPILE_ERROR => 'error',
+        E_COMPILE_WARNING => 'error',
+        E_USER_ERROR => 'error',
+        E_USER_WARNING => 'error',
+        E_USER_NOTICE => 'notice',
+        E_STRICT => 'notice',
+        E_DEPRECATED => 'notice',
+        E_USER_DEPRECATED => 'notice',
+        E_RECOVERABLE_ERROR => 'error',
     ];
 
     /**
@@ -255,6 +257,7 @@ class Error extends Message
         } catch (Throwable $e) {
             $backtrace = '';
         }
+
         if ($this->hash === null) {
             $this->hash = md5(
                 $this->getNumber() .
@@ -379,9 +382,11 @@ class Error extends Message
                 $retval .= self::relPath($step['file'])
                     . '#' . $step['line'] . ': ';
             }
+
             if (isset($step['class'])) {
                 $retval .= $step['class'] . $step['type'];
             }
+
             $retval .= self::getFunctionCall($step, $separator);
             $retval .= $lines;
         }
@@ -422,19 +427,19 @@ class Error extends Message
      * if $function is one of include/require
      * the $arg is converted to a relative path
      *
-     * @param string $arg      argument to process
+     * @param mixed  $arg      argument to process
      * @param string $function function name
      */
     public static function getArg($arg, string $function): string
     {
         $retval = '';
-        $include_functions = [
+        $includeFunctions = [
             'include',
             'include_once',
             'require',
             'require_once',
         ];
-        $connect_functions = [
+        $connectFunctions = [
             'mysql_connect',
             'mysql_pconnect',
             'mysqli_connect',
@@ -443,11 +448,9 @@ class Error extends Message
             '_realConnect',
         ];
 
-        if (in_array($function, $include_functions)) {
+        if (in_array($function, $includeFunctions)) {
             $retval .= self::relPath($arg);
-        } elseif (in_array($function, $connect_functions)
-            && is_string($arg)
-        ) {
+        } elseif (in_array($function, $connectFunctions) && is_string($arg)) {
             $retval .= gettype($arg) . ' ********';
         } elseif (is_scalar($arg)) {
             $retval .= gettype($arg) . ' '
@@ -480,6 +483,7 @@ class Error extends Message
             $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
             $retval .= "<br>\n";
         }
+
         $retval .= $this->getMessage();
         if (! $this->isUserError()) {
             $retval .= "<br>\n";
@@ -488,6 +492,7 @@ class Error extends Message
             $retval .= "<br>\n";
             $retval .= $this->getBacktraceDisplay();
         }
+
         $retval .= '</div>';
 
         return $retval;
@@ -521,28 +526,24 @@ class Error extends Message
             return basename($path);
         }
 
-        $Ahere = explode(
+        $hereParts = explode(
             DIRECTORY_SEPARATOR,
             (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
         );
-        $Adest = explode(DIRECTORY_SEPARATOR, $dest);
+        $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
-        // && count ($Adest)>0 && count($Ahere)>0 )
-        while (implode(DIRECTORY_SEPARATOR, $Adest) != implode(DIRECTORY_SEPARATOR, $Ahere)) {
-            if (count($Ahere) > count($Adest)) {
-                array_pop($Ahere);
+        while (implode(DIRECTORY_SEPARATOR, $destParts) != implode(DIRECTORY_SEPARATOR, $hereParts)) {
+            if (count($hereParts) > count($destParts)) {
+                array_pop($hereParts);
                 $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';
             } else {
-                array_pop($Adest);
+                array_pop($destParts);
             }
         }
-        $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $Adest), '', $dest);
 
-        return str_replace(
-            DIRECTORY_SEPARATOR . PATH_SEPARATOR,
-            DIRECTORY_SEPARATOR,
-            $path
-        );
+        $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $destParts), '', $dest);
+
+        return str_replace(DIRECTORY_SEPARATOR . PATH_SEPARATOR, DIRECTORY_SEPARATOR, $path);
     }
 }

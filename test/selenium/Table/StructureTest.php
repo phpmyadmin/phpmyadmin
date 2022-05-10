@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * StructureTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class StructureTest extends TestBase
 {
@@ -35,10 +30,7 @@ class StructureTest extends TestBase
         $this->login();
         $this->navigateTable('test_table');
 
-        $this->waitForElement(
-            'xpath',
-            "(//a[contains(., 'Structure')])"
-        )->click();
+        $this->waitForElement('xpath', "(//a[contains(., 'Structure')])")->click();
 
         $this->waitAjax();
         $this->waitForElement('id', 'tablestructure');
@@ -51,10 +43,7 @@ class StructureTest extends TestBase
      */
     public function testAddColumn(): void
     {
-        $this->waitForElement(
-            'cssSelector',
-            "#addColumns > input[value='Go']"
-        )->click();
+        $this->waitForElement('cssSelector', "#addColumns > input[value='Go']")->click();
         $this->waitAjax();
 
         $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
@@ -86,9 +75,7 @@ class StructureTest extends TestBase
      */
     public function testChangeColumn(): void
     {
-        $this->byCssSelector(
-            '#tablestructure tbody tr:nth-child(2) td:nth-child(11)'
-        )->click();
+        $this->byCssSelector('#tablestructure tbody tr:nth-child(2) td:nth-child(11)')->click();
         $this->waitAjax();
 
         $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
@@ -118,21 +105,13 @@ class StructureTest extends TestBase
     {
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->click();
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_3]')->click();
-        $this->waitUntilElementIsPresent(
-            'xpath',
-            '//button[contains(., "Drop")]',
-            30
-        )->click();
+        $this->waitUntilElementIsPresent('xpath', '//button[contains(., "Drop")]', 30)->click();
 
-        $this->waitForElement(
-            'cssSelector',
-            "input[id='buttonYes']"
-        )->click();
+        $this->waitForElement('cssSelector', "input[id='buttonYes']")->click();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Your SQL query has been executed successfully')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'2 columns have been dropped successfully.\')]'
         );
         $this->waitAjax();
 

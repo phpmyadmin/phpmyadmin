@@ -1,23 +1,17 @@
-<form id="create_table_form_minimal" method="post" action="{{ url('/table/create') }}" class="lock-page">
-    <fieldset>
-        <legend>
-        {% if show_icons('ActionLinksMode') -%}
-            {{ get_image('b_table_add') }}
-        {%- endif %}
-        {% trans "Create table" %}
-        </legend>
-        {{ get_hidden_inputs(db) }}
-        <div class="formelement">
-            {% trans "Name" %}:
-            <input type="text" name="table" maxlength="64" size="30" required="required">
-        </div>
-        <div class="formelement">
-            {% trans "Number of columns" %}:
-            <input type="number" min="1" name="num_fields" value="4" required="required">
-        </div>
-        <div class="clearfloat"></div>
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input class="btn btn-primary" type="submit" value="{% trans "Go" %}">
-    </fieldset>
+<form id="createTableMinimalForm" method="post" action="{{ url('/table/create') }}" class="card d-print-none lock-page">
+  {{ get_hidden_inputs(db) }}
+  <div class="card-header">{{ get_icon('b_table_add', 'Create new table'|trans, true) }}</div>
+  <div class="card-body row row-cols-lg-auto g-3">
+    <div class="col-12">
+      <label for="createTableNameInput" class="form-label">{% trans 'Table name' %}</label>
+      <input type="text" class="form-control" name="table" id="createTableNameInput" maxlength="64" required>
+    </div>
+    <div class="col-12">
+      <label for="createTableNumFieldsInput" class="form-label">{% trans 'Number of columns' %}</label>
+      <input type="number" class="form-control" name="num_fields" id="createTableNumFieldsInput" min="1" value="4" required>
+    </div>
+    <div class="col-12 align-self-lg-end">
+      <input class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
+    </div>
+  </div>
 </form>

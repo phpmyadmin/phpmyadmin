@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
+
 use function array_key_exists;
 use function ini_get;
 use function trim;
@@ -25,7 +26,7 @@ class UploadSession implements UploadInterface
      */
     public static function getIdKey()
     {
-        return ini_get('session.upload_progress.name');
+        return (string) ini_get('session.upload_progress.name');
     }
 
     /**
@@ -47,14 +48,15 @@ class UploadSession implements UploadInterface
 
         if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
-                'id'       => $id,
+                'id' => $id,
                 'finished' => false,
-                'percent'  => 0,
-                'total'    => 0,
+                'percent' => 0,
+                'total' => 0,
                 'complete' => 0,
-                'plugin'   => self::getIdKey(),
+                'plugin' => self::getIdKey(),
             ];
         }
+
         $ret = $_SESSION[$SESSION_KEY][$id];
 
         if (! Ajax::sessionCheck() || $ret['finished']) {
@@ -78,12 +80,12 @@ class UploadSession implements UploadInterface
             }
         } else {
             $ret = [
-                'id'       => $id,
+                'id' => $id,
                 'finished' => true,
-                'percent'  => 100,
-                'total'    => $ret['total'],
+                'percent' => 100,
+                'total' => $ret['total'],
                 'complete' => $ret['total'],
-                'plugin'   => self::getIdKey(),
+                'plugin' => self::getIdKey(),
             ];
         }
 

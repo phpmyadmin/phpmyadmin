@@ -49,9 +49,8 @@ AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', 'a.drop_column_anchor.ajax');
     $(document).off('click', 'a.add_key.ajax');
     $(document).off('click', '#move_columns_anchor');
-    $(document).off('click', '#printView');
     $(document).off('submit', '.append_fields_form.ajax');
-    $('body').off('click', '#fieldsForm.ajax button');
+    $('body').off('click', '#fieldsForm button.mult_submit');
     $(document).off('click', 'a[id^=partition_action].ajax');
     $(document).off('click', '#remove_partitioning.ajax');
 });
@@ -70,7 +69,7 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('submit', '.append_fields_form.ajax', function (event) {
         event.preventDefault();
         /**
-         * @var    the_form    object referring to the export form
+         * @var form object referring to the export form
          */
         var $form = $(this);
         var fieldCnt = $form.find('input[name=orig_num_fields]').val();
@@ -97,7 +96,6 @@ AJAX.registerOnload('table/structure.js', function () {
                     }
                     $form.remove();
                     Functions.ajaxRemoveMessage($msg);
-                    Functions.initSlider();
                     Navigation.reload();
                     if (typeof data.structure_refresh_route === 'string') {
                         // Fetch the table structure right after adding a new column
@@ -176,24 +174,24 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', 'a.drop_column_anchor.ajax', function (event) {
         event.preventDefault();
         /**
-         * @var curr_table_name String containing the name of the current table
+         * @var currTableName String containing the name of the current table
          */
         var currTableName = $(this).closest('form').find('input[name=table]').val();
         /**
-         * @var curr_row    Object reference to the currently selected row (i.e. field in the table)
+         * @var currRow    Object reference to the currently selected row (i.e. field in the table)
          */
         var $currRow = $(this).parents('tr');
         /**
-         * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
+         * @var currColumnName    String containing name of the field referred to by {@link curr_row}
          */
         var currColumnName = $currRow.children('th').children('label').text().trim();
         currColumnName = Functions.escapeHtml(currColumnName);
         /**
-         * @var $after_field_item    Corresponding entry in the 'After' field.
+         * @var $afterFieldItem    Corresponding entry in the 'After' field.
          */
         var $afterFieldItem = $('select[name=\'after_field\'] option[value=\'' + currColumnName + '\']');
         /**
-         * @var question    String containing the question to be asked for confirmation
+         * @var question String containing the question to be asked for confirmation
          */
         var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
         var $thisAnchor = $(this);
@@ -245,16 +243,6 @@ AJAX.registerOnload('table/structure.js', function () {
     }); // end of Drop Column Anchor action
 
     /**
-     * Attach Event Handler for 'Print' link
-     */
-    $(document).on('click', '#printView', function (event) {
-        event.preventDefault();
-
-        // Take to preview mode
-        Functions.printPreview();
-    }); // end of Print View action
-
-    /**
      * Ajax Event handler for adding keys
      */
     $(document).on('click', 'a.add_key.ajax', function (event) {
@@ -301,75 +289,6 @@ AJAX.registerOnload('table/structure.js', function () {
             return;
         }
 
-        /**
-         * @var    button_options  Object that stores the options passed to jQueryUI
-         *                          dialog
-         */
-        var buttonOptions = {};
-
-        buttonOptions[Messages.strGo] = function (event) {
-            event.preventDefault();
-            var $msgbox = Functions.ajaxShowMessage();
-            var $this = $(this);
-            var $form = $this.find('form');
-            var serialized = $form.serialize();
-            // check if any columns were moved at all
-            if (serialized === $form.data('serialized-unmoved')) {
-                Functions.ajaxRemoveMessage($msgbox);
-                $this.dialog('close');
-                return;
-            }
-            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
-                if (data.success === false) {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    $this
-                        .clone()
-                        .html(data.error)
-                        .dialog({
-                            title: $(this).prop('title'),
-                            height: 230,
-                            width: 900,
-                            modal: true,
-                            buttons: buttonOptionsError
-                        }); // end dialog options
-                } else {
-                    // sort the fields table
-                    var $fieldsTable = $('table#tablestructure tbody');
-                    // remove all existing rows and remember them
-                    var $rows = $fieldsTable.find('tr').remove();
-                    // loop through the correct order
-                    for (var i in data.columns) {
-                        var theColumn = data.columns[i];
-                        var $theRow = $rows
-                            .find('input:checkbox[value=\'' + theColumn + '\']')
-                            .closest('tr');
-                        // append the row for this column to the table
-                        $fieldsTable.append($theRow);
-                    }
-                    var $firstrow = $fieldsTable.find('tr').eq(0);
-                    // Adjust the row numbers and colors
-                    for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
-                        $row
-                            .find('td').eq(1)
-                            .text($row.index() + 1)
-                            .end()
-                            .removeClass('odd even')
-                            .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
-                    }
-                    Functions.ajaxShowMessage(data.message);
-                    $this.dialog('close');
-                }
-            });
-        };
-        buttonOptions[Messages.strPreviewSQL] = function () {
-            // Function for Previewing SQL
-            var $form = $('#move_column_form');
-            Functions.previewSql($form);
-        };
-        buttonOptions[Messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
-
         var buttonOptionsError = {};
         buttonOptionsError[Messages.strOK] = function () {
             $(this).dialog('close').remove();
@@ -404,24 +323,76 @@ AJAX.registerOnload('table/structure.js', function () {
         var $form = $('#move_columns_dialog').find('form');
         $form.data('serialized-unmoved', $form.serialize());
 
-        $('#move_columns_dialog').dialog({
-            modal: true,
-            buttons: buttonOptions,
-            open: function () {
-                if ($('#move_columns_dialog').parents('.ui-dialog').height() > $(window).height()) {
-                    $('#move_columns_dialog').dialog('option', 'height', $(window).height());
-                }
-            },
-            beforeClose: function () {
-                $('#move_columns_anchor').removeClass('move-active');
+        $('#moveColumnsModal').modal('show');
+        $('#designerModalGoButton').on('click', function () {
+            // Off event necessary, else the function fires multiple times
+            $('#designerModalGoButton').off('click');
+            event.preventDefault();
+            var $msgbox = Functions.ajaxShowMessage();
+            var $this = $('#moveColumnsModal');
+            var $form = $this.find('form');
+            var serialized = $form.serialize();
+            // check if any columns were moved at all
+            $('#moveColumnsModal').modal('hide');
+            if (serialized === $form.data('serialized-unmoved')) {
+                Functions.ajaxRemoveMessage($msgbox);
+                return;
             }
+            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
+                if (data.success === false) {
+                    Functions.ajaxRemoveMessage($msgbox);
+                    var errorModal = $('#moveColumnsErrorModal');
+                    errorModal.modal('show');
+                    errorModal.find('.modal-body').first().html(data.error);
+                } else {
+                    // sort the fields table
+                    var $fieldsTable = $('table#tablestructure tbody');
+                    // remove all existing rows and remember them
+                    var $rows = $fieldsTable.find('tr').remove();
+                    // loop through the correct order
+                    for (var i in data.columns) {
+                        var theColumn = data.columns[i];
+                        var $theRow = $rows
+                            .find('input:checkbox[value=\'' + theColumn + '\']')
+                            .closest('tr');
+                        // append the row for this column to the table
+                        $fieldsTable.append($theRow);
+                    }
+                    var $firstrow = $fieldsTable.find('tr').eq(0);
+                    // Adjust the row numbers and colors
+                    for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
+                        $row
+                            .find('td').eq(1)
+                            .text($row.index() + 1)
+                            .end()
+                            .removeClass('odd even')
+                            .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
+                    }
+                    Functions.ajaxShowMessage(data.message);
+                }
+            });
+        });
+
+        $('#designerModalPreviewButton').on('click', function () {
+            // Function for Previewing SQL
+            $('#moveColumnsModal').modal('hide');
+            var $form = $('#move_column_form');
+            Functions.previewSql($form);
+        });
+
+        $('#previewSQLCloseButton').on('click', function () {
+            $('#moveColumnsModal').modal('show');
+        });
+
+        $('#designerModalCloseButton').on('click', function () {
+            $('#move_columns_anchor').removeClass('move-active');
         });
     });
 
     /**
      * Handles multi submits in table structure page such as change, browse, drop, primary etc.
      */
-    $('body').on('click', '#fieldsForm.ajax button', function (e) {
+    $('body').on('click', '#fieldsForm button.mult_submit', function (e) {
         e.preventDefault();
         var $form = $(this).parents('form');
         var argsep = CommonParams.get('arg_separator');
@@ -480,39 +451,5 @@ AJAX.registerOnload('table/structure.js', function () {
 
     $(document).on('change', 'select[name=after_field]', function () {
         checkFirst();
-    });
-});
-
-/** Handler for "More" dropdown in structure table rows */
-AJAX.registerOnload('table/structure.js', function () {
-    var windowwidth = $(window).width();
-    if (windowwidth > 768) {
-        if (! $('#fieldsForm').hasClass('HideStructureActions')) {
-            $('.table-structure-actions').width(function () {
-                var width = 5;
-                $(this).find('li').each(function () {
-                    width += $(this).outerWidth(true);
-                });
-                return width;
-            });
-        }
-    }
-
-    $('.jsresponsive').css('max-width', (windowwidth - 35) + 'px');
-    var tableRows = $('.central_columns');
-    $.each(tableRows, function (index, item) {
-        if ($(item).hasClass('add_button')) {
-            $(item).on('click', function () {
-                $('input:checkbox').prop('checked', false);
-                $('#checkbox_row_' + (index + 1)).prop('checked', true);
-                $('button[value=add_to_central_columns]').trigger('click');
-            });
-        } else {
-            $(item).on('click', function () {
-                $('input:checkbox').prop('checked', false);
-                $('#checkbox_row_' + (index + 1)).prop('checked', true);
-                $('button[value=remove_from_central_columns]').trigger('click');
-            });
-        }
     });
 });

@@ -7,15 +7,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\GisGeometry;
+use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use function imagesx;
 
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
  */
 abstract class GisGeomTestCase extends AbstractTestCase
 {
-    /** @var object */
+    /** @var GisGeometry */
     protected $object;
 
     /**
@@ -34,12 +35,16 @@ abstract class GisGeomTestCase extends AbstractTestCase
                 $params,
                 $this->object->generateParams($wkt)
             );
-        } else {
-            $this->assertEquals(
-                $params,
-                $this->object->generateParams($wkt, $index)
-            );
+
+            return;
         }
+
+        /** @var GisPolygon $obj or another GisGeometry that supports this definition */
+        $obj = $this->object;
+        $this->assertEquals(
+            $params,
+            $obj->generateParams($wkt, $index)
+        );
     }
 
     /**
@@ -56,15 +61,5 @@ abstract class GisGeomTestCase extends AbstractTestCase
             $min_max,
             $this->object->scaleRow($spatial)
         );
-    }
-
-    /**
-     * Tests whether content is a valid image.
-     *
-     * @param resource $object Image
-     */
-    public function assertImage($object): void
-    {
-        $this->assertGreaterThan(0, imagesx($object));
     }
 }

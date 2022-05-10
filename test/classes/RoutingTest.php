@@ -8,6 +8,9 @@ use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing;
 
+/**
+ * @covers \PhpMyAdmin\Routing
+ */
 class RoutingTest extends AbstractTestCase
 {
     /**
@@ -17,14 +20,10 @@ class RoutingTest extends AbstractTestCase
     {
         $dispatcher = Routing::getDispatcher();
         $this->assertInstanceOf(Dispatcher::class, $dispatcher);
-        $this->assertSame([
-            Dispatcher::FOUND,
-            [
-                HomeController::class,
-                'index',
-            ],
-            [],
-        ], $dispatcher->dispatch('GET', '/'));
+        $this->assertSame(
+            [Dispatcher::FOUND, HomeController::class, []],
+            $dispatcher->dispatch('GET', '/')
+        );
     }
 
     /**

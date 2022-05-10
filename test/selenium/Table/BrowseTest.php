@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,7 @@ use Facebook\WebDriver\WebDriverKeys;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * BrowseTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class BrowseTest extends TestBase
 {
@@ -135,9 +130,7 @@ class BrowseTest extends TestBase
      */
     public function testChangeRecords(): void
     {
-        $ele = $this->byCssSelector(
-            'table.table_results tbody tr:nth-child(2) td:nth-child(2)'
-        );
+        $ele = $this->byCssSelector('table.table_results tbody tr:nth-child(2) td:nth-child(2)');
         $this->moveto($ele);
         $this->click();
 
@@ -193,9 +186,7 @@ class BrowseTest extends TestBase
      */
     public function testChangeRecordsByDoubleClick(): void
     {
-        $element = $this->byCssSelector(
-            'table.table_results tbody tr:nth-child(1) td:nth-child(6)'
-        );
+        $element = $this->byCssSelector('table.table_results tbody tr:nth-child(1) td:nth-child(6)');
 
         $this->moveto($element);
         $this->doubleclick();
@@ -214,10 +205,7 @@ class BrowseTest extends TestBase
         $this->keys(WebDriverKeys::RETURN_KEY);
 
         $this->waitAjax();
-        $success = $this->waitForElement(
-            'cssSelector',
-            'span.ajax_notification .alert-success'
-        );
+        $success = $this->waitForElement('cssSelector', 'span.ajax_notification .alert-success');
         $this->assertStringContainsString('1 row affected', $success->getText());
 
         $this->assertEquals(
@@ -233,9 +221,7 @@ class BrowseTest extends TestBase
      */
     public function testCopyRecords(): void
     {
-        $ele = $this->byCssSelector(
-            'table.table_results tbody tr:nth-child(3) td:nth-child(3)'
-        );
+        $ele = $this->byCssSelector('table.table_results tbody tr:nth-child(3) td:nth-child(3)');
         $this->moveto($ele);
         $this->click();
         $this->waitForElement('id', 'insertForm');
@@ -292,7 +278,7 @@ class BrowseTest extends TestBase
         );
 
         $this->scrollToBottom();
-        $elem = $this->waitForElement('cssSelector', '.tblFooters input[name=submit]');
+        $elem = $this->waitForElement('cssSelector', '.card-footer input[name=submit]');
         $this->moveto($elem);
         $elem->click();
 

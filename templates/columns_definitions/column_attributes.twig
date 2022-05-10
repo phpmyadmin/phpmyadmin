@@ -12,7 +12,7 @@
         'ci': ci,
         'ci_offset': ci_offset,
         'column_meta': column_meta,
-        'cfg_relation': cfg_relation,
+        'has_central_columns_feature': relation_parameters.centralColumnsFeature is not null,
         'max_rows': max_rows
     } only %}
     {% set ci = ci + 1 %}
@@ -187,7 +187,7 @@
     </td>
 {% endif %}
 
-{% if cfg_relation['mimework'] and browse_mime and cfg_relation['commwork'] %}
+{% if relation_parameters.browserTransformationFeature is not null and relation_parameters.columnCommentsFeature is not null and browse_mime %}
     <td class="text-center">
       <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_mimetype[{{ column_number }}]">
         <option value="">&nbsp;</option>

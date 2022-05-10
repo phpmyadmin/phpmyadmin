@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Advisor;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
+/**
+ * @covers \PhpMyAdmin\Advisor
+ */
 class AdvisorTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -67,7 +70,6 @@ class AdvisorTest extends AbstractTestCase
      */
     public function testAddRule(array $rule, array $expected, ?string $error): void
     {
-        parent::loadDefaultConfig();
         parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
@@ -80,6 +82,7 @@ class AdvisorTest extends AbstractTestCase
         if (isset($runResult['errors']) || $error !== null) {
             $this->assertEquals([$error], $runResult['errors']);
         }
+
         if (! isset($runResult['fired']) && $expected == []) {
             return;
         }

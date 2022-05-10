@@ -7,12 +7,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use BaconQrCode\Renderer\ImageRenderer;
+use CodeLts\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
-use CodeLts\U2F\U2FServer\U2FServer;
+
 use function array_merge;
 use function class_exists;
 use function in_array;
@@ -50,7 +53,7 @@ class TwoFactor
     {
         global $dbi;
 
-        $dbi->initRelationParamsCache();
+        (new Relation($dbi))->initRelationParamsCache();
 
         $this->userPreferences = new UserPreferences();
         $this->user = $user;
@@ -72,10 +75,12 @@ class TwoFactor
         if (isset($config['config_data']['2fa'])) {
             $result = $config['config_data']['2fa'];
         }
+
         $result['type'] = $config['type'];
         if (! isset($result['backend'])) {
             $result['backend'] = '';
         }
+
         if (! isset($result['settings'])) {
             $result['settings'] = [];
         }
@@ -119,9 +124,11 @@ class TwoFactor
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
             $result[] = 'simple';
         }
-        if (class_exists(Google2FA::class)) {
+
+        if (class_exists(Google2FA::class) && class_exists(ImageRenderer::class)) {
             $result[] = 'application';
         }
+
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
         }
@@ -143,12 +150,14 @@ class TwoFactor
                 'dep' => 'pragmarx/google2fa-qrcode',
             ];
         }
-        if (! class_exists('BaconQrCode\Renderer\Image\Png')) {
+
+        if (! class_exists(ImageRenderer::class)) {
             $result[] = [
                 'class' => Application::getName(),
                 'dep' => 'bacon/bacon-qr-code',
             ];
         }
+
         if (! class_exists(U2FServer::class)) {
             $result[] = [
                 'class' => Key::getName(),
@@ -165,11 +174,13 @@ class TwoFactor
      * @param string $name Backend name
      *
      * @return string
+     * @psalm-return class-string
      */
     public function getBackendClass($name)
     {
         $result = TwoFactorPlugin::class;
         if (in_array($name, $this->available)) {
+            /** @psalm-var class-string $result */
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
         } elseif (! empty($name)) {
             $result = Invalid::class;
@@ -193,20 +204,19 @@ class TwoFactor
     /**
      * Checks authentication, returns true on success
      *
-     * @param bool $skip_session Skip session cache
-     *
-     * @return bool
+     * @param bool $skipSession Skip session cache
      */
-    public function check($skip_session = false)
+    public function check($skipSession = false): bool
     {
-        if ($skip_session) {
+        if ($skipSession) {
             return $this->backend->check();
         }
+
         if (empty($_SESSION['two_factor_check'])) {
             $_SESSION['two_factor_check'] = $this->backend->check();
         }
 
-        return $_SESSION['two_factor_check'];
+        return (bool) $_SESSION['two_factor_check'];
     }
 
     /**
@@ -246,10 +256,8 @@ class TwoFactor
      * if configuration fails.
      *
      * @param string $name Backend name
-     *
-     * @return bool
      */
-    public function configure($name)
+    public function configure($name): bool
     {
         $this->config = ['backend' => $name];
         if ($name === '') {
@@ -260,6 +268,7 @@ class TwoFactor
             if (! in_array($name, $this->available)) {
                 return false;
             }
+
             $cls = $this->getBackendClass($name);
             $this->config['settings'] = [];
             $this->backend = new $cls($this);
@@ -267,6 +276,7 @@ class TwoFactor
                 return false;
             }
         }
+
         $result = $this->save();
         if ($result !== true) {
             echo $result->getDisplay();

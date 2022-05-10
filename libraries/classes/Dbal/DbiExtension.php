@@ -30,12 +30,10 @@ interface DbiExtension
     /**
      * selects given database
      *
-     * @param string $dbname database name to select
-     * @param object $link   connection object
-     *
-     * @return bool
+     * @param string|DatabaseName $databaseName database name to select
+     * @param object              $link         connection object
      */
-    public function selectDb($dbname, $link);
+    public function selectDb($databaseName, $link): bool;
 
     /**
      * runs a query and returns the result
@@ -44,9 +42,9 @@ interface DbiExtension
      * @param object $link    connection object
      * @param int    $options query options
      *
-     * @return mixed result
+     * @return ResultInterface|false result
      */
-    public function realQuery($query, $link, $options);
+    public function realQuery(string $query, $link, int $options);
 
     /**
      * Run the multi query and output the results
@@ -54,74 +52,30 @@ interface DbiExtension
      * @param object $link  connection object
      * @param string $query multi query statement to execute
      *
-     * @return array|bool
+     * @return bool
      */
     public function realMultiQuery($link, $query);
-
-    /**
-     * returns array of rows with associative and numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchArray($result): ?array;
-
-    /**
-     * returns array of rows with associative keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchAssoc($result): ?array;
-
-    /**
-     * returns array of rows with numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchRow($result): ?array;
-
-    /**
-     * Adjusts the result pointer to an arbitrary row in the result
-     *
-     * @param object $result database result
-     * @param int    $offset offset to seek
-     *
-     * @return bool true on success, false on failure
-     */
-    public function dataSeek($result, $offset);
-
-    /**
-     * Frees memory associated with the result
-     *
-     * @param object $result database result
-     *
-     * @return void
-     */
-    public function freeResult($result);
 
     /**
      * Check if there are any more query results from a multi query
      *
      * @param object $link the connection object
-     *
-     * @return bool true or false
      */
-    public function moreResults($link);
+    public function moreResults($link): bool;
 
     /**
      * Prepare next result from multi_query
      *
      * @param object $link the connection object
-     *
-     * @return bool true or false
      */
-    public function nextResult($link);
+    public function nextResult($link): bool;
 
     /**
      * Store the result returned from multi query
      *
      * @param object $link mysql link
      *
-     * @return mixed false when empty results / result set when not empty
+     * @return ResultInterface|false false when empty results / result set when not empty
      */
     public function storeResult($link);
 
@@ -151,89 +105,31 @@ interface DbiExtension
     public function getClientInfo();
 
     /**
-     * returns last error message or false if no errors occurred
+     * Returns last error message or an empty string if no errors occurred.
      *
      * @param object $link connection link
-     *
-     * @return string|bool error or false
      */
-    public function getError($link);
-
-    /**
-     * returns the number of rows returned by last query
-     *
-     * @param object $result result set identifier
-     *
-     * @return string|int
-     */
-    public function numRows($result);
+    public function getError($link): string;
 
     /**
      * returns the number of rows affected by last query
      *
      * @param object $link the connection object
      *
-     * @return int
+     * @return int|string
+     * @psalm-return int|numeric-string
      */
     public function affectedRows($link);
 
     /**
-     * returns metainfo for fields in $result
-     *
-     * @param object $result result set identifier
-     *
-     * @return array meta info for fields in $result
-     */
-    public function getFieldsMeta($result);
-
-    /**
-     * return number of fields in given $result
-     *
-     * @param object $result result set identifier
-     *
-     * @return int field count
-     */
-    public function numFields($result);
-
-    /**
-     * returns the length of the given field $i in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return int|bool length of field
-     */
-    public function fieldLen($result, $i);
-
-    /**
-     * returns name of $i. field in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string name of $i. field in $result
-     */
-    public function fieldName($result, $i);
-
-    /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i);
-
-    /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param mixed  $link database link
-     * @param string $str  string to be escaped
+     * @param mixed  $link   database link
+     * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($link, $str);
+    public function escapeString($link, $string);
 
     /**
      * Prepare an SQL statement for execution.

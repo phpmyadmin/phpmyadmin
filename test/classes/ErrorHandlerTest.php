@@ -1,20 +1,22 @@
 <?php
-/**
- * Tests for ErrorHandler
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
+
+use function array_keys;
+use function count;
+
 use const E_RECOVERABLE_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
-use function count;
-use function array_keys;
 
+/**
+ * @covers \PhpMyAdmin\ErrorHandler
+ */
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */
@@ -23,24 +25,20 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['environment'] = 'production';
         $GLOBALS['cfg']['SendErrorReports'] = 'always';
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -164,12 +162,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountErrors(): void
     {
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            15
-        );
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
             $this->object->countErrors()
@@ -183,18 +176,8 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testSliceErrors(): void
     {
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            15
-        );
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            16
-        );
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 16);
         $this->assertEquals(
             2,
             $this->object->countErrors()
@@ -225,12 +208,7 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testSliceErrorsOtherExample(): void
     {
         for ($i = 0; $i < 10; $i++) {
-            $this->object->addError(
-                'Compile Error',
-                E_WARNING,
-                'error.txt',
-                $i
-            );
+            $this->object->addError('Compile Error', E_WARNING, 'error.txt', $i);
         }
 
         // 10 initial items
@@ -269,22 +247,12 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountUserErrors(): void
     {
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            15
-        );
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             0,
             $this->object->countUserErrors()
         );
-        $this->object->addError(
-            'Compile Error',
-            E_USER_WARNING,
-            'error.txt',
-            15
-        );
+        $this->object->addError('Compile Error', E_USER_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
             $this->object->countUserErrors()

@@ -9,10 +9,11 @@ namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 
+use function __;
+
 /**
  * SQL editing with syntax highlighted CodeMirror editor
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**
@@ -22,9 +23,7 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Syntax highlighted CodeMirror editor for SQL.'
-        );
+        return __('Syntax highlighted CodeMirror editor for SQL.');
     }
 
     /**

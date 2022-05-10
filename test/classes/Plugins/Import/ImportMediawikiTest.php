@@ -9,6 +9,11 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki
+ */
 class ImportMediawikiTest extends AbstractTestCase
 {
     /** @var ImportMediawiki */
@@ -17,13 +22,10 @@ class ImportMediawikiTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'database';
         $this->object = new ImportMediawiki();
@@ -43,8 +45,6 @@ class ImportMediawikiTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -72,10 +72,7 @@ class ImportMediawikiTest extends AbstractTestCase
             'text/plain',
             $properties->getMimeType()
         );
-        $this->assertEquals(
-            [],
-            $properties->getOptions()
-        );
+        $this->assertNull($properties->getOptions());
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()
@@ -122,24 +119,10 @@ class ImportMediawikiTest extends AbstractTestCase
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString(
-            'Go to database: `mediawiki_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `mediawiki_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Go to table: `pma_bookmarktest`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `pma_bookmarktest`',
-            $import_notice
-        );
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertStringContainsString('Go to database: `mediawiki_DB`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `mediawiki_DB`', $import_notice);
+        $this->assertStringContainsString('Go to table: `pma_bookmarktest`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `pma_bookmarktest`', $import_notice);
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

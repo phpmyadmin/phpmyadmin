@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\SysInfo;
 
 use COM;
+
 use function class_exists;
 use function count;
 use function in_array;
@@ -33,11 +34,13 @@ class WindowsNt extends Base
     {
         if (! class_exists('COM')) {
             $this->wmi = null;
-        } else {
-            // initialize the wmi object
-            $objLocator = new COM('WbemScripting.SWbemLocator');
-            $this->wmi = $objLocator->ConnectServer();
+
+            return;
         }
+
+        // initialize the wmi object
+        $objLocator = new COM('WbemScripting.SWbemLocator');
+        $this->wmi = $objLocator->ConnectServer();
     }
 
     /**
@@ -60,10 +63,8 @@ class WindowsNt extends Base
 
     /**
      * Checks whether class is supported in this environment
-     *
-     * @return bool true on success
      */
-    public function supported()
+    public function supported(): bool
     {
         return $this->wmi !== null;
     }
@@ -81,11 +82,13 @@ class WindowsNt extends Base
         $arrData = [];
 
         $objWEBM = $this->wmi->Get($strClass);
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $arrProp = $objWEBM->Properties_;
         $arrWEBMCol = $objWEBM->Instances_();
         foreach ($arrWEBMCol as $objItem) {
             $arrInstance = [];
             foreach ($arrProp as $propItem) {
+                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                 $name = $propItem->Name;
                 if (! empty($strValue) && ! in_array($name, $strValue)) {
                     continue;
@@ -98,6 +101,7 @@ class WindowsNt extends Base
                     $arrInstance[$name] = $value;
                 }
             }
+
             $arrData[] = $arrInstance;
         }
 

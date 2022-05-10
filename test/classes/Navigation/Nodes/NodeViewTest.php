@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeView
+ */
 class NodeViewTest extends AbstractTestCase
 {
     /**
@@ -15,7 +18,6 @@ class NodeViewTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
     }
 
@@ -25,15 +27,16 @@ class NodeViewTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeView');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
+                'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+            ],
             $parent->links
         );
-        $this->assertStringContainsString(
-            'index.php?route=/sql',
-            $parent->links['text']
-        );
-        $this->assertStringContainsString('b_props', $parent->icon);
+        $this->assertEquals('b_props', $parent->icon['image']);
+        $this->assertEquals('View', $parent->icon['title']);
         $this->assertStringContainsString('view', $parent->classes);
     }
 }

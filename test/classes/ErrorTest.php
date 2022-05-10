@@ -1,32 +1,26 @@
 <?php
-/**
- * Tests for Error.php
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
-use const DIRECTORY_SEPARATOR;
+
 use function preg_match;
 
+use const DIRECTORY_SEPARATOR;
+
 /**
- * Error class testing.
+ * @covers \PhpMyAdmin\Error
  */
 class ErrorTest extends AbstractTestCase
 {
-    /**
-     * @var Error
-     * @access protected
-     */
+    /** @var Error */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -37,8 +31,6 @@ class ErrorTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {

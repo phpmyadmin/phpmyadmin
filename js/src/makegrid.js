@@ -327,7 +327,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Find currently hovered table column's header (excluding actions column).
          *
          * @param e event
-         * @return the hovered column's th object or undefined if no hovered column found.
+         * @return {object|undefined} the hovered column's th object or undefined if no hovered column found.
          */
         getHoveredCol: function (e) {
             var hoveredCol;
@@ -346,7 +346,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Get a zero-based index from a <th class="draggable"> tag in a table.
          *
          * @param obj table header <th> object
-         * @return zero-based index of the specified table header in the set of table headers (visible or not)
+         * @return {number} zero-based index of the specified table header in the set of table headers (visible or not)
          */
         getHeaderIdx: function (obj) {
             return $(obj).parents('tr').find('th.draggable').index(obj);
@@ -435,6 +435,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Update current hint using the boolean values (showReorderHint, showSortHint, etc.).
          *
+         * @return {string}
+         *
          */
         updateHint: function () {
             var text = '';
@@ -474,7 +476,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Toggle column's visibility.
          * After calling this function and it returns true, afterToggleCol() must be called.
          *
-         * @return boolean True if the column is toggled successfully.
+         * @param {number} n
+         *
+         * @return {boolean} True if the column is toggled successfully.
          */
         toggleCol: function (n) {
             if (g.colVisib[n]) {
@@ -519,6 +523,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             // check visible first row headers count
             g.visibleHeadersCount = $(g.t).find('tr').first().find('th.draggable:visible').length;
             g.refreshRestoreButton();
+
+            // Display minimum of one column - disable checkbox for hiding last column
+            if (g.visibleHeadersCount <= 1) {
+                $(g.cList).find('.lDiv div').each(function () {
+                    $(this).find('input:checkbox:checked').prop('disabled', true);
+                });
+            } else {
+                // Remove disabled property if showing more than one column
+                $(g.cList).find('.lDiv div').each(function () {
+                    $(this).find('input:checkbox:disabled').prop('disabled', false);
+                });
+            }
         },
 
         /**
@@ -641,8 +657,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          *              or just specify "true", if we want to replace the edited field with the new value.
          * @param field Optional, the edited <td>. If not specified, the function will
          *              use currently edited <td> from g.currentEditCell.
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         hideEditCell: function (force, data, field, options) {
             if (g.isCellEditActive && !force) {
@@ -764,25 +780,25 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                  */
                 var $editArea = $(g.cEdit).find('.edit_area');
                 /**
-                 * @var where_clause WHERE clause for the edited cell
+                 * @var whereClause WHERE clause for the edited cell
                  */
                 var whereClause = $td.parent('tr').find('.where_clause').val();
                 /**
-                 * @var field_name  String containing the name of this field.
+                 * @var fieldName  String containing the name of this field.
                  * @see Sql.getFieldName()
                  */
                 var fieldName = Sql.getFieldName($(t), $td);
                 /**
-                 * @var relation_curr_value String current value of the field (for fields that are foreign keyed).
+                 * @var relationCurrValue String current value of the field (for fields that are foreign keyed).
                  */
                 var relationCurrValue = $td.text();
                 /**
-                 * @var relation_key_or_display_column String relational key if in 'Relational display column' mode,
+                 * @var relationKeyOrDisplayColumn String relational key if in 'Relational display column' mode,
                  * relational display column if in 'Relational key' mode (for fields that are foreign keyed).
                  */
                 var relationKeyOrDisplayColumn = $td.find('a').attr('title');
                 /**
-                 * @var curr_value String current value of the field (for fields that are of type enum or set).
+                 * @var currValue String current value of the field (for fields that are of type enum or set).
                  */
                 var currValue = $td.find('span').text();
 
@@ -879,7 +895,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     $td.data('original_data', null);
 
                     /**
-                     * @var post_params Object containing parameters for the POST request
+                     * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
                         'ajax_request' : true,
@@ -924,7 +940,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     $editArea.addClass('edit_area_loading');
 
                     /**
-                     * @var post_params Object containing parameters for the POST request
+                     * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
                         'ajax_request' : true,
@@ -1014,7 +1030,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         $td.data('original_data', null);
 
                         /**
-                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
+                         * @var sqlQuery   String containing the SQL query used to retrieve value of truncated/transformed data
                          */
                         var sqlQuery = 'SELECT `' + fieldName + '` FROM `' + g.table + '` WHERE ' + whereClause;
 
@@ -1135,8 +1151,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Post the content of edited cell.
          *
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         postEditedCell: function (options) {
             if (g.isSaving) {
@@ -1144,39 +1160,39 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             }
             g.isSaving = true;
             /**
-             * @var relation_fields Array containing the name/value pairs of relational fields
+             * @var relationFields Array containing the name/value pairs of relational fields
              */
             var relationFields = {};
             /**
-             * @var relational_display string 'K' if relational key, 'D' if relational display column
+             * @var relationalDisplay string 'K' if relational key, 'D' if relational display column
              */
             var relationalDisplay = $(g.o).find('input[name=relational_display]:checked').val();
             /**
-             * @var transform_fields    Array containing the name/value pairs for transformed fields
+             * @var transformFields    Array containing the name/value pairs for transformed fields
              */
             var transformFields = {};
             /**
-             * @var transformation_fields   Boolean, if there are any transformed fields in the edited cells
+             * @var transformationFields   Boolean, if there are any transformed fields in the edited cells
              */
             var transformationFields = false;
             /**
-             * @var full_sql_query String containing the complete SQL query to update this table
+             * @var fullSqlQuery String containing the complete SQL query to update this table
              */
             var fullSqlQuery = '';
             /**
-             * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
+             * @var relFieldsList  String, url encoded representation of {@link relations_fields}
              */
             var relFieldsList = '';
             /**
-             * @var transform_fields_list  String, url encoded representation of {@link transformFields}
+             * @var transformFieldsList  String, url encoded representation of {@link transformFields}
              */
             var transformFieldsList = '';
             /**
-             * @var where_clause Array containing where clause for updated fields
+             * @var fullWhereClause Array containing where clause for updated fields
              */
             var fullWhereClause = [];
             /**
-             * @var is_unique   Boolean, whether the rows in this table is unique or not
+             * @var isUnique   Boolean, whether the rows in this table is unique or not
              */
             var isUnique = $(g.t).find('td.edit_row_anchor').is('.nonunique') ? 0 : 1;
             /**
@@ -1214,18 +1230,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 // loop each edited cell in a row
                 $tr.find('.to_be_saved').each(function () {
                     /**
-                     * @var $this_field    Object referring to the td that is being edited
+                     * @var $thisField    Object referring to the td that is being edited
                      */
                     var $thisField = $(this);
 
                     /**
-                     * @var field_name  String containing the name of this field.
+                     * @var fieldName  String containing the name of this field.
                      * @see Sql.getFieldName()
                      */
                     var fieldName = Sql.getFieldName($(g.t), $thisField);
 
                     /**
-                     * @var this_field_params   Array temporary storage for the name/value of current field
+                     * @var thisFieldParams   Array temporary storage for the name/value of current field
                      */
                     var thisFieldParams = {};
 
@@ -1235,7 +1251,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     thisFieldParams[fieldName] = $thisField.data('value');
 
                     /**
-                     * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
+                     * @var isNull String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
                      */
                     var isNull = thisFieldParams[fieldName] === null;
 
@@ -1297,7 +1313,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // Make the Ajax post after setting all parameters
             /**
-             * @var post_params Object containing parameters for the POST request
+             * @var postParams Object containing parameters for the POST request
              */
             var postParams = { 'ajax_request' : true,
                 'sql_query' : fullSqlQuery,
@@ -1427,10 +1443,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Save edited cell, so it can be posted later.
+         *
+         * @return {bool}
          */
         saveEditedCell: function () {
             /**
-             * @var $this_field    Object referring to the td that is being edited
+             * @var $thisField    Object referring to the td that is being edited
              */
             var $thisField = $(g.currentEditCell);
             var $testElement = ''; // to test the presence of a element
@@ -1438,18 +1456,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             var needToPost = false;
 
             /**
-             * @var field_name  String containing the name of this field.
+             * @var fieldName  String containing the name of this field.
              * @see Sql.getFieldName()
              */
             var fieldName = Sql.getFieldName($(g.t), $thisField);
 
             /**
-             * @var this_field_params   Array temporary storage for the name/value of current field
+             * @var thisFieldParams   Array temporary storage for the name/value of current field
              */
             var thisFieldParams = {};
 
             /**
-             * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
+             * @var isNull String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
              */
             var isNull = $(g.cEdit).find('input:checkbox').is(':checked');
 
@@ -1505,8 +1523,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Save or post currently edited cell, depending on the "saveCellsAtOnce" configuration.
          *
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         saveOrPostEditedCell: function (options) {
             var saved = g.saveEditedCell();
@@ -1635,26 +1653,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 })
                 .on('mouseleave', function () {
                     g.showReorderHint = false;
-                    $(this).tooltip('option', {
+                    $(this).uiTooltip('option', {
                         content: g.updateHint()
                     });
                 })
                 .on('dblclick', function (e) {
                     e.preventDefault();
-                    $('<div></div>')
-                        .prop('title', Messages.strColNameCopyTitle)
-                        .addClass('modal-copy')
-                        .text(Messages.strColNameCopyText)
-                        .append(
-                            $('<input>')
-                                .prop('readonly', true)
-                                .val($(this).data('column'))
-                        )
-                        .dialog({
-                            resizable: false,
-                            modal: true
-                        })
-                        .find('input').trigger('focus').trigger('select');
+                    var res = Functions.copyToClipboard($(this).data('column'));
+                    if (res) {
+                        Functions.ajaxShowMessage(Messages.strCopyColumnSuccess, false, 'success');
+                    } else {
+                        Functions.ajaxShowMessage(Messages.strCopyColumnFailure, false, 'error');
+                    }
                 });
             $(g.t).find('th.draggable a')
                 .on('dblclick', function (e) {
@@ -1779,7 +1789,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             });
 
             // attach to first row first col of the grid
-            var thFirst = $(g.t).find('th.print_ignore');
+            var thFirst = $(g.t).find('th.d-print-none');
             $(thFirst).append(g.cDrop);
             $(thFirst).append(g.cList);
 
@@ -1789,6 +1799,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Up
+         *
+         * @param e
+         *
          */
         moveUp: function (e) {
             e.preventDefault();
@@ -1828,6 +1841,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Down
+         *
+         * @param e
+         *
          */
         moveDown: function (e) {
             e.preventDefault();
@@ -1873,6 +1889,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Left
+         *
+         * @param e
+         *
          */
         moveLeft: function (e) {
             e.preventDefault();
@@ -1913,6 +1932,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Right
+         *
+         * @param e
+         *
          */
         moveRight: function (e) {
             e.preventDefault();
@@ -2232,14 +2254,14 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         .on('mouseenter', function () {
             g.showSortHint = true;
             g.showMultiSortHint = true;
-            $(t).find('th.draggable').tooltip('option', {
+            $(t).find('th.draggable').uiTooltip('option', {
                 content: g.updateHint()
             });
         })
         .on('mouseleave', function () {
             g.showSortHint = false;
             g.showMultiSortHint = false;
-            $(t).find('th.draggable').tooltip('option', {
+            $(t).find('th.draggable').uiTooltip('option', {
                 content: g.updateHint()
             });
         });

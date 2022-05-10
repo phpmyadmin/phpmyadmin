@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\MockObject\MockObject;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
+ */
 class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**
@@ -21,20 +25,21 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
     /**
      * Sets up the fixture.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         parent::setLanguage();
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_SESSION['relation'][1]['PMA_VERSION'] = PMA_VERSION;
-        $_SESSION['relation'][1]['navwork'] = true;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ])->toArray();
         $this->object = $this->getMockForAbstractClass(
             NodeDatabaseChild::class,
             ['child']
@@ -43,8 +48,6 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
     /**
      * Tears down the fixture.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -64,14 +67,8 @@ class NodeDatabaseChildTest extends AbstractTestCase
             ->will($this->returnValue('itemType'));
         $html = $this->object->getHtmlForControlButtons();
 
-        $this->assertStringStartsWith(
-            '<span class="navItemControls">',
-            $html
-        );
-        $this->assertStringEndsWith(
-            '</span>',
-            $html
-        );
+        $this->assertStringStartsWith('<span class="navItemControls">', $html);
+        $this->assertStringEndsWith('</span>', $html);
         $this->assertStringContainsString(
             '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'hideNavItem=1&itemType=itemType&itemName=child'

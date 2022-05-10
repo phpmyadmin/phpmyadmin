@@ -1,16 +1,11 @@
 <?php
-/**
- * Selenium TestCase for SQL query window related tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * XssTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class XssTest extends TestBase
 {
@@ -37,6 +32,7 @@ class XssTest extends TestBase
         if ($this->isSafari()) {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
+
         $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
 

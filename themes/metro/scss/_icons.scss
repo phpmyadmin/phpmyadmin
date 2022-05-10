@@ -1,6 +1,6 @@
 .icon {
   margin: 0;
-  margin-#{$left}: 0.3em;
+  margin-left: 0.3em;
   padding: 0 !important;
   width: 16px;
   height: 16px;
@@ -157,6 +157,10 @@
 
 .ic_b_newdb {
   background-image: url('../img/b_newdb.png');
+}
+
+.ic_db_drop {
+  background-image: url('../img/b_deltbl.png');
 }
 
 .ic_b_newtbl {
@@ -578,6 +582,10 @@
 
 .ic_s_lock {
   background-image: url('../img/s_lock.png');
+}
+
+.ic_s_unlock {
+  background-image: url('../img/lock_open.png');
 }
 
 .ic_s_loggoff {

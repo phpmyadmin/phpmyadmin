@@ -8,12 +8,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function in_array;
-use function is_string;
 use function is_numeric;
+use function is_string;
 
 /**
  * PhpMyAdmin\Setup\FormProcessing class
@@ -24,29 +25,27 @@ class FormProcessing
      * Processes forms registered in $form_display, handles error correction
      *
      * @param FormDisplay $form_display Form to display
-     *
-     * @return void
      */
-    public static function process(FormDisplay $form_display)
+    public static function process(FormDisplay $form_display): void
     {
         if (isset($_GET['mode']) && $_GET['mode'] === 'revert') {
             // revert erroneous fields to their default values
             $form_display->fixErrors();
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->disable();
             $response->generateHeader303('index.php' . Url::getCommonRaw());
         }
 
         if (! $form_display->process(false)) {
             // handle form view and failed POST
-            echo $form_display->getDisplay(true, true);
+            echo $form_display->getDisplay();
 
             return;
         }
 
         // check for form errors
         if (! $form_display->hasErrors()) {
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->disable();
             $response->generateHeader303('index.php' . Url::getCommonRaw());
 

@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\InlineTransformationsPlugin;
 /**
  * Handles the inline transformation for image jpeg
  */
-// @codingStandardsIgnoreLine
 class Image_JPEG_Inline extends InlineTransformationsPlugin
 {
     /**

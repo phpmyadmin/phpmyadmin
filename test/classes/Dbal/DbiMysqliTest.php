@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests\Dbal;
 use mysqli;
 use mysqli_result;
 use PhpMyAdmin\Dbal\DbiMysqli;
+use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use const MYSQLI_ASSOC;
-use const MYSQLI_BOTH;
-use const MYSQLI_NUM;
 
+/**
+ * @covers \PhpMyAdmin\Dbal\DbiMysqli
+ */
 class DbiMysqliTest extends AbstractTestCase
 {
     /** @var DbiMysqli */
@@ -20,8 +21,6 @@ class DbiMysqliTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -65,75 +64,19 @@ class DbiMysqliTest extends AbstractTestCase
     }
 
     /**
-     * Test for fetchArray
+     * Test for realQuery
      */
-    public function testFetchArray(): void
+    public function testrealQuery(): void
     {
-        $expected = [];
-        $result = $this->createMock(mysqli_result::class);
-        $result->expects($this->once())
-            ->method('fetch_array')
-            ->with($this->equalTo(MYSQLI_BOTH))
-            ->willReturn($expected);
+        $query = 'test';
+        $mysqliResult = $this->createMock(mysqli_result::class);
+        $mysqli = $this->createMock(mysqli::class);
+        $mysqli->expects($this->once())
+            ->method('query')
+            ->with($this->equalTo($query))
+            ->willReturn($mysqliResult);
 
-        $this->assertEquals($expected, $this->object->fetchArray($result));
-    }
-
-    /**
-     * Test for fetchAssoc
-     */
-    public function testFetchAssoc(): void
-    {
-        $expected = [];
-        $result = $this->createMock(mysqli_result::class);
-        $result->expects($this->once())
-            ->method('fetch_array')
-            ->with($this->equalTo(MYSQLI_ASSOC))
-            ->willReturn($expected);
-
-        $this->assertEquals($expected, $this->object->fetchAssoc($result));
-    }
-
-    /**
-     * Test for fetchRow
-     */
-    public function testFetchRow(): void
-    {
-        $expected = [];
-        $result = $this->createMock(mysqli_result::class);
-        $result->expects($this->once())
-            ->method('fetch_array')
-            ->with($this->equalTo(MYSQLI_NUM))
-            ->willReturn($expected);
-
-        $this->assertEquals($expected, $this->object->fetchRow($result));
-    }
-
-    /**
-     * Test for dataSeek
-     */
-    public function testDataSeek(): void
-    {
-        $offset = 1;
-        $result = $this->createMock(mysqli_result::class);
-        $result->expects($this->once())
-            ->method('data_seek')
-            ->with($this->equalTo($offset))
-            ->willReturn(true);
-
-        $this->assertTrue($this->object->dataSeek($result, $offset));
-    }
-
-    /**
-     * Test for freeResult
-     */
-    public function testFreeResult(): void
-    {
-        $result = $this->createMock(mysqli_result::class);
-        $result->expects($this->once())
-            ->method('close');
-
-        $this->object->freeResult($result);
+        $this->assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, $mysqli, 0));
     }
 
     /**
@@ -173,15 +116,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('store_result')
             ->willReturn($mysqliResult);
 
-        $this->assertInstanceOf(mysqli_result::class, $this->object->storeResult($mysqli));
-    }
-
-    /**
-     * Test for numRows
-     */
-    public function testNumRows(): void
-    {
-        $this->assertEquals(0, $this->object->numRows(false));
+        $this->assertInstanceOf(MysqliResult::class, $this->object->storeResult($mysqli));
     }
 
     /**

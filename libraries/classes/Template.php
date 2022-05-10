@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
+use PhpMyAdmin\Twig\Extensions\Node\TransNode;
+use PhpMyAdmin\Twig\FlashMessagesExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
-use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\TableExtension;
@@ -23,12 +25,15 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use Twig\RuntimeLoader\ContainerRuntimeLoader;
 use Twig\TemplateWrapper;
-use const DIRECTORY_SEPARATOR;
-use const E_USER_WARNING;
+
+use function __;
+use function is_array;
 use function sprintf;
 use function trigger_error;
-use function is_array;
+
+use const E_USER_WARNING;
 
 /**
  * Handle front end templating
@@ -42,38 +47,56 @@ class Template
      */
     protected static $twig;
 
-    public const BASE_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
+    public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
 
     public function __construct()
     {
-        global $cfg;
-
-        /** @var Config|null $config */
-        $config = $GLOBALS['PMA_Config'];
         if (static::$twig !== null) {
             return;
         }
 
-        $loader = new FilesystemLoader(self::BASE_PATH);
-        $cache_dir = $config !== null ? $config->getTempDir('twig') : null;
+        /** @var Config|null $config */
+        $config = $GLOBALS['config'];
+        $cacheDir = $config !== null ? $config->getTempDir('twig') : null;
+
+        static::$twig = self::getTwigEnvironment($cacheDir);
+    }
+
+    public static function getTwigEnvironment(?string $cacheDir): Environment
+    {
+        global $cfg, $containerBuilder;
+
         /* Twig expects false when cache is not configured */
-        if ($cache_dir === null) {
-            $cache_dir = false;
+        if ($cacheDir === null) {
+            $cacheDir = false;
         }
+
+        $loader = new FilesystemLoader(self::TEMPLATES_FOLDER);
         $twig = new Environment($loader, [
             'auto_reload' => true,
-            'cache' => $cache_dir,
+            'cache' => $cacheDir,
         ]);
 
-        // It was reported that the config could not be loaded correctly
+        $twig->addRuntimeLoader(new ContainerRuntimeLoader($containerBuilder));
+
         if (is_array($cfg) && ($cfg['environment'] ?? '') === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
+            // This will enable debug for the extension to print lines
+            // It is used in po file lines re-mapping
+            TransNode::$enableAddDebugInfo = true;
         }
+
+        if ($cfg['environment'] === 'production') {
+            $twig->disableDebug();
+            TransNode::$enableAddDebugInfo = false;
+        }
+
+        $twig->addExtension(new AssetExtension());
         $twig->addExtension(new CoreExtension());
+        $twig->addExtension(new FlashMessagesExtension());
         $twig->addExtension(new I18nExtension());
         $twig->addExtension(new MessageExtension());
-        $twig->addExtension(new PluginsExtension());
         $twig->addExtension(new RelationExtension());
         $twig->addExtension(new SanitizeExtension());
         $twig->addExtension(new TableExtension());
@@ -81,7 +104,8 @@ class Template
         $twig->addExtension(new TransformationsExtension());
         $twig->addExtension(new UrlExtension());
         $twig->addExtension(new UtilExtension());
-        static::$twig = $twig;
+
+        return $twig;
     }
 
     /**

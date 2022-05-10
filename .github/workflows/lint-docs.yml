@@ -9,14 +9,15 @@ on:
       - QA_**
 
 jobs:
-    lint-docs:
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        steps:
-            - uses: actions/checkout@v2
-            - name: Lint phpdoc blocks
-              uses: sudo-bot/action-doctum@v5
-              with:
-                  config-file: test/doctum-config.php
-                  method: "parse"
-                  cli-args: "--output-format=github --no-ansi --no-progress -v --ignore-parse-errors"
+  lint-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Lint phpdoc blocks
+        uses: sudo-bot/action-doctum@v5
+        with:
+          config-file: test/doctum-config.php
+          method: "parse"
+          cli-args: "--output-format=github --no-ansi --no-progress -v --ignore-parse-errors"

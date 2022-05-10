@@ -19,7 +19,12 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
+/** @psalm-suppress InvalidGlobal */
 global $cfg;
+
+// phpcs:disable PSR1.Files.SideEffects
+define('PHPMYADMIN', true);
+// phpcs:enable
 
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
@@ -35,8 +40,7 @@ if (isset($_GET['page']) && in_array($_GET['page'], ['form', 'config', 'servers'
 Core::noCacheHeader();
 
 if ($page === 'form') {
-    $controller = new FormController($GLOBALS['ConfigFile'], new Template());
-    echo $controller->index([
+    echo (new FormController($GLOBALS['ConfigFile'], new Template()))([
         'formset' => $_GET['formset'] ?? null,
     ]);
 
@@ -44,8 +48,7 @@ if ($page === 'form') {
 }
 
 if ($page === 'config') {
-    $controller = new ConfigController($GLOBALS['ConfigFile'], new Template());
-    echo $controller->index([
+    echo (new ConfigController($GLOBALS['ConfigFile'], new Template()))([
         'formset' => $_GET['formset'] ?? null,
         'eol' => $_GET['eol'] ?? null,
     ]);
@@ -73,8 +76,7 @@ if ($page === 'servers') {
     return;
 }
 
-$controller = new HomeController($GLOBALS['ConfigFile'], new Template());
-echo $controller->index([
+echo (new HomeController($GLOBALS['ConfigFile'], new Template()))([
     'formset' => $_GET['formset'] ?? null,
     'version_check' => $_GET['version_check'] ?? null,
 ]);

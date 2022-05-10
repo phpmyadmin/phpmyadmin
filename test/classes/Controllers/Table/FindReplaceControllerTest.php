@@ -6,11 +6,14 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\FindReplaceController
+ */
 class FindReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -18,9 +21,7 @@ class FindReplaceControllerTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -72,7 +73,7 @@ class FindReplaceControllerTest extends AbstractTestCase
     public function testReplace(): void
     {
         $tableSearch = new FindReplaceController(
-            Response::getInstance(),
+            ResponseRenderer::getInstance(),
             new Template(),
             $GLOBALS['db'],
             $GLOBALS['table'],
@@ -83,21 +84,12 @@ class FindReplaceControllerTest extends AbstractTestCase
         $replaceWith = 'Column';
         $useRegex = false;
         $charSet = 'UTF-8';
-        $tableSearch->replace(
-            $columnIndex,
-            $find,
-            $replaceWith,
-            $useRegex,
-            $charSet
-        );
+        $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
 
         $sql_query = $GLOBALS['sql_query'];
         $result = 'UPDATE `table` SET `Field1` = '
             . "REPLACE(`Field1`, 'Field', 'Column') "
             . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
-        $this->assertEquals(
-            $result,
-            $sql_query
-        );
+        $this->assertEquals($result, $sql_query);
     }
 }

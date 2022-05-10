@@ -6,17 +6,22 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
-use const LC_ALL;
+use PhpMyAdmin\Version;
+
+use function __;
+use function _setlocale;
+use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function file_exists;
 use function floatval;
-use function hex2bin;
 use function htmlspecialchars;
 use function ini_get;
 use function ini_set;
@@ -25,6 +30,19 @@ use function str_replace;
 use function strlen;
 use function trim;
 
+use const LC_ALL;
+use const MYSQLI_NUM_FLAG;
+use const MYSQLI_PRI_KEY_FLAG;
+use const MYSQLI_TYPE_BIT;
+use const MYSQLI_TYPE_GEOMETRY;
+use const MYSQLI_TYPE_LONG;
+use const MYSQLI_TYPE_SHORT;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_UNIQUE_KEY_FLAG;
+
+/**
+ * @covers \PhpMyAdmin\Util
+ */
 class UtilTest extends AbstractTestCase
 {
     /**
@@ -33,40 +51,8 @@ class UtilTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
-        parent::loadDefaultConfig();
-    }
-
-    /**
-     * Test for createGISData
-     */
-    public function testCreateGISDataOldMysql(): void
-    {
-        $this->assertEquals(
-            'abc',
-            Util::createGISData('abc', 50500)
-        );
-        $this->assertEquals(
-            "GeomFromText('POINT()',10)",
-            Util::createGISData("'POINT()',10", 50500)
-        );
-    }
-
-    /**
-     * Test for createGISData
-     */
-    public function testCreateGISDataNewMysql(): void
-    {
-        $this->assertEquals(
-            'abc',
-            Util::createGISData('abc', 50600)
-        );
-        $this->assertEquals(
-            "ST_GeomFromText('POINT()',10)",
-            Util::createGISData("'POINT()',10", 50600)
-        );
     }
 
     /**
@@ -88,339 +74,189 @@ class UtilTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for private getConditionValue
-     */
-    public function testGetConditionValue(): void
+    public function testGetUniqueCondition(): void
     {
-        $this->assertSame(
-            ['IS NULL', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
+        $actual = Util::getUniqueCondition(0, [], []);
+        $this->assertEquals(['', false, []], $actual);
+
+        $actual = Util::getUniqueCondition(0, [], [], true);
+        $this->assertEquals(['', true, []], $actual);
+    }
+
+    public function testGetUniqueConditionWithMultipleFields(): void
+    {
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field1',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field2',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_SHORT, MYSQLI_NUM_FLAG, (object) [
+                'name' => 'field3',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG, (object) [
+                'name' => 'field4',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field5',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'charsetnr' => 63, // binary
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field6',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'charsetnr' => 63, // binary
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field7',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'numeric' => false,
+                'type' => 'blob',
+                'charsetnr' => 32, // armscii8_general_ci
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field8',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'numeric' => false,
+                'type' => 'blob',
+                'charsetnr' => 48, // latin1_general_ci
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field9',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'numeric' => false,
+                'type' => 'blob',
+                'charsetnr' => 63, // binary
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_GEOMETRY, 0, (object) [
+                'name' => 'field10',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field11',
+                'table' => 'table2',
+                'orgtable' => 'table2',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_BIT, 0, (object) [
+                'name' => 'field12',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'length' => 4,
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(count($meta), $meta, [
+            null,
+            'value\'s',
+            123456,
+            123.456,
+            'value',
+            str_repeat('*', 1001),
+            'value',
+            'value',
+            'value',
+            'value',
+            'value',
+            0x1,
+        ], false, 'table');
+        $this->assertEquals(
+            [
+                '`table`.`field1` IS NULL AND `table`.`field2` = \'value\\\'s\' AND `table`.`field3` = 123456'
+                . ' AND `table`.`field4` = 123.456 AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
+                . ' AND `table`.`field7` = \'value\' AND `table`.`field8` = \'value\''
+                . ' AND `table`.`field9` = CAST(0x76616c7565 AS BINARY)'
+                . ' AND `table`.`field10` = CAST(0x76616c7565 AS BINARY)'
+                . ' AND `table`.`field12` = b\'0001\'',
+                false,
                 [
-                    null,// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'string',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['IS NULL', 'CONCAT(`table`.`orgname`)'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    null,// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'string',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    'CONCAT(`table`.`orgname`)',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= 123456', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    123456,// row
-                    ((object) [
-                        'numeric' => true,
-                        'type' => 'int',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= 123.456', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    123.456,// row
-                    ((object) [
-                        'numeric' => true,
-                        'type' => 'float',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= \'value\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'string',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= CAST(0x76616c7565 AS BINARY)', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'string',
-                    ]),// field meta
-                    'BINARY',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= \'value\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'blob',
-                        'charsetnr' => 32,// armscii8_general_ci
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= \'value\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'blob',
-                        'charsetnr' => 48,// latin1_general_ci
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= CAST(0x76616c7565 AS BINARY)', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'blob',
-                        'charsetnr' => 63,// binary
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= CAST(0x76616c7565 AS BINARY)', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'string',
-                    ]),// field meta
-                    'BINARY',// field flags
-                    1,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            [' = 1001', ' CHAR_LENGTH(conditionKey) '],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    str_repeat('*', 1001),// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'string',
-                    ]),// field meta
-                    'BINARY',// field flags
-                    1,// fields count
-                    'conditionKey',// condition key
-                    'conditionInit',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            [null, 'conditionInit'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    str_repeat('*', 1001),// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'string',
-                    ]),// field meta
-                    'BINARY',// field flags
-                    0,// fields count
-                    'conditionKey',// condition key
-                    'conditionInit',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= b\'0001\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    0x1,// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'bit',
-                        'length' => 4,
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    'conditionKey',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['', '=0x626c6f6f6f626262 AND'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'blooobbb',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'multipoint',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['', '`table`.`tbl2`=0x626c6f6f6f626262 AND'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'blooobbb',// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'multipoint',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '`table`.`tbl2`',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    str_repeat('*', 5001),// row
-                    ((object) [
-                        'numeric' => false,
-                        'type' => 'multipoint',
-                    ]),// field meta
-                    '',// field flags
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
+                    '`table`.`field1`' => 'IS NULL',
+                    '`table`.`field2`' => '= \'value\\\'s\'',
+                    '`table`.`field3`' => '= 123456',
+                    '`table`.`field4`' => '= 123.456',
+                    '`table`.`field5`' => '= CAST(0x76616c7565 AS BINARY)',
+                    '`table`.`field7`' => '= \'value\'',
+                    '`table`.`field8`' => '= \'value\'',
+                    '`table`.`field9`' => '= CAST(0x76616c7565 AS BINARY)',
+                    '`table`.`field10`' => '',
+                    '`table`.`field12`' => '= b\'0001\'',
+                ],
+            ],
+            $actual
         );
     }
 
-    /**
-     * Test for getGISFunctions
-     */
-    public function testGetGISFunctions(): void
+    public function testGetUniqueConditionWithSingleBigBinaryField(): void
     {
-        $funcs = Util::getGISFunctions();
-        $this->assertArrayHasKey(
-            'Dimension',
-            $funcs
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'charsetnr' => 63, // binary
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(1, $meta, [str_repeat('*', 1001)]);
+        $this->assertEquals(
+            ['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']],
+            $actual
         );
-        $this->assertArrayHasKey(
-            'GeometryType',
-            $funcs
-        );
-        $this->assertArrayHasKey(
-            'MBRDisjoint',
-            $funcs
-        );
+    }
+
+    public function testGetUniqueConditionWithPrimaryKey(): void
+    {
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG, (object) [
+                'name' => 'id',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(count($meta), $meta, [1, 'value']);
+        $this->assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], $actual);
+    }
+
+    public function testGetUniqueConditionWithUniqueKey(): void
+    {
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_UNIQUE_KEY_FLAG, (object) [
+                'name' => 'id',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
+        $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
     }
 
     /**
@@ -437,29 +273,6 @@ class UtilTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<option selected="selected" style="font-weight: bold" value="297">100</option>',
             Util::pageselector('pma', 3, 100, 50)
-        );
-    }
-
-    /**
-     * Test for isForeignKeyCheck
-     */
-    public function testIsForeignKeyCheck(): void
-    {
-        $GLOBALS['server'] = 1;
-
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
-        $this->assertTrue(
-            Util::isForeignKeyCheck()
-        );
-
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
-        $this->assertFalse(
-            Util::isForeignKeyCheck()
-        );
-
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
-        $this->assertTrue(
-            Util::isForeignKeyCheck()
         );
     }
 
@@ -511,35 +324,30 @@ class UtilTest extends AbstractTestCase
         $this->assertEquals(16, strlen(Util::generateRandom(16)));
     }
 
-    /**
-     * Test clearing user cache
-     *
-     * @covers \PhpMyAdmin\Util::clearUserCache
-     */
     public function testClearUserCache(): void
     {
         $GLOBALS['server'] = 'server';
         SessionCache::set('is_superuser', 'yes');
+        $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
+
+        SessionCache::set('mysql_cur_user', 'mysql');
         $this->assertEquals(
-            'yes',
-            $_SESSION['cache']['server_server']['is_superuser']
+            'mysql',
+            $_SESSION['cache']['server_server']['mysql_cur_user']
         );
 
         Util::clearUserCache();
+        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
         $this->assertArrayNotHasKey(
-            'is_superuser',
+            'mysql_cur_user',
             $_SESSION['cache']['server_server']
         );
     }
 
-    /**
-     * Test for Util::checkParameters
-     *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     */
     public function testCheckParameterMissing(): void
     {
         parent::setGlobalConfig();
+        $_REQUEST = [];
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['db'] = 'db';
@@ -547,6 +355,7 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
+        ResponseRenderer::getInstance()->setAjax(false);
 
         $this->expectOutputRegex('/Missing parameter: field/');
 
@@ -559,11 +368,6 @@ class UtilTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for Util::checkParameters
-     *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     */
     public function testCheckParameter(): void
     {
         parent::setGlobalConfig();
@@ -592,7 +396,6 @@ class UtilTest extends AbstractTestCase
      * @param string|null $bit Value
      * @param string      $val Expected value
      *
-     * @covers \PhpMyAdmin\Util::convertBitDefaultValue
      * @dataProvider providerConvertBitDefaultValue
      */
     public function testConvertBitDefaultValue(?string $bit, string $val): void
@@ -695,7 +498,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a Expected value
      * @param string $b String to escape
      *
-     * @covers \PhpMyAdmin\Util::escapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
     public function testEscapeMysqlWildcards(string $a, string $b): void
@@ -712,7 +514,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a String to unescape
      * @param string $b Expected value
      *
-     * @covers \PhpMyAdmin\Util::unescapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
     public function testUnescapeMysqlWildcards(string $a, string $b): void
@@ -729,13 +530,11 @@ class UtilTest extends AbstractTestCase
      * @param string $in  string to evaluate
      * @param string $out expected output
      *
-     * @covers \PhpMyAdmin\Util::expandUserString
      * @dataProvider providerExpandUserString
      */
     public function testExpandUserString(string $in, string $out): void
     {
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg'] = [
             'Server' => [
                 'host' => 'host&',
@@ -744,8 +543,6 @@ class UtilTest extends AbstractTestCase
         ];
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
-
-        $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
 
         $this->assertEquals(
             $out,
@@ -791,7 +588,7 @@ class UtilTest extends AbstractTestCase
             ],
             [
                 '@PHPMYADMIN@',
-                'phpMyAdmin PMA_VERSION',
+                'phpMyAdmin ' . Version::VERSION,
             ],
         ];
     }
@@ -802,7 +599,6 @@ class UtilTest extends AbstractTestCase
      * @param string $in  Column specification
      * @param array  $out Expected value
      *
-     * @covers \PhpMyAdmin\Util::extractColumnSpec
      * @dataProvider providerExtractColumnSpec
      */
     public function testExtractColumnSpec(string $in, array $out): void
@@ -950,7 +746,6 @@ class UtilTest extends AbstractTestCase
      * @param int|string $size     Size
      * @param int|float  $expected Expected value (float on some cpu architectures)
      *
-     * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
     public function testExtractValueFromFormattedSize($size, $expected): void
@@ -989,52 +784,6 @@ class UtilTest extends AbstractTestCase
     }
 
     /**
-     * foreign key supported test
-     *
-     * @param string $a Engine
-     * @param bool   $e Expected Value
-     *
-     * @covers \PhpMyAdmin\Util::isForeignKeySupported
-     * @dataProvider providerIsForeignKeySupported
-     */
-    public function testIsForeignKeySupported(string $a, bool $e): void
-    {
-        $GLOBALS['server'] = 1;
-
-        $this->assertEquals(
-            $e,
-            Util::isForeignKeySupported($a)
-        );
-    }
-
-    /**
-     * data provider for foreign key supported test
-     *
-     * @return array
-     */
-    public function providerIsForeignKeySupported(): array
-    {
-        return [
-            [
-                'MyISAM',
-                false,
-            ],
-            [
-                'innodb',
-                true,
-            ],
-            [
-                'pBxT',
-                true,
-            ],
-            [
-                'ndb',
-                true,
-            ],
-        ];
-    }
-
-    /**
      * format byte test, globals are defined
      *
      * @param float|int|string $a Value to format
@@ -1042,7 +791,6 @@ class UtilTest extends AbstractTestCase
      * @param int              $c Number of decimals to retain
      * @param array            $e Expected value
      *
-     * @covers \PhpMyAdmin\Util::formatByteDown
      * @dataProvider providerFormatByteDown
      */
     public function testFormatByteDown($a, int $b, int $c, array $e): void
@@ -1255,7 +1003,6 @@ class UtilTest extends AbstractTestCase
      * @param int              $c Number of decimals to retain
      * @param string           $d Expected value
      *
-     * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
      */
     public function testFormatNumber($a, int $b, int $c, string $d): void
@@ -1427,7 +1174,6 @@ class UtilTest extends AbstractTestCase
      * @param string    $unit Unit
      * @param string    $res  Result
      *
-     * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
     public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
@@ -1507,7 +1253,6 @@ class UtilTest extends AbstractTestCase
      * @param string $target Target
      * @param string $result Expected value
      *
-     * @covers \PhpMyAdmin\Util::getTitleForTarget
      * @dataProvider providerGetTitleForTarget
      */
     public function testGetTitleForTarget(string $target, string $result): void
@@ -1562,7 +1307,6 @@ class UtilTest extends AbstractTestCase
      * @param string $tz     Timezone to set
      * @param string $locale Locale to set
      *
-     * @covers \PhpMyAdmin\Util::localisedDate
      * @dataProvider providerLocalisedDate
      */
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
@@ -1699,7 +1443,6 @@ class UtilTest extends AbstractTestCase
      * @param int    $a Timespan in seconds
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::timespanFormat
      * @dataProvider providerTimespanFormat
      */
     public function testTimespanFormat(int $a, string $e): void
@@ -1742,7 +1485,6 @@ class UtilTest extends AbstractTestCase
      * @param int    $b Length
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::printableBitValue
      * @dataProvider providerPrintableBitValue
      */
     public function testPrintableBitValue(int $a, int $b, string $e): void
@@ -1780,7 +1522,6 @@ class UtilTest extends AbstractTestCase
      * @param string $param    String
      * @param string $expected Expected output
      *
-     * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuote
      */
     public function testUnQuote(string $param, string $expected): void
@@ -1824,7 +1565,6 @@ class UtilTest extends AbstractTestCase
      * @param string $param    String
      * @param string $expected Expected output
      *
-     * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuoteSelectedChar
      */
     public function testUnQuoteSelectedChar(string $param, string $expected): void
@@ -1863,92 +1603,21 @@ class UtilTest extends AbstractTestCase
     }
 
     /**
-     * backquote test with different param $do_it (true, false)
-     *
-     * @param string|array $a String
-     * @param string|array $b Expected output
-     *
-     * @covers \PhpMyAdmin\Util::backquote
-     * @dataProvider providerBackquote
+     * @dataProvider providerForTestBackquote
      */
-    public function testBackquote($a, $b): void
+    public function testBackquote(?string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
-        // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, Util::backquote($a, false));
-
-        // Test backquote
-        $this->assertEquals($b, Util::backquote($a));
-    }
-
-    /**
-     * data provider for backquote test
-     *
-     * @return array
-     */
-    public function providerBackquote(): array
-    {
-        return [
-            [
-                '0',
-                '`0`',
-            ],
-            [
-                'test',
-                '`test`',
-            ],
-            [
-                'te`st',
-                '`te``st`',
-            ],
-            [
-                [
-                    'test',
-                    'te`st',
-                    '',
-                    '*',
-                ],
-                [
-                    '`test`',
-                    '`te``st`',
-                    '',
-                    '*',
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * backquoteCompat test with different param $compatibility (NONE, MSSQL)
-     *
-     * @param string|array $entry               String
-     * @param string|array $expectedNoneOutput  Expected none output
-     * @param string|array $expectedMssqlOutput Expected MSSQL output
-     *
-     * @covers \PhpMyAdmin\Util::backquoteCompat
-     * @dataProvider providerBackquoteCompat
-     */
-    public function testBackquoteCompat($entry, $expectedNoneOutput, $expectedMssqlOutput): void
-    {
-        // Test bypass quoting (used by dump functions)
+        $this->assertSame($expectedNoneOutput, Util::backquote($entry));
         $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
-
-        // Run tests in MSSQL compatibility mode
-        // Test bypass quoting (used by dump functions)
         $this->assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
-
-        // Test backquote
-        $this->assertEquals($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
-
-        // Test backquote
-        $this->assertEquals($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
+        $this->assertSame($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
+        $this->assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
 
     /**
-     * data provider for backquoteCompat test
-     *
-     * @return array
+     * @return array<int|string, string|null>[]
      */
-    public function providerBackquoteCompat(): array
+    public function providerForTestBackquote(): array
     {
         return [
             [
@@ -1967,32 +1636,30 @@ class UtilTest extends AbstractTestCase
                 '"te`st"',
             ],
             [
-                [
-                    'test',
-                    'te`st',
-                    '',
-                    '*',
-                ],
-                [
-                    '`test`',
-                    '`te``st`',
-                    '',
-                    '*',
-                ],
-                [
-                    '"test"',
-                    '"te`st"',
-                    '',
-                    '*',
-                ],
+                'te"st',
+                '`te"st`',
+                '"te\"st"',
+            ],
+            [
+                '',
+                '',
+                '',
+            ],
+            [
+                '*',
+                '*',
+                '*',
+            ],
+            [
+                null,
+                '',
+                '',
             ],
         ];
     }
 
     /**
      * backquoteCompat test with forbidden words
-     *
-     * @covers \PhpMyAdmin\Util::backquote
      */
     public function testBackquoteForbidenWords(): void
     {
@@ -2000,12 +1667,12 @@ class UtilTest extends AbstractTestCase
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
                 $this->assertEquals(
                     '`' . $keyword . '`',
-                    Util::backquote($keyword, false)
+                    Util::backquoteCompat($keyword, 'NONE', false)
                 );
             } else {
                 $this->assertEquals(
                     $keyword,
-                    Util::backquote($keyword, false)
+                    Util::backquoteCompat($keyword, 'NONE', false)
                 );
             }
         }
@@ -2017,7 +1684,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a String
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::userDir
      * @dataProvider providerUserDir
      */
     public function testUserDir(string $a, string $e): void
@@ -2052,7 +1718,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a String
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::duplicateFirstNewline
      * @dataProvider providerDuplicateFirstNewline
      */
     public function testDuplicateFirstNewline(string $a, string $e): void
@@ -2090,11 +1755,6 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for Util::unsupportedDatatypes
-     *
-     * @covers \PhpMyAdmin\Util::unsupportedDatatypes
-     */
     public function testUnsupportedDatatypes(): void
     {
         $no_support_types = [];
@@ -2104,11 +1764,6 @@ class UtilTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for Util::getPageFromPosition
-     *
-     * @covers \PhpMyAdmin\Util::getPageFromPosition
-     */
     public function testGetPageFromPosition(): void
     {
         $this->assertEquals(Util::getPageFromPosition(0, 1), 1);
@@ -2278,258 +1933,6 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Some data to test Util::asWKT for testAsWKT
-     */
-    public function dataProviderAsWKT(): array
-    {
-        return [
-            [
-                'SELECT ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                ['POINT(1 1)'],
-                'POINT(1 1)',
-                false,
-                50300,
-            ],
-            [
-                'SELECT ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'),'
-                . ' SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                50300,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                ['POINT(1 1)'],
-                'POINT(1 1)',
-                false,
-                50700,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'),'
-                . ' ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                50700,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\', \'axis-order=long-lat\'),'
-                . ' ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                80001,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'),'
-                . ' ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                50700,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\', \'axis-order=long-lat\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                'POINT(1 1)',
-                false,
-                80001,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                'POINT(1 1)',
-                false,
-                50700,
-            ],
-        ];
-    }
-
-    /**
-     * Test to get data asWKT
-     *
-     * @param string $expectedQuery  The query to expect
-     * @param array  $returnData     The data to return for fetchRow
-     * @param string $functionResult Result of the Util::asWKT invocation
-     * @param bool   $SRIDOption     Use the SRID option or not
-     * @param int    $mysqlVersion   The mysql version to return for getVersion
-     *
-     * @dataProvider dataProviderAsWKT
-     */
-    public function testAsWKT(
-        string $expectedQuery,
-        array $returnData,
-        string $functionResult,
-        bool $SRIDOption,
-        int $mysqlVersion
-    ): void {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
-            ->method('getVersion')
-            ->will($this->returnValue($mysqlVersion));
-
-        $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
-            ->method('tryQuery')
-            ->with($expectedQuery)
-            ->will($this->returnValue([]));// Omit the real object
-
-        $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
-            ->method('fetchRow')
-            ->will($this->returnValue($returnData));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        if (! $SRIDOption) {
-            // Also test default signature
-            $this->assertSame($functionResult, Util::asWKT(
-                (string) hex2bin('000000000101000000000000000000F03F000000000000F03F')
-            ));
-        }
-        $this->assertSame($functionResult, Util::asWKT(
-            (string) hex2bin('000000000101000000000000000000F03F000000000000F03F'),
-            $SRIDOption
-        ));
-
-        $GLOBALS['dbi'] = $oldDbi;
-    }
-
-    /**
-     * @return array[]
-     */
-    public function providerFkChecks(): array
-    {
-        return [
-            [
-                '',
-                'OFF',
-            ],
-            [
-                '0',
-                'OFF',
-            ],
-            [
-                '1',
-                'ON',
-            ],
-        ];
-    }
-
-    /**
-     * @dataProvider providerFkChecks
-     */
-    public function testHandleDisableFKCheckInit(string $fkChecksValue, string $setVariableParam): void
-    {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
-        $_REQUEST['fk_checks'] = $fkChecksValue;
-
-        $dbi->expects($this->once())
-            ->method('getVariable')
-            ->will($this->returnValue('ON'));
-
-        $dbi->expects($this->once())
-            ->method('setVariable')
-            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
-
-        $this->assertTrue(Util::handleDisableFKCheckInit());
-
-        $GLOBALS['dbi'] = $oldDbi;
-    }
-
-    /**
-     * @dataProvider providerFkChecks
-     */
-    public function testHandleDisableFKCheckInitVarFalse(string $fkChecksValue, string $setVariableParam): void
-    {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
-        $_REQUEST['fk_checks'] = $fkChecksValue;
-
-        $dbi->expects($this->once())
-            ->method('getVariable')
-            ->will($this->returnValue('OFF'));
-
-        $dbi->expects($this->once())
-            ->method('setVariable')
-            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
-
-        $this->assertFalse(Util::handleDisableFKCheckInit());
-
-        $GLOBALS['dbi'] = $oldDbi;
-    }
-
-    /**
-     * @return array[]
-     */
-    public function providerFkCheckCleanup(): array
-    {
-        return [
-            [
-                true,
-                'ON',
-            ],
-            [
-                false,
-                'OFF',
-            ],
-        ];
-    }
-
-    /**
-     * @dataProvider providerFkCheckCleanup
-     */
-    public function testHandleDisableFKCheckCleanup(bool $fkChecksValue, string $setVariableParam): void
-    {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
-        $dbi->expects($this->once())
-            ->method('setVariable')
-            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
-
-        Util::handleDisableFKCheckCleanup($fkChecksValue);
-
-        $GLOBALS['dbi'] = $oldDbi;
-    }
-
     public function testCurrentUserHasPrivilegeSkipGrantTables(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2592,7 +1995,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2612,10 +2015,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                'EVENT'
-            );
+            ->willReturnOnConsecutiveCalls(false, 'EVENT');
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2626,7 +2026,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2646,10 +2046,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                false
-            );
+            ->willReturnOnConsecutiveCalls(false, false);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2660,7 +2057,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2685,11 +2082,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                false,
-                'EVENT'
-            );
+            ->willReturnOnConsecutiveCalls(false, false, 'EVENT');
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2700,7 +2093,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2725,11 +2118,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                false,
-                false
-            );
+            ->willReturnOnConsecutiveCalls(false, false, false);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2749,12 +2138,12 @@ class UtilTest extends AbstractTestCase
             [
                 'structure', // Notice the typo on db_structure.php
                 'databasesss',
-                './',// Fallback to a relative path, impossible to build a valid route link
+                'index.php?route=/&lang=en', // Fallback to the base route
             ],
             [
                 'db_structures.php', // Notice the typo on databases
                 'database',
-                './',// Fallback to a relative path, impossible to build a valid route link
+                'index.php?route=/&lang=en', // Fallback to the base route
             ],
             [
                 'tbl_structure.php', // Support the legacy value

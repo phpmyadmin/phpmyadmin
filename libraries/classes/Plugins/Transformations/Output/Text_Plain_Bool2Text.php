@@ -14,7 +14,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\Bool2TextTransformationsPlugin;
  * Has one option: the output format (default 'T/F')
  * or 'Y/N'
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Bool2Text extends Bool2TextTransformationsPlugin
 {
     /**

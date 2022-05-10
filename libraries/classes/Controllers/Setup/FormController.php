@@ -8,9 +8,11 @@ use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
+
+use function __;
+use function is_string;
 use function ob_get_clean;
 use function ob_start;
-use function is_string;
 
 class FormController extends AbstractController
 {
@@ -19,7 +21,7 @@ class FormController extends AbstractController
      *
      * @return string HTML
      */
-    public function index(array $params): string
+    public function __invoke(array $params): string
     {
         $pages = $this->getPages();
 

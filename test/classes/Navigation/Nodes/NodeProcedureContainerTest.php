@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeProcedureContainer
+ */
 class NodeProcedureContainerTest extends AbstractTestCase
 {
     /**
@@ -15,7 +18,6 @@ class NodeProcedureContainerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
     }
 
@@ -25,13 +27,13 @@ class NodeProcedureContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeProcedureContainer');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
+                'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/database/routines',
-            $parent->links['text']
         );
         $this->assertEquals('procedures', $parent->realName);
     }

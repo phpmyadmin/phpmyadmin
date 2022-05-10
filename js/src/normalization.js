@@ -309,11 +309,11 @@ function goTo2NFStep2 (pd, primaryKey) {
     for (var dependson in pd) {
         if (dependson !== primaryKey) {
             pdFound = true;
-            extra += '<p class="displayblock desc">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
+            extra += '<p class="d-block m-1">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
         }
     }
     if (!pdFound) {
-        extra += '<p class="displayblock desc">' + Messages.strNoPdSelected + '</p>';
+        extra += '<p class="d-block m-1">' + Messages.strNoPdSelected + '</p>';
         extra += '</div>';
     } else {
         extra += '</div>';
@@ -357,12 +357,12 @@ function goTo3NFStep2 (pd, tablesTds) {
             var dependson = tablesTds[table][i];
             if (dependson !== '' && dependson !== table) {
                 pdFound = true;
-                extra += '<p class="displayblock desc">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
+                extra += '<p class="d-block m-1">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
             }
         }
     }
     if (!pdFound) {
-        extra += '<p class="displayblock desc">' + Messages.strNoTdSelected + '</p>';
+        extra += '<p class="d-block m-1">' + Messages.strNoTdSelected + '</p>';
         extra += '</div>';
     } else {
         extra += '</div>';

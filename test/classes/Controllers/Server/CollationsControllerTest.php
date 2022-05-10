@@ -7,8 +7,11 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\CollationsController
+ */
 class CollationsControllerTest extends AbstractTestCase
 {
     /**
@@ -19,9 +22,7 @@ class CollationsControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -32,49 +33,25 @@ class CollationsControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new CollationsController($response, new Template(), $GLOBALS['dbi']);
 
-        $controller->index();
+        $this->dummyDbi->addSelectDb('mysql');
+        $controller();
+        $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover table-sm w-auto">',
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Collation'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Description'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<em>UTF-8 Unicode</em>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'utf8_general_ci',
-            $actual
-        );
-        $this->assertStringContainsString('<span class="sr-only">(default)</span>', $actual);
-        $this->assertStringContainsString(
-            '<td>Unicode, case-insensitive</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<em>cp1252 West European</em>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'latin1_swedish_ci',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>Swedish, case-insensitive</td>',
-            $actual
-        );
+        $this->assertStringContainsString('<div><strong>latin1</strong></div>', $actual);
+        $this->assertStringContainsString('<div>cp1252 West European</div>', $actual);
+        $this->assertStringContainsString('<div><strong>latin1_swedish_ci</strong></div>', $actual);
+        $this->assertStringContainsString('<div>Swedish, case-insensitive</div>', $actual);
+        $this->assertStringContainsString('<span class="badge bg-secondary text-dark">default</span>', $actual);
+        $this->assertStringContainsString('<div><strong>utf8</strong></div>', $actual);
+        $this->assertStringContainsString('<div>UTF-8 Unicode</div>', $actual);
+        $this->assertStringContainsString('<div><strong>utf8_bin</strong></div>', $actual);
+        $this->assertStringContainsString('<div>Unicode, binary</div>', $actual);
+        $this->assertStringContainsString('<div><strong>utf8_general_ci</strong></div>', $actual);
+        $this->assertStringContainsString('<div>Unicode, case-insensitive</div>', $actual);
     }
 }

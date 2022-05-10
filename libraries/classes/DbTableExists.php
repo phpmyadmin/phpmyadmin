@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Controllers\Database\SqlController;
+
+use function __;
 use function defined;
 use function strlen;
 
@@ -37,7 +39,7 @@ final class DbTableExists
             return;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON(
@@ -48,21 +50,21 @@ final class DbTableExists
             exit;
         }
 
-        $url_params = ['reload' => 1];
+        $urlParams = ['reload' => 1];
 
         if (isset($message)) {
-            $url_params['message'] = $message;
+            $urlParams['message'] = $message;
         }
 
         if (! empty($sql_query)) {
-            $url_params['sql_query'] = $sql_query;
+            $urlParams['sql_query'] = $sql_query;
         }
 
         if (isset($show_as_php)) {
-            $url_params['show_as_php'] = $show_as_php;
+            $urlParams['show_as_php'] = $show_as_php;
         }
 
-        Core::sendHeaderLocation('./index.php?route=/' . Url::getCommonRaw($url_params, '&'));
+        Core::sendHeaderLocation('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
 
         exit;
     }
@@ -71,10 +73,7 @@ final class DbTableExists
     {
         global $containerBuilder, $db, $table, $dbi, $is_table;
 
-        if (! empty($is_table)
-            || defined('PMA_SUBMIT_MULT')
-            || defined('TABLE_MAY_BE_ABSENT')
-        ) {
+        if (! empty($is_table) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
             return;
         }
 
@@ -85,13 +84,8 @@ final class DbTableExists
                 return;
             }
 
-            $_result = $dbi->tryQuery(
-                'SHOW TABLES LIKE \'' . $dbi->escapeString($table) . '\';',
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
-            $is_table = @$dbi->numRows($_result);
-            $dbi->freeResult($_result);
+            $result = $dbi->tryQuery('SHOW TABLES LIKE \'' . $dbi->escapeString($table) . '\';');
+            $is_table = $result && $result->numRows();
         }
 
         if ($is_table) {
@@ -107,13 +101,8 @@ final class DbTableExists
              * SHOW TABLES doesn't show temporary tables, so try select
              * (as it can happen just in case temporary table, it should be fast):
              */
-            $_result = $dbi->tryQuery(
-                'SELECT COUNT(*) FROM ' . Util::backquote($table) . ';',
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
-            $is_table = ($_result && @$dbi->numRows($_result));
-            $dbi->freeResult($_result);
+            $result = $dbi->tryQuery('SELECT COUNT(*) FROM ' . Util::backquote($table) . ';');
+            $is_table = $result && $result->numRows();
         }
 
         if ($is_table) {
@@ -122,7 +111,7 @@ final class DbTableExists
 
         /** @var SqlController $controller */
         $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $controller();
 
         exit;
     }

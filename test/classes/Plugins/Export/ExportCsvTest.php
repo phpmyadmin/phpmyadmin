@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportCsv;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -15,11 +14,13 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportCsv
  * @group medium
  */
 class ExportCsvTest extends AbstractTestCase
@@ -34,6 +35,11 @@ class ExportCsvTest extends AbstractTestCase
     {
         parent::setUp();
         $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = '';
+        $GLOBALS['text_dir'] = '';
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportCsv();
     }
 
@@ -56,10 +62,7 @@ class ExportCsvTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'CSV',
@@ -83,10 +86,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -96,10 +96,7 @@ class ExportCsvTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -110,10 +107,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'separator',
@@ -127,10 +121,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'enclosed',
@@ -144,10 +135,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'escaped',
@@ -161,10 +149,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'terminated',
@@ -178,10 +163,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'null',
@@ -195,10 +177,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'removeCRLF',
@@ -212,10 +191,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'columns',
@@ -229,10 +205,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
@@ -252,30 +225,15 @@ class ExportCsvTest extends AbstractTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertEquals(
-            "\015\012",
-            $GLOBALS['csv_terminated']
-        );
+        $this->assertEquals("\015\012", $GLOBALS['csv_terminated']);
 
-        $this->assertEquals(
-            ';',
-            $GLOBALS['csv_separator']
-        );
+        $this->assertEquals(';', $GLOBALS['csv_separator']);
 
-        $this->assertEquals(
-            '"',
-            $GLOBALS['csv_enclosed']
-        );
+        $this->assertEquals('"', $GLOBALS['csv_enclosed']);
 
-        $this->assertEquals(
-            '"',
-            $GLOBALS['csv_escaped']
-        );
+        $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals(
-            'yes',
-            $GLOBALS['csv_columns']
-        );
+        $this->assertEquals('yes', $GLOBALS['csv_columns']);
 
         // case 2
 
@@ -287,30 +245,15 @@ class ExportCsvTest extends AbstractTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertEquals(
-            "\015\012",
-            $GLOBALS['csv_terminated']
-        );
+        $this->assertEquals("\015\012", $GLOBALS['csv_terminated']);
 
-        $this->assertEquals(
-            ';',
-            $GLOBALS['csv_separator']
-        );
+        $this->assertEquals(';', $GLOBALS['csv_separator']);
 
-        $this->assertEquals(
-            '"',
-            $GLOBALS['csv_enclosed']
-        );
+        $this->assertEquals('"', $GLOBALS['csv_enclosed']);
 
-        $this->assertEquals(
-            '"',
-            $GLOBALS['csv_escaped']
-        );
+        $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals(
-            'no',
-            $GLOBALS['csv_columns']
-        );
+        $this->assertEquals('no', $GLOBALS['csv_columns']);
 
         // case 3
 
@@ -320,30 +263,15 @@ class ExportCsvTest extends AbstractTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertEquals(
-            "\015\012",
-            $GLOBALS['csv_terminated']
-        );
+        $this->assertEquals("\015\012", $GLOBALS['csv_terminated']);
 
-        $this->assertEquals(
-            ',',
-            $GLOBALS['csv_separator']
-        );
+        $this->assertEquals(',', $GLOBALS['csv_separator']);
 
-        $this->assertEquals(
-            '"',
-            $GLOBALS['csv_enclosed']
-        );
+        $this->assertEquals('"', $GLOBALS['csv_enclosed']);
 
-        $this->assertEquals(
-            '"',
-            $GLOBALS['csv_escaped']
-        );
+        $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals(
-            'no',
-            $GLOBALS['csv_columns']
-        );
+        $this->assertEquals('no', $GLOBALS['csv_columns']);
 
         // case 4
 
@@ -354,10 +282,7 @@ class ExportCsvTest extends AbstractTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertEquals(
-            '#',
-            $GLOBALS['csv_separator']
-        );
+        $this->assertEquals('#', $GLOBALS['csv_separator']);
 
         // case 5
 
@@ -370,15 +295,9 @@ class ExportCsvTest extends AbstractTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertEquals(
-            $GLOBALS['csv_terminated'],
-            "\n"
-        );
+        $this->assertEquals($GLOBALS['csv_terminated'], "\n");
 
-        $this->assertEquals(
-            $GLOBALS['csv_separator'],
-            "a\011"
-        );
+        $this->assertEquals($GLOBALS['csv_separator'], "a\011");
         // case 6
 
         $GLOBALS['csv_terminated'] = 'AUTO';
@@ -387,10 +306,7 @@ class ExportCsvTest extends AbstractTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertEquals(
-            $GLOBALS['csv_terminated'],
-            "\n"
-        );
+        $this->assertEquals($GLOBALS['csv_terminated'], "\n");
 
         // case 7
 
@@ -401,15 +317,9 @@ class ExportCsvTest extends AbstractTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertEquals(
-            $GLOBALS['csv_terminated'],
-            "a\015b\012c\011"
-        );
+        $this->assertEquals($GLOBALS['csv_terminated'], "a\015b\012c\011");
 
-        $this->assertEquals(
-            $GLOBALS['csv_separator'],
-            "a\011"
-        );
+        $this->assertEquals($GLOBALS['csv_separator'], "a\011");
     }
 
     public function testExportFooter(): void
@@ -443,11 +353,6 @@ class ExportCsvTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
         $GLOBALS['csv_columns'] = 'yes';
         $GLOBALS['csv_terminated'] = ';';
 
@@ -459,48 +364,16 @@ class ExportCsvTest extends AbstractTestCase
         $GLOBALS['file_handle'] = null;
 
         ob_start();
-        $this->assertFalse(
-            $this->object->exportData(
-                'testDB',
-                'testTable',
-                "\n",
-                'example.com',
-                'test'
-            )
-        );
+        $this->assertFalse($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         ob_get_clean();
 
         // case 2
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('test', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->once())
-            ->method('fieldName')
-            ->with(true, 0)
-            ->will($this->returnValue("foo'\\bar"));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue([null, 'b', 'c', false, 'e', 'f']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-        $GLOBALS['dbi'] = $dbi;
-
         $GLOBALS['what'] = 'UT';
         $GLOBALS['UT_null'] = 'customNull';
         $GLOBALS['output_kanji_conversion'] = false;
@@ -512,232 +385,101 @@ class ExportCsvTest extends AbstractTestCase
         $GLOBALS['csv_separator'] = '';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'testDB',
-                'testTable',
-                "\n",
-                'example.com',
-                'test'
-            )
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "foo'ba;customNull;",
+            'idnamedatetimefiel;1abcd2011-01-20 02:00:02;2foo2010-01-20 02:00:02;3Abcd2012-01-20 02:00:02;',
             $result
         );
 
         // case 3
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('test', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->once())
-            ->method('fieldName')
-            ->with(true, 0)
-            ->will($this->returnValue("foo\"\\bar"));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue([1 => 'a']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-        $GLOBALS['dbi'] = $dbi;
-
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'testDB',
-                'testTable',
-                "\n",
-                'example.com',
-                'test'
-            )
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '"foo"bar;customNull;',
+            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );
 
         // case 4
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('test', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->once())
-            ->method('fieldName')
-            ->with(true, 0)
-            ->will($this->returnValue("foo\"\\bar"));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(["test\015\012\n"]));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-        $GLOBALS['dbi'] = $dbi;
-
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['what'] = 'excel';
         $GLOBALS['excel_removeCRLF'] = true;
         $GLOBALS['csv_escaped'] = '"';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'testDB',
-                'testTable',
-                "\n",
-                'example.com',
-                'test'
-            )
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '"foo""bar;"test";',
+            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );
 
         // case 5
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('test', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->once())
-            ->method('fieldName')
-            ->with(true, 0)
-            ->will($this->returnValue("foo\"\\bar"));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(["test\015\n"]));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-        $GLOBALS['dbi'] = $dbi;
-
         $GLOBALS['csv_enclosed'] = '"';
         unset($GLOBALS['excel_removeCRLF']);
         $GLOBALS['csv_escaped'] = ';';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'testDB',
-                'testTable',
-                "\n",
-                'example.com',
-                'test'
-            )
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\"foo;\"bar;\"test\n\";",
+            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );
 
         // case 6
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('test', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->any())
-            ->method('fieldName')
-            ->will($this->returnValue("foo\"\\bar"));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(["test\015\n", "test\n"]));
-
-        $dbi->expects($this->at(5))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-        $GLOBALS['dbi'] = $dbi;
-
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = ';';
         $GLOBALS['csv_escaped'] = '#';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'testDB',
-                'testTable',
-                "\n",
-                'example.com',
-                'test'
-            )
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\"foo#\"bar\"\"foo#\"bar;\"test\n" .
-            "\"\"test\n" .
-            '";',
+            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );
     }

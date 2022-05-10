@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
 
+/**
+ * @covers \PhpMyAdmin\BrowseForeigners
+ */
 class BrowseForeignersTest extends AbstractTestCase
 {
     /** @var BrowseForeigners */
@@ -18,7 +21,6 @@ class BrowseForeignersTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['MaxRows'] = 25;
@@ -100,31 +102,15 @@ class BrowseForeignersTest extends AbstractTestCase
             [$foreignData]
         );
 
-        $this->assertStringStartsWith(
-            'Page number:',
-            $result
-        );
+        $this->assertStringStartsWith('Page number:', $result);
 
-        $this->assertStringEndsWith(
-            '</select>',
-            $result
-        );
+        $this->assertStringEndsWith('</select>', $result);
 
-        $this->assertStringContainsString(
-            '<select class="pageselector ajax" name="pos"',
-            $result
-        );
+        $this->assertStringContainsString('<select class="pageselector ajax" name="pos"', $result);
 
-        $this->assertStringContainsString(
-            '<option selected="selected" '
-            . 'style="font-weight: bold" value="0">',
-            $result
-        );
+        $this->assertStringContainsString('<option selected="selected" style="font-weight: bold" value="0">', $result);
 
-        $this->assertStringContainsString(
-            '<option  value="25"',
-            $result
-        );
+        $this->assertStringContainsString('<option  value="25"', $result);
     }
 
     /**
@@ -193,46 +179,21 @@ class BrowseForeignersTest extends AbstractTestCase
             . 'action="index.php?route=/browse-foreigners',
             $result
         );
-        $this->assertStringContainsString(
-            '" method="post">',
-            $result
-        );
+        $this->assertStringContainsString('" method="post">', $result);
 
-        $this->assertStringContainsString(
-            '<fieldset>',
-            $result
-        );
+        $this->assertStringContainsString('<fieldset class="row g-3 align-items-center mb-3">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="field" value="foo">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="field" value="foo">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="fieldkey" value="bar">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="fieldkey" value="bar">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="rownumber" value="1">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="rownumber" value="1">', $result);
 
+        $this->assertStringContainsString('<div class="col-auto">', $result);
+        $this->assertStringContainsString('<label class="form-label" for="input_foreign_filter">', $result);
         $this->assertStringContainsString(
-            '<span class="formelement">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<label for="input_foreign_filter">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="text" name="foreign_filter" '
-            . 'id="input_foreign_filter" '
-            . 'value="5" data-old="5" '
-            . '>',
+            '<input class="form-control" type="text" name="foreign_filter" '
+            . 'id="input_foreign_filter" value="5" data-old="5">',
             $result
         );
 
@@ -242,12 +203,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<span class="formelement">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<table class="pma-table" width="100%" id="browse_foreign_table">',
+            '<table class="table table-light table-striped table-hover" id="browse_foreign_table">',
             $result
         );
 
@@ -263,13 +219,10 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table class="pma-table" width="100%" id="browse_foreign_table">',
+            '<table class="table table-light table-striped table-hover" id="browse_foreign_table">',
             $result
         );
 
-        $this->assertStringContainsString(
-            '<th>',
-            $result
-        );
+        $this->assertStringContainsString('<th>', $result);
     }
 }

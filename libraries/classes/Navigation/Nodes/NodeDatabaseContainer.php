@@ -8,9 +8,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
+
+use function _pgettext;
 
 /**
  * Represents a container for database nodes in the navigation tree
@@ -31,21 +31,16 @@ class NodeDatabaseContainer extends Node
 
         parent::__construct($name, Node::CONTAINER);
 
-        if (! $GLOBALS['is_create_db_priv']
-            || $GLOBALS['cfg']['ShowCreateDb'] === false
-        ) {
+        if (! $GLOBALS['is_create_db_priv'] || $GLOBALS['cfg']['ShowCreateDb'] === false) {
             return;
         }
 
         $newLabel = _pgettext('Create new database', 'New');
-        $new = NodeFactory::getInstanceForNewNode(
-            $newLabel,
-            'new_database italics'
-        );
-        $new->icon = Generator::getImage('b_newdb', '');
+        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_database italics');
+        $new->icon = ['image' => 'b_newdb', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
-            'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
+            'text' => ['route' => '/server/databases', 'params' => []],
+            'icon' => ['route' => '/server/databases', 'params' => []],
         ];
         $this->addChild($new);
     }

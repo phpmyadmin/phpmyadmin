@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\SQLTransformationsPlugin;
 /**
  * Handles the sql transformation for blob data
  */
-// @codingStandardsIgnoreLine
 class Text_Octetstream_Sql extends SQLTransformationsPlugin
 {
     /**

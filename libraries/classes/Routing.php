@@ -4,27 +4,30 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use FastRoute\Dispatcher;
-use Psr\Container\ContainerInterface;
-use FastRoute\RouteParser\Std as RouteParserStd;
 use FastRoute\DataGenerator\GroupCountBased as DataGeneratorGroupCountBased;
+use FastRoute\Dispatcher;
 use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
+use FastRoute\RouteParser\Std as RouteParserStd;
+use PhpMyAdmin\Http\ServerRequest;
+use Psr\Container\ContainerInterface;
+use RuntimeException;
+
+use function __;
+use function file_exists;
+use function file_put_contents;
 use function htmlspecialchars;
+use function is_array;
+use function is_readable;
 use function is_string;
+use function is_writable;
 use function rawurldecode;
 use function sprintf;
-use function is_writable;
-use function file_exists;
-use function is_array;
-use RuntimeException;
-use function var_export;
-use function is_readable;
 use function trigger_error;
+use function var_export;
+
+use const CACHE_DIR;
 use const E_USER_WARNING;
-use function fopen;
-use function fwrite;
-use function fclose;
 
 /**
  * Class used to warm up the routing cache and manage routing.
@@ -85,7 +88,6 @@ class Routing
         );
         $routeDefinitionCallback($routeCollector);
 
-        /** @var RouteCollector $routeCollector */
         $dispatchData = $routeCollector->getData();
         $canWriteCache = self::canWriteCache();
 
@@ -114,14 +116,7 @@ class Routing
 
     public static function writeCache(string $cacheContents): bool
     {
-        $handle = @fopen(self::ROUTES_CACHE_FILE, 'w');
-        if ($handle === false) {
-            return false;
-        }
-        $couldWrite = fwrite($handle, $cacheContents);
-        fclose($handle);
-
-        return $couldWrite !== false;
+        return @file_put_contents(self::ROUTES_CACHE_FILE, $cacheContents) !== false;
     }
 
     /**
@@ -129,6 +124,7 @@ class Routing
      */
     public static function getCurrentRoute(): string
     {
+        /** @var mixed $route */
         $route = $_GET['route'] ?? $_POST['route'] ?? '/';
         if (! is_string($route) || $route === '') {
             $route = '/';
@@ -152,18 +148,16 @@ class Routing
      * Call associated controller for a route using the dispatcher
      */
     public static function callControllerForRoute(
+        ServerRequest $request,
         string $route,
         Dispatcher $dispatcher,
         ContainerInterface $container
     ): void {
-        $routeInfo = $dispatcher->dispatch(
-            $_SERVER['REQUEST_METHOD'] ?? 'GET',
-            rawurldecode($route)
-        );
+        $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
 
         if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
-            /** @var Response $response */
-            $response = $container->get(Response::class);
+            /** @var ResponseRenderer $response */
+            $response = $container->get(ResponseRenderer::class);
             $response->setHttpResponseCode(404);
             echo Message::error(sprintf(
                 __('Error 404! The page %s was not found.'),
@@ -174,8 +168,8 @@ class Routing
         }
 
         if ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
-            /** @var Response $response */
-            $response = $container->get(Response::class);
+            /** @var ResponseRenderer $response */
+            $response = $container->get(ResponseRenderer::class);
             $response->setHttpResponseCode(405);
             echo Message::error(__('Error 405! Request method not allowed.'))->getDisplay();
 
@@ -186,8 +180,15 @@ class Routing
             return;
         }
 
-        [$controllerName, $action] = $routeInfo[1];
+        /** @psalm-var class-string $controllerName */
+        $controllerName = $routeInfo[1];
+        /** @var array<string, string> $vars */
+        $vars = $routeInfo[2];
+
+        /**
+         * @psalm-var callable(ServerRequest=, array<string, string>=):void $controller
+         */
         $controller = $container->get($controllerName);
-        $controller->$action($routeInfo[2]);
+        $controller($request, $vars);
     }
 }

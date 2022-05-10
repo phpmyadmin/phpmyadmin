@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Charsets;
 
+use function __;
+use function _pgettext;
 use function count;
 use function explode;
 use function implode;
@@ -101,7 +103,7 @@ final class Collation
     }
 
     /**
-     * @param array $state State obtained from the database server
+     * @param string[] $state State obtained from the database server
      */
     public static function fromServer(array $state): self
     {
@@ -177,33 +179,22 @@ final class Collation
                 /* Next will be language */
                 $level = 1;
                 /* First should be charset */
-                $this->getNameForLevel0(
-                    $unicode, // By reference
-                    $unknown, // Same
-                    $part,
-                    $name, // By reference
-                    $variant// Same
-                );
+                [$name, $unicode, $unknown, $variant] = $this->getNameForLevel0($unicode, $unknown, $part, $variant);
                 continue;
             }
+
             if ($level === 1) {
                 /* Next will be variant unless changed later */
                 $level = 4;
                 /* Locale name or code */
                 $found = true;
-                $this->getNameForLevel1(
-                    $unicode,
-                    $unknown,
-                    $part,
-                    $name, // By reference, will be changed
-                    $level, // Also
-                    $found// Same
-                );
+                [$name, $level, $found] = $this->getNameForLevel1($unicode, $unknown, $part, $name, $level, $found);
                 if ($found) {
                     continue;
                 }
                 // Not parsed token, fall to next level
             }
+
             if ($level === 2) {
                 /* Next will be variant */
                 $level = 4;
@@ -212,9 +203,11 @@ final class Collation
                     $name = _pgettext('Collation', 'German (phone book order)');
                     continue;
                 }
+
                 $name = _pgettext('Collation', 'German (dictionary order)');
                 // Not parsed token, fall to next level
             }
+
             if ($level === 3) {
                 /* Next will be variant */
                 $level = 4;
@@ -223,9 +216,11 @@ final class Collation
                     $name = _pgettext('Collation', 'Spanish (traditional)');
                     continue;
                 }
+
                 $name = _pgettext('Collation', 'Spanish (modern)');
                 // Not parsed token, fall to next level
             }
+
             if ($level === 4) {
                 /* Next will be suffix */
                 $level = 5;
@@ -237,11 +232,13 @@ final class Collation
                 } else {
                     $variant = $variantFound;
                 }
+
                 if ($found) {
                     continue;
                 }
                 // Not parsed token, fall to next level
             }
+
             if ($level < 5) {
                 continue;
             }
@@ -253,11 +250,15 @@ final class Collation
         return $this->buildName($name, $variant, $suffixes);
     }
 
+    /**
+     * @param string[] $suffixes
+     */
     private function buildName(string $result, ?string $variant, array $suffixes): string
     {
         if ($variant !== null) {
             $result .= ' (' . $variant . ')';
         }
+
         if (count($suffixes) > 0) {
             $result .= ', ' . implode(', ', $suffixes);
         }
@@ -270,17 +271,26 @@ final class Collation
         switch ($part) {
             case '0900':
                 return 'UCA 9.0.0';
+
             case '520':
                 return 'UCA 5.2.0';
+
             case 'mysql561':
                 return 'MySQL 5.6.1';
+
             case 'mysql500':
                 return 'MySQL 5.0.0';
+
             default:
                 return null;
         }
     }
 
+    /**
+     * @param string[] $suffixes
+     *
+     * @return string[]
+     */
     private function addSuffixes(array $suffixes, string $part): array
     {
         switch ($part) {
@@ -314,13 +324,16 @@ final class Collation
         return $suffixes;
     }
 
+    /**
+     * @return array<int, bool|string|null>
+     * @psalm-return array{string, bool, bool, string|null}
+     */
     private function getNameForLevel0(
-        bool &$unicode,
-        bool &$unknown,
+        bool $unicode,
+        bool $unknown,
         string $part,
-        ?string &$name,
-        ?string &$variant
-    ): void {
+        ?string $variant
+    ): array {
         switch ($part) {
             case 'binary':
                 $name = _pgettext('Collation', 'Binary');
@@ -426,16 +439,22 @@ final class Collation
                 $unknown = true;
                 break;
         }
+
+        return [$name, $unicode, $unknown, $variant];
     }
 
+    /**
+     * @return array<int, bool|int|string>
+     * @psalm-return array{string, int, bool}
+     */
     private function getNameForLevel1(
         bool $unicode,
         bool $unknown,
         string $part,
-        ?string &$name,
-        int &$level,
-        bool &$found
-    ): void {
+        string $name,
+        int $level,
+        bool $found
+    ): array {
         switch ($part) {
             case 'general':
                 break;
@@ -449,6 +468,7 @@ final class Collation
                 if ($unicode) {
                     $name = _pgettext('Collation', 'Chinese');
                 }
+
                 break;
             case 'croatian':
             case 'hr':
@@ -579,9 +599,12 @@ final class Collation
                 if ($unknown) {
                     $name = _pgettext('Collation', 'Unicode');
                 }
+
                 break;
             default:
                 $found = false;
         }
+
+        return [$name, $level, $found];
     }
 }

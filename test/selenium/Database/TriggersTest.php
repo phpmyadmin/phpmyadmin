@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * TriggersTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class TriggersTest extends TestBase
 {
@@ -72,7 +67,7 @@ class TriggersTest extends TestBase
         $this->waitForElement('partialLinkText', 'Triggers')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', 'Add trigger')->click();
+        $this->waitForElement('partialLinkText', 'Create new trigger')->click();
         $this->waitAjax();
 
         $this->waitForElement('className', 'rte_form');
@@ -101,8 +96,7 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Trigger `test_trigger` has been created')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been created\')]'
         );
 
         $this->assertTrue(
@@ -121,10 +115,7 @@ class TriggersTest extends TestBase
         );
 
         // test trigger
-        $this->dbQuery(
-            'USE `' . $this->databaseName . '`;'
-            . 'INSERT INTO `test_table` (val) VALUES (1);'
-        );
+        $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
             'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
@@ -148,10 +139,7 @@ class TriggersTest extends TestBase
         $this->waitForElement('partialLinkText', 'Triggers')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Triggers')]"
-        );
+        $this->waitForElement('id', 'checkAllCheckbox');
 
         $this->byPartialLinkText('Edit')->click();
 
@@ -163,15 +151,11 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Trigger `test_trigger` has been modified')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been modified\')]'
         );
 
         // test trigger
-        $this->dbQuery(
-            'USE `' . $this->databaseName . '`;'
-            . 'INSERT INTO `test_table` (val) VALUES (1);'
-        );
+        $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
             'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
@@ -195,24 +179,15 @@ class TriggersTest extends TestBase
         $ele = $this->waitForElement('partialLinkText', 'Triggers');
         $ele->click();
 
-        $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Triggers')]"
-        );
+        $this->waitForElement('id', 'checkAllCheckbox');
 
         $this->byPartialLinkText('Drop')->click();
-        $this->waitForElement(
-            'cssSelector',
-            'button.submitOK'
-        )->click();
+        $this->waitForElement('cssSelector', 'button.submitOK')->click();
 
         $this->waitAjaxMessage();
 
         // test trigger
-        $this->dbQuery(
-            'USE `' . $this->databaseName . '`;'
-            . 'INSERT INTO `test_table` (val) VALUES (1);'
-        );
+        $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
             'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {

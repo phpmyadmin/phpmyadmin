@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for faked database access
- */
 
 declare(strict_types=1);
 
@@ -9,23 +6,19 @@ namespace PhpMyAdmin\Tests\Dbal;
 
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 
 /**
- * Tests basic functionality of dummy dbi driver
+ * @coversNothing
  */
 class DbiDummyTest extends AbstractTestCase
 {
-    /** @var DbiDummy */
-    protected $object;
-
     /**
      * Configures test parameters.
      */
     protected function setUp(): void
     {
         parent::setUp();
-        $this->object = new DbiDummy();
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
         $GLOBALS['server'] = 1;
@@ -33,9 +26,9 @@ class DbiDummyTest extends AbstractTestCase
 
     public function testGetClientInfo(): void
     {
-        $this->assertNotEmpty($this->object->getClientInfo());
+        $this->assertNotEmpty($this->dummyDbi->getClientInfo());
         // Call the DatabaseInterface
-        $this->assertSame($GLOBALS['dbi']->getClientInfo(), $this->object->getClientInfo());
+        $this->assertSame($this->dbi->getClientInfo(), $this->dummyDbi->getClientInfo());
     }
 
     /**
@@ -45,7 +38,7 @@ class DbiDummyTest extends AbstractTestCase
      */
     public function testQuery(): void
     {
-        $this->assertEquals(1000, $GLOBALS['dbi']->tryQuery('SELECT 1'));
+        $this->assertInstanceOf(DummyResult::class, $this->dbi->tryQuery('SELECT 1'));
     }
 
     /**
@@ -55,8 +48,9 @@ class DbiDummyTest extends AbstractTestCase
      */
     public function testFetch(): void
     {
-        $result = $GLOBALS['dbi']->tryQuery('SELECT 1');
-        $this->assertEquals(['1'], $GLOBALS['dbi']->fetchArray($result));
+        $result = $this->dbi->tryQuery('SELECT 1');
+        $this->assertNotFalse($result);
+        $this->assertSame(['1'], $result->fetchRow());
     }
 
     /**
@@ -139,11 +133,11 @@ class DbiDummyTest extends AbstractTestCase
     {
         $this->assertEquals(
             'a',
-            $GLOBALS['dbi']->escapeString('a')
+            $this->dbi->escapeString('a')
         );
         $this->assertEquals(
             'a\\\'',
-            $GLOBALS['dbi']->escapeString('a\'')
+            $this->dbi->escapeString('a\'')
         );
     }
 }

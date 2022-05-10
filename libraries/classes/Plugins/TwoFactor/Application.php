@@ -7,13 +7,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
-use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\TwoFactor;
 use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
 use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
 use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
 use PragmaRX\Google2FAQRCode\Google2FA;
+
+use function __;
 use function extension_loaded;
 
 /**
@@ -37,11 +38,7 @@ class Application extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
-        if (extension_loaded('imagick')) {
-            $this->google2fa = new Google2FA();
-        } else {
-            $this->google2fa = new Google2FA(new SvgImageBackEnd());
-        }
+        $this->google2fa = new Google2FA();
         $this->google2fa->setWindow(8);
         if (isset($this->twofactor->config['settings']['secret'])) {
             return;
@@ -58,24 +55,20 @@ class Application extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      *
-     * @return bool
-     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
      */
-    public function check()
+    public function check(): bool
     {
         $this->provided = false;
         if (! isset($_POST['2fa_code'])) {
             return false;
         }
+
         $this->provided = true;
 
-        return $this->google2fa->verifyKey(
-            $this->twofactor->config['settings']['secret'],
-            $_POST['2fa_code']
-        );
+        return (bool) $this->google2fa->verifyKey($this->twofactor->config['settings']['secret'], $_POST['2fa_code']);
     }
 
     /**
@@ -112,17 +105,16 @@ class Application extends TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return bool
-     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
      */
-    public function configure()
+    public function configure(): bool
     {
         if (! isset($_SESSION['2fa_application_key'])) {
             $_SESSION['2fa_application_key'] = $this->google2fa->generateSecretKey();
         }
+
         $this->twofactor->config['settings']['secret'] = $_SESSION['2fa_application_key'];
 
         $result = $this->check();

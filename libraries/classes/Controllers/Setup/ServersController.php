@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Setup\FormProcessing;
+
+use function in_array;
+use function is_numeric;
+use function is_string;
 use function ob_get_clean;
 use function ob_start;
-use function is_string;
-use function is_numeric;
-use function in_array;
 
 class ServersController extends AbstractController
 {

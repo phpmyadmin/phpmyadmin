@@ -1,16 +1,11 @@
 <?php
-/**
- * Selenium TestCase for typing and executing SQL query tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * SqlQueryTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class SqlQueryTest extends TestBase
 {
@@ -41,10 +36,7 @@ class SqlQueryTest extends TestBase
         $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
 
-        $this->typeInTextArea(
-            'SET @t1=1, @t2=2, @t3:=4;'
-            . 'SELECT 1 as `id`,  @t1, @t2, @t3, @t4 := @t1+@t2+@t3;'
-        );
+        $this->typeInTextArea('SET @t1=1, @t2=2, @t3:=4;SELECT 1 as `id`,  @t1, @t2, @t3, @t4 := @t1+@t2+@t3;');
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 

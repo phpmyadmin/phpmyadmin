@@ -6,11 +6,14 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 
+/**
+ * @covers \PhpMyAdmin\Database\Routines
+ */
 class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */
@@ -25,7 +28,6 @@ class RoutinesTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
@@ -33,11 +35,13 @@ class RoutinesTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['proc_priv'] = false;
+        $GLOBALS['is_reload_priv'] = false;
 
         $this->routines = new Routines(
             $GLOBALS['dbi'],
             new Template(),
-            Response::getInstance()
+            ResponseRenderer::getInstance()
         );
     }
 
@@ -61,6 +65,7 @@ class RoutinesTest extends AbstractTestCase
             $_POST[$key] = $value;
             $_REQUEST[$key] = $value;
         }
+
         $this->assertEquals($out, $this->routines->getDataFromRequest());
     }
 
@@ -74,221 +79,221 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 [
-                    'item_name'                 => '',
-                    'item_original_name'        => '',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => '',
-                    'item_comment'              => '',
-                    'item_definer'              => '',
-                    'item_type'                 => '',
-                    'item_type_toggle'          => '',
-                    'item_original_type'        => '',
-                    'item_param_dir'            => '',
-                    'item_param_name'           => '',
-                    'item_param_type'           => '',
-                    'item_param_length'         => '',
-                    'item_param_opts_num'       => '',
-                    'item_param_opts_text'      => '',
-                    'item_returntype'           => '',
-                    'item_isdeterministic'      => '',
-                    'item_securitytype'         => '',
-                    'item_sqldataaccess'        => '',
+                    'item_name' => '',
+                    'item_original_name' => '',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => '',
+                    'item_comment' => '',
+                    'item_definer' => '',
+                    'item_type' => '',
+                    'item_type_toggle' => '',
+                    'item_original_type' => '',
+                    'item_param_dir' => '',
+                    'item_param_name' => '',
+                    'item_param_type' => '',
+                    'item_param_length' => '',
+                    'item_param_opts_num' => '',
+                    'item_param_opts_text' => '',
+                    'item_returntype' => '',
+                    'item_isdeterministic' => '',
+                    'item_securitytype' => '',
+                    'item_sqldataaccess' => '',
                 ],
                 [
-                    'item_name'                 => '',
-                    'item_original_name'        => '',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => '',
-                    'item_comment'              => '',
-                    'item_definer'              => '',
-                    'item_type'                 => 'PROCEDURE',
-                    'item_type_toggle'          => 'FUNCTION',
-                    'item_original_type'        => 'PROCEDURE',
-                    'item_num_params'           => 0,
-                    'item_param_dir'            => [],
-                    'item_param_name'           => [],
-                    'item_param_type'           => [],
-                    'item_param_length'         => [],
-                    'item_param_opts_num'       => [],
-                    'item_param_opts_text'      => [],
-                    'item_returntype'           => '',
-                    'item_isdeterministic'      => '',
+                    'item_name' => '',
+                    'item_original_name' => '',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => '',
+                    'item_comment' => '',
+                    'item_definer' => '',
+                    'item_type' => 'PROCEDURE',
+                    'item_type_toggle' => 'FUNCTION',
+                    'item_original_type' => 'PROCEDURE',
+                    'item_num_params' => 0,
+                    'item_param_dir' => [],
+                    'item_param_name' => [],
+                    'item_param_type' => [],
+                    'item_param_length' => [],
+                    'item_param_opts_num' => [],
+                    'item_param_opts_text' => [],
+                    'item_returntype' => '',
+                    'item_isdeterministic' => '',
                     'item_securitytype_definer' => '',
                     'item_securitytype_invoker' => '',
-                    'item_sqldataaccess'        => '',
+                    'item_sqldataaccess' => '',
                 ],
             ],
             [
                 [
-                    'item_name'                 => 'proc2',
-                    'item_original_name'        => 'proc',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT NULL',
-                    'item_comment'              => 'some text',
-                    'item_definer'              => 'root@localhost',
-                    'item_type'                 => 'PROCEDURE',
-                    'item_type_toggle'          => 'FUNCTION',
-                    'item_original_type'        => 'PROCEDURE',
-                    'item_param_dir'            => [
+                    'item_name' => 'proc2',
+                    'item_original_name' => 'proc',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT NULL',
+                    'item_comment' => 'some text',
+                    'item_definer' => 'root@localhost',
+                    'item_type' => 'PROCEDURE',
+                    'item_type_toggle' => 'FUNCTION',
+                    'item_original_type' => 'PROCEDURE',
+                    'item_param_dir' => [
                         0 => 'IN',
                         1 => 'FAIL',
                     ],
-                    'item_param_name'           => [
+                    'item_param_name' => [
                         0 => 'bar',
                         1 => 'baz',
                     ],
-                    'item_param_type'           => [
+                    'item_param_type' => [
                         0 => 'INT',
                         1 => 'FAIL',
                     ],
-                    'item_param_length'         => [
+                    'item_param_length' => [
                         0 => '20',
                         1 => '',
                     ],
-                    'item_param_opts_num'       => [
+                    'item_param_opts_num' => [
                         0 => 'UNSIGNED',
                         1 => '',
                     ],
-                    'item_param_opts_text'      => [
+                    'item_param_opts_text' => [
                         0 => '',
                         1 => 'latin1',
                     ],
-                    'item_returntype'           => '',
-                    'item_isdeterministic'      => 'ON',
-                    'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL',
+                    'item_returntype' => '',
+                    'item_isdeterministic' => 'ON',
+                    'item_securitytype' => 'INVOKER',
+                    'item_sqldataaccess' => 'NO SQL',
                 ],
                 [
-                    'item_name'                 => 'proc2',
-                    'item_original_name'        => 'proc',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT NULL',
-                    'item_comment'              => 'some text',
-                    'item_definer'              => 'root@localhost',
-                    'item_type'                 => 'PROCEDURE',
-                    'item_type_toggle'          => 'FUNCTION',
-                    'item_original_type'        => 'PROCEDURE',
-                    'item_num_params'           => 2,
-                    'item_param_dir'            => [
+                    'item_name' => 'proc2',
+                    'item_original_name' => 'proc',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT NULL',
+                    'item_comment' => 'some text',
+                    'item_definer' => 'root@localhost',
+                    'item_type' => 'PROCEDURE',
+                    'item_type_toggle' => 'FUNCTION',
+                    'item_original_type' => 'PROCEDURE',
+                    'item_num_params' => 2,
+                    'item_param_dir' => [
                         0 => 'IN',
                         1 => '',
                     ],
-                    'item_param_name'           => [
+                    'item_param_name' => [
                         0 => 'bar',
                         1 => 'baz',
                     ],
-                    'item_param_type'           => [
+                    'item_param_type' => [
                         0 => 'INT',
                         1 => '',
                     ],
-                    'item_param_length'         => [
+                    'item_param_length' => [
                         0 => '20',
                         1 => '',
                     ],
-                    'item_param_opts_num'       => [
+                    'item_param_opts_num' => [
                         0 => 'UNSIGNED',
                         1 => '',
                     ],
-                    'item_param_opts_text'      => [
+                    'item_param_opts_text' => [
                         0 => '',
                         1 => 'latin1',
                     ],
-                    'item_returntype'           => '',
-                    'item_isdeterministic'      => ' checked=\'checked\'',
+                    'item_returntype' => '',
+                    'item_isdeterministic' => ' checked=\'checked\'',
                     'item_securitytype_definer' => '',
                     'item_securitytype_invoker' => ' selected=\'selected\'',
-                    'item_sqldataaccess'        => 'NO SQL',
+                    'item_sqldataaccess' => 'NO SQL',
                 ],
             ],
             [
                 [
-                    'item_name'                 => 'func2',
-                    'item_original_name'        => 'func',
-                    'item_returnlength'         => '20',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => 'CHARSET utf8',
-                    'item_definition'           => 'SELECT NULL',
-                    'item_comment'              => 'some text',
-                    'item_definer'              => 'root@localhost',
-                    'item_type'                 => 'FUNCTION',
-                    'item_type_toggle'          => 'PROCEDURE',
-                    'item_original_type'        => 'FUNCTION',
-                    'item_param_dir'            => [
+                    'item_name' => 'func2',
+                    'item_original_name' => 'func',
+                    'item_returnlength' => '20',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => 'CHARSET utf8',
+                    'item_definition' => 'SELECT NULL',
+                    'item_comment' => 'some text',
+                    'item_definer' => 'root@localhost',
+                    'item_type' => 'FUNCTION',
+                    'item_type_toggle' => 'PROCEDURE',
+                    'item_original_type' => 'FUNCTION',
+                    'item_param_dir' => [
                         0 => '',
                         1 => '',
                     ],
-                    'item_param_name'           => [
+                    'item_param_name' => [
                         0 => 'bar',
                         1 => 'baz',
                     ],
-                    'item_param_type'           => [
+                    'item_param_type' => [
                         0 => '<s>XSS</s>',
                         1 => 'TEXT',
                     ],
-                    'item_param_length'         => [
+                    'item_param_length' => [
                         0 => '10,10',
                         1 => '',
                     ],
-                    'item_param_opts_num'       => [
+                    'item_param_opts_num' => [
                         0 => 'UNSIGNED',
                         1 => '',
                     ],
-                    'item_param_opts_text'      => [
+                    'item_param_opts_text' => [
                         0 => '',
                         1 => 'utf8',
                     ],
-                    'item_returntype'           => 'VARCHAR',
-                    'item_isdeterministic'      => '',
-                    'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => '',
+                    'item_returntype' => 'VARCHAR',
+                    'item_isdeterministic' => '',
+                    'item_securitytype' => 'DEFINER',
+                    'item_sqldataaccess' => '',
                 ],
                 [
-                    'item_name'                 => 'func2',
-                    'item_original_name'        => 'func',
-                    'item_returnlength'         => '20',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => 'CHARSET utf8',
-                    'item_definition'           => 'SELECT NULL',
-                    'item_comment'              => 'some text',
-                    'item_definer'              => 'root@localhost',
-                    'item_type'                 => 'FUNCTION',
-                    'item_type_toggle'          => 'PROCEDURE',
-                    'item_original_type'        => 'FUNCTION',
-                    'item_num_params'           => '2',
-                    'item_param_dir'            => [],
-                    'item_param_name'           => [
+                    'item_name' => 'func2',
+                    'item_original_name' => 'func',
+                    'item_returnlength' => '20',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => 'CHARSET utf8',
+                    'item_definition' => 'SELECT NULL',
+                    'item_comment' => 'some text',
+                    'item_definer' => 'root@localhost',
+                    'item_type' => 'FUNCTION',
+                    'item_type_toggle' => 'PROCEDURE',
+                    'item_original_type' => 'FUNCTION',
+                    'item_num_params' => '2',
+                    'item_param_dir' => [],
+                    'item_param_name' => [
                         0 => 'bar',
                         1 => 'baz',
                     ],
-                    'item_param_type'           => [
+                    'item_param_type' => [
                         0 => '',
                         1 => 'TEXT',
                     ],
-                    'item_param_length'         => [
+                    'item_param_length' => [
                         0 => '10,10',
                         1 => '',
                     ],
-                    'item_param_opts_num'       => [
+                    'item_param_opts_num' => [
                         0 => 'UNSIGNED',
                         1 => '',
                     ],
-                    'item_param_opts_text'      => [
+                    'item_param_opts_text' => [
                         0 => '',
                         1 => 'utf8',
                     ],
-                    'item_returntype'           => 'VARCHAR',
-                    'item_isdeterministic'      => '',
+                    'item_returntype' => 'VARCHAR',
+                    'item_isdeterministic' => '',
                     'item_securitytype_definer' => ' selected=\'selected\'',
                     'item_securitytype_invoker' => '',
-                    'item_sqldataaccess'        => '',
+                    'item_sqldataaccess' => '',
                 ],
             ],
         ];
@@ -326,29 +331,29 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetParameterRow(): array
     {
         $data = [
-            'item_name'                 => '',
-            'item_original_name'        => '',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => '',
-            'item_returnopts_text'      => '',
-            'item_definition'           => '',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'PROCEDURE',
-            'item_type_toggle'          => 'FUNCTION',
-            'item_original_type'        => 'PROCEDURE',
-            'item_num_params'           => 1,
-            'item_param_dir'            => [0 => 'IN'],
-            'item_param_name'           => [0 => 'foo'],
-            'item_param_type'           => [0 => 'INT'],
-            'item_param_length'         => [0 => ''],
-            'item_param_opts_num'       => [0 => 'UNSIGNED'],
-            'item_param_opts_text'      => [0 => ''],
-            'item_returntype'           => '',
-            'item_isdeterministic'      => '',
+            'item_name' => '',
+            'item_original_name' => '',
+            'item_returnlength' => '',
+            'item_returnopts_num' => '',
+            'item_returnopts_text' => '',
+            'item_definition' => '',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'PROCEDURE',
+            'item_type_toggle' => 'FUNCTION',
+            'item_original_type' => 'PROCEDURE',
+            'item_num_params' => 1,
+            'item_param_dir' => [0 => 'IN'],
+            'item_param_name' => [0 => 'foo'],
+            'item_param_type' => [0 => 'INT'],
+            'item_param_length' => [0 => ''],
+            'item_param_opts_num' => [0 => 'UNSIGNED'],
+            'item_param_opts_text' => [0 => ''],
+            'item_returntype' => '',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => '',
+            'item_sqldataaccess' => '',
         ];
 
         return [
@@ -390,12 +395,12 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetParameterRowAjax(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->routines->getParameterRow($data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**
@@ -406,29 +411,29 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetParameterRowAjax(): array
     {
         $data = [
-            'item_name'                 => '',
-            'item_original_name'        => '',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => '',
-            'item_returnopts_text'      => '',
-            'item_definition'           => '',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'PROCEDURE',
-            'item_type_toggle'          => 'FUNCTION',
-            'item_original_type'        => 'PROCEDURE',
-            'item_num_params'           => 1,
-            'item_param_dir'            => [0 => 'IN'],
-            'item_param_name'           => [0 => 'foo'],
-            'item_param_type'           => [0 => 'INT'],
-            'item_param_length'         => [0 => ''],
-            'item_param_opts_num'       => [0 => 'UNSIGNED'],
-            'item_param_opts_text'      => [0 => ''],
-            'item_returntype'           => '',
-            'item_isdeterministic'      => '',
+            'item_name' => '',
+            'item_original_name' => '',
+            'item_returnlength' => '',
+            'item_returnopts_num' => '',
+            'item_returnopts_text' => '',
+            'item_definition' => '',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'PROCEDURE',
+            'item_type_toggle' => 'FUNCTION',
+            'item_original_type' => 'PROCEDURE',
+            'item_num_params' => 1,
+            'item_param_dir' => [0 => 'IN'],
+            'item_param_name' => [0 => 'foo'],
+            'item_param_type' => [0 => 'INT'],
+            'item_param_length' => [0 => ''],
+            'item_param_opts_num' => [0 => 'UNSIGNED'],
+            'item_param_opts_text' => [0 => ''],
+            'item_returntype' => '',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => '',
+            'item_sqldataaccess' => '',
         ];
 
         return [
@@ -479,95 +484,95 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetEditorForm1(): array
     {
         $data = [
-            'item_name'                 => '',
-            'item_original_name'        => '',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => '',
-            'item_returnopts_text'      => '',
-            'item_definition'           => '',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'PROCEDURE',
-            'item_type_toggle'          => 'FUNCTION',
-            'item_original_type'        => 'PROCEDURE',
-            'item_num_params'           => 0,
-            'item_param_dir'            => [],
-            'item_param_name'           => [],
-            'item_param_type'           => [],
-            'item_param_length'         => [],
-            'item_param_opts_num'       => [],
-            'item_param_opts_text'      => [],
-            'item_returntype'           => '',
-            'item_isdeterministic'      => '',
+            'item_name' => '',
+            'item_original_name' => '',
+            'item_returnlength' => '',
+            'item_returnopts_num' => '',
+            'item_returnopts_text' => '',
+            'item_definition' => '',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'PROCEDURE',
+            'item_type_toggle' => 'FUNCTION',
+            'item_original_type' => 'PROCEDURE',
+            'item_num_params' => 0,
+            'item_param_dir' => [],
+            'item_param_name' => [],
+            'item_param_type' => [],
+            'item_param_length' => [],
+            'item_param_opts_num' => [],
+            'item_param_opts_text' => [],
+            'item_returntype' => '',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => '',
+            'item_sqldataaccess' => '',
         ];
 
         return [
             [
                 $data,
-                "<input name='add_item'",
+                '<input name="add_item"',
             ],
             [
                 $data,
-                "<input type='text' name='item_name'",
+                '<input type="text" name="item_name"',
             ],
             [
                 $data,
-                "<input name='item_type'",
+                '<input name="item_type"',
             ],
             [
                 $data,
-                "name='routine_changetype'",
+                'name="routine_changetype"',
             ],
             [
                 $data,
-                "name='routine_addparameter'",
+                'name="routine_addparameter"',
             ],
             [
                 $data,
-                "name='routine_removeparameter'",
+                'name="routine_removeparameter"',
             ],
             [
                 $data,
-                "select name='item_returntype'",
+                'select name="item_returntype"',
             ],
             [
                 $data,
-                "name='item_returnlength'",
+                'name="item_returnlength"',
             ],
             [
                 $data,
-                "select name='item_returnopts_num'",
+                'select name="item_returnopts_num"',
             ],
             [
                 $data,
-                "<textarea name='item_definition'",
+                '<textarea name="item_definition"',
             ],
             [
                 $data,
-                "name='item_isdeterministic'",
+                'name="item_isdeterministic"',
             ],
             [
                 $data,
-                "name='item_definer'",
+                'name="item_definer"',
             ],
             [
                 $data,
-                "select name='item_securitytype'",
+                'select name="item_securitytype"',
             ],
             [
                 $data,
-                "select name='item_sqldataaccess'",
+                'select name="item_sqldataaccess"',
             ],
             [
                 $data,
-                "name='item_comment'",
+                'name="item_comment"',
             ],
             [
                 $data,
-                "name='editor_process_add'",
+                'name="editor_process_add"',
             ],
         ];
     }
@@ -596,95 +601,95 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetEditorForm2(): array
     {
         $data = [
-            'item_name'                 => 'foo',
-            'item_original_name'        => 'bar',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => '',
-            'item_returnopts_text'      => '',
-            'item_definition'           => 'SELECT 1',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'PROCEDURE',
-            'item_type_toggle'          => 'FUNCTION',
-            'item_original_type'        => 'PROCEDURE',
-            'item_num_params'           => 1,
-            'item_param_dir'            => [0 => 'IN'],
-            'item_param_name'           => [0 => 'baz'],
-            'item_param_type'           => [0 => 'INT'],
-            'item_param_length'         => [0 => '20'],
-            'item_param_opts_num'       => [0 => 'UNSIGNED'],
-            'item_param_opts_text'      => [0 => ''],
-            'item_returntype'           => '',
-            'item_isdeterministic'      => '',
+            'item_name' => 'foo',
+            'item_original_name' => 'bar',
+            'item_returnlength' => '',
+            'item_returnopts_num' => '',
+            'item_returnopts_text' => '',
+            'item_definition' => 'SELECT 1',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'PROCEDURE',
+            'item_type_toggle' => 'FUNCTION',
+            'item_original_type' => 'PROCEDURE',
+            'item_num_params' => 1,
+            'item_param_dir' => [0 => 'IN'],
+            'item_param_name' => [0 => 'baz'],
+            'item_param_type' => [0 => 'INT'],
+            'item_param_length' => [0 => '20'],
+            'item_param_opts_num' => [0 => 'UNSIGNED'],
+            'item_param_opts_text' => [0 => ''],
+            'item_returntype' => '',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => 'NO SQL',
+            'item_sqldataaccess' => 'NO SQL',
         ];
 
         return [
             [
                 $data,
-                "name='edit_item'",
+                'name="edit_item"',
             ],
             [
                 $data,
-                "name='item_name'",
+                'name="item_name"',
             ],
             [
                 $data,
-                "<input name='item_type' type='hidden' value='FUNCTION'",
+                '<input name="item_type" type="hidden" value="FUNCTION"',
             ],
             [
                 $data,
-                "name='routine_changetype'",
+                'name="routine_changetype"',
             ],
             [
                 $data,
-                "name='routine_addparameter'",
+                'name="routine_addparameter"',
             ],
             [
                 $data,
-                "name='routine_removeparameter'",
+                'name="routine_removeparameter"',
             ],
             [
                 $data,
-                "name='item_returntype'",
+                'name="item_returntype"',
             ],
             [
                 $data,
-                "name='item_returnlength'",
+                'name="item_returnlength"',
             ],
             [
                 $data,
-                "name='item_returnopts_num'",
+                'name="item_returnopts_num"',
             ],
             [
                 $data,
-                "<textarea name='item_definition'",
+                '<textarea name="item_definition"',
             ],
             [
                 $data,
-                "name='item_isdeterministic'",
+                'name="item_isdeterministic"',
             ],
             [
                 $data,
-                "name='item_definer'",
+                'name="item_definer"',
             ],
             [
                 $data,
-                "<select name='item_securitytype'",
+                '<select name="item_securitytype"',
             ],
             [
                 $data,
-                "<select name='item_sqldataaccess'",
+                '<select name="item_sqldataaccess"',
             ],
             [
                 $data,
-                "name='item_comment'",
+                'name="item_comment"',
             ],
             [
                 $data,
-                "name='editor_process_edit'",
+                'name="editor_process_edit"',
             ],
         ];
     }
@@ -699,12 +704,12 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetEditorForm3(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->routines->getEditorForm('edit', 'remove', $data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**
@@ -715,95 +720,95 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetEditorForm3(): array
     {
         $data = [
-            'item_name'                 => 'foo',
-            'item_original_name'        => 'bar',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => 'UNSIGNED',
-            'item_returnopts_text'      => '',
-            'item_definition'           => 'SELECT 1',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'FUNCTION',
-            'item_type_toggle'          => 'PROCEDURE',
-            'item_original_type'        => 'FUNCTION',
-            'item_num_params'           => 1,
-            'item_param_dir'            => [0 => ''],
-            'item_param_name'           => [0 => 'baz'],
-            'item_param_type'           => [0 => 'INT'],
-            'item_param_length'         => [0 => '20'],
-            'item_param_opts_num'       => [0 => 'UNSIGNED'],
-            'item_param_opts_text'      => [0 => ''],
-            'item_returntype'           => 'INT',
-            'item_isdeterministic'      => '',
+            'item_name' => 'foo',
+            'item_original_name' => 'bar',
+            'item_returnlength' => '',
+            'item_returnopts_num' => 'UNSIGNED',
+            'item_returnopts_text' => '',
+            'item_definition' => 'SELECT 1',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'FUNCTION',
+            'item_type_toggle' => 'PROCEDURE',
+            'item_original_type' => 'FUNCTION',
+            'item_num_params' => 1,
+            'item_param_dir' => [0 => ''],
+            'item_param_name' => [0 => 'baz'],
+            'item_param_type' => [0 => 'INT'],
+            'item_param_length' => [0 => '20'],
+            'item_param_opts_num' => [0 => 'UNSIGNED'],
+            'item_param_opts_text' => [0 => ''],
+            'item_returntype' => 'INT',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => 'NO SQL',
+            'item_sqldataaccess' => 'NO SQL',
         ];
 
         return [
             [
                 $data,
-                "name='edit_item'",
+                'name="edit_item"',
             ],
             [
                 $data,
-                "name='item_name'",
+                'name="item_name"',
             ],
             [
                 $data,
-                "<select name='item_type'",
+                '<select name="item_type"',
             ],
             [
                 $data,
-                "name='routine_addparameter'",
+                'name="routine_addparameter"',
             ],
             [
                 $data,
-                "name='routine_removeparameter'",
+                'name="routine_removeparameter"',
             ],
             [
                 $data,
-                "<select name='item_returntype'",
+                '<select name="item_returntype"',
             ],
             [
                 $data,
-                "name='item_returnlength'",
+                'name="item_returnlength"',
             ],
             [
                 $data,
-                "<select name='item_returnopts_num'",
+                '<select name="item_returnopts_num"',
             ],
             [
                 $data,
-                "<textarea name='item_definition'",
+                '<textarea name="item_definition"',
             ],
             [
                 $data,
-                "name='item_isdeterministic'",
+                'name="item_isdeterministic"',
             ],
             [
                 $data,
-                "name='item_definer'",
+                'name="item_definer"',
             ],
             [
                 $data,
-                "<select name='item_securitytype'",
+                '<select name="item_securitytype"',
             ],
             [
                 $data,
-                "<select name='item_sqldataaccess'",
+                '<select name="item_sqldataaccess"',
             ],
             [
                 $data,
-                "name='item_comment'",
+                'name="item_comment"',
             ],
             [
                 $data,
-                "name='ajax_request'",
+                'name="ajax_request"',
             ],
             [
                 $data,
-                "name='editor_process_edit'",
+                'name="editor_process_edit"',
             ],
         ];
     }
@@ -832,35 +837,35 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetEditorForm4(): array
     {
         $data = [
-            'item_name'                 => 'foo',
-            'item_original_name'        => 'bar',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => '',
-            'item_returnopts_text'      => '',
-            'item_definition'           => 'SELECT 1',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'FUNCTION',
-            'item_type_toggle'          => 'PROCEDURE',
-            'item_original_type'        => 'PROCEDURE',
-            'item_num_params'           => 1,
-            'item_param_dir'            => [0 => 'IN'],
-            'item_param_name'           => [0 => 'baz'],
-            'item_param_type'           => [0 => 'INT'],
-            'item_param_length'         => [0 => '20'],
-            'item_param_opts_num'       => [0 => 'UNSIGNED'],
-            'item_param_opts_text'      => [0 => ''],
-            'item_returntype'           => '',
-            'item_isdeterministic'      => '',
+            'item_name' => 'foo',
+            'item_original_name' => 'bar',
+            'item_returnlength' => '',
+            'item_returnopts_num' => '',
+            'item_returnopts_text' => '',
+            'item_definition' => 'SELECT 1',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'FUNCTION',
+            'item_type_toggle' => 'PROCEDURE',
+            'item_original_type' => 'PROCEDURE',
+            'item_num_params' => 1,
+            'item_param_dir' => [0 => 'IN'],
+            'item_param_name' => [0 => 'baz'],
+            'item_param_type' => [0 => 'INT'],
+            'item_param_length' => [0 => '20'],
+            'item_param_opts_num' => [0 => 'UNSIGNED'],
+            'item_param_opts_text' => [0 => ''],
+            'item_returntype' => '',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => 'NO SQL',
+            'item_sqldataaccess' => 'NO SQL',
         ];
 
         return [
             [
                 $data,
-                "<input name='item_type' type='hidden' value='PROCEDURE'",
+                '<input name="item_type" type="hidden" value="PROCEDURE"',
             ],
         ];
     }
@@ -890,16 +895,16 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetExecuteForm1(): array
     {
         $data = [
-            'item_name'                 => 'foo',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => '',
-            'item_returnopts_text'      => '',
-            'item_definition'           => 'SELECT 1;',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'PROCEDURE',
-            'item_num_params'           => 6,
-            'item_param_dir'            => [
+            'item_name' => 'foo',
+            'item_returnlength' => '',
+            'item_returnopts_num' => '',
+            'item_returnopts_text' => '',
+            'item_definition' => 'SELECT 1;',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'PROCEDURE',
+            'item_num_params' => 6,
+            'item_param_dir' => [
                 0 => 'IN',
                 1 => 'OUT',
                 2 => 'IN',
@@ -907,7 +912,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'IN',
                 5 => 'IN',
             ],
-            'item_param_name'           => [
+            'item_param_name' => [
                 0 => 'foo',
                 1 => 'foa',
                 2 => 'fob',
@@ -915,7 +920,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'fod',
                 5 => 'foe',
             ],
-            'item_param_type'           => [
+            'item_param_type' => [
                 0 => 'DATE',
                 1 => 'VARCHAR',
                 2 => 'DATETIME',
@@ -923,7 +928,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'ENUM',
                 5 => 'SET',
             ],
-            'item_param_length'         => [
+            'item_param_length' => [
                 0 => '',
                 1 => '22',
                 2 => '',
@@ -931,7 +936,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => "'a','b'",
                 5 => "'a','b'",
             ],
-            'item_param_length_arr'     => [
+            'item_param_length_arr' => [
                 0 => [],
                 1 => ['22'],
                 2 => [],
@@ -945,7 +950,7 @@ class RoutinesTest extends AbstractTestCase
                     "'b'",
                 ],
             ],
-            'item_param_opts_num'       => [
+            'item_param_opts_num' => [
                 0 => '',
                 1 => '',
                 2 => '',
@@ -953,7 +958,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => '',
                 5 => '',
             ],
-            'item_param_opts_text'      => [
+            'item_param_opts_text' => [
                 0 => '',
                 1 => 'utf8',
                 2 => '',
@@ -961,45 +966,45 @@ class RoutinesTest extends AbstractTestCase
                 4 => '',
                 5 => '',
             ],
-            'item_returntype'           => '',
-            'item_isdeterministic'      => '',
+            'item_returntype' => '',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => '',
+            'item_sqldataaccess' => '',
         ];
 
         return [
             [
                 $data,
-                "name='item_name'",
+                'name="item_name"',
             ],
             [
                 $data,
-                "name='funcs[foo]'",
+                'name="funcs[foo]"',
             ],
             [
                 $data,
-                "<input class='datefield' type='text' name='params[foo]'>",
+                '<input class="datefield" type="text" name="params[foo]">',
             ],
             [
                 $data,
-                "name='funcs[fob]'",
+                'name="funcs[fob]"',
             ],
             [
                 $data,
-                "<input class='datetimefield' type='text' name='params[fob]'",
+                '<input class="datetimefield" type="text" name="params[fob]"',
             ],
             [
                 $data,
-                "name='params[fod][]'",
+                'name="params[fod][]"',
             ],
             [
                 $data,
-                "name='params[foe][]'",
+                'name="params[foe][]"',
             ],
             [
                 $data,
-                "name='execute_routine'",
+                'name="execute_routine"',
             ],
         ];
     }
@@ -1013,12 +1018,12 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetExecuteForm2(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->routines->getExecuteForm($data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**
@@ -1029,16 +1034,16 @@ class RoutinesTest extends AbstractTestCase
     public function providerGetExecuteForm2(): array
     {
         $data = [
-            'item_name'                 => 'foo',
-            'item_returnlength'         => '',
-            'item_returnopts_num'       => '',
-            'item_returnopts_text'      => '',
-            'item_definition'           => 'SELECT 1;',
-            'item_comment'              => '',
-            'item_definer'              => '',
-            'item_type'                 => 'PROCEDURE',
-            'item_num_params'           => 6,
-            'item_param_dir'            => [
+            'item_name' => 'foo',
+            'item_returnlength' => '',
+            'item_returnopts_num' => '',
+            'item_returnopts_text' => '',
+            'item_definition' => 'SELECT 1;',
+            'item_comment' => '',
+            'item_definer' => '',
+            'item_type' => 'PROCEDURE',
+            'item_num_params' => 6,
+            'item_param_dir' => [
                 0 => 'IN',
                 1 => 'OUT',
                 2 => 'IN',
@@ -1046,7 +1051,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'IN',
                 5 => 'IN',
             ],
-            'item_param_name'           => [
+            'item_param_name' => [
                 0 => 'foo',
                 1 => 'foa',
                 2 => 'fob',
@@ -1054,7 +1059,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'fod',
                 5 => 'foe',
             ],
-            'item_param_type'           => [
+            'item_param_type' => [
                 0 => 'DATE',
                 1 => 'VARCHAR',
                 2 => 'DATETIME',
@@ -1062,7 +1067,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => 'ENUM',
                 5 => 'SET',
             ],
-            'item_param_length'         => [
+            'item_param_length' => [
                 0 => '',
                 1 => '22',
                 2 => '',
@@ -1070,7 +1075,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => "'a','b'",
                 5 => "'a','b'",
             ],
-            'item_param_length_arr'     => [
+            'item_param_length_arr' => [
                 0 => [],
                 1 => ['22'],
                 2 => [],
@@ -1084,7 +1089,7 @@ class RoutinesTest extends AbstractTestCase
                     "'b'",
                 ],
             ],
-            'item_param_opts_num'       => [
+            'item_param_opts_num' => [
                 0 => '',
                 1 => '',
                 2 => '',
@@ -1092,7 +1097,7 @@ class RoutinesTest extends AbstractTestCase
                 4 => '',
                 5 => '',
             ],
-            'item_param_opts_text'      => [
+            'item_param_opts_text' => [
                 0 => '',
                 1 => 'utf8',
                 2 => '',
@@ -1100,21 +1105,21 @@ class RoutinesTest extends AbstractTestCase
                 4 => '',
                 5 => '',
             ],
-            'item_returntype'           => '',
-            'item_isdeterministic'      => '',
+            'item_returntype' => '',
+            'item_isdeterministic' => '',
             'item_securitytype_definer' => '',
             'item_securitytype_invoker' => '',
-            'item_sqldataaccess'        => '',
+            'item_sqldataaccess' => '',
         ];
 
         return [
             [
                 $data,
-                "name='execute_routine'",
+                'name="execute_routine"',
             ],
             [
                 $data,
-                "name='ajax_request'",
+                'name="ajax_request"',
             ],
         ];
     }
@@ -1169,7 +1174,7 @@ class RoutinesTest extends AbstractTestCase
         $routines = new Routines(
             $dbi,
             new Template(),
-            Response::getInstance()
+            ResponseRenderer::getInstance()
         );
 
         unset($_POST);
@@ -1192,25 +1197,25 @@ class RoutinesTest extends AbstractTestCase
             // Testing success
             [
                 [
-                    'item_name'                 => 'p r o c',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT 0;',
-                    'item_comment'              => 'foo',
-                    'item_definer'              => 'me@home',
-                    'item_type'                 => 'PROCEDURE',
-                    'item_num_params'           => '0',
-                    'item_param_dir'            => [],
-                    'item_param_name'           => '',
-                    'item_param_type'           => '',
-                    'item_param_length'         => '',
-                    'item_param_opts_num'       => '',
-                    'item_param_opts_text'      => '',
-                    'item_returntype'           => '',
-                    'item_isdeterministic'      => '',
-                    'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL',
+                    'item_name' => 'p r o c',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT 0;',
+                    'item_comment' => 'foo',
+                    'item_definer' => 'me@home',
+                    'item_type' => 'PROCEDURE',
+                    'item_num_params' => '0',
+                    'item_param_dir' => [],
+                    'item_param_name' => '',
+                    'item_param_type' => '',
+                    'item_param_length' => '',
+                    'item_param_opts_num' => '',
+                    'item_param_opts_text' => '',
+                    'item_returntype' => '',
+                    'item_isdeterministic' => '',
+                    'item_securitytype' => 'INVOKER',
+                    'item_sqldataaccess' => 'NO SQL',
                 ],
                 'CREATE DEFINER=`me`@`home` PROCEDURE `p r o c`() COMMENT \'foo\' '
                 . 'DETERMINISTIC NO SQL SQL SECURITY INVOKER SELECT 0;',
@@ -1218,42 +1223,42 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 [
-                    'item_name'                 => 'pr``oc',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT \'foobar\';',
-                    'item_comment'              => '',
-                    'item_definer'              => 'someuser@somehost',
-                    'item_type'                 => 'PROCEDURE',
-                    'item_num_params'           => '2',
-                    'item_param_dir'            => [
+                    'item_name' => 'pr``oc',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT \'foobar\';',
+                    'item_comment' => '',
+                    'item_definer' => 'someuser@somehost',
+                    'item_type' => 'PROCEDURE',
+                    'item_num_params' => '2',
+                    'item_param_dir' => [
                         'IN',
                         'INOUT',
                     ],
-                    'item_param_name'           => [
+                    'item_param_name' => [
                         'pa`ram',
                         'par 2',
                     ],
-                    'item_param_type'           => [
+                    'item_param_type' => [
                         'INT',
                         'ENUM',
                     ],
-                    'item_param_length'         => [
+                    'item_param_length' => [
                         '10',
                         '\'a\', \'b\'',
                     ],
-                    'item_param_opts_num'       => [
+                    'item_param_opts_num' => [
                         'ZEROFILL',
                         '',
                     ],
-                    'item_param_opts_text'      => [
+                    'item_param_opts_text' => [
                         'utf8',
                         'latin1',
                     ],
-                    'item_returntype'           => '',
-                    'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'foobar',
+                    'item_returntype' => '',
+                    'item_securitytype' => 'DEFINER',
+                    'item_sqldataaccess' => 'foobar',
                 ],
                 'CREATE DEFINER=`someuser`@`somehost` PROCEDURE `pr````oc`'
                 . '(IN `pa``ram` INT(10) ZEROFILL, INOUT `par 2` ENUM(\'a\', \'b\')'
@@ -1263,25 +1268,25 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 [
-                    'item_name'                 => 'func\\',
-                    'item_returnlength'         => '5,5',
-                    'item_returnopts_num'       => 'UNSIGNED ZEROFILL',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT \'foobar\';',
-                    'item_comment'              => 'foo\'s bar',
-                    'item_definer'              => '',
-                    'item_type'                 => 'FUNCTION',
-                    'item_num_params'           => '1',
-                    'item_param_dir'            => [],
-                    'item_param_name'           => ['pa`ram'],
-                    'item_param_type'           => ['VARCHAR'],
-                    'item_param_length'         => ['45'],
-                    'item_param_opts_num'       => [''],
-                    'item_param_opts_text'      => ['latin1'],
-                    'item_returntype'           => 'DECIMAL',
-                    'item_isdeterministic'      => 'ON',
-                    'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'READ SQL DATA',
+                    'item_name' => 'func\\',
+                    'item_returnlength' => '5,5',
+                    'item_returnopts_num' => 'UNSIGNED ZEROFILL',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT \'foobar\';',
+                    'item_comment' => 'foo\'s bar',
+                    'item_definer' => '',
+                    'item_type' => 'FUNCTION',
+                    'item_num_params' => '1',
+                    'item_param_dir' => [],
+                    'item_param_name' => ['pa`ram'],
+                    'item_param_type' => ['VARCHAR'],
+                    'item_param_length' => ['45'],
+                    'item_param_opts_num' => [''],
+                    'item_param_opts_text' => ['latin1'],
+                    'item_returntype' => 'DECIMAL',
+                    'item_isdeterministic' => 'ON',
+                    'item_securitytype' => 'DEFINER',
+                    'item_sqldataaccess' => 'READ SQL DATA',
                 ],
                 'CREATE FUNCTION `func\\`(`pa``ram` VARCHAR(45) CHARSET latin1) '
                 . 'RETURNS DECIMAL(5,5) UNSIGNED ZEROFILL COMMENT \'foo\\\'s bar\' '
@@ -1290,18 +1295,18 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 [
-                    'item_name'                 => 'func',
-                    'item_returnlength'         => '20',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => 'utf8',
-                    'item_definition'           => 'SELECT 0;',
-                    'item_comment'              => '',
-                    'item_definer'              => '',
-                    'item_type'                 => 'FUNCTION',
-                    'item_num_params'           => '1',
-                    'item_returntype'           => 'VARCHAR',
-                    'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'READ SQL DATA',
+                    'item_name' => 'func',
+                    'item_returnlength' => '20',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => 'utf8',
+                    'item_definition' => 'SELECT 0;',
+                    'item_comment' => '',
+                    'item_definer' => '',
+                    'item_type' => 'FUNCTION',
+                    'item_num_params' => '1',
+                    'item_returntype' => 'VARCHAR',
+                    'item_securitytype' => 'DEFINER',
+                    'item_sqldataaccess' => 'READ SQL DATA',
                 ],
                 'CREATE FUNCTION `func`() RETURNS VARCHAR(20) CHARSET utf8 NOT '
                 . 'DETERMINISTIC SQL SECURITY DEFINER SELECT 0;',
@@ -1315,68 +1320,68 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 [
-                    'item_name'                 => 'proc',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT 0;',
-                    'item_comment'              => 'foo',
-                    'item_definer'              => 'mehome', // invalid definer format
-                    'item_type'                 => 'PROCEDURE',
-                    'item_num_params'           => '0',
-                    'item_param_dir'            => '',
-                    'item_param_name'           => '',
-                    'item_param_type'           => '',
-                    'item_param_length'         => '',
-                    'item_param_opts_num'       => '',
-                    'item_param_opts_text'      => '',
-                    'item_returntype'           => '',
-                    'item_isdeterministic'      => '',
-                    'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL',
+                    'item_name' => 'proc',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT 0;',
+                    'item_comment' => 'foo',
+                    'item_definer' => 'mehome', // invalid definer format
+                    'item_type' => 'PROCEDURE',
+                    'item_num_params' => '0',
+                    'item_param_dir' => '',
+                    'item_param_name' => '',
+                    'item_param_type' => '',
+                    'item_param_length' => '',
+                    'item_param_opts_num' => '',
+                    'item_param_opts_text' => '',
+                    'item_returntype' => '',
+                    'item_isdeterministic' => '',
+                    'item_securitytype' => 'INVOKER',
+                    'item_sqldataaccess' => 'NO SQL',
                 ],
-                'CREATE PROCEDURE `proc`() COMMENT \'foo\' DETERMINISTIC '
-                . 'NO SQL SQL SECURITY INVOKER SELECT 0;', // valid query
+                // valid query
+                'CREATE PROCEDURE `proc`() COMMENT \'foo\' DETERMINISTIC NO SQL SQL SECURITY INVOKER SELECT 0;',
                 1,
             ],
             [
                 [
-                    'item_name'                 => 'proc',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT 0;',
-                    'item_comment'              => '',
-                    'item_definer'              => '',
-                    'item_type'                 => 'PROCEDURE',
-                    'item_num_params'           => '2',
-                    'item_param_dir'            => [
+                    'item_name' => 'proc',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT 0;',
+                    'item_comment' => '',
+                    'item_definer' => '',
+                    'item_type' => 'PROCEDURE',
+                    'item_num_params' => '2',
+                    'item_param_dir' => [
                         'FAIL',
                         'INOUT',
                     ], // invalid direction
-                    'item_param_name'           => [
+                    'item_param_name' => [
                         'pa`ram',
                         'goo',
                     ],
-                    'item_param_type'           => [
+                    'item_param_type' => [
                         'INT',
                         'ENUM',
                     ],
-                    'item_param_length'         => [
+                    'item_param_length' => [
                         '10',
                         '',
                     ], // missing ENUM values
-                    'item_param_opts_num'       => [
+                    'item_param_opts_num' => [
                         'ZEROFILL',
                         '',
                     ],
-                    'item_param_opts_text'      => [
+                    'item_param_opts_text' => [
                         'utf8',
                         'latin1',
                     ],
-                    'item_returntype'           => '',
-                    'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'foobar', // invalid, will just be ignored without throwing errors
+                    'item_returntype' => '',
+                    'item_securitytype' => 'DEFINER',
+                    'item_sqldataaccess' => 'foobar', // invalid, will just be ignored without throwing errors
                 ],
                 'CREATE PROCEDURE `proc`((10) ZEROFILL, '
                 . 'INOUT `goo` ENUM CHARSET latin1) NOT DETERMINISTIC '
@@ -1385,24 +1390,24 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 [
-                    'item_name'                 => 'func',
-                    'item_returnlength'         => '', // missing length for VARCHAR
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => 'utf8',
-                    'item_definition'           => 'SELECT 0;',
-                    'item_comment'              => '',
-                    'item_definer'              => '',
-                    'item_type'                 => 'FUNCTION',
-                    'item_num_params'           => '2',
-                    'item_param_dir'            => ['IN'],
-                    'item_param_name'           => [''], // missing name
-                    'item_param_type'           => ['INT'],
-                    'item_param_length'         => ['10'],
-                    'item_param_opts_num'       => ['ZEROFILL'],
-                    'item_param_opts_text'      => ['latin1'],
-                    'item_returntype'           => 'VARCHAR',
-                    'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => '',
+                    'item_name' => 'func',
+                    'item_returnlength' => '', // missing length for VARCHAR
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => 'utf8',
+                    'item_definition' => 'SELECT 0;',
+                    'item_comment' => '',
+                    'item_definer' => '',
+                    'item_type' => 'FUNCTION',
+                    'item_num_params' => '2',
+                    'item_param_dir' => ['IN'],
+                    'item_param_name' => [''], // missing name
+                    'item_param_type' => ['INT'],
+                    'item_param_length' => ['10'],
+                    'item_param_opts_num' => ['ZEROFILL'],
+                    'item_param_opts_text' => ['latin1'],
+                    'item_returntype' => 'VARCHAR',
+                    'item_securitytype' => 'DEFINER',
+                    'item_sqldataaccess' => '',
                 ],
                 'CREATE FUNCTION `func`() RETURNS VARCHAR CHARSET utf8 NOT '
                 . 'DETERMINISTIC SQL SECURITY DEFINER SELECT 0;', // invalid query
@@ -1410,21 +1415,20 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 [
-                    'item_name'                 => 'func',
-                    'item_returnlength'         => '',
-                    'item_returnopts_num'       => '',
-                    'item_returnopts_text'      => '',
-                    'item_definition'           => 'SELECT 0;',
-                    'item_comment'              => '',
-                    'item_definer'              => '',
-                    'item_type'                 => 'FUNCTION',
-                    'item_num_params'           => '0',
-                    'item_returntype'           => 'FAIL', // invalid return type
-                    'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => '',
+                    'item_name' => 'func',
+                    'item_returnlength' => '',
+                    'item_returnopts_num' => '',
+                    'item_returnopts_text' => '',
+                    'item_definition' => 'SELECT 0;',
+                    'item_comment' => '',
+                    'item_definer' => '',
+                    'item_type' => 'FUNCTION',
+                    'item_num_params' => '0',
+                    'item_returntype' => 'FAIL', // invalid return type
+                    'item_securitytype' => 'DEFINER',
+                    'item_sqldataaccess' => '',
                 ],
-                'CREATE FUNCTION `func`()  NOT DETERMINISTIC SQL '
-                . 'SECURITY DEFINER SELECT 0;', // invalid query
+                'CREATE FUNCTION `func`()  NOT DETERMINISTIC SQL SECURITY DEFINER SELECT 0;', // invalid query
                 1,
             ],
         ];

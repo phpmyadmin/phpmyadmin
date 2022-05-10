@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
+
 use function json_encode;
 
 /**
@@ -13,7 +14,7 @@ use function json_encode;
  */
 class VersionCheckController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         $_GET['ajax_request'] = 'true';
 
@@ -32,15 +33,14 @@ class VersionCheckController extends AbstractController
             return;
         }
 
-        $latestCompatible = $versionInformation->getLatestCompatibleVersion(
-            $versionDetails->releases
-        );
+        $latestCompatible = $versionInformation->getLatestCompatibleVersion($versionDetails->releases);
         $version = '';
         $date = '';
         if ($latestCompatible != null) {
             $version = $latestCompatible['version'];
             $date = $latestCompatible['date'];
         }
+
         echo json_encode([
             'version' => ! empty($version) ? $version : '',
             'date' => ! empty($date) ? $date : '',

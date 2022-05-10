@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
 
+use function __;
+
 /**
  * The BDB storage engine
  */
@@ -22,23 +24,23 @@ class Bdb extends StorageEngine
     public function getVariables()
     {
         return [
-            'version_bdb'         => [
+            'version_bdb' => [
                 'title' => __('Version information'),
             ],
-            'bdb_cache_size'      => ['type' => PMA_ENGINE_DETAILS_TYPE_SIZE],
-            'bdb_home'            => [],
-            'bdb_log_buffer_size' => ['type' => PMA_ENGINE_DETAILS_TYPE_SIZE],
-            'bdb_logdir'          => [],
-            'bdb_max_lock'        => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
-            'bdb_shared_data'     => [],
-            'bdb_tmpdir'          => [],
-            'bdb_data_direct'     => [],
-            'bdb_lock_detect'     => [],
-            'bdb_log_direct'      => [],
-            'bdb_no_recover'      => [],
-            'bdb_no_sync'         => [],
-            'skip_sync_bdb_logs'  => [],
-            'sync_bdb_logs'       => [],
+            'bdb_cache_size' => ['type' => StorageEngine::DETAILS_TYPE_SIZE],
+            'bdb_home' => [],
+            'bdb_log_buffer_size' => ['type' => StorageEngine::DETAILS_TYPE_SIZE],
+            'bdb_logdir' => [],
+            'bdb_max_lock' => ['type' => StorageEngine::DETAILS_TYPE_NUMERIC],
+            'bdb_shared_data' => [],
+            'bdb_tmpdir' => [],
+            'bdb_data_direct' => [],
+            'bdb_lock_detect' => [],
+            'bdb_log_direct' => [],
+            'bdb_no_recover' => [],
+            'bdb_no_sync' => [],
+            'skip_sync_bdb_logs' => [],
+            'sync_bdb_logs' => [],
         ];
     }
 

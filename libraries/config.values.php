@@ -258,9 +258,7 @@ return [
         'method' => [
             'quick' => __('Quick - display only the minimal options to configure'),
             'custom' => __('Custom - display all possible options to configure'),
-            'custom-no-form' => __(
-                'Custom - like above, but without the quick/custom choice'
-            ),
+            'custom-no-form' => __('Custom - like above, but without the quick/custom choice'),
         ],
         'format' => [
             'codegen',

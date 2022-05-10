@@ -15,19 +15,16 @@ namespace PhpMyAdmin\Properties\Plugins;
 class ExportPluginProperties extends PluginPropertyItem
 {
     /**
-     * Whether to force or not
+     * Whether each plugin has to be saved as a file
      *
      * @var bool
      */
-    private $forceFile;
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
+    private $forceFile = false;
 
     /**
      * Returns the property item type of either an instance of
-     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool",
-     *  "text", "radio", etc ) or
-     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main"
-     *  or "subgroup" )
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main" or "subgroup" )
      *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
@@ -39,22 +36,16 @@ class ExportPluginProperties extends PluginPropertyItem
 
     /**
      * Gets the force file parameter
-     *
-     * @return bool
      */
-    public function getForceFile()
+    public function getForceFile(): bool
     {
         return $this->forceFile;
     }
 
     /**
      * Sets the force file parameter
-     *
-     * @param bool $forceFile the force file parameter
-     *
-     * @return void
      */
-    public function setForceFile($forceFile)
+    public function setForceFile(bool $forceFile): void
     {
         $this->forceFile = $forceFile;
     }

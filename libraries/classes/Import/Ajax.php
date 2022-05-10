@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
-use function extension_loaded;
+
 use function function_exists;
 use function ini_get;
 use function json_encode;
@@ -44,7 +44,6 @@ final class Ajax
             // in PHP 5.4 session-based upload progress was problematic, see closed bug 3964
             //"session",
             'progress',
-            'apc',
             'noplugin',
         ];
 
@@ -53,9 +52,7 @@ final class Ajax
             $check = $plugin . 'Check';
 
             if (self::$check()) {
-                $upload_class = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords(
-                    $plugin
-                );
+                $upload_class = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords($plugin);
                 $_SESSION[$SESSION_KEY]['handler'] = $upload_class;
                 break;
             }
@@ -69,41 +66,16 @@ final class Ajax
     }
 
     /**
-     * Checks if APC bar extension is available and configured correctly.
-     *
-     * @return bool true if APC extension is available and if rfc1867 is enabled,
-     * false if it is not
-     */
-    public static function apcCheck()
-    {
-        if (! extension_loaded('apc')
-            || ! function_exists('apc_fetch')
-            || ! function_exists('getallheaders')
-        ) {
-            return false;
-        }
-
-        return ini_get('apc.enabled') && ini_get('apc.rfc1867');
-    }
-
-    /**
      * Checks if PhpMyAdmin\Plugins\Import\Upload\UploadProgress bar extension is
      * available.
-     *
-     * @return bool true if PhpMyAdmin\Plugins\Import\Upload\UploadProgress
-     * extension is available, false if it is not
      */
     public static function progressCheck(): bool
     {
-        return function_exists('uploadprogress_get_info')
-            && function_exists('getallheaders');
+        return function_exists('uploadprogress_get_info');
     }
 
     /**
      * Checks if PHP 5.4 session upload-progress feature is available.
-     *
-     * @return bool true if PHP 5.4 session upload-progress is available,
-     * false if it is not
      */
     public static function sessionCheck(): bool
     {

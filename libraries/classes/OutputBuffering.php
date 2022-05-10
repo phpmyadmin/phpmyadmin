@@ -20,6 +20,7 @@ use function ob_get_level;
 use function ob_get_status;
 use function ob_start;
 use function register_shutdown_function;
+use function sprintf;
 
 /**
  * Output buffering wrapper class
@@ -96,10 +97,8 @@ class OutputBuffering
      * This function will need to run at the top of all pages if output
      * output buffering is turned on.  It also needs to be passed $mode from
      * the PMA_outBufferModeGet() function or it will be useless.
-     *
-     * @return void
      */
-    public function start()
+    public function start(): void
     {
         if ($this->on) {
             return;
@@ -108,10 +107,10 @@ class OutputBuffering
         if ($this->mode && function_exists('ob_gzhandler')) {
             ob_start('ob_gzhandler');
         }
+
         ob_start();
-        if (! defined('TESTSUITE')) {
-            header('X-ob_mode: ' . $this->mode);
-        }
+        $this->sendHeader('X-ob_mode', (string) $this->mode);
+
         register_shutdown_function(
             [
                 self::class,
@@ -121,14 +120,21 @@ class OutputBuffering
         $this->on = true;
     }
 
+    private function sendHeader(string $name, string $value): void
+    {
+        if (defined('TESTSUITE')) {
+            return;
+        }
+
+        header(sprintf('%s: %s', $name, $value));
+    }
+
     /**
      * This function will need to run at the bottom of all pages if output
      * buffering is turned on.  It also needs to be passed $mode from the
      * PMA_outBufferModeGet() function or it will be useless.
-     *
-     * @return void
      */
-    public static function stop()
+    public static function stop(): void
     {
         $buffer = self::getInstance();
         if (! $buffer->on) {
@@ -156,10 +162,8 @@ class OutputBuffering
 
     /**
      * Flushes output buffer
-     *
-     * @return void
      */
-    public function flush()
+    public function flush(): void
     {
         if (ob_get_status() && $this->mode) {
             ob_flush();

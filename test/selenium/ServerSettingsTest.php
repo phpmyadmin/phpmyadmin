@@ -1,16 +1,13 @@
 <?php
-/**
- * Selenium TestCase for settings related tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use function sleep;
+
 /**
- * ServerSettingsTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class ServerSettingsTest extends TestBase
 {
@@ -32,10 +29,7 @@ class ServerSettingsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Settings')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//a[@class='nav-link text-nowrap' and contains(., 'Settings')]"
-        );
+        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Settings')]");
     }
 
     /**
@@ -46,7 +40,8 @@ class ServerSettingsTest extends TestBase
         // Submit the form
         $ele = $this->waitForElement(
             'xpath',
-            "//fieldset[not(contains(@style,'display: none;'))]//input[@value='Apply']"
+            "//div[contains(@class, 'tab-pane') and contains(@class, 'show')"
+                . " and contains(@class, 'active')]//input[@value='Apply']"
         );
         $this->scrollToBottom();
         $this->moveto($ele);
@@ -82,6 +77,8 @@ class ServerSettingsTest extends TestBase
             $this->isElementPresent('partialLinkText', $this->databaseName)
         );
 
+        $this->waitForElement('xpath', "//a[contains(@href, '#Databases')]")->click();
+
         $this->waitForElement('name', 'Servers-1-hide_db')->clear();
         $this->saveConfig();
         $this->assertTrue(
@@ -99,7 +96,7 @@ class ServerSettingsTest extends TestBase
         $this->byPartialLinkText('SQL queries')->click();
         $this->waitAjax();
 
-        $this->waitForElement('className', 'tabs');
+        $this->waitForElement('className', 'nav-tabs');
 
         $this->byPartialLinkText('SQL Query box')->click();
         $this->assertTrue(
@@ -131,12 +128,14 @@ class ServerSettingsTest extends TestBase
         $this->waitForElement('name', 'NavigationDisplayLogo')
             ->click();
         $this->saveConfig();
+        sleep(1);
         $this->assertFalse(
             $this->isElementPresent('id', 'imgpmalogo')
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->saveConfig();
+        sleep(1);
         $this->assertTrue(
             $this->isElementPresent('id', 'imgpmalogo')
         );

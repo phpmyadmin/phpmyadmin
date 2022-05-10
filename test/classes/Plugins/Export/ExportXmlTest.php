@@ -15,11 +15,13 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportXml
  * @group medium
  */
 class ExportXmlTest extends AbstractTestCase
@@ -33,7 +35,6 @@ class ExportXmlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -42,8 +43,8 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['db'] = 'db';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $this->object = new ExportXml();
     }
 
@@ -69,10 +70,7 @@ class ExportXmlTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'XML',
@@ -91,10 +89,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -105,10 +100,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -119,17 +111,11 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'structure',
@@ -140,45 +126,27 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'data',
@@ -189,10 +157,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
     /**
@@ -231,11 +196,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
-                $result,
-                $result,
-                false
-            );
+            ->willReturnOnConsecutiveCalls($result, $result, []);
 
         $dbi->expects($this->once())
             ->method('getTriggers')
@@ -260,10 +221,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('getDefinition')
-            ->willReturnOnConsecutiveCalls(
-                'fndef',
-                'prdef'
-            );
+            ->willReturnOnConsecutiveCalls('fndef', 'prdef');
 
         $dbi->expects($this->once())
             ->method('getTable')
@@ -347,13 +305,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(5))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
-                $result_1,
-                $result_2,
-                true,
-                $result_3,
-                false
-            );
+            ->willReturnOnConsecutiveCalls($result_1, $result_2, ['table'], $result_3, []);
 
         $dbi->expects($this->any())
             ->method('getTable')
@@ -386,9 +338,7 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $this->expectOutputString(
-            '&lt;/pma_xml_export&gt;'
-        );
+        $this->expectOutputString('&lt;/pma_xml_export&gt;');
         $this->assertTrue(
             $this->object->exportFooter()
         );
@@ -406,10 +356,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '&lt;database name=&quot;&amp;amp;db&quot;&gt;',
-            $result
-        );
+        $this->assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 
@@ -430,10 +377,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '&lt;/database&gt;',
-            $result
-        );
+        $this->assertStringContainsString('&lt;/database&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 
@@ -455,96 +399,36 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['output_charset_conversion'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $_table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $_table->expects($this->once())
-            ->method('isMerge')
-            ->will($this->returnValue(false));
-
-        $dbi->expects($this->any())
-            ->method('getTable')
-            ->will($this->returnValue($_table));
-
-        $dbi->expects($this->once())
-            ->method('getTable')
-            ->will($this->returnValue($_table));
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(3));
-
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->will($this->returnValue('fName1'));
-
-        $dbi->expects($this->at(4))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa"me2'));
-
-        $dbi->expects($this->at(5))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa\\me3'));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue([null, '<a>']));
-
-        $GLOBALS['dbi'] = $dbi;
-
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
-                'ta<ble',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
-                'SELECT'
+                'localhost',
+                'SELECT * FROM `test_db`.`test_table`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            '<!-- Table ta&lt;ble -->',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<table name="ta&lt;ble">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<column name="fName1">NULL</column>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<column name="fNa&quot;me2">&lt;a&gt;' .
-            '</column>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<column name="fName3">NULL</column>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '</table>',
+        $this->assertEquals(
+            '        <!-- Table test_table -->' . "\n"
+            . '        <table name="test_table">' . "\n"
+            . '            <column name="id">1</column>' . "\n"
+            . '            <column name="name">abcd</column>' . "\n"
+            . '            <column name="datetimefield">2011-01-20 02:00:02</column>' . "\n"
+            . '        </table>' . "\n"
+            . '        <table name="test_table">' . "\n"
+            . '            <column name="id">2</column>' . "\n"
+            . '            <column name="name">foo</column>' . "\n"
+            . '            <column name="datetimefield">2010-01-20 02:00:02</column>' . "\n"
+            . '        </table>' . "\n"
+            . '        <table name="test_table">' . "\n"
+            . '            <column name="id">3</column>' . "\n"
+            . '            <column name="name">Abcd</column>' . "\n"
+            . '            <column name="datetimefield">2012-01-20 02:00:02</column>' . "\n"
+            . '        </table>' . "\n",
             $result
         );
     }

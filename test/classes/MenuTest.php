@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
-use function define;
-use function defined;
 
+/**
+ * @covers \PhpMyAdmin\Menu
+ */
 class MenuTest extends AbstractTestCase
 {
     /**
@@ -17,13 +18,8 @@ class MenuTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
-        parent::loadDefaultConfig();
 
-        if (! defined('PMA_IS_WINDOWS')) {
-            define('PMA_IS_WINDOWS', false);
-        }
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -38,7 +34,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testServer(): void
     {
-        $menu = new Menu('', '');
+        $menu = new Menu($this->dbi, '', '');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay()
@@ -50,7 +46,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testDatabase(): void
     {
-        $menu = new Menu('pma_test', '');
+        $menu = new Menu($this->dbi, 'pma_test', '');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay()
@@ -62,7 +58,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testTable(): void
     {
-        $menu = new Menu('pma_test', 'table1');
+        $menu = new Menu($this->dbi, 'pma_test', 'table1');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay()
@@ -74,7 +70,7 @@ class MenuTest extends AbstractTestCase
      */
     public function testSetTable(): void
     {
-        $menu = new Menu('pma_test', '');
+        $menu = new Menu($this->dbi, 'pma_test', '');
         $menu->setTable('table1');
         $this->assertStringContainsString(
             'table1',

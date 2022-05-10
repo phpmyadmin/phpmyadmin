@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\SessionCache;
-use function is_array;
 
 /**
  * Statement resource usage.
@@ -15,7 +14,7 @@ final class Profiling
     public static function isSupported(DatabaseInterface $dbi): bool
     {
         if (SessionCache::has('profiling_supported')) {
-            return SessionCache::get('profiling_supported');
+            return (bool) SessionCache::get('profiling_supported');
         }
 
         /**
@@ -50,19 +49,13 @@ final class Profiling
             return null;
         }
 
-        $result = $dbi->fetchResult('SHOW PROFILE;');
-
-        if (! is_array($result)) {
-            return null;
-        }
-
-        return $result;
+        return $dbi->fetchResult('SHOW PROFILE;');
     }
 
     /**
      * Check if profiling was requested and remember it.
      */
-    public static function check(DatabaseInterface $dbi, Response $response): void
+    public static function check(DatabaseInterface $dbi, ResponseRenderer $response): void
     {
         if (isset($_REQUEST['profiling']) && self::isSupported($dbi)) {
             $_SESSION['profiling'] = true;

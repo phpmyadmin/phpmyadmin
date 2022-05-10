@@ -80,20 +80,16 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
 
     /**
      * Returns the success status
-     *
-     * @return bool
      */
-    public function isSuccess()
+    public function isSuccess(): bool
     {
         return $this->success;
     }
 
     /**
      * Resets the object properties
-     *
-     * @return void
      */
-    public function reset()
+    public function reset(): void
     {
         $this->success = true;
         $this->error = '';

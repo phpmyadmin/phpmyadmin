@@ -46,7 +46,6 @@ class SpecialSchemaLinks
      * );
      *
      * @return array<string,array<string,array<string,array<string,array<int,array<string,string>>|string>>>>
-     *
      * @phpstan-return array<
      *              string, array<
      *                  string, array<
@@ -67,10 +66,7 @@ class SpecialSchemaLinks
     {
         global $cfg;
 
-        $defaultPage = './' . Util::getScriptNameForOption(
-            $cfg['DefaultTabTable'],
-            'table'
-        );
+        $defaultPage = './' . Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
 
         return [
             'mysql' => [

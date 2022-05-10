@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema
+ */
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema */
@@ -15,13 +18,10 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $_REQUEST['page_number'] = 33;
         $this->object = new ExportRelationSchema('information_schema', null);
     }
@@ -29,8 +29,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {

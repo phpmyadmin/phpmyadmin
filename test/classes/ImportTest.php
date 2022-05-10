@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
-use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\Url;
-use const PHP_INT_MAX;
+
 use function time;
 
+use const PHP_INT_MAX;
+
 /**
- * Tests for import functions
+ * @covers \PhpMyAdmin\Import
  */
 class ImportTest extends AbstractTestCase
 {
@@ -28,7 +26,6 @@ class ImportTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $this->import = new Import();
     }
 
@@ -188,12 +185,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getColumnNumberFromName
      *
-     * @param int         $expected Expected result of the function
-     * @param string|null $name     column name(i.e. "A", or "BC", etc.)
+     * @param int    $expected Expected result of the function
+     * @param string $name     column name(i.e. "A", or "BC", etc.)
      *
      * @dataProvider provGetColumnNumberFromName
      */
-    public function testGetColumnNumberFromName(int $expected, ?string $name): void
+    public function testGetColumnNumberFromName(int $expected, string $name): void
     {
         $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
     }
@@ -236,12 +233,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalPrecision
      *
-     * @param int         $expected Expected result of the function
-     * @param string|null $size     Size of field
+     * @param int    $expected Expected result of the function
+     * @param string $size     Size of field
      *
      * @dataProvider provGetDecimalPrecision
      */
-    public function testGetDecimalPrecision(int $expected, ?string $size): void
+    public function testGetDecimalPrecision(int $expected, string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
     }
@@ -276,12 +273,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalScale
      *
-     * @param int         $expected Expected result of the function
-     * @param string|null $size     Size of field
+     * @param int    $expected Expected result of the function
+     * @param string $size     Size of field
      *
      * @dataProvider provGetDecimalScale
      */
-    public function testGetDecimalScale(int $expected, ?string $size): void
+    public function testGetDecimalScale(int $expected, string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalScale($size));
     }
@@ -316,12 +313,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalSize
      *
-     * @param array       $expected Expected result of the function
-     * @param string|null $cell     Cell content
+     * @param array  $expected Expected result of the function
+     * @param string $cell     Cell content
      *
      * @dataProvider provGetDecimalSize
      */
-    public function testGetDecimalSize(array $expected, ?string $cell): void
+    public function testGetDecimalSize(array $expected, string $cell): void
     {
         $this->assertEquals($expected, $this->import->getDecimalSize($cell));
     }
@@ -480,72 +477,13 @@ class ImportTest extends AbstractTestCase
     }
 
     /**
-     * Test for getMatchedRows.
-     */
-    public function testPMAGetMatchedRows(): void
-    {
-        $GLOBALS['db'] = 'PMA';
-
-        $updateQuery = 'UPDATE `table_1` '
-            . 'SET `id` = 20 '
-            . 'WHERE `id` > 10';
-        $simulatedUpdateQuery = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
-
-        $deleteQuery = 'DELETE FROM `table_1` '
-            . 'WHERE `id` > 10';
-        $simulatedDeleteQuery = 'SELECT * FROM `table_1` WHERE `id` > 10';
-
-        $this->simulatedQueryTest($updateQuery, $simulatedUpdateQuery);
-        $this->simulatedQueryTest($deleteQuery, $simulatedDeleteQuery);
-    }
-
-    /**
-     * Tests simulated UPDATE/DELETE query.
-     *
-     * @param string $sqlQuery       SQL query
-     * @param string $simulatedQuery Simulated query
-     */
-    public function simulatedQueryTest(string $sqlQuery, string $simulatedQuery): void
-    {
-        $parser = new Parser($sqlQuery);
-        $analyzed_sql_results = [
-            'query' => $sqlQuery,
-            'parser' => $parser,
-            'statement' => $parser->statements[0],
-        ];
-
-        $simulated_data = $this->import->getMatchedRows($analyzed_sql_results);
-
-        // URL to matched rows.
-        $_url_params = [
-            'db'        => 'PMA',
-            'sql_query' => $simulatedQuery,
-            'sql_signature' => Core::signSqlQuery($simulatedQuery),
-        ];
-        $matched_rows_url = Url::getFromRoute('/sql', $_url_params);
-
-        $this->assertEquals(
-            [
-                'sql_query' => Generator::formatSql(
-                    $analyzed_sql_results['query']
-                ),
-                'matched_rows' => 2,
-                'matched_rows_url' => $matched_rows_url,
-            ],
-            $simulated_data
-        );
-    }
-
-    /**
      * Test for checkIfRollbackPossible
      */
     public function testPMACheckIfRollbackPossible(): void
     {
         $GLOBALS['db'] = 'PMA';
 
-        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 '
-            . 'SET `table_1`.`id` = `table_2`.`id` '
-            . 'WHERE 1';
+        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 SET `table_1`.`id` = `table_2`.`id` WHERE 1';
 
         $this->assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
     }

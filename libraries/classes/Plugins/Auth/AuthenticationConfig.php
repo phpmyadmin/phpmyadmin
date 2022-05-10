@@ -9,15 +9,18 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Util;
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
+
+use function __;
 use function count;
 use function defined;
 use function sprintf;
 use function trigger_error;
+
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
 
 /**
  * Handles the config authentication method
@@ -29,9 +32,9 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @return bool always true
      */
-    public function showLoginForm()
+    public function showLoginForm(): bool
     {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -51,7 +54,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @return bool always true
      */
-    public function readCredentials()
+    public function readCredentials(): bool
     {
         if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
             return false;
@@ -67,10 +70,8 @@ class AuthenticationConfig extends AuthenticationPlugin
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return void
      */
-    public function showFailure($failure)
+    public function showFailure($failure): void
     {
         global $dbi;
 
@@ -81,7 +82,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->getFooter()
             ->setMinimal();
         $header = $response->getHeader();
@@ -95,16 +96,14 @@ class AuthenticationConfig extends AuthenticationPlugin
         echo '</h1>
     </div>
     <br>
-    <table cellpadding="0" cellspacing="3" class= "pma-table auth_config_tbl" width="80%">
+    <table class="table table-borderless text-start w-75 mx-auto">
         <tr>
             <td>';
-        if (isset($GLOBALS['allowDeny_forbidden'])
-            && $GLOBALS['allowDeny_forbidden']
-        ) {
+        if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
             trigger_error(__('Access denied!'), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
-            if ($GLOBALS['PMA_Config']->sourceMtime == 0) {
+            if ($GLOBALS['config']->sourceMtime == 0) {
                 echo '<p>' , sprintf(
                     __(
                         'You probably did not create a configuration file.'
@@ -114,7 +113,8 @@ class AuthenticationConfig extends AuthenticationPlugin
                     '<a href="setup/">',
                     '</a>'
                 ) , '</p>' , "\n";
-            } elseif (! isset($GLOBALS['errno'])
+            } elseif (
+                ! isset($GLOBALS['errno'])
                 || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002)
                 && $GLOBALS['errno'] != 2003
             ) {
@@ -136,25 +136,18 @@ class AuthenticationConfig extends AuthenticationPlugin
                     E_USER_WARNING
                 );
             }
-            echo Generator::mysqlDie(
-                $conn_error,
-                '',
-                true,
-                '',
-                false
-            );
+
+            echo Generator::mysqlDie($conn_error, '', true, '', false);
         }
-        $GLOBALS['error_handler']->dispUserErrors();
+
+        $GLOBALS['errorHandler']->dispUserErrors();
         echo '</td>
         </tr>
         <tr>
             <td>' , "\n";
         echo '<a href="'
-            , Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabServer'],
-                'server'
-            )
-            , '" class="btn button mt-1 disableAjax">'
+            , Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server')
+            , '" class="btn btn-primary mt-1 mb-1 disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";
         echo '</td>
@@ -167,6 +160,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             echo ' </td>' , "\n";
             echo '</tr>' , "\n";
         }
+
         echo '</table>' , "\n";
         if (! defined('TESTSUITE')) {
             exit;

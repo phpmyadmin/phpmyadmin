@@ -5,12 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\PrivilegesController;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
+use function __;
+use function _pgettext;
+
+/**
+ * @covers \PhpMyAdmin\Controllers\Database\PrivilegesController
+ */
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**
@@ -19,8 +25,6 @@ class PrivilegesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        parent::loadDefaultConfig();
         parent::setLanguage();
         parent::setTheme();
     }
@@ -40,24 +44,20 @@ class PrivilegesControllerTest extends AbstractTestCase
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 
-        $controller = new PrivilegesController(
-            Response::getInstance(),
+        $actual = (new PrivilegesController(
+            ResponseRenderer::getInstance(),
             new Template(),
             $db,
             $serverPrivileges,
             $dbi
-        );
-        $actual = $controller->index(['checkprivsdb' => $db]);
+        ))(['checkprivsdb' => $db]);
 
         $this->assertStringContainsString(
             Url::getCommon(['db' => $db], ''),
             $actual
         );
 
-        $this->assertStringContainsString(
-            $db,
-            $actual
-        );
+        $this->assertStringContainsString($db, $actual);
 
         $this->assertStringContainsString(
             __('User'),

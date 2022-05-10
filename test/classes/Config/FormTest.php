@@ -9,9 +9,14 @@ use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionProperty;
+
 use function array_keys;
+use function method_exists;
 use function preg_match;
 
+/**
+ * @covers \PhpMyAdmin\Config\Form
+ */
 class FormTest extends AbstractTestCase
 {
     /** @var Form */
@@ -23,9 +28,7 @@ class FormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
-        parent::loadDefaultConfig();
         parent::setGlobalConfig();
         $GLOBALS['server'] = 0;
         $this->object = new Form(
@@ -55,18 +58,9 @@ class FormTest extends AbstractTestCase
      */
     public function testContructor(): void
     {
-        $this->assertEquals(
-            1,
-            $this->object->index
-        );
-        $this->assertEquals(
-            'pma_form_name',
-            $this->object->name
-        );
-        $this->assertArrayHasKey(
-            'pma_form1',
-            $this->object->fields
-        );
+        $this->assertEquals(1, $this->object->index);
+        $this->assertEquals('pma_form_name', $this->object->name);
+        $this->assertArrayHasKey('pma_form1', $this->object->fields);
     }
 
     /**
@@ -118,7 +112,7 @@ class FormTest extends AbstractTestCase
                 'none' => 'Nowhere',
                 'left' => 'Left',
                 'right' => 'Right',
-                'both' =>   'Both',
+                'both' => 'Both',
             ],
             $this->object->getOptionValueList('RowActionLinks')
         );
@@ -146,33 +140,24 @@ class FormTest extends AbstractTestCase
 
         $result = $this->object->fields;
 
-        $this->assertCount(
-            4,
-            $result
-        );
+        $this->assertCount(4, $result);
 
-        $this->assertEquals(
-            'pma_form1',
-            $result['pma_form1']
-        );
+        $this->assertEquals('pma_form1', $result['pma_form1']);
 
-        $this->assertEquals(
-            'pma_form2',
-            $result['pma_form2']
-        );
+        $this->assertEquals('pma_form2', $result['pma_form2']);
 
-        $this->assertEquals(
-            'preffoo/foo/bar/test',
-            $result[0]
-        );
+        $this->assertEquals('preffoo/foo/bar/test', $result[0]);
+
+        $this->assertIsString($result[1]);
 
         // needs regexp because the counter is static
 
-        // assertMatchesRegularExpression added in 9.1
-        $this->assertRegExp(
-            '/^preffoo\/foo\/bar\/\:group\:end\:\d+$/',
-            $result[1]
-        );
+        if (method_exists($this, 'assertMatchesRegularExpression')) {
+            $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
+        } else {
+            /** @psalm-suppress DeprecatedMethod */
+            $this->assertRegExp('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
+        }
     }
 
     /**
@@ -197,15 +182,9 @@ class FormTest extends AbstractTestCase
 
         $result = $this->object->fields;
 
-        $this->assertCount(
-            2,
-            $result
-        );
+        $this->assertCount(2, $result);
 
-        $this->assertEquals(
-            'foo/bar/test',
-            $result['test']
-        );
+        $this->assertEquals('foo/bar/test', $result['test']);
 
         unset($result['test']);
 
@@ -213,20 +192,19 @@ class FormTest extends AbstractTestCase
 
         $keys = array_keys($result);
         $key = $keys[0];
+        $this->assertIsString($key);
 
-        // assertMatchesRegularExpression added in 9.1
-        $this->assertRegExp(
-            '/^\:group\:end\:(\d+)$/',
-            $key
-        );
+        if (method_exists($this, 'assertMatchesRegularExpression')) {
+            $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
+        } else {
+            /** @psalm-suppress DeprecatedMethod */
+            $this->assertRegExp('/^\:group\:end\:(\d+)$/', $key);
+        }
 
         preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];
 
-        $this->assertEquals(
-            'foo/bar/:group:end:' . $digit,
-            $result[':group:end:' . $digit]
-        );
+        $this->assertEquals('foo/bar/:group:end:' . $digit, $result[':group:end:' . $digit]);
     }
 
     /**
@@ -268,7 +246,7 @@ class FormTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
-            ->setMethods(['readFormPaths', 'readTypes'])
+            ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -280,10 +258,7 @@ class FormTest extends AbstractTestCase
 
         $this->object->loadForm('pmaform', ['testForm']);
 
-        $this->assertEquals(
-            'pmaform',
-            $this->object->name
-        );
+        $this->assertEquals('pmaform', $this->object->name);
     }
 
     /**
@@ -293,7 +268,7 @@ class FormTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
-            ->setMethods(['readFormPaths', 'readTypes'])
+            ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))->method('readFormPaths')->with([

@@ -1,7 +1,4 @@
 <?php
-/**
- * JavaScript management
- */
 
 declare(strict_types=1);
 
@@ -9,7 +6,7 @@ namespace PhpMyAdmin;
 
 use function defined;
 use function md5;
-use function strpos;
+use function str_contains;
 
 /**
  * Collects information about which JavaScript
@@ -21,14 +18,13 @@ class Scripts
     /**
      * An array of SCRIPT tags
      *
-     * @access private
-     * @var array of strings
+     * @var array<string, array<string, int|string|array<string, string>>>
+     * @psalm-var array<string, array{has_onload: 0|1, filename: non-empty-string, params: array<string, string>}>
      */
     private $files;
     /**
      * A string of discrete javascript code snippets
      *
-     * @access private
      * @var string
      */
     private $code;
@@ -42,30 +38,28 @@ class Scripts
     public function __construct()
     {
         $this->template = new Template();
-        $this->files  = [];
-        $this->code   = '';
+        $this->files = [];
+        $this->code = '';
     }
 
     /**
      * Adds a new file to the list of scripts
      *
-     * @param string $filename The name of the file to include
-     * @param array  $params   Additional parameters to pass to the file
-     *
-     * @return void
+     * @param string                $filename The name of the file to include
+     * @param array<string, string> $params   Additional parameters to pass to the file
      */
     public function addFile(
-        $filename,
+        string $filename,
         array $params = []
-    ) {
+    ): void {
         $hash = md5($filename);
-        if (! empty($this->files[$hash])) {
+        if (! empty($this->files[$hash]) || $filename === '') {
             return;
         }
 
-        $has_onload = $this->hasOnloadEvent($filename);
+        $hasOnload = $this->hasOnloadEvent($filename);
         $this->files[$hash] = [
-            'has_onload' => $has_onload,
+            'has_onload' => (int) $hasOnload,
             'filename' => $filename,
             'params' => $params,
         ];
@@ -74,11 +68,9 @@ class Scripts
     /**
      * Add new files to the list of scripts
      *
-     * @param array $filelist The array of file names
-     *
-     * @return void
+     * @param string[] $filelist The array of file names
      */
-    public function addFiles(array $filelist)
+    public function addFiles(array $filelist): void
     {
         foreach ($filelist as $filename) {
             $this->addFile($filename);
@@ -88,33 +80,25 @@ class Scripts
     /**
      * Determines whether to fire up an onload event for a file
      *
-     * @param string $filename The name of the file to be checked
-     *                         against the exclude list.
+     * @param string $filename The name of the file to be checked against the exclude list.
      *
-     * @return int 1 to fire up the event, 0 not to
+     * @return bool true to fire up the event, false not to
      */
-    private function hasOnloadEvent($filename)
+    private function hasOnloadEvent(string $filename): bool
     {
-        if (strpos($filename, 'jquery') !== false
-            || strpos($filename, 'codemirror') !== false
-            || strpos($filename, 'messages.php') !== false
-            || strpos($filename, 'ajax.js') !== false
-            || strpos($filename, 'cross_framing_protection.js') !== false
-        ) {
-            return 0;
-        }
-
-        return 1;
+        return ! str_contains($filename, 'jquery')
+            && ! str_contains($filename, 'codemirror')
+            && ! str_contains($filename, 'messages.php')
+            && ! str_contains($filename, 'ajax.js')
+            && ! str_contains($filename, 'cross_framing_protection.js');
     }
 
     /**
      * Adds a new code snippet to the code to be executed
      *
      * @param string $code The JS code to be added
-     *
-     * @return void
      */
-    public function addCode($code)
+    public function addCode(string $code): void
     {
         $this->code .= $code . "\n";
     }
@@ -123,16 +107,18 @@ class Scripts
      * Returns a list with filenames and a flag to indicate
      * whether to register onload events for this file
      *
-     * @return array
+     * @return array<int, array<string, int|string>>
+     * @psalm-return list<array{name: non-empty-string, fire: 0|1}>
      */
-    public function getFiles()
+    public function getFiles(): array
     {
         $retval = [];
         foreach ($this->files as $file) {
             //If filename contains a "?", continue.
-            if (strpos($file['filename'], '?') !== false) {
+            if (str_contains($file['filename'], '?')) {
                 continue;
             }
+
             $retval[] = [
                 'name' => $file['filename'],
                 'fire' => $file['has_onload'],
@@ -144,17 +130,15 @@ class Scripts
 
     /**
      * Renders all the JavaScript file inclusions, code and events
-     *
-     * @return string
      */
-    public function getDisplay()
+    public function getDisplay(): string
     {
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
 
         return $this->template->render('scripts', [
             'base_dir' => $baseDir,
             'files' => $this->files,
-            'version' => PMA_VERSION,
+            'version' => Version::VERSION,
             'code' => $this->code,
         ]);
     }

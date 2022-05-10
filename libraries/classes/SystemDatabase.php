@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use mysqli_result;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\ResultInterface;
+
 use function count;
 use function sprintf;
 
@@ -33,91 +35,94 @@ class SystemDatabase
      *
      * @param string $db Database name looking for
      *
-     * @return mysqli_result|false Result of executed SQL query
+     * @return ResultInterface|false Result of executed SQL query
      */
     public function getExistingTransformationData($db)
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        if (! $cfgRelation['mimework']) {
+        $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
+        if ($browserTransformationFeature === null) {
             return false;
         }
 
         // Get the existing transformation details of the same database
         // from pma__column_info table
-        $pma_transformation_sql = sprintf(
+        $transformationSql = sprintf(
             "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
-            Util::backquote($cfgRelation['db']),
-            Util::backquote($cfgRelation['column_info']),
+            Util::backquote($browserTransformationFeature->database),
+            Util::backquote($browserTransformationFeature->columnInfo),
             $this->dbi->escapeString($db)
         );
 
-        return $this->dbi->tryQuery($pma_transformation_sql);
+        return $this->dbi->tryQuery($transformationSql);
     }
 
     /**
      * Get SQL query for store new transformation details of a VIEW
      *
-     * @param object $pma_transformation_data Result set of SQL execution
-     * @param array  $column_map              Details of VIEW columns
-     * @param string $view_name               Name of the VIEW
-     * @param string $db                      Database name of the VIEW
+     * @param ResultInterface $transformationData Result set of SQL execution
+     * @param array           $columnMap          Details of VIEW columns
+     * @param string          $viewName           Name of the VIEW
+     * @param string          $db                 Database name of the VIEW
      *
      * @return string SQL query for new transformations
      */
     public function getNewTransformationDataSql(
-        $pma_transformation_data,
-        array $column_map,
-        $view_name,
+        ResultInterface $transformationData,
+        array $columnMap,
+        $viewName,
         $db
     ) {
-        $cfgRelation = $this->relation->getRelationsParam();
+        $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
+        if ($browserTransformationFeature === null) {
+            return '';
+        }
 
         // Need to store new transformation details for VIEW
-        $new_transformations_sql = sprintf(
+        $newTransformationsSql = sprintf(
             'INSERT INTO %s.%s ('
             . '`db_name`, `table_name`, `column_name`, '
             . '`comment`, `mimetype`, `transformation`, '
             . '`transformation_options`) VALUES',
-            Util::backquote($cfgRelation['db']),
-            Util::backquote($cfgRelation['column_info'])
+            Util::backquote($browserTransformationFeature->database),
+            Util::backquote($browserTransformationFeature->columnInfo)
         );
 
-        $column_count = 0;
-        $add_comma = false;
+        $columnCount = 0;
+        $addComma = false;
 
-        while ($data_row = $this->dbi->fetchAssoc($pma_transformation_data)) {
-            foreach ($column_map as $column) {
-                if ($data_row['table_name'] != $column['table_name']
-                    || $data_row['column_name'] != $column['refering_column']
+        while ($dataRow = $transformationData->fetchAssoc()) {
+            foreach ($columnMap as $column) {
+                if (
+                    $dataRow['table_name'] != $column['table_name']
+                    || $dataRow['column_name'] != $column['refering_column']
                 ) {
                     continue;
                 }
 
-                $new_transformations_sql .= sprintf(
+                $newTransformationsSql .= sprintf(
                     "%s ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-                    $add_comma ? ', ' : '',
+                    $addComma ? ', ' : '',
                     $db,
-                    $view_name,
+                    $viewName,
                     $column['real_column'] ?? $column['refering_column'],
-                    $data_row['comment'],
-                    $data_row['mimetype'],
-                    $data_row['transformation'],
+                    $dataRow['comment'],
+                    $dataRow['mimetype'],
+                    $dataRow['transformation'],
                     $GLOBALS['dbi']->escapeString(
-                        $data_row['transformation_options']
+                        $dataRow['transformation_options']
                     )
                 );
 
-                $add_comma = true;
-                $column_count++;
+                $addComma = true;
+                $columnCount++;
                 break;
             }
 
-            if ($column_count == count($column_map)) {
+            if ($columnCount == count($columnMap)) {
                 break;
             }
         }
 
-        return $column_count > 0 ? $new_transformations_sql : '';
+        return $columnCount > 0 ? $newTransformationsSql : '';
     }
 }

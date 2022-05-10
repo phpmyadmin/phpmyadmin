@@ -11,12 +11,15 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+
+use function __;
 use function count;
 use function explode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
 use function preg_match;
+use function str_contains;
 use function str_replace;
 use function strcmp;
 use function strlen;
@@ -34,19 +37,15 @@ class ImportMediawiki extends ImportPlugin
      */
     private $analyze;
 
-    public function __construct()
+    /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
     {
-        parent::__construct();
-        $this->setProperties();
+        return 'mediawiki';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         $this->setAnalyze(false);
         if ($GLOBALS['plugin_param'] !== 'table') {
@@ -57,20 +56,17 @@ class ImportMediawiki extends ImportPlugin
         $importPluginProperties->setText(__('MediaWiki Table'));
         $importPluginProperties->setExtension('txt');
         $importPluginProperties->setMimeType('text/plain');
-        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $this->properties = $importPluginProperties;
+        return $importPluginProperties;
     }
 
     /**
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $error, $timeout_passed, $finished;
 
@@ -116,7 +112,7 @@ class ImportMediawiki extends ImportPlugin
                 unset($data);
                 // Don't parse string if we're not at the end
                 // and don't have a new line inside
-                if (mb_strpos($buffer, $mediawiki_new_line) === false) {
+                if (! str_contains($buffer, $mediawiki_new_line)) {
                     continue;
                 }
             }
@@ -156,8 +152,7 @@ class ImportMediawiki extends ImportPlugin
 
                 if ($inside_comment) {
                     // Check end of comment
-                    if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '-->')
-                    ) {
+                    if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '-->')) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
                         // skip structure tables)
@@ -172,29 +167,17 @@ class ImportMediawiki extends ImportPlugin
                     } else {
                         // Check table name
                         $match_table_name = [];
-                        if (preg_match(
-                            '/^Table data for `(.*)`$/',
-                            $cur_buffer_line,
-                            $match_table_name
-                        )
-                        ) {
+                        if (preg_match('/^Table data for `(.*)`$/', $cur_buffer_line, $match_table_name)) {
                             $cur_table_name = $match_table_name[1];
                             $inside_data_comment = true;
 
-                            $inside_structure_comment
-                                = $this->mngInsideStructComm(
-                                    $inside_structure_comment
-                                );
-                        } elseif (preg_match(
-                            '/^Table structure for `(.*)`$/',
-                            $cur_buffer_line,
-                            $match_table_name
-                        )
-                        ) {
+                            $inside_structure_comment = $this->mngInsideStructComm($inside_structure_comment);
+                        } elseif (preg_match('/^Table structure for `(.*)`$/', $cur_buffer_line, $match_table_name)) {
                             // The structure comments will be ignored
                             $inside_structure_comment = true;
                         }
                     }
+
                     continue;
                 }
 
@@ -215,7 +198,8 @@ class ImportMediawiki extends ImportPlugin
                     $in_table_header = false;
                     // End processing because the current line does not
                     // contain any column information
-                } elseif (mb_substr($cur_buffer_line, 0, 2) === '|-'
+                } elseif (
+                    mb_substr($cur_buffer_line, 0, 2) === '|-'
                     || mb_substr($cur_buffer_line, 0, 2) === '|+'
                     || mb_substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
@@ -309,11 +293,9 @@ class ImportMediawiki extends ImportPlugin
      *                        rows </code>
      * @param array $sql_data 2-element array with sql data
      *
-     * @return void
-     *
      * @global bool $analyze whether to scan for column types
      */
-    private function importDataOneTable(array $table, array &$sql_data)
+    private function importDataOneTable(array $table, array &$sql_data): void
     {
         $analyze = $this->getAnalyze();
         if ($analyze) {
@@ -346,10 +328,8 @@ class ImportMediawiki extends ImportPlugin
      * Sets the table name
      *
      * @param string $table_name reference to the name of the table
-     *
-     * @return void
      */
-    private function setTableName(&$table_name)
+    private function setTableName(&$table_name): void
     {
         global $dbi;
 
@@ -368,10 +348,8 @@ class ImportMediawiki extends ImportPlugin
      * @param array $table_headers reference to the array containing the headers
      *                             of a table
      * @param array $table_row     array containing the first content row
-     *
-     * @return void
      */
-    private function setTableHeaders(array &$table_headers, array $table_row)
+    private function setTableHeaders(array &$table_headers, array $table_row): void
     {
         if (! empty($table_headers)) {
             return;
@@ -400,11 +378,9 @@ class ImportMediawiki extends ImportPlugin
      *                        )
      * @param array $sql_data 2-element array with sql data
      *
-     * @return void
-     *
      * @global string $db      name of the database to import in
      */
-    private function executeImportTables(array &$tables, array &$analyses, array &$sql_data)
+    private function executeImportTables(array &$tables, array &$analyses, array &$sql_data): void
     {
         global $db;
 
@@ -473,6 +449,7 @@ class ImportMediawiki extends ImportPlugin
                 if ($partial_separator && $inside_attribute) {
                     $cleaned .= '|';
                 }
+
                 // If the char is different from "|", no separator can be formed
                 $partial_separator = false;
 
@@ -539,10 +516,8 @@ class ImportMediawiki extends ImportPlugin
 
     /**
      * Returns true if the table should be analyzed, false otherwise
-     *
-     * @return bool
      */
-    private function getAnalyze()
+    private function getAnalyze(): bool
     {
         return $this->analyze;
     }
@@ -551,10 +526,8 @@ class ImportMediawiki extends ImportPlugin
      * Sets to true if the table should be analyzed, false otherwise
      *
      * @param bool $analyze status
-     *
-     * @return void
      */
-    private function setAnalyze($analyze)
+    private function setAnalyze($analyze): void
     {
         $this->analyze = $analyze;
     }
@@ -573,7 +546,7 @@ class ImportMediawiki extends ImportPlugin
 
         // A '|' inside an invalid link should not
         // be mistaken as delimiting cell parameters
-        if (mb_strpos($cell_data[0], '[[') === false) {
+        if (! str_contains($cell_data[0], '[[')) {
             return $cell;
         }
 
@@ -588,10 +561,8 @@ class ImportMediawiki extends ImportPlugin
      * Manage $inside_structure_comment
      *
      * @param bool $inside_structure_comment Value to test
-     *
-     * @return bool
      */
-    private function mngInsideStructComm($inside_structure_comment)
+    private function mngInsideStructComm($inside_structure_comment): bool
     {
         // End ignoring structure rows
         if ($inside_structure_comment) {

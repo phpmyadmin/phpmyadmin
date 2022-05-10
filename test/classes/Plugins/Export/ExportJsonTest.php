@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportJson;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
-use stdClass;
+
 use function array_shift;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportJson
  * @group medium
  */
 class ExportJsonTest extends AbstractTestCase
@@ -30,7 +31,6 @@ class ExportJsonTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -59,10 +59,7 @@ class ExportJsonTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'JSON',
@@ -86,10 +83,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -99,10 +93,7 @@ class ExportJsonTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -113,10 +104,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
@@ -130,7 +118,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->expectOutputString(
             "[\n"
-            . '{"type":"header","version":"' . PMA_VERSION
+            . '{"type":"header","version":"' . Version::VERSION
             . '","comment":"Export to JSON plugin for PHPMyAdmin"},'
             . "\n"
         );
@@ -144,9 +132,7 @@ class ExportJsonTest extends AbstractTestCase
     {
         $GLOBALS['crlf'] = '';
 
-        $this->expectOutputString(
-            ']'
-        );
+        $this->expectOutputString(']');
 
         $this->assertTrue(
             $this->object->exportFooter()
@@ -157,9 +143,7 @@ class ExportJsonTest extends AbstractTestCase
     {
         $GLOBALS['crlf'] = "\n";
 
-        $this->expectOutputString(
-            '{"type":"database","name":"testDB"},' . "\n"
-        );
+        $this->expectOutputString('{"type":"database","name":"testDB"},' . "\n");
 
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -182,151 +166,30 @@ class ExportJsonTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $flags = [];
-        $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = false;
-        $a->type = 'string';
-        $a->name = 'f1';
-        $a->charsetnr = 33;
-        $a->length = 20;
-        $flags[] = $a;
-
-        $dbi->expects($this->once())
-            ->method('getFieldsMeta')
-            ->with(null)
-            ->will($this->returnValue($flags));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->with(null)
-            ->will($this->returnValue('f1'));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(['foo']));
-
-        $dbi->expects($this->at(5))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(['bar']));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->expectOutputString(
-            '{"type":"table","name":"tbl","database":"db","data":'
-            . "\n[\n"
-            . '{"f1":"foo"},'
-            . "\n"
-            . '{"f1":"bar"}'
-            . "\n]\n}\n"
+            '{"type":"table","name":"test_table","database":"test_db","data":' . "\n"
+            . '[' . "\n"
+            . '{"id":"1","name":"abcd","datetimefield":"2011-01-20 02:00:02"},' . "\n"
+            . '{"id":"2","name":"foo","datetimefield":"2010-01-20 02:00:02"},' . "\n"
+            . '{"id":"3","name":"Abcd","datetimefield":"2012-01-20 02:00:02"}' . "\n"
+            . ']' . "\n"
+            . '}' . "\n"
         );
 
-        $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
     }
 
     public function testExportComplexData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $flags = [];
-        $normalString = new stdClass();
-        $normalString->blob = false;
-        $normalString->numeric = false;
-        $normalString->type = 'string';
-        $normalString->name = 'f1';
-        $normalString->charsetnr = 33;
-        $normalString->length = 20;
-        $flags[] = $normalString;
-        $binaryField = new stdClass();
-        $binaryField->blob = false;
-        $binaryField->numeric = false;
-        $binaryField->type = 'string';
-        $binaryField->name = 'f1';
-        $binaryField->charsetnr = 63;
-        $binaryField->length = 20;
-        $flags[] = $binaryField;
-        $textField = new stdClass();
-        $textField->blob = false;
-        $textField->numeric = false;
-        $textField->type = 'blob';
-        $textField->name = 'f1';
-        $textField->charsetnr = 23;
-        $textField->length = 20;
-        $flags[] = $textField;
-        $blobField = new stdClass();
-        $blobField->blob = false;
-        $blobField->numeric = false;
-        $blobField->type = 'blob';
-        $blobField->name = 'f1';
-        $blobField->charsetnr = 63;
-        $blobField->length = 20;
-        $flags[] = $blobField;
-
-        $dbi->expects($this->once())
-            ->method('getFieldsMeta')
-            ->with(null)
-            ->will($this->returnValue($flags));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(4));
-
-        $dbi->expects($this->exactly(4))
-            ->method('fieldName')
-            ->withConsecutive(
-                [null, 0],
-                [null, 1],
-                [null, 2],
-                [null, 3]
-            )
-            ->willReturnOnConsecutiveCalls(
-                'f1',
-                'f2',
-                'f3',
-                'f4'
-            );
-
-        $dbi->expects($this->exactly(4))
-            ->method('fetchRow')
-            ->withConsecutive(
-                [null],
-                [null],
-                [null],
-                [null]
-            )
-            ->willReturnOnConsecutiveCalls(
-                // normalString binaryField textField blobField
-                ['"\'"><iframe onload=alert(1)>шеллы', '0x12346857fefe', "My awesome\nText", '0xaf1234f68c57fefe'],
-                [null, null, null, null],
-                ['', '0x1', 'шеллы', '0x2'],
-                null// No more data
-            );
-
-        $GLOBALS['dbi'] = $dbi;
-
+        // normalString binaryField textField blobField
         $this->expectOutputString(
-            '{"type":"table","name":"tbl","database":"db","data":'
+            '{"type":"table","name":"test_table_complex","database":"test_db","data":'
             . "\n[\n"
             . '{"f1":"\"\'\"><iframe onload=alert(1)>\u0448\u0435\u043b\u043b\u044b",'
                 . '"f2":"0x3078313233343638353766656665",'
@@ -337,93 +200,18 @@ class ExportJsonTest extends AbstractTestCase
         );
 
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
+            $this->object->exportData(
+                'test_db',
+                'test_table_complex',
+                "\n",
+                'example.com',
+                'SELECT * FROM `test_db`.`test_table_complex`;'
+            )
         );
     }
 
     public function testExportRawComplexData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $flags = [];
-        $normalString = new stdClass();
-        $normalString->blob = false;
-        $normalString->numeric = false;
-        $normalString->type = 'string';
-        $normalString->name = 'f1';
-        $normalString->charsetnr = 33;
-        $normalString->length = 20;
-        $flags[] = $normalString;
-        $binaryField = new stdClass();
-        $binaryField->blob = false;
-        $binaryField->numeric = false;
-        $binaryField->type = 'string';
-        $binaryField->name = 'f1';
-        $binaryField->charsetnr = 63;
-        $binaryField->length = 20;
-        $flags[] = $binaryField;
-        $textField = new stdClass();
-        $textField->blob = false;
-        $textField->numeric = false;
-        $textField->type = 'blob';
-        $textField->name = 'f1';
-        $textField->charsetnr = 23;
-        $textField->length = 20;
-        $flags[] = $textField;
-        $blobField = new stdClass();
-        $blobField->blob = false;
-        $blobField->numeric = false;
-        $blobField->type = 'blob';
-        $blobField->name = 'f1';
-        $blobField->charsetnr = 63;
-        $blobField->length = 20;
-        $flags[] = $blobField;
-
-        $dbi->expects($this->once())
-            ->method('getFieldsMeta')
-            ->with(null)
-            ->will($this->returnValue($flags));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(4));
-
-        $dbi->expects($this->exactly(4))
-            ->method('fieldName')
-            ->withConsecutive(
-                [null, 0],
-                [null, 1],
-                [null, 2],
-                [null, 3]
-            )
-            ->willReturnOnConsecutiveCalls(
-                'f1',
-                'f2',
-                'f3',
-                'f4'
-            );
-
-        $dbi->expects($this->exactly(4))
-            ->method('fetchRow')
-            ->withConsecutive(
-                [null],
-                [null],
-                [null],
-                [null]
-            )
-            ->willReturnOnConsecutiveCalls(
-                // normalString binaryField textField blobField
-                ['"\'"><iframe onload=alert(1)>шеллы', '0x12346857fefe', "My awesome\nText", '0xaf1234f68c57fefe'],
-                [null, null, null, null],
-                ['', '0x1', 'шеллы', '0x2'],
-                null// No more data
-            );
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->expectOutputString(
             '{"type":"raw","data":'
             . "\n[\n"
@@ -436,7 +224,11 @@ class ExportJsonTest extends AbstractTestCase
         );
 
         $this->assertTrue(
-            $this->object->exportRawQuery('example.com', 'SELECT', "\n")
+            $this->object->exportRawQuery(
+                'example.com',
+                'SELECT * FROM `test_db`.`test_table_complex`;',
+                "\n"
+            )
         );
     }
 }

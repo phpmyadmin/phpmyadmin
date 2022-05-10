@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeEvent
+ */
 class NodeEventTest extends AbstractTestCase
 {
     /**
@@ -15,7 +18,6 @@ class NodeEventTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
     }
 
@@ -25,13 +27,19 @@ class NodeEventTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeEvent');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => [
+                    'route' => '/database/events',
+                    'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
+                ],
+                'icon' => [
+                    'route' => '/database/events',
+                    'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
+                ],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/database/events',
-            $parent->links['text']
         );
     }
 }

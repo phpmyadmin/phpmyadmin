@@ -7,11 +7,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use mysqli_result;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\DatabaseList;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
+use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;
@@ -19,13 +22,9 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
-use const E_USER_WARNING;
-use const LOG_INFO;
-use const LOG_NDELAY;
-use const LOG_PID;
-use const LOG_USER;
-use const SORT_ASC;
-use const SORT_DESC;
+
+use function __;
+use function array_column;
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -40,6 +39,7 @@ use function count;
 use function defined;
 use function explode;
 use function implode;
+use function in_array;
 use function is_array;
 use function is_int;
 use function is_string;
@@ -47,20 +47,28 @@ use function mb_strtolower;
 use function microtime;
 use function openlog;
 use function reset;
-use function rtrim;
 use function sprintf;
+use function str_contains;
+use function str_starts_with;
 use function stripos;
 use function strlen;
-use function strncmp;
-use function strpos;
 use function strtolower;
 use function strtoupper;
+use function strtr;
 use function substr;
 use function syslog;
 use function trigger_error;
 use function uasort;
 use function uksort;
 use function usort;
+
+use const E_USER_WARNING;
+use const LOG_INFO;
+use const LOG_NDELAY;
+use const LOG_PID;
+use const LOG_USER;
+use const SORT_ASC;
+use const SORT_DESC;
 
 /**
  * Main interface for database interactions
@@ -70,9 +78,9 @@ class DatabaseInterface implements DbalInterface
     /**
      * Force STORE_RESULT method, ignored by classic MySQL.
      */
-    public const QUERY_STORE = 1;
+    public const QUERY_BUFFERED = 0;
     /**
-     * Do not read whole query.
+     * Do not read all rows immediately.
      */
     public const QUERY_UNBUFFERED = 2;
     /**
@@ -129,11 +137,11 @@ class DatabaseInterface implements DbalInterface
     /** @var Types MySQL types data */
     public $types;
 
-    /** @var Relation */
-    private $relation;
-
     /** @var Cache */
     private $cache;
+
+    /** @var float */
+    public $lastQueryExecutionTime = 0;
 
     /**
      * @param DbiExtension $ext Object to be used for database queries
@@ -146,10 +154,10 @@ class DatabaseInterface implements DbalInterface
             $this->links[self::CONNECT_USER] = 1;
             $this->links[self::CONNECT_CONTROL] = 2;
         }
+
         $this->currentUser = [];
         $this->cache = new Cache();
         $this->types = new Types($this);
-        $this->relation = new Relation($this);
     }
 
     /**
@@ -159,21 +167,20 @@ class DatabaseInterface implements DbalInterface
      * @param mixed  $link                optional database link to use
      * @param int    $options             optional query options
      * @param bool   $cache_affected_rows whether to cache affected rows
-     *
-     * @return mixed
      */
     public function query(
         string $query,
         $link = self::CONNECT_USER,
-        int $options = 0,
+        int $options = self::QUERY_BUFFERED,
         bool $cache_affected_rows = true
-    ) {
+    ): ResultInterface {
         $result = $this->tryQuery($query, $link, $options, $cache_affected_rows);
 
         if (! $result) {
+            // The following statement will exit
             Generator::mysqlDie($this->getError($link), $query);
 
-            return false;
+            exit;
         }
 
         return $result;
@@ -189,26 +196,25 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $query               query to run
      * @param mixed  $link                link type
-     * @param int    $options             query options
+     * @param int    $options             if DatabaseInterface::QUERY_UNBUFFERED
+     *                                    is provided, it will instruct the extension
+     *                                    to use unbuffered mode
      * @param bool   $cache_affected_rows whether to cache affected row
      *
-     * @return mixed
+     * @return ResultInterface|false
      */
     public function tryQuery(
         string $query,
         $link = self::CONNECT_USER,
-        int $options = 0,
+        int $options = self::QUERY_BUFFERED,
         bool $cache_affected_rows = true
     ) {
-        $debug = isset($GLOBALS['cfg']['DBG']) ? $GLOBALS['cfg']['DBG']['sql'] : false;
+        $debug = isset($GLOBALS['cfg']['DBG']) && $GLOBALS['cfg']['DBG']['sql'];
         if (! isset($this->links[$link])) {
             return false;
         }
 
-        $time = 0;
-        if ($debug) {
-            $time = microtime(true);
-        }
+        $time = microtime(true);
 
         $result = $this->extension->realQuery($query, $this->links[$link], $options);
 
@@ -216,21 +222,19 @@ class DatabaseInterface implements DbalInterface
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($link, false);
         }
 
+        $this->lastQueryExecutionTime = microtime(true) - $time;
         if ($debug) {
-            $time = microtime(true) - $time;
             $errorMessage = $this->getError($link);
             Utilities::debugLogQueryIntoSession(
                 $query,
-                is_string($errorMessage) ? $errorMessage : null,
+                $errorMessage !== '' ? $errorMessage : null,
                 $result,
-                $time
+                $this->lastQueryExecutionTime
             );
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
-                $warningsCount = '';
-                if (($options & self::QUERY_STORE) == self::QUERY_STORE) {
-                    if (isset($this->links[$link]->warning_count)) {
-                        $warningsCount = $this->links[$link]->warning_count;
-                    }
+                $warningsCount = 0;
+                if (isset($this->links[$link]->warning_count)) {
+                    $warningsCount = $this->links[$link]->warning_count;
                 }
 
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
@@ -238,10 +242,10 @@ class DatabaseInterface implements DbalInterface
                 syslog(
                     LOG_INFO,
                     sprintf(
-                        'SQL[%s?route=%s]: %0.3f(W:%s,C:%s,L:0x%02X) > %s',
+                        'SQL[%s?route=%s]: %0.3f(W:%d,C:%s,L:0x%02X) > %s',
                         basename($_SERVER['SCRIPT_NAME']),
                         Routing::getCurrentRoute(),
-                        $time,
+                        $this->lastQueryExecutionTime,
                         $warningsCount,
                         $cache_affected_rows ? 'y' : 'n',
                         $link,
@@ -260,22 +264,54 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Run multi query statement and return results
+     * Send multiple SQL queries to the database server and execute the first one
      *
      * @param string $multiQuery multi query statement to execute
      * @param int    $linkIndex  index of the opened database link
-     *
-     * @return mysqli_result[]|bool (false)
      */
     public function tryMultiQuery(
         string $multiQuery = '',
         $linkIndex = self::CONNECT_USER
-    ) {
+    ): bool {
         if (! isset($this->links[$linkIndex])) {
             return false;
         }
 
         return $this->extension->realMultiQuery($this->links[$linkIndex], $multiQuery);
+    }
+
+    /**
+     * Executes a query as controluser.
+     * The result is always buffered and never cached
+     *
+     * @param string $sql the query to execute
+     *
+     * @return ResultInterface the result set
+     */
+    public function queryAsControlUser(string $sql): ResultInterface
+    {
+        // Avoid caching of the number of rows affected; for example, this function
+        // is called for tracking purposes but we want to display the correct number
+        // of rows affected by the original query, not by the query generated for
+        // tracking.
+        return $this->query($sql, self::CONNECT_CONTROL, self::QUERY_BUFFERED, false);
+    }
+
+    /**
+     * Executes a query as controluser.
+     * The result is always buffered and never cached
+     *
+     * @param string $sql the query to execute
+     *
+     * @return ResultInterface|false the result set, or false if the query failed
+     */
+    public function tryQueryAsControlUser(string $sql)
+    {
+        // Avoid caching of the number of rows affected; for example, this function
+        // is called for tracking purposes but we want to display the correct number
+        // of rows affected by the original query, not by the query generated for
+        // tracking.
+        return $this->tryQuery($sql, self::CONNECT_CONTROL, self::QUERY_BUFFERED, false);
     }
 
     /**
@@ -296,43 +332,13 @@ class DatabaseInterface implements DbalInterface
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,
             0,
-            $link,
-            self::QUERY_STORE
+            $link
         );
         if ($GLOBALS['cfg']['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
         }
 
         return $tables;
-    }
-
-    /**
-     * returns
-     *
-     * @param string $database name of database
-     * @param array  $tables   list of tables to search for for relations
-     * @param int    $link     mysql link resource|object
-     *
-     * @return array           array of found foreign keys
-     */
-    public function getForeignKeyConstrains(string $database, array $tables, $link = self::CONNECT_USER): array
-    {
-        $tablesListForQuery = '';
-        foreach ($tables as $table) {
-            $tablesListForQuery .= "'" . $this->escapeString($table) . "',";
-        }
-        $tablesListForQuery = rtrim($tablesListForQuery, ',');
-
-        return $this->fetchResult(
-            QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
-                $this->escapeString($database),
-                $tablesListForQuery
-            ),
-            null,
-            null,
-            $link,
-            self::QUERY_STORE
-        );
     }
 
     /**
@@ -356,7 +362,7 @@ class DatabaseInterface implements DbalInterface
      * @param bool|int     $limit_count  number of tables to return
      * @param string       $sort_by      table attribute to sort by
      * @param string       $sort_order   direction to sort (ASC or DESC)
-     * @param string       $table_type   whether table or view
+     * @param string|null  $table_type   whether table or view
      * @param mixed        $link         link type
      *
      * @return array           list of tables in given db(s)
@@ -377,8 +383,6 @@ class DatabaseInterface implements DbalInterface
         if ($limit_count === true) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
         }
-
-        $databases = [$database];
 
         $tables = [];
 
@@ -402,15 +406,8 @@ class DatabaseInterface implements DbalInterface
             // added BINARY in the WHERE clause to force a case sensitive
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
-            $this_databases = array_map(
-                [
-                    $this,
-                    'escapeString',
-                ],
-                $databases
-            );
 
-            $sql = QueryGenerator::getSqlForTablesFull($this_databases, $sql_where_table);
+            $sql = QueryGenerator::getSqlForTablesFull([$this->escapeString($database)], $sql_where_table);
 
             // Sort the tables
             $sql .= ' ORDER BY ' . $sort_by . ' ' . $sort_order;
@@ -429,6 +426,25 @@ class DatabaseInterface implements DbalInterface
                 $link
             );
 
+            // here, we check for Mroonga engine and compute the good data_length and index_length
+            // in the StructureController only we need to sum the two values as the other engines
+            foreach ($tables as $one_database_name => $one_database_tables) {
+                foreach ($one_database_tables as $one_table_name => $one_table_data) {
+                    if ($one_table_data['Engine'] !== 'Mroonga') {
+                        continue;
+                    }
+
+                    if (! StorageEngine::hasMroongaEngine()) {
+                        continue;
+                    }
+
+                    [
+                        $tables[$one_database_name][$one_table_name]['Data_length'],
+                        $tables[$one_database_name][$one_table_name]['Index_length'],
+                    ] = StorageEngine::getMroongaLengths($one_database_name, $one_table_name);
+                }
+            }
+
             if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $one_database_name => $one_database_tables) {
@@ -437,6 +453,7 @@ class DatabaseInterface implements DbalInterface
                     if ($sort_order === 'DESC') {
                         $one_database_tables = array_reverse($one_database_tables);
                     }
+
                     $tables[$one_database_name] = $one_database_tables;
                 }
             } elseif ($sort_by === 'Data_length') {
@@ -459,6 +476,7 @@ class DatabaseInterface implements DbalInterface
                     if ($sort_order === 'DESC') {
                         $one_database_tables = array_reverse($one_database_tables);
                     }
+
                     $tables[$one_database_name] = $one_database_tables;
                 }
             }
@@ -467,102 +485,110 @@ class DatabaseInterface implements DbalInterface
         // If permissions are wrong on even one database directory,
         // information_schema does not return any table info for any database
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
-        if (empty($tables)) {
-            foreach ($databases as $each_database) {
-                if ($table || ($tbl_is_group === true) || ! empty($table_type)) {
-                    $sql = 'SHOW TABLE STATUS FROM '
-                        . Util::backquote($each_database)
-                        . ' WHERE';
-                    $needAnd = false;
-                    if ($table || ($tbl_is_group === true)) {
-                        if (is_array($table)) {
-                            $sql .= ' `Name` IN (\''
-                                . implode(
-                                    '\', \'',
-                                    array_map(
-                                        [
-                                            $this,
-                                            'escapeString',
-                                        ],
-                                        $table,
-                                        $link
-                                    )
-                                ) . '\')';
-                        } else {
-                            $sql .= " `Name` LIKE '"
-                                . Util::escapeMysqlWildcards(
-                                    $this->escapeString($table, $link)
+        if ($tables === []) {
+            $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database);
+            if ($table || ($tbl_is_group === true) || $table_type) {
+                $sql .= ' WHERE';
+                $needAnd = false;
+                if ($table || ($tbl_is_group === true)) {
+                    if (is_array($table)) {
+                        $sql .= ' `Name` IN (\''
+                            . implode(
+                                '\', \'',
+                                array_map(
+                                    [
+                                        $this,
+                                        'escapeString',
+                                    ],
+                                    $table,
+                                    $link
                                 )
-                                . "%'";
-                        }
-                        $needAnd = true;
-                    }
-                    if (! empty($table_type)) {
-                        if ($needAnd) {
-                            $sql .= ' AND';
-                        }
-                        if ($table_type === 'view') {
-                            $sql .= " `Comment` = 'VIEW'";
-                        } elseif ($table_type === 'table') {
-                            $sql .= " `Comment` != 'VIEW'";
-                        }
-                    }
-                } else {
-                    $sql = 'SHOW TABLE STATUS FROM '
-                        . Util::backquote($each_database);
-                }
-
-                $each_tables = $this->fetchResult($sql, 'Name', null, $link);
-
-                // Sort naturally if the config allows it and we're sorting
-                // the Name column.
-                if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
-                    uksort($each_tables, 'strnatcasecmp');
-
-                    if ($sort_order === 'DESC') {
-                        $each_tables = array_reverse($each_tables);
-                    }
-                } else {
-                    // Prepare to sort by creating array of the selected sort
-                    // value to pass to array_multisort
-
-                    // Size = Data_length + Index_length
-                    if ($sort_by === 'Data_length') {
-                        foreach ($each_tables as $table_name => $table_data) {
-                            ${$sort_by}[$table_name] = strtolower(
-                                (string) ($table_data['Data_length']
-                                + $table_data['Index_length'])
-                            );
-                        }
+                            ) . '\')';
                     } else {
-                        foreach ($each_tables as $table_name => $table_data) {
-                            ${$sort_by}[$table_name]
-                                = strtolower($table_data[$sort_by] ?? '');
-                        }
+                        $sql .= " `Name` LIKE '"
+                            . $this->escapeMysqlLikeString($table, $link)
+                            . "%'";
                     }
 
-                    if (! empty($$sort_by)) {
-                        if ($sort_order === 'DESC') {
-                            array_multisort($$sort_by, SORT_DESC, $each_tables);
-                        } else {
-                            array_multisort($$sort_by, SORT_ASC, $each_tables);
-                        }
+                    $needAnd = true;
+                }
+
+                if ($table_type) {
+                    if ($needAnd) {
+                        $sql .= ' AND';
                     }
 
-                    // cleanup the temporary sort array
-                    unset($$sort_by);
+                    if ($table_type === 'view') {
+                        $sql .= " `Comment` = 'VIEW'";
+                    } elseif ($table_type === 'table') {
+                        $sql .= " `Comment` != 'VIEW'";
+                    }
                 }
-
-                if ($limit_count) {
-                    $each_tables = array_slice(
-                        $each_tables,
-                        $limit_offset,
-                        $limit_count
-                    );
-                }
-
-                $tables[$each_database] = Compatibility::getISCompatForGetTablesFull($each_tables, $each_database);
             }
+
+            $each_tables = $this->fetchResult($sql, 'Name', null, $link);
+
+            // here, we check for Mroonga engine and compute the good data_length and index_length
+            // in the StructureController only we need to sum the two values as the other engines
+            foreach ($each_tables as $table_name => $table_data) {
+                if ($table_data['Engine'] !== 'Mroonga') {
+                    continue;
+                }
+
+                if (! StorageEngine::hasMroongaEngine()) {
+                    continue;
+                }
+
+                [
+                    $each_tables[$table_name]['Data_length'],
+                    $each_tables[$table_name]['Index_length'],
+                ] = StorageEngine::getMroongaLengths($database, $table_name);
+            }
+
+            // Sort naturally if the config allows it and we're sorting
+            // the Name column.
+            if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+                uksort($each_tables, 'strnatcasecmp');
+
+                if ($sort_order === 'DESC') {
+                    $each_tables = array_reverse($each_tables);
+                }
+            } else {
+                // Prepare to sort by creating array of the selected sort
+                // value to pass to array_multisort
+
+                // Size = Data_length + Index_length
+                $sortValues = [];
+                if ($sort_by === 'Data_length') {
+                    foreach ($each_tables as $table_name => $table_data) {
+                        $sortValues[$table_name] = strtolower(
+                            (string) ($table_data['Data_length']
+                            + $table_data['Index_length'])
+                        );
+                    }
+                } else {
+                    foreach ($each_tables as $table_name => $table_data) {
+                        $sortValues[$table_name] = strtolower($table_data[$sort_by] ?? '');
+                    }
+                }
+
+                if ($sortValues) {
+                    if ($sort_order === 'DESC') {
+                        array_multisort($sortValues, SORT_DESC, $each_tables);
+                    } else {
+                        array_multisort($sortValues, SORT_ASC, $each_tables);
+                    }
+                }
+
+                // cleanup the temporary sort array
+                unset($sortValues);
+            }
+
+            if ($limit_count) {
+                $each_tables = array_slice($each_tables, $limit_offset, $limit_count);
+            }
+
+            $tables[$database] = Compatibility::getISCompatForGetTablesFull($each_tables, $database);
         }
 
         // cache table data
@@ -590,14 +616,14 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $db Database name to look in
      *
-     * @return array Set of VIEWs inside the database
+     * @return Table[] Set of VIEWs inside the database
      */
     public function getVirtualTables(string $db): array
     {
-        $tables_full = $this->getTablesFull($db);
+        $tables_full = array_keys($this->getTablesFull($db));
         $views = [];
 
-        foreach ($tables_full as $table => $tmp) {
+        foreach ($tables_full as $table) {
             $table = $this->getTable($db, (string) $table);
             if (! $table->isView()) {
                 continue;
@@ -612,14 +638,14 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns array with databases containing extended infos about them
      *
-     * @param string   $database     database
-     * @param bool     $force_stats  retrieve stats also for MySQL < 5
-     * @param int      $link         link type
-     * @param string   $sort_by      column to order by
-     * @param string   $sort_order   ASC or DESC
-     * @param int      $limit_offset starting offset for LIMIT
-     * @param bool|int $limit_count  row count for LIMIT or true
-     *                               for $GLOBALS['cfg']['MaxDbList']
+     * @param string|null $database     database
+     * @param bool        $force_stats  retrieve stats also for MySQL < 5
+     * @param int         $link         link type
+     * @param string      $sort_by      column to order by
+     * @param string      $sort_order   ASC or DESC
+     * @param int         $limit_offset starting offset for LIMIT
+     * @param bool|int    $limit_count  row count for LIMIT or true
+     *                                  for $GLOBALS['cfg']['MaxDbList']
      *
      * @return array
      *
@@ -659,7 +685,7 @@ class DatabaseInterface implements DbalInterface
 
             // get table information from information_schema
             $sqlWhereSchema = '';
-            if (! empty($database)) {
+            if ($database !== null) {
                 $sqlWhereSchema = 'WHERE `SCHEMA_NAME` LIKE \''
                     . $this->escapeString($database, $link) . '\'';
             }
@@ -692,55 +718,44 @@ class DatabaseInterface implements DbalInterface
             $databases = [];
             foreach ($GLOBALS['dblist']->databases as $database_name) {
                 // Compatibility with INFORMATION_SCHEMA output
-                $databases[$database_name]['SCHEMA_NAME']      = $database_name;
+                $databases[$database_name]['SCHEMA_NAME'] = $database_name;
 
-                $databases[$database_name]['DEFAULT_COLLATION_NAME']
-                    = $this->getDbCollation($database_name);
+                $databases[$database_name]['DEFAULT_COLLATION_NAME'] = $this->getDbCollation($database_name);
 
                 if (! $force_stats) {
                     continue;
                 }
 
                 // get additional info about tables
-                $databases[$database_name]['SCHEMA_TABLES']          = 0;
-                $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
-                $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
+                $databases[$database_name]['SCHEMA_TABLES'] = 0;
+                $databases[$database_name]['SCHEMA_TABLE_ROWS'] = 0;
+                $databases[$database_name]['SCHEMA_DATA_LENGTH'] = 0;
                 $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
-                $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
-                $databases[$database_name]['SCHEMA_LENGTH']          = 0;
-                $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
+                $databases[$database_name]['SCHEMA_INDEX_LENGTH'] = 0;
+                $databases[$database_name]['SCHEMA_LENGTH'] = 0;
+                $databases[$database_name]['SCHEMA_DATA_FREE'] = 0;
 
                 $res = $this->query(
                     'SHOW TABLE STATUS FROM '
                     . Util::backquote($database_name) . ';'
                 );
 
-                if ($res === false) {
-                    unset($res);
-                    continue;
-                }
-
-                while ($row = $this->fetchAssoc($res)) {
+                while ($row = $res->fetchAssoc()) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
-                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
-                        += $row['Rows'];
-                    $databases[$database_name]['SCHEMA_DATA_LENGTH']
-                        += $row['Data_length'];
-                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
-                        += $row['Max_data_length'];
-                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']
-                        += $row['Index_length'];
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS'] += $row['Rows'];
+                    $databases[$database_name]['SCHEMA_DATA_LENGTH'] += $row['Data_length'];
+                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] += $row['Max_data_length'];
+                    $databases[$database_name]['SCHEMA_INDEX_LENGTH'] += $row['Index_length'];
 
                     // for InnoDB, this does not contain the number of
                     // overhead bytes but the total free space
                     if ($row['Engine'] !== 'InnoDB') {
-                        $databases[$database_name]['SCHEMA_DATA_FREE']
-                            += $row['Data_free'];
+                        $databases[$database_name]['SCHEMA_DATA_FREE'] += $row['Data_free'];
                     }
-                    $databases[$database_name]['SCHEMA_LENGTH']
-                        += $row['Data_length'] + $row['Index_length'];
+
+                    $databases[$database_name]['SCHEMA_LENGTH'] += $row['Data_length'] + $row['Index_length'];
                 }
-                $this->freeResult($res);
+
                 unset($res);
             }
         }
@@ -775,6 +790,7 @@ class DatabaseInterface implements DbalInterface
      * @param array  $view_columns alias for columns
      *
      * @return array
+     * @psalm-return list<array<string, mixed>>
      */
     public function getColumnMapFromSql(string $sql_query, array $view_columns = []): array
     {
@@ -784,24 +800,18 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
-        $meta = $this->getFieldsMeta(
-            $result
-        );
-
-        $nbFields = count($meta);
-        if ($nbFields <= 0) {
-            return [];
-        }
+        $meta = $this->getFieldsMeta($result);
 
         $column_map = [];
         $nbColumns = count($view_columns);
 
-        for ($i = 0; $i < $nbFields; $i++) {
-            $map = [];
-            $map['table_name'] = $meta[$i]->table;
-            $map['refering_column'] = $meta[$i]->name;
+        foreach ($meta as $i => $field) {
+            $map = [
+                'table_name' => $field->table,
+                'refering_column' => $field->name,
+            ];
 
-            if ($nbColumns > 1) {
+            if ($nbColumns >= $i) {
                 $map['real_column'] = $view_columns[$i];
             }
 
@@ -815,10 +825,10 @@ class DatabaseInterface implements DbalInterface
      * returns detailed array with all columns for given table in database,
      * or all tables/databases
      *
-     * @param string $database name of database
-     * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of specific column
-     * @param mixed  $link     mysql link resource
+     * @param string|null $database name of database
+     * @param string|null $table    name of table to retrieve columns from
+     * @param string|null $column   name of specific column
+     * @param mixed       $link     mysql link resource
      *
      * @return array
      */
@@ -841,12 +851,7 @@ class DatabaseInterface implements DbalInterface
         $columns = [];
         if ($database === null) {
             foreach ($GLOBALS['dblist']->databases as $database) {
-                $columns[$database] = $this->getColumnsFull(
-                    $database,
-                    null,
-                    null,
-                    $link
-                );
+                $columns[$database] = $this->getColumnsFull($database, null, null, $link);
             }
 
             return $columns;
@@ -855,16 +860,12 @@ class DatabaseInterface implements DbalInterface
         if ($table === null) {
             $tables = $this->getTables($database);
             foreach ($tables as $table) {
-                $columns[$table] = $this->getColumnsFull(
-                    $database,
-                    $table,
-                    null,
-                    $link
-                );
+                $columns[$table] = $this->getColumnsFull($database, $table, null, $link);
             }
 
             return $columns;
         }
+
         $sql = 'SHOW FULL COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table);
         if ($column !== null) {
@@ -883,34 +884,83 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Returns descriptions of columns in given table (all or given by $column)
+     * Returns description of a $column in given table
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of column, null to show all columns
+     * @param string $column   name of column
      * @param bool   $full     whether to return full info or only column names
      * @param int    $link     link type
      *
-     * @return array array indexed by column names or,
-     *               if $column is given, flat array description
+     * @return array flat array description
      */
-    public function getColumns(
+    public function getColumn(
         string $database,
         string $table,
-        ?string $column = null,
+        string $column,
         bool $full = false,
         $link = self::CONNECT_USER
     ): array {
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
-            $column === null ? null : Util::escapeMysqlWildcards($this->escapeString($column)),
+            $this->escapeMysqlLikeString($column),
             $full
         );
+        /** @var array<string, array> $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $link);
-        if (! is_array($fields) || count($fields) === 0) {
+
+        $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
+
+        return array_shift($columns) ?? [];
+    }
+
+    /**
+     * Returns descriptions of columns in given table
+     *
+     * @param string $database name of database
+     * @param string $table    name of table to retrieve columns from
+     * @param bool   $full     whether to return full info or only column names
+     * @param int    $link     link type
+     *
+     * @return array<string, array> array indexed by column names
+     */
+    public function getColumns(
+        string $database,
+        string $table,
+        bool $full = false,
+        $link = self::CONNECT_USER
+    ): array {
+        $sql = QueryGenerator::getColumnsSql(
+            $database,
+            $table,
+            null,
+            $full
+        );
+        /** @var array<string, array> $fields */
+        $fields = $this->fetchResult($sql, 'Field', null, $link);
+
+        return $this->attachIndexInfoToColumns($database, $table, $fields);
+    }
+
+    /**
+     * Attach index information to the column definition
+     *
+     * @param string               $database name of database
+     * @param string               $table    name of table to retrieve columns from
+     * @param array<string, array> $fields   column array indexed by their names
+     *
+     * @return array<string, array> Column defintions with index information
+     */
+    private function attachIndexInfoToColumns(
+        string $database,
+        string $table,
+        array $fields
+    ): array {
+        if (! $fields) {
             return [];
         }
+
         // Check if column is a part of multiple-column index and set its 'Key'.
         $indexes = Index::getFromTable($table, $database);
         foreach ($fields as $field => $field_data) {
@@ -919,7 +969,6 @@ class DatabaseInterface implements DbalInterface
             }
 
             foreach ($indexes as $index) {
-                /** @var Index $index */
                 if (! $index->hasColumn($field)) {
                     continue;
                 }
@@ -937,7 +986,7 @@ class DatabaseInterface implements DbalInterface
             }
         }
 
-        return $column != null ? array_shift($fields) : $fields;
+        return $fields;
     }
 
     /**
@@ -947,22 +996,17 @@ class DatabaseInterface implements DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param mixed  $link     mysql link resource
      *
-     * @return array|null
+     * @return string[]
      */
     public function getColumnNames(
         string $database,
         string $table,
         $link = self::CONNECT_USER
-    ): ?array {
+    ): array {
         $sql = QueryGenerator::getColumnsSql($database, $table);
+
         // We only need the 'Field' column which contains the table's column names
-        $fields = array_keys($this->fetchResult($sql, 'Field', null, $link));
-
-        if (! is_array($fields) || count($fields) === 0) {
-            return null;
-        }
-
-        return $fields;
+        return $this->fetchResult($sql, null, 'Field', $link);
     }
 
     /**
@@ -980,13 +1024,8 @@ class DatabaseInterface implements DbalInterface
         $link = self::CONNECT_USER
     ): array {
         $sql = QueryGenerator::getTableIndexesSql($database, $table);
-        $indexes = $this->fetchResult($sql, null, null, $link);
 
-        if (! is_array($indexes) || count($indexes) < 1) {
-            return [];
-        }
-
-        return $indexes;
+        return $this->fetchResult($sql, null, null, $link);
     }
 
     /**
@@ -995,9 +1034,9 @@ class DatabaseInterface implements DbalInterface
      * @param string $var  mysql server variable name
      * @param int    $type DatabaseInterface::GETVAR_SESSION |
      *                     DatabaseInterface::GETVAR_GLOBAL
-     * @param mixed  $link mysql link resource|object
+     * @param int    $link mysql link resource|object
      *
-     * @return mixed   value for mysql server variable
+     * @return false|string|null value for mysql server variable
      */
     public function getVariable(
         string $var,
@@ -1015,12 +1054,7 @@ class DatabaseInterface implements DbalInterface
                 $modifier = '';
         }
 
-        return $this->fetchValue(
-            'SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';',
-            0,
-            1,
-            $link
-        );
+        return $this->fetchValue('SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 1, $link);
     }
 
     /**
@@ -1028,25 +1062,19 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $var   variable name
      * @param string $value value to set
-     * @param mixed  $link  mysql link resource|object
-     *
-     * @return bool whether query was a successful
+     * @param int    $link  mysql link resource|object
      */
     public function setVariable(
         string $var,
         string $value,
         $link = self::CONNECT_USER
     ): bool {
-        $current_value = $this->getVariable(
-            $var,
-            self::GETVAR_SESSION,
-            $link
-        );
+        $current_value = $this->getVariable($var, self::GETVAR_SESSION, $link);
         if ($current_value == $value) {
             return true;
         }
 
-        return $this->query('SET ' . $var . ' = ' . $value . ';', $link);
+        return (bool) $this->query('SET ' . $var . ' = ' . $value . ';', $link);
     }
 
     /**
@@ -1056,11 +1084,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function postConnect(): void
     {
-        $version = $this->fetchSingleRow(
-            'SELECT @@version, @@version_comment',
-            'ASSOC',
-            self::CONNECT_USER
-        );
+        $version = $this->fetchSingleRow('SELECT @@version, @@version_comment');
 
         if (is_array($version)) {
             $this->versionString = $version['@@version'] ?? '';
@@ -1069,6 +1093,7 @@ class DatabaseInterface implements DbalInterface
             if (stripos($this->versionString, 'mariadb') !== false) {
                 $this->isMariaDb = true;
             }
+
             if (stripos($this->versionComment, 'percona') !== false) {
                 $this->isPercona = true;
             }
@@ -1081,22 +1106,15 @@ class DatabaseInterface implements DbalInterface
             $default_charset = 'utf8';
             $default_collation = 'utf8_general_ci';
         }
+
         $GLOBALS['collation_connection'] = $default_collation;
         $GLOBALS['charset_connection'] = $default_charset;
-        $this->query(
-            sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $default_charset, $default_collation),
-            self::CONNECT_USER,
-            self::QUERY_STORE
-        );
+        $this->query(sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $default_charset, $default_collation));
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
-        if (! empty($locale)) {
-            $this->query(
-                "SET lc_messages = '" . $locale . "';",
-                self::CONNECT_USER,
-                self::QUERY_STORE
-            );
+        if ($locale) {
+            $this->query("SET lc_messages = '" . $locale . "';");
         }
 
         // Set timezone for the session, if required.
@@ -1125,9 +1143,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         /* Loads closest context to this version. */
-        Context::loadClosest(
-            ($this->isMariaDb ? 'MariaDb' : 'MySql') . $this->versionInt
-        );
+        Context::loadClosest(($this->isMariaDb ? 'MariaDb' : 'MySql') . $this->versionInt);
 
         /**
          * the DatabaseList class as a stub for the ListDatabase class
@@ -1144,51 +1160,26 @@ class DatabaseInterface implements DbalInterface
     {
         $charset = $GLOBALS['charset_connection'];
         /* Automatically adjust collation if not supported by server */
-        if ($charset === 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
+        if ($charset === 'utf8' && str_starts_with($collation, 'utf8mb4_')) {
             $collation = 'utf8_' . substr($collation, 8);
         }
+
         $result = $this->tryQuery(
             "SET collation_connection = '"
-            . $this->escapeString($collation, self::CONNECT_USER)
-            . "';",
-            self::CONNECT_USER,
-            self::QUERY_STORE
+            . $this->escapeString($collation)
+            . "';"
         );
+
         if ($result === false) {
             trigger_error(
                 __('Failed to set configured collation connection!'),
                 E_USER_WARNING
             );
-        } else {
-            $GLOBALS['collation_connection'] = $collation;
-        }
-    }
 
-    /**
-     * This function checks and initializes the phpMyAdmin configuration
-     * storage state before it is used into session cache.
-     *
-     * @return void
-     */
-    public function initRelationParamsCache()
-    {
-        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
-        // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
-        $storageDbName = is_string($storageDbName) && $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
-
-        // This will make users not having explicitly listed databases
-        // have config values filled by the default phpMyAdmin storage table name values
-        $this->relation->fixPmaTables($storageDbName, false);
-
-        // This global will be changed if fixPmaTables did find one valid table
-        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
-
-        // Empty means that until now no pmadb was found eligible
-        if (! empty($storageDbName)) {
             return;
         }
 
-        $this->relation->fixPmaTables($GLOBALS['db'], false);
+        $GLOBALS['collation_connection'] = $collation;
     }
 
     /**
@@ -1196,7 +1187,7 @@ class DatabaseInterface implements DbalInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      */
-    public function postConnectControl(): void
+    public function postConnectControl(Relation $relation): void
     {
         // If Zero configuration mode enabled, check PMA tables in current db.
         if ($GLOBALS['cfg']['ZeroConf'] != true) {
@@ -1208,7 +1199,7 @@ class DatabaseInterface implements DbalInterface
          */
         $GLOBALS['dblist'] = new DatabaseList();
 
-        $this->initRelationParamsCache();
+        $relation->initRelationParamsCache();
     }
 
     /**
@@ -1223,57 +1214,24 @@ class DatabaseInterface implements DbalInterface
      * // $user_name = 'John Doe'
      * </code>
      *
-     * @param string     $query      The query to execute
-     * @param int        $row_number row to fetch the value from,
-     *                               starting at 0, with 0 being default
-     * @param int|string $field      field to fetch the value from,
-     *                               starting at 0, with 0 being default
-     * @param int        $link       link type
+     * @param string     $query The query to execute
+     * @param int|string $field field to fetch the value from,
+     *                          starting at 0, with 0 being default
+     * @param int        $link  link type
      *
-     * @return mixed value of first field in first row from result
-     *               or false if not found
+     * @return string|false|null value of first field in first row from result or false if not found
      */
     public function fetchValue(
         string $query,
-        int $row_number = 0,
         $field = 0,
         $link = self::CONNECT_USER
     ) {
-        $value = false;
-
-        $result = $this->tryQuery(
-            $query,
-            $link,
-            self::QUERY_STORE,
-            false
-        );
+        $result = $this->tryQuery($query, $link, self::QUERY_BUFFERED, false);
         if ($result === false) {
             return false;
         }
 
-        // return false if result is empty or false
-        // or requested row is larger than rows in result
-        if ($this->numRows($result) < $row_number + 1) {
-            return $value;
-        }
-
-        // get requested row
-        for ($i = 0; $i <= $row_number; $i++) {
-            // if $field is an integer use non associative mysql fetch function
-            if (is_int($field)) {
-                $row = $this->fetchRow($result);
-                continue;
-            }
-            $row = $this->fetchAssoc($result);
-        }
-        $this->freeResult($result);
-
-        // return requested field
-        if (isset($row[$field])) {
-            $value = $row[$field];
-        }
-
-        return $value;
+        return $result->fetchValue($field);
     }
 
     /**
@@ -1290,42 +1248,19 @@ class DatabaseInterface implements DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
+     * @psalm-param  DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
      */
     public function fetchSingleRow(
         string $query,
-        string $type = 'ASSOC',
+        string $type = DbalInterface::FETCH_ASSOC,
         $link = self::CONNECT_USER
     ): ?array {
-        $result = $this->tryQuery(
-            $query,
-            $link,
-            self::QUERY_STORE,
-            false
-        );
+        $result = $this->tryQuery($query, $link, self::QUERY_BUFFERED, false);
         if ($result === false) {
             return null;
         }
 
-        if (! $this->numRows($result)) {
-            return null;
-        }
-
-        switch ($type) {
-            case 'NUM':
-                $row = $this->fetchRow($result);
-                break;
-            case 'ASSOC':
-                $row = $this->fetchAssoc($result);
-                break;
-            case 'BOTH':
-            default:
-                $row = $this->fetchArray($result);
-                break;
-        }
-
-        $this->freeResult($result);
-
-        return $row;
+        return $this->fetchByMode($result, $type) ?: null;
     }
 
     /**
@@ -1339,6 +1274,22 @@ class DatabaseInterface implements DbalInterface
     private function fetchValueOrValueByIndex($row, $value)
     {
         return $value === null ? $row : $row[$value];
+    }
+
+    /**
+     * returns array of rows with numeric or associative keys
+     *
+     * @param ResultInterface $result result set identifier
+     * @param string          $mode   either self::FETCH_NUM, self::FETCH_ASSOC or self::FETCH_BOTH
+     * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $mode
+     */
+    private function fetchByMode(ResultInterface $result, string $mode): array
+    {
+        if ($mode === self::FETCH_NUM) {
+            return $result->fetchRow();
+        }
+
+        return $result->fetchAssoc();
     }
 
     /**
@@ -1383,14 +1334,13 @@ class DatabaseInterface implements DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string           $query   query to execute
-     * @param string|int|array $key     field-name or offset
-     *                                  used as key for array
-     *                                  or array of those
-     * @param string|int       $value   value-name or offset
-     *                                  used as value for array
-     * @param int              $link    link type
-     * @param int              $options query options
+     * @param string                $query query to execute
+     * @param string|int|array|null $key   field-name or offset
+     *                                     used as key for array
+     *                                     or array of those
+     * @param string|int|null       $value value-name or offset
+     *                                     used as value for array
+     * @param int                   $link  link type
      *
      * @return array resultrows or values indexed by $key
      */
@@ -1398,60 +1348,57 @@ class DatabaseInterface implements DbalInterface
         string $query,
         $key = null,
         $value = null,
-        $link = self::CONNECT_USER,
-        int $options = 0
-    ) {
+        $link = self::CONNECT_USER
+    ): array {
         $resultrows = [];
 
-        $result = $this->tryQuery($query, $link, $options, false);
+        $result = $this->tryQuery($query, $link, self::QUERY_BUFFERED, false);
 
         // return empty array if result is empty or false
         if ($result === false) {
             return $resultrows;
         }
 
-        $fetch_function = 'fetchAssoc';
-
-        // no nested array if only one field is in result
-        if ($key === null && $this->numFields($result) === 1) {
-            $value = 0;
-            $fetch_function = 'fetchRow';
-        }
-
-        // if $key is an integer use non associative mysql fetch function
-        if (is_int($key)) {
-            $fetch_function = 'fetchRow';
-        }
+        $fetch_function = self::FETCH_ASSOC;
 
         if ($key === null) {
-            while ($row = $this->$fetch_function($result)) {
+            // no nested array if only one field is in result
+            if ($result->numFields() === 1) {
+                $value = 0;
+                $fetch_function = self::FETCH_NUM;
+            }
+
+            while ($row = $this->fetchByMode($result, $fetch_function)) {
                 $resultrows[] = $this->fetchValueOrValueByIndex($row, $value);
             }
-        } else {
-            if (is_array($key)) {
-                while ($row = $this->$fetch_function($result)) {
-                    $result_target =& $resultrows;
-                    foreach ($key as $key_index) {
-                        if ($key_index === null) {
-                            $result_target =& $result_target[];
-                            continue;
-                        }
-
-                        if (! isset($result_target[$row[$key_index]])) {
-                            $result_target[$row[$key_index]] = [];
-                        }
-                        $result_target =& $result_target[$row[$key_index]];
+        } elseif (is_array($key)) {
+            while ($row = $this->fetchByMode($result, $fetch_function)) {
+                $result_target =& $resultrows;
+                foreach ($key as $key_index) {
+                    if ($key_index === null) {
+                        $result_target =& $result_target[];
+                        continue;
                     }
-                    $result_target = $this->fetchValueOrValueByIndex($row, $value);
+
+                    if (! isset($result_target[$row[$key_index]])) {
+                        $result_target[$row[$key_index]] = [];
+                    }
+
+                    $result_target =& $result_target[$row[$key_index]];
                 }
-            } else {
-                while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
-                }
+
+                $result_target = $this->fetchValueOrValueByIndex($row, $value);
+            }
+        } else {
+            // if $key is an integer use non associative mysql fetch function
+            if (is_int($key)) {
+                $fetch_function = self::FETCH_NUM;
+            }
+
+            while ($row = $this->fetchByMode($result, $fetch_function)) {
+                $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
             }
         }
-
-        $this->freeResult($result);
 
         return $resultrows;
     }
@@ -1463,20 +1410,20 @@ class DatabaseInterface implements DbalInterface
      */
     public function getCompatibilities(): array
     {
-        $compats = ['NONE'];
-        $compats[] = 'ANSI';
-        $compats[] = 'DB2';
-        $compats[] = 'MAXDB';
-        $compats[] = 'MYSQL323';
-        $compats[] = 'MYSQL40';
-        $compats[] = 'MSSQL';
-        $compats[] = 'ORACLE';
-        // removed; in MySQL 5.0.33, this produces exports that
-        // can't be read by POSTGRESQL (see our bug #1596328)
-        //$compats[] = 'POSTGRESQL';
-        $compats[] = 'TRADITIONAL';
-
-        return $compats;
+        return [
+            'NONE',
+            'ANSI',
+            'DB2',
+            'MAXDB',
+            'MYSQL323',
+            'MYSQL40',
+            'MSSQL',
+            'ORACLE',
+            // removed; in MySQL 5.0.33, this produces exports that
+            // can't be read by POSTGRESQL (see our bug #1596328)
+            // 'POSTGRESQL',
+            'TRADITIONAL',
+        ];
     }
 
     /**
@@ -1484,11 +1431,21 @@ class DatabaseInterface implements DbalInterface
      *
      * @param int $link link type
      *
-     * @return array warnings
+     * @return Warning[] warnings
      */
     public function getWarnings($link = self::CONNECT_USER): array
     {
-        return $this->fetchResult('SHOW WARNINGS', null, null, $link);
+        $result = $this->tryQuery('SHOW WARNINGS', $link, 0, false);
+        if ($result === false) {
+            return [];
+        }
+
+        $warnings = [];
+        while ($row = $result->fetchAssoc()) {
+            $warnings[] = Warning::fromArray($row);
+        }
+
+        return $warnings;
     }
 
     /**
@@ -1505,12 +1462,7 @@ class DatabaseInterface implements DbalInterface
         string $which,
         $link = self::CONNECT_USER
     ): array {
-        $shows = $this->fetchResult(
-            'SHOW ' . $which . ' STATUS;',
-            null,
-            null,
-            $link
-        );
+        $shows = $this->fetchResult('SHOW ' . $which . ' STATUS;', null, null, $link);
         $result = [];
         foreach ($shows as $one_show) {
             if ($one_show['Db'] != $db || $one_show['Type'] != $which) {
@@ -1541,14 +1493,14 @@ class DatabaseInterface implements DbalInterface
     ): ?string {
         $returned_field = [
             'PROCEDURE' => 'Create Procedure',
-            'FUNCTION'  => 'Create Function',
-            'EVENT'     => 'Create Event',
-            'VIEW'      => 'Create View',
+            'FUNCTION' => 'Create Function',
+            'EVENT' => 'Create Event',
+            'VIEW' => 'Create View',
         ];
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
             . Util::backquote($name);
-        $result = $this->fetchValue($query, 0, $returned_field[$which], $link);
+        $result = $this->fetchValue($query, $returned_field[$which], $link);
 
         return is_string($result) ? $result : null;
     }
@@ -1557,9 +1509,9 @@ class DatabaseInterface implements DbalInterface
      * returns details about the PROCEDUREs or FUNCTIONs for a specific database
      * or details about a specific routine
      *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION or null for both
-     * @param string $name  name of the routine (to fetch a specific routine)
+     * @param string      $db    db name
+     * @param string|null $which PROCEDURE | FUNCTION or null for both
+     * @param string      $name  name of the routine (to fetch a specific routine)
      *
      * @return array information about PROCEDUREs or FUNCTIONs
      */
@@ -1568,60 +1520,52 @@ class DatabaseInterface implements DbalInterface
         ?string $which = null,
         string $name = ''
     ): array {
-        $routines = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaRoutinesRequest(
                 $this->escapeString($db),
-                Core::isValid($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
+                isset($which) && in_array($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
                 empty($name) ? null : $this->escapeString($name)
             );
-            $result = $this->fetchResult($query);
-            if (! empty($result)) {
-                $routines = $result;
-            }
+            $routines = $this->fetchResult($query);
         } else {
+            $routines = [];
+
             if ($which === 'FUNCTION' || $which == null) {
                 $query = 'SHOW FUNCTION STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
-                if (! empty($name)) {
+                if ($name) {
                     $query .= " AND `Name` = '"
                         . $this->escapeString($name) . "'";
                 }
-                $result = $this->fetchResult($query);
-                if (! empty($result)) {
-                    $routines = array_merge($routines, $result);
-                }
+
+                $routines = $this->fetchResult($query);
             }
+
             if ($which === 'PROCEDURE' || $which == null) {
                 $query = 'SHOW PROCEDURE STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
-                if (! empty($name)) {
+                if ($name) {
                     $query .= " AND `Name` = '"
                         . $this->escapeString($name) . "'";
                 }
-                $result = $this->fetchResult($query);
-                if (! empty($result)) {
-                    $routines = array_merge($routines, $result);
-                }
+
+                $routines = array_merge($routines, $this->fetchResult($query));
             }
         }
 
         $ret = [];
         foreach ($routines as $routine) {
-            $one_result = [];
-            $one_result['db'] = $routine['Db'];
-            $one_result['name'] = $routine['Name'];
-            $one_result['type'] = $routine['Type'];
-            $one_result['definer'] = $routine['Definer'];
-            $one_result['returns'] = $routine['DTD_IDENTIFIER'] ?? '';
-            $ret[] = $one_result;
+            $ret[] = [
+                'db' => $routine['Db'],
+                'name' => $routine['Name'],
+                'type' => $routine['Type'],
+                'definer' => $routine['Definer'],
+                'returns' => $routine['DTD_IDENTIFIER'] ?? '',
+            ];
         }
 
         // Sort results by name
-        $name = [];
-        foreach ($ret as $value) {
-            $name[] = $value['name'];
-        }
+        $name = array_column($ret, 'name');
         array_multisort($name, SORT_ASC, $ret);
 
         return $ret;
@@ -1644,7 +1588,7 @@ class DatabaseInterface implements DbalInterface
             );
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
-            if (! empty($name)) {
+            if ($name) {
                 $query .= " WHERE `Name` = '"
                     . $this->escapeString($name) . "'";
             }
@@ -1662,10 +1606,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Sort results by name
-        $name = [];
-        foreach ($result as $value) {
-            $name[] = $value['name'];
-        }
+        $name = array_column($result, 'name');
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
@@ -1680,7 +1621,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return array information about triggers (may be empty)
      */
-    public function getTriggers(string $db, string $table = '', $delimiter = '//')
+    public function getTriggers(string $db, string $table = '', string $delimiter = '//'): array
     {
         $result = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -1690,7 +1631,7 @@ class DatabaseInterface implements DbalInterface
             );
         } else {
             $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
-            if (! empty($table)) {
+            if ($table) {
                 $query .= " LIKE '" . $this->escapeString($table) . "';";
             }
         }
@@ -1706,6 +1647,7 @@ class DatabaseInterface implements DbalInterface
                 $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
                 $trigger['DEFINER'] = $trigger['Definer'];
             }
+
             $one_result = [];
             $one_result['name'] = $trigger['TRIGGER_NAME'];
             $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
@@ -1716,9 +1658,7 @@ class DatabaseInterface implements DbalInterface
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
-            $one_result['full_trigger_name'] = Util::backquote(
-                $trigger['TRIGGER_NAME']
-            );
+            $one_result['full_trigger_name'] = Util::backquote($trigger['TRIGGER_NAME']);
             $one_result['drop'] = 'DROP TRIGGER IF EXISTS '
                 . $one_result['full_trigger_name'];
             $one_result['create'] = 'CREATE TRIGGER '
@@ -1733,10 +1673,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Sort results by name
-        $name = [];
-        foreach ($result as $value) {
-            $name[] = $value['name'];
-        }
+        $name = array_column($result, 'name');
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
@@ -1752,6 +1689,7 @@ class DatabaseInterface implements DbalInterface
         if (SessionCache::has('mysql_cur_user')) {
             return SessionCache::get('mysql_cur_user');
         }
+
         $user = $this->fetchValue('SELECT CURRENT_USER();');
         if ($user !== false) {
             SessionCache::set('mysql_cur_user', $user);
@@ -1765,25 +1703,20 @@ class DatabaseInterface implements DbalInterface
     public function isSuperUser(): bool
     {
         if (SessionCache::has('is_superuser')) {
-            return SessionCache::get('is_superuser');
+            return (bool) SessionCache::get('is_superuser');
         }
 
         if (! $this->isConnected()) {
             return false;
         }
 
-        $result = $this->tryQuery(
-            'SELECT 1 FROM mysql.user LIMIT 1',
-            self::CONNECT_USER,
-            self::QUERY_STORE
-        );
+        $result = $this->tryQuery('SELECT 1 FROM mysql.user LIMIT 1');
         $isSuperUser = false;
 
         if ($result) {
-            $isSuperUser = (bool) $this->numRows($result);
+            $isSuperUser = (bool) $result->numRows();
         }
 
-        $this->freeResult($result);
         SessionCache::set('is_superuser', $isSuperUser);
 
         return $isSuperUser;
@@ -1794,7 +1727,7 @@ class DatabaseInterface implements DbalInterface
         global $cfg;
 
         if (SessionCache::has('is_grantuser')) {
-            return SessionCache::get('is_grantuser');
+            return (bool) SessionCache::get('is_grantuser');
         }
 
         if (! $this->isConnected()) {
@@ -1807,7 +1740,7 @@ class DatabaseInterface implements DbalInterface
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
-                if (strpos($grant, 'WITH GRANT OPTION') !== false) {
+                if (str_contains($grant, 'WITH GRANT OPTION')) {
                     $hasGrantPrivilege = true;
                     break;
                 }
@@ -1820,13 +1753,12 @@ class DatabaseInterface implements DbalInterface
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
-        $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
+        $result = $this->tryQuery($query);
 
         if ($result) {
-            $hasGrantPrivilege = (bool) $this->numRows($result);
+            $hasGrantPrivilege = (bool) $result->numRows();
         }
 
-        $this->freeResult($result);
         SessionCache::set('is_grantuser', $hasGrantPrivilege);
 
         return $hasGrantPrivilege;
@@ -1837,7 +1769,7 @@ class DatabaseInterface implements DbalInterface
         global $cfg;
 
         if (SessionCache::has('is_createuser')) {
-            return SessionCache::get('is_createuser');
+            return (bool) SessionCache::get('is_createuser');
         }
 
         if (! $this->isConnected()) {
@@ -1850,9 +1782,7 @@ class DatabaseInterface implements DbalInterface
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
-                if (strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
-                    || strpos($grant, 'CREATE USER') !== false
-                ) {
+                if (str_contains($grant, 'ALL PRIVILEGES ON *.*') || str_contains($grant, 'CREATE USER')) {
                     $hasCreatePrivilege = true;
                     break;
                 }
@@ -1865,13 +1795,12 @@ class DatabaseInterface implements DbalInterface
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
-        $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
+        $result = $this->tryQuery($query);
 
         if ($result) {
-            $hasCreatePrivilege = (bool) $this->numRows($result);
+            $hasCreatePrivilege = (bool) $result->numRows();
         }
 
-        $this->freeResult($result);
         SessionCache::set('is_createuser', $hasCreatePrivilege);
 
         return $hasCreatePrivilege;
@@ -1884,13 +1813,7 @@ class DatabaseInterface implements DbalInterface
 
     private function getCurrentUserGrants(): array
     {
-        return $this->fetchResult(
-            'SHOW GRANTS FOR CURRENT_USER();',
-            null,
-            null,
-            self::CONNECT_USER,
-            self::QUERY_STORE
-        );
+        return $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();');
     }
 
     /**
@@ -1911,14 +1834,12 @@ class DatabaseInterface implements DbalInterface
     /**
      * Returns value for lower_case_table_names variable
      *
-     * @return string|bool
+     * @return string
      */
     public function getLowerCaseNames()
     {
         if ($this->lowerCaseTableNames === null) {
-            $this->lowerCaseTableNames = $this->fetchValue(
-                'SELECT @@lower_case_table_names'
-            );
+            $this->lowerCaseTableNames = $this->fetchValue('SELECT @@lower_case_table_names') ?: '';
         }
 
         return $this->lowerCaseTableNames;
@@ -1930,7 +1851,7 @@ class DatabaseInterface implements DbalInterface
      * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
      *                           or CONNECT_AUXILIARY.
      * @param array|null $server Server information like host/port/socket/persistent
-     * @param int        $target How to store connection link, defaults to $mode
+     * @param int|null   $target How to store connection link, defaults to $mode
      *
      * @return mixed false on error or a connection object on success
      */
@@ -1952,13 +1873,9 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Do not show location and backtrace for connection errors
-        $GLOBALS['error_handler']->setHideLocation(true);
-        $result = $this->extension->connect(
-            $user,
-            $password,
-            $server
-        );
-        $GLOBALS['error_handler']->setHideLocation(false);
+        $GLOBALS['errorHandler']->setHideLocation(true);
+        $result = $this->extension->connect($user, $password, $server);
+        $GLOBALS['errorHandler']->setHideLocation(false);
 
         if ($result) {
             $this->links[$target] = $result;
@@ -1973,8 +1890,7 @@ class DatabaseInterface implements DbalInterface
         if ($mode == self::CONNECT_CONTROL) {
             trigger_error(
                 __(
-                    'Connection for controluser as defined in your '
-                    . 'configuration failed.'
+                    'Connection for controluser as defined in your configuration failed.'
                 ),
                 E_USER_WARNING
             );
@@ -1994,10 +1910,10 @@ class DatabaseInterface implements DbalInterface
     /**
      * selects given database
      *
-     * @param string $dbname database name to select
-     * @param int    $link   link type
+     * @param string|DatabaseName $dbname database name to select
+     * @param int                 $link   link type
      */
-    public function selectDb(string $dbname, $link = self::CONNECT_USER): bool
+    public function selectDb($dbname, $link = self::CONNECT_USER): bool
     {
         if (! isset($this->links[$link])) {
             return false;
@@ -2007,64 +1923,9 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns array of rows with associative and numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchArray($result): ?array
-    {
-        return $this->extension->fetchArray($result);
-    }
-
-    /**
-     * returns array of rows with associative keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchAssoc($result): ?array
-    {
-        return $this->extension->fetchAssoc($result);
-    }
-
-    /**
-     * returns array of rows with numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchRow($result): ?array
-    {
-        return $this->extension->fetchRow($result);
-    }
-
-    /**
-     * Adjusts the result pointer to an arbitrary row in the result
-     *
-     * @param object $result database result
-     * @param int    $offset offset to seek
-     *
-     * @return bool true on success, false on failure
-     */
-    public function dataSeek($result, int $offset): bool
-    {
-        return $this->extension->dataSeek($result, $offset);
-    }
-
-    /**
-     * Frees memory associated with the result
-     *
-     * @param object $result database result
-     */
-    public function freeResult($result): void
-    {
-        $this->extension->freeResult($result);
-    }
-
-    /**
      * Check if there are any more query results from a multi query
      *
      * @param int $link link type
-     *
-     * @return bool true or false
      */
     public function moreResults($link = self::CONNECT_USER): bool
     {
@@ -2079,8 +1940,6 @@ class DatabaseInterface implements DbalInterface
      * Prepare next result from multi_query
      *
      * @param int $link link type
-     *
-     * @return bool true or false
      */
     public function nextResult($link = self::CONNECT_USER): bool
     {
@@ -2096,7 +1955,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @param int $link link type
      *
-     * @return mixed false when empty results / result set when not empty
+     * @return ResultInterface|false false when empty results / result set when not empty
      */
     public function storeResult($link = self::CONNECT_USER)
     {
@@ -2150,16 +2009,14 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns last error message or false if no errors occurred
+     * Returns last error message or an empty string if no errors occurred.
      *
      * @param int $link link type
-     *
-     * @return string|bool error or false
      */
-    public function getError($link = self::CONNECT_USER)
+    public function getError($link = self::CONNECT_USER): string
     {
         if (! isset($this->links[$link])) {
-            return false;
+            return '';
         }
 
         return $this->extension->getError($this->links[$link]);
@@ -2167,14 +2024,22 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * returns the number of rows returned by last query
+     * used with tryQuery as it accepts false
      *
-     * @param object $result result set identifier
+     * @param string $query query to run
      *
      * @return string|int
+     * @psalm-return int|numeric-string
      */
-    public function numRows($result)
+    public function queryAndGetNumRows(string $query)
     {
-        return $this->extension->numRows($result);
+        $result = $this->tryQuery($query);
+
+        if (! $result) {
+            return 0;
+        }
+
+        return $result->numRows();
     }
 
     /**
@@ -2182,10 +2047,8 @@ class DatabaseInterface implements DbalInterface
      * or $GLOBALS['userlink']
      *
      * @param int $link link type
-     *
-     * @return int|bool
      */
-    public function insertId($link = self::CONNECT_USER)
+    public function insertId($link = self::CONNECT_USER): int
     {
         // If the primary key is BIGINT we get an incorrect result
         // (sometimes negative, sometimes positive)
@@ -2195,7 +2058,7 @@ class DatabaseInterface implements DbalInterface
         // When no controluser is defined, using mysqli_insert_id($link)
         // does not always return the last insert id due to a mixup with
         // the tracking mechanism, but this works:
-        return $this->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
+        return (int) $this->fetchValue('SELECT LAST_INSERT_ID();', 0, $link);
     }
 
     /**
@@ -2204,14 +2067,15 @@ class DatabaseInterface implements DbalInterface
      * @param int  $link           link type
      * @param bool $get_from_cache whether to retrieve from cache
      *
-     * @return int|bool
+     * @return int|string
+     * @psalm-return int|numeric-string
      */
     public function affectedRows(
         $link = self::CONNECT_USER,
         bool $get_from_cache = true
     ) {
         if (! isset($this->links[$link])) {
-            return false;
+            return -1;
         }
 
         if ($get_from_cache) {
@@ -2224,13 +2088,13 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns metainfo for fields in $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      *
-     * @return mixed meta info for fields in $result
+     * @return FieldMetadata[] meta info for fields in $result
      */
-    public function getFieldsMeta($result)
+    public function getFieldsMeta(ResultInterface $result): array
     {
-        $result = $this->extension->getFieldsMeta($result);
+        $fields = $result->getFieldsMeta();
 
         if ($this->getLowerCaseNames() === '2') {
             /**
@@ -2240,8 +2104,9 @@ class DatabaseInterface implements DbalInterface
              * but we still need to operate on original case to properly
              * match existing strings
              */
-            foreach ($result as $value) {
-                if (strlen($value->orgtable) === 0 ||
+            foreach ($fields as $value) {
+                if (
+                    strlen($value->orgtable) === 0 ||
                         mb_strtolower($value->orgtable) !== mb_strtolower($value->table)
                 ) {
                     continue;
@@ -2251,58 +2116,7 @@ class DatabaseInterface implements DbalInterface
             }
         }
 
-        return $result;
-    }
-
-    /**
-     * return number of fields in given $result
-     *
-     * @param object $result result set identifier
-     *
-     * @return int field count
-     */
-    public function numFields($result): int
-    {
-        return $this->extension->numFields($result);
-    }
-
-    /**
-     * returns the length of the given field $i in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return int|bool length of field
-     */
-    public function fieldLen($result, int $i)
-    {
-        return $this->extension->fieldLen($result, $i);
-    }
-
-    /**
-     * returns name of $i. field in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string name of $i. field in $result
-     */
-    public function fieldName($result, int $i): string
-    {
-        return $this->extension->fieldName($result, $i);
-    }
-
-    /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i): string
-    {
-        return $this->extension->fieldFlags($result, $i);
+        return $fields;
     }
 
     /**
@@ -2323,16 +2137,30 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
+     * returns properly escaped string for use in MySQL LIKE clauses
+     *
+     * @param string $str  string to be escaped
+     * @param int    $link optional database link to use
+     *
+     * @return string a MySQL escaped LIKE string
+     */
+    public function escapeMysqlLikeString(string $str, int $link = self::CONNECT_USER)
+    {
+        return $this->escapeString(strtr($str, ['\\' => '\\\\', '_' => '\\_', '%' => '\\%']), $link);
+    }
+
+    /**
      * Checks if this database server is running on Amazon RDS.
      */
     public function isAmazonRds(): bool
     {
         if (SessionCache::has('is_amazon_rds')) {
-            return SessionCache::get('is_amazon_rds');
+            return (bool) SessionCache::get('is_amazon_rds');
         }
+
         $sql = 'SELECT @@basedir';
-        $result = $this->fetchValue($sql);
-        $rds = (substr($result, 0, 10) === '/rdsdbbin/');
+        $result = (string) $this->fetchValue($sql);
+        $rds = str_starts_with($result, '/rdsdbbin/');
         SessionCache::set('is_amazon_rds', $rds);
 
         return $rds;
@@ -2392,11 +2220,11 @@ class DatabaseInterface implements DbalInterface
                 . ' WHERE SCHEMA_NAME = \'' . $this->escapeString($db)
                 . '\' LIMIT 1';
 
-            return $this->fetchValue($sql);
+            return (string) $this->fetchValue($sql);
         }
 
         $this->selectDb($db);
-        $return = $this->fetchValue('SELECT @@collation_database');
+        $return = (string) $this->fetchValue('SELECT @@collation_database');
         if ($db !== $GLOBALS['db']) {
             $this->selectDb($GLOBALS['db']);
         }
@@ -2409,7 +2237,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getServerCollation(): string
     {
-        return $this->fetchValue('SELECT @@collation_server');
+        return (string) $this->fetchValue('SELECT @@collation_server');
     }
 
     /**
@@ -2471,11 +2299,7 @@ class DatabaseInterface implements DbalInterface
                 '[doc@faqmysql]',
                 '[/doc]'
             );
-            Core::warnMissingExtension(
-                'mysqli',
-                true,
-                $docLink
-            );
+            Core::warnMissingExtension('mysqli', true, $docLink);
         }
 
         return new self(new DbiMysqli());

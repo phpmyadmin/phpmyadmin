@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeIndexContainer
+ */
 class NodeIndexContainerTest extends AbstractTestCase
 {
     /**
@@ -15,7 +18,6 @@ class NodeIndexContainerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
     }
 
@@ -25,13 +27,13 @@ class NodeIndexContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeIndexContainer');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+                'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/table/structure',
-            $parent->links['text']
         );
         $this->assertEquals('indexes', $parent->realName);
     }

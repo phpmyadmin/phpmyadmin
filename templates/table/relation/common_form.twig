@@ -5,11 +5,11 @@
     {{ get_hidden_inputs(db, table) }}
     {# InnoDB #}
     {% if is_foreign_key_supported(tbl_storage_engine) %}
-        <fieldset>
+        <fieldset class="pma-fieldset mb-3">
             <legend>{% trans 'Foreign key constraints' %}</legend>
             <div class="table-responsive-md jsresponsive">
             <table class="relationalTable table table-light table-striped w-auto">
-                <thead class="thead-light">
+                <thead class="table-light">
                 <tr>
                     <th>{% trans 'Actions' %}</th>
                     <th>{% trans 'Constraint properties' %}</th>
@@ -99,20 +99,23 @@
         </fieldset>
     {% endif %}
 
-    {% if cfg_relation['relwork'] %}
-        {% if is_foreign_key_supported(tbl_storage_engine) %}
-            <div id="ir_div"{% if default_sliders_state != 'disabled' -%}
-                {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Internal relationships' %}"
-            {%- endif %}>
+    {% if relation_parameters.relationFeature is not null %}
+        {% if default_sliders_state != 'disabled' and is_foreign_key_supported(tbl_storage_engine) %}
+        <div class="mb-3">
+          <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#internalRelationships" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="internalRelationships">
+            {% trans 'Internal relationships' %}
+          </button>
+        </div>
+        <div class="collapse mb-3{{ default_sliders_state == 'open' ? ' show' }}" id="internalRelationships">
         {% endif %}
 
-        <fieldset>
+        <fieldset class="pma-fieldset">
             <legend>
                 {% trans 'Internal relationships' %}
                 {{ show_docu('config', 'cfg_Servers_relation') }}
             </legend>
             <table class="relationalTable table table-light table-striped table-hover table-sm w-auto">
-                <thead class="thead-light">
+                <thead class="table-light">
                   <tr>
                     <th>{% trans 'Column' %}</th>
                     <th>
@@ -161,7 +164,7 @@
                         {% endif %}
 
                         <tr>
-                            <td class="vmiddle">
+                            <td class="align-middle">
                                 <strong>{{ myfield }}</strong>
                                 <input type="hidden" name="fields_name[{{ myfield_md5 }}]"
                                     value="{{ myfield }}">
@@ -194,14 +197,14 @@
                 </tbody>
             </table>
         </fieldset>
-        {% if is_foreign_key_supported(tbl_storage_engine) %}
-            </div>
+        {% if default_sliders_state != 'disabled' and is_foreign_key_supported(tbl_storage_engine) %}
+        </div>
         {% endif %}
     {% endif %}
 
-    {% if cfg_relation['displaywork'] %}
+    {% if relation_parameters.displayFeature is not null %}
         {% set disp = get_display_field(db, table) %}
-        <fieldset>
+        <fieldset class="pma-fieldset">
             <label>{% trans 'Choose column to display:' %}</label>
             <select name="display_field">
                 <option value="">---</option>
@@ -217,10 +220,25 @@
         </fieldset>
     {% endif %}
 
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-secondary preview_sql" type="button" value="{% trans 'Preview SQL' %}">
         <input class="btn btn-primary" type="submit" value="{% trans 'Save' %}">
     </fieldset>
 </form>
 
+<div class="modal fade" id="previewSqlModal" tabindex="-1" aria-labelledby="previewSqlModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="previewSqlModalLabel">{% trans 'Loading' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="previewSQLCloseButton" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

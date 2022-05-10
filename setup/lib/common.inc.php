@@ -1,31 +1,47 @@
 <?php
-/**
- * Loads libraries/common.inc.php and preforms some additional actions
- */
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 
-// phpcs:disable PSR1.Files.SideEffects
-define('PMA_MINIMUM_COMMON', true);
-// phpcs:enable
+if (PHP_VERSION_ID < 70205) {
+    die('<p>PHP 7.2.5+ is required.</p><p>Currently installed version is: ' . PHP_VERSION . '</p>');
+}
+
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
+require_once ROOT_PATH . 'libraries/constants.php';
+
+/**
+ * Activate autoloader
+ */
+if (! @is_readable(AUTOLOAD_FILE)) {
+    die(
+        '<p>File <samp>' . AUTOLOAD_FILE . '</samp> missing or not readable.</p>'
+        . '<p>Most likely you did not run Composer to '
+        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">'
+        . 'install library files</a>.</p>'
+    );
+}
+
+require AUTOLOAD_FILE;
 
 chdir('..');
 
-if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
-    die('Bad invocation!');
-}
+$isMinimumCommon = true;
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
+Common::run();
 
 // use default error handler
 restore_error_handler();
 
-// Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
-$GLOBALS['PMA_Config']->setCookie('pma_lang', (string) $GLOBALS['lang']);
-$GLOBALS['PMA_Config']->set('is_setup', true);
+// Save current language in a cookie, required since we set $isMinimumCommon
+$GLOBALS['config']->setCookie('pma_lang', (string) $GLOBALS['lang']);
+$GLOBALS['config']->set('is_setup', true);
 
 $GLOBALS['ConfigFile'] = new ConfigFile();
 $GLOBALS['ConfigFile']->setPersistKeys(

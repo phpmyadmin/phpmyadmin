@@ -4,15 +4,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\ConfigStorage\Features\DisplayFeature;
+use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
+
+use function __;
 use function array_key_exists;
 use function array_keys;
 use function array_values;
@@ -35,19 +40,13 @@ final class RelationController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name
-     * @param string            $table    Table name
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         Relation $relation,
-        $dbi
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template, $db, $table);
         $this->relation = $relation;
@@ -57,7 +56,7 @@ final class RelationController extends AbstractController
     /**
      * Index
      */
-    public function index(): void
+    public function __invoke(): void
     {
         global $route;
 
@@ -71,33 +70,21 @@ final class RelationController extends AbstractController
         $table = $this->dbi->getTable($this->db, $this->table);
         $storageEngine = mb_strtoupper((string) $table->getStatusInfo('Engine'));
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $relations = [];
-        if ($cfgRelation['relwork']) {
-            $relations = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'internal'
-            );
+        if ($relationParameters->relationFeature !== null) {
+            $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
         $relationsForeign = [];
-        if (Util::isForeignKeySupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'foreign'
-            );
+        if (ForeignKey::isSupported($storageEngine)) {
+            $relationsForeign = $this->relation->getForeigners($this->db, $this->table, '', 'foreign');
         }
 
         // Send table of column names to populate corresponding dropdowns depending
         // on the current selection
-        if (isset($_POST['getDropdownValues'])
-            && $_POST['getDropdownValues'] === 'true'
-        ) {
+        if (isset($_POST['getDropdownValues']) && $_POST['getDropdownValues'] === 'true') {
             // if both db and table are selected
             if (isset($_POST['foreignTable'])) {
                 $this->getDropdownValueForTable();
@@ -114,43 +101,32 @@ final class RelationController extends AbstractController
         $this->dbi->selectDb($this->db);
 
         // updates for Internal relations
-        if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
-            $this->updateForInternalRelation($table, $cfgRelation, $relations);
+        if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
+            $this->updateForInternalRelation($table, $relationParameters->relationFeature, $relations);
         }
 
         // updates for foreign keys
         $this->updateForForeignKeys($table, $options, $relationsForeign);
 
         // Updates for display field
-        if ($cfgRelation['displaywork'] && isset($_POST['display_field'])) {
-            $this->updateForDisplayField($table, $cfgRelation);
+        if ($relationParameters->displayFeature !== null && isset($_POST['display_field'])) {
+            $this->updateForDisplayField($table, $relationParameters->displayFeature);
         }
 
         // If we did an update, refresh our data
-        if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
-            $relations = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'internal'
-            );
+        if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
+            $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
-        if (isset($_POST['destination_foreign_db'])
-            && Util::isForeignKeySupported($storageEngine)
-        ) {
-            $relationsForeign = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'foreign'
-            );
+
+        if (isset($_POST['destination_foreign_db']) && ForeignKey::isSupported($storageEngine)) {
+            $relationsForeign = $this->relation->getForeigners($this->db, $this->table, '', 'foreign');
         }
 
         /**
          * Dialog
          */
         // Now find out the columns of our $table
-        // need to use DatabaseInterface::QUERY_STORE with $this->dbi->numRows()
+        // need to use DatabaseInterface::QUERY_BUFFERED with $this->dbi->numRows()
         // in mysqli
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
@@ -158,15 +134,14 @@ final class RelationController extends AbstractController
         $column_hash_array = [];
         $column_array[''] = '';
         foreach ($columns as $column) {
-            if (strtoupper($storageEngine) !== 'INNODB'
-                && empty($column['Key'])
-            ) {
+            if (strtoupper($storageEngine) !== 'INNODB' && empty($column['Key'])) {
                 continue;
             }
 
             $column_array[$column['Field']] = $column['Field'];
             $column_hash_array[$column['Field']] = md5($column['Field']);
         }
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($column_array, 'strnatcasecmp');
         }
@@ -174,10 +149,10 @@ final class RelationController extends AbstractController
         // common form
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         $this->render('table/relation/common_form', [
-            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'db' => $this->db,
             'table' => $this->table,
-            'cfg_relation' => $cfgRelation,
+            'relation_parameters' => $relationParameters,
             'tbl_storage_engine' => $storageEngine,
             'existrel' => $relations,
             'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)
@@ -187,7 +162,7 @@ final class RelationController extends AbstractController
             'column_array' => $column_array,
             'column_hash_array' => $column_hash_array,
             'save_row' => array_values($columns),
-            'url_params' => $GLOBALS['url_params'],
+            'url_params' => $GLOBALS['urlParams'],
             'databases' => $GLOBALS['dblist']->databases,
             'dbi' => $this->dbi,
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
@@ -197,18 +172,10 @@ final class RelationController extends AbstractController
 
     /**
      * Update for display field
-     *
-     * @param Table $table       table
-     * @param array $cfgRelation relation parameters
      */
-    private function updateForDisplayField(Table $table, array $cfgRelation): void
+    private function updateForDisplayField(Table $table, DisplayFeature $displayFeature): void
     {
-        if (! $table->updateDisplayField(
-            $_POST['display_field'],
-            $cfgRelation
-        )) {
-            return;
-        }
+        $table->updateDisplayField($_POST['display_field'], $displayFeature);
 
         $this->response->addHTML(
             Generator::getMessage(
@@ -234,8 +201,10 @@ final class RelationController extends AbstractController
 
         // (for now, one index name only; we keep the definitions if the
         // foreign db is not the same)
-        if (isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
-            && isset($_POST['destination_foreign_column'])) {
+        if (
+            isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
+            && isset($_POST['destination_foreign_column'])
+        ) {
             [
                 $html,
                 $preview_sql_data,
@@ -279,22 +248,25 @@ final class RelationController extends AbstractController
     /**
      * Update for internal relation
      *
-     * @param Table $table       Table
-     * @param array $cfgRelation Relation parameters
-     * @param array $relations   Relations
+     * @param array $relations Relations
      */
-    private function updateForInternalRelation(Table $table, array $cfgRelation, array $relations): void
-    {
+    private function updateForInternalRelation(
+        Table $table,
+        RelationFeature $relationFeature,
+        array $relations
+    ): void {
         $multi_edit_columns_name = $_POST['fields_name'] ?? null;
 
-        if (! $table->updateInternalRelations(
-            $multi_edit_columns_name,
-            $_POST['destination_db'],
-            $_POST['destination_table'],
-            $_POST['destination_column'],
-            $cfgRelation,
-            $relations
-        )) {
+        if (
+            ! $table->updateInternalRelations(
+                $multi_edit_columns_name,
+                $_POST['destination_db'],
+                $_POST['destination_table'],
+                $_POST['destination_column'],
+                $relationFeature,
+                $relations
+            )
+        ) {
             return;
         }
 
@@ -321,6 +293,7 @@ final class RelationController extends AbstractController
         } else {
             $columnList = $table_obj->getIndexedColumns(false, false);
         }
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             usort($columnList, 'strnatcasecmp');
         }
@@ -349,16 +322,10 @@ final class RelationController extends AbstractController
         if ($foreign) {
             $query = 'SHOW TABLE STATUS FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query(
-                $query,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
+            $tables_rs = $this->dbi->query($query);
 
-            while ($row = $this->dbi->fetchArray($tables_rs)) {
-                if (! isset($row['Engine'])
-                    || mb_strtoupper($row['Engine']) != $storageEngine
-                ) {
+            foreach ($tables_rs as $row) {
+                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) != $storageEngine) {
                     continue;
                 }
 
@@ -367,18 +334,14 @@ final class RelationController extends AbstractController
         } else {
             $query = 'SHOW TABLES FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query(
-                $query,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
-            while ($row = $this->dbi->fetchArray($tables_rs)) {
-                $tables[] = $row[0];
-            }
+            $tables_rs = $this->dbi->query($query);
+            $tables = $tables_rs->fetchAllColumn();
         }
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
         }
+
         $this->response->addJSON('tables', $tables);
     }
 }

@@ -8,13 +8,15 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 use function array_merge;
 use function implode;
 use function is_array;
@@ -24,25 +26,20 @@ class ExportController extends AbstractController
     /** @var Options */
     private $export;
 
-    /**
-     * @param Response $response
-     * @param string   $db       Database name.
-     * @param string   $table    Table name.
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         Options $export
     ) {
         parent::__construct($response, $template, $db, $table);
         $this->export = $export;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $db, $url_params, $table, $replaces, $cfg, $err_url;
+        global $db, $urlParams, $table, $replaces, $cfg, $errorUrl;
         global $sql_query, $where_clause, $num_tables, $unlim_num_rows;
 
         $pageSettings = new PageSettings('Export');
@@ -53,12 +50,12 @@ class ExportController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
-        $url_params['goto'] = Url::getFromRoute('/table/export');
-        $url_params['back'] = Url::getFromRoute('/table/export');
+        $urlParams['goto'] = Url::getFromRoute('/table/export');
+        $urlParams['back'] = Url::getFromRoute('/table/export');
 
         // When we have some query, we need to remove LIMIT from that and possibly
         // generate WHERE clause (if we are asked to export specific rows)
@@ -66,9 +63,7 @@ class ExportController extends AbstractController
         if (! empty($sql_query)) {
             $parser = new Parser($sql_query);
 
-            if (! empty($parser->statements[0])
-                && ($parser->statements[0] instanceof SelectStatement)
-            ) {
+            if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
                 // Checking if the WHERE clause has to be replaced.
                 if (! empty($where_clause) && is_array($where_clause)) {
                     $replaces[] = [
@@ -84,20 +79,18 @@ class ExportController extends AbstractController
                 ];
 
                 // Replacing the clauses.
-                $sql_query = Query::replaceClauses(
-                    $parser->statements[0],
-                    $parser->list,
-                    $replaces
-                );
+                $sql_query = Query::replaceClauses($parser->statements[0], $parser->list, $replaces);
             }
         }
 
         if (! isset($sql_query)) {
             $sql_query = '';
         }
+
         if (! isset($num_tables)) {
             $num_tables = 0;
         }
+
         if (! isset($unlim_num_rows)) {
             $unlim_num_rows = 0;
         }
@@ -135,35 +128,5 @@ class ExportController extends AbstractController
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
         ]));
-    }
-
-    public function rows(): void
-    {
-        global $active_page, $single_table, $where_clause;
-
-        if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('No row selected.'));
-
-            return;
-        }
-
-        // Needed to allow SQL export
-        $single_table = true;
-
-        // As we got the rows to be exported from the
-        // 'rows_to_delete' checkbox, we use the index of it as the
-        // indicating WHERE clause. Then we build the array which is used
-        // for the /table/change script.
-        $where_clause = [];
-        if (isset($_POST['rows_to_delete']) && is_array($_POST['rows_to_delete'])) {
-            foreach ($_POST['rows_to_delete'] as $i => $i_where_clause) {
-                $where_clause[] = $i_where_clause;
-            }
-        }
-
-        $active_page = Url::getFromRoute('/table/export');
-
-        $this->index();
     }
 }

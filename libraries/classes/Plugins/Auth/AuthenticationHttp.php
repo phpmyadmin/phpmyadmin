@@ -12,7 +12,9 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
+
+use function __;
 use function base64_decode;
 use function defined;
 use function hash_equals;
@@ -32,9 +34,9 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @return bool always true (no return indeed)
      */
-    public function showLoginForm()
+    public function showLoginForm(): bool
     {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -51,10 +53,8 @@ class AuthenticationHttp extends AuthenticationPlugin
 
     /**
      * Displays authentication form
-     *
-     * @return bool
      */
-    public function authForm()
+    public function authForm(): bool
     {
         if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
             if (empty($GLOBALS['cfg']['Server']['verbose'])) {
@@ -62,12 +62,13 @@ class AuthenticationHttp extends AuthenticationPlugin
             } else {
                 $server_message = $GLOBALS['cfg']['Server']['verbose'];
             }
+
             $realm_message = 'phpMyAdmin ' . $server_message;
         } else {
             $realm_message = $GLOBALS['cfg']['Server']['auth_http_realm'];
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
 
         // remove non US-ASCII to respect RFC2616
         $realm_message = preg_replace('/[^\x20-\x7e]/i', '', $realm_message);
@@ -89,7 +90,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->addHTML(
             Message::error(
                 __('Wrong username/password. Access denied.')
-            )
+            )->getDisplay()
         );
         $response->addHTML('</h3>');
 
@@ -104,15 +105,14 @@ class AuthenticationHttp extends AuthenticationPlugin
 
     /**
      * Gets authentication credentials
-     *
-     * @return bool whether we get authentication settings or not
      */
-    public function readCredentials()
+    public function readCredentials(): bool
     {
         // Grabs the $PHP_AUTH_USER variable
         if (isset($GLOBALS['PHP_AUTH_USER'])) {
             $this->user = $GLOBALS['PHP_AUTH_USER'];
         }
+
         if (empty($this->user)) {
             if (Core::getenv('PHP_AUTH_USER')) {
                 $this->user = Core::getenv('PHP_AUTH_USER');
@@ -133,10 +133,12 @@ class AuthenticationHttp extends AuthenticationPlugin
                 $this->user = Core::getenv('Authorization');
             }
         }
+
         // Grabs the $PHP_AUTH_PW variable
         if (isset($GLOBALS['PHP_AUTH_PW'])) {
             $this->password = $GLOBALS['PHP_AUTH_PW'];
         }
+
         if (empty($this->password)) {
             if (Core::getenv('PHP_AUTH_PW')) {
                 $this->password = Core::getenv('PHP_AUTH_PW');
@@ -148,6 +150,7 @@ class AuthenticationHttp extends AuthenticationPlugin
                 $this->password = Core::getenv('AUTH_PASSWORD');
             }
         }
+
         // Sanitize empty password login
         if ($this->password === null) {
             $this->password = '';
@@ -166,8 +169,10 @@ class AuthenticationHttp extends AuthenticationPlugin
                     $this->user = substr($usr_pass, 0, $colon);
                     $this->password = substr($usr_pass, $colon + 1);
                 }
+
                 unset($colon);
             }
+
             unset($usr_pass);
         }
 
@@ -176,9 +181,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // User logged out -> ensure the new username is not the same
         $old_usr = $_REQUEST['old_usr'] ?? '';
-        if (! empty($old_usr)
-            && (isset($this->user) && hash_equals($old_usr, $this->user))
-        ) {
+        if (! empty($old_usr) && (isset($this->user) && hash_equals($old_usr, $this->user))) {
             $this->user = '';
         }
 
@@ -190,10 +193,8 @@ class AuthenticationHttp extends AuthenticationPlugin
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return void
      */
-    public function showFailure($failure)
+    public function showFailure($failure): void
     {
         global $dbi;
 

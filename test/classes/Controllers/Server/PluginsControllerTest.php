@@ -9,8 +9,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\PluginsController
+ */
 class PluginsControllerTest extends AbstractTestCase
 {
     /**
@@ -21,9 +25,7 @@ class PluginsControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -50,70 +52,38 @@ class PluginsControllerTest extends AbstractTestCase
             'PLUGIN_STATUS' => 'ACTIVE',
         ];
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
             ->method('query')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->at(1))
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->exactly(2))
             ->method('fetchAssoc')
-            ->will($this->returnValue($row));
-        $dbi->expects($this->at(2))
-            ->method('fetchAssoc')
-            ->will($this->returnValue(null));
-        $dbi->expects($this->once())
-            ->method('freeResult')
-            ->will($this->returnValue(true));
+            ->will($this->onConsecutiveCalls($row, []));
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new PluginsController($response, new Template(), new Plugins($dbi), $GLOBALS['dbi']);
-        $controller->index();
+        $this->dummyDbi->addSelectDb('mysql');
+        $controller();
+        $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         //validate 1:Items
-        $this->assertStringContainsString(
-            '<th scope="col">Plugin</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Description</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Version</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Author</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">License</th>',
-            $actual
-        );
+        $this->assertStringContainsString('<th scope="col">Plugin</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">Description</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">Version</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">Author</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">License</th>', $actual);
 
         //validate 2: one Item HTML
-        $this->assertStringContainsString(
-            'plugin_name1',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_description1</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_version1</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_author1</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_license1</td>',
-            $actual
-        );
+        $this->assertStringContainsString('plugin_name1', $actual);
+        $this->assertStringContainsString('<td>plugin_description1</td>', $actual);
+        $this->assertStringContainsString('<td>plugin_version1</td>', $actual);
+        $this->assertStringContainsString('<td>plugin_author1</td>', $actual);
+        $this->assertStringContainsString('<td>plugin_license1</td>', $actual);
     }
 }

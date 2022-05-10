@@ -9,12 +9,15 @@ use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController
+ */
 class AdvisorControllerTest extends AbstractTestCase
 {
-    /** @var Response */
+    /** @var ResponseRenderer */
     private $response;
 
     /** @var Template */
@@ -28,7 +31,6 @@ class AdvisorControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
@@ -36,7 +38,7 @@ class AdvisorControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->response = new Response();
+        $this->response = new ResponseRenderer();
         $this->template = new Template();
         $this->data = new Data();
     }
@@ -52,7 +54,7 @@ class AdvisorControllerTest extends AbstractTestCase
             new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
         );
 
-        $controller->index();
+        $controller();
 
         $expected = $this->template->render('server/status/advisor/index', [
             'data' => [],
@@ -94,14 +96,9 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->data->dataLoaded = true;
 
-        $controller = new AdvisorController(
-            $this->response,
-            $this->template,
-            $this->data,
-            $advisor
-        );
+        $controller = new AdvisorController($this->response, $this->template, $this->data, $advisor);
 
-        $controller->index();
+        $controller();
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 

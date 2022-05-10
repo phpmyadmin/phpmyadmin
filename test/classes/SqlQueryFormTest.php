@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
+use function __;
 use function htmlspecialchars;
 
 /**
- * PhpMyAdmin\Tests\SqlQueryFormTest class
- *
- * this class is for testing PhpMyAdmin\SqlQueryForm methods
+ * @covers \PhpMyAdmin\SqlQueryForm
  */
 class SqlQueryFormTest extends AbstractTestCase
 {
@@ -29,12 +29,10 @@ class SqlQueryFormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         $this->sqlQueryForm = new SqlQueryForm(new Template());
 
         //$GLOBALS
-        $GLOBALS['max_upload_size'] = 100;
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
@@ -55,48 +53,39 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['cfg']['CodemirrorEnable'] = true;
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
 
-        //_SESSION
-        $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][0] = RelationParameters::fromArray([
             'table_coords' => 'table_name',
-            'displaywork' => 'displaywork',
+            'displaywork' => true,
             'db' => 'information_schema',
             'table_info' => 'table_info',
-            'relwork' => 'relwork',
+            'relwork' => true,
             'relation' => 'relation',
-            'bookmarkwork' => false,
-        ];
-        //$GLOBALS
+        ])->toArray();
+
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
 
-        //$_SESSION
-
-        //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $fetchResult = [
-            'index1' => 'table1',
-            'index2' => 'table2',
-        ];
-        $dbi->expects($this->any())
-            ->method('fetchResult')
-            ->will($this->returnValue($fetchResult));
-
-        $getColumns = [
+        parent::setGlobalDbi();
+        $this->dummyDbi->addResult(
+            'SHOW FULL COLUMNS FROM `PMA_db`.`PMA_table`',
             [
-                'Field' => 'field1',
-                'Comment' => 'Comment1',
+                [
+                    'field1',
+                    'Comment1',
+                ],
             ],
-        ];
-        $dbi->expects($this->any())
-            ->method('getColumns')
-            ->will($this->returnValue($getColumns));
+            [
+                'Field',
+                'Comment',
+            ]
+        );
 
-        $GLOBALS['dbi'] = $dbi;
+        $this->dummyDbi->addResult(
+            'SHOW INDEXES FROM `PMA_db`.`PMA_table`',
+            []
+        );
     }
 
     /**
@@ -104,10 +93,9 @@ class SqlQueryFormTest extends AbstractTestCase
      */
     public function testPMAGetHtmlForSqlQueryFormInsert(): void
     {
-        $GLOBALS['is_upload'] = true;
         //Call the test function
         $query = 'select * from PMA';
-        $html = $this->sqlQueryForm->getHtml($query);
+        $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
         //validate 1: query
         $this->assertStringContainsString(
@@ -116,11 +104,8 @@ class SqlQueryFormTest extends AbstractTestCase
         );
 
         //validate 2: enable auto select text in textarea
-        $auto_sel = ' onclick="Functions.selectContent(this, sqlBoxLocked, true);"';
-        $this->assertStringContainsString(
-            $auto_sel,
-            $html
-        );
+        $auto_sel = ' data-textarea-auto-select="true"';
+        $this->assertStringContainsString($auto_sel, $html);
 
         //validate 3: MySQLDocumentation::show
         $this->assertStringContainsString(
@@ -129,32 +114,14 @@ class SqlQueryFormTest extends AbstractTestCase
         );
 
         //validate 4: $fields_list
-        $this->assertStringContainsString(
-            '<input type="button" value="DELETE" id="delete"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="UPDATE" id="update"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="INSERT" id="insert"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="SELECT" id="select"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="SELECT *" id="selectall"',
-            $html
-        );
+        $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
+        $this->assertStringContainsString('<input type="button" value="UPDATE" id="update"', $html);
+        $this->assertStringContainsString('<input type="button" value="INSERT" id="insert"', $html);
+        $this->assertStringContainsString('<input type="button" value="SELECT" id="select"', $html);
+        $this->assertStringContainsString('<input type="button" value="SELECT *" id="selectall"', $html);
 
         //validate 5: Clear button
-        $this->assertStringContainsString(
-            '<input type="button" value="DELETE" id="delete"',
-            $html
-        );
+        $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
         $this->assertStringContainsString(
             __('Clear'),
             $html
@@ -167,10 +134,9 @@ class SqlQueryFormTest extends AbstractTestCase
     public function testPMAGetHtmlForSqlQueryForm(): void
     {
         //Call the test function
-        $GLOBALS['is_upload'] = true;
         $GLOBALS['lang'] = 'ja';
         $query = 'select * from PMA';
-        $html = $this->sqlQueryForm->getHtml($query);
+        $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
         //validate 1: query
         $this->assertStringContainsString(
@@ -180,20 +146,14 @@ class SqlQueryFormTest extends AbstractTestCase
 
         //validate 2: $enctype
         $enctype = ' enctype="multipart/form-data">';
-        $this->assertStringContainsString(
-            $enctype,
-            $html
-        );
+        $this->assertStringContainsString($enctype, $html);
 
         //validate 3: sqlqueryform
-        $this->assertStringContainsString(
-            'id="sqlqueryform" name="sqlform"',
-            $html
-        );
+        $this->assertStringContainsString('id="sqlqueryform" name="sqlform"', $html);
 
         //validate 4: $db, $table
-        $table  = $GLOBALS['table'];
-        $db     = $GLOBALS['db'];
+        $table = $GLOBALS['table'];
+        $db = $GLOBALS['db'];
         $this->assertStringContainsString(
             Url::getHiddenInputs($db, $table),
             $html

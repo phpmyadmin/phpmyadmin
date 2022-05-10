@@ -23,14 +23,12 @@
   <input type="hidden" name="goto" value="{{ goto }}">
   <input type="hidden" name="back" value="{{ url('/table/zoom-search') }}">
 
-  <fieldset id="fieldset_zoom_search">
-    <fieldset id="inputSection">
-      <legend>
-        {% trans 'Do a "query by example" (wildcard: "%") for two different columns' %}
-      </legend>
+  <div class="card mb-3">
+    <div class="card-header">{% trans 'Do a "query by example" (wildcard: "%") for two different columns' %}</div>
 
+    <div class="card-body" id="inputSection">
       <table class="table table-light table-striped table-hover table-sm w-auto" id="tableFieldsId">
-        <thead class="thead-light">
+        <thead class="table-light">
           <tr>
             {% if geom_column_flag %}
               <th>{% trans 'Function' %}</th>
@@ -148,11 +146,11 @@
           </td>
         </tr>
       </table>
-    </fieldset>
-  </fieldset>
+    </div>
 
-  <fieldset class="tblFooters">
-    <input class="btn btn-primary" type="submit" name="zoom_submit" id="inputFormSubmitId" value="{% trans 'Go' %}">
-  </fieldset>
+    <div class="card-footer">
+      <input class="btn btn-primary" type="submit" name="zoom_submit" id="inputFormSubmitId" value="{% trans 'Go' %}">
+    </div>
+  </div>
 </form>
 <div id="sqlqueryresultsouter"></div>

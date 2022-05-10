@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
 
+/**
+ * @covers \PhpMyAdmin\CheckUserPrivileges
+ */
 class CheckUserPrivilegesTest extends AbstractTestCase
 {
     /** @var CheckUserPrivileges */
@@ -43,20 +46,11 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'localhost\' WITH GRANT OPTION'
         );
 
-        $this->assertEquals(
-            'ALL PRIVILEGES',
-            $show_grants_str
-        );
+        $this->assertEquals('ALL PRIVILEGES', $show_grants_str);
 
-        $this->assertEquals(
-            '*',
-            $show_grants_dbname
-        );
+        $this->assertEquals('*', $show_grants_dbname);
 
-        $this->assertEquals(
-            '*',
-            $show_grants_tblname
-        );
+        $this->assertEquals('*', $show_grants_tblname);
 
         // TEST CASE 2
 
@@ -68,20 +62,11 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT ALL PRIVILEGES ON `mysql`.* TO \'root\'@\'localhost\' WITH GRANT OPTION'
         );
 
-        $this->assertEquals(
-            'ALL PRIVILEGES',
-            $show_grants_str
-        );
+        $this->assertEquals('ALL PRIVILEGES', $show_grants_str);
 
-        $this->assertEquals(
-            'mysql',
-            $show_grants_dbname
-        );
+        $this->assertEquals('mysql', $show_grants_dbname);
 
-        $this->assertEquals(
-            '*',
-            $show_grants_tblname
-        );
+        $this->assertEquals('*', $show_grants_tblname);
 
         // TEST CASE 3
 
@@ -93,20 +78,11 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.`columns_priv` TO \'root\'@\'localhost\''
         );
 
-        $this->assertEquals(
-            'SELECT, INSERT, UPDATE, DELETE',
-            $show_grants_str
-        );
+        $this->assertEquals('SELECT, INSERT, UPDATE, DELETE', $show_grants_str);
 
-        $this->assertEquals(
-            'mysql',
-            $show_grants_dbname
-        );
+        $this->assertEquals('mysql', $show_grants_dbname);
 
-        $this->assertEquals(
-            'columns_priv',
-            $show_grants_tblname
-        );
+        $this->assertEquals('columns_priv', $show_grants_tblname);
 
         // TEST CASE 4
 
@@ -118,10 +94,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT ALL PRIVILEGES ON `cptest\_.`.* TO \'cptest\'@\'localhost\''
         );
 
-        $this->assertEquals(
-            'cptest\_.',
-            $show_grants_dbname
-        );
+        $this->assertEquals('cptest\_.', $show_grants_dbname);
 
         [
             $show_grants_str,
@@ -132,10 +105,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
                 . 'l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO \'cptest\'@\'localhost\''
         );
 
-        $this->assertEquals(
-            'cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z',
-            $show_grants_dbname
-        );
+        $this->assertEquals('cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z', $show_grants_dbname);
     }
 
     /**
@@ -159,21 +129,13 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertTrue(
-            $GLOBALS['col_priv']
-        );
+        $this->assertTrue($GLOBALS['col_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['db_priv']
-        );
+        $this->assertTrue($GLOBALS['db_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['proc_priv']
-        );
+        $this->assertTrue($GLOBALS['proc_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['table_priv']
-        );
+        $this->assertTrue($GLOBALS['table_priv']);
 
         // re-initialise the privileges
         $this->setUp();
@@ -194,21 +156,13 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertTrue(
-            $GLOBALS['col_priv']
-        );
+        $this->assertTrue($GLOBALS['col_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['db_priv']
-        );
+        $this->assertTrue($GLOBALS['db_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['proc_priv']
-        );
+        $this->assertTrue($GLOBALS['proc_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['table_priv']
-        );
+        $this->assertTrue($GLOBALS['table_priv']);
 
         // re-initialise the privileges
         $this->setUp();
@@ -229,21 +183,13 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertTrue(
-            $GLOBALS['col_priv']
-        );
+        $this->assertTrue($GLOBALS['col_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['db_priv']
-        );
+        $this->assertTrue($GLOBALS['db_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['proc_priv']
-        );
+        $this->assertTrue($GLOBALS['proc_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['table_priv']
-        );
+        $this->assertTrue($GLOBALS['table_priv']);
 
         // re-initialise the privileges
         $this->setUp();
@@ -264,20 +210,12 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertFalse(
-            $GLOBALS['col_priv']
-        );
+        $this->assertFalse($GLOBALS['col_priv']);
 
-        $this->assertTrue(
-            $GLOBALS['db_priv']
-        );
+        $this->assertTrue($GLOBALS['db_priv']);
 
-        $this->assertFalse(
-            $GLOBALS['proc_priv']
-        );
+        $this->assertFalse($GLOBALS['proc_priv']);
 
-        $this->assertFalse(
-            $GLOBALS['table_priv']
-        );
+        $this->assertFalse($GLOBALS['table_priv']);
     }
 }

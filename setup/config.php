@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Url;
 
@@ -17,22 +17,23 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-/**
- * Core libraries.
- */
+// phpcs:disable PSR1.Files.SideEffects
+define('PHPMYADMIN', true);
+// phpcs:enable
+
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
 $form_display = new ConfigForm($GLOBALS['ConfigFile']);
 $form_display->save('Config');
 
-$response = Response::getInstance();
+$response = ResponseRenderer::getInstance();
 $response->disable();
 
 if (isset($_POST['eol'])) {
     $_SESSION['eol'] = $_POST['eol'] === 'unix' ? 'unix' : 'win';
 }
 
-if (Core::ifSetOr($_POST['submit_clear'], '')) {
+if (isset($_POST['submit_clear']) && is_scalar($_POST['submit_clear']) ? $_POST['submit_clear'] : '') {
     // Clear current config and return to main page
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
@@ -40,7 +41,7 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     exit;
 }
 
-if (Core::ifSetOr($_POST['submit_download'], '')) {
+if (isset($_POST['submit_download']) && is_scalar($_POST['submit_download']) ? $_POST['submit_download'] : '') {
     // Output generated config file
     Core::downloadHeader('config.inc.php', 'text/plain');
     $response->disable();

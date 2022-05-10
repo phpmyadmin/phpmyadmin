@@ -1,5 +1,5 @@
 <div id="partitions">
-    <fieldset>
+    <fieldset class="pma-fieldset">
         <legend>
             {% trans 'Partitions' %}
             {{ show_mysql_docu('partitioning') }}
@@ -18,7 +18,7 @@
                 <p>
             {% endif %}
             <table class="table table-light table-striped table-hover table-sm">
-                <thead class="thead-light">
+                <thead class="table-light">
                     <tr>
                         <th colspan="2">#</th>
                         <th>{% trans 'Partition' %}</th>
@@ -186,7 +186,7 @@
             </table>
         {% endif %}
     </fieldset>
-    <fieldset class="tblFooters print_ignore">
+    <fieldset class="pma-fieldset tblFooters d-print-none">
         <form action="{{ url('/table/structure/partitioning') }}" method="post">
             {{ get_hidden_inputs(db, table) }}
 

@@ -8,8 +8,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\Node
+ */
 class NodeTest extends AbstractTestCase
 {
     /**
@@ -18,7 +22,6 @@ class NodeTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
@@ -79,11 +82,7 @@ class NodeTest extends AbstractTestCase
     public function testNodeHasChildren(): void
     {
         $parent = NodeFactory::getInstance();
-        $emptyContainer = NodeFactory::getInstance(
-            'Node',
-            'empty',
-            Node::CONTAINER
-        );
+        $emptyContainer = NodeFactory::getInstance('Node', 'empty', Node::CONTAINER);
         $child = NodeFactory::getInstance();
         // test with no children
         $this->assertEquals(
@@ -133,11 +132,7 @@ class NodeTest extends AbstractTestCase
         $child->addChild(NodeFactory::getInstance());
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
-        $container = NodeFactory::getInstance(
-            'Node',
-            'default',
-            Node::CONTAINER
-        );
+        $container = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
@@ -212,11 +207,7 @@ class NodeTest extends AbstractTestCase
         $parent = NodeFactory::getInstance();
         $firstChild = NodeFactory::getInstance();
         $parent->addChild($firstChild);
-        $secondChild = NodeFactory::getInstance(
-            'Node',
-            'default',
-            Node::CONTAINER
-        );
+        $secondChild = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
         $this->assertFalse($firstChild->hasSiblings());
@@ -252,10 +243,7 @@ class NodeTest extends AbstractTestCase
      */
     public function testGetWhereClause(): void
     {
-        $method = new ReflectionMethod(
-            Node::class,
-            'getWhereClause'
-        );
+        $method = new ReflectionMethod(Node::class, 'getWhereClause');
         $method->setAccessible(true);
 
         // Vanilla case
@@ -297,8 +285,7 @@ class NodeTest extends AbstractTestCase
             'onlyDbTwo',
         ];
         $this->assertEquals(
-            "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
-            . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' ) ",
+            'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
@@ -317,7 +304,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
-        $expectedSql  = 'SELECT `SCHEMA_NAME` ';
+        $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ';
         $expectedSql .= '(';
         $expectedSql .= 'SELECT DB_first_level ';
@@ -363,7 +350,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
 
-        $expectedSql  = 'SELECT `SCHEMA_NAME` ';
+        $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA` ';
         $expectedSql .= 'WHERE TRUE ';
         $expectedSql .= 'ORDER BY `SCHEMA_NAME` ';
@@ -402,19 +389,21 @@ class NodeTest extends AbstractTestCase
 
         $node = NodeFactory::getInstance();
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
-            ->will($this->returnValue(true));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchArray')
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->exactly(3))
+            ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
                 ['0' => 'db'],
                 ['0' => 'aa_db'],
-                null
+                []
             );
 
         $dbi->expects($this->once())
@@ -498,13 +487,16 @@ class NodeTest extends AbstractTestCase
 
         $node = NodeFactory::getInstance();
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         // test with no search clause
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with('SHOW DATABASES WHERE TRUE ');
+            ->with('SHOW DATABASES WHERE TRUE ')
+            ->will($this->returnValue($resultStub));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -517,7 +509,8 @@ class NodeTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ");
+            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
+            ->will($this->returnValue($resultStub));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 

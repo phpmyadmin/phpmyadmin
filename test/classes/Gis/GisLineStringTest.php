@@ -5,24 +5,22 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisLineString;
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
-use function function_exists;
-use function imagecreatetruecolor;
+
 use function preg_match;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisLineString
+ */
 class GisLineStringTest extends GisGeomTestCase
 {
-    /**
-     * @var    GisLineString
-     * @access protected
-     */
+    /** @var    GisLineString */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -33,8 +31,6 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -168,59 +164,21 @@ class GisLineStringTest extends GisGeomTestCase
     }
 
     /**
-     * test case for prepareRowAsPng() method
-     *
-     * @param string   $spatial    GIS LINESTRING object
-     * @param string   $label      label for the GIS LINESTRING object
-     * @param string   $line_color color for the GIS LINESTRING object
-     * @param array    $scale_data array containing data related to scaling
-     * @param resource $image      image object
-     *
-     * @dataProvider providerForPrepareRowAsPng
+     * @requires extension gd
      */
-    public function testPrepareRowAsPng(
-        string $spatial,
-        string $label,
-        string $line_color,
-        array $scale_data,
-        $image
-    ): void {
-        $this->object->prepareRowAsPng(
-            $spatial,
-            $label,
-            $line_color,
-            $scale_data,
+    public function testPrepareRowAsPng(): void
+    {
+        $image = ImageWrapper::create(120, 150);
+        $this->assertNotNull($image);
+        $return = $this->object->prepareRowAsPng(
+            'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
+            'image',
+            '#B02EE0',
+            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        /* TODO: this never fails */
-        $this->assertTrue(true);
-    }
-
-    /**
-     * data provider for testPrepareRowAsPng() test case
-     *
-     * @return array test data for testPrepareRowAsPng() test case
-     */
-    public function providerForPrepareRowAsPng(): array
-    {
-        if (! function_exists('imagecreatetruecolor')) {
-            $this->markTestSkipped('GD extension missing!');
-        }
-
-        return [
-            [
-                'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
-                'image',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                imagecreatetruecolor(120, 150),
-            ],
-        ];
+        $this->assertEquals(120, $return->width());
+        $this->assertEquals(150, $return->height());
     }
 
     /**
@@ -241,14 +199,8 @@ class GisLineStringTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf(
-            $spatial,
-            $label,
-            $line_color,
-            $scale_data,
-            $pdf
-        );
-        $this->assertInstanceOf('TCPDF', $return);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+        $this->assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
@@ -292,12 +244,7 @@ class GisLineStringTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg(
-            $spatial,
-            $label,
-            $lineColor,
-            $scaleData
-        );
+        $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
         $this->assertEquals(1, preg_match($output, $string));
     }
 

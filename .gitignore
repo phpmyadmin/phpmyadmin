@@ -59,4 +59,8 @@ composer.lock
 # NPM
 /node_modules/
 phpstan.neon
-/setup/styles.css.map
+# Infection
+infection.json
+infection.log
+/js/vendor/openlayers/OpenLayers.js.LICENSE.txt
+/setup/styles.rtl.css

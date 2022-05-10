@@ -7,9 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use stdClass;
-use const E_USER_DEPRECATED;
+
+use function __;
 use function count;
 use function fclose;
 use function feof;
@@ -22,6 +23,8 @@ use function proc_open;
 use function sprintf;
 use function strlen;
 use function trigger_error;
+
+use const E_USER_DEPRECATED;
 
 /**
  * Provides common methods for all of the external transformations plugins.
@@ -55,10 +58,8 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      * Enables no-wrapping
      *
      * @param array $options transformation options
-     *
-     * @return bool
      */
-    public function applyTransformationNoWrap(array $options = [])
+    public function applyTransformationNoWrap(array $options = []): bool
     {
         if (! isset($options[3]) || $options[3] == '') {
             $nowrap = true;
@@ -74,13 +75,13 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string             $buffer  text to be transformed
+     * @param array              $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         // possibly use a global transform and feed it with special options
 
@@ -107,10 +108,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         }
 
         $cfg = $GLOBALS['cfg'];
-        $options = $this->getOptions(
-            $options,
-            $cfg['DefaultTransformations']['External']
-        );
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['External']);
 
         if (isset($allowed_programs[$options[0]])) {
             $program = $allowed_programs[$options[0]];
@@ -149,6 +147,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             while (! feof($pipes[1])) {
                 $newstring .= fgets($pipes[1], 1024);
             }
+
             fclose($pipes[1]);
             // we don't currently use the return value
             proc_close($process);

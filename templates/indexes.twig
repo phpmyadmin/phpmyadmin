@@ -1,4 +1,4 @@
-<fieldset class="index_info">
+<fieldset class="pma-fieldset index_info">
   <legend id="index_header">
     {% trans 'Indexes' %}
     {{ show_mysql_docu('optimizing-database-structure') }}
@@ -7,11 +7,12 @@
   {% if indexes is not empty %}
     {{ indexes_duplicates|raw }}
 
+    {{ include('modals/preview_sql_confirmation.twig') }}
     <div class="table-responsive jsresponsive">
-      <table class="table table-light table-striped table-hover table-sm w-auto" id="table_index">
-        <thead class="thead-light">
+      <table class="table table-light table-striped table-hover table-sm w-auto align-middle" id="table_index">
+        <thead class="table-light">
         <tr>
-            <th colspan="3" class="print_ignore">{% trans 'Action' %}</th>
+            <th colspan="3" class="d-print-none">{% trans 'Action' %}</th>
             <th>{% trans 'Keyname' %}</th>
             <th>{% trans 'Type' %}</th>
             <th>{% trans 'Unique' %}</th>
@@ -28,17 +29,17 @@
           <tbody class="row_span">
             {% set columns_count = index.getColumnCount() %}
             <tr class="noclick">
-              <td rowspan="{{ columns_count }}" class="edit_index print_ignore ajax">
+              <td rowspan="{{ columns_count }}" class="edit_index d-print-none ajax">
                 <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '', false) }}">
                   {{ get_icon('b_edit', 'Edit'|trans) }}
                 </a>
               </td>
-              <td rowspan="{{ columns_count }}" class="rename_index print_ignore ajax" >
+              <td rowspan="{{ columns_count }}" class="rename_index d-print-none ajax" >
                 <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '', false) }}">
                   {{ get_icon('b_rename', 'Rename'|trans) }}
                 </a>
               </td>
-              <td rowspan="{{ columns_count }}" class="print_ignore">
+              <td rowspan="{{ columns_count }}" class="d-print-none">
                 {% if index.getName() == 'PRIMARY' %}
                   {% set index_params = {
                     'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PRIMARY KEY;',

@@ -64,7 +64,9 @@ $(function () {
  *
  * @param {Element} parent  input field in <fieldset> or <fieldset>
  * @param {String}  id      validator id
- * @param {Object}  values  values hash {element1_id: value, ...}
+ * @param {object}  values  values hash {element1_id: value, ...}
+ *
+ * @return {bool|void}
  */
 function ajaxValidate (parent, id, values) {
     var $parent = $(parent);
@@ -129,6 +131,8 @@ $.extend(true, validators, {
          * hide_db field
          *
          * @param {boolean} isKeyUp
+         *
+         * @return {true}
          */
         hide_db: function (isKeyUp) { // eslint-disable-line camelcase
             if (!isKeyUp && this.value !== '') {
@@ -142,6 +146,8 @@ $.extend(true, validators, {
          * TrustedProxies field
          *
          * @param {boolean} isKeyUp
+         *
+         * @return {true}
          */
         TrustedProxies: function (isKeyUp) {
             if (!isKeyUp && this.value !== '') {
@@ -158,6 +164,8 @@ $.extend(true, validators, {
          * Validates Server fieldset
          *
          * @param {boolean} isKeyUp
+         *
+         * @return {true}
          */
         Server: function (isKeyUp) {
             if (!isKeyUp) {
@@ -169,6 +177,8 @@ $.extend(true, validators, {
          * Validates Server_login_options fieldset
          *
          * @param {boolean} isKeyUp
+         *
+         * @return {true}
          */
         Server_login_options: function (isKeyUp) { // eslint-disable-line camelcase
             return validators.fieldset.Server.apply(this, [isKeyUp]);
@@ -177,6 +187,8 @@ $.extend(true, validators, {
          * Validates Server_pmadb fieldset
          *
          * @param {boolean} isKeyUp
+         *
+         * @return {true}
          */
         Server_pmadb: function (isKeyUp) { // eslint-disable-line camelcase
             if (isKeyUp) {

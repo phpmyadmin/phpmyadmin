@@ -37,10 +37,8 @@ class ListDatabase extends ListAbstract
 
     /**
      * checks if the configuration wants to hide some databases
-     *
-     * @return void
      */
-    protected function checkHideDatabase()
+    protected function checkHideDatabase(): void
     {
         if (empty($GLOBALS['cfg']['Server']['hide_db'])) {
             return;
@@ -90,11 +88,7 @@ class ListDatabase extends ListAbstract
         }
 
         if ($command) {
-            $database_list = $dbi->fetchResult(
-                $command,
-                null,
-                null
-            );
+            $database_list = $dbi->fetchResult($command, null, null);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -110,10 +104,8 @@ class ListDatabase extends ListAbstract
 
     /**
      * builds up the list
-     *
-     * @return void
      */
-    public function build()
+    public function build(): void
     {
         if (! $this->checkOnlyDatabase()) {
             $items = $this->retrieve();
@@ -125,14 +117,10 @@ class ListDatabase extends ListAbstract
 
     /**
      * checks the only_db configuration
-     *
-     * @return bool false if there is no only_db, otherwise true
      */
-    protected function checkOnlyDatabase()
+    protected function checkOnlyDatabase(): bool
     {
-        if (is_string($GLOBALS['cfg']['Server']['only_db'])
-            && strlen($GLOBALS['cfg']['Server']['only_db']) > 0
-        ) {
+        if (is_string($GLOBALS['cfg']['Server']['only_db']) && strlen($GLOBALS['cfg']['Server']['only_db']) > 0) {
             $GLOBALS['cfg']['Server']['only_db'] = [
                 $GLOBALS['cfg']['Server']['only_db'],
             ];

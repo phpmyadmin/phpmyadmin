@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
 
+/**
+ * @covers \PhpMyAdmin\Sanitize
+ */
 class SanitizeTest extends AbstractTestCase
 {
     /**

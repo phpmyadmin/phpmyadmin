@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function in_array;
 use function strlen;
 
@@ -27,23 +27,25 @@ class RoutinesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, CheckUserPrivileges $checkUserPrivileges, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        CheckUserPrivileges $checkUserPrivileges,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db);
         $this->checkUserPrivileges = $checkUserPrivileges;
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $PMA_Theme, $text_dir, $err_url, $url_params, $cfg;
+        global $errors, $errorUrl, $urlParams, $cfg;
+
+        $this->addScriptFiles(['database/routines.js']);
 
         $type = $_REQUEST['type'] ?? null;
 
@@ -56,9 +58,9 @@ class RoutinesController extends AbstractController
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
                 Util::checkParameters(['db', 'table']);
 
-                $url_params = ['db' => $db, 'table' => $table];
-                $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-                $err_url .= Url::getCommon($url_params, '&');
+                $urlParams = ['db' => $db, 'table' => $table];
+                $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+                $errorUrl .= Url::getCommon($urlParams, '&');
 
                 DbTableExists::check();
             } else {
@@ -66,8 +68,8 @@ class RoutinesController extends AbstractController
 
                 Util::checkParameters(['db']);
 
-                $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-                $err_url .= Url::getCommon(['db' => $db], '&');
+                $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+                $errorUrl .= Url::getCommon(['db' => $db], '&');
 
                 if (! $this->hasDatabase()) {
                     return;
@@ -99,7 +101,7 @@ class RoutinesController extends AbstractController
         $routines->handleExecute();
         $routines->export();
 
-        if (! Core::isValid($type, ['FUNCTION', 'PROCEDURE'])) {
+        if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'])) {
             $type = null;
         }
 
@@ -116,7 +118,6 @@ class RoutinesController extends AbstractController
             'table' => $table,
             'items' => $items,
             'rows' => $rows,
-            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
         ]);
     }

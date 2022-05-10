@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 
 /**
@@ -20,26 +21,17 @@ class SqlController extends AbstractController
     /** @var SqlQueryForm */
     private $sqlQueryForm;
 
-    /**
-     * @param Response $response
-     * @param string   $db       Database name
-     */
-    public function __construct($response, Template $template, $db, SqlQueryForm $sqlQueryForm)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, SqlQueryForm $sqlQueryForm)
     {
         parent::__construct($response, $template, $db);
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $goto, $back, $db, $cfg, $err_url;
+        global $goto, $back, $db, $cfg, $errorUrl;
 
-        $this->addScriptFiles([
-            'makegrid.js',
-            'vendor/jquery/jquery.uitablefilter.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-        ]);
+        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $pageSettings = new PageSettings('Sql');
         $this->response->addHTML($pageSettings->getErrorHTML());
@@ -47,8 +39,8 @@ class SqlController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -62,6 +54,8 @@ class SqlController extends AbstractController
         $back = $goto;
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
+            $db,
+            '',
             true,
             false,
             isset($_POST['delimiter'])

@@ -1,17 +1,15 @@
 <?php
-/**
- * tests for transformation wrappers
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
 
 /**
- * tests for transformation wrappers
+ * @covers \PhpMyAdmin\Transformations
  */
 class TransformationsTest extends AbstractTestCase
 {
@@ -24,7 +22,6 @@ class TransformationsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg'] = [
@@ -40,8 +37,6 @@ class TransformationsTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['table_coords'] = '';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
         $GLOBALS['cfg']['DBG']['sql'] = false;
-        // need to clear relation test cache
-        unset($_SESSION['relation']);
 
         $this->transformations = new Transformations();
     }
@@ -111,14 +106,14 @@ class TransformationsTest extends AbstractTestCase
     {
         $this->assertEquals(
             [
-                'mimetype' =>  [
+                'mimetype' => [
                     'Application/Octetstream' => 'Application/Octetstream',
                     'Image/JPEG' => 'Image/JPEG',
                     'Image/PNG' => 'Image/PNG',
                     'Text/Plain' => 'Text/Plain',
                     'Text/Octetstream' => 'Text/Octetstream',
                 ],
-                'transformation' =>  [
+                'transformation' => [
                     0 => 'Application/Octetstream: Download',
                     1 => 'Application/Octetstream: Hex',
                     2 => 'Image/JPEG: Inline',
@@ -139,7 +134,7 @@ class TransformationsTest extends AbstractTestCase
                     17 => 'Text/Plain: PreApPend',
                     18 => 'Text/Plain: Substring',
                 ],
-                'transformation_file' =>  [
+                'transformation_file' => [
                     0 => 'Output/Application_Octetstream_Download.php',
                     1 => 'Output/Application_Octetstream_Hex.php',
                     2 => 'Output/Image_JPEG_Inline.php',
@@ -198,11 +193,13 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetMime(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
-        $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'mimework' => true,
+            'trackingwork' => true,
+            'column_info' => 'column_info',
+        ])->toArray();
         $this->assertEquals(
             [
                 'o' => [
@@ -242,31 +239,26 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
-        $this->assertFalse(
-            $actual
-        );
+        $this->assertFalse($actual);
 
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'mimework' => true,
+            'column_info' => 'column_info',
+        ])->toArray();
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
-        $this->assertTrue(
-            $actual
-        );
+        $this->assertTrue($actual);
 
         // Case 3 : table delete
         $actual = $this->transformations->clear('db', 'table');
-        $this->assertTrue(
-            $actual
-        );
+        $this->assertTrue($actual);
 
         // Case 4 : column delete
         $actual = $this->transformations->clear('db', 'table', 'col');
-        $this->assertTrue(
-            $actual
-        );
+        $this->assertTrue($actual);
     }
 
     /**

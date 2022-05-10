@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PHPUnit\Framework\TestCase;
+
+use function __;
 use function json_decode;
 use function ob_end_clean;
 use function ob_get_contents;
@@ -13,24 +15,19 @@ use function ob_start;
 use function strlen;
 use function substr;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\JavaScriptMessagesController
+ */
 class JavaScriptMessagesControllerTest extends TestCase
 {
     public function testIndex(): void
     {
-        global $cfg, $PMA_Theme;
+        global $cfg;
 
         $cfg['GridEditing'] = 'double-click';
-        $PMA_Theme = new class {
-            public function getImgPath(string $img): string
-            {
-                return $img;
-            }
-        };
-
-        $controller = new JavaScriptMessagesController();
 
         ob_start();
-        $controller->index();
+        (new JavaScriptMessagesController())();
         $actual = ob_get_contents();
         ob_end_clean();
 

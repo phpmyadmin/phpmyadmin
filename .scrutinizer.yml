@@ -22,12 +22,13 @@ build:
   nodes:
     analysis:
       environment:
-        php: 7.1
-        node: 10
+        php: 7.2
+        node: 12
       dependencies:
         before:
+          - composer config --unset repositories.0
           - composer install
-          - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode code-lts/u2f-php-server
+          - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server
       tests:
         override:
           - php-scrutinizer-run

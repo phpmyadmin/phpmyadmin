@@ -4,18 +4,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Export;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Query\Utilities;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+
 use function explode;
 use function function_exists;
 use function in_array;
 use function is_array;
+use function is_string;
 use function mb_strpos;
 use function strlen;
 use function urldecode;
@@ -38,10 +40,8 @@ final class Options
      * Outputs appropriate checked statement for checkbox.
      *
      * @param string $str option name
-     *
-     * @return bool
      */
-    private function checkboxCheck($str)
+    private function checkboxCheck($str): bool
     {
         return isset($GLOBALS['cfg']['Export'][$str])
             && $GLOBALS['cfg']['Export'][$str];
@@ -56,11 +56,14 @@ final class Options
      */
     public function getDatabasesForSelectOptions($tmpSelect = '')
     {
+        /** @var array|string|null $dbSelect */
+        $dbSelect = $_POST['db_select'] ?? null;
+
         // Check if the selected databases are defined in $_POST
         // (from clicking Back button on /export page)
-        if (isset($_POST['db_select'])) {
-            $_POST['db_select'] = urldecode($_POST['db_select']);
-            $_POST['db_select'] = explode(',', $_POST['db_select']);
+        if (isset($dbSelect) && is_string($dbSelect)) {
+            $dbSelect = urldecode($dbSelect);
+            $dbSelect = explode(',', $dbSelect);
         }
 
         $databases = [];
@@ -68,21 +71,20 @@ final class Options
             if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }
+
             $isSelected = false;
-            if (isset($_POST['db_select'])) {
-                if (in_array($currentDb, $_POST['db_select'])) {
+            if (isset($dbSelect) && is_array($dbSelect)) {
+                if (in_array($currentDb, $dbSelect)) {
                     $isSelected = true;
                 }
             } elseif (! empty($tmpSelect)) {
-                if (mb_strpos(
-                    ' ' . $tmpSelect,
-                    '|' . $currentDb . '|'
-                )) {
+                if (mb_strpos(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                     $isSelected = true;
                 }
             } else {
                 $isSelected = true;
             }
+
             $databases[] = [
                 'name' => $currentDb,
                 'is_selected' => $isSelected,
@@ -114,14 +116,14 @@ final class Options
     ) {
         global $cfg;
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
 
         $templates = [];
 
-        if ($cfgRelation['exporttemplateswork']) {
+        if ($exportTemplatesFeature !== null) {
             $templates = $this->templateModel->getAll(
-                $cfgRelation['db'],
-                $cfgRelation['export_templates'],
+                $exportTemplatesFeature->database,
+                $exportTemplatesFeature->exportTemplates,
                 $GLOBALS['cfg']['Server']['user'],
                 $exportType
             );
@@ -129,7 +131,8 @@ final class Options
             $templates = is_array($templates) ? $templates : [];
         }
 
-        $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
+        $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
+        $dropdown = Plugins::getChoice($exportList, $default);
         $tableObject = new Table($table, $db);
         $rows = [];
 
@@ -175,14 +178,14 @@ final class Options
             'db' => $db,
             'table' => $table,
             'templates' => [
-                'is_enabled' => $cfgRelation['exporttemplateswork'],
+                'is_enabled' => $exportTemplatesFeature !== null,
                 'templates' => $templates,
                 'selected' => $_POST['template_id'] ?? null,
             ],
             'sql_query' => $sqlQuery,
             'hidden_inputs' => $hiddenInputs,
             'export_method' => $_POST['quick_or_custom'] ?? $cfg['Export']['method'] ?? '',
-            'dropdown' => $dropdown,
+            'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'exec_time_limit' => $cfg['ExecTimeLimit'],
@@ -214,29 +217,20 @@ final class Options
 
     private function getFileNameTemplate(string $exportType, ?string $filename = null): string
     {
-        global $cfg, $PMA_Config;
+        global $cfg, $config;
 
         if ($filename !== null) {
             return $filename;
         }
 
         if ($exportType === 'database') {
-            return (string) $PMA_Config->getUserValue(
-                'pma_db_filename_template',
-                $cfg['Export']['file_template_database']
-            );
+            return (string) $config->getUserValue('pma_db_filename_template', $cfg['Export']['file_template_database']);
         }
 
         if ($exportType === 'table') {
-            return (string) $PMA_Config->getUserValue(
-                'pma_table_filename_template',
-                $cfg['Export']['file_template_table']
-            );
+            return (string) $config->getUserValue('pma_table_filename_template', $cfg['Export']['file_template_table']);
         }
 
-        return (string) $PMA_Config->getUserValue(
-            'pma_server_filename_template',
-            $cfg['Export']['file_template_server']
-        );
+        return (string) $config->getUserValue('pma_server_filename_template', $cfg['Export']['file_template_server']);
     }
 }

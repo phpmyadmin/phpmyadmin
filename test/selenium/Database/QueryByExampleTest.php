@@ -1,20 +1,15 @@
 <?php
-/**
- * Selenium TestCase for 'query by example' tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
-use function sleep;
+
 use function trim;
 
 /**
- * QueryByExampleTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class QueryByExampleTest extends TestBase
 {
@@ -116,16 +111,11 @@ class QueryByExampleTest extends TestBase
         $actual = trim((string) $this->waitForElement('id', 'textSqlquery')->getAttribute('value'));
 
         /* Compare generated query */
-        $this->assertEquals(
-            $expected,
-            $actual
-        );
+        $this->assertEquals($expected, $actual);
 
         /* Submit the query */
         $submitButton = $this->waitForElement('cssSelector', '#tblQbeFooters > input[type=submit]');
-        sleep(1);
         $this->scrollToElement($submitButton);
-        sleep(1);
         $submitButton->click();
         $this->waitAjax();
 

@@ -8,7 +8,7 @@
 
   {{ login_information_fields_new|raw }}
 
-  <fieldset id="fieldset_add_user_database">
+  <fieldset class="pma-fieldset" id="fieldset_add_user_database">
     <legend>{% trans 'Database for user account' %}</legend>
 
     <input type="checkbox" name="createdb-1" id="createdb-1">
@@ -31,7 +31,7 @@
     {{ privileges_table|raw }}
   {% endif %}
 
-  <fieldset id="fieldset_add_user_footer" class="tblFooters">
+  <fieldset id="fieldset_add_user_footer" class="pma-fieldset tblFooters">
     <input type="hidden" name="adduser_submit" value="1">
     <input class="btn btn-primary" type="submit" id="adduser_submit" value="{% trans 'Go' %}">
   </fieldset>

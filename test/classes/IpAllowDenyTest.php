@@ -8,9 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
 
 /**
- * PhpMyAdmin\Tests\IpAllowDenyTest class
- *
- * this class is for testing PhpMyAdmin\IpAllowDeny
+ * @covers \PhpMyAdmin\IpAllowDeny
  */
 class IpAllowDenyTest extends AbstractTestCase
 {
@@ -24,19 +22,13 @@ class IpAllowDenyTest extends AbstractTestCase
     {
         parent::setUp();
         $GLOBALS['cfg']['Server']['user'] = 'pma_username';
-        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
-            = 'allow % 255.255.255.0/4';
-        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
-            = 'allow % from 255.255.2.0/4';
-        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
-            = 'allow % from 2001:4998:c:a0d:0000:0000:4998:1020';
-        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
-            = 'allow % from 2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
-        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
-            = 'allow % from 2001:4998:c:a0d:0000:0000:4998:3020/24';
+        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'allow % 255.255.255.0/4';
+        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'allow % from 255.255.2.0/4';
+        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'allow % from 2001:4998:c:a0d:0000:0000:4998:1020';
+        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'allow % from 2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
+        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'allow % from 2001:4998:c:a0d:0000:0000:4998:3020/24';
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'deny % 255.255.0.0/8';
-        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
-            = 'deny % from 255.255.0.0/8';
+        $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'deny % from 255.255.0.0/8';
 
         $this->ipAllowDeny = new IpAllowDeny();
     }
@@ -65,6 +57,7 @@ class IpAllowDenyTest extends AbstractTestCase
             if ($proxyip === null) {
                 $proxyip = $remote;
             }
+
             $GLOBALS['cfg']['TrustedProxies'][$proxyip] = 'TEST_FORWARDED_HEADER';
             $_SERVER['TEST_FORWARDED_HEADER'] = $header;
         }

@@ -44,7 +44,7 @@ abstract class RelationStats
     public $yDest;
 
     /** @var int */
-    public $wTick;
+    public $wTick = 0;
 
     /**
      * @param object $diagram       The diagram
@@ -101,6 +101,7 @@ abstract class RelationStats
             $this->xDest = $dest_pos[1];
             $this->destDir = 1;
         }
+
         $this->ySrc = $src_pos[2];
         $this->yDest = $dest_pos[2];
     }
@@ -112,8 +113,6 @@ abstract class RelationStats
      * @param string     $column The relation column name
      *
      * @return array Arrows coordinates
-     *
-     * @access private
      */
     private function getXy($table, $column)
     {

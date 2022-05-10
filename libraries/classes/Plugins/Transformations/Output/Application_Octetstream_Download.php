@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\DownloadTransformationsPlugin;
 /**
  * Handles the download transformation for application octetstream
  */
-// @codingStandardsIgnoreLine
 class Application_Octetstream_Download extends DownloadTransformationsPlugin
 {
     /**

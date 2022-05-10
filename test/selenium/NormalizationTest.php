@@ -1,16 +1,11 @@
 <?php
-/**
- * Selenium TestCase for normalization
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PMA_SeleniumNormalizationTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class NormalizationTest extends TestBase
 {
@@ -32,10 +27,7 @@ class NormalizationTest extends TestBase
 
         $this->login();
         $this->navigateTable('test_table');
-        $this->waitForElement(
-            'xpath',
-            "(//a[contains(., 'Structure')])"
-        )->click();
+        $this->waitForElement('xpath', "(//a[contains(., 'Structure')])")->click();
 
         $this->waitAjax();
 
@@ -120,21 +112,12 @@ class NormalizationTest extends TestBase
             'no_such_col'
         );
 
-        $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Step 1.2 Have a primary key')]"
-        );
+        $this->waitForElement('xpath', "//legend[contains(., 'Step 1.2 Have a primary key')]");
         $text = $this->byCssSelector('#mainContent h4')->getText();
         $this->assertStringContainsString('Primary key already exists.', $text);
-        $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Step 1.3 Move repeating groups')]"
-        );
+        $this->waitForElement('xpath', "//legend[contains(., 'Step 1.3 Move repeating groups')]");
         $this->byCssSelector('input[value="No repeating group"]')->click();
-        $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Step 1.4 Remove redundant columns')]"
-        );
+        $this->waitForElement('xpath', "//legend[contains(., 'Step 1.4 Remove redundant columns')]");
         $this->assertTrue(
             $this->isElementPresent(
                 'cssSelector',
@@ -155,10 +138,7 @@ class NormalizationTest extends TestBase
         );
         $this->byCssSelector('#extra input[value=val][type=checkbox]')->click();
         $this->byCssSelector('#removeRedundant')->click();
-        $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'End of step')]"
-        );
+        $this->waitForElement('xpath', "//legend[contains(., 'End of step')]");
         $this->assertStringContainsString(
             "The first step of normalization is complete for table 'test_table'.",
             $this->byCssSelector('#mainContent h4')->getText()

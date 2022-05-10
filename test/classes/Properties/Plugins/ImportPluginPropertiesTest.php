@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Properties\Plugins\ImportPluginProperties
+ */
 class ImportPluginPropertiesTest extends AbstractTestCase
 {
     /** @var ImportPluginProperties */

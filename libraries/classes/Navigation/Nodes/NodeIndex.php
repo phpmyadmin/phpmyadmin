@@ -7,8 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Url;
+use function __;
 
 /**
  * Represents a index node in the navigation tree
@@ -26,15 +25,12 @@ class NodeIndex extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Generator::getImage('b_index', __('Index'));
+        $this->icon = ['image' => 'b_index', 'title' => __('Index')];
         $this->links = [
-            'text' => Url::getFromRoute('/table/indexes', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
-            'icon' => Url::getFromRoute('/table/indexes', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
+            'text' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
+            'icon' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
         ];
         $this->classes = 'index';
+        $this->urlParamName = 'index';
     }
 }

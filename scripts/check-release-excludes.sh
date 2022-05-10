@@ -90,17 +90,13 @@ validateExtension() {
             if [ \
                 "${extension}" != "php" -a "${extension}" != "twig" \
                 -a "${extension}" != "css" \
+                -a "${extension}" != "scss" -a "${extension}" != "gif" -a "${extension}" != "map" \
             ]; then
                 foundFileExt
             fi
         ;;
         templates/*)
             if [ "${extension}" != "twig" ]; then
-                foundFileExt
-            fi
-        ;;
-        libraries/certs/*)
-            if [ "${extension}" != "0" -a "${extension}" != "rst" -a "${extension}" != "pem" ]; then
                 foundFileExt
             fi
         ;;
@@ -173,8 +169,6 @@ validateExtension() {
         ;;
         favicon.ico)
         ;;
-        print.css)
-        ;;
         babel.config.json)
         ;;
         package.json)
@@ -184,6 +178,8 @@ validateExtension() {
         composer.lock)
         ;;
         yarn.lock)
+        ;;
+        .rtlcssrc.json)
         ;;
         robots.txt)
         ;;

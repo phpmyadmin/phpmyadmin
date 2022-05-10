@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 
+use function __;
+
 /**
  * Represents a node that is a child of a database node
  * This may either be a concrete child such as table or a container
@@ -32,8 +34,8 @@ abstract class NodeDatabaseChild extends Node
     public function getHtmlForControlButtons(): string
     {
         $ret = '';
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->navigationItemsHidingFeature !== null) {
             $db = $this->realParent()->realName;
             $item = $this->realName;
 

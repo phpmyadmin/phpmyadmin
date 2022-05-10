@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\DateFormatTransformationsPlugin;
 /**
  * Handles the date format transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
 {
     /**

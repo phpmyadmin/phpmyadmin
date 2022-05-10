@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
+
 use function is_int;
 
 /**
@@ -20,7 +21,7 @@ abstract class BaseForm extends FormDisplay
      * @param ConfigFile $cf       Config file instance
      * @param int|null   $serverId 0 if new server, validation; >= 1 if editing a server
      */
-    public function __construct(ConfigFile $cf, $serverId = null)
+    final public function __construct(ConfigFile $cf, $serverId = null)
     {
         parent::__construct($cf);
         foreach (static::getForms() as $formName => $form) {

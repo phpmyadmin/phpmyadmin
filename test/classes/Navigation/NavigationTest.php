@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Navigation
+ */
 class NavigationTest extends AbstractTestCase
 {
     /** @var Navigation */
@@ -18,36 +22,34 @@ class NavigationTest extends AbstractTestCase
 
     /**
      * Sets up the fixture.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         parent::setLanguage();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
-        $GLOBALS['cfgRelation']['db'] = 'pmadb';
-        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ]);
+        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $this->object = new Navigation(
             new Template(),
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
-        $GLOBALS['cfgRelation']['db'] = 'pmadb';
-        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
     }
 
     /**
      * Tears down the fixture.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -67,7 +69,7 @@ class NavigationTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -89,7 +91,7 @@ class NavigationTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
 
         $dbi->expects($this->any())->method('escapeString')
@@ -105,10 +107,7 @@ class NavigationTest extends AbstractTestCase
     public function testGetItemUnhideDialog(): void
     {
         $html = $this->object->getItemUnhideDialog('db');
-        $this->assertStringContainsString(
-            '<td>tableName</td>',
-            $html
-        );
+        $this->assertStringContainsString('<td>tableName</td>', $html);
         $this->assertStringContainsString(
             '<a class="unhideNavItem ajax" href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'unhideNavItem=1&itemType=table&'

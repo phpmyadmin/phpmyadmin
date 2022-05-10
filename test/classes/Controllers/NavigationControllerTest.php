@@ -6,8 +6,12 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
 use function sprintf;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\NavigationController
+ */
 class NavigationControllerTest extends AbstractTestCase
 {
     public function testIndex(): void
@@ -16,9 +20,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
-        parent::loadDefaultConfig();
         parent::setLanguage();
-        parent::defineVersionConstants();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -110,40 +112,54 @@ class NavigationControllerTest extends AbstractTestCase
 
         /** @var NavigationController $navigationController */
         $navigationController = $containerBuilder->get(NavigationController::class);
+        $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController->index();
+        $navigationController();
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];
 
-        $this->assertStringContainsString(
-            '<div id=\'pma_navigation_tree_content\'>',
-            $responseMessage
-        );
+        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         // root.air-balloon_burner_dev2
         // cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=
         $this->assertStringContainsString(
-            '<ul>' . "\n"
-            . '    <li class="first database">'
-                . '<div class=\'block\'><i class=\'first\'></i><b></b>'
-                    . '<a class="expander" href=\'#\'>'
-                        . '<span class="hide paths_nav" data-apath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
+            '<div id=\'pma_navigation_tree_content\'>' . "\n"
+            . '  <ul>' . "\n"
+            . '      <li class="first database">' . "\n"
+            . '    <div class="block">' . "\n"
+            . '      <i class="first"></i>' . "\n"
+            . '              <b></b>' . "\n"
+            . '        <a class="expander" href="#">' . "\n"
+            . '          <span class="hide paths_nav" data-apath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
                         . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
-                        . ' data-pos="0"></span><img src="themes/dot.gif"'
-                        . ' title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a>'
-                . '</div>'
-                . '<div class="block second">'
-                    . '<a href=\'index.php?route=/database/operations&lang=en&amp;server=1&amp;'
-                        . 'db=air-balloon_burner_dev2&amp;\'>'
-                        . '<img src="themes/dot.gif" title="Database operations"'
-                        . ' alt="Database operations" class="icon ic_s_db">'
-                    . '</a>'
-                . '</div>'
-                . '<a class=\'hover_show_full\''
-                    . ' href=\'index.php?route=/database/structure&lang=en&server=1&amp;db=air-balloon_burner_dev2\''
-                    . ' title=\'Structure\'>air-balloon_burner_dev2</a><div class="clearfloat"></div>' . "\n"
-            . '  </ul>' . "\n",
+                        . ' data-pos="0"></span>' . "\n"
+            . '                    <img src="themes/dot.gif" title="Expand/Collapse"'
+                                . ' alt="Expand/Collapse" class="icon ic_b_plus">' . "\n"
+            . '        </a>' . "\n"
+            . '          </div>' . "\n"
+            . '    ' . "\n"
+            . '          <div class="block second">' . "\n"
+            . '                  <a href="index.php?route=/database/operations'
+                                . '&db=air-balloon_burner_dev2&lang=en">'
+                                . '<img src="themes/dot.gif" title="Database operations"'
+                                . ' alt="Database operations" class="icon ic_s_db"></a>' . "\n"
+            . '              </div>' . "\n"
+            . "\n"
+            . '              <a class="hover_show_full"'
+                    . ' href="index.php?route=/database/structure&db=air-balloon_burner_dev2&lang=en"'
+                    . ' title="Structure">air-balloon_burner_dev2</a>' . "\n"
+            . '          ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    <div class="clearfloat"></div>' . "\n"
+            . "\n"
+            . "\n"
+            . "\n"
+            . "\n"
+            . '  </ul>' . "\n"
+            . '</div>',
             $responseMessage
         );
         $this->assertAllQueriesConsumed();
@@ -155,9 +171,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
-        parent::loadDefaultConfig();
         parent::setLanguage();
-        parent::defineVersionConstants();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -254,79 +268,135 @@ class NavigationControllerTest extends AbstractTestCase
 
         /** @var NavigationController $navigationController */
         $navigationController = $containerBuilder->get(NavigationController::class);
+        $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController->index();
+        $navigationController();
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];
 
-        $this->assertStringContainsString(
-            '<div id=\'pma_navigation_tree_content\'>',
-            $responseMessage
-        );
+        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         $dbTemplate =
-            '<li class="database database">'
-            . '<div class=\'block\'><i></i><b></b><a class="expander" href=\'#\'>'
-                . '<span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>'
-                . '<img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">'
-            . '</a></div>'
-            . '<div class="block second">'
-            . '<a href=\'index.php?route=/database/operations&lang=en&amp;server=1&amp;db=%s&amp;\'>'
+            '  <li class="database database">' . "\n"
+            . '    <div class="block">' . "\n"
+            . '      <i></i>' . "\n"
+            . '              <b></b>' . "\n"
+            . '        <a class="expander" href="#">' . "\n"
+            . '          <span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>' . "\n"
+            . '                    <img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse"'
+            . ' class="icon ic_b_plus">' . "\n"
+            . '        </a>' . "\n"
+            . '          </div>' . "\n"
+            . '    ' . "\n"
+            . '          <div class="block second">' . "\n"
+            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en">'
             . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
-            . ' class="icon ic_s_db"></a></div><a class=\'hover_show_full\''
-            . ' href=\'index.php?route=/database/structure&lang=en&server=1&amp;db=%s\' title=\'Structure\'>%s</a>'
-            . '<div class="clearfloat"></div>'
-            . '</li>';
+            . ' class="icon ic_s_db"></a>' . "\n"
+            . '              </div>' . "\n"
+            . "\n"
+            . '              <a class="hover_show_full" href="index.php?route=/database/structure&db=%s&lang=en"'
+            . ' title="Structure">%s</a>' . "\n"
+            . '          ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    <div class="clearfloat"></div>' . "\n"
+            . "\n"
+            . "\n"
+            . "\n"
+            . '  </li>';
 
         $dbTemplateLast =
-            '<li class="database last database">'
-            . '<div class=\'block\'><i></i><a class="expander" href=\'#\'>'
-                . '<span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>'
-                . '<img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">'
-            . '</a></div>'
-            . '<div class="block second">'
-            . '<a href=\'index.php?route=/database/operations&lang=en&amp;server=1&amp;db=%s&amp;\'>'
+            '  <li class="database last database">' . "\n"// "last" class added
+            . '    <div class="block">' . "\n"
+            . '      <i></i>' . "\n"
+            . '              ' . "\n"// <b> node is removed
+            . '        <a class="expander" href="#">' . "\n"
+            . '          <span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>' . "\n"
+            . '                    <img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse"'
+            . ' class="icon ic_b_plus">' . "\n"
+            . '        </a>' . "\n"
+            . '          </div>' . "\n"
+            . '    ' . "\n"
+            . '          <div class="block second">' . "\n"
+            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en">'
             . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
-            . ' class="icon ic_s_db"></a></div><a class=\'hover_show_full\''
-            . ' href=\'index.php?route=/database/structure&lang=en&server=1&amp;db=%s\' title=\'Structure\'>%s</a>'
-            . '<div class="clearfloat"></div>'
-            . '</li>';
-
+            . ' class="icon ic_s_db"></a>' . "\n"
+            . '              </div>' . "\n"
+            . "\n"
+            . '              <a class="hover_show_full" href="index.php?route=/database/structure&db=%s&lang=en"'
+            . ' title="Structure">%s</a>' . "\n"
+            . '          ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    <div class="clearfloat"></div>' . "\n"
+            . "\n"
+            . "\n"
+            . "\n"
+            . '  </li>';
         $dbTemplateExpanded =
-            '<li class="database database">'
-            . '<div class=\'block\'><i></i><b></b><a class="expander loaded" href=\'#\'>'
-                . '<span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>'
-                . '<img src="themes/dot.gif" title="" alt="" class="icon ic_b_minus">'
-            . '</a></div>'
-            . '<div class="block second">'
-            . '<a href=\'index.php?route=/database/operations&lang=en&amp;server=1&amp;db=%s&amp;\'>'
+            '  <li class="database database">' . "\n"
+            . '    <div class="block">' . "\n"
+            . '      <i></i>' . "\n"
+            . '              <b></b>' . "\n"
+            . '        <a class="expander loaded" href="#">' . "\n"
+            . '          <span class="hide paths_nav" data-apath="%s" data-vpath="%s" data-pos="0"></span>' . "\n"
+            . '                    <img src="themes/dot.gif" title="" alt=""'// title and alt changes
+            . ' class="icon ic_b_minus">' . "\n"// Icon changes
+            . '        </a>' . "\n"
+            . '          </div>' . "\n"
+            . '    ' . "\n"
+            . '          <div class="block second">' . "\n"
+            . '                  <a href="index.php?route=/database/operations&db=%s&lang=en">'
             . '<img src="themes/dot.gif" title="Database operations" alt="Database operations"'
-            . ' class="icon ic_s_db"></a></div><a class=\'hover_show_full\''
-            . ' href=\'index.php?route=/database/structure&lang=en&server=1&amp;db=%s\' title=\'Structure\'>%s</a>'
-            . '<div class="clearfloat"></div>'
-            . '</li>';
+            . ' class="icon ic_s_db"></a>' . "\n"
+            . '              </div>' . "\n"
+            . "\n"
+            . '              <a class="hover_show_full" href="index.php?route=/database/structure&db=%s&lang=en"'
+            . ' title="Structure">%s</a>' . "\n"
+            . '          ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    <div class="clearfloat"></div>' . "\n"
+            . "\n"
+            . "\n"
+            . "\n"
+            . '  </li>';
 
         // root.air-balloon_burner_dev2
         // cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=
         $this->assertStringContainsString(
             '<div id=\'pma_navigation_tree_content\'>' . "\n"
             . '  <ul>' . "\n"
-            . '    <li class="first navGroup">'
-                . '<div class=\'block\'><i class=\'first\'></i><b></b>'
-                    . '<a class="expander loaded container" href=\'#\'>'
-                        . '<span class="hide paths_nav" data-apath="cm9vdA=="'
+            . '      <li class="first navGroup">' . "\n"
+            . '    <div class="block">' . "\n"
+            . '      <i class="first"></i>' . "\n"
+            . '              <b></b>' . "\n"
+            . '        <a class="expander loaded container" href="#">' . "\n"
+            . '          <span class="hide paths_nav" data-apath="cm9vdA=="'
                         . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb24="'
-                        . ' data-pos="0"></span><img src="themes/dot.gif"'
-                        . ' title="" alt="" class="icon ic_b_minus"></a>'
-                . '</div>'
-                . '<i>'
-                . '<div class="block second"><u><img src="themes/dot.gif" title="Groups" alt="Groups"'
-                . ' class="icon ic_b_group"></u></div>&nbsp;air-balloon'
-                . '</i>'
-                . '<div class="clearfloat"></div>'
-                . '<div class=\'list_container\'>'
-                    . '<ul>'
+                        . ' data-pos="0"></span>' . "\n"
+            . '                    <img src="themes/dot.gif" title="" alt="" class="icon ic_b_minus">' . "\n"
+            . '        </a>' . "\n"
+            . '          </div>' . "\n"
+            . '          <div class="fst-italic">' . "\n"
+            . '    ' . "\n"
+            . '          <div class="block second">' . "\n"
+            . '        <u><img src="themes/dot.gif" title="Groups" alt="Groups" class="icon ic_b_group"></u>' . "\n"
+            . '      </div>' . "\n"
+            . '      &nbsp;air-balloon' . "\n"
+            . '    ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '          </div>' . "\n"
+            . '    ' . "\n"
+            . '    <div class="clearfloat"></div>' . "\n"
+            . "\n"
+            . '  <div class="list_container">' . "\n"
+            . '    <ul>' . "\n"
                     . sprintf(
                         $dbTemplate,
                         'cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2Rldg==',
@@ -334,7 +404,7 @@ class NavigationControllerTest extends AbstractTestCase
                         'air-balloon_burner_dev',
                         'air-balloon_burner_dev',
                         'air-balloon_burner_dev'
-                    )
+                    ) . "\n"
                     . sprintf(
                         $dbTemplateExpanded,
                         'cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=',
@@ -342,7 +412,7 @@ class NavigationControllerTest extends AbstractTestCase
                         'air-balloon_burner_dev2',
                         'air-balloon_burner_dev2',
                         'air-balloon_burner_dev2'
-                    )
+                    ) . "\n"
                     . sprintf(
                         $dbTemplateLast,
                         'cm9vdA==.YWlyLWJhbGxvb25fZGV2',
@@ -350,9 +420,12 @@ class NavigationControllerTest extends AbstractTestCase
                         'air-balloon_dev',
                         'air-balloon_dev',
                         'air-balloon_dev'
-                    )
-                    . '</ul>'
-                . '</div>' . "\n"
+                    ) . "\n"
+            . "\n"
+            . '    </ul>' . "\n"
+            . '  </div>' . "\n"
+            . "\n"
+            . "\n"
             . '  </ul>' . "\n"
             . '</div>' . "\n",
             $responseMessage

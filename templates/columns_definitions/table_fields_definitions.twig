@@ -1,5 +1,5 @@
 <div class="responsivetable">
-<table id="table_columns" class="pma-table noclick">
+<table id="table_columns" class="table table-striped caption-top align-middle mb-0 noclick">
     <caption class="tblHeaders">
         {% trans 'Structure' %}
         {{ show_mysql_docu('CREATE_TABLE') }}
@@ -66,7 +66,7 @@
             </th>
         {% endif %}
 
-        {% if mimework and browse_mime %}
+        {% if relation_parameters.browserTransformationFeature is not null and browse_mime %}
             <th>
                 {% trans 'Media type' %}
             </th>
@@ -95,10 +95,10 @@
         {% endif %}
     </tr>
     {% set options = {'': '', 'VIRTUAL': 'VIRTUAL'} %}
-    {% if server_type == 'MariaDB' and server_version <= 100200 %}
-        {% set options = options|merge({'PERSISTENT': 'PERSISTENT'}) %}
-    {% else %}
+    {% if supports_stored_keyword %}
         {% set options = options|merge({'STORED': 'STORED'}) %}
+    {% else %}
+        {% set options = options|merge({'PERSISTENT': 'PERSISTENT'}) %}
     {% endif %}
     {% for content_row in content_cells %}
         <tr>
@@ -112,7 +112,8 @@
                 'attribute_types': attribute_types,
                 'privs_available': privs_available,
                 'max_length': max_length,
-                'charsets': charsets
+                'charsets': charsets,
+                'relation_parameters': relation_parameters
             }) only %}
         </tr>
     {% endfor %}

@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup
+ */
 class OptionsPropertyRootGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyRootGroup */
@@ -43,9 +46,6 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
      */
     public function testCountable(): void
     {
-        $this->assertCount(
-            0,
-            $this->object
-        );
+        $this->assertCount(0, $this->object);
     }
 }

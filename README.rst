@@ -8,23 +8,23 @@ https://www.phpmyadmin.net/
 Code status
 -----------
 
-.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20tests/badge.svg?branch=QA_5_1
+.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20tests/badge.svg?branch=master
     :alt: Testsuite
     :target: https://github.com/phpmyadmin/phpmyadmin/actions
 
-.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20selenium%20tests/badge.svg?branch=QA_5_1
+.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20selenium%20tests/badge.svg?branch=master
     :alt: Selenium tests
     :target: https://github.com/phpmyadmin/phpmyadmin/actions
 
-.. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=qa_5_1
-    :target: https://docs.phpmyadmin.net/en/qa_5_1/
+.. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=latest
+    :target: https://docs.phpmyadmin.net/en/latest/
     :alt: Documentation build status
 
-.. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/5-1/svg-badge.svg
+.. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/master/svg-badge.svg
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget
 
-.. image:: https://codecov.io/gh/phpmyadmin/phpmyadmin/branch/QA_5_1/graph/badge.svg
+.. image:: https://codecov.io/gh/phpmyadmin/phpmyadmin/branch/master/graph/badge.svg
     :alt: Coverage percentage
     :target: https://codecov.io/gh/phpmyadmin/phpmyadmin
 
@@ -35,6 +35,14 @@ Code status
 .. image:: https://bestpractices.coreinfrastructure.org/projects/213/badge
     :alt: CII Best Practices
     :target: https://bestpractices.coreinfrastructure.org/projects/213
+
+.. image:: https://shepherd.dev/github/phpmyadmin/phpmyadmin/coverage.svg
+    :alt: Type coverage
+    :target: https://shepherd.dev/github/phpmyadmin/phpmyadmin
+
+.. image:: https://badge.stryker-mutator.io/github.com/phpmyadmin/phpmyadmin/master
+    :alt: Infection MSI
+    :target: https://infection.github.io
 
 
 Download

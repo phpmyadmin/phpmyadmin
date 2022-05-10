@@ -6,7 +6,7 @@
 
   {{ message|raw }}
 
-  <table class="pma-table my-3">
+  <table class="table table-striped w-auto my-3">
     <thead>
       <tr>
         <th>{% trans 'Table' %}</th>
@@ -17,7 +17,7 @@
       {% for row in rows %}
         <tr>
           <td>{{ row.Table }}</td>
-          <td class="text-right">
+          <td class="text-end">
             {% if row.Checksum is not null %}
               {{ row.Checksum }}
             {% else %}
@@ -30,8 +30,6 @@
   </table>
 
   {% for warning in warnings %}
-    {% apply notice %}
-      {{ warning.Level }}: #{{ warning.Code }} {{ warning.Message }}
-    {% endapply %}
+    {{ warning|notice }}
   {% endfor %}
 </div>

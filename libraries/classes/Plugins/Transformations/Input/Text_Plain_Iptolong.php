@@ -7,15 +7,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
-use stdClass;
+
+use function __;
 use function htmlspecialchars;
 
 /**
  * Handles the IPv4/IPv6 to long transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Iptolong extends IOTransformationsPlugin
 {
     /**
@@ -25,23 +26,21 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Converts an Internet network address in (IPv4/IPv6) format into a long integer.'
-        );
+        return __('Converts an Internet network address in (IPv4/IPv6) format into a long integer.');
     }
 
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string   $buffer  text to be transformed. a binary string containing
-     *                          an IP address, as returned from MySQL's INET6_ATON
-     *                          function
-     * @param array    $options transformation options
-     * @param stdClass $meta    meta information
+     * @param string        $buffer  text to be transformed. a binary string containing
+     *                               an IP address, as returned from MySQL's INET6_ATON
+     *                               function
+     * @param array         $options transformation options
+     * @param FieldMetadata $meta    meta information
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         return (string) FormatConverter::ipToLong($buffer);
     }

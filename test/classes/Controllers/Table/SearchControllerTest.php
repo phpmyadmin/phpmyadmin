@@ -1,26 +1,26 @@
 <?php
-/**
- * Tests for PMA_TableSearch
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
-use stdClass;
+
 use function hash;
 
+use const MYSQLI_TYPE_LONG;
+
 /**
- * Tests for PMA_TableSearch
+ * @covers \PhpMyAdmin\Controllers\Table\SearchController
  */
 class SearchControllerTest extends AbstractTestCase
 {
@@ -32,14 +32,10 @@ class SearchControllerTest extends AbstractTestCase
 
     /**
      * Setup function for test cases
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        parent::loadDefaultConfig();
         parent::setTheme();
 
         /**
@@ -53,7 +49,6 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $relation = new Relation($GLOBALS['dbi']);
-        $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -106,9 +101,7 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetColumnMinMax(): void
     {
-        $expected = 'SELECT MIN(`column`) AS `min`, '
-            . 'MAX(`column`) AS `max` '
-            . 'FROM `PMA`.`PMA_BookMark`';
+        $expected = 'SELECT MIN(`column`) AS `min`, MAX(`column`) AS `max` FROM `PMA`.`PMA_BookMark`';
 
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchSingleRow')
@@ -121,7 +114,7 @@ class SearchControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $GLOBALS['table'],
             new Search($GLOBALS['dbi']),
-            new Relation($GLOBALS['dbi'], $this->template),
+            new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 
@@ -134,48 +127,47 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetDataRowAction(): void
     {
+        global $containerBuilder;
+
+        parent::setGlobalDbi();
+        parent::loadDbiIntoContainerBuilder();
+        parent::loadResponseIntoContainerBuilder();
+
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
-        $meta_one = new stdClass();
-        $meta_one->type = 'int';
-        $meta_one->length = 11;
-        $meta_two = new stdClass();
-        $meta_two->length = 11;
-        $meta_two->type = 'int';
-        $fields_meta = [
-            $meta_one,
-            $meta_two,
-        ];
-        $GLOBALS['dbi']->expects($this->any())->method('getFieldsMeta')
-            ->will($this->returnValue($fields_meta));
 
-        $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
-            ->will(
-                $this->returnCallback(
-                    static function () {
-                        static $count = 0;
-                        if ($count == 0) {
-                            $count++;
-
-                            return [
-                                'col1' => 1,
-                                'col2' => 2,
-                            ];
-                        }
-
-                        return null;
-                    }
-                )
-            );
-
-        $ctrl = new SearchController(
-            $this->response,
-            $this->template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
-            new Search($GLOBALS['dbi']),
-            new Relation($GLOBALS['dbi'], $this->template),
-            $GLOBALS['dbi']
+        $this->dummyDbi->addResult(
+            'SHOW FULL COLUMNS FROM `PMA`.`PMA_BookMark`',
+            []
         );
+
+        $this->dummyDbi->addResult(
+            'SHOW CREATE TABLE `PMA`.`PMA_BookMark`',
+            []
+        );
+
+        $this->dummyDbi->addResult(
+            'SELECT * FROM `PMA`.`PMA_BookMark` WHERE `col1` = 1;',
+            [
+                [
+                    1,
+                    2,
+                ],
+            ],
+            [
+                'col1',
+                'col2',
+            ],
+            [
+                new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
+                new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
+            ]
+        );
+
+        $containerBuilder->setParameter('db', 'PMA');
+        $containerBuilder->setParameter('table', 'PMA_BookMark');
+
+        /** @var SearchController $ctrl */
+        $ctrl = $containerBuilder->get(SearchController::class);
 
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';
@@ -187,10 +179,7 @@ class SearchControllerTest extends AbstractTestCase
         ];
         $ctrl->getDataRowAction();
 
-        $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            $expected,
-            $json['row_info']
-        );
+        $json = $this->getResponseJsonResult();
+        $this->assertEquals($expected, $json['row_info']);
     }
 }

@@ -1,17 +1,16 @@
 <?php
-/**
- * Tests for libraries/SystemDatabase.php
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 
 /**
- * Tests for libraries/SystemDatabase.php
+ * @covers \PhpMyAdmin\SystemDatabase
  */
 class SystemDatabaseTest extends AbstractTestCase
 {
@@ -24,18 +23,17 @@ class SystemDatabaseTest extends AbstractTestCase
 
     /**
      * Setup function for test cases
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         /**
          * SET these to avoid undefine d index error
          */
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -43,24 +41,45 @@ class SystemDatabaseTest extends AbstractTestCase
 
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue('executeResult2'));
+            ->will($this->returnValue($resultStub));
 
-        //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'table_coords' => 'table_name',
-            'displaywork' => 'displaywork',
+            'displaywork' => true,
             'db' => 'information_schema',
             'table_info' => 'table_info',
-            'relwork' => 'relwork',
-            'commwork' => 'commwork',
-            'pdfwork' => 'pdfwork',
-            'mimework' => 'mimework',
+            'relwork' => true,
+            'commwork' => true,
+            'pdfwork' => true,
+            'mimework' => true,
             'column_info' => 'column_info',
             'relation' => 'relation',
-        ];
+        ])->toArray();
 
-        $dbi->expects($this->any())
+        $this->sysDb = new SystemDatabase($dbi);
+    }
+
+    /**
+     * Tests for PMA_getExistingTransformationData() method.
+     */
+    public function testPMAGetExistingTransformationData(): void
+    {
+        $db = 'PMA_db';
+        $ret = $this->sysDb->getExistingTransformationData($db);
+
+        //validate that is the same as $dbi->tryQuery
+        $this->assertInstanceOf(DummyResult::class, $ret);
+    }
+
+    /**
+     * Tests for PMA_getNewTransformationDataSql() method.
+     */
+    public function testPMAGetNewTransformationDataSql(): void
+    {
+        $resultStub = $this->createMock(DummyResult::class);
+
+        $resultStub->expects($this->any())
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
@@ -75,31 +94,7 @@ class SystemDatabaseTest extends AbstractTestCase
                 )
             );
 
-        $this->sysDb = new SystemDatabase($dbi);
-    }
-
-    /**
-     * Tests for PMA_getExistingTransformationData() method.
-     */
-    public function testPMAGetExistingTransformationData(): void
-    {
         $db = 'PMA_db';
-        $ret = $this->sysDb->getExistingTransformationData($db);
-
-        //validate that is the same as $dbi->tryQuery
-        $this->assertEquals(
-            'executeResult2',
-            $ret
-        );
-    }
-
-    /**
-     * Tests for PMA_getNewTransformationDataSql() method.
-     */
-    public function testPMAGetNewTransformationDataSql(): void
-    {
-        $db = 'PMA_db';
-        $pma_transformation_data = [];
         $column_map = [
             [
                 'table_name' => 'table_name',
@@ -109,7 +104,7 @@ class SystemDatabaseTest extends AbstractTestCase
         $view_name = 'view_name';
 
         $ret = $this->sysDb->getNewTransformationDataSql(
-            $pma_transformation_data,
+            $resultStub,
             $column_map,
             $view_name,
             $db
@@ -121,9 +116,6 @@ class SystemDatabaseTest extends AbstractTestCase
             . "('PMA_db', 'view_name', 'column_name', 'comment', 'mimetype', "
             . "'transformation', 'transformation_options')";
 
-        $this->assertEquals(
-            $sql,
-            $ret
-        );
+        $this->assertEquals($sql, $ret);
     }
 }

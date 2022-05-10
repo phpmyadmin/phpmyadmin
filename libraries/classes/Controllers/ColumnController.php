@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 final class ColumnController extends AbstractController
@@ -14,25 +15,26 @@ final class ColumnController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
         $this->dbi = $dbi;
     }
 
-    public function all(): void
+    public function __invoke(ServerRequest $request): void
     {
-        if (! isset($_POST['db'], $_POST['table'])) {
+        /** @var string|null $db */
+        $db = $request->getParsedBodyParam('db');
+        /** @var string|null $table */
+        $table = $request->getParsedBodyParam('table');
+
+        if (! isset($db, $table)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
             return;
         }
 
-        $this->response->addJSON(['columns' => $this->dbi->getColumnNames($_POST['db'], $_POST['table'])]);
+        $this->response->addJSON(['columns' => $this->dbi->getColumnNames($db, $table)]);
     }
 }

@@ -20,13 +20,14 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
-use const LOCK_EX;
+
+use function __;
 use function count;
 use function extension_loaded;
 use function file_exists;
 use function file_put_contents;
-use function mb_strlen;
 use function mb_substr;
+use function method_exists;
 use function pathinfo;
 use function strcmp;
 use function strlen;
@@ -34,18 +35,18 @@ use function substr;
 use function trim;
 use function unlink;
 
+use const LOCK_EX;
+
 /**
  * Handles the import for ESRI Shape files
  */
 class ImportShp extends ImportPlugin
 {
-    /** @var ZipExtension */
-    private $zipExtension;
+    /** @var ZipExtension|null */
+    private $zipExtension = null;
 
-    public function __construct()
+    protected function init(): void
     {
-        parent::__construct();
-        $this->setProperties();
         if (! extension_loaded('zip')) {
             return;
         }
@@ -54,36 +55,35 @@ class ImportShp extends ImportPlugin
     }
 
     /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
+     * @psalm-return non-empty-lowercase-string
      */
-    protected function setProperties()
+    public function getName(): string
+    {
+        return 'shp';
+    }
+
+    protected function setProperties(): ImportPluginProperties
     {
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('ESRI Shape File'));
         $importPluginProperties->setExtension('shp');
-        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $this->properties = $importPluginProperties;
+        return $importPluginProperties;
     }
 
     /**
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $db, $error, $finished, $import_file, $local_import_file, $message, $dbi;
 
         $GLOBALS['finished'] = false;
 
-        if ($importHandle === null) {
+        if ($importHandle === null || $this->zipExtension === null) {
             return;
         }
 
@@ -95,9 +95,7 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression === 'application/zip'
-            && $this->zipExtension->getNumberOfFiles($import_file) > 1
-        ) {
+        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles($import_file) > 1) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".')
@@ -111,21 +109,15 @@ class ImportShp extends ImportPlugin
         $temp_dbf_file = false;
         // We need dbase extension to handle .dbf file
         if (extension_loaded('dbase')) {
-            $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
+            $temp = $GLOBALS['config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
-                $dbf_file_name = $this->zipExtension->findFile(
-                    $import_file,
-                    '/^.*\.dbf$/i'
-                );
+                $dbf_file_name = $this->zipExtension->findFile($import_file, '/^.*\.dbf$/i');
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbf_file_name) {
                     // Extract the .dbf file and point to it.
-                    $extracted = $this->zipExtension->extract(
-                        $import_file,
-                        $dbf_file_name
-                    );
+                    $extracted = $this->zipExtension->extract($import_file, $dbf_file_name);
                     if ($extracted !== false) {
                         // remove filename extension, e.g.
                         // dresden_osm.shp/gis.osm_transport_a_v06.dbf
@@ -144,24 +136,16 @@ class ImportShp extends ImportPlugin
                             $temp_dbf_file = true;
 
                             // Replace the .dbf with .*, as required by the bsShapeFiles library.
-                            $shp->FileName = substr($dbf_file_path, 0, -4) . '.*';
+                            $shp->fileName = substr($dbf_file_path, 0, -4) . '.*';
                         }
                     }
                 }
-            } elseif (! empty($local_import_file)
-                && ! empty($GLOBALS['cfg']['UploadDir'])
-                && $compression === 'none'
-            ) {
+            } elseif (! empty($local_import_file) && ! empty($GLOBALS['cfg']['UploadDir']) && $compression === 'none') {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $file_name = mb_substr(
-                    $import_file,
-                    0,
-                    mb_strlen($import_file) - 4
-                ) . '.*';
-                $shp->FileName = $file_name;
+                $shp->fileName = mb_substr($import_file, 0, -4) . '.*';
             }
         }
 
@@ -169,10 +153,7 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
 
         // Delete the .dbf file extracted to 'TempDir'
-        if ($temp_dbf_file
-            && isset($dbf_file_path)
-            && @file_exists($dbf_file_path)
-        ) {
+        if ($temp_dbf_file && isset($dbf_file_path) && @file_exists($dbf_file_path)) {
             unlink($dbf_file_path);
         }
 
@@ -232,16 +213,16 @@ class ImportShp extends ImportPlugin
         if ($num_rows != 0) {
             foreach ($shp->records as $record) {
                 $tempRow = [];
-                if ($gis_obj == null) {
+                if ($gis_obj == null || ! method_exists($gis_obj, 'getShape')) {
                     $tempRow[] = null;
                 } else {
                     $tempRow[] = "GeomFromText('"
-                        . $gis_obj->getShape($record->SHPData) . "')";
+                        . $gis_obj->getShape($record->shpData) . "')";
                 }
 
                 if ($shp->getDBFHeader() !== null) {
                     foreach ($shp->getDBFHeader() as $c) {
-                        $cell = trim((string) $record->DBFData[$c[0]]);
+                        $cell = trim((string) $record->dbfData[$c[0]]);
 
                         if (! strcmp($cell, '')) {
                             $cell = 'NULL';
@@ -250,6 +231,7 @@ class ImportShp extends ImportPlugin
                         $tempRow[] = $cell;
                     }
                 }
+
                 $rows[] = $tempRow;
             }
         }
@@ -266,8 +248,13 @@ class ImportShp extends ImportPlugin
         // Column names for spatial column and the rest of the columns,
         // if they are available
         $col_names[] = 'SPATIAL';
+        $dbfHeader = $shp->getDBFHeader();
         for ($n = 0; $n < $num_data_cols; $n++) {
-            $col_names[] = $shp->getDBFHeader()[$n][0];
+            if ($dbfHeader === null) {
+                continue;
+            }
+
+            $col_names[] = $dbfHeader[$n][0];
         }
 
         // Set table name based on the number of tables
@@ -277,6 +264,7 @@ class ImportShp extends ImportPlugin
         } else {
             $table_name = 'TBL_NAME';
         }
+
         $tables = [
             [
                 $table_name,
@@ -339,6 +327,7 @@ class ImportShp extends ImportPlugin
                 $buffer .= $import->getNextChunk($importHandle);
             }
         }
+
         $result = substr($buffer, 0, $length);
         $buffer = substr($buffer, $length);
 

@@ -7,14 +7,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+
 use function array_flip;
 use function array_keys;
 use function array_merge;
+use function is_array;
 use function rawurldecode;
 use function sprintf;
 
@@ -56,10 +57,10 @@ abstract class TableStats
     public $primary = [];
 
     /** @var int|float */
-    public $x;
+    public $x = 0;
 
     /** @var int|float */
-    public $y;
+    public $y = 0;
 
     /** @var int */
     public $width = 0;
@@ -77,15 +78,14 @@ abstract class TableStats
     protected $font;
 
     /**
-     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
-     * @param string                                  $db             current db name
-     * @param int                                     $pageNumber     current page number (from the
-     *                                                                $cfg['Servers'][$i]['table_coords'] table)
-     * @param string                                  $tableName      table name
-     * @param bool                                    $showKeys       whether to display keys or not
-     * @param bool                                    $tableDimension whether to display table position or not
-     * @param bool                                    $offline        whether the coordinates are sent
-     *                                                                from the browser
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia $diagram        schema diagram
+     * @param string                          $db             current db name
+     * @param int                             $pageNumber     current page number (from the
+     *                                                        $cfg['Servers'][$i]['table_coords'] table)
+     * @param string                          $tableName      table name
+     * @param bool                            $showKeys       whether to display keys or not
+     * @param bool                            $tableDimension whether to display table position or not
+     * @param bool                            $offline        whether the coordinates are sent from the browser
      */
     public function __construct(
         $diagram,
@@ -98,15 +98,15 @@ abstract class TableStats
     ) {
         global $dbi;
 
-        $this->diagram    = $diagram;
-        $this->db         = $db;
+        $this->diagram = $diagram;
+        $this->db = $db;
         $this->pageNumber = $pageNumber;
-        $this->tableName  = $tableName;
+        $this->tableName = $tableName;
 
-        $this->showKeys   = $showKeys;
-        $this->tableDimension   = $tableDimension;
+        $this->showKeys = $showKeys;
+        $this->tableDimension = $tableDimension;
 
-        $this->offline    = $offline;
+        $this->offline = $offline;
 
         $this->relation = new Relation($dbi);
         $this->font = new Font();
@@ -124,21 +124,16 @@ abstract class TableStats
 
     /**
      * Validate whether the table exists.
-     *
-     * @return void
      */
-    protected function validateTableAndLoadFields()
+    protected function validateTableAndLoadFields(): void
     {
         global $dbi;
 
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
-        $result = $dbi->tryQuery(
-            $sql,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
-        if (! $result || ! $dbi->numRows($result)) {
+        $result = $dbi->tryQuery($sql);
+        if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
+            exit;
         }
 
         if ($this->showKeys) {
@@ -150,35 +145,30 @@ abstract class TableStats
                     array_flip(array_keys($index->getColumns()))
                 );
             }
+
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = $dbi->fetchRow($result)) {
-                $this->fields[] = $row[0];
-            }
+            $this->fields = $result->fetchAllColumn();
         }
     }
 
     /**
      * Displays an error when the table cannot be found.
      *
-     * @return void
-     *
      * @abstract
      */
-    abstract protected function showMissingTableError();
+    abstract protected function showMissingTableError(): void;
 
     /**
      * Loads coordinates of a table
-     *
-     * @return void
      */
-    protected function loadCoordinates()
+    protected function loadCoordinates(): void
     {
-        if (! isset($_POST['t_h'])) {
+        if (! isset($_POST['t_h']) || ! is_array($_POST['t_h'])) {
             return;
         }
 
-        foreach ($_POST['t_h'] as $key => $value) {
+        foreach (array_keys($_POST['t_h']) as $key) {
             $db = rawurldecode($_POST['t_db'][$key]);
             $tbl = rawurldecode($_POST['t_tbl'][$key]);
             if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
@@ -191,33 +181,25 @@ abstract class TableStats
 
     /**
      * Loads the table's display field
-     *
-     * @return void
      */
-    protected function loadDisplayField()
+    protected function loadDisplayField(): void
     {
         $this->displayfield = $this->relation->getDisplayField($this->db, $this->tableName);
     }
 
     /**
      * Loads the PRIMARY key.
-     *
-     * @return void
      */
-    protected function loadPrimaryKey()
+    protected function loadPrimaryKey(): void
     {
         global $dbi;
 
-        $result = $dbi->query(
-            'SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
-        if ($dbi->numRows($result) <= 0) {
+        $result = $dbi->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
+        if ($result->numRows() <= 0) {
             return;
         }
 
-        while ($row = $dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             if ($row['Key_name'] !== 'PRIMARY') {
                 continue;
             }

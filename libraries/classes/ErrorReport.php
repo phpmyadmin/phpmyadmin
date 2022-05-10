@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Utils\HttpRequest;
-use const E_USER_WARNING;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
-use const PHP_VERSION;
+
 use function count;
 use function http_build_query;
 use function is_array;
@@ -19,6 +17,9 @@ use function parse_str;
 use function parse_url;
 use function preg_match;
 use function str_replace;
+
+use const E_USER_WARNING;
+use const PHP_VERSION;
 
 /**
  * Error reporting functions used to generate and submit error reports
@@ -41,16 +42,20 @@ class ErrorReport
     /** @var Template */
     public $template;
 
+    /** @var Config */
+    private $config;
+
     /**
      * @param HttpRequest $httpRequest HttpRequest instance
      * @param Relation    $relation    Relation instance
      * @param Template    $template    Template instance
      */
-    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template)
+    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template, Config $config)
     {
         $this->httpRequest = $httpRequest;
         $this->relation = $relation;
         $this->template = $template;
+        $this->config = $config;
     }
 
     /**
@@ -64,20 +69,6 @@ class ErrorReport
     }
 
     /**
-     * Returns the pretty printed error report data collected from the
-     * current configuration or from the request parameters sent by the
-     * error reporting js code.
-     *
-     * @return string the report
-     */
-    private function getPrettyData(): string
-    {
-        $report = $this->getData();
-
-        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-    }
-
-    /**
      * Returns the error report data collected from the current configuration or
      * from the request parameters sent by the error reporting js code.
      *
@@ -87,20 +78,17 @@ class ErrorReport
      */
     public function getData(string $exceptionType = 'js'): array
     {
-        global $PMA_Config;
-
-        $relParams = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         // common params for both, php & js exceptions
         $report = [
-            'pma_version' => PMA_VERSION,
-            'browser_name' => PMA_USR_BROWSER_AGENT,
-            'browser_version' => PMA_USR_BROWSER_VER,
-            'user_os' => PMA_USR_OS,
+            'pma_version' => Version::VERSION,
+            'browser_name' => $this->config->get('PMA_USR_BROWSER_AGENT'),
+            'browser_version' => $this->config->get('PMA_USR_BROWSER_VER'),
+            'user_os' => $this->config->get('PMA_USR_OS'),
             'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? null,
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
-            'locale' => $PMA_Config->getCookie('pma_lang'),
-            'configuration_storage' =>
-                $relParams['db'] === null ? 'disabled' : 'enabled',
+            'locale' => $this->config->getCookie('pma_lang'),
+            'configuration_storage' => $relationParameters->db === null ? 'disabled' : 'enabled',
             'php_version' => PHP_VERSION,
         ];
 
@@ -108,6 +96,7 @@ class ErrorReport
             if (empty($_POST['exception'])) {
                 return [];
             }
+
             $exception = $_POST['exception'];
 
             if (isset($exception['stack'])) {
@@ -130,9 +119,6 @@ class ErrorReport
 
             $report['exception_type'] = 'js';
             $report['exception'] = $exception;
-            if (isset($_POST['microhistory'])) {
-                $report['microhistory'] = $_POST['microhistory'];
-            }
 
             if (! empty($_POST['description'])) {
                 $report['steps'] = $_POST['description'];
@@ -141,17 +127,13 @@ class ErrorReport
             $errors = [];
             // create php error report
             $i = 0;
-            if (! isset($_SESSION['prev_errors'])
-                || $_SESSION['prev_errors'] == ''
-            ) {
+            if (! isset($_SESSION['prev_errors']) || $_SESSION['prev_errors'] == '') {
                 return [];
             }
+
             foreach ($_SESSION['prev_errors'] as $errorObj) {
                 /** @var Error $errorObj */
-                if (! $errorObj->getLine()
-                    || ! $errorObj->getType()
-                    || $errorObj->getNumber() == E_USER_WARNING
-                ) {
+                if (! $errorObj->getLine() || ! $errorObj->getType() || $errorObj->getNumber() == E_USER_WARNING) {
                     continue;
                 }
 
@@ -169,6 +151,7 @@ class ErrorReport
             if ($i == 0) {
                 return []; // then return empty array
             }
+
             $report['exception_type'] = 'php';
             $report['errors'] = $errors;
         } else {
@@ -198,9 +181,7 @@ class ErrorReport
             $components = [];
         }
 
-        if (isset($components['fragment'])
-            && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
-        ) {
+        if (isset($components['fragment']) && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)) {
             $uri = str_replace($matches[0], '', $components['fragment']);
             $url = 'https://example.com/' . $uri;
             $components = parse_url($url);
@@ -272,11 +253,13 @@ class ErrorReport
 
                 $line = mb_substr($line, 0, 75) . '//...';
             }
+
             [$uri, $scriptName] = $this->sanitizeUrl($level['url']);
             $level['uri'] = $uri;
             $level['scriptname'] = $scriptName;
             unset($level['url']);
         }
+
         unset($level);
 
         return $stack;
@@ -290,17 +273,26 @@ class ErrorReport
      */
     public function getForm(): string
     {
+        $reportData = $this->getData();
+
         $datas = [
-            'report_data' => $this->getPrettyData(),
+            'report_data' => $reportData,
             'hidden_inputs' => Url::getHiddenInputs(),
             'hidden_fields' => null,
+            'allowed_to_send_error_reports' => $this->config->get('SendErrorReports') !== 'never',
         ];
 
-        $reportData = $this->getData();
         if (! empty($reportData)) {
             $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }
 
         return $this->template->render('error/report_form', $datas);
+    }
+
+    public function getEmptyModal(): string
+    {
+        return $this->template->render('error/report_modal', [
+            'allowed_to_send_error_reports' => $this->config->get('SendErrorReports') !== 'never',
+        ]);
     }
 }

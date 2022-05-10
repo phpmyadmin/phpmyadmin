@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\SqlController;
+use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\RecentFavoriteTable;
 
 /**
@@ -12,22 +12,16 @@ use PhpMyAdmin\RecentFavoriteTable;
  */
 class RecentFavoriteController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         global $containerBuilder;
 
-        RecentFavoriteTable::getInstance('recent')->removeIfInvalid(
-            $_REQUEST['db'],
-            $_REQUEST['table']
-        );
+        RecentFavoriteTable::getInstance('recent')->removeIfInvalid($_REQUEST['db'], $_REQUEST['table']);
 
-        RecentFavoriteTable::getInstance('favorite')->removeIfInvalid(
-            $_REQUEST['db'],
-            $_REQUEST['table']
-        );
+        RecentFavoriteTable::getInstance('favorite')->removeIfInvalid($_REQUEST['db'], $_REQUEST['table']);
 
         /** @var SqlController $controller */
         $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $controller();
     }
 }

@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PMA_StorageEngine_innodb
- */
 
 declare(strict_types=1);
 
@@ -10,6 +7,11 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
+/**
+ * @covers \PhpMyAdmin\Engines\Innodb
+ */
 class InnodbTest extends AbstractTestCase
 {
     /** @var Innodb */
@@ -18,8 +20,6 @@ class InnodbTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -31,8 +31,6 @@ class InnodbTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -49,27 +47,26 @@ class InnodbTest extends AbstractTestCase
             [
                 'innodb_data_home_dir' => [
                     'title' => __('Data home directory'),
-                    'desc'  => __('The common part of the directory path for all InnoDB data files.'),
+                    'desc' => __('The common part of the directory path for all InnoDB data files.'),
                 ],
                 'innodb_data_file_path' => [
                     'title' => __('Data files'),
                 ],
                 'innodb_autoextend_increment' => [
                     'title' => __('Autoextend increment'),
-                    'desc'  => __(
-                        'The increment size for extending the size of an'
-                        . ' autoextending tablespace when it becomes full.'
+                    'desc' => __(
+                        'The increment size for extending the size of an autoextending tablespace when it becomes full.'
                     ),
-                    'type'  => 2,
+                    'type' => 2,
                 ],
                 'innodb_buffer_pool_size' => [
                     'title' => __('Buffer pool size'),
-                    'desc'  => __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.'),
-                    'type'  => 1,
+                    'desc' => __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.'),
+                    'type' => 1,
                 ],
                 'innodb_additional_mem_pool_size' => [
                     'title' => 'innodb_additional_mem_pool_size',
-                    'type'  => 1,
+                    'type' => 1,
                 ],
                 'innodb_buffer_pool_awe_mem_mb' => ['type' => 1],
                 'innodb_checksums' => [],
@@ -140,11 +137,11 @@ class InnodbTest extends AbstractTestCase
     public function testGetPageBufferpool(): void
     {
         $this->assertEquals(
-            '<table class="table table-light table-striped table-hover w-auto float-left">' . "\n" .
+            '<table class="table table-light table-striped table-hover w-auto float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Usage' . "\n" .
             '    </caption>' . "\n" .
-            '    <tfoot class="thead-light">' . "\n" .
+            '    <tfoot class="table-light">' . "\n" .
             '        <tr>' . "\n" .
             '            <th colspan="2">' . "\n" .
             '                Total: 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
@@ -154,61 +151,61 @@ class InnodbTest extends AbstractTestCase
             '    <tbody>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Free pages</th>' . "\n" .
-            '            <td class="text-monospace text-right">0</td>' . "\n" .
+            '            <td class="font-monospace text-end">0</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Dirty pages</th>' . "\n" .
-            '            <td class="text-monospace text-right">0</td>' . "\n" .
+            '            <td class="font-monospace text-end">0</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Pages containing data</th>' . "\n" .
-            '            <td class="text-monospace text-right">0' . "\n" .
+            '            <td class="font-monospace text-end">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Pages to be flushed</th>' . "\n" .
-            '            <td class="text-monospace text-right">0' . "\n" .
+            '            <td class="font-monospace text-end">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Busy pages</th>' . "\n" .
-            '            <td class="text-monospace text-right">0' . "\n" .
+            '            <td class="font-monospace text-end">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>    </tbody>' . "\n" .
             '</table>' . "\n\n" .
-            '<table class="table table-light table-striped table-hover w-auto ml-4 float-left">' . "\n" .
+            '<table class="table table-light table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Activity' . "\n" .
             '    </caption>' . "\n" .
             '    <tbody>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Read requests</th>' . "\n" .
-            '            <td class="text-monospace text-right">64' . "\n" .
+            '            <td class="font-monospace text-end">64' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Write requests</th>' . "\n" .
-            '            <td class="text-monospace text-right">64' . "\n" .
+            '            <td class="font-monospace text-end">64' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Read misses</th>' . "\n" .
-            '            <td class="text-monospace text-right">32' . "\n" .
+            '            <td class="font-monospace text-end">32' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Write waits</th>' . "\n" .
-            '            <td class="text-monospace text-right">0' . "\n" .
+            '            <td class="font-monospace text-end">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Read misses in %</th>' . "\n" .
-            '            <td class="text-monospace text-right">50   %' . "\n" .
+            '            <td class="font-monospace text-end">50   %' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
             '            <th scope="row">Write waits in %</th>' . "\n" .
-            '            <td class="text-monospace text-right">0 %' . "\n" .
+            '            <td class="font-monospace text-end">0 %' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '    </tbody>' . "\n" .

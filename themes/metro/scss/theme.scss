@@ -1,5 +1,4 @@
 @import "font";
-@import "../../pmahomme/scss/direction";
 @import "variables";
 @import "../../bootstrap/scss/bootstrap";
 @import "common";
@@ -7,10 +6,8 @@
 @import "gis";
 @import "navigation";
 @import "designer";
-@import "rte";
 @import "codemirror";
 @import "jqplot";
-@import "resizable-menu";
 @import "icons";
 @import "reboot";
 @import "tables";
@@ -18,7 +15,8 @@
 @import "nav";
 @import "navbar";
 @import "card";
-@import "breadcrumbs";
+@import "breadcrumb";
 @import "alert";
 @import "list-group";
 @import "modal";
+@import "print";

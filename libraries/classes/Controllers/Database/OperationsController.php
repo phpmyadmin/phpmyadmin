@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -13,12 +15,12 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Query\Utilities;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 use function count;
 use function mb_strtolower;
 use function strlen;
@@ -43,20 +45,15 @@ class OperationsController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
+        string $db,
         Operations $operations,
         CheckUserPrivileges $checkUserPrivileges,
         Relation $relation,
         RelationCleanup $relationCleanup,
-        $dbi
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template, $db);
         $this->operations = $operations;
@@ -66,10 +63,10 @@ class OperationsController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $err_url;
-        global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
+        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $errorUrl;
+        global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $urlParams, $tables;
         global $total_num_tables, $sub_part, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
 
@@ -82,9 +79,7 @@ class OperationsController extends AbstractController
         /**
          * Rename/move or copy database
          */
-        if (strlen($db) > 0
-            && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))
-        ) {
+        if (strlen($db) > 0 && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))) {
             if (! empty($_POST['db_rename'])) {
                 $move = true;
             } else {
@@ -96,9 +91,7 @@ class OperationsController extends AbstractController
             } else {
                 // lower_case_table_names=1 `DB` becomes `db`
                 if ($this->dbi->getLowerCaseNames() === '1') {
-                    $_POST['newname'] = mb_strtolower(
-                        $_POST['newname']
-                    );
+                    $_POST['newname'] = mb_strtolower($_POST['newname']);
                 }
 
                 if ($_POST['newname'] === $_REQUEST['db']) {
@@ -126,40 +119,29 @@ class OperationsController extends AbstractController
 
                     // remove all foreign key constraints, otherwise we can get errors
                     /** @var ExportSql $export_sql_plugin */
-                    $export_sql_plugin = Plugins::getPlugin(
-                        'export',
-                        'sql',
-                        'libraries/classes/Plugins/Export/',
-                        [
-                            'single_table' => isset($single_table),
-                            'export_type'  => 'database',
-                        ]
-                    );
+                    $export_sql_plugin = Plugins::getPlugin('export', 'sql', [
+                        'export_type' => 'database',
+                        'single_table' => isset($single_table),
+                    ]);
 
                     // create stand-in tables for views
-                    $views = $this->operations->getViewsAndCreateSqlViewStandIn(
-                        $tables_full,
-                        $export_sql_plugin,
-                        $db
-                    );
+                    $views = $this->operations->getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin, $db);
 
                     // copy tables
-                    $sqlConstratints = $this->operations->copyTables(
-                        $tables_full,
-                        $move,
-                        $db
-                    );
+                    $sqlConstratints = $this->operations->copyTables($tables_full, $move, $db);
 
                     // handle the views
                     if (! $_error) {
                         $this->operations->handleTheViews($views, $move, $db);
                     }
+
                     unset($views);
 
                     // now that all tables exist, create all the accumulated constraints
                     if (! $_error && count($sqlConstratints) > 0) {
                         $this->operations->createAllAccumulatedConstraints($sqlConstratints);
                     }
+
                     unset($sqlConstratints);
 
                     if ($this->dbi->getVersion() >= 50100) {
@@ -176,9 +158,7 @@ class OperationsController extends AbstractController
                     $this->operations->duplicateBookmarks($_error, $db);
 
                     if (! $_error && $move) {
-                        if (isset($_POST['adjust_privileges'])
-                            && ! empty($_POST['adjust_privileges'])
-                        ) {
+                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesMoveDb($db, $_POST['newname']);
                         }
 
@@ -199,9 +179,7 @@ class OperationsController extends AbstractController
                         $message->addParam($db);
                         $message->addParam($_POST['newname']);
                     } elseif (! $_error) {
-                        if (isset($_POST['adjust_privileges'])
-                            && ! empty($_POST['adjust_privileges'])
-                        ) {
+                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesCopyDb($db, $_POST['newname']);
                         }
 
@@ -213,15 +191,14 @@ class OperationsController extends AbstractController
                     } else {
                         $message = Message::error();
                     }
+
                     $reload = true;
 
                     /* Change database to be used */
                     if (! $_error && $move) {
                         $db = $_POST['newname'];
                     } elseif (! $_error) {
-                        if (isset($_POST['switch_to_new'])
-                            && $_POST['switch_to_new'] === 'true'
-                        ) {
+                        if (isset($_POST['switch_to_new']) && $_POST['switch_to_new'] === 'true') {
                             $_SESSION['pma_switch_to_new'] = true;
                             $db = $_POST['newname'];
                         } else {
@@ -233,7 +210,7 @@ class OperationsController extends AbstractController
 
             /**
              * Database has been successfully renamed/moved.  If in an Ajax request,
-             * generate the output with {@link Response} and exit
+             * generate the output with {@link ResponseRenderer} and exit
              */
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus($message->isSuccess());
@@ -249,10 +226,7 @@ class OperationsController extends AbstractController
             }
         }
 
-        /**
-         * Settings for relations stuff
-         */
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         /**
          * Check if comments were updated
@@ -264,14 +238,14 @@ class OperationsController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
-        $url_params['goto'] = Url::getFromRoute('/database/operations');
+        $urlParams['goto'] = Url::getFromRoute('/database/operations');
 
         // Gets the database structure
         $sub_part = '_structure';
@@ -285,7 +259,7 @@ class OperationsController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
-        ] = Util::getDbInfo($db, $sub_part ?? '');
+        ] = Util::getDbInfo($db, $sub_part);
 
         $oldMessage = '';
         if (isset($message)) {
@@ -301,7 +275,7 @@ class OperationsController extends AbstractController
         }
 
         $databaseComment = '';
-        if ($cfgRelation['commwork']) {
+        if ($relationParameters->columnCommentsFeature !== null) {
             $databaseComment = $this->relation->getDbComment($db);
         }
 
@@ -316,13 +290,10 @@ class OperationsController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        if (! $cfgRelation['allworks']
-            && $cfg['PmaNoRelation_DisableWarning'] == false
-        ) {
+        if (! $relationParameters->hasAllFeatures() && $cfg['PmaNoRelation_DisableWarning'] == false) {
             $message = Message::notice(
                 __(
-                    'The phpMyAdmin configuration storage has been deactivated. ' .
-                    '%sFind out why%s.'
+                    'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.'
                 )
             );
             $message->addParamHtml(
@@ -339,7 +310,7 @@ class OperationsController extends AbstractController
         $this->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => $db,
-            'has_comment' => $cfgRelation['commwork'],
+            'has_comment' => $relationParameters->columnCommentsFeature !== null,
             'db_comment' => $databaseComment,
             'db_collation' => $db_collation,
             'has_adjust_privileges' => $hasAdjustPrivileges,
@@ -348,72 +319,5 @@ class OperationsController extends AbstractController
             'charsets' => $charsets,
             'collations' => $collations,
         ]);
-    }
-
-    public function collation(): void
-    {
-        global $db, $cfg, $err_url;
-
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        if (empty($_POST['db_collation'])) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Message::error(__('No collation provided.')));
-
-            return;
-        }
-
-        Util::checkParameters(['db']);
-
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
-
-        if (! $this->hasDatabase()) {
-            return;
-        }
-
-        $sql_query = 'ALTER DATABASE ' . Util::backquote($db)
-            . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
-        $this->dbi->query($sql_query);
-        $message = Message::success();
-
-        /**
-         * Changes tables charset if requested by the user
-         */
-        if (isset($_POST['change_all_tables_collations']) &&
-            $_POST['change_all_tables_collations'] === 'on'
-        ) {
-            [$tables] = Util::getDbInfo($db, null);
-            foreach ($tables as $tableName => $data) {
-                if ($this->dbi->getTable($db, $tableName)->isView()) {
-                    // Skip views, we can not change the collation of a view.
-                    // issue #15283
-                    continue;
-                }
-                $sql_query = 'ALTER TABLE '
-                    . Util::backquote($db)
-                    . '.'
-                    . Util::backquote($tableName)
-                    . ' DEFAULT '
-                    . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
-                $this->dbi->query($sql_query);
-
-                /**
-                 * Changes columns charset if requested by the user
-                 */
-                if (! isset($_POST['change_all_tables_columns_collations']) ||
-                    $_POST['change_all_tables_columns_collations'] !== 'on'
-                ) {
-                    continue;
-                }
-
-                $this->operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
-            }
-        }
-
-        $this->response->setRequestStatus($message->isSuccess());
-        $this->response->addJSON('message', $message);
     }
 }

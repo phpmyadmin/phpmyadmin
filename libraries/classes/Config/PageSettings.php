@@ -10,8 +10,10 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\UserPreferences;
+
+use function __;
 
 /**
  * Page-related settings
@@ -69,18 +71,17 @@ class PageSettings
         if (! empty($elemId)) {
             $this->elemId = $elemId;
         }
+
         $this->groupName = $formGroupName;
 
-        $cf = new ConfigFile($GLOBALS['PMA_Config']->baseSettings);
+        $cf = new ConfigFile($GLOBALS['config']->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new $formClass($cf);
 
         // Process form
         $error = null;
-        if (isset($_POST['submit_save'])
-            && $_POST['submit_save'] == $formGroupName
-        ) {
+        if (isset($_POST['submit_save']) && $_POST['submit_save'] == $formGroupName) {
             $this->processPageSettings($formDisplay, $cf, $error);
         }
 
@@ -94,10 +95,8 @@ class PageSettings
      * @param FormDisplay  $formDisplay Form
      * @param ConfigFile   $cf          Configuration file
      * @param Message|null $error       Error message
-     *
-     * @return void
      */
-    private function processPageSettings(&$formDisplay, &$cf, &$error)
+    private function processPageSettings(&$formDisplay, &$cf, &$error): void
     {
         if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
             return;
@@ -107,7 +106,7 @@ class PageSettings
         $result = $this->userPreferences->save($cf->getConfigArray());
         if ($result === true) {
             // reload page
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             Core::sendHeaderLocation(
                 $response->getFooter()->getSelfUrl()
             );
@@ -122,25 +121,22 @@ class PageSettings
      *
      * @param FormDisplay  $formDisplay Form
      * @param Message|null $error       Error message
-     *
-     * @return void
      */
-    private function storeError(&$formDisplay, &$error)
+    private function storeError(&$formDisplay, &$error): void
     {
         $retval = '';
         if ($error) {
             $retval .= $error->getDisplay();
         }
+
         if ($formDisplay->hasErrors()) {
             // form has errors
             $retval .= '<div class="alert alert-danger config-form" role="alert">'
-                . '<b>' . __(
-                    'Cannot save settings, submitted configuration form contains '
-                    . 'errors!'
-                ) . '</b>'
+                . '<b>' . __('Cannot save settings, submitted configuration form contains errors!') . '</b>'
                 . $formDisplay->displayErrors()
                 . '</div>';
         }
+
         $this->errorHTML = $retval;
     }
 
@@ -154,7 +150,7 @@ class PageSettings
      */
     private function getPageSettingsDisplay(&$formDisplay, &$error)
     {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
 
         $retval = '';
 
@@ -163,8 +159,6 @@ class PageSettings
         $retval .= '<div id="' . $this->elemId . '">';
         $retval .= '<div class="page_settings">';
         $retval .= $formDisplay->getDisplay(
-            true,
-            true,
             false,
             $response->getFooter()->getSelfUrl(),
             [

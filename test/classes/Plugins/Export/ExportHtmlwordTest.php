@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -12,16 +14,18 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 use ReflectionProperty;
+
+use function __;
 use function array_shift;
-use function htmlspecialchars_decode;
 use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportHtmlword
  * @group medium
  */
 class ExportHtmlwordTest extends AbstractTestCase
@@ -35,8 +39,6 @@ class ExportHtmlwordTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword();
         $GLOBALS['output_kanji_conversion'] = false;
@@ -44,6 +46,12 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = '';
+        $GLOBALS['text_dir'] = '';
+        $GLOBALS['PMA_PHP_SELF'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
     }
 
     /**
@@ -65,10 +73,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'Microsoft Word 2000',
@@ -96,10 +101,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -109,10 +111,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'dump_what',
@@ -128,10 +127,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            RadioPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
@@ -149,10 +145,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $generalOptions = $generalOptionsArray[1];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'dump_what',
@@ -173,10 +166,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'null',
@@ -190,10 +180,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'columns',
@@ -212,8 +199,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected
-            = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
+        $expected = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -226,10 +212,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals(
-            $expected,
-            $result
-        );
+        $this->assertEquals($expected, $result);
 
         // case 2
 
@@ -238,8 +221,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected
-            = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
+        $expected = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -252,10 +234,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals(
-            $expected,
-            $result
-        );
+        $this->assertEquals($expected, $result);
     }
 
     public function testExportFooter(): void
@@ -266,10 +245,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '</body></html>',
-            $result
-        );
+        $this->assertEquals('</body></html>', $result);
     }
 
     public function testExportDBHeader(): void
@@ -280,10 +256,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '<h1>Database d&quot;b</h1>',
-            $result
-        );
+        $this->assertEquals('<h1>Database d&quot;b</h1>', $result);
     }
 
     public function testExportDBFooter(): void
@@ -303,36 +276,6 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('test', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(5));
-
-        $dbi->expects($this->any())
-            ->method('fieldName')
-            ->will($this->returnValue("foo\\bar"));
-
-        $dbi->expects($this->at(7))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue([null, '0', 'test', false]));
-
-        $dbi->expects($this->at(8))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-        $GLOBALS['dbi'] = $dbi;
-
         $GLOBALS['htmlword_columns'] = true;
         $GLOBALS['what'] = 'UT';
         $GLOBALS['UT_null'] = 'customNull';
@@ -343,28 +286,28 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'testDB',
-                'testTable',
-                "\n",
-                'example.com',
-                'test'
-            )
-        );
-        $result = htmlspecialchars_decode((string) ob_get_clean());
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
+        $result = ob_get_clean();
 
         $this->assertEquals(
-            '<h2>Dumping data for table testTable</h2>' .
-            '<table class="pma-table w-100" cellspacing="1"><tr class="print-category">' .
-            '<td class="print"><strong>foobar</strong></td>' .
-            '<td class="print"><strong>foobar</strong></td>' .
-            '<td class="print"><strong>foobar</strong></td>' .
-            '<td class="print"><strong>foobar</strong></td>' .
-            '<td class="print"><strong>foobar</strong></td>' .
-            '</tr><tr class="print-category"><td class="print">' .
-            'customNull</td><td class="print">0</td><td class="print">test</td>' .
-            '<td class="print"></td><td class="print">customNull</td></tr></table>',
+            '<h2>Dumping data for table test_table</h2>'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
+            . '<td class="print"><strong>id</strong></td>'
+            . '<td class="print"><strong>name</strong></td>'
+            . '<td class="print"><strong>datetimefield</strong></td>'
+            . '</tr><tr class="print-category">'
+            . '<td class="print">1</td><td class="print">abcd</td><td class="print">2011-01-20 02:00:02</td>'
+            . '</tr><tr class="print-category">'
+            . '<td class="print">2</td><td class="print">foo</td><td class="print">2010-01-20 02:00:02</td>'
+            . '</tr><tr class="print-category">'
+            . '<td class="print">3</td><td class="print">Abcd</td><td class="print">2012-01-20 02:00:02</td>'
+            . '</tr></table>',
             $result
         );
     }
@@ -372,7 +315,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testGetTableDefStandIn(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         // case 1
@@ -410,7 +353,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->will($this->returnValue(1));
 
         $this->assertEquals(
-            '<table class="pma-table w-100" cellspacing="1">' .
+            '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -423,7 +366,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         $keys = [
@@ -438,6 +381,8 @@ class ExportHtmlwordTest extends AbstractTestCase
         ];
 
         // case 1
+
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -467,23 +412,18 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue([$columns]));
 
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->returnValue(true));
+        $dbi->expects($this->once())
+            ->method('tryQueryAsControlUser')
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('numRows')
             ->will($this->returnValue(1));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'comment' => ['fieldname' => 'testComment'],
-                    ]
-                )
-            );
+            ->will($this->returnValue(['comment' => 'testComment']));
+
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -495,27 +435,20 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with($columns, ['name1'])
             ->will($this->returnValue(1));
 
-        $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
 
-        $result = $this->object->getTableDef(
-            'database',
-            '',
-            true,
-            true,
-            true
-        );
+        $result = $this->object->getTableDef('database', '', true, true, true);
 
         $this->assertEquals(
-            '<table class="pma-table w-100" cellspacing="1">' .
+            '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -527,6 +460,8 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         // case 2
+
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -562,59 +497,41 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue([$columns]));
 
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->returnValue(true));
+        $dbi->expects($this->once())
+            ->method('tryQueryAsControlUser')
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('numRows')
             ->will($this->returnValue(1));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'comment' => ['field' => 'testComment'],
-                    ]
-                )
-            );
+            ->will($this->returnValue(['comment' => 'testComment']));
+
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
 
-        $result = $this->object->getTableDef(
-            'database',
-            '',
-            true,
-            true,
-            true
-        );
+        $result = $this->object->getTableDef('database', '', true, true, true);
 
-        $this->assertStringContainsString(
-            '<td class="print">ftable (ffield)</td>',
-            $result
-        );
+        $this->assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
-        $this->assertStringContainsString(
-            '<td class="print"></td><td class="print"></td>',
-            $result
-        );
+        $this->assertStringContainsString('<td class="print"></td><td class="print"></td>', $result);
 
-         // case 3
+        // case 3
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -632,49 +549,25 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue([$columns]));
 
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->returnValue(true));
+        $dbi->expects($this->never())
+            ->method('tryQuery');
 
-        $dbi->expects($this->any())
-            ->method('numRows')
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->any())
-            ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'comment' => ['field' => 'testComment'],
-                    ]
-                )
-            );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
-        $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
-            'relwork' => false,
-            'commwork' => false,
-            'mimework' => false,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
 
-        $result = $this->object->getTableDef(
-            'database',
-            '',
-            false,
-            false,
-            false
-        );
+        $result = $this->object->getTableDef('database', '', false, false, false);
 
         $this->assertEquals(
-            '<table class="pma-table w-100" cellspacing="1">' .
+            '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -720,66 +613,42 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     public function testExportStructure(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('db', 'tbl')
-            ->will($this->returnValue(1));
-
-        $this->object = $this->getMockBuilder(ExportHtmlword::class)
-            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
-            ->getMock();
-
-        $this->object->expects($this->at(0))
-            ->method('getTableDef')
-            ->with('db', 'tbl', false, false, false, false)
-            ->will($this->returnValue('dumpText1'));
-
-        $this->object->expects($this->once())
-            ->method('getTriggers')
-            ->with('db', 'tbl')
-            ->will($this->returnValue('dumpText2'));
-
-        $this->object->expects($this->at(2))
-            ->method('getTableDef')
-            ->with('db', 'tbl', false, false, false, true, [])
-            ->will($this->returnValue('dumpText3'));
-
-        $this->object->expects($this->once())
-            ->method('getTableDefStandIn')
-            ->with('db', 'tbl', "\n")
-            ->will($this->returnValue('dumpText4'));
-
-        $GLOBALS['dbi'] = $dbi;
-
         ob_start();
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                'tbl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_table',
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '<h2>Table structure for table tbl</h2>dumpText1',
+            '<h2>Table structure for table test_table</h2>'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
+            . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
+            . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td></tr>'
+            . '<tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
+            . '<td class="print">int(11)</td><td class="print">No</td><td class="print">NULL</td></tr>'
+            . '<tr class="print-category"><td class="print">name</td><td class="print">varchar(20)</td>'
+            . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
+            . '<td class="print">datetimefield</td><td class="print">datetime</td>'
+            . '<td class="print">No</td><td class="print">NULL</td></tr></table>',
             $result
         );
 
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                'tbl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'triggers',
                 'test'
             )
@@ -787,35 +656,51 @@ class ExportHtmlwordTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '<h2>Triggers tbl</h2>dumpText2',
+            '<h2>Triggers test_table</h2><table width="100%" cellspacing="1">'
+            . '<tr class="print-category"><th class="print">Name</th>'
+            . '<td class="print"><strong>Time</strong></td><td class="print"><strong>Event</strong></td>'
+            . '<td class="print"><strong>Definition</strong></td></tr><tr class="print-category">'
+            . '<td class="print">test_trigger</td><td class="print">AFTER</td>'
+            . '<td class="print">INSERT</td><td class="print">BEGIN END</td></tr></table>',
             $result
         );
 
         ob_start();
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                'tbl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_view',
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '<h2>Structure for view tbl</h2>dumpText3',
+            '<h2>Structure for view test_table</h2>'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
+            . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
+            . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong>'
+            . '</td></tr><tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
+            . '<td class="print">int(11)</td><td class="print">No</td><td class="print">NULL</td></tr>'
+            . '<tr class="print-category"><td class="print">name</td><td class="print">varchar(20)</td>'
+            . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
+            . '<td class="print">datetimefield</td><td class="print">datetime</td>'
+            . '<td class="print">No</td><td class="print">NULL</td></tr></table>',
             $result
         );
 
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                'tbl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'stand_in',
                 'test'
             )
@@ -823,17 +708,24 @@ class ExportHtmlwordTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '<h2>Stand-in structure for view tbl</h2>dumpText4',
+            '<h2>Stand-in structure for view test_table</h2>'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
+            . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
+            . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td>'
+            . '</tr><tr class="print-category">'
+            . '<td class="print"><em><strong>id</strong></em></td><td class="print">int(11)</td>'
+            . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
+            . '<td class="print">name</td><td class="print">varchar(20)</td><td class="print">No</td>'
+            . '<td class="print">NULL</td></tr><tr class="print-category">'
+            . '<td class="print">datetimefield</td><td class="print">datetime</td>'
+            . '<td class="print">No</td><td class="print">NULL</td></tr></table>',
             $result
         );
     }
 
     public function testFormatOneColumnDefinition(): void
     {
-        $method = new ReflectionMethod(
-            ExportHtmlword::class,
-            'formatOneColumnDefinition'
-        );
+        $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
         $method->setAccessible(true);
 
         $cols = [

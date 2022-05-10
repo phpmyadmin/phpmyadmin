@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Charsets;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Charsets\Collation
+ */
 class CollationTest extends AbstractTestCase
 {
     public function testFromServer(): void

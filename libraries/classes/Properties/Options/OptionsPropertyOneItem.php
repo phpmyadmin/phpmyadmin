@@ -28,7 +28,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Doc
      *
-     * @var string
+     * @var string|array
      */
     private $doc;
     /**
@@ -59,10 +59,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * Sets the force parameter
      *
      * @param bool|string $force force parameter
-     *
-     * @return void
      */
-    public function setForce($force)
+    public function setForce($force): void
     {
         $this->forceOne = $force;
     }
@@ -81,10 +79,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * Sets the values
      *
      * @param array $values values
-     *
-     * @return void
      */
-    public function setValues(array $values)
+    public function setValues(array $values): void
     {
         $this->values = $values;
     }
@@ -92,7 +88,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets MySQL documentation pointer
      *
-     * @return string
+     * @return string|array
      */
     public function getDoc()
     {
@@ -102,11 +98,9 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Sets the doc
      *
-     * @param string $doc MySQL documentation pointer
-     *
-     * @return void
+     * @param string|array $doc MySQL documentation pointer
      */
-    public function setDoc($doc)
+    public function setDoc($doc): void
     {
         $this->doc = $doc;
     }
@@ -125,10 +119,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * Sets the length
      *
      * @param int $len length
-     *
-     * @return void
      */
-    public function setLen($len)
+    public function setLen($len): void
     {
         $this->len = $len;
     }
@@ -147,10 +139,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * Sets the size
      *
      * @param int $size size
-     *
-     * @return void
      */
-    public function setSize($size)
+    public function setSize($size): void
     {
         $this->size = $size;
     }

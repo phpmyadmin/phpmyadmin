@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <psalm
     autoloader="test/bootstrap-static.php"
-    totallyTyped="false"
+    errorLevel="1"
+    reportMixedIssues="true"
+    sealAllMethods="true"
     resolveFromConfigFile="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
@@ -9,68 +11,394 @@
     errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
-        <directory name="libraries" />
+        <directory name="libraries"/>
+        <directory name="setup"/>
+        <directory name="test/classes"/>
+        <directory name="test/selenium"/>
+        <file name="js/messages.php"/>
+        <file name="index.php"/>
+        <file name="show_config_errors.php"/>
+        <file name="url.php"/>
         <ignoreFiles>
-            <directory name="vendor" />
-            <directory name="libraries/cache" />
+            <directory name="vendor"/>
+            <directory name="libraries/cache"/>
         </ignoreFiles>
     </projectFiles>
 
-    <issueHandlers>
-        <InternalMethod errorLevel="info" />
-        <MissingClosureReturnType errorLevel="info" />
-        <MissingPropertyType errorLevel="info" />
-        <PropertyNotSetInConstructor errorLevel="info" />
+    <stubs>
+        <file name="test/stubs/uploadprogress.stub"/>
+    </stubs>
 
-        <MissingConstructor>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Properties/Plugins/ExportPluginProperties.php" />
-            </errorLevel>
-        </MissingConstructor>
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
 
-        <RedundantCondition errorLevel="info" />
-
-        <DocblockTypeContradiction errorLevel="info" />
-        <RedundantConditionGivenDocblockType errorLevel="info" />
-
-        <UnresolvableInclude>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Config.php" />
-                <file name="libraries/classes/Controllers/ImportController.php" />
-                <file name="libraries/classes/Controllers/Table/ReplaceController.php" />
-                <file name="libraries/classes/Display/Results.php" />
-                <file name="libraries/classes/Plugins.php" />
-            </errorLevel>
-        </UnresolvableInclude>
-
-        <RawObjectIteration>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Plugins/Export/ExportSql.php" />
-            </errorLevel>
-        </RawObjectIteration>
-
-        <PossiblyUndefinedGlobalVariable>
-            <errorLevel type="suppress">
-                <file name="libraries/config.default.php" />
-            </errorLevel>
-        </PossiblyUndefinedGlobalVariable>
-
-        <InvalidGlobal>
-            <errorLevel type="suppress">
-                <file name="libraries/common.inc.php" />
-            </errorLevel>
-        </InvalidGlobal>
-
-        <InvalidStringClass>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Config/Forms/BaseFormList.php" />
-                <file name="libraries/classes/Config/PageSettings.php" />
-                <file name="libraries/classes/Controllers/Setup/FormController.php" />
-                <file name="libraries/classes/Navigation/NodeFactory.php" />
-                <file name="libraries/classes/Plugins.php" />
-                <file name="libraries/classes/TwoFactor.php" />
-                <file name="libraries/common.inc.php" />
-            </errorLevel>
-        </InvalidStringClass>
-    </issueHandlers>
+    <globals>
+        <var name="cfg" type="array{
+            AllowUserDropDatabase: bool,
+            blowfish_secret: string,
+            BrowseMIME: bool,
+            BZipDump: bool,
+            CaptchaCsp: string,
+            CookieSameSite: 'Lax'|'Strict'|'None',
+            CSPAllow: string,
+            DBG: array{sql: bool, sqllog: bool, demo: bool, simple2fa: bool},
+            DefaultTabDatabase: 'structure'|'sql'|'search'|'operations',
+            DefaultTabServer: 'welcome'|'databases'|'status'|'variables'|'privileges',
+            DefaultTabTable: 'structure'|'sql'|'search'|'insert'|'browse',
+            DisableMultiTableMaintenance: bool,
+            enable_drag_drop_import: bool,
+            EnableAutocompleteForTablesAndColumns: bool,
+            environment: 'production'|'development',
+            ExecTimeLimit: 0|positive-int,
+            Export: array,
+            FirstLevelNavigationItems: positive-int,
+            GridEditing: 'double-click'|'click'|'disabled',
+            GZipDump: bool,
+            IgnoreMultiSubmitErrors: bool,
+            InitialSlidersState: 'open'|'closed'|'disabled',
+            LimitChars: positive-int,
+            LoginCookieStore: 0|positive-int,
+            LoginCookieValidity: positive-int,
+            LoginCookieValidityDisableWarning: bool,
+            MaxDbList: positive-int,
+            MaxCharactersInDisplayedSQL: positive-int,
+            MaxRows: positive-int,
+            MaxTableList: positive-int,
+            NaturalOrder: bool,
+            NavigationDisplayLogo: bool,
+            NavigationDisplayServers: bool,
+            NavigationLinkWithMainPanel: bool,
+            NavigationLogoLink: string,
+            NavigationLogoLinkWindow: 'main'|'new',
+            NavigationTreeAutoexpandSingleDb: bool,
+            NavigationTreeDbSeparator: string,
+            NavigationTreeEnableGrouping: bool,
+            NavigationTreePointerEnable: bool,
+            NavigationTreeTableSeparator: string|string[]|false,
+            NavigationWidth: 0|positive-int,
+            NumFavoriteTables: 0|positive-int,
+            PmaNoRelation_DisableWarning: bool,
+            ProtectBinary: 'blob'|'noblob'|'all'|false,
+            ProxyPass: string,
+            ProxyUrl: string,
+            ProxyUser: string,
+            RepeatCells: 0|positive-int,
+            SendErrorReports: 'ask'|'always'|'never',
+            Server: array{
+                AllowDeny: array{order: ''|'deny,allow'|'allow,deny'|'explicit', rules: string[]},
+                AllowNoPassword: bool,
+                AllowRoot: bool,
+                auth_type: 'config'|'http'|'signon'|'cookie',
+                controlpass: string,
+                controluser: string,
+                DisableIS: bool,
+                host: string,
+                password: string,
+                pmadb: string|false,
+                port: string,
+                tracking_default_statements: string,
+                user: string,
+                verbose: string
+            },
+            ServerDefault: 0|positive-int,
+            Servers: array[],
+            ShowAll: bool,
+            ShowChgPassword: bool,
+            ShowCreateDb: bool,
+            ShowDatabasesNavigationAsTree: bool,
+            ShowFieldTypesInDataEditView: bool,
+            ShowFunctionFields: bool,
+            ShowPhpInfo: bool,
+            ShowServerInfo: bool,
+            ShowSQL: bool,
+            ShowStats: bool,
+            SkipLockedTables: bool,
+            SuhosinDisableWarning: bool,
+            ThemeManager: bool,
+            TranslationWarningThreshold: int,
+            UseDbSearch: bool,
+            VersionCheck: bool,
+            ZeroConf: bool,
+            ZipDump: bool
+        }"/>
+        <var name="containerBuilder" type="Symfony\Component\DependencyInjection\ContainerBuilder"/>
+        <var name="dbi" type="PhpMyAdmin\DatabaseInterface"/>
+        <var name="GLOBALS" type="array{
+            asfile: bool,
+            buffer_needed: bool,
+            cached_affected_rows: int|numeric-string,
+            cfg: array{
+                AllowArbitraryServer: bool,
+                AllowThirdPartyFraming: bool|'sameorigin',
+                ArbitraryServerRegexp: string,
+                AvailableCharsets: string[],
+                BrowseMarkerEnable: bool,
+                BrowsePointerEnable: bool,
+                BrowseMIME: bool,
+                BZipDump: bool,
+                CaptchaApi: string,
+                CaptchaLoginPublicKey: string,
+                CaptchaRequestParam: string,
+                CaptchaResponseParam: string,
+                CharEditing: 'input'|'textarea',
+                CharTextareaCols: positive-int,
+                CharTextareaRows: positive-int,
+                CodemirrorEnable: bool,
+                CompressOnFly: bool,
+                Confirm: bool,
+                ConsoleEnterExecutes: bool,
+                DBG: array{sql: bool, sqllog: bool, demo: bool, simple2fa: bool},
+                DefaultForeignKeyChecks: 'default'|'enable'|'disable',
+                DefaultQueryDatabase: string,
+                DefaultQueryTable: string,
+                DefaultTabDatabase: 'structure'|'sql'|'search'|'operations',
+                DefaultTabServer: 'welcome'|'databases'|'status'|'variables'|'privileges',
+                DefaultTabTable: 'structure'|'sql'|'search'|'insert'|'browse',
+                DefaultTransformations: array{
+                    Bool2Text: array{string, string},
+                    DateFormat: array{0|positive-int, string, 'local'|'utc'},
+                    External: array{int, string, int, int},
+                    Hex: array{0|positive-int},
+                    Inline: array{0: 0|positive-int, 1: 0|positive-int, wrapper_link: string|null, wrapper_params: array&lt;array-key, string&gt;},
+                    PreApPend: array{string, string},
+                    Substring: array{0|positive-int, 'all'|int, string},
+                    TextImageLink: array{string|null, 0|positive-int, 0|positive-int},
+                    TextLink: array{string|null, string|null, bool|null}
+                },
+                DisableMultiTableMaintenance: bool,
+                DisplayServersList: bool,
+                enable_drag_drop_import: bool,
+                ExecTimeLimit: 0|positive-int,
+                FirstLevelNavigationItems: positive-int,
+                ForeignKeyDropdownOrder: array{0: 'content-id'|'id-content', 1?: 'content-id'|'id-content'},
+                ForeignKeyMaxLimit: positive-int,
+                GridEditing: 'double-click'|'click'|'disabled',
+                GZipDump: bool,
+                HideStructureActions: bool,
+                IgnoreMultiSubmitErrors: bool,
+                Import: array,
+                InitialSlidersState: 'open'|'closed'|'disabled',
+                InsertRows: positive-int,
+                LimitChars: positive-int,
+                LinkLengthLimit: positive-int,
+                LintEnable: bool,
+                LoginCookieDeleteAll: bool,
+                LoginCookieRecall: bool,
+                LoginCookieStore: 0|positive-int,
+                LoginCookieValidity: positive-int,
+                LongtextDoubleTextarea: bool,
+                MaxDbList: positive-int,
+                MaxCharactersInDisplayedSQL: positive-int,
+                MaxExactCount: positive-int,
+                MaxExactCountViews: 0|positive-int,
+                MaxNavigationItems: positive-int,
+                MaxTableList: positive-int,
+                maxRowPlotLimit: positive-int,
+                MaxRows: positive-int,
+                MaxSizeForInputField: positive-int,
+                MinSizeForInputField: 0|positive-int,
+                MysqlMinVersion: array{internal: int, human: string},
+                MysqlSslWarningSafeHosts: string[],
+                NaturalOrder: bool,
+                NavigationLinkWithMainPanel: bool,
+                NavigationTreeDbSeparator: string,
+                NavigationTreeDefaultTabTable: 'structure'|'sql'|'search'|'insert'|'browse',
+                NavigationTreeDefaultTabTable2: 'structure'|'sql'|'search'|'insert'|'browse'|'',
+                NavigationTreeDisplayDbFilterMinimum: positive-int,
+                NavigationTreeDisplayItemFilterMinimum: positive-int,
+                NavigationTreeEnableExpansion: bool,
+                NavigationTreeEnableGrouping: bool,
+                NavigationTreeShowEvents: bool,
+                NavigationTreeShowFunctions: bool,
+                NavigationTreeShowProcedures: bool,
+                NavigationTreeShowTables: bool,
+                NavigationTreeShowViews: bool,
+                NavigationTreeTableLevel: positive-int,
+                NavigationTreeTableSeparator: string|string[]|false,
+                NumFavoriteTables: 0|positive-int,
+                NumRecentTables: 0|positive-int,
+                OBGzip: 'auto'|bool,
+                PDFDefaultPageSize: string,
+                PDFPageSizes: string[],
+                PersistentConnections: bool,
+                PropertiesNumColumns: positive-int,
+                ProtectBinary: 'blob'|'noblob'|'all'|false,
+                QueryHistoryDB: bool,
+                QueryHistoryMax: positive-int,
+                RelationalDisplay: 'K'|'D',
+                RememberSorting: bool,
+                RepeatCells: 0|positive-int,
+                ReservedWordDisableWarning: bool,
+                RetainQueryBox: bool,
+                RowActionLinks: 'left'|'right'|'both'|'none',
+                RowActionLinksWithoutUnique: bool,
+                SaveCellsAtOnce: bool,
+                SendErrorReports: 'ask'|'always'|'never',
+                Server: array{
+                    auth_type: 'config'|'http'|'signon'|'cookie',
+                    bookmarktable: string|false,
+                    central_columns: string|false,
+                    column_info: string|false,
+                    designer_settings: string|false,
+                    DisableIS: bool,
+                    export_templates: string|false,
+                    favorite: string|false,
+                    history: string|false,
+                    host: string,
+                    MaxTableUiprefs: positive-int,
+                    navigationhiding: string|false,
+                    only_db: string|string[],
+                    password: string,
+                    pdf_pages: string|false,
+                    pmadb: string|false,
+                    port: string,
+                    recent: string|false,
+                    relation: string|false,
+                    savedsearches: string|false,
+                    SessionTimeZone: string,
+                    SignonCookieParams: array{lifetime: 0|positive-int, path: string, domain: string, secure: bool, httponly: bool, samesite?: 'Lax'|'Strict'},
+                    SignonScript: string,
+                    SignonSession: string,
+                    SignonURL: string,
+                    table_coords: string|false,
+                    table_info: string|false,
+                    table_uiprefs: string|false,
+                    tracking: string|false,
+                    tracking_add_drop_database: bool,
+                    tracking_add_drop_table: bool,
+                    tracking_add_drop_view: bool,
+                    tracking_default_statements: string,
+                    tracking_version_auto_create: bool,
+                    user: string,
+                    userconfig: string|false,
+                    usergroups: string|false,
+                    users: string|false,
+                    verbose: string
+                },
+                ServerDefault: 0|positive-int,
+                Servers: array[],
+                ShowAll: bool,
+                ShowBrowseComments: bool,
+                ShowColumnComments: bool,
+                ShowCreateDb: bool,
+                ShowDatabasesNavigationAsTree: bool,
+                ShowDbStructureCharset: bool,
+                ShowDbStructureComment: bool,
+                ShowDbStructureCreation: bool,
+                ShowDbStructureLastCheck: bool,
+                ShowDbStructureLastUpdate: bool,
+                ShowFieldTypesInDataEditView: bool,
+                ShowFunctionFields: bool,
+                ShowHint: bool,
+                ShowPropertyComments: bool,
+                ShowSQL: bool,
+                ShowStats: bool,
+                TextareaAutoSelect: bool,
+                TextareaCols: positive-int,
+                TextareaRows: positive-int,
+                ThemeDefault: string,
+                ThemePerServer: bool,
+                TitleDatabase: string,
+                TitleDefault: string,
+                TitleServer: string,
+                TitleTable: string,
+                UserprefsDeveloperTab: bool,
+                UserprefsDisallow: string[],
+                VersionCheck: bool,
+                ZeroConf: bool,
+                ZipDump: bool
+            },
+            charset: string,
+            charset_connection: string,
+            codegen_format: 0|1,
+            col_priv: bool,
+            collation_connection: string,
+            complete_query: string,
+            compression: 'none'|'zip'|'gzip',
+            conn_error: string,
+            config: PhpMyAdmin\Config,
+            ConfigFile: PhpMyAdmin\Config\ConfigFile,
+            crlf: string,
+            csv_columns: bool,
+            csv_enclosed: string,
+            csv_escaped: string,
+            csv_separator: string,
+            csv_terminated: string,
+            db: string,
+            db_priv: bool,
+            dbi: PhpMyAdmin\DatabaseInterface,
+            dbs_to_test: string[]|false,
+            dblist: PhpMyAdmin\Database\DatabaseList,
+            display_query: string,
+            errno: int,
+            error: bool,
+            error_message: string,
+            errorHandler: PhpMyAdmin\ErrorHandler,
+            excel_edition: 'win'|'mac_excel2003'|'mac_excel2008',
+            file_handle: resource|null,
+            finished: bool,
+            from_cookie: bool,
+            goto: string,
+            hostname: string,
+            import_file: string,
+            import_file_name: string,
+            import_run_buffer: array,
+            import_text: string,
+            is_create_db_priv: bool,
+            is_reload_priv: bool,
+            knjenc: string,
+            lang: string,
+            latex_data_caption: string,
+            latex_data_continued_caption: string,
+            latex_data_label: string,
+            latex_null: string,
+            latex_structure_caption: string,
+            latex_structure_continued_caption: string,
+            latex_structure_label: string,
+            maxsize: string,
+            memory_limit: int,
+            message: PhpMyAdmin\Message,
+            ods_buffer: string,
+            odt_buffer: string,
+            offset: int,
+            old_tz: string,
+            onfly_compression: bool,
+            output_charset_conversion: bool,
+            output_kanji_conversion: bool,
+            plugin_param: string|array{export_type: string, single_table: bool},
+            plugin_scripts: string[],
+            pma_auth_server: string,
+            PMA_PHP_SELF: string,
+            proc_priv: bool,
+            querytime: float|int,
+            read_limit: int,
+            save_on_server: bool,
+            server: int,
+            SESSION_KEY: string,
+            showtable: array&lt;string, string|null&gt;,
+            sql_compatibility: 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL',
+            sql_constraints: string,
+            sql_constraints_query: string,
+            sql_drop_foreign_keys: string,
+            sql_if_not_exists: bool,
+            sql_ignore: bool,
+            sql_insert_syntax: 'complete'|'extended'|'both'|'none',
+            sql_max_query_size: 0|positive-int,
+            sql_query: string,
+            sql_structure_or_data: 'structure'|'data'|'structure_and_data',
+            sql_type: 'INSERT'|'UPDATE'|'REPLACE',
+            table: string,
+            table_priv: bool,
+            tbl_storage_engine: string,
+            text_dir: string,
+            token_mismatch: bool,
+            token_provided: bool,
+            urlParams: array,
+            username: string,
+            xml_export_triggers: bool,
+            xml_export_views: bool
+        }"/>
+        <var name="PMA_PHP_SELF" type="string"/>
+    </globals>
 </psalm>

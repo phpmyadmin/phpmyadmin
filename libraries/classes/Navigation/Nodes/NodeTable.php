@@ -7,20 +7,25 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 use function in_array;
 use function intval;
-use function strpos;
 
 /**
  * Represents a columns node in the navigation tree
  */
 class NodeTable extends NodeDatabaseChild
 {
-    /** @var array IMG tags, used when rendering the node */
-    public $icon;
+    /**
+     * For the second IMG tag, used when rendering the node.
+     *
+     * @var array<string, string>|null
+     * @psalm-var array{image: string, title: string}|null
+     */
+    public $secondIcon;
 
     /**
      * Initialises the class
@@ -33,52 +38,36 @@ class NodeTable extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = [];
-        $this->addIcon(
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
-                'table'
-            )
+        $icon = $this->addIcon(
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table')
         );
-        $this->addIcon(
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
-                'table'
-            )
+        if ($icon !== null) {
+            $this->icon = $icon;
+        }
+
+        $this->secondIcon = $this->addIcon(
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table')
         );
-        $title = (string) Util::getTitleForTarget(
-            $GLOBALS['cfg']['DefaultTabTable']
-        );
+        $title = (string) Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
         $this->title = $title;
 
-        $scriptName = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'],
-            'table'
-        );
-        $firstIconLink = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
-            'table'
-        );
-        $secondIconLink = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
-            'table'
-        );
         $this->links = [
-            'text'  => $scriptName . (strpos($scriptName, '?') === false ? '?' : '&')
-                . 'server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s'
-                . '&amp;pos=0',
-            'icon'  => [
-                $firstIconLink . (strpos($firstIconLink, '?') === false ? '?' : '&')
-                . 'server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
-                $secondIconLink . (strpos($secondIconLink, '?') === false ? '?' : '&')
-                . 'server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+            'text' => [
+                'route' => Util::getUrlForOption($GLOBALS['cfg']['DefaultTabTable'], 'table'),
+                'params' => ['pos' => 0, 'db' => null, 'table' => null],
+            ],
+            'icon' => [
+                'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'),
+                'params' => ['db' => null, 'table' => null],
+            ],
+            'second_icon' => [
+                'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'),
+                'params' => ['db' => null, 'table' => null],
             ],
             'title' => $this->title,
         ];
-        $this->classes = 'table';
+        $this->classes = 'nav_node_table';
+        $this->urlParamName = 'table';
     }
 
     /**
@@ -113,18 +102,15 @@ class NodeTable extends NodeDatabaseChild
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
                     $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db . '';
-                    $retval = (int) $dbi->numRows(
-                        $dbi->tryQuery($query)
-                    );
+                    $retval = (int) $dbi->queryAndGetNumRows($query);
                 }
+
                 break;
             case 'indexes':
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $retval = (int) $dbi->numRows(
-                    $dbi->tryQuery($query)
-                );
+                $retval = (int) $dbi->queryAndGetNumRows($query);
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -141,10 +127,9 @@ class NodeTable extends NodeDatabaseChild
                     $db = Util::backquote($db);
                     $table = $dbi->escapeString($table);
                     $query = 'SHOW TRIGGERS FROM ' . $db . " WHERE `Table` = '" . $table . "'";
-                    $retval = (int) $dbi->numRows(
-                        $dbi->tryQuery($query)
-                    );
+                    $retval = (int) $dbi->queryAndGetNumRows($query);
                 }
+
                 break;
             default:
                 break;
@@ -201,8 +186,8 @@ class NodeTable extends NodeDatabaseChild
                 }
 
                 $count = 0;
-                if ($dbi->dataSeek($handle, $pos)) {
-                    while ($arr = $dbi->fetchArray($handle)) {
+                if ($handle->seek($pos)) {
+                    while ($arr = $handle->fetchAssoc()) {
                         if ($count >= $maxItems) {
                             break;
                         }
@@ -211,12 +196,13 @@ class NodeTable extends NodeDatabaseChild
                             'name' => $arr['Field'],
                             'key' => $arr['Key'],
                             'type' => Util::extractColumnSpec($arr['Type'])['type'],
-                            'default' =>  $arr['Default'],
+                            'default' => $arr['Default'],
                             'nullable' => ($arr['Null'] === 'NO' ? '' : 'nullable'),
                         ];
                         $count++;
                     }
                 }
+
                 break;
             case 'indexes':
                 $db = Util::backquote($db);
@@ -228,16 +214,19 @@ class NodeTable extends NodeDatabaseChild
                 }
 
                 $count = 0;
-                while ($arr = $dbi->fetchArray($handle)) {
+                foreach ($handle as $arr) {
                     if (in_array($arr['Key_name'], $retval)) {
                         continue;
                     }
+
                     if ($pos <= 0 && $count < $maxItems) {
                         $retval[] = $arr['Key_name'];
                         $count++;
                     }
+
                     $pos--;
                 }
+
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -264,8 +253,8 @@ class NodeTable extends NodeDatabaseChild
                 }
 
                 $count = 0;
-                if ($dbi->dataSeek($handle, $pos)) {
-                    while ($arr = $dbi->fetchArray($handle)) {
+                if ($handle->seek($pos)) {
+                    while ($arr = $handle->fetchAssoc()) {
                         if ($count >= $maxItems) {
                             break;
                         }
@@ -274,6 +263,7 @@ class NodeTable extends NodeDatabaseChild
                         $count++;
                     }
                 }
+
                 break;
             default:
                 break;
@@ -297,30 +287,32 @@ class NodeTable extends NodeDatabaseChild
      *
      * @param string $page Page name to redirect
      *
-     * @return void
+     * @return array<string, string>|null
+     * @psalm-return array{image: string, title: string}|null
      */
-    private function addIcon($page)
+    private function addIcon(string $page): ?array
     {
         if (empty($page)) {
-            return;
+            return null;
         }
 
         switch ($page) {
             case Url::getFromRoute('/table/structure'):
-                $this->icon[] = Generator::getImage('b_props', __('Structure'));
-                break;
+                return ['image' => 'b_props', 'title' => __('Structure')];
+
             case Url::getFromRoute('/table/search'):
-                $this->icon[] = Generator::getImage('b_search', __('Search'));
-                break;
+                return ['image' => 'b_search', 'title' => __('Search')];
+
             case Url::getFromRoute('/table/change'):
-                $this->icon[] = Generator::getImage('b_insrow', __('Insert'));
-                break;
+                return ['image' => 'b_insrow', 'title' => __('Insert')];
+
             case Url::getFromRoute('/table/sql'):
-                $this->icon[] = Generator::getImage('b_sql', __('SQL'));
-                break;
+                return ['image' => 'b_sql', 'title' => __('SQL')];
+
             case Url::getFromRoute('/sql'):
-                $this->icon[] = Generator::getImage('b_browse', __('Browse'));
-                break;
+                return ['image' => 'b_browse', 'title' => __('Browse')];
         }
+
+        return null;
     }
 }

@@ -9,12 +9,15 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
-use const SORT_STRING;
+
+use function __;
 use function array_keys;
 use function count;
 use function explode;
 use function is_string;
 use function ksort;
+
+use const SORT_STRING;
 
 /**
  * Class used to manage MySQL charsets
@@ -24,27 +27,27 @@ class Charsets
     /**
      * MySQL charsets map
      *
-     * @var array
+     * @var array<string, string>
      */
     public static $mysqlCharsetMap = [
-        'big5'         => 'big5',
-        'cp-866'       => 'cp866',
-        'euc-jp'       => 'ujis',
-        'euc-kr'       => 'euckr',
-        'gb2312'       => 'gb2312',
-        'gbk'          => 'gbk',
-        'iso-8859-1'   => 'latin1',
-        'iso-8859-2'   => 'latin2',
-        'iso-8859-7'   => 'greek',
-        'iso-8859-8'   => 'hebrew',
+        'big5' => 'big5',
+        'cp-866' => 'cp866',
+        'euc-jp' => 'ujis',
+        'euc-kr' => 'euckr',
+        'gb2312' => 'gb2312',
+        'gbk' => 'gbk',
+        'iso-8859-1' => 'latin1',
+        'iso-8859-2' => 'latin2',
+        'iso-8859-7' => 'greek',
+        'iso-8859-8' => 'hebrew',
         'iso-8859-8-i' => 'hebrew',
-        'iso-8859-9'   => 'latin5',
-        'iso-8859-13'  => 'latin7',
-        'iso-8859-15'  => 'latin1',
-        'koi8-r'       => 'koi8r',
-        'shift_jis'    => 'sjis',
-        'tis-620'      => 'tis620',
-        'utf-8'        => 'utf8',
+        'iso-8859-9' => 'latin5',
+        'iso-8859-13' => 'latin7',
+        'iso-8859-15' => 'latin1',
+        'koi8-r' => 'koi8r',
+        'shift_jis' => 'sjis',
+        'tis-620' => 'tis620',
+        'utf-8' => 'utf8',
         'windows-1250' => 'cp1250',
         'windows-1251' => 'cp1251',
         'windows-1252' => 'latin1',
@@ -78,22 +81,22 @@ class Charsets
             return;
         }
 
+        $sql = 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
+            . ' `DEFAULT_COLLATE_NAME` AS `Default collation`,'
+            . ' `DESCRIPTION` AS `Description`,'
+            . ' `MAXLEN` AS `Maxlen`'
+            . ' FROM `information_schema`.`CHARACTER_SETS`';
+
         if ($disableIs) {
             $sql = 'SHOW CHARACTER SET';
-        } else {
-            $sql = 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
-                . ' `DEFAULT_COLLATE_NAME` AS `Default collation`,'
-                . ' `DESCRIPTION` AS `Description`,'
-                . ' `MAXLEN` AS `Maxlen`'
-                . ' FROM `information_schema`.`CHARACTER_SETS`';
         }
+
         $res = $dbi->query($sql);
 
         self::$charsets = [];
-        while ($row = $dbi->fetchAssoc($res)) {
+        foreach ($res as $row) {
             self::$charsets[$row['Charset']] = Charset::fromServer($row);
         }
-        $dbi->freeResult($res);
 
         ksort(self::$charsets, SORT_STRING);
     }
@@ -111,24 +114,24 @@ class Charsets
             return;
         }
 
+        $sql = 'SELECT `COLLATION_NAME` AS `Collation`,'
+            . ' `CHARACTER_SET_NAME` AS `Charset`,'
+            . ' `ID` AS `Id`,'
+            . ' `IS_DEFAULT` AS `Default`,'
+            . ' `IS_COMPILED` AS `Compiled`,'
+            . ' `SORTLEN` AS `Sortlen`'
+            . ' FROM `information_schema`.`COLLATIONS`';
+
         if ($disableIs) {
             $sql = 'SHOW COLLATION';
-        } else {
-            $sql = 'SELECT `COLLATION_NAME` AS `Collation`,'
-                . ' `CHARACTER_SET_NAME` AS `Charset`,'
-                . ' `ID` AS `Id`,'
-                . ' `IS_DEFAULT` AS `Default`,'
-                . ' `IS_COMPILED` AS `Compiled`,'
-                . ' `SORTLEN` AS `Sortlen`'
-                . ' FROM `information_schema`.`COLLATIONS`';
         }
+
         $res = $dbi->query($sql);
 
         self::$collations = [];
-        while ($row = $dbi->fetchAssoc($res)) {
+        foreach ($res as $row) {
             self::$collations[$row['Charset']][$row['Collation']] = Collation::fromServer($row);
         }
-        $dbi->freeResult($res);
 
         foreach (array_keys(self::$collations) as $charset) {
             ksort(self::$collations[$charset], SORT_STRING);
@@ -146,6 +149,7 @@ class Charsets
         if (self::$serverCharset !== null) {
             return self::$serverCharset;
         }
+
         self::loadCharsets($dbi, $disableIs);
         $serverCharset = $dbi->getVariable('character_set_server');
         if (! is_string($serverCharset)) {// MySQL 5.7.8 fallback, issue #15614
@@ -184,7 +188,7 @@ class Charsets
      * @param DatabaseInterface $dbi       DatabaseInterface instance
      * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
      *
-     * @return array
+     * @return array<string, Charset>
      */
     public static function getCharsets(DatabaseInterface $dbi, bool $disableIs): array
     {
@@ -199,7 +203,7 @@ class Charsets
      * @param DatabaseInterface $dbi       DatabaseInterface instance
      * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
      *
-     * @return array
+     * @return array<string, array<string, Collation>>
      */
     public static function getCollations(DatabaseInterface $dbi, bool $disableIs): array
     {
@@ -215,11 +219,7 @@ class Charsets
      */
     public static function findCollationByName(DatabaseInterface $dbi, bool $disableIs, ?string $name): ?Collation
     {
-        $pieces = explode('_', (string) $name);
-        if ($pieces === false || ! isset($pieces[0])) {
-            return null;
-        }
-        $charset = $pieces[0];
+        $charset = explode('_', $name ?? '')[0];
         $collations = self::getCollations($dbi, $disableIs);
 
         return $collations[$charset][$name] ?? null;

@@ -8,10 +8,16 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
+use function _pgettext;
 use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
 
+/**
+ * @covers \PhpMyAdmin\Html\Generator
+ */
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -20,7 +26,6 @@ class GeneratorTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         parent::setLanguage();
     }
 
@@ -111,7 +116,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'text';
 
         $this->assertEquals(
-            '<span class="nowrap"></span>',
+            '<span class="text-nowrap"></span>',
             Generator::getIcon('b_comment')
         );
     }
@@ -124,7 +129,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
             Generator::getIcon('b_comment')
         );
     }
@@ -138,7 +143,7 @@ class GeneratorTest extends AbstractTestCase
         $alternate_text = 'alt_str';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment"></span>',
             Generator::getIcon('b_comment', $alternate_text)
@@ -156,7 +161,7 @@ class GeneratorTest extends AbstractTestCase
         // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment">&nbsp;' . $alternate_text . '</span>',
             Generator::getIcon('b_comment', $alternate_text, true, false)
@@ -218,6 +223,8 @@ class GeneratorTest extends AbstractTestCase
      */
     public function linksOrButtons(): array
     {
+        parent::setGlobalConfig();
+
         return [
             [
                 [
@@ -324,11 +331,6 @@ class GeneratorTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for formatSql
-     *
-     * @covers \PhpMyAdmin\Html\Generator::formatSql
-     */
     public function testFormatSql(): void
     {
         $this->assertEquals(
@@ -360,7 +362,7 @@ class GeneratorTest extends AbstractTestCase
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
-        $sslNotUsedCaution = '<span class="caution">SSL is not being used</span>'
+        $sslNotUsedCaution = '<span class="text-danger">SSL is not being used</span>'
         . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
@@ -414,7 +416,7 @@ class GeneratorTest extends AbstractTestCase
         ];
 
         $this->assertEquals(
-            '<span class="caution">SSL is used with disabled verification</span>'
+            '<span class="text-danger">SSL is used with disabled verification</span>'
             . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
@@ -428,7 +430,7 @@ class GeneratorTest extends AbstractTestCase
         ];
 
         $this->assertEquals(
-            '<span class="caution">SSL is used without certification authority</span>'
+            '<span class="text-danger">SSL is used without certification authority</span>'
             . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',

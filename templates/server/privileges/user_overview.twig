@@ -18,7 +18,7 @@
 {% elseif is_createuser %}
   <div class="row">
     <div class="col-12">
-      <fieldset id="fieldset_add_user">
+      <fieldset class="pma-fieldset" id="fieldset_add_user">
         <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
         <a id="add_user_anchor" href="{{ url('/server/privileges', {'adduser': true}) }}">
           {{ get_icon('b_usradd', 'Add user account'|trans) }}

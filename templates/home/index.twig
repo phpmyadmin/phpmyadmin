@@ -49,15 +49,18 @@
                   {% endif %}
 
                   <li id="li_select_mysql_collation" class="list-group-item">
-                    <form class="disableAjax" method="post" action="{{ url('/collation-connection') }}">
+                    <form method="post" action="{{ url('/collation-connection') }}" class="row row-cols-lg-auto align-items-center disableAjax">
                       {{ get_hidden_inputs(null, null, 4, 'collation_connection') }}
-                      <label for="select_collation_connection">
-                        {{ get_image('s_asci') }}
-                        {% trans 'Server connection collation:' %}
-                        {{ show_mysql_docu('charset-connection') }}
-                      </label>
+                      <div class="col-12">
+                        <label for="collationConnectionSelect" class="col-form-label">
+                          {{ get_image('s_asci') }}
+                          {% trans 'Server connection collation:' %}
+                          {{ show_mysql_docu('charset-connection') }}
+                        </label>
+                      </div>
                       {% if charsets is not empty %}
-                        <select lang="en" dir="ltr" name="collation_connection" id="select_collation_connection" class="autosubmit">
+                      <div class="col-12">
+                        <select lang="en" dir="ltr" name="collation_connection" id="collationConnectionSelect" class="form-select autosubmit">
                           <option value="">{% trans 'Collation' %}</option>
                           <option value=""></option>
                           {% for charset in charsets %}
@@ -70,6 +73,7 @@
                             </optgroup>
                           {% endfor %}
                         </select>
+                      </div>
                       {% endif %}
                     </form>
                   </li>
@@ -89,17 +93,57 @@
                 {% trans 'Appearance settings' %}
               </div>
               <ul class="list-group list-group-flush">
-                {% if language_selector is not empty %}
+                {% if available_languages is not empty %}
                   <li id="li_select_lang" class="list-group-item">
-                    {{ get_image('s_lang') }}
-                    {{ language_selector|raw }}
+                    <form method="get" action="{{ url('/') }}" class="row row-cols-lg-auto align-items-center disableAjax">
+                      {{ get_hidden_inputs({'db': db, 'table': table}) }}
+                      <div class="col-12">
+                        <label for="languageSelect" class="col-form-label text-nowrap">
+                          {{ get_image('s_lang') }}
+                          {% trans 'Language' %}
+                          {% if 'Language'|trans != 'Language' %}
+                            {# For non-English, display "Language" with emphasis because it's not a proper word
+                               in the current language; we show it to help people recognize the dialog #}
+                            <i lang="en" dir="ltr">(Language)</i>
+                          {% endif %}
+                          {{ show_docu('faq', 'faq7-2') }}
+                        </label>
+                      </div>
+                      <div class="col-12">
+                        <select name="lang" class="form-select autosubmit w-auto" lang="en" dir="ltr" id="languageSelect">
+                          {% for language in available_languages %}
+                            <option value="{{ language.getCode()|lower }}"{{ language.isActive() ? ' selected' }}>
+                              {{- language.getName()|raw -}}
+                            </option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </form>
                   </li>
                 {% endif %}
 
-                {% if theme_selection is not empty %}
+                {% if has_theme_manager %}
                   <li id="li_select_theme" class="list-group-item">
-                    {{ get_image('s_theme') }}
-                    {{ theme_selection|raw }}
+                    <form method="post" action="{{ url('/themes/set') }}" class="row row-cols-lg-auto align-items-center disableAjax">
+                      {{ get_hidden_inputs() }}
+                      <div class="col-12">
+                        <label for="themeSelect" class="col-form-label">
+                          {{ get_icon('s_theme', 'Theme'|trans) }}
+                        </label>
+                      </div>
+                      <div class="col-12">
+                        <div class="input-group">
+                          <select name="set_theme" class="form-select autosubmit" lang="en" dir="ltr" id="themeSelect">
+                            {% for theme in themes %}
+                              <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
+                            {% endfor %}
+                          </select>
+                          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#themesModal">
+                            {% trans %}View all{% context %}View all themes{% endtrans %}
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </li>
                 {% endif %}
               </ul>
@@ -231,5 +275,29 @@
       </div>
     </div>
   </div>
+
+{% if has_theme_manager %}
+  <div class="modal fade" id="themesModal" tabindex="-1" aria-labelledby="themesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="themesModalLabel">{% trans 'phpMyAdmin Themes' %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        </div>
+        <div class="modal-body">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">{% trans 'Loading…' %}</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+          <a href="{{ 'https://www.phpmyadmin.net/themes/'|link }}#pma_{{ phpmyadmin_major_version|replace({'.': '_'}) }}" class="btn btn-primary" rel="noopener noreferrer" target="_blank">
+            {% trans 'Get more themes!' %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
 
 {{ config_storage_message|raw }}

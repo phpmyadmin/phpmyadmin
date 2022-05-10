@@ -8,6 +8,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
+/**
+ * @coversNothing
+ */
 class SecurityTest extends AbstractTestCase
 {
     /** @var Template */

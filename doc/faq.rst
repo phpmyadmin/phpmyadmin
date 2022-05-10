@@ -435,6 +435,7 @@ PHP 7.2 is supported since 4.7.4.
 HHVM is supported up to phpMyAdmin 4.8.
 
 Since release 5.0, phpMyAdmin supports only PHP 7.1 and newer.
+Since release 5.2, phpMyAdmin supports only PHP 7.2 and newer.
 
 .. _faq1_32:
 
@@ -1173,13 +1174,13 @@ network :term:`IP` blocks.
 
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
-    $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
+    $cfg['Servers'][$i]['AllowDeny']['rules'] = [
         'deny root from all',
         'allow root from localhost',
         'allow root from 10.0.0.0/8',
         'allow root from 192.168.0.0/16',
         'allow root from 172.16.0.0/12',
-    );
+    ];
 
 .. _faq4_7:
 
@@ -1904,7 +1905,7 @@ to plot' field. Once you have decided over your criteria, click 'Go'
 to display the plot.
 
 After the plot is generated, you can use the
-mousewheel to zoom in and out of the plot. In addition, panning
+mouse wheel to zoom in and out of the plot. In addition, panning
 feature is enabled to navigate through the plot. You can zoom-in to a
 certain level of detail and use panning to locate your area of
 interest. Clicking on a point opens a dialogue box, displaying field

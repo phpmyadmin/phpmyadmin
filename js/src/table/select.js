@@ -15,7 +15,7 @@ var TableSelect = {};
  *
  * @param {string} dataType Column data-type
  *
- * @return {(boolean|string)}
+ * @return {boolean | string}
  */
 TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
     // To test for numeric data-types.
@@ -173,8 +173,6 @@ AJAX.registerOnload('table/select.js', function () {
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
-                // needed for the display options slider in the results
-                Functions.initSlider();
                 $('html, body').animate({ scrollTop: 0 }, 'fast');
             } else {
                 $('#sqlqueryresultsouter').html(data.error);
@@ -321,8 +319,17 @@ AJAX.registerOnload('table/select.js', function () {
                             ? '(' + Messages.strColumnMax +
                                 ' ' + response.column_data.max + ')'
                             : '';
-                        var buttonOptions = {};
-                        buttonOptions[Messages.strGo] = function () {
+                        $('#rangeSearchModal').modal('show');
+                        $('#rangeSearchLegend').first().html(operator);
+                        $('#rangeSearchMin').first().text(min);
+                        $('#rangeSearchMax').first().text(max);
+                        // Reset input values on reuse
+                        $('#min_value').first().val('');
+                        $('#max_value').first().val('');
+                        // Add datepicker wherever required.
+                        Functions.addDatepicker($('#min_value'), dataType);
+                        Functions.addDatepicker($('#max_value'), dataType);
+                        $('#rangeSearchModalGo').on('click',  function () {
                             var minValue = $('#min_value').val();
                             var maxValue = $('#max_value').val();
                             var finalValue = '';
@@ -361,39 +368,7 @@ AJAX.registerOnload('table/select.js', function () {
                             } else {
                                 $targetField.val(finalValue);
                             }
-                            $(this).dialog('close');
-                        };
-                        buttonOptions[Messages.strCancel] = function () {
-                            $(this).dialog('close');
-                        };
-
-                        // Display dialog box.
-                        $('<div></div>').append(
-                            '<fieldset>' +
-                            '<legend>' + operator + '</legend>' +
-                            '<label for="min_value">' + Messages.strMinValue +
-                            '</label>' +
-                            '<input type="text" id="min_value">' + '<br>' +
-                            '<span class="small_font">' + min + '</span>' + '<br>' +
-                            '<label for="max_value">' + Messages.strMaxValue +
-                            '</label>' +
-                            '<input type="text" id="max_value">' + '<br>' +
-                            '<span class="small_font">' + max + '</span>' +
-                            '</fieldset>'
-                        ).dialog({
-                            width: 'auto',
-                            maxHeight: 400,
-                            modal: true,
-                            buttons: buttonOptions,
-                            title: Messages.strRangeSearch,
-                            open: function () {
-                                // Add datepicker wherever required.
-                                Functions.addDatepicker($('#min_value'), dataType);
-                                Functions.addDatepicker($('#max_value'), dataType);
-                            },
-                            close: function () {
-                                $(this).remove();
-                            }
+                            $('#rangeSearchModal').modal('hide');
                         });
                     } else {
                         Functions.ajaxShowMessage(response.error);

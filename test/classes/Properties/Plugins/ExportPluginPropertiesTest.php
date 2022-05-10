@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
+/**
+ * @covers \PhpMyAdmin\Properties\Plugins\ExportPluginProperties
+ */
 class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
     /** @var ExportPluginProperties */

@@ -13,14 +13,14 @@ use function fgets;
 use function fopen;
 use function function_exists;
 use function fwrite;
-use function recode_string;
+use function iconv;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function mb_detect_encoding;
 use function mb_list_encodings;
+use function recode_string;
 use function tempnam;
 use function unlink;
-use function iconv;
 
 /**
  * Encoding conversion helper class
@@ -171,8 +171,6 @@ class Encoding
      * @param string $what         what to convert
      *
      * @return string   converted text
-     *
-     * @access public
      */
     public static function convertString(
         string $src_charset,
@@ -182,28 +180,21 @@ class Encoding
         if ($src_charset == $dest_charset) {
             return $what;
         }
+
         if (self::$engine === null) {
             self::initEngine();
         }
+
         switch (self::$engine) {
             case self::ENGINE_RECODE:
-                return recode_string(
-                    $src_charset . '..' . $dest_charset,
-                    $what
-                );
+                return recode_string($src_charset . '..' . $dest_charset, $what);
+
             case self::ENGINE_ICONV:
-                return iconv(
-                    $src_charset,
-                    $dest_charset .
-                    ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
-                    $what
-                );
+                return iconv($src_charset, $dest_charset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''), $what);
+
             case self::ENGINE_MB:
-                return mb_convert_encoding(
-                    $what,
-                    $dest_charset,
-                    $src_charset
-                );
+                return mb_convert_encoding($what, $dest_charset, $src_charset);
+
             default:
                 return $what;
         }
@@ -243,9 +234,11 @@ class Encoding
         $parts = explode(',', self::$kanjiEncodings);
         if ($parts[1] === 'EUC-JP') {
             self::$kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
-        } else {
-            self::$kanjiEncodings = 'ASCII,EUC-JP,SJIS,JIS';
+
+            return;
         }
+
+        self::$kanjiEncodings = 'ASCII,EUC-JP,SJIS,JIS';
     }
 
     /**
@@ -270,15 +263,14 @@ class Encoding
 
         if ($kana === 'kana') {
             $dist = mb_convert_kana($str, 'KV', $string_encoding);
-            $str  = $dist;
-        }
-        if ($string_encoding != $enc && $enc != '') {
-            $dist = mb_convert_encoding($str, $enc, $string_encoding);
-        } else {
-            $dist = $str;
+            $str = $dist;
         }
 
-        return $dist;
+        if ($string_encoding != $enc && $enc != '') {
+            return mb_convert_encoding($str, $enc, $string_encoding);
+        }
+
+        return $str;
     }
 
     /**
@@ -295,15 +287,29 @@ class Encoding
         if ($enc == '' && $kana == '') {
             return $file;
         }
-        $tmpfname = (string) tempnam($GLOBALS['PMA_Config']->getUploadTempDir(), $enc);
-        $fpd      = fopen($tmpfname, 'wb');
-        $fps      = fopen($file, 'r');
+
+        $tmpfname = (string) tempnam($GLOBALS['config']->getUploadTempDir(), $enc);
+        $fpd = fopen($tmpfname, 'wb');
+        if ($fpd === false) {
+            return $file;
+        }
+
+        $fps = fopen($file, 'r');
+        if ($fps === false) {
+            return $file;
+        }
+
         self::kanjiChangeOrder();
         while (! feof($fps)) {
             $line = fgets($fps, 4096);
+            if ($line === false) {
+                continue;
+            }
+
             $dist = self::kanjiStrConv($line, $enc, $kana);
             fwrite($fpd, $dist);
         }
+
         self::kanjiChangeOrder();
         fclose($fps);
         fclose($fpd);
@@ -334,6 +340,7 @@ class Encoding
         if (self::$engine === null) {
             self::initEngine();
         }
+
         /* Most engines do not support listing */
         if (self::$engine != self::ENGINE_MB) {
             return $GLOBALS['cfg']['AvailableCharsets'];

@@ -5,12 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\PrivilegesController;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
+use function __;
+use function _pgettext;
+
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\PrivilegesController
+ */
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**
@@ -19,8 +25,6 @@ class PrivilegesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        parent::loadDefaultConfig();
         parent::setLanguage();
         parent::setTheme();
     }
@@ -41,33 +45,23 @@ class PrivilegesControllerTest extends AbstractTestCase
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 
-        $controller = new PrivilegesController(
-            Response::getInstance(),
+        $actual = (new PrivilegesController(
+            ResponseRenderer::getInstance(),
             new Template(),
             $db,
             $table,
             $serverPrivileges,
             $dbi
-        );
-        $actual = $controller->index([
-            'checkprivsdb' => $db,
-            'checkprivstable' => $table,
-        ]);
+        ))(['checkprivsdb' => $db, 'checkprivstable' => $table]);
 
-        $this->assertStringContainsString(
-            $db . '.' . $table,
-            $actual
-        );
+        $this->assertStringContainsString($db . '.' . $table, $actual);
 
         //validate 2: Url::getCommon
         $item = Url::getCommon([
             'db' => $db,
             'table' => $table,
         ], '');
-        $this->assertStringContainsString(
-            $item,
-            $actual
-        );
+        $this->assertStringContainsString($item, $actual);
 
         //validate 3: items
         $this->assertStringContainsString(

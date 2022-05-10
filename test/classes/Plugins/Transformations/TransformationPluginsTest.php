@@ -1,12 +1,10 @@
 <?php
-/**
- * Tests for all input/output transformation plugins
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_Iptolong;
@@ -27,20 +25,24 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
+
 use function date_default_timezone_set;
 use function function_exists;
 use function method_exists;
 
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_TINY;
+
 /**
  * Tests for different input/output transformation plugins
+ *
+ * @coversNothing
  */
 class TransformationPluginsTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -56,7 +58,6 @@ class TransformationPluginsTest extends AbstractTestCase
 
         // For Image_*_Inline plugin
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['Server'] = 1;
 
         // For Date Format plugin
@@ -68,6 +69,8 @@ class TransformationPluginsTest extends AbstractTestCase
      */
     public function multiDataProvider(): array
     {
+        $GLOBALS['cfg']['CodemirrorEnable'] = false;
+
         return [
             // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
             [
@@ -149,8 +152,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [
                 new Text_Plain_FileUpload(),
                 'getInfo',
-                'File upload functionality for TEXT columns. '
-                . 'It does not have a textarea for input.',
+                'File upload functionality for TEXT columns. It does not have a textarea for input.',
             ],
             [
                 new Text_Plain_FileUpload(),
@@ -726,6 +728,8 @@ class TransformationPluginsTest extends AbstractTestCase
      */
     public function transformationDataProvider(): array
     {
+        $GLOBALS['cfg']['CodemirrorEnable'] = false;
+
         $result = [
             [
                 new Image_JPEG_Upload(),
@@ -839,40 +843,36 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     12345,
                     [0],
-                    ((object) ['type' => 'int']),
+                    new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'12345\');" title="12345">'
-                . 'Jan 01, 1970 at 03:25 AM</dfn>',
+                '<dfn onclick="alert(\'12345\');" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
                 [
                     12345678,
                     [0],
-                    ((object) ['type' => 'string']),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'12345678\');" title="12345678">'
-                . 'May 23, 1970 at 09:21 PM</dfn>',
+                '<dfn onclick="alert(\'12345678\');" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
                 [
                     123456789,
                     [0],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'123456789\');" title="123456789">'
-                . 'Nov 29, 1973 at 09:33 PM</dfn>',
+                '<dfn onclick="alert(\'123456789\');" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
                 [
                     '20100201',
                     [0],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'20100201\');" title="20100201">'
-                . 'Feb 01, 2010 at 12:00 AM</dfn>',
+                '<dfn onclick="alert(\'20100201\');" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -883,10 +883,9 @@ class TransformationPluginsTest extends AbstractTestCase
                         '%B %d, %Y at %I:%M %p',
                         'local',
                     ],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -897,10 +896,9 @@ class TransformationPluginsTest extends AbstractTestCase
                         '',// Empty uses the "Y-m-d  H:i:s" format
                         'utc',
                     ],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . '2021-03-31  01:25:41</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">2021-03-31  01:25:41</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -911,10 +909,9 @@ class TransformationPluginsTest extends AbstractTestCase
                         '',// Empty uses the "%B %d, %Y at %I:%M %p" format
                         'local',
                     ],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -925,10 +922,9 @@ class TransformationPluginsTest extends AbstractTestCase
                         'H:i:s Y-d-m',
                         'utc',
                     ],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . '01:25:41 2021-31-03</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">01:25:41 2021-31-03</dfn>',
             ],
             [
                 new Text_Plain_External(),

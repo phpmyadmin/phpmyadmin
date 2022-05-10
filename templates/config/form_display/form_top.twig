@@ -1,7 +1,0 @@
-<form method="{{ method }}" action="{{ action|e('html_attr') }}" class="config-form disableAjax">
-  <input type="hidden" name="tab_hash" value="">
-  {% if has_check_page_refresh %}
-    <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
-  {% endif %}
-  {{ get_hidden_inputs('', '', 0, 'server') }}
-  {{ get_hidden_fields(hidden_fields, '', true) }}

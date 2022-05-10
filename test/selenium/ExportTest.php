@@ -1,16 +1,11 @@
 <?php
-/**
- * Selenium TestCase for export related tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * ExportTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class ExportTest extends TestBase
 {
@@ -135,14 +130,11 @@ class ExportTest extends TestBase
         $this->waitForElement('id', 'quick_or_custom');
         $this->byCssSelector('label[for=radio_custom_export]')->click();
 
-        $this->selectByLabel(
-            $this->byId('plugins'),
-            $plugin
-        );
+        $this->selectByLabel($this->byId('plugins'), $plugin);
 
         if ($type === 'server') {
             $this->scrollIntoView('databases_and_tables', 200);
-            $this->byPartialLinkText('Unselect all')->click();
+            $this->byId('db_unselect_all')->click();
 
             $this->byCssSelector('option[value="' . $this->databaseName . '"]')->click();
         }
@@ -150,6 +142,7 @@ class ExportTest extends TestBase
         if ($type === 'table') {
             $this->scrollIntoView('radio_allrows_0');
             $this->byCssSelector('label[for=radio_allrows_0]')->click();
+            $this->scrollIntoView('limit_to');
             $this->byName('limit_to')->clear();
             $this->byName('limit_to')->sendKeys('1');
         }

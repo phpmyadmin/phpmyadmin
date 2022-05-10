@@ -8,7 +8,7 @@ use PhpMyAdmin\Core;
 
 class LogoutController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         global $auth_plugin, $token_mismatch;
 

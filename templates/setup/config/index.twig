@@ -3,27 +3,24 @@
 
 <h2>{% trans 'Configuration file' %}</h2>
 
-{{ form_top_html|raw }}
+<div class="card">
+  <h5 class="card-header">config.inc.php</h5>
+  <div class="card-body">
+    <form id="configFileForm" method="post" action="config.php">
+      {% if has_check_page_refresh %}
+        <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
+      {% endif %}
+      {{ get_hidden_inputs('', '', 0, 'server') }}
+      <input type="hidden" name="eol" value="{{ eol }}">
 
-<input type="hidden" name="eol" value="{{ eol }}">
-
-{{ fieldset_top_html|raw }}
-
-<tr>
-  <td>
-    <textarea cols="50" rows="20" name="textconfig" id="textconfig" spellcheck="false">
-      {{- config -}}
-    </textarea>
-  </td>
-</tr>
-
-<tr>
-  <td class="lastrow left">
-    <input class="green" type="submit" name="submit_download" value="{% trans 'Download' %}">
-  </td>
-</tr>
-
-{{ form_bottom_html|raw }}
-{{ fieldset_bottom_html|raw }}
+      <textarea class="form-control font-monospace" rows="20" name="textconfig" spellcheck="false" aria-label="{% trans 'Generated configuration file' %}">
+        {{- config -}}
+      </textarea>
+    </form>
+  </div>
+  <div class="card-footer">
+    <input class="btn btn-primary" type="submit" form="configFileForm" name="submit_download" value="{% trans 'Download' %}">
+  </div>
+</div>
 
 {% endblock %}

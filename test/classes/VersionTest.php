@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Version;
+
 use function defined;
 
+/**
+ * @covers \PhpMyAdmin\Version
+ */
 class VersionTest extends AbstractTestCase
 {
     /**
@@ -27,6 +31,7 @@ class VersionTest extends AbstractTestCase
         if (defined('VERSION_SUFFIX')) {
             $this->assertIsString(VERSION_SUFFIX);
         }
+
         $this->assertIsInt(Version::ID);
         $this->assertIsString(Version::PRE_RELEASE_NAME);
         $this->assertIsBool(Version::IS_DEV);

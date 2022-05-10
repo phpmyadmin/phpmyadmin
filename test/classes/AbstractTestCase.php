@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use const PHP_SAPI;
-use function define;
-use function defined;
-use function getenv;
+
+use function array_keys;
 use function in_array;
-use function is_array;
-use function parse_url;
+
+use const DIRECTORY_SEPARATOR;
 
 /**
  * Abstract class to hold some usefull methods used in tests
@@ -63,12 +63,14 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function setUp(): void
     {
-        foreach ($GLOBALS as $key => $val) {
+        foreach (array_keys($GLOBALS) as $key) {
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }
+
             unset($GLOBALS[$key]);
         }
+
         $_GET = [];
         $_POST = [];
         $_SERVER = [
@@ -85,25 +87,26 @@ abstract class AbstractTestCase extends TestCase
         $_REQUEST = [];
         // Config before DBI
         $this->setGlobalConfig();
+        $this->loadContainerBuilder();
         $this->setGlobalDbi();
-    }
-
-    protected function loadDefaultConfig(): void
-    {
-        global $cfg;
-
-        require ROOT_PATH . 'libraries/config.default.php';
+        $this->loadDbiIntoContainerBuilder();
+        Cache::purge();
     }
 
     protected function assertAllQueriesConsumed(): void
     {
-        if ($this->dummyDbi->hasUnUsedQueries() === false) {
-            $this->assertTrue(true);// increment the assertion count
+        $unUsedQueries = $this->dummyDbi->getUnUsedQueries();
+        $this->assertSame([], $unUsedQueries, 'Some queries where not used !');
+    }
 
-            return;
-        }
-
-        $this->fail('Some queries where not used !');
+    protected function assertAllSelectsConsumed(): void
+    {
+        $unUsedSelects = $this->dummyDbi->getUnUsedDatabaseSelects();
+        $this->assertSame(
+            [],
+            $unUsedSelects,
+            'Some database selects where not used !'
+        );
     }
 
     protected function assertAllErrorCodesConsumed(): void
@@ -136,17 +139,17 @@ abstract class AbstractTestCase extends TestCase
     {
         global $containerBuilder;
 
-        $response = new Response();
-        $containerBuilder->set(Response::class, $response);
-        $containerBuilder->setAlias('response', Response::class);
+        $response = new ResponseRenderer();
+        $containerBuilder->set(ResponseRenderer::class, $response);
+        $containerBuilder->setAlias('response', ResponseRenderer::class);
     }
 
     protected function setResponseIsAjax(): void
     {
         global $containerBuilder;
 
-        /** @var Response $response */
-        $response = $containerBuilder->get(Response::class);
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
 
         $response->setAjax(true);
     }
@@ -154,36 +157,38 @@ abstract class AbstractTestCase extends TestCase
     protected function getResponseHtmlResult(): string
     {
         global $containerBuilder;
-        $response = $containerBuilder->get(Response::class);
 
-        /** @var Response $response */
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
+
         return $response->getHTMLResult();
     }
 
     protected function getResponseJsonResult(): array
     {
         global $containerBuilder;
-        $response = $containerBuilder->get(Response::class);
 
-        /** @var Response $response */
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
+
         return $response->getJSONResult();
     }
 
     protected function assertResponseWasNotSuccessfull(): void
     {
         global $containerBuilder;
-        $response = $containerBuilder->get(Response::class);
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
 
-        /** @var Response $response */
         $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
     }
 
     protected function assertResponseWasSuccessfull(): void
     {
         global $containerBuilder;
-        $response = $containerBuilder->get(Response::class);
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
 
-        /** @var Response $response */
         $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
     }
 
@@ -197,16 +202,21 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setGlobalConfig(): void
     {
-        global $PMA_Config;
-        $PMA_Config = new Config();
-        $PMA_Config->set('environment', 'development');
-        $PMA_Config->set('URLQueryEncryption', false);
+        global $config, $cfg;
+        $config = new Config();
+        $config->checkServers();
+        $config->set('environment', 'development');
+        $cfg = $config->settings;
     }
 
     protected function setTheme(): void
     {
-        global $PMA_Theme;
-        $PMA_Theme = Theme::load('./themes/pmahomme', ROOT_PATH . 'themes/pmahomme/');
+        global $theme;
+        $theme = Theme::load(
+            ThemeManager::getThemesDir() . 'pmahomme',
+            ThemeManager::getThemesFsDir() . 'pmahomme' . DIRECTORY_SEPARATOR,
+            'pmahomme'
+        );
     }
 
     protected function setLanguage(string $code = 'en'): void
@@ -215,58 +225,31 @@ abstract class AbstractTestCase extends TestCase
 
         $lang = $code;
         /* Ensure default language is active */
-        /** @var Language $languageEn */
         $languageEn = LanguageManager::getInstance()->getLanguage($code);
+        if ($languageEn === false) {
+            return;
+        }
+
         $languageEn->activate();
         Translator::load();
     }
 
     protected function setProxySettings(): void
     {
-        $httpProxy = getenv('http_proxy');
-        $urlInfo = parse_url((string) $httpProxy);
-        if (PHP_SAPI === 'cli' && is_array($urlInfo)) {
-            $proxyUrl = ($urlInfo['host'] ?? '')
-                . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
-            $proxyUser = $urlInfo['user'] ?? '';
-            $proxyPass = $urlInfo['pass'] ?? '';
-
-            $GLOBALS['cfg']['ProxyUrl'] = $proxyUrl;
-            $GLOBALS['cfg']['ProxyUser'] = $proxyUser;
-            $GLOBALS['cfg']['ProxyPass'] = $proxyPass;
-        }
-
-        // phpcs:disable PSR1.Files.SideEffects
-        if (! defined('PROXY_URL')) {
-            define('PROXY_URL', $proxyUrl ?? '');
-            define('PROXY_USER', $proxyUser ?? '');
-            define('PROXY_PASS', $proxyPass ?? '');
-        }
-        // phpcs:enable
-    }
-
-    protected function defineVersionConstants(): void
-    {
-        global $PMA_Config;
-        // Initialize PMA_VERSION variable
-        // phpcs:disable PSR1.Files.SideEffects
-        if (! defined('PMA_VERSION')) {
-            define('PMA_VERSION', $PMA_Config->get('PMA_VERSION'));
-            define('PMA_MAJOR_VERSION', $PMA_Config->get('PMA_MAJOR_VERSION'));
-        }
-        // phpcs:enable
+        HttpRequest::setProxySettingsFromEnv();
     }
 
     /**
-     * Desctroys the environment built for the test.
+     * Destroys the environment built for the test.
      * Clean all variables
      */
     protected function tearDown(): void
     {
-        foreach ($GLOBALS as $key => $val) {
+        foreach (array_keys($GLOBALS) as $key) {
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }
+
             unset($GLOBALS[$key]);
         }
     }
@@ -278,10 +261,9 @@ abstract class AbstractTestCase extends TestCase
      * @param string      $className  The class name
      * @param string      $methodName The method name
      * @param array       $params     The parameters for the invocation
+     * @phpstan-param class-string $className
      *
      * @return mixed the output from the protected method.
-     *
-     * @phpstan-param class-string $className
      */
     protected function callFunction($object, string $className, string $methodName, array $params)
     {

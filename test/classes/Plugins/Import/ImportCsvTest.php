@@ -8,8 +8,13 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
+use function __;
 use function basename;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
+ */
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */
@@ -18,13 +23,10 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportCsv();
@@ -62,8 +64,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -107,18 +107,13 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
-            'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
-            $sql_query
-        );
+        $this->assertStringContainsString('CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER', $sql_query);
         $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $sql_query
         );
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 
     /**
@@ -144,18 +139,10 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
-            'CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER',
-            $sql_query
-        );
-        $this->assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`',
-            $sql_query
-        );
+        $this->assertStringContainsString('CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER', $sql_query);
+        $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`', $sql_query);
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
 
         unset($_REQUEST['csv_new_tbl_name']);
         unset($_REQUEST['csv_new_db_name']);
@@ -200,19 +187,14 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
-            'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
-            $sql_query
-        );
+        $this->assertStringContainsString('CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER', $sql_query);
 
         $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $sql_query
         );
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 
     /**
@@ -253,10 +235,7 @@ class ImportCsvTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
-            $GLOBALS['finished']
-        );
+        $this->assertEquals(true, $GLOBALS['finished']);
         $this->assertAllQueriesConsumed();
     }
 
@@ -300,10 +279,7 @@ class ImportCsvTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
-            $GLOBALS['finished']
-        );
+        $this->assertEquals(true, $GLOBALS['finished']);
         $this->assertAllQueriesConsumed();
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportYaml;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -13,13 +12,13 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
-use stdClass;
 
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportYaml
  * @group medium
  */
 class ExportYamlTest extends AbstractTestCase
@@ -39,7 +38,11 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['crlf'] = "\n";
-        $GLOBALS['cfgRelation']['relation'] = true;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportYaml();
     }
 
@@ -62,10 +65,7 @@ class ExportYamlTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'YAML',
@@ -84,10 +84,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -98,10 +95,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -112,10 +106,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
     }
 
     public function testExportHeader(): void
@@ -128,17 +119,12 @@ class ExportYamlTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            "%YAML 1.1\n---\n",
-            $result
-        );
+        $this->assertStringContainsString("%YAML 1.1\n---\n", $result);
     }
 
     public function testExportFooter(): void
     {
-        $this->expectOutputString(
-            "...\n"
-        );
+        $this->expectOutputString("...\n");
         $this->assertTrue(
             $this->object->exportFooter()
         );
@@ -167,82 +153,45 @@ class ExportYamlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $flags = [];
-        $a = new stdClass();
-        $a->type = '';
-        $flags[] = $a;
-        $b = new stdClass();
-        $b->type = '';
-        $flags[] = $b;
-        $c = new stdClass();
-        $c->type = '';
-        $flags[] = $c;
-        $d = new stdClass();
-        $d->type = 'string';
-        $flags[] = $d;
-        $e = new stdClass();
-        $e->type = 'string';
-        $flags[] = $e;
-
-        $dbi->expects($this->once())
-            ->method('getFieldsMeta')
-            ->with(true)
-            ->will($this->returnValue($flags));
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(5));
-
-        $dbi->expects($this->exactly(5))
-            ->method('fieldName')
-            ->willReturn('fName1', 'fNa"me2', 'fNa\\me3', 'fName4', 'fName5');
-
-        $dbi->expects($this->exactly(3))
-            ->method('fetchRow')
-            ->willReturn(
-                [
-                    null,
-                    '123',
-                    "\"c\\a\nb\r",
-                    '123',
-                    '+30.2103210000',
-                ],
-                [null],
-                null
-            );
-
-        $GLOBALS['dbi'] = $dbi;
-
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
-                'ta<ble',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
-                'SELECT'
+                'localhost',
+                'SELECT * FROM `test_db`.`test_table_yaml`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '# db.ta&lt;ble' . "\n" .
+            '# test_db.test_table' . "\n" .
             '-' . "\n" .
-            '  fNa&quot;me2: 123' . "\n" .
-            '  fName3: &quot;\&quot;c\\\\a\nb\r&quot;' . "\n" .
-            '  fName4: &quot;123&quot;' . "\n" .
-            '  fName5: &quot;+30.2103210000&quot;' . "\n" .
-            '-' . "\n",
+            '  id: 1' . "\n" .
+            '  name: &quot;abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2011-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: null' . "\n" .
+            '-' . "\n" .
+            '  id: 2' . "\n" .
+            '  name: &quot;foo&quot;' . "\n" .
+            '  datetimefield: &quot;2010-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: null' . "\n" .
+            '-' . "\n" .
+            '  id: 3' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: null' . "\n" .
+            '-' . "\n" .
+            '  id: 4' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: &quot;123&quot;' . "\n" .
+            '-' . "\n" .
+            '  id: 5' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: &quot;+30.2103210000&quot;' . "\n",
             $result
         );
     }

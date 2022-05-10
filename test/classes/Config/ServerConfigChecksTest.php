@@ -9,8 +9,12 @@ use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionException;
 use ReflectionProperty;
+
 use function array_keys;
 
+/**
+ * @covers \PhpMyAdmin\Config\ServerConfigChecks
+ */
 class ServerConfigChecksTest extends AbstractTestCase
 {
     /** @var string */
@@ -62,7 +66,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $_SESSION[$this->sessionID]['ZipDump'] = true;
 
         $configChecker = $this->getMockBuilder(ServerConfigChecks::class)
-            ->setMethods(['functionExists'])
+            ->onlyMethods(['functionExists'])
             ->setConstructorArgs([$GLOBALS['ConfigFile']])
             ->getMock();
 
@@ -124,10 +128,7 @@ class ServerConfigChecksTest extends AbstractTestCase
             array_keys($_SESSION['messages']['notice'])
         );
 
-        $this->assertArrayNotHasKey(
-            'error',
-            $_SESSION['messages']
-        );
+        $this->assertArrayNotHasKey('error', $_SESSION['messages']);
     }
 
     public function testBlowfish(): void
@@ -144,9 +145,6 @@ class ServerConfigChecksTest extends AbstractTestCase
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
         $configChecker->performConfigChecks();
 
-        $this->assertArrayHasKey(
-            'blowfish_warnings2',
-            $_SESSION['messages']['error']
-        );
+        $this->assertArrayHasKey('blowfish_warnings2', $_SESSION['messages']['error']);
     }
 }

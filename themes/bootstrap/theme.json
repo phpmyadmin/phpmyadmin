@@ -4,5 +4,5 @@
     "description": "Bootstrap theme for phpMyAdmin",
     "author": "phpMyAdmin developers",
     "url": "https://www.phpmyadmin.net/",
-    "supports": ["5.1"]
+    "supports": ["5.1", "5.2"]
 }

@@ -7,8 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Url;
+use function __;
 
 /**
  * Represents a function node in the navigation tree
@@ -26,20 +25,19 @@ class NodeFunction extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Generator::getImage('b_routines', __('Function'));
+        $this->icon = ['image' => 'b_routines', 'title' => __('Function')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'FUNCTION',
-                'edit_item' => 1,
-            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'FUNCTION',
-                'execute_dialog' => 1,
-            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
+            'text' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'edit_item' => 1, 'db' => null, 'item_name' => null],
+            ],
+            'icon' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
+            ],
         ];
         $this->classes = 'function';
+        $this->urlParamName = 'item_name';
     }
 
     /**

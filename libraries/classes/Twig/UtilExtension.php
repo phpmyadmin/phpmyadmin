@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
+use PhpMyAdmin\Utils\Gis;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -20,136 +25,124 @@ class UtilExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'backquote',
-                'PhpMyAdmin\Util::backquote'
+                [Util::class, 'backquote']
             ),
             new TwigFunction(
                 'extract_column_spec',
-                'PhpMyAdmin\Util::extractColumnSpec'
+                [Util::class, 'extractColumnSpec']
             ),
             new TwigFunction(
                 'format_byte_down',
-                'PhpMyAdmin\Util::formatByteDown'
-            ),
-            new TwigFunction(
-                'get_formatted_maximum_upload_size',
-                'PhpMyAdmin\Util::getFormattedMaximumUploadSize'
+                [Util::class, 'formatByteDown']
             ),
             new TwigFunction(
                 'format_number',
-                'PhpMyAdmin\Util::formatNumber'
+                [Util::class, 'formatNumber']
             ),
             new TwigFunction(
                 'format_sql',
-                '\PhpMyAdmin\Html\Generator::formatSql',
+                [Generator::class, 'formatSql'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_docu_link',
-                '\PhpMyAdmin\Html\MySQLDocumentation::getDocumentationLink',
+                [MySQLDocumentation::class, 'getDocumentationLink'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_list_navigator',
-                '\PhpMyAdmin\Html\Generator::getListNavigator',
+                [Generator::class, 'getListNavigator'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'show_docu',
-                '\PhpMyAdmin\Html\MySQLDocumentation::showDocumentation',
+                [MySQLDocumentation::class, 'showDocumentation'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_gis_datatypes',
-                'PhpMyAdmin\Util::getGISDatatypes'
+                [Gis::class, 'getDataTypes']
             ),
             new TwigFunction(
                 'get_gis_functions',
-                'PhpMyAdmin\Util::getGISFunctions'
+                [Gis::class, 'getFunctions']
             ),
             new TwigFunction(
                 'get_icon',
-                '\PhpMyAdmin\Html\Generator::getIcon',
+                [Generator::class, 'getIcon'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_image',
-                '\PhpMyAdmin\Html\Generator::getImage',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
-                'get_start_and_number_of_rows_panel',
-                'PhpMyAdmin\Html\Generator::getStartAndNumberOfRowsPanel',
+                [Generator::class, 'getImage'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_supported_datatypes',
-                'PhpMyAdmin\Util::getSupportedDatatypes',
+                [Util::class, 'getSupportedDatatypes'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'is_foreign_key_supported',
-                'PhpMyAdmin\Util::isForeignKeySupported'
+                [ForeignKey::class, 'isSupported']
             ),
             new TwigFunction(
                 'link_or_button',
-                'PhpMyAdmin\Html\Generator::linkOrButton',
+                [Generator::class, 'linkOrButton'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'link_to_var_documentation',
-                'PhpMyAdmin\Html\Generator::linkToVarDocumentation',
+                [Generator::class, 'linkToVarDocumentation'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'localised_date',
-                'PhpMyAdmin\Util::localisedDate'
+                [Util::class, 'localisedDate']
             ),
             new TwigFunction(
                 'show_hint',
-                '\PhpMyAdmin\Html\Generator::showHint',
+                [Generator::class, 'showHint'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'show_icons',
-                'PhpMyAdmin\Util::showIcons'
+                [Util::class, 'showIcons']
             ),
             new TwigFunction(
                 'show_text',
-                'PhpMyAdmin\Util::showText'
+                [Util::class, 'showText']
             ),
             new TwigFunction(
                 'show_mysql_docu',
-                '\PhpMyAdmin\Html\MySQLDocumentation::show',
+                [MySQLDocumentation::class, 'show'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_mysql_docu_url',
-                'PhpMyAdmin\Util::getMySQLDocuURL',
+                [Util::class, 'getMySQLDocuURL'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_docu_url',
-                'PhpMyAdmin\Util::getdocuURL',
+                [Util::class, 'getdocuURL'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'show_php_docu',
-                '\PhpMyAdmin\Html\Generator::showPHPDocumentation',
+                [Generator::class, 'showPHPDocumentation'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'sortable_table_header',
-                'PhpMyAdmin\Util::sortableTableHeader',
+                [Util::class, 'sortableTableHeader'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'timespan_format',
-                'PhpMyAdmin\Util::timespanFormat'
+                [Util::class, 'timespanFormat']
             ),
-            new TwigFunction(
-                'parse_enum_set_values',
-                'PhpMyAdmin\Util::parseEnumSetValues'
-            ),
+            new TwigFunction('parse_enum_set_values', 'PhpMyAdmin\Util::parseEnumSetValues'),
         ];
     }
 
@@ -163,11 +156,11 @@ class UtilExtension extends AbstractExtension
         return [
             new TwigFilter(
                 'convert_bit_default_value',
-                'PhpMyAdmin\Util::convertBitDefaultValue'
+                [Util::class, 'convertBitDefaultValue']
             ),
             new TwigFilter(
                 'escape_mysql_wildcards',
-                'PhpMyAdmin\Util::escapeMysqlWildcards'
+                [Util::class, 'escapeMysqlWildcards']
             ),
         ];
     }

@@ -1,21 +1,17 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+
 use function date;
 use function sleep;
 use function strtotime;
 
 /**
- * EventsTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class EventsTest extends TestBase
 {
@@ -84,7 +80,7 @@ class EventsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', 'Add event')->click();
+        $this->waitForElement('partialLinkText', 'Create new event')->click();
         $this->waitAjax();
 
         $this->waitForElement('className', 'rte_form');
@@ -117,12 +113,9 @@ class EventsTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        sleep(1);
-
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Event `test_event` has been created')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Event `test_event` has been created\')]'
         );
         $this->waitForElementNotPresent(
             'xpath',
@@ -173,10 +166,7 @@ class EventsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Events')]"
-        );
+        $this->waitForElement('xpath', '//div[contains(., "Event scheduler status")]');
 
         $this->byPartialLinkText('Edit')->click();
 
@@ -188,8 +178,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Event `test_event` has been modified')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Event `test_event` has been modified\')]'
         );
 
         sleep(2);
@@ -215,16 +204,10 @@ class EventsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            '//legend[contains(., "Events")]'
-        );
+        $this->waitForElement('xpath', '//div[contains(., "Event scheduler status")]');
 
         $this->byPartialLinkText('Drop')->click();
-        $this->waitForElement(
-            'className',
-            'submitOK'
-        )->click();
+        $this->waitForElement('className', 'submitOK')->click();
 
         $this->waitAjaxMessage();
 

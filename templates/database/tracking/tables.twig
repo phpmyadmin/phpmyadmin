@@ -7,7 +7,7 @@
             id="trackedForm" class="ajax">
             {{ get_hidden_inputs(db) }}
             <table id="versions" class="table table-light table-striped table-hover w-auto">
-                <thead class="thead-light">
+                <thead class="table-light">
                     <tr>
                         <th></th>
                         <th>{% trans 'Table' %}</th>
@@ -32,7 +32,7 @@
                                     {{ version.table_name }}
                                 </label>
                             </th>
-                            <td class="text-right">
+                            <td class="text-end">
                                 {{ version.version }}
                             </td>
                             <td>
@@ -45,8 +45,8 @@
                               <div class="wrapper toggleAjax hide">
                                 <div class="toggleButton">
                                   <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ version.tracking_active == 1 ? 'on' : 'off' }}">
-                                    <img src="{{ theme_image_path }}toggle-{{ text_dir }}.png">
-                                    <table class="pma-table nospacing nopadding">
+                                    <img src="{{ image('toggle-' ~ text_dir ~ '.png') }}">
+                                    <table>
                                       <tbody>
                                       <tr>
                                         <td class="toggleOn">
@@ -131,7 +131,6 @@
                 </tbody>
             </table>
             {% include 'select_all.twig' with {
-                'theme_image_path': theme_image_path,
                 'text_dir': text_dir,
                 'form_name': 'trackedForm'
             } only %}
@@ -148,7 +147,7 @@
         id="untrackedForm" class="ajax">
         {{ get_hidden_inputs(db) }}
         <table id="noversions" class="table table-light table-striped table-hover w-auto">
-            <thead class="thead-light">
+            <thead class="table-light">
                 <tr>
                     <th></th>
                     <th>{% trans 'Table' %}</th>
@@ -183,7 +182,6 @@
             </tbody>
         </table>
         {% include 'select_all.twig' with {
-            'theme_image_path': theme_image_path,
             'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}

@@ -5,10 +5,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
 use stdClass;
+
+use function __;
+use function _pgettext;
 use function hash;
+use function header;
 use function htmlspecialchars;
 use function mb_strpos;
 use function ob_end_clean;
@@ -18,6 +24,9 @@ use function preg_quote;
 use function serialize;
 use function str_repeat;
 
+/**
+ * @covers \PhpMyAdmin\Core
+ */
 class CoreTest extends AbstractNetworkTestCase
 {
     /**
@@ -26,16 +35,14 @@ class CoreTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         parent::setLanguage();
-        parent::loadDefaultConfig();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = 'http://example.net/';
-        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
+        $GLOBALS['config']->set('URLQueryEncryption', false);
     }
 
     /**
@@ -359,91 +366,13 @@ class CoreTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for Core::cleanupPathInfo
-     *
-     * @param string $php_self  The PHP_SELF value
-     * @param string $request   The REQUEST_URI value
-     * @param string $path_info The PATH_INFO value
-     * @param string $expected  Expected result
-     *
-     * @dataProvider providerTestPathInfo
-     */
-    public function testPathInfo(string $php_self, string $request, string $path_info, string $expected): void
-    {
-        $_SERVER['PHP_SELF'] = $php_self;
-        $_SERVER['REQUEST_URI'] = $request;
-        $_SERVER['PATH_INFO'] = $path_info;
-        Core::cleanupPathInfo();
-        $this->assertEquals(
-            $expected,
-            $GLOBALS['PMA_PHP_SELF']
-        );
-    }
-
-    /**
-     * Data provider for Core::cleanupPathInfo tests
-     *
-     * @return array
-     */
-    public function providerTestPathInfo(): array
-    {
-        return [
-            [
-                '/phpmyadmin/index.php/; cookieinj=value/',
-                '/phpmyadmin/index.php/;%20cookieinj=value///',
-                '/; cookieinj=value/',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/phpmyadmin/index.php/;%20cookieinj=value///',
-                '/; cookieinj=value/',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../../.././phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/page.php/malicouspathinfo?malicouspathinfo',
-                'malicouspathinfo',
-                '/page.php',
-            ],
-            [
-                '/phpmyadmin/./index.php',
-                '/phpmyadmin/./index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '/phpmyadmin/index.php',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-        ];
-    }
-
-    /**
      * Test for Core::fatalError
      */
     public function testFatalErrorMessage(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $this->expectOutputRegex('/FatalError!/');
         Core::fatalError('FatalError!');
     }
@@ -453,6 +382,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testFatalErrorMessageWithArgs(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $message = 'Fatal error #%d in file %s.';
         $params = [
             1,
@@ -602,8 +534,7 @@ class CoreTest extends AbstractNetworkTestCase
     public function testSendHeaderLocationWithoutSidWithIis(): void
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
+        $GLOBALS['config']->set('PMA_IS_IIS', true);
 
         $testUri = 'https://example.com/test.php';
 
@@ -621,13 +552,12 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $GLOBALS['server'] = 0;
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', null);
+        $GLOBALS['config']->set('PMA_IS_IIS', null);
 
         $testUri = 'https://example.com/test.php';
 
         $this->mockResponse('Location: ' . $testUri);
-        Core::sendHeaderLocation($testUri);            // sets $GLOBALS['header']
+        Core::sendHeaderLocation($testUri); // sets $GLOBALS['header']
     }
 
     /**
@@ -637,8 +567,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $GLOBALS['server'] = 0;
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
+        $GLOBALS['config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
         $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'
@@ -672,49 +601,6 @@ class CoreTest extends AbstractNetworkTestCase
         $this->mockResponse();
 
         Core::sendHeaderLocation($testUri);
-    }
-
-    /**
-     * Test for Core::ifSetOr
-     */
-    public function testVarSet(): void
-    {
-        $default = 'foo';
-        $in = 'bar';
-        $out = Core::ifSetOr($in, $default);
-        $this->assertEquals($in, $out);
-    }
-
-    /**
-     * Test for Core::ifSetOr
-     */
-    public function testVarSetWrongType(): void
-    {
-        $default = 'foo';
-        $in = 'bar';
-        $out = Core::ifSetOr($in, $default, 'boolean');
-        $this->assertEquals($out, $default);
-    }
-
-    /**
-     * Test for Core::ifSetOr
-     */
-    public function testVarNotSet(): void
-    {
-        $default = 'foo';
-        // $in is not set!
-        $out = Core::ifSetOr($in, $default);
-        $this->assertEquals($out, $default);
-    }
-
-    /**
-     * Test for Core::ifSetOr
-     */
-    public function testVarNotSetNoDefault(): void
-    {
-        // $in is not set!
-        $out = Core::ifSetOr($in);
-        $this->assertNull($out);
     }
 
     /**
@@ -775,373 +661,6 @@ class CoreTest extends AbstractNetworkTestCase
                 false,
             ],
         ];
-    }
-
-    /**
-     * Test for Core::isValid
-     *
-     * @param mixed $var     Variable to check
-     * @param mixed $type    Type
-     * @param mixed $compare Compared value
-     *
-     * @dataProvider providerTestNoVarType
-     */
-    public function testNoVarType($var, $type, $compare): void
-    {
-        $this->assertTrue(Core::isValid($var, $type, $compare));
-    }
-
-    /**
-     * Data provider for testNoVarType
-     *
-     * @return array
-     */
-    public static function providerTestNoVarType(): array
-    {
-        return [
-            [
-                0,
-                false,
-                0,
-            ],
-            [
-                0,
-                false,
-                1,
-            ],
-            [
-                1,
-                false,
-                null,
-            ],
-            [
-                1.1,
-                false,
-                null,
-            ],
-            [
-                '',
-                false,
-                null,
-            ],
-            [
-                ' ',
-                false,
-                null,
-            ],
-            [
-                '0',
-                false,
-                null,
-            ],
-            [
-                'string',
-                false,
-                null,
-            ],
-            [
-                [],
-                false,
-                null,
-            ],
-            [
-                [
-                    1,
-                    2,
-                    3,
-                ],
-                false,
-                null,
-            ],
-            [
-                true,
-                false,
-                null,
-            ],
-            [
-                false,
-                false,
-                null,
-            ],
-        ];
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testVarNotSetAfterTest(): void
-    {
-        Core::isValid($var);
-        $this->assertFalse(isset($var));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNotSet(): void
-    {
-        $this->assertFalse(Core::isValid($var));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testEmptyString(): void
-    {
-        $var = '';
-        $this->assertFalse(Core::isValid($var));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNotEmptyString(): void
-    {
-        $var = '0';
-        $this->assertTrue(Core::isValid($var));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testZero(): void
-    {
-        $var = 0;
-        $this->assertTrue(Core::isValid($var));
-        $this->assertTrue(Core::isValid($var, 'int'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNullFail(): void
-    {
-        $var = null;
-        $this->assertFalse(Core::isValid($var));
-
-        $var = 'null_text';
-        $this->assertFalse(Core::isValid($var, 'null'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNotSetArray(): void
-    {
-        $array = ['x' => null];
-        $this->assertFalse(Core::isValid($array['x']));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testScalarString(): void
-    {
-        $var = 'string';
-        $this->assertTrue(Core::isValid($var, 'len'));
-        $this->assertTrue(Core::isValid($var, 'scalar'));
-        $this->assertTrue(Core::isValid($var));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testScalarInt(): void
-    {
-        $var = 1;
-        $this->assertTrue(Core::isValid($var, 'int'));
-        $this->assertTrue(Core::isValid($var, 'scalar'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testScalarFloat(): void
-    {
-        $var = 1.1;
-        $this->assertTrue(Core::isValid($var, 'float'));
-        $this->assertTrue(Core::isValid($var, 'double'));
-        $this->assertTrue(Core::isValid($var, 'scalar'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testScalarBool(): void
-    {
-        $var = true;
-        $this->assertTrue(Core::isValid($var, 'scalar'));
-        $this->assertTrue(Core::isValid($var, 'bool'));
-        $this->assertTrue(Core::isValid($var, 'boolean'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNotScalarArray(): void
-    {
-        $var = ['test'];
-        $this->assertFalse(Core::isValid($var, 'scalar'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNotScalarNull(): void
-    {
-        $var = null;
-        $this->assertFalse(Core::isValid($var, 'scalar'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNumericInt(): void
-    {
-        $var = 1;
-        $this->assertTrue(Core::isValid($var, 'numeric'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNumericFloat(): void
-    {
-        $var = 1.1;
-        $this->assertTrue(Core::isValid($var, 'numeric'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNumericZero(): void
-    {
-        $var = 0;
-        $this->assertTrue(Core::isValid($var, 'numeric'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNumericString(): void
-    {
-        $var = '+0.1';
-        $this->assertTrue(Core::isValid($var, 'numeric'));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testValueInArray(): void
-    {
-        $var = 'a';
-        $this->assertTrue(Core::isValid($var, ['a', 'b']));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testValueNotInArray(): void
-    {
-        $var = 'c';
-        $this->assertFalse(Core::isValid($var, ['a', 'b']));
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testNumericIdentical(): void
-    {
-        $var = 1;
-        $compare = 1;
-        $this->assertTrue(Core::isValid($var, 'identic', $compare));
-
-        $var = 1;
-        $compare += 2;
-        $this->assertFalse(Core::isValid($var, 'identic', $compare));
-
-        $var = 1;
-        $compare = '1';
-        $this->assertFalse(Core::isValid($var, 'identic', $compare));
-    }
-
-    /**
-     * Test for Core::isValid
-     *
-     * @param mixed $var     Variable
-     * @param mixed $compare Compare
-     *
-     * @dataProvider provideTestSimilarType
-     */
-    public function testSimilarType($var, $compare): void
-    {
-        $this->assertTrue(Core::isValid($var, 'similar', $compare));
-        $this->assertTrue(Core::isValid($var, 'equal', $compare));
-        $this->assertTrue(Core::isValid($compare, 'similar', $var));
-        $this->assertTrue(Core::isValid($compare, 'equal', $var));
-    }
-
-    /**
-     * Data provider for testSimilarType
-     *
-     * @return array
-     */
-    public function provideTestSimilarType(): array
-    {
-        return [
-            [
-                1,
-                1,
-            ],
-            [
-                1.5,
-                1.5,
-            ],
-            [
-                true,
-                true,
-            ],
-            [
-                'string',
-                'string',
-            ],
-            [
-                [
-                    1,
-                    2,
-                    3.4,
-                ],
-                [
-                    1,
-                    2,
-                    3.4,
-                ],
-            ],
-            [
-                [
-                    1,
-                    '2',
-                    '3.4',
-                    5,
-                    'text',
-                ],
-                [
-                    '1',
-                    '2',
-                    3.4,
-                    '5',
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * Test for Core::isValid
-     */
-    public function testOtherTypes(): void
-    {
-        $var = new CoreTest();
-        $this->assertFalse(Core::isValid($var, 'class'));
     }
 
     /**
@@ -1283,6 +802,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testMissingExtensionFatal(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $ext = 'php_ext';
         $warn = 'The <a href="' . Core::getPHPDocLink('book.' . $ext . '.php')
             . '" target="Documentation"><em>' . $ext
@@ -1298,6 +820,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testMissingExtensionFatalWithExtra(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $ext = 'php_ext';
         $extra = 'Appended Extra String';
 
@@ -1394,65 +919,35 @@ class CoreTest extends AbstractNetworkTestCase
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = Core::signSqlQuery($sqlQuery);
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
-        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         // Try to use the previous HMAC signature
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
 
-        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        $GLOBALS['cfg']['blowfish_secret'] = str_repeat('a', 32);
         // Generate the HMAC signature to check that it works
         $hmac = Core::signSqlQuery($sqlQuery);
         // Must work now, (good secret and blowfish_secret)
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
 
-    public function testCheckTokenRequestParam(): void
-    {
-        global $token_mismatch, $token_provided;
-
-        $_SERVER['REQUEST_METHOD'] = 'GET';
-        Core::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['test'] = 'test';
-        Core::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
-        $this->assertArrayNotHasKey('test', $_POST);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
-        $_POST['test'] = 'test';
-        $_SESSION[' PMA_token '] = 'mismatch';
-        Core::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertTrue($token_provided);
-        $this->assertArrayNotHasKey('test', $_POST);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
-        $_POST['test'] = 'test';
-        $_SESSION[' PMA_token '] = 'token';
-        Core::checkTokenRequestParam();
-        $this->assertFalse($token_mismatch);
-        $this->assertTrue($token_provided);
-        $this->assertArrayHasKey('test', $_POST);
-        $this->assertEquals('test', $_POST['test']);
-    }
-
     public function testPopulateRequestWithEncryptedQueryParams(): void
     {
-        global $PMA_Config;
+        global $config;
 
         $_SESSION = [];
-        $PMA_Config->set('URLQueryEncryption', true);
-        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = ['pos' => '0', 'eq' => Url::encryptQuery('{"db":"test_db","table":"test_table"}')];
         $_REQUEST = $_GET;
 
-        Core::populateRequestWithEncryptedQueryParams();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getQueryParams')->willReturn($_GET);
+        $request->method('getParsedBody')->willReturn(null);
+        $request->method('withQueryParams')->willReturnSelf();
+        $request->method('withParsedBody')->willReturnSelf();
+
+        Core::populateRequestWithEncryptedQueryParams($request);
 
         $expected = ['pos' => '0', 'db' => 'test_db', 'table' => 'test_table'];
 
@@ -1470,23 +965,29 @@ class CoreTest extends AbstractNetworkTestCase
         array $encrypted,
         array $decrypted
     ): void {
-        global $PMA_Config;
+        global $config;
 
         $_SESSION = [];
-        $PMA_Config->set('URLQueryEncryption', true);
-        $PMA_Config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $config->set('URLQueryEncryption', true);
+        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = $encrypted;
         $_REQUEST = $encrypted;
 
-        Core::populateRequestWithEncryptedQueryParams();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getQueryParams')->willReturn($_GET);
+        $request->method('getParsedBody')->willReturn(null);
+        $request->method('withQueryParams')->willReturnSelf();
+        $request->method('withParsedBody')->willReturnSelf();
+
+        Core::populateRequestWithEncryptedQueryParams($request);
 
         $this->assertEquals($decrypted, $_GET);
         $this->assertEquals($decrypted, $_REQUEST);
     }
 
     /**
-     * @return string[][][]
+     * @return array<int, array<int, array<string, string|mixed[]>>>
      */
     public function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
     {
@@ -1496,5 +997,57 @@ class CoreTest extends AbstractNetworkTestCase
             [['eq' => ''], []],
             [['eq' => 'invalid'], []],
         ];
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     * @requires extension xdebug
+     */
+    public function testDownloadHeader(): void
+    {
+        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+
+        header('Cache-Control: private, max-age=10800');
+
+        Core::downloadHeader('test.sql', 'text/x-sql', 100, false);
+
+        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
+        $headersList = \xdebug_get_headers();
+        // phpcs:enable
+
+        $this->assertContains('Cache-Control: private, max-age=10800', $headersList);
+        $this->assertContains('Content-Description: File Transfer', $headersList);
+        $this->assertContains('Content-Disposition: attachment; filename="test.sql"', $headersList);
+        $this->assertContains('Content-type: text/x-sql;charset=UTF-8', $headersList);
+        $this->assertContains('Content-Transfer-Encoding: binary', $headersList);
+        $this->assertContains('Content-Length: 100', $headersList);
+        $this->assertNotContains('Content-Encoding: gzip', $headersList);
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     * @requires extension xdebug
+     */
+    public function testDownloadHeader2(): void
+    {
+        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+
+        header('Cache-Control: private, max-age=10800');
+
+        Core::downloadHeader('test.sql.gz', 'application/x-gzip', 0, false);
+
+        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
+        $headersList = \xdebug_get_headers();
+        // phpcs:enable
+
+        $this->assertContains('Cache-Control: private, max-age=10800', $headersList);
+        $this->assertContains('Content-Description: File Transfer', $headersList);
+        $this->assertContains('Content-Disposition: attachment; filename="test.sql.gz"', $headersList);
+        $this->assertContains('Content-Type: application/x-gzip', $headersList);
+        $this->assertContains('Content-Encoding: gzip', $headersList);
+        $this->assertContains('Content-Transfer-Encoding: binary', $headersList);
+        $this->assertNotContains('Content-Length: 0', $headersList);
     }
 }

@@ -7,10 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
-use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
-use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
-use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
+
 use function in_array;
 
 /**
@@ -25,11 +23,11 @@ use function in_array;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @name    Dia_Relation_Schema
+ * @property Dia $diagram
  */
 class DiaRelationSchema extends ExportRelationSchema
 {
-    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
+    /** @var TableStatsDia[] */
     private $tables = [];
 
     /** @var RelationStatsDia[] Relations */
@@ -119,6 +117,7 @@ class DiaRelationSchema extends ExportRelationSchema
                             $this->showKeys
                         );
                     }
+
                     continue;
                 }
 
@@ -139,22 +138,20 @@ class DiaRelationSchema extends ExportRelationSchema
                 }
             }
         }
+
         $this->drawTables();
 
         if ($seen_a_relation) {
             $this->drawRelations();
         }
+
         $this->diagram->endDiaDoc();
     }
 
     /**
      * Output Dia Document for download
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function showOutput()
+    public function showOutput(): void
     {
         $this->diagram->showOutput($this->getFileName('.dia'));
     }
@@ -169,10 +166,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * @param string $foreignTable The foreign table name
      * @param string $foreignField The relation field in the foreign table
      * @param bool   $showKeys     Whether to display ONLY keys or not
-     *
-     * @return void
-     *
-     * @access private
      */
     private function addRelation(
         $masterTable,
@@ -180,7 +173,7 @@ class DiaRelationSchema extends ExportRelationSchema
         $foreignTable,
         $foreignField,
         $showKeys
-    ) {
+    ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsDia(
                 $this->diagram,
@@ -190,6 +183,7 @@ class DiaRelationSchema extends ExportRelationSchema
                 $showKeys
             );
         }
+
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsDia(
                 $this->diagram,
@@ -199,6 +193,7 @@ class DiaRelationSchema extends ExportRelationSchema
                 $showKeys
             );
         }
+
         $this->relations[] = new RelationStatsDia(
             $this->diagram,
             $this->tables[$masterTable],
@@ -216,12 +211,8 @@ class DiaRelationSchema extends ExportRelationSchema
      * type Database - Reference
      *
      * @see    RelationStatsDia::relationDraw()
-     *
-     * @return void
-     *
-     * @access private
      */
-    private function drawRelations()
+    private function drawRelations(): void
     {
         foreach ($this->relations as $relation) {
             $relation->relationDraw($this->showColor);
@@ -235,12 +226,8 @@ class DiaRelationSchema extends ExportRelationSchema
      * primary fields are underlined and bold in tables
      *
      * @see    TableStatsDia::tableDraw()
-     *
-     * @return void
-     *
-     * @access private
      */
-    private function drawTables()
+    private function drawTables(): void
     {
         foreach ($this->tables as $table) {
             $table->tableDraw($this->showColor);

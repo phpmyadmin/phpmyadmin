@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\UserGroups;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+
+use function __;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
@@ -23,21 +25,21 @@ class UserGroupsController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, Relation $relation, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Relation $relation,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
         $this->relation = $relation;
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['menuswork']) {
+        $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
+        if ($configurableMenusFeature === null) {
             return;
         }
 
@@ -64,37 +66,43 @@ class UserGroupsController extends AbstractController
          * Delete user group
          */
         if (! empty($_POST['deleteUserGroup'])) {
-            UserGroups::delete($_POST['userGroup']);
+            UserGroups::delete($configurableMenusFeature, $_POST['userGroup']);
         }
 
         /**
          * Add a new user group
          */
         if (! empty($_POST['addUserGroupSubmit'])) {
-            UserGroups::edit($_POST['userGroup'], true);
+            UserGroups::edit($configurableMenusFeature, $_POST['userGroup'], true);
         }
 
         /**
          * Update a user group
          */
         if (! empty($_POST['editUserGroupSubmit'])) {
-            UserGroups::edit($_POST['userGroup']);
+            UserGroups::edit($configurableMenusFeature, $_POST['userGroup']);
         }
 
         if (isset($_POST['viewUsers'])) {
             // Display users belonging to a user group
-            $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup($_POST['userGroup']));
+            $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup(
+                $configurableMenusFeature,
+                $_POST['userGroup']
+            ));
         }
 
         if (isset($_GET['addUserGroup'])) {
             // Display add user group dialog
-            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup());
+            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup($configurableMenusFeature));
         } elseif (isset($_POST['editUserGroup'])) {
             // Display edit user group dialog
-            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup($_POST['userGroup']));
+            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup(
+                $configurableMenusFeature,
+                $_POST['userGroup']
+            ));
         } else {
             // Display user groups table
-            $this->response->addHTML(UserGroups::getHtmlForUserGroupsTable());
+            $this->response->addHTML(UserGroups::getHtmlForUserGroupsTable($configurableMenusFeature));
         }
 
         $this->response->addHTML('</div>');

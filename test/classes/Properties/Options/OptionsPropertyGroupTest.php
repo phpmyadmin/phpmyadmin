@@ -9,6 +9,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
+/**
+ * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyGroup
+ */
 class OptionsPropertyGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyGroup|MockObject */

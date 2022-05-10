@@ -11,7 +11,7 @@ use PhpMyAdmin\Config\Forms\BaseFormList;
 
 class UserFormList extends BaseFormList
 {
-    /** @var array */
+    /** @var string[] */
     protected static $all = [
         'Features',
         'Sql',
@@ -21,5 +21,5 @@ class UserFormList extends BaseFormList
         'Import',
     ];
     /** @var string */
-    protected static $ns = '\\PhpMyAdmin\\Config\\Forms\\User\\';
+    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\User\\';
 }

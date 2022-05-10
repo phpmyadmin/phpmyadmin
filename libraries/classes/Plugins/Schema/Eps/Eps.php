@@ -8,7 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
+
 use function strlen;
 
 /**
@@ -16,16 +17,14 @@ use function strlen;
  * helps in developing structure of EPS Schema Export
  *
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
- *
- * @access  public
  */
 class Eps
 {
     /** @var string */
-    public $font;
+    public $font = 'Arial';
 
     /** @var int */
-    public $fontSize;
+    public $fontSize = 12;
 
     /** @var string */
     public $stringCommands;
@@ -47,10 +46,8 @@ class Eps
      * Set document title
      *
      * @param string $value sets the title text
-     *
-     * @return void
      */
-    public function setTitle($value)
+    public function setTitle($value): void
     {
         $this->stringCommands .= '%%Title: ' . $value . "\n";
     }
@@ -59,10 +56,8 @@ class Eps
      * Set document author
      *
      * @param string $value sets the author
-     *
-     * @return void
      */
-    public function setAuthor($value)
+    public function setAuthor($value): void
     {
         $this->stringCommands .= '%%Creator: ' . $value . "\n";
     }
@@ -71,10 +66,8 @@ class Eps
      * Set document creation date
      *
      * @param string $value sets the date
-     *
-     * @return void
      */
-    public function setDate($value)
+    public function setDate($value): void
     {
         $this->stringCommands .= '%%CreationDate: ' . $value . "\n";
     }
@@ -83,10 +76,8 @@ class Eps
      * Set document orientation
      *
      * @param string $orientation sets the orientation
-     *
-     * @return void
      */
-    public function setOrientation($orientation)
+    public function setOrientation($orientation): void
     {
         $this->stringCommands .= "%%PageOrder: Ascend \n";
         if ($orientation === 'L') {
@@ -96,6 +87,7 @@ class Eps
             $orientation = 'Portrait';
             $this->stringCommands .= '%%Orientation: ' . $orientation . "\n";
         }
+
         $this->stringCommands .= "%%EndComments \n";
         $this->stringCommands .= "%%Pages 1 \n";
         $this->stringCommands .= "%%BoundingBox: 72 150 144 170 \n";
@@ -108,18 +100,15 @@ class Eps
      *
      * @param string $value sets the font name e.g Arial
      * @param int    $size  sets the size of the font e.g 10
-     *
-     * @return void
      */
-    public function setFont($value, $size)
+    public function setFont(string $value, int $size): void
     {
         $this->font = $value;
         $this->fontSize = $size;
         $this->stringCommands .= '/' . $value . " findfont   % Get the basic font\n";
         $this->stringCommands .= ''
             . $size . ' scalefont            % Scale the font to ' . $size . " points\n";
-        $this->stringCommands
-            .= "setfont                 % Make it the current font\n";
+        $this->stringCommands .= "setfont                 % Make it the current font\n";
     }
 
     /**
@@ -135,9 +124,9 @@ class Eps
     /**
      * Get the font Size
      *
-     * @return string|int return the size of the font e.g 10
+     * @return int return the size of the font e.g 10
      */
-    public function getFontSize()
+    public function getFontSize(): int
     {
         return $this->fontSize;
     }
@@ -157,8 +146,6 @@ class Eps
      * @param int $y_to      The y_to attribute defines the end
      *                       right position of the element
      * @param int $lineWidth Sets the width of the line e.g 2
-     *
-     * @return void
      */
     public function line(
         $x_from = 0,
@@ -166,7 +153,7 @@ class Eps
         $x_to = 0,
         $y_to = 0,
         $lineWidth = 0
-    ) {
+    ): void {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= $x_from . ' ' . $y_from . " moveto \n";
         $this->stringCommands .= $x_to . ' ' . $y_to . " lineto \n";
@@ -188,10 +175,8 @@ class Eps
      * @param int $y_to      The y_to attribute defines the end
      *                       right position of the element
      * @param int $lineWidth Sets the width of the line e.g 2
-     *
-     * @return void
      */
-    public function rect($x_from, $y_from, $x_to, $y_to, $lineWidth)
+    public function rect($x_from, $y_from, $x_to, $y_to, $lineWidth): void
     {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= "newpath \n";
@@ -212,10 +197,8 @@ class Eps
      *
      * @param int $x The x attribute defines the left position of the element
      * @param int $y The y attribute defines the right position of the element
-     *
-     * @return void
      */
-    public function moveTo($x, $y)
+    public function moveTo($x, $y): void
     {
         $this->stringCommands .= $x . ' ' . $y . " moveto \n";
     }
@@ -224,10 +207,8 @@ class Eps
      * Output/Display the text
      *
      * @param string $text The string to be displayed
-     *
-     * @return void
      */
-    public function show($text)
+    public function show($text): void
     {
         $this->stringCommands .= '(' . $text . ") show \n";
     }
@@ -238,10 +219,8 @@ class Eps
      * @param string $text String to be displayed
      * @param int    $x    X attribute defines the left position of the element
      * @param int    $y    Y attribute defines the right position of the element
-     *
-     * @return void
      */
-    public function showXY($text, $x, $y)
+    public function showXY($text, $x, $y): void
     {
         $this->moveTo($x, $y);
         $this->show($text);
@@ -249,10 +228,8 @@ class Eps
 
     /**
      * Ends EPS Document
-     *
-     * @return void
      */
-    public function endEpsDoc()
+    public function endEpsDoc(): void
     {
         $this->stringCommands .= "showpage \n";
     }
@@ -261,16 +238,14 @@ class Eps
      * Output EPS Document for download
      *
      * @param string $fileName name of the eps document
-     *
-     * @return void
      */
-    public function showOutput($fileName)
+    public function showOutput($fileName): void
     {
         // if(ob_get_clean()){
         //ob_end_clean();
         //}
         $output = $this->stringCommands;
-        Response::getInstance()
+        ResponseRenderer::getInstance()
             ->disable();
         Core::downloadHeader(
             $fileName,

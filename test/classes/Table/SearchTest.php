@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Table;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Table\Search
+ */
 class SearchTest extends AbstractTestCase
 {
     /** @var Search */

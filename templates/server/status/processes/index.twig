@@ -2,20 +2,24 @@
 {% set active = 'processes' %}
 {% block content %}
 
-<div class="row">
-<fieldset id="tableFilter">
-  <legend>{% trans 'Filters' %}</legend>
-  <form action="{{ url('/server/status/processes') }}" method="post">
-    {{ get_hidden_inputs(url_params) }}
-    <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
-    <div class="formelement">
-      <input type="checkbox" name="showExecuting" id="showExecuting" class="autosubmit"{{ is_checked ? ' checked' }}>
-      <label for="showExecuting">
-        {% trans 'Show only active' %}
-      </label>
-    </div>
-  </form>
-</fieldset>
+<div class="card mb-3" id="tableFilter">
+  <div class="card-header">{% trans 'Filters' %}</div>
+  <div class="card-body">
+    <form action="{{ url('/server/status/processes') }}" method="post" class="row row-cols-lg-auto gy-1 gx-3 align-items-center">
+      {{ get_hidden_inputs(url_params) }}
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input autosubmit" type="checkbox" name="showExecuting" id="showExecuting"{{ is_checked ? ' checked' }}>
+          <label class="form-check-label" for="showExecuting">{% trans 'Show only active' %}</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
+      </div>
+    </form>
+  </div>
 </div>
 
 {{ server_process_list|raw }}

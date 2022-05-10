@@ -9,19 +9,43 @@
 
     <file>.</file>
 
-    <exclude-pattern>libraries/cache/*</exclude-pattern>
-    <exclude-pattern>libraries/language_stats.inc.php</exclude-pattern>
-    <exclude-pattern>test/doctum-config.php</exclude-pattern>
-    <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/config.inc.php</exclude-pattern>
+    <exclude-pattern>*/libraries/cache/*</exclude-pattern>
+    <exclude-pattern>*/libraries/language_stats.inc.php</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
+    <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/.git/*</exclude-pattern>
 
     <rule ref="PhpMyAdmin"/>
 
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
+    </rule>
+
     <!-- Rules that should be followed, but are not required -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
         <severity>4</severity>
     </rule>
 </ruleset>

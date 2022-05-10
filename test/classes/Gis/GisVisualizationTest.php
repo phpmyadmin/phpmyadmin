@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisVisualization
+ */
 class GisVisualizationTest extends AbstractTestCase
 {
     /**
@@ -99,10 +102,7 @@ class GisVisualizationTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals(
-            'SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
-            $queryString
-        );
+        $this->assertEquals('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
     }
 
     /**
@@ -127,6 +127,106 @@ class GisVisualizationTest extends AbstractTestCase
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
+            $queryString
+        );
+    }
+
+    /**
+     * Modify the query for an MySQL 8.0 version and trim the SQL end character
+     */
+    public function testModifyQueryTrimSqlEnd(): void
+    {
+        $queryString = $this->callFunction(
+            GisVisualization::getByData([], [
+                'mysqlVersion' => 80000,
+                'spatialColumn' => 'abc',
+                'isMariaDB' => false,
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                'SELECT 1 FROM foo;',
+                0,
+                0,
+            ]
+        );
+
+        $this->assertEquals(
+            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM (SELECT 1 FROM foo) AS `temp_gis`',
+            $queryString
+        );
+    }
+
+    /**
+     * Modify the query for an MySQL 8.0 version using a label column
+     */
+    public function testModifyQueryLabelColumn(): void
+    {
+        $queryString = $this->callFunction(
+            GisVisualization::getByData([], [
+                'mysqlVersion' => 80000,
+                'spatialColumn' => 'country_geom',
+                'labelColumn' => 'country name',
+                'isMariaDB' => false,
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                0,
+                0,
+            ]
+        );
+
+        $this->assertEquals(
+            'SELECT `country name`, ST_ASTEXT(`country_geom`) AS `country_geom`,'
+            . ' ST_SRID(`country_geom`) AS `srid` FROM () AS `temp_gis`',
+            $queryString
+        );
+    }
+
+    /**
+     * Modify the query for an MySQL 8.0 version adding a LIMIT statement
+     */
+    public function testModifyQueryWithLimit(): void
+    {
+        $queryString = $this->callFunction(
+            GisVisualization::getByData([], [
+                'mysqlVersion' => 80000,
+                'spatialColumn' => 'abc',
+                'isMariaDB' => false,
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                10,// 10 rows
+                0,
+            ]
+        );
+
+        $this->assertEquals(
+            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 0, 10',
+            $queryString
+        );
+
+        $queryString = $this->callFunction(
+            GisVisualization::getByData([], [
+                'mysqlVersion' => 80000,
+                'spatialColumn' => 'abc',
+                'isMariaDB' => false,
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                15,// 15 rows
+                10,// position 10
+            ]
+        );
+
+        $this->assertEquals(
+            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 10, 15',
             $queryString
         );
     }

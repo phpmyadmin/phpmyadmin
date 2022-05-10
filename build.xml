@@ -5,7 +5,7 @@
  <property name="source_comma_sep" value="."/>
  <property environment="env"/>
  <property name="env.PHPUNIT_XML" value="phpunit.xml.dist"/>
- <property name="env.PHPUNIT_ARGS" value="--exclude-group selenium"/>
+ <property name="env.PHPUNIT_ARGS" value="--testsuite unit"/>
 
  <target name="clean" description="Clean up and create artifact directories">
   <delete dir="${basedir}/build/api"/>

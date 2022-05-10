@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+
 use function is_array;
 use function str_replace;
 
@@ -25,29 +26,25 @@ class DataDictionaryController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db              Database name
-     * @param Relation          $relation
-     * @param Transformations   $transformations
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $relation, $transformations, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        Relation $relation,
+        Transformations $transformations,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db);
         $this->relation = $relation;
         $this->transformations = $transformations;
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         Util::checkParameters(['db'], true);
 
-        $header = $this->response->getHeader();
-        $header->enablePrintView();
-
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $comment = $this->relation->getDbComment($this->db);
 
@@ -56,17 +53,14 @@ class DataDictionaryController extends AbstractController
 
         $tables = [];
         foreach ($tablesNames as $tableName) {
-            $showComment = (string) $this->dbi->getTable(
-                $this->db,
-                $tableName
-            )->getStatusInfo('TABLE_COMMENT');
+            $showComment = (string) $this->dbi->getTable($this->db, $tableName)->getStatusInfo('TABLE_COMMENT');
 
             [, $primaryKeys] = Util::processIndexData(
                 $this->dbi->getTableIndexes($this->db, $tableName)
             );
 
             [$foreigners, $hasRelation] = $this->relation->getRelationsAndStatus(
-                ! empty($cfgRelation['relation']),
+                $relationParameters->relationFeature !== null,
                 $this->db,
                 $tableName
             );
@@ -80,10 +74,7 @@ class DataDictionaryController extends AbstractController
 
                 $relation = '';
                 if ($hasRelation) {
-                    $foreigner = $this->relation->searchColumnInForeigners(
-                        $foreigners,
-                        $row['Field']
-                    );
+                    $foreigner = $this->relation->searchColumnInForeigners($foreigners, $row['Field']);
                     if (is_array($foreigner) && isset($foreigner['foreign_table'], $foreigner['foreign_field'])) {
                         $relation = $foreigner['foreign_table'];
                         $relation .= ' -> ';
@@ -92,18 +83,10 @@ class DataDictionaryController extends AbstractController
                 }
 
                 $mime = '';
-                if ($cfgRelation['mimework']) {
-                    $mimeMap = $this->transformations->getMime(
-                        $this->db,
-                        $tableName,
-                        true
-                    );
+                if ($relationParameters->browserTransformationFeature !== null) {
+                    $mimeMap = $this->transformations->getMime($this->db, $tableName, true);
                     if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
-                        $mime = str_replace(
-                            '_',
-                            '/',
-                            $mimeMap[$row['Field']]['mimetype']
-                        );
+                        $mime = str_replace('_', '/', $mimeMap[$row['Field']]['mimetype']);
                     }
                 }
 
@@ -124,7 +107,7 @@ class DataDictionaryController extends AbstractController
                 'name' => $tableName,
                 'comment' => $showComment,
                 'has_relation' => $hasRelation,
-                'has_mime' => $cfgRelation['mimework'],
+                'has_mime' => $relationParameters->browserTransformationFeature !== null,
                 'columns' => $rows,
                 'indexes' => Index::getFromTable($tableName, $this->db),
             ];

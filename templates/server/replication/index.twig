@@ -11,29 +11,29 @@
   <div id="replication" class="container-fluid">
     {{ error_messages|raw }}
 
-    {% if is_master %}
-      {{ master_replication_html|raw }}
-    {% elseif master_configure is null and clear_screen is null %}
+    {% if is_primary %}
+      {{ primary_replication_html|raw }}
+    {% elseif primary_configure is null and clear_screen is null %}
       <div class="card mb-2">
-        <div class="card-header">{% trans 'Master replication' %}</div>
+        <div class="card-header">{% trans 'Primary replication' %}</div>
         <div class="card-body">
-        {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '', false) ~ '">', '</a>')|raw %}
+        {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'primary_configure': true}), '', false) ~ '">', '</a>')|raw %}
           {% trans %}
-            This server is not configured as master in a replication process. Would you like to %sconfigure%s it?
+            This server is not configured as primary in a replication process. Would you like to %sconfigure%s it?
           {% endtrans %}
         {% endapply %}
         </div>
       </div>
     {% endif %}
 
-    {% if master_configure is not null %}
-      {{ master_configuration_html|raw }}
+    {% if primary_configure is not null %}
+      {{ primary_configuration_html|raw }}
     {% else %}
       {% if clear_screen is null %}
-        {{ slave_configuration_html|raw }}
+        {{ replica_configuration_html|raw }}
       {% endif %}
-      {% if slave_configure is not null %}
-        {{ change_master_html|raw }}
+      {% if replica_configure is not null %}
+        {{ change_primary_html|raw }}
       {% endif %}
     {% endif %}
   </div>

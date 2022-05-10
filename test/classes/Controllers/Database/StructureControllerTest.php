@@ -1,36 +1,25 @@
 <?php
-/**
- * StructureControllerTest class
- *
- * this class is for testing StructureController class
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\RecentFavoriteTable;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PHPUnit\Framework\MockObject\MockObject;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use ReflectionClass;
 use ReflectionException;
-use function define;
-use function defined;
-use function json_encode;
 
 /**
- * StructureControllerTest class
- *
- * this class is for testing StructureController class
+ * @covers \PhpMyAdmin\Controllers\Database\StructureController
  */
 class StructureControllerTest extends AbstractTestCase
 {
@@ -52,14 +41,15 @@ class StructureControllerTest extends AbstractTestCase
     /** @var Operations */
     private $operations;
 
+    /** @var FlashMessages */
+    private $flash;
+
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        parent::loadDefaultConfig();
         parent::setTheme();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
@@ -67,10 +57,6 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-
-        if (! defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'Other');
-        }
 
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
@@ -95,6 +81,7 @@ class StructureControllerTest extends AbstractTestCase
         $this->replication = new Replication();
         $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
         $this->operations = new Operations($dbi, $this->relation);
+        $this->flash = new FlashMessages();
     }
 
     /**
@@ -113,7 +100,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -136,17 +124,9 @@ class StructureControllerTest extends AbstractTestCase
             ]
         );
 
-        $this->assertTrue(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            6,
-            $currentTable['TABLE_ROWS']
-        );
-        $this->assertEquals(
-            16394,
-            $sumSize
-        );
+        $this->assertTrue($currentTable['COUNTED']);
+        $this->assertEquals(6, $currentTable['TABLE_ROWS']);
+        $this->assertEquals(16394, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable, , , $sumSize] = $method->invokeArgs(
@@ -157,13 +137,8 @@ class StructureControllerTest extends AbstractTestCase
             ]
         );
 
-        $this->assertFalse(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            16394,
-            $sumSize
-        );
+        $this->assertFalse($currentTable['COUNTED']);
+        $this->assertEquals(16394, $sumSize);
 
         $controller = new StructureController(
             $this->response,
@@ -173,30 +148,19 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
-        [$currentTable, , , $sumSize]
-            = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertTrue(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            10,
-            $sumSize
-        );
+        [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
+        $this->assertTrue($currentTable['COUNTED']);
+        $this->assertEquals(10, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
-        [$currentTable, , , $sumSize]
-            = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertFalse(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            10,
-            $sumSize
-        );
+        [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
+        $this->assertFalse($currentTable['COUNTED']);
+        $this->assertEquals(10, $sumSize);
     }
 
     /**
@@ -216,7 +180,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -227,10 +192,10 @@ class StructureControllerTest extends AbstractTestCase
         $property->setValue($controller, true);
 
         $currentTable = [
-            'Data_length'  => 16384,
+            'Data_length' => 16384,
             'Index_length' => 0,
-            'Name'         => 'table',
-            'Data_free'    => 300,
+            'Name' => 'table',
+            'Data_free' => 300,
         ];
         [$currentTable, , , , , $overheadSize, $sumSize] = $method->invokeArgs(
             $controller,
@@ -244,21 +209,12 @@ class StructureControllerTest extends AbstractTestCase
                 0,
             ]
         );
-        $this->assertEquals(
-            6,
-            $currentTable['Rows']
-        );
-        $this->assertEquals(
-            16384,
-            $sumSize
-        );
-        $this->assertEquals(
-            300,
-            $overheadSize
-        );
+        $this->assertEquals(6, $currentTable['Rows']);
+        $this->assertEquals(16384, $sumSize);
+        $this->assertEquals(300, $overheadSize);
 
         unset($currentTable['Data_free']);
-        [$currentTable, , , , , $overheadSize]  = $method->invokeArgs(
+        [$currentTable, , , , , $overheadSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -280,7 +236,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
@@ -304,7 +261,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
@@ -338,7 +296,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
 
         // When parameter $db is empty
@@ -376,7 +335,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
 
         $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
@@ -392,118 +352,6 @@ class StructureControllerTest extends AbstractTestCase
 
         $this->assertTrue(
             $method->invokeArgs($controller, ['table'])
-        );
-    }
-
-    /**
-     * Tests for synchronizeFavoriteTables()
-     */
-    public function testSynchronizeFavoriteTables(): void
-    {
-        $favoriteInstance = $this->getFavoriteTablesMock();
-
-        $class = new ReflectionClass(StructureController::class);
-        $method = $class->getMethod('synchronizeFavoriteTables');
-        $method->setAccessible(true);
-
-        $controller = new StructureController(
-            $this->response,
-            $this->template,
-            $GLOBALS['db'],
-            $this->relation,
-            $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi']
-        );
-
-        // The user hash for test
-        $user = 'abcdefg';
-        $favoriteTable = [
-            $user => [
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                ],
-            ],
-        ];
-
-        $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
-
-        $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables'] ?? '');
-        $this->assertArrayHasKey('list', $json);
-    }
-
-    /**
-     * @return MockObject|RecentFavoriteTable
-     */
-    private function getFavoriteTablesMock()
-    {
-        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $favoriteInstance->expects($this->at(1))->method('getTables')
-            ->willReturn([]);
-        $favoriteInstance->expects($this->at(2))
-            ->method('getTables')
-            ->willReturn([
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                ],
-            ]);
-
-        return $favoriteInstance;
-    }
-
-    /**
-     * Tests for handleRealRowCountRequestAction()
-     */
-    public function testHandleRealRowCountRequestAction(): void
-    {
-        global $is_db;
-
-        $is_db = true;
-
-        $this->response->setAjax(true);
-        $controller = new StructureController(
-            $this->response,
-            $this->template,
-            $GLOBALS['db'],
-            $this->relation,
-            $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi']
-        );
-        // Showing statistics
-        $class = new ReflectionClass(StructureController::class);
-        $property = $class->getProperty('tables');
-        $property->setAccessible(true);
-
-        $_REQUEST['table'] = 'table';
-        $controller->handleRealRowCountRequestAction();
-        $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            6,
-            $json['real_row_count']
-        );
-
-        // Fall into another branch
-        $property->setValue($controller, [['TABLE_NAME' => 'table']]);
-        $_REQUEST['real_row_count_all'] = 'abc';
-        $controller->handleRealRowCountRequestAction();
-        $json = $this->response->getJSONResult();
-
-        $expectedResult = [
-            [
-                'table' => 'table',
-                'row_count' => 6,
-            ],
-        ];
-        $this->assertEquals(
-            json_encode($expectedResult),
-            $json['real_row_count_all']
         );
     }
 
@@ -524,7 +372,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -565,5 +414,98 @@ class StructureControllerTest extends AbstractTestCase
         $this->assertStringContainsString($_REQUEST['db'], $result);
         $this->assertStringContainsString('id="overhead"', $result);
         $this->assertStringContainsString('9.8', $result);
+    }
+
+    /**
+     * Tests for getValuesForMroongaTable()
+     */
+    public function testGetValuesForMroongaTable(): void
+    {
+        global $containerBuilder;
+        parent::loadContainerBuilder();
+        parent::loadDbiIntoContainerBuilder();
+        $GLOBALS['db'] = 'testdb';
+        $GLOBALS['table'] = 'mytable';
+
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+
+        /** @var StructureController $structureController */
+        $structureController = $containerBuilder->get(StructureController::class);
+
+        $this->assertSame(
+            [
+                [],
+                '',
+                '',
+                0,
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [],
+                    0,
+                ]
+            )
+        );
+
+        // Enable stats
+        $GLOBALS['cfg']['ShowStats'] = true;
+        $this->callFunction(
+            $structureController,
+            StructureController::class,
+            'getDatabaseInfo',
+            ['']
+        );
+
+        $this->assertSame(
+            [
+                [
+                    'Data_length' => 45,
+                    'Index_length' => 60,
+                ],
+                '105',
+                'B',
+                105,
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [
+                        'Data_length' => 45,
+                        'Index_length' => 60,
+                    ],
+                    0,
+                ]
+            )
+        );
+
+        $this->assertSame(
+            [
+                [
+                    'Data_length' => 45,
+                    'Index_length' => 60,
+                ],
+                '105',
+                'B',
+                180, //105 + 75
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [
+                        'Data_length' => 45,
+                        'Index_length' => 60,
+                    ],
+                    75,
+                ]
+            )
+        );
     }
 }

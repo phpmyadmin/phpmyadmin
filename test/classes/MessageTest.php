@@ -5,21 +5,20 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
+
 use function md5;
 
+/**
+ * @covers \PhpMyAdmin\Message
+ */
 class MessageTest extends AbstractTestCase
 {
-    /**
-     * @var Message
-     * @access protected
-     */
+    /** @var Message */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -353,8 +352,7 @@ class MessageTest extends AbstractTestCase
             ],
             [
                 '[a@https://example.com/@Documentation]link[/a]',
-                '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F"'
-                . ' target="Documentation">link</a>',
+                '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
             ],
             [
                 '[a@./non-existing@Documentation]link[/a]',

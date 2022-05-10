@@ -7,15 +7,16 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
+
+use function __;
 use function array_merge;
 use function htmlspecialchars;
 use function implode;
-use function pow;
 use function preg_match;
 use function preg_replace_callback;
 use function round;
 use function sprintf;
-use function strpos;
+use function str_contains;
 use function substr;
 use function vsprintf;
 
@@ -59,7 +60,7 @@ class Advisor
          */
         $this->expression->register(
             'round',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -71,7 +72,7 @@ class Advisor
         );
         $this->expression->register(
             'substr',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -85,7 +86,7 @@ class Advisor
         );
         $this->expression->register(
             'preg_match',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -98,7 +99,7 @@ class Advisor
         );
         $this->expression->register(
             'ADVISOR_bytime',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -111,7 +112,7 @@ class Advisor
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -123,7 +124,7 @@ class Advisor
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -137,7 +138,7 @@ class Advisor
         );
         $this->expression->register(
             'fired',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -188,7 +189,7 @@ class Advisor
 
     private function setRules(): void
     {
-        $isMariaDB = strpos($this->variables['version'], 'MariaDB') !== false;
+        $isMariaDB = str_contains($this->variables['version'], 'MariaDB');
         $genericRules = include ROOT_PATH . self::GENERIC_RULES_FILE;
 
         if (! $isMariaDB && $this->globals['PMA_MYSQL_INT_VERSION'] >= 80003) {
@@ -424,7 +425,7 @@ class Advisor
         $num = round($num, $precision);
 
         if ($num == 0) {
-            $num = '<' . pow(10, -$precision);
+            $num = '<' . 10 ** (-$precision);
         }
 
         return $num . ' ' . $per;

@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * OperationsTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class OperationsTest extends TestBase
 {
@@ -46,15 +41,9 @@ class OperationsTest extends TestBase
         $this->byXPath("//a[contains(., 'Operations')]")->click();
 
         $this->waitAjax();
-        $this->waitForElement(
-            'xpath',
-            "//div[contains(., 'Table maintenance')]"
-        );
+        $this->waitForElement('xpath', "//div[contains(., 'Table maintenance')]");
         $this->reloadPage();
-        $this->waitForElement(
-            'xpath',
-            "//div[contains(., 'Table maintenance')]"
-        );
+        $this->waitForElement('xpath', "//div[contains(., 'Table maintenance')]");
     }
 
     /**
@@ -70,9 +59,7 @@ class OperationsTest extends TestBase
         );
 
         $this->byId('tableOrderDescRadio')->click();
-        $this->byCssSelector(
-            "form#alterTableOrderby input[type='submit']"
-        )->click();
+        $this->byCssSelector("form#alterTableOrderby input[type='submit']")->click();
 
         $this->waitAjax();
 
@@ -168,7 +155,7 @@ class OperationsTest extends TestBase
         $this->waitUntilElementIsVisible('cssSelector', 'form#copyTable', 30);
         $this->byCssSelector("form#copyTable input[name='new_name']")->sendKeys('2');
         $this->byCssSelector('label[for="whatRadio2"]')->click();
-        $this->byCssSelector("form#copyTable input[type='submit']")->click();
+        $this->waitForElement('cssSelector', 'form#copyTable input[type=\'submit\']')->click();
         $this->waitAjax();
 
         $this->waitForElement(
@@ -203,8 +190,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'MySQL returned an empty result set')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]'
         );
 
         $this->dbQuery(
@@ -224,21 +210,17 @@ class OperationsTest extends TestBase
     public function testDropTable(): void
     {
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
-        $this->scrollToElement($this->byId('selflink'));
+        $this->scrollToBottom();
         $dropLink->click();
         $this->byCssSelector('button.submitOK')->click();
         $this->waitAjax();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'MySQL returned an empty result set')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]'
         );
 
-        $this->waitForElement(
-            'xpath',
-            "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
-        );
+        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]");
 
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'

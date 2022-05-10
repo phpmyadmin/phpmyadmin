@@ -7,20 +7,22 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function __;
 use function array_key_exists;
 use function count;
 use function is_array;
 use function mb_strtolower;
 use function preg_match;
 use function preg_replace;
+use function str_contains;
 use function str_ireplace;
 use function str_replace;
 use function strncasecmp;
-use function strpos;
 
 /**
  * Handles find and replace tab.
@@ -41,34 +43,31 @@ class FindReplaceController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param string            $db       Database name
-     * @param string            $table    Table name
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $table, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->dbi = $dbi;
 
         $this->columnNames = [];
         $this->columnTypes = [];
         $this->loadTableInfo();
-        $this->connectionCharSet = $this->dbi->fetchValue(
-            'SELECT @@character_set_connection'
-        );
+        $this->connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $db, $table, $url_params, $cfg, $err_url;
+        global $db, $table, $urlParams, $cfg, $errorUrl;
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
@@ -94,12 +93,7 @@ class FindReplaceController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
+        $columns = $this->dbi->getColumns($this->db, $this->table, true);
 
         foreach ($columns as $row) {
             // set column name
@@ -107,9 +101,7 @@ class FindReplaceController extends AbstractController
 
             $type = (string) $row['Type'];
             // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) == 0
-                || strncasecmp($type, 'enum', 4) == 0
-            ) {
+            if (strncasecmp($type, 'set', 3) == 0 || strncasecmp($type, 'enum', 4) == 0) {
                 $type = str_replace(',', ', ', $type);
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
@@ -117,13 +109,16 @@ class FindReplaceController extends AbstractController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
+
                 $type = str_ireplace('ZEROFILL', '', $type);
                 $type = str_ireplace('UNSIGNED', '', $type);
                 $type = mb_strtolower($type);
             }
+
             if (empty($type)) {
                 $type = '&nbsp;';
             }
+
             $this->columnTypes[] = $type;
         }
     }
@@ -136,10 +131,7 @@ class FindReplaceController extends AbstractController
         global $goto;
 
         if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
-                'table'
-            );
+            $goto = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $column_names = $this->columnNames;
@@ -147,11 +139,7 @@ class FindReplaceController extends AbstractController
         $types = [];
         $num_cols = count($column_names);
         for ($i = 0; $i < $num_cols; $i++) {
-            $types[$column_names[$i]] = preg_replace(
-                '@\\(.*@s',
-                '',
-                $column_types[$i]
-            );
+            $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
         }
 
         $this->render('table/find_replace/index', [
@@ -217,12 +205,7 @@ class FindReplaceController extends AbstractController
     ) {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
-            $result = $this->getRegexReplaceRows(
-                $columnIndex,
-                $find,
-                $replaceWith,
-                $charSet
-            );
+            $result = $this->getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
         } else {
             $sql_query = 'SELECT '
                 . Util::backquote($column) . ','
@@ -288,38 +271,34 @@ class FindReplaceController extends AbstractController
 
         $result = $this->dbi->fetchResult($sql_query, 0);
 
-        if (is_array($result)) {
-            /* Iterate over possible delimiters to get one */
-            $delimiters = [
-                '/',
-                '@',
-                '#',
-                '~',
-                '!',
-                '$',
-                '%',
-                '^',
-                '&',
-                '_',
-            ];
-            $found = false;
-            for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
-                if (strpos($find, $delimiters[$i]) === false) {
-                    $found = true;
-                    break;
-                }
+        /* Iterate over possible delimiters to get one */
+        $delimiters = [
+            '/',
+            '@',
+            '#',
+            '~',
+            '!',
+            '$',
+            '%',
+            '^',
+            '&',
+            '_',
+        ];
+        $found = false;
+        for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
+            if (! str_contains($find, $delimiters[$i])) {
+                $found = true;
+                break;
             }
-            if (! $found) {
-                return false;
-            }
-            $find = $delimiters[$i] . $find . $delimiters[$i];
-            foreach ($result as $index => $row) {
-                $result[$index][1] = preg_replace(
-                    $find,
-                    $replaceWith,
-                    $row[0]
-                );
-            }
+        }
+
+        if (! $found) {
+            return false;
+        }
+
+        $find = $delimiters[$i] . $find . $delimiters[$i];
+        foreach ($result as $index => $row) {
+            $result[$index][1] = preg_replace($find, $replaceWith, $row[0]);
         }
 
         return $result;
@@ -333,8 +312,6 @@ class FindReplaceController extends AbstractController
      * @param string $replaceWith string to replace with
      * @param bool   $useRegex    to use Regex replace or not
      * @param string $charSet     character set of the connection
-     *
-     * @return void
      */
     public function replace(
         $columnIndex,
@@ -342,15 +319,10 @@ class FindReplaceController extends AbstractController
         $replaceWith,
         $useRegex,
         $charSet
-    ) {
+    ): void {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
-            $toReplace = $this->getRegexReplaceRows(
-                $columnIndex,
-                $find,
-                $replaceWith,
-                $charSet
-            );
+            $toReplace = $this->getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
             $sql_query = 'UPDATE ' . Util::backquote($this->table)
                 . ' SET ' . Util::backquote($column) . ' = CASE';
             if (is_array($toReplace)) {
@@ -360,6 +332,7 @@ class FindReplaceController extends AbstractController
                         . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
                 }
             }
+
             $sql_query .= ' END'
                 . ' WHERE ' . Util::backquote($column)
                 . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
@@ -380,11 +353,8 @@ class FindReplaceController extends AbstractController
             // binary collation to make sure that the comparison
             // is case sensitive
         }
-        $this->dbi->query(
-            $sql_query,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+
+        $this->dbi->query($sql_query);
         $GLOBALS['sql_query'] = $sql_query;
     }
 }

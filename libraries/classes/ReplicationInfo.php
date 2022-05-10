@@ -56,19 +56,19 @@ final class ReplicationInfo
     ];
 
     /** @var array */
-    private $primaryStatus;
+    private $primaryStatus = [];
 
     /** @var array */
-    private $replicaStatus;
+    private $replicaStatus = [];
 
     /** @var array */
-    private $multiPrimaryStatus;
+    private $multiPrimaryStatus = [];
 
     /** @var array */
-    private $primaryInfo;
+    private $primaryInfo = [];
 
     /** @var array */
-    private $replicaInfo;
+    private $replicaInfo = [];
 
     /** @var DatabaseInterface */
     private $dbi;
@@ -80,7 +80,7 @@ final class ReplicationInfo
 
     public function load(?string $connection = null): void
     {
-        global $url_params;
+        global $urlParams;
 
         $this->setPrimaryStatus();
 
@@ -89,7 +89,7 @@ final class ReplicationInfo
 
             if ($this->multiPrimaryStatus) {
                 $this->setDefaultPrimaryConnection($connection);
-                $url_params['master_connection'] = $connection;
+                $urlParams['primary_connection'] = $connection;
             }
         }
 
@@ -103,10 +103,7 @@ final class ReplicationInfo
         $this->primaryStatus = $this->dbi->fetchResult('SHOW MASTER STATUS');
     }
 
-    /**
-     * @return array
-     */
-    public function getPrimaryStatus()
+    public function getPrimaryStatus(): array
     {
         return $this->primaryStatus;
     }
@@ -116,10 +113,7 @@ final class ReplicationInfo
         $this->replicaStatus = $this->dbi->fetchResult('SHOW SLAVE STATUS');
     }
 
-    /**
-     * @return array
-     */
-    public function getReplicaStatus()
+    public function getReplicaStatus(): array
     {
         return $this->replicaStatus;
     }

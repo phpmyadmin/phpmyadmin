@@ -5,7 +5,7 @@
 
 <form action="{{ url('/server/binlog') }}" method="post">
   {{ get_hidden_inputs(url_params) }}
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       {% trans 'Select binary log to view' %}
     </legend>
@@ -30,14 +30,14 @@
     {% endif %}
   </fieldset>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
   </fieldset>
 </form>
 
 {{ sql_message|raw }}
 
-<table class="pma-table" id="binlogTable">
+<table class="table table-light table-striped table-hover align-middle" id="binlogTable">
   <thead>
     <tr>
       <td colspan="6" class="text-center">
@@ -57,11 +57,11 @@
 
         {% if is_full_query %}
           <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '', false) }}" title="{% trans 'Truncate shown queries' %}">
-            <img src="{{ image_path }}s_partialtext.png" alt="{% trans 'Truncate shown queries' %}">
+            <img src="{{ image('s_partialtext.png') }}" alt="{% trans 'Truncate shown queries' %}">
           </a>
         {% else %}
           <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '', false) }}" title="{% trans 'Show full queries' %}">
-            <img src="{{ image_path }}s_fulltext.png" alt="{% trans 'Show full queries' %}">
+            <img src="{{ image('s_fulltext.png') }}" alt="{% trans 'Show full queries' %}">
           </a>
         {% endif %}
 
@@ -80,7 +80,7 @@
         {% endif %}
       </td>
     </tr>
-    <tr>
+    <tr class="text-nowrap">
       <th>{% trans 'Log name' %}</th>
       <th>{% trans 'Position' %}</th>
       <th>{% trans 'Event type' %}</th>
@@ -94,10 +94,10 @@
     {% for value in values %}
       <tr class="noclick">
         <td>{{ value['Log_name'] }}</td>
-        <td class="right">{{ value['Pos'] }}</td>
+        <td class="text-end">{{ value['Pos'] }}</td>
         <td>{{ value['Event_type'] }}</td>
-        <td class="right">{{ value['Server_id'] }}</td>
-        <td class="right">
+        <td class="text-end">{{ value['Server_id'] }}</td>
+        <td class="text-end">
           {{- value['Orig_log_pos'] is defined ? value['Orig_log_pos'] : value['End_log_pos'] -}}
         </td>
         <td>{{ format_sql(value['Info'], not is_full_query) }}</td>

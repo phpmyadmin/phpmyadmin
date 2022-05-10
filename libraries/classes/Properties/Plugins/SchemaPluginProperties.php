@@ -12,16 +12,11 @@ namespace PhpMyAdmin\Properties\Plugins;
  */
 class SchemaPluginProperties extends PluginPropertyItem
 {
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
     /**
      * Returns the property item type of either an instance of
-     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool",
-     *  "text", "radio", etc ) or
-     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main"
-     *  or "subgroup" )
-     *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export",
-     *  "import", "transformations" )
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main" or "subgroup" )
+     *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */
@@ -30,12 +25,7 @@ class SchemaPluginProperties extends PluginPropertyItem
         return 'schema';
     }
 
-    /**
-     * Gets the force file parameter
-     *
-     * @return bool
-     */
-    public function getForceFile()
+    public function getForceFile(): bool
     {
         return true;
     }

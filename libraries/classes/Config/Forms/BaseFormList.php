@@ -8,7 +8,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
+
 use function array_merge;
+use function class_exists;
 use function in_array;
 
 class BaseFormList
@@ -16,7 +18,7 @@ class BaseFormList
     /**
      * List of all forms
      *
-     * @var array
+     * @var string[]
      */
     protected static $all = [];
 
@@ -27,7 +29,7 @@ class BaseFormList
     private $forms;
 
     /**
-     * @return array
+     * @return string[]
      */
     public static function getAll()
     {
@@ -36,10 +38,8 @@ class BaseFormList
 
     /**
      * @param string $name Name
-     *
-     * @return bool
      */
-    public static function isValid($name)
+    public static function isValid($name): bool
     {
         return in_array($name, static::$all);
     }
@@ -48,11 +48,15 @@ class BaseFormList
      * @param string $name Name
      *
      * @return string|null
+     * @psalm-return class-string<BaseForm>|null
      */
     public static function get($name)
     {
         if (static::isValid($name)) {
-            return static::$ns . $name . 'Form';
+            /** @var class-string<BaseForm> $class */
+            $class = static::$ns . $name . 'Form';
+
+            return $class;
         }
 
         return null;
@@ -61,11 +65,15 @@ class BaseFormList
     /**
      * @param ConfigFile $cf Config file instance
      */
-    public function __construct(ConfigFile $cf)
+    final public function __construct(ConfigFile $cf)
     {
         $this->forms = [];
         foreach (static::$all as $form) {
-            $class = static::get($form);
+            $class = (string) static::get($form);
+            if (! class_exists($class)) {
+                continue;
+            }
+
             $this->forms[] = new $class($cf);
         }
     }
@@ -76,10 +84,8 @@ class BaseFormList
      * @param bool $allowPartialSave allows for partial form saving
      *                               on failed validation
      * @param bool $checkFormSubmit  whether check for $_POST['submit_save']
-     *
-     * @return bool whether processing was successful
      */
-    public function process($allowPartialSave = true, $checkFormSubmit = true)
+    public function process($allowPartialSave = true, $checkFormSubmit = true): bool
     {
         $ret = true;
         foreach ($this->forms as $form) {
@@ -106,10 +112,8 @@ class BaseFormList
 
     /**
      * Reverts erroneous fields to their default values
-     *
-     * @return void
      */
-    public function fixErrors()
+    public function fixErrors(): void
     {
         foreach ($this->forms as $form) {
             $form->fixErrors();
@@ -118,10 +122,8 @@ class BaseFormList
 
     /**
      * Tells whether form validation failed
-     *
-     * @return bool
      */
-    public function hasErrors()
+    public function hasErrors(): bool
     {
         $ret = false;
         foreach ($this->forms as $form) {
@@ -140,7 +142,11 @@ class BaseFormList
     {
         $names = [];
         foreach (static::$all as $form) {
-            $class = static::get($form);
+            $class = (string) static::get($form);
+            if (! class_exists($class)) {
+                continue;
+            }
+
             $names = array_merge($names, $class::getFields());
         }
 

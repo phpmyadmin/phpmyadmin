@@ -11,9 +11,10 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function is_array;
 
 /**
@@ -27,43 +28,43 @@ class ReplicationController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, ReplicationGui $replicationGui, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        ReplicationGui $replicationGui,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
         $this->replicationGui = $replicationGui;
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
-        global $url_params, $err_url;
+        global $urlParams, $errorUrl;
 
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
-            'mr_configure' => $_POST['mr_configure'] ?? null,
-            'sl_configure' => $_POST['sl_configure'] ?? null,
+            'primary_configure' => $_POST['primary_configure'] ?? null,
+            'replica_configure' => $_POST['replica_configure'] ?? null,
             'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
         ];
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['master_connection'] ?? null);
+        $replicationInfo->load($_POST['primary_connection'] ?? null);
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
-        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
+        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
 
         if (isset($params['url_params']) && is_array($params['url_params'])) {
-            $url_params = $params['url_params'];
+            $urlParams = $params['url_params'];
         }
 
         if ($this->dbi->isSuperUser()) {
@@ -73,35 +74,36 @@ class ReplicationController extends AbstractController
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
-            $masterReplicationHtml = $this->replicationGui->getHtmlForMasterReplication();
+            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication();
         }
 
-        if (isset($params['mr_configure'])) {
-            $masterConfigurationHtml = $this->replicationGui->getHtmlForMasterConfiguration();
+        if (isset($params['primary_configure'])) {
+            $primaryConfigurationHtml = $this->replicationGui->getHtmlForPrimaryConfiguration();
         } else {
             if (! isset($params['repl_clear_scr'])) {
-                $slaveConfigurationHtml = $this->replicationGui->getHtmlForSlaveConfiguration(
+                $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
                     $replicaInfo['status'],
                     $replicationInfo->getReplicaStatus()
                 );
             }
-            if (isset($params['sl_configure'])) {
-                $changeMasterHtml = $this->replicationGui->getHtmlForReplicationChangeMaster('slave_changemaster');
+
+            if (isset($params['replica_configure'])) {
+                $changePrimaryHtml = $this->replicationGui->getHtmlForReplicationChangePrimary('replica_changeprimary');
             }
         }
 
         $this->render('server/replication/index', [
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
-            'is_master' => $primaryInfo['status'],
-            'master_configure' => $params['mr_configure'],
-            'slave_configure' => $params['sl_configure'],
+            'is_primary' => $primaryInfo['status'],
+            'primary_configure' => $params['primary_configure'],
+            'replica_configure' => $params['replica_configure'],
             'clear_screen' => $params['repl_clear_scr'],
-            'master_replication_html' => $masterReplicationHtml ?? '',
-            'master_configuration_html' => $masterConfigurationHtml ?? '',
-            'slave_configuration_html' => $slaveConfigurationHtml ?? '',
-            'change_master_html' => $changeMasterHtml ?? '',
+            'primary_replication_html' => $primaryReplicationHtml ?? '',
+            'primary_configuration_html' => $primaryConfigurationHtml ?? '',
+            'replica_configuration_html' => $replicaConfigurationHtml ?? '',
+            'change_primary_html' => $changePrimaryHtml ?? '',
         ]);
     }
 }

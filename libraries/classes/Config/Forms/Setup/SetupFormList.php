@@ -11,7 +11,7 @@ use PhpMyAdmin\Config\Forms\BaseFormList;
 
 class SetupFormList extends BaseFormList
 {
-    /** @var array */
+    /** @var string[] */
     protected static $all = [
         'Config',
         'Export',
@@ -23,5 +23,5 @@ class SetupFormList extends BaseFormList
         'Sql',
     ];
     /** @var string */
-    protected static $ns = '\\PhpMyAdmin\\Config\\Forms\\Setup\\';
+    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\Setup\\';
 }

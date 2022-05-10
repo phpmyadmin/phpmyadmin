@@ -9,6 +9,9 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportSql
+ */
 class ImportSqlTest extends AbstractTestCase
 {
     /** @var ImportSql */
@@ -17,8 +20,6 @@ class ImportSqlTest extends AbstractTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -43,8 +44,6 @@ class ImportSqlTest extends AbstractTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {
@@ -76,22 +75,13 @@ class ImportSqlTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
+        $this->assertStringContainsString('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"', $sql_query);
+        $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `pma_bookmark`', $sql_query);
         $this->assertStringContainsString(
-            'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"',
-            $sql_query
-        );
-        $this->assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `pma_bookmark`',
-            $sql_query
-        );
-        $this->assertStringContainsString(
-            'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) '
-            . 'VALUES',
+            'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) VALUES',
             $sql_query
         );
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

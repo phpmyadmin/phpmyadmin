@@ -7,19 +7,18 @@
  * @test-module Sql
  */
 
-/* global Stickyfill */
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor */ // js/functions.js
-/* global MicroHistory */ // js/microhistory.js
 /* global makeGrid */ // js/makegrid.js
+/* global sqlBoxLocked */ // js/functions.js
 
 var Sql = {};
 
 /**
  * decode a string URL_encoded
  *
- * @param string str
- * @return string the URL-decoded string
+ * @param {string} str
+ * @return {string} the URL-decoded string
  */
 Sql.urlDecode = function (str) {
     if (typeof str !== 'undefined') {
@@ -30,8 +29,8 @@ Sql.urlDecode = function (str) {
 /**
  * encode a string URL_decoded
  *
- * @param string str
- * @return string the URL-encoded string
+ * @param {string} str
+ * @return {string} the URL-encoded string
  */
 Sql.urlEncode = function (str) {
     if (typeof str !== 'undefined') {
@@ -42,8 +41,8 @@ Sql.urlEncode = function (str) {
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSave = function (query) {
     if (query) {
@@ -59,10 +58,10 @@ Sql.autoSave = function (query) {
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string database name
- * @param string table name
- * @param string SQL query
- * @return void
+ * @param {string} db database name
+ * @param {string} table table name
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.showThisQuery = function (db, table, query) {
     var showThisQueryObject = {
@@ -111,8 +110,8 @@ Sql.setShowThisQuery = function () {
 /**
  * Saves SQL query with sort in local storage or cookie
  *
- * @param {String} query SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSaveWithSort = function (query) {
     if (query) {
@@ -127,7 +126,7 @@ Sql.autoSaveWithSort = function (query) {
 /**
  * Clear saved SQL query with sort in local storage or cookie
  *
- * @return void
+ * @return {void}
  */
 Sql.clearAutoSavedSort = function () {
     if (isStorageSupported('localStorage')) {
@@ -143,6 +142,8 @@ Sql.clearAutoSavedSort = function () {
  *
  * @param $tableResults enclosing results table
  * @param $thisField    jQuery object that points to the current field's tr
+ *
+ * @return {string}
  */
 Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
@@ -201,7 +202,6 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'th.column_heading.marker');
     $(document).off('scroll', window);
     $(document).off('keyup', '.filter_rows');
-    $(document).off('click', '#printView');
     if (codeMirrorEditor) {
         codeMirrorEditor.off('change');
     } else {
@@ -212,7 +212,9 @@ AJAX.registerTeardown('sql.js', function () {
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
-    $(document).off('submit', '#maxRowsForm');
+    $(document).off('submit', '.maxRowsForm');
+    $(document).off('click', '#view_as');
+    $(document).off('click', '#sqlquery');
 });
 
 /**
@@ -399,16 +401,6 @@ AJAX.registerOnload('sql.js', function () {
     }); // end of Copy to Clipboard action
 
     /**
-     * Attach Event Handler for 'Print' link
-     */
-    $(document).on('click', '#printView', function (event) {
-        event.preventDefault();
-
-        // Take to preview mode
-        Functions.printPreview();
-    }); // end of 'Print' action
-
-    /**
      * Attach the {@link makegrid} function to a custom event, which will be
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
@@ -497,7 +489,7 @@ AJAX.registerOnload('sql.js', function () {
         var $varDiv = $('#bookmarkVariables');
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
-            $varDiv.append($('<div class="form-group">'));
+            $varDiv.append($('<div class="mb-3">'));
             $varDiv.append($('<label for="bookmarkVariable' + i + '">' + Functions.sprintf(Messages.strBookmarkVariable, i) + '</label>'));
             $varDiv.append($('<input class="form-control" type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmarkVariable' + i + '">'));
             $varDiv.append($('</div>'));
@@ -591,21 +583,12 @@ AJAX.registerOnload('sql.js', function () {
                 Functions.highlightSql($sqlqueryresultsouter);
 
                 if (data.menu) {
-                    if (history && history.pushState) {
-                        history.replaceState({
-                            menu : data.menu
-                        },
-                        null
-                        );
-                        AJAX.handleMenu.replace(data.menu);
-                    } else {
-                        MicroHistory.menus.replace(data.menu);
-                        MicroHistory.menus.add(data.menuHash, data.menu);
-                    }
-                } else if (data.menuHash) {
-                    if (! (history && history.pushState)) {
-                        MicroHistory.menus.replace(MicroHistory.menus.get(data.menuHash));
-                    }
+                    history.replaceState({
+                        menu : data.menu
+                    },
+                    null
+                    );
+                    AJAX.handleMenu.replace(data.menu);
                 }
 
                 if (data.params) {
@@ -644,7 +627,6 @@ AJAX.registerOnload('sql.js', function () {
 
                 $('.sqlqueryresults').trigger('makegrid');
                 $('#togglequerybox').show();
-                Functions.initSlider();
 
                 if (typeof data.action_bookmark === 'undefined') {
                     if ($('#sqlqueryform input[name="retain_query_box"]').is(':checked') !== true) {
@@ -682,7 +664,6 @@ AJAX.registerOnload('sql.js', function () {
             $sqlqueryresults
                 .html(data.message)
                 .trigger('makegrid');
-            Functions.initSlider();
             Functions.highlightSql($sqlqueryresults);
         }); // end $.post()
     }); // end displayOptionsForm handler
@@ -762,12 +743,11 @@ AJAX.registerOnload('sql.js', function () {
         var $msgbox = Functions.ajaxShowMessage();
         $.ajax({
             type: 'POST',
-            url: $form.attr('action'),
+            url: 'index.php?route=/import/simulate-dml',
             data: {
                 'server': CommonParams.get('server'),
                 'db': dbName,
                 'ajax_request': '1',
-                'simulate_dml': '1',
                 'sql_query': query,
                 'sql_delimiter': delimiter
             },
@@ -792,22 +772,11 @@ AJAX.registerOnload('sql.js', function () {
                     }
                     dialogContent += '</div>';
                     var $dialogContent = $(dialogContent);
-                    var buttonOptions = {};
-                    buttonOptions[Messages.strClose] = function () {
-                        $(this).dialog('close');
-                    };
-                    $('<div></div>').append($dialogContent).dialog({
-                        minWidth: 540,
-                        maxHeight: 400,
-                        modal: true,
-                        buttons: buttonOptions,
-                        title: Messages.strSimulateDML,
-                        open: function () {
-                            Functions.highlightSql($(this));
-                        },
-                        close: function () {
-                            $(this).remove();
-                        }
+                    var modal = $('#simulateDmlModal');
+                    modal.modal('show');
+                    modal.find('.modal-body').first().html($dialogContent);
+                    modal.on('shown.bs.modal', function () {
+                        Functions.highlightSql(modal);
                     });
                 } else {
                     Functions.ajaxShowMessage(response.error);
@@ -850,7 +819,7 @@ AJAX.registerOnload('sql.js', function () {
         $.post(url, submitData, AJAX.responseHandler);
     });
 
-    $(document).on('submit', '#maxRowsForm', function () {
+    $(document).on('submit', '.maxRowsForm', function () {
         var unlimNumRows = $(this).find('input[name="unlim_num_rows"]').val();
 
         var maxRowsCheck = Functions.checkFormElementInRange(
@@ -873,11 +842,25 @@ AJAX.registerOnload('sql.js', function () {
     $('#insertBtn').on('click', function () {
         Functions.insertValueQuery();
     });
+
+    $('#view_as').on('click', function () {
+        Functions.selectContent(this, sqlBoxLocked, true);
+    });
+
+    $('#sqlquery').on('click', function () {
+        if ($(this).data('textarea-auto-select') === true) {
+            Functions.selectContent(this, sqlBoxLocked, true);
+        }
+    });
 }); // end $()
 
 /**
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
+ *
+ * @param $thisTh
+ * @param {string} newClass
+ * @param isAddClass
  */
 Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
@@ -902,7 +885,7 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
 /**
  * Handles browse foreign values modal dialog
  *
- * @param object $this_a reference to the browse foreign value link
+ * @param {object} $thisA reference to the browse foreign value link
  */
 Sql.browseForeignDialog = function ($thisA) {
     var formId = '#browse_foreign_form';
@@ -1105,9 +1088,3 @@ AJAX.registerOnload('sql.js', function () {
     Sql.makeProfilingChart();
     Sql.initProfilingTables();
 });
-
-/**
- * Polyfill to make table headers sticky.
- */
-var elements = $('.sticky');
-Stickyfill.add(elements);

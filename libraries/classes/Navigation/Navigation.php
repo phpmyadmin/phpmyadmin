@@ -9,16 +9,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const PHP_URL_HOST;
+
+use function __;
 use function count;
 use function defined;
 use function file_exists;
@@ -26,6 +27,8 @@ use function is_bool;
 use function parse_url;
 use function strpos;
 use function trim;
+
+use const PHP_URL_HOST;
 
 /**
  * The navigation panel - displays server, db and table selection tree
@@ -74,7 +77,7 @@ class Navigation
             'source' => '',
         ];
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if (! $response->isAjax()) {
             $logo['source'] = $this->getLogoSource();
             $logo['has_link'] = (string) $cfg['NavigationLogoLink'] !== '';
@@ -82,6 +85,7 @@ class Navigation
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
+
             if ($cfg['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
                     $hasStartChar = strpos($logo['link'], '?');
@@ -108,10 +112,8 @@ class Navigation
                 $navigationSettings = $pageSettings->getHTML();
             }
         }
-        if (! $response->isAjax()
-            || ! empty($_POST['full'])
-            || ! empty($_POST['reload'])
-        ) {
+
+        if (! $response->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
             if ($cfg['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
                 $navRender = $this->tree->renderState();
@@ -150,17 +152,20 @@ class Navigation
      * @param string $itemType  type of the navigation tree item
      * @param string $dbName    database name
      * @param string $tableName table name if applicable
-     *
-     * @return void
      */
     public function hideNavigationItem(
         $itemName,
         $itemType,
         $dbName,
         $tableName = null
-    ) {
-        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+    ): void {
+        $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
+        if ($navigationItemsHidingFeature === null) {
+            return;
+        }
+
+        $navTable = Util::backquote($navigationItemsHidingFeature->database)
+            . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
@@ -170,7 +175,7 @@ class Navigation
             . "'" . $this->dbi->escapeString($dbName) . "',"
             . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : '' )
             . "')";
-        $this->relation->queryAsControlUser($sqlQuery, false);
+        $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
     /**
@@ -181,17 +186,20 @@ class Navigation
      * @param string $itemType  type of the navigation tree item
      * @param string $dbName    database name
      * @param string $tableName table name if applicable
-     *
-     * @return void
      */
     public function unhideNavigationItem(
         $itemName,
         $itemType,
         $dbName,
         $tableName = null
-    ) {
-        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+    ): void {
+        $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
+        if ($navigationItemsHidingFeature === null) {
+            return;
+        }
+
+        $navTable = Util::backquote($navigationItemsHidingFeature->database)
+            . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
             . " `username`='"
@@ -203,7 +211,7 @@ class Navigation
                 ? " AND `table_name`='" . $this->dbi->escapeString($tableName) . "'"
                 : ''
             );
-        $this->relation->queryAsControlUser($sqlQuery, false);
+        $this->dbi->tryQueryAsControlUser($sqlQuery);
     }
 
     /**
@@ -245,27 +253,32 @@ class Navigation
      */
     private function getHiddenItems(string $database, ?string $table): array
     {
-        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
+        if ($navigationItemsHidingFeature === null) {
+            return [];
+        }
+
+        $navTable = Util::backquote($navigationItemsHidingFeature->database)
+            . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
             . " WHERE `username`='"
             . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `db_name`='" . $this->dbi->escapeString($database) . "'"
             . " AND `table_name`='"
             . (! empty($table) ? $this->dbi->escapeString($table) : '') . "'";
-        $result = $this->relation->queryAsControlUser($sqlQuery, false);
+        $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
 
         $hidden = [];
         if ($result) {
-            while ($row = $this->dbi->fetchArray($result)) {
+            foreach ($result as $row) {
                 $type = $row['item_type'];
                 if (! isset($hidden[$type])) {
                     $hidden[$type] = [];
                 }
+
                 $hidden[$type][] = $row['item_name'];
             }
         }
-        $this->dbi->freeResult($result);
 
         return $hidden;
     }
@@ -275,15 +288,15 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        /** @var Theme|null $PMA_Theme */
-        global $PMA_Theme;
-        if ($PMA_Theme !== null) {
-            if (@file_exists($PMA_Theme->getFsPath() . 'img/logo_left.png')) {
-                return $PMA_Theme->getPath() . '/img/logo_left.png';
+        global $theme;
+
+        if ($theme instanceof Theme) {
+            if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {
+                return $theme->getPath() . '/img/logo_left.png';
             }
 
-            if (@file_exists($PMA_Theme->getFsPath() . 'img/pma_logo2.png')) {
-                return $PMA_Theme->getPath() . '/img/pma_logo2.png';
+            if (@file_exists($theme->getFsPath() . 'img/pma_logo2.png')) {
+                return $theme->getPath() . '/img/pma_logo2.png';
             }
         }
 

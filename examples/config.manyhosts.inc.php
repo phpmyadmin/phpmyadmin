@@ -9,7 +9,7 @@
 declare(strict_types=1);
 
 $i = 0;
-$hosts =  [
+$hosts = [
     'foo.example.com',
     'bar.example.com',
     'baz.example.com',
@@ -18,18 +18,18 @@ $hosts =  [
 
 foreach ($hosts as $host) {
     $i++;
-    $cfg['Servers'][$i]['host']     = $host;
-    $cfg['Servers'][$i]['port']     = '';
-    $cfg['Servers'][$i]['socket']   = '';
+    $cfg['Servers'][$i]['host'] = $host;
+    $cfg['Servers'][$i]['port'] = '';
+    $cfg['Servers'][$i]['socket'] = '';
     $cfg['Servers'][$i]['compress'] = false;
-    $cfg['Servers'][$i]['controluser']      = 'pma';
-    $cfg['Servers'][$i]['controlpass']      = 'pmapass';
-    $cfg['Servers'][$i]['auth_type']        = 'cookie';
-    $cfg['Servers'][$i]['user']     = '';
+    $cfg['Servers'][$i]['controluser'] = 'pma';
+    $cfg['Servers'][$i]['controlpass'] = 'pmapass';
+    $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    $cfg['Servers'][$i]['user'] = '';
     $cfg['Servers'][$i]['password'] = '';
-    $cfg['Servers'][$i]['only_db']  = '';
-    $cfg['Servers'][$i]['verbose']  = '';
-    $cfg['Servers'][$i]['pmadb']    = 'phpmyadmin';
+    $cfg['Servers'][$i]['only_db'] = '';
+    $cfg['Servers'][$i]['verbose'] = '';
+    $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
     $cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
     $cfg['Servers'][$i]['relation'] = 'pma__relation';
     $cfg['Servers'][$i]['table_info'] = 'pma__table_info';
