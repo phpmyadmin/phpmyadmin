@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - issue #17445 Fix issue when exporting using Firefox or Safari on PHP 8.1.4
 - issue        Update JavaScript dependencies
 - issue #17428 Fix case where errors were thrown when browsing a table
+- issue #17508 Fix UI issue when user accounts page has the initials navigation bar
 
 5.1.3 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
