@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-5.1.4 (not yet released)
+5.1.4 (2022-05-10)
 - issue #17287 Fixed sorting the database list with "statistics" enabled on "Data" column creates a PHP type error
 - issue #17368 Fix for invalid cache when losing access to config storage after it being cached
 - issue #17387 Fix session cookie not respecting the CookieSameSite configuration directive in PHP 7.2
