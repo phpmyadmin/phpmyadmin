@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.2.1 (not yet released)
+
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
 - issue #16521 Drop support for Internet Explorer and others
