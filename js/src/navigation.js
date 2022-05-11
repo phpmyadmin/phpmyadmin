@@ -1201,10 +1201,8 @@ Navigation.ResizeHandler = function () {
     this.mousedown = function (event) {
         event.preventDefault();
         $(document)
-            .on('mousemove', { 'resize_handler': event.data.resize_handler },
-                $.throttle(event.data.resize_handler.mousemove, 4))
-            .on('mouseup', { 'resize_handler': event.data.resize_handler },
-                event.data.resize_handler.mouseup);
+            .on('mousemove', { 'resize_handler': event.data.resize_handler }, event.data.resize_handler.mousemove)
+            .on('mouseup', { 'resize_handler': event.data.resize_handler }, event.data.resize_handler.mouseup);
         $('body').css('cursor', 'col-resize');
     };
     /**
