@@ -60,7 +60,12 @@
   },
   "scripts": {
     "postinstall": "yarn run build",
+<<<<<<< HEAD
     "build": "webpack",
+=======
+    "build": "yarn run css-compile --style=compressed && yarn run css-prefix && yarn run css-rtl && yarn run js-compile",
+    "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css themes/bootstrap/scss:themes/bootstrap/css setup/scss:setup",
+>>>>>>> QA_5_2
     "css-lint": "stylelint -s scss \"themes/**/scss/*.scss\" \"setup/scss/*.scss\"",
     "js-lint": "eslint js/src test/javascript test/jest jest.config.js",
     "test": "jest"
