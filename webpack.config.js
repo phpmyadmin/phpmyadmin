@@ -135,7 +135,7 @@ module.exports = [
                     { from: path.resolve(__dirname, 'node_modules/jquery-ui-dist/jquery-ui.min.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery-ui.min.js') },
                     { from: path.resolve(__dirname, 'node_modules/jquery-validation/dist/jquery.validate.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.validate.js') },
                     { from: path.resolve(__dirname, 'node_modules/jquery-validation/dist/additional-methods.js'), to: path.resolve(__dirname, 'js/vendor/jquery/additional-methods.js') },
-                    { from: path.resolve(__dirname, 'node_modules/js-cookie/src/js.cookie.js'), to: path.resolve(__dirname, 'js/vendor/js.cookie.js') },
+                    { from: path.resolve(__dirname, 'node_modules/js-cookie/dist/js.cookie.js'), to: path.resolve(__dirname, 'js/vendor/js.cookie.js') },
                     { from: path.resolve(__dirname, 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'), to: path.resolve(__dirname, 'js/vendor/bootstrap/bootstrap.bundle.min.js') },
                     { from: path.resolve(__dirname, 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map'), to: path.resolve(__dirname, 'js/vendor/bootstrap/bootstrap.bundle.min.js.map') },
                     { from: path.resolve(__dirname, 'node_modules/@zxcvbn-ts/core/dist/zxcvbn-ts.js'), to: path.resolve(__dirname, 'js/vendor/zxcvbn-ts.js') },
