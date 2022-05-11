@@ -3826,12 +3826,11 @@ class Results
      *
      * @see     getTable()
      *
-     * @param ResultInterface $dtResult                  the link id associated to the
-     *                                        query which results have to
-     *                                        be displayed
-     * @param string          $sortExpressionNoDirection sort expression without direction
+     * @param ResultInterface $dtResult                  the link id associated to the query
+     *                                                   which results have to be displayed
+     * @param string|null     $sortExpressionNoDirection sort expression without direction
      *
-     * @return string|null html content, null if not found sorted column
+     * @return string
      */
     private function getSortedColumnMessage(
         ResultInterface $dtResult,
@@ -3840,7 +3839,7 @@ class Results
         $fieldsMeta = $this->properties['fields_meta']; // To use array indexes
 
         if (empty($sortExpressionNoDirection)) {
-            return null;
+            return '';
         }
 
         if (! str_contains($sortExpressionNoDirection, '.')) {
@@ -3865,7 +3864,7 @@ class Results
         }
 
         if ($sortedColumnIndex === false) {
-            return null;
+            return '';
         }
 
         // fetch first row of the result set
