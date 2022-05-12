@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2021-05-30 22:47+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-05-13 15:14+0000\n"
+"Last-Translator: tiemen <thjazi39@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-1/fr/"
 ">\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5141,6 +5141,8 @@ msgstr "Affichage des lignes %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Il existe déjà une page nommée \"%s\" ; veuillez la renommer en quelque "
+"chose d'autre."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -7532,6 +7534,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Vous ne pouvez pas ouvrir, enregistrer ou supprimer votre mise en page, car "
+"IndexedDB ne fonctionne pas dans votre navigateur et votre stockage de "
+"configuration phpMyAdmin n'est pas configuré pour cela."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -9483,6 +9488,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Erreur 1045 : Accès refusé pour l'utilisateur. Des informations "
+"supplémentaires sur les erreurs peuvent être disponibles, mais elles sont "
+"masquées par la directive de configuration %s."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -13763,13 +13771,10 @@ msgid "Could not save configuration"
 msgstr "Impossible d'enregistrer la configuration"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sCréer%s le stockage de configurations phpMyAdmin dans la base de données "
-"active."
+"La base de données de stockage de configuration de phpMyAdmin n'a pas pu "
+"être accédée."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -15574,11 +15579,11 @@ msgstr "Masquer les transformations du navigateur"
 
 #: templates/display/results/table.twig:164
 msgid "Well Known Text"
-msgstr "Well Known Text"
+msgstr "Texte bien connu"
 
 #: templates/display/results/table.twig:168
 msgid "Well Known Binary"
-msgstr "Well Known Binary"
+msgstr "Binaire bien connu"
 
 #: templates/display/results/table.twig:238
 #: templates/sql/no_results_returned.twig:9
@@ -18067,7 +18072,7 @@ msgstr "Ajouter un serveur"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Quelque chose s'est mal passé."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
