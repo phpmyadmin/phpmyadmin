@@ -144,7 +144,6 @@ module.exports = [
                     { from: path.resolve(__dirname, 'node_modules/u2f-api-polyfill/u2f-api-polyfill.js'), to: path.resolve(__dirname, 'js/vendor/u2f-api-polyfill.js') },
                     { from: path.resolve(__dirname, 'node_modules/jquery-uitablefilter/jquery.uitablefilter.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.uitablefilter.js') },
                     { from: path.resolve(__dirname, 'node_modules/tablesorter/dist/js/jquery.tablesorter.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.tablesorter.js') },
-                    { from: path.resolve(__dirname, 'node_modules/jquery-debounce-throttle/index.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery.debounce-1.0.6.js') },
                     { from: path.resolve(__dirname, 'node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js'), to: path.resolve(__dirname, 'js/vendor/jquery/jquery-ui-timepicker-addon.js') },
                     { from: path.resolve(__dirname, 'node_modules/ol/ol.css'), to: path.resolve(__dirname, 'js/vendor/openlayers/theme/ol.css') },
                     { from: path.resolve(__dirname, 'node_modules/locutus.sprintf/src/php/strings/sprintf.browser.js'), to: path.resolve(__dirname, 'js/vendor/sprintf.js') },

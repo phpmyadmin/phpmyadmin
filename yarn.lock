@@ -3748,13 +3748,6 @@ jest@^27.3.1:
     import-local "^3.0.2"
     jest-cli "^27.5.1"
 
-jquery-debounce-throttle@^1.0.6-rc.0:
-  version "1.0.6-rc.0"
-  resolved "https://registry.yarnpkg.com/jquery-debounce-throttle/-/jquery-debounce-throttle-1.0.6-rc.0.tgz#59a7737e46d8b435d01bc94b224e98fa126aba46"
-  integrity sha512-GhdvfeD+sMiYdK4BT6WZOpxFbaS9o+87OaqdmH0K1hXyvZd0uzZukXSSy9lt9kQ6FoVY06GGphFmrpyJUrGyNQ==
-  dependencies:
-    jquery ">=1.7"
-
 jquery-migrate@3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.4.0.tgz#915d6e914c76bd7410a58c86d20fec0052784af9"
@@ -3782,7 +3775,7 @@ jquery-validation@1.19.3:
   resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.3.tgz#50b350eba8b02bcfd119ba15f199487b7eb64086"
   integrity sha512-iXxCS5W7STthSTMFX/NDZfWHBLbJ1behVK3eAgHXAV8/0vRa9M4tiqHvJMr39VGWHMGdlkhrtrkBuaL2UlE8yw==
 
-jquery@3.6.0, jquery@>=1.2.6, jquery@>=1.7, "jquery@>=1.8.0 <4.0.0":
+jquery@3.6.0, jquery@>=1.2.6, "jquery@>=1.8.0 <4.0.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
