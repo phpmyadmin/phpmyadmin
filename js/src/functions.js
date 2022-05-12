@@ -1205,8 +1205,8 @@ Functions.insertQuery = function (queryType) {
         if (isStorageSupported('localStorage') &&
             typeof window.localStorage.getItem(key) === 'string') {
             Functions.setQuery(window.localStorage.getItem(key));
-        } else if (Cookies.get(key)) {
-            Functions.setQuery(Cookies.get(key));
+        } else if (Cookies.get(key, { path: CommonParams.get('rootPath') })) {
+            Functions.setQuery(Cookies.get(key, { path: CommonParams.get('rootPath') }));
         } else {
             Functions.ajaxShowMessage(Messages.strNoAutoSavedQuery);
         }
@@ -4364,8 +4364,6 @@ AJAX.registerOnload('functions.js', function () {
             $('#ssl_reqd_warning_cp').hide();
         }
     });
-
-    Cookies.defaults.path = CommonParams.get('rootPath');
 
     // Bind event handlers for toggling sort icons
     $(document).on('mouseover', '.sortlink', function () {
