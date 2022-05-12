@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-05-13 15:15+0000\n"
+"Last-Translator: tiemen <thjazi39@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
 ">\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3279,7 +3279,7 @@ msgstr "Durée maximum d'exécution"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Utilisez l'instruction [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -3469,10 +3469,8 @@ msgid "Remember filename template"
 msgstr "Se souvenir du modèle de nom de fichier"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Supprimer les colonnes de la liste centrale"
+msgstr "Supprimer la clause « DEFINER » des définitions"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5109,6 +5107,8 @@ msgstr "Affichage des lignes %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Il existe déjà une page nommée \"%s\" ; veuillez la renommer en quelque "
+"chose d'autre."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7603,6 +7603,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Vous ne pouvez pas ouvrir, enregistrer ou supprimer votre mise en page, car "
+"IndexedDB ne fonctionne pas dans votre navigateur et votre stockage de "
+"configuration phpMyAdmin n'est pas configuré pour cela."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, php-format
@@ -13431,13 +13434,10 @@ msgid "Could not save configuration"
 msgstr "Impossible d'enregistrer la configuration"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sCréer%s le stockage de configurations phpMyAdmin dans la base de données "
-"active."
+"La base de données de stockage de configuration de phpMyAdmin n'a pas pu "
+"être accédée."
 
 #: libraries/classes/Util.php:131
 #, php-format
@@ -15485,11 +15485,11 @@ msgstr "Masquer les transformations du navigateur"
 
 #: templates/display/results/table.twig:179
 msgid "Well Known Text"
-msgstr "Well Known Text"
+msgstr "Texte bien connu"
 
 #: templates/display/results/table.twig:183
 msgid "Well Known Binary"
-msgstr "Well Known Binary"
+msgstr "Binaire bien connu"
 
 #: templates/display/results/table.twig:255
 #: templates/sql/no_results_returned.twig:9
