@@ -1,0 +1,34 @@
+<?php return array (
+  0 => 
+  array (
+    'GET' => 
+    array (
+      '' => 
+      array (
+        0 => 'PhpMyAdmin\\Controllers\\HomeController',
+        1 => 'index',
+      ),
+      '/' => 
+      array (
+        0 => 'PhpMyAdmin\\Controllers\\HomeController',
+        1 => 'index',
+      ),
+    ),
+    'POST' => 
+    array (
+      '' => 
+      array (
+        0 => 'PhpMyAdmin\\Controllers\\HomeController',
+        1 => 'index',
+      ),
+      '/' => 
+      array (
+        0 => 'PhpMyAdmin\\Controllers\\HomeController',
+        1 => 'index',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+  ),
+);
