@@ -82,8 +82,10 @@ $headings-font-weight: bold;
 
 // Tables
 
-$table-cell-padding: 0.1em 0.5em;
-$table-cell-padding-sm: $table-cell-padding;
+$table-cell-padding-y: 0.1em;
+$table-cell-padding-x: 0.5em;
+$table-cell-padding-y-sm: $table-cell-padding-y;
+$table-cell-padding-x-sm: $table-cell-padding-x;
 $table-bg: $bg-one;
 $table-striped-order: even;
 $table-striped-bg: $bg-two;
