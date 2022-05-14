@@ -1190,7 +1190,7 @@ class Routines
                 $result = $this->dbi->storeResult();
 
                 if ($result !== false && $result->numRows() > 0) {
-                    $output .= '<table class="table table-light table-striped w-auto"><tr>';
+                    $output .= '<table class="table table-striped w-auto"><tr>';
                     foreach ($result->getFieldNames() as $field) {
                         $output .= '<th>';
                         $output .= htmlspecialchars($field);

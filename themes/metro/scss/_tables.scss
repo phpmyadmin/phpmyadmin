@@ -1,19 +1,27 @@
 .table {
+  caption-side: top;
+
   td {
     touch-action: manipulation;
     vertical-align: middle;
   }
 
-  .table-light {
-    th {
-      font-family: $font-family-bold;
-      font-weight: normal;
-      border-bottom: 1px solid $border-color;
+  th {
+    background-color: $th-background;
+    font-family: $font-family-bold;
+    font-weight: normal;
+    border-bottom: 1px solid $border-color;
 
-      a {
-        color: $th-color;
-      }
+    a {
+      color: $th-color;
     }
+  }
+
+  caption {
+    font-family: $font-family-bold;
+    background-color: $th-background;
+    font-weight: normal;
+    text-align: center;
   }
 }
 

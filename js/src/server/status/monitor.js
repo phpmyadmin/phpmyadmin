@@ -1934,7 +1934,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     function buildLogTable (data, groupInserts) {
         var rows = data.rows;
         var cols = [];
-        var $table = $('<table class="table table-light table-striped table-hover align-middle sortable"></table>');
+        var $table = $('<table class="table table-striped table-hover align-middle sortable"></table>');
         var $tBody;
         var $tRow;
         var $tCell;
@@ -2132,7 +2132,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             if (data.profiling) {
                 var chartData = [];
-                var numberTable = '<table class="table table-sm table-light table-striped table-hover w-auto queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
+                var numberTable = '<table class="table table-sm table-striped table-hover w-auto queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
                 var duration;
                 var otherTime = 0;
 

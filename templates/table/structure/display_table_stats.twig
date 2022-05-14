@@ -10,7 +10,7 @@
         <a id="showusage"></a>
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            <table class="table table-light table-striped table-hover table-sm w-auto caption-top">
+            <table class="table table-striped table-hover table-sm w-auto caption-top">
                 <caption>{% trans 'Space usage' %}</caption>
                 <tbody>
                     <tr>
@@ -56,7 +56,7 @@
                     or tbl_storage_engine == 'MARIA'
                     or tbl_storage_engine == 'BDB')
                     or (tbl_storage_engine == 'INNODB' and innodb_file_per_table == true) %}
-                <tfoot class="table-light">
+                <tfoot>
                     <tr class="d-print-none">
                         <th colspan="3" class="center">
                             <a href="{{ url('/sql') }}" data-post="{{ get_common({
@@ -76,7 +76,7 @@
 
         {% set avg_size = avg_size is defined ? avg_size : null %}
         {% set avg_unit = avg_unit is defined ? avg_unit : null %}
-        <table class="table table-light table-striped table-hover table-sm w-auto caption-top">
+        <table class="table table-striped table-hover table-sm w-auto caption-top">
             <caption>{% trans 'Row statistics' %}</caption>
             <tbody>
                 {% if showtable['Row_format'] is defined %}

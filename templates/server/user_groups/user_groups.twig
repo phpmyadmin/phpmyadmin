@@ -2,8 +2,8 @@
 {% if  has_rows %}
     <form name="userGroupsForm" id="userGroupsForm" action="{{ action|raw }}" method="post">
         {{ hidden_inputs|raw  }}
-        <table class="table table-light table-striped table-hover">
-            <thead class="table-light">
+        <table class="table table-striped table-hover">
+            <thead>
                 <tr class="text-nowrap">
                     <th scope="col">
                         {% trans 'User groups' %}

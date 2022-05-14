@@ -210,7 +210,7 @@ class BrowseForeigners
             . '</fieldset>'
             . '</form>';
 
-        $output .= '<table class="table table-light table-striped table-hover" id="browse_foreign_table">';
+        $output .= '<table class="table table-striped table-hover" id="browse_foreign_table">';
 
         if (! is_array($foreignData['disp_row'])) {
             return $output . '</tbody>'
