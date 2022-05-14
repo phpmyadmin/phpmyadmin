@@ -4,15 +4,14 @@
     vertical-align: middle;
   }
 
-  .table-light {
-    th {
-      font-family: $font-family-bold;
-      font-weight: normal;
-      border-bottom: 1px solid $border-color;
+  th {
+    background-color: $th-background;
+    font-family: $font-family-bold;
+    font-weight: normal;
+    border-bottom: 1px solid $border-color;
 
-      a {
-        color: $th-color;
-      }
+    a {
+      color: $th-color;
     }
   }
 }

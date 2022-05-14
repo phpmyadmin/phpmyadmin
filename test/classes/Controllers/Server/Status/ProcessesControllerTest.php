@@ -68,7 +68,7 @@ class ProcessesControllerTest extends AbstractTestCase
         $this->assertStringContainsString('5 seconds', $html);
 
         $this->assertStringContainsString(
-            '<table id="tableprocesslist" class="table table-light table-striped table-hover sortable w-auto">',
+            '<table id="tableprocesslist" class="table table-striped table-hover sortable w-auto">',
             $html
         );
         $this->assertStringContainsString('<th>Processes</th>', $html);

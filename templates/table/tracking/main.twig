@@ -21,8 +21,8 @@
 {% if last_version > 0 %}
     <form method="post" action="{{ url('/table/tracking') }}" name="versionsForm" id="versionsForm" class="ajax">
         {{ get_hidden_inputs(db, table) }}
-        <table id="versions" class="table table-light table-striped table-hover table-sm w-auto">
-            <thead class="table-light">
+        <table id="versions" class="table table-striped table-hover table-sm w-auto">
+            <thead>
                 <tr>
                     <th></th>
                     <th>{% trans 'Version' %}</th>

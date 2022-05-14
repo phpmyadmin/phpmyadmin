@@ -1584,7 +1584,7 @@ class ResultsTest extends AbstractTestCase
                 ],
                 'options' => '$optionsBlock',
                 'has_bulk_actions_form' => false,
-                'button' => '<thead class="table-light"><tr>' . "\n",
+                'button' => '<thead><tr>' . "\n",
                 'table_headers_for_columns' => $tableHeadersForColumns,
                 'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
             ],
