@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 5.2.1 (not yet released)
+- issue #17522 Fix case where the routes cache file is invalid
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
