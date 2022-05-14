@@ -1,4 +1,6 @@
 .table {
+  caption-side: top;
+
   td {
     touch-action: manipulation;
     vertical-align: middle;
@@ -13,6 +15,13 @@
     a {
       color: $th-color;
     }
+  }
+
+  caption {
+    font-family: $font-family-bold;
+    background-color: $th-background;
+    font-weight: normal;
+    text-align: center;
   }
 }
 

@@ -1,4 +1,6 @@
 .table {
+  caption-side: top;
+
   th,
   td {
     text-shadow: 0 1px 0 #fff;
@@ -17,6 +19,12 @@
   thead th {
     border-right: 1px solid #fff;
     background-image: linear-gradient(#fff, #ccc);
+  }
+
+  caption {
+    background-color: $th-background;
+    font-weight: bold;
+    text-align: center;
   }
 }
 
