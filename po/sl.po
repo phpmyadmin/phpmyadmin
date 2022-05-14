@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-08 00:20+0000\n"
-"PO-Revision-Date: 2022-04-23 11:51+0000\n"
+"PO-Revision-Date: 2022-05-15 00:25+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.12.1-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -16950,10 +16950,8 @@ msgid "Grant all privileges on database %s."
 msgstr "Dodeli vse privilegije za zbirko podatkov %s."
 
 #: templates/server/privileges/add_user.twig:38
-#, fuzzy
-#| msgid "Create %s"
 msgid "Create user"
-msgstr "Ustvari %s"
+msgstr "Ustvari uporabnika"
 
 #: templates/server/privileges/change_password.twig:16
 msgid "No Password"
@@ -17289,10 +17287,8 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Zahteva prisotnost veljavnega certifikata X509 s to zadevo."
 
 #: templates/server/privileges/privileges_table.twig:878
-#, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
-msgstr "Prilagodi privilegije"
+msgstr "Posodobi privilegije uporabnika"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
