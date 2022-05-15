@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-08 00:20+0000\n"
+"POT-Creation-Date: 2022-05-15 00:24+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5237,7 +5237,7 @@ msgid "Table %s has been emptied."
 msgstr "%s kestesi bosatyldy."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3772
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -8942,7 +8942,7 @@ msgstr "%s kestesi áldeqashan bar!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-saýalyńyz sátti oryndaldy."
@@ -9696,27 +9696,27 @@ msgstr "Doǵarý"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Shamamen bolýy múmkin. [doc@faq3-11]FAQ 3.11[/doc] qarańyz."
 
-#: libraries/classes/Display/Results.php:3784
+#: libraries/classes/Display/Results.php:3781
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s joldardy kórsetýde"
 
-#: libraries/classes/Display/Results.php:3798
+#: libraries/classes/Display/Results.php:3795
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d qorytyndy, %2$d saýalda"
 
-#: libraries/classes/Display/Results.php:3803
+#: libraries/classes/Display/Results.php:3800
 #, php-format
 msgid "%d total"
 msgstr "%d qorytyndy"
 
-#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Saýal %01.4f sekýnt jumsady."
 
-#: libraries/classes/Display/Results.php:4146
+#: libraries/classes/Display/Results.php:4143
 msgid "Link not found!"
 msgstr "Silteme tabylmady!"
 
@@ -12593,20 +12593,20 @@ msgstr "Jetekshini ózgertý múmkin emes!"
 msgid "Primary server changed successfully to %s."
 msgstr "Jetekshi server %s úshin sátti ózgertildi."
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:101
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:161
+#: libraries/classes/Routing.php:160
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "«%s» qaınar derekqory tabylmady!"
 
-#: libraries/classes/Routing.php:172
+#: libraries/classes/Routing.php:171
 msgid "Error 405! Request method not allowed."
 msgstr ""
 

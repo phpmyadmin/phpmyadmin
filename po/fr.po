@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-08 00:20+0000\n"
+"POT-Creation-Date: 2022-05-15 00:24+0000\n"
 "PO-Revision-Date: 2022-05-13 15:17+0000\n"
 "Last-Translator: tiemen <thjazi39@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5225,7 +5225,7 @@ msgid "Table %s has been emptied."
 msgstr "La table %s a été vidée."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3772
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -8949,7 +8949,7 @@ msgstr "La table %s existe déjà !"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "La requête SQL a été exécutée avec succès."
@@ -9701,27 +9701,27 @@ msgstr "Tuer"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Peut être approximatif. Voir [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3784
+#: libraries/classes/Display/Results.php:3781
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Affichage des lignes %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3798
+#: libraries/classes/Display/Results.php:3795
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d au total, %2$d dans la requête"
 
-#: libraries/classes/Display/Results.php:3803
+#: libraries/classes/Display/Results.php:3800
 #, php-format
 msgid "%d total"
 msgstr "total de %d"
 
-#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "traitement en %01.4f seconde(s)."
 
-#: libraries/classes/Display/Results.php:4146
+#: libraries/classes/Display/Results.php:4143
 msgid "Link not found!"
 msgstr "Lien absent !"
 
@@ -12610,7 +12610,7 @@ msgstr "Impossible de changer l'original !"
 msgid "Primary server changed successfully to %s."
 msgstr "Le serveur original est maintenant %s."
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:101
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12619,12 +12619,12 @@ msgstr ""
 "Le cache de routage n'a pas pu être écrit, vous devez ajuster les "
 "permissions sur le dossier/fichier \"%s\""
 
-#: libraries/classes/Routing.php:161
+#: libraries/classes/Routing.php:160
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Erreur 404 ! La page %s n'a pas été trouvée."
 
-#: libraries/classes/Routing.php:172
+#: libraries/classes/Routing.php:171
 msgid "Error 405! Request method not allowed."
 msgstr "Erreur 405 ! Méthode de requête non autorisée."
 

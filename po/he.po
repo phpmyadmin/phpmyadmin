@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-08 00:20+0000\n"
+"POT-Creation-Date: 2022-05-15 00:24+0000\n"
 "PO-Revision-Date: 2021-07-22 19:35+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4710,7 +4710,7 @@ msgid "Table %s has been emptied."
 msgstr "הטבלה %s רוקנה."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3772
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -8213,7 +8213,7 @@ msgstr "הטבלה %s כבר קיימת!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "שאילתת ה־SQL שלך רצה בהצלחה."
@@ -8957,27 +8957,27 @@ msgstr "חיסול"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "כנראה הערכה. יש לעיין ב[doc@faq3-11]שו״ת 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3784
+#: libraries/classes/Display/Results.php:3781
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "מוצגות שורות %1s‏ - %2s"
 
-#: libraries/classes/Display/Results.php:3798
+#: libraries/classes/Display/Results.php:3795
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d סה״כ, %2$d בשאילתה"
 
-#: libraries/classes/Display/Results.php:3803
+#: libraries/classes/Display/Results.php:3800
 #, php-format
 msgid "%d total"
 msgstr "%d סה״כ"
 
-#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "השאילתה ארכה %01.4f שניות."
 
-#: libraries/classes/Display/Results.php:4146
+#: libraries/classes/Display/Results.php:4143
 msgid "Link not found!"
 msgstr "קישור לא נמצא!"
 
@@ -11738,20 +11738,20 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "ההרשאות נטענו מחדש בהצלחה."
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:101
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:161
+#: libraries/classes/Routing.php:160
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "מסד נתוני המקור ‚%s’ לא נמצא!"
 
-#: libraries/classes/Routing.php:172
+#: libraries/classes/Routing.php:171
 msgid "Error 405! Request method not allowed."
 msgstr ""
 

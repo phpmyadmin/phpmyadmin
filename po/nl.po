@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-08 00:20+0000\n"
+"POT-Creation-Date: 2022-05-15 00:24+0000\n"
 "PO-Revision-Date: 2022-05-09 09:15+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5197,7 +5197,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeggemaakt."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3772
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -8916,7 +8916,7 @@ msgstr "Tabel %s bestaat reeds!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd."
@@ -9659,27 +9659,27 @@ msgstr "stop proces"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3784
+#: libraries/classes/Display/Results.php:3781
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3798
+#: libraries/classes/Display/Results.php:3795
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d in totaal, %2$d in de query"
 
-#: libraries/classes/Display/Results.php:3803
+#: libraries/classes/Display/Results.php:3800
 #, php-format
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
 
-#: libraries/classes/Display/Results.php:4146
+#: libraries/classes/Display/Results.php:4143
 msgid "Link not found!"
 msgstr "Link niet gevonden!"
 
@@ -12554,7 +12554,7 @@ msgstr "Wijzigen van primaire server is mislukt!"
 msgid "Primary server changed successfully to %s."
 msgstr "Primaire server succesvol gewijzigd in %s."
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:101
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12563,12 +12563,12 @@ msgstr ""
 "De routing cache kon niet weggeschreven worden, u moet de rechten op map/"
 "bestand \"%s\" aanpassen"
 
-#: libraries/classes/Routing.php:161
+#: libraries/classes/Routing.php:160
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Fout 404! De pagina %s is niet gevonden."
 
-#: libraries/classes/Routing.php:172
+#: libraries/classes/Routing.php:171
 msgid "Error 405! Request method not allowed."
 msgstr "Fout 405! Methode voor aanvragen niet toegestaan."
 

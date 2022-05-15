@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-08 00:20+0000\n"
+"POT-Creation-Date: 2022-05-15 00:24+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4998,7 +4998,7 @@ msgid "Table %s has been emptied."
 msgstr "Bảng %s đã được làm trống."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3772
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -8586,7 +8586,7 @@ msgstr "Bảng %s đã sẵn có từ trước rồi!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Truy vấn SQL của bạn đã được thực hiện thành công."
@@ -9358,27 +9358,27 @@ msgstr "Giết"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Có thể chỉ là ước đoán. Xem [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3784
+#: libraries/classes/Display/Results.php:3781
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Hiển thị các hàng %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3798
+#: libraries/classes/Display/Results.php:3795
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "Tổng %1$d, %2$d trong truy vấn"
 
-#: libraries/classes/Display/Results.php:3803
+#: libraries/classes/Display/Results.php:3800
 #, php-format
 msgid "%d total"
 msgstr "tổng %d"
 
-#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
 
-#: libraries/classes/Display/Results.php:4146
+#: libraries/classes/Display/Results.php:4143
 msgid "Link not found!"
 msgstr "Không tìm thấy liên kết!"
 
@@ -12073,20 +12073,20 @@ msgstr "Không thể đổi máy chính!"
 msgid "Primary server changed successfully to %s."
 msgstr "Máy phục vụ chính đã thay đổi thành công thành %s."
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:101
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:161
+#: libraries/classes/Routing.php:160
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Không tìm thấy cơ sở dữ liệu nguồn “%s“!"
 
-#: libraries/classes/Routing.php:172
+#: libraries/classes/Routing.php:171
 msgid "Error 405! Request method not allowed."
 msgstr ""
 

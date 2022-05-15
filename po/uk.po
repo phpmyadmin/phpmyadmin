@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-08 00:20+0000\n"
+"POT-Creation-Date: 2022-05-15 00:24+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1400,12 +1400,6 @@ msgstr "Пошук:"
 #: templates/table/structure/display_structure.twig:437
 #: templates/table/structure/display_structure.twig:555
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
-#: templates/server/privileges/add_user.twig:36
-#: templates/server/privileges/change_password.twig:70
-#: templates/server/privileges/edit_routine_privileges.twig:102
-#: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/privileges/privileges_table.twig:858
-#: templates/server/privileges/user_properties.twig:149
 msgid "Go"
 msgstr "Виконати"
 
@@ -4311,7 +4305,6 @@ msgstr "Пропускати заблоковані таблиці"
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:480
-#: libraries/classes/Display/Results.php:2757
 msgid "Edit"
 msgstr "Редагувати"
 
@@ -4369,7 +4362,6 @@ msgstr "Текстове поле рядків"
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:97
-#: templates/server/privileges/privileges_table.twig:257
 msgid "Database"
 msgstr "База даних"
 
@@ -4402,7 +4394,6 @@ msgstr "Сервер"
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:182
 #: templates/table/relation/foreign_key_row.twig:108
-#: templates/server/privileges/privileges_table.twig:259
 msgid "Table"
 msgstr "Таблиця"
 
@@ -4613,7 +4604,6 @@ msgstr "Звичайно"
 #: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:357
 #: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/server/privileges/privileges_table.twig:352
 msgid "Structure"
 msgstr "Структура"
 
@@ -4625,7 +4615,6 @@ msgstr "Структура"
 #: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
-#: templates/server/privileges/privileges_table.twig:278
 msgid "Data"
 msgstr "Дані"
 
@@ -5158,8 +5147,7 @@ msgid "Table %s has been emptied."
 msgstr "Таблиця %s очищено."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3775
-#: libraries/classes/Display/Results.php:3766
+#: libraries/classes/Display/Results.php:3772
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5211,9 +5199,6 @@ msgstr "невідоме"
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
 msgid "Yes"
 msgstr "Так"
 
@@ -6067,7 +6052,6 @@ msgstr "Будь ласка, додайте хоча б одну змінну в
 #: templates/server/status/processes/list.twig:54
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
-#: templates/server/privileges/privileges_summary.twig:30
 msgid "None"
 msgstr "Жодного"
 
@@ -6578,9 +6562,6 @@ msgstr "Змінити кодування"
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/server/privileges/privileges_summary.twig:37
-#: templates/server/privileges/privileges_summary.twig:40
-#: templates/server/privileges/privileges_summary.twig:42
 msgid "No"
 msgstr "Ні"
 
@@ -6675,7 +6656,6 @@ msgstr "Показати вікно запиту"
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
-#: libraries/classes/Display/Results.php:2825
 msgid "Delete"
 msgstr "Видалити"
 
@@ -6939,7 +6919,6 @@ msgstr "Ігнорувати"
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
-#: libraries/classes/Display/Results.php:2761
 msgid "Copy"
 msgstr "Копіювати"
 
@@ -8793,7 +8772,6 @@ msgstr "Закладка не створена!"
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:221
 #: libraries/classes/Table/Indexes.php:85
-#: libraries/classes/Controllers/Table/AddFieldController.php:156
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Таблицю %1$s успішно змінено."
@@ -8845,8 +8823,8 @@ msgstr "Таблиця %s вже існує!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3486 libraries/classes/Message.php:172
-#: templates/sql/query.twig:7 libraries/classes/Display/Results.php:3477
+#: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
+#: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL запит було виконано вдало."
 
@@ -9228,7 +9206,6 @@ msgid ""
 msgstr "Помилка в обробці запиту: Немає події з ім'ям %1$s в базі даних %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1130
-#: libraries/classes/DatabaseInterface.php:1129
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9241,22 +9218,18 @@ msgstr ""
 "часовий пояс сервера бази даних."
 
 #: libraries/classes/DatabaseInterface.php:1175
-#: libraries/classes/DatabaseInterface.php:1174
 msgid "Failed to set configured collation connection!"
 msgstr "Не вдалося встановити конфігурацію співставлення підключення!"
 
 #: libraries/classes/DatabaseInterface.php:1864
-#: libraries/classes/DatabaseInterface.php:1863
 msgid "Missing connection parameters!"
 msgstr "Відсутні параметри з'єднання!"
 
 #: libraries/classes/DatabaseInterface.php:1889
-#: libraries/classes/DatabaseInterface.php:1888
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Помилка при вказуванні з'єднання для controluser в конфігурації."
 
 #: libraries/classes/DatabaseInterface.php:2294
-#: libraries/classes/DatabaseInterface.php:2293
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Дивіться %sнашу документацію%s для отримання додаткової інформації."
@@ -9576,48 +9549,39 @@ msgstr "За зростанням"
 
 #: libraries/classes/Display/Results.php:2810
 #: libraries/classes/Display/Results.php:2825
-#: libraries/classes/Display/Results.php:2801
-#: libraries/classes/Display/Results.php:2816
 msgid "The row has been deleted."
 msgstr "Рядок видалено."
 
 #: libraries/classes/Display/Results.php:2857
 #: templates/server/status/processes/list.twig:44
-#: libraries/classes/Display/Results.php:2848
 msgid "Kill"
 msgstr "Анулювати"
 
 #: libraries/classes/Display/Results.php:3417
-#: libraries/classes/Display/Results.php:3408
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3784
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3781
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Показано рядки %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3798
-#: libraries/classes/Display/Results.php:3789
+#: libraries/classes/Display/Results.php:3795
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d всього, %2$d в запиті"
 
-#: libraries/classes/Display/Results.php:3803
-#: libraries/classes/Display/Results.php:3794
+#: libraries/classes/Display/Results.php:3800
 #, php-format
 msgid "%d total"
 msgstr "всього %d"
 
-#: libraries/classes/Display/Results.php:3816 libraries/classes/Sql.php:974
-#: libraries/classes/Display/Results.php:3807
+#: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запит виконувався %01.4f секунди."
 
-#: libraries/classes/Display/Results.php:4146
-#: libraries/classes/Display/Results.php:4137
+#: libraries/classes/Display/Results.php:4143
 msgid "Link not found!"
 msgstr "Посилання не знайдено!"
 
@@ -10309,10 +10273,6 @@ msgstr "Встановлений Вами каталог для завантаж
 #: templates/server/privileges/privileges_table.twig:87
 #: templates/server/privileges/privileges_table.twig:114
 #: templates/table/search/index.twig:129
-#: templates/server/privileges/privileges_table.twig:32
-#: templates/server/privileges/privileges_table.twig:59
-#: templates/server/privileges/privileges_table.twig:86
-#: templates/server/privileges/privileges_table.twig:113
 msgid "Or"
 msgstr "Або"
 
@@ -10386,7 +10346,6 @@ msgstr "Вставити"
 #: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
 #: templates/table/privileges/index.twig:22
-#: templates/server/privileges/privileges_summary.twig:15
 msgid "Privileges"
 msgstr "Привілеї"
 
@@ -12471,7 +12430,7 @@ msgstr "Неможливо змінити головний сервер!"
 msgid "Primary server changed successfully to %s."
 msgstr "Головний сервер змінений на %s вдало."
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:101
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12480,12 +12439,12 @@ msgstr ""
 "Не вдалося записати кеш маршрутизації, вам потрібно налаштувати права "
 "доступу до папки/файлу \"%s\""
 
-#: libraries/classes/Routing.php:161
+#: libraries/classes/Routing.php:160
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Помилка 404! Сторінку %s не знайдено."
 
-#: libraries/classes/Routing.php:172
+#: libraries/classes/Routing.php:171
 msgid "Error 405! Request method not allowed."
 msgstr "Помилка 405! Метод запиту не дозволений."
 
@@ -12555,9 +12514,6 @@ msgstr "Містить всі права за винятком GRANT."
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
 #: templates/server/privileges/privileges_table.twig:329
-#: templates/server/privileges/privileges_table.twig:124
-#: templates/server/privileges/privileges_table.twig:127
-#: templates/server/privileges/privileges_table.twig:323
 msgid "Allows deleting data."
 msgstr "Дозволяє видалення даних."
 
@@ -12566,10 +12522,6 @@ msgstr "Дозволяє видалення даних."
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
 #: templates/server/privileges/privileges_table.twig:375
-#: templates/server/privileges/privileges_table.twig:136
-#: templates/server/privileges/privileges_table.twig:139
-#: templates/server/privileges/privileges_table.twig:361
-#: templates/server/privileges/privileges_table.twig:369
 msgid "Allows creating new tables."
 msgstr "Дозволяє створювати нові таблиці."
 
@@ -12578,10 +12530,6 @@ msgstr "Дозволяє створювати нові таблиці."
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
 #: templates/server/privileges/privileges_table.twig:423
-#: templates/server/privileges/privileges_table.twig:148
-#: templates/server/privileges/privileges_table.twig:151
-#: templates/server/privileges/privileges_table.twig:409
-#: templates/server/privileges/privileges_table.twig:417
 msgid "Allows dropping tables."
 msgstr "Дозволяє знищувати таблиці."
 
@@ -12591,10 +12539,6 @@ msgstr "Дозволяє знищувати таблиці."
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
 #: templates/server/privileges/privileges_table.twig:402
-#: templates/server/privileges/privileges_table.twig:173
-#: templates/server/privileges/privileges_table.twig:176
-#: templates/server/privileges/privileges_table.twig:393
-#: templates/server/privileges/privileges_table.twig:396
 msgid "Allows creating and dropping indexes."
 msgstr "Дозволити створення та знищення індексів."
 
@@ -12604,10 +12548,6 @@ msgstr "Дозволити створення та знищення індекс
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
 #: templates/server/privileges/privileges_table.twig:389
-#: templates/server/privileges/privileges_table.twig:185
-#: templates/server/privileges/privileges_table.twig:188
-#: templates/server/privileges/privileges_table.twig:380
-#: templates/server/privileges/privileges_table.twig:383
 msgid "Allows altering the structure of existing tables."
 msgstr "Дозволяє змінювати структуру наявних таблиць."
 
@@ -12620,12 +12560,6 @@ msgstr "Дозволяє змінювати структуру наявних т
 #: templates/server/privileges/privileges_table.twig:503
 #: templates/server/privileges/privileges_table.twig:515
 #: templates/server/privileges/privileges_table.twig:518
-#: templates/server/privileges/privileges_table.twig:197
-#: templates/server/privileges/privileges_table.twig:200
-#: templates/server/privileges/privileges_table.twig:494
-#: templates/server/privileges/privileges_table.twig:497
-#: templates/server/privileges/privileges_table.twig:509
-#: templates/server/privileges/privileges_table.twig:512
 msgid "Allows creating new views."
 msgstr "Дозволяє створення нових уявлень (CREATE VIEW)."
 
@@ -12636,10 +12570,6 @@ msgstr "Дозволяє створення нових уявлень (CREATE VI
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
 #: templates/server/privileges/privileges_table.twig:450
-#: templates/server/privileges/privileges_table.twig:209
-#: templates/server/privileges/privileges_table.twig:212
-#: templates/server/privileges/privileges_table.twig:441
-#: templates/server/privileges/privileges_table.twig:444
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Дозволяє виконувати SHOW CREATE VIEW запити."
 
@@ -12649,10 +12579,6 @@ msgstr "Дозволяє виконувати SHOW CREATE VIEW запити."
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
 #: templates/server/privileges/privileges_table.twig:546
-#: templates/server/privileges/privileges_table.twig:221
-#: templates/server/privileges/privileges_table.twig:224
-#: templates/server/privileges/privileges_table.twig:537
-#: templates/server/privileges/privileges_table.twig:540
 msgid "Allows creating and dropping triggers."
 msgstr "Дозволяє створення та видалення тригерів."
 
@@ -12660,8 +12586,6 @@ msgstr "Дозволяє створення та видалення тригер
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
-#: templates/server/privileges/privileges_table.twig:15
-#: templates/server/privileges/privileges_table.twig:284
 msgid "Allows reading data."
 msgstr "Дозволити читання даних."
 
@@ -12669,8 +12593,6 @@ msgstr "Дозволити читання даних."
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
-#: templates/server/privileges/privileges_table.twig:42
-#: templates/server/privileges/privileges_table.twig:297
 msgid "Allows inserting and replacing data."
 msgstr "Дозволити вставку та заміну даних."
 
@@ -12678,79 +12600,60 @@ msgstr "Дозволити вставку та заміну даних."
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
-#: templates/server/privileges/privileges_table.twig:69
-#: templates/server/privileges/privileges_table.twig:310
 msgid "Allows changing data."
 msgstr "Дозволити зміну даних."
 
 #: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
-#: templates/server/privileges/privileges_table.twig:359
-#: templates/server/privileges/privileges_table.twig:367
 msgid "Allows creating new databases and tables."
 msgstr "Дозволяє створювати нові бази даних і таблиці."
 
 #: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
-#: templates/server/privileges/privileges_table.twig:407
-#: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
 msgstr "Дозволяє видалення баз даних та таблиць."
 
 #: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
-#: templates/server/privileges/privileges_table.twig:599
-#: templates/server/privileges/privileges_table.twig:602
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Дозволити перезавантаження установок та очищення кешу сервера."
 
 #: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
-#: templates/server/privileges/privileges_table.twig:612
-#: templates/server/privileges/privileges_table.twig:615
 msgid "Allows shutting down the server."
 msgstr "Дозволити вимкнення сервера."
 
 #: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
-#: templates/server/privileges/privileges_table.twig:586
-#: templates/server/privileges/privileges_table.twig:589
 msgid "Allows viewing processes of all users."
 msgstr "Дозволяє перегляд процесів усіх користувачів."
 
 #: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
-#: templates/server/privileges/privileges_table.twig:337
 msgid "Allows importing data from and exporting data into files."
 msgstr "Дозволити імпорт даних з файлів, та експорт у файли."
 
 #: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
-#: templates/server/privileges/privileges_table.twig:96
-#: templates/server/privileges/privileges_table.twig:666
 msgid "Has no effect in this MySQL version."
 msgstr "Неефективно для цієї версії MySQL."
 
 #: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
-#: templates/server/privileges/privileges_table.twig:625
-#: templates/server/privileges/privileges_table.twig:628
 msgid "Gives access to the complete list of databases."
 msgstr "Надає доступ до повного списку баз даних."
 
 #: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
-#: templates/server/privileges/privileges_table.twig:572
-#: templates/server/privileges/privileges_table.twig:576
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -12763,28 +12666,24 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:424
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
-#: templates/server/privileges/privileges_table.twig:428
-#: templates/server/privileges/privileges_table.twig:431
 msgid "Allows creating temporary tables."
 msgstr "Дозволяє створювати тимчасові таблиці."
 
 #: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
-#: templates/server/privileges/privileges_table.twig:653
-#: templates/server/privileges/privileges_table.twig:656
 msgid "Allows locking tables for the current thread."
 msgstr "Дозволити блокування таблиць для біжучих потоків."
 
 #: libraries/classes/Server/Privileges.php:434
-#: templates/server/privileges/privileges_table.twig:694
-#: templates/server/privileges/privileges_table.twig:697
+#: templates/server/privileges/privileges_table.twig:705
+#: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr "Необхідно для реплікації підпорядкованого сереверу."
 
 #: libraries/classes/Server/Privileges.php:439
-#: templates/server/privileges/privileges_table.twig:681
-#: templates/server/privileges/privileges_table.twig:684
+#: templates/server/privileges/privileges_table.twig:692
+#: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 "Надати користувачу право запитувати де є підпорядковані/головні сервери."
@@ -12792,8 +12691,6 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
-#: templates/server/privileges/privileges_table.twig:524
-#: templates/server/privileges/privileges_table.twig:527
 msgid "Allows to set up events for the event scheduler."
 msgstr "Дозволяє налаштувати події планувальника подій."
 
@@ -12802,32 +12699,24 @@ msgstr "Дозволяє налаштувати події планувальн�
 #: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
-#: templates/server/privileges/privileges_table.twig:234
-#: templates/server/privileges/privileges_table.twig:238
 msgid "Allows deleting historical rows."
 msgstr "Дозволяє видаляти рядки історії."
 
 #: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
-#: templates/server/privileges/privileges_table.twig:454
-#: templates/server/privileges/privileges_table.twig:457
 msgid "Allows creating stored routines."
 msgstr "Дозволяє створення збережених процедур."
 
 #: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
-#: templates/server/privileges/privileges_table.twig:467
-#: templates/server/privileges/privileges_table.twig:470
 msgid "Allows altering and dropping stored routines."
 msgstr "Дозволяє зміну та видалення збережених процедур."
 
 #: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
-#: templates/server/privileges/privileges_table.twig:707
-#: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Дозволяє створення, видалення та перейменування облікових записів "
@@ -12836,8 +12725,6 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
-#: templates/server/privileges/privileges_table.twig:480
-#: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
 msgstr "Дозволяє виконання збережених процедур."
 
@@ -12871,7 +12758,6 @@ msgstr "Відмінити"
 
 #: libraries/classes/Server/Privileges.php:1819
 #: templates/server/privileges/privileges_table.twig:265
-#: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
 msgstr "Права, які стосуються бази даних"
 
@@ -12879,8 +12765,6 @@ msgstr "Права, які стосуються бази даних"
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
-#: templates/server/privileges/privileges_summary.twig:18
-#: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
 msgstr "Права, які стосуються таблиці"
 
@@ -12889,7 +12773,6 @@ msgstr "Права, які стосуються таблиці"
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
-#: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Процедура"
 
@@ -14499,7 +14382,6 @@ msgstr "Натисніть для сортування."
 #: templates/table/structure/display_structure.twig:457
 #: templates/table/tracking/main.twig:32
 #: templates/table/tracking/report_table.twig:8
-#: templates/server/privileges/privileges_summary.twig:22
 msgid "Action"
 msgstr "Дія"
 
@@ -14556,10 +14438,6 @@ msgstr "Індекс не визначено!"
 #: templates/server/privileges/privileges_table.twig:83
 #: templates/server/privileges/privileges_table.twig:110
 #: templates/server/replication/database_multibox.twig:7
-#: templates/server/privileges/privileges_table.twig:28
-#: templates/server/privileges/privileges_table.twig:55
-#: templates/server/privileges/privileges_table.twig:82
-#: templates/server/privileges/privileges_table.twig:109
 msgid "Select all"
 msgstr "Вибрати все"
 
@@ -14857,11 +14735,6 @@ msgstr "Визначник"
 #: templates/server/user_groups/edit_user_groups.twig:11
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
-#: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:268
-#: templates/server/privileges/privileges_table.twig:277
-#: templates/server/privileges/privileges_table.twig:351
-#: templates/server/privileges/privileges_table.twig:551
 msgid "Check all"
 msgstr "Позначити все"
 
@@ -15064,8 +14937,6 @@ msgstr "Користувачі, що мають доступ до \"%s\""
 #: templates/server/replication/primary_add_replica_user.twig:19
 #: templates/server/replication/primary_add_replica_user.twig:24
 #: templates/table/privileges/index.twig:19
-#: templates/server/privileges/login_information_fields.twig:6
-#: templates/server/privileges/login_information_fields.twig:11
 msgid "User name"
 msgstr "Ім'я користувача"
 
@@ -15074,8 +14945,6 @@ msgstr "Ім'я користувача"
 #: templates/server/privileges/login_information_fields.twig:38
 #: templates/server/privileges/users_overview.twig:9
 #: templates/table/privileges/index.twig:20
-#: templates/server/privileges/login_information_fields.twig:25
-#: templates/server/privileges/login_information_fields.twig:37
 msgid "Host name"
 msgstr "Ім'я хосту"
 
@@ -15083,7 +14952,6 @@ msgstr "Ім'я хосту"
 #: templates/server/privileges/privileges_summary.twig:17
 #: templates/server/privileges/users_overview.twig:18
 #: templates/table/privileges/index.twig:23
-#: templates/server/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "Надати"
 
@@ -15143,7 +15011,6 @@ msgstr "Новий"
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
-#: templates/server/privileges/add_user.twig:3
 msgid "Add user account"
 msgstr "Додати обліковий запис користувача"
 
@@ -16400,8 +16267,6 @@ msgstr "Ім'я користувача:"
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
-#: templates/server/privileges/change_password.twig:21
-#: templates/server/privileges/login_information_fields.twig:43
 msgid "Password:"
 msgstr "Пароль:"
 
@@ -17093,23 +16958,19 @@ msgid "deleted"
 msgstr "Видалено"
 
 #: templates/server/privileges/add_user.twig:13
-#: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
 msgstr "База даних для облікового запису користувача"
 
 #: templates/server/privileges/add_user.twig:16
-#: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
 msgstr "Створити базу даних з таким самим іменем та надати всі привілеї."
 
 #: templates/server/privileges/add_user.twig:20
-#: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 "Надати всі привілеї на те, що підпадає під шаблон (ім'я користувача\\_%)."
 
 #: templates/server/privileges/add_user.twig:25
-#: templates/server/privileges/add_user.twig:24
 #, php-format
 msgid "Grant all privileges on database %s."
 msgstr "Надати всі привілеї на базу даних %s."
@@ -17120,17 +16981,15 @@ msgid "Create user"
 msgstr "Створити %s"
 
 #: templates/server/privileges/change_password.twig:16
-#: templates/server/privileges/change_password.twig:15
 msgid "No Password"
 msgstr "Без паролю"
 
 #: templates/server/privileges/change_password.twig:25
-#: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
 msgstr "Введіть:"
 
-#: templates/server/privileges/change_password.twig:28
-#: templates/server/privileges/login_information_fields.twig:54
+#: templates/server/privileges/change_password.twig:29
+#: templates/server/privileges/login_information_fields.twig:55
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "Міцність:"
@@ -17138,18 +16997,14 @@ msgstr "Міцність:"
 #: templates/server/privileges/change_password.twig:33
 #: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
-#: templates/server/privileges/change_password.twig:32
-#: templates/server/privileges/login_information_fields.twig:60
 msgid "Re-type:"
 msgstr "Підтвердження:"
 
 #: templates/server/privileges/change_password.twig:41
-#: templates/server/privileges/change_password.twig:40
 msgid "Password Hashing:"
 msgstr "Хешування паролю:"
 
 #: templates/server/privileges/change_password.twig:59
-#: templates/server/privileges/change_password.twig:58
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -17185,16 +17040,11 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:52
 #: templates/server/privileges/privileges_table.twig:11
 #: templates/server/privileges/privileges_table.twig:274
-#: templates/server/privileges/edit_routine_privileges.twig:51
-#: templates/server/privileges/privileges_table.twig:10
-#: templates/server/privileges/privileges_table.twig:272
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Примітка: назви прав MySQL задаються англійською."
 
 #: templates/server/privileges/edit_routine_privileges.twig:65
 #: templates/server/privileges/edit_routine_privileges.twig:69
-#: templates/server/privileges/edit_routine_privileges.twig:63
-#: templates/server/privileges/edit_routine_privileges.twig:67
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
@@ -17204,15 +17054,11 @@ msgstr ""
 
 #: templates/server/privileges/edit_routine_privileges.twig:78
 #: templates/server/privileges/edit_routine_privileges.twig:81
-#: templates/server/privileges/edit_routine_privileges.twig:76
-#: templates/server/privileges/edit_routine_privileges.twig:79
 msgid "Allows altering and dropping this routine."
 msgstr "Дозволяє зміну та видалення цієї процедури."
 
 #: templates/server/privileges/edit_routine_privileges.twig:90
 #: templates/server/privileges/edit_routine_privileges.twig:93
-#: templates/server/privileges/edit_routine_privileges.twig:88
-#: templates/server/privileges/edit_routine_privileges.twig:91
 msgid "Allows executing this routine."
 msgstr "Дозволяє виконання цієї процедури."
 
@@ -17228,13 +17074,11 @@ msgstr "Інформація авторизації"
 #: templates/server/privileges/login_information_fields.twig:5
 #: templates/server/replication/change_primary.twig:14
 #: templates/server/replication/primary_add_replica_user.twig:16
-#: templates/server/privileges/login_information_fields.twig:4
 msgid "User name:"
 msgstr "Ім'я користувача:"
 
 #: templates/server/privileges/login_information_fields.twig:8
 #: templates/server/replication/primary_add_replica_user.twig:20
-#: templates/server/privileges/login_information_fields.twig:7
 msgid "Any user"
 msgstr "Довільний користувач"
 
@@ -17243,16 +17087,10 @@ msgstr "Довільний користувач"
 #: templates/server/privileges/login_information_fields.twig:51
 #: templates/server/privileges/privileges_summary.twig:76
 #: templates/server/privileges/privileges_summary.twig:91
-#: templates/server/privileges/login_information_fields.twig:8
-#: templates/server/privileges/login_information_fields.twig:33
-#: templates/server/privileges/login_information_fields.twig:50
-#: templates/server/privileges/privileges_summary.twig:75
-#: templates/server/privileges/privileges_summary.twig:90
 msgid "Use text field"
 msgstr "Використовувати текстове поле"
 
 #: templates/server/privileges/login_information_fields.twig:17
-#: templates/server/privileges/login_information_fields.twig:16
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
@@ -17261,35 +17099,31 @@ msgstr ""
 "назвою хоста."
 
 #: templates/server/privileges/login_information_fields.twig:23
-#: templates/server/privileges/login_information_fields.twig:22
 msgid "Host name:"
 msgstr "Ім'я хоста:"
 
 #: templates/server/privileges/login_information_fields.twig:28
 #: templates/server/replication/primary_add_replica_user.twig:34
-#: templates/server/privileges/login_information_fields.twig:27
 msgid "Any host"
 msgstr "Довільний хост"
 
 #: templates/server/privileges/login_information_fields.twig:29
 #: templates/server/replication/primary_add_replica_user.twig:35
-#: templates/server/privileges/login_information_fields.twig:28
 msgid "Local"
 msgstr "Локальний"
 
-#: templates/server/privileges/login_information_fields.twig:30
+#: templates/server/privileges/login_information_fields.twig:31
 #: templates/server/replication/primary_add_replica_user.twig:37
 msgid "This host"
 msgstr "Цей хост"
 
-#: templates/server/privileges/login_information_fields.twig:32
+#: templates/server/privileges/login_information_fields.twig:33
 #: templates/server/replication/primary_add_replica_user.twig:39
 msgid "Use host table"
 msgstr "Використовувати таблицю хостів"
 
 #: templates/server/privileges/login_information_fields.twig:40
 #: templates/server/replication/primary_add_replica_user.twig:44
-#: templates/server/privileges/login_information_fields.twig:39
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -17303,37 +17137,32 @@ msgstr ""
 #: templates/server/replication/change_primary.twig:19
 #: templates/server/replication/primary_add_replica_user.twig:52
 #: templates/server/replication/primary_add_replica_user.twig:57
-#: templates/server/privileges/login_information_fields.twig:45
-#: templates/server/privileges/login_information_fields.twig:53
 msgid "Password"
 msgstr "Пароль"
 
 #: templates/server/privileges/login_information_fields.twig:48
-#: templates/server/privileges/login_information_fields.twig:47
 msgid "Do not change the password"
 msgstr "Не змінювати пароль"
 
-#: templates/server/privileges/login_information_fields.twig:49
+#: templates/server/privileges/login_information_fields.twig:50
 #: templates/server/replication/primary_add_replica_user.twig:53
 msgid "No password"
 msgstr "Без паролю"
 
 #: templates/server/privileges/login_information_fields.twig:63
 #: templates/server/replication/primary_add_replica_user.twig:65
-#: templates/server/privileges/login_information_fields.twig:62
 msgid "Re-type"
 msgstr "Підтвердження"
 
-#: templates/server/privileges/login_information_fields.twig:68
+#: templates/server/privileges/login_information_fields.twig:69
 msgid "Authentication plugin"
 msgstr "Плагін автентифікації"
 
-#: templates/server/privileges/login_information_fields.twig:70
+#: templates/server/privileges/login_information_fields.twig:71
 msgid "Password hashing method"
 msgstr "Метод хешування паролю"
 
 #: templates/server/privileges/login_information_fields.twig:84
-#: templates/server/privileges/login_information_fields.twig:83
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
@@ -17350,29 +17179,24 @@ msgid "Edit user group"
 msgstr "Редагувати групу користувачів"
 
 #: templates/server/privileges/privileges_summary.twig:21
-#: templates/server/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
 msgstr "Привілеї, що стосуються стовпчиків таблиці"
 
 #: templates/server/privileges/privileges_summary.twig:55
-#: templates/server/privileges/privileges_summary.twig:54
 msgid "Add privileges on the following database(s):"
 msgstr "Додати привілеї на базу(и) даних:"
 
 #: templates/server/privileges/privileges_summary.twig:68
-#: templates/server/privileges/privileges_summary.twig:67
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "При використанні в імені бази даних символів нижнього підкреслення і "
 "відсотка необхідно екранувати їх символом \\."
 
 #: templates/server/privileges/privileges_summary.twig:72
-#: templates/server/privileges/privileges_summary.twig:71
 msgid "Add privileges on the following table:"
 msgstr "Додати привілеї для цієї таблиці:"
 
 #: templates/server/privileges/privileges_summary.twig:87
-#: templates/server/privileges/privileges_summary.twig:86
 msgid "Add privileges on the following routine:"
 msgstr "Додати привілеї на процедуру:"
 
@@ -17384,10 +17208,6 @@ msgstr "Додати привілеї на процедуру:"
 #: templates/server/privileges/privileges_table.twig:91
 #: templates/server/privileges/privileges_table.twig:117
 #: templates/server/privileges/privileges_table.twig:118
-#: templates/server/privileges/privileges_table.twig:35
-#: templates/server/privileges/privileges_table.twig:62
-#: templates/server/privileges/privileges_table.twig:89
-#: templates/server/privileges/privileges_table.twig:116
 msgctxt "None privileges"
 msgid "None"
 msgstr "Немає"
@@ -17396,10 +17216,6 @@ msgstr "Немає"
 #: templates/server/privileges/privileges_table.twig:165
 #: templates/server/privileges/privileges_table.twig:649
 #: templates/server/privileges/privileges_table.twig:653
-#: templates/server/privileges/privileges_table.twig:160
-#: templates/server/privileges/privileges_table.twig:164
-#: templates/server/privileges/privileges_table.twig:638
-#: templates/server/privileges/privileges_table.twig:642
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
@@ -17408,56 +17224,47 @@ msgstr ""
 "якими користувачі володіють самі."
 
 #: templates/server/privileges/privileges_table.twig:256
-#: templates/server/privileges/privileges_table.twig:255
 msgid "Global"
 msgstr "Глобальний"
 
 #: templates/server/privileges/privileges_table.twig:263
 #: templates/server/privileges/users_overview.twig:12
-#: templates/server/privileges/privileges_table.twig:262
 msgid "Global privileges"
 msgstr "Глобальні права"
 
 #: templates/server/privileges/privileges_table.twig:561
-#: templates/server/privileges/privileges_table.twig:552
 msgid "Administration"
 msgstr "Адміністрування"
 
 #: templates/server/privileges/privileges_table.twig:570
 #: templates/server/privileges/privileges_table.twig:573
-#: templates/server/privileges/privileges_table.twig:559
-#: templates/server/privileges/privileges_table.twig:562
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Дозволяє додавання користувачів та прав без перезавантаження таблиці прав."
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Allows creating foreign key relations."
 msgstr "Дозволяє створювати відносини зовнішнього ключа."
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Not used on MariaDB."
 msgstr "Не використовується у MariaDB."
 
-#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:681
 msgid "Not used for this MySQL version."
 msgstr "Невикористовується для цієї версії MySQL."
 
 #: templates/server/privileges/privileges_table.twig:735
-#: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
 msgstr "Обмеження ресурсів"
 
 #: templates/server/privileges/privileges_table.twig:738
-#: templates/server/privileges/privileges_table.twig:723
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Примітка: Встановлення цієї опції у 0 (нуль) знімає обмеження."
 
 #: templates/server/privileges/privileges_table.twig:744
 #: templates/server/privileges/privileges_table.twig:751
-#: templates/server/privileges/privileges_table.twig:729
-#: templates/server/privileges/privileges_table.twig:736
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Обмежити кількість запитів, які користувач може надіслати серверу протягом "
@@ -17465,8 +17272,6 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:757
 #: templates/server/privileges/privileges_table.twig:764
-#: templates/server/privileges/privileges_table.twig:742
-#: templates/server/privileges/privileges_table.twig:749
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -17476,8 +17281,6 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:770
 #: templates/server/privileges/privileges_table.twig:777
-#: templates/server/privileges/privileges_table.twig:755
-#: templates/server/privileges/privileges_table.twig:762
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Обмежити кількість нових під'єднань, які користувач може створювати протягом "
@@ -17485,39 +17288,31 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:783
 #: templates/server/privileges/privileges_table.twig:790
-#: templates/server/privileges/privileges_table.twig:768
-#: templates/server/privileges/privileges_table.twig:775
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Обмежити кількість одночасних підключень, які користувач може мати."
 
 #: templates/server/privileges/privileges_table.twig:803
-#: templates/server/privileges/privileges_table.twig:784
 msgid "Does not require SSL-encrypted connections."
 msgstr "Не вимагає SSL-шифрованих з'єднань."
 
 #: templates/server/privileges/privileges_table.twig:812
-#: templates/server/privileges/privileges_table.twig:793
 msgid "Requires SSL-encrypted connections."
 msgstr "Вимагає SSL-шифрованих з'єднань."
 
 #: templates/server/privileges/privileges_table.twig:821
-#: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
 msgstr "Вимагає дійсного сертифіката X509."
 
 #: templates/server/privileges/privileges_table.twig:842
-#: templates/server/privileges/privileges_table.twig:823
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 "Вимагає, що конкретний метод шифрування, використовувався для з'єднання."
 
 #: templates/server/privileges/privileges_table.twig:851
-#: templates/server/privileges/privileges_table.twig:832
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr "Потрібно, що дійсний сертифікат X509, виданий CA був представлений."
 
 #: templates/server/privileges/privileges_table.twig:860
-#: templates/server/privileges/privileges_table.twig:841
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 "Потрібно, що дійсний сертифікат X509 з цієї тематики був представлений."
@@ -17548,22 +17343,18 @@ msgid "Change login information / Copy user account"
 msgstr "Змінити реєстраційні дані / Копіювати обліковий запис користувача"
 
 #: templates/server/privileges/user_properties.twig:115
-#: templates/server/privileges/user_properties.twig:114
 msgid "Create a new user account with the same privileges and …"
 msgstr "Створити новий обліковий запис користувача з такими ж привілеями та …"
 
 #: templates/server/privileges/user_properties.twig:123
-#: templates/server/privileges/user_properties.twig:120
 msgid "… keep the old one."
 msgstr "… зберегти попереднього."
 
 #: templates/server/privileges/user_properties.twig:130
-#: templates/server/privileges/user_properties.twig:127
 msgid "… delete the old one from the user tables."
 msgstr "… видалити попереднього з таблиці користувачів."
 
 #: templates/server/privileges/user_properties.twig:137
-#: templates/server/privileges/user_properties.twig:134
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
@@ -17571,7 +17362,6 @@ msgstr ""
 "після того."
 
 #: templates/server/privileges/user_properties.twig:144
-#: templates/server/privileges/user_properties.twig:141
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
