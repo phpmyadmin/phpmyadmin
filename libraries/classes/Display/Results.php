@@ -1091,7 +1091,7 @@ class Results
         $displayParams = $this->properties['display_params'];
 
         // 1. Displays the full/partial text button (part 1)...
-        $buttonHtml = '<thead class="table-light"><tr>' . "\n";
+        $buttonHtml = '<thead><tr>' . "\n";
 
         $emptyPreCondition = $displayParts->hasEditLink && $displayParts->deleteLink !== DisplayParts::NO_DELETE;
 

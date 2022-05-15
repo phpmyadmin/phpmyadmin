@@ -63,6 +63,10 @@ $link-decoration: none;
 $link-hover-color: #235a81;
 $link-hover-decoration: underline;
 
+// Components
+
+$border-radius: 0.25rem;
+
 // Typography
 
 $font-family-base: sans-serif;
@@ -76,14 +80,19 @@ $h3-font-size: 1rem;
 
 // Tables
 
-$table-cell-padding: 0.1em 0.3em;
-$table-cell-padding-sm: $table-cell-padding;
+$table-cell-padding-y: 0.1em;
+$table-cell-padding-x: 0.3em;
+$table-cell-padding-y-sm: $table-cell-padding-y;
+$table-cell-padding-x-sm: $table-cell-padding-x;
+$table-bg: #fff;
 $table-head-bg: #fff;
 $table-head-color: $th-color;
 $table-striped-order: even;
+$table-striped-bg: #dfdfdf;
 $table-hover-color: $browse-pointer-color;
 $table-border-color: #fff;
 $table-border-width: 0;
+$table-caption-color: $table-head-color;
 
 // Buttons
 
