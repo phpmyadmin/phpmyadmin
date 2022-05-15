@@ -5124,6 +5124,7 @@ msgstr "Izpraznili smo tabelo %s."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
 #: libraries/classes/Display/Results.php:3772
+#: libraries/classes/Display/Results.php:3775
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -8802,7 +8803,7 @@ msgstr "Tabela %s že obstaja!"
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
-#: templates/sql/query.twig:7
+#: templates/sql/query.twig:7 libraries/classes/Display/Results.php:3486
 msgid "Your SQL query has been executed successfully."
 msgstr "Poizvedbo SQL smo uspešno izvedli."
 
@@ -9546,26 +9547,31 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Morda je približno. Glej [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/classes/Display/Results.php:3781
+#: libraries/classes/Display/Results.php:3784
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Prikazujem vrstice %1s–%2s"
 
 #: libraries/classes/Display/Results.php:3795
+#: libraries/classes/Display/Results.php:3798
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "skupno %1$d, %2$d v poizvedbi"
 
 #: libraries/classes/Display/Results.php:3800
+#: libraries/classes/Display/Results.php:3803
 #, php-format
 msgid "%d total"
 msgstr "skupaj %d"
 
 #: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3816
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
 
 #: libraries/classes/Display/Results.php:4143
+#: libraries/classes/Display/Results.php:4146
 msgid "Link not found!"
 msgstr "Povezave ni mogoče najti!"
 
@@ -12409,7 +12415,7 @@ msgstr "Ne morem spremeniti glavnega strežnika!"
 msgid "Primary server changed successfully to %s."
 msgstr "Glavni strežnik smo uspešno spremenili v %s."
 
-#: libraries/classes/Routing.php:101
+#: libraries/classes/Routing.php:101 libraries/classes/Routing.php:102
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12418,12 +12424,12 @@ msgstr ""
 "Nismo mogli zapisati usmerjevalnega predpomnilnika; nastaviti je treba "
 "dovoljenja mape/datoteke \"%s\""
 
-#: libraries/classes/Routing.php:160
+#: libraries/classes/Routing.php:160 libraries/classes/Routing.php:161
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Napaka 404! Strani %s nismo našli."
 
-#: libraries/classes/Routing.php:171
+#: libraries/classes/Routing.php:171 libraries/classes/Routing.php:172
 msgid "Error 405! Request method not allowed."
 msgstr "Napaka 405! Metoda zahteve ni dovoljena."
 
@@ -16950,10 +16956,8 @@ msgid "Grant all privileges on database %s."
 msgstr "Dodeli vse privilegije za zbirko podatkov %s."
 
 #: templates/server/privileges/add_user.twig:38
-#, fuzzy
-#| msgid "Create %s"
 msgid "Create user"
-msgstr "Ustvari %s"
+msgstr "Ustvari uporabnika"
 
 #: templates/server/privileges/change_password.twig:16
 msgid "No Password"
@@ -17289,10 +17293,8 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Zahteva prisotnost veljavnega certifikata X509 s to zadevo."
 
 #: templates/server/privileges/privileges_table.twig:878
-#, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
-msgstr "Prilagodi privilegije"
+msgstr "Posodobi privilegije uporabnika"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -19189,7 +19191,6 @@ msgstr "Imena stolpcev"
 #~ msgstr "Uporabi tabelo gostiteljev"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Opis"
@@ -19761,7 +19762,6 @@ msgstr "Imena stolpcev"
 #~ msgstr "Prestavili vas bomo na %s."
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "Overovitev"
 
@@ -19978,7 +19978,6 @@ msgstr "Imena stolpcev"
 #~ msgid "Disable foreign key check"
 #~ msgstr "Onemogoči preverjanje tujih ključev"
 
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "Ponovna poravnava privilegijev"
 
@@ -20023,7 +20022,6 @@ msgstr "Imena stolpcev"
 #~ msgstr "Izbriši podatke sledenja te tabele"
 
 #, fuzzy
-#~| msgid "Table structure"
 #~ msgid "Table Structure"
 #~ msgstr "Zgradba tabele"
 
@@ -20037,7 +20035,6 @@ msgstr "Imena stolpcev"
 #~ msgid "Inline"
 #~ msgstr "V vrstici"
 
-#~| msgid "after %s"
 #~ msgid "after"
 #~ msgstr "po"
 
@@ -20139,7 +20136,6 @@ msgstr "Imena stolpcev"
 #~ msgstr "Vtičnik je onemogočen"
 
 #, fuzzy
-#~| msgid "Customize main panel"
 #~ msgid "Unlink with main panel"
 #~ msgstr "Prilagodi glavno ploščo"
 
@@ -20150,12 +20146,10 @@ msgstr "Imena stolpcev"
 #~ msgstr "Ni definiranega indeksa! Ustvarite ga spodaj"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "eps export page"
 #~ msgstr "Vrsta izvoza"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "Neveljavna vrsta izvoza"
 
@@ -20198,12 +20192,10 @@ msgstr "Imena stolpcev"
 #~ msgstr "Ustvaril sem izvirne stolpce."
 
 #, fuzzy
-#~| msgid "Move columns"
 #~ msgid "Have unique columns"
 #~ msgstr "Premakni stolpce"
 
 #, fuzzy
-#~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "Uporabnik %s že obstaja!"
 
@@ -20361,7 +20353,6 @@ msgstr "Imena stolpcev"
 #~ "nameščene vse razširitve PHP, kot je navedeno v %sdokumenaciji%s."
 
 #, fuzzy
-#~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "Napaka: Razmerje ni dodano."
 
@@ -20370,9 +20361,6 @@ msgstr "Imena stolpcev"
 #~ msgstr ""
 #~ "<b>Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:</b>"
 
-#~| msgid ""
-#~| "After saving or loading a search, you can rename it and save the new "
-#~| "criteria."
 #~ msgid ""
 #~ "After saving or loading a bookmarked search, you can rename it and save "
 #~ "the new criteria."
@@ -20533,7 +20521,6 @@ msgstr "Imena stolpcev"
 #~ "Na voljo ni ne vmesnik URL ne CURL. Preverjanje različice ni mogoče."
 
 #, fuzzy
-#~| msgid "Find:"
 #~ msgid "Find"
 #~ msgstr "Najdi:"
 
@@ -20544,7 +20531,6 @@ msgstr "Imena stolpcev"
 #~ msgstr "Glave vsakih %s vrstic"
 
 #, fuzzy
-#~| msgid "Table Search"
 #~ msgid "Enable reCaptcha"
 #~ msgstr "Iskanje po tabeli"
 
@@ -20736,7 +20722,6 @@ msgstr "Imena stolpcev"
 #~ "podatkov. Izvorna zbirka podatkov bo ostala nespremenjena."
 
 #, fuzzy
-#~| msgid "New"
 #~ msgctxt "Crate new trigger"
 #~ msgid "New"
 #~ msgstr "Novo"
@@ -20847,7 +20832,6 @@ msgstr "Imena stolpcev"
 #~ msgstr "Nizi so pri izrisovanju pretvorjeni v cela števila"
 
 #, fuzzy
-#~| msgid "Linestring"
 #~ msgid "String"
 #~ msgstr "Daljica"
 
@@ -20879,7 +20863,6 @@ msgstr "Imena stolpcev"
 #~ msgstr "Zgosti večkratne stavke"
 
 #, fuzzy
-#~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Samo podatki"
 
