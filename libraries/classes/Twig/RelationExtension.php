@@ -21,11 +21,6 @@ class RelationExtension extends AbstractExtension
 
         return [
             new TwigFunction(
-                'foreign_dropdown',
-                [$relation, 'foreignDropdown'],
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_display_field',
                 [$relation, 'getDisplayField'],
                 ['is_safe' => ['html']]

@@ -92,12 +92,13 @@ class SearchController extends AbstractController
     private $dbi;
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        Search $search,
-        Relation $relation,
+        ResponseRenderer  $response,
+        Template          $template,
+        Search            $search,
+        Relation          $relation,
         DatabaseInterface $dbi
-    ) {
+    )
+    {
         parent::__construct($response, $template);
         $this->search = $search;
         $this->relation = $relation;
@@ -128,7 +129,7 @@ class SearchController extends AbstractController
             // set column name
             $this->columnNames[] = $row['Field'];
 
-            $type = (string) $row['Type'];
+            $type = (string)$row['Type'];
             // before any replacement
             $this->originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
@@ -142,7 +143,7 @@ class SearchController extends AbstractController
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
-                if (! preg_match('@BINARY[\(]@i', $type)) {
+                if (!preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
 
@@ -157,7 +158,7 @@ class SearchController extends AbstractController
 
             $this->columnTypes[] = $type;
             $this->columnNullFlags[] = $row['Null'];
-            $this->columnCollations[] = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
+            $this->columnCollations[] = !empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
         }
@@ -197,7 +198,7 @@ class SearchController extends AbstractController
         /**
          * No selection criteria received -> display the selection form
          */
-        if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns'])) {
+        if (!isset($_POST['columnsToDisplay']) && !isset($_POST['displayAllColumns'])) {
             $this->displaySelectionFormAction();
         } else {
             $this->doSelectionAction();
@@ -209,7 +210,7 @@ class SearchController extends AbstractController
      */
     public function getDataRowAction(): void
     {
-        if (! Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
+        if (!Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
             return;
         }
 
@@ -223,7 +224,7 @@ class SearchController extends AbstractController
             $i = 0;
             foreach ($row as $col => $val) {
                 if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, (int) $fields_meta[$i]->length);
+                    $row[$col] = Util::printableBitValue((int)$val, (int)$fields_meta[$i]->length);
                 }
 
                 $i++;
@@ -280,7 +281,7 @@ class SearchController extends AbstractController
      */
     public function displaySelectionFormAction(): void
     {
-        if (! isset($GLOBALS['goto'])) {
+        if (!isset($GLOBALS['goto'])) {
             $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
@@ -363,17 +364,29 @@ class SearchController extends AbstractController
         if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
-            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
+            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, !$is_unsigned);
             $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
-                            . 'data-max="' . $minMaxValues[1] . '"';
+                . 'data-max="' . $minMaxValues[1] . '"';
         }
 
         $htmlAttributes .= ' onfocus="return '
-                        . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#tbl_search_form\')"';
+            . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#tbl_search_form\')"';
+
+        $foreignDropdown = '';
+
+        if ($this->foreigners && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$column_index]) && is_array($foreignData['disp_row'])) {
+            $foreignDropdown = $this->relation->foreignDropdown(
+                $foreignData['disp_row'],
+                $foreignData['foreign_field'],
+                $foreignData['foreign_display'],
+                '',
+                $GLOBALS['cfg']['ForeignKeyMaxLimit']
+            );
+        }
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
-            'column_type' => (string) $type,
+            'column_type' => (string)$type,
             'column_data_type' => strtoupper($cleanType),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
@@ -384,10 +397,10 @@ class SearchController extends AbstractController
             'foreign_data' => $foreignData,
             'table' => $GLOBALS['table'],
             'column_index' => $search_index,
-            'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
             'db' => $GLOBALS['db'],
             'in_fbs' => true,
+            'foreign_dropdown' => $foreignDropdown,
         ]);
 
         return [
