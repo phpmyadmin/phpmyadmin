@@ -22,6 +22,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function in_array;
 use function intval;
+use function is_array;
 use function mb_strtolower;
 use function md5;
 use function preg_match;
@@ -373,7 +374,11 @@ class SearchController extends AbstractController
 
         $foreignDropdown = '';
 
-        if ($this->foreigners && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$column_index]) && is_array($foreignData['disp_row'])) {
+        if (
+            $this->foreigners
+            && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$column_index])
+            && is_array($foreignData['disp_row'])
+        ) {
             $foreignDropdown = $this->relation->foreignDropdown(
                 $foreignData['disp_row'],
                 $foreignData['foreign_field'],

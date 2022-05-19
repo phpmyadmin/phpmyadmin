@@ -22,6 +22,7 @@ use function count;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
+use function is_array;
 use function is_numeric;
 use function json_encode;
 use function mb_strtolower;
@@ -368,24 +369,26 @@ class ZoomSearchController extends AbstractController
         unset($tmpData);
 
         $column_names_hashes = [];
-
-        foreach ($this->columnNames as $columnName) {
-            $column_names_hashes[$columnName] = md5($columnName);
-        }
-
         $foreignDropdown = [];
 
-        for ($i = 0; $i == count($this->columnNames) - 1; $i++) {
-            $foreignData = $this->relation->getForeignData($this->foreigners,$this->columnNames[$i],false, '', '');
-            if ($this->foreigners && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$i]) && is_array($foreignData['disp_row'])) {
-                $foreignDropdown[$i] = $this->relation->foreignDropdown(
-                    $foreignData['disp_row'],
-                    $foreignData['foreign_field'],
-                    $foreignData['foreign_display'],
-                    '',
-                    $GLOBALS['cfg']['ForeignKeyMaxLimit']
-                );
+        foreach ($this->columnNames as $columnIndex => $columnName) {
+            $column_names_hashes[$columnName] = md5($columnName);
+            $foreignData = $this->relation->getForeignData($this->foreigners, $columnName, false, '', '');
+            if (
+                ! $this->foreigners
+                || ! $this->relation->searchColumnInForeigners($this->foreigners, $columnName)
+                || ! is_array($foreignData['disp_row'])
+            ) {
+                continue;
             }
+
+            $foreignDropdown[$columnIndex] = $this->relation->foreignDropdown(
+                $foreignData['disp_row'],
+                $foreignData['foreign_field'],
+                $foreignData['foreign_display'],
+                '',
+                $GLOBALS['cfg']['ForeignKeyMaxLimit']
+            );
         }
 
         $this->render('table/zoom_search/result_form', [
@@ -453,7 +456,11 @@ class ZoomSearchController extends AbstractController
 
         $foreignDropdown = '';
 
-        if ($this->foreigners && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$column_index]) && is_array($foreignData['disp_row'])) {
+        if (
+            $this->foreigners
+            && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$column_index])
+            && is_array($foreignData['disp_row'])
+        ) {
             $foreignDropdown = $this->relation->foreignDropdown(
                 $foreignData['disp_row'],
                 $foreignData['foreign_field'],

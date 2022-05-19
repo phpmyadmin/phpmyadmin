@@ -1471,6 +1471,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
+			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SearchController.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:\\$columnCollations type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -1623,6 +1628,11 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-

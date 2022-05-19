@@ -3,7 +3,7 @@
     {% if foreign_data['disp_row'] is iterable %}
         <select name="criteriaValues[{{ column_index }}]"
             id="{{ column_id }}{{ column_index }}">
-            {{ foreign_dropdown }}
+            {{ foreign_dropdown|raw }}
         </select>
     {% elseif foreign_data['foreign_link'] == true %}
         <input type="text"

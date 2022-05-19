@@ -3869,13 +3869,15 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="13">
       <code>$_POST['column']</code>
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
       <code>$_POST['where_clause_sign']</code>
+      <code>$foreignData['foreign_field']</code>
       <code>$selected_operator</code>
+      <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNullFlags[$column_index]</code>
@@ -4309,16 +4311,21 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="21">
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
       <code>$_POST['where_clause_sign']</code>
       <code>$columnName</code>
+      <code>$columnName</code>
+      <code>$columnName</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
+      <code>$foreignData['foreign_field']</code>
+      <code>$foreignData['foreign_field']</code>
       <code>$properties['type']</code>
       <code>$selected_operator</code>
+      <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNames[$column_index]</code>
       <code>$this-&gt;columnNullFlags[$column_index]</code>
