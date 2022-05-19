@@ -15,9 +15,11 @@ use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use XMLWriter;
 
 use function array_merge;
 use function class_exists;
+use function extension_loaded;
 use function in_array;
 use function ucfirst;
 
@@ -125,7 +127,11 @@ class TwoFactor
             $result[] = 'simple';
         }
 
-        if (class_exists(Google2FA::class) && class_exists(ImageRenderer::class)) {
+        if (
+            class_exists(Google2FA::class)
+            && class_exists(ImageRenderer::class)
+            && (class_exists(XMLWriter::class) || extension_loaded('imagick'))
+        ) {
             $result[] = 'application';
         }
 
