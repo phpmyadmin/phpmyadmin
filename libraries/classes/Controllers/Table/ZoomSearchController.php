@@ -373,6 +373,21 @@ class ZoomSearchController extends AbstractController
             $column_names_hashes[$columnName] = md5($columnName);
         }
 
+        $foreignDropdown = [];
+
+        for ($i = 0; $i == count($this->columnNames) - 1; $i++) {
+            $foreignData = $this->relation->getForeignData($this->foreigners,$this->columnNames[$i],false, '', '');
+            if ($this->foreigners && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$i]) && is_array($foreignData['disp_row'])) {
+                $foreignDropdown[$i] = $this->relation->foreignDropdown(
+                    $foreignData['disp_row'],
+                    $foreignData['foreign_field'],
+                    $foreignData['foreign_display'],
+                    '',
+                    $GLOBALS['cfg']['ForeignKeyMaxLimit']
+                );
+            }
+        }
+
         $this->render('table/zoom_search/result_form', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
@@ -385,7 +400,7 @@ class ZoomSearchController extends AbstractController
             'data' => $data,
             'data_json' => json_encode($data),
             'zoom_submit' => isset($_POST['zoom_submit']),
-            'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+            'foreign_dropdown' => $foreignDropdown,
         ]);
     }
 
@@ -436,6 +451,18 @@ class ZoomSearchController extends AbstractController
         $htmlAttributes .= ' onfocus="return '
                         . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#zoom_search_form\')"';
 
+        $foreignDropdown = '';
+
+        if ($this->foreigners && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$column_index]) && is_array($foreignData['disp_row'])) {
+            $foreignDropdown = $this->relation->foreignDropdown(
+                $foreignData['disp_row'],
+                $foreignData['foreign_field'],
+                $foreignData['foreign_display'],
+                '',
+                $GLOBALS['cfg']['ForeignKeyMaxLimit']
+            );
+        }
+
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
@@ -449,10 +476,10 @@ class ZoomSearchController extends AbstractController
             'foreign_data' => $foreignData,
             'table' => $GLOBALS['table'],
             'column_index' => $search_index,
-            'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
             'db' => $GLOBALS['db'],
             'in_fbs' => true,
+            'foreign_dropdown' => $foreignDropdown,
         ]);
 
         return [
