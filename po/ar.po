@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-05-03 16:53+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-05-20 21:18+0000\n"
+"Last-Translator: شادي جعفر Shadi Gaafar <shadialaghbari@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
 ">\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -77,9 +77,9 @@ msgstr ""
 "الاستعلامات المدرجة في سجل الاستعلامات البطيئة."
 
 #: libraries/advisory_rules_generic.php:45
-#, fuzzy, php-format
+#, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "يجب أن يكون مُعدّل الاستعلام البطيء أقل من 5 %%، قيمتك هي %%"
+msgstr "يجب أن يكون مُعدّل الاستعلام البطيء أقل من 5 %%، قيمتك هي %s%%."
 
 #: libraries/advisory_rules_generic.php:50
 msgid "Slow query rate"
@@ -96,56 +96,55 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"لديك معدل استعلام بطيء %s في الساعة، يجب أن يكون لديك أقل من 1%% في الساعة."
 
 #: libraries/advisory_rules_generic.php:63
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Long query time"
-msgstr "إستعلام SQL"
+msgstr "وقت استعلام طويل"
 
 #: libraries/advisory_rules_generic.php:67
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} تم ضبطه على 10 ثوانٍ أو أكثر، وبالتالي يتم تسجيل "
+"الاستعلامات البطيئة التي تستغرق فقط 10 ثوانٍ."
 
 #: libraries/advisory_rules_generic.php:71
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"يوصى بتعيين {long_query_time} على قيمة أقل، اعتمادًا على بيئتك. عادة ما يوصى "
+"بقيمة بين 1-5 ثوان."
 
 #: libraries/advisory_rules_generic.php:74
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time محددة بـ %d ثانية."
+msgstr "long_query_time معينة حاليًِا على قيمة %dث."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
-#, fuzzy
-#| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "إظهار صندوق الإستعلام"
+msgstr "تسجيل الاستعلام البطيء"
 
 #: libraries/advisory_rules_generic.php:83
 #: libraries/advisory_rules_generic.php:96
-#, fuzzy
-#| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log مفعل."
+msgstr "تم تعطيل سجل الاستعلام البطيء."
 
 #: libraries/advisory_rules_generic.php:85
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"تمكين تسجيل الاستعلام البطيء عن طريق تعيين قيمة {log_slow_queries} "
+"على'تشغيل'. هذا سوف يساعد في استكشاف الأخطاء وإصلاحها بشكل سيء في "
+"الاستعلامات."
 
 #: libraries/advisory_rules_generic.php:88
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time محددة بـ %d ثانية."
+msgstr "تم تعيين قيمة log_slow_queries على «إطفاء»"
 
 #: libraries/advisory_rules_generic.php:98
 msgid ""
@@ -174,21 +173,19 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"يجب عليك الترقية، لأن الأداء قد تحسن في MySQL 5.1، وMySQL 5.5 بشكل كبير."
 
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
 #: libraries/advisory_rules_generic.php:138
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Current version: %s"
-msgstr "إنشاء إصدار"
+msgstr "الإصدار الحالي: %s"
 
 #: libraries/advisory_rules_generic.php:118
 #: libraries/advisory_rules_generic.php:132
-#, fuzzy
-#| msgid "Version"
 msgid "Minor Version"
-msgstr "نسخة"
+msgstr "إصدار مًصغر"
 
 #: libraries/advisory_rules_generic.php:122
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -205,17 +202,13 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:137
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "عليك الترقية إلى %s%s أو لاحقا."
+msgstr "يتوجب عليك الترقية إلى إصدار مستقر من MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
-#, fuzzy
-#| msgid "Description"
 msgid "Distribution"
-msgstr "الوصف"
+msgstr "التوزيع"
 
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -2321,18 +2314,24 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"ما إذا كانت عبارة DROP DATABASE IF EXISTS سيتم إضافتها في السطر الأول في "
+"السجل عند إنشاء قاعدة بيانات."
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"ما إذا كانت عبارة DROP TABLE IF EXISTS سيتم إضافتها في السطر الأول في السجل "
+"عند إنشاء قاعدة بيانات."
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"ما إذا كانت عبارة DROP VIEW IF EXISTS سيتم إضافتها في السطر الأول في السجل "
+"عند إنشاء عرض."
 
 #: libraries/classes/Config/Descriptions.php:438
 msgid "Defines the list of statements the auto-creation uses for new versions."
@@ -2624,11 +2623,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:561
 msgid "Show server listing as a list instead of a drop down."
-msgstr "إظهار الخوادم كقائمة بدلاً من القائمة المنسدلة."
+msgstr "إظهار الخواديم كقائمة بدلاً من القائمة المنسدلة."
 
 #: libraries/classes/Config/Descriptions.php:562
 msgid "A dropdown will be used if fewer items are present."
-msgstr "سيتم إستخدام القائمة المنسدلة إذا وجد عدد أقل من العناصر."
+msgstr "سيتم استخدام القائمة المنسدلة إذا وجد عدد أقل من العناصر."
 
 #: libraries/classes/Config/Descriptions.php:563
 msgid "Default value for foreign key checks checkbox for some queries."
@@ -2637,7 +2636,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:564
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr "قم بإلغاء تحديد مربع الاختيار لتعطيل السحب والإفلات الاستيراد"
+msgstr "قم بإلغاء تحديد مربع الاختيار لتعطيل الاستيراد بواسطة السحب والإفلات."
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "How many rows can be inserted at one time."
@@ -2804,7 +2803,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:620
 msgid "Show \"Drop database\" link to normal users"
-msgstr "عرض رابط \"إزالة قاعدة البيانات&quot للمستخدمين العاديين"
+msgstr "إظهار رابط «إسقاط قاعدة البيانات» للمستخدمين العاديين"
 
 #: libraries/classes/Config/Descriptions.php:621
 msgid "Blowfish secret"
@@ -2860,7 +2859,7 @@ msgstr "ضغط"
 
 #: libraries/classes/Config/Descriptions.php:634
 msgid "Confirm DROP queries"
-msgstr "تأكيد إستعلامات DROP"
+msgstr "تأكيد استعلامات الإسقاط DROP"
 
 #: libraries/classes/Config/Descriptions.php:635
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3201,7 +3200,7 @@ msgstr "تصدير بيانات التعريف ذات الصلة من تخزين
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
-msgstr "أضف %s"
+msgstr "إضافة %s"
 
 #: libraries/classes/Config/Descriptions.php:724
 #, fuzzy
@@ -3251,7 +3250,7 @@ msgstr "وقت التصدير (بالتوقيت العالمي)"
 
 #: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
-msgstr "قائمة منسدلة مرتبة بالمفتاح الغريب"
+msgstr "قائمة منسدلة مرتبة بالمفتاح الأجنبي"
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Foreign key limit"
@@ -3456,7 +3455,7 @@ msgstr "تجاهل أخطاء الجمل المتعددة"
 
 #: libraries/classes/Config/Descriptions.php:790
 msgid "Enable drag and drop import"
-msgstr "تمكين السحب والإفلات الاستيراد"
+msgstr "تمكين الاستيراد عن طريق السحب والإفلات."
 
 #: libraries/classes/Config/Descriptions.php:791
 msgid "Partial import: allow interrupt"
@@ -3944,16 +3943,16 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "إضافة DROP DATABASE"
 
 #: libraries/classes/Config/Descriptions.php:918
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "إضافة DROP TABLE"
 
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "إضافة DROP VIEW"
 
 #: libraries/classes/Config/Descriptions.php:920
 msgid "Statements to track"
@@ -4885,17 +4884,15 @@ msgstr "نجاح!"
 #: libraries/classes/Controllers/Database/StructureController.php:366
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
-msgstr "تم إزالة %s  من العرض"
+msgstr "تم إزالة %s من العرض"
 
 #: libraries/classes/Controllers/Database/StructureController.php:367
 #: templates/table/operations/index.twig:451
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "تم إزالة الجدول %s"
+msgstr "تم إسقاط الجدول %s"
 
 #: libraries/classes/Controllers/Database/StructureController.php:414
 #: templates/table/operations/index.twig:410
@@ -5210,7 +5207,7 @@ msgstr ""
 #: libraries/classes/Controllers/Import/ImportController.php:725
 #: libraries/classes/Controllers/Sql/SqlController.php:163
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "أمر \"حذف قاعدة البيانات\" معطل."
+msgstr "تم تعطيل عبارات «Drop Database»."
 
 #: libraries/classes/Controllers/Import/SimulateDmlController.php:38
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
@@ -5278,11 +5275,11 @@ msgstr "حذف بيانات التتبع"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:54
 msgid "Dropping Primary Key/Index"
-msgstr "حذف المفتاح الرئيسي مفتاح/فهرس"
+msgstr "حذف المفتاح/الفهرس الرئيس"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:55
 msgid "Dropping Foreign key."
-msgstr "الغاء المفتاح الاجنبي ."
+msgstr "إسقاط المفتاح الأجنبي"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 msgid "This operation could take a long time. Proceed anyway?"
@@ -5327,8 +5324,8 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"هل تريد حقا الغاء الاجزاء المحددة ؟ هذا الاجراء سيقوم بالغاء كل البيانات "
-"المرتبطة بهذه الاجزاء !"
+"هل تريد حقًا إسقاط القسم المحدد؟ سيؤدي ذلك أيضًا إلى حذف البيانات المتعلقة "
+"بالقسم (الأقسام) المحدد!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:71
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
@@ -5438,11 +5435,11 @@ msgstr "أعد تسمية العرض الـ"
 #: templates/table/index_form.twig:234
 #, php-format
 msgid "Add %s column(s) to index"
-msgstr "أضف %s عمود/ اعمدة إلى الفهرس"
+msgstr "أضف %s عمود/ أعمدة إلى الفهرس"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:111
 msgid "Create single-column index"
-msgstr "إنشاء فهرس من عمود مفرد"
+msgstr "إنشاء فهرس ذو عمود مفرد"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:112
 msgid "Create composite index"
@@ -6244,7 +6241,7 @@ msgstr "لم يتم اختيار حسابات."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 msgid "Dropping column"
-msgstr "إزالة العمود"
+msgstr "إسقاط العمود"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 msgid "Adding primary key"
@@ -6465,7 +6462,7 @@ msgstr "شاهد المزيد"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 msgid "Add primary key"
-msgstr "إضافة مفتاح رئيسي"
+msgstr "إضافة مفتاح أساسي"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 msgid "Primary key added."
@@ -6554,7 +6551,7 @@ msgstr "سيتم تنفيذ الإجراءات التالية:"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "الغي الاعمدة %s من جدول %s"
+msgstr "إسقاط الأعمدة %s من الجدول %s"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 msgid "Create the following table"
@@ -6641,11 +6638,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 msgid "Select two columns"
-msgstr "إختر عمودين"
+msgstr "حدد عمودين"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Select two different columns"
-msgstr "إختر عمودين مختلفين"
+msgstr "حدد عمودين مختلفين"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Data point content"
@@ -6961,7 +6958,7 @@ msgstr "حالة الاستيراد"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
-msgstr "إسقاط الملفات هنا"
+msgstr "قم إفلات الملفات هنا"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Select database first"
@@ -7335,16 +7332,15 @@ msgid "Database %1$s has been created."
 msgstr "تم إنشاء قاعدة البيانات %1$s."
 
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:93
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[1] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[2] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[3] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[4] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[5] "تم حذف قواعد البيانات %s بنجاح."
+msgstr[0] "تم إسقاط قواعد البيانات %s بنجاح."
+msgstr[1] "تم إسقاط قواعد البيانات %s بنجاح."
+msgstr[2] "تم إسقاط قواعد البيانات %s بنجاح."
+msgstr[3] "تم إسقاط قواعد البيانات %s بنجاح."
+msgstr[4] "تم إسقاط قواعد البيانات %s بنجاح."
+msgstr[5] "تم إسقاط قواعد البيانات %s بنجاح."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -7508,6 +7504,8 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"عدد الطلبات لقراءة الصف التالي بالترتيب حسب المفتاح. يتم زيادة هذا إذا كنت "
+"تستعلم عن عمود الفهارس مع القيود أو إذا كنت تقوم  بفحص للفهارس."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:297
 msgid ""
@@ -8106,16 +8104,15 @@ msgid "No column selected."
 msgstr "لايوجد صفوف مختارة."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[1] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[2] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[3] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[4] "تم حذف قواعد البيانات %s بنجاح."
-msgstr[5] "تم حذف قواعد البيانات %s بنجاح."
+msgstr[0] "تم إسقاط %1$d عمود بنجاح."
+msgstr[1] "تم إسقاط عمود واحد بنجاح"
+msgstr[2] "تم اسقاط عمودان بنجاح"
+msgstr[3] "تم إسقاط %1$d أعمدة بنجاح"
+msgstr[4] "تم إسقاط %1$d عمود بنجاح"
+msgstr[5] "تم إسقاط %1$d عمود بنجاح"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -8432,10 +8429,8 @@ msgid "One or more errors have occurred while processing your request:"
 msgstr "<b>حصل خطأ أثناء معالجة طلبك: </b>"
 
 #: libraries/classes/Database/Events.php:239
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add event"
-msgstr "أضف مستخدم جديد"
+msgstr "إضافة حدث"
 
 #: libraries/classes/Database/Events.php:243
 #, fuzzy
@@ -8472,10 +8467,8 @@ msgid "You must provide an event definition."
 msgstr ""
 
 #: libraries/classes/Database/Events.php:502
-#, fuzzy
-#| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "عفواً , فشل في إستعادة الإجراء المزال"
+msgstr "عفواً، فشل في استعادة الحدث الذي تم إسقاطه."
 
 #: libraries/classes/Database/Events.php:503
 #: libraries/classes/Database/Routines.php:1538
@@ -8577,10 +8570,8 @@ msgid "Delete bookmark"
 msgstr "حذف الإشارة المرجعية"
 
 #: libraries/classes/Database/Routines.php:118
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add routine"
-msgstr "إضافة حقل جديد"
+msgstr "إضافة روتين"
 
 #: libraries/classes/Database/Routines.php:122
 msgid "Edit routine"
@@ -8677,7 +8668,7 @@ msgstr "تنفيذ"
 
 #: libraries/classes/Database/Routines.php:1537
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "معذرة، فشلنا في استعادة الروتين الذي تم إسقاطه."
 
 #: libraries/classes/Database/Routines.php:1567
 #, php-format
@@ -8730,10 +8721,8 @@ msgid "Trigger %1$s has been created."
 msgstr "تم إنشاء الإجراء %1$s."
 
 #: libraries/classes/Database/Triggers.php:255
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add trigger"
-msgstr "أضف مستخدم جديد"
+msgstr "إضافة زناد"
 
 #: libraries/classes/Database/Triggers.php:259
 #, fuzzy
@@ -8770,10 +8759,8 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:434
-#, fuzzy
-#| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "عفواً , فشل في إستعادة الإجراء المزال"
+msgstr "معذرة، فشل في استعاده الزناد الذي تم إسقاطه."
 
 #: libraries/classes/Database/Triggers.php:468
 #, fuzzy, php-format
@@ -10019,10 +10006,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:300
-#, fuzzy
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "إضافة مفتاح رئيسي"
+msgstr "إضافة مفتاح أساسي"
 
 #: libraries/classes/Normalization.php:323
 #, fuzzy
@@ -10288,7 +10273,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:290
 #: templates/table/structure/display_structure.twig:508
 msgid "Drop"
-msgstr "سقّط"
+msgstr "إسقاط"
 
 #: libraries/classes/Operations.php:574
 #, fuzzy
@@ -10857,10 +10842,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:265
-#, fuzzy
-#| msgid "Statements"
 msgid "Add statements:"
-msgstr "أوامر"
+msgstr "إضافة عبارات:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:273
 #: libraries/classes/Plugins/Export/ExportSql.php:282
@@ -10869,10 +10852,9 @@ msgstr "أوامر"
 #: libraries/classes/Plugins/Export/ExportSql.php:332
 #: libraries/classes/Plugins/Export/ExportSql.php:360
 #: libraries/classes/Plugins/Export/ExportSql.php:369
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "أوامر"
+msgstr "إضافة عبارة %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:315
 msgid "(less efficient as indexes will be generated during table creation)"
@@ -11020,11 +11002,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1778
 msgid "Constraints for dumped tables"
-msgstr "قيود الجداول المحفوظة"
+msgstr "قيود الجداول المُلقاة."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1779
 msgid "Constraints for table"
-msgstr "القيود للجدول"
+msgstr "قيود الجداول"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1806
 #, fuzzy
@@ -11161,10 +11143,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:62
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "اسم العمود"
+msgstr "أسماء الأعمدة: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:106
 msgid "This plugin does not support compressed imports!"
@@ -11869,7 +11849,7 @@ msgstr "يسمح بإنشاء جداول جديدة."
 #: templates/server/privileges/privileges_table.twig:409
 #: templates/server/privileges/privileges_table.twig:417
 msgid "Allows dropping tables."
-msgstr "يسمح بحذف الجداول."
+msgstr "يسمح بإسقاط الجداول."
 
 #: libraries/classes/Server/Privileges.php:307
 #: libraries/classes/Server/Privileges.php:399
@@ -11878,7 +11858,7 @@ msgstr "يسمح بحذف الجداول."
 #: templates/server/privileges/privileges_table.twig:393
 #: templates/server/privileges/privileges_table.twig:396
 msgid "Allows creating and dropping indexes."
-msgstr "يسمح بإنشاء وحذف الفهارس."
+msgstr "يسمح بإنشاء وإسقاط الفهارس."
 
 #: libraries/classes/Server/Privileges.php:312
 #: libraries/classes/Server/Privileges.php:404
@@ -11917,10 +11897,8 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:224
 #: templates/server/privileges/privileges_table.twig:537
 #: templates/server/privileges/privileges_table.twig:540
-#, fuzzy
-#| msgid "Allows creating and dropping indexes."
 msgid "Allows creating and dropping triggers."
-msgstr "يسمح بإنشاء وحذف الفهارس."
+msgstr "يسمح بإنشاء وإسقاط الأزندة."
 
 #: libraries/classes/Server/Privileges.php:344
 #: templates/server/privileges/privileges_table.twig:15
@@ -11953,7 +11931,7 @@ msgstr "يسمح بإنشاء قواعد بيانات وجداول جديدة."
 #: templates/server/privileges/privileges_table.twig:407
 #: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
-msgstr "يسمح بحذف قواعد البيانات."
+msgstr "يسمح بإسقاط قواعد البيانات والجداول."
 
 #: libraries/classes/Server/Privileges.php:374
 #: templates/server/privileges/privileges_table.twig:599
@@ -12058,13 +12036,13 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:467
 #: templates/server/privileges/privileges_table.twig:470
 msgid "Allows altering and dropping stored routines."
-msgstr ""
+msgstr "يمسح بتعديل وإسقاط الروتينيات المخزنة."
 
 #: libraries/classes/Server/Privileges.php:501
 #: templates/server/privileges/privileges_table.twig:707
 #: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "يسمح بإنشاء، وإسقاط وإعادة تسمية حسابات المستخدمين."
 
 #: libraries/classes/Server/Privileges.php:506
 #: templates/server/privileges/privileges_table.twig:480
@@ -13330,16 +13308,12 @@ msgstr "اسم الجدول"
 #: templates/console/display.twig:99
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "و"
+msgstr "إضافة"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
 msgid "column(s)"
-msgstr "اسم العمود"
+msgstr "العمود (الأعمدة)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 #, fuzzy
@@ -13430,10 +13404,8 @@ msgid "Expression or column list"
 msgstr "القيم للعمود %s"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions:"
-msgstr "تقسيم %s"
+msgstr "الأقسام:"
 
 #: templates/columns_definitions/partitions.twig:45
 #, fuzzy
@@ -13442,10 +13414,8 @@ msgid "Subpartition by:"
 msgstr "مقسم"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "مقسم"
+msgstr "أقسام فرعية:"
 
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/operations/index.twig:480
@@ -13803,10 +13773,8 @@ msgid "Hide trace"
 msgstr "إخفاء الفهارس"
 
 #: templates/console/display.twig:112
-#, fuzzy
-#| msgid "Table Search"
 msgid "Add bookmark"
-msgstr "بحث في الجدول"
+msgstr "إضافة للمفضلة"
 
 #: templates/console/display.twig:121
 #, fuzzy
@@ -13984,7 +13952,7 @@ msgstr "محزم"
 #: templates/table/structure/display_structure.twig:463
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
-msgstr ""
+msgstr "الأصلية (عدد العناصر في المجموعة)"
 
 #: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:92
 #: templates/table/structure/display_structure.twig:542
@@ -14476,10 +14444,8 @@ msgid "criteria"
 msgstr "المعايير :"
 
 #: templates/database/multi_table_query/form.twig:73
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "أضف %s"
+msgstr "إضافة كـ"
 
 #: templates/database/multi_table_query/form.twig:119
 #, fuzzy
@@ -14499,10 +14465,8 @@ msgstr "حذف الرسم البياني"
 
 #: templates/database/multi_table_query/form.twig:159
 #: templates/table/relation/foreign_key_row.twig:85
-#, fuzzy
-#| msgid "Add column"
 msgid "+ Add column"
-msgstr "إضافة عمود"
+msgstr "+ إضافة عمود"
 
 #: templates/database/multi_table_query/form.twig:174
 #: templates/database/qbe/selection_form.twig:80
@@ -14548,11 +14512,11 @@ msgstr "حذف قاعدة البيانات"
 #: templates/database/operations/index.twig:89
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "تم حذف قاعدة البيانات %s ."
+msgstr "تم إسقاط قاعدة البيانات %s ."
 
 #: templates/database/operations/index.twig:94
 msgid "Drop the database (DROP)"
-msgstr "حذف قاعدة البيانات"
+msgstr "إسقاط قاعدة البيانات"
 
 #: templates/database/operations/index.twig:118
 #, fuzzy
@@ -14568,7 +14532,7 @@ msgstr "إنشاء قاعدة البيانات قبل عملية النسخ"
 #: templates/database/structure/copy_form.twig:44
 #: templates/table/operations/index.twig:306
 msgid "Add constraints"
-msgstr "أضف قيود"
+msgstr "إضافة قيود"
 
 #: templates/database/operations/index.twig:180
 msgid "Switch to copied database"
@@ -14740,10 +14704,8 @@ msgid "Add/Delete criteria rows:"
 msgstr "إضافه/حذف معايير الصفوف"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "إضافه/حذف عمود"
+msgstr "إضافة/حذف أعمدة:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -14774,10 +14736,8 @@ msgid "Direction"
 msgstr "الإنشاء"
 
 #: templates/database/routines/editor_form.twig:66
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add parameter"
-msgstr "إضافة حقل جديد"
+msgstr "إضافة معلمة"
 
 #: templates/database/routines/editor_form.twig:67
 #, fuzzy
@@ -14918,10 +14878,8 @@ msgstr[5] "<b>المجموع:</b> <i>%s</i>تطابق"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add prefix"
-msgstr "إضافة حقل جديد"
+msgstr "إضافة بادئة"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
@@ -15906,7 +15864,7 @@ msgstr "تصفح حاسبك:"
 
 #: templates/import.twig:55 templates/import.twig:82
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "يمكنك أيضًا سحب ملف وإفلاته على أي صفحة."
 
 #: templates/import.twig:62 templates/import.twig:88
 #, fuzzy, php-format
@@ -15980,13 +15938,13 @@ msgstr "تغيير اسم جدول إلى"
 #: templates/indexes.twig:45
 #: templates/table/structure/display_structure.twig:495
 msgid "The primary key has been dropped."
-msgstr "لقد تم حذف المفتاح الأساسي."
+msgstr "لقد تم إسقاط المفتاح الأساسي."
 
 #: templates/indexes.twig:50
 #: templates/table/structure/display_structure.twig:500
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "تم حذف الفهرس %s."
+msgstr "تم حذف إسقاط %s."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
@@ -17091,10 +17049,8 @@ msgstr ""
 
 #: templates/server/privileges/edit_routine_privileges.twig:76
 #: templates/server/privileges/edit_routine_privileges.twig:79
-#, fuzzy
-#| msgid "Allows creating and dropping indexes."
 msgid "Allows altering and dropping this routine."
-msgstr "يسمح بإنشاء وحذف الفهارس."
+msgstr "يسمح بإنشاء وإسقاط هذا الروتين."
 
 #: templates/server/privileges/edit_routine_privileges.twig:88
 #: templates/server/privileges/edit_routine_privileges.twig:91
@@ -17443,7 +17399,7 @@ msgstr "استرجع كل الصلاحيات الفعالة من المستخد�
 
 #: templates/server/privileges/users_overview.twig:153
 msgid "Drop the databases that have the same names as the users."
-msgstr "احذف قواعد البيانات التي لها نفس أسماء المستخدمين."
+msgstr "إسقاط قواعد البيانات التي لها نفس أسماء المستخدمين."
 
 #: templates/server/privileges/users_overview.twig:178
 #, fuzzy
@@ -18788,7 +18744,7 @@ msgstr "إفراغ الجدول (TRUNCATE)"
 
 #: templates/table/operations/index.twig:452
 msgid "Delete the table (DROP)"
-msgstr "حذف الجدول (DROP)"
+msgstr "إسقاط الجدول (DROP)"
 
 #: templates/table/operations/index.twig:474
 msgid "Partition maintenance"
@@ -18810,10 +18766,8 @@ msgid "Rename view to"
 msgstr "أعد تسمية العرض الـ"
 
 #: templates/table/operations/view.twig:37
-#, fuzzy
-#| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "حذف الجدول (DROP)"
+msgstr "إسقاط العرض (DROP)"
 
 #: templates/table/page_with_secondary_tabs.twig:11
 #, fuzzy
@@ -18834,10 +18788,8 @@ msgid "Check partition"
 msgstr "مقسم"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "مقسم"
+msgstr "إسقاط القسم"
 
 #: templates/table/partition/optimize.twig:2
 #, fuzzy
@@ -18870,10 +18822,8 @@ msgid "table-specific"
 msgstr "خاص بقاعدة بيانات"
 
 #: templates/table/relation/common_form.twig:9
-#, fuzzy
-#| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
-msgstr "قيود المفتاح الغريب"
+msgstr "قيود المفاتيح الأجنبية"
 
 #: templates/table/relation/common_form.twig:14
 #, fuzzy
@@ -18882,10 +18832,8 @@ msgid "Actions"
 msgstr "العملية"
 
 #: templates/table/relation/common_form.twig:15
-#, fuzzy
-#| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "القيود للجدول"
+msgstr "خواص القيد"
 
 #: templates/table/relation/common_form.twig:19
 msgid ""
@@ -18901,13 +18849,11 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "قيود المفتاح الغريب"
+msgstr "قيد المفتاح الأجنبي"
 
 #: templates/table/relation/common_form.twig:93
-#, fuzzy
-#| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "أضف قيود"
+msgstr "+ إضافة قيود"
 
 #: templates/table/relation/common_form.twig:106
 #: templates/table/relation/common_form.twig:114
@@ -18933,16 +18879,13 @@ msgid "Choose column to display:"
 msgstr "اختر الحقل لإظهاره"
 
 #: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Foreign key constraint"
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "قيود المفتاح الغريب"
+msgstr "تم إسقاط قيد المفتاح الأجنبي %s"
 
 #: templates/table/relation/foreign_key_row.twig:33
-#, fuzzy
-#| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "القيود للجدول"
+msgstr "اسم القيد"
 
 #: templates/table/search/index.twig:27
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -18984,10 +18927,8 @@ msgstr "صف البداية"
 
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:580
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
-msgstr "تقسيم %s"
+msgstr "الأقسام"
 
 #: templates/table/structure/display_partitions.twig:8
 #, fuzzy
@@ -19052,7 +18993,7 @@ msgstr "تغيير"
 #: templates/table/structure/display_structure.twig:116
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "تم حذف العمود %s."
+msgstr "تم إسقاط العمود %s."
 
 #: templates/table/structure/display_structure.twig:142
 #, php-format
@@ -19131,10 +19072,9 @@ msgid "at beginning of table"
 msgstr "في بداية الجدول"
 
 #: templates/table/structure/display_structure.twig:552
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "إنشاء فهرس للعمود %s"
+msgstr "إنشاء فهرس على %s عمود (أعمدة)"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
