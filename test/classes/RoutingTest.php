@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing;
 
 use function copy;
+use function unlink;
 
 use const CACHE_DIR;
 use const ROOT_PATH;
@@ -23,58 +24,41 @@ class RoutingTest extends AbstractTestCase
      */
     public function testGetDispatcher(): void
     {
-        $dispatcher = Routing::getDispatcher();
-        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
-        $this->assertSame(
-            [Dispatcher::FOUND, HomeController::class, []],
-            $dispatcher->dispatch('GET', '/')
-        );
-    }
-
-    public function testGetDispatcherWithValidCacheFile(): void
-    {
+        $expected = [Dispatcher::FOUND, HomeController::class, []];
+        $cacheFilename = CACHE_DIR . 'routes.cache.php';
+        $validCacheFilename = ROOT_PATH . 'test/test_data/routes/routes-valid.cache.txt';
+        $invalidCacheFilename = ROOT_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
         $GLOBALS['cfg']['environment'] = null;
 
         $this->assertDirectoryIsWritable(CACHE_DIR);
-        $this->assertTrue(copy(
-            ROOT_PATH . 'test/test_data/routes/routes-valid.cache.txt',
-            CACHE_DIR . 'routes.cache.php'
-        ));
 
+        // Valid cache file.
+        $this->assertTrue(copy($validCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
         $this->assertInstanceOf(Dispatcher::class, $dispatcher);
-        $this->assertSame(
-            [Dispatcher::FOUND, HomeController::class, []],
-            $dispatcher->dispatch('GET', '/')
-        );
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        $this->assertFileEquals($validCacheFilename, $cacheFilename);
 
-        $this->assertFileEquals(
-            CACHE_DIR . 'routes.cache.php',
-            ROOT_PATH . 'test/test_data/routes/routes-valid.cache.txt'
-        );
-    }
-
-    public function testGetDispatcherWithInvalidCacheFile(): void
-    {
-        $GLOBALS['cfg']['environment'] = null;
-
-        $this->assertDirectoryIsWritable(CACHE_DIR);
-        $this->assertTrue(copy(
-            ROOT_PATH . 'test/test_data/routes/routes-invalid.cache.txt',
-            CACHE_DIR . 'routes.cache.php'
-        ));
-
+        // Invalid cache file.
+        $this->assertTrue(copy($invalidCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
         $this->assertInstanceOf(Dispatcher::class, $dispatcher);
-        $this->assertSame(
-            [Dispatcher::FOUND, HomeController::class, []],
-            $dispatcher->dispatch('GET', '/')
-        );
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        $this->assertFileNotEquals($invalidCacheFilename, $cacheFilename);
 
-        $this->assertFileNotEquals(
-            CACHE_DIR . 'routes.cache.php',
-            ROOT_PATH . 'test/test_data/routes/routes-invalid.cache.txt'
-        );
+        // Create new cache file.
+        $this->assertTrue(unlink($cacheFilename));
+        $this->assertFileNotExists($cacheFilename);
+        $dispatcher = Routing::getDispatcher();
+        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        $this->assertFileExists($cacheFilename);
+
+        // Without a cache file.
+        $GLOBALS['cfg']['environment'] = 'development';
+        $dispatcher = Routing::getDispatcher();
+        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
     }
 
     /**
