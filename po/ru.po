@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-05-19 10:16+0000\n"
+"PO-Revision-Date: 2022-05-20 21:18+0000\n"
 "Last-Translator: Vladimir Belozyorov <vladimir.belozyorov@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -6078,7 +6078,7 @@ msgstr "КиБ"
 #: libraries/classes/Util.php:460
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
-msgstr "МБ"
+msgstr "МиБ"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
@@ -16856,10 +16856,8 @@ msgstr ""
 "Необходимо обновить таблицу column_info. Детали смотрите в документации."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Созданные закладки"
+msgstr "SQL-запросы в закладках:"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
@@ -16884,10 +16882,8 @@ msgid "Persistent tables' UI preferences:"
 msgstr "Настройки интерфейса часто используемых таблиц"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Слежение"
+msgstr "Отслеживание:"
 
 #: templates/relation/check_relations.twig:345
 #, fuzzy
@@ -16902,10 +16898,8 @@ msgid "Configurable menus:"
 msgstr "Настраиваемые меню"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Скрыть/показать пункты навигации"
+msgstr "Скрыть/показать пункты навигации:"
 
 #: templates/relation/check_relations.twig:433
 #, fuzzy
