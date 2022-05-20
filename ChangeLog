@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue #17522 Fix case where the routes cache file is invalid
 - issue #17506 Fix error when configuring 2FA without XMLWriter or Imagick
 - issue        Fix blank page when some error occurs
+- issue #17519 Fix Export pages not working in certain conditions
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

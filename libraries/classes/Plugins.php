@@ -29,6 +29,7 @@ use function class_exists;
 use function count;
 use function get_class;
 use function htmlspecialchars;
+use function is_subclass_of;
 use function mb_strpos;
 use function mb_strtolower;
 use function mb_strtoupper;
@@ -111,8 +112,9 @@ class Plugins
      * Reads all plugin information
      *
      * @param string $type the type of the plugin (import, export, etc)
+     * @psalm-param 'Export'|'Import'|'Schema' $type
      *
-     * @return array list of plugin instances
+     * @return Plugin[] list of plugin instances
      */
     private static function getPlugins(string $type): array
     {
@@ -135,16 +137,11 @@ class Plugins
             }
 
             $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s', $type, $fileInfo->getBasename('.php'));
-            if (! class_exists($class)) {
+            if (! class_exists($class) || ! is_subclass_of($class, Plugin::class) || ! $class::isAvailable()) {
                 continue;
             }
 
-            $plugin = new $class();
-            if (! ($plugin instanceof Plugin) || ! $plugin->isAvailable()) {
-                continue;
-            }
-
-            $plugins[] = $plugin;
+            $plugins[] = new $class();
         }
 
         usort($plugins, static function (Plugin $plugin1, Plugin $plugin2): int {
