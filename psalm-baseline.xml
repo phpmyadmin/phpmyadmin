@@ -9285,6 +9285,11 @@
     <InvalidReturnType occurrences="1">
       <code>string</code>
     </InvalidReturnType>
+    <LessSpecificReturnStatement occurrences="3">
+      <code>self::getPlugins('Export')</code>
+      <code>self::getPlugins('Import')</code>
+      <code>self::getPlugins('Schema')</code>
+    </LessSpecificReturnStatement>
     <MixedArgument occurrences="14">
       <code>$_GET[$opt]</code>
       <code>$_REQUEST[$opt]</code>
@@ -9316,20 +9321,16 @@
       <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="4">
+    <MixedMethodCall occurrences="3">
       <code>getProperties</code>
       <code>new $class()</code>
       <code>new $class()</code>
-      <code>new $class()</code>
     </MixedMethodCall>
-    <MixedReturnTypeCoercion occurrences="6">
+    <MoreSpecificReturnType occurrences="3">
       <code>ExportPlugin[]</code>
       <code>ImportPlugin[]</code>
       <code>SchemaPlugin[]</code>
-      <code>self::getPlugins('Export')</code>
-      <code>self::getPlugins('Import')</code>
-      <code>self::getPlugins('Schema')</code>
-    </MixedReturnTypeCoercion>
+    </MoreSpecificReturnType>
     <PossiblyInvalidArgument occurrences="2">
       <code>$val</code>
       <code>$val</code>

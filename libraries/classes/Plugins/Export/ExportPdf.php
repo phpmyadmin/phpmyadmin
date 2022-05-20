@@ -321,7 +321,7 @@ class ExportPdf extends ExportPlugin
         $this->pdf = $pdf;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         return class_exists(TCPDF::class);
     }

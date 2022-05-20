@@ -15,5 +15,5 @@ interface Plugin
 
     public function getProperties(): PluginPropertyItem;
 
-    public function isAvailable(): bool;
+    public static function isAvailable(): bool;
 }

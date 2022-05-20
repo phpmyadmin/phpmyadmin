@@ -372,7 +372,7 @@ abstract class ExportPlugin implements Plugin
         return $relation;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         return true;
     }

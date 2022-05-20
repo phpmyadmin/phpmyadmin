@@ -541,7 +541,7 @@ class ExportXml extends ExportPlugin
         $this->tables = $tables;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         // Can't do server export.
         return isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0;

@@ -40,7 +40,7 @@ class ImportLdi extends AbstractImportCsv
         $importPluginProperties->setText('CSV using LOAD DATA');
         $importPluginProperties->setExtension('ldi');
 
-        if (! $this->isAvailable()) {
+        if (! self::isAvailable()) {
             return $importPluginProperties;
         }
 
@@ -194,7 +194,7 @@ class ImportLdi extends AbstractImportCsv
         return $sqlStatements;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         // We need relations enabled and we work only on database.
         return isset($GLOBALS['plugin_param']) && $GLOBALS['plugin_param'] === 'table';
