@@ -474,7 +474,7 @@ class OperationsController extends AbstractController
 
         if (Partition::havePartitioning()) {
             $partitionNames = Partition::getPartitionNames($GLOBALS['db'], $GLOBALS['table']);
-            if ($partitionNames[0] !== null) {
+            if (count($partitionNames)) {
                 $partitions = $partitionNames;
                 $partitionsChoices = $this->operations->getPartitionMaintenanceChoices();
             }
