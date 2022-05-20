@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-15 00:24+0000\n"
-"PO-Revision-Date: 2022-05-13 15:17+0000\n"
-"Last-Translator: tiemen <thjazi39@gmail.com>\n"
+"PO-Revision-Date: 2022-05-21 00:27+0000\n"
+"Last-Translator: Surfoo <surfooo@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -5904,7 +5904,7 @@ msgstr "Fermer"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr "Vérrouiller"
+msgstr "Verrouiller"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:102
