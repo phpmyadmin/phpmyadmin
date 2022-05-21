@@ -5471,21 +5471,6 @@ parameters:
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getExport\\(\\) should return array\\<PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\> but returns array\\<PhpMyAdmin\\\\Plugins\\\\Plugin\\>\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getImport\\(\\) should return array\\<PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> but returns array\\<PhpMyAdmin\\\\Plugins\\\\Plugin\\>\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getSchema\\(\\) should return array\\<PhpMyAdmin\\\\Plugins\\\\SchemaPlugin\\> but returns array\\<PhpMyAdmin\\\\Plugins\\\\Plugin\\>\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
 			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php

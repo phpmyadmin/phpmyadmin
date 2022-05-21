@@ -229,6 +229,7 @@
             conn_error: string,
             config: PhpMyAdmin\Config,
             ConfigFile: PhpMyAdmin\Config\ConfigFile,
+            containerBuilder: Symfony\Component\DependencyInjection\ContainerBuilder,
             crlf: string,
             csv_columns: bool,
             csv_enclosed: string,

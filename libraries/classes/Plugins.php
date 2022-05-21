@@ -83,8 +83,10 @@ class Plugins
 
     /**
      * @param string $type server|database|table|raw
+     * @psalm-param 'server'|'database'|'table'|'raw' $type
      *
      * @return ExportPlugin[]
+     * @psalm-return list<ExportPlugin>
      */
     public static function getExport(string $type, bool $singleTable): array
     {
@@ -95,8 +97,10 @@ class Plugins
 
     /**
      * @param string $type server|database|table
+     * @psalm-param 'server'|'database'|'table' $type
      *
      * @return ImportPlugin[]
+     * @psalm-return list<ImportPlugin>
      */
     public static function getImport(string $type): array
     {
@@ -107,6 +111,7 @@ class Plugins
 
     /**
      * @return SchemaPlugin[]
+     * @psalm-return list<SchemaPlugin>
      */
     public static function getSchema(): array
     {
@@ -120,6 +125,11 @@ class Plugins
      * @psalm-param 'Export'|'Import'|'Schema' $type
      *
      * @return Plugin[] list of plugin instances
+     * @psalm-return (
+     *   $type is 'Export'
+     *   ? list<ExportPlugin>
+     *   : ($type is 'Import' ? list<ImportPlugin> : list<SchemaPlugin>)
+     * )
      */
     private static function getPlugins(string $type): array
     {
@@ -146,24 +156,17 @@ class Plugins
                 continue;
             }
 
-            if ($type === 'Export') {
-                /**
-                 * @psalm-suppress InvalidArrayOffset, MixedAssignment, MixedMethodCall
-                 */
-                $plugin = new $class(
+            if ($type === 'Export' && is_subclass_of($class, ExportPlugin::class)) {
+                $plugins[] = new $class(
                     $GLOBALS['containerBuilder']->get('relation'),
                     $GLOBALS['containerBuilder']->get('export'),
                     $GLOBALS['containerBuilder']->get('transformations')
                 );
-            } else {
-                $plugin = new $class();
+            } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {
+                $plugins[] = new $class();
+            } elseif ($type === 'Schema' && is_subclass_of($class, SchemaPlugin::class)) {
+                $plugins[] = new $class();
             }
-
-            if (! ($plugin instanceof Plugin) || ! $plugin->isAvailable()) {
-                continue;
-            }
-
-            $plugins[] = $plugin;
         }
 
         usort($plugins, static function (Plugin $plugin1, Plugin $plugin2): int {
