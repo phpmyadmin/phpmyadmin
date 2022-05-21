@@ -90,7 +90,6 @@ final class Common
         $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
         $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['isMinimumCommon'] = $GLOBALS['isMinimumCommon'] ?? null;
         $GLOBALS['token_mismatch'] = $GLOBALS['token_mismatch'] ?? null;
 
         $request = self::getRequest();

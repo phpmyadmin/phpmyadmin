@@ -255,6 +255,7 @@
             import_file: string,
             import_file_name: string,
             import_text: string,
+            isMinimumCommon?: true,
             is_create_db_priv: bool,
             is_reload_priv: bool,
             knjenc: string,
