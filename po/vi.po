@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-15 00:24+0000\n"
+"POT-Creation-Date: 2022-05-22 00:18+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1578,39 +1578,39 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: libraries/classes/Common.php:255
+#: libraries/classes/Common.php:254
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Bạn nên nâng cấp lên %s %s hay bản mới hơn."
 
-#: libraries/classes/Common.php:287
+#: libraries/classes/Common.php:286
 msgid "Error: Token mismatch"
 msgstr "Lỗi: Không khớp thẻ"
 
-#: libraries/classes/Common.php:498
+#: libraries/classes/Common.php:497
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:554
+#: libraries/classes/Common.php:553
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Common.php:571
+#: libraries/classes/Common.php:570
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:581
 msgid "GLOBALS overwrite attempt"
 msgstr "Cố gắng kết nối gặp lỗi"
 
-#: libraries/classes/Common.php:592
+#: libraries/classes/Common.php:591
 msgid "possible exploit"
 msgstr "Kết quả có thể"
 
@@ -4588,21 +4588,21 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Không thể ghi các cài đặt lại, phần cấu hình đã gửi từ mẫu đơn có chứa lỗi!"
 
-#: libraries/classes/Config.php:644
+#: libraries/classes/Config.php:642
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Tập tin cấu hình sẵn có (%s) không thể đọc được."
 
-#: libraries/classes/Config.php:682
+#: libraries/classes/Config.php:680
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Tập tin cấu hình được phân quyền không đúng, không thể là ai cũng được đọc!"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:695
 msgid "Failed to read configuration file!"
 msgstr "Gặp lỗi khi đọc tập tin cấu hình!"
 
-#: libraries/classes/Config.php:699
+#: libraries/classes/Config.php:697
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4610,12 +4610,12 @@ msgstr ""
 "Việc này thường do có lỗi cú pháp trong đó, vui lòng kiểm tra xem các lỗi "
 "hiển thị bên dưới."
 
-#: libraries/classes/Config.php:1224
+#: libraries/classes/Config.php:1222
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chỉ mục máy chủ không hợp lệ: %s"
 
-#: libraries/classes/Config.php:1237
+#: libraries/classes/Config.php:1235
 #, php-format
 msgid "Server %d"
 msgstr "Máy chủ %d"
@@ -4748,11 +4748,11 @@ msgid ""
 "are unavailable on this system."
 msgstr ""
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "không có mô tả"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5649,8 +5649,8 @@ msgstr "Xóa bỏ người dùng đã chọn"
 #: templates/table/structure/display_structure.twig:345
 #: templates/table/structure/display_structure.twig:356
 #: templates/table/zoom_search/result_form.twig:27
-#: templates/table/zoom_search/result_form.twig:79
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:80
+#: templates/table/zoom_search/result_form.twig:97
 msgid "Close"
 msgstr "Đóng"
 
@@ -6530,7 +6530,7 @@ msgstr "%d không phải là số hàng hợp lệ."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
-#: templates/table/search/input_box.twig:27
+#: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "Duyệt giá trị khóa ngoại"
 
@@ -6702,7 +6702,7 @@ msgstr "Chưa chọn ô điều khiển."
 #: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:225
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/zoom_search/result_form.twig:78
+#: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
 msgstr "Ghi lại"
 
@@ -6768,7 +6768,7 @@ msgstr "bài tóm tắt diễn tả nội dung của dữ liệu này"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Bỏ qua"
@@ -7177,7 +7177,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Vui lòng xem ở phần dưới của cửa sổ này."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/ErrorHandler.php:446
+#: libraries/classes/ErrorHandler.php:450
 msgid "Ignore All"
 msgstr "Bỏ qua tất"
 
@@ -9692,15 +9692,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Quá nhiều lời nhắn lỗi, một số trong chúng sẽ không được hiển thị."
 
-#: libraries/classes/ErrorHandler.php:430
+#: libraries/classes/ErrorHandler.php:434
 msgid "Report"
 msgstr "Báo cáo"
 
-#: libraries/classes/ErrorHandler.php:435 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:439 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Lần sau sẽ tự động gửi báo cáo"
 
@@ -11607,11 +11607,11 @@ msgstr "Đừng dùng <code>AUTO_INCREMENT</code> cho các giá trị bằng kh�
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:609
+#: libraries/classes/Plugins.php:614
 msgid "This format has no options"
 msgstr "Định dạng này không có tùy-chọn"
 
-#: libraries/classes/Plugins.php:626
+#: libraries/classes/Plugins.php:631
 msgid "Invalid authentication method set in configuration:"
 msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
 
@@ -13609,7 +13609,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:46
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:95
+#: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
@@ -18459,7 +18459,7 @@ msgid "Binary - do not edit"
 msgstr "Nhị phân (Binary) - đừng sửa"
 
 #: templates/table/insert/column_row.twig:122
-#: templates/table/search/input_box.twig:37
+#: templates/table/search/input_box.twig:31
 msgid "Edit/Insert"
 msgstr "Sửa/Chèn"
 

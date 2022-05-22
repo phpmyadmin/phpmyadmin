@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-15 00:24+0000\n"
+"POT-Creation-Date: 2022-05-22 00:18+0000\n"
 "PO-Revision-Date: 2022-04-20 02:09+0000\n"
 "Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1762,16 +1762,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: libraries/classes/Common.php:255
+#: libraries/classes/Common.php:254
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Usted debería actualizar su %s a la versión %s o más reciente."
 
-#: libraries/classes/Common.php:287
+#: libraries/classes/Common.php:286
 msgid "Error: Token mismatch"
 msgstr "Error: no coincide un «token»"
 
-#: libraries/classes/Common.php:498
+#: libraries/classes/Common.php:497
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1779,7 +1779,7 @@ msgstr ""
 "No se pudo establecer la cookie de sesión. Tal vez está usando HTTP en lugar "
 "de HTTPS para acceder a phpMyAdmin."
 
-#: libraries/classes/Common.php:554
+#: libraries/classes/Common.php:553
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1789,7 +1789,7 @@ msgstr ""
 "opción es incompatible con phpMyAdmin y podría causar la pérdida de algunos "
 "datos!"
 
-#: libraries/classes/Common.php:571
+#: libraries/classes/Common.php:570
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1797,11 +1797,11 @@ msgstr ""
 "Las funciones ini_get y/o ini_set están deshabilitadas en php.ini. "
 "¡phpMyAdmin requiere estas funciones!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:581
 msgid "GLOBALS overwrite attempt"
 msgstr "intento de sobre-escritura de la variable GLOBALS"
 
-#: libraries/classes/Common.php:592
+#: libraries/classes/Common.php:591
 msgid "possible exploit"
 msgstr "posible aprovechamiento"
 
@@ -4791,22 +4791,22 @@ msgstr ""
 "No se pudo guardar la configuración, ¡la configuración del formulario "
 "enviado contiene errores!"
 
-#: libraries/classes/Config.php:644
+#: libraries/classes/Config.php:642
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "El archivo de configuración existente (%s) no pudo ser leído."
 
-#: libraries/classes/Config.php:682
+#: libraries/classes/Config.php:680
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permisos incorrectos en el archivo de configuración ¡cualquiera no debería "
 "poder modificarlo!"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:695
 msgid "Failed to read configuration file!"
 msgstr "¡No se pudo leer el archivo de configuración!"
 
-#: libraries/classes/Config.php:699
+#: libraries/classes/Config.php:697
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4814,12 +4814,12 @@ msgstr ""
 "Esto generalmente significa que tiene un error de sintáxis, revisa los "
 "errores que se muestran a continuación."
 
-#: libraries/classes/Config.php:1224
+#: libraries/classes/Config.php:1222
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Índice de servidor inválido: %s"
 
-#: libraries/classes/Config.php:1237
+#: libraries/classes/Config.php:1235
 #, php-format
 msgid "Server %d"
 msgstr "Servidor %d"
@@ -4974,11 +4974,11 @@ msgstr ""
 "%1$sLa compresión y descompresión GZip%2$s requiere funciones (%3$s) que no "
 "están disponibles en este sistema."
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "Sin descripción"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5895,8 +5895,8 @@ msgstr "Eliminando los usuarios seleccionados"
 #: templates/table/structure/display_structure.twig:345
 #: templates/table/structure/display_structure.twig:356
 #: templates/table/zoom_search/result_form.twig:27
-#: templates/table/zoom_search/result_form.twig:79
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:80
+#: templates/table/zoom_search/result_form.twig:97
 msgid "Close"
 msgstr "Cerrar"
 
@@ -6775,7 +6775,7 @@ msgstr "%d no es un número de fila válido."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
-#: templates/table/search/input_box.twig:27
+#: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "Mostrar los valores foráneos"
 
@@ -6950,7 +6950,7 @@ msgstr "¡No se seleccionaron dependencias!"
 #: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:225
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/zoom_search/result_form.twig:78
+#: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
 msgstr "Guardar"
 
@@ -7018,7 +7018,7 @@ msgstr "Contenido del punto de datos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Ignorar"
@@ -7434,7 +7434,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Revise el pie de esta ventana."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/ErrorHandler.php:446
+#: libraries/classes/ErrorHandler.php:450
 msgid "Ignore All"
 msgstr "Ignorar todos"
 
@@ -10098,15 +10098,15 @@ msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Demasiados mensajes de error, algunos no son mostrados."
 
-#: libraries/classes/ErrorHandler.php:430
+#: libraries/classes/ErrorHandler.php:434
 msgid "Report"
 msgstr "Reportar"
 
-#: libraries/classes/ErrorHandler.php:435 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:439 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Enviar reporte automáticamente la próxima vez"
 
@@ -12094,11 +12094,11 @@ msgstr "No utilizar <code>AUTO_INCREMENT</code> con el valor 0"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:609
+#: libraries/classes/Plugins.php:614
 msgid "This format has no options"
 msgstr "Este formato no tiene opciones"
 
-#: libraries/classes/Plugins.php:626
+#: libraries/classes/Plugins.php:631
 msgid "Invalid authentication method set in configuration:"
 msgstr "Método de autenticación no válido definido en la configuración:"
 
@@ -14159,7 +14159,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:46
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:95
+#: templates/table/zoom_search/result_form.twig:96
 msgid "Loading"
 msgstr "Cargando"
 
@@ -18782,7 +18782,7 @@ msgid "Binary - do not edit"
 msgstr "Binario - no editar"
 
 #: templates/table/insert/column_row.twig:122
-#: templates/table/search/input_box.twig:37
+#: templates/table/search/input_box.twig:31
 msgid "Edit/Insert"
 msgstr "Editar/Insertar"
 

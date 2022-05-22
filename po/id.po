@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-15 00:24+0000\n"
+"POT-Creation-Date: 2022-05-22 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1863,16 +1863,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: libraries/classes/Common.php:255
+#: libraries/classes/Common.php:254
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/classes/Common.php:287
+#: libraries/classes/Common.php:286
 msgid "Error: Token mismatch"
 msgstr "Error: Token tidak cocok"
 
-#: libraries/classes/Common.php:498
+#: libraries/classes/Common.php:497
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1880,7 +1880,7 @@ msgstr ""
 "Gagal mengatur cookie sesi. Mungkin Anda menggunakan HTTP, bukan HTTPS untuk "
 "mengakses phpMyAdmin."
 
-#: libraries/classes/Common.php:554
+#: libraries/classes/Common.php:553
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1889,7 +1889,7 @@ msgstr ""
 "Anda mengaktifkan Fungsi mbstring.func_overload pada konfigurasi PHP. "
 "Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
 
-#: libraries/classes/Common.php:571
+#: libraries/classes/Common.php:570
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1897,11 +1897,11 @@ msgstr ""
 "Fungsi ini_get dan / atau ini_set dinonaktifkan di php.ini. phpMyAdmin "
 "membutuhkan fungsi-fungsi ini!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:581
 msgid "GLOBALS overwrite attempt"
 msgstr "upaya penimpaan GLOBALS"
 
-#: libraries/classes/Common.php:592
+#: libraries/classes/Common.php:591
 msgid "possible exploit"
 msgstr "memungkinkan mengeksploitasi"
 
@@ -5006,21 +5006,21 @@ msgstr ""
 "Pengaturan tidak dapat disimpan, konfigurasi yang diserahkan mengandung "
 "kesalahan!"
 
-#: libraries/classes/Config.php:644
+#: libraries/classes/Config.php:642
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "File configuration yang ada (%s) tidak dapat di baca."
 
-#: libraries/classes/Config.php:682
+#: libraries/classes/Config.php:680
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Perizinan yang salah pada file konfigurasi, sehingga tidak dapat ditulis!"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:695
 msgid "Failed to read configuration file!"
 msgstr "Gagal membaca file konfigurasi!"
 
-#: libraries/classes/Config.php:699
+#: libraries/classes/Config.php:697
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -5028,12 +5028,12 @@ msgstr ""
 "Hal ini biasanya berarti ada kesalahan sintaks di dalamnya, silahkan cek "
 "kesalahan di bawah ini."
 
-#: libraries/classes/Config.php:1224
+#: libraries/classes/Config.php:1222
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indeks server tidak sah: %s"
 
-#: libraries/classes/Config.php:1237
+#: libraries/classes/Config.php:1235
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -5194,11 +5194,11 @@ msgstr ""
 "%1$sGZip compression and decompression%2$s membutuhkan fungsi (%3$s) yang "
 "tidak tersedia pada sistem ini."
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "tidak ada deskripsi"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -6130,8 +6130,8 @@ msgstr "Hapus pengguna yang dipilih"
 #: templates/table/structure/display_structure.twig:345
 #: templates/table/structure/display_structure.twig:356
 #: templates/table/zoom_search/result_form.twig:27
-#: templates/table/zoom_search/result_form.twig:79
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:80
+#: templates/table/zoom_search/result_form.twig:97
 msgid "Close"
 msgstr "Tutup"
 
@@ -7011,7 +7011,7 @@ msgstr "%d bukanlah nomor baris yang berlaku."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
-#: templates/table/search/input_box.twig:27
+#: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
 
@@ -7181,7 +7181,7 @@ msgstr "Dependensi belum dipilih!"
 #: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:225
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/zoom_search/result_form.twig:78
+#: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
 msgstr "Simpan"
 
@@ -7249,7 +7249,7 @@ msgstr "Isi titk data"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Abaikan"
@@ -7666,7 +7666,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Silahkan lihat di bagian bawah jendela ini."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/ErrorHandler.php:446
+#: libraries/classes/ErrorHandler.php:450
 msgid "Ignore All"
 msgstr "Abaikan"
 
@@ -10445,15 +10445,15 @@ msgstr ""
 "Dokumentasi dan informasi lebih lanjut mengenai PBXT dapat ditemukan pada %s "
 "Halaman PrimeBase XT %s."
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Terlalu banyak pesan kesalahan, sebagian tidak bisa ditampilkan."
 
-#: libraries/classes/ErrorHandler.php:430
+#: libraries/classes/ErrorHandler.php:434
 msgid "Report"
 msgstr "Laporan"
 
-#: libraries/classes/ErrorHandler.php:435 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:439 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Selanjutnya kirim laporan otomatis"
 
@@ -12499,11 +12499,11 @@ msgstr "Jangan gunakan <code>AUTO_INCREMENT</code> untuk nilai nol"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:609
+#: libraries/classes/Plugins.php:614
 msgid "This format has no options"
 msgstr "Format ini tidak memiliki opsi"
 
-#: libraries/classes/Plugins.php:626
+#: libraries/classes/Plugins.php:631
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
@@ -14638,7 +14638,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:46
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:95
+#: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
@@ -19796,7 +19796,7 @@ msgid "Binary - do not edit"
 msgstr "Biner - jangan diedit"
 
 #: templates/table/insert/column_row.twig:122
-#: templates/table/search/input_box.twig:37
+#: templates/table/search/input_box.twig:31
 msgid "Edit/Insert"
 msgstr "Edit/Tambah"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-15 00:24+0000\n"
+"POT-Creation-Date: 2022-05-22 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1693,22 +1693,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ফাইলের নাম"
 
-#: libraries/classes/Common.php:255
+#: libraries/classes/Common.php:254
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "আপনি অবশ্যই %s %s বা পরের কোন সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/classes/Common.php:287
+#: libraries/classes/Common.php:286
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
-#: libraries/classes/Common.php:498
+#: libraries/classes/Common.php:497
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:554
+#: libraries/classes/Common.php:553
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1717,17 +1717,17 @@ msgstr ""
 "আপনার পিএইচপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা "
 "phpMyAdmin এর সঙ্গে সামঞ্জস্যপূর্ণ নয় এবং কিছু তথ্য নষ্ট করতে পারে!"
 
-#: libraries/classes/Common.php:571
+#: libraries/classes/Common.php:570
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:581
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS পুন লিখনের চেষ্টা"
 
-#: libraries/classes/Common.php:592
+#: libraries/classes/Common.php:591
 msgid "possible exploit"
 msgstr "সাম্ভাব্য বিপদের সুযোগ"
 
@@ -4808,33 +4808,33 @@ msgstr "ব্রাউজারের রুপান্তর"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "সেটিংস সংরক্ষন করা যায়নি, দেওয়া তথ্যে ভূল আছে"
 
-#: libraries/classes/Config.php:644
+#: libraries/classes/Config.php:642
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না।"
 
-#: libraries/classes/Config.php:682
+#: libraries/classes/Config.php:680
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয়"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:695
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/classes/Config.php:699
+#: libraries/classes/Config.php:697
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ইহা সাধারনত বাক্যে ভুল বোঝায়, কোন ভুল আছে কিনা পরীক্ষা করুন।"
 
-#: libraries/classes/Config.php:1224
+#: libraries/classes/Config.php:1222
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "অকার্যকর সার্ভার ইনডেক্স:%s"
 
-#: libraries/classes/Config.php:1237
+#: libraries/classes/Config.php:1235
 #, php-format
 msgid "Server %d"
 msgstr "সার্ভার %d"
@@ -5007,11 +5007,11 @@ msgstr ""
 "%1$sGZip compression and decompression%2$s এ ফাংশন (%3$s) প্রয়োজন যা এখানে "
 "নাই।"
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "বণর্না নাই"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5963,8 +5963,8 @@ msgstr "নির্বাচিত ব্যবহারকারীদের �
 #: templates/table/structure/display_structure.twig:345
 #: templates/table/structure/display_structure.twig:356
 #: templates/table/zoom_search/result_form.twig:27
-#: templates/table/zoom_search/result_form.twig:79
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:80
+#: templates/table/zoom_search/result_form.twig:97
 msgid "Close"
 msgstr "বন্ধ"
 
@@ -6889,7 +6889,7 @@ msgstr "%d বৈধ রো নাম্বার নয়।"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
-#: templates/table/search/input_box.twig:27
+#: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "ফরেন মান দেখা"
 
@@ -7070,7 +7070,7 @@ msgstr "ডাটাবেইজ নিবার্চন করা হয়নি
 #: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:225
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/zoom_search/result_form.twig:78
+#: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
 msgstr "সংরক্ষন"
 
@@ -7141,7 +7141,7 @@ msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "উপেক্ষা"
@@ -7590,7 +7590,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/ErrorHandler.php:446
+#: libraries/classes/ErrorHandler.php:450
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -10303,17 +10303,17 @@ msgid ""
 msgstr ""
 "নথিপত্রাদি এবং PBXT'র অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া যাবে।"
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "অনেক বেশী ভুল সংক্রান্ত তথ্য, কতগুলো দেখানো হয় নাই।"
 
-#: libraries/classes/ErrorHandler.php:430
+#: libraries/classes/ErrorHandler.php:434
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "আমদানি"
 
-#: libraries/classes/ErrorHandler.php:435 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:439 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "পরবর্তী সময়ে স্বয়ংক্রীয়ভাবে প্রতিবেদন পাঠাবে"
 
@@ -12295,11 +12295,11 @@ msgstr "শুন্য মানের জন্য <code>AUTO_INCREMENT</code>
 msgid "XML"
 msgstr "এক্সএমএল"
 
-#: libraries/classes/Plugins.php:609
+#: libraries/classes/Plugins.php:614
 msgid "This format has no options"
 msgstr "এই গঠনের কোন অপশন নাই"
 
-#: libraries/classes/Plugins.php:626
+#: libraries/classes/Plugins.php:631
 msgid "Invalid authentication method set in configuration:"
 msgstr "কনফিগারেশনে অকার্যকর প্রমাণীকরন পদ্ধতি:"
 
@@ -14408,7 +14408,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:46
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:95
+#: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
@@ -19541,7 +19541,7 @@ msgid "Binary - do not edit"
 msgstr "Binary - সম্পাদন করবেন না"
 
 #: templates/table/insert/column_row.twig:122
-#: templates/table/search/input_box.twig:37
+#: templates/table/search/input_box.twig:31
 msgid "Edit/Insert"
 msgstr "সম্পাদন/নতুন"
 

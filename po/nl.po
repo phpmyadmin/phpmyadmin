@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-15 00:24+0000\n"
+"POT-Creation-Date: 2022-05-22 00:18+0000\n"
 "PO-Revision-Date: 2022-05-09 09:15+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1756,16 +1756,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamees"
 
-#: libraries/classes/Common.php:255
+#: libraries/classes/Common.php:254
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet upgraden naar %s %s of hoger."
 
-#: libraries/classes/Common.php:287
+#: libraries/classes/Common.php:286
 msgid "Error: Token mismatch"
 msgstr "Fout: token niet hetzelfde"
 
-#: libraries/classes/Common.php:498
+#: libraries/classes/Common.php:497
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1773,7 +1773,7 @@ msgstr ""
 "Plaatsen van sessie cookie mislukt. Misschien gebruikt u HTTP in plaats van "
 "HTTPS om phpMyAdmin te benaderen."
 
-#: libraries/classes/Common.php:554
+#: libraries/classes/Common.php:553
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1783,7 +1783,7 @@ msgstr ""
 "optie is incompatibel met phpMyAdmin en kan ervoor zorgen dat sommige "
 "gegevens corrupt raken!"
 
-#: libraries/classes/Common.php:571
+#: libraries/classes/Common.php:570
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1791,11 +1791,11 @@ msgstr ""
 "De ini_get en/of ini_set functies zijn uitgeschakeld in php.ini. phpMyAdmin "
 "heeft deze functies nodig!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:581
 msgid "GLOBALS overwrite attempt"
 msgstr "poging om GLOBALS te overschrijven"
 
-#: libraries/classes/Common.php:592
+#: libraries/classes/Common.php:591
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
@@ -4754,22 +4754,22 @@ msgstr ""
 "Instellingen kunnen niet worden opgeslagen, het verstuurde configuratie "
 "formulier bevat fouten!"
 
-#: libraries/classes/Config.php:644
+#: libraries/classes/Config.php:642
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Het bestaande configuratiebestand (%s) is niet leesbaar."
 
-#: libraries/classes/Config.php:682
+#: libraries/classes/Config.php:680
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Verkeerde rechten ingesteld op het configuratiebestand, dit mag niet "
 "leesbaar zijn voor iedereen!"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:695
 msgid "Failed to read configuration file!"
 msgstr "Lezen van het configuratiebestand is niet gelukt!"
 
-#: libraries/classes/Config.php:699
+#: libraries/classes/Config.php:697
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4777,12 +4777,12 @@ msgstr ""
 "Dit betekent meestal dat er een syntaxfout is, controleer de onderstaande "
 "foutmeldingen."
 
-#: libraries/classes/Config.php:1224
+#: libraries/classes/Config.php:1222
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ongeldige serverindex: %s"
 
-#: libraries/classes/Config.php:1237
+#: libraries/classes/Config.php:1235
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -4935,11 +4935,11 @@ msgstr ""
 "%1$sGZip-compressie en decompressie%2$s vereisen functies (%3$s) welke niet "
 "beschikbaar zijn op dit systeem."
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "Geen beschrijving aanwezig"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5862,8 +5862,8 @@ msgstr "Geselecteerde gebruikers worden verwijderd"
 #: templates/table/structure/display_structure.twig:345
 #: templates/table/structure/display_structure.twig:356
 #: templates/table/zoom_search/result_form.twig:27
-#: templates/table/zoom_search/result_form.twig:79
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:80
+#: templates/table/zoom_search/result_form.twig:97
 msgid "Close"
 msgstr "Sluiten"
 
@@ -6739,7 +6739,7 @@ msgstr "%d is geen geldig rijnummer."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
-#: templates/table/search/input_box.twig:27
+#: templates/table/search/input_box.twig:21
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waarden"
 
@@ -6914,7 +6914,7 @@ msgstr "Er zijn geen afhankelijkheden geselecteerd!"
 #: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:225
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/zoom_search/result_form.twig:78
+#: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
 msgstr "Opslaan"
 
@@ -6984,7 +6984,7 @@ msgstr "Inhoud gegevenspunt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:441 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Negeren"
@@ -7401,7 +7401,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Gelieve de onderkant van dit venster te bekijken."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/ErrorHandler.php:446
+#: libraries/classes/ErrorHandler.php:450
 msgid "Ignore All"
 msgstr "Alles negeren"
 
@@ -10044,15 +10044,15 @@ msgstr ""
 "Documentatie en meer informatie over PBXT kan gevonden worden op de "
 "%sPrimeBase XT home pagina%s."
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Er zijn teveel foutmeldingen, sommige worden niet weergegeven."
 
-#: libraries/classes/ErrorHandler.php:430
+#: libraries/classes/ErrorHandler.php:434
 msgid "Report"
 msgstr "Rapporteren"
 
-#: libraries/classes/ErrorHandler.php:435 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:439 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Verslag voortaan automatisch verzenden"
 
@@ -12036,11 +12036,11 @@ msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:609
+#: libraries/classes/Plugins.php:614
 msgid "This format has no options"
 msgstr "Dit formaat heeft geen opties"
 
-#: libraries/classes/Plugins.php:626
+#: libraries/classes/Plugins.php:631
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 
@@ -14085,7 +14085,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:46
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:95
+#: templates/table/zoom_search/result_form.twig:96
 msgid "Loading"
 msgstr "Laden"
 
@@ -18683,7 +18683,7 @@ msgid "Binary - do not edit"
 msgstr "Binair - niet aanpassen"
 
 #: templates/table/insert/column_row.twig:122
-#: templates/table/search/input_box.twig:37
+#: templates/table/search/input_box.twig:31
 msgid "Edit/Insert"
 msgstr "Aanpassen/Invoegen"
 
