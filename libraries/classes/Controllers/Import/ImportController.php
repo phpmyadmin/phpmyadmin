@@ -715,14 +715,13 @@ final class ImportController extends AbstractController
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen($GLOBALS['sql_query']);
         if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-            [
-                $analyzed_sql_results,
-                $GLOBALS['db'],
-                $table_from_sql,
-            ] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
+            [$statementInfo, $GLOBALS['db'], $table_from_sql] = ParseAnalyze::sqlQuery(
+                $GLOBALS['sql_query'],
+                $GLOBALS['db']
+            );
 
-            $GLOBALS['reload'] = $analyzed_sql_results['reload'];
-            $GLOBALS['offset'] = $analyzed_sql_results['offset'];
+            $GLOBALS['reload'] = $statementInfo->reload;
+            $GLOBALS['offset'] = $statementInfo->offset;
 
             if ($GLOBALS['table'] != $table_from_sql && ! empty($table_from_sql)) {
                 $GLOBALS['table'] = $table_from_sql;
@@ -747,19 +746,18 @@ final class ImportController extends AbstractController
 
             foreach ($queriesToBeExecuted as $GLOBALS['sql_query']) {
                 // parse sql query
-                [
-                    $analyzed_sql_results,
-                    $GLOBALS['db'],
-                    $table_from_sql,
-                ] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
+                [$statementInfo, $GLOBALS['db'], $table_from_sql] = ParseAnalyze::sqlQuery(
+                    $GLOBALS['sql_query'],
+                    $GLOBALS['db']
+                );
 
-                $GLOBALS['offset'] = $analyzed_sql_results['offset'];
-                $GLOBALS['reload'] = $analyzed_sql_results['reload'];
+                $GLOBALS['offset'] = $statementInfo->offset;
+                $GLOBALS['reload'] = $statementInfo->reload;
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
                 if (
                     $this->sql->hasNoRightsToDropDatabase(
-                        $analyzed_sql_results,
+                        $statementInfo,
                         $GLOBALS['cfg']['AllowUserDropDatabase'],
                         $this->dbi->isSuperUser()
                     )
@@ -779,7 +777,7 @@ final class ImportController extends AbstractController
                 }
 
                 $html_output .= $this->sql->executeQueryAndGetQueryResponse(
-                    $analyzed_sql_results, // analyzed_sql_results
+                    $statementInfo,
                     false, // is_gotofile
                     $GLOBALS['db'], // db
                     $GLOBALS['table'], // table

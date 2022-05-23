@@ -26,6 +26,7 @@
     </projectFiles>
 
     <stubs>
+        <file name="test/stubs/Query.stub"/>
         <file name="test/stubs/uploadprogress.stub"/>
     </stubs>
 
@@ -305,6 +306,7 @@
             text_dir: string,
             token_mismatch: bool,
             token_provided: bool,
+            unparsed_sql?: string,
             urlParams: array,
             username: string,
             xml_export_triggers: bool,

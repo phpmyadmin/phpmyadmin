@@ -60,13 +60,13 @@ final class BrowseController extends AbstractController
         );
 
         // Parse and analyze the query
-        [$analyzed_sql_results, $GLOBALS['db']] = ParseAnalyze::sqlQuery($sql_query, $GLOBALS['db']);
+        [$statementInfo, $GLOBALS['db']] = ParseAnalyze::sqlQuery($sql_query, $GLOBALS['db']);
 
         $this->response->addHTML(
             $this->sql->executeQueryAndGetQueryResponse(
-                $analyzed_sql_results ?? '',
+                $statementInfo,
                 false, // is_gotofile
-                (string) $GLOBALS['db'], // db
+                $GLOBALS['db'], // db
                 $GLOBALS['table'], // table
                 null, // find_real_end
                 null, // sql_query_for_bookmark

@@ -15,8 +15,8 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\StatementInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
@@ -82,18 +82,12 @@ class ResultsTest extends AbstractTestCase
      */
     public function testisSelect(): void
     {
-        $parser = new Parser('SELECT * FROM pma');
         $this->assertTrue(
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
                 'isSelect',
-                [
-                    [
-                        'statement' => $parser->statements[0],
-                        'select_from' => true,
-                    ],
-                ]
+                [StatementInfo::fromArray(Query::getAll('SELECT * FROM pma'))]
             )
         );
     }
@@ -368,45 +362,21 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Data provider for testSetHighlightedColumnGlobalField
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestSetHighlightedColumnGlobalField(): array
+    public function testSetHighlightedColumnGlobalField(): void
     {
-        $parser = new Parser('SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10');
-
-        return [
-            [
-                ['statement' => $parser->statements[0]],
-                [
-                    'db_name' => 'true',
-                    'tbl' => 'true',
-                    'id' => 'true',
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * Test setHighlightedColumnGlobalField
-     *
-     * @param array $analyzed_sql the analyzed query
-     * @param array $output       setting value of setHighlightedColumnGlobalField
-     *
-     * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
-     */
-    public function testSetHighlightedColumnGlobalField(array $analyzed_sql, array $output): void
-    {
+        $query = 'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10';
         $this->callFunction(
             $this->object,
             DisplayResults::class,
             'setHighlightedColumnGlobalField',
-            [$analyzed_sql]
+            [StatementInfo::fromArray(Query::getAll($query))]
         );
 
-        $this->assertEquals($output, $this->object->properties['highlight_columns']);
+        $this->assertEquals([
+            'db_name' => 'true',
+            'tbl' => 'true',
+            'id' => 'true',
+        ], $this->object->properties['highlight_columns']);
     }
 
     /**
@@ -633,7 +603,6 @@ class ResultsTest extends AbstractTestCase
      *   bool,
      *   TransformationsPlugin|null,
      *   array,
-     *   array,
      *   string
      * }}
      */
@@ -684,7 +653,6 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 ['https://www.example.com/'],
-                [],
                 'class="disableAjax">[BLOB - 4 B]</a>'
                 . '</td>' . "\n",
             ],
@@ -697,7 +665,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [],
                 [],
                 '<td class="text-start grid_edit transformed hex">'
                 . '1001'
@@ -712,7 +679,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [],
                 [],
                 '<td data-decimals="0"' . "\n"
                 . '    data-type="string"' . "\n"
@@ -730,7 +696,6 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 [],
-                [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
                 . 'class="grid_edit pre_wrap">foo bar baz</td>' . "\n",
@@ -744,7 +709,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin_external,
-                [],
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
@@ -760,7 +724,6 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 [],
-                [],
                 '<td data-decimals="0" data-type="datetime" '
                 . 'data-originallength="19" '
                 . 'class="grid_edit text-nowrap">2020-09-20 16:35:00</td>' . "\n",
@@ -769,16 +732,15 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param string      $protectBinary        all|blob|noblob|no
-     * @param string|null $column               the relevant column in data row
-     * @param string      $class                the html class for column
-     * @param object      $meta                 the meta-information about the field
-     * @param array       $map                  the list of relations
-     * @param array       $_url_params          the parameters for generate url
-     * @param bool        $condition_field      the column should highlighted or not
-     * @param array       $transform_options    the transformation parameters
-     * @param array       $analyzed_sql_results the analyzed query
-     * @param string      $output               the output of this function
+     * @param string      $protectBinary     all|blob|noblob|no
+     * @param string|null $column            the relevant column in data row
+     * @param string      $class             the html class for column
+     * @param object      $meta              the meta-information about the field
+     * @param array       $map               the list of relations
+     * @param array       $_url_params       the parameters for generate url
+     * @param bool        $condition_field   the column should highlighted or not
+     * @param array       $transform_options the transformation parameters
+     * @param string      $output            the output of this function
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
@@ -792,7 +754,6 @@ class ResultsTest extends AbstractTestCase
         bool $condition_field,
         ?TransformationsPlugin $transformation_plugin,
         array $transform_options,
-        array $analyzed_sql_results,
         string $output
     ): void {
         $_SESSION['tmpval']['display_binary'] = true;
@@ -800,6 +761,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['relational_display'] = false;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
+        $statementInfo = $this->createStub(StatementInfo::class);
         $this->assertStringContainsString(
             $output,
             $this->callFunction(
@@ -815,7 +777,7 @@ class ResultsTest extends AbstractTestCase
                     $condition_field,
                     $transformation_plugin,
                     $transform_options,
-                    $analyzed_sql_results,
+                    $statementInfo,
                 ]
             )
         );
@@ -906,7 +868,7 @@ class ResultsTest extends AbstractTestCase
                 'disabled',
                 false,
                 $query,
-                Query::getAll($query),
+                StatementInfo::fromArray(Query::getAll($query)),
             ]
         );
 
@@ -1319,7 +1281,7 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($this->dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
         $fieldsMeta = [
             new FieldMetadata(
                 MYSQLI_TYPE_DECIMAL,
@@ -1333,17 +1295,17 @@ class ResultsTest extends AbstractTestCase
         $object->setProperties(
             3,
             $fieldsMeta,
-            $analyzedSqlResults['is_count'],
-            $analyzedSqlResults['is_export'],
-            $analyzedSqlResults['is_func'],
-            $analyzedSqlResults['is_analyse'],
+            $statementInfo->isCount,
+            $statementInfo->isExport,
+            $statementInfo->isFunction,
+            $statementInfo->isAnalyse,
             3,
             count($fieldsMeta),
             1.234,
             'ltr',
-            $analyzedSqlResults['is_maint'],
-            $analyzedSqlResults['is_explain'],
-            $analyzedSqlResults['is_show'],
+            $statementInfo->isMaint,
+            $statementInfo->isExplain,
+            $statementInfo->isShow,
             null,
             null,
             true,
@@ -1376,7 +1338,7 @@ class ResultsTest extends AbstractTestCase
         ]);
 
         $this->assertNotFalse($dtResult);
-        $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
+        $actual = $object->getTable($dtResult, $displayParts, $statementInfo);
 
         $template = new Template();
 
@@ -1599,7 +1561,7 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
         $fieldsMeta = [
             new FieldMetadata(
                 MYSQLI_TYPE_LONG,
@@ -1614,17 +1576,17 @@ class ResultsTest extends AbstractTestCase
         $object->setProperties(
             2,
             $fieldsMeta,
-            $analyzedSqlResults['is_count'],
-            $analyzedSqlResults['is_export'],
-            $analyzedSqlResults['is_func'],
-            $analyzedSqlResults['is_analyse'],
+            $statementInfo->isCount,
+            $statementInfo->isExport,
+            $statementInfo->isFunction,
+            $statementInfo->isAnalyse,
             2,
             count($fieldsMeta),
             1.234,
             'ltr',
-            $analyzedSqlResults['is_maint'],
-            $analyzedSqlResults['is_explain'],
-            $analyzedSqlResults['is_show'],
+            $statementInfo->isMaint,
+            $statementInfo->isExplain,
+            $statementInfo->isShow,
             null,
             null,
             true,
@@ -1657,7 +1619,7 @@ class ResultsTest extends AbstractTestCase
         ]);
 
         $this->assertNotFalse($dtResult);
-        $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
+        $actual = $object->getTable($dtResult, $displayParts, $statementInfo);
 
         $template = new Template();
 
