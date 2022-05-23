@@ -3337,6 +3337,39 @@ AJAX.registerOnload('functions.js', function () {
 Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, callbackFailure) {
     /* Remove the hidden dialogs if there are*/
     var modal = $('#indexDialogModal');
+
+    const indexDialogPreviewModal = document.getElementById('indexDialogPreviewModal');
+    indexDialogPreviewModal.addEventListener('shown.bs.modal', () => {
+        const modalBody = indexDialogPreviewModal.querySelector('.modal-body');
+        const $form = $('#index_frm');
+        const formUrl = $form.attr('action');
+        const sep = CommonParams.get('arg_separator');
+        const formData = $form.serialize() +
+            sep + 'do_save_data=1' +
+            sep + 'preview_sql=1' +
+            sep + 'ajax_request=1';
+        $.post({
+            url: formUrl,
+            data: formData,
+            success: response => {
+                if (! response.success) {
+                    modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + Messages.strErrorProcessingRequest + '</div>';
+                    return;
+                }
+
+                modalBody.innerHTML = response.sql_data;
+                Functions.highlightSql($('#indexDialogPreviewModal'));
+            },
+            error: () => {
+                modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + Messages.strErrorProcessingRequest + '</div>';
+            }
+        });
+    });
+    indexDialogPreviewModal.addEventListener('hidden.bs.modal', () => {
+        indexDialogPreviewModal.querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
+            '<span class="visually-hidden">' + Messages.strLoading + '</span></div>';
+    });
+
     /**
      * @var button_options Object that stores the options
      *                     passed to jQueryUI dialog
@@ -3388,11 +3421,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
             }
         }); // end $.post()
     });
-    $('#indexDialogModalPreviewButton').on('click', function () {
-        // Function for Previewing SQL
-        var $form = $('#index_frm');
-        Functions.previewSql($form);
-    });
+
     var $msgbox = Functions.ajaxShowMessage();
     $.post(routeUrl, url, function (data) {
         if (typeof data !== 'undefined' && data.success === false) {
