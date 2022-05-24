@@ -371,10 +371,11 @@ class ZoomSearchController extends AbstractController
         $column_names_hashes = [];
         $foreignDropdown = [];
         $searchColumnInForeigners = [];
+        $foreignData = [];
 
         foreach ($this->columnNames as $columnIndex => $columnName) {
             $column_names_hashes[$columnName] = md5($columnName);
-            $foreignData = $this->relation->getForeignData($this->foreigners, $columnName, false, '', '');
+            $foreignData[$columnIndex] = $this->relation->getForeignData($this->foreigners, $columnName, false, '', '');
             $searchColumnInForeigners[$columnIndex] = $this->relation->searchColumnInForeigners(
                 $this->foreigners,
                 $columnName
@@ -382,15 +383,15 @@ class ZoomSearchController extends AbstractController
             if (
                 ! $this->foreigners
                 || ! $searchColumnInForeigners[$columnIndex]
-                || ! is_array($foreignData['disp_row'])
+                || ! is_array($foreignData[$columnIndex]['disp_row'])
             ) {
                 continue;
             }
 
             $foreignDropdown[$columnIndex] = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
+                $foreignData[$columnIndex]['disp_row'],
+                (string) $foreignData[$columnIndex]['foreign_field'],
+                $foreignData[$columnIndex]['foreign_display'],
                 '',
                 $GLOBALS['cfg']['ForeignKeyMaxLimit']
             );
@@ -410,6 +411,7 @@ class ZoomSearchController extends AbstractController
             'zoom_submit' => isset($_POST['zoom_submit']),
             'foreign_dropdown' => $foreignDropdown,
             'search_columns_in_foreigners' => $searchColumnInForeigners,
+            'foreign_data' => $foreignData,
         ]);
     }
 
