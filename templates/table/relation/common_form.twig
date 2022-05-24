@@ -203,14 +203,13 @@
     {% endif %}
 
     {% if relation_parameters.displayFeature is not null %}
-        {% set disp = get_display_field(db, table) %}
         <fieldset class="pma-fieldset">
             <label>{% trans 'Choose column to display:' %}</label>
             <select name="display_field">
                 <option value="">---</option>
                 {% for row in save_row %}
                     <option value="{{ row['Field'] }}"
-                        {%- if disp is defined and row['Field'] == disp %}
+                        {%- if display_field is defined and row['Field'] == display_field %}
                             selected="selected"
                         {%- endif %}>
                         {{ row['Field'] }}

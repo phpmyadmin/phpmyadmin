@@ -167,6 +167,7 @@ final class RelationController extends AbstractController
             'dbi' => $this->dbi,
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'route' => $route,
+            'display_field' => $this->relation->getDisplayField($GLOBALS['db'], $GLOBALS['table']),
         ]);
     }
 
