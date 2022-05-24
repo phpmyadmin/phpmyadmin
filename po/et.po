@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-22 00:18+0000\n"
-"PO-Revision-Date: 2022-02-15 16:21+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-05-25 03:19+0000\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
 "Language: et\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5275,13 +5275,13 @@ msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Seadistusfail vajab nüüd turvasõna (blowfish_secret)."
 
 #: libraries/classes/Controllers/HomeController.php:337
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr "Konfiguratsioonis (blowfish_secret) on salastatud fraas liiga lühike."
+msgstr ""
+"Konfiguratsioonis on salastatud fraas (blowfish_secret) vale pikkusega. See "
+"peaks olema %d baiti pikk."
 
 #: libraries/classes/Controllers/HomeController.php:354
 msgid ""
@@ -7704,7 +7704,6 @@ msgstr "Näd"
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:797
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -14713,10 +14712,8 @@ msgid "Export the structure of all tables."
 msgstr "Lubab muuta olemasolevate tabelite struktuuri."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Vaadete eksportimine tabelitena"
+msgstr "Ekspordi andmed kõigist tabelitest."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15621,10 +15618,8 @@ msgid "Custom - display all possible options"
 msgstr "Kohandatud - näita kõiki võimalikke valikuid"
 
 #: templates/export.twig:121
-#, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
-msgstr "Imporditav fail:"
+msgstr "Eksporditava faili vorming"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -15748,10 +15743,8 @@ msgid "Export tables as separate files"
 msgstr "Ekspordi tabelid eraldi failidena"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "Jäta vahele tabelid, mis on suuremad kui %s MiB"
+msgstr "Jäta vahele tabelid, mis on suuremad kui:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
@@ -16147,18 +16140,12 @@ msgid ""
 msgstr "Eelmine import aegus, uuesti saatmisel jätkub see kohast %d."
 
 #: templates/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <em>(This might be a good way to import "
-#| "large files, however it can break transactions.)</em>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
 "Luba katkestada import, kui skript tuvastab, et ooteaeg läheneb PHP ooteaja "
-"piirangule. <em>(See on hea moodus importida suuri faile, kuid siiski võib "
-"see katkestada ülekanded.)</em>"
+"piirangule."
 
 #: templates/import.twig:140
 #, fuzzy
@@ -16179,10 +16166,8 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Jäta vahele nii palju SQL päringuid, alates esimesest:"
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Muud valikud:"
+msgstr "Muud valikud"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:489
@@ -16656,108 +16641,76 @@ msgid "Enabled"
 msgstr "Lubatud"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Kuvamise funktsionaalsus"
+msgstr "Kuvamise eriomadused:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "PDF'de disainer ja koostaja"
+msgstr "PDF failide disainer ja koostaja:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Veeru kommentaaride näitamine"
+msgstr "Veeru kommentaaride näitamine:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Veebilehitseja transformatsioon"
+msgstr "Veebilehitseja teisendus:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "Palun loe dokumentatsioonist, kuidas uuendada oma column_info tabelit."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Järjehoidjaga SQL päring"
+msgstr "Järjehoidjaga SQL päring:"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "SQL ajalugu:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Püsivad hiljuti kasutatud tabelid"
+msgstr "Püsivad hiljuti kasutatud tabelid:"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Püsivad lemmiktabelid"
+msgstr "Püsivad lemmiktabelid:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "Püsivate tabelite UI eelistused"
+msgstr "Püsivate tabelite UI eelistused:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Jälgimine"
+msgstr "Jälgimine:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Kasutaja eelistused"
+msgstr "Kasutaja eelistused:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Seadistatavad menüüd"
+msgstr "Seadistatavad menüüd:"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Peida/kuva navigeerimiselemendid"
+msgstr "Peida/kuva navigeerimiselemendid:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "Salvestatakse näidispäringu otsinguid"
+msgstr "Salvestatakse näidispäringu otsinguid:"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Veergude keskse nimekirja haldamine"
+msgstr "Veergude keskse nimekirja haldamine:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Disaineri sätete meeldejätmine"
+msgstr "Disaineri sätete meeldejätmine:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Ekspordimallide salvestamine"
+msgstr "Ekspordimallide salvestamine:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
