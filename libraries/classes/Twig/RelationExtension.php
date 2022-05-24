@@ -21,10 +21,6 @@ class RelationExtension extends AbstractExtension
 
         return [
             new TwigFunction(
-                'get_foreign_data',
-                [$relation, 'getForeignData']
-            ),
-            new TwigFunction(
                 'get_tables',
                 [$relation, 'getTables']
             ),
