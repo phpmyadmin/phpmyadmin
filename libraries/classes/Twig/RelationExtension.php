@@ -28,10 +28,6 @@ class RelationExtension extends AbstractExtension
                 'get_tables',
                 [$relation, 'getTables']
             ),
-            new TwigFunction(
-                'search_column_in_foreigners',
-                [$relation, 'searchColumnInForeigners']
-            ),
         ];
     }
 }

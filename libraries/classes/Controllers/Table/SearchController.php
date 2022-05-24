@@ -374,9 +374,14 @@ class SearchController extends AbstractController
 
         $foreignDropdown = '';
 
+        $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
+            $this->foreigners,
+            $this->columnNames[$column_index]
+        );
+
         if (
             $this->foreigners
-            && $this->relation->searchColumnInForeigners($this->foreigners, $this->columnNames[$column_index])
+            && $searchColumnInForeigners
             && is_array($foreignData['disp_row'])
         ) {
             $foreignDropdown = $this->relation->foreignDropdown(
@@ -405,6 +410,7 @@ class SearchController extends AbstractController
             'db' => $GLOBALS['db'],
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
+            'search_column_in_foreigners' => $searchColumnInForeigners,
         ]);
 
         return [
