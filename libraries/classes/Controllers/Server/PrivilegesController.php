@@ -29,7 +29,6 @@ use function is_string;
 use function ob_get_clean;
 use function ob_start;
 use function str_replace;
-use function strtolower;
 use function urlencode;
 
 /**
@@ -395,10 +394,10 @@ class PrivilegesController extends AbstractController
             $this->response->addHTML(
                 $serverPrivileges->getHtmlForAddUser(Util::escapeMysqlWildcards(is_string($dbname) ? $dbname : ''))
             );
-        } elseif (isset($_GET['checkprivsdb'])) {
-            if (isset($_GET['checkprivstable'])) {
+        } elseif (isset($_GET['checkprivsdb']) && is_string($_GET['checkprivsdb'])) {
+            if (isset($_GET['checkprivstable']) && is_string($_GET['checkprivstable'])) {
                 $this->response->addHTML($tableController([
-                    'checkprivsdb' => strtolower($_GET['checkprivsdb']),
+                    'checkprivsdb' => $_GET['checkprivsdb'],
                     'checkprivstable' => $_GET['checkprivstable'],
                 ]));
                 $this->render('export_modal');
@@ -408,7 +407,7 @@ class PrivilegesController extends AbstractController
 
                 return;
             } else {
-                $this->response->addHTML($databaseController(['checkprivsdb' => strtolower($_GET['checkprivsdb'])]));
+                $this->response->addHTML($databaseController(['checkprivsdb' => $_GET['checkprivsdb']]));
                 $this->render('export_modal');
             }
         } else {

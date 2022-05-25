@@ -1056,11 +1056,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\PrivilegesController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/PrivilegesController.php
-
-		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
@@ -1521,11 +1516,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/OperationsController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\PrivilegesController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/PrivilegesController.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php
@@ -1837,11 +1827,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Core\\:\\:setPostAsGlobal\\(\\) has parameter \\$post_patterns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{scheme\\?\\: string, host\\: non\\-empty\\-string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
