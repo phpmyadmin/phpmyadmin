@@ -1,9 +1,10 @@
-<div id="partitions">
-    <fieldset class="pma-fieldset">
-        <legend>
-            {% trans 'Partitions' %}
-            {{ show_mysql_docu('partitioning') }}
-        </legend>
+<div id="partitions" class="card mb-3">
+    <div class="card-header">
+      {% trans 'Partitions' %}
+      {{ show_mysql_docu('partitioning') }}
+    </div>
+
+    <div class="card-body">
         {% if partitions is empty %}
             {{ 'No partitioning defined!'|trans|notice }}
         {% else %}
@@ -185,8 +186,8 @@
                 </tbody>
             </table>
         {% endif %}
-    </fieldset>
-    <fieldset class="pma-fieldset tblFooters d-print-none">
+    </div>
+    <div class="card-footer d-print-none">
         <form action="{{ url('/table/structure/partitioning') }}" method="post">
             {{ get_hidden_inputs(db, table) }}
 
@@ -207,5 +208,5 @@
                 <input class="btn btn-secondary" type="submit" value="{% trans 'Edit partitioning' %}">
             {% endif %}
         </form>
-    </fieldset>
+    </div>
 </div>

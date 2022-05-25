@@ -439,13 +439,13 @@
 {% endif %}
 
 {% if not tbl_is_view and not db_is_system_schema and tbl_storage_engine != 'ARCHIVE' %}
-  <div id="index_div" class="w-100 ajax">
-    <fieldset class="pma-fieldset index_info">
-      <legend id="index_header">
-        {% trans 'Indexes' %}
-        {{ show_mysql_docu('optimizing-database-structure') }}
-      </legend>
+  <div id="index_div" class="card mb-3 ajax">
+    <div class="card-header">
+      {% trans 'Indexes' %}
+      {{ show_mysql_docu('optimizing-database-structure') }}
+    </div>
 
+    <div class="card-body index_info">
       {% if indexes is not empty %}
         {{ indexes_duplicates|raw }}
 
@@ -541,9 +541,9 @@
       {% else %}
         <div class="no_indexes_defined">{{ 'No index defined!'|trans|notice }}</div>
       {% endif %}
-    </fieldset>
+    </div>
 
-    <fieldset class="pma-fieldset tblFooters d-print-none text-start">
+    <div class="card-footer d-print-none">
       <form action="{{ url('/table/indexes') }}" method="post">
         {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="create_index" value="1">
@@ -554,7 +554,7 @@
 
         <input class="btn btn-primary add_index ajax" type="submit" value="{% trans 'Go' %}">
       </form>
-    </fieldset>
+    </div>
   </div>
   {{ include('modals/index_dialog_modal.twig') }}
 {% endif %}

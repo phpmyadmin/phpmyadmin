@@ -1,6 +1,6 @@
-<div id="tablestatistics">
-    <fieldset class="pma-fieldset">
-        <legend>{% trans 'Information' %}</legend>
+<div id="tablestatistics" class="card">
+    <div class="card-header">{% trans 'Information' %}</div>
+    <div class="card-body">
         {% if showtable['TABLE_COMMENT'] %}
             <p>
                 <strong>{% trans 'Table comments:' %}</strong>
@@ -171,5 +171,5 @@
                 {% endif %}
             </tbody>
         </table>
-    </fieldset>
+    </div>
 </div>
