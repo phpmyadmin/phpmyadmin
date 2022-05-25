@@ -2251,7 +2251,7 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="19">
+    <MixedArgument occurrences="17">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['MemoryLimit']</code>
       <code>$GLOBALS['format']</code>
@@ -2259,14 +2259,12 @@
       <code>$GLOBALS['import_file']</code>
       <code>$GLOBALS['import_notice']</code>
       <code>$GLOBALS['local_import_file']</code>
-      <code>$GLOBALS['table']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bookmark_variable']</code>
       <code>$_POST['sql_query']</code>
       <code>$_POST['sql_query']</code>
       <code>$_SESSION['Import_message']['go_back_url']</code>
-      <code>$analyzed_sql_results</code>
       <code>$die['error']</code>
       <code>$die['sql']</code>
       <code>$importHandle ?? null</code>
@@ -2276,15 +2274,11 @@
       <code>$GLOBALS['urlParams']</code>
       <code>$parameter</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="10">
+    <MixedArrayAccess occurrences="6">
       <code>$_FILES['import_file']['name']</code>
       <code>$_FILES['import_file']['name']</code>
       <code>$_FILES['import_file']['tmp_name']</code>
       <code>$_SESSION['Import_message']['go_back_url']</code>
-      <code>$analyzed_sql_results['offset']</code>
-      <code>$analyzed_sql_results['offset']</code>
-      <code>$analyzed_sql_results['reload']</code>
-      <code>$analyzed_sql_results['reload']</code>
       <code>$die['error']</code>
       <code>$die['sql']</code>
     </MixedArrayAccess>
@@ -2300,7 +2294,7 @@
       <code>$_SESSION['Import_message']['message']</code>
       <code>$_SESSION['Import_message']['message']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="42">
+    <MixedAssignment occurrences="36">
       <code>$GLOBALS['MAX_FILE_SIZE']</code>
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['ajax_reload']</code>
@@ -2323,11 +2317,7 @@
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['my_die']</code>
       <code>$GLOBALS['noplugin']</code>
-      <code>$GLOBALS['offset']</code>
-      <code>$GLOBALS['offset']</code>
       <code>$GLOBALS['read_multiply']</code>
-      <code>$GLOBALS['reload']</code>
-      <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['reset_charset']</code>
       <code>$GLOBALS['result']</code>
@@ -2336,8 +2326,6 @@
       <code>$GLOBALS['skip_queries']</code>
       <code>$GLOBALS['sql_file']</code>
       <code>$GLOBALS['sql_query_disabled']</code>
-      <code>$GLOBALS['table']</code>
-      <code>$GLOBALS['table']</code>
       <code>$GLOBALS['timeout_passed']</code>
       <code>$GLOBALS['timestamp']</code>
       <code>$GLOBALS['urlParams']['local_import_file']</code>
@@ -3102,10 +3090,8 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="20">
+    <MixedArgument occurrences="15">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
@@ -3117,19 +3103,16 @@
       <code>$GLOBALS['message_to_show'] ?? null</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
-      <code>$GLOBALS['table']</code>
-      <code>$GLOBALS['table']</code>
       <code>$_GET['sql_query']</code>
       <code>$_GET['sql_signature']</code>
       <code>$_POST['bkm_fields']</code>
-      <code>$analyzed_sql_results</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="3">
       <code>$GLOBALS['ajax_reload']['reload']</code>
       <code>$_POST['bkm_fields']['bkm_label']</code>
       <code>$_POST['bkm_fields']['bkm_label']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="17">
       <code>$GLOBALS['ajax_reload']</code>
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['db']</code>
@@ -3144,7 +3127,6 @@
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
-      <code>$GLOBALS['table']</code>
       <code>$GLOBALS['table_from_sql']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
@@ -3887,16 +3869,12 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/BrowseController.php">
-    <MixedArgument occurrences="2">
-      <code>$analyzed_sql_results ?? ''</code>
+    <MixedArgument occurrences="1">
       <code>$sval</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$sval</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$analyzed_sql_results ?? ''</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php">
     <MixedArgument occurrences="1">
@@ -4274,7 +4252,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
-    <MixedArgument occurrences="21">
+    <MixedArgument occurrences="20">
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
@@ -4284,7 +4262,6 @@
       <code>$columnName</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
-      <code>$foreignData['foreign_field']</code>
       <code>$foreignData['foreign_field']</code>
       <code>$properties['type']</code>
       <code>$selected_operator</code>
@@ -5094,8 +5071,7 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Database/MultiTableQuery.php">
-    <MixedArgument occurrences="3">
-      <code>$db</code>
+    <MixedArgument occurrences="2">
       <code>$table</code>
       <code>$table</code>
     </MixedArgument>
@@ -5995,19 +5971,15 @@
     <InvalidArrayOffset occurrences="1">
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="49">
+    <InvalidIterator occurrences="2">
+      <code>$statementInfo-&gt;statement-&gt;expr</code>
+      <code>$statementInfo-&gt;statement-&gt;where</code>
+    </InvalidIterator>
+    <MixedArgument occurrences="42">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
       <code>$_SESSION['tmpval']['query']</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['select_tables']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']-&gt;from</code>
       <code>$clause</code>
       <code>$clauseIsUnique</code>
       <code>$clauseIsUnique</code>
@@ -6037,6 +6009,7 @@
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sqlQuery</code>
+      <code>$statementInfo-&gt;statement-&gt;from</code>
       <code>$total</code>
       <code>$urlParams['where_clause']</code>
       <code>$whereClause</code>
@@ -6046,15 +6019,14 @@
       <code>(int) $this-&gt;properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']</code>
       <code>empty($field-&gt;database) ? $this-&gt;properties['db'] : $field-&gt;database</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="6">
-      <code>$analyzedSqlResults</code>
+    <MixedArgumentTypeCoercion occurrences="5">
       <code>$linkingUrlParams</code>
       <code>$row</code>
       <code>$sortDirection</code>
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="65">
+    <MixedArrayAccess occurrences="62">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6078,12 +6050,9 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
-      <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
-      <code>$_SESSION['tmpval']['pos']</code>
-      <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -6196,7 +6165,7 @@
       <code>$row[$sortedColumnIndex]</code>
       <code>$row[$sortedColumnIndex]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="53">
+    <MixedAssignment occurrences="47">
       <code>$GLOBALS['row']</code>
       <code>$GLOBALS['theme']</code>
       <code>$_SESSION['tmpval']['geoOption']</code>
@@ -6214,16 +6183,11 @@
       <code>$expr</code>
       <code>$field</code>
       <code>$file</code>
-      <code>$firstShownRec</code>
-      <code>$firstShownRec</code>
-      <code>$firstShownRec</code>
       <code>$hiddenFields['session_max_rows']</code>
       <code>$i</code>
       <code>$i</code>
       <code>$identifier</code>
       <code>$index</code>
-      <code>$lastShownRec</code>
-      <code>$lastShownRec</code>
       <code>$linkingUrlParams[$new_param['param_info']]</code>
       <code>$m</code>
       <code>$meta-&gt;name</code>
@@ -6238,7 +6202,6 @@
       <code>$query['relational_display']</code>
       <code>$rel</code>
       <code>$relationalDisplay</code>
-      <code>$rowCount</code>
       <code>$rowInfo[mb_strtolower($fieldsMeta[$m]-&gt;orgname)]</code>
       <code>$sessionMaxRows</code>
       <code>$sessionMaxRows</code>
@@ -6251,11 +6214,14 @@
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
       <code>$whereClauseMap[$rowNumber][$this-&gt;properties['table']]</code>
     </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>Message</code>
+    </MixedInferredReturnType>
     <MixedMethodCall occurrences="2">
       <code>new $className()</code>
       <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="11">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -6266,27 +6232,17 @@
       <code>$displaySize[0]</code>
       <code>$displaySize[1]</code>
       <code>$file</code>
-      <code>$firstShownRec</code>
-      <code>$firstShownRec</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="16">
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['statement']-&gt;expr</code>
-      <code>$analyzedSqlResults['statement']-&gt;from</code>
-      <code>$analyzedSqlResults['statement']-&gt;from</code>
-      <code>$analyzedSqlResults['statement']-&gt;from[0]-&gt;table</code>
-      <code>$analyzedSqlResults['statement']-&gt;limit</code>
-      <code>$analyzedSqlResults['statement']-&gt;limit-&gt;offset</code>
-      <code>$analyzedSqlResults['statement']-&gt;limit-&gt;rowCount</code>
-      <code>$analyzedSqlResults['statement']-&gt;where</code>
+    <MixedPropertyFetch occurrences="8">
       <code>$expr-&gt;alias</code>
       <code>$expr-&gt;column</code>
       <code>$expr-&gt;column</code>
       <code>$expr-&gt;identifiers</code>
       <code>$field-&gt;database</code>
       <code>$field-&gt;table</code>
+      <code>$statementInfo-&gt;statement-&gt;from[0]-&gt;table</code>
+      <code>$statementInfo-&gt;statement-&gt;limit-&gt;offset</code>
     </MixedPropertyFetch>
     <MixedReturnTypeCoercion occurrences="6">
       <code>$map</code>
@@ -6325,10 +6281,20 @@
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>empty($statementInfo-&gt;statement-&gt;from)</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>$firstStatement-&gt;order</code>
       <code>isset($meta-&gt;internalMediaType)</code>
     </RedundantConditionGivenDocblockType>
+    <UnusedParam occurrences="5">
+      <code>$afterCount</code>
+      <code>$posNext</code>
+      <code>$preCount</code>
+      <code>$sortedColumnMessage</code>
+      <code>$total</code>
+    </UnusedParam>
   </file>
   <file src="libraries/classes/Encoding.php">
     <DocblockTypeContradiction occurrences="3">
@@ -7647,23 +7613,12 @@
       <code>$server['ssl']</code>
       <code>$server['ssl_verify']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="19">
+    <MixedArgument occurrences="8">
       <code>$GLOBALS['special_message']</code>
       <code>$GLOBALS['special_message']</code>
       <code>$alt</code>
       <code>$defaultFunction</code>
       <code>$field['True_Type']</code>
-      <code>$queryBase</code>
-      <code>$queryBase</code>
-      <code>$queryBase</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
       <code>$subvalue</code>
       <code>$title</code>
       <code>$value</code>
@@ -7683,17 +7638,14 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['data']</code>
       <code>$alt</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
-      <code>$queryBase</code>
-      <code>$sqlQuery</code>
       <code>$subvalue</code>
       <code>$title</code>
-      <code>$urlParams['sql_query']</code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
@@ -7703,10 +7655,9 @@
     <MixedMethodCall occurrences="1">
       <code>getDisplay</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="4">
+    <MixedOperand occurrences="3">
       <code>$GLOBALS['using_bookmark_message']-&gt;getDisplay()</code>
       <code>$attributes['class']</code>
-      <code>$sqlQuery</code>
       <code>$value</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
@@ -9069,20 +9020,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$content</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="libraries/classes/ParseAnalyze.php">
-    <MixedArgument occurrences="2">
-      <code>$analyzedSqlResults['select_tables']</code>
-      <code>$db</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$analyzedSqlResults['select_tables'][0]</code>
-      <code>$analyzedSqlResults['select_tables'][0]</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$db</code>
-      <code>$table</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Partitioning/Maintenance.php">
     <MixedArrayAccess occurrences="4">
@@ -13034,41 +12971,12 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="47">
+    <MixedArgument occurrences="15">
       <code>$_POST[$requestIndex]</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['dropped_column'] ?? null</code>
       <code>$_POST['table_create_time'] ?? null</code>
-      <code>$analyzedSqlResults</code>
-      <code>$analyzedSqlResults['is_affected']</code>
-      <code>$analyzedSqlResults['is_analyse']</code>
-      <code>$analyzedSqlResults['is_analyse']</code>
-      <code>$analyzedSqlResults['is_count']</code>
-      <code>$analyzedSqlResults['is_count']</code>
-      <code>$analyzedSqlResults['is_explain']</code>
-      <code>$analyzedSqlResults['is_explain']</code>
-      <code>$analyzedSqlResults['is_export']</code>
-      <code>$analyzedSqlResults['is_export']</code>
-      <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_maint']</code>
-      <code>$analyzedSqlResults['is_maint']</code>
-      <code>$analyzedSqlResults['is_show']</code>
-      <code>$analyzedSqlResults['is_show']</code>
-      <code>$analyzedSqlResults['parser']-&gt;errors</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['select_expr']</code>
-      <code>$analyzedSqlResults['select_tables']</code>
-      <code>$analyzedSqlResults['select_tables']</code>
-      <code>$analyzedSqlResults['select_tables']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']-&gt;where</code>
       <code>$columns[$indexColumnName]['Extra']</code>
-      <code>$db</code>
       <code>$extraData['error']</code>
       <code>$fieldInfoResult[0]['Type']</code>
       <code>$foreignData['foreign_field']</code>
@@ -13076,19 +12984,15 @@
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Status']</code>
       <code>$sortCol</code>
-      <code>$statement</code>
-      <code>$table</code>
-      <code>$tokenList</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>Message::sanitize($warning)</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>$analyzedSqlResults</code>
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$showTable</code>
       <code>$showTable</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="17">
+    <MixedArrayAccess occurrences="16">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
@@ -13096,8 +13000,6 @@
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
-      <code>$analyzedSqlResults['select_expr'][0]</code>
-      <code>$analyzedSqlResults['statement']-&gt;where[0]</code>
       <code>$fieldInfoResult[0]['Type']</code>
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Duration']</code>
@@ -13106,6 +13008,7 @@
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Status']</code>
+      <code>$statementInfo-&gt;statement-&gt;where[0]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="2">
       <code>$_SESSION['tmpval']['pos']</code>
@@ -13114,7 +13017,7 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$columns[$indexColumnName]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="21">
+    <MixedAssignment occurrences="16">
       <code>$maxRows</code>
       <code>$oneFieldMeta</code>
       <code>$oneMeta</code>
@@ -13126,11 +13029,6 @@
       <code>$profiling['total_time']</code>
       <code>$resultSetColumnNames[]</code>
       <code>$sortCol</code>
-      <code>$statement</code>
-      <code>$statement</code>
-      <code>$statement</code>
-      <code>$table</code>
-      <code>$tokenList</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
@@ -13153,16 +13051,10 @@
       <code>$oneResult['Duration']</code>
       <code>$profiling['chart'][$status]</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="9">
-      <code>$analyzedSqlResults['parser']-&gt;errors</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['statement']-&gt;where</code>
-      <code>$analyzedSqlResults['statement']-&gt;where[0]-&gt;expr</code>
+    <MixedPropertyFetch occurrences="3">
       <code>$oneFieldMeta-&gt;table</code>
       <code>$oneMeta-&gt;name</code>
+      <code>$statementInfo-&gt;statement-&gt;where[0]-&gt;expr</code>
     </MixedPropertyFetch>
     <MixedReturnStatement occurrences="4">
       <code>$pos</code>
@@ -15146,42 +15038,10 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Display/ResultsTest.php">
-    <MixedArgument occurrences="20">
-      <code>$analyzedSqlResults</code>
-      <code>$analyzedSqlResults</code>
-      <code>$analyzedSqlResults['is_analyse']</code>
-      <code>$analyzedSqlResults['is_analyse']</code>
-      <code>$analyzedSqlResults['is_count']</code>
-      <code>$analyzedSqlResults['is_count']</code>
-      <code>$analyzedSqlResults['is_explain']</code>
-      <code>$analyzedSqlResults['is_explain']</code>
-      <code>$analyzedSqlResults['is_export']</code>
-      <code>$analyzedSqlResults['is_export']</code>
-      <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_maint']</code>
-      <code>$analyzedSqlResults['is_maint']</code>
-      <code>$analyzedSqlResults['is_show']</code>
-      <code>$analyzedSqlResults['is_show']</code>
+    <MixedArgument occurrences="4">
       <code>$output</code>
       <code>$output</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="14">
-      <code>$analyzedSqlResults['is_analyse']</code>
-      <code>$analyzedSqlResults['is_analyse']</code>
-      <code>$analyzedSqlResults['is_count']</code>
-      <code>$analyzedSqlResults['is_count']</code>
-      <code>$analyzedSqlResults['is_explain']</code>
-      <code>$analyzedSqlResults['is_explain']</code>
-      <code>$analyzedSqlResults['is_export']</code>
-      <code>$analyzedSqlResults['is_export']</code>
-      <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_maint']</code>
-      <code>$analyzedSqlResults['is_maint']</code>
-      <code>$analyzedSqlResults['is_show']</code>
-      <code>$analyzedSqlResults['is_show']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="10">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -15200,8 +15060,7 @@
       <code>$output</code>
       <code>$output</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="6">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="5">
       <code>array</code>
       <code>array</code>
       <code>array</code>
@@ -16149,18 +16008,6 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/SqlTest.php">
-    <MixedArgument occurrences="6">
-      <code>$this-&gt;parseAndAnalyze('DROP DATABASE db')</code>
-      <code>$this-&gt;parseAndAnalyze('DROP TABLE tbl')</code>
-      <code>$this-&gt;parseAndAnalyze('SELECT * FROM db.tbl')</code>
-      <code>$this-&gt;parseAndAnalyze('SELECT * FROM tbl WHERE 1')</code>
-      <code>$this-&gt;parseAndAnalyze('SELECT * from tbl')</code>
-      <code>$this-&gt;parseAndAnalyze('SELECT * from tbl1, tbl2 LIMIT 0, 10')</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$analyzed_sql_results</code>
-      <code>$analyzed_sql_results</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>

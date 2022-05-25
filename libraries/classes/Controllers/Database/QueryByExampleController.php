@@ -126,7 +126,7 @@ class QueryByExampleController extends AbstractController
                 );
 
                 $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
-                    null, // analyzed_sql_results
+                    null,
                     false, // is_gotofile
                     $_POST['db'], // db
                     null, // table

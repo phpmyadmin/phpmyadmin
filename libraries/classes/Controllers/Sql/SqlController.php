@@ -145,11 +145,10 @@ class SqlController extends AbstractController
         /**
          * Parse and analyze the query
          */
-        [
-            $analyzed_sql_results,
-            $GLOBALS['db'],
-            $GLOBALS['table_from_sql'],
-        ] = ParseAnalyze::sqlQuery($GLOBALS['sql_query'], $GLOBALS['db']);
+        [$statementInfo, $GLOBALS['db'], $GLOBALS['table_from_sql']] = ParseAnalyze::sqlQuery(
+            $GLOBALS['sql_query'],
+            $GLOBALS['db']
+        );
 
         if ($GLOBALS['table'] != $GLOBALS['table_from_sql'] && ! empty($GLOBALS['table_from_sql'])) {
             $GLOBALS['table'] = $GLOBALS['table_from_sql'];
@@ -164,7 +163,7 @@ class SqlController extends AbstractController
          */
         if (
             $this->sql->hasNoRightsToDropDatabase(
-                $analyzed_sql_results,
+                $statementInfo,
                 $GLOBALS['cfg']['AllowUserDropDatabase'],
                 $this->dbi->isSuperUser()
             )
@@ -206,7 +205,7 @@ class SqlController extends AbstractController
         }
 
         $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
-            $analyzed_sql_results,
+            $statementInfo,
             $GLOBALS['is_gotofile'],
             $GLOBALS['db'],
             $GLOBALS['table'],

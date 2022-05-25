@@ -122,7 +122,7 @@ class MultiTableQuery
         );
 
         return $sql->executeQueryAndSendQueryResponse(
-            null, // analyzed_sql_results
+            null,
             false, // is_gotofile
             $db, // db
             null, // table

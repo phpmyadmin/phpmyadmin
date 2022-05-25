@@ -259,7 +259,7 @@ class SearchController extends AbstractController
         );
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
-            null, // analyzed_sql_results
+            null,
             false, // is_gotofile
             $GLOBALS['db'], // db
             $GLOBALS['table'], // table
