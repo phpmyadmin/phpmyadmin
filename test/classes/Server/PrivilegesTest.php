@@ -1838,11 +1838,6 @@ class PrivilegesTest extends AbstractTestCase
             $html
         );
 
-        //labels
-        $this->assertStringContainsString(
-            __('Change password'),
-            $html
-        );
         $this->assertStringContainsString(
             __('No Password'),
             $html
