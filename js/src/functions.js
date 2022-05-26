@@ -596,7 +596,7 @@ Functions.displayPasswordGenerateButton = function () {
     $('<td></td>').html(Messages.strGeneratePassword).appendTo(generatePwdRow);
     var pwdCell = $('<td colspan="2"></td>').addClass("row").appendTo(generatePwdRow);
 
-    pwdCell.append('<div class="col-4"></div>');
+    pwdCell.append('<div class="d-flex align-items-center col-4"></div>');
 
     var pwdButton = $('<input>')
         .attr({ type: 'button', id: 'button_generate_password', value: Messages.strGenerate })
