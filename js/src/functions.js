@@ -594,7 +594,7 @@ Functions.suggestPassword = function (passwordForm) {
 Functions.displayPasswordGenerateButton = function () {
     var generatePwdRow = $('<tr></tr>').addClass('align-middle');
     $('<td></td>').html(Messages.strGeneratePassword).appendTo(generatePwdRow);
-    var pwdCell = $('<td colspan="2"></td>').addClass("row").appendTo(generatePwdRow);
+    var pwdCell = $('<td colspan="2"></td>').addClass('row').appendTo(generatePwdRow);
 
     pwdCell.append('<div class="d-flex align-items-center col-4"></div>');
 
@@ -606,9 +606,9 @@ Functions.displayPasswordGenerateButton = function () {
         });
     var pwdTextbox = $('<input>')
         .attr({ type: 'text', name: 'generated_pw', id: 'generated_pw' })
-        .addClass("col-6");
+        .addClass('col-6');
 
-    pwdCell.find("div").eq(0).append(pwdButton);
+    pwdCell.find('div').eq(0).append(pwdButton);
     pwdCell.append(pwdTextbox);
 
     if (document.getElementById('button_generate_password') === null) {
