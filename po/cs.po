@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-22 00:18+0000\n"
-"PO-Revision-Date: 2021-11-23 18:44+0000\n"
-"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
+"PO-Revision-Date: 2022-05-27 05:55+0000\n"
+"Last-Translator: David Kindl <mtwango@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -322,12 +322,6 @@ msgid "Suboptimal caching method."
 msgstr "Neoptimální metoda vyrovnávací paměti."
 
 #: libraries/classes/Advisory/Rules.php:217
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -336,7 +330,7 @@ msgid ""
 msgstr ""
 "Používáte mezipaměť dotazů MySQL na poměrně zatížené databázi. Mohlo by být "
 "výhodnější použít místo ní <a href=\"https://dev.mysql.com/doc/refman/5.6/en/"
-"ha-memcached.html\">memcached</a>, obzvlášť pokud máte více podřízených "
+"ha-memcached.html\">memcached</a>, obzvlášť pokud máte více replikovaných "
 "serverů."
 
 #: libraries/classes/Advisory/Rules.php:223
@@ -3171,7 +3165,7 @@ msgstr "Časový limit běhu skriptu"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Použijte příkaz [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -3361,10 +3355,8 @@ msgid "Remember filename template"
 msgstr "Pamatovat si vzor pro názvy souborů"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Odstranit sloupce z centrálního seznamu"
+msgstr "Odstranit DEFINER z definic"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -4992,7 +4984,7 @@ msgstr "Zobrazeny záznamy %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného."
 
 #: libraries/classes/Controllers/Database/ExportController.php:89
 #: libraries/classes/Controllers/Database/TrackingController.php:138
@@ -5289,13 +5281,13 @@ msgstr ""
 "souboru (config.inc.php)."
 
 #: libraries/classes/Controllers/HomeController.php:337
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
-msgstr "Tajné heslo v konfiguraci (blowfish_secret) je příliš krátké."
+msgstr ""
+"Tajné heslo v konfiguraci (blowfish_secret) nemá odpovídající délku. Mělo by "
+"být %d bajtů dlouhé."
 
 #: libraries/classes/Controllers/HomeController.php:354
 msgid ""
@@ -5540,11 +5532,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Opravdu si přejete odstranit vybrané oddíly?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:77
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr ""
-"Opravdu si přejete odstranit přístupová práva vybraného(ných) uživatele(lů) ?"
+msgstr "Opravdu si přejete resetovat replikovaný server (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:79
 msgid ""
@@ -7425,6 +7414,8 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Nemůžete otevřit, uložit nebo smazat rozvržení stránky, protože ve vašem "
+"prohlížeči nefunguje IndexedDB a úložiště phpMyAdmina pro to není nastavené."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:696
 #, php-format
@@ -8553,28 +8544,19 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Počet spojení, která prováděla kompletní procházení první tabulky."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
-msgstr "Počet dočasných tabulek aktuálně otevřených podřízeným serverem."
+msgstr "Počet dočasných tabulek aktuálně otevřených replikovaným serverem."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
-msgstr "Celkový počet, kolikrát musel podřízený server opakovat transakce."
+msgstr "Celkový počet, kolikrát musel replikovaný server opakovat transakce."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
-msgstr "Tato položka je zapnutá, pokud server pracuje jako podřízený."
+msgstr "Tato položka je zapnutá, pokud server pracuje jako replikovaný."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -9413,6 +9395,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Chyba 1045. Přístup pro uživatele je zakázán. Další informace o chybě mohou "
+"být dostupné, ale jsou skryté nastavením %s."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
 #, fuzzy
@@ -12333,32 +12317,25 @@ msgid "Unknown error"
 msgstr "Neznámá chyba"
 
 #: libraries/classes/ReplicationGui.php:508
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Nepodařilo se připojit k nadřízenému serveru %s."
+msgstr "Nepodařilo se připojit k primárnímu serveru %s."
 
 #: libraries/classes/ReplicationGui.php:518
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
-"Nepodařilo se zjistit pozici v logu na nadřízeném serveru. Pravděpodobně je "
+"Nepodařilo se zjistit pozici v logu na primárním serveru. Pravděpodobně je "
 "na něm problém s přístupovými právy."
 
 #: libraries/classes/ReplicationGui.php:536
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
-msgstr "Nepodařilo se změnit nadřízený server!"
+msgstr "Nepodařilo se změnit primární server!"
 
 #: libraries/classes/ReplicationGui.php:540
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Nadřízený server byl úspěšně změněn na %s."
+msgstr "Primární server byl úspěšně změněn na %s."
 
 #: libraries/classes/Routing.php:101
 #, php-format
@@ -12610,18 +12587,14 @@ msgstr "Umožňuje zamknout tabulku pro aktuální vlákno."
 #: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Potřebné pro replikaci pomocných serverů."
+msgstr "Potřebné pro replikaci replikovaných serverů."
 
 #: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Umožní uživateli zjistit, kde je hlavní / pomocný server."
+msgstr "Umožní uživateli zjistit, kde je replikovaný / primární server."
 
 #: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:530
@@ -12859,23 +12832,17 @@ msgid "Show open tables"
 msgstr "Zobrazit otevřené tabulky"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "Zobrazit podřízené servery"
+msgstr "Zobrazit replikované servery"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Zobrazit stav nadřízeného serveru"
+msgstr "Zobrazit stav primárního serveru"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Zobrazit stav podřízených serverů"
+msgstr "Zobrazit stav replikovaných serverů"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -13534,11 +13501,8 @@ msgid "Could not save configuration"
 msgstr "Nepodařilo se uložit nastavení"
 
 #: libraries/classes/UserPreferences.php:193
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "%sVytvořit%s úložiště nastavení phpMyAdmina v aktuální databázi."
+msgstr "Nelze přistoupit k databázi nastavení phpMyAdmina."
 
 #: libraries/classes/Util.php:128
 #, php-format
@@ -14703,16 +14667,12 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportuji tabulky z databáze „%s“"
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Umožňuje měnit strukturu existujících tabulek."
+msgstr "Exportuje strukturu všech tabulek."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Exportovat pohledy jako tabulky"
+msgstr "Exportovat data všech tabulek."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15618,10 +15578,8 @@ msgid "Custom - display all possible options"
 msgstr "Vlastní - zobrazí všechna nastavení"
 
 #: templates/export.twig:121
-#, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
-msgstr "Soubor pro importování:"
+msgstr "Formát souboru pro export"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -15715,10 +15673,8 @@ msgstr ""
 "změny. Více podrobností viz FAQ 6.27."
 
 #: templates/export.twig:398
-#, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
-msgstr "použít i pro budoucí exporty"
+msgstr "Použít i pro budoucí exporty"
 
 #: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
@@ -15745,14 +15701,12 @@ msgid "Export tables as separate files"
 msgstr "Exportovat tabulky jako samostatné soubory"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "Přeskočit tabulky větší než %s MiB"
+msgstr "Přeskočit tabulky větší než:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Velikost je měřena v MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -16097,10 +16051,8 @@ msgstr ""
 "strong>. Například: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
-msgstr "Stáhnout soubor"
+msgstr "Nahrát soubor"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -16121,10 +16073,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Zvolte soubor z adresáře pro upload na serveru [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
-msgstr "Nebyl zvolen žádný soubor pro nahrání!"
+msgstr "Nebyl zvolen žádný soubor pro import!"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -16143,42 +16093,28 @@ msgstr ""
 "pokračovat od pozice %d."
 
 #: templates/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <em>(This might be a good way to import "
-#| "large files, however it can break transactions.)</em>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
 "Povolit přerušení importu v případě, že skript pozná, že se blíží časový "
-"limit nastavený v PHP. <em>(Tímto způsobem můžete importovat i velké "
-"soubory, ale může to způsobit problémy s transakcemi.)</em>"
+"limit nastavený v PHP."
 
 #: templates/import.twig:140
-#, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Povolí přerušení importu v případě, že skript zjistí blížící se vypršení "
-"časového limitu. Tento způsob může být vhodný pro import velkých souborů, "
-"ovšem může poškodit transakce."
+"Tento způsob může být vhodný pro import velkých souborů, ovšem může poškodit "
+"transakce."
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Přeskočit daný počet dotazů (pro SQL) počínaje od:"
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Další možnosti:"
+msgstr "Další možnosti"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:489
@@ -16544,10 +16480,8 @@ msgid "There are no favorite tables."
 msgstr "Nebyly nalezeny žádné oblíbené tabulky."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "Fragment konfigurace phpMyAdmina"
+msgstr "konfigurace phpMyAdmina"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16650,28 +16584,20 @@ msgid "Enabled"
 msgstr "Zapnuto"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Zobrazení funkcí"
+msgstr "Zobrazení funkcí:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "Návrh a vytváření PDF"
+msgstr "Návrh a vytváření PDF:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Zobrazuji komentáře ke sloupcům"
+msgstr "Zobrazuji komentáře ke sloupcům:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Transformace při prohlížení"
+msgstr "Transformace při prohlížení:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -16680,80 +16606,56 @@ msgstr ""
 "tabulce column_info."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Oblíbený SQL dotaz"
+msgstr "Oblíbený SQL dotaz:"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "SQL historie:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Trvalé nedávné tabulky"
+msgstr "Trvalé nedávné tabulky:"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Trvalé oblíbené tabulky"
+msgstr "Trvalé oblíbené tabulky:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "Trvalé nastavení procházení"
+msgstr "Trvalé nastavení procházení:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Sledování"
+msgstr "Sledování:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Uživatelská nastavení"
+msgstr "Uživatelská nastavení:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Nastavitelná nabídka"
+msgstr "Nastavitelná nabídka:"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Zobrazit nebo skrýt položky z navigace"
+msgstr "Zobrazit nebo skrýt položky z navigace:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "Ukládání dotazů"
+msgstr "Ukládání dotazů:"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Správa centrálního seznamu sloupců"
+msgstr "Správa centrálního seznamu sloupců:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Zapamatování nastavení návrháře"
+msgstr "Zapamatování nastavení návrháře:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Ukládání exportních šablon"
+msgstr "Ukládání šablon pro export:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -16842,17 +16744,13 @@ msgstr "Žádná oprávnění k vytváření databází"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
-msgstr "Replikace nadřízeného serveru"
+msgstr "Replikace primárního serveru"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "Replikace podřízeného serveru"
+msgstr "Replikace replikovaného serveru"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -17361,17 +17259,13 @@ msgid "Save changes"
 msgstr "Uložit změny"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
-msgstr "Nastavení podřízeného"
+msgstr "Nastavení replikovaného serveru"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "Změnit nebo přenastavit nadřízený server"
+msgstr "Změnit nebo přenastavit primární server"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17386,15 +17280,12 @@ msgid "Port:"
 msgstr "Port:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Tento server není v replikačním procesu nastaven jako nadřízený. Přejete si "
+"Tento server není v replikačním procesu nastaven jako primární. Přejete si "
 "ho %snastavit%s?"
 
 #: templates/server/replication/index.twig:43
@@ -17403,10 +17294,8 @@ msgstr "Žádná oprávnění"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "Přidat replikačního uživatele pro podřízený server"
+msgstr "Přidat replikačního uživatele pro replikovaný server"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17419,19 +17308,10 @@ msgid "Generate password:"
 msgstr "Vytvořit heslo:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Nastavení serveru"
+msgstr "Nastavení primárního serveru"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17439,10 +17319,10 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Tento server není v replikačním procesu nastaven jako nadřízený. Můžete si "
-"vybrat, zda chcete replikovat všechny databáze a některé z nich přeskočit "
-"(vhodné pokud chcete replikovat většinu databází), nebo zvolit opačný "
-"přístup a replikovat pouze vybrané databáze. Zvolte prosím požadovaný režim:"
+"Tento server není v replikačním procesu nastaven jako primární. Můžete si "
+"vybrat, zda chcete replikovat všechny databáze a některé z nich přeskočit ("
+"vhodné pokud chcete replikovat většinu databází), nebo zvolit opačný přístup "
+"a replikovat pouze vybrané databáze. Zvolte prosím požadovaný režim:"
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -17465,11 +17345,6 @@ msgstr ""
 "souboru my.cnf a poté restartutje MySQL server."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
@@ -17477,75 +17352,52 @@ msgid ""
 msgstr ""
 "Po restartování MySQL serveru klikněte na tlačítko Proveď. Poté by se měla "
 "zobrazit zpráva s informací, že tento server <strong>je</strong> nastaven "
-"jako nadřízený."
+"jako primární."
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
-msgstr "Tento server je v replikačním procesu nastavený jako nadřízený."
+msgstr "Tento server je v replikačním procesu nastavený jako primární."
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "Zobrazit připojené podřízené"
+msgstr "Zobrazit připojené replikované servery"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"V tomto seznamu jsou zobrazeny jen podřízené servery spuštěné s parametrem --"
-"report-host=host_name."
+"V tomto seznamu jsou zobrazeny jen replikované servery spuštěné s parametrem "
+"--report-host=host_name."
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "Připojení k serveru:"
+msgstr "Připojení k primárnímu serveru:"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "SQL vlákno pro podřízený server neběží!"
+msgstr "SQL vlákno pro replikovaný server neběží!"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "IO vlákno pro podřízený server neběží!"
+msgstr "IO vlákno pro replikovaný server neběží!"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
-msgstr "Server je nastaven jako podřízený v replikačním procesu. Přejete si:"
+msgstr "Server je nastaven jako replikovaný v replikačním procesu. Přejete si:"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
-msgstr "Zobrazit tabulku se stavem podřízených"
+msgstr "Zobrazit tabulku se stavem replikovaných serverů"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "Ovládání podřízeného:"
+msgstr "Ovládání replikovaného serveru:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Není replikováno"
+msgstr "Resetovat repliku"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17568,11 +17420,9 @@ msgid "Error management:"
 msgstr "Práce s chybami:"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
-"Přeskakování chyb může vést k rozdílným datům na nadřízeném a podřízeném "
+"Přeskakování chyb může vést k rozdílným datům na primárním a replikovaném "
 "serveru!"
 
 #: templates/server/replication/replica_configuration.twig:81
@@ -17585,28 +17435,21 @@ msgid "Skip next %s errors."
 msgstr "Přeskočit %s dalších chyb."
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Tento server není v replikačním procesu nastaven jako podřízený. Přejete si "
-"ho %snastavit%s?"
+"Tento server není v replikačním procesu nastaven jako replikovaný. Přejete "
+"si ho %snastavit%s?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "Stav importu"
+msgstr "Stav primárního serveru"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "Stav replikace"
+msgstr "Stav replikovaného serveru"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -17985,34 +17828,23 @@ msgstr ""
 "serveru mohou být nepřesné."
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"Tento server pracuje jako <b>nadřízený</b> i <b>podřízený</b> v "
+"Tento server pracuje jako <b>primární</b> i <b>replikovaný</b> v "
 "<b>replikačním</b> procesu."
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
-msgstr ""
-"Tento server pracuje jako <b>nadřízený</b> v <b>replikačním</b> procesu."
+msgstr "Tento server pracuje jako <b>primární</b> v <b>replikačním</b> procesu."
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Tento server pracuje jako <b>podřízený</b> v <b>replikačním</b> procesu."
+"Tento server pracuje jako <b>replikovaný</b> v <b>replikačním</b> procesu."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -18193,7 +18025,7 @@ msgstr "Přidat nový server"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Něco se pokazilo."
 
 #: templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
