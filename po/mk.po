@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-22 00:18+0000\n"
-"PO-Revision-Date: 2022-04-08 08:32+0000\n"
+"PO-Revision-Date: 2022-05-27 05:55+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,33 +13,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Дозволува читање на податоци."
+msgstr "Грешка при евалуација: %s"
 
 #: libraries/classes/Advisory/Advisor.php:267
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "Неуспешна евалуација на прекондиција за правило '%s'."
 
 #: libraries/classes/Advisory/Advisor.php:287
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Неуспешна калкулација за вредноста на правило '%s'."
 
 #: libraries/classes/Advisory/Advisor.php:306
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Неуспешно извршување на тестот за правило '%s'."
 
 #: libraries/classes/Advisory/Advisor.php:334
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Неуспешно форматирање на низа карактери за правило '%s'."
 
 #: libraries/classes/Advisory/Advisor.php:419
 msgid "per second"
@@ -55,7 +54,7 @@ msgstr "на час"
 
 #: libraries/classes/Advisory/Advisor.php:428
 msgid "per day"
-msgstr ""
+msgstr "на ден"
 
 #: libraries/classes/Advisory/Rules.php:34
 msgid "Uptime below one day"
@@ -123,6 +122,7 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"Стапката за спори барања би требало да биде под 5%%, вашата вредност е %s%%."
 
 #: libraries/classes/Advisory/Rules.php:75
 #, fuzzy
@@ -133,6 +133,7 @@ msgstr "SQL упит"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Има голем процент на спори барања во споредба со работното време на серверот."
 
 #: libraries/classes/Advisory/Rules.php:84
 #, php-format
@@ -161,7 +162,7 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:101
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time е моментално на %d секунди."
 
 #: libraries/classes/Advisory/Rules.php:106
 #: libraries/classes/Advisory/Rules.php:119
@@ -204,13 +205,15 @@ msgstr "Избери табели"
 
 #: libraries/classes/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "Верзијата на MySQL серверот е помала од 5.1."
 
 #: libraries/classes/Advisory/Rules.php:138
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Треба да го надградите софтверот, MySQL 5.1 има подобрена перформанса, со "
+"MySQL 5.5 уште повеќе."
 
 #: libraries/classes/Advisory/Rules.php:140
 #: libraries/classes/Advisory/Rules.php:154
@@ -227,7 +230,7 @@ msgstr "Персиски"
 
 #: libraries/classes/Advisory/Rules.php:149
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Верзија пониска од 5.1.30 (првата GA верзија од 5.1)."
 
 #: libraries/classes/Advisory/Rules.php:151
 msgid ""
@@ -237,7 +240,7 @@ msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:163
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Верзија пониска од 5.5.8 (првата GA верзија од 5.5)."
 
 #: libraries/classes/Advisory/Rules.php:164
 #, fuzzy
@@ -256,6 +259,7 @@ msgstr "Опис"
 #: libraries/classes/Advisory/Rules.php:173
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Верзијата е компајлирана од изворен код, не е официјален MySQL бинарен код."
 
 #: libraries/classes/Advisory/Rules.php:175
 msgid ""
@@ -277,6 +281,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona документација е на <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/classes/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
@@ -290,7 +296,7 @@ msgstr "MySQL множество на знаци"
 
 #: libraries/classes/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL не е компајлиран како 64-битен пакет."
 
 #: libraries/classes/Advisory/Rules.php:201
 msgid ""
@@ -302,7 +308,7 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:205
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Достапна меморија на овој хост: %s"
 
 #: libraries/classes/Advisory/Rules.php:211
 #, fuzzy
