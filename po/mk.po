@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-04-08 08:32+0000\n"
+"PO-Revision-Date: 2022-05-27 05:56+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-2/mk/>\n"
+"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-2/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -81,6 +81,7 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"Стапката за спори барања би требало да биде под 5%%, вашата вредност е %s%%."
 
 #: libraries/advisory_rules_generic.php:50
 #, fuzzy
@@ -91,6 +92,7 @@ msgstr "SQL упит"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Има голем процент на спори барања во споредба со работното време на серверот."
 
 #: libraries/advisory_rules_generic.php:58
 #, php-format
@@ -119,7 +121,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:74
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time е моментално на %d секунди."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
@@ -162,13 +164,15 @@ msgstr "Избери табели"
 
 #: libraries/advisory_rules_generic.php:109
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "Верзијата на MySQL серверот е помала од 5.1."
 
 #: libraries/advisory_rules_generic.php:111
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Треба да го надградите софтверот, MySQL 5.1 има подобрена перформанса, со "
+"MySQL 5.5 уште повеќе."
 
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
@@ -185,7 +189,7 @@ msgstr "Персиски"
 
 #: libraries/advisory_rules_generic.php:122
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Верзија пониска од 5.1.30 (првата GA верзија од 5.1)."
 
 #: libraries/advisory_rules_generic.php:124
 msgid ""
@@ -195,7 +199,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Верзија пониска од 5.5.8 (првата GA верзија од 5.5)."
 
 #: libraries/advisory_rules_generic.php:137
 #, fuzzy
@@ -214,6 +218,7 @@ msgstr "Опис"
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Верзијата е компајлирана од изворен код, не е официјален MySQL бинарен код."
 
 #: libraries/advisory_rules_generic.php:148
 msgid ""
@@ -235,6 +240,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona документација е на <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.php:164
 msgid "'percona' found in version_comment"
@@ -248,7 +255,7 @@ msgstr "MySQL множество на знаци"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL не е компајлиран како 64-битен пакет."
 
 #: libraries/advisory_rules_generic.php:174
 msgid ""
@@ -260,7 +267,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:178
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Достапна меморија на овој хост: %s"
 
 #: libraries/advisory_rules_generic.php:184
 #, fuzzy
@@ -1183,30 +1190,29 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/classes/Advisor.php:234
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Дозволува читање на податоци."
+msgstr "Грешка при евалуација: %s"
 
 #: libraries/classes/Advisor.php:261
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "Неуспешна евалуација на прекондиција за правило '%s'."
 
 #: libraries/classes/Advisor.php:281
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Неуспешна калкулација за вредноста на правило '%s'."
 
 #: libraries/classes/Advisor.php:300
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Неуспешно извршување на тестот за правило '%s'."
 
 #: libraries/classes/Advisor.php:328
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Неуспешно форматирање на низа карактери за правило '%s'."
 
 #: libraries/classes/Advisor.php:413
 msgid "per second"
@@ -1222,7 +1228,7 @@ msgstr "на час"
 
 #: libraries/classes/Advisor.php:422
 msgid "per day"
-msgstr ""
+msgstr "на ден"
 
 #: libraries/classes/BrowseForeigners.php:200
 #, fuzzy
