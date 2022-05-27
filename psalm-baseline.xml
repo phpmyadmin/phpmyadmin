@@ -6706,10 +6706,7 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="6">
       <code>$info</code>
-      <code>$params['checkprivsdb']</code>
-      <code>$params['checkprivstable']</code>
       <code>$params['single_table']</code>
-      <code>$params['viewing_mode']</code>
       <code>$subObject</code>
     </MixedAssignment>
     <MixedReturnTypeCoercion occurrences="2">

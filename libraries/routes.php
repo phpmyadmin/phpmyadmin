@@ -71,6 +71,7 @@ return static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', Database\OperationsController::class);
             $routes->post('/collation', Database\Operations\CollationController::class);
         });
+        $routes->get('/privileges', Database\PrivilegesController::class);
         $routes->addRoute(['GET', 'POST'], '/qbe', Database\QueryByExampleController::class);
         $routes->addRoute(['GET', 'POST'], '/routines', Database\RoutinesController::class);
         $routes->addRoute(['GET', 'POST'], '/search', Database\SearchController::class);

@@ -153,20 +153,6 @@ class Footer
 
         $params['server'] = $GLOBALS['server'];
 
-        // needed for server privileges tabs
-        if (isset($_GET['viewing_mode']) && in_array($_GET['viewing_mode'], ['server', 'db'])) {
-            $params['viewing_mode'] = $_GET['viewing_mode'];
-        }
-
-        /**
-         * @todo    coming from /server/privileges, here $db is not set,
-         *          add the following condition below when that is fixed
-         *          && $_GET['checkprivsdb'] == $db
-         */
-        if (isset($_GET['checkprivsdb'])) {
-            $params['checkprivsdb'] = $_GET['checkprivsdb'];
-        }
-
         if (isset($_REQUEST['single_table']) && in_array($_REQUEST['single_table'], [true, false])) {
             $params['single_table'] = $_REQUEST['single_table'];
         }
