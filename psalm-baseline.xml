@@ -1313,11 +1313,6 @@
       <code>$_error</code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/Controllers/Database/PrivilegesController.php">
-    <MixedArgument occurrences="1">
-      <code>$params['checkprivsdb']</code>
-    </MixedArgument>
-  </file>
   <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
     <MixedArgument occurrences="10">
       <code>$_POST['db']</code>
@@ -2490,9 +2485,7 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
-    <MixedArgument occurrences="18">
-      <code>$_GET['checkprivsdb']</code>
-      <code>$_GET['checkprivsdb']</code>
+    <MixedArgument occurrences="16">
       <code>$_POST['userGroup']</code>
       <code>$db</code>
       <code>$db</code>
@@ -3285,12 +3278,6 @@
   <file src="libraries/classes/Controllers/Table/Partition/RepairController.php">
     <MixedArgument occurrences="1">
       <code>$query</code>
-    </MixedArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Table/PrivilegesController.php">
-    <MixedArgument occurrences="2">
-      <code>$params['checkprivsdb']</code>
-      <code>$params['checkprivstable']</code>
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/RecentFavoriteController.php">
