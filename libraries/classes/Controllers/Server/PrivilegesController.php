@@ -9,7 +9,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\PrivilegesController as DatabaseController;
-use PhpMyAdmin\Controllers\Table\PrivilegesController as TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -103,8 +102,6 @@ class PrivilegesController extends AbstractController
         );
 
         $databaseController = new DatabaseController($this->response, $this->template, $serverPrivileges, $this->dbi);
-
-        $tableController = new TableController($this->response, $this->template, $serverPrivileges, $this->dbi);
 
         if (
             (isset($_GET['viewing_mode'])
@@ -421,21 +418,15 @@ class PrivilegesController extends AbstractController
                 Util::escapeMysqlWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '')
             ));
         } elseif (isset($_GET['checkprivsdb']) && is_string($_GET['checkprivsdb'])) {
-            if (isset($_GET['checkprivstable']) && is_string($_GET['checkprivstable'])) {
-                $this->response->addHTML($tableController([
-                    'checkprivsdb' => $_GET['checkprivsdb'],
-                    'checkprivstable' => $_GET['checkprivstable'],
-                ]));
-                $this->render('export_modal');
-            } elseif ($this->response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
+            if ($this->response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
                 $GLOBALS['message'] = Message::success(__('User has been added.'));
                 $this->response->addJSON('message', $GLOBALS['message']);
 
                 return;
-            } else {
-                $this->response->addHTML($databaseController(['checkprivsdb' => $_GET['checkprivsdb']]));
-                $this->render('export_modal');
             }
+
+            $this->response->addHTML($databaseController(['checkprivsdb' => $_GET['checkprivsdb']]));
+            $this->render('export_modal');
         } else {
             if (isset($GLOBALS['dbname']) && ! is_array($GLOBALS['dbname'])) {
                 $GLOBALS['url_dbname'] = urlencode(

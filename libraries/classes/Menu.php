@@ -286,14 +286,11 @@ class Menu
         }
 
         if (($isSuperUser || $isCreateOrGrantUser) && ! $isSystemSchema) {
-            $tabs['privileges']['route'] = '/server/privileges';
-            $tabs['privileges']['args']['checkprivsdb'] = $this->db;
-            $tabs['privileges']['args']['checkprivstable'] = $this->table;
+            $tabs['privileges']['route'] = '/table/privileges';
             // stay on table view
-            $tabs['privileges']['args']['viewing_mode'] = 'table';
             $tabs['privileges']['text'] = __('Privileges');
             $tabs['privileges']['icon'] = 's_rights';
-            $tabs['privileges']['active'] = $route === '/server/privileges';
+            $tabs['privileges']['active'] = $route === '/table/privileges';
         }
 
         /**

@@ -2908,7 +2908,7 @@ class Privileges
         }
 
         if (! empty($table)) {
-            $urlParams['tablename'] = $relParams['checkprivstable'] = $table;
+            $urlParams['tablename'] = $table;
         }
 
         return $this->template->render('server/privileges/add_user_fieldset', [
