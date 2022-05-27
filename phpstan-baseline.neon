@@ -1026,11 +1026,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\PrivilegesController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/PrivilegesController.php
-
-		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
@@ -1419,11 +1414,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\PrivilegesController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/PrivilegesController.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"

@@ -14,6 +14,8 @@ use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function mb_strtolower;
+
 /**
  * Controller for table privileges
  */
@@ -37,21 +39,29 @@ class PrivilegesController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
+     * @param string[] $params Request parameters
+     * @psalm-param array{checkprivsdb: string, checkprivstable: string} $params
      */
     public function __invoke(array $params): string
     {
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
 
+        $db = $params['checkprivsdb'];
+        $table = $params['checkprivstable'];
+        if ($this->dbi->getLowerCaseNames() === '1') {
+            $db = mb_strtolower($params['checkprivsdb']);
+            $table = mb_strtolower($params['checkprivstable']);
+        }
+
         $privileges = [];
         if ($this->dbi->isSuperUser()) {
-            $privileges = $this->privileges->getAllPrivileges($params['checkprivsdb'], $params['checkprivstable']);
+            $privileges = $this->privileges->getAllPrivileges($db, $table);
         }
 
         return $this->template->render('table/privileges/index', [
-            'db' => $params['checkprivsdb'],
-            'table' => $params['checkprivstable'],
+            'db' => $db,
+            'table' => $table,
             'is_superuser' => $this->dbi->isSuperUser(),
             'table_url' => $scriptName,
             'text_dir' => $GLOBALS['text_dir'],
