@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-05-25 03:14+0000\n"
+"PO-Revision-Date: 2022-05-29 07:15+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "et/>\n"
@@ -3359,10 +3359,8 @@ msgid "Remember filename template"
 msgstr "Jäta faili nime mall meelde"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Eemalda veerud kesksest nimekirjast"
+msgstr "Eemalda definitsioonide alt DEFINER klausel"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5533,10 +5531,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Kas sa tõesti soovid loobuda partitsioneerimisest?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Kas sa soovid tõesti tühistada valitud kasutajate õigused?"
+msgstr "Kas sa soovid tõesti kordistamise lähtestada (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -8175,12 +8171,9 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Esimeses tabelis täielikku kontrolli teinud liitmiste hulk."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
-msgstr "Alluva SQL lõimu poolt hetkel avatud ajutiste tabelite hulk."
+msgstr "Ajutiste tabelite arv, mille on hetkel avanud tiražeeriv SQL lõim."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
 #, fuzzy
