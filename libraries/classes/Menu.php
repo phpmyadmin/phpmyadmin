@@ -286,14 +286,11 @@ class Menu
         }
 
         if (($isSuperUser || $isCreateOrGrantUser) && ! $isSystemSchema) {
-            $tabs['privileges']['route'] = '/server/privileges';
-            $tabs['privileges']['args']['checkprivsdb'] = $this->db;
-            $tabs['privileges']['args']['checkprivstable'] = $this->table;
+            $tabs['privileges']['route'] = '/table/privileges';
             // stay on table view
-            $tabs['privileges']['args']['viewing_mode'] = 'table';
             $tabs['privileges']['text'] = __('Privileges');
             $tabs['privileges']['icon'] = 's_rights';
-            $tabs['privileges']['active'] = $route === '/server/privileges';
+            $tabs['privileges']['active'] = $route === '/table/privileges';
         }
 
         /**
@@ -397,13 +394,11 @@ class Menu
             $tabs['operation']['active'] = $route === '/database/operations';
 
             if ($isSuperUser || $isCreateOrGrantUser) {
-                $tabs['privileges']['route'] = '/server/privileges';
-                $tabs['privileges']['args']['checkprivsdb'] = $this->db;
+                $tabs['privileges']['route'] = '/database/privileges';
                 // stay on database view
-                $tabs['privileges']['args']['viewing_mode'] = 'db';
                 $tabs['privileges']['text'] = __('Privileges');
                 $tabs['privileges']['icon'] = 's_rights';
-                $tabs['privileges']['active'] = $route === '/server/privileges';
+                $tabs['privileges']['active'] = $route === '/database/privileges';
             }
 
             $tabs['routines']['route'] = '/database/routines';
@@ -503,7 +498,6 @@ class Menu
                 '/server/privileges',
                 '/server/user-groups',
             ]);
-            $tabs['rights']['args']['viewing_mode'] = 'server';
         }
 
         $tabs['export']['icon'] = 'b_export';

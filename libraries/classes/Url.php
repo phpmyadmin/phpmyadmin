@@ -270,8 +270,6 @@ class Url
             'hostname',
             'dbname',
             'tablename',
-            'checkprivsdb',
-            'checkprivstable',
         ];
         $paramsToEncrypt = [];
         foreach ($params as $paramKey => $paramValue) {

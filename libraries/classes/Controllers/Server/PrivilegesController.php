@@ -8,8 +8,6 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Controllers\Database\PrivilegesController as DatabaseController;
-use PhpMyAdmin\Controllers\Table\PrivilegesController as TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -26,8 +24,6 @@ use function header;
 use function implode;
 use function is_array;
 use function is_string;
-use function ob_get_clean;
-use function ob_start;
 use function str_replace;
 use function urlencode;
 
@@ -102,15 +98,7 @@ class PrivilegesController extends AbstractController
             new Plugins($this->dbi)
         );
 
-        $databaseController = new DatabaseController($this->response, $this->template, $serverPrivileges, $this->dbi);
-
-        $tableController = new TableController($this->response, $this->template, $serverPrivileges, $this->dbi);
-
-        if (
-            (isset($_GET['viewing_mode'])
-                && $_GET['viewing_mode'] === 'server')
-            && $relationParameters->configurableMenusFeature !== null
-        ) {
+        if ($relationParameters->configurableMenusFeature !== null) {
             $this->response->addHTML('<div class="container-fluid">');
             $this->render('server/privileges/subnav', [
                 'active' => 'privileges',
@@ -371,26 +359,7 @@ class PrivilegesController extends AbstractController
         /**
          * Displays the links
          */
-        if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] === 'db') {
-            $GLOBALS['db'] = $_REQUEST['db'] = $_GET['checkprivsdb'];
-
-            // Gets the database structure
-            $GLOBALS['sub_part'] = '_structure';
-            ob_start();
-
-            [
-                $GLOBALS['tables'],
-                $GLOBALS['num_tables'],
-                $GLOBALS['total_num_tables'],
-                $GLOBALS['sub_part'],,,
-                $GLOBALS['tooltip_truename'],
-                $GLOBALS['tooltip_aliasname'],
-                $GLOBALS['pos'],
-            ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part']);
-
-            $content = ob_get_clean();
-            $this->response->addHTML($content . "\n");
-        } elseif (! empty($GLOBALS['message'])) {
+        if (! empty($GLOBALS['message'])) {
             $this->response->addHTML(Generator::getMessage($GLOBALS['message']));
             unset($GLOBALS['message']);
         }
@@ -420,22 +389,6 @@ class PrivilegesController extends AbstractController
             $this->response->addHTML($serverPrivileges->getHtmlForAddUser(
                 Util::escapeMysqlWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '')
             ));
-        } elseif (isset($_GET['checkprivsdb']) && is_string($_GET['checkprivsdb'])) {
-            if (isset($_GET['checkprivstable']) && is_string($_GET['checkprivstable'])) {
-                $this->response->addHTML($tableController([
-                    'checkprivsdb' => $_GET['checkprivsdb'],
-                    'checkprivstable' => $_GET['checkprivstable'],
-                ]));
-                $this->render('export_modal');
-            } elseif ($this->response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
-                $GLOBALS['message'] = Message::success(__('User has been added.'));
-                $this->response->addJSON('message', $GLOBALS['message']);
-
-                return;
-            } else {
-                $this->response->addHTML($databaseController(['checkprivsdb' => $_GET['checkprivsdb']]));
-                $this->render('export_modal');
-            }
         } else {
             if (isset($GLOBALS['dbname']) && ! is_array($GLOBALS['dbname'])) {
                 $GLOBALS['url_dbname'] = urlencode(
@@ -488,11 +441,7 @@ class PrivilegesController extends AbstractController
             }
         }
 
-        if (
-            ! isset($_GET['viewing_mode'])
-            || $_GET['viewing_mode'] !== 'server'
-            || $relationParameters->configurableMenusFeature === null
-        ) {
+        if ($relationParameters->configurableMenusFeature === null) {
             return;
         }
 

@@ -7,13 +7,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function __;
 use function mb_strtolower;
 
 /**
@@ -38,20 +41,47 @@ class PrivilegesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    /**
-     * @param string[] $params Request parameters
-     * @psalm-param array{checkprivsdb: string, checkprivstable: string} $params
-     */
-    public function __invoke(array $params): string
+    public function __invoke(): void
     {
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
+
+        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
+
+        /**
+         * Checks if the user is allowed to do what they try to...
+         */
+        $isGrantUser = $this->dbi->isGrantUser();
+        $isCreateUser = $this->dbi->isCreateUser();
+
+        if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
+            $this->render('server/sub_page_header', [
+                'type' => 'privileges',
+                'is_image' => false,
+            ]);
+            $this->response->addHTML(
+                Message::error(__('No Privileges'))
+                    ->getDisplay()
+            );
+
+            return;
+        }
+
+        if (! $isGrantUser && ! $isCreateUser) {
+            $this->response->addHTML(Message::notice(
+                __('You do not have the privileges to administrate the users!')
+            )->getDisplay());
+        }
+
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
 
-        $db = $params['checkprivsdb'];
-        $table = $params['checkprivstable'];
+        $db = $GLOBALS['db'];
+        $table = $GLOBALS['table'];
         if ($this->dbi->getLowerCaseNames() === '1') {
-            $db = mb_strtolower($params['checkprivsdb']);
-            $table = mb_strtolower($params['checkprivstable']);
+            $db = mb_strtolower($GLOBALS['db']);
+            $table = mb_strtolower($GLOBALS['table']);
         }
 
         $privileges = [];
@@ -59,7 +89,7 @@ class PrivilegesController extends AbstractController
             $privileges = $this->privileges->getAllPrivileges($db, $table);
         }
 
-        return $this->template->render('table/privileges/index', [
+        $this->render('table/privileges/index', [
             'db' => $db,
             'table' => $table,
             'is_superuser' => $this->dbi->isSuperUser(),
@@ -69,5 +99,6 @@ class PrivilegesController extends AbstractController
             'is_grantuser' => $this->dbi->isGrantUser(),
             'privileges' => $privileges,
         ]);
+        $this->render('export_modal');
     }
 }

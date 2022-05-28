@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\PrivilegesController;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -43,12 +43,9 @@ class PrivilegesControllerTest extends AbstractTestCase
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 
-        $actual = (new PrivilegesController(
-            ResponseRenderer::getInstance(),
-            new Template(),
-            $serverPrivileges,
-            $GLOBALS['dbi']
-        ))(['checkprivsdb' => $GLOBALS['db'], 'checkprivstable' => $GLOBALS['table']]);
+        $response = new ResponseRenderer();
+        (new PrivilegesController($response, new Template(), $serverPrivileges, $GLOBALS['dbi']))();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString($GLOBALS['db'] . '.' . $GLOBALS['table'], $actual);
 
@@ -92,13 +89,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         //_pgettext('Create new user', 'New')
         $this->assertStringContainsString(
             _pgettext('Create new user', 'New'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            Url::getCommon([
-                'checkprivsdb' => $GLOBALS['db'],
-                'checkprivstable' => $GLOBALS['table'],
-            ]),
             $actual
         );
     }

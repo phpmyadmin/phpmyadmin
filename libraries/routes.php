@@ -71,6 +71,7 @@ return static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', Database\OperationsController::class);
             $routes->post('/collation', Database\Operations\CollationController::class);
         });
+        $routes->get('/privileges', Database\PrivilegesController::class);
         $routes->addRoute(['GET', 'POST'], '/qbe', Database\QueryByExampleController::class);
         $routes->addRoute(['GET', 'POST'], '/routines', Database\RoutinesController::class);
         $routes->addRoute(['GET', 'POST'], '/search', Database\SearchController::class);
@@ -239,6 +240,7 @@ return static function (RouteCollector $routes): void {
             $routes->post('/repair', Table\Partition\RepairController::class);
             $routes->post('/truncate', Table\Partition\TruncateController::class);
         });
+        $routes->get('/privileges', Table\PrivilegesController::class);
         $routes->addRoute(['GET', 'POST'], '/operations', Table\OperationsController::class);
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', Table\RecentFavoriteController::class);
         $routes->addRoute(['GET', 'POST'], '/relation', Table\RelationController::class);

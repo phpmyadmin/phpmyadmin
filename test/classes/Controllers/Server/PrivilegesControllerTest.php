@@ -54,8 +54,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $_GET = ['viewing_mode' => 'server'];
-
         $response = new ResponseRenderer();
         (new PrivilegesController($response, new Template(), new Relation($this->dbi), $this->dbi))();
 

@@ -2101,7 +2101,6 @@ class Privileges
         return $this->template->render('server/privileges/initials_row', [
             'array_initials' => $arrayInitials,
             'initial' => $_GET['initial'] ?? null,
-            'viewing_mode' => $_GET['viewing_mode'] ?? null,
         ]);
     }
 
@@ -2901,20 +2900,16 @@ class Privileges
             return '';
         }
 
-        $relParams = [];
         $urlParams = ['adduser' => 1];
         if (! empty($db)) {
-            $urlParams['dbname'] = $relParams['checkprivsdb'] = $db;
+            $urlParams['dbname'] = $db;
         }
 
         if (! empty($table)) {
-            $urlParams['tablename'] = $relParams['checkprivstable'] = $table;
+            $urlParams['tablename'] = $table;
         }
 
-        return $this->template->render('server/privileges/add_user_fieldset', [
-            'url_params' => $urlParams,
-            'rel_params' => $relParams,
-        ]);
+        return $this->template->render('server/privileges/add_user_fieldset', ['url_params' => $urlParams]);
     }
 
     /**
