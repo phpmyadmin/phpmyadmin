@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-29 00:18+0000\n"
-"PO-Revision-Date: 2022-05-09 09:15+0000\n"
+"PO-Revision-Date: 2022-05-30 14:15+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -16505,7 +16505,7 @@ msgstr "Oke"
 
 #: templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
-msgstr ""
+msgstr "Ga terug"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
