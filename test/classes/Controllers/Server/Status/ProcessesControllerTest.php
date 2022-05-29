@@ -77,7 +77,7 @@ class ProcessesControllerTest extends AbstractTestCase
 
         $_POST['full'] = '1';
         $_POST['column_name'] = 'Database';
-        $_POST['order_by_field'] = 'db';
+        $_POST['order_by_field'] = 'Db';
         $_POST['sort_order'] = 'ASC';
 
         $this->dummyDbi->addSelectDb('mysql');
