@@ -45,25 +45,11 @@
             </a>
           </td>
           <td class="font-monospace text-end">{{ row.id }}</td>
-          <td>
-            <a href="{{ url('/server/privileges', {
-                'username': row.user,
-                'hostname': row.host,
-                'dbname': row.db,
-                'tablename': '',
-                'routinename': '',
-              }) }}">
-              {{ row.user }}
-            </a>
-          </td>
+          <td>{{ row.user }}</td>
           <td>{{ row.host }}</td>
           <td>
             {% if row.db != '' %}
-              <a href="{{ url('/database/structure', {
-                  'db': row.db,
-                }) }}">
-                {{ row.db }}
-              </a>
+              {{ row.db }}
             {% else %}
               <em>{% trans 'None' %}</em>
             {% endif %}
