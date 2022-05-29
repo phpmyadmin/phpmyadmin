@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
+"PO-Revision-Date: 2022-05-30 10:14+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ro/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3310,7 +3310,7 @@ msgstr "Timp maxim de execuție"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Folosește declarația [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -4568,7 +4568,7 @@ msgstr "Fragment Content-Security-Policy pentru API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parametrul cererii pentru API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "Response parameter for reCAPTCHA v2 API"
@@ -5137,7 +5137,7 @@ msgstr "Arăt rândurile %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Există deja o pagină numită „%s”. Te rog să o redenumești în altceva."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7100,6 +7100,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"Funcția HEX va trata întregul ca un șir în timp ce calculează valoarea "
+"hexazecimală"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 msgid ""
@@ -7564,7 +7566,7 @@ msgstr "A expirat așteptarea pentru activarea cheii de securitate."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Cerere nevalidă trimisă către cheia de securitate."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
@@ -7598,6 +7600,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Nu poți deschide, salva sau șterge aspectul paginii, deoarece IndexedDB nu "
+"funcționează în navigator și spațiul de stocare al configurației phpMyAdmin "
+"nu este configurat pentru acesta."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy, php-format
@@ -11985,12 +11990,12 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Convertește o adresă de rețea Internet în format (IPv4/IPv6) la binar"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "Convertește o adresă de rețea Internet în format (IPv4/IPv6) la binar"
+msgstr ""
+"Convertește o adresă de rețea Internet în format (IPv4/IPv6) într-un întreg "
+"lung."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -15718,7 +15723,7 @@ msgstr "Sari peste tabelele mai mari de:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Mărimea este măsurată în MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -16169,11 +16174,8 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
-msgstr "Niciunul"
+msgstr "niciunul"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
@@ -16375,7 +16377,7 @@ msgstr "Te rog introdu o intrare HEX validă"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Această coloană nu poate conține o valoare de 32 de caractere"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -17412,7 +17414,7 @@ msgstr "Permite crearea de rutine stocate."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Nu este folosit pe MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
@@ -18403,7 +18405,7 @@ msgstr "Adaugă un server nou"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Ceva nu a mers bine."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -19256,7 +19258,7 @@ msgstr "Bară de navigare tabel"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(actuală)"
 
 #: templates/transformation_overview.twig:1
 #, fuzzy
