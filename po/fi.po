@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-22 00:18+0000\n"
+"POT-Creation-Date: 2022-05-29 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1286,7 +1286,7 @@ msgstr "Haku:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: libraries/classes/Controllers/Server/PrivilegesController.php:353
+#: libraries/classes/Controllers/Server/PrivilegesController.php:340
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:325
 #: libraries/classes/Tracking.php:479
@@ -3516,7 +3516,7 @@ msgid "First day of calendar"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:748
-#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:478
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:473
 #: libraries/classes/Util.php:1864 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
@@ -3632,7 +3632,7 @@ msgid "Changes tracking"
 msgstr "Muutosten seuranta"
 
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
-#: libraries/classes/Menu.php:360 libraries/classes/Menu.php:483
+#: libraries/classes/Menu.php:357 libraries/classes/Menu.php:478
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
 #: libraries/classes/Util.php:1425 libraries/classes/Util.php:1865
 #: libraries/classes/Util.php:1880 libraries/classes/Util.php:1897
@@ -4292,7 +4292,7 @@ msgstr "Ohita lukitut taulut"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/Display/Results.php:2766
+#: libraries/classes/Display/Results.php:2756
 #: libraries/classes/Html/Generator.php:656
 #: libraries/classes/Html/Generator.php:905
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4620,7 +4620,7 @@ msgstr "Muokattu"
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/Import.php:1256 libraries/classes/Menu.php:245
-#: libraries/classes/Menu.php:355
+#: libraries/classes/Menu.php:352
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
@@ -4667,8 +4667,8 @@ msgstr "OpenDocument teksti"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
-#: libraries/classes/Menu.php:275 libraries/classes/Menu.php:380
-#: libraries/classes/Menu.php:511 libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1512
 #: libraries/classes/Util.php:1868 libraries/classes/Util.php:1883
 #: libraries/classes/Util.php:1900 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4712,8 +4712,8 @@ msgstr "CSV käyttäen LOAD DATA -kyselyä"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
-#: libraries/classes/Menu.php:284 libraries/classes/Menu.php:390
-#: libraries/classes/Menu.php:516 libraries/classes/Util.php:1869
+#: libraries/classes/Menu.php:284 libraries/classes/Menu.php:387
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:1869
 #: libraries/classes/Util.php:1884 libraries/classes/Util.php:1901
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
@@ -5146,6 +5146,21 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "phpMyAdminin asetusmuisti on poistettu käytöstä. %sKatso miksi%s."
 
+#: libraries/classes/Controllers/Database/PrivilegesController.php:67
+#: libraries/classes/Controllers/Server/PrivilegesController.php:152
+#: libraries/classes/Controllers/Server/UserGroupsController.php:53
+#: libraries/classes/Controllers/Table/PrivilegesController.php:65
+msgid "No Privileges"
+msgstr "Ei käyttöoikeuksia"
+
+#: libraries/classes/Controllers/Database/PrivilegesController.php:76
+#: libraries/classes/Controllers/Server/PrivilegesController.php:161
+#: libraries/classes/Controllers/Table/PrivilegesController.php:74
+#, fuzzy
+#| msgid "You don't have sufficient privileges to be here right now!"
+msgid "You do not have the privileges to administrate the users!"
+msgstr "Sinulla ei ole riittäviä oikeuksia!"
+
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
@@ -5202,7 +5217,7 @@ msgid "Table %s has been emptied."
 msgstr "Taulu %s on tyhjennetty."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3772
+#: libraries/classes/Display/Results.php:3761
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5250,7 +5265,7 @@ msgstr "tuntematon"
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/structure/display_structure.twig:515
 #: templates/table/structure/drop_confirm.twig:19
-#: templates/table/structure/primary.twig:22
+#: templates/table/structure/primary.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
@@ -5508,8 +5523,8 @@ msgstr ""
 "tarkoittaa yleensä sitä, että phpMyAdmin ei voi ajaa tätä tuontia loppuun "
 "asti ellei PHP:n suoritusaikarajaa nosteta."
 
-#: libraries/classes/Controllers/Import/ImportController.php:768
-#: libraries/classes/Controllers/Sql/SqlController.php:173
+#: libraries/classes/Controllers/Import/ImportController.php:766
+#: libraries/classes/Controllers/Sql/SqlController.php:172
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
@@ -5762,10 +5777,11 @@ msgstr "Ole hyvä ja valitse sarakkeet avainta varten."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 #: templates/columns_definitions/column_definitions_form.twig:156
 #: templates/modals/index_dialog_modal.twig:11
+#: templates/modals/index_dialog_modal.twig:21
 #: templates/table/index_form.twig:240
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
-#: templates/table/relation/common_form.twig:224
+#: templates/table/relation/common_form.twig:223
 #: templates/table/structure/display_structure.twig:344
 msgid "Preview SQL"
 msgstr "Esikatsele SQL"
@@ -5836,6 +5852,7 @@ msgstr "Poista valitut käyttäjät"
 #: templates/modals/function_confirm.twig:11
 #: templates/modals/index_dialog_modal.twig:6
 #: templates/modals/index_dialog_modal.twig:12
+#: templates/modals/index_dialog_modal.twig:22
 #: templates/modals/page_settings.twig:6
 #: templates/modals/preview_sql_confirmation.twig:6
 #: templates/modals/preview_sql_confirmation.twig:15
@@ -5854,8 +5871,8 @@ msgstr "Poista valitut käyttäjät"
 #: templates/sql/query.twig:219 templates/sql/query.twig:224
 #: templates/table/insert/actions_panel.twig:47
 #: templates/table/insert/actions_panel.twig:52
-#: templates/table/relation/common_form.twig:234
-#: templates/table/relation/common_form.twig:239
+#: templates/table/relation/common_form.twig:233
+#: templates/table/relation/common_form.twig:238
 #: templates/table/search/index.twig:182
 #: templates/table/structure/display_structure.twig:329
 #: templates/table/structure/display_structure.twig:345
@@ -6090,7 +6107,7 @@ msgid "Traffic"
 msgstr "Liikenne"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#: libraries/classes/Menu.php:521 libraries/classes/Util.php:1870
+#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1870
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Asetukset"
@@ -6105,7 +6122,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Lisää sarjaan vähintään yksi muuttuja!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
-#: libraries/classes/Display/Results.php:1068
+#: libraries/classes/Display/Results.php:1065
 #: libraries/classes/Plugins/Export/ExportSql.php:2197
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6321,7 +6338,7 @@ msgid "Explain output"
 msgstr "Selitä SQL-kysely"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
-#: libraries/classes/Menu.php:488
+#: libraries/classes/Menu.php:483
 #: libraries/classes/Server/Status/Processes.php:138
 #: libraries/classes/Util.php:1866 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
@@ -6403,7 +6420,7 @@ msgstr "Ryhmitettyjen rivien määrä:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 #: libraries/classes/Engines/Innodb.php:138
-#: templates/server/databases/index.twig:253
+#: templates/server/databases/index.twig:250
 msgid "Total:"
 msgstr "Yhteensä:"
 
@@ -6502,8 +6519,8 @@ msgstr "Parametrit puuttuvat!"
 #: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
 #: templates/modals/add_index.twig:11 templates/modals/change_password.twig:11
 #: templates/modals/page_settings.twig:11
-#: templates/server/databases/index.twig:319
-#: templates/server/databases/index.twig:323
+#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:320
 #: templates/server/variables/index.twig:15
 #: templates/table/search/index.twig:197
 msgid "Cancel"
@@ -6521,7 +6538,8 @@ msgid "Apply"
 msgstr "Käytä"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
-#: templates/home/index.twig:300 templates/navigation/main.twig:58
+#: templates/home/index.twig:300 templates/modals/index_dialog_modal.twig:26
+#: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -6633,7 +6651,7 @@ msgstr "Vaihdetaan merkistökoodausta"
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/structure/display_structure.twig:515
 #: templates/table/structure/drop_confirm.twig:20
-#: templates/table/structure/primary.twig:23
+#: templates/table/structure/primary.twig:20
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
@@ -6717,7 +6735,7 @@ msgid "Show query box"
 msgstr "Näytä kyselykenttä"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
-#: libraries/classes/Display/Results.php:2834
+#: libraries/classes/Display/Results.php:2824
 #: libraries/classes/Tracking.php:258
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
@@ -6911,8 +6929,8 @@ msgstr "Yhtään riippuvuutta ei ole valittu!"
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/insert/actions_panel.twig:7
-#: templates/table/relation/common_form.twig:225
-#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/relation/common_form.twig:224
+#: templates/table/structure/partition_definition_form.twig:13
 #: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
 msgstr "Tallenna"
@@ -6985,7 +7003,7 @@ msgid "Ignore"
 msgstr "Älä huomioi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:480
-#: libraries/classes/Display/Results.php:2770
+#: libraries/classes/Display/Results.php:2760
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
@@ -8024,7 +8042,7 @@ msgstr "Asetuksissa on virheellinen todennustapa:"
 #: libraries/classes/Controllers/Server/DatabasesController.php:314
 #: libraries/classes/Import.php:149
 #: templates/database/structure/table_header.twig:26
-#: templates/table/structure/display_partitions.twig:28
+#: templates/table/structure/display_partitions.twig:29
 #: templates/table/structure/display_structure.twig:230
 #: templates/table/structure/display_table_stats.twig:119
 msgid "Rows"
@@ -8034,7 +8052,7 @@ msgstr "Kpl rivejä"
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
-#: templates/table/structure/display_structure.twig:445
+#: templates/table/structure/display_structure.twig:444
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
 msgstr "Indeksit"
@@ -8076,28 +8094,11 @@ msgstr "Valitsemiesi käyttäjien poisto onnistui."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:165
-#: libraries/classes/Controllers/Server/UserGroupsController.php:53
-msgid "No Privileges"
-msgstr "Ei käyttöoikeuksia"
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:174
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the privileges to administrate the users!"
-msgstr "Sinulla ei ole riittäviä oikeuksia!"
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:189
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:432
-#, fuzzy
-#| msgid "View %s has been dropped."
-msgid "User has been added."
-msgstr "Näkymä %s on poistettu"
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
@@ -8882,13 +8883,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Salaamaton yhteys"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:246
-#: libraries/classes/Sql.php:1154
+#: libraries/classes/Controllers/Sql/SqlController.php:245
+#: libraries/classes/Sql.php:1139
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Kirjanmerkki %s on nyt luotu."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:253
+#: libraries/classes/Controllers/Sql/SqlController.php:252
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
@@ -8948,10 +8949,10 @@ msgstr "Taulu %s on jo olemassa!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:55
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
-#: libraries/classes/Controllers/Table/RelationController.php:241
+#: libraries/classes/Controllers/Table/RelationController.php:242
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3484 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-kyselysi on suoritettu onnistuneesti."
@@ -8994,7 +8995,7 @@ msgstr "Lähetettäviä tiedostoja ei ole"
 #: libraries/classes/Controllers/Table/GetFieldController.php:79
 #: libraries/classes/Database/Routines.php:1245
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
-#: libraries/classes/Sql.php:968
+#: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
 
@@ -9027,13 +9028,13 @@ msgstr "Näkymä"
 msgid "Error"
 msgstr "Virhe"
 
-#: libraries/classes/Controllers/Table/RelationController.php:182
+#: libraries/classes/Controllers/Table/RelationController.php:183
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Säikeen %s lopetus onnistui."
 
-#: libraries/classes/Controllers/Table/RelationController.php:275
+#: libraries/classes/Controllers/Table/RelationController.php:276
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -9729,18 +9730,18 @@ msgstr "Ole hyvä ja kirjoita maksimissaan {0} merkkiä"
 msgid "The table name cannot end with a space character."
 msgstr "Sanat erotetaan välilyönnein."
 
-#: libraries/classes/Display/Results.php:1272
+#: libraries/classes/Display/Results.php:1263
 #: templates/display/results/table.twig:204
 msgid "Partial texts"
 msgstr "Osittaiset tekstit"
 
-#: libraries/classes/Display/Results.php:1276
+#: libraries/classes/Display/Results.php:1267
 #: templates/display/results/table.twig:208
 msgid "Full texts"
 msgstr "Koko tekstit"
 
-#: libraries/classes/Display/Results.php:1617
-#: libraries/classes/Display/Results.php:1643 libraries/classes/Util.php:2487
+#: libraries/classes/Display/Results.php:1608
+#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2487
 #: libraries/classes/Util.php:2510 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9753,8 +9754,8 @@ msgstr "Koko tekstit"
 msgid "Descending"
 msgstr "Laskeva"
 
-#: libraries/classes/Display/Results.php:1625
-#: libraries/classes/Display/Results.php:1635 libraries/classes/Util.php:2479
+#: libraries/classes/Display/Results.php:1616
+#: libraries/classes/Display/Results.php:1626 libraries/classes/Util.php:2479
 #: libraries/classes/Util.php:2502 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9767,41 +9768,41 @@ msgstr "Laskeva"
 msgid "Ascending"
 msgstr "Nouseva"
 
-#: libraries/classes/Display/Results.php:2810
-#: libraries/classes/Display/Results.php:2825
+#: libraries/classes/Display/Results.php:2800
+#: libraries/classes/Display/Results.php:2815
 msgid "The row has been deleted."
 msgstr "Rivi on nyt poistettu."
 
-#: libraries/classes/Display/Results.php:2857
+#: libraries/classes/Display/Results.php:2847
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Lopeta"
 
-#: libraries/classes/Display/Results.php:3417
+#: libraries/classes/Display/Results.php:3403
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Saattaa olla likimääräinen. Katso [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3781
+#: libraries/classes/Display/Results.php:3770
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Näytetään rivit %1s–%2s"
 
-#: libraries/classes/Display/Results.php:3795
+#: libraries/classes/Display/Results.php:3784
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d kokonaisuudessaan, %2$d hakulauseessa"
 
-#: libraries/classes/Display/Results.php:3800
+#: libraries/classes/Display/Results.php:3789
 #, php-format
 msgid "%d total"
 msgstr "%d tulos"
 
-#: libraries/classes/Display/Results.php:3813 libraries/classes/Sql.php:974
+#: libraries/classes/Display/Results.php:3802 libraries/classes/Sql.php:960
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Kysely kesti %01.4f sekuntia."
 
-#: libraries/classes/Display/Results.php:4143
+#: libraries/classes/Display/Results.php:4129
 msgid "Link not found!"
 msgstr "Linkkiä ei löydy!"
 
@@ -10343,7 +10344,7 @@ msgstr "Staattinen analyysi:"
 msgid "%d errors were found during analysis."
 msgstr "%d virhettä havaittu analyysin aikana."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:982
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:968
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10506,11 +10507,11 @@ msgstr "Tai"
 msgid "web server upload directory:"
 msgstr "palvelimen lähetyshakemisto"
 
-#: libraries/classes/InsertEdit.php:1311 libraries/classes/Sql.php:965
+#: libraries/classes/InsertEdit.php:1311 libraries/classes/Sql.php:951
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:945
+#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:931
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
@@ -10541,7 +10542,7 @@ msgstr "%1$s (lähellä <code>%2$s</code>)"
 msgid "Browse"
 msgstr "Selaa"
 
-#: libraries/classes/Menu.php:257 libraries/classes/Menu.php:364
+#: libraries/classes/Menu.php:257 libraries/classes/Menu.php:361
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
 #: libraries/classes/Util.php:1426 libraries/classes/Util.php:1881
 #: libraries/classes/Util.php:1898 libraries/config.values.php:64
@@ -10565,8 +10566,8 @@ msgstr "Etsi"
 msgid "Insert"
 msgstr "Lisää rivi"
 
-#: libraries/classes/Menu.php:294 libraries/classes/Menu.php:404
-#: libraries/classes/Server/Privileges.php:2848 libraries/classes/Util.php:1886
+#: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
+#: libraries/classes/Server/Privileges.php:2847 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -10575,19 +10576,19 @@ msgstr "Lisää rivi"
 msgid "Privileges"
 msgstr "Käyttöoikeudet"
 
-#: libraries/classes/Menu.php:305 libraries/classes/Menu.php:315
-#: libraries/classes/Menu.php:395 libraries/classes/Util.php:1429
+#: libraries/classes/Menu.php:302 libraries/classes/Menu.php:312
+#: libraries/classes/Menu.php:392 libraries/classes/Util.php:1429
 #: libraries/classes/Util.php:1885 libraries/classes/Util.php:1903
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Toiminnot"
 
-#: libraries/classes/Menu.php:321 libraries/classes/Menu.php:430
+#: libraries/classes/Menu.php:318 libraries/classes/Menu.php:425
 #: libraries/classes/Util.php:1890 libraries/classes/Util.php:1904
 msgid "Tracking"
 msgstr "Seuranta"
 
-#: libraries/classes/Menu.php:328 libraries/classes/Menu.php:423
+#: libraries/classes/Menu.php:325 libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:552
@@ -10601,21 +10602,21 @@ msgstr "Seuranta"
 msgid "Triggers"
 msgstr "Herättimet"
 
-#: libraries/classes/Menu.php:369 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:385
+#: libraries/classes/Menu.php:366 libraries/classes/Menu.php:374
+#: libraries/classes/Menu.php:382
 msgid "Database seems to be empty!"
 msgstr "Tietokanta on tyhjä!"
 
-#: libraries/classes/Menu.php:372 libraries/classes/Util.php:1882
+#: libraries/classes/Menu.php:369 libraries/classes/Util.php:1882
 msgid "Query"
 msgstr "Haku"
 
-#: libraries/classes/Menu.php:410 libraries/classes/Util.php:1887
+#: libraries/classes/Menu.php:405 libraries/classes/Util.php:1887
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Rutiinit"
 
-#: libraries/classes/Menu.php:416
+#: libraries/classes/Menu.php:411
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1004
@@ -10624,25 +10625,25 @@ msgstr "Rutiinit"
 msgid "Events"
 msgstr "Tapahtumat"
 
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1891
+#: libraries/classes/Menu.php:432 libraries/classes/Util.php:1891
 msgid "Designer"
 msgstr "Suunnittelija"
 
-#: libraries/classes/Menu.php:444 libraries/classes/Util.php:1892
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1892
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Keskisarakkeet"
 
-#: libraries/classes/Menu.php:501
+#: libraries/classes/Menu.php:496
 msgid "User accounts"
 msgstr "Käyttäjätilit"
 
-#: libraries/classes/Menu.php:536 libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:1871 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Binääriloki"
 
-#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:157
 #: libraries/classes/Util.php:1872
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -10650,22 +10651,22 @@ msgstr "Binääriloki"
 msgid "Replication"
 msgstr "Kahdennus"
 
-#: libraries/classes/Menu.php:549 libraries/classes/Server/Status/Data.php:229
+#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:229
 #: libraries/classes/Util.php:1873 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Muuttujat"
 
-#: libraries/classes/Menu.php:554 libraries/classes/Util.php:1874
+#: libraries/classes/Menu.php:548 libraries/classes/Util.php:1874
 msgid "Charsets"
 msgstr "Merkistöt"
 
-#: libraries/classes/Menu.php:559 libraries/classes/Util.php:1876
+#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1876
 msgid "Engines"
 msgstr "Moottorit"
 
-#: libraries/classes/Menu.php:564 libraries/classes/Util.php:1875
+#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1875
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Liitännäiset"
@@ -11187,32 +11188,32 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/classes/Operations.php:553
-#: templates/table/structure/display_partitions.twig:84
+#: templates/table/structure/display_partitions.twig:85
 msgid "Analyze"
 msgstr "Analysoi"
 
 #: libraries/classes/Operations.php:554
-#: templates/table/structure/display_partitions.twig:94
+#: templates/table/structure/display_partitions.twig:95
 msgid "Check"
 msgstr "Tarkasta"
 
 #: libraries/classes/Operations.php:555
-#: templates/table/structure/display_partitions.twig:104
+#: templates/table/structure/display_partitions.twig:105
 msgid "Optimize"
 msgstr "Optimoi"
 
 #: libraries/classes/Operations.php:556
-#: templates/table/structure/display_partitions.twig:114
+#: templates/table/structure/display_partitions.twig:115
 msgid "Rebuild"
 msgstr "Rakenna uudestaan"
 
 #: libraries/classes/Operations.php:557
-#: templates/table/structure/display_partitions.twig:124
+#: templates/table/structure/display_partitions.twig:125
 msgid "Repair"
 msgstr "Korjaa"
 
 #: libraries/classes/Operations.php:558
-#: templates/table/structure/display_partitions.twig:134
+#: templates/table/structure/display_partitions.twig:135
 msgid "Truncate"
 msgstr ""
 
@@ -11233,9 +11234,9 @@ msgstr ""
 #: templates/database/triggers/row.twig:58 templates/indexes.twig:58
 #: templates/server/databases/index.twig:67
 #: templates/server/databases/index.twig:68
-#: templates/server/databases/index.twig:324
+#: templates/server/databases/index.twig:321
 #: templates/table/relation/foreign_key_row.twig:25
-#: templates/table/structure/display_partitions.twig:145
+#: templates/table/structure/display_partitions.twig:146
 #: templates/table/structure/display_structure.twig:120
 #: templates/table/structure/display_structure.twig:290
 #: templates/table/structure/display_structure.twig:508
@@ -12806,7 +12807,7 @@ msgstr "Virhe ladattaessa hakua."
 
 #: libraries/classes/Server/Plugins.php:66
 #: libraries/classes/Server/Privileges.php:793
-#: libraries/classes/Server/Privileges.php:3723
+#: libraries/classes/Server/Privileges.php:3718
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -13139,24 +13140,24 @@ msgstr "Rutiinit"
 msgid "Routine-specific privileges"
 msgstr "Sarakekohtaiset käyttöoikeudet"
 
-#: libraries/classes/Server/Privileges.php:2176
+#: libraries/classes/Server/Privileges.php:2175
 msgid "No users selected for deleting!"
 msgstr "Yhtään käyttäjää ei valittu poistettavaksi!"
 
-#: libraries/classes/Server/Privileges.php:2179
+#: libraries/classes/Server/Privileges.php:2178
 msgid "Reloading the privileges"
 msgstr "Ladataan käyttöoikeuksia uudelleen"
 
-#: libraries/classes/Server/Privileges.php:2204
+#: libraries/classes/Server/Privileges.php:2203
 msgid "The selected users have been deleted successfully."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
-#: libraries/classes/Server/Privileges.php:2281
+#: libraries/classes/Server/Privileges.php:2280
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on päivitetty."
 
-#: libraries/classes/Server/Privileges.php:2368
+#: libraries/classes/Server/Privileges.php:2367
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -13164,40 +13165,40 @@ msgstr "Käyttäjän %s käyttöoikeudet on päivitetty."
 msgid "No user found."
 msgstr "Käyttäjiä ei ole."
 
-#: libraries/classes/Server/Privileges.php:2455
+#: libraries/classes/Server/Privileges.php:2454
 #, php-format
 msgid "Deleting %s"
 msgstr "Poistetaan: %s"
 
-#: libraries/classes/Server/Privileges.php:2486
+#: libraries/classes/Server/Privileges.php:2485
 msgid "The privileges were reloaded successfully."
 msgstr "Käyttöoikeuksien uudelleenlataus onnistui."
 
-#: libraries/classes/Server/Privileges.php:2590
+#: libraries/classes/Server/Privileges.php:2589
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Käyttäjä %s on jo olemassa!"
 
-#: libraries/classes/Server/Privileges.php:2865
+#: libraries/classes/Server/Privileges.php:2864
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Käyttöoikeudet"
 
-#: libraries/classes/Server/Privileges.php:2874
+#: libraries/classes/Server/Privileges.php:2873
 #: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Käyttäjä"
 
-#: libraries/classes/Server/Privileges.php:2988
+#: libraries/classes/Server/Privileges.php:2983
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3022
+#: libraries/classes/Server/Privileges.php:3017
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13215,7 +13216,7 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: libraries/classes/Server/Privileges.php:3038
+#: libraries/classes/Server/Privileges.php:3033
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13234,7 +13235,7 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: libraries/classes/Server/Privileges.php:3350
+#: libraries/classes/Server/Privileges.php:3345
 msgid "You have added a new user."
 msgstr "Uusi käyttäjä lisätty."
 
@@ -13367,16 +13368,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Saatavilla ei ole uudempaa vakaata versiota"
 
-#: libraries/classes/Sql.php:498
+#: libraries/classes/Sql.php:488
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:962
+#: libraries/classes/Sql.php:948
 msgid "Showing as PHP code"
 msgstr "Näytetään PHP-koodina"
 
-#: libraries/classes/Sql.php:1336
+#: libraries/classes/Sql.php:1320
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13389,7 +13390,7 @@ msgstr ""
 "valintaneliöihin, Muokkaa-, Kopioi- ja Poista-linkkeihin liittyvät "
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
-#: libraries/classes/Sql.php:1350
+#: libraries/classes/Sql.php:1334
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -14267,7 +14268,7 @@ msgid "Spatial"
 msgstr "Tilaa koskeva"
 
 #: templates/columns_definitions/column_attributes.twig:156
-#: templates/table/structure/display_partitions.twig:26
+#: templates/table/structure/display_partitions.twig:27
 #, fuzzy
 #| msgid "Compression"
 msgid "Expression"
@@ -14357,7 +14358,7 @@ msgstr ""
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
 #: templates/table/insert/actions_panel.twig:46
-#: templates/table/relation/common_form.twig:233
+#: templates/table/relation/common_form.twig:232
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
@@ -14416,7 +14417,7 @@ msgstr "ositettu"
 
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/operations/index.twig:480
-#: templates/table/structure/display_partitions.twig:24
+#: templates/table/structure/display_partitions.twig:25
 #, fuzzy
 #| msgid "Partition %s"
 msgid "Partition"
@@ -14446,7 +14447,7 @@ msgstr "Moottorit"
 #: templates/database/events/editor_form.twig:102
 #: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
-#: templates/table/structure/display_partitions.twig:31
+#: templates/table/structure/display_partitions.twig:32
 #: templates/table/structure/display_structure.twig:466
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
@@ -14861,7 +14862,7 @@ msgstr "Järjestä napsauttamalla."
 #: templates/server/user_groups/user_groups.twig:21
 #: templates/server/variables/index.twig:30
 #: templates/table/privileges/index.twig:24
-#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/display_partitions.twig:34
 #: templates/table/structure/display_structure.twig:34
 #: templates/table/structure/display_structure.twig:457
 #: templates/table/tracking/main.twig:32
@@ -15605,7 +15606,7 @@ msgid "New"
 msgstr ""
 
 #: templates/database/privileges/index.twig:136
-#: templates/server/privileges/add_user_fieldset.twig:9
+#: templates/server/privileges/add_user_fieldset.twig:6
 #: templates/server/privileges/add_user.twig:4
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:140
@@ -16004,7 +16005,7 @@ msgstr "Lisää AUTO_INCREMENT-arvo"
 #: templates/database/structure/empty_form.twig:6
 #: templates/table/delete/confirm.twig:12
 #: templates/table/structure/drop_confirm.twig:7
-#: templates/table/structure/primary.twig:6
+#: templates/table/structure/primary.twig:3
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -17102,12 +17103,16 @@ msgid "View:"
 msgstr "Näkymät"
 
 #: templates/modals/function_confirm.twig:5
-#: templates/server/databases/index.twig:318
+#: templates/server/databases/index.twig:315
 msgid "Confirm"
 msgstr "Vahvista"
 
 #: templates/modals/function_confirm.twig:10
 msgid "Ok"
+msgstr ""
+
+#: templates/modals/index_dialog_modal.twig:30
+msgid "Go back"
 msgstr ""
 
 #: templates/modals/unhide_nav_item.twig:5
@@ -17668,7 +17673,7 @@ msgid "Original position"
 msgstr "Alkuperäinen sijainti"
 
 #: templates/server/binlog/index.twig:89
-#: templates/table/structure/display_table_stats.twig:3
+#: templates/table/structure/display_table_stats.twig:2
 msgid "Information"
 msgstr "Tiedot"
 
@@ -17720,16 +17725,16 @@ msgstr "Alipalvelimen kahdennus"
 msgid "Jump to database '%s'"
 msgstr "Siirry tietokantaan"
 
-#: templates/server/databases/index.twig:242
+#: templates/server/databases/index.twig:239
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "Hallitse tietokannan \"%s\" käyttöoikeuksia."
 
-#: templates/server/databases/index.twig:243
+#: templates/server/databases/index.twig:240
 msgid "Check privileges"
 msgstr "Merkitse käyttöoikeudet"
 
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:295
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -17737,12 +17742,12 @@ msgstr ""
 "Huom: Tietokantatilastojen näyttäminen täältä käsin saattaa aiheuttaa "
 "runsaasti liikennettä Internet-palvelimen ja MySQL-palvelimen välille."
 
-#: templates/server/databases/index.twig:300
-#: templates/server/databases/index.twig:301
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:298
 msgid "Enable statistics"
 msgstr "Aktivoi tilastot"
 
-#: templates/server/databases/index.twig:308
+#: templates/server/databases/index.twig:305
 msgid "No databases"
 msgstr "Ei tietokantoja"
 
@@ -19734,7 +19739,7 @@ msgid "Partition maintenance"
 msgstr "Osituksen ylläpito"
 
 #: templates/table/operations/index.twig:500
-#: templates/table/structure/display_partitions.twig:201
+#: templates/table/structure/display_partitions.twig:202
 msgid "Remove partitioning"
 msgstr "Poista ositus"
 
@@ -19870,7 +19875,7 @@ msgstr ""
 "Sisäistä relaatiota ei tarvita, kun vastaava FOREIGN KEY -relaatio on "
 "olemassa."
 
-#: templates/table/relation/common_form.twig:208
+#: templates/table/relation/common_form.twig:207
 #, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
@@ -19926,51 +19931,51 @@ msgstr "Enimmäisarvo:"
 msgid "Start row:"
 msgstr "Aloitusrivi"
 
-#: templates/table/structure/display_partitions.twig:4
+#: templates/table/structure/display_partitions.twig:3
 #: templates/table/structure/display_structure.twig:580
 #, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
 msgstr "Ositus %s"
 
-#: templates/table/structure/display_partitions.twig:8
+#: templates/table/structure/display_partitions.twig:9
 #, fuzzy
 #| msgid "No index defined!"
 msgid "No partitioning defined!"
 msgstr "Indeksiä ei ole määritelty!"
 
-#: templates/table/structure/display_partitions.twig:11
+#: templates/table/structure/display_partitions.twig:12
 #, fuzzy
 #| msgid "partitioned"
 msgid "Partitioned by:"
 msgstr "ositettu"
 
-#: templates/table/structure/display_partitions.twig:16
+#: templates/table/structure/display_partitions.twig:17
 #, fuzzy
 #| msgid "partitioned"
 msgid "Sub partitioned by:"
 msgstr "ositettu"
 
-#: templates/table/structure/display_partitions.twig:29
+#: templates/table/structure/display_partitions.twig:30
 #, fuzzy
 #| msgid "Row length"
 msgid "Data length"
 msgstr "Rivin pituus"
 
-#: templates/table/structure/display_partitions.twig:30
+#: templates/table/structure/display_partitions.twig:31
 #, fuzzy
 #| msgid "Row length"
 msgid "Index length"
 msgstr "Rivin pituus"
 
-#: templates/table/structure/display_partitions.twig:194
+#: templates/table/structure/display_partitions.twig:195
 #, fuzzy
 #| msgid "partitioned"
 msgid "Partition table"
 msgstr "ositettu"
 
-#: templates/table/structure/display_partitions.twig:207
-#: templates/table/structure/partition_definition_form.twig:5
+#: templates/table/structure/display_partitions.twig:208
+#: templates/table/structure/partition_definition_form.twig:3
 #, fuzzy
 #| msgid "Remove partitioning"
 msgid "Edit partitioning"
@@ -20136,23 +20141,23 @@ msgstr "DROP sarakkeet %s taulusta %s"
 msgid "Delete version"
 msgstr "Luo versio"
 
-#: templates/table/tracking/main.twig:102
+#: templates/table/tracking/main.twig:100
 #, fuzzy, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
 msgstr "Ota käyttöön kohteen %s.%s seuranta"
 
-#: templates/table/tracking/main.twig:104
+#: templates/table/tracking/main.twig:102
 msgid "Activate now"
 msgstr "Ota käyttöön nyt"
 
-#: templates/table/tracking/main.twig:106
+#: templates/table/tracking/main.twig:104
 #, fuzzy, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
 msgstr "Poista kohteen %s.%s seuranta"
 
-#: templates/table/tracking/main.twig:108
+#: templates/table/tracking/main.twig:106
 msgid "Deactivate now"
 msgstr "Poista käytöstä nyt"
 
@@ -20244,6 +20249,11 @@ msgstr "VIEW-arvon nimi"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Sarakkeiden nimet"
+
+#, fuzzy
+#~| msgid "View %s has been dropped."
+#~ msgid "User has been added."
+#~ msgstr "Näkymä %s on poistettu"
 
 #, fuzzy
 #~| msgid "Label"
