@@ -75,7 +75,9 @@
           <td>{{ row.command }}</td>
           <td class="font-monospace text-end">{{ row.time }}</td>
           <td>{{ row.state }}</td>
-          <td>{{ row.progress }}</td>
+          {% if is_mariadb %}
+            <td>{{ row.progress }}</td>
+          {% endif %}
           <td>{{ row.info|raw }}</td>
       {% endfor %}
     </tbody>

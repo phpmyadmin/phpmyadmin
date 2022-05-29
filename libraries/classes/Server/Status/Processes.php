@@ -133,14 +133,18 @@ final class Processes
                 'column_name' => __('Status'),
                 'order_by_field' => 'State',
             ],
-            [
+        ];
+
+        if ($this->dbi->isMariaDB()) {
+            $sortableColumns[] = [
                 'column_name' => __('Progress'),
                 'order_by_field' => 'Progress',
-            ],
-            [
-                'column_name' => __('SQL query'),
-                'order_by_field' => 'Info',
-            ],
+            ];
+        }
+
+        $sortableColumns[] = [
+            'column_name' => __('SQL query'),
+            'order_by_field' => 'Info',
         ];
 
         $sortableColCount = count($sortableColumns);
