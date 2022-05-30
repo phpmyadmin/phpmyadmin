@@ -41,7 +41,7 @@ class WindowsNt extends Base
          * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemlocator
          * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemservices
          *
-         * @psalm-suppress MixedAssignment, UndefinedMagicMethod
+         * @psalm-suppress MixedAssignment, UndefinedMagicMethod, MixedMethodCall
          */
         $this->wmiService = (new com('WbemScripting.SWbemLocator'))->ConnectServer();
     }
@@ -59,9 +59,9 @@ class WindowsNt extends Base
     /**
      * Checks whether class is supported in this environment
      */
-    public function supported(): bool
+    public static function isSupported(): bool
     {
-        return $this->wmiService !== null;
+        return class_exists('com');
     }
 
     /**

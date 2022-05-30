@@ -67,6 +67,6 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfoSupported(): void
     {
-        $this->assertTrue(SysInfo::get()->supported());
+        $this->assertTrue(SysInfo::get()::isSupported());
     }
 }

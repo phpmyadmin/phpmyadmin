@@ -41,7 +41,7 @@ class Base
     /**
      * Checks whether class is supported in this environment
      */
-    public function supported(): bool
+    public static function isSupported(): bool
     {
         return true;
     }
