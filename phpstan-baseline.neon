@@ -7336,21 +7336,6 @@ parameters:
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
 
 		-
-			message: "#^Cannot call method Get\\(\\) on COM\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:getWMI\\(\\) has parameter \\$strValue with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:getWMI\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:loadavg\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
