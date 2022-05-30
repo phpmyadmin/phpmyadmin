@@ -2755,8 +2755,7 @@
     <InvalidArgument occurrences="1">
       <code>$GLOBALS['sql_query']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="12">
-      <code>$GLOBALS['db']</code>
+    <MixedArgument occurrences="11">
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['password'] ?? ''</code>
       <code>$GLOBALS['password'] ?? null</code>
@@ -2772,9 +2771,8 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$GLOBALS['queries']</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="31">
+    <MixedAssignment occurrences="29">
       <code>$GLOBALS['_add_user_error']</code>
-      <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db_and_table']</code>
       <code>$GLOBALS['dbname']</code>
       <code>$GLOBALS['dbname_is_wildcard']</code>
@@ -2802,7 +2800,6 @@
       <code>$GLOBALS['tooltip_truename']</code>
       <code>$GLOBALS['total_num_tables']</code>
       <code>$GLOBALS['url_dbname']</code>
-      <code>$_REQUEST['db']</code>
       <code>$db_name</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
@@ -6704,7 +6701,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$params</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="3">
       <code>$info</code>
       <code>$params['single_table']</code>
       <code>$subObject</code>
@@ -12802,66 +12799,6 @@
     <MixedOperand occurrences="1">
       <code>$params['sort_order']</code>
     </MixedOperand>
-  </file>
-  <file src="libraries/classes/Server/SysInfo/WindowsNt.php">
-    <MixedArrayAccess occurrences="6">
-      <code>$buffer[0]['FreePhysicalMemory']</code>
-      <code>$buffer[0]['TotalVisibleMemorySize']</code>
-      <code>$load['LoadPercentage']</code>
-      <code>$swapdevice['AllocatedBaseSize']</code>
-      <code>$swapdevice['CurrentUsage']</code>
-      <code>$swapdevice['PeakUsage']</code>
-    </MixedArrayAccess>
-    <MixedArrayOffset occurrences="2">
-      <code>$arrInstance[$name]</code>
-      <code>$arrInstance[$name]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="20">
-      <code>$arrInstance[$name]</code>
-      <code>$arrProp</code>
-      <code>$arrWEBMCol</code>
-      <code>$load</code>
-      <code>$mem['MemFree']</code>
-      <code>$mem['MemTotal']</code>
-      <code>$mem['MemUsed']</code>
-      <code>$mem['SwapPeak']</code>
-      <code>$mem['SwapTotal']</code>
-      <code>$mem['SwapUsed']</code>
-      <code>$name</code>
-      <code>$objItem</code>
-      <code>$objLocator</code>
-      <code>$objWEBM</code>
-      <code>$propItem</code>
-      <code>$sum</code>
-      <code>$swapdevice</code>
-      <code>$this-&gt;wmi</code>
-      <code>$value</code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>ConnectServer</code>
-      <code>Instances_</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="6">
-      <code>$mem['MemTotal']</code>
-      <code>$sum</code>
-      <code>$swapdevice['AllocatedBaseSize']</code>
-      <code>$swapdevice['CurrentUsage']</code>
-      <code>$swapdevice['PeakUsage']</code>
-      <code>$value</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="3">
-      <code>$objItem-&gt;$name</code>
-      <code>$objWEBM-&gt;Properties_</code>
-      <code>$propItem-&gt;Name</code>
-    </MixedPropertyFetch>
-    <PossiblyNullReference occurrences="1">
-      <code>Get</code>
-    </PossiblyNullReference>
-    <UndefinedDocblockClass occurrences="2">
-      <code>$this-&gt;wmi</code>
-      <code>COM|null</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Session.php">
     <MixedArgument occurrences="3">
