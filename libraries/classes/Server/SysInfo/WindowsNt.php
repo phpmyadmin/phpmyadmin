@@ -42,6 +42,7 @@ class WindowsNt extends Base
          * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemservices
          *
          * @psalm-suppress MixedAssignment, UndefinedMagicMethod, MixedMethodCall
+         * @phpstan-ignore-next-line
          */
         $this->wmiService = (new com('WbemScripting.SWbemLocator'))->ConnectServer();
     }
@@ -49,9 +50,9 @@ class WindowsNt extends Base
     /**
      * Gets load information
      *
-     * @return array with load data
+     * @return array<string, int> with load data
      */
-    public function loadavg()
+    public function loadavg(): array
     {
         return ['loadavg' => $this->getLoadPercentage()];
     }
@@ -67,9 +68,18 @@ class WindowsNt extends Base
     /**
      * Gets information about memory usage
      *
-     * @return array with memory usage data
+     * @return array<string, int> with memory usage data
+     * @psalm-return array{
+     *     MemTotal: int,
+     *     MemFree: int,
+     *     MemUsed: int,
+     *     SwapTotal: int,
+     *     SwapUsed: int,
+     *     SwapPeak: int,
+     *     SwapFree: int
+     * }
      */
-    public function memory()
+    public function memory(): array
     {
         return array_merge($this->getSystemMemory(), $this->getPageFileUsage());
     }

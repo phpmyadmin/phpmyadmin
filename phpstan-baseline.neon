@@ -7306,46 +7306,6 @@ parameters:
 			path: libraries/classes/Server/Status/Processes.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base\\:\\:loadavg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Base.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base\\:\\:memory\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Base.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\Linux\\:\\:memory\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\SunOs\\:\\:loadavg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/SunOs.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\SunOs\\:\\:memory\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/SunOs.php
-
-		-
-			message: "#^Call to an undefined method COM\\:\\:ConnectServer\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:loadavg\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:memory\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Session\\:\\:sessionFailed\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Session.php
@@ -10129,11 +10089,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Server\\\\SelectTest\\:\\:renderDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Server/SelectTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Server\\\\SysInfo\\\\SysInfoTest\\:\\:sysInfoOsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Server/SysInfo/SysInfoTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\SqlTest\\:\\:dataProviderCountQueryResults\\(\\) return type has no value type specified in iterable type array\\.$#"

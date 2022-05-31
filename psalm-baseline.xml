@@ -15912,11 +15912,6 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/Server/SysInfo/SysInfoTest.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="test/classes/Setup/ConfigGeneratorTest.php">
     <MixedAssignment occurrences="2">
       <code>$result</code>

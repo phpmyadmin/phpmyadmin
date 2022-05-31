@@ -31,6 +31,8 @@ class SysInfoTest extends AbstractTestCase
 
     /**
      * Data provider for OS detection tests.
+     *
+     * @return string[][]
      */
     public function sysInfoOsProvider(): array
     {

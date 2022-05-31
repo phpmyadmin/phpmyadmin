@@ -21,9 +21,9 @@ class Base
     /**
      * Gets load information
      *
-     * @return array with load data
+     * @return array<string, int> with load data
      */
-    public function loadavg()
+    public function loadavg(): array
     {
         return ['loadavg' => 0];
     }
@@ -31,9 +31,9 @@ class Base
     /**
      * Gets information about memory usage
      *
-     * @return array with memory usage data
+     * @return array<string, int> with memory usage data
      */
-    public function memory()
+    public function memory(): array
     {
         return [];
     }
