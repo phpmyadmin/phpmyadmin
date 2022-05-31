@@ -3610,7 +3610,7 @@
     <InvalidArgument occurrences="1">
       <code>usort($tables, 'strnatcasecmp')</code>
     </InvalidArgument>
-    <MixedArgument occurrences="18">
+    <MixedArgument occurrences="21">
       <code>$_POST['destination_column']</code>
       <code>$_POST['destination_db']</code>
       <code>$_POST['destination_foreign_column']</code>
@@ -3623,6 +3623,9 @@
       <code>$_POST['foreignDb']</code>
       <code>$_POST['foreignDb']</code>
       <code>$column['Field']</code>
+      <code>$foreignDb</code>
+      <code>$foreignDb</code>
+      <code>$foreignTable</code>
       <code>$foreignTable</code>
       <code>$html</code>
       <code>$multi_edit_columns_name</code>
@@ -3633,21 +3636,33 @@
       <code>uksort($column_array, 'strnatcasecmp')</code>
       <code>usort($columnList, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="2">
+      <code>$oneKey['ref_db_name']</code>
+      <code>$oneKey['ref_table_name']</code>
+    </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$column_array[$column['Field']]</code>
       <code>$column_hash_array[$column['Field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="10">
       <code>$GLOBALS['display_query']</code>
       <code>$column_array[$column['Field']]</code>
+      <code>$existrelForeign</code>
+      <code>$foreignDb</code>
       <code>$foreignTable</code>
+      <code>$foreignTable</code>
+      <code>$key</code>
       <code>$multi_edit_columns_name</code>
       <code>$multi_edit_columns_name</code>
+      <code>$oneKey</code>
     </MixedAssignment>
     <PossiblyNullArgument occurrences="2">
       <code>$multi_edit_columns_name</code>
       <code>$multi_edit_columns_name</code>
     </PossiblyNullArgument>
+    <UnusedVariable occurrences="1">
+      <code>$key</code>
+    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ReplaceController.php">
     <InvalidArgument occurrences="1">
