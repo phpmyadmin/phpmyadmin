@@ -37,56 +37,7 @@
                     <th>{% trans 'Table' %}</th>
                     <th>{% trans 'Column' %}</th>
                 </tr></thead>
-                {% set i = 0 %}
-                {% if existrel_foreign is not empty %}
-                    {% for key, one_key in existrel_foreign %}
-                        {# Foreign database dropdown #}
-                        {% set foreign_db = one_key['ref_db_name'] is defined
-                            and one_key['ref_db_name'] is not null
-                            ? one_key['ref_db_name'] : db %}
-                        {% set foreign_table = false %}
-                        {% if foreign_db %}
-                            {% set foreign_table = one_key['ref_table_name'] is defined
-                                and one_key['ref_table_name'] is not null
-                                ? one_key['ref_table_name'] : false %}
-                        {% endif %}
-                        {% set unique_columns = [] %}
-                        {% if foreign_db and foreign_table %}
-                            {% set table_obj = table_get(foreign_table, foreign_db) %}
-                            {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
-                        {% endif %}
-                        {% include 'table/relation/foreign_key_row.twig' with {
-                            'i': i,
-                            'one_key': one_key,
-                            'column_array': column_array,
-                            'options_array': options_array,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'db': db,
-                            'table': table,
-                            'url_params': url_params,
-                            'databases': databases,
-                            'foreign_db': foreign_db,
-                            'foreign_table': foreign_table,
-                            'unique_columns': unique_columns
-                        } only %}
-                        {% set i = i + 1 %}
-                    {% endfor %}
-                {% endif %}
-                {% include 'table/relation/foreign_key_row.twig' with {
-                    'i': i,
-                    'one_key': [],
-                    'column_array': column_array,
-                    'options_array': options_array,
-                    'tbl_storage_engine': tbl_storage_engine,
-                    'db': db,
-                    'table': table,
-                    'url_params': url_params,
-                    'databases': databases,
-                    'foreign_db': foreign_db,
-                    'foreign_table': foreign_table,
-                    'unique_columns': unique_columns
-                } only %}
-                {% set i = i + 1 %}
+                {{ foreign_key_row|raw }}
                 <tr>
                     <th colspan="6">
                         <a class="formelement clearfloat add_foreign_key" href="">
