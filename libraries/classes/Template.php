@@ -10,7 +10,6 @@ use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use PhpMyAdmin\Twig\FlashMessagesExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
-use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\TableExtension;
 use PhpMyAdmin\Twig\TrackerExtension;
@@ -97,7 +96,6 @@ class Template
         $twig->addExtension(new FlashMessagesExtension());
         $twig->addExtension(new I18nExtension());
         $twig->addExtension(new MessageExtension());
-        $twig->addExtension(new RelationExtension());
         $twig->addExtension(new SanitizeExtension());
         $twig->addExtension(new TableExtension());
         $twig->addExtension(new TrackerExtension());

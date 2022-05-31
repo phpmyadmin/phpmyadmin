@@ -146,6 +146,66 @@ final class RelationController extends AbstractController
             uksort($column_array, 'strnatcasecmp');
         }
 
+        $foreignKeyRow = '';
+        $existrelForeign = array_key_exists('foreign_keys_data', $relationsForeign)
+            ? $relationsForeign['foreign_keys_data']
+            : [];
+        $i = 0;
+
+        foreach ($existrelForeign as $key => $oneKey) {
+            $foreignDb = $oneKey['ref_db_name'] ?? $GLOBALS['db'];
+            $foreignTable = false;
+            if ($foreignDb) {
+                $foreignTable = $oneKey['ref_table_name'] ?? false;
+                $tables = $this->relation->getTables($foreignDb, $storageEngine);
+            } else {
+                $tables = $this->relation->getTables($GLOBALS['db'], $storageEngine);
+            }
+
+            $uniqueColumns = [];
+            if ($foreignDb && $foreignTable) {
+                $tableObject = Table::get(
+                    $foreignTable,
+                    $foreignDb
+                );
+                $uniqueColumns = $tableObject->getUniqueColumns(false, false);
+            }
+
+            $foreignKeyRow .= $this->template->render('table/relation/foreign_key_row', [
+                'i' => $i,
+                'one_key' => $oneKey,
+                'column_array' => $column_array,
+                'options_array' => $options,
+                'tbl_storage_engine' => $storageEngine,
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
+                'url_params' => $GLOBALS['urlParams'],
+                'databases' => $GLOBALS['dblist']->databases,
+                'foreign_db' => $foreignDb,
+                'foreign_table' => $foreignTable,
+                'unique_columns' => $uniqueColumns,
+                'tables' => $tables,
+            ]);
+            $i++;
+        }
+
+        $tables = $this->relation->getTables($GLOBALS['db'], $storageEngine);
+        $foreignKeyRow .= $this->template->render('table/relation/foreign_key_row', [
+            'i' => $i,
+            'one_key' => [],
+            'column_array' => $column_array,
+            'options_array' => $options,
+            'tbl_storage_engine' => $storageEngine,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+            'url_params' => $GLOBALS['urlParams'],
+            'databases' => $GLOBALS['dblist']->databases,
+            'foreign_db' => false,
+            'foreign_table' => false,
+            'unique_columns' => [],
+            'tables' => $tables,
+        ]);
+
         // common form
         $engine = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStorageEngine();
         $this->render('table/relation/common_form', [
@@ -155,9 +215,7 @@ final class RelationController extends AbstractController
             'relation_parameters' => $relationParameters,
             'tbl_storage_engine' => $storageEngine,
             'existrel' => $relations,
-            'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)
-                ? $relationsForeign['foreign_keys_data']
-                : [],
+            'existrel_foreign' => $existrelForeign,
             'options_array' => $options,
             'column_array' => $column_array,
             'column_hash_array' => $column_hash_array,
@@ -168,6 +226,7 @@ final class RelationController extends AbstractController
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'route' => $route,
             'display_field' => $this->relation->getDisplayField($GLOBALS['db'], $GLOBALS['table']),
+            'foreign_key_row' => $foreignKeyRow,
         ]);
     }
 
