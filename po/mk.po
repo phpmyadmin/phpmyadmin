@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-29 00:18+0000\n"
-"PO-Revision-Date: 2022-06-01 05:00+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"PO-Revision-Date: 2022-06-02 08:18+0000\n"
+"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
 "Language: mk\n"
@@ -5342,10 +5342,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:134
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Комплетен INSERT (со имиња на полињата)"
+msgstr "Непотполни параметри"
 
 #: libraries/classes/Controllers/Import/ImportController.php:148
 msgid "Succeeded"
@@ -5354,7 +5352,7 @@ msgstr "Успешно"
 #: libraries/classes/Controllers/Import/ImportController.php:152
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Failed"
-msgstr ""
+msgstr "Неуспешно"
 
 #: libraries/classes/Controllers/Import/ImportController.php:253
 #, php-format
