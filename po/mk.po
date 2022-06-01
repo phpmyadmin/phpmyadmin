@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-29 00:18+0000\n"
 "PO-Revision-Date: 2022-06-01 04:56+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
 "Language: mk\n"
@@ -5028,6 +5028,8 @@ msgstr "Името на базата на податоци е празно!"
 #: libraries/classes/Controllers/Database/OperationsController.php:115
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Не  може да се ископира базата на податоци со исто име. Сменете го името и "
+"пробајте повторно."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:200
 #, fuzzy, php-format
