@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-05-27 05:56+0000\n"
+"PO-Revision-Date: 2022-06-02 08:18+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -36,9 +36,8 @@ msgid "The uptime is only %s"
 msgstr "Работно време е само %s"
 
 #: libraries/advisory_rules_generic.php:22
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Персиски"
+msgstr "Прашања под 1,000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
@@ -55,20 +54,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:32
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Конекции"
+msgstr "Сегашна вредност на Прашања: %s"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Прикажи комплетни упити"
+msgstr "Процентажа на спори барања"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Има многу спори барања во споредба со вкупниот број на Барања."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
@@ -177,15 +174,14 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
 #: libraries/advisory_rules_generic.php:138
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Верзија на серверот"
+msgstr "Сегашна верзија: %s"
 
 #: libraries/advisory_rules_generic.php:118
 #: libraries/advisory_rules_generic.php:132
-#, fuzzy
 msgid "Minor Version"
-msgstr "Персиски"
+msgstr "Мала Верзија"
 
 #: libraries/advisory_rules_generic.php:122
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -202,11 +198,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Верзија пониска од 5.5.8 (првата GA верзија од 5.5)."
 
 #: libraries/advisory_rules_generic.php:137
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
-"Би требало да го надоградите вашиот %s сервер на верзија %s или понова."
+msgstr "Би требало да надградите до стабилна верзија на MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
@@ -248,10 +241,8 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:168
-#, fuzzy
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL множество на знаци"
+msgstr "MySQL архитектура"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
@@ -5035,6 +5026,8 @@ msgstr "Името на базата на податоци е празно!"
 #: libraries/classes/Controllers/Database/OperationsController.php:99
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Не може да се ископира базата на податоци со исто име. Сменете го името и "
+"пробајте повторно."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:177
 #, fuzzy, php-format
@@ -5049,15 +5042,11 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Базата на податоци %s е ископирана во %s"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:296
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Дополнителните можности за работа со поврзаните табели се исклучени. За да "
-"дознаете зошто, кликнете %sовде%s."
+"Конфигурационото складирање на phpMyAdmin беше исклучено. %sДознајте зошто%s."
 
 #: libraries/classes/Controllers/Database/SearchController.php:52
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
@@ -5195,15 +5184,15 @@ msgstr "Привилегиите се успешно вчитани."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Верзија %1$s е креирана за избраните табели, следењето е активирано за нив."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:120
 msgid "No tables selected."
 msgstr "Не е избрана ниту една табела."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:155
-#, fuzzy
 msgid "Database Log"
-msgstr "База на податоци"
+msgstr "Журнал на базата на податоци"
 
 #: libraries/classes/Controllers/ErrorReportController.php:106
 msgid ""
@@ -5334,10 +5323,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:108
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Комплетен INSERT (со имиња на полињата)"
+msgstr "Непотполни параметри"
 
 #: libraries/classes/Controllers/Import/ImportController.php:122
 msgid "Succeeded"
@@ -5346,7 +5333,7 @@ msgstr "Успешно"
 #: libraries/classes/Controllers/Import/ImportController.php:126
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 msgid "Failed"
-msgstr ""
+msgstr "Неуспешно"
 
 #: libraries/classes/Controllers/Import/ImportController.php:217
 #, php-format
