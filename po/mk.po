@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-29 00:18+0000\n"
 "PO-Revision-Date: 2022-06-01 04:58+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
 "Language: mk\n"
@@ -5044,15 +5044,11 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Базата на податоци %s е ископирана во %s"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:319
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Дополнителните можности за работа со поврзаните табели се исклучени. За да "
-"дознаете зошто, кликнете %sовде%s."
+"Конфигурационото складирање на phpMyAdmin е исклучено. %Дознајте зошто%s."
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:67
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
