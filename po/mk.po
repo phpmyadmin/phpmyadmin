@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-05-27 05:55+0000\n"
+"PO-Revision-Date: 2022-06-02 08:16+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -312,6 +312,8 @@ msgstr "Името на базата на податоци е празно!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Не може да се ископира базата на податоци со исто име. Сменете го името и "
+"пробајте повторно."
 
 #: db_operations.php:156
 #, fuzzy, php-format
@@ -326,15 +328,11 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "Базата на податоци %s е ископирана во %s"
 
 #: db_operations.php:297
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Дополнителните можности за работа со поврзаните табели се исклучени. За да "
-"дознаете зошто, кликнете %sовде%s."
+"Конфигурационото складирање на phpMyAdmin беше исклучено. %sДознајте зошто%s."
 
 #: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
@@ -375,15 +373,15 @@ msgstr "Привилегиите се успешно вчитани."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Верзија %1$s е креирана за избраните табели, следењето е активирано за нив."
 
 #: db_tracking.php:95
 msgid "No tables selected."
 msgstr "Не е избрана ниту една табела."
 
 #: db_tracking.php:153
-#, fuzzy
 msgid "Database Log"
-msgstr "База на податоци"
+msgstr "Журнал на базата на податоци"
 
 #: error_report.php:73
 msgid ""
@@ -563,13 +561,11 @@ msgstr "Успешно"
 
 #: import.php:77 js/messages.php:619
 msgid "Failed"
-msgstr ""
+msgstr "Неуспешно"
 
 #: import.php:81
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Комплетен INSERT (со имиња на полињата)"
+msgstr "Непотполни параметри"
 
 #: import.php:205
 #, php-format
@@ -17354,9 +17350,8 @@ msgid "The uptime is only %s"
 msgstr "Работно време е само %s"
 
 #: libraries/advisory_rules_generic.txt:56
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Персиски"
+msgstr "Прашања под 1,000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
@@ -17373,20 +17368,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:61
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Конекции"
+msgstr "Сегашна вредност на Прашања: %s"
 
 #: libraries/advisory_rules_generic.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Прикажи комплетни упити"
+msgstr "Процентажа на спори барања"
 
 #: libraries/advisory_rules_generic.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Има многу спори барања во споредба со вкупниот број на Барања."
 
 #: libraries/advisory_rules_generic.txt:67
 #: libraries/advisory_rules_generic.txt:74
@@ -17495,15 +17488,14 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
 #: libraries/advisory_rules_generic.txt:119
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Верзија на серверот"
+msgstr "Сегашна верзија: %s"
 
 #: libraries/advisory_rules_generic.txt:107
 #: libraries/advisory_rules_generic.txt:114
-#, fuzzy
 msgid "Minor Version"
-msgstr "Персиски"
+msgstr "Мала Верзија"
 
 #: libraries/advisory_rules_generic.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -17520,11 +17512,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Верзија пониска од 5.5.8 (првата GA верзија од 5.5)."
 
 #: libraries/advisory_rules_generic.txt:118
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
-"Би требало да го надоградите вашиот %s сервер на верзија %s или понова."
+msgstr "Би требало да надградите до стабилна верзија на MySQL 5.5."
 
 #: libraries/advisory_rules_generic.txt:121
 #: libraries/advisory_rules_generic.txt:128
@@ -17566,10 +17555,8 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:135
-#, fuzzy
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL множество на знаци"
+msgstr "MySQL архитектура"
 
 #: libraries/advisory_rules_generic.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
