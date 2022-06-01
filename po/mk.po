@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-05-29 00:18+0000\n"
-"PO-Revision-Date: 2022-05-27 05:55+0000\n"
+"PO-Revision-Date: 2022-06-01 04:56+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -77,9 +77,8 @@ msgid "The uptime is only %s"
 msgstr "Работно време е само %s"
 
 #: libraries/classes/Advisory/Rules.php:47
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Персиски"
+msgstr "Прашања под 1,000"
 
 #: libraries/classes/Advisory/Rules.php:51
 msgid ""
@@ -96,20 +95,18 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:57
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Конекции"
+msgstr "Сегашна вредност на Прашања: %s"
 
 #: libraries/classes/Advisory/Rules.php:62
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Прикажи комплетни упити"
+msgstr "Процентажа на спори барања"
 
 #: libraries/classes/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Има многу спори барања во споредба со вкупниот број на Барања."
 
 #: libraries/classes/Advisory/Rules.php:68
 #: libraries/classes/Advisory/Rules.php:81
@@ -218,15 +215,14 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:140
 #: libraries/classes/Advisory/Rules.php:154
 #: libraries/classes/Advisory/Rules.php:165
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Верзија на серверот"
+msgstr "Сегашна верзија: %s"
 
 #: libraries/classes/Advisory/Rules.php:145
 #: libraries/classes/Advisory/Rules.php:159
-#, fuzzy
 msgid "Minor Version"
-msgstr "Персиски"
+msgstr "Мала Верзија"
 
 #: libraries/classes/Advisory/Rules.php:149
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -243,11 +239,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Верзија пониска од 5.5.8 (првата GA верзија од 5.5)."
 
 #: libraries/classes/Advisory/Rules.php:164
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
-"Би требало да го надоградите вашиот %s сервер на верзија %s или понова."
+msgstr "Би требало да надградите до стабилна верзија на MySQL 5.5."
 
 #: libraries/classes/Advisory/Rules.php:170
 #: libraries/classes/Advisory/Rules.php:183
@@ -289,10 +282,8 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:195
-#, fuzzy
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL множество на знаци"
+msgstr "MySQL архитектура"
 
 #: libraries/classes/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
