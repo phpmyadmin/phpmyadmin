@@ -14,6 +14,7 @@ use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 
 use function __;
+use function array_filter;
 use function array_merge_recursive;
 use function error_get_last;
 use function fclose;
@@ -25,6 +26,7 @@ use function gzencode;
 use function header;
 use function htmlentities;
 use function htmlspecialchars;
+use function http_build_query;
 use function implode;
 use function in_array;
 use function ini_get;
@@ -45,7 +47,6 @@ use function strtolower;
 use function substr;
 use function time;
 use function trim;
-use function urlencode;
 
 /**
  * PhpMyAdmin\Export class
@@ -1302,8 +1303,6 @@ class Export
 
     private function getHTMLForBackButton(string $exportType, string $db, string $table): string
     {
-        $postParams = $this->getPostParams($exportType);
-
         $backButton = '<p>[ <a href="';
         if ($exportType === 'server') {
             $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
@@ -1321,13 +1320,10 @@ class Export
             );
         }
 
-        foreach ($postParams as $name => $value) {
-            if (is_array($value)) {
-                continue;
-            }
-
-            $backButton .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
-        }
+        $postParams = array_filter($this->getPostParams($exportType), static function ($value) {
+            return ! is_array($value);
+        });
+        $backButton .= '&amp;' . http_build_query($postParams);
 
         $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
 
