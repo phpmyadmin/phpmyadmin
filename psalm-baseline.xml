@@ -1915,11 +1915,12 @@
       <code>$GLOBALS['asfile']</code>
       <code>$GLOBALS['file_handle']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="35">
+    <MixedArgument occurrences="36">
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['cfg']['MemoryLimit']</code>
       <code>$GLOBALS['db_select']</code>
+      <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
@@ -1955,14 +1956,13 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['aliases']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="152">
+    <MixedAssignment occurrences="150">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['aliases']</code>
       <code>$GLOBALS['aliases']</code>
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['as_separate_files']</code>
-      <code>$GLOBALS['back_button']</code>
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['codegen_format']</code>
       <code>$GLOBALS['codegen_structure_or_data']</code>
@@ -2042,7 +2042,6 @@
       <code>$GLOBALS['phparray_structure_or_data']</code>
       <code>$GLOBALS['quick_export']</code>
       <code>$GLOBALS['quick_or_custom']</code>
-      <code>$GLOBALS['refreshButton']</code>
       <code>$GLOBALS['remember_template']</code>
       <code>$GLOBALS['remember_template']</code>
       <code>$GLOBALS['save_filename']</code>
@@ -2129,7 +2128,7 @@
       <code>$GLOBALS['whatStrucOrData']</code>
       <code>$GLOBALS['whatStrucOrData']</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="17">
+    <PossiblyNullArgument occurrences="18">
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['export_plugin']</code>
       <code>$GLOBALS['export_plugin']</code>
@@ -2139,6 +2138,7 @@
       <code>$GLOBALS['export_plugin']</code>
       <code>$GLOBALS['export_plugin']</code>
       <code>$GLOBALS['export_plugin']</code>
+      <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>

@@ -69,8 +69,6 @@ final class ExportController extends AbstractController
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['compression_methods'] = $GLOBALS['compression_methods'] ?? null;
         $GLOBALS['onserver'] = $GLOBALS['onserver'] ?? null;
-        $GLOBALS['back_button'] = $GLOBALS['back_button'] ?? null;
-        $GLOBALS['refreshButton'] = $GLOBALS['refreshButton'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
         $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
         $GLOBALS['quick_export'] = $GLOBALS['quick_export'] ?? null;
@@ -157,8 +155,6 @@ final class ExportController extends AbstractController
         $GLOBALS['onserver'] = false;
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['back_button'] = '';
-        $GLOBALS['refreshButton'] = '';
         $GLOBALS['save_filename'] = '';
         $GLOBALS['file_handle'] = '';
         $GLOBALS['errorUrl'] = '';
@@ -356,17 +352,11 @@ final class ExportController extends AbstractController
                     }
                 }
 
-                [
-                    $html,
-                    $GLOBALS['back_button'],
-                    $GLOBALS['refreshButton'],
-                ] = $this->export->getHtmlForDisplayedExportHeader(
+                echo $this->export->getHtmlForDisplayedExportHeader(
                     $GLOBALS['export_type'],
                     $GLOBALS['db'],
                     $GLOBALS['table']
                 );
-                echo $html;
-                unset($html);
             }
         }
 
@@ -560,7 +550,11 @@ final class ExportController extends AbstractController
          * Send the dump as a file...
          */
         if (empty($GLOBALS['asfile'])) {
-            echo $this->export->getHtmlForDisplayedExportFooter($GLOBALS['back_button'], $GLOBALS['refreshButton']);
+            echo $this->export->getHtmlForDisplayedExportFooter(
+                $GLOBALS['export_type'],
+                $GLOBALS['db'],
+                $GLOBALS['table']
+            );
 
             return;
         }

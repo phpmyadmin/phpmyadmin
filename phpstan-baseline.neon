@@ -3186,6 +3186,11 @@ parameters:
 			path: libraries/classes/Export.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Export\\:\\:getPostParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Export\\:\\:lockTables\\(\\) has parameter \\$tables with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Export.php

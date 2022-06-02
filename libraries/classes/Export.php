@@ -219,14 +219,16 @@ class Export
     /**
      * Returns HTML containing the footer for a displayed export
      *
-     * @param string $backButton    the link for going Back
-     * @param string $refreshButton the link for refreshing page
+     * @param string $exportType the export type
+     * @param string $db         the database name
+     * @param string $table      the table name
      *
      * @return string the HTML output
      */
     public function getHtmlForDisplayedExportFooter(
-        string $backButton,
-        string $refreshButton
+        string $exportType,
+        string $db,
+        string $table
     ): string {
         /**
          * Close the html tags and add the footers for on-screen export
@@ -235,8 +237,8 @@ class Export
             . '    </form>'
             . '<br>'
             // bottom back button
-            . $backButton
-            . $refreshButton
+            . $this->getHTMLForBackButton($exportType, $db, $table)
+            . $this->getHTMLForRefreshButton($exportType)
             . '</div>'
             . '<script type="text/javascript">' . "\n"
             . '//<![CDATA[' . "\n"
@@ -533,88 +535,24 @@ class Export
      * @param string $db         the database name
      * @param string $table      the table name
      *
-     * @return string[] the generated HTML and back button
+     * @return string the generated HTML and back button
      */
     public function getHtmlForDisplayedExportHeader(
         string $exportType,
         string $db,
         string $table
-    ): array {
-        $html = '<div>';
-
+    ): string {
         /**
          * Displays a back button with all the $_POST data in the URL
-         * (store in a variable to also display after the textarea)
          */
-        $backButton = '<p>[ <a href="';
-        if ($exportType === 'server') {
-            $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
-        } elseif ($exportType === 'database') {
-            $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
-                ['db' => $db],
-                '',
-                false
-            );
-        } else {
-            $backButton .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
-                ['db' => $db, 'table' => $table],
-                '',
-                false
-            );
-        }
-
-        $postParams = $_POST;
-
-        // Convert the multiple select elements from an array to a string
-        if ($exportType === 'database') {
-            $structOrDataForced = empty($postParams['structure_or_data_forced']);
-            if ($structOrDataForced && ! isset($postParams['table_structure'])) {
-                $postParams['table_structure'] = [];
-            }
-
-            if ($structOrDataForced && ! isset($postParams['table_data'])) {
-                $postParams['table_data'] = [];
-            }
-        }
-
-        foreach ($postParams as $name => $value) {
-            if (is_array($value)) {
-                continue;
-            }
-
-            $backButton .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
-        }
-
-        $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
-        $html .= '<br>';
-        $html .= $backButton;
-        $refreshButton = '<form id="export_refresh_form" method="POST" action="'
-            . Url::getFromRoute('/export') . '" class="disableAjax">';
-        $refreshButton .= '[ <a class="disableAjax export_refresh_btn">' . __('Refresh') . '</a> ]';
-        foreach ($postParams as $name => $value) {
-            if (is_array($value)) {
-                foreach ($value as $val) {
-                    $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
-                        . '[]" value="' . htmlentities((string) $val) . '">';
-                }
-            } else {
-                $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
-                    . '" value="' . htmlentities((string) $value) . '">';
-            }
-        }
-
-        $refreshButton .= '</form>';
-        $html .= $refreshButton
+        return '<div>'
+            . '<br>'
+            . $this->getHTMLForBackButton($exportType, $db, $table)
+            . $this->getHTMLForRefreshButton($exportType)
             . '<br>'
             . '<form name="nofunction">'
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
-
-        return [
-            $html,
-            $backButton,
-            $refreshButton,
-        ];
     }
 
     /**
@@ -1338,5 +1276,80 @@ class Export
 
         $this->dbi->selectDb($_POST['db']);
         $exportPlugin->exportSchema($_POST['db']);
+    }
+
+    private function getHTMLForRefreshButton(string $exportType): string
+    {
+        $postParams = $this->getPostParams($exportType);
+
+        $refreshButton = '<form id="export_refresh_form" method="POST" action="'
+            . Url::getFromRoute('/export') . '" class="disableAjax">';
+        $refreshButton .= '[ <a class="disableAjax export_refresh_btn">' . __('Refresh') . '</a> ]';
+        foreach ($postParams as $name => $value) {
+            if (is_array($value)) {
+                foreach ($value as $val) {
+                    $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
+                        . '[]" value="' . htmlentities((string) $val) . '">';
+                }
+            } else {
+                $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
+                    . '" value="' . htmlentities((string) $value) . '">';
+            }
+        }
+
+        return $refreshButton . '</form>';
+    }
+
+    private function getHTMLForBackButton(string $exportType, string $db, string $table): string
+    {
+        $postParams = $this->getPostParams($exportType);
+
+        $backButton = '<p>[ <a href="';
+        if ($exportType === 'server') {
+            $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
+        } elseif ($exportType === 'database') {
+            $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
+                ['db' => $db],
+                '',
+                false
+            );
+        } else {
+            $backButton .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
+                ['db' => $db, 'table' => $table],
+                '',
+                false
+            );
+        }
+
+        foreach ($postParams as $name => $value) {
+            if (is_array($value)) {
+                continue;
+            }
+
+            $backButton .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
+        }
+
+        $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
+
+        return $backButton;
+    }
+
+    private function getPostParams(string $exportType): array
+    {
+        $postParams = $_POST;
+
+        // Convert the multiple select elements from an array to a string
+        if ($exportType === 'database') {
+            $structOrDataForced = empty($postParams['structure_or_data_forced']);
+            if ($structOrDataForced && ! isset($postParams['table_structure'])) {
+                $postParams['table_structure'] = [];
+            }
+
+            if ($structOrDataForced && ! isset($postParams['table_data'])) {
+                $postParams['table_data'] = [];
+            }
+        }
+
+        return $postParams;
     }
 }
