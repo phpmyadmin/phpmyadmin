@@ -87,6 +87,7 @@ return [
         'expression_language' => [
             'class' => Symfony\Component\ExpressionLanguage\ExpressionLanguage::class,
         ],
+        'file_listing' => ['class' => PhpMyAdmin\FileListing::class],
         'flash' => [
             'class' => PhpMyAdmin\FlashMessages::class,
         ],
@@ -102,7 +103,7 @@ return [
         ],
         'insert_edit' => [
             'class' => PhpMyAdmin\InsertEdit::class,
-            'arguments' => ['@dbi'],
+            'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template'],
         ],
         'navigation' => [
             'class' => PhpMyAdmin\Navigation\Navigation::class,

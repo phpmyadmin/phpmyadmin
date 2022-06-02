@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use ReflectionProperty;
 use stdClass;
@@ -70,7 +74,13 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $this->dbi,
+            new Relation($this->dbi),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
     }
 
     /**
@@ -198,7 +208,13 @@ class InsertEditTest extends AbstractTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
@@ -252,7 +268,13 @@ class InsertEditTest extends AbstractTestCase
             ->will($this->returnValue($meta_arr));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -361,7 +383,13 @@ class InsertEditTest extends AbstractTestCase
             ->will($this->returnValue($resultStub));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -1414,7 +1442,13 @@ class InsertEditTest extends AbstractTestCase
             ->getMock();
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $current_row['f'] = '123';
         $extracted_columnspec['spec_in_brackets'] = '20';
@@ -1639,7 +1673,13 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
         $this->insertEdit->setSessionForEditNext('`a` = 2');
 
         $this->assertEquals('CONCAT(`table`.`orgname`) IS NULL', $_SESSION['edit_next']);
@@ -1738,7 +1778,13 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
         $_POST['submit_type'] = '';
 
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
         $result = $this->insertEdit->executeSqlQuery([], $query);
 
         $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
@@ -1759,7 +1805,13 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
         $_POST['submit_type'] = '';
 
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
         $result = $this->insertEdit->executeSqlQuery([], $query);
 
         $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
@@ -1786,7 +1838,13 @@ class InsertEditTest extends AbstractTestCase
             ->will($this->returnValue($warnings));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -1831,7 +1889,13 @@ class InsertEditTest extends AbstractTestCase
             ->will($this->returnValue('2'));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->insertEdit->getDisplayValueForForeignTableColumn('=1', $map, 'f');
 
@@ -2054,7 +2118,13 @@ class InsertEditTest extends AbstractTestCase
             ->will($this->returnValue('uuid1234'));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs,
@@ -2118,7 +2188,13 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetCurrentValueForDifferentTypes(): void
     {
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
             '123',
@@ -2355,7 +2431,13 @@ class InsertEditTest extends AbstractTestCase
             ->will($this->onConsecutiveCalls(false, '123', '2013-08-28 06:34:14'));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData('db', 'table', 'a', $extra_data);
 
@@ -2394,7 +2476,13 @@ class InsertEditTest extends AbstractTestCase
             ]));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->insertEdit->getTableColumns('db', 'table');
 
@@ -2442,7 +2530,13 @@ class InsertEditTest extends AbstractTestCase
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
-        $this->insertEdit = new InsertEdit($dbi);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $result = $this->insertEdit->determineInsertOrEdit('1', 'db', 'table');
 
@@ -2521,7 +2615,13 @@ class InsertEditTest extends AbstractTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
-        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+        $this->insertEdit = new InsertEdit(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi']),
+            new Transformations(),
+            new FileListing(),
+            new Template()
+        );
 
         $this->assertEquals(
             [],

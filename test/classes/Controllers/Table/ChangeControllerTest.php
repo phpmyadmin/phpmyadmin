@@ -7,10 +7,12 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ChangeController;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\ChangeController
@@ -37,11 +39,13 @@ class ChangeControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $pageSettings = new PageSettings('Edit');
 
+        $relation = new Relation($dbi);
+        $template = new Template();
         (new ChangeController(
             $response,
-            new Template(),
-            new InsertEdit($dbi),
-            new Relation($dbi)
+            $template,
+            new InsertEdit($dbi, $relation, new Transformations(), new FileListing(), $template),
+            $relation
         ))();
         $actual = $response->getHTMLResult();
 

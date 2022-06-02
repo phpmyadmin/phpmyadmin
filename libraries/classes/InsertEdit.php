@@ -1,7 +1,4 @@
 <?php
-/**
- * set of functions with the insert/edit features in pma
- */
 
 declare(strict_types=1);
 
@@ -54,16 +51,9 @@ use function trim;
 use const ENT_COMPAT;
 use const PASSWORD_DEFAULT;
 
-/**
- * PhpMyAdmin\InsertEdit class
- */
 class InsertEdit
 {
-    /**
-     * DatabaseInterface instance
-     *
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /** @var Relation */
@@ -76,18 +66,20 @@ class InsertEdit
     private $fileListing;
 
     /** @var Template */
-    public $template;
+    private $template;
 
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
-    public function __construct(DatabaseInterface $dbi)
-    {
+    public function __construct(
+        DatabaseInterface $dbi,
+        Relation $relation,
+        Transformations $transformations,
+        FileListing $fileListing,
+        Template $template
+    ) {
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
-        $this->transformations = new Transformations();
-        $this->fileListing = new FileListing();
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->transformations = $transformations;
+        $this->fileListing = $fileListing;
+        $this->template = $template;
     }
 
     /**
