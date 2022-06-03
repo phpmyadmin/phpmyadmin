@@ -87,10 +87,6 @@ final class ReplaceController extends AbstractController
         $GLOBALS['is_insertignore'] = $GLOBALS['is_insertignore'] ?? null;
         $GLOBALS['query'] = $GLOBALS['query'] ?? null;
         $GLOBALS['value_sets'] = $GLOBALS['value_sets'] ?? null;
-        $GLOBALS['func_no_param'] = $GLOBALS['func_no_param'] ?? null;
-        $GLOBALS['func_optional_param'] = $GLOBALS['func_optional_param'] ?? null;
-        $GLOBALS['gis_from_text_functions'] = $GLOBALS['gis_from_text_functions'] ?? null;
-        $GLOBALS['gis_from_wkb_functions'] = $GLOBALS['gis_from_wkb_functions'] ?? null;
         $GLOBALS['query_fields'] = $GLOBALS['query_fields'] ?? null;
         $GLOBALS['insert_errors'] = $GLOBALS['insert_errors'] ?? null;
         $GLOBALS['row_skipped'] = $GLOBALS['row_skipped'] ?? null;
@@ -161,75 +157,6 @@ final class ReplaceController extends AbstractController
 
         $GLOBALS['query'] = [];
         $GLOBALS['value_sets'] = [];
-        $GLOBALS['func_no_param'] = [
-            'CONNECTION_ID',
-            'CURRENT_USER',
-            'CURDATE',
-            'CURTIME',
-            'CURRENT_DATE',
-            'CURRENT_TIME',
-            'DATABASE',
-            'LAST_INSERT_ID',
-            'NOW',
-            'PI',
-            'RAND',
-            'SYSDATE',
-            'UNIX_TIMESTAMP',
-            'USER',
-            'UTC_DATE',
-            'UTC_TIME',
-            'UTC_TIMESTAMP',
-            'UUID',
-            'UUID_SHORT',
-            'VERSION',
-        ];
-        $GLOBALS['func_optional_param'] = [
-            'RAND',
-            'UNIX_TIMESTAMP',
-        ];
-
-        $GLOBALS['gis_from_text_functions'] = [
-            'GeomFromText',
-            'GeomCollFromText',
-            'LineFromText',
-            'MLineFromText',
-            'PointFromText',
-            'MPointFromText',
-            'PolyFromText',
-            'MPolyFromText',
-        ];
-        $GLOBALS['gis_from_wkb_functions'] = [
-            'GeomFromWKB',
-            'GeomCollFromWKB',
-            'LineFromWKB',
-            'MLineFromWKB',
-            'PointFromWKB',
-            'MPointFromWKB',
-            'PolyFromWKB',
-            'MPolyFromWKB',
-        ];
-        if ($this->dbi->getVersion() >= 50600) {
-            $GLOBALS['gis_from_text_functions'] = [
-                'ST_GeomFromText',
-                'ST_GeomCollFromText',
-                'ST_LineFromText',
-                'ST_MLineFromText',
-                'ST_PointFromText',
-                'ST_MPointFromText',
-                'ST_PolyFromText',
-                'ST_MPolyFromText',
-            ];
-            $GLOBALS['gis_from_wkb_functions'] = [
-                'ST_GeomFromWKB',
-                'ST_GeomCollFromWKB',
-                'ST_LineFromWKB',
-                'ST_MLineFromWKB',
-                'ST_PointFromWKB',
-                'ST_MPointFromWKB',
-                'ST_PolyFromWKB',
-                'ST_MPolyFromWKB',
-            ];
-        }
 
         $GLOBALS['mime_map'] = $this->transformations->getMime($GLOBALS['db'], $GLOBALS['table']);
         if ($GLOBALS['mime_map'] === null) {
@@ -333,33 +260,29 @@ final class ReplaceController extends AbstractController
                 // delete $file_to_insert temporary variable
                 $file_to_insert->cleanUp();
 
-                $current_value = $this->insertEdit->getCurrentValueForDifferentTypes(
-                    $possibly_uploaded_val,
-                    $key,
-                    $multi_edit_columns_type,
-                    $current_value,
-                    $multi_edit_auto_increment,
-                    $rownumber,
-                    $multi_edit_columns_name,
-                    $multi_edit_columns_null,
-                    $multi_edit_columns_null_prev,
-                    $GLOBALS['is_insert'],
-                    $GLOBALS['using_key'],
-                    $where_clause,
-                    $GLOBALS['table'],
-                    $multi_edit_funcs
-                );
-
-                $current_value_as_an_array = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-                    $multi_edit_funcs,
-                    $multi_edit_salt,
-                    $GLOBALS['gis_from_text_functions'],
-                    $current_value,
-                    $GLOBALS['gis_from_wkb_functions'],
-                    $GLOBALS['func_optional_param'],
-                    $GLOBALS['func_no_param'],
-                    $key
-                );
+                if (empty($multi_edit_funcs[$key])) {
+                    $current_value_as_an_array = $this->insertEdit->getCurrentValueForDifferentTypes(
+                        $possibly_uploaded_val,
+                        $key,
+                        $multi_edit_columns_type,
+                        $current_value,
+                        $multi_edit_auto_increment,
+                        $rownumber,
+                        $multi_edit_columns_name,
+                        $multi_edit_columns_null,
+                        $multi_edit_columns_null_prev,
+                        $GLOBALS['is_insert'],
+                        $GLOBALS['using_key'],
+                        $where_clause,
+                        $GLOBALS['table']
+                    );
+                } else {
+                    $current_value_as_an_array = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+                        $multi_edit_funcs[$key],
+                        $multi_edit_salt[$key] ?? null,
+                        $current_value
+                    );
+                }
 
                 if (! isset($multi_edit_virtual, $multi_edit_virtual[$key])) {
                     [
@@ -416,7 +339,6 @@ final class ReplaceController extends AbstractController
             $multi_edit_funcs,
             $multi_edit_columns_type,
             $multi_edit_columns_null,
-            $GLOBALS['func_no_param'],
             $multi_edit_auto_increment,
             $current_value_as_an_array,
             $key,
