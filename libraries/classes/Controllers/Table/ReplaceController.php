@@ -325,7 +325,7 @@ final class ReplaceController extends AbstractController
         );
 
         // Builds the sql query
-        if ($isInsert && count($valueSets) > 0) {
+        if ($isInsert && $valueSets !== []) {
             $GLOBALS['query'] = $this->insertEdit->buildSqlQuery($isInsertignore, $queryFields, $valueSets);
         } elseif (empty($GLOBALS['query']) && ! isset($_POST['preview_sql']) && ! $rowSkipped) {
             // No change -> move back to the calling script
@@ -399,7 +399,7 @@ final class ReplaceController extends AbstractController
             $returnToSqlQuery,
         ] = $this->insertEdit->executeSqlQuery($GLOBALS['urlParams'], $GLOBALS['query']);
 
-        if ($isInsert && (count($valueSets) > 0 || $rowSkipped)) {
+        if ($isInsert && ($valueSets !== [] || $rowSkipped)) {
             $GLOBALS['message'] = Message::getMessageForInsertedRows($totalAffectedRows);
             $GLOBALS['unsaved_values'] = array_values($GLOBALS['unsaved_values']);
         } else {
@@ -437,7 +437,7 @@ final class ReplaceController extends AbstractController
              * link/transformed value and exit
              */
             if (isset($_POST['rel_fields_list']) && $_POST['rel_fields_list'] != '') {
-                $map = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'both');
+                $map = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
                 /** @var array<int,array> $relation_fields */
                 $relation_fields = [];
