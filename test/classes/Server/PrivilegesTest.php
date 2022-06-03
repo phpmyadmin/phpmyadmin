@@ -1840,7 +1840,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //labels
         $this->assertStringContainsString(
-            __('Change password'),
+            'change_password_form',
             $html
         );
         $this->assertStringContainsString(
