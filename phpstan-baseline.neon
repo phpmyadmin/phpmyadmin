@@ -4336,36 +4336,6 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueAsAnArrayForMultipleEdit\\(\\) has parameter \\$funcNoParam with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueAsAnArrayForMultipleEdit\\(\\) has parameter \\$funcOptionalParam with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueAsAnArrayForMultipleEdit\\(\\) has parameter \\$gisFromTextFunctions with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueAsAnArrayForMultipleEdit\\(\\) has parameter \\$gisFromWkbFunctions with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueAsAnArrayForMultipleEdit\\(\\) has parameter \\$multiEditFuncs with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueAsAnArrayForMultipleEdit\\(\\) has parameter \\$multiEditSalt with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditAutoIncrement with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -4387,11 +4357,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditColumnsType with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditFuncs with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -4687,6 +4652,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of function stripslashes expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
