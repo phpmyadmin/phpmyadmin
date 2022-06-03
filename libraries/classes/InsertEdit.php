@@ -91,7 +91,7 @@ class InsertEdit
      * @param array      $whereClauseArray array of where clauses
      * @param string     $errorUrl         error url
      *
-     * @return array array of insert/edit form parameters
+     * @return array<string, string> array of insert/edit form parameters
      */
     public function getFormParametersForInsertForm(
         $db,
@@ -123,9 +123,9 @@ class InsertEdit
     /**
      * Creates array of where clauses
      *
-     * @param array|string|null $whereClause where clause
+     * @param string[]|string|null $whereClause where clause
      *
-     * @return array whereClauseArray array of where clauses
+     * @return string[] whereClauseArray array of where clauses
      */
     private function getWhereClauseArray($whereClause): array
     {
@@ -137,17 +137,18 @@ class InsertEdit
             return $whereClause;
         }
 
-        return [0 => $whereClause];
+        return [$whereClause];
     }
 
     /**
      * Analysing where clauses array
      *
-     * @param array  $whereClauseArray array of where clauses
-     * @param string $table            name of the table
-     * @param string $db               name of the database
+     * @param string[] $whereClauseArray array of where clauses
+     * @param string   $table            name of the table
+     * @param string   $db               name of the database
      *
-     * @return array $where_clauses, $result, $rows, $found_unique_key
+     * @return array<int, string[]|ResultInterface[]|array<string, string|null>[]|bool>
+     * @phpstan-return array{string[], ResultInterface[], array<string, string|null>[], bool}
      */
     private function analyzeWhereClauses(
         array $whereClauseArray,
@@ -240,9 +241,10 @@ class InsertEdit
      * @param string $table name of the table
      * @param string $db    name of the database
      *
-     * @return array containing $result and $rows arrays
+     * @return array<int, ResultInterface|false[]>
+     * @phpstan-return array{ResultInterface, false[]}
      */
-    private function loadFirstRow($table, $db)
+    private function loadFirstRow($table, $db): array
     {
         $result = $this->dbi->query(
             'SELECT * FROM ' . Util::backquote($db)
@@ -1862,11 +1864,21 @@ class InsertEdit
     /**
      * Function to determine Insert/Edit rows
      *
-     * @param string|null $whereClause where clause
-     * @param string      $db          current database
-     * @param string      $table       current table
+     * @param string[]|string|null $whereClause where clause
+     * @param string               $db          current database
+     * @param string               $table       current table
      *
-     * @return array
+     * @return array<int, bool|string[]|string|ResultInterface|ResultInterface[]|null>
+     * @phpstan-return array{
+     *     bool,
+     *     string[]|string|null,
+     *     string[],
+     *     string[]|null,
+     *     ResultInterface[]|ResultInterface,
+     *     array<string, string|null>[]|false[],
+     *     bool,
+     *     string|null
+     * }
      */
     public function determineInsertOrEdit($whereClause, $db, $table): array
     {

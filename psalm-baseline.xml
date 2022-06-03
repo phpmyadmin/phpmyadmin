@@ -3156,37 +3156,22 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
-    <MixedArgument occurrences="20">
-      <code>$GLOBALS['current_result']</code>
+    <MixedArgument occurrences="7">
       <code>$GLOBALS['disp_message']</code>
-      <code>$GLOBALS['insert_mode']</code>
-      <code>$GLOBALS['jsvkey']</code>
       <code>$GLOBALS['repopulate']</code>
-      <code>$GLOBALS['rows']</code>
       <code>$GLOBALS['unsaved_values']</code>
       <code>$GLOBALS['unsaved_values']</code>
-      <code>$GLOBALS['where_clause']</code>
       <code>$GLOBALS['where_clause'] ?? null</code>
-      <code>$GLOBALS['where_clause_array']</code>
-      <code>$GLOBALS['where_clause_array']</code>
-      <code>$GLOBALS['where_clause_array']</code>
-      <code>$GLOBALS['where_clause_array']</code>
-      <code>$GLOBALS['where_clauses']</code>
-      <code>$current_row</code>
       <code>$isUpload</code>
       <code>$isUpload</code>
-      <code>$row_id</code>
-      <code>$row_id</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedArgumentTypeCoercion occurrences="4">
+      <code>$GLOBALS['jsvkey']</code>
       <code>$GLOBALS['urlParams']</code>
+      <code>$row_id</code>
+      <code>$row_id</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayOffset occurrences="3">
-      <code>$GLOBALS['result'][$row_id]</code>
-      <code>$GLOBALS['result'][$row_id]</code>
-      <code>$GLOBALS['unsaved_values'][$row_id]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="32">
+    <MixedAssignment occurrences="28">
       <code>$GLOBALS['after_insert']</code>
       <code>$GLOBALS['biggest_max_file_size']</code>
       <code>$GLOBALS['checked']</code>
@@ -3194,13 +3179,11 @@
       <code>$GLOBALS['columns_cnt']</code>
       <code>$GLOBALS['comments_map']</code>
       <code>$GLOBALS['current_result']</code>
-      <code>$GLOBALS['current_result']</code>
       <code>$GLOBALS['disp_message']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['found_unique_key']</code>
       <code>$GLOBALS['has_blob_field']</code>
       <code>$GLOBALS['insert_mode']</code>
-      <code>$GLOBALS['jsvkey']</code>
       <code>$GLOBALS['jsvkey']</code>
       <code>$GLOBALS['o_rows']</code>
       <code>$GLOBALS['repopulate']</code>
@@ -3216,29 +3199,18 @@
       <code>$GLOBALS['where_clause']</code>
       <code>$GLOBALS['where_clause_array']</code>
       <code>$GLOBALS['where_clauses']</code>
-      <code>$current_row</code>
       <code>$isUpload</code>
-      <code>$row_id</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="1">
       <code>$GLOBALS['biggest_max_file_size']</code>
-      <code>$GLOBALS['jsvkey']</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$GLOBALS['current_result']</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="7">
-      <code>$GLOBALS['insert_mode']</code>
+    <PossiblyNullArgument occurrences="2">
       <code>$GLOBALS['text_dir']</code>
-      <code>$GLOBALS['where_clause_array']</code>
-      <code>$GLOBALS['where_clause_array']</code>
-      <code>$GLOBALS['where_clause_array']</code>
-      <code>$GLOBALS['where_clause_array']</code>
       <code>$isUpload</code>
     </PossiblyNullArgument>
-    <PossiblyNullIterator occurrences="1">
-      <code>$GLOBALS['rows']</code>
-    </PossiblyNullIterator>
     <TypeDoesNotContainType occurrences="1">
       <code>$GLOBALS['biggest_max_file_size'] &gt; 0</code>
     </TypeDoesNotContainType>
@@ -7936,7 +7908,8 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <MixedArgument occurrences="80">
+    <LessSpecificReturnStatement occurrences="1"/>
+    <MixedArgument occurrences="79">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
@@ -8015,7 +7988,6 @@
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
-      <code>$whereClause</code>
       <code>min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="8">
@@ -8072,7 +8044,7 @@
       <code>$mimeMap[$tableColumn['Field']]</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="37">
+    <MixedAssignment occurrences="36">
       <code>$GLOBALS['cfg']['ShowFieldTypesInDataEditView']</code>
       <code>$GLOBALS['cfg']['ShowFunctionFields']</code>
       <code>$_SESSION['edit_next']</code>
@@ -8109,7 +8081,6 @@
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
-      <code>$whereClause</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="2">
       <code>int</code>
@@ -8119,7 +8090,7 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="8">
       <code>$_POST['where_clause'][0]</code>
       <code>$column['pma_type']</code>
       <code>$file</code>
@@ -8128,11 +8099,15 @@
       <code>$multiEditFuncs[$key]</code>
       <code>$multiEditFuncs[$key]</code>
       <code>$multiEditFuncs[$key]</code>
-      <code>$whereClause</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="2">
       <code>$_POST['err_url']</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$formParams</code>
+      <code>array&lt;string, string&gt;</code>
+    </MixedReturnTypeCoercion>
+    <MoreSpecificReturnType occurrences="1"/>
     <PossiblyNullArgument occurrences="2">
       <code>$newValue</code>
       <code>$newValue</code>

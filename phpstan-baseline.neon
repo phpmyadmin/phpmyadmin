@@ -4276,27 +4276,12 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:analyzeWhereClauses\\(\\) has parameter \\$whereClauseArray with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:analyzeWhereClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:buildSqlQuery\\(\\) has parameter \\$queryFields with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:buildSqlQuery\\(\\) has parameter \\$valueSets with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -4432,11 +4417,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getFormParametersForInsertForm\\(\\) has parameter \\$whereClauses with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getFormParametersForInsertForm\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -4636,27 +4616,12 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getWhereClauseArray\\(\\) has parameter \\$whereClause with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getWhereClauseArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:isColumn\\(\\) has parameter \\$column with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:isColumnBinary\\(\\) has parameter \\$column with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:loadFirstRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
