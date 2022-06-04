@@ -3335,7 +3335,7 @@
     <InvalidArgument occurrences="1">
       <code>$insert_errors</code>
     </InvalidArgument>
-    <MixedArgument occurrences="47">
+    <MixedArgument occurrences="49">
       <code>$_POST['db']</code>
       <code>$_POST['rel_fields_list']</code>
       <code>$_POST['table']</code>
@@ -3343,6 +3343,8 @@
       <code>$column_name</code>
       <code>$column_name</code>
       <code>$column_name</code>
+      <code>$current_value</code>
+      <code>$current_value</code>
       <code>$current_value</code>
       <code>$current_value</code>
       <code>$db</code>
@@ -3449,10 +3451,13 @@
       <code>$where_clause</code>
       <code>$where_clause</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="7">
+    <PossiblyNullArgument occurrences="10">
+      <code>$current_value</code>
       <code>$current_value</code>
       <code>$current_value</code>
       <code>$multi_edit_columns_null</code>
+      <code>$multi_edit_columns_null</code>
+      <code>$multi_edit_columns_null_prev</code>
       <code>$multi_edit_columns_null_prev</code>
       <code>$multi_edit_columns_prev</code>
       <code>$multi_edit_funcs</code>

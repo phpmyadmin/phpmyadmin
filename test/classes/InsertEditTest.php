@@ -17,7 +17,9 @@ use ReflectionProperty;
 use stdClass;
 
 use function hash;
+use function mb_substr;
 use function md5;
+use function password_verify;
 use function sprintf;
 
 use const MYSQLI_PRI_KEY_FLAG;
@@ -2028,32 +2030,15 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetCurrentValueAsAnArrayForMultipleEdit(): void
     {
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            [],
-            [],
-            [],
-            'currVal',
-            [],
-            [],
-            [],
-            '0'
-        );
-
-        $this->assertEquals('currVal', $result);
-
         // case 2
         $multi_edit_funcs = ['UUID'];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with('SELECT UUID()')
-            ->will($this->returnValue('uuid1234'));
-
-        $GLOBALS['dbi'] = $dbi;
+        $this->dummyDbi->addResult(
+            'SELECT UUID()',
+            [
+                ['uuid1234'],// Minimal working setup for 2FA
+            ]
+        );
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
@@ -2076,13 +2061,13 @@ class InsertEditTest extends AbstractTestCase
             $multi_edit_funcs,
             $multi_edit_salt,
             [],
-            "'''",
+            "'",
             [],
             ['func'],
             ['func'],
             '0'
         );
-        $this->assertEquals("AES_ENCRYPT(''','')", $result);
+        $this->assertEquals("AES_ENCRYPT('\\'','')", $result);
 
         // case 4
         $multi_edit_funcs = ['func'];
@@ -2091,26 +2076,41 @@ class InsertEditTest extends AbstractTestCase
             $multi_edit_funcs,
             $multi_edit_salt,
             [],
-            "'''",
+            "'",
             [],
             ['func'],
             ['func'],
             '0'
         );
-        $this->assertEquals("func(''')", $result);
+        $this->assertEquals("func('\\'')", $result);
 
         // case 5
+        $multi_edit_funcs = ['RAND'];
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs,
             $multi_edit_salt,
             [],
-            "''",
+            '',
             [],
             ['func'],
-            ['func'],
+            ['RAND'],
             '0'
         );
-        $this->assertEquals('func()', $result);
+        $this->assertEquals('RAND()', $result);
+
+        // case 6
+        $multi_edit_funcs = ['PHP_PASSWORD_HASH'];
+        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+            $multi_edit_funcs,
+            $multi_edit_salt,
+            [],
+            "a'c",
+            [],
+            [],
+            [],
+            '0'
+        );
+        $this->assertTrue(password_verify("a'c", mb_substr($result, 1, -1)));
     }
 
     /**
