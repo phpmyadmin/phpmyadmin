@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-29 00:18+0000\n"
+"POT-Creation-Date: 2022-06-05 00:21+0000\n"
 "PO-Revision-Date: 2022-06-04 09:17+0000\n"
 "Last-Translator: МАН69К <weblate@mah69k.net>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1406,7 +1406,7 @@ msgstr "Поиск:"
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/change_password.twig:72
+#: templates/server/privileges/change_password.twig:78
 #: templates/server/privileges/edit_routine_privileges.twig:106
 #: templates/server/privileges/privileges_summary.twig:104
 #: templates/server/privileges/user_properties.twig:154
@@ -4404,8 +4404,8 @@ msgstr "Строк в текстовом поле"
 #: templates/table/operations/index.twig:257
 #: templates/table/operations/index.twig:263
 #: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:175
-#: templates/table/relation/foreign_key_row.twig:97
+#: templates/table/relation/common_form.twig:126
+#: templates/table/relation/foreign_key_row.twig:91
 msgid "Database"
 msgstr "База данных"
 
@@ -4436,8 +4436,8 @@ msgstr "Сервер"
 #: templates/table/operations/index.twig:65
 #: templates/table/operations/index.twig:266
 #: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:182
-#: templates/table/relation/foreign_key_row.twig:108
+#: templates/table/relation/common_form.twig:133
+#: templates/table/relation/foreign_key_row.twig:102
 msgid "Table"
 msgstr "Таблица"
 
@@ -5763,7 +5763,7 @@ msgstr "Пожалуйста, выберите столбец(ы) для инд�
 #: templates/table/index_form.twig:240
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
-#: templates/table/relation/common_form.twig:223
+#: templates/table/relation/common_form.twig:174
 #: templates/table/structure/display_structure.twig:344
 msgid "Preview SQL"
 msgstr "Предпросмотр SQL"
@@ -5851,8 +5851,8 @@ msgstr "Удаление выбранных пользователей"
 #: templates/sql/query.twig:219 templates/sql/query.twig:224
 #: templates/table/insert/actions_panel.twig:47
 #: templates/table/insert/actions_panel.twig:52
-#: templates/table/relation/common_form.twig:233
-#: templates/table/relation/common_form.twig:238
+#: templates/table/relation/common_form.twig:184
+#: templates/table/relation/common_form.twig:189
 #: templates/table/search/index.twig:182
 #: templates/table/structure/display_structure.twig:329
 #: templates/table/structure/display_structure.twig:345
@@ -6904,7 +6904,7 @@ msgstr "Не выбраны зависимости!"
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/insert/actions_panel.twig:7
-#: templates/table/relation/common_form.twig:224
+#: templates/table/relation/common_form.twig:175
 #: templates/table/structure/partition_definition_form.twig:13
 #: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
@@ -6974,7 +6974,7 @@ msgstr "Содержание точки данных"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Игнорировать"
@@ -7555,7 +7555,7 @@ msgid "Table %s already exists!"
 msgstr "Таблица %s уже существует!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
-#: libraries/classes/InsertEdit.php:327
+#: libraries/classes/InsertEdit.php:321
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Скрыть"
@@ -8900,7 +8900,7 @@ msgstr "Таблица %s уже существует!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:55
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
-#: libraries/classes/Controllers/Table/RelationController.php:242
+#: libraries/classes/Controllers/Table/RelationController.php:301
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
@@ -8946,7 +8946,7 @@ msgstr "Слишком большое количество объединени�
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:79
 #: libraries/classes/Database/Routines.php:1245
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:214
 #: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
@@ -8974,17 +8974,17 @@ msgstr "Представление"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:92
 #: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:710 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
 msgstr "Ошибка"
 
-#: libraries/classes/Controllers/Table/RelationController.php:183
+#: libraries/classes/Controllers/Table/RelationController.php:242
 msgid "Display column was successfully updated."
 msgstr "Отображаемый столбец был успешно обновлен."
 
-#: libraries/classes/Controllers/Table/RelationController.php:276
+#: libraries/classes/Controllers/Table/RelationController.php:335
 msgid "Internal relationships were successfully updated."
 msgstr "Внутренние связи были успешно обновлены."
 
@@ -9067,7 +9067,6 @@ msgstr "Для доступа к данной странице у вас нед�
 
 #: libraries/classes/Controllers/UserPasswordController.php:92
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
-#: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Изменить пароль"
 
@@ -10321,7 +10320,7 @@ msgid ""
 "removed."
 msgstr "Индексы %1$s и %2$s равнозначны и один из них может быть удалён."
 
-#: libraries/classes/InsertEdit.php:343
+#: libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10329,7 +10328,7 @@ msgstr "Индексы %1$s и %2$s равнозначны и один из ни
 msgid "Function"
 msgstr "Функция"
 
-#: libraries/classes/InsertEdit.php:346
+#: libraries/classes/InsertEdit.php:340
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:368
 #: libraries/classes/Plugins/Export/ExportLatex.php:523
@@ -10363,12 +10362,12 @@ msgstr "Функция"
 msgid "Type"
 msgstr "Тип"
 
-#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:711 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Установленный каталог загрузки не доступен."
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:719
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10378,15 +10377,15 @@ msgstr "Установленный каталог загрузки не дост
 msgid "Or"
 msgstr "Или"
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:720
 msgid "web server upload directory:"
 msgstr "Из каталога загрузки:"
 
-#: libraries/classes/InsertEdit.php:1311 libraries/classes/Sql.php:951
+#: libraries/classes/InsertEdit.php:1305 libraries/classes/Sql.php:951
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:931
+#: libraries/classes/InsertEdit.php:1329 libraries/classes/Sql.php:931
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
@@ -10661,10 +10660,10 @@ msgstr "Новое"
 #: templates/table/relation/common_form.twig:18
 #: templates/table/relation/common_form.twig:23
 #: templates/table/relation/common_form.twig:38
-#: templates/table/relation/common_form.twig:120
-#: templates/table/relation/common_form.twig:189
-#: templates/table/relation/foreign_key_row.twig:120
-#: templates/table/relation/foreign_key_row.twig:130
+#: templates/table/relation/common_form.twig:71
+#: templates/table/relation/common_form.twig:140
+#: templates/table/relation/foreign_key_row.twig:114
+#: templates/table/relation/foreign_key_row.twig:124
 #: templates/table/search/index.twig:38
 #: templates/table/structure/display_structure.twig:462
 #: templates/table/tracking/structure_snapshot_columns.twig:6
@@ -12794,7 +12793,8 @@ msgstr "Необходимо для подчиненных серверов пр
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Разрешает запрашивать местонахождение головного и подчиненных серверов."
+msgstr ""
+"Разрешает запрашивать местонахождение головного и подчиненных серверов."
 
 #: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:530
@@ -13246,7 +13246,7 @@ msgstr "Части индекса не определены!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"
 
-#: libraries/classes/Template.php:135
+#: libraries/classes/Template.php:133
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Ошибка при работе с кешем шаблона: %s"
@@ -14046,7 +14046,7 @@ msgstr ""
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
 #: templates/table/insert/actions_panel.twig:46
-#: templates/table/relation/common_form.twig:232
+#: templates/table/relation/common_form.twig:183
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:96
 msgid "Loading"
@@ -14391,8 +14391,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Выполнить запрос по нажатию Enter и вставить новую строку по нажатию Shift+"
-"Enter. Чтобы сделать эту опцию постоянной, смотрите настройки."
+"Выполнить запрос по нажатию Enter и вставить новую строку по нажатию Shift"
+"+Enter. Чтобы сделать эту опцию постоянной, смотрите настройки."
 
 #: templates/create_tracking_version.twig:10
 #, php-format
@@ -16384,7 +16384,7 @@ msgid "Username:"
 msgstr "Пользователь:"
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:22
+#: templates/server/privileges/change_password.twig:21
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
@@ -17107,7 +17107,7 @@ msgstr "Предоставить все привилегии в базе дан�
 msgid "Create user"
 msgstr "Создать пользователя"
 
-#: templates/server/privileges/change_password.twig:16
+#: templates/server/privileges/change_password.twig:15
 msgid "No Password"
 msgstr "Без пароля"
 
@@ -17115,23 +17115,23 @@ msgstr "Без пароля"
 msgid "Enter:"
 msgstr "Введите:"
 
-#: templates/server/privileges/change_password.twig:29
-#: templates/server/privileges/login_information_fields.twig:55
-msgctxt "Password strength"
-msgid "Strength:"
-msgstr "Стойкость:"
-
-#: templates/server/privileges/change_password.twig:33
+#: templates/server/privileges/change_password.twig:31
 #: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
 msgid "Re-type:"
 msgstr "Подтверждение:"
 
-#: templates/server/privileges/change_password.twig:41
+#: templates/server/privileges/change_password.twig:37
+#: templates/server/privileges/login_information_fields.twig:55
+msgctxt "Password strength"
+msgid "Strength:"
+msgstr "Стойкость:"
+
+#: templates/server/privileges/change_password.twig:47
 msgid "Password Hashing:"
 msgstr "Хеширование пароля:"
 
-#: templates/server/privileges/change_password.twig:59
+#: templates/server/privileges/change_password.twig:65
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -18138,8 +18138,8 @@ msgstr ""
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Этот сервер MySQL работает как <b>подчинённый</b> в процессе "
-"<b>репликации</b>."
+"Этот сервер MySQL работает как <b>подчинённый</b> в процессе <b>репликации</"
+"b>."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -18865,20 +18865,20 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr "Ограничение внешнего ключа"
 
-#: templates/table/relation/common_form.twig:93
+#: templates/table/relation/common_form.twig:44
 msgid "+ Add constraint"
 msgstr "+ Добавить ограничение"
 
-#: templates/table/relation/common_form.twig:106
-#: templates/table/relation/common_form.twig:114
+#: templates/table/relation/common_form.twig:57
+#: templates/table/relation/common_form.twig:65
 msgid "Internal relationships"
 msgstr "Внутренние ссылки"
 
-#: templates/table/relation/common_form.twig:122
+#: templates/table/relation/common_form.twig:73
 msgid "Internal relation"
 msgstr "Внутренняя связь"
 
-#: templates/table/relation/common_form.twig:124
+#: templates/table/relation/common_form.twig:75
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -18886,7 +18886,7 @@ msgstr ""
 "Внутренняя связь не обязательна, если существует соответствующая связь с "
 "помощью внешнего ключа (FOREIGN KEY)."
 
-#: templates/table/relation/common_form.twig:207
+#: templates/table/relation/common_form.twig:158
 msgid "Choose column to display:"
 msgstr "Выбор отображаемого столбца:"
 

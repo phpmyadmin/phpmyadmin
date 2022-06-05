@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-29 00:18+0000\n"
+"POT-Creation-Date: 2022-06-05 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1286,7 +1286,7 @@ msgstr "Търсене:"
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/change_password.twig:72
+#: templates/server/privileges/change_password.twig:78
 #: templates/server/privileges/edit_routine_privileges.twig:106
 #: templates/server/privileges/privileges_summary.twig:104
 #: templates/server/privileges/user_properties.twig:154
@@ -4361,8 +4361,8 @@ msgstr "Реда в текстово поле"
 #: templates/table/operations/index.twig:257
 #: templates/table/operations/index.twig:263
 #: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:175
-#: templates/table/relation/foreign_key_row.twig:97
+#: templates/table/relation/common_form.twig:126
+#: templates/table/relation/foreign_key_row.twig:91
 msgid "Database"
 msgstr "DB"
 
@@ -4393,8 +4393,8 @@ msgstr "Сървър"
 #: templates/table/operations/index.twig:65
 #: templates/table/operations/index.twig:266
 #: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:182
-#: templates/table/relation/foreign_key_row.twig:108
+#: templates/table/relation/common_form.twig:133
+#: templates/table/relation/foreign_key_row.twig:102
 msgid "Table"
 msgstr "Таблица"
 
@@ -5714,7 +5714,7 @@ msgstr "Моля, изберете колона(и) за индекса."
 #: templates/table/index_form.twig:240
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
-#: templates/table/relation/common_form.twig:223
+#: templates/table/relation/common_form.twig:174
 #: templates/table/structure/display_structure.twig:344
 msgid "Preview SQL"
 msgstr "Преглед на SQL"
@@ -5802,8 +5802,8 @@ msgstr "Изтриване на маркираните потребители"
 #: templates/sql/query.twig:219 templates/sql/query.twig:224
 #: templates/table/insert/actions_panel.twig:47
 #: templates/table/insert/actions_panel.twig:52
-#: templates/table/relation/common_form.twig:233
-#: templates/table/relation/common_form.twig:238
+#: templates/table/relation/common_form.twig:184
+#: templates/table/relation/common_form.twig:189
 #: templates/table/search/index.twig:182
 #: templates/table/structure/display_structure.twig:329
 #: templates/table/structure/display_structure.twig:345
@@ -6855,7 +6855,7 @@ msgstr "Няма избрани зависимости!"
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/insert/actions_panel.twig:7
-#: templates/table/relation/common_form.twig:224
+#: templates/table/relation/common_form.twig:175
 #: templates/table/structure/partition_definition_form.twig:13
 #: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
@@ -6927,7 +6927,7 @@ msgstr "Съдържание на точката с данни"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Игнориране"
@@ -7506,7 +7506,7 @@ msgid "Table %s already exists!"
 msgstr "Таблица %s вече съществува!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
-#: libraries/classes/InsertEdit.php:327
+#: libraries/classes/InsertEdit.php:321
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Скриване"
@@ -8732,7 +8732,7 @@ msgstr "Таблица %s вече съществува!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:55
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
-#: libraries/classes/Controllers/Table/RelationController.php:242
+#: libraries/classes/Controllers/Table/RelationController.php:301
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
@@ -8777,7 +8777,7 @@ msgstr "Има твърде много JOIN без индекси."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:79
 #: libraries/classes/Database/Routines.php:1245
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:214
 #: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
@@ -8805,19 +8805,19 @@ msgstr "Изглед"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:92
 #: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:710 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
 msgstr "Грешка"
 
-#: libraries/classes/Controllers/Table/RelationController.php:183
+#: libraries/classes/Controllers/Table/RelationController.php:242
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Нишка %s беше успешно спряна."
 
-#: libraries/classes/Controllers/Table/RelationController.php:276
+#: libraries/classes/Controllers/Table/RelationController.php:335
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -8906,7 +8906,6 @@ msgstr "Не разполагате с права, за да се намират
 
 #: libraries/classes/Controllers/UserPasswordController.php:92
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
-#: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Смяна на паролата"
 
@@ -10119,7 +10118,7 @@ msgstr ""
 "Индексите %1$s и %2$s изглеждат равнозначни и един от двата вероятно може да "
 "бъде премахнат."
 
-#: libraries/classes/InsertEdit.php:343
+#: libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10127,7 +10126,7 @@ msgstr ""
 msgid "Function"
 msgstr "Функция"
 
-#: libraries/classes/InsertEdit.php:346
+#: libraries/classes/InsertEdit.php:340
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:368
 #: libraries/classes/Plugins/Export/ExportLatex.php:523
@@ -10161,12 +10160,12 @@ msgstr "Функция"
 msgid "Type"
 msgstr "Тип"
 
-#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:711 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Папката, която сте указали за качване е недостъпна."
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:719
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10176,15 +10175,15 @@ msgstr "Папката, която сте указали за качване е 
 msgid "Or"
 msgstr "Или"
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:720
 msgid "web server upload directory:"
 msgstr "директория за качване на уеб сървър:"
 
-#: libraries/classes/InsertEdit.php:1311 libraries/classes/Sql.php:951
+#: libraries/classes/InsertEdit.php:1305 libraries/classes/Sql.php:951
 msgid "Showing SQL query"
 msgstr "Показване на SQL заявкa"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:931
+#: libraries/classes/InsertEdit.php:1329 libraries/classes/Sql.php:931
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -10456,10 +10455,10 @@ msgstr "Нов"
 #: templates/table/relation/common_form.twig:18
 #: templates/table/relation/common_form.twig:23
 #: templates/table/relation/common_form.twig:38
-#: templates/table/relation/common_form.twig:120
-#: templates/table/relation/common_form.twig:189
-#: templates/table/relation/foreign_key_row.twig:120
-#: templates/table/relation/foreign_key_row.twig:130
+#: templates/table/relation/common_form.twig:71
+#: templates/table/relation/common_form.twig:140
+#: templates/table/relation/foreign_key_row.twig:114
+#: templates/table/relation/foreign_key_row.twig:124
 #: templates/table/search/index.twig:38
 #: templates/table/structure/display_structure.twig:462
 #: templates/table/tracking/structure_snapshot_columns.twig:6
@@ -13098,7 +13097,7 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Грешка при създаването на външен ключ върху %1$s (проверете типа данни)"
 
-#: libraries/classes/Template.php:135
+#: libraries/classes/Template.php:133
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Грешка при работа с кеша за шаблони: %s"
@@ -13858,7 +13857,7 @@ msgstr ""
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
 #: templates/table/insert/actions_panel.twig:46
-#: templates/table/relation/common_form.twig:232
+#: templates/table/relation/common_form.twig:183
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
@@ -16360,7 +16359,7 @@ msgid "Username:"
 msgstr "Име:"
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:22
+#: templates/server/privileges/change_password.twig:21
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
@@ -17169,7 +17168,7 @@ msgstr "Даване на пълни права над БД \"%s\"."
 msgid "Create user"
 msgstr "Създаване на потребител"
 
-#: templates/server/privileges/change_password.twig:16
+#: templates/server/privileges/change_password.twig:15
 msgid "No Password"
 msgstr "Без парола"
 
@@ -17177,7 +17176,13 @@ msgstr "Без парола"
 msgid "Enter:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:29
+#: templates/server/privileges/change_password.twig:31
+#: templates/server/privileges/login_information_fields.twig:61
+#: templates/server/replication/primary_add_replica_user.twig:62
+msgid "Re-type:"
+msgstr "Въведете пак:"
+
+#: templates/server/privileges/change_password.twig:37
 #: templates/server/privileges/login_information_fields.twig:55
 #, fuzzy
 #| msgid "Row length"
@@ -17185,17 +17190,11 @@ msgctxt "Password strength"
 msgid "Strength:"
 msgstr "Дължина ред"
 
-#: templates/server/privileges/change_password.twig:33
-#: templates/server/privileges/login_information_fields.twig:61
-#: templates/server/replication/primary_add_replica_user.twig:62
-msgid "Re-type:"
-msgstr "Въведете пак:"
-
-#: templates/server/privileges/change_password.twig:41
+#: templates/server/privileges/change_password.twig:47
 msgid "Password Hashing:"
 msgstr "Хеширане на паролата:"
 
-#: templates/server/privileges/change_password.twig:59
+#: templates/server/privileges/change_password.twig:65
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -19065,31 +19064,31 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr "Ограничение за външен ключ"
 
-#: templates/table/relation/common_form.twig:93
+#: templates/table/relation/common_form.twig:44
 #, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "Добавяне ограничения"
 
-#: templates/table/relation/common_form.twig:106
-#: templates/table/relation/common_form.twig:114
+#: templates/table/relation/common_form.twig:57
+#: templates/table/relation/common_form.twig:65
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Вътрешни релации"
 
-#: templates/table/relation/common_form.twig:122
+#: templates/table/relation/common_form.twig:73
 msgid "Internal relation"
 msgstr "Вътрешна релация"
 
-#: templates/table/relation/common_form.twig:124
+#: templates/table/relation/common_form.twig:75
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 "Вътрешна релация не е необходима, при наличието на съответен FOREIGN KEY."
 
-#: templates/table/relation/common_form.twig:207
+#: templates/table/relation/common_form.twig:158
 msgid "Choose column to display:"
 msgstr "Изберете колона за показване:"
 

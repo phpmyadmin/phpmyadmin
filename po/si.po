@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-05-29 00:18+0000\n"
+"POT-Creation-Date: 2022-06-05 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1251,7 +1251,7 @@ msgstr "සෙවීම:"
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/change_password.twig:72
+#: templates/server/privileges/change_password.twig:78
 #: templates/server/privileges/edit_routine_privileges.twig:106
 #: templates/server/privileges/privileges_summary.twig:104
 #: templates/server/privileges/user_properties.twig:154
@@ -4569,8 +4569,8 @@ msgstr "පෙළ පෙදෙසේ උස"
 #: templates/table/operations/index.twig:257
 #: templates/table/operations/index.twig:263
 #: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:175
-#: templates/table/relation/foreign_key_row.twig:97
+#: templates/table/relation/common_form.twig:126
+#: templates/table/relation/foreign_key_row.twig:91
 msgid "Database"
 msgstr "දත්තගබඩාව"
 
@@ -4601,8 +4601,8 @@ msgstr "සේවාදායකය"
 #: templates/table/operations/index.twig:65
 #: templates/table/operations/index.twig:266
 #: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:182
-#: templates/table/relation/foreign_key_row.twig:108
+#: templates/table/relation/common_form.twig:133
+#: templates/table/relation/foreign_key_row.twig:102
 msgid "Table"
 msgstr "වගුව"
 
@@ -5916,7 +5916,7 @@ msgstr "සුචියට ක්ෂේත්‍ර %s ක් එක් කර�
 #: templates/table/index_form.twig:240
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
-#: templates/table/relation/common_form.twig:223
+#: templates/table/relation/common_form.twig:174
 #: templates/table/structure/display_structure.twig:344
 msgid "Preview SQL"
 msgstr ""
@@ -6012,8 +6012,8 @@ msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත
 #: templates/sql/query.twig:219 templates/sql/query.twig:224
 #: templates/table/insert/actions_panel.twig:47
 #: templates/table/insert/actions_panel.twig:52
-#: templates/table/relation/common_form.twig:233
-#: templates/table/relation/common_form.twig:238
+#: templates/table/relation/common_form.twig:184
+#: templates/table/relation/common_form.twig:189
 #: templates/table/search/index.twig:182
 #: templates/table/structure/display_structure.twig:329
 #: templates/table/structure/display_structure.twig:345
@@ -7116,7 +7116,7 @@ msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත.
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/insert/actions_panel.twig:7
-#: templates/table/relation/common_form.twig:224
+#: templates/table/relation/common_form.twig:175
 #: templates/table/structure/partition_definition_form.twig:13
 #: templates/table/zoom_search/result_form.twig:79
 msgid "Save"
@@ -7192,7 +7192,7 @@ msgstr "ලක්ෂයට අදාල දත්ත"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1978
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "නොසලකන්න"
@@ -7806,7 +7806,7 @@ msgid "Table %s already exists!"
 msgstr "%s වගුව දැනටමත් පවතී!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
-#: libraries/classes/InsertEdit.php:327
+#: libraries/classes/InsertEdit.php:321
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "සඟවන්න"
@@ -9058,7 +9058,7 @@ msgstr "%s වගුව දැනටමත් පවතී!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:55
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
-#: libraries/classes/Controllers/Table/RelationController.php:242
+#: libraries/classes/Controllers/Table/RelationController.php:301
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
@@ -9105,7 +9105,7 @@ msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැ�
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:79
 #: libraries/classes/Database/Routines.php:1245
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:214
 #: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL හිස් ප්‍රතිඵල කුලකයක් (පේළි කිසිවක් අඩංගු නොවන) සපයන ලදි."
@@ -9133,17 +9133,17 @@ msgstr "දසුන"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:92
 #: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:710 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
 msgstr "දෝෂය"
 
-#: libraries/classes/Controllers/Table/RelationController.php:183
+#: libraries/classes/Controllers/Table/RelationController.php:242
 msgid "Display column was successfully updated."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/RelationController.php:276
+#: libraries/classes/Controllers/Table/RelationController.php:335
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -9233,7 +9233,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/UserPasswordController.php:92
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
-#: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "මුරපදය වෙනස් කරන්න"
 
@@ -10475,7 +10474,7 @@ msgid ""
 "removed."
 msgstr "%1$s හා %2$s සුචි එක සමාන බැවින් එකක් ඉවත් කල හැක."
 
-#: libraries/classes/InsertEdit.php:343
+#: libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10483,7 +10482,7 @@ msgstr "%1$s හා %2$s සුචි එක සමාන බැවින් එ
 msgid "Function"
 msgstr "ශ්‍රිතය"
 
-#: libraries/classes/InsertEdit.php:346
+#: libraries/classes/InsertEdit.php:340
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:368
 #: libraries/classes/Plugins/Export/ExportLatex.php:523
@@ -10517,12 +10516,12 @@ msgstr "ශ්‍රිතය"
 msgid "Type"
 msgstr "වර්ගය"
 
-#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:711 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "උඩුගත කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක."
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:719
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10532,15 +10531,15 @@ msgstr "උඩුගත කිරීම් සඳහා සැකසූ ඩි�
 msgid "Or"
 msgstr "හෝ"
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:720
 msgid "web server upload directory:"
 msgstr "වෙබ් සේවාදායකයේ උඩුගත ඩිරෙක්ටරිය:"
 
-#: libraries/classes/InsertEdit.php:1311 libraries/classes/Sql.php:951
+#: libraries/classes/InsertEdit.php:1305 libraries/classes/Sql.php:951
 msgid "Showing SQL query"
 msgstr "SQL විමසුම පෙන්වමින්"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:931
+#: libraries/classes/InsertEdit.php:1329 libraries/classes/Sql.php:931
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "%1$d පේළිය ඇතුල් කරන ලදි"
@@ -10822,10 +10821,10 @@ msgstr "නව තීරයක්"
 #: templates/table/relation/common_form.twig:18
 #: templates/table/relation/common_form.twig:23
 #: templates/table/relation/common_form.twig:38
-#: templates/table/relation/common_form.twig:120
-#: templates/table/relation/common_form.twig:189
-#: templates/table/relation/foreign_key_row.twig:120
-#: templates/table/relation/foreign_key_row.twig:130
+#: templates/table/relation/common_form.twig:71
+#: templates/table/relation/common_form.twig:140
+#: templates/table/relation/foreign_key_row.twig:114
+#: templates/table/relation/foreign_key_row.twig:124
 #: templates/table/search/index.twig:38
 #: templates/table/structure/display_structure.twig:462
 #: templates/table/tracking/structure_snapshot_columns.twig:6
@@ -13451,7 +13450,7 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s මත අන්‍ය මූලය සෑදීමේදී දෝෂ ඇතිවිය (දත්ත වර්ග පරීක්ෂා කරන්න)"
 
-#: libraries/classes/Template.php:135
+#: libraries/classes/Template.php:133
 #, fuzzy, php-format
 #| msgid "Error while moving uploaded file."
 msgid "Error while working with template cache: %s"
@@ -14259,7 +14258,7 @@ msgstr ""
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
 #: templates/table/insert/actions_panel.twig:46
-#: templates/table/relation/common_form.twig:232
+#: templates/table/relation/common_form.twig:183
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:96
 #, fuzzy
@@ -16886,7 +16885,7 @@ msgid "Username:"
 msgstr "භාවිත නාමය:"
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:22
+#: templates/server/privileges/change_password.twig:21
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
@@ -17692,7 +17691,7 @@ msgstr "\"%s\" දත්තගබඩාව සඳහා සියලු වර�
 msgid "Create user"
 msgstr "භාවිතා කරන්නෙක් සාදන්න"
 
-#: templates/server/privileges/change_password.twig:16
+#: templates/server/privileges/change_password.twig:15
 msgid "No Password"
 msgstr "මුරපදයක් නැත"
 
@@ -17700,7 +17699,13 @@ msgstr "මුරපදයක් නැත"
 msgid "Enter:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:29
+#: templates/server/privileges/change_password.twig:31
+#: templates/server/privileges/login_information_fields.twig:61
+#: templates/server/replication/primary_add_replica_user.twig:62
+msgid "Re-type:"
+msgstr "නැවත ටයිප් කරන්න:"
+
+#: templates/server/privileges/change_password.twig:37
 #: templates/server/privileges/login_information_fields.twig:55
 #, fuzzy
 #| msgid "Row length"
@@ -17708,17 +17713,11 @@ msgctxt "Password strength"
 msgid "Strength:"
 msgstr "පේළියේ දිග"
 
-#: templates/server/privileges/change_password.twig:33
-#: templates/server/privileges/login_information_fields.twig:61
-#: templates/server/replication/primary_add_replica_user.twig:62
-msgid "Re-type:"
-msgstr "නැවත ටයිප් කරන්න:"
-
-#: templates/server/privileges/change_password.twig:41
+#: templates/server/privileges/change_password.twig:47
 msgid "Password Hashing:"
 msgstr "මුරපදය hash කිරීම:"
 
-#: templates/server/privileges/change_password.twig:59
+#: templates/server/privileges/change_password.twig:65
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -19570,30 +19569,30 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr "අන්‍ය මූල නිරෝධය"
 
-#: templates/table/relation/common_form.twig:93
+#: templates/table/relation/common_form.twig:44
 #, fuzzy
 #| msgid "Add constraints"
 msgid "+ Add constraint"
 msgstr "සීමා බාධවන් එක් කරන්න"
 
-#: templates/table/relation/common_form.twig:106
-#: templates/table/relation/common_form.twig:114
+#: templates/table/relation/common_form.twig:57
+#: templates/table/relation/common_form.twig:65
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "අභ්‍යන්තර සබඳතා"
 
-#: templates/table/relation/common_form.twig:122
+#: templates/table/relation/common_form.twig:73
 msgid "Internal relation"
 msgstr "අභ්‍යන්තර සබඳතා"
 
-#: templates/table/relation/common_form.twig:124
+#: templates/table/relation/common_form.twig:75
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr "අදාල අන්‍ය මූලය ඇති විට අභ්‍යන්තර සබඳතාවක් අවශ්‍ය නොවේ."
 
-#: templates/table/relation/common_form.twig:207
+#: templates/table/relation/common_form.twig:158
 msgid "Choose column to display:"
 msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්න:"
 
