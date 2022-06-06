@@ -150,20 +150,14 @@ class HomeController extends AbstractController
         }
 
         $databaseServer = [];
-        if ($GLOBALS['server'] > 0) {
+        if ($GLOBALS['server'] > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
             $hostInfo = '';
             if (! empty($GLOBALS['cfg']['Server']['verbose'])) {
-                $hostInfo .= $GLOBALS['cfg']['Server']['verbose'];
-                if ($GLOBALS['cfg']['ShowServerInfo']) {
-                    $hostInfo .= ' (';
-                }
+                $hostInfo .= $GLOBALS['cfg']['Server']['verbose'] . ' (';
             }
 
-            if ($GLOBALS['cfg']['ShowServerInfo'] || empty($GLOBALS['cfg']['Server']['verbose'])) {
-                $hostInfo .= $this->dbi->getHostInfo();
-            }
-
-            if (! empty($GLOBALS['cfg']['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
+            $hostInfo .= $this->dbi->getHostInfo();
+            if (! empty($GLOBALS['cfg']['Server']['verbose'])) {
                 $hostInfo .= ')';
             }
 

@@ -2199,13 +2199,12 @@
     </MixedArrayAssignment>
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
-    <InvalidArrayOffset occurrences="10">
+    <InvalidArrayOffset occurrences="9">
       <code>$GLOBALS['cfg']['LoginCookieValidityDisableWarning']</code>
       <code>$GLOBALS['cfg']['NavigationDisplayServers']</code>
       <code>$GLOBALS['cfg']['PmaNoRelation_DisableWarning']</code>
       <code>$GLOBALS['cfg']['ShowChgPassword']</code>
       <code>$GLOBALS['cfg']['ShowPhpInfo']</code>
-      <code>$GLOBALS['cfg']['ShowServerInfo']</code>
       <code>$GLOBALS['cfg']['SuhosinDisableWarning']</code>
       <code>$GLOBALS['cfg']['ThemeManager']</code>
       <code>$GLOBALS['cfg']['TranslationWarningThreshold']</code>
@@ -2231,10 +2230,6 @@
     <PossiblyNullArrayOffset occurrences="1">
       <code>$GLOBALS['language_stats']</code>
     </PossiblyNullArrayOffset>
-    <PossiblyUndefinedArrayOffset occurrences="2">
-      <code>$GLOBALS['cfg']['ShowServerInfo']</code>
-      <code>$GLOBALS['cfg']['ShowServerInfo']</code>
-    </PossiblyUndefinedArrayOffset>
     <UnusedVariable occurrences="1">
       <code>$collationsList</code>
     </UnusedVariable>
