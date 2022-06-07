@@ -37,9 +37,4 @@ require AUTOLOAD_FILE;
 
 Common::run();
 
-Routing::callControllerForRoute(
-    Common::getRequest(),
-    Routing::getCurrentRoute(),
-    Routing::getDispatcher(),
-    $GLOBALS['containerBuilder']
-);
+Routing::callControllerForRoute(Common::getRequest(), Routing::getDispatcher(), $GLOBALS['containerBuilder']);

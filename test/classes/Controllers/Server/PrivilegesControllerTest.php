@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Server\PrivilegesController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -54,8 +55,10 @@ class PrivilegesControllerTest extends AbstractTestCase
         );
         // phpcs:enable
 
+        $request = $this->createStub(ServerRequest::class);
+
         $response = new ResponseRenderer();
-        (new PrivilegesController($response, new Template(), new Relation($this->dbi), $this->dbi))();
+        (new PrivilegesController($response, new Template(), new Relation($this->dbi), $this->dbi))($request);
 
         $actual = $response->getHTMLResult();
         $this->assertStringContainsString('User accounts overview', $actual);

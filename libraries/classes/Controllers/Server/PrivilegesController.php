@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
@@ -49,7 +50,7 @@ class PrivilegesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
@@ -435,7 +436,8 @@ class PrivilegesController extends AbstractController
                         $GLOBALS['username'],
                         $GLOBALS['hostname'] ?? '',
                         $GLOBALS['dbname'] ?? '',
-                        $GLOBALS['tablename'] ?? ''
+                        $GLOBALS['tablename'] ?? '',
+                        $request->getRoute()
                     )
                 );
             }

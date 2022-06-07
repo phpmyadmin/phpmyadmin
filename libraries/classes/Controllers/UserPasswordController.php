@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -35,7 +36,7 @@ class UserPasswordController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
         $GLOBALS['username'] = $GLOBALS['username'] ?? null;
@@ -116,7 +117,8 @@ class UserPasswordController extends AbstractController
 
         $this->response->addHTML($this->userPassword->getFormForChangePassword(
             $GLOBALS['username'],
-            $GLOBALS['hostname']
+            $GLOBALS['hostname'],
+            $request->getRoute()
         ));
     }
 }

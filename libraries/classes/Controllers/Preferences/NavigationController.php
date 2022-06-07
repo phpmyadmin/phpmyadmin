@@ -9,8 +9,8 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\NaviForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
@@ -43,15 +43,13 @@ class NavigationController extends AbstractController
         $this->config = $config;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['cf'] = $GLOBALS['cf'] ?? null;
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
         $GLOBALS['tabHash'] = $GLOBALS['tabHash'] ?? null;
         $GLOBALS['hash'] = $GLOBALS['hash'] ?? null;
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
-
-        $route = Routing::getCurrentRoute();
 
         $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($GLOBALS['cf']);
@@ -92,7 +90,7 @@ class NavigationController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('preferences/header', [
-            'route' => $route,
+            'route' => $request->getRoute(),
             'is_saved' => ! empty($_GET['saved']),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);

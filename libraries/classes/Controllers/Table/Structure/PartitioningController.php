@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PhpMyAdmin\ResponseRenderer;
@@ -51,12 +52,12 @@ final class PartitioningController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if (isset($_POST['save_partitioning'])) {
             $this->dbi->selectDb($GLOBALS['db']);
             $this->updatePartitioning();
-            ($this->structureController)();
+            ($this->structureController)($request);
 
             return;
         }

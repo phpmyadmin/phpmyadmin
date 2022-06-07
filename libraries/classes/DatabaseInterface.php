@@ -244,7 +244,7 @@ class DatabaseInterface implements DbalInterface
                     sprintf(
                         'SQL[%s?route=%s]: %0.3f(W:%d,C:%s,L:0x%02X) > %s',
                         basename($_SERVER['SCRIPT_NAME']),
-                        Routing::getCurrentRoute(),
+                        Common::getRequest()->getRoute(),
                         $this->lastQueryExecutionTime,
                         $warningsCount,
                         $cacheAffectedRows ? 'y' : 'n',

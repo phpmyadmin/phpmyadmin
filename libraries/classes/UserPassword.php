@@ -208,8 +208,11 @@ class UserPassword
         $GLOBALS['dbi']->tryQuery('FLUSH PRIVILEGES;');
     }
 
-    public function getFormForChangePassword(?string $username, ?string $hostname): string
+    /**
+     * @psalm-param non-empty-string $route
+     */
+    public function getFormForChangePassword(?string $username, ?string $hostname, string $route): string
     {
-        return $this->serverPrivileges->getFormForChangePassword($username ?? '', $hostname ?? '', false);
+        return $this->serverPrivileges->getFormForChangePassword($username ?? '', $hostname ?? '', false, $route);
     }
 }

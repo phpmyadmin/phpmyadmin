@@ -11,9 +11,9 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -56,10 +56,8 @@ final class RelationController extends AbstractController
     /**
      * Index
      */
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $route = Routing::getCurrentRoute();
-
         $options = [
             'CASCADE' => 'CASCADE',
             'SET_NULL' => 'SET NULL',
@@ -224,7 +222,7 @@ final class RelationController extends AbstractController
             'databases' => $GLOBALS['dblist']->databases,
             'dbi' => $this->dbi,
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            'route' => $route,
+            'route' => $request->getRoute(),
             'display_field' => $this->relation->getDisplayField($GLOBALS['db'], $GLOBALS['table']),
             'foreign_key_row' => $foreignKeyRow,
         ]);

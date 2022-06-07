@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\Structure\SaveController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -76,8 +77,10 @@ class SaveControllerTest extends AbstractTestCase
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
+        $request = $this->createStub(ServerRequest::class);
+
         $mock = $this->createMock(StructureController::class);
-        $mock->expects($this->once())->method('__invoke');
+        $mock->expects($this->once())->method('__invoke')->with($request);
 
         (new SaveController(
             new ResponseRenderer(),
@@ -86,7 +89,7 @@ class SaveControllerTest extends AbstractTestCase
             new Transformations(),
             $dbi,
             $mock
-        ))();
+        ))($request);
 
         $this->assertArrayNotHasKey('selected', $_POST);
     }

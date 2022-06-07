@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -107,7 +108,7 @@ final class Indexes
             } else {
                 /** @var StructureController $controller */
                 $controller = $GLOBALS['containerBuilder']->get(StructureController::class);
-                $controller();
+                $controller(Common::getRequest());
             }
         } else {
             $this->response->setRequestStatus(false);
