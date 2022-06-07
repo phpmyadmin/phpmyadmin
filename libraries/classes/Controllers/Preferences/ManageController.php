@@ -11,9 +11,9 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
@@ -65,7 +65,7 @@ class ManageController extends AbstractController
         $this->config = $config;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['cf'] = $GLOBALS['cf'] ?? null;
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
@@ -79,7 +79,7 @@ class ManageController extends AbstractController
         $GLOBALS['params'] = $GLOBALS['params'] ?? null;
         $GLOBALS['query'] = $GLOBALS['query'] ?? null;
 
-        $route = Routing::getCurrentRoute();
+        $route = $request->getRoute();
 
         $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($GLOBALS['cf']);

@@ -7,13 +7,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Url;
@@ -148,7 +148,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $_form_params = [];
-        $_form_params['route'] = Routing::getCurrentRoute();
+        $_form_params['route'] = Common::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db'])) {
             $_form_params['db'] = $GLOBALS['db'];
@@ -467,7 +467,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $url_params = [];
-        $url_params['route'] = Routing::getCurrentRoute();
+        $url_params['route'] = Common::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db']) > 0) {
             $url_params['db'] = $GLOBALS['db'];

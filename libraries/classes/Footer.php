@@ -141,7 +141,7 @@ class Footer
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
 
         $params = [];
-        $params['route'] = Routing::getCurrentRoute();
+        $params['route'] = Common::getRequest()->getRoute();
 
         if (isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0) {
             $params['db'] = $GLOBALS['db'];

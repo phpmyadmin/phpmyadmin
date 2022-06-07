@@ -1438,7 +1438,8 @@ class PrivilegesTest extends AbstractTestCase
             $username,
             $hostname,
             $tablename,
-            $_REQUEST['tablename']
+            $_REQUEST['tablename'],
+            '/server/privileges'
         );
 
         //title
@@ -1549,7 +1550,15 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['username'] = 'user';
         $GLOBALS['hostname'] = 'host';
 
-        $actual = $serverPrivileges->getHtmlForUserProperties(false, 'sakila', 'user', 'host', 'sakila', 'actor');
+        $actual = $serverPrivileges->getHtmlForUserProperties(
+            false,
+            'sakila',
+            'user',
+            'host',
+            'sakila',
+            'actor',
+            '/server/privileges'
+        );
         $this->assertStringContainsString('addUsersForm', $actual);
         $this->assertStringContainsString('SELECT', $actual);
         $this->assertStringContainsString('Allows reading data.', $actual);
@@ -1813,9 +1822,8 @@ class PrivilegesTest extends AbstractTestCase
     {
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_GET['route'] = '/server/privileges';
 
-        $html = $this->serverPrivileges->getFormForChangePassword($username, $hostname, false);
+        $html = $this->serverPrivileges->getFormForChangePassword($username, $hostname, false, '/server/privileges');
 
         $this->assertStringContainsString(
             Url::getFromRoute('/server/privileges'),

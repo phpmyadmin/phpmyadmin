@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -34,7 +35,6 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['ShowStats'] = false;
         $GLOBALS['cfg']['ShowPropertyComments'] = false;
-        $_GET['route'] = '/table/structure';
         $_SESSION['relation'] = [];
 
         $this->dummyDbi->addSelectDb('test_db');
@@ -68,6 +68,9 @@ class StructureControllerTest extends AbstractTestCase
         $pageSettings = new PageSettings('TableStructure');
         $fields = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
 
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getRoute')->willReturn('/table/structure');
+
         $response = new ResponseRenderer();
         $relation = new Relation($this->dbi);
         $template = new Template();
@@ -80,7 +83,7 @@ class StructureControllerTest extends AbstractTestCase
             new RelationCleanup($this->dbi, $relation),
             $this->dbi,
             new FlashMessages()
-        ))();
+        ))($request);
 
         $expected = $pageSettings->getHTML();
         $expected .= $template->render('table/structure/display_structure', [

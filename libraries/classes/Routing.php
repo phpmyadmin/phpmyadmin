@@ -117,39 +117,14 @@ class Routing
     }
 
     /**
-     * @psalm-return non-empty-string
-     */
-    public static function getCurrentRoute(): string
-    {
-        /** @var mixed $route */
-        $route = $_GET['route'] ?? $_POST['route'] ?? '/';
-        if (! is_string($route) || $route === '') {
-            $route = '/';
-        }
-
-        /**
-         * See FAQ 1.34.
-         *
-         * @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34
-         */
-        $db = isset($_GET['db']) && is_string($_GET['db']) ? $_GET['db'] : '';
-        if ($route === '/' && $db !== '') {
-            $table = isset($_GET['table']) && is_string($_GET['table']) ? $_GET['table'] : '';
-            $route = $table === '' ? '/database/structure' : '/sql';
-        }
-
-        return $route;
-    }
-
-    /**
      * Call associated controller for a route using the dispatcher
      */
     public static function callControllerForRoute(
         ServerRequest $request,
-        string $route,
         Dispatcher $dispatcher,
         ContainerInterface $container
     ): void {
+        $route = $request->getRoute();
         $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
 
         if ($routeInfo[0] === Dispatcher::NOT_FOUND) {

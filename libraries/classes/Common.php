@@ -93,8 +93,7 @@ final class Common
         $GLOBALS['token_mismatch'] = $GLOBALS['token_mismatch'] ?? null;
 
         $request = self::getRequest();
-
-        $route = Routing::getCurrentRoute();
+        $route = $request->getRoute();
 
         if ($route === '/import-status') {
             $GLOBALS['isMinimumCommon'] = true;

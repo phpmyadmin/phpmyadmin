@@ -18,11 +18,11 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -86,7 +86,7 @@ class StructureController extends AbstractController
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['reread_info'] = $GLOBALS['reread_info'] ?? null;
         $GLOBALS['showtable'] = $GLOBALS['showtable'] ?? null;
@@ -150,7 +150,8 @@ class StructureController extends AbstractController
             $primary,
             $fields,
             $columns_with_index,
-            $isSystemSchema
+            $isSystemSchema,
+            $request->getRoute()
         ));
     }
 
@@ -161,6 +162,7 @@ class StructureController extends AbstractController
      * @param Index|false $primary_index             primary index or false if no one exists
      * @param array       $fields                    Fields
      * @param array       $columns_with_index        Columns with index
+     * @psalm-param non-empty-string $route
      *
      * @return string
      */
@@ -170,12 +172,11 @@ class StructureController extends AbstractController
         $primary_index,
         array $fields,
         array $columns_with_index,
-        bool $isSystemSchema
+        bool $isSystemSchema,
+        string $route
     ) {
         $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
         $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
-
-        $route = Routing::getCurrentRoute();
 
         // prepare comments
         $comments_map = [];

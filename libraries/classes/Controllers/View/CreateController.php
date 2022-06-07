@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
@@ -42,7 +43,7 @@ class CreateController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->checkParameters(['db']);
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
@@ -204,7 +205,7 @@ class CreateController extends AbstractController
                 $GLOBALS['message'] = Message::success();
                 /** @var StructureController $controller */
                 $controller = $GLOBALS['containerBuilder']->get(StructureController::class);
-                $controller();
+                $controller($request);
             } else {
                 $this->response->addJSON(
                     'message',

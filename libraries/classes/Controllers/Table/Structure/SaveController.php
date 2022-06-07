@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -62,7 +63,7 @@ final class SaveController extends AbstractController
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $regenerate = $this->updateColumns();
         if (! $regenerate) {
@@ -70,7 +71,7 @@ final class SaveController extends AbstractController
             unset($_POST['selected']);
         }
 
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 
     /**

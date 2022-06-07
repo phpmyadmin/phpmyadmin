@@ -19,7 +19,6 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -3071,6 +3070,7 @@ class Privileges
      * @param string       $hostname         host name
      * @param string|array $dbname           database name
      * @param string       $tablename        table name
+     * @psalm-param non-empty-string $route
      *
      * @return string
      */
@@ -3080,7 +3080,8 @@ class Privileges
         $username,
         $hostname,
         $dbname,
-        $tablename
+        $tablename,
+        string $route
     ) {
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
@@ -3151,7 +3152,7 @@ class Privileges
         $changeLoginInfoFields = '';
         if (! is_array($dbname) && strlen($dbname) === 0 && ! $userDoesNotExists) {
             //change login information
-            $changePassword = $this->getFormForChangePassword($username, $hostname, true);
+            $changePassword = $this->getFormForChangePassword($username, $hostname, true, $route);
             $userGroup = $this->getUserGroupForUser($username);
             $changeLoginInfoFields = $this->getHtmlForLoginInformationFields('change', $username, $hostname);
         }
@@ -3701,10 +3702,15 @@ class Privileges
         return $this->parseProcPriv($privileges);
     }
 
-    public function getFormForChangePassword(string $username, string $hostname, bool $editOthers): string
-    {
-        $route = Routing::getCurrentRoute();
-
+    /**
+     * @psalm-param non-empty-string $route
+     */
+    public function getFormForChangePassword(
+        string $username,
+        string $hostname,
+        bool $editOthers,
+        string $route
+    ): string {
         $isPrivileges = $route === '/server/privileges';
 
         $serverVersion = $this->dbi->getVersion();

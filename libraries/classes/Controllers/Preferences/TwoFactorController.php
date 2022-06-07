@@ -6,9 +6,9 @@ namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
@@ -26,14 +26,12 @@ class TwoFactorController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $route = Routing::getCurrentRoute();
-
         $relationParameters = $this->relation->getRelationParameters();
 
         echo $this->template->render('preferences/header', [
-            'route' => $route,
+            'route' => $request->getRoute(),
             'is_saved' => ! empty($_GET['saved']),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
