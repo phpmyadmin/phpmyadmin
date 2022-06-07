@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-06-02 08:18+0000\n"
+"PO-Revision-Date: 2022-06-08 15:16+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "sl/>\n"
@@ -13644,7 +13644,7 @@ msgstr "Opredelitev PARTITION:"
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Spletna transakcija"
+msgstr "Sprotna transakcija"
 
 #: templates/columns_definitions/column_definitions_form.twig:166
 msgid ""
