@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -18,6 +19,7 @@ use function __;
 use function array_fill;
 use function count;
 use function is_array;
+use function is_string;
 use function str_contains;
 use function strlen;
 use function strpos;
@@ -44,7 +46,7 @@ class ChangeController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
@@ -116,10 +118,9 @@ class ChangeController extends AbstractController
             }
         }
 
-        $GLOBALS['urlParams'] = [
-            'db' => $GLOBALS['db'],
-            'sql_query' => $_POST['sql_query'] ?? '',
-        ];
+        /** @var mixed $sqlQuery */
+        $sqlQuery = $request->getParsedBodyParam('sql_query');
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
 
         if (strpos($GLOBALS['goto'] ?? '', 'index.php?route=/table') === 0) {
             $GLOBALS['urlParams']['table'] = $GLOBALS['table'];

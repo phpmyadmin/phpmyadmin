@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\FileListing;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -39,6 +40,8 @@ class ChangeControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $pageSettings = new PageSettings('Edit');
 
+        $request = $this->createStub(ServerRequest::class);
+
         $relation = new Relation($dbi);
         $template = new Template();
         (new ChangeController(
@@ -46,7 +49,7 @@ class ChangeControllerTest extends AbstractTestCase
             $template,
             new InsertEdit($dbi, $relation, new Transformations(), new FileListing(), $template),
             $relation
-        ))();
+        ))($request);
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString($pageSettings->getHTML(), $actual);

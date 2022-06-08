@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -88,6 +89,9 @@ class ReplaceControllerTest extends AbstractTestCase
                 1 => [],
             ],
         ];
+
+        $request = $this->createStub(ServerRequest::class);
+
         $GLOBALS['goto'] = 'index.php?route=/sql';
         $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
@@ -95,7 +99,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $replaceController = $GLOBALS['containerBuilder']->get(ReplaceController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
-        $replaceController();
+        $replaceController($request);
         $this->assertAllSelectsConsumed();
         $this->assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
@@ -129,6 +133,8 @@ class ReplaceControllerTest extends AbstractTestCase
             []
         );
 
+        $request = $this->createStub(ServerRequest::class);
+
         $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var ReplaceController $replaceController */
@@ -136,7 +142,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
-        $replaceController();
+        $replaceController($request);
         $this->assertAllSelectsConsumed();
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
         $this->assertStringContainsString(

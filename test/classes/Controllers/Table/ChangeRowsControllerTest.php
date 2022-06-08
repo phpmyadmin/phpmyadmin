@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ChangeRowsController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -28,10 +29,11 @@ class ChangeRowsControllerTest extends AbstractTestCase
     {
         $_POST['rows_to_delete'] = 'row';
 
+        $request = $this->createStub(ServerRequest::class);
         $mock = $this->createMock(ChangeController::class);
-        $mock->expects($this->once())->method('__invoke');
+        $mock->expects($this->once())->method('__invoke')->with($request);
 
-        (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))();
+        (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
 
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertSame('index.php?route=/table/change&server=2&lang=en', $GLOBALS['active_page']);
@@ -43,11 +45,12 @@ class ChangeRowsControllerTest extends AbstractTestCase
     {
         $_POST['goto'] = 'goto';
 
+        $request = $this->createStub(ServerRequest::class);
         $mock = $this->createMock(ChangeController::class);
-        $mock->expects($this->never())->method('__invoke');
+        $mock->expects($this->never())->method('__invoke')->with($request);
 
         $response = new ResponseRenderer();
-        (new ChangeRowsController($response, new Template(), $mock))();
+        (new ChangeRowsController($response, new Template(), $mock))($request);
 
         $this->assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         $this->assertFalse($response->hasSuccessState());
@@ -62,10 +65,11 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $_POST['goto'] = 'goto';
         $_POST['rows_to_delete'] = ['key1' => 'row1', 'key2' => 'row2'];
 
+        $request = $this->createStub(ServerRequest::class);
         $mock = $this->createMock(ChangeController::class);
-        $mock->expects($this->once())->method('__invoke');
+        $mock->expects($this->once())->method('__invoke')->with($request);
 
-        (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))();
+        (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
 
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertSame('index.php?route=/table/change&server=2&lang=en', $GLOBALS['active_page']);

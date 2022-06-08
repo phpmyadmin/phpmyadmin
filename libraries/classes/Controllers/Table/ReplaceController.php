@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
@@ -67,7 +68,7 @@ final class ReplaceController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
@@ -120,7 +121,7 @@ final class ReplaceController extends AbstractController
             $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
             /** @var ChangeController $controller */
             $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
-            $controller();
+            $controller($request);
 
             return;
         }
@@ -466,7 +467,7 @@ final class ReplaceController extends AbstractController
             if ($GLOBALS['goto_include'] === '/table/change') {
                 /** @var ChangeController $controller */
                 $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
-                $controller();
+                $controller($request);
 
                 return;
             }
@@ -674,7 +675,7 @@ final class ReplaceController extends AbstractController
         if ($GLOBALS['goto_include'] === '/table/change') {
             /** @var ChangeController $controller */
             $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
-            $controller();
+            $controller($request);
 
             return;
         }

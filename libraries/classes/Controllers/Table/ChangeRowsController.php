@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -26,7 +27,7 @@ final class ChangeRowsController extends AbstractController
         $this->changeController = $changeController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
@@ -51,6 +52,6 @@ final class ChangeRowsController extends AbstractController
 
         $GLOBALS['active_page'] = Url::getFromRoute('/table/change');
 
-        ($this->changeController)();
+        ($this->changeController)($request);
     }
 }
