@@ -4,11 +4,23 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Controllers\Sql\SqlController;
+use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
+use Psr\Container\ContainerInterface;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
@@ -18,15 +30,9 @@ class ReplaceControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::setLanguage();
-        parent::setTheme();
-        parent::setGlobalDbi();
-        parent::loadContainerBuilder();
-        parent::loadDbiIntoContainerBuilder();
         $GLOBALS['server'] = 1;
         $GLOBALS['showtable'] = null;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        parent::loadResponseIntoContainerBuilder();
         $GLOBALS['db'] = 'my_db';
         $GLOBALS['table'] = 'test_tbl';
 
@@ -55,7 +61,6 @@ class ReplaceControllerTest extends AbstractTestCase
     public function testReplace(): void
     {
         $GLOBALS['urlParams'] = [];
-        ResponseRenderer::getInstance()->setAjax(true);
         $_POST['db'] = $GLOBALS['db'];
         $_POST['table'] = $GLOBALS['table'];
         $_POST['ajax_request'] = 'true';
@@ -90,25 +95,50 @@ class ReplaceControllerTest extends AbstractTestCase
             ],
         ];
 
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $relation = new Relation($dbi);
+        $transformations = new Transformations();
+        $template = new Template();
+        $response = new ResponseRenderer();
+        $replaceController = new ReplaceController(
+            $response,
+            $template,
+            new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template),
+            $transformations,
+            $relation,
+            $dbi
+        );
+
         $request = $this->createStub(ServerRequest::class);
+        $sqlController = new SqlController(
+            $response,
+            $template,
+            new Sql(
+                $dbi,
+                $relation,
+                new RelationCleanup($dbi, $relation),
+                new Operations($dbi, $relation),
+                $transformations,
+                $template
+            ),
+            new CheckUserPrivileges($dbi),
+            $dbi
+        );
+        $GLOBALS['containerBuilder'] = $this->createStub(ContainerInterface::class);
+        $GLOBALS['containerBuilder']->method('get')->willReturn($sqlController);
 
         $GLOBALS['goto'] = 'index.php?route=/sql';
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
-        /** @var ReplaceController $replaceController */
-        $replaceController = $GLOBALS['containerBuilder']->get(ReplaceController::class);
-        $this->dummyDbi->addSelectDb('my_db');
-        $this->dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addSelectDb('my_db');
         $replaceController($request);
+        $output = $response->getHTMLResult();
         $this->assertAllSelectsConsumed();
         $this->assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
-            $this->getResponseHtmlResult()
+            $output
         );
-        $this->assertStringContainsString(
-            'SELECT * FROM `test_tbl`',
-            $this->getResponseHtmlResult()
-        );
+        $this->assertStringContainsString('SELECT * FROM `test_tbl`', $output);
     }
 
     public function testIsInsertRow(): void
@@ -121,39 +151,47 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'host.tld';
         $GLOBALS['cfg']['Server']['verbose'] = '';
 
-        $this->dummyDbi->addResult(
-            'SHOW TABLES LIKE \'test_tbl\';',
-            [
-                ['test_tbl'],
-            ]
-        );
-
-        $this->dummyDbi->addResult(
-            'SELECT * FROM `my_db`.`test_tbl` LIMIT 1;',
-            []
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
+        $relation = new Relation($dbi);
+        $transformations = new Transformations();
+        $template = new Template();
+        $response = new ResponseRenderer();
+        $insertEdit = new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template);
+        $replaceController = new ReplaceController(
+            $response,
+            $template,
+            $insertEdit,
+            $transformations,
+            $relation,
+            $dbi
         );
 
         $request = $this->createStub(ServerRequest::class);
+        $changeController = new ChangeController($response, $template, $insertEdit, $relation);
+        $GLOBALS['containerBuilder'] = $this->createStub(ContainerInterface::class);
+        $GLOBALS['containerBuilder']->method('get')->willReturn($changeController);
 
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
-        /** @var ReplaceController $replaceController */
-        $replaceController = $GLOBALS['containerBuilder']->get(ReplaceController::class);
-        $this->dummyDbi->addSelectDb('my_db');
-        $this->dummyDbi->addSelectDb('my_db');
-        $this->dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addResult('SHOW TABLES LIKE \'test_tbl\';', [['test_tbl']]);
+        $dummyDbi->addResult('SELECT * FROM `my_db`.`test_tbl` LIMIT 1;', []);
+        $dummyDbi->addSelectDb('my_db');
+
         $replaceController($request);
+        $output = $response->getHTMLResult();
         $this->assertAllSelectsConsumed();
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
         $this->assertStringContainsString(
             '<form id="continueForm" method="post" '
             . 'action="index.php?route=/table/replace&lang=en" name="continueForm">',
-            $this->getResponseHtmlResult()
+            $output
         );
         $this->assertStringContainsString(
             'Continue insertion with         <input type="number" '
             . 'name="insert_rows" id="insert_rows" value="5" min="1">',
-            $this->getResponseHtmlResult()
+            $output
         );
     }
 }
