@@ -11,6 +11,9 @@ on:
 env:
   php-version: "8.1"
 
+permissions:
+  contents: read
+
 jobs:
   selenium:
     name: "Selenium"
