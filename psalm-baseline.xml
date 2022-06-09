@@ -12502,7 +12502,7 @@
       <code>$arrInstance[$name]</code>
       <code>$arrInstance[$name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="20">
+    <MixedAssignment occurrences="21">
       <code>$arrInstance[$name]</code>
       <code>$arrProp</code>
       <code>$arrWEBMCol</code>
@@ -12510,6 +12510,7 @@
       <code>$mem['MemFree']</code>
       <code>$mem['MemTotal']</code>
       <code>$mem['MemUsed']</code>
+      <code>$mem['SwapFree']</code>
       <code>$mem['SwapPeak']</code>
       <code>$mem['SwapTotal']</code>
       <code>$mem['SwapUsed']</code>
@@ -12528,8 +12529,9 @@
       <code>ConnectServer</code>
       <code>Instances_</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="6">
+    <MixedOperand occurrences="7">
       <code>$mem['MemTotal']</code>
+      <code>$mem['SwapTotal']</code>
       <code>$sum</code>
       <code>$swapdevice['AllocatedBaseSize']</code>
       <code>$swapdevice['CurrentUsage']</code>
