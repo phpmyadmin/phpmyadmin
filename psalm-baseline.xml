@@ -3160,9 +3160,8 @@
       <code>$isUpload</code>
       <code>$isUpload</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$GLOBALS['jsvkey']</code>
-      <code>$GLOBALS['urlParams']</code>
       <code>$row_id</code>
       <code>$row_id</code>
     </MixedArgumentTypeCoercion>

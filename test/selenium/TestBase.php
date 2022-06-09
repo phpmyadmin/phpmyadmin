@@ -1107,10 +1107,11 @@ JS;
             $this->dbQuery('DROP DATABASE IF EXISTS `phpmyadmin`;');
         }
 
-        if (! $this->hasFailed()) {
-            $this->markTestAs('passed', '');
+        if ($this->hasFailed()) {
+            return;
         }
 
+        $this->markTestAs('passed', '');
         $this->sqlWindowHandle = null;
         $this->webDriver->quit();
     }
