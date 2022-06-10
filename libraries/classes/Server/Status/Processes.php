@@ -28,7 +28,7 @@ final class Processes
     /**
      * @param array $params Request parameters
      *
-     * @return array<string, array|string>
+     * @return array<string, array|string|bool>
      */
     public function getList(array $params): array
     {
@@ -97,6 +97,7 @@ final class Processes
             'columns' => $this->getSortableColumnsForProcessList($showFullSql, $params),
             'rows' => $rows,
             'refresh_params' => $urlParams,
+            'is_mariadb' => $this->dbi->isMariaDB(),
         ];
     }
 
