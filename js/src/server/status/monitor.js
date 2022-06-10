@@ -101,9 +101,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             var $cnt = $(this);
             var pos = $cnt.offset();
             // Hide if the mouseclick is outside the popupcontent
-            if (event.pageX < pos.left ||
-                event.pageY < pos.top ||
-                event.pageX > pos.left + $cnt.outerWidth() ||
+            if (event.pageX > pos.left + $cnt.outerWidth() ||
                 event.pageY > pos.top + $cnt.outerHeight()
             ) {
                 $cnt.hide().removeClass('openedPopup');
