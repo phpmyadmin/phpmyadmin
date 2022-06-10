@@ -2334,7 +2334,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],
             [
-                'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `db` ASC',
+                'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `Db` ASC',
                 'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
                 'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],

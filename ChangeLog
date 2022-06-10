@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #17496 Fix error in table operation page when partitions are broken
 - issue #17386 Fix system memory and system swap values on Windows
 - issue #17517 Fix Database Server panel not getting hidden by ShowServerInfo configuration directive
+- issue #17271 Fix database names not showing on Processes tab
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
