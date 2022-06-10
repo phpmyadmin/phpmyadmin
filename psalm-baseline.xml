@@ -12488,6 +12488,9 @@
     <MixedOperand occurrences="1">
       <code>$params['sort_order']</code>
     </MixedOperand>
+    <RedundantCondition occurrences="1">
+      <code>0 !== --$sortableColCount</code>
+    </RedundantCondition>
   </file>
   <file src="libraries/classes/Server/SysInfo/WindowsNt.php">
     <MixedArrayAccess occurrences="6">

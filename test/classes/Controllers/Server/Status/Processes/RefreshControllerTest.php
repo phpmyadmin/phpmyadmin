@@ -46,7 +46,7 @@ class RefreshControllerTest extends AbstractTestCase
             'User' => 'User1',
             'Host' => 'Host1',
             'Id' => 'Id1',
-            'db' => 'db1',
+            'Db' => 'db1',
             'Command' => 'Command1',
             'Info' => 'Info1',
             'State' => 'State1',
@@ -95,7 +95,7 @@ class RefreshControllerTest extends AbstractTestCase
 
         //validate 4: $process['db']
         $this->assertStringContainsString(
-            __('None'),
+            $process['Db'],
             $html
         );
 
