@@ -1346,11 +1346,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/BinlogController.php
 
 		-
-			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:getDatabases\\(\\) has parameter \\$primaryInfo with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/DatabasesController.php
