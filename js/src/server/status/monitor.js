@@ -1106,7 +1106,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var windowWidth = $(window).width();
 
         if (windowWidth > 768) {
-            wdt = (panelWidth - monitorSettings.columns * chartSpacing.width) / monitorSettings.columns;
+            wdt = (panelWidth - monitorSettings.columns * Math.abs(chartSpacing.width)) / monitorSettings.columns;
         }
 
         chartSize = {
