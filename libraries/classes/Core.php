@@ -160,7 +160,7 @@ class Core
         /* List of PHP documentation translations */
         $php_doc_languages = [
             'pt_BR',
-            'zh',
+            'zh_CN',
             'fr',
             'de',
             'ja',
@@ -171,7 +171,11 @@ class Core
 
         $lang = 'en';
         if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $php_doc_languages)) {
-            $lang = $GLOBALS['lang'];
+            if ($GLOBALS['lang'] === 'zh_CN') {
+                $lang = 'zh';
+            } else {
+                $lang = $GLOBALS['lang'];
+            }
         }
 
         return self::linkURL('https://www.php.net/manual/' . $lang . '/' . $target);

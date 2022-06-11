@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - issue #17271 Fix database names not showing on Processes tab
 - issue #17424 Fix export limit size calculation
 - issue #17366 Fix refresh rate popup on Monitor page
+- issue #17577 Fix monitor charts size on RTL languages
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
