@@ -5230,7 +5230,7 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <MixedArgument occurrences="71">
+    <MixedArgument occurrences="70">
       <code>$GLOBALS['errors']</code>
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
@@ -5257,7 +5257,6 @@
       <code>$_POST['item_type']</code>
       <code>$_POST['item_type']</code>
       <code>$_REQUEST['item_name']</code>
-      <code>$itemDefiner</code>
       <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemParamOpsNum[$i]</code>
@@ -5630,14 +5629,13 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="49">
+    <MixedArgument occurrences="48">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
       <code>$b</code>
       <code>$database</code>
       <code>$databaseName</code>
-      <code>$grant</code>
       <code>$grant</code>
       <code>$grant</code>
       <code>$host</code>
@@ -5926,13 +5924,11 @@
       <code>$statementInfo-&gt;statement-&gt;expr</code>
       <code>$statementInfo-&gt;statement-&gt;where</code>
     </InvalidIterator>
-    <MixedArgument occurrences="44">
+    <MixedArgument occurrences="42">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
       <code>$_SESSION['tmpval']['query']</code>
-      <code>$clause</code>
-      <code>$clause</code>
       <code>$clause</code>
       <code>$clauseIsUnique</code>
       <code>$clauseIsUnique</code>
@@ -6478,7 +6474,7 @@
       <code>$aliases[$dbName]['tables'][$tableName]</code>
       <code>$aliases[$dbName]['tables'][$tableName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="26">
+    <MixedAssignment occurrences="25">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['save_filename']</code>
       <code>$GLOBALS['time_start']</code>
@@ -6501,7 +6497,6 @@
       <code>$val2</code>
       <code>$val2</code>
       <code>$val2</code>
-      <code>$value</code>
       <code>$value</code>
       <code>$view</code>
       <code>$views[]</code>
