@@ -62,9 +62,13 @@ class SessionCacheTest extends TestCase
 
         SessionCache::set('test_data', 5);
         SessionCache::set('test_data_2', 5);
+        SessionCache::set('test_data_3', false);
+        SessionCache::set('test_data_4', true);
 
         $this->assertTrue(SessionCache::has('test_data'));
         $this->assertTrue(SessionCache::has('test_data_2'));
+        $this->assertTrue(SessionCache::has('test_data_3'));
+        $this->assertTrue(SessionCache::has('test_data_4'));
         $this->assertFalse(SessionCache::has('fake_data_2'));
     }
 

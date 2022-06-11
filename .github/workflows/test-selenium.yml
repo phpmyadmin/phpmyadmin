@@ -8,6 +8,9 @@ on:
       - master
       - QA_**
 
+permissions:
+  contents: read
+
 env:
   php-version: "8.1"
 

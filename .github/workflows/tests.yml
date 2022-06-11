@@ -8,6 +8,9 @@ on:
       - master
       - QA_**
 
+permissions:
+  contents: read
+
 jobs:
   multi-arch-tests-php:
     name: Test on PHP ${{ matrix.php-version }} (${{ matrix.arch }})
