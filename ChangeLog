@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #17366 Fix refresh rate popup on Monitor page
 - issue #17577 Fix monitor charts size on RTL languages
 - issue #17121 Fix password_hash function incorrectly adding single quotes to password before hashing
+- issue #17586 Fix statistics not showing for empty databases
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

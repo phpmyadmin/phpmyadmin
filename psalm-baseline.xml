@@ -2656,7 +2656,8 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $database['SCHEMA_NAME']]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="13">
+    <MixedArrayAccess occurrences="14">
+      <code>$database[$key]</code>
       <code>$database[$key]</code>
       <code>$database['DEFAULT_COLLATION_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
@@ -2679,7 +2680,7 @@
       <code>$databases[$database['SCHEMA_NAME']]</code>
       <code>$databases[$database['SCHEMA_NAME']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['db_to_create']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$database</code>
@@ -2687,7 +2688,6 @@
       <code>$key</code>
       <code>$key</code>
       <code>$key</code>
-      <code>$statistics[$key]['raw']</code>
       <code>$totalStatistics[$key]['raw']</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
@@ -2705,12 +2705,6 @@
       <code>$sortBy</code>
       <code>$sortOrder</code>
     </PropertyNotSetInConstructor>
-    <RedundantCondition occurrences="1">
-      <code>(int) $database[$key]</code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>0</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Server/ExportController.php">
     <MixedArgument occurrences="3">
