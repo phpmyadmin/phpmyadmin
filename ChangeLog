@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #17424 Fix export limit size calculation
 - issue #17366 Fix refresh rate popup on Monitor page
 - issue #17577 Fix monitor charts size on RTL languages
+- issue #17121 Fix password_hash function incorrectly adding single quotes to password before hashing
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
