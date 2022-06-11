@@ -47,6 +47,8 @@
     "webpack-concat-files-plugin": "^0.5.2"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.1.12",
+    "@types/jquery": "^3.5.14",
     "babel-jest": "^27.3.1",
     "eslint": "^7.32.0",
     "eslint-plugin-compat": "^3.13.0",
@@ -55,7 +57,8 @@
     "stylelint": "^13.13.1",
     "stylelint-config-recommended-scss": "^4.3.0",
     "stylelint-config-standard": "^22.0.0",
-    "stylelint-scss": "^3.21.0"
+    "stylelint-scss": "^3.21.0",
+    "typescript": "^4.7.3"
   },
   "scripts": {
     "postinstall": "yarn run build",
