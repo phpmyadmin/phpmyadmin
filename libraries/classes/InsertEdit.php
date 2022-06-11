@@ -35,7 +35,6 @@ use function max;
 use function mb_stripos;
 use function mb_strlen;
 use function mb_strstr;
-use function mb_substr;
 use function md5;
 use function method_exists;
 use function min;
@@ -1572,10 +1571,6 @@ class InsertEdit
         $funcNoParam,
         $key
     ): string {
-        if (empty($multiEditFuncs[$key])) {
-            return $currentValue;
-        }
-
         if ($multiEditFuncs[$key] === 'PHP_PASSWORD_HASH') {
             /**
              * @see https://github.com/vimeo/psalm/issues/3350
@@ -1584,28 +1579,21 @@ class InsertEdit
              */
             $hash = password_hash($currentValue, PASSWORD_DEFAULT);
 
-            return "'" . $hash . "'";
+            return "'" . $this->dbi->escapeString($hash) . "'";
         }
 
         if ($multiEditFuncs[$key] === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = (string) $this->dbi->fetchValue('SELECT UUID()');
 
-            return "'" . $uuid . "'";
+            return "'" . $this->dbi->escapeString($uuid) . "'";
         }
 
         if (
             in_array($multiEditFuncs[$key], $gisFromTextFunctions)
             || in_array($multiEditFuncs[$key], $gisFromWkbFunctions)
         ) {
-            // Remove enclosing apostrophes
-            $currentValue = mb_substr($currentValue, 1, -1);
-            // Remove escaping apostrophes
-            $currentValue = str_replace("''", "'", $currentValue);
-            // Remove backslash-escaped apostrophes
-            $currentValue = str_replace("\'", "'", $currentValue);
-
-            return $multiEditFuncs[$key] . '(' . $currentValue . ')';
+            return $multiEditFuncs[$key] . "('" . $this->dbi->escapeString($currentValue) . "')";
         }
 
         if (
@@ -1622,11 +1610,11 @@ class InsertEdit
                         || $multiEditFuncs[$key] === 'DES_DECRYPT'
                         || $multiEditFuncs[$key] === 'ENCRYPT'))
             ) {
-                return $multiEditFuncs[$key] . '(' . $currentValue . ",'"
+                return $multiEditFuncs[$key] . "('" . $this->dbi->escapeString($currentValue) . "','"
                     . $this->dbi->escapeString($multiEditSalt[$key]) . "')";
             }
 
-            return $multiEditFuncs[$key] . '(' . $currentValue . ')';
+            return $multiEditFuncs[$key] . "('" . $this->dbi->escapeString($currentValue) . "')";
         }
 
         return $multiEditFuncs[$key] . '()';
@@ -1743,10 +1731,6 @@ class InsertEdit
     ): string {
         if ($possiblyUploadedVal !== false) {
             return $possiblyUploadedVal;
-        }
-
-        if (! empty($multiEditFuncs[$key])) {
-            return "'" . $this->dbi->escapeString($currentValue) . "'";
         }
 
         // c o l u m n    v a l u e    i n    t h e    f o r m
