@@ -255,7 +255,7 @@ class DatabasesController extends AbstractController
             $statistics = $this->getStatisticsColumns();
             if ($this->hasStatistics) {
                 foreach (array_keys($statistics) as $key) {
-                    $statistics[$key]['raw'] = $database[$key] ?? null;
+                    $statistics[$key]['raw'] = (int) $database[$key] ?? 0;
                     $totalStatistics[$key]['raw'] += (int) $database[$key] ?? 0;
                 }
             }
