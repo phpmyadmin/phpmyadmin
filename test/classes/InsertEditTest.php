@@ -21,7 +21,9 @@ use ReflectionProperty;
 use stdClass;
 
 use function hash;
+use function mb_substr;
 use function md5;
+use function password_verify;
 use function sprintf;
 
 use const MYSQLI_PRI_KEY_FLAG;
@@ -2092,32 +2094,16 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetCurrentValueAsAnArrayForMultipleEdit(): void
     {
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            [],
-            [],
-            [],
-            'currVal',
-            [],
-            [],
-            [],
-            '0'
+        // case 2
+        $multi_edit_function = 'UUID';
+
+        $this->dummyDbi->addResult(
+            'SELECT UUID()',
+            [
+                ['uuid1234'],// Minimal working setup for 2FA
+            ]
         );
 
-        $this->assertEquals('currVal', $result);
-
-        // case 2
-        $multi_edit_funcs = ['UUID'];
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with('SELECT UUID()')
-            ->will($this->returnValue('uuid1234'));
-
-        $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit(
             $GLOBALS['dbi'],
             new Relation($GLOBALS['dbi']),
@@ -2127,60 +2113,49 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs,
-            [],
-            [],
-            'currVal',
-            [],
-            [],
-            [],
-            '0'
+            $multi_edit_function,
+            null,
+            'currVal'
         );
 
         $this->assertEquals("'uuid1234'", $result);
 
         // case 3
-        $multi_edit_funcs = ['AES_ENCRYPT'];
-        $multi_edit_salt = [''];
+        $multi_edit_function = 'AES_ENCRYPT';
+        $multi_edit_salt = '';
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs,
+            $multi_edit_function,
             $multi_edit_salt,
-            [],
-            "'''",
-            [],
-            ['func'],
-            ['func'],
-            '0'
+            "'"
         );
-        $this->assertEquals("AES_ENCRYPT(''','')", $result);
+        $this->assertEquals("AES_ENCRYPT('\\'','')", $result);
 
         // case 4
-        $multi_edit_funcs = ['func'];
-        $multi_edit_salt = [];
+        $multi_edit_function = 'ABS';
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs,
-            $multi_edit_salt,
-            [],
-            "'''",
-            [],
-            ['func'],
-            ['func'],
-            '0'
+            $multi_edit_function,
+            null,
+            "'"
         );
-        $this->assertEquals("func(''')", $result);
+        $this->assertEquals("ABS('\\'')", $result);
 
         // case 5
+        $multi_edit_function = 'RAND';
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs,
-            $multi_edit_salt,
-            [],
-            "''",
-            [],
-            ['func'],
-            ['func'],
-            '0'
+            $multi_edit_function,
+            null,
+            ''
         );
-        $this->assertEquals('func()', $result);
+        $this->assertEquals('RAND()', $result);
+
+        // case 6
+        $multi_edit_function = 'PHP_PASSWORD_HASH';
+        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+            $multi_edit_function,
+            null,
+            "a'c"
+        );
+        $this->assertTrue(password_verify("a'c", mb_substr($result, 1, -1)));
     }
 
     /**
@@ -2209,8 +2184,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals('123', $result);
@@ -2229,8 +2203,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals('NULL', $result);
@@ -2249,8 +2222,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals("''", $result);
@@ -2270,8 +2242,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals("''", $result);
@@ -2290,8 +2261,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '`id` = 4',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals('0x313031', $result);
@@ -2310,8 +2280,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals('', $result);
@@ -2330,8 +2299,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals("b'00010'", $result);
@@ -2350,8 +2318,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals("'20\\'12'", $result);
@@ -2371,8 +2338,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals('NULL', $result);
@@ -2391,8 +2357,7 @@ class InsertEditTest extends AbstractTestCase
             true,
             true,
             '',
-            'test_table',
-            []
+            'test_table'
         );
 
         $this->assertEquals("''", $result);

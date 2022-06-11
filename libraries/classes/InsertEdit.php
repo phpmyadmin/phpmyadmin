@@ -32,7 +32,6 @@ use function max;
 use function mb_stripos;
 use function mb_strlen;
 use function mb_strstr;
-use function mb_substr;
 use function md5;
 use function method_exists;
 use function min;
@@ -67,6 +66,34 @@ class InsertEdit
 
     /** @var Template */
     private $template;
+
+    private const FUNC_OPTIONAL_PARAM = [
+        'RAND',
+        'UNIX_TIMESTAMP',
+    ];
+
+    private const FUNC_NO_PARAM = [
+        'CONNECTION_ID',
+        'CURRENT_USER',
+        'CURDATE',
+        'CURTIME',
+        'CURRENT_DATE',
+        'CURRENT_TIME',
+        'DATABASE',
+        'LAST_INSERT_ID',
+        'NOW',
+        'PI',
+        'RAND',
+        'SYSDATE',
+        'UNIX_TIMESTAMP',
+        'USER',
+        'UTC_DATE',
+        'UTC_TIME',
+        'UTC_TIMESTAMP',
+        'UUID',
+        'UUID_SHORT',
+        'VERSION',
+    ];
 
     public function __construct(
         DatabaseInterface $dbi,
@@ -1525,30 +1552,16 @@ class InsertEdit
     /**
      * Get current value in multi edit mode
      *
-     * @param array  $multiEditFuncs       multiple edit functions array
-     * @param array  $multiEditSalt        multiple edit array with encryption salt
-     * @param array  $gisFromTextFunctions array that contains gis from text functions
-     * @param string $currentValue         current value in the column
-     * @param array  $gisFromWkbFunctions  initially $val is $multi_edit_columns[$key]
-     * @param array  $funcOptionalParam    array('RAND','UNIX_TIMESTAMP')
-     * @param array  $funcNoParam          array of set of string
-     * @param string $key                  an md5 of the column name
+     * @param string  $multiEditFunction multiple edit functions array
+     * @param ?string $multiEditSalt     multiple edit array with encryption salt
+     * @param string  $currentValue      current value in the column
      */
     public function getCurrentValueAsAnArrayForMultipleEdit(
-        $multiEditFuncs,
-        $multiEditSalt,
-        $gisFromTextFunctions,
-        $currentValue,
-        $gisFromWkbFunctions,
-        $funcOptionalParam,
-        $funcNoParam,
-        $key
+        string $multiEditFunction,
+        ?string $multiEditSalt,
+        string $currentValue
     ): string {
-        if (empty($multiEditFuncs[$key])) {
-            return $currentValue;
-        }
-
-        if ($multiEditFuncs[$key] === 'PHP_PASSWORD_HASH') {
+        if ($multiEditFunction === 'PHP_PASSWORD_HASH') {
             /**
              * @see https://github.com/vimeo/psalm/issues/3350
              *
@@ -1556,52 +1569,45 @@ class InsertEdit
              */
             $hash = password_hash($currentValue, PASSWORD_DEFAULT);
 
-            return "'" . $hash . "'";
+            return "'" . $this->dbi->escapeString($hash) . "'";
         }
 
-        if ($multiEditFuncs[$key] === 'UUID') {
+        if ($multiEditFunction === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = (string) $this->dbi->fetchValue('SELECT UUID()');
 
-            return "'" . $uuid . "'";
+            return "'" . $this->dbi->escapeString($uuid) . "'";
         }
 
         if (
-            in_array($multiEditFuncs[$key], $gisFromTextFunctions)
-            || in_array($multiEditFuncs[$key], $gisFromWkbFunctions)
+            in_array($multiEditFunction, $this->getGisFromTextFunctions())
+            || in_array($multiEditFunction, $this->getGisFromWKBFunctions())
         ) {
-            // Remove enclosing apostrophes
-            $currentValue = mb_substr($currentValue, 1, -1);
-            // Remove escaping apostrophes
-            $currentValue = str_replace("''", "'", $currentValue);
-            // Remove backslash-escaped apostrophes
-            $currentValue = str_replace("\'", "'", $currentValue);
-
-            return $multiEditFuncs[$key] . '(' . $currentValue . ')';
+            return $multiEditFunction . "('" . $this->dbi->escapeString($currentValue) . "')";
         }
 
         if (
-            ! in_array($multiEditFuncs[$key], $funcNoParam)
-            || ($currentValue != "''"
-                && in_array($multiEditFuncs[$key], $funcOptionalParam))
+            ! in_array($multiEditFunction, self::FUNC_NO_PARAM)
+            || ($currentValue !== ''
+                && in_array($multiEditFunction, self::FUNC_OPTIONAL_PARAM))
         ) {
             if (
-                (isset($multiEditSalt[$key])
-                    && ($multiEditFuncs[$key] === 'AES_ENCRYPT'
-                        || $multiEditFuncs[$key] === 'AES_DECRYPT'))
-                || (! empty($multiEditSalt[$key])
-                    && ($multiEditFuncs[$key] === 'DES_ENCRYPT'
-                        || $multiEditFuncs[$key] === 'DES_DECRYPT'
-                        || $multiEditFuncs[$key] === 'ENCRYPT'))
+                (isset($multiEditSalt)
+                    && ($multiEditFunction === 'AES_ENCRYPT'
+                        || $multiEditFunction === 'AES_DECRYPT'))
+                || (! empty($multiEditSalt)
+                    && ($multiEditFunction === 'DES_ENCRYPT'
+                        || $multiEditFunction === 'DES_DECRYPT'
+                        || $multiEditFunction === 'ENCRYPT'))
             ) {
-                return $multiEditFuncs[$key] . '(' . $currentValue . ",'"
-                    . $this->dbi->escapeString($multiEditSalt[$key]) . "')";
+                return $multiEditFunction . "('" . $this->dbi->escapeString($currentValue) . "','"
+                    . $this->dbi->escapeString($multiEditSalt) . "')";
             }
 
-            return $multiEditFuncs[$key] . '(' . $currentValue . ')';
+            return $multiEditFunction . "('" . $this->dbi->escapeString($currentValue) . "')";
         }
 
-        return $multiEditFuncs[$key] . '()';
+        return $multiEditFunction . '()';
     }
 
     /**
@@ -1693,7 +1699,6 @@ class InsertEdit
      * @param bool         $usingKey                 whether editing or new row
      * @param string       $whereClause              where clause
      * @param string       $table                    table name
-     * @param array        $multiEditFuncs           multiple edit functions array
      *
      * @return string  current column value in the form
      */
@@ -1701,7 +1706,7 @@ class InsertEdit
         $possiblyUploadedVal,
         $key,
         ?array $multiEditColumnsType,
-        $currentValue,
+        string $currentValue,
         ?array $multiEditAutoIncrement,
         $rownumber,
         $multiEditColumnsName,
@@ -1710,15 +1715,10 @@ class InsertEdit
         $isInsert,
         $usingKey,
         $whereClause,
-        $table,
-        $multiEditFuncs
+        $table
     ): string {
         if ($possiblyUploadedVal !== false) {
             return $possiblyUploadedVal;
-        }
-
-        if (! empty($multiEditFuncs[$key])) {
-            return "'" . $this->dbi->escapeString($currentValue) . "'";
         }
 
         // c o l u m n    v a l u e    i n    t h e    f o r m
@@ -2496,5 +2496,65 @@ class InsertEdit
         return $htmlOutput . '  </tbody>'
             . '</table></div><br>'
             . '<div class="clearfloat"></div>';
+    }
+
+    /**
+     * Returns list of function names that accept WKB as text
+     *
+     * @return string[]
+     */
+    private function getGisFromTextFunctions(): array
+    {
+        return $this->dbi->getVersion() >= 50600 ?
+        [
+            'ST_GeomFromText',
+            'ST_GeomCollFromText',
+            'ST_LineFromText',
+            'ST_MLineFromText',
+            'ST_PointFromText',
+            'ST_MPointFromText',
+            'ST_PolyFromText',
+            'ST_MPolyFromText',
+        ] :
+        [
+            'GeomFromText',
+            'GeomCollFromText',
+            'LineFromText',
+            'MLineFromText',
+            'PointFromText',
+            'MPointFromText',
+            'PolyFromText',
+            'MPolyFromText',
+        ];
+    }
+
+    /**
+     * Returns list of function names that accept WKB as binary
+     *
+     * @return string[]
+     */
+    private function getGisFromWKBFunctions(): array
+    {
+        return $this->dbi->getVersion() >= 50600 ?
+        [
+            'ST_GeomFromWKB',
+            'ST_GeomCollFromWKB',
+            'ST_LineFromWKB',
+            'ST_MLineFromWKB',
+            'ST_PointFromWKB',
+            'ST_MPointFromWKB',
+            'ST_PolyFromWKB',
+            'ST_MPolyFromWKB',
+        ] :
+        [
+            'GeomFromWKB',
+            'GeomCollFromWKB',
+            'LineFromWKB',
+            'MLineFromWKB',
+            'PointFromWKB',
+            'MPointFromWKB',
+            'PolyFromWKB',
+            'MPolyFromWKB',
+        ];
     }
 }
