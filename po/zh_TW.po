@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-06-05 00:21+0000\n"
+"POT-Creation-Date: 2022-06-12 00:20+0000\n"
 "PO-Revision-Date: 2022-03-29 23:08+0000\n"
 "Last-Translator: Eotones <eotones@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1278,7 +1278,7 @@ msgstr "搜尋："
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: libraries/classes/Controllers/Server/PrivilegesController.php:340
+#: libraries/classes/Controllers/Server/PrivilegesController.php:341
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:325
 #: libraries/classes/Tracking.php:479
@@ -1658,22 +1658,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南文"
 
-#: libraries/classes/Common.php:254
+#: libraries/classes/Common.php:253
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "應升級到 %s %s 或更新版本。"
 
-#: libraries/classes/Common.php:286
+#: libraries/classes/Common.php:285
 msgid "Error: Token mismatch"
 msgstr "錯誤：連線資訊失效，請重新連線"
 
-#: libraries/classes/Common.php:497
+#: libraries/classes/Common.php:496
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "未能設定連線階段 cookie。可能正在以 HTTP 而非 HTTPS 存取 phpMyAdmin。"
 
-#: libraries/classes/Common.php:553
+#: libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1682,17 +1682,17 @@ msgstr ""
 "已啟用 PHP 設定的 mbstring.func_overload。此選項與 phpMyAdmin 不相容，可能會"
 "導致一些資料損壞！"
 
-#: libraries/classes/Common.php:570
+#: libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:581
+#: libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/classes/Common.php:591
+#: libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "可能被駭"
 
@@ -4119,7 +4119,7 @@ msgid "Explain SQL"
 msgstr "SQL 語句分析"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:593 libraries/classes/Html/Generator.php:704
+#: libraries/classes/Export.php:1288 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4151,9 +4151,9 @@ msgstr "文字框列數"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:185
 #: libraries/classes/Plugins/Export/ExportTexytext.php:124
-#: libraries/classes/Server/Privileges.php:1818
-#: libraries/classes/Server/Privileges.php:1820
-#: libraries/classes/Server/Status/Processes.php:126
+#: libraries/classes/Server/Privileges.php:1817
+#: libraries/classes/Server/Privileges.php:1819
+#: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4181,8 +4181,8 @@ msgstr "伺服器"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:464
-#: libraries/classes/Server/Privileges.php:1824
-#: libraries/classes/Server/Privileges.php:1826
+#: libraries/classes/Server/Privileges.php:1823
+#: libraries/classes/Server/Privileges.php:1825
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4449,7 +4449,7 @@ msgstr "OpenDocument/OpenOffice 文字檔"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1511
 #: libraries/classes/Util.php:1868 libraries/classes/Util.php:1883
 #: libraries/classes/Util.php:1900 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4807,7 +4807,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:89
 #: libraries/classes/Controllers/Database/TrackingController.php:138
-#: libraries/classes/Controllers/Export/ExportController.php:349
+#: libraries/classes/Controllers/Export/ExportController.php:345
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -4858,14 +4858,14 @@ msgid ""
 msgstr "已停用 phpMyAdmin 設定儲存空間。%s了解原因%s。"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:67
-#: libraries/classes/Controllers/Server/PrivilegesController.php:152
+#: libraries/classes/Controllers/Server/PrivilegesController.php:153
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
 #: libraries/classes/Controllers/Table/PrivilegesController.php:65
 msgid "No Privileges"
 msgstr "無權限"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:76
-#: libraries/classes/Controllers/Server/PrivilegesController.php:161
+#: libraries/classes/Controllers/Server/PrivilegesController.php:162
 #: libraries/classes/Controllers/Table/PrivilegesController.php:74
 msgid "You do not have the privileges to administrate the users!"
 msgstr "沒有管理使用者的權限！"
@@ -4940,8 +4940,8 @@ msgstr "未知"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:58
 #: libraries/classes/Controllers/Table/DropColumnController.php:56
-#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:58
-#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:82
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:523
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:627
 #: libraries/classes/Plugins/Export/ExportLatex.php:600
@@ -4981,8 +4981,8 @@ msgstr "是"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
 #: libraries/classes/Controllers/Table/DropColumnController.php:73
 #: libraries/classes/Controllers/Table/OperationsController.php:342
-#: libraries/classes/Controllers/Table/ReplaceController.php:442
-#: libraries/classes/Core.php:711 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:335
+#: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "無更改"
 
@@ -5033,12 +5033,12 @@ msgstr "若遇到問題，請手動回報錯誤報告給開發團隊。"
 msgid "You may want to refresh the page."
 msgstr "需要重新整理頁面。"
 
-#: libraries/classes/Controllers/Export/ExportController.php:138
-#: libraries/classes/Export.php:1336
+#: libraries/classes/Controllers/Export/ExportController.php:136
+#: libraries/classes/Export.php:1275
 msgid "Bad type!"
 msgstr "類型錯誤！"
 
-#: libraries/classes/Controllers/Export/ExportController.php:232
+#: libraries/classes/Controllers/Export/ExportController.php:228
 msgid "Bad parameters!"
 msgstr "參數出錯！"
 
@@ -5048,7 +5048,7 @@ msgid ""
 "you need to logout from all servers."
 msgstr "已經登出一台伺服器；如要完全登出 phpMyAdmin，則需要登出所有伺服器。"
 
-#: libraries/classes/Controllers/HomeController.php:203
+#: libraries/classes/Controllers/HomeController.php:197
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5056,12 +5056,12 @@ msgid ""
 msgstr ""
 "尚未設定 phpMyAdmin 設定儲存空間，部份延伸功能將無法使用。 %s了解原因%s。 "
 
-#: libraries/classes/Controllers/HomeController.php:209
+#: libraries/classes/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "或者前往任一個資料庫的「操作」分頁設定。"
 
-#: libraries/classes/Controllers/HomeController.php:274
+#: libraries/classes/Controllers/HomeController.php:268
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5073,7 +5073,7 @@ msgstr ""
 "短於在 phpMyAdmin 設定的 cookie 有效時間，因此登入連線有效時間可能比在 "
 "phpMyAdmin 設定的時間要短。"
 
-#: libraries/classes/Controllers/HomeController.php:294
+#: libraries/classes/Controllers/HomeController.php:288
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5081,7 +5081,7 @@ msgstr ""
 "phpMyAdmin 所設定的登入 cookie 儲存時間小於 phpMyAdmin 的 cookie 有效時間，因"
 "此登入連線有效期間會比在 phpMyAdmin 設定的時間要短。"
 
-#: libraries/classes/Controllers/HomeController.php:313
+#: libraries/classes/Controllers/HomeController.php:307
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5090,18 +5090,18 @@ msgstr ""
 "您伺服器的控制使用者（controluser）和密碼（controlpass）正在使用預設值運行，"
 "可能會遭到入侵；請務必變更控制使用者「pma」的密碼 ，以解決這個安全漏洞。"
 
-#: libraries/classes/Controllers/HomeController.php:329
+#: libraries/classes/Controllers/HomeController.php:323
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "設定檔案需要設定加密密碼(blowfish_secret)。"
 
-#: libraries/classes/Controllers/HomeController.php:337
+#: libraries/classes/Controllers/HomeController.php:331
 #, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr "設定檔中的秘密密鑰(blowfish_secret)長度不正確。長度應為 %d 位元組。"
 
-#: libraries/classes/Controllers/HomeController.php:354
+#: libraries/classes/Controllers/HomeController.php:348
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5112,14 +5112,14 @@ msgstr ""
 "成之後移除該資料夾，否則會有未經授權的人下載你的設定檔而對伺服器安全性造成威"
 "脅。"
 
-#: libraries/classes/Controllers/HomeController.php:375
+#: libraries/classes/Controllers/HomeController.php:369
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "伺服器執行了 Suhosin。請參閱%s說明文件%s進一步了解可能會有的問題。"
 
-#: libraries/classes/Controllers/HomeController.php:389
+#: libraries/classes/Controllers/HomeController.php:383
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5128,7 +5128,7 @@ msgstr ""
 "無法存取 $cfg['TempDir'] (%s)。phpMyAdmin 會無法快取模版，並且會因為此原因變"
 "得很慢。"
 
-#: libraries/classes/Controllers/HomeController.php:446
+#: libraries/classes/Controllers/HomeController.php:440
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5137,7 +5137,7 @@ msgstr ""
 "找不到 PHP 的 mbstring 擴充套件，且您正使用多位元組字元編碼。 若沒有 "
 "mbstring 擴充套件 phpMyAdmin 將無法正確分割字串，這可能造成奇怪的錯誤。"
 
-#: libraries/classes/Controllers/HomeController.php:464
+#: libraries/classes/Controllers/HomeController.php:458
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5486,13 +5486,13 @@ msgid "The user name is empty!"
 msgstr "尚未填寫使用者名稱！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
-#: libraries/classes/Server/Privileges.php:944
+#: libraries/classes/Server/Privileges.php:943
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "尚未填寫密碼！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Server/Privileges.php:942
+#: libraries/classes/Server/Privileges.php:941
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "兩次輸入的密碼不一致！"
@@ -5792,7 +5792,7 @@ msgstr "請至少增加一個變數到資料序列！"
 #: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:211
-#: templates/server/status/processes/list.twig:54
+#: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
 msgid "None"
@@ -5989,7 +5989,7 @@ msgstr "輸出說明"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:483
-#: libraries/classes/Server/Status/Processes.php:138
+#: libraries/classes/Server/Status/Processes.php:134
 #: libraries/classes/Util.php:1866 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
@@ -6005,7 +6005,7 @@ msgstr "狀態"
 #: libraries/classes/Plugins/Export/ExportOdt.php:593
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
-#: libraries/classes/Server/Status/Processes.php:134
+#: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6500,7 +6500,7 @@ msgid "No partial dependencies selected!"
 msgstr "尚未選擇部份依存！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Export.php:588 libraries/classes/Html/Generator.php:977
+#: libraries/classes/Export.php:1328 libraries/classes/Html/Generator.php:977
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7179,13 +7179,13 @@ msgid "Table %s already exists!"
 msgstr "已有 %s 資料表！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
-#: libraries/classes/InsertEdit.php:321
+#: libraries/classes/InsertEdit.php:348
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "隱藏"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:699
-#: libraries/classes/Controllers/Table/ChangeController.php:215
+#: libraries/classes/Controllers/Table/ChangeController.php:216
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7613,11 +7613,11 @@ msgstr "貼至您的 config.inc.php"
 msgid "Could not import configuration"
 msgstr "無法匯入設定"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:53
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:51
 msgid "Two-factor authentication has been removed."
 msgstr "已移除雙因素認證。"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:64
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:62
 msgid "Two-factor authentication has been configured."
 msgstr "已設定雙因素認證。"
 
@@ -7673,7 +7673,7 @@ msgstr "帳號 %s@%s 已成功鎖定。"
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "帳號 %s@%s 已成功解鎖。"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:176
+#: libraries/classes/Controllers/Server/PrivilegesController.php:177
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -8393,14 +8393,14 @@ msgid "Bookmark not created!"
 msgstr "書籤尚未建立！"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:161
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:273
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:221
-#: libraries/classes/Table/Indexes.php:85
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:274
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:222
+#: libraries/classes/Table/Indexes.php:86
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改資料表 %1$s 。"
 
-#: libraries/classes/Controllers/Table/ChangeRowsController.php:36
+#: libraries/classes/Controllers/Table/ChangeRowsController.php:37
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:27
 #: libraries/classes/Controllers/Table/ExportRowsController.php:37
 msgid "No row selected."
@@ -8444,7 +8444,7 @@ msgstr "已有 %s 資料表！"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:55
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
-#: libraries/classes/Controllers/Table/RelationController.php:301
+#: libraries/classes/Controllers/Table/RelationController.php:299
 #: libraries/classes/Controllers/View/OperationsController.php:89
 #: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
@@ -8454,15 +8454,15 @@ msgstr "SQL 查詢已順利執行。"
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
 #: libraries/classes/Controllers/Table/DropColumnController.php:50
-#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:45
+#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:46
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
-#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:43
-#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:43
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:44
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:44
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:49
-#: libraries/classes/Controllers/Table/Structure/FulltextController.php:45
-#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:50
-#: libraries/classes/Controllers/Table/Structure/SpatialController.php:45
-#: libraries/classes/Controllers/Table/Structure/UniqueController.php:45
+#: libraries/classes/Controllers/Table/Structure/FulltextController.php:46
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
+#: libraries/classes/Controllers/Table/Structure/SpatialController.php:46
+#: libraries/classes/Controllers/Table/Structure/UniqueController.php:46
 msgid "No column selected."
 msgstr "尚未選擇欄位。"
 
@@ -8486,7 +8486,7 @@ msgstr "有太多的資料表連結(join)未使用索引。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:79
 #: libraries/classes/Database/Routines.php:1245
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:214
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:241
 #: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
@@ -8514,21 +8514,21 @@ msgstr "檢視表"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:92
 #: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:710 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:737 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
 msgstr "錯誤"
 
-#: libraries/classes/Controllers/Table/RelationController.php:242
+#: libraries/classes/Controllers/Table/RelationController.php:240
 msgid "Display column was successfully updated."
 msgstr "顯示欄位已成功更新。"
 
-#: libraries/classes/Controllers/Table/RelationController.php:335
+#: libraries/classes/Controllers/Table/RelationController.php:333
 msgid "Internal relationships were successfully updated."
 msgstr "內部關聯已成功更新。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:319
+#: libraries/classes/Controllers/Table/ReplaceController.php:223
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
@@ -8538,7 +8538,7 @@ msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 msgid "Failed to get description of column %s!"
 msgstr "未能取得 %s 欄位的說明！"
 
-#: libraries/classes/Controllers/Table/StructureController.php:237
+#: libraries/classes/Controllers/Table/StructureController.php:238
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8548,7 +8548,7 @@ msgstr "未能取得 %s 欄位的說明！"
 msgid "Primary"
 msgstr "主鍵"
 
-#: libraries/classes/Controllers/Table/StructureController.php:241
+#: libraries/classes/Controllers/Table/StructureController.php:242
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8564,8 +8564,8 @@ msgstr "索引"
 msgid "The columns have been moved successfully."
 msgstr "已成功移動欄位。"
 
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:265
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:271
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:266
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:272
 #: libraries/classes/Tracking.php:774
 msgid "Query error"
 msgstr "查詢錯誤"
@@ -8576,7 +8576,7 @@ msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "名稱「%s」是 MySQL 保留字。"
 
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:216
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:217
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -8599,20 +8599,20 @@ msgstr "尚未選擇版本。"
 msgid "SQL statements executed."
 msgstr "已執行 SQL 指令。"
 
-#: libraries/classes/Controllers/UserPasswordController.php:58
+#: libraries/classes/Controllers/UserPasswordController.php:59
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "現時並沒有足夠權限！"
 
-#: libraries/classes/Controllers/UserPasswordController.php:92
+#: libraries/classes/Controllers/UserPasswordController.php:93
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
 msgid "Change password"
 msgstr "更改密碼"
 
-#: libraries/classes/Controllers/View/CreateController.php:95
+#: libraries/classes/Controllers/View/CreateController.php:96
 msgid "View name can not be empty!"
 msgstr "檢視表名稱不可以是空的！"
 
-#: libraries/classes/Core.php:198 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:202 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 擴充套件。請檢查 PHP 設定。"
@@ -9545,30 +9545,30 @@ msgstr "報告"
 msgid "Automatically send report next time"
 msgstr "下次自動傳送錯誤報告"
 
-#: libraries/classes/Export.php:159 libraries/classes/Export.php:195
-#: libraries/classes/Export.php:469
+#: libraries/classes/Export.php:160 libraries/classes/Export.php:196
+#: libraries/classes/Export.php:472
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "空間不足，無法儲存 %s 檔案。"
 
-#: libraries/classes/Export.php:418
+#: libraries/classes/Export.php:421
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "伺服器已有 %s 檔案，請更改檔案名稱或選擇覆寫。"
 
-#: libraries/classes/Export.php:425 libraries/classes/Export.php:435
+#: libraries/classes/Export.php:428 libraries/classes/Export.php:438
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "網頁伺服器沒有權限儲存 %s 檔案。"
 
-#: libraries/classes/Export.php:475
+#: libraries/classes/Export.php:478
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "傾印資料已儲存至 %s 檔案。"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:982
+#: libraries/classes/Export.php:921
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -9805,7 +9805,7 @@ msgid ""
 "removed."
 msgstr "索引 %1$s 和 %2$s 看來是相同的，其中一個可能會被移除。"
 
-#: libraries/classes/InsertEdit.php:337
+#: libraries/classes/InsertEdit.php:364
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9813,7 +9813,7 @@ msgstr "索引 %1$s 和 %2$s 看來是相同的，其中一個可能會被移除
 msgid "Function"
 msgstr "函式"
 
-#: libraries/classes/InsertEdit.php:340
+#: libraries/classes/InsertEdit.php:367
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:368
 #: libraries/classes/Plugins/Export/ExportLatex.php:523
@@ -9847,12 +9847,12 @@ msgstr "函式"
 msgid "Type"
 msgstr "類型"
 
-#: libraries/classes/InsertEdit.php:711 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:738 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄發生錯誤，無法使用。"
 
-#: libraries/classes/InsertEdit.php:719
+#: libraries/classes/InsertEdit.php:746
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -9862,15 +9862,15 @@ msgstr "設定之上傳目錄發生錯誤，無法使用。"
 msgid "Or"
 msgstr "或"
 
-#: libraries/classes/InsertEdit.php:720
+#: libraries/classes/InsertEdit.php:747
 msgid "web server upload directory:"
 msgstr "網頁伺服器上傳資料夾："
 
-#: libraries/classes/InsertEdit.php:1305 libraries/classes/Sql.php:951
+#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:951
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/classes/InsertEdit.php:1329 libraries/classes/Sql.php:931
+#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:931
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 ID：%1$d"
@@ -9924,7 +9924,7 @@ msgid "Insert"
 msgstr "新增"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2847 libraries/classes/Util.php:1886
+#: libraries/classes/Server/Privileges.php:2846 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -11950,12 +11950,12 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:160
+#: libraries/classes/Routing.php:135
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "錯誤 404！找不到 %s 頁面。"
 
-#: libraries/classes/Routing.php:171
+#: libraries/classes/Routing.php:146
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -11985,8 +11985,8 @@ msgid "Error while loading the search."
 msgstr "載入搜尋時發生錯誤。"
 
 #: libraries/classes/Server/Plugins.php:66
-#: libraries/classes/Server/Privileges.php:793
-#: libraries/classes/Server/Privileges.php:3718
+#: libraries/classes/Server/Privileges.php:792
+#: libraries/classes/Server/Privileges.php:3724
 msgid "Native MySQL authentication"
 msgstr "原生 MySQL 認證"
 
@@ -12017,16 +12017,16 @@ msgstr "原生 MySQL 認證"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:263
+#: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
 msgstr "沒有權限。"
 
-#: libraries/classes/Server/Privileges.php:271
+#: libraries/classes/Server/Privileges.php:270
 msgid "Includes all privileges except GRANT."
 msgstr "除了 GRANT 以外的所有權限。"
 
-#: libraries/classes/Server/Privileges.php:293
-#: libraries/classes/Server/Privileges.php:360
+#: libraries/classes/Server/Privileges.php:292
+#: libraries/classes/Server/Privileges.php:359
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12034,7 +12034,7 @@ msgstr "除了 GRANT 以外的所有權限。"
 msgid "Allows deleting data."
 msgstr "允許刪除資料。"
 
-#: libraries/classes/Server/Privileges.php:298
+#: libraries/classes/Server/Privileges.php:297
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12042,7 +12042,7 @@ msgstr "允許刪除資料。"
 msgid "Allows creating new tables."
 msgstr "允許建立新的資料表。"
 
-#: libraries/classes/Server/Privileges.php:303
+#: libraries/classes/Server/Privileges.php:302
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12050,8 +12050,8 @@ msgstr "允許建立新的資料表。"
 msgid "Allows dropping tables."
 msgstr "允許刪除資料表。"
 
-#: libraries/classes/Server/Privileges.php:308
-#: libraries/classes/Server/Privileges.php:400
+#: libraries/classes/Server/Privileges.php:307
+#: libraries/classes/Server/Privileges.php:399
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12059,8 +12059,8 @@ msgstr "允許刪除資料表。"
 msgid "Allows creating and dropping indexes."
 msgstr "允許建立和刪除索引。"
 
-#: libraries/classes/Server/Privileges.php:313
-#: libraries/classes/Server/Privileges.php:405
+#: libraries/classes/Server/Privileges.php:312
+#: libraries/classes/Server/Privileges.php:404
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12068,9 +12068,9 @@ msgstr "允許建立和刪除索引。"
 msgid "Allows altering the structure of existing tables."
 msgstr "允許修改現有資料表的結構。"
 
-#: libraries/classes/Server/Privileges.php:318
-#: libraries/classes/Server/Privileges.php:444
-#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:317
+#: libraries/classes/Server/Privileges.php:443
+#: libraries/classes/Server/Privileges.php:459
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12080,9 +12080,9 @@ msgstr "允許修改現有資料表的結構。"
 msgid "Allows creating new views."
 msgstr "允許建立新的檢視表。"
 
-#: libraries/classes/Server/Privileges.php:323
-#: libraries/classes/Server/Privileges.php:465
-#: libraries/classes/Server/Privileges.php:471
+#: libraries/classes/Server/Privileges.php:322
+#: libraries/classes/Server/Privileges.php:464
+#: libraries/classes/Server/Privileges.php:470
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12090,8 +12090,8 @@ msgstr "允許建立新的檢視表。"
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "允許執行 SHOW CREATE VIEW 查詢。"
 
-#: libraries/classes/Server/Privileges.php:328
-#: libraries/classes/Server/Privileges.php:454
+#: libraries/classes/Server/Privileges.php:327
+#: libraries/classes/Server/Privileges.php:453
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12099,76 +12099,76 @@ msgstr "允許執行 SHOW CREATE VIEW 查詢。"
 msgid "Allows creating and dropping triggers."
 msgstr "允許建立和刪除觸發器。"
 
-#: libraries/classes/Server/Privileges.php:345
+#: libraries/classes/Server/Privileges.php:344
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "允許讀取資料。"
 
-#: libraries/classes/Server/Privileges.php:350
+#: libraries/classes/Server/Privileges.php:349
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "允許新增與取代資料。"
 
-#: libraries/classes/Server/Privileges.php:355
+#: libraries/classes/Server/Privileges.php:354
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "允許更改資料。"
 
-#: libraries/classes/Server/Privileges.php:365
+#: libraries/classes/Server/Privileges.php:364
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "允許建立新資料庫和資料表。"
 
-#: libraries/classes/Server/Privileges.php:370
+#: libraries/classes/Server/Privileges.php:369
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "允許刪除資料庫和資料表。"
 
-#: libraries/classes/Server/Privileges.php:375
+#: libraries/classes/Server/Privileges.php:374
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "允許重新載入伺服器設定，並重新整理伺服器的快取。"
 
-#: libraries/classes/Server/Privileges.php:380
+#: libraries/classes/Server/Privileges.php:379
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "允許關閉伺服器。"
 
-#: libraries/classes/Server/Privileges.php:385
+#: libraries/classes/Server/Privileges.php:384
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "允許查看所有使用者的執行程序。"
 
-#: libraries/classes/Server/Privileges.php:390
+#: libraries/classes/Server/Privileges.php:389
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "允許從檔案匯入資料，以及將資料匯出至檔案。"
 
-#: libraries/classes/Server/Privileges.php:395
+#: libraries/classes/Server/Privileges.php:394
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "在此版本的 MySQL 無效。"
 
-#: libraries/classes/Server/Privileges.php:410
+#: libraries/classes/Server/Privileges.php:409
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "允許存取完整的資料庫列表。"
 
-#: libraries/classes/Server/Privileges.php:416
+#: libraries/classes/Server/Privileges.php:415
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12179,19 +12179,19 @@ msgstr ""
 "允許在到達連線數量上限時，仍可登入資料庫。當要進行最高層級的動作，例如設定全"
 "域變數或中止其他使用者的執行緒，此權限是必須的。"
 
-#: libraries/classes/Server/Privileges.php:424
+#: libraries/classes/Server/Privileges.php:423
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "允許建立暫存資料表。"
 
-#: libraries/classes/Server/Privileges.php:429
+#: libraries/classes/Server/Privileges.php:428
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "允許鎖定目前執行緒的資料表。"
 
-#: libraries/classes/Server/Privileges.php:434
+#: libraries/classes/Server/Privileges.php:433
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 #, fuzzy
@@ -12199,7 +12199,7 @@ msgstr "允許鎖定目前執行緒的資料表。"
 msgid "Needed for the replication replicas."
 msgstr "使用次要備援伺服器所需的權限。"
 
-#: libraries/classes/Server/Privileges.php:439
+#: libraries/classes/Server/Privileges.php:438
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 #, fuzzy
@@ -12207,61 +12207,61 @@ msgstr "使用次要備援伺服器所需的權限。"
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "允許使用者查詢次要／主要備援伺服器的位置。"
 
-#: libraries/classes/Server/Privileges.php:449
+#: libraries/classes/Server/Privileges.php:448
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "允許為事件設定排程。"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:478
-#: libraries/classes/Server/Privileges.php:487
+#: libraries/classes/Server/Privileges.php:477
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 msgid "Allows deleting historical rows."
 msgstr "允許刪除歷史資料列。"
 
-#: libraries/classes/Server/Privileges.php:492
+#: libraries/classes/Server/Privileges.php:491
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "允許建立預存程序。"
 
-#: libraries/classes/Server/Privileges.php:497
+#: libraries/classes/Server/Privileges.php:496
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "允許修改或刪除預存程序。"
 
-#: libraries/classes/Server/Privileges.php:502
+#: libraries/classes/Server/Privileges.php:501
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "允許建立、刪除和重新命名使用者帳號。"
 
-#: libraries/classes/Server/Privileges.php:507
+#: libraries/classes/Server/Privileges.php:506
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "允許執行預存程序。"
 
-#: libraries/classes/Server/Privileges.php:1077
+#: libraries/classes/Server/Privileges.php:1076
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "已修改 %s 的密碼。"
 
-#: libraries/classes/Server/Privileges.php:1125
+#: libraries/classes/Server/Privileges.php:1124
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "已收回 %s 的權限。"
 
-#: libraries/classes/Server/Privileges.php:1442
+#: libraries/classes/Server/Privileges.php:1441
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "權限不足以檢視使用者。"
 
-#: libraries/classes/Server/Privileges.php:1504
+#: libraries/classes/Server/Privileges.php:1503
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12269,84 +12269,84 @@ msgstr "權限不足以檢視使用者。"
 msgid "Edit privileges"
 msgstr "編輯權限"
 
-#: libraries/classes/Server/Privileges.php:1508
+#: libraries/classes/Server/Privileges.php:1507
 msgid "Revoke"
 msgstr "撤銷"
 
-#: libraries/classes/Server/Privileges.php:1819
+#: libraries/classes/Server/Privileges.php:1818
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "指定資料庫權限"
 
-#: libraries/classes/Server/Privileges.php:1825
+#: libraries/classes/Server/Privileges.php:1824
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "指定資料表權限"
 
-#: libraries/classes/Server/Privileges.php:1830
-#: libraries/classes/Server/Privileges.php:1832
+#: libraries/classes/Server/Privileges.php:1829
+#: libraries/classes/Server/Privileges.php:1831
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "預存程序"
 
-#: libraries/classes/Server/Privileges.php:1831
+#: libraries/classes/Server/Privileges.php:1830
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "預存程序特定的權限"
 
-#: libraries/classes/Server/Privileges.php:2175
+#: libraries/classes/Server/Privileges.php:2174
 msgid "No users selected for deleting!"
 msgstr "未有選擇要刪除的使用者！"
 
-#: libraries/classes/Server/Privileges.php:2178
+#: libraries/classes/Server/Privileges.php:2177
 msgid "Reloading the privileges"
 msgstr "重新載入權限"
 
-#: libraries/classes/Server/Privileges.php:2203
+#: libraries/classes/Server/Privileges.php:2202
 msgid "The selected users have been deleted successfully."
 msgstr "已成功刪除所選的使用者。"
 
-#: libraries/classes/Server/Privileges.php:2280
+#: libraries/classes/Server/Privileges.php:2279
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "已更新了 %s 的權限。"
 
-#: libraries/classes/Server/Privileges.php:2367
+#: libraries/classes/Server/Privileges.php:2366
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "找不到使用者。"
 
-#: libraries/classes/Server/Privileges.php:2454
+#: libraries/classes/Server/Privileges.php:2453
 #, php-format
 msgid "Deleting %s"
 msgstr "正在刪除 %s"
 
-#: libraries/classes/Server/Privileges.php:2485
+#: libraries/classes/Server/Privileges.php:2484
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新載入權限。"
 
-#: libraries/classes/Server/Privileges.php:2589
+#: libraries/classes/Server/Privileges.php:2588
 #, php-format
 msgid "The user %s already exists!"
 msgstr "已有 %s 使用者！"
 
-#: libraries/classes/Server/Privileges.php:2864
+#: libraries/classes/Server/Privileges.php:2863
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s 的權限"
 
-#: libraries/classes/Server/Privileges.php:2873
-#: libraries/classes/Server/Status/Processes.php:118
+#: libraries/classes/Server/Privileges.php:2872
+#: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "使用者"
 
-#: libraries/classes/Server/Privileges.php:2983
+#: libraries/classes/Server/Privileges.php:2982
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12355,7 +12355,7 @@ msgstr ""
 "已存在允許任何來自 localhost 連線的使用者帳號，這將會導致其他若在帳號中的主機"
 "允許來自任何(%)地方連線使用者無法使用。"
 
-#: libraries/classes/Server/Privileges.php:3017
+#: libraries/classes/Server/Privileges.php:3016
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12367,7 +12367,7 @@ msgstr ""
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
 "在繼續前 %s重新載入權限%s。"
 
-#: libraries/classes/Server/Privileges.php:3033
+#: libraries/classes/Server/Privileges.php:3032
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12379,12 +12379,12 @@ msgstr ""
 "動的修改，這些資料表的內容可能將與伺服器實際使用的權限有所不同。 在此情況下才"
 "需要重新整理權限，目前您並不需要重新整理 (RELOAD) 權限。"
 
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:3346
 msgid "You have added a new user."
 msgstr "已新增了新的使用者。"
 
 #: libraries/classes/Server/Status/Data.php:146
-#: libraries/classes/Server/Status/Processes.php:146
+#: libraries/classes/Server/Status/Processes.php:147
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL 查詢"
@@ -12461,22 +12461,22 @@ msgstr "顯示次要伺服器狀態"
 msgid "Flush query cache"
 msgstr "強制更新查詢快取"
 
-#: libraries/classes/Server/Status/Processes.php:114
+#: libraries/classes/Server/Status/Processes.php:110
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:122
+#: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "主機"
 
-#: libraries/classes/Server/Status/Processes.php:130
+#: libraries/classes/Server/Status/Processes.php:126
 msgid "Command"
 msgstr "指令"
 
-#: libraries/classes/Server/Status/Processes.php:142
+#: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
 msgstr "進度"
 
@@ -12575,7 +12575,7 @@ msgstr "此 MySQL 伺服器已停用 %s。"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 伺服器不支援 %s 儲存引擎。"
 
-#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2103
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2103
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主鍵名稱必須為 PRIMARY！"
 
