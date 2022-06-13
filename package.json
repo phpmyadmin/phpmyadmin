@@ -48,7 +48,11 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^5.1.12",
+    "@types/codemirror": "^5.60.5",
     "@types/jquery": "^3.5.14",
+    "@types/jquery.ui.datetimepicker": "^0.3.30",
+    "@types/jquery.validation": "^1.16.7",
+    "@types/jqueryui": "^1.12.16",
     "babel-jest": "^27.3.1",
     "eslint": "^7.32.0",
     "eslint-plugin-compat": "^3.13.0",

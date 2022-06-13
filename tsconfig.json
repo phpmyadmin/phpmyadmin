@@ -1,13 +1,17 @@
 {
+    "include": [
+        "./js/global.d.ts",
+        "./js/src/**/*"
+    ],
     "compilerOptions": {
         "target": "es6",
         "module": "es6",
         "allowJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationMap": true,
         "checkJs": true,
         "outDir": "./build/js",
         "allowSyntheticDefaultImports": true
-    },
-    "include": [
-        "./js/src/**/*"
-    ]
+    }
 }

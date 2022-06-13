@@ -1331,6 +1331,13 @@
   dependencies:
     "@popperjs/core" "^2.9.2"
 
+"@types/codemirror@^5.60.5":
+  version "5.60.5"
+  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-5.60.5.tgz#5b989a3b4bbe657458cf372c92b6bfda6061a2b7"
+  integrity sha512-TiECZmm8St5YxjFUp64LK0c8WU5bxMDt9YaAek1UqUb9swrSCoJhh92fWu1p3mTEqlHjhB5sY7OFBhWroJXZVg==
+  dependencies:
+    "@types/tern" "*"
+
 "@types/eslint-scope@^3.7.3":
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.3.tgz#125b88504b61e3c8bc6f870882003253005c3224"
@@ -1386,12 +1393,34 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jquery@^3.5.14":
+"@types/jquery.ui.datetimepicker@^0.3.30":
+  version "0.3.30"
+  resolved "https://registry.yarnpkg.com/@types/jquery.ui.datetimepicker/-/jquery.ui.datetimepicker-0.3.30.tgz#c0519f933bd2cab7a2bdccbb9110436fedf3c29f"
+  integrity sha512-jMtw+sM4LgnhSxx7CdVKzdDm1OiBkcNAPYJwniNCP6O6H9/RSSmQHcpbZfcWsNu5uzWQ9Mq6+slPrNX48HGbNw==
+  dependencies:
+    "@types/jquery" "*"
+    "@types/jqueryui" "*"
+
+"@types/jquery.validation@^1.16.7":
+  version "1.16.7"
+  resolved "https://registry.yarnpkg.com/@types/jquery.validation/-/jquery.validation-1.16.7.tgz#90fa9c3fb8a734493dbdcabd9acc4d7d8275b450"
+  integrity sha512-auRrFzVUOOg7jcLMGyEhvKAC84e8/Tu27wJXDLk3NZ0XCKGZWHYm7livBEjRs3LkB4vGnMKqWXBBnRpmCO9mhQ==
+  dependencies:
+    "@types/jquery" "*"
+
+"@types/jquery@*", "@types/jquery@^3.5.14":
   version "3.5.14"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.14.tgz#ac8e11ee591e94d4d58da602cb3a5a8320dee577"
   integrity sha512-X1gtMRMbziVQkErhTQmSe2jFwwENA/Zr+PprCkF63vFq+Yt5PZ4AlKqgmeNlwgn7dhsXEK888eIW2520EpC+xg==
   dependencies:
     "@types/sizzle" "*"
+
+"@types/jqueryui@*", "@types/jqueryui@^1.12.16":
+  version "1.12.16"
+  resolved "https://registry.yarnpkg.com/@types/jqueryui/-/jqueryui-1.12.16.tgz#9e319f7db39490db950cba77fe83887e0ad3e1d9"
+  integrity sha512-6huAQDpNlso9ayaUT9amBOA3kj02OCeUWs+UvDmbaJmwkHSg/HLsQOoap/D5uveN9ePwl72N45Bl+Frp5xyG1Q==
+  dependencies:
+    "@types/jquery" "*"
 
 "@types/json-schema@*", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.11"
@@ -1444,6 +1473,13 @@
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
+
+"@types/tern@*":
+  version "0.23.4"
+  resolved "https://registry.yarnpkg.com/@types/tern/-/tern-0.23.4.tgz#03926eb13dbeaf3ae0d390caf706b2643a0127fb"
+  integrity sha512-JAUw1iXGO1qaWwEOzxTKJZ/5JxVeON9kvGZ/osgZaJImBnyjyn0cjovPsf6FNLmyGY8Vw9DoXZCMlfMkMwHRWg==
+  dependencies:
+    "@types/estree" "*"
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2":
   version "2.0.6"
