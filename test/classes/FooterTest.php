@@ -128,7 +128,8 @@ class FooterTest extends AbstractTestCase
         $this->assertEquals(
             $template->render('modals/function_confirm') . "\n"
             . $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings') . "\n",
+            . $template->render('modals/page_settings') . "\n"
+            . $template->render('modals/index_dialog_modal') . "\n",
             $footer->getDisplay()
         );
     }
@@ -170,7 +171,8 @@ class FooterTest extends AbstractTestCase
         $this->assertEquals(
             $template->render('modals/function_confirm') . "\n"
             . $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings')
+            . $template->render('modals/page_settings') . "\n"
+            . $template->render('modals/index_dialog_modal')
             . "\n  </div>\n  </body>\n</html>\n",
             $footer->getDisplay()
         );
