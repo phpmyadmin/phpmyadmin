@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-05-29 07:15+0000\n"
+"PO-Revision-Date: 2022-06-15 11:20+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "et/>\n"
@@ -11942,25 +11942,18 @@ msgid "Unable to connect to primary %s."
 msgstr "Ei saa ühendada ülema %s'ga."
 
 #: libraries/classes/ReplicationGui.php:530
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
-msgstr ""
-"Ei saa lugeda ülema logi asukohta. Võimalikud on probleemid ülema õigustega."
+msgstr "Esmase logi asukohta ei saa lugeda. Kontrolli esmase logi õiguseid."
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
-msgstr "Ulemat ei saa muuta!"
+msgstr "Esmast ei saa muuta!"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Ülemserveriks vahetati edukalt %s."
+msgstr "Esmaseks serveriks vahetati edukalt %s."
 
 #: libraries/classes/Routing.php:104
 #, php-format
@@ -12210,18 +12203,14 @@ msgstr "Lubab käesoleva lõimu jaoks tabeleid lukustada."
 #: libraries/classes/Server/Privileges.php:433
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Vajalik alluvate paljundamiseks."
+msgstr "Vajalik tiražeerimiskoopiatele."
 
 #: libraries/classes/Server/Privileges.php:438
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Lubab kasutajal küsida, kus alluvad / ülemad asuvad."
+msgstr "Lubab kasutajal küsida jäljendite ja originaalide asukohti."
 
 #: libraries/classes/Server/Privileges.php:448
 #: templates/server/privileges/privileges_table.twig:524
@@ -12457,23 +12446,17 @@ msgid "Show open tables"
 msgstr "Näita avatud tabeleid"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "Näita alluvaid hoste"
+msgstr "Kuva tiražeerimishostid"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Näita ülema staatust"
+msgstr "Kuva originaali staatus"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Näita alluva staatust"
+msgstr "Näita tiražeerimise staatus"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -13141,12 +13124,8 @@ msgid "Could not save configuration"
 msgstr "Ei saanud seadistust salvestada"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"%sLoo%s phpMyAdmini seadistuse salvestuse tabelid aktiivses andmebaasis."
+msgstr "phpMyAdmini häälestuse salvestuskoha andmebaasile puudub ligipääs."
 
 #: libraries/classes/Util.php:131
 #, php-format
@@ -14430,10 +14409,8 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Tabelite eksportimine \"%s\" andmebaasist"
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Lubab muuta olemasolevate tabelite struktuuri."
+msgstr "Ekspordi kõigi tabelite struktuur."
 
 #: templates/database/export/index.twig:33
 msgid "Export the data of all tables."
@@ -15391,10 +15368,8 @@ msgstr ""
 "6.27."
 
 #: templates/export.twig:398
-#, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
-msgstr "kasuta seda edasistel eksportimistel"
+msgstr "Kasuta seda edasistel eksportimistel"
 
 #: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
@@ -15607,11 +15582,9 @@ msgid "Theme"
 msgstr "Välimus"
 
 #: templates/home/index.twig:142
-#, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Ainult vaata"
+msgstr "Vaata kõiki"
 
 #: templates/home/index.twig:157
 msgid "Database server"
@@ -15766,10 +15739,8 @@ msgstr ""
 "strong>. Näide: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
-msgstr "Lae fail alla"
+msgstr "Laadi fail üles"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -15790,10 +15761,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Vali veebiserveri üleslaadimise kataloogist [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
-msgstr "Puuduvad failid, mida üles laadida!"
+msgstr "Puuduvad imporditavad failid!"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -15818,18 +15787,12 @@ msgstr ""
 "piirangule."
 
 #: templates/import.twig:140
-#, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Luba katkestada importimine, kui skript tuvastab, et see hakkab ületama "
-"ajapiirangut. See on hea moodus importida suuri faile, kuid siiski võib see "
-"katkestada ülekanded."
+"See võib olla hea viis suurte failide importimiseks, kuid see võib rikkuda "
+"tehingud."
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -16414,10 +16377,8 @@ msgid "There are no favorite tables."
 msgstr "Lemmiktabelid puuduvad."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmini seadistuse jupp"
+msgstr "phpMyAdmini seadistuse salvestuskoht"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16676,17 +16637,13 @@ msgstr "Puuduvad andmebaaside loomise õigused"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
-msgstr "Ülema paljundamine"
+msgstr "Originaali tiražeerimine"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "Alluva paljundamine"
+msgstr "Kordistaja tiražeerimine"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -17187,17 +17144,13 @@ msgid "Save changes"
 msgstr "Salvesta muudatused"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
-msgstr "Alluva seadistus"
+msgstr "Kordistaja konfiguratsioon"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "Muuda või seadista ülemserver uuesti"
+msgstr "Muuda või rekonfigureeri esmane server"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17212,16 +17165,13 @@ msgid "Port:"
 msgstr "Port:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"See server ei ole seadistatud paljundamise ülemaks. Kas soovid seda "
-"%smuuta%s?"
+"See server ei ole seadistatud kordistamise originaaliks. Kas sa soovid seda "
+"%skonfigureerida%s?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -17229,10 +17179,8 @@ msgstr "Õigused puuduvad"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "Lisa alluva paljundamise kasutaja"
+msgstr "Lisa kordistava tiražeerija kasutaja"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17245,10 +17193,8 @@ msgid "Generate password:"
 msgstr "Genereeri parool:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Serveri seadistus"
+msgstr "Originaali konfiguratsioon"
 
 #: templates/server/replication/primary_configuration.twig:4
 #, fuzzy
