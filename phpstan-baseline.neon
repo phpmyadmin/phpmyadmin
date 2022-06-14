@@ -2956,6 +2956,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOffsets\\(\\) should return array\\<int\\> but returns array\\<int, \\(array\\|float\\|int\\)\\>\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOptionsBlock\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
