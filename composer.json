@@ -100,6 +100,7 @@
         "pragmarx/google2fa-qrcode": "^2.1",
         "psalm/plugin-phpunit": "^0.16.1",
         "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "~3.6.0",
         "symfony/console": "^5.2.3",
         "tecnickcom/tcpdf": "^6.4.4",
         "vimeo/psalm": "^4.22"
