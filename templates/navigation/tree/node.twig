@@ -35,6 +35,10 @@
 
       {% if node_is_container %}
         &nbsp;<a class="hover_show_full" href="{{ url(text_link.route, text_link.params) }}">{{ node.name }}</a>
+      {% elseif 'index' in node.classes %}
+        <a class="hover_show_full" href="{{ url(text_link.route) }}" data-post="{{ get_common(text_link.params|merge({'is_from_nav': true})) }}" title="{{ text_link.title }}">
+          {{- node.displayName ?? node.realName -}}
+        </a>
       {% else %}
         <a class="hover_show_full{{ text_link.is_ajax ? ' ajax' }}" href="{{ url(text_link.route, text_link.params) }}" title="{{ text_link.title }}">
           {{- node.displayName ?? node.realName -}}
