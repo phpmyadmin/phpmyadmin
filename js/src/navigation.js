@@ -444,26 +444,6 @@ $(function () {
         }
     );
 
-    /** New index */
-    $(document).on('click', '#pma_navigation_tree li.new_index a.ajax', function (event) {
-        event.preventDefault();
-        var url = $(this).attr('href').substr(
-            $(this).attr('href').indexOf('?') + 1
-        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
-        var title = Messages.strAddIndex;
-        Functions.indexEditorDialog(url, title);
-    });
-
-    /** Edit index */
-    $(document).on('click', 'li.index a.ajax', function (event) {
-        event.preventDefault();
-        var url = $(this).attr('href').substr(
-            $(this).attr('href').indexOf('?') + 1
-        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
-        var title = Messages.strEditIndex;
-        Functions.indexEditorDialog(url, title);
-    });
-
     /** New view */
     $(document).on('click', 'li.new_view a.ajax', function (event) {
         event.preventDefault();
