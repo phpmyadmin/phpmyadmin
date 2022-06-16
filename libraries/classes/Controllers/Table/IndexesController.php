@@ -147,6 +147,7 @@ class IndexesController extends AbstractController
             'add_fields' => $add_fields,
             'create_edit_table' => isset($_POST['create_edit_table']),
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'is_from_nav' => isset($_POST['is_from_nav']),
         ]);
     }
 }
