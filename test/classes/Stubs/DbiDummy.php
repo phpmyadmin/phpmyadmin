@@ -165,6 +165,11 @@ class DbiDummy implements DbiExtension
         return $unUsed;
     }
 
+    public function assertAllQueriesConsumed(): void
+    {
+        Assert::assertSame([], $this->getUnUsedQueries(), 'Some queries where not used!');
+    }
+
     /**
      * @return false|int|null
      */
@@ -553,6 +558,11 @@ class DbiDummy implements DbiExtension
     public function assertAllSelectsConsumed(): void
     {
         Assert::assertSame([], $this->getUnUsedDatabaseSelects(), 'Some database selects where not used!');
+    }
+
+    public function assertAllErrorCodesConsumed(): void
+    {
+        Assert::assertFalse($this->hasUnUsedErrors(), 'Some error codes where not used!');
     }
 
     private function init(): void

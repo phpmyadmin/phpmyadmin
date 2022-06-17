@@ -47,7 +47,7 @@ class CharsetsTest extends AbstractTestCase
         $charset = Charsets::getServerCharset($dbi, false);
         $this->assertSame('utf8mb4', $charset->getName());
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testFindCollationByName(): void
