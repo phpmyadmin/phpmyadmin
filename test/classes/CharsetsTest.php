@@ -13,44 +13,38 @@ use PhpMyAdmin\Charsets;
  */
 class CharsetsTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        parent::setGlobalDbi();
-        $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['DBG']['sql'] = false;
-    }
-
     public function testGetServerCharset(): void
     {
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dummyDbi->addResult(
             'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
             [['character_set_server', 'utf8mb3']],
             ['Variable_name', 'Value']
         );
-        $this->dummyDbi->addResult('SHOW SESSION VARIABLES LIKE \'character_set_server\';', false);
-        $this->dummyDbi->addResult('SELECT @@character_set_server;', false);
-        $this->dummyDbi->addResult('SHOW SESSION VARIABLES LIKE \'character_set_server\';', false);
-        $this->dummyDbi->addResult('SELECT @@character_set_server;', [['utf8mb3']]);
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult('SHOW SESSION VARIABLES LIKE \'character_set_server\';', false);
+        $dummyDbi->addResult('SELECT @@character_set_server;', false);
+        $dummyDbi->addResult('SHOW SESSION VARIABLES LIKE \'character_set_server\';', false);
+        $dummyDbi->addResult('SELECT @@character_set_server;', [['utf8mb3']]);
+        $dummyDbi->addResult(
             'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
             [['character_set_server', 'utf8mb4']],
             ['Variable_name', 'Value']
         );
 
-        $charset = Charsets::getServerCharset($this->dbi, false);
+        $charset = Charsets::getServerCharset($dbi, false);
         $this->assertSame('utf8', $charset->getName());
 
-        $charset = Charsets::getServerCharset($this->dbi, false);
+        $charset = Charsets::getServerCharset($dbi, false);
         $this->assertSame('Unknown', $charset->getName());
 
-        $charset = Charsets::getServerCharset($this->dbi, false);
+        $charset = Charsets::getServerCharset($dbi, false);
         $this->assertSame('utf8', $charset->getName());
 
-        $charset = Charsets::getServerCharset($this->dbi, false);
+        $charset = Charsets::getServerCharset($dbi, false);
         $this->assertSame('utf8mb4', $charset->getName());
 
-        $charset = Charsets::getServerCharset($this->dbi, false);
+        $charset = Charsets::getServerCharset($dbi, false);
         $this->assertSame('utf8mb4', $charset->getName());
 
         $this->assertAllQueriesConsumed();
@@ -58,24 +52,28 @@ class CharsetsTest extends AbstractTestCase
 
     public function testFindCollationByName(): void
     {
-        $this->assertNull(Charsets::findCollationByName($this->dbi, false, null));
-        $this->assertNull(Charsets::findCollationByName($this->dbi, false, ''));
-        $this->assertNull(Charsets::findCollationByName($this->dbi, false, 'invalid'));
-        $actual = Charsets::findCollationByName($this->dbi, false, 'utf8_general_ci');
+        $dbi = $this->createDatabaseInterface();
+        $this->assertNull(Charsets::findCollationByName($dbi, false, null));
+        $this->assertNull(Charsets::findCollationByName($dbi, false, ''));
+        $this->assertNull(Charsets::findCollationByName($dbi, false, 'invalid'));
+        $actual = Charsets::findCollationByName($dbi, false, 'utf8_general_ci');
         $this->assertInstanceOf(Charsets\Collation::class, $actual);
         $this->assertSame('utf8_general_ci', $actual->getName());
     }
 
     public function testGetCharsetsWithIS(): void
     {
-        $charsets = Charsets::getCharsets($this->dbi, false);
+        $dbi = $this->createDatabaseInterface();
+        $charsets = Charsets::getCharsets($dbi, false);
         $this->assertCount(4, $charsets);
         $this->assertContainsOnlyInstancesOf(Charsets\Charset::class, $charsets);
     }
 
     public function testGetCharsetsWithoutIS(): void
     {
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dummyDbi->addResult(
             'SHOW CHARACTER SET',
             [
                 ['armscii8', 'ARMSCII-8 Armenian', 'armscii8_general_ci', '1'],
@@ -86,14 +84,15 @@ class CharsetsTest extends AbstractTestCase
             ['Charset', 'Default collation', 'Description', 'Maxlen']
         );
 
-        $charsets = Charsets::getCharsets($this->dbi, true);
+        $charsets = Charsets::getCharsets($dbi, true);
         $this->assertCount(4, $charsets);
         $this->assertContainsOnlyInstancesOf(Charsets\Charset::class, $charsets);
     }
 
     public function testGetCollationsWithIS(): void
     {
-        $collations = Charsets::getCollations($this->dbi, false);
+        $dbi = $this->createDatabaseInterface();
+        $collations = Charsets::getCollations($dbi, false);
         $this->assertCount(4, $collations);
         $this->assertContainsOnly('array', $collations);
         foreach ($collations as $collation) {
@@ -103,7 +102,9 @@ class CharsetsTest extends AbstractTestCase
 
     public function testGetCollationsWithoutIS(): void
     {
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dummyDbi->addResult(
             'SHOW COLLATION',
             [
                 ['utf8mb4_general_ci', 'utf8mb4', '45', 'Yes', 'Yes', '1'],
@@ -115,7 +116,7 @@ class CharsetsTest extends AbstractTestCase
             ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen']
         );
 
-        $collations = Charsets::getCollations($this->dbi, true);
+        $collations = Charsets::getCollations($dbi, true);
         $this->assertCount(4, $collations);
         $this->assertContainsOnly('array', $collations);
         foreach ($collations as $collation) {
