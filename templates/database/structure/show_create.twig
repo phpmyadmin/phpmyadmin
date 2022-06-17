@@ -14,7 +14,7 @@
         <tbody>
           {% for table in tables.tables %}
             <tr>
-              <td><strong>{{ table.name }}</strong></td>
+              <td><strong>{{ table.name|raw }}</strong></td>
               <td>{{ table.show_create|raw }}</td>
             </tr>
           {% endfor %}
