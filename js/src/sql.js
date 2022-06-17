@@ -675,7 +675,7 @@ AJAX.registerOnload('sql.js', function () {
         var $headerCells = $targetTable.find('th[data-column]');
         var targetColumns = [];
 
-        // To handle colspan=4, in case of edit, copy, etc options (Table row links). Add 3 dummy <TH> elements - only when the Table row links are on the "Right"
+        // To handle colspan=4, in case of edit, copy, etc options (Table row links). Add 3 dummy <TH> elements - only when the Table row links are NOT on the "Right"
         var rowLinksLocation = ($targetTable.find('thead > tr > th')).first();
         var dummyTh = (rowLinksLocation[0].getAttribute("colspan") !== null) ? '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>' : ''; // Selecting columns that will be considered for filtering and searching.
     
