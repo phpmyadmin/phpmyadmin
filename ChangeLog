@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #17121 Fix password_hash function incorrectly adding single quotes to password before hashing
 - issue #17586 Fix statistics not showing for empty databases
 - issue #17592 Clicking on the New index link on the sidebar does not throw an error anymore
+- issue #17584 It's now possible to browse a database that includes two % in its name
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
