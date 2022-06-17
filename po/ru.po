@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2022-06-17 08:37+0000\n"
-"Last-Translator: subo <subo098@gmail.com>\n"
+"Last-Translator: Stanislav <smur@starr.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
 "Language: ru\n"
@@ -1173,7 +1173,7 @@ msgstr " "
 #: js/messages.php:163 libraries/classes/Util.php:1351
 #: libraries/classes/Util.php:1382
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:165
 msgid "Connections / Processes"
