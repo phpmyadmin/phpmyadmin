@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix PHP 8.2 deprecated string interpolation syntax
 - issue        Some languages are now correctly detected from the HTTP header
 - issue #17617 Sorting is correctly remembered when $cfg['RememberSorting'] is true
+- issue #17593 Table filtering now works when action buttons are on the right side of the row
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
