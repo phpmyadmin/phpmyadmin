@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2022-06-18 09:18+0000\n"
-"Last-Translator: AHOHNMYC <lqwh2h2cwa@protonmail.com>\n"
+"Last-Translator: Максим <genkaok@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
 "Language: ru\n"
@@ -16156,7 +16156,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr "URL для OTP:"
+msgstr "OTP адрес:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
