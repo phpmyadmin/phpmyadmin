@@ -16,7 +16,7 @@ module.exports = [
             'codemirror/addon/lint/sql-lint': './js/src/codemirror/addon/lint/sql-lint.js',
             'common': './js/src/common.js',
             'config': './js/src/config.js',
-            'console': './js/src/console.js',
+            'console': { import: './js/src/console.js', library: { name: 'Console', type: 'window', export: 'Console' } },
             'cross_framing_protection': './js/src/cross_framing_protection.js',
             'datetimepicker': './js/src/datetimepicker.js',
             'database/central_columns': './js/src/database/central_columns.js',

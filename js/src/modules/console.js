@@ -1495,6 +1495,4 @@ var ConsoleDebug = {
     }
 };
 
-window.Console = Console;
-
 export { Console };
