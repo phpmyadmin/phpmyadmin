@@ -10,7 +10,6 @@
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor */ // js/functions.js
 /* global makeGrid */ // js/makegrid.js
-/* global sqlBoxLocked */ // js/functions.js
 
 var Sql = {};
 
@@ -844,12 +843,12 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     $('#view_as').on('click', function () {
-        Functions.selectContent(this, sqlBoxLocked, true);
+        Functions.selectContent(this);
     });
 
     $('#sqlquery').on('click', function () {
         if ($(this).data('textarea-auto-select') === true) {
-            Functions.selectContent(this, sqlBoxLocked, true);
+            Functions.selectContent(this);
         }
     });
 }); // end $()

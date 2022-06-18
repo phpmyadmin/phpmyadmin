@@ -15,15 +15,14 @@
 var Functions = {};
 
 /**
- * @var sqlBoxLocked lock for the sqlbox textarea in the querybox
+ * @type {boolean} lock for the sqlbox textarea in the querybox
  */
-// eslint-disable-next-line no-unused-vars
-var sqlBoxLocked = false;
+let sqlBoxLocked = false;
 
 /**
- * @var {array}, holds elements which content should only selected once
+ * @type {boolean[]} holds elements which content should only selected once
  */
-var onlyOnceElements = [];
+const onlyOnceElements = [];
 
 /**
  * @var {number} ajaxMessageCount Number of AJAX messages shown since page load
@@ -632,18 +631,16 @@ Functions.displayPasswordGenerateButton = function () {
 /**
  * selects the content of a given object, f.e. a textarea
  *
- * @param {object} element   element of which the content will be selected
- * @param {any | true} lock  variable which holds the lock for this element or true, if no lock exists
- * @param {boolean} onlyOnce boolean if true this is only done once f.e. only on first focus
+ * @param {HTMLTextAreaElement} element Element of which the content will be selected
  */
-Functions.selectContent = function (element, lock, onlyOnce) {
-    if (onlyOnce && onlyOnceElements[element.name]) {
+Functions.selectContent = function (element) {
+    if (onlyOnceElements[element.name]) {
         return;
     }
 
     onlyOnceElements[element.name] = true;
 
-    if (lock) {
+    if (sqlBoxLocked) {
         return;
     }
 
