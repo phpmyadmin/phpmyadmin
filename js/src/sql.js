@@ -246,6 +246,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', '#view_as');
     $(document).off('click', '#sqlquery');
     $(document).off('click', 'input.sqlbutton');
+    $('#fieldsSelect').off('dblclick');
 });
 
 /**
@@ -888,6 +889,10 @@ AJAX.registerOnload('sql.js', function () {
         Functions.insertQuery(evt.target.id);
         handleSimulateQueryButton();
         return false;
+    });
+
+    $('#fieldsSelect').on('dblclick', () => {
+        Functions.insertValueQuery();
     });
 });
 
