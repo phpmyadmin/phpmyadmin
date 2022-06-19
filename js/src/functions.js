@@ -1395,14 +1395,12 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'a.inline_edit_sql');
     $(document).off('click', 'input#sql_query_edit_save');
     $(document).off('click', 'input#sql_query_edit_discard');
-    $('input.sqlbutton').off('click');
     if (codeMirrorEditor) {
         codeMirrorEditor.off('blur');
     } else {
         $(document).off('blur', '#sqlquery');
     }
     $(document).off('change', '#parameterized');
-    $(document).off('click', 'input.sqlbutton');
     $('#sqlquery').off('keydown');
     $('#sql_query_edit').off('keydown');
 
@@ -1482,12 +1480,6 @@ AJAX.registerOnload('functions.js', function () {
         var $divEditor = $('div#inline_editor_outer');
         $divEditor.siblings('code.sql').show();
         $divEditor.remove();
-    });
-
-    $(document).on('click', 'input.sqlbutton', function (evt) {
-        Functions.insertQuery(evt.target.id);
-        Functions.handleSimulateQueryButton();
-        return false;
     });
 
     $(document).on('change', '#parameterized', Functions.updateQueryParameters);

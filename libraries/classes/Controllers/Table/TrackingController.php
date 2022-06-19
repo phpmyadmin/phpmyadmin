@@ -194,6 +194,7 @@ final class TrackingController extends AbstractController
 
         $sqlDump = '';
         if (isset($_POST['report_export']) && $_POST['export_type'] === 'sqldump') {
+            $this->addScriptFiles(['sql.js']);
             $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['db'], $GLOBALS['table'], $GLOBALS['entries']);
         }
 

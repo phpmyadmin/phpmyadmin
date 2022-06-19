@@ -214,6 +214,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('submit', '.maxRowsForm');
     $(document).off('click', '#view_as');
     $(document).off('click', '#sqlquery');
+    $(document).off('click', 'input.sqlbutton');
 });
 
 /**
@@ -851,7 +852,13 @@ AJAX.registerOnload('sql.js', function () {
             Functions.selectContent(this);
         }
     });
-}); // end $()
+
+    $(document).on('click', 'input.sqlbutton', function (evt) {
+        Functions.insertQuery(evt.target.id);
+        Functions.handleSimulateQueryButton();
+        return false;
+    });
+});
 
 /**
  * Starting from some th, change the class of all td under it.
