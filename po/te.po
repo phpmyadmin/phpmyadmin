@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-06-12 00:20+0000\n"
+"POT-Creation-Date: 2022-06-19 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1245,6 +1245,7 @@ msgstr "శోధించు"
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
+#: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/operations/index.twig:38
@@ -5508,7 +5509,7 @@ msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి
 
 # మొదటి అనువాదము
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: templates/table/index_form.twig:234
+#: templates/table/index_form.twig:237
 #, fuzzy, php-format
 #| msgid "Add into comments"
 msgid "Add %s column(s) to index"
@@ -5541,7 +5542,7 @@ msgstr "స్పందనలకు చేర్చు"
 #: templates/columns_definitions/column_definitions_form.twig:156
 #: templates/modals/index_dialog_modal.twig:11
 #: templates/modals/index_dialog_modal.twig:21
-#: templates/table/index_form.twig:240
+#: templates/table/index_form.twig:244
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:174
@@ -6852,7 +6853,7 @@ msgstr "విషయ సూచిక"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
-#: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr ""
 
@@ -10437,7 +10438,7 @@ msgstr ""
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
-#: templates/table/index_form.twig:138
+#: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
 #: templates/table/relation/common_form.twig:18
@@ -15536,7 +15537,7 @@ msgid ""
 msgstr ""
 
 #: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:141
+#: templates/table/index_form.twig:144
 msgid "Size"
 msgstr "పరిమాణం"
 
@@ -18835,46 +18836,46 @@ msgstr "మొత్తం"
 msgid "Importing into the table \"%s\""
 msgstr ""
 
-#: templates/table/index_form.twig:15 templates/table/index_rename_form.twig:11
+#: templates/table/index_form.twig:18 templates/table/index_rename_form.twig:11
 msgid "Index name:"
 msgstr ""
 
-#: templates/table/index_form.twig:16 templates/table/index_rename_form.twig:12
+#: templates/table/index_form.twig:19 templates/table/index_rename_form.twig:12
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
 
-#: templates/table/index_form.twig:34
+#: templates/table/index_form.twig:37
 msgid "Index choice:"
 msgstr ""
 
-#: templates/table/index_form.twig:54
+#: templates/table/index_form.twig:57
 #, fuzzy
 #| msgid "Active options"
 msgid "Advanced options"
 msgstr "క్రియాశీల ఎంపికలు"
 
-#: templates/table/index_form.twig:64
+#: templates/table/index_form.twig:67
 msgid "Key block size:"
 msgstr ""
 
-#: templates/table/index_form.twig:81
+#: templates/table/index_form.twig:84
 msgid "Index type:"
 msgstr ""
 
-#: templates/table/index_form.twig:98
+#: templates/table/index_form.twig:101
 #, fuzzy
 #| msgid "User"
 msgid "Parser:"
 msgstr "వాడుకరి"
 
-#: templates/table/index_form.twig:114
+#: templates/table/index_form.twig:117
 #, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
 msgstr "వ్యాఖ్య"
 
-#: templates/table/index_form.twig:159 templates/table/index_form.twig:196
+#: templates/table/index_form.twig:162 templates/table/index_form.twig:199
 msgid "Drag to reorder"
 msgstr ""
 
