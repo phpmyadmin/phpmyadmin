@@ -118,7 +118,7 @@
             </div>
           </div>
         {% else %}
-          <input class="btn btn-primary {{ captcha_req }}" data-sitekey="{{ captcha_key }}" data-callback="Functions_recaptchaCallback" value="{% trans 'Log in' %}" type="submit" id="input_go">
+          <input class="btn btn-primary {{ captcha_req }}" data-sitekey="{{ captcha_key }}" data-callback="recaptchaCallback" value="{% trans 'Log in' %}" type="submit" id="input_go">
         {% endif %}
       {% else %}
         <input class="btn btn-primary" value="{% trans 'Log in' %}" type="submit" id="input_go">

@@ -301,7 +301,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString(
             '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
-            . ' data-callback="Functions_recaptchaCallback" value="Log in" type="submit" id="input_go">',
+            . ' data-callback="recaptchaCallback" value="Log in" type="submit" id="input_go">',
             $result
         );
     }
