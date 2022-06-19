@@ -2455,7 +2455,7 @@ Functions.checkPassword = function ($theForm) {
          if(window.confirm(alertMessage)){
              alertMessage=false;
         }else{
-            alert_msg = PMA_messages.strPasswordEmpty;        
+            alertMessage = PMA_messages.strPasswordEmpty;        
         }
     } else if ($password.val() !== $passwordRepeat.val()) {
         alertMessage = Messages.strPasswordNotSame;
