@@ -1129,38 +1129,6 @@ Functions.setQuery = function (query) {
 };
 
 /**
- * Handles 'Simulate query' button on SQL query box.
- *
- * @return {void}
- */
-Functions.handleSimulateQueryButton = function () {
-    var updateRegExp = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
-    var deleteRegExp = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
-    var query = '';
-
-    if (codeMirrorEditor) {
-        query = codeMirrorEditor.getValue();
-    } else {
-        query = $('#sqlquery').val();
-    }
-
-    var $simulateDml = $('#simulate_dml');
-    if (updateRegExp.test(query) || deleteRegExp.test(query)) {
-        if (! $simulateDml.length) {
-            $('#button_submit_query')
-                .before('<input type="button" id="simulate_dml"' +
-                'tabindex="199" class="btn btn-primary" value="' +
-                Messages.strSimulateDML +
-                '">');
-        }
-    } else {
-        if ($simulateDml.length) {
-            $simulateDml.remove();
-        }
-    }
-};
-
-/**
   * Create quick sql statements.
   *
   * @param {'clear'|'format'|'saved'|'selectall'|'select'|'insert'|'update'|'delete'} queryType

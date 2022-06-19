@@ -182,6 +182,37 @@ Sql.getFieldName = function ($tableResults, $thisField) {
 };
 
 /**
+ * Handles 'Simulate query' button on SQL query box.
+ *
+ * @return {void}
+ */
+const handleSimulateQueryButton = function () {
+    const updateRegExp = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
+    const deleteRegExp = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
+    let query = '';
+
+    if (codeMirrorEditor) {
+        query = codeMirrorEditor.getValue();
+    } else {
+        query = $('#sqlquery').val();
+    }
+
+    const $simulateDml = $('#simulate_dml');
+    if (updateRegExp.test(query) || deleteRegExp.test(query)) {
+        if (! $simulateDml.length) {
+            $('#button_submit_query').before(
+                '<input type="button" id="simulate_dml"' +
+                'tabindex="199" class="btn btn-primary" value="' + Messages.strSimulateDML + '">'
+            );
+        }
+    } else {
+        if ($simulateDml.length) {
+            $simulateDml.remove();
+        }
+    }
+};
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('sql.js', function () {
@@ -716,7 +747,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     $('body').on('keyup', '#sqlqueryform', function () {
-        Functions.handleSimulateQueryButton();
+        handleSimulateQueryButton();
     });
 
     /**
@@ -855,7 +886,7 @@ AJAX.registerOnload('sql.js', function () {
 
     $(document).on('click', 'input.sqlbutton', function (evt) {
         Functions.insertQuery(evt.target.id);
-        Functions.handleSimulateQueryButton();
+        handleSimulateQueryButton();
         return false;
     });
 });
