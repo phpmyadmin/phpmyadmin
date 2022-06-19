@@ -2451,7 +2451,10 @@ Functions.checkPassword = function ($theForm) {
     var alertMessage = false;
 
     if ($password.val() === '') {
-        alertMessage = Messages.strPasswordEmpty;
+         if(window.confirm("You are trying to set this account to log in without a password but the confihuration directive AllowNoPassword is false. If you procced, the account will not be able to log in through phpMyAdmin. Do you wish to procced ? ")){
+        }else{
+            alert_msg = PMA_messages.strPasswordEmpty;        
+        }
     } else if ($password.val() !== $passwordRepeat.val()) {
         alertMessage = Messages.strPasswordNotSame;
     }
