@@ -33,7 +33,7 @@ function updateConfig () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('replication.js', function () {
+window.AJAX.registerTeardown('replication.js', function () {
     $('#db_type').off('change');
     $('#db_select').off('change');
     $('#primary_status_href').off('click');
@@ -47,7 +47,7 @@ AJAX.registerTeardown('replication.js', function () {
     $('#reset_replica').off('click');
 });
 
-AJAX.registerOnload('replication.js', function () {
+window.AJAX.registerOnload('replication.js', function () {
     $('#rep').text(confPrefix);
     $('#db_type').on('change', updateConfig);
     $('#db_select').on('change', updateConfig);
@@ -84,12 +84,12 @@ AJAX.registerOnload('replication.js', function () {
         var question = Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
-            AJAX.source = $anchor;
+            window.AJAX.source = $anchor;
             var params = Functions.getJsConfirmCommonParam({
                 'ajax_page_request': true,
                 'ajax_request': true
             }, $anchor.getPostData());
-            $.post(url, params, AJAX.responseHandler);
+            $.post(url, params, window.AJAX.responseHandler);
         });
     });
     $('#button_generate_password').on('click', function () {

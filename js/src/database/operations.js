@@ -21,14 +21,14 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('database/operations.js', function () {
+window.AJAX.registerTeardown('database/operations.js', function () {
     $(document).off('submit', '#rename_db_form.ajax');
     $(document).off('submit', '#copy_db_form.ajax');
     $(document).off('submit', '#change_db_charset_form.ajax');
     $(document).off('click', '#drop_db_anchor.ajax');
 });
 
-AJAX.registerOnload('database/operations.js', function () {
+window.AJAX.registerOnload('database/operations.js', function () {
     /**
      * Ajax event handlers for 'Rename Database'
      */

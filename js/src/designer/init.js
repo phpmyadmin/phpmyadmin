@@ -20,11 +20,11 @@ var selectedPage;
 var db;
 var designerTablesEnabled;
 
-AJAX.registerTeardown('designer/init.js', function () {
+window.AJAX.registerTeardown('designer/init.js', function () {
     $('.trigger').off('click');
 });
 
-AJAX.registerOnload('designer/init.js', function () {
+window.AJAX.registerOnload('designer/init.js', function () {
     $('.trigger').on('click', function () {
         $('.panel').toggle('fast');
         $(this).toggleClass('active');

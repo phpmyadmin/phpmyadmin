@@ -203,7 +203,7 @@ Export.deleteTemplate = function (id) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('export.js', function () {
+window.AJAX.registerTeardown('export.js', function () {
     $('#plugins').off('change');
     $('input[type=\'radio\'][name=\'sql_structure_or_data\']').off('change');
     $('input[type=\'radio\'][name$=\'_structure_or_data\']').off('change');
@@ -227,7 +227,7 @@ AJAX.registerTeardown('export.js', function () {
     $('input[name="deleteTemplate"]').off('click');
 });
 
-AJAX.registerOnload('export.js', function () {
+window.AJAX.registerOnload('export.js', function () {
     $('#showsqlquery').on('click', function () {
         // Creating a dialog box similar to preview sql container to show sql query
         var modal = $('#showSqlQueryModal');
@@ -432,7 +432,7 @@ Export.toggleSaveToFile = function () {
     }
 };
 
-AJAX.registerOnload('export.js', function () {
+window.AJAX.registerOnload('export.js', function () {
     Export.toggleSaveToFile();
     $('input[type=\'radio\'][name=\'output_format\']').on('change', Export.toggleSaveToFile);
 });
@@ -578,7 +578,7 @@ Export.handleAddProcCheckbox = function () {
     }
 };
 
-AJAX.registerOnload('export.js', function () {
+window.AJAX.registerOnload('export.js', function () {
     /**
      * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
      */
@@ -832,7 +832,7 @@ Export.addAlias = function (type, name, field, value) {
     $('#alias_data tbody').append(row);
 };
 
-AJAX.registerOnload('export.js', function () {
+window.AJAX.registerOnload('export.js', function () {
     $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', Export.toggleQuickOrCustom);
 
     $('#format_specific_opts').find('div.format_specific_options')

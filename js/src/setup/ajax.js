@@ -2,7 +2,7 @@
 /**
  * Dummy implementation of the ajax page loader
  */
-var AJAX = {
+window.AJAX = {
     registerOnload: function (idx, func) {
         $(func);
     },

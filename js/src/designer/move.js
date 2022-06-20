@@ -14,12 +14,12 @@ var change = 0; // variable to track any change in designer layout.
 var showRelationLines = true;
 var alwaysShowText = false;
 
-AJAX.registerTeardown('designer/move.js', function () {
+window.AJAX.registerTeardown('designer/move.js', function () {
     $(document).off('fullscreenchange');
     $('#selflink').show();
 });
 
-AJAX.registerOnload('designer/move.js', function () {
+window.AJAX.registerOnload('designer/move.js', function () {
     var $content = $('#page_content');
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
@@ -2013,7 +2013,7 @@ DesignerMove.enableTableEvents = function (index, element) {
     DesignerMove.enablePageContentEvents();
 };
 
-AJAX.registerTeardown('designer/move.js', function () {
+window.AJAX.registerTeardown('designer/move.js', function () {
     $('#side_menu').off('mouseenter mouseleave');
     $('#key_Show_left_menu').off('click');
     $('#toggleFullscreen').off('click');
@@ -2063,7 +2063,7 @@ AJAX.registerTeardown('designer/move.js', function () {
     $('#page_content').off('mousemove');
 });
 
-AJAX.registerOnload('designer/move.js', function () {
+window.AJAX.registerOnload('designer/move.js', function () {
     $('#key_Show_left_menu').on('click', function () {
         DesignerMove.showLeftMenu(this);
         return false;

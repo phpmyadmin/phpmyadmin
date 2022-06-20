@@ -2,7 +2,7 @@ import $ from 'jquery';
 import CodeMirror from 'codemirror';
 import { Config } from './console/config.js';
 
-/* global AJAX, CommonParams, Functions, Messages, Navigation */
+/* global CommonParams, Functions, Messages, Navigation */
 
 /**
  * Console object
@@ -90,7 +90,7 @@ var Console = {
             '</form>'
         );
         Console.$requestForm.children('[name=token]').val(CommonParams.get('token'));
-        Console.$requestForm.on('submit', AJAX.requestHandler);
+        Console.$requestForm.on('submit', window.AJAX.requestHandler);
 
         // Event binds shouldn't run again
         if (Console.isInitialized === false) {

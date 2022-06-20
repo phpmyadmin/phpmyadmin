@@ -45,7 +45,7 @@ TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('table/select.js', function () {
+window.AJAX.registerTeardown('table/select.js', function () {
     $('#togglesearchformlink').off('click');
     $(document).off('submit', '#tbl_search_form.ajax');
     $('select.geom_func').off('change');
@@ -53,7 +53,7 @@ AJAX.registerTeardown('table/select.js', function () {
     $('body').off('change', 'select[name*="criteriaColumnOperators"]'); // Fix for bug #13778, changed 'click' to 'change'
 });
 
-AJAX.registerOnload('table/select.js', function () {
+window.AJAX.registerOnload('table/select.js', function () {
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed
      * after a couple of clicks

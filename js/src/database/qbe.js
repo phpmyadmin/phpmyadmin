@@ -18,7 +18,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('database/qbe.js', function () {
+window.AJAX.registerTeardown('database/qbe.js', function () {
     $(document).off('change', 'select[name^=criteriaColumn]');
     $(document).off('change', '#searchId');
     $(document).off('click', '#saveSearch');
@@ -26,7 +26,7 @@ AJAX.registerTeardown('database/qbe.js', function () {
     $(document).off('click', '#deleteSearch');
 });
 
-AJAX.registerOnload('database/qbe.js', function () {
+window.AJAX.registerOnload('database/qbe.js', function () {
     Functions.getSqlEditor($('#textSqlquery'), {}, 'none');
 
     $('#tblQbe').width($('#tblQbe').parent().width());

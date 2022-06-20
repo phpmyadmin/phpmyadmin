@@ -4,7 +4,7 @@
  * @package PhpMyAdmin
  */
 
-AJAX.registerOnload('transformations/image_upload.js', function () {
+window.AJAX.registerOnload('transformations/image_upload.js', function () {
     // Change thumbnail when image file is selected
     // through file upload dialog
     $('input.image-upload').on('change', function () {
@@ -22,6 +22,6 @@ AJAX.registerOnload('transformations/image_upload.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('transformations/image_upload.js', function () {
+window.AJAX.registerTeardown('transformations/image_upload.js', function () {
     $('input.image-upload').off('change');
 });

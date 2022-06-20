@@ -206,7 +206,7 @@ function insertDataAndClose () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('gis_data_editor.js', function () {
+window.AJAX.registerTeardown('gis_data_editor.js', function () {
     $(document).off('click', '#gis_editor input[name=\'gis_data[save]\']');
     $(document).off('submit', '#gis_editor');
     $(document).off('change', '#gis_editor input[type=\'text\']');
@@ -218,7 +218,7 @@ AJAX.registerTeardown('gis_data_editor.js', function () {
     $(document).off('click', '#gis_editor a.addJs.addGeom');
 });
 
-AJAX.registerOnload('gis_data_editor.js', function () {
+window.AJAX.registerOnload('gis_data_editor.js', function () {
     /**
      * Prepares and insert the GIS data to the input field on clicking 'copy'.
      */

@@ -1,6 +1,6 @@
 /* global u2f */ // js/vendor/u2f-api-polyfill.js
 
-AJAX.registerOnload('u2f.js', function () {
+window.AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
     if ($inputReg.length > 0) {
         var $formReg = $inputReg.parents('form');

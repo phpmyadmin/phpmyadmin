@@ -9,12 +9,12 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server/variables.js', function () {
+window.AJAX.registerTeardown('server/variables.js', function () {
     $(document).off('click', 'a.editLink');
     $('#serverVariables').find('.var-name').find('a img').remove();
 });
 
-AJAX.registerOnload('server/variables.js', function () {
+window.AJAX.registerOnload('server/variables.js', function () {
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
 

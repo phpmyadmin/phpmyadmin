@@ -1,7 +1,7 @@
 /**
  * JSON syntax highlighting transformation plugin
  */
-AJAX.registerOnload('transformations/json.js', function () {
+window.AJAX.registerOnload('transformations/json.js', function () {
     var $elm = $('#page_content').find('code.json');
     $elm.each(function () {
         var $json = $(this);

@@ -7,14 +7,14 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server/status/variables.js', function () {
+window.AJAX.registerTeardown('server/status/variables.js', function () {
     $('#filterAlert').off('change');
     $('#filterText').off('keyup');
     $('#filterCategory').off('change');
     $('#dontFormat').off('change');
 });
 
-AJAX.registerOnload('server/status/variables.js', function () {
+window.AJAX.registerOnload('server/status/variables.js', function () {
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');

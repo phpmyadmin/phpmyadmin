@@ -161,7 +161,7 @@ var processList = {
     }
 };
 
-AJAX.registerOnload('server/status/processes.js', function () {
+window.AJAX.registerOnload('server/status/processes.js', function () {
     processList.init();
     // Bind event handler for kill_process
     $('#tableprocesslist').on(
@@ -189,7 +189,7 @@ AJAX.registerOnload('server/status/processes.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server/status/processes.js', function () {
+window.AJAX.registerTeardown('server/status/processes.js', function () {
     $('#tableprocesslist').off('click', 'a.kill_process');
     $('a#toggleRefresh').off('click');
     $('#id_refreshRate').off('change');

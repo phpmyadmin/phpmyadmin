@@ -52,7 +52,7 @@ class ScriptsTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString('.add(\'common.js\', 1)', $actual);
-        $this->assertStringContainsString('AJAX.fireOnload(\'common.js\')', $actual);
+        $this->assertStringContainsString('window.AJAX.fireOnload(\'common.js\')', $actual);
     }
 
     /**

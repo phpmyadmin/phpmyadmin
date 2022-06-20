@@ -337,7 +337,7 @@ Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
                 value: 3,
                 content: codemirrorEditor.isClean(),
             };
-            AJAX.lockPageHandler(e);
+            window.AJAX.lockPageHandler(e);
         });
 
         return codemirrorEditor;
@@ -902,13 +902,13 @@ let incInterval;
 /** @type {number} */
 let updateTimeout;
 
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     clearTimeout(updateTimeout);
     clearInterval(incInterval);
     $(document).off('mousemove');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     document.onclick = function () {
         idleSecondsCounter = 0;
     };
@@ -1010,11 +1010,11 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'input:checkbox.checkall');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /**
      * Row marking in horizontal mode (use "on" so that it works also for
      * next pages reached via AJAX); a tr may have the class noclick to remove
@@ -1200,7 +1200,7 @@ Functions.getJsConfirmCommonParam = function (elem, parameters) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'a.inline_edit_sql');
     $(document).off('click', 'input#sql_query_edit_save');
     $(document).off('click', 'input#sql_query_edit_discard');
@@ -1228,7 +1228,7 @@ AJAX.registerTeardown('functions.js', function () {
 /**
  * Jquery Coding for inline editing SQL_QUERY
  */
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     // If we are coming back to the page by clicking forward button
     // of the browser, bind the code mirror to inline query editor.
     Functions.bindCodeMirrorToInlineEditor();
@@ -1399,7 +1399,7 @@ Functions.codeMirrorAutoCompleteOnInputRead = function (instance) {
 /**
  * Remove autocomplete information before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     sqlAutoComplete = false;
     sqlAutoCompleteDefaultTable = '';
 });
@@ -2257,7 +2257,7 @@ jQuery.fn.sortTable = Functions.sortTable;
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('submit', 'form.create_table_form.ajax');
     $(document).off('click', 'form.create_table_form.ajax input[name=submit_num_fields]');
     $(document).off('keyup', 'form.create_table_form.ajax input');
@@ -2271,7 +2271,7 @@ AJAX.registerTeardown('functions.js', function () {
  *
  * Attach Ajax Event handlers for Create Table
  */
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /**
      * Attach event handler for submission of create table form (save)
      */
@@ -2360,7 +2360,7 @@ AJAX.registerOnload('functions.js', function () {
                         var tableStructureUrl = 'index.php?route=/table/structure' + argsep + 'server=' + data.params.server +
                             argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
                             argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
-                        $.get(tableStructureUrl, params12, AJAX.responseHandler);
+                        $.get(tableStructureUrl, params12, window.AJAX.responseHandler);
                     } else {
                         Functions.ajaxShowMessage(
                             '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
@@ -2494,7 +2494,7 @@ Functions.checkPassword = function ($theForm) {
 /**
  * Attach Ajax event handlers for 'Change Password' on index.php
  */
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /* Handler for hostname type */
     $(document).on('change', '#select_pred_hostname', function () {
         var hostname = $('#pma_hostname');
@@ -2613,7 +2613,7 @@ AJAX.registerOnload('functions.js', function () {
             }
 
             if (data.scripts) {
-                AJAX.scriptHandler.load(data.scripts);
+                window.AJAX.scriptHandler.load(data.scripts);
             }
 
             // for this dialog, we remove the fieldset wrapping due to double headings
@@ -2641,7 +2641,7 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', 'select.column_type');
     $(document).off('change', 'select.default_type');
     $(document).off('change', 'select.virtuality');
@@ -2653,7 +2653,7 @@ AJAX.registerTeardown('functions.js', function () {
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
  * the page loads and when the selected data type changes
  */
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     // is called here for normal page loads and also when opening
     // the Create table dialog
     Functions.verifyColumnsProperties();
@@ -2763,7 +2763,7 @@ Functions.autoPopulate = function (inputId, offset) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'a.open_enum_editor');
     $(document).off('click', 'input.add_value');
     $(document).off('click', '#enum_editor td.drop');
@@ -2773,7 +2773,7 @@ AJAX.registerTeardown('functions.js', function () {
 /**
  * Opens the ENUM/SET editor and controls its functions
  */
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     $(document).on('click', 'a.open_enum_editor', function () {
         // Get the name of the column that is being edited
         var colname = $(this).closest('tr').find('input').first().val();
@@ -3096,11 +3096,11 @@ Functions.checkIndexName = function (formId) {
     return true;
 };
 
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', '#index_frm input[type=submit]');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /**
      * Handler for adding more columns to an index in the editor
      */
@@ -3319,7 +3319,7 @@ Functions.showHints = function ($div) {
     });
 };
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     Functions.showHints();
 });
 
@@ -3471,14 +3471,14 @@ Functions.toggleButton = function ($obj) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $('div.toggle-container').off('click');
 });
 
 /**
  * Initialise all toggle buttons
  */
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     $('div.toggleAjax').each(function () {
         var $button = $(this).show();
         $button.find('img').each(function () {
@@ -3496,13 +3496,13 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', 'select.pageselector');
     $('#update_recent_tables').off('ready');
     $('#sync_favorite_tables').off('ready');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /**
      * Autosubmit page selector
      */
@@ -3646,7 +3646,7 @@ Functions.slidingMessage = function (msg, $object) {
 /**
  * Attach CodeMirror2 editor to SQL edit area.
  */
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     var $elm = $('#sqlquery');
     if ($elm.siblings().filter('.CodeMirror').length > 0) {
         return;
@@ -3664,7 +3664,7 @@ AJAX.registerOnload('functions.js', function () {
     Functions.highlightSql($('body'));
 });
 
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     if (codeMirrorEditor) {
         $('#sqlquery').text(codeMirrorEditor.getValue());
         codeMirrorEditor.toTextArea();
@@ -3672,7 +3672,7 @@ AJAX.registerTeardown('functions.js', function () {
     }
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     // initializes all lock-page elements lock-id and
     // val-hash data property
     $('#page_content form.lock-page textarea, ' +
@@ -3683,7 +3683,7 @@ AJAX.registerOnload('functions.js', function () {
         // val-hash is the hash of default value of the field
         // so that it can be compared with new value hash
         // to check whether field was modified or not.
-        $(this).data('val-hash', AJAX.hash($(this).val()));
+        $(this).data('val-hash', window.AJAX.hash($(this).val()));
     });
 
     // initializes lock-page elements (input types checkbox and radio buttons)
@@ -3691,7 +3691,7 @@ AJAX.registerOnload('functions.js', function () {
     $('#page_content form.lock-page input[type="checkbox"], ' +
             '#page_content form.lock-page input[type="radio"]').each(function (i) {
         $(this).data('lock-id', i);
-        $(this).data('val-hash', AJAX.hash($(this).is(':checked')));
+        $(this).data('val-hash', window.AJAX.hash($(this).is(':checked')));
     });
 });
 
@@ -3730,11 +3730,11 @@ Functions.getCellValue = function (td) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', '.autosubmit');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /**
      * Automatic form submission on change.
      */
@@ -3755,7 +3755,7 @@ const PrintPage = {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     document.querySelectorAll('.jsPrintButton').forEach(item => {
         item.removeEventListener('click', PrintPage);
     });
@@ -3765,7 +3765,7 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', '#fkc_checkbox');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     document.querySelectorAll('.jsPrintButton').forEach(item => {
         item.addEventListener('click', PrintPage);
     });
@@ -3985,7 +3985,7 @@ $(document).on('keyup', '#filterText', function () {
     $('#filter-rows-count').html(count);
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /* Trigger filtering of the list based on incoming database name */
     var $filter = $('#filterText');
     if ($filter.val()) {
@@ -4022,7 +4022,7 @@ Functions.formatBytes = function (bytesToFormat, subDecimals, pointChar) {
     return bytes + ' ' + units[i];
 };
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /**
      * Reveal the login form to users with JS enabled
      * and focus the appropriate input field
@@ -4158,11 +4158,11 @@ var recaptchaCallback = function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('keydown', 'form input, form textarea, form select');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /**
      * Handle 'Ctrl/Alt + Enter' form submits
      */
@@ -4184,13 +4184,13 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('functions.js', function () {
+window.AJAX.registerTeardown('functions.js', function () {
     $(document).off('change', 'input[type=radio][name="pw_hash"]');
     $(document).off('mouseover', '.sortlink');
     $(document).off('mouseout', '.sortlink');
 });
 
-AJAX.registerOnload('functions.js', function () {
+window.AJAX.registerOnload('functions.js', function () {
     /*
      * Display warning regarding SSL when sha256_password
      * method is selected

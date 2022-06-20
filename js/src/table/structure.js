@@ -45,7 +45,7 @@ function checkFirst () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('table/structure.js', function () {
+window.AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', 'a.drop_column_anchor.ajax');
     $(document).off('click', 'a.add_key.ajax');
     $(document).off('click', '#move_columns_anchor');
@@ -55,7 +55,7 @@ AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', '#remove_partitioning.ajax');
 });
 
-AJAX.registerOnload('table/structure.js', function () {
+window.AJAX.registerOnload('table/structure.js', function () {
     // Re-initialize variables.
     primaryIndexes = [];
     indexes = [];
@@ -271,11 +271,11 @@ AJAX.registerOnload('table/structure.js', function () {
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
-            AJAX.source = $this;
+            window.AJAX.source = $this;
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
-            $.post(url, params, AJAX.responseHandler);
+            $.post(url, params, window.AJAX.responseHandler);
         });
     }); // end Add key
 
@@ -399,9 +399,9 @@ AJAX.registerOnload('table/structure.js', function () {
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
         Functions.ajaxShowMessage();
-        AJAX.source = $form;
+        window.AJAX.source = $form;
 
-        $.post(this.formAction, submitData, AJAX.responseHandler);
+        $.post(this.formAction, submitData, window.AJAX.responseHandler);
     });
 
     /**
@@ -414,8 +414,8 @@ AJAX.registerOnload('table/structure.js', function () {
         function submitPartitionAction (url) {
             var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
             Functions.ajaxShowMessage();
-            AJAX.source = $link;
-            $.post(url, params, AJAX.responseHandler);
+            window.AJAX.source = $link;
+            $.post(url, params, window.AJAX.responseHandler);
         }
 
         if ($link.is('#partition_action_DROP')) {
@@ -444,8 +444,8 @@ AJAX.registerOnload('table/structure.js', function () {
                 'ajax_page_request' : true
             }, $link.getPostData());
             Functions.ajaxShowMessage();
-            AJAX.source = $link;
-            $.post(url, params, AJAX.responseHandler);
+            window.AJAX.source = $link;
+            $.post(url, params, window.AJAX.responseHandler);
         });
     });
 

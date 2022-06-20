@@ -2059,7 +2059,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                                 // temporarily remove ajax class so the page loader will not handle it,
                                 // submit and then add it back
                                 $link.removeClass('ajax');
-                                AJAX.requestHandler.call($link[0]);
+                                window.AJAX.requestHandler.call($link[0]);
                                 $link.addClass('ajax');
                                 $cell.data('clicks', 0);
                             }, 700);

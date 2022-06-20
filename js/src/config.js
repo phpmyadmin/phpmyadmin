@@ -34,7 +34,7 @@ function isStorageSupported (type, warn = false) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('config.js', function () {
+window.AJAX.registerTeardown('config.js', function () {
     $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
     $('.optbox input[type=button][name=submit_reset]').off('click');
     $('div.tab-content').off();
@@ -44,7 +44,7 @@ AJAX.registerTeardown('config.js', function () {
     $('#prefs_autoload').find('a').off('click');
 });
 
-AJAX.registerOnload('config.js', function () {
+window.AJAX.registerOnload('config.js', function () {
     var $topmenuUpt = $('#user_prefs_tabs');
     $topmenuUpt.find('a.active').attr('rel', 'samepage');
     $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
@@ -592,7 +592,7 @@ function setupValidation () {
     }
 }
 
-AJAX.registerOnload('config.js', function () {
+window.AJAX.registerOnload('config.js', function () {
     setupValidation();
 });
 
@@ -610,7 +610,7 @@ function adjustPrefsNotification () {
     }
 }
 
-AJAX.registerOnload('config.js', function () {
+window.AJAX.registerOnload('config.js', function () {
     adjustPrefsNotification();
 });
 
@@ -618,7 +618,7 @@ AJAX.registerOnload('config.js', function () {
 // Form reset buttons
 //
 
-AJAX.registerOnload('config.js', function () {
+window.AJAX.registerOnload('config.js', function () {
     $('.optbox input[type=button][name=submit_reset]').on('click', function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
@@ -678,7 +678,7 @@ function setupRestoreField () {
         .css({ display: 'inline-block', opacity: 0.25 });
 }
 
-AJAX.registerOnload('config.js', function () {
+window.AJAX.registerOnload('config.js', function () {
     setupRestoreField();
 });
 
@@ -690,7 +690,7 @@ AJAX.registerOnload('config.js', function () {
 // User preferences import/export
 //
 
-AJAX.registerOnload('config.js', function () {
+window.AJAX.registerOnload('config.js', function () {
     offerPrefsAutoimport();
     var $radios = $('#import_local_storage, #export_local_storage');
     if (!$radios.length) {

@@ -551,7 +551,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('indexes.js', function () {
+window.AJAX.registerTeardown('indexes.js', function () {
     $(document).off('click', '#save_index_frm');
     $(document).off('click', '#preview_index_frm');
     $(document).off('change', '#select_index_choice');
@@ -572,7 +572,7 @@ AJAX.registerTeardown('indexes.js', function () {
  * <li>create/edit/drop indexes</li>
  * </ul>
  */
-AJAX.registerOnload('indexes.js', function () {
+window.AJAX.registerOnload('indexes.js', function () {
     // Re-initialize variables.
     primaryIndexes = [];
     uniqueIndexes = [];
@@ -597,8 +597,8 @@ AJAX.registerOnload('indexes.js', function () {
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
         Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        AJAX.source = $form;
-        $.post($form.attr('action'), submitData, AJAX.responseHandler);
+        window.AJAX.source = $form;
+        $.post($form.attr('action'), submitData, window.AJAX.responseHandler);
     });
 
     $(document).on('click', '#preview_index_frm', function (event) {
