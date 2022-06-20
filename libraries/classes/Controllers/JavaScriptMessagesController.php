@@ -42,7 +42,7 @@ final class JavaScriptMessagesController
         return [
             /* For confirmations */
             'strAllowNoPassowrdIsFalse' => __(
-            'You are trying to set this account to log in without a password but the configuration directive AllowNoPassword is false. If you proceed, the account will not be able to log in through phpMyAdmin. Do you wish to proceed?'          
+            'You are trying to set this account to log in without a password but the configuration directive AllowNoPassword is false. If you proceed, the account will not be able to log in through phpMyAdmin. Do you wish to proceed?'
             ),
             'strDoYouReally' => __('Do you really want to execute "%s"?'),
             'strDropDatabaseStrongWarning' => __('You are about to DESTROY a complete database!'),
