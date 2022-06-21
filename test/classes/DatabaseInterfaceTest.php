@@ -19,16 +19,6 @@ use stdClass;
 class DatabaseInterfaceTest extends AbstractTestCase
 {
     /**
-     * Configures test parameters.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-        parent::setGlobalDbi();
-        $GLOBALS['server'] = 0;
-    }
-
-    /**
      * Tests for DBI::getCurrentUser() method.
      *
      * @param array|false $value           value
@@ -40,24 +30,21 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testGetCurrentUser($value, string $string, array $expected, bool $needsSecondCall): void
     {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
         SessionCache::remove('mysql_cur_user');
 
-        $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
+        $dummyDbi->addResult('SELECT CURRENT_USER();', $value);
         if ($needsSecondCall) {
-            $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
+            $dummyDbi->addResult('SELECT CURRENT_USER();', $value);
         }
 
-        $this->assertEquals(
-            $expected,
-            $this->dbi->getCurrentUserAndHost()
-        );
+        $this->assertEquals($expected, $dbi->getCurrentUserAndHost());
 
-        $this->assertEquals(
-            $string,
-            $this->dbi->getCurrentUser()
-        );
+        $this->assertEquals($string, $dbi->getCurrentUser());
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -103,7 +90,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testPMAGetColumnMap(): void
     {
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->addResult(
             'PMA_sql_query',
             [true],
             [],
@@ -125,7 +115,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'view_columns2',
         ];
 
-        $column_map = $this->dbi->getColumnMapFromSql($sql_query, $view_columns);
+        $column_map = $dbi->getColumnMapFromSql($sql_query, $view_columns);
 
         $this->assertEquals(
             [
@@ -144,7 +134,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $column_map[1]
         );
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -152,7 +142,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testGetSystemDatabase(): void
     {
-        $sd = $this->dbi->getSystemDatabase();
+        $dbi = $this->createDatabaseInterface();
+        $sd = $dbi->getSystemDatabase();
         $this->assertInstanceOf(SystemDatabase::class, $sd);
     }
 
@@ -161,14 +152,16 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testPostConnectControl(): void
     {
-        parent::setGlobalDbi();
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`;',
             []
         );
         $GLOBALS['db'] = '';
         $GLOBALS['cfg']['Server']['only_db'] = [];
-        $this->dbi->postConnectControl(new Relation($this->dbi));
+        $dbi->postConnectControl(new Relation($dbi));
         $this->assertInstanceOf(DatabaseList::class, $GLOBALS['dblist']);
     }
 
@@ -177,11 +170,13 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testGetDbCollation(): void
     {
+        $dbi = $this->createDatabaseInterface();
+
         $GLOBALS['server'] = 1;
         // test case for system schema
         $this->assertEquals(
             'utf8_general_ci',
-            $this->dbi->getDbCollation('information_schema')
+            $dbi->getDbCollation('information_schema')
         );
 
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -189,7 +184,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $this->assertEquals(
             'utf8_general_ci',
-            $this->dbi->getDbCollation('pma_test')
+            $dbi->getDbCollation('pma_test')
         );
     }
 
@@ -198,9 +193,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testGetServerCollation(): void
     {
+        $dbi = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['DBG']['sql'] = true;
-        $this->assertEquals('utf8_general_ci', $this->dbi->getServerCollation());
+        $this->assertEquals('utf8_general_ci', $dbi->getServerCollation());
     }
 
     /**
@@ -266,16 +262,19 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testIsAmazonRdsData(array $value, bool $expected): void
     {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
         SessionCache::remove('is_amazon_rds');
 
-        $this->dummyDbi->addResult('SELECT @@basedir', $value);
+        $dummyDbi->addResult('SELECT @@basedir', $value);
 
         $this->assertEquals(
             $expected,
-            $this->dbi->isAmazonRds()
+            $dbi->isAmazonRds()
         );
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -358,23 +357,28 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testSetCollation(): void
     {
-        $this->dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
-        $this->dummyDbi->addResult('SET collation_connection = \'utf8mb4_bin_ci\';', [true]);
-        $this->dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
-        $this->dummyDbi->addResult('SET collation_connection = \'utf8_bin_ci\';', [true]);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
+        $dummyDbi->addResult('SET collation_connection = \'utf8mb4_bin_ci\';', [true]);
+        $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
+        $dummyDbi->addResult('SET collation_connection = \'utf8_bin_ci\';', [true]);
 
         $GLOBALS['charset_connection'] = 'utf8mb4';
-        $this->dbi->setCollation('utf8_czech_ci');
-        $this->dbi->setCollation('utf8mb4_bin_ci');
+        $dbi->setCollation('utf8_czech_ci');
+        $dbi->setCollation('utf8mb4_bin_ci');
         $GLOBALS['charset_connection'] = 'utf8';
-        $this->dbi->setCollation('utf8_czech_ci');
-        $this->dbi->setCollation('utf8mb4_bin_ci');
+        $dbi->setCollation('utf8_czech_ci');
+        $dbi->setCollation('utf8mb4_bin_ci');
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testGetTablesFull(): void
     {
+        $dbi = $this->createDatabaseInterface();
+
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
         $expected = [
@@ -423,12 +427,14 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
         ];
 
-        $actual = $this->dbi->getTablesFull('test_db');
+        $actual = $dbi->getTablesFull('test_db');
         $this->assertEquals($expected, $actual);
     }
 
     public function testGetTablesFullWithInformationSchema(): void
     {
+        $dbi = $this->createDatabaseInterface();
+
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $expected = [
@@ -479,7 +485,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
         ];
 
-        $actual = $this->dbi->getTablesFull('test_db');
+        $actual = $dbi->getTablesFull('test_db');
         $this->assertEquals($expected, $actual);
     }
 
@@ -488,25 +494,29 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testQueryAsControlUser(): void
     {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
         $sql = 'insert into PMA_bookmark A,B values(1, 2)';
-        $this->dummyDbi->addResult($sql, [true]);
-        $this->dummyDbi->addResult($sql, [true]);
-        $this->dummyDbi->addResult('Invalid query', false);
+        $dummyDbi->addResult($sql, [true]);
+        $dummyDbi->addResult($sql, [true]);
+        $dummyDbi->addResult('Invalid query', false);
 
         $this->assertInstanceOf(
             ResultInterface::class,
-            $this->dbi->queryAsControlUser($sql)
+            $dbi->queryAsControlUser($sql)
         );
         $this->assertInstanceOf(
             ResultInterface::class,
-            $this->dbi->tryQueryAsControlUser($sql)
+            $dbi->tryQueryAsControlUser($sql)
         );
-        $this->assertFalse($this->dbi->tryQueryAsControlUser('Invalid query'));
+        $this->assertFalse($dbi->tryQueryAsControlUser('Invalid query'));
     }
 
     public function testGetDatabasesFullDisabledISAndSortIntColumn(): void
     {
-        parent::setGlobalDbi();
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
@@ -518,22 +528,22 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'db1',
             'db2',
         ];
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SELECT @@collation_database',
             [
                 ['utf8_general_ci'],
             ],
             ['@@collation_database']
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT @@collation_database',
             [
                 ['utf8_general_ci'],
             ],
             ['@@collation_database']
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLE STATUS FROM `db1`;',
             [
                 [
@@ -597,7 +607,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ]
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLE STATUS FROM `db2`;',
             [
                 [
@@ -660,12 +670,12 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 'Comment',
             ]
         );
-        $this->dummyDbi->addSelectDb('');
-        $this->dummyDbi->addSelectDb('');
-        $this->dummyDbi->addSelectDb('db1');
-        $this->dummyDbi->addSelectDb('db2');
+        $dummyDbi->addSelectDb('');
+        $dummyDbi->addSelectDb('');
+        $dummyDbi->addSelectDb('db1');
+        $dummyDbi->addSelectDb('db2');
 
-        $databaseList = $this->dbi->getDatabasesFull(
+        $databaseList = $dbi->getDatabasesFull(
             null,
             true,
             DatabaseInterface::CONNECT_USER,
@@ -700,6 +710,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
         ], $databaseList);
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 }
