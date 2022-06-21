@@ -182,7 +182,7 @@ function onGisMouseWheel (event) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('table/gis_visualization.js', function () {
+window.AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#choice');
     $(document).off('dragstart', 'svg');
     $(document).off('mouseup', 'svg');
@@ -204,7 +204,7 @@ AJAX.registerTeardown('table/gis_visualization.js', function () {
     }
 });
 
-AJAX.registerOnload('table/gis_visualization.js', function () {
+window.AJAX.registerOnload('table/gis_visualization.js', function () {
     // If we are in GIS visualization, initialize it
     if ($('#gis_div').length > 0) {
         initGISVisualization();

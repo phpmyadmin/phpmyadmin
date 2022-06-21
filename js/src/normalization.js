@@ -487,7 +487,7 @@ function moveRepeatingGroup (repeatingCols) {
         }
     });
 }
-AJAX.registerTeardown('normalization.js', function () {
+window.AJAX.registerTeardown('normalization.js', function () {
     $('#extra').off('click', '#selectNonAtomicCol');
     $('#splitGo').off('click');
     $('.tblFooters').off('click', '#saveSplit');
@@ -500,7 +500,7 @@ AJAX.registerTeardown('normalization.js', function () {
     $('#mainContent').off('click', '.pickPd');
 });
 
-AJAX.registerOnload('normalization.js', function () {
+window.AJAX.registerOnload('normalization.js', function () {
     var selectedCol;
     normalizeto = $('#mainContent').data('normalizeto');
     $('#extra').on('click', '#selectNonAtomicCol', function () {

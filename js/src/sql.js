@@ -401,7 +401,7 @@ const insertValueQuery = function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('sql.js', function () {
+window.AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'a.delete_row.ajax');
     $(document).off('submit', '.bookmarkQueryForm');
     $('input#bkm_label').off('input');
@@ -451,7 +451,7 @@ AJAX.registerTeardown('sql.js', function () {
  * @name        document.ready
  * @memberOf    jQuery
  */
-AJAX.registerOnload('sql.js', function () {
+window.AJAX.registerOnload('sql.js', function () {
     if (codeMirrorEditor || document.sqlform) {
         Sql.setShowThisQuery();
     }
@@ -806,7 +806,7 @@ AJAX.registerOnload('sql.js', function () {
                     },
                     null
                     );
-                    AJAX.handleMenu.replace(data.menu);
+                    window.AJAX.handleMenu.replace(data.menu);
                 }
 
                 if (data.params) {
@@ -920,8 +920,8 @@ AJAX.registerOnload('sql.js', function () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             Functions.ajaxShowMessage();
-            AJAX.source = $form;
-            $.post($form.attr('action'), submitData, AJAX.responseHandler);
+            window.AJAX.source = $form;
+            $.post($form.attr('action'), submitData, window.AJAX.responseHandler);
         };
 
         if (! $(this).is(':checked')) { // already showing all rows
@@ -1017,7 +1017,7 @@ AJAX.registerOnload('sql.js', function () {
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep;
         Functions.ajaxShowMessage();
-        AJAX.source = $form;
+        window.AJAX.source = $form;
 
         var url;
         if (action === 'edit') {
@@ -1034,7 +1034,7 @@ AJAX.registerOnload('sql.js', function () {
             return;
         }
 
-        $.post(url, submitData, AJAX.responseHandler);
+        $.post(url, submitData, window.AJAX.responseHandler);
     });
 
     $(document).on('submit', '.maxRowsForm', function () {
@@ -1212,7 +1212,7 @@ Sql.checkSavedQuery = function () {
     }
 };
 
-AJAX.registerOnload('sql.js', function () {
+window.AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'a.browse_foreign', function (e) {
         e.preventDefault();
         Sql.browseForeignDialog($(this));
@@ -1312,7 +1312,7 @@ Sql.initProfilingTables = function () {
     });
 };
 
-AJAX.registerOnload('sql.js', function () {
+window.AJAX.registerOnload('sql.js', function () {
     Sql.makeProfilingChart();
     Sql.initProfilingTables();
 });

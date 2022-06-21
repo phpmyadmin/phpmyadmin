@@ -1,7 +1,7 @@
 /**
  * XML syntax highlighting transformation plugin
  */
-AJAX.registerOnload('transformations/xml.js', function () {
+window.AJAX.registerOnload('transformations/xml.js', function () {
     var $elm = $('#page_content').find('code.xml');
     $elm.each(function () {
         var $json = $(this);

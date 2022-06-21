@@ -125,12 +125,12 @@ function onKeyDownArrowsHandler (event) {
     e.returnValue = false;
 }
 
-AJAX.registerTeardown('keyhandler.js', function () {
+window.AJAX.registerTeardown('keyhandler.js', function () {
     $(document).off('keydown keyup', '#table_columns');
     $(document).off('keydown keyup', 'table.insertRowTable');
 });
 
-AJAX.registerOnload('keyhandler.js', function () {
+window.AJAX.registerOnload('keyhandler.js', function () {
     $(document).on('keydown keyup', '#table_columns', function (event) {
         onKeyDownArrowsHandler(event.originalEvent);
     });

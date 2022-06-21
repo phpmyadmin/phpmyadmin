@@ -154,11 +154,11 @@ const ThemesManager = {
     }
 };
 
-AJAX.registerTeardown('home.js', () => {
+window.AJAX.registerTeardown('home.js', () => {
     $('#themesModal').off('show.bs.modal');
 });
 
-AJAX.registerOnload('home.js', () => {
+window.AJAX.registerOnload('home.js', () => {
     $('#themesModal').on('show.bs.modal', ThemesManager.handleEvent);
 
     GitInfo.showVersion();

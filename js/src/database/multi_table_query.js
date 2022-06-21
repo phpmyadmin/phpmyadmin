@@ -18,7 +18,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('database/multi_table_query.js', function () {
+window.AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('.tableNameSelect').each(function () {
         $(this).off('change');
     });
@@ -26,7 +26,7 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('#add_column_button').off('click');
 });
 
-AJAX.registerOnload('database/multi_table_query.js', function () {
+window.AJAX.registerOnload('database/multi_table_query.js', function () {
     var editor = Functions.getSqlEditor($('#MultiSqlquery'), {}, 'both');
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, 50);

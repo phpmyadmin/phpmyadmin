@@ -167,7 +167,7 @@ var CommonActions = {
             .trigger('click')
             .remove();
         if (typeof callback !== 'undefined') {
-            AJAX.callback = callback;
+            window.AJAX.callback = callback;
         }
     }
 };

@@ -1,4 +1,4 @@
-AJAX.registerTeardown('database/routines.js', function () {
+window.AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('click', 'a.ajax.add_anchor');
     $(document).off('click', 'a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.exec_anchor');
@@ -838,7 +838,7 @@ const DatabaseRoutines = {
     }
 };
 
-AJAX.registerOnload('database/routines.js', function () {
+window.AJAX.registerOnload('database/routines.js', function () {
     $(document).on('click', 'a.ajax.add_anchor', function (event) {
         event.preventDefault();
         $.datepicker.initialized = false;

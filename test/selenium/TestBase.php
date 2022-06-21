@@ -1073,7 +1073,7 @@ JS;
         $this->webDriver->executeAsyncScript(
             'var callback = arguments[arguments.length - 1];'
             . 'function startWaitingForAjax() {'
-            . '    if (! AJAX.active) {'
+            . '    if (! window.AJAX.active) {'
             . '        callback();'
             . '    } else {'
             . '        setTimeout(startWaitingForAjax, 200);'

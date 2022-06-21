@@ -111,7 +111,7 @@ const CreateDatabase = {
                 var dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
                 var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
-                $.get(dbStructUrl, params, AJAX.responseHandler);
+                $.get(dbStructUrl, params, window.AJAX.responseHandler);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
@@ -128,12 +128,12 @@ function checkPrivilegesForDatabase () {
     });
 }
 
-AJAX.registerTeardown('server/databases.js', function () {
+window.AJAX.registerTeardown('server/databases.js', function () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
 });
 
-AJAX.registerOnload('server/databases.js', function () {
+window.AJAX.registerOnload('server/databases.js', function () {
     $(document).on('submit', '#dbStatsForm', DropDatabases.handleEvent);
     $(document).on('submit', '#create_database_form.ajax', CreateDatabase.handleEvent);
     checkPrivilegesForDatabase();

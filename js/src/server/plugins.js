@@ -13,6 +13,6 @@ function makeColumnsSortable () {
         .append('<div class="sorticon"></div>');
 }
 
-AJAX.registerOnload('server/plugins.js', function () {
+window.AJAX.registerOnload('server/plugins.js', function () {
     makeColumnsSortable();
 });
