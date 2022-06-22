@@ -102,7 +102,7 @@ const GitInfo = {
         $.get(
             'index.php?route=/git-revision',
             {
-                'server': CommonParams.get('server'),
+                'server': window.CommonParams.get('server'),
                 'ajax_request': true,
                 'no_debug': true
             },
@@ -127,7 +127,7 @@ const GitInfo = {
             url: 'index.php?route=/version-check',
             method: 'POST',
             data: {
-                'server': CommonParams.get('server')
+                'server': window.CommonParams.get('server')
             },
             success: GitInfo.currentVersion
         });

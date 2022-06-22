@@ -100,7 +100,7 @@ class HeaderTest extends AbstractTestCase
     {
         $header = new Header();
         $this->assertStringContainsString(
-            'CommonParams.setAll',
+            'window.CommonParams.setAll',
             $header->getJsParamsCode()
         );
     }

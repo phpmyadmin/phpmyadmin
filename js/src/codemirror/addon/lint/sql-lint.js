@@ -31,7 +31,7 @@ CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
         dataType: 'json',
         data: {
             'sql_query': text,
-            'server': CommonParams.get('server'),
+            'server': window.CommonParams.get('server'),
             'options': options.lintOptions,
             'no_history': true,
         },

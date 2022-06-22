@@ -73,14 +73,14 @@ $(function () {
             window.Console.toggle();
         } else if (e.keyCode === keyS) {
             if (databaseOp === true) {
-                isTable = CommonParams.get('table');
-                isDb = CommonParams.get('db');
+                isTable = window.CommonParams.get('table');
+                isDb = window.CommonParams.get('db');
                 if (isDb && ! isTable) {
                     $('.nav-link .ic_b_props').first().trigger('click');
                 }
             } else if (tableOp === true) {
-                isTable = CommonParams.get('table');
-                isDb = CommonParams.get('db');
+                isTable = window.CommonParams.get('table');
+                isDb = window.CommonParams.get('db');
                 if (isDb && isTable) {
                     $('.nav-link .ic_b_props').first().trigger('click');
                 }
@@ -89,14 +89,14 @@ $(function () {
             }
         } else if (e.keyCode === keyF) {
             if (databaseOp === true) {
-                isTable = CommonParams.get('table');
-                isDb = CommonParams.get('db');
+                isTable = window.CommonParams.get('table');
+                isDb = window.CommonParams.get('db');
                 if (isDb && ! isTable) {
                     $('.nav-link .ic_b_search').first().trigger('click');
                 }
             } else if (tableOp === true) {
-                isTable = CommonParams.get('table');
-                isDb = CommonParams.get('db');
+                isTable = window.CommonParams.get('table');
+                isDb = window.CommonParams.get('db');
                 if (isDb && isTable) {
                     $('.nav-link .ic_b_search').first().trigger('click');
                 }

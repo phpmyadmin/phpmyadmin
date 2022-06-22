@@ -216,7 +216,7 @@ window.AJAX.registerOnload('database/search.js', function () {
 
         Functions.prepareForAjaxRequest($form);
 
-        var url = $form.serialize() + CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
+        var url = $form.serialize() + window.CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
         $.post($form.attr('action'), url, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // found results

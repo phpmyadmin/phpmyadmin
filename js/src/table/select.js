@@ -299,7 +299,7 @@ window.AJAX.registerOnload('table/select.js', function () {
                 url: 'index.php?route=/table/search',
                 type: 'POST',
                 data: {
-                    'server': CommonParams.get('server'),
+                    'server': window.CommonParams.get('server'),
                     'ajax_request': 1,
                     'db': $('input[name="db"]').val(),
                     'table': $('input[name="table"]').val(),

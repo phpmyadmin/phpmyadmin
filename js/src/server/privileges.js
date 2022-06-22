@@ -41,7 +41,7 @@ const EditUserGroup = {
             'index.php?route=/server/user-groups/edit-form',
             {
                 'username': username,
-                'server': CommonParams.get('server')
+                'server': window.CommonParams.get('server')
             },
             data => {
                 if (typeof data === 'undefined' || data.success !== true) {
@@ -61,7 +61,7 @@ const EditUserGroup = {
 
                     $.post(
                         'index.php?route=/server/privileges',
-                        form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
+                        form.serialize() + window.CommonParams.get('arg_separator') + 'ajax_request=1',
                         data => {
                             if (typeof data === 'undefined' || data.success !== true) {
                                 Functions.ajaxShowMessage(data.error, false, 'error');
@@ -97,7 +97,7 @@ const AccountLocking = {
             'username': button.dataset.userName,
             'hostname': button.dataset.hostName,
             'ajax_request': true,
-            'server': CommonParams.get('server'),
+            'server': window.CommonParams.get('server'),
         };
 
         $.post(url, params, data => {
@@ -136,7 +136,7 @@ const AddUserLoginCheckUsername = {
             var href = $('form[name=\'usersForm\']').attr('action');
             var params = {
                 'ajax_request' : true,
-                'server' : CommonParams.get('server'),
+                'server' : window.CommonParams.get('server'),
                 'validate_username' : true,
                 'username' : username
             };
@@ -188,7 +188,7 @@ const ChangePasswordStrength = {
     handleEvent: function () {
         var meterObj = $('#change_password_strength_meter');
         var meterObjLabel = $('#change_password_strength');
-        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
+        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, window.CommonParams.get('user'));
     }
 };
 
@@ -233,7 +233,7 @@ const RevokeUser = {
 
             Functions.ajaxShowMessage(Messages.strRemovingSelectedUsers);
 
-            var argsep = CommonParams.get('arg_separator');
+            var argsep = window.CommonParams.get('arg_separator');
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxShowMessage(data.message);
@@ -291,8 +291,8 @@ const ExportPrivileges = {
             return;
         }
         var msgbox = Functions.ajaxShowMessage();
-        var argsep = CommonParams.get('arg_separator');
-        var serverId = CommonParams.get('server');
+        var argsep = window.CommonParams.get('arg_separator');
+        var serverId = window.CommonParams.get('server');
         var selectedUsers = $('#usersForm input[name*=\'selected_usr\']:checkbox').serialize();
         var postStr = selectedUsers + '&submit_mult=export' + argsep + 'ajax_request=true&server=' + serverId;
 

@@ -43,7 +43,7 @@ window.AJAX.registerOnload('database/tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var argsep = CommonParams.get('arg_separator');
+        var argsep = window.CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_tracking') {
@@ -67,7 +67,7 @@ window.AJAX.registerOnload('database/tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var argsep = CommonParams.get('arg_separator');
+        var argsep = window.CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         Functions.ajaxShowMessage();
         window.AJAX.source = $form;
@@ -84,7 +84,7 @@ window.AJAX.registerOnload('database/tracking.js', function () {
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage(Messages.strDeletingTrackingData);
             window.AJAX.source = $anchor;
-            var argSep = CommonParams.get('arg_separator');
+            var argSep = window.CommonParams.get('arg_separator');
             var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, window.AJAX.responseHandler);

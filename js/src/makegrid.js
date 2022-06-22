@@ -693,7 +693,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                         // Truncates the text.
                         $thisField.removeClass('truncated');
-                        if (CommonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
+                        if (window.CommonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
                             $thisField.addClass('truncated');
                             value = value.substring(0, g.maxTruncatedLen) + '...';
                         }
@@ -2028,7 +2028,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $(g.o).find('.save_cells_at_once').val();
-            g.maxTruncatedLen = CommonParams.get('LimitChars');
+            g.maxTruncatedLen = window.CommonParams.get('LimitChars');
 
             // register events
             $(g.t).find('td.data.click1')

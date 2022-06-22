@@ -60,7 +60,7 @@ var ErrorReport = {
         if (ErrorReport.errorReportData === null) {
             $.post('index.php?route=/error-report', {
                 'ajax_request': true,
-                'server': CommonParams.get('server'),
+                'server': window.CommonParams.get('server'),
                 'get_settings': true,
                 'exception_type': 'js'
             }, function (data) {
@@ -137,7 +137,7 @@ var ErrorReport = {
         buttonHtml += Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
-        var settingsUrl = 'index.php?route=/preferences/features&server=' + CommonParams.get('server');
+        var settingsUrl = 'index.php?route=/preferences/features&server=' + window.CommonParams.get('server');
         buttonHtml += '<a class="ajax" href="' + settingsUrl + '">';
         buttonHtml += Functions.getImage('s_cog', Messages.strChangeReportSettings);
         buttonHtml += '</a>';
@@ -218,7 +218,7 @@ var ErrorReport = {
             }
         }
         var reportData = {
-            'server': CommonParams.get('server'),
+            'server': window.CommonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
             'url': window.location.href,

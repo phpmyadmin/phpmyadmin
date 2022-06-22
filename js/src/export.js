@@ -74,9 +74,9 @@ Export.createTemplate = function (name) {
 
     var params = {
         'ajax_request': true,
-        'server': CommonParams.get('server'),
-        'db': CommonParams.get('db'),
-        'table': CommonParams.get('table'),
+        'server': window.CommonParams.get('server'),
+        'db': window.CommonParams.get('db'),
+        'table': window.CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
         'templateName': name,
         'templateData': JSON.stringify(templateData)
@@ -107,9 +107,9 @@ Export.createTemplate = function (name) {
 Export.loadTemplate = function (id) {
     var params = {
         'ajax_request': true,
-        'server': CommonParams.get('server'),
-        'db': CommonParams.get('db'),
-        'table': CommonParams.get('table'),
+        'server': window.CommonParams.get('server'),
+        'db': window.CommonParams.get('db'),
+        'table': window.CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
         'templateId': id,
     };
@@ -156,9 +156,9 @@ Export.updateTemplate = function (id) {
 
     var params = {
         'ajax_request': true,
-        'server': CommonParams.get('server'),
-        'db': CommonParams.get('db'),
-        'table': CommonParams.get('table'),
+        'server': window.CommonParams.get('server'),
+        'db': window.CommonParams.get('db'),
+        'table': window.CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
         'templateId': id,
         'templateData': JSON.stringify(templateData)
@@ -182,9 +182,9 @@ Export.updateTemplate = function (id) {
 Export.deleteTemplate = function (id) {
     var params = {
         'ajax_request': true,
-        'server': CommonParams.get('server'),
-        'db': CommonParams.get('db'),
-        'table': CommonParams.get('table'),
+        'server': window.CommonParams.get('server'),
+        'db': window.CommonParams.get('db'),
+        'table': window.CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
         'templateId': id,
     };
@@ -753,7 +753,7 @@ Export.createAliasModal = function (event) {
     modal.modal('show');
     modal.on('shown.bs.modal', function () {
         modal.closest('.ui-dialog').find('.ui-button').addClass('btn btn-secondary');
-        var db = CommonParams.get('db');
+        var db = window.CommonParams.get('db');
         if (db) {
             var option = $('<option></option>');
             option.text(db);
@@ -762,7 +762,7 @@ Export.createAliasModal = function (event) {
         } else {
             var params = {
                 'ajax_request': true,
-                'server': CommonParams.get('server')
+                'server': window.CommonParams.get('server')
             };
             $.post('index.php?route=/databases', params, function (response) {
                 if (response.success === true) {
@@ -868,7 +868,7 @@ window.AJAX.registerOnload('export.js', function () {
     });
     $('#db_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
-        var table = CommonParams.get('table');
+        var table = window.CommonParams.get('table');
         if (table) {
             var option = $('<option></option>');
             option.text(table);
@@ -878,7 +878,7 @@ window.AJAX.registerOnload('export.js', function () {
             var database = $(this).val();
             var params = {
                 'ajax_request': true,
-                'server': CommonParams.get('server'),
+                'server': window.CommonParams.get('server'),
                 'db': database,
             };
             var url = 'index.php?route=/tables';
@@ -902,7 +902,7 @@ window.AJAX.registerOnload('export.js', function () {
         var table = $(this).val();
         var params = {
             'ajax_request': true,
-            'server': CommonParams.get('server'),
+            'server': window.CommonParams.get('server'),
             'db': database,
             'table': table,
         };

@@ -2,7 +2,7 @@ import $ from 'jquery';
 import CodeMirror from 'codemirror';
 import { Config } from './console/config.js';
 
-/* global CommonParams, Functions, Messages, Navigation */
+/* global Functions, Messages, Navigation */
 
 /**
  * Console object
@@ -89,7 +89,7 @@ var Console = {
             '<input name="token" value="">' +
             '</form>'
         );
-        Console.$requestForm.children('[name=token]').val(CommonParams.get('token'));
+        Console.$requestForm.children('[name=token]').val(window.CommonParams.get('token'));
         Console.$requestForm.on('submit', window.AJAX.requestHandler);
 
         // Event binds shouldn't run again
@@ -229,7 +229,7 @@ var Console = {
             return;
         }
         Console.$requestForm.children('textarea').val(queryString);
-        Console.$requestForm.children('[name=server]').attr('value', CommonParams.get('server'));
+        Console.$requestForm.children('[name=server]').attr('value', window.CommonParams.get('server'));
         if (options && options.db) {
             Console.$requestForm.children('[name=db]').val(options.db);
             if (options.table) {
@@ -239,7 +239,7 @@ var Console = {
             }
         } else {
             Console.$requestForm.children('[name=db]').val(
-                (CommonParams.get('db').length > 0 ? CommonParams.get('db') : ''));
+                (window.CommonParams.get('db').length > 0 ? window.CommonParams.get('db') : ''));
         }
         Console.$requestForm.find('[name=profiling]').remove();
         if (options && options.profiling === true) {
@@ -914,7 +914,7 @@ var ConsoleMessages = {
             if (confirm(Messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('index.php?route=/import',
                     {
-                        'server': CommonParams.get('server'),
+                        'server': window.CommonParams.get('server'),
                         'action_bookmark': 2,
                         'ajax_request': true,
                         'id_bookmark': $message.attr('bookmarkid')
@@ -1050,7 +1050,7 @@ var ConsoleBookmarks = {
         $.get('index.php?route=/import',
             {
                 'ajax_request': true,
-                'server': CommonParams.get('server'),
+                'server': window.CommonParams.get('server'),
                 'console_bookmark_refresh': 'refresh'
             },
             function (data) {
@@ -1088,7 +1088,7 @@ var ConsoleBookmarks = {
                     'ajax_request': true,
                     'console_bookmark_add': 'true',
                     'label': $('#pma_bookmarks').find('.card.add [name=label]').val(),
-                    'server': CommonParams.get('server'),
+                    'server': window.CommonParams.get('server'),
                     'db': $('#pma_bookmarks').find('.card.add [name=targetdb]').val(),
                     'bookmark_query': ConsoleInput.getText('bookmark'),
                     'shared': $('#pma_bookmarks').find('.card.add [name=shared]').prop('checked')

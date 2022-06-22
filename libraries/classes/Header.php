@@ -219,7 +219,7 @@ class Header
             }
         }
 
-        return 'CommonParams.setAll({' . implode(',', $params) . '});';
+        return 'window.CommonParams.setAll({' . implode(',', $params) . '});';
     }
 
     /**

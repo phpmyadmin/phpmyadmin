@@ -79,7 +79,7 @@ TableRelation.getDropdownValues = function ($dropdown) {
     var $form = $dropdown.parents('form');
     var $db = $form.find('input[name="db"]').val();
     var $table = $form.find('input[name="table"]').val();
-    var argsep = CommonParams.get('arg_separator');
+    var argsep = window.CommonParams.get('arg_separator');
     var params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
         argsep + 'db=' + encodeURIComponent($db) +
         argsep + 'table=' + encodeURIComponent($table) +
@@ -240,7 +240,7 @@ window.AJAX.registerOnload('table/relation.js', function () {
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     Functions.ajaxRemoveMessage($msg);
-                    CommonActions.refreshMain(false, function () {
+                    window.CommonActions.refreshMain(false, function () {
                         // Do nothing
                     });
                 } else {

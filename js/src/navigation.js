@@ -21,8 +21,8 @@ Navigation.treeStateUpdate = function () {
         // content to be stored exceeds storage capacity
         try {
             storage.setItem('navTreePaths', JSON.stringify(Navigation.traverseForPaths()));
-            storage.setItem('server', CommonParams.get('server'));
-            storage.setItem('token', CommonParams.get('token'));
+            storage.setItem('server', window.CommonParams.get('server'));
+            storage.setItem('token', window.CommonParams.get('token'));
         } catch (error) {
             // storage capacity exceeded & old navigation tree
             // state is no more valid, so remove it
@@ -138,7 +138,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
         var pos2Name = $expandElem.find('span.pos2_nav');
         var pathsNav = $expandElem.find('span.paths_nav');
         params = {
-            'server': CommonParams.get('server'),
+            'server': window.CommonParams.get('server'),
             'aPath': pathsNav.attr('data-apath'),
             'vPath': pathsNav.attr('data-vpath'),
             'pos': pathsNav.attr('data-pos'),
@@ -154,7 +154,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     } else {
         $destination = $('#pma_navigation_tree_content');
         params = {
-            'server': CommonParams.get('server'),
+            'server': window.CommonParams.get('server'),
             'aPath': $expandElem.attr('data-apath'),
             'vPath': $expandElem.attr('data-vpath'),
             'pos': $expandElem.attr('data-pos'),
@@ -195,7 +195,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
             if (window.location.href.indexOf('?') === -1) {
                 window.location.href += '?session_expired=1';
             } else {
-                window.location.href += CommonParams.get('arg_separator') + 'session_expired=1';
+                window.location.href += window.CommonParams.get('arg_separator') + 'session_expired=1';
             }
             window.location.reload();
         } else {
@@ -329,7 +329,7 @@ $(function () {
 
     $(document).on('change', '#navi_db_select',  function () {
         if (! $(this).val()) {
-            CommonParams.set('db', '');
+            window.CommonParams.set('db', '');
             Navigation.reload();
         }
         $(this).closest('form').trigger('submit');
@@ -453,9 +453,9 @@ $(function () {
     /** Hide navigation tree item */
     $(document).on('click', 'a.hideNavItem.ajax', function (event) {
         event.preventDefault();
-        var argSep = CommonParams.get('arg_separator');
+        var argSep = window.CommonParams.get('arg_separator');
         var params = $(this).getPostData();
-        params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + window.CommonParams.get('server');
         $.ajax({
             type: 'POST',
             data: params,
@@ -474,7 +474,7 @@ $(function () {
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = Functions.ajaxShowMessage();
-        var argSep = CommonParams.get('arg_separator');
+        var argSep = window.CommonParams.get('arg_separator');
         var params = $(this).getPostData();
         params += argSep + 'ajax_request=true';
         $.post($(this).attr('href'), params, function (data) {
@@ -495,9 +495,9 @@ $(function () {
         var $hiddenTableCount = $tr.parents('tbody').children().length;
         var $hideDialogBox = $tr.closest('div.ui-dialog');
         var $msg = Functions.ajaxShowMessage();
-        var argSep = CommonParams.get('arg_separator');
+        var argSep = window.CommonParams.get('arg_separator');
         var params = $(this).getPostData();
-        params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + window.CommonParams.get('server');
         $.ajax({
             type: 'POST',
             data: params,
@@ -538,7 +538,7 @@ $(function () {
             type: 'POST',
             data: {
                 'favoriteTables': hasLocalStorage ? window.localStorage.favoriteTables : '',
-                'server': CommonParams.get('server'),
+                'server': window.CommonParams.get('server'),
             },
             success: function (data) {
                 if (data.changes) {
@@ -571,8 +571,8 @@ $(function () {
             typeof storage.navTreePaths === 'undefined'
         ) {
             Navigation.reload();
-        } else if (CommonParams.get('server') === storage.server &&
-            CommonParams.get('token') === storage.token
+        } else if (window.CommonParams.get('server') === storage.server &&
+            window.CommonParams.get('token') === storage.token
         ) {
             // Reload the tree to the state before page refresh
             Navigation.reload(Navigation.filterStateRestore, JSON.parse(storage.navTreePaths));
@@ -669,8 +669,8 @@ Navigation.scrollToView = function ($element, $forceToTop) {
  * @return {void}
  */
 Navigation.showCurrent = function () {
-    var db = CommonParams.get('db');
-    var table = CommonParams.get('table');
+    var db = window.CommonParams.get('db');
+    var table = window.CommonParams.get('table');
 
     var autoexpand = $('#pma_navigation_tree').hasClass('autoexpand');
 
@@ -897,7 +897,7 @@ Navigation.ensureSettings = function (selflink) {
     if (!$('#pma_navigation_settings').length) {
         var params = {
             getNaviSettings: true,
-            server: CommonParams.get('server'),
+            server: window.CommonParams.get('server'),
         };
         $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
@@ -926,12 +926,12 @@ Navigation.reload = function (callback, paths) {
     var params = {
         'reload': true,
         'no_debug': true,
-        'server': CommonParams.get('server'),
+        'server': window.CommonParams.get('server'),
     };
     var pathsLocal = paths || Navigation.traverseForPaths();
     $.extend(params, pathsLocal);
     if ($('#navi_db_select').length) {
-        params.db = CommonParams.get('db');
+        params.db = window.CommonParams.get('db');
         requestNaviReload(params);
         return;
     }
@@ -964,12 +964,12 @@ Navigation.selectCurrentDatabase = function () {
         return false;
     }
 
-    if (CommonParams.get('db')) { // db selected
+    if (window.CommonParams.get('db')) { // db selected
         $naviDbSelect.show();
     }
 
-    $naviDbSelect.val(CommonParams.get('db'));
-    return $naviDbSelect.val() === CommonParams.get('db');
+    $naviDbSelect.val(window.CommonParams.get('db'));
+    return $naviDbSelect.val() === window.CommonParams.get('db');
 };
 
 /**
@@ -988,20 +988,20 @@ Navigation.treePagination = function ($this) {
     var url = 'index.php?route=/navigation';
     var params = 'ajax_request=true';
     if ($this[0].tagName === 'A') {
-        params += CommonParams.get('arg_separator') + $this.getPostData();
+        params += window.CommonParams.get('arg_separator') + $this.getPostData();
     } else { // tagName === 'SELECT'
-        params += CommonParams.get('arg_separator') + $this.closest('form').serialize();
+        params += window.CommonParams.get('arg_separator') + $this.closest('form').serialize();
     }
     var searchClause = Navigation.FastFilter.getSearchClause();
     if (searchClause) {
-        params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
+        params += window.CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
     }
     if (isDbSelector) {
-        params += CommonParams.get('arg_separator') + 'full=true';
+        params += window.CommonParams.get('arg_separator') + 'full=true';
     } else {
         var searchClause2 = Navigation.FastFilter.getSearchClause2($this);
         if (searchClause2) {
-            params += CommonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
+            params += window.CommonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
         }
     }
     $.post(url, params, function (data) {
@@ -1548,11 +1548,11 @@ Navigation.FastFilter.Filter.prototype.request = function () {
     if (self.$this.find('> ul > li > form.fast_filter').first().find('input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() !== $input[0].defaultValue) {
-            params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
+            params += window.CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
         }
     }
     self.xhr = $.ajax({
-        url: 'index.php?route=/navigation&ajax_request=1&server=' + CommonParams.get('server'),
+        url: 'index.php?route=/navigation&ajax_request=1&server=' + window.CommonParams.get('server'),
         type: 'post',
         dataType: 'json',
         data: params,

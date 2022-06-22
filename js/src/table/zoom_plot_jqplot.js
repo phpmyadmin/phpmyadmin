@@ -153,9 +153,9 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : CommonParams.get('server'),
-            'db' : CommonParams.get('db'),
-            'table' : CommonParams.get('table'),
+            'server' : window.CommonParams.get('server'),
+            'db' : window.CommonParams.get('db'),
+            'table' : window.CommonParams.get('table'),
             'field' : $('#tableid_0').val(),
             'it' : 0
         }, function (data) {
@@ -178,9 +178,9 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : CommonParams.get('server'),
-            'db' : CommonParams.get('db'),
-            'table' : CommonParams.get('table'),
+            'server' : window.CommonParams.get('server'),
+            'db' : window.CommonParams.get('db'),
+            'table' : window.CommonParams.get('table'),
             'field' : $('#tableid_1').val(),
             'it' : 1
         }, function (data) {
@@ -202,9 +202,9 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : CommonParams.get('server'),
-            'db' : CommonParams.get('db'),
-            'table' : CommonParams.get('table'),
+            'server' : window.CommonParams.get('server'),
+            'db' : window.CommonParams.get('db'),
+            'table' : window.CommonParams.get('table'),
             'field' : $('#tableid_2').val(),
             'it' : 2
         }, function (data) {
@@ -224,9 +224,9 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : CommonParams.get('server'),
-            'db' : CommonParams.get('db'),
-            'table' : CommonParams.get('table'),
+            'server' : window.CommonParams.get('server'),
+            'db' : window.CommonParams.get('db'),
+            'table' : window.CommonParams.get('table'),
             'field' : $('#tableid_3').val(),
             'it' : 3
         }, function (data) {
@@ -355,7 +355,7 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
 
         // Generate SQL query for update
         if (!isEmpty(newValues)) {
-            var sqlQuery = 'UPDATE `' + CommonParams.get('table') + '` SET ';
+            var sqlQuery = 'UPDATE `' + window.CommonParams.get('table') + '` SET ';
             for (key in newValues) {
                 sqlQuery += '`' + key + '`=';
                 var value = newValues[key];
@@ -390,8 +390,8 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             sqlQuery += ' WHERE ' + Sql.urlDecode(searchedData[searchedDataKey].where_clause);
 
             $.post('index.php?route=/sql', {
-                'server' : CommonParams.get('server'),
-                'db' : CommonParams.get('db'),
+                'server' : window.CommonParams.get('server'),
+                'db' : window.CommonParams.get('db'),
                 'ajax_request' : true,
                 'sql_query' : sqlQuery,
                 'inline_edit' : false
@@ -574,9 +574,9 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                 var postParams = {
                     'ajax_request' : true,
                     'get_data_row' : true,
-                    'server' : CommonParams.get('server'),
-                    'db' : CommonParams.get('db'),
-                    'table' : CommonParams.get('table'),
+                    'server' : window.CommonParams.get('server'),
+                    'db' : window.CommonParams.get('db'),
+                    'table' : window.CommonParams.get('table'),
                     'where_clause' : data[3],
                     'where_clause_sign' : data[5]
                 };

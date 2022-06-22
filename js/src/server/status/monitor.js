@@ -744,7 +744,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         var loadLogVars = function (getvars) {
             var vars = {
                 'ajax_request': true,
-                'server': CommonParams.get('server')
+                'server': window.CommonParams.get('server')
             };
             if (getvars) {
                 $.extend(vars, getvars);
@@ -1424,7 +1424,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         runtime.refreshRequest = $.post('index.php?route=/server/status/monitor/chart', {
             'ajax_request': true,
             'requiredData': JSON.stringify(runtime.dataList),
-            'server': CommonParams.get('server')
+            'server': window.CommonParams.get('server')
         }, function (data) {
             var chartData;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -1669,7 +1669,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 'time_end': Math.round(opts.end / 1000),
                 'removeVariables': opts.removeVariables,
                 'limitTypes': opts.limitTypes,
-                'server': CommonParams.get('server')
+                'server': window.CommonParams.get('server')
             },
             function (data) {
                 var logData;
@@ -2067,7 +2067,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             'ajax_request': true,
             'query': codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),
             'database': db,
-            'server': CommonParams.get('server')
+            'server': window.CommonParams.get('server')
         }, function (responseData) {
             var data = responseData;
             var i;

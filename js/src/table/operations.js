@@ -69,19 +69,19 @@ window.AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         Functions.prepareForAjaxRequest($form);
-        var argsep = CommonParams.get('arg_separator');
+        var argsep = window.CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($form.find('input[name=\'switch_to_new\']').prop('checked')) {
-                    CommonParams.set(
+                    window.CommonParams.set(
                         'db',
                         $form.find('select[name=\'target_db\'],input[name=\'target_db\']').val()
                     );
-                    CommonParams.set(
+                    window.CommonParams.set(
                         'table',
                         $form.find('input[name=\'new_name\']').val()
                     );
-                    CommonActions.refreshMain(false, function () {
+                    window.CommonActions.refreshMain(false, function () {
                         Functions.ajaxShowMessage(data.message);
                     });
                 } else {
@@ -102,12 +102,12 @@ window.AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         Functions.prepareForAjaxRequest($form);
-        var argsep = CommonParams.get('arg_separator');
+        var argsep = window.CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                CommonParams.set('db', data.params.db);
-                CommonParams.set('table', data.params.table);
-                CommonActions.refreshMain('index.php?route=/table/sql', function () {
+                window.CommonParams.set('db', data.params.db);
+                window.CommonParams.set('table', data.params.table);
+                window.CommonActions.refreshMain('index.php?route=/table/sql', function () {
                     Functions.ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied
@@ -155,8 +155,8 @@ window.AJAX.registerOnload('table/operations.js', function () {
         function submitOptionsForm () {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    CommonParams.set('table', data.params.table);
-                    CommonActions.refreshMain(false, function () {
+                    window.CommonParams.set('table', data.params.table);
+                    window.CommonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
                         Functions.highlightSql($('#page_content'));
                     });
@@ -185,11 +185,11 @@ window.AJAX.registerOnload('table/operations.js', function () {
         // variables which stores the common attributes
         var params = $.param({
             'ajax_request': 1,
-            'server': CommonParams.get('server')
+            'server': window.CommonParams.get('server')
         });
         var postData = $link.getPostData();
         if (postData) {
-            params += CommonParams.get('arg_separator') + postData;
+            params += window.CommonParams.get('arg_separator') + postData;
         }
 
         $.post($link.attr('href'), params, function (data) {
@@ -238,7 +238,7 @@ window.AJAX.registerOnload('table/operations.js', function () {
         var $form = $(this);
 
         function submitPartitionMaintenance () {
-            var argsep = CommonParams.get('arg_separator');
+            var argsep = window.CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             Functions.ajaxShowMessage(Messages.strProcessingRequest);
             window.AJAX.source = $form;
@@ -278,9 +278,9 @@ window.AJAX.registerOnload('table/operations.js', function () {
                     Functions.ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
-                    CommonParams.set('table', '');
-                    CommonActions.refreshMain(
-                        CommonParams.get('opendb_url'),
+                    window.CommonParams.set('table', '');
+                    window.CommonActions.refreshMain(
+                        window.CommonParams.get('opendb_url'),
                         function () {
                             Functions.ajaxShowMessage(data.message);
                         }
@@ -301,7 +301,7 @@ window.AJAX.registerOnload('table/operations.js', function () {
         var question = Messages.strDropTableStrongWarning + ' ';
         question += Functions.sprintf(
             Messages.strDoYouReally,
-            'DROP VIEW `' + Functions.escapeHtml(CommonParams.get('table') + '`')
+            'DROP VIEW `' + Functions.escapeHtml(window.CommonParams.get('table') + '`')
         );
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
@@ -312,9 +312,9 @@ window.AJAX.registerOnload('table/operations.js', function () {
                     Functions.ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
-                    CommonParams.set('table', '');
-                    CommonActions.refreshMain(
-                        CommonParams.get('opendb_url'),
+                    window.CommonParams.set('table', '');
+                    window.CommonActions.refreshMain(
+                        window.CommonParams.get('opendb_url'),
                         function () {
                             Functions.ajaxShowMessage(data.message);
                         }
