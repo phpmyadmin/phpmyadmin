@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-04-21 18:45+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-06-23 22:58+0000\n"
+"Last-Translator: Leonardo José de Lima Ferrucci <leojau@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6963,7 +6963,7 @@ msgstr "Erro: Relacionamento de FOREIGN KEY não pôde ser adicionado!"
 
 #: libraries/classes/Database/Designer/Common.php:622
 msgid "Error: Missing index on column(s)."
-msgstr "Erro: Perda de Índice(s) de coluna(s)."
+msgstr "Erro: Falta o Índice(s) de coluna(s)."
 
 #: libraries/classes/Database/Designer/Common.php:627
 msgid "Error: Relational features are disabled!"
