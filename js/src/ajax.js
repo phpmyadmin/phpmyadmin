@@ -775,112 +775,173 @@ window.AJAX = {
             $(document).off('submit', 'form').on('submit', 'form', window.AJAX.requestHandler);
             callback();
         }
+    },
+
+    /**
+     * Here we register a function that will remove the onsubmit event from all
+     * forms that will be handled by the generic page loader. We then save this
+     * event handler in the "jQuery data", so that we can fire it up later in
+     * window.AJAX.requestHandler().
+     *
+     * See bug #3583316
+     */
+    removeSubmitEvents: function () {
+        // Registering the onload event for functions.js
+        // ensures that it will be fired for all pages
+        $('form').not('.ajax').not('.disableAjax').each(function () {
+            if ($(this).attr('onsubmit')) {
+                $(this).data('onsubmit', this.onsubmit).attr('onsubmit', '');
+            }
+        });
+
+        var $pageContent = $('#page_content');
+        /**
+         * Workaround for passing submit button name,value on ajax form submit
+         * by appending hidden element with submit button name and value.
+         */
+        $pageContent.on('click', 'form input[type=submit]', function () {
+            var buttonName = $(this).attr('name');
+            if (typeof buttonName === 'undefined') {
+                return;
+            }
+            $(this).closest('form').append($('<input>', {
+                'type': 'hidden',
+                'name': buttonName,
+                'value': $(this).val()
+            }));
+        });
+
+        /**
+         * Attach event listener to events when user modify visible
+         * Input,Textarea and select fields to make changes in forms
+         */
+        $pageContent.on(
+            'keyup change',
+            'form.lock-page textarea, ' +
+            'form.lock-page input[type="text"], ' +
+            'form.lock-page input[type="number"], ' +
+            'form.lock-page select',
+            { value: 1 },
+            window.AJAX.lockPageHandler
+        );
+        $pageContent.on(
+            'change',
+            'form.lock-page input[type="checkbox"], ' +
+            'form.lock-page input[type="radio"]',
+            { value: 2 },
+            window.AJAX.lockPageHandler
+        );
+        /**
+         * Reset lock when lock-page form reset event is fired
+         * Note: reset does not bubble in all browser so attach to
+         * form directly.
+         */
+        $('form.lock-page').on('reset', function () {
+            window.AJAX.resetLock();
+        });
+    },
+
+    /**
+     * Page load event handler
+     * @return {function}
+     */
+    loadEventHandler: function () {
+        return function () {
+            var menuContent = $('<div></div>')
+                .append($('#server-breadcrumb').clone())
+                .append($('#topmenucontainer').clone())
+                .html();
+
+            // set initial state reload
+            var initState = ('state' in window.history && window.history.state !== null);
+            var initURL = $('#selflink').find('> a').attr('href') || location.href;
+            var state = {
+                url: initURL,
+                menu: menuContent
+            };
+            history.replaceState(state, null);
+
+            $(window).on('popstate', function (event) {
+                var initPop = (!initState && location.href === initURL);
+                initState = true;
+                // check if popstate fired on first page itself
+                if (initPop) {
+                    return;
+                }
+                var state = event.originalEvent.state;
+                if (state && state.menu) {
+                    window.AJAX.$msgbox = Functions.ajaxShowMessage();
+                    var params = 'ajax_request=true' + window.CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                    var url = state.url || location.href;
+                    $.get(url, params, window.AJAX.responseHandler);
+                    // TODO: Check if sometimes menu is not retrieved from server,
+                    // Not sure but it seems menu was missing only for printview which
+                    // been removed lately, so if it's right some dead menu checks/fallbacks
+                    // may need to be removed from this file and Header.php
+                    // window.AJAX.handleMenu.replace(event.originalEvent.state.menu);
+                }
+            });
+        };
+    },
+
+    /**
+     * Gracefully handle fatal server errors (e.g: 500 - Internal server error)
+     * @return {function}
+     */
+    getFatalErrorHandler: function () {
+        return function (event, request) {
+            if (window.AJAX.debug) {
+                // eslint-disable-next-line no-console
+                console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
+            }
+            // Don't handle aborted requests
+            if (request.status !== 0 || request.statusText !== 'abort') {
+                var details = '';
+                var state = request.state();
+
+                if (
+                    'responseJSON' in request &&
+                    'isErrorResponse' in request.responseJSON &&
+                    request.responseJSON.isErrorResponse
+                ) {
+                    Functions.ajaxShowMessage(
+                        '<div class="alert alert-danger" role="alert">' +
+                        Functions.escapeHtml(request.responseJSON.error) +
+                        '</div>',
+                        false
+                    );
+                    window.AJAX.active = false;
+                    window.AJAX.xhr = null;
+
+                    return;
+                }
+
+                if (request.status !== 0) {
+                    details += '<div>' + Functions.escapeHtml(Functions.sprintf(Messages.strErrorCode, request.status)) + '</div>';
+                }
+                details += '<div>' + Functions.escapeHtml(Functions.sprintf(Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+                if (state === 'rejected' || state === 'timeout') {
+                    details += '<div>' + Functions.escapeHtml(Messages.strErrorConnection) + '</div>';
+                }
+                Functions.ajaxShowMessage(
+                    '<div class="alert alert-danger" role="alert">' +
+                    Messages.strErrorProcessingRequest +
+                    details +
+                    '</div>',
+                    false
+                );
+                window.AJAX.active = false;
+                window.AJAX.xhr = null;
+            }
+        };
     }
 };
 
-/**
- * Here we register a function that will remove the onsubmit event from all
- * forms that will be handled by the generic page loader. We then save this
- * event handler in the "jQuery data", so that we can fire it up later in
- * window.AJAX.requestHandler().
- *
- * See bug #3583316
- */
 window.AJAX.registerOnload('functions.js', function () {
-    // Registering the onload event for functions.js
-    // ensures that it will be fired for all pages
-    $('form').not('.ajax').not('.disableAjax').each(function () {
-        if ($(this).attr('onsubmit')) {
-            $(this).data('onsubmit', this.onsubmit).attr('onsubmit', '');
-        }
-    });
-
-    var $pageContent = $('#page_content');
-    /**
-     * Workaround for passing submit button name,value on ajax form submit
-     * by appending hidden element with submit button name and value.
-     */
-    $pageContent.on('click', 'form input[type=submit]', function () {
-        var buttonName = $(this).attr('name');
-        if (typeof buttonName === 'undefined') {
-            return;
-        }
-        $(this).closest('form').append($('<input>', {
-            'type' : 'hidden',
-            'name' : buttonName,
-            'value': $(this).val()
-        }));
-    });
-
-    /**
-     * Attach event listener to events when user modify visible
-     * Input,Textarea and select fields to make changes in forms
-     */
-    $pageContent.on(
-        'keyup change',
-        'form.lock-page textarea, ' +
-        'form.lock-page input[type="text"], ' +
-        'form.lock-page input[type="number"], ' +
-        'form.lock-page select',
-        { value:1 },
-        window.AJAX.lockPageHandler
-    );
-    $pageContent.on(
-        'change',
-        'form.lock-page input[type="checkbox"], ' +
-        'form.lock-page input[type="radio"]',
-        { value:2 },
-        window.AJAX.lockPageHandler
-    );
-    /**
-     * Reset lock when lock-page form reset event is fired
-     * Note: reset does not bubble in all browser so attach to
-     * form directly.
-     */
-    $('form.lock-page').on('reset', function () {
-        window.AJAX.resetLock();
-    });
+    window.AJAX.removeSubmitEvents();
 });
 
-/**
- * Page load event handler
- */
-$(function () {
-    var menuContent = $('<div></div>')
-        .append($('#server-breadcrumb').clone())
-        .append($('#topmenucontainer').clone())
-        .html();
-
-    // set initial state reload
-    var initState = ('state' in window.history && window.history.state !== null);
-    var initURL = $('#selflink').find('> a').attr('href') || location.href;
-    var state = {
-        url : initURL,
-        menu : menuContent
-    };
-    history.replaceState(state, null);
-
-    $(window).on('popstate', function (event) {
-        var initPop = (! initState && location.href === initURL);
-        initState = true;
-        // check if popstate fired on first page itself
-        if (initPop) {
-            return;
-        }
-        var state = event.originalEvent.state;
-        if (state && state.menu) {
-            window.AJAX.$msgbox = Functions.ajaxShowMessage();
-            var params = 'ajax_request=true' + window.CommonParams.get('arg_separator') + 'ajax_page_request=true';
-            var url = state.url || location.href;
-            $.get(url, params, window.AJAX.responseHandler);
-            // TODO: Check if sometimes menu is not retrieved from server,
-            // Not sure but it seems menu was missing only for printview which
-            // been removed lately, so if it's right some dead menu checks/fallbacks
-            // may need to be removed from this file and Header.php
-            // window.AJAX.handleMenu.replace(event.originalEvent.state.menu);
-        }
-    });
-});
+$(window.AJAX.loadEventHandler());
 
 /**
  * Attach a generic event handler to clicks
@@ -889,52 +950,4 @@ $(function () {
 $(document).on('click', 'a', window.AJAX.requestHandler);
 $(document).on('submit', 'form', window.AJAX.requestHandler);
 
-/**
- * Gracefully handle fatal server errors
- * (e.g: 500 - Internal server error)
- */
-$(document).on('ajaxError', function (event, request) {
-    if (window.AJAX.debug) {
-        // eslint-disable-next-line no-console
-        console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
-    }
-    // Don't handle aborted requests
-    if (request.status !== 0 || request.statusText !== 'abort') {
-        var details = '';
-        var state = request.state();
-
-        if (
-            'responseJSON' in request &&
-            'isErrorResponse' in request.responseJSON &&
-            request.responseJSON.isErrorResponse
-        ) {
-            Functions.ajaxShowMessage(
-                '<div class="alert alert-danger" role="alert">' +
-                Functions.escapeHtml(request.responseJSON.error) +
-                '</div>',
-                false
-            );
-            window.AJAX.active = false;
-            window.AJAX.xhr = null;
-
-            return;
-        }
-
-        if (request.status !== 0) {
-            details += '<div>' + Functions.escapeHtml(Functions.sprintf(Messages.strErrorCode, request.status)) + '</div>';
-        }
-        details += '<div>' + Functions.escapeHtml(Functions.sprintf(Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
-        if (state === 'rejected' || state === 'timeout') {
-            details += '<div>' + Functions.escapeHtml(Messages.strErrorConnection) + '</div>';
-        }
-        Functions.ajaxShowMessage(
-            '<div class="alert alert-danger" role="alert">' +
-            Messages.strErrorProcessingRequest +
-            details +
-            '</div>',
-            false
-        );
-        window.AJAX.active = false;
-        window.AJAX.xhr = null;
-    }
-});
+$(document).on('ajaxError', window.AJAX.getFatalErrorHandler());
