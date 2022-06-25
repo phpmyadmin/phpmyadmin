@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-06-15 11:20+0000\n"
+"PO-Revision-Date: 2022-06-26 19:20+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -285,12 +285,6 @@ msgid "Suboptimal caching method."
 msgstr "Väheoptimaalse puhverdamise meetod."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -300,7 +294,7 @@ msgstr ""
 "Sa kasutad MySQL päringu puhvrit küllaltki suure liiklusega andmebaasis. "
 "MySQL päringu puhvri kasutamise asemel võiksid kaaluda <a href=\"https://dev."
 "mysql.com/doc/refman/5.6/en/ha-memcached.html\">mälu puhvrit</a>, seda eriti "
-"suure hulga alluvserverite puhul."
+"suure hulga koopiaserverite puhul."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -3169,7 +3163,7 @@ msgstr "Suurim teostamise aeg"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Kasuta lauset [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -4979,6 +4973,7 @@ msgstr "Kuvatakse read %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Lehekülg nimega \"%s\" on juba olemas. Palun anna sellele mõni muu nimi."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7424,6 +7419,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Sa ei saa avada, salvestada või kustutada lehe paigutust, sest IndexedDB ei "
+"tööta su brauseris ja su phpMyAdmini konfiguratsiooni salvestuskoht ei ole "
+"selleks konfigureeritud."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, php-format
@@ -8176,22 +8174,17 @@ msgid ""
 msgstr "Ajutiste tabelite arv, mille on hetkel avanud tiražeeriv SQL lõim."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Paljundamisel alluva SQL lõimu poolt ülekannete kordamise hulk kokku (alates "
-"käivitusest)."
+"Tehingute korduskatsete koguarv (alates käivitusest), mida teeb "
+"tiražeerimisel kordistav SQL lõim."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
-msgstr "See on ON, kui see server on alluv, mis on ühendatud ülemaga."
+msgstr ""
+"See on aktiivne (ON), kui see server on esmaserveriga ühendatud kordistaja."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -9026,6 +9019,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Viga 1045: Kasutajal puudub juurdepääs. Täiendav teave võib olla saadaval, "
+"kuid konfiguratsiooni direktiivi %s tõttu on ta peidetud."
 
 #: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -11936,10 +11931,9 @@ msgid "Unknown error"
 msgstr "Tundmatu viga"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Ei saa ühendada ülema %s'ga."
+msgstr "Ei saa ühenduda esmaserveriga %s."
 
 #: libraries/classes/ReplicationGui.php:530
 msgid ""
@@ -15401,7 +15395,7 @@ msgstr "Jäta vahele tabelid, mis on suuremad kui:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Suuruse ühik on MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -17197,13 +17191,6 @@ msgid "Primary configuration"
 msgstr "Originaali konfiguratsioon"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17211,10 +17198,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"See server ei ole häälestatud paljundamise ülemserveriks. Sa saad valida, "
-"kas paljundad kõik andmebaasid ja ignoreerid mõningaid (kasulik, kui soovid "
-"paljundada enamuse andmebaasidest) või ignoreerid vaikimisi kõiki andmebaase "
-"ja lubad paljundada ainult mõningaid andmebaase. Palun vali meetod:"
+"See server ei ole konfigureeritud kui tiražeerimise esmaerver. Sa saad "
+"valida, kas tiražeerid kõik andmebaasid ja ignoreerid mõningaid ja eirad "
+"neist mõnda (kasulik, kui soovid paljundada enamiku andmebaasidest) või "
+"ignoreerid vaikimisi kõiki andmebaase ja lubad ainult mõne andmebaasi "
+"tiražeerimise. Palun vali režiim:"
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -17237,87 +17225,59 @@ msgstr ""
 "seda palun taaskäivita MySQL server."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
-"Kui oled taaskäivitanud MySQL serveri, siis palun vajuta Mine nuppu. "
-"Seejärel peaksid nägema sõnumeid, mis teavitavad sind, et see server "
-"<strong>on</strong> seadistatud ülemaks."
+"Kui oled taaskäivitanud MySQL serveri, siis palun vajuta nuppu Mine. "
+"Seejärel peaksid nägema sõnumeid, mis teavitavad sind selles, et see server "
+"<strong>on</strong> seadistatud esmaseks."
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
-msgstr "See server on paljundamisel seatud ülemaks."
+msgstr "See server on konfigureeritud tiražeerimise esmaserveriks."
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "Näita ühendatud alluvaid"
+msgstr "Näita ühendatud koopiaid"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Selles nimekirjas näeb ainult neid alluvaid, mis algavad --report-"
-"host=host_name valikuga."
+"Selles nimekirjas näeb ainult neid kordistavaid servereid, mis on käivitatud "
+"suvandiga --report-host=host_name."
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "Ühendus serveriga:"
+msgstr "Esmaserveri ühendus:"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "Alluva SQL lõim ei tööta!"
+msgstr "Kordistava sereveri SQL lõim ei tööta!"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "Alluva IO lõim ei tööta!"
+msgstr "Kordistava serveri IO lõim ei tööta!"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
-msgstr "Server on seadistatud paljundamisel alluvaks. Kas soovid:"
+msgstr "Server on konfigureeritud tiražeerimise kordistajaks. Kas sa soovid:"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
-msgstr "Näita alluva staatuse tabelit"
+msgstr "Vaata kordistajate staatuse tabelit"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "Kontrolli alluvat:"
+msgstr "Kontrolli kordistajat:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Pole paljundatud"
+msgstr "Lähtesta kordistaja"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17340,10 +17300,9 @@ msgid "Error management:"
 msgstr "Vea haldus:"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
-msgstr "Vigade vahelejätmine võib rikkuda sünkroonsust ülema ja alluva vahel!"
+msgstr ""
+"Vigade vahelejätmine võib viia sünkroniseerimata esmaserveri ja kordistajani!"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -17355,28 +17314,21 @@ msgid "Skip next %s errors."
 msgstr "Jäta järgmised %s viga vahele."
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"See server ei ole seadistatud paljundamise alluvaks. Kas soovid seda "
-"%smuuta%s?"
+"See server ei ole konfigureeritud kui tiražeerimise kordistaja. Kas soovid "
+"teda %skonfigureerida%s?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "Impordi olek"
+msgstr "Esmaserveri staatus"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "Paljundamise staatus"
+msgstr "Kordistaja staatus"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -17756,32 +17708,22 @@ msgstr ""
 "serveri poolt koostatud statistika ei pruugi õige olla."
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"See MySQL server töötab <b>paljundamisel</b> <b>ülemana</b> ja <b>alluvana</"
-"b>."
+"See MySQL server töötab <b>tiražeerimisel</b> nii <b>esmasena</b> kui ka "
+"<b>kordistajana</b>."
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
-msgstr "See MySQL server töötab <b>paljundamisel</b> <b>ülemana</b>."
+msgstr "See MySQL server töötab <b>tiražeerimisel</b> <b>esmasena</b>."
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
-msgstr "See MySQL server töötab <b>paljundamisel</b> <b>alluvana</b>."
+msgstr "See MySQL server töötab <b>tiražeerimisel</b> <b>kordistajana</b>."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -17966,7 +17908,7 @@ msgstr "Lisa uus server"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Midagi läks valesti."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
