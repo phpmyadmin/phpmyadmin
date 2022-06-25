@@ -132,8 +132,8 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery-migrate.js');
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('ajax.js');
-        $this->scripts->addFile('main.js');
         $this->scripts->addFile('keyhandler.js');
+        $this->scripts->addFile('main.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->scripts->addFile('name-conflict-fixes.js');
         $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
