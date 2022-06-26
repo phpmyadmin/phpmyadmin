@@ -140,17 +140,7 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery.validate.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('menu_resizer.js');
-
-        // Cross-framing protection
-        // At this point browser settings are not merged
-        // this is good that we only use file configuration for this protection
-        if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
-            $this->scripts->addFile('cross_framing_protection.js');
-        }
-
-        // Here would not be a good place to add CodeMirror because
-        // the user preferences have not been merged at this point
-
+        $this->scripts->addFile('cross_framing_protection.js');
         $this->scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         $this->scripts->addFile('config.js');
         $this->scripts->addFile('doclinks.js');

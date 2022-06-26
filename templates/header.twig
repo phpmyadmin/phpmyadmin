@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
+  <script>window.allowThirdPartyFraming = {{ allow_third_party_framing == 'sameorigin' ? '"sameorigin"' : (allow_third_party_framing ? '1' : '0') }};</script>
   {% if not allow_third_party_framing -%}
     <style id="cfs-style">html{display: none;}</style>
   {%- endif %}
