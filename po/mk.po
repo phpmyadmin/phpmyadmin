@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-06-02 08:18+0000\n"
+"PO-Revision-Date: 2022-06-27 23:47+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -81,9 +81,8 @@ msgstr ""
 "Стапката за спори барања би требало да биде под 5%%, вашата вредност е %s%%."
 
 #: libraries/advisory_rules_generic.php:50
-#, fuzzy
 msgid "Slow query rate"
-msgstr "SQL упит"
+msgstr "Спора рата на барање"
 
 #: libraries/advisory_rules_generic.php:54
 msgid ""
@@ -99,9 +98,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:63
-#, fuzzy
 msgid "Long query time"
-msgstr "SQL упит"
+msgstr "Долго време на барање"
 
 #: libraries/advisory_rules_generic.php:67
 msgid ""
@@ -203,10 +201,8 @@ msgstr "Би требало да надградите до стабилна ве
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
-#, fuzzy
-#| msgid "Description"
 msgid "Distribution"
-msgstr "Опис"
+msgstr "Дистрибуција"
 
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -266,9 +262,8 @@ msgid "Query caching method"
 msgstr "Вид на упит"
 
 #: libraries/advisory_rules_generic.php:188
-#, fuzzy
 msgid "Suboptimal caching method."
-msgstr "Вид на упит"
+msgstr "Неоптимален метод на кеширање."
 
 #: libraries/advisory_rules_generic.php:190
 msgid ""
@@ -286,10 +281,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:204
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Процентажа на одредби што причунуваат привремени таблици"
 
 #: libraries/advisory_rules_generic.php:208
 #: libraries/advisory_rules_generic.php:221
@@ -2111,19 +2104,23 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:273
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr ""
+msgstr "Максимум број на карактери употребени кога се покажува SQL барање."
 
 #: libraries/classes/Config/Descriptions.php:276
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
+"Бројот на елементи коишто се покажуваат на секоја странија на првото ниво од "
+"навигационото дрво."
 
 #: libraries/classes/Config/Descriptions.php:279
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
+"Бројот на елементи коишто се покажуваат на секоја странија од навигационото "
+"дрво."
 
 #: libraries/classes/Config/Descriptions.php:282
 msgid ""
@@ -3245,10 +3242,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Препиши ги постоечките податотеки"
 
 #: libraries/classes/Config/Descriptions.php:702
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "хоризонтален (ротирани заглавија)"
+msgstr "Експортирај како одделени фајлови"
 
 #: libraries/classes/Config/Descriptions.php:705
 #, fuzzy
