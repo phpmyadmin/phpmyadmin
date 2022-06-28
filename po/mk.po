@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-06-26 00:22+0000\n"
 "PO-Revision-Date: 2022-06-28 01:09+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
 "Language: mk\n"
@@ -16531,7 +16531,7 @@ msgstr ""
 #: templates/gis_data_editor_form.twig:53
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "Геометрија %d:"
 
 #: templates/gis_data_editor_form.twig:73
 msgid "Point:"
@@ -16554,13 +16554,13 @@ msgstr "Линиите се завршуваат со"
 #: templates/gis_data_editor_form.twig:115
 #: templates/gis_data_editor_form.twig:170
 msgid "Outer ring:"
-msgstr ""
+msgstr "Надворешен прстен:"
 
 #: templates/gis_data_editor_form.twig:117
 #: templates/gis_data_editor_form.twig:172
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Внатрешен прстен %d:"
 
 #: templates/gis_data_editor_form.twig:144
 #, fuzzy
@@ -16578,9 +16578,8 @@ msgid "Add a polygon"
 msgstr "Додади полигон"
 
 #: templates/gis_data_editor_form.twig:205
-#, fuzzy
 msgid "Add geometry"
-msgstr "Додади нов корисник"
+msgstr "Додади геометрија"
 
 #: templates/gis_data_editor_form.twig:214
 msgid "Output"
