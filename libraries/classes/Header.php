@@ -133,7 +133,6 @@ class Header
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('ajax.js');
         $this->scripts->addFile('keyhandler.js');
-        $this->scripts->addFile('main.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->scripts->addFile('name-conflict-fixes.js');
         $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
@@ -142,6 +141,7 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('menu_resizer.js');
         $this->scripts->addFile('cross_framing_protection.js');
+        $this->scripts->addFile('main.js');
         $this->scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         $this->scripts->addFile('config.js');
         $this->scripts->addFile('doclinks.js');
