@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-06-26 00:22+0000\n"
 "PO-Revision-Date: 2022-06-28 00:46+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
 "Language: mk\n"
@@ -5356,6 +5356,9 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Веројатно пробавте да прикачете датотека која е преголема. Ве молиме , "
+"погледнете ја %sдокументацијата%s за начин како да ја заобиколете оваа "
+"граница."
 
 #: libraries/classes/Controllers/Import/ImportController.php:411
 #: libraries/classes/Controllers/Import/ImportController.php:648
