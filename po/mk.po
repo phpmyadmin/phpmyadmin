@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-06-26 00:22+0000\n"
-"PO-Revision-Date: 2022-06-28 00:46+0000\n"
+"PO-Revision-Date: 2022-06-28 00:47+0000\n"
 "Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -5363,7 +5363,7 @@ msgstr ""
 #: libraries/classes/Controllers/Import/ImportController.php:411
 #: libraries/classes/Controllers/Import/ImportController.php:648
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Прикажување ознака"
 
 #: libraries/classes/Controllers/Import/ImportController.php:437
 #: libraries/classes/Controllers/Import/ImportController.php:644
