@@ -13,3 +13,6 @@ window.AJAX.registerTeardown('keyhandler.js', window.KeyHandlerEvents.off());
 window.AJAX.registerOnload('keyhandler.js', window.KeyHandlerEvents.on());
 
 window.crossFramingProtection();
+
+window.AJAX.registerTeardown('config.js', window.Config.off());
+window.AJAX.registerOnload('config.js', window.Config.on());

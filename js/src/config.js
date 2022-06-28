@@ -824,6 +824,3 @@ window.Config = {
         };
     }
 };
-
-window.AJAX.registerTeardown('config.js', window.Config.off());
-window.AJAX.registerOnload('config.js', window.Config.on());
