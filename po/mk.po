@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-06-27 23:47+0000\n"
+"PO-Revision-Date: 2022-06-28 01:09+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -303,7 +303,7 @@ msgstr "Податоци"
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/selection_form.twig:32
 msgid "Select all"
-msgstr "Избери се"
+msgstr "Избери сè"
 
 #: db_operations.php:58 tbl_create.php:27
 msgid "The database name is empty!"
@@ -339,21 +339,17 @@ msgid "You have to choose at least one column to display!"
 msgstr "Изберете барем една колона за приказ!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "во упитот"
+msgstr "повеќе-табеларно барање"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
 msgid "Query by example"
-msgstr "Вид на упит"
+msgstr "Барање по пример"
 
 #: db_qbe.php:168
-#, fuzzy, php-format
-#| msgid "Switch to copied table"
+#, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Премини на копираната табела"
+msgstr "Премини на %sвизуелна изградба%s"
 
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
@@ -388,8 +384,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Откриена е грешка и извештајот за грешка е автоматски доставени врз основа "
-"на вашите подесувања."
+"Пронајдена е грешка и извештајот за грешката е автоматски доставени врз "
+"основа на вашите подесувања."
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
@@ -400,6 +396,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Пронајдена е грешка и генериран е извештај за грешки, но испраќањето не "
+"успеа."
 
 #: error_report.php:86
 msgid "If you experience any problems please submit a bug report manually."
@@ -431,7 +429,7 @@ msgstr ""
 #: gis_data_editor.php:199
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "Геометрија %d:"
 
 #: gis_data_editor.php:221
 msgid "Point:"
@@ -466,12 +464,12 @@ msgstr "Линиите се завршуваат со"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
 msgid "Outer ring:"
-msgstr ""
+msgstr "Надворешен прстен:"
 
 #: gis_data_editor.php:282 gis_data_editor.php:359
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Внатрешен прстен %d:"
 
 #: gis_data_editor.php:319
 #, fuzzy
@@ -480,10 +478,8 @@ msgid "Add a linestring"
 msgstr "Додади нов корисник"
 
 #: gis_data_editor.php:320 gis_data_editor.php:399 js/messages.php:531
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Додади нов корисник"
+msgstr "Додади внатрешен прстен"
 
 #: gis_data_editor.php:341
 #, php-format
@@ -495,9 +491,8 @@ msgid "Add a polygon"
 msgstr "Додади полигон"
 
 #: gis_data_editor.php:411
-#, fuzzy
 msgid "Add geometry"
-msgstr "Додади нов корисник"
+msgstr "Додади геометрија"
 
 #: gis_data_editor.php:417 js/messages.php:354
 #: libraries/classes/BrowseForeigners.php:199
@@ -573,10 +568,13 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Веројатно пробавте да прикачете датотека која е преголема. Ве молиме , "
+"погледнете ја %sдокументацијата%s за начин како да ја заобиколете оваа "
+"граница."
 
 #: import.php:382 import.php:584
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Прикажување белешка"
 
 #: import.php:403 import.php:580
 msgid "The bookmark has been deleted."
