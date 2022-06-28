@@ -31,25 +31,6 @@ function isStorageSupported (type, warn = false) {
     return false;
 }
 
-/**
- * Unbind all event handlers before tearing down a page
- */
-window.AJAX.registerTeardown('config.js', function () {
-    $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
-    $('.optbox input[type=button][name=submit_reset]').off('click');
-    $('div.tab-content').off();
-    $('#import_local_storage, #export_local_storage').off('click');
-    $('form.prefs-form').off('change').off('submit');
-    $(document).off('click', 'div.click-hide-message');
-    $('#prefs_autoload').find('a').off('click');
-});
-
-window.AJAX.registerOnload('config.js', function () {
-    var $topmenuUpt = $('#user_prefs_tabs');
-    $topmenuUpt.find('a.active').attr('rel', 'samepage');
-    $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
-});
-
 // default values for fields
 var defaultValues = {};
 
@@ -592,10 +573,6 @@ function setupValidation () {
     }
 }
 
-window.AJAX.registerOnload('config.js', function () {
-    setupValidation();
-});
-
 //
 // END: Form validation and field operations
 // ------------------------------------------------------------------
@@ -609,28 +586,6 @@ function adjustPrefsNotification () {
         $tableNameControl.css('top', '55px');
     }
 }
-
-window.AJAX.registerOnload('config.js', function () {
-    adjustPrefsNotification();
-});
-
-// ------------------------------------------------------------------
-// Form reset buttons
-//
-
-window.AJAX.registerOnload('config.js', function () {
-    $('.optbox input[type=button][name=submit_reset]').on('click', function () {
-        var fields = $(this).closest('fieldset').find('input, select, textarea');
-        for (var i = 0, imax = fields.length; i < imax; i++) {
-            setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
-        }
-        setDisplayError();
-    });
-});
-
-//
-// END: Form reset buttons
-// ------------------------------------------------------------------
 
 // ------------------------------------------------------------------
 // "Restore default" and "set value" buttons
@@ -678,81 +633,9 @@ function setupRestoreField () {
         .css({ display: 'inline-block', opacity: 0.25 });
 }
 
-window.AJAX.registerOnload('config.js', function () {
-    setupRestoreField();
-});
-
 //
 // END: "Restore default" and "set value" buttons
 // ------------------------------------------------------------------
-
-// ------------------------------------------------------------------
-// User preferences import/export
-//
-
-window.AJAX.registerOnload('config.js', function () {
-    offerPrefsAutoimport();
-    var $radios = $('#import_local_storage, #export_local_storage');
-    if (!$radios.length) {
-        return;
-    }
-
-    // enable JavaScript dependent fields
-    $radios
-        .prop('disabled', false)
-        .add('#export_text_file, #import_text_file')
-        .on('click', function () {
-            var enableId = $(this).attr('id');
-            var disableId;
-            if (enableId.match(/local_storage$/)) {
-                disableId = enableId.replace(/local_storage$/, 'text_file');
-            } else {
-                disableId = enableId.replace(/text_file$/, 'local_storage');
-            }
-            $('#opts_' + disableId).addClass('disabled').find('input').prop('disabled', true);
-            $('#opts_' + enableId).removeClass('disabled').find('input').prop('disabled', false);
-        });
-
-    // detect localStorage state
-    var lsSupported = isStorageSupported('localStorage', true);
-    var lsExists = lsSupported ? (window.localStorage.config || false) : false;
-    $('div.localStorage-' + (lsSupported ? 'un' : '') + 'supported').hide();
-    $('div.localStorage-' + (lsExists ? 'empty' : 'exists')).hide();
-    if (lsExists) {
-        updatePrefsDate();
-    }
-    $('form.prefs-form').on('change', function () {
-        var $form = $(this);
-        var disabled = false;
-        if (!lsSupported) {
-            disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
-        } else if (!lsExists && $form.attr('name') === 'prefs_import' &&
-            $('#import_local_storage')[0].checked
-        ) {
-            disabled = true;
-        }
-        $form.find('input[type=submit]').prop('disabled', disabled);
-    }).on('submit', function (e) {
-        var $form = $(this);
-        if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
-            e.preventDefault();
-            // use AJAX to read JSON settings and save them
-            savePrefsToLocalStorage($form);
-        } else if ($form.attr('name') === 'prefs_import' && $('#import_local_storage')[0].checked) {
-            // set 'json' input and submit form
-            $form.find('input[name=json]').val(window.localStorage.config);
-        }
-    });
-
-    $(document).on('click', 'div.click-hide-message', function () {
-        $(this)
-            .hide()
-            .parent('.card-body')
-            .css('height', '')
-            .next('form')
-            .show();
-    });
-});
 
 /**
  * Saves user preferences to localStorage
@@ -839,3 +722,108 @@ function offerPrefsAutoimport () {
     });
     $cnt.show();
 }
+
+window.Config = {
+    /**
+     * @return {function}
+     */
+    off: function () {
+        return function () {
+            $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
+            $('.optbox input[type=button][name=submit_reset]').off('click');
+            $('div.tab-content').off();
+            $('#import_local_storage, #export_local_storage').off('click');
+            $('form.prefs-form').off('change').off('submit');
+            $(document).off('click', 'div.click-hide-message');
+            $('#prefs_autoload').find('a').off('click');
+        };
+    },
+    /**
+     * @return {function}
+     */
+    on: function () {
+        return function () {
+            var $topmenuUpt = $('#user_prefs_tabs');
+            $topmenuUpt.find('a.active').attr('rel', 'samepage');
+            $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
+
+            setupValidation();
+            adjustPrefsNotification();
+
+            $('.optbox input[type=button][name=submit_reset]').on('click', function () {
+                var fields = $(this).closest('fieldset').find('input, select, textarea');
+                for (var i = 0, imax = fields.length; i < imax; i++) {
+                    setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
+                }
+                setDisplayError();
+            });
+
+            setupRestoreField();
+
+            offerPrefsAutoimport();
+            var $radios = $('#import_local_storage, #export_local_storage');
+            if (!$radios.length) {
+                return;
+            }
+
+            // enable JavaScript dependent fields
+            $radios
+                .prop('disabled', false)
+                .add('#export_text_file, #import_text_file')
+                .on('click', function () {
+                    var enableId = $(this).attr('id');
+                    var disableId;
+                    if (enableId.match(/local_storage$/)) {
+                        disableId = enableId.replace(/local_storage$/, 'text_file');
+                    } else {
+                        disableId = enableId.replace(/text_file$/, 'local_storage');
+                    }
+                    $('#opts_' + disableId).addClass('disabled').find('input').prop('disabled', true);
+                    $('#opts_' + enableId).removeClass('disabled').find('input').prop('disabled', false);
+                });
+
+            // detect localStorage state
+            var lsSupported = isStorageSupported('localStorage', true);
+            var lsExists = lsSupported ? (window.localStorage.config || false) : false;
+            $('div.localStorage-' + (lsSupported ? 'un' : '') + 'supported').hide();
+            $('div.localStorage-' + (lsExists ? 'empty' : 'exists')).hide();
+            if (lsExists) {
+                updatePrefsDate();
+            }
+            $('form.prefs-form').on('change', function () {
+                var $form = $(this);
+                var disabled = false;
+                if (!lsSupported) {
+                    disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
+                } else if (!lsExists && $form.attr('name') === 'prefs_import' &&
+                    $('#import_local_storage')[0].checked
+                ) {
+                    disabled = true;
+                }
+                $form.find('input[type=submit]').prop('disabled', disabled);
+            }).on('submit', function (e) {
+                var $form = $(this);
+                if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
+                    e.preventDefault();
+                    // use AJAX to read JSON settings and save them
+                    savePrefsToLocalStorage($form);
+                } else if ($form.attr('name') === 'prefs_import' && $('#import_local_storage')[0].checked) {
+                    // set 'json' input and submit form
+                    $form.find('input[name=json]').val(window.localStorage.config);
+                }
+            });
+
+            $(document).on('click', 'div.click-hide-message', function () {
+                $(this)
+                    .hide()
+                    .parent('.card-body')
+                    .css('height', '')
+                    .next('form')
+                    .show();
+            });
+        };
+    }
+};
+
+window.AJAX.registerTeardown('config.js', window.Config.off());
+window.AJAX.registerOnload('config.js', window.Config.on());
