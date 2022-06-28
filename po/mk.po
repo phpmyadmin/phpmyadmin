@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-06-26 00:22+0000\n"
-"PO-Revision-Date: 2022-06-28 00:47+0000\n"
+"PO-Revision-Date: 2022-06-28 00:48+0000\n"
 "Last-Translator: Daniel Dimitrov <dimitrov.daniel@hotmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -7082,10 +7082,8 @@ msgstr "Додади точка"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Додади нов корисник"
+msgstr "Додади внатрешен прстен"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 msgid "Do you want to copy encryption key?"
@@ -15257,16 +15255,13 @@ msgstr "Базата на податоци не постои"
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "во упитот"
+msgstr "повеќе-табеларно барање"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
 msgid "Query by example"
-msgstr "Вид на упит"
+msgstr "Барање по пример"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -15516,10 +15511,9 @@ msgid "Add user account"
 msgstr "Било кој корисник"
 
 #: templates/database/qbe/index.twig:16
-#, fuzzy, php-format
-#| msgid "Switch to copied table"
+#, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Премини на копираната табела"
+msgstr "Премини на визуелна изградба"
 
 #: templates/database/qbe/index.twig:20
 msgid "You have to choose at least one column to display!"
