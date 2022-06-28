@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-06-27 23:47+0000\n"
+"PO-Revision-Date: 2022-06-28 01:09+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -5194,8 +5194,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Откриена е грешка и извештајот за грешка е автоматски доставени врз основа "
-"на вашите подесувања."
+"Пронајдена е грешка и извештајот за грешката е автоматски доставени врз "
+"основа на вашите подесувања."
 
 #: libraries/classes/Controllers/ErrorReportController.php:110
 msgid "Thank you for submitting this report."
@@ -5206,6 +5206,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Пронајдена е грешка и генериран е извештај за грешки, но испраќањето не "
+"успеа."
 
 #: libraries/classes/Controllers/ErrorReportController.php:117
 msgid "If you experience any problems please submit a bug report manually."
@@ -5336,11 +5338,14 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Веројатно пробавте да прикачете датотека која е преголема. Ве молиме , "
+"погледнете ја %sдокументацијата%s за начин како да ја заобиколете оваа "
+"граница."
 
 #: libraries/classes/Controllers/Import/ImportController.php:372
 #: libraries/classes/Controllers/Import/ImportController.php:604
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Прикажување белешка"
 
 #: libraries/classes/Controllers/Import/ImportController.php:393
 #: libraries/classes/Controllers/Import/ImportController.php:600
@@ -7051,10 +7056,8 @@ msgstr "Додади точка"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Додади нов корисник"
+msgstr "Додади внатрешен прстен"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 msgid "Do you want to copy encryption key?"
@@ -14516,7 +14519,7 @@ msgstr "Клучот не е дефиниран!"
 #: templates/server/privileges/privileges_table.twig:109
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
-msgstr "Избери се"
+msgstr "Избери сè"
 
 #: templates/database/designer/database_tables.twig:37
 #, fuzzy
@@ -14943,16 +14946,13 @@ msgstr "Базата на податоци не постои"
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "во упитот"
+msgstr "повеќе-табеларно барање"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
 msgid "Query by example"
-msgstr "Вид на упит"
+msgstr "Барање по пример"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -15202,10 +15202,9 @@ msgid "Add user account"
 msgstr "Било кој корисник"
 
 #: templates/database/qbe/index.twig:16
-#, fuzzy, php-format
-#| msgid "Switch to copied table"
+#, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Премини на копираната табела"
+msgstr "Премини на %sвизуелна изградба%s"
 
 #: templates/database/qbe/index.twig:20
 msgid "You have to choose at least one column to display!"
@@ -16175,7 +16174,7 @@ msgstr ""
 #: templates/gis_data_editor_form.twig:53
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "Геометрија %d:"
 
 #: templates/gis_data_editor_form.twig:73
 msgid "Point:"
@@ -16198,13 +16197,13 @@ msgstr "Линиите се завршуваат со"
 #: templates/gis_data_editor_form.twig:115
 #: templates/gis_data_editor_form.twig:170
 msgid "Outer ring:"
-msgstr ""
+msgstr "Надворешен прстен:"
 
 #: templates/gis_data_editor_form.twig:117
 #: templates/gis_data_editor_form.twig:172
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Внатрешен прстен %d:"
 
 #: templates/gis_data_editor_form.twig:144
 #, fuzzy
@@ -16222,9 +16221,8 @@ msgid "Add a polygon"
 msgstr "Додади полигон"
 
 #: templates/gis_data_editor_form.twig:205
-#, fuzzy
 msgid "Add geometry"
-msgstr "Додади нов корисник"
+msgstr "Додади геометрија"
 
 #: templates/gis_data_editor_form.twig:214
 msgid "Output"
