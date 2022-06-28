@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -156,10 +156,6 @@
       <code>$row</code>
       <code>$row</code>
     </InvalidArgument>
-    <InvalidPropertyAssignmentValue occurrences="2">
-      <code>self::$charsets</code>
-      <code>self::$collations</code>
-    </InvalidPropertyAssignmentValue>
     <PossiblyNullArrayOffset occurrences="2">
       <code>self::$charsets</code>
       <code>self::$collations</code>
@@ -976,6 +972,9 @@
       <code>$tabs</code>
       <code>$tabs</code>
     </PossiblyNullIterator>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $groupName</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Console.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -8280,11 +8279,12 @@
       <code>$parent</code>
       <code>$title</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="4">
+    <RedundantCastGivenDocblockType occurrences="5">
       <code>(bool) $isGroup</code>
       <code>(int) $pos</code>
       <code>(string) $name</code>
       <code>(string) $parent-&gt;name</code>
+      <code>(string) $prefix</code>
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeColumn.php">
@@ -14881,6 +14881,9 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['debug']['queries']</code>
     </MixedArrayAssignment>
+    <MixedPropertyAssignment occurrences="1">
+      <code>$object-&gt;child</code>
+    </MixedPropertyAssignment>
   </file>
   <file src="test/classes/Gis/GisFactoryTest.php">
     <PossiblyInvalidArgument occurrences="1">
