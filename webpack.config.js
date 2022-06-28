@@ -49,6 +49,7 @@ module.exports = [
             'jqplot/plugins/jqplot.byteFormatter': './js/src/jqplot/plugins/jqplot.byteFormatter.js',
             'jquery.sortable-table': './js/src/jquery.sortable-table.js',
             'keyhandler': './js/src/keyhandler.js',
+            'main': './js/src/main.js',
             'makegrid': './js/src/makegrid.js',
             'menu_resizer': './js/src/menu_resizer.js',
             'multi_column_sort': './js/src/multi_column_sort.js',
