@@ -143,9 +143,9 @@ class Header
         $this->scripts->addFile('cross_framing_protection.js');
         $this->scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         $this->scripts->addFile('config.js');
-        $this->scripts->addFile('main.js');
         $this->scripts->addFile('doclinks.js');
         $this->scripts->addFile('functions.js');
+        $this->scripts->addFile('main.js');
         $this->scripts->addFile('navigation.js');
         $this->scripts->addFile('indexes.js');
         $this->scripts->addFile('common.js');

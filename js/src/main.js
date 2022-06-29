@@ -16,3 +16,13 @@ window.crossFramingProtection();
 
 window.AJAX.registerTeardown('config.js', window.Config.off());
 window.AJAX.registerOnload('config.js', window.Config.on());
+
+$.ajaxPrefilter(Functions.addNoCacheToAjaxRequests());
+
+window.AJAX.registerTeardown('functions.js', Functions.off());
+window.AJAX.registerOnload('functions.js', Functions.on());
+
+$(Functions.dismissNotifications());
+$(Functions.initializeMenuResizer());
+$(Functions.floatingMenuBar());
+$(Functions.breadcrumbScrollToTop());
