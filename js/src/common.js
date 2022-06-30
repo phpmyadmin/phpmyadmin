@@ -1,8 +1,3 @@
-
-$(function () {
-    Functions.checkNumberOfFields();
-});
-
 /**
  * Holds common parameters such as server, db, table, etc
  *

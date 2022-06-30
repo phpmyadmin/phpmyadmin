@@ -33,3 +33,5 @@ $(Navigation.onload());
 
 window.AJAX.registerTeardown('indexes.js', Indexes.off());
 window.AJAX.registerOnload('indexes.js', Indexes.on());
+
+$(() => Functions.checkNumberOfFields());

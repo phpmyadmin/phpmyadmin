@@ -147,8 +147,8 @@ class Header
         $this->scripts->addFile('functions.js');
         $this->scripts->addFile('navigation.js');
         $this->scripts->addFile('indexes.js');
-        $this->scripts->addFile('main.js');
         $this->scripts->addFile('common.js');
+        $this->scripts->addFile('main.js');
         $this->scripts->addFile('page_settings.js');
 
         $this->scripts->addCode($this->getJsParamsCode());
