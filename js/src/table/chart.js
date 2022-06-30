@@ -1,6 +1,5 @@
 
 /* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
-/* global codeMirrorEditor */ // js/functions.js
 
 var chartData = {};
 var tempChartTitle;
@@ -362,8 +361,8 @@ window.AJAX.registerOnload('table/chart.js', function () {
     // handler for ajax form submission
     $('#tblchartform').on('submit', function () {
         var $form = $(this);
-        if (codeMirrorEditor) {
-            $form[0].elements.sql_query.value = codeMirrorEditor.getValue();
+        if (window.codeMirrorEditor) {
+            $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
         if (!Functions.checkSqlQuery($form[0])) {
             return false;

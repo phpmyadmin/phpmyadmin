@@ -23,7 +23,7 @@ let ajaxMessageCount = 0;
  * Object containing CodeMirror editor of the query editor in SQL tab.
  * @type {(object|boolean|null)}
  */
-var codeMirrorEditor = false;
+window.codeMirrorEditor = false;
 
 /**
  * Object containing CodeMirror editor of the inline query editor.
@@ -744,9 +744,9 @@ Functions.confirmQuery = function (theForm1, sqlQuery1) {
 Functions.checkSqlQuery = function (theForm) {
     // get the textarea element containing the query
     var sqlQuery;
-    if (codeMirrorEditor) {
-        codeMirrorEditor.save();
-        sqlQuery = codeMirrorEditor.getValue();
+    if (window.codeMirrorEditor) {
+        window.codeMirrorEditor.save();
+        sqlQuery = window.codeMirrorEditor.getValue();
     } else {
         sqlQuery = theForm.elements.sql_query.value;
     }
@@ -768,8 +768,8 @@ Functions.checkSqlQuery = function (theForm) {
         alert(Messages.strFormEmpty);
     }
 
-    if (codeMirrorEditor) {
-        codeMirrorEditor.focus();
+    if (window.codeMirrorEditor) {
+        window.codeMirrorEditor.focus();
     } else if (codeMirrorInlineEditor) {
         codeMirrorInlineEditor.focus();
     }
@@ -1107,7 +1107,7 @@ Functions.setSelectOptions = function (theForm, theSelect, doCheck) {
  */
 Functions.updateQueryParameters = function () {
     if ($('#parameterized').is(':checked')) {
-        var query = codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val();
+        var query = window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val();
 
         var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
         var parameters = [];
@@ -1193,8 +1193,8 @@ Functions.teardownSqlQueryEditEvents = () => {
     $(document).off('click', 'a.inline_edit_sql');
     $(document).off('click', 'input#sql_query_edit_save');
     $(document).off('click', 'input#sql_query_edit_discard');
-    if (codeMirrorEditor) {
-        codeMirrorEditor.off('blur');
+    if (window.codeMirrorEditor) {
+        window.codeMirrorEditor.off('blur');
     } else {
         $(document).off('blur', '#sqlquery');
     }
@@ -1209,8 +1209,8 @@ Functions.teardownSqlQueryEditEvents = () => {
         codeMirrorInlineEditor.toTextArea();
         codeMirrorInlineEditor = false;
     }
-    if (codeMirrorEditor) {
-        $(codeMirrorEditor.getWrapperElement()).off('keydown');
+    if (window.codeMirrorEditor) {
+        $(window.codeMirrorEditor.getWrapperElement()).off('keydown');
     }
 };
 
@@ -3636,9 +3636,9 @@ Functions.onloadCodeMirrorEditor = () => {
     }
     if ($elm.length > 0) {
         if (typeof CodeMirror !== 'undefined') {
-            codeMirrorEditor = Functions.getSqlEditor($elm);
-            codeMirrorEditor.focus();
-            codeMirrorEditor.on('blur', Functions.updateQueryParameters);
+            window.codeMirrorEditor = Functions.getSqlEditor($elm);
+            window.codeMirrorEditor.focus();
+            window.codeMirrorEditor.on('blur', Functions.updateQueryParameters);
         } else {
             // without codemirror
             $elm.trigger('focus').on('blur', Functions.updateQueryParameters);
@@ -3651,10 +3651,10 @@ Functions.onloadCodeMirrorEditor = () => {
  * @return {void}
  */
 Functions.teardownCodeMirrorEditor = () => {
-    if (codeMirrorEditor) {
-        $('#sqlquery').text(codeMirrorEditor.getValue());
-        codeMirrorEditor.toTextArea();
-        codeMirrorEditor = false;
+    if (window.codeMirrorEditor) {
+        $('#sqlquery').text(window.codeMirrorEditor.getValue());
+        window.codeMirrorEditor.toTextArea();
+        window.codeMirrorEditor = false;
     }
 };
 
@@ -3779,7 +3779,7 @@ Functions.onloadCreateView = function () {
     }
 
     if ($('textarea[name="view[as]"]').length !== 0) {
-        codeMirrorEditor = Functions.getSqlEditor($('textarea[name="view[as]"]'));
+        window.codeMirrorEditor = Functions.getSqlEditor($('textarea[name="view[as]"]'));
     }
 };
 
@@ -3793,7 +3793,7 @@ Functions.createViewModal = function ($this) {
             Functions.ajaxRemoveMessage($msg);
             $('#createViewModalGoButton').on('click', function () {
                 if (typeof CodeMirror !== 'undefined') {
-                    codeMirrorEditor.save();
+                    window.codeMirrorEditor.save();
                 }
                 $msg = Functions.ajaxShowMessage();
                 $.post('index.php?route=/view/create', $('#createViewModal').find('form').serialize(), function (data) {
@@ -3810,7 +3810,7 @@ Functions.createViewModal = function ($this) {
             $('#createViewModal').find('.modal-body').first().html(data.message);
             // Attach syntax highlighted editor
             $('#createViewModal').on('shown.bs.modal', function () {
-                codeMirrorEditor = Functions.getSqlEditor($('#createViewModal').find('textarea'));
+                window.codeMirrorEditor = Functions.getSqlEditor($('#createViewModal').find('textarea'));
                 $('input:visible[type=text]', $('#createViewModal')).first().trigger('focus');
                 $('#createViewModal').off('shown.bs.modal');
             });

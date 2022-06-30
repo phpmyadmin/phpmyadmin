@@ -8,7 +8,6 @@
  */
 
 /* global isStorageSupported */ // js/config.js
-/* global codeMirrorEditor:writable */ // js/functions.js
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
 /* global variableNames */ // templates/server/status/monitor/index.twig
 
@@ -139,10 +138,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     $('div.tabLinks').show();
     $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
-    if (! codeMirrorEditor) {
+    if (! window.codeMirrorEditor) {
         var $elm = $('#sqlquery');
         if ($elm.length > 0 && typeof CodeMirror !== 'undefined') {
-            codeMirrorEditor = CodeMirror.fromTextArea(
+            window.codeMirrorEditor = CodeMirror.fromTextArea(
                 $elm[0],
                 {
                     lineNumbers: true,
@@ -2012,14 +2011,14 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         var rowData = $(this).parent().data('query');
         var query = rowData.argument || rowData.sql_text;
 
-        if (codeMirrorEditor) {
+        if (window.codeMirrorEditor) {
             // TODO: somehow Functions.sqlPrettyPrint messes up the query, needs be fixed
             // query = Functions.sqlPrettyPrint(query);
-            codeMirrorEditor.setValue(query);
+            window.codeMirrorEditor.setValue(query);
             // Codemirror is bugged, it doesn't refresh properly sometimes.
             // Following lines seem to fix that
             setTimeout(function () {
-                codeMirrorEditor.refresh();
+                window.codeMirrorEditor.refresh();
             }, 50);
         } else {
             $('#sqlquery').val(query);
@@ -2045,8 +2044,8 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                     profilingChart.destroy();
                 }
                 $('#queryAnalyzerDialog').find('div.placeHolder').html('');
-                if (codeMirrorEditor) {
-                    codeMirrorEditor.setValue('');
+                if (window.codeMirrorEditor) {
+                    window.codeMirrorEditor.setValue('');
                 } else {
                     $('#sqlquery').val('');
                 }
@@ -2065,7 +2064,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
         $.post('index.php?route=/server/status/monitor/query', {
             'ajax_request': true,
-            'query': codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),
+            'query': window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val(),
             'database': db,
             'server': window.CommonParams.get('server')
         }, function (responseData) {

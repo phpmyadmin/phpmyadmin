@@ -8,7 +8,6 @@
  */
 
 /* global isStorageSupported */ // js/config.js
-/* global codeMirrorEditor */ // js/functions.js
 /* global makeGrid */ // js/makegrid.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
@@ -95,8 +94,8 @@ Sql.setShowThisQuery = function () {
             && window.localStorage.showThisQuery === '1') {
             $('input[name="show_query"]').prop('checked', true);
             if (db === storedDb && table === storedTable) {
-                if (codeMirrorEditor) {
-                    codeMirrorEditor.setValue(storedQuery);
+                if (window.codeMirrorEditor) {
+                    window.codeMirrorEditor.setValue(storedQuery);
                 } else if (document.sqlform) {
                     document.sqlform.sql_query.value = storedQuery;
                 }
@@ -202,8 +201,8 @@ const handleSimulateQueryButton = function () {
     const deleteRegExp = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     let query = '';
 
-    if (codeMirrorEditor) {
-        query = codeMirrorEditor.getValue();
+    if (window.codeMirrorEditor) {
+        query = window.codeMirrorEditor.getValue();
     } else {
         query = $('#sqlquery').val();
     }
@@ -248,9 +247,9 @@ const selectContent = function (element) {
  * @return {void}
  */
 const setQuery = function (query) {
-    if (codeMirrorEditor) {
-        codeMirrorEditor.setValue(query);
-        codeMirrorEditor.focus();
+    if (window.codeMirrorEditor) {
+        window.codeMirrorEditor.setValue(query);
+        window.codeMirrorEditor.focus();
     } else if (document.sqlform) {
         document.sqlform.sql_query.value = query;
         document.sqlform.sql_query.focus();
@@ -269,13 +268,13 @@ const insertQuery = function (queryType) {
         setQuery('');
         return;
     } else if (queryType === 'format') {
-        if (codeMirrorEditor) {
+        if (window.codeMirrorEditor) {
             $('#querymessage').html(Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
                 themeImagePath + 'ajax_clock_small.gif" alt="">');
             var params = {
                 'ajax_request': true,
-                'sql': codeMirrorEditor.getValue(),
+                'sql': window.codeMirrorEditor.getValue(),
                 'server': window.CommonParams.get('server')
             };
             $.ajax({
@@ -284,7 +283,7 @@ const insertQuery = function (queryType) {
                 data: params,
                 success: function (data) {
                     if (data.success) {
-                        codeMirrorEditor.setValue(data.sql);
+                        window.codeMirrorEditor.setValue(data.sql);
                     }
                     $('#querymessage').html('');
                 },
@@ -373,9 +372,9 @@ const insertValueQuery = function () {
         }
 
         /* CodeMirror support */
-        if (codeMirrorEditor) {
-            codeMirrorEditor.replaceSelection(columnsList);
-            codeMirrorEditor.focus();
+        if (window.codeMirrorEditor) {
+            window.codeMirrorEditor.replaceSelection(columnsList);
+            window.codeMirrorEditor.focus();
             // IE support
         } else if (document.selection) {
             myQuery.focus();
@@ -418,8 +417,8 @@ window.AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'th.column_heading.marker');
     $(document).off('scroll', window);
     $(document).off('keyup', '.filter_rows');
-    if (codeMirrorEditor) {
-        codeMirrorEditor.off('change');
+    if (window.codeMirrorEditor) {
+        window.codeMirrorEditor.off('change');
     } else {
         $('#sqlquery').off('input propertychange');
     }
@@ -452,13 +451,13 @@ window.AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 window.AJAX.registerOnload('sql.js', function () {
-    if (codeMirrorEditor || document.sqlform) {
+    if (window.codeMirrorEditor || document.sqlform) {
         Sql.setShowThisQuery();
     }
     $(function () {
-        if (codeMirrorEditor) {
-            codeMirrorEditor.on('change', function () {
-                Sql.autoSave(codeMirrorEditor.getValue());
+        if (window.codeMirrorEditor) {
+            window.codeMirrorEditor.on('change', function () {
+                Sql.autoSave(window.codeMirrorEditor.getValue());
             });
         } else {
             $('#sqlquery').on('input propertychange', function () {
@@ -683,8 +682,8 @@ window.AJAX.registerOnload('sql.js', function () {
             var db = $('input[name="db"]').val();
             var table = $('input[name="table"]').val();
             var query;
-            if (codeMirrorEditor) {
-                query = codeMirrorEditor.getValue();
+            if (window.codeMirrorEditor) {
+                query = window.codeMirrorEditor.getValue();
             } else {
                 query = $('#sqlquery').val();
             }
@@ -756,8 +755,8 @@ window.AJAX.registerOnload('sql.js', function () {
         event.preventDefault();
 
         var $form = $(this);
-        if (codeMirrorEditor) {
-            $form[0].elements.sql_query.value = codeMirrorEditor.getValue();
+        if (window.codeMirrorEditor) {
+            $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
         if (! Functions.checkSqlQuery($form[0])) {
             return false;
@@ -946,8 +945,8 @@ window.AJAX.registerOnload('sql.js', function () {
         var delimiter = $('#id_sql_delimiter').val();
         var dbName = $form.find('input[name="db"]').val();
 
-        if (codeMirrorEditor) {
-            query = codeMirrorEditor.getValue();
+        if (window.codeMirrorEditor) {
+            query = window.codeMirrorEditor.getValue();
         } else {
             query = $('#sqlquery').val();
         }
@@ -1243,7 +1242,7 @@ window.AJAX.registerOnload('sql.js', function () {
     /**
      * Check if there is any saved query
      */
-    if (codeMirrorEditor || document.sqlform) {
+    if (window.codeMirrorEditor || document.sqlform) {
         Sql.checkSavedQuery();
     }
 });
