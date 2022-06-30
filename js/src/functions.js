@@ -59,36 +59,31 @@ window.centralColumnList = [];
  * Array to hold 'Primary' index columns.
  * @type {array}
  */
-// eslint-disable-next-line no-unused-vars
-var primaryIndexes = [];
+window.primaryIndexes = [];
 
 /**
  * Array to hold 'Unique' index columns.
  * @type {array}
  */
-// eslint-disable-next-line no-unused-vars
-var uniqueIndexes = [];
+window.uniqueIndexes = [];
 
 /**
  * Array to hold 'Index' columns.
  * @type {array}
  */
-// eslint-disable-next-line no-unused-vars
-var indexes = [];
+window.indexes = [];
 
 /**
  * Array to hold 'Fulltext' columns.
  * @type {array}
  */
-// eslint-disable-next-line no-unused-vars
-var fulltextIndexes = [];
+window.fulltextIndexes = [];
 
 /**
  * Array to hold 'Spatial' columns.
  * @type {array}
  */
-// eslint-disable-next-line no-unused-vars
-var spatialIndexes = [];
+window.spatialIndexes = [];
 
 /**
  * Make sure that ajax requests will not be cached by appending a random variable to their parameters.

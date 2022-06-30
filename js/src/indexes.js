@@ -7,8 +7,6 @@
  * @required    js/functions.js
  */
 
-/* global fulltextIndexes:writable, indexes:writable, primaryIndexes:writable, spatialIndexes:writable, uniqueIndexes:writable */ // js/functions.js
-
 var Indexes = {};
 
 /**
@@ -23,19 +21,19 @@ Indexes.getIndexArray = function (indexChoice) {
 
     switch (indexChoice.toLowerCase()) {
     case 'primary':
-        sourceArray = primaryIndexes;
+        sourceArray = window.primaryIndexes;
         break;
     case 'unique':
-        sourceArray = uniqueIndexes;
+        sourceArray = window.uniqueIndexes;
         break;
     case 'index':
-        sourceArray = indexes;
+        sourceArray = window.indexes;
         break;
     case 'fulltext':
-        sourceArray = fulltextIndexes;
+        sourceArray = window.fulltextIndexes;
         break;
     case 'spatial':
-        sourceArray = spatialIndexes;
+        sourceArray = window.spatialIndexes;
         break;
     default:
         return null;
@@ -568,11 +566,11 @@ Indexes.off = () => function () {
  */
 Indexes.on = () => function () {
     // Re-initialize variables.
-    primaryIndexes = [];
-    uniqueIndexes = [];
-    indexes = [];
-    fulltextIndexes = [];
-    spatialIndexes = [];
+    window.primaryIndexes = [];
+    window.uniqueIndexes = [];
+    window.indexes = [];
+    window.fulltextIndexes = [];
+    window.spatialIndexes = [];
 
     // for table creation form
     var $engineSelector = $('.create_table_form select[name=tbl_storage_engine]');

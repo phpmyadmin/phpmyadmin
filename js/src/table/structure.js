@@ -7,8 +7,6 @@
  * @required    js/functions.js
  */
 
-// eslint-disable-next-line no-unused-vars
-/* global primaryIndexes:writable, indexes:writable, fulltextIndexes:writable, spatialIndexes:writable */ // js/functions.js
 /* global sprintf */ // js/vendor/sprintf.js
 
 /**
@@ -57,10 +55,10 @@ window.AJAX.registerTeardown('table/structure.js', function () {
 
 window.AJAX.registerOnload('table/structure.js', function () {
     // Re-initialize variables.
-    primaryIndexes = [];
-    indexes = [];
-    fulltextIndexes = [];
-    spatialIndexes = [];
+    window.primaryIndexes = [];
+    window.indexes = [];
+    window.fulltextIndexes = [];
+    window.spatialIndexes = [];
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
