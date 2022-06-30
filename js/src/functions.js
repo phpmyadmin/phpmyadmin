@@ -11,7 +11,8 @@
  * General functions, usually for data manipulation pages.
  * @type {object}
  */
-var Functions = {};
+const Functions = {};
+window.Functions = Functions;
 
 /**
  * Number of AJAX messages shown since page load.
@@ -4125,8 +4126,7 @@ Functions.toggleDatepickerIfInvalid = function ($td, $inputField) {
  * Function to submit the login form after validation is done.
  * NOTE: do NOT use a module or it will break the callback, issue #15435
  */
-// eslint-disable-next-line no-unused-vars
-var recaptchaCallback = function () {
+window.recaptchaCallback = function () {
     $('#login_form').trigger('submit');
 };
 
