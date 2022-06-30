@@ -7,6 +7,7 @@
  * @required    js/functions.js
  */
 
+/* global Navigation */
 /* global sprintf */ // js/vendor/sprintf.js
 
 /**

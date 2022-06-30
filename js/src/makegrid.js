@@ -1,3 +1,4 @@
+/* global Sql */
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
 
 /**

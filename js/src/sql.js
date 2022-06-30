@@ -7,6 +7,7 @@
  * @test-module Sql
  */
 
+/* global Navigation */
 /* global isStorageSupported */ // js/config.js
 /* global makeGrid */ // js/makegrid.js
 /* global themeImagePath */ // templates/javascript/variables.twig
@@ -49,7 +50,7 @@ Sql.autoSave = function (query) {
         if (isStorageSupported('localStorage')) {
             window.localStorage.setItem(key, query);
         } else {
-            Cookies.set(key, query, { path: window.CommonParams.get('rootPath') });
+            window.Cookies.set(key, query, { path: window.CommonParams.get('rootPath') });
         }
     }
 };
@@ -72,8 +73,8 @@ Sql.showThisQuery = function (db, table, query) {
         window.localStorage.showThisQuery = 1;
         window.localStorage.showThisQueryObject = JSON.stringify(showThisQueryObject);
     } else {
-        Cookies.set('showThisQuery', 1, { path: window.CommonParams.get('rootPath') });
-        Cookies.set('showThisQueryObject', JSON.stringify(showThisQueryObject), { path: window.CommonParams.get('rootPath') });
+        window.Cookies.set('showThisQuery', 1, { path: window.CommonParams.get('rootPath') });
+        window.Cookies.set('showThisQueryObject', JSON.stringify(showThisQueryObject), { path: window.CommonParams.get('rootPath') });
     }
 };
 
@@ -117,7 +118,7 @@ Sql.autoSaveWithSort = function (query) {
         if (isStorageSupported('localStorage')) {
             window.localStorage.setItem('autoSavedSqlSort', query);
         } else {
-            Cookies.set('autoSavedSqlSort', query, { path: window.CommonParams.get('rootPath') });
+            window.Cookies.set('autoSavedSqlSort', query, { path: window.CommonParams.get('rootPath') });
         }
     }
 };
@@ -131,7 +132,7 @@ Sql.clearAutoSavedSort = function () {
     if (isStorageSupported('localStorage')) {
         window.localStorage.removeItem('autoSavedSqlSort');
     } else {
-        Cookies.set('autoSavedSqlSort', '', { path: window.CommonParams.get('rootPath') });
+        window.Cookies.set('autoSavedSqlSort', '', { path: window.CommonParams.get('rootPath') });
     }
 };
 
@@ -304,8 +305,8 @@ const insertQuery = function (queryType) {
         if (isStorageSupported('localStorage') &&
             typeof window.localStorage.getItem(key) === 'string') {
             setQuery(window.localStorage.getItem(key));
-        } else if (Cookies.get(key, { path: window.CommonParams.get('rootPath') })) {
-            setQuery(Cookies.get(key, { path: window.CommonParams.get('rootPath') }));
+        } else if (window.Cookies.get(key, { path: window.CommonParams.get('rootPath') })) {
+            setQuery(window.Cookies.get(key, { path: window.CommonParams.get('rootPath') }));
         } else {
             Functions.ajaxShowMessage(Messages.strNoAutoSavedQuery);
         }
@@ -476,7 +477,7 @@ window.AJAX.registerOnload('sql.js', function () {
                 Sql.clearAutoSavedSort();
             }
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = useLocalStorageValue ? window.localStorage.autoSavedSqlSort : Cookies.get('autoSavedSqlSort', { path: window.CommonParams.get('rootPath') });
+            var sortStoredQuery = useLocalStorageValue ? window.localStorage.autoSavedSqlSort : window.Cookies.get('autoSavedSqlSort', { path: window.CommonParams.get('rootPath') });
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
                 $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
@@ -1206,7 +1207,7 @@ Sql.checkSavedQuery = function () {
     if (isStorageSupported('localStorage') &&
         typeof window.localStorage.getItem(key) === 'string') {
         Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
-    } else if (Cookies.get(key, { path: window.CommonParams.get('rootPath') })) {
+    } else if (window.Cookies.get(key, { path: window.CommonParams.get('rootPath') })) {
         Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
     }
 };

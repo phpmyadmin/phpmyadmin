@@ -1,3 +1,5 @@
+/* global Navigation */
+
 /**
  * Export privileges modal handler
  *

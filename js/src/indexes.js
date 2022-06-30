@@ -1,3 +1,5 @@
+/* global Navigation */
+
 /**
  * @fileoverview    function used for index manipulation pages
  * @name            Table Structure

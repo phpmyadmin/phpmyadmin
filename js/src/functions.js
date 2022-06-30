@@ -1,3 +1,4 @@
+/* global Navigation */
 /* global isStorageSupported */ // js/config.js
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js

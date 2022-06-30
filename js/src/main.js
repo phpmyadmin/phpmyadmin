@@ -1,4 +1,5 @@
 /* global Indexes */
+/* global Navigation */
 
 window.AJAX.registerOnload('functions.js', () => window.AJAX.removeSubmitEvents());
 $(window.AJAX.loadEventHandler());

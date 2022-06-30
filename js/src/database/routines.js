@@ -1,3 +1,5 @@
+/* global Navigation */
+
 window.AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('click', 'a.ajax.add_anchor');
     $(document).off('click', 'a.ajax.edit_anchor');

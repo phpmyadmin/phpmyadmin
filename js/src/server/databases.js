@@ -1,3 +1,5 @@
+/* global Navigation */
+
 /**
  * @implements EventListener
  */
