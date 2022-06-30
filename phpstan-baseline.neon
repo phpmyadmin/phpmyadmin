@@ -4141,6 +4141,16 @@ parameters:
 			path: libraries/classes/Image/ImageWrapper.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:height\\(\\) should return int but returns int\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:width\\(\\) should return int but returns int\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Import\\:\\:analyzeTable\\(\\) has parameter \\$table with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
