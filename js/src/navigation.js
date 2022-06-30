@@ -274,9 +274,9 @@ Navigation.traverseForPaths = function () {
 };
 
 /**
- * Executed on page load
+ * @return {function}
  */
-$(function () {
+Navigation.onload = () => function () {
     if (! $('#pma_navigation').length) {
         // Don't bother running any code if the navigation is not even on the page
         return;
@@ -327,7 +327,7 @@ $(function () {
         Navigation.reload(hideNav);
     });
 
-    $(document).on('change', '#navi_db_select',  function () {
+    $(document).on('change', '#navi_db_select', function () {
         if (! $(this).val()) {
             window.CommonParams.set('db', '');
             Navigation.reload();
@@ -582,7 +582,7 @@ $(function () {
             Navigation.reload();
         }
     }
-});
+};
 
 /**
  * Expands a node in navigation tree.

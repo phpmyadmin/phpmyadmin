@@ -26,3 +26,5 @@ $(Functions.dismissNotifications());
 $(Functions.initializeMenuResizer());
 $(Functions.floatingMenuBar());
 $(Functions.breadcrumbScrollToTop());
+
+$(Navigation.onload());
