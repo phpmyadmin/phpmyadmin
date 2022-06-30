@@ -33,16 +33,18 @@ function showNaviSettings () {
     showSettings('#pma_navigation_settings');
 }
 
-window.AJAX.registerTeardown('page_settings.js', function () {
+window.PageSettings = {};
+
+window.PageSettings.off = () => function () {
     $('#page_settings_icon').css('display', 'none');
     $('#page_settings_icon').off('click');
     $('#pma_navigation_settings_icon').off('click');
-});
+};
 
-window.AJAX.registerOnload('page_settings.js', function () {
+window.PageSettings.on = () => function () {
     if ($('#page_settings_modal').length) {
         $('#page_settings_icon').css('display', 'inline');
         $('#page_settings_icon').on('click', showPageSettings);
     }
     $('#pma_navigation_settings_icon').on('click', showNaviSettings);
-});
+};

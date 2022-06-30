@@ -35,3 +35,6 @@ window.AJAX.registerTeardown('indexes.js', Indexes.off());
 window.AJAX.registerOnload('indexes.js', Indexes.on());
 
 $(() => Functions.checkNumberOfFields());
+
+window.AJAX.registerTeardown('page_settings.js', window.PageSettings.off());
+window.AJAX.registerOnload('page_settings.js', window.PageSettings.on());
