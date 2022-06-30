@@ -50,7 +50,7 @@ const EditUserGroup = {
                     return;
                 }
 
-                const modal = bootstrap.Modal.getInstance(editUserGroupModal);
+                const modal = window.bootstrap.Modal.getInstance(editUserGroupModal);
                 const modalBody = editUserGroupModal.querySelector('.modal-body');
                 const saveButton = editUserGroupModal.querySelector('#editUserGroupModalSaveButton');
 

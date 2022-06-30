@@ -15,8 +15,6 @@
         "jquery": true
     },
     "globals": {
-        "bootstrap": "readonly",
-        "CodeMirror": "readonly",
         "Cookies": "readonly",
         "Functions": "readonly",
         "Messages": "readonly",

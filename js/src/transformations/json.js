@@ -10,7 +10,7 @@ window.AJAX.registerOnload('transformations/json.js', function () {
         if ($pre.is(':visible')) {
             var $highlight = $('<div class="json-highlight cm-s-default"></div>');
             $json.append($highlight);
-            CodeMirror.runMode($json.text(), 'application/json', $highlight[0]);
+            window.CodeMirror.runMode($json.text(), 'application/json', $highlight[0]);
             $pre.hide();
         }
     });

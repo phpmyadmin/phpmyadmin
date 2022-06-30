@@ -277,7 +277,7 @@ Functions.handleRedirectAndReload = function (data) {
  */
 Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
     var resizeType = resize;
-    if ($textarea.length > 0 && typeof CodeMirror !== 'undefined') {
+    if ($textarea.length > 0 && typeof window.CodeMirror !== 'undefined') {
         // merge options for CodeMirror
         var defaults = {
             lineNumbers: true,
@@ -289,11 +289,11 @@ Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
             lineWrapping: true
         };
 
-        if (CodeMirror.sqlLint) {
+        if (window.CodeMirror.sqlLint) {
             $.extend(defaults, {
                 gutters: ['CodeMirror-lint-markers'],
                 lint: {
-                    'getAnnotations': CodeMirror.sqlLint,
+                    'getAnnotations': window.CodeMirror.sqlLint,
                     'async': true,
                     'lintOptions': lintOptions
                 }
@@ -303,7 +303,7 @@ Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
         $.extend(true, defaults, options);
 
         // create CodeMirror editor
-        var codemirrorEditor = CodeMirror.fromTextArea($textarea[0], defaults);
+        var codemirrorEditor = window.CodeMirror.fromTextArea($textarea[0], defaults);
         // allow resizing
         if (! resizeType) {
             resizeType = 'vertical';
@@ -1374,7 +1374,7 @@ Functions.codeMirrorAutoCompleteOnInputRead = function (instance) {
         string = token.string;
     }
     if (string.length > 0) {
-        CodeMirror.commands.autocomplete(instance);
+        window.CodeMirror.commands.autocomplete(instance);
     }
 };
 
@@ -1389,7 +1389,7 @@ Functions.removeAutocompleteInfo = () => {
 Functions.bindCodeMirrorToInlineEditor = function () {
     var $inlineEditor = $('#sql_query_edit');
     if ($inlineEditor.length > 0) {
-        if (typeof CodeMirror !== 'undefined') {
+        if (typeof window.CodeMirror !== 'undefined') {
             var height = $inlineEditor.css('height');
             codeMirrorInlineEditor = Functions.getSqlEditor($inlineEditor);
             codeMirrorInlineEditor.getWrapperElement().style.height = height;
@@ -1504,8 +1504,8 @@ Functions.highlightSql = function ($base) {
         if ($pre.is(':visible')) {
             var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
             $sql.append($highlight);
-            if (typeof CodeMirror !== 'undefined') {
-                CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
+            if (typeof window.CodeMirror !== 'undefined') {
+                window.CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
                 $pre.hide();
                 $highlight.find('.cm-keyword').each(Functions.documentationKeyword);
                 $highlight.find('.cm-builtin').each(Functions.documentationBuiltin);
@@ -1553,9 +1553,9 @@ Functions.updateCode = function ($base, htmlValue, rawValue) {
     var $notHighlighted = $('<pre>' + htmlValue + '</pre>');
 
     // Tries to highlight code using CodeMirror.
-    if (typeof CodeMirror !== 'undefined') {
+    if (typeof window.CodeMirror !== 'undefined') {
         var $highlighted = $('<div class="' + type + '-highlight cm-s-default"></div>');
-        CodeMirror.runMode(rawValue, mode, $highlighted[0]);
+        window.CodeMirror.runMode(rawValue, mode, $highlighted[0]);
         $notHighlighted.hide();
         $code.html('').append($notHighlighted, $highlighted[0]);
     } else {
@@ -2025,12 +2025,12 @@ Functions.prettyProfilingNum = function (number, accuracy) {
  * @return {string}      The formatted query
  */
 Functions.sqlPrettyPrint = function (string) {
-    if (typeof CodeMirror === 'undefined') {
+    if (typeof window.CodeMirror === 'undefined') {
         return string;
     }
 
-    var mode = CodeMirror.getMode({}, 'text/x-mysql');
-    var stream = new CodeMirror.StringStream(string);
+    var mode = window.CodeMirror.getMode({}, 'text/x-mysql');
+    var stream = new window.CodeMirror.StringStream(string);
     var state = mode.startState();
     var token;
     var tokens = [];
@@ -3631,7 +3631,7 @@ Functions.onloadCodeMirrorEditor = () => {
         return;
     }
     if ($elm.length > 0) {
-        if (typeof CodeMirror !== 'undefined') {
+        if (typeof window.CodeMirror !== 'undefined') {
             window.codeMirrorEditor = Functions.getSqlEditor($elm);
             window.codeMirrorEditor.focus();
             window.codeMirrorEditor.on('blur', Functions.updateQueryParameters);
@@ -3788,7 +3788,7 @@ Functions.createViewModal = function ($this) {
         if (typeof data !== 'undefined' && data.success === true) {
             Functions.ajaxRemoveMessage($msg);
             $('#createViewModalGoButton').on('click', function () {
-                if (typeof CodeMirror !== 'undefined') {
+                if (typeof window.CodeMirror !== 'undefined') {
                     window.codeMirrorEditor.save();
                 }
                 $msg = Functions.ajaxShowMessage();

@@ -10,7 +10,7 @@ window.AJAX.registerOnload('transformations/xml.js', function () {
         if ($pre.is(':visible')) {
             var $highlight = $('<div class="xml-highlight cm-s-default"></div>');
             $json.append($highlight);
-            CodeMirror.runMode($json.text(), 'application/xml', $highlight[0]);
+            window.CodeMirror.runMode($json.text(), 'application/xml', $highlight[0]);
             $pre.hide();
         }
     });

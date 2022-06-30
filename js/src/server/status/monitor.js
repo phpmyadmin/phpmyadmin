@@ -140,8 +140,8 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     // Codemirror is loaded on demand so we might need to initialize it
     if (! window.codeMirrorEditor) {
         var $elm = $('#sqlquery');
-        if ($elm.length > 0 && typeof CodeMirror !== 'undefined') {
-            window.codeMirrorEditor = CodeMirror.fromTextArea(
+        if ($elm.length > 0 && typeof window.CodeMirror !== 'undefined') {
+            window.codeMirrorEditor = window.CodeMirror.fromTextArea(
                 $elm[0],
                 {
                     lineNumbers: true,
