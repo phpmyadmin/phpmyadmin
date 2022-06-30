@@ -53,7 +53,7 @@ let sqlAutoCompleteDefaultTable = '';
  * Array to hold the columns in central list per db.
  * @type {array}
  */
-var centralColumnList = [];
+window.centralColumnList = [];
 
 /**
  * Array to hold 'Primary' index columns.
@@ -2713,38 +2713,38 @@ Functions.autoPopulate = function (inputId, offset) {
     var db = window.CommonParams.get('db');
     var table = window.CommonParams.get('table');
     var newInputId = inputId.substring(0, inputId.length - 1);
-    $('#' + newInputId + '1').val(centralColumnList[db + '_' + table][offset].col_name);
-    var colType = centralColumnList[db + '_' + table][offset].col_type.toUpperCase();
+    $('#' + newInputId + '1').val(window.centralColumnList[db + '_' + table][offset].col_name);
+    var colType = window.centralColumnList[db + '_' + table][offset].col_type.toUpperCase();
     $('#' + newInputId + '2').val(colType);
     var $input3 = $('#' + newInputId + '3');
-    $input3.val(centralColumnList[db + '_' + table][offset].col_length);
+    $input3.val(window.centralColumnList[db + '_' + table][offset].col_length);
     if (colType === 'ENUM' || colType === 'SET') {
         $input3.next().show();
     } else {
         $input3.next().hide();
     }
-    var colDefault = centralColumnList[db + '_' + table][offset].col_default.toUpperCase();
+    var colDefault = window.centralColumnList[db + '_' + table][offset].col_default.toUpperCase();
     var $input4 = $('#' + newInputId + '4');
     if (colDefault !== '' && colDefault !== 'NULL' && colDefault !== 'CURRENT_TIMESTAMP' && colDefault !== 'CURRENT_TIMESTAMP()') {
         $input4.val('USER_DEFINED');
         $input4.next().next().show();
-        $input4.next().next().val(centralColumnList[db + '_' + table][offset].col_default);
+        $input4.next().next().val(window.centralColumnList[db + '_' + table][offset].col_default);
     } else {
-        $input4.val(centralColumnList[db + '_' + table][offset].col_default);
+        $input4.val(window.centralColumnList[db + '_' + table][offset].col_default);
         $input4.next().next().hide();
     }
-    $('#' + newInputId + '5').val(centralColumnList[db + '_' + table][offset].col_collation);
+    $('#' + newInputId + '5').val(window.centralColumnList[db + '_' + table][offset].col_collation);
     var $input6 = $('#' + newInputId + '6');
-    $input6.val(centralColumnList[db + '_' + table][offset].col_attribute);
-    if (centralColumnList[db + '_' + table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
-        $input6.val(centralColumnList[db + '_' + table][offset].col_extra);
+    $input6.val(window.centralColumnList[db + '_' + table][offset].col_attribute);
+    if (window.centralColumnList[db + '_' + table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
+        $input6.val(window.centralColumnList[db + '_' + table][offset].col_extra);
     }
-    if (centralColumnList[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
+    if (window.centralColumnList[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
         $('#' + newInputId + '9').prop('checked', true).trigger('change');
     } else {
         $('#' + newInputId + '9').prop('checked', false);
     }
-    if (centralColumnList[db + '_' + table][offset].col_isNull !== '0') {
+    if (window.centralColumnList[db + '_' + table][offset].col_isNull !== '0') {
         $('#' + newInputId + '7').prop('checked', true);
     } else {
         $('#' + newInputId + '7').prop('checked', false);
@@ -2914,33 +2914,33 @@ Functions.onloadEnumSetEditor = function () {
         };
         var colid = $(this).closest('td').find('input').attr('id');
         var fields = '';
-        if (! (db + '_' + table in centralColumnList)) {
-            centralColumnList.push(db + '_' + table);
+        if (! (db + '_' + table in window.centralColumnList)) {
+            window.centralColumnList.push(db + '_' + table);
             $.ajax({
                 type: 'POST',
                 url: href,
                 data: params,
                 success: function (data) {
-                    centralColumnList[db + '_' + table] = data.message;
+                    window.centralColumnList[db + '_' + table] = data.message;
                 },
                 async: false
             });
         }
         var i = 0;
-        var listSize = centralColumnList[db + '_' + table].length;
+        var listSize = window.centralColumnList[db + '_' + table].length;
         var min = (listSize <= maxRows) ? listSize : maxRows;
         for (i = 0; i < min; i++) {
             fields += '<tr><td><div><span class="fw-bold">' +
-                Functions.escapeHtml(centralColumnList[db + '_' + table][i].col_name) +
-                '</span><br><span class="color_gray">' + centralColumnList[db + '_' + table][i].col_type;
+                Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_name) +
+                '</span><br><span class="color_gray">' + window.centralColumnList[db + '_' + table][i].col_type;
 
-            if (centralColumnList[db + '_' + table][i].col_attribute !== '') {
-                fields += '(' + Functions.escapeHtml(centralColumnList[db + '_' + table][i].col_attribute) + ') ';
+            if (window.centralColumnList[db + '_' + table][i].col_attribute !== '') {
+                fields += '(' + Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_attribute) + ') ';
             }
-            if (centralColumnList[db + '_' + table][i].col_length !== '') {
-                fields += '(' + Functions.escapeHtml(centralColumnList[db + '_' + table][i].col_length) + ') ';
+            if (window.centralColumnList[db + '_' + table][i].col_length !== '') {
+                fields += '(' + Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_length) + ') ';
             }
-            fields += Functions.escapeHtml(centralColumnList[db + '_' + table][i].col_extra) + '</span>' +
+            fields += Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
             if (pick) {
                 fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
@@ -2993,17 +2993,17 @@ Functions.onloadEnumSetEditor = function () {
                     min = (listSize <= maxRows + resultPointer) ? listSize : maxRows + resultPointer;
                     for (i = resultPointer; i < min; i++) {
                         fields += '<tr><td><div><span class="fw-bold">' +
-                            centralColumnList[db + '_' + table][i].col_name +
+                            window.centralColumnList[db + '_' + table][i].col_name +
                             '</span><br><span class="color_gray">' +
-                            centralColumnList[db + '_' + table][i].col_type;
+                            window.centralColumnList[db + '_' + table][i].col_type;
 
-                        if (centralColumnList[db + '_' + table][i].col_attribute !== '') {
-                            fields += '(' + centralColumnList[db + '_' + table][i].col_attribute + ') ';
+                        if (window.centralColumnList[db + '_' + table][i].col_attribute !== '') {
+                            fields += '(' + window.centralColumnList[db + '_' + table][i].col_attribute + ') ';
                         }
-                        if (centralColumnList[db + '_' + table][i].col_length !== '') {
-                            fields += '(' + centralColumnList[db + '_' + table][i].col_length + ') ';
+                        if (window.centralColumnList[db + '_' + table][i].col_length !== '') {
+                            fields += '(' + window.centralColumnList[db + '_' + table][i].col_length + ') ';
                         }
-                        fields += centralColumnList[db + '_' + table][i].col_extra + '</span>' +
+                        fields += window.centralColumnList[db + '_' + table][i].col_extra + '</span>' +
                             '</div></td>';
                         if (pick) {
                             fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +

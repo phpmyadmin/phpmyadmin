@@ -5,9 +5,6 @@
  * @requires    jQuery
  */
 
-// eslint-disable-next-line no-unused-vars
-/* global centralColumnList:writable */ // js/functions.js
-
 /**
  * AJAX scripts for normalization
  *
@@ -559,7 +556,7 @@ window.AJAX.registerOnload('normalization.js', function () {
         return false;
     });
     $('.tblFooters').on('click','#saveSplit', function () {
-        centralColumnList = [];
+        window.centralColumnList = [];
         if ($('#newCols #field_0_1').val() === '') {
             $('#newCols #field_0_1').trigger('focus');
             return false;
