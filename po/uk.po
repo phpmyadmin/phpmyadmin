@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-06-23 17:42+0000\n"
-"Last-Translator: Artem <artem@molotov.work>\n"
+"PO-Revision-Date: 2022-06-30 17:21+0000\n"
+"Last-Translator: Andriy Khyliuk <winfon@ukr.net>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "uk/>\n"
 "Language: uk\n"
@@ -16817,7 +16817,7 @@ msgstr "Тип таблиць"
 
 #: templates/server/engines/show.twig:45
 msgid "Unknown storage engine."
-msgstr "Невiдомий механізми зберігання."
+msgstr "Невідомий механізм зберігання."
 
 #: templates/server/export/index.twig:26
 msgid "@SERVER@ will become the server name."
