@@ -549,9 +549,9 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
 };
 
 /**
- * Unbind all event handlers before tearing down a page
+ * @return {function}
  */
-window.AJAX.registerTeardown('indexes.js', function () {
+Indexes.off = () => function () {
     $(document).off('click', '#save_index_frm');
     $(document).off('click', '#preview_index_frm');
     $(document).off('change', '#select_index_choice');
@@ -561,18 +561,12 @@ window.AJAX.registerTeardown('indexes.js', function () {
     $(document).off('click', '#index_frm input[type=submit]');
     $('body').off('change', 'select[name*="field_key"]');
     $(document).off('click', '.show_index_dialog');
-});
+};
 
 /**
- * @description <p>Ajax scripts for table index page</p>
- *
- * Actions ajaxified here:
- * <ul>
- * <li>Showing/hiding inputs depending on the index type chosen</li>
- * <li>create/edit/drop indexes</li>
- * </ul>
+ * @return {function}
  */
-window.AJAX.registerOnload('indexes.js', function () {
+Indexes.on = () => function () {
     // Re-initialize variables.
     primaryIndexes = [];
     uniqueIndexes = [];
@@ -785,7 +779,7 @@ window.AJAX.registerOnload('indexes.js', function () {
             .split(',');
 
         var indexChoice = previousIndex[0];
-        var arrayIndex  = previousIndex[1];
+        var arrayIndex = previousIndex[1];
 
         var sourceArray = Indexes.getIndexArray(indexChoice);
         if (sourceArray !== null) {
@@ -801,8 +795,8 @@ window.AJAX.registerOnload('indexes.js', function () {
     });
 
     $('#index_frm').on('submit', function () {
-        if (typeof(this.elements['index[Key_name]'].disabled) !== 'undefined') {
+        if (typeof (this.elements['index[Key_name]'].disabled) !== 'undefined') {
             this.elements['index[Key_name]'].disabled = false;
         }
     });
-});
+};

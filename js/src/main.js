@@ -1,3 +1,5 @@
+/* global Indexes */
+
 window.AJAX.registerOnload('functions.js', () => window.AJAX.removeSubmitEvents());
 $(window.AJAX.loadEventHandler());
 
@@ -28,3 +30,6 @@ $(Functions.floatingMenuBar());
 $(Functions.breadcrumbScrollToTop());
 
 $(Navigation.onload());
+
+window.AJAX.registerTeardown('indexes.js', Indexes.off());
+window.AJAX.registerOnload('indexes.js', Indexes.on());
