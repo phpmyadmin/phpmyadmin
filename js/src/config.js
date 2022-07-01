@@ -1,9 +1,10 @@
 /**
  * Functions used in configuration forms and on user preferences pages
  */
+window.Config = {};
 
-var configInlineParams;
-var configScriptLoaded;
+window.configInlineParams;
+window.configScriptLoaded;
 
 /**
  * checks whether browser supports web storage
@@ -13,7 +14,7 @@ var configScriptLoaded;
  *
  * @return {boolean}
  */
-function isStorageSupported (type, warn = false) {
+window.Config.isStorageSupported = (type, warn = false) => {
     try {
         window[type].setItem('PMATest', 'test');
         // Check whether key-value pair was set successfully
@@ -29,10 +30,10 @@ function isStorageSupported (type, warn = false) {
         }
     }
     return false;
-}
+};
 
 // default values for fields
-var defaultValues = {};
+window.defaultValues = {};
 
 /**
  * Returns field type
@@ -81,7 +82,7 @@ function markField (field) {
 
     // checkboxes uses parent <span> for marking
     var $fieldMarker = (type === 'checkbox') ? $field.parent() : $field;
-    setRestoreDefaultBtn($field, !isDefault);
+    setRestoreDefaultBtn($field, ! isDefault);
     $fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
 }
 
@@ -161,8 +162,7 @@ function getFieldValue (field, fieldType) {
  *
  * @return {object}
  */
-// eslint-disable-next-line no-unused-vars
-function getAllValues () {
+window.Config.getAllValues = () => {
     var $elements = $('fieldset input, fieldset select, fieldset textarea');
     var values = {};
     var type;
@@ -179,7 +179,7 @@ function getAllValues () {
         }
     }
     return values;
-}
+};
 
 /**
  * Checks whether field has its default value
@@ -192,20 +192,20 @@ function getAllValues () {
 function checkFieldDefault (field, type) {
     var $field = $(field);
     var fieldId = $field.attr('id');
-    if (typeof defaultValues[fieldId] === 'undefined') {
+    if (typeof window.defaultValues[fieldId] === 'undefined') {
         return true;
     }
     var isDefault = true;
     var currentValue = getFieldValue($field, type);
     if (type !== 'select') {
-        isDefault = currentValue === defaultValues[fieldId];
+        isDefault = currentValue === window.defaultValues[fieldId];
     } else {
         // compare arrays, will work for our representation of select values
-        if (currentValue.length !== defaultValues[fieldId].length) {
+        if (currentValue.length !== window.defaultValues[fieldId].length) {
             isDefault = false;
         } else {
             for (var i = 0; i < currentValue.length; i++) {
-                if (currentValue[i] !== defaultValues[fieldId][i]) {
+                if (currentValue[i] !== window.defaultValues[fieldId][i]) {
                     isDefault = false;
                     break;
                 }
@@ -221,20 +221,19 @@ function checkFieldDefault (field, type) {
  *
  * @return {string}
  */
-// eslint-disable-next-line no-unused-vars
-function getIdPrefix (element) {
+window.Config.getIdPrefix = function (element) {
     return $(element).attr('id').replace(/[^-]+$/, '');
-}
+};
 
 // ------------------------------------------------------------------
 // Form validation and field operations
 //
 
 // form validator assignments
-var validate = {};
+let validate = {};
 
 // form validator list
-var validators = {
+window.validators = {
     // regexp: numeric value
     regExpNumeric: /^[0-9]+$/,
     // regexp: extract parts from PCRE expression
@@ -250,7 +249,7 @@ var validators = {
         if (isKeyUp && this.value === '') {
             return true;
         }
-        var result = this.value !== '0' && validators.regExpNumeric.test(this.value);
+        var result = this.value !== '0' && window.validators.regExpNumeric.test(this.value);
         return result ? true : Messages.error_nan_p;
     },
     /**
@@ -264,7 +263,7 @@ var validators = {
         if (isKeyUp && this.value === '') {
             return true;
         }
-        var result = validators.regExpNumeric.test(this.value);
+        var result = window.validators.regExpNumeric.test(this.value);
         return result ? true : Messages.error_nan_nneg;
     },
     /**
@@ -276,7 +275,7 @@ var validators = {
         if (this.value === '') {
             return true;
         }
-        var result = validators.regExpNumeric.test(this.value) && this.value !== '0';
+        var result = window.validators.regExpNumeric.test(this.value) && this.value !== '0';
         return result && this.value <= 65535 ? true : Messages.error_incorrect_port;
     },
     /**
@@ -292,7 +291,7 @@ var validators = {
             return true;
         }
         // convert PCRE regexp
-        var parts = regexp.match(validators.regExpPcreExtract);
+        var parts = regexp.match(window.validators.regExpPcreExtract);
         var valid = this.value.match(new RegExp(parts[2], parts[3])) !== null;
         return valid ? true : Messages.error_invalid_value;
     },
@@ -312,11 +311,9 @@ var validators = {
         return val <= maxValue ? true : Functions.sprintf(Messages.error_value_lte, maxValue);
     },
     // field validators
-    field: {
-    },
+    field: {},
     // fieldset validators
-    fieldset: {
-    }
+    fieldset: {}
 };
 
 /**
@@ -327,9 +324,8 @@ var validators = {
  * @param {boolean} onKeyUp  whether fire on key up
  * @param {Array}   params   validation function parameters
  */
-// eslint-disable-next-line no-unused-vars
-function registerFieldValidator (id, type, onKeyUp, params) {
-    if (typeof validators[type] === 'undefined') {
+window.Config.registerFieldValidator = (id, type, onKeyUp, params) => {
+    if (typeof window.validators[type] === 'undefined') {
         return;
     }
     if (typeof validate[id] === 'undefined') {
@@ -338,7 +334,7 @@ function registerFieldValidator (id, type, onKeyUp, params) {
     if (validate[id].length === 0) {
         validate[id].push([type, params, onKeyUp]);
     }
-}
+};
 
 /**
  * Returns validation functions associated with form field
@@ -351,8 +347,8 @@ function registerFieldValidator (id, type, onKeyUp, params) {
 function getFieldValidators (fieldId, onKeyUpOnly) {
     // look for field bound validator
     var name = fieldId && fieldId.match(/[^-]+$/)[0];
-    if (typeof validators.field[name] !== 'undefined') {
-        return [[validators.field[name], null]];
+    if (typeof window.validators.field[name] !== 'undefined') {
+        return [[window.validators.field[name], null]];
     }
 
     // look for registered validators
@@ -360,10 +356,10 @@ function getFieldValidators (fieldId, onKeyUpOnly) {
     if (typeof validate[fieldId] !== 'undefined') {
         // validate[field_id]: array of [type, params, onKeyUp]
         for (var i = 0, imax = validate[fieldId].length; i < imax; i++) {
-            if (onKeyUpOnly && !validate[fieldId][i][2]) {
+            if (onKeyUpOnly && ! validate[fieldId][i][2]) {
                 continue;
             }
-            functions.push([validators[validate[fieldId][i][0]], validate[fieldId][i][1]]);
+            functions.push([window.validators[validate[fieldId][i][0]], validate[fieldId][i][1]]);
         }
     }
 
@@ -378,7 +374,7 @@ function getFieldValidators (fieldId, onKeyUpOnly) {
  *
  * @param {object} errorList list of errors in the form {field id: error array}
  */
-function displayErrors (errorList) {
+window.Config.displayErrors = function (errorList) {
     var tempIsEmpty = function (item) {
         return item !== '';
     };
@@ -398,7 +394,7 @@ function displayErrors (errorList) {
         errors = $.grep(errors, tempIsEmpty);
 
         // CSS error class
-        if (!isFieldset) {
+        if (! isFieldset) {
             // checkboxes uses parent <span> for marking
             var $fieldMarker = ($field.attr('type') === 'checkbox') ? $field.parent() : $field;
             $fieldMarker[errors.length ? 'addClass' : 'removeClass']('field-error');
@@ -426,7 +422,7 @@ function displayErrors (errorList) {
             $errorCnt.remove();
         }
     }
-}
+};
 
 /**
  * Validates fields and fieldsets and call displayError function as required
@@ -442,7 +438,7 @@ function setDisplayError () {
     $('fieldset.optbox').each(function () {
         validateFieldset(this, false, errors);
     });
-    displayErrors(errors);
+    window.Config.displayErrors(errors);
 }
 
 /**
@@ -454,8 +450,8 @@ function setDisplayError () {
  */
 function validateFieldset (fieldset, isKeyUp, errors) {
     var $fieldset = $(fieldset);
-    if ($fieldset.length && typeof validators.fieldset[$fieldset.attr('id')] !== 'undefined') {
-        var fieldsetErrors = validators.fieldset[$fieldset.attr('id')].apply($fieldset[0], [isKeyUp]);
+    if ($fieldset.length && typeof window.validators.fieldset[$fieldset.attr('id')] !== 'undefined') {
+        var fieldsetErrors = window.validators.fieldset[$fieldset.attr('id')].apply($fieldset[0], [isKeyUp]);
         for (var fieldId in fieldsetErrors) {
             if (typeof errors[fieldId] === 'undefined') {
                 errors[fieldId] = [];
@@ -510,25 +506,25 @@ function validateFieldAndFieldset (field, isKeyUp) {
     var errors = {};
     validateField($field, isKeyUp, errors);
     validateFieldset($field.closest('fieldset.optbox'), isKeyUp, errors);
-    displayErrors(errors);
+    window.Config.displayErrors(errors);
 }
 
-function loadInlineConfig () {
-    if (!Array.isArray(configInlineParams)) {
+window.Config.loadInlineConfig = () => {
+    if (! Array.isArray(window.configInlineParams)) {
         return;
     }
-    for (var i = 0; i < configInlineParams.length; ++i) {
-        if (typeof configInlineParams[i] === 'function') {
-            configInlineParams[i]();
+    for (var i = 0; i < window.configInlineParams.length; ++i) {
+        if (typeof window.configInlineParams[i] === 'function') {
+            window.configInlineParams[i]();
         }
     }
-}
+};
 
-function setupValidation () {
+window.Config.setupValidation = function () {
     validate = {};
-    configScriptLoaded = true;
-    if (configScriptLoaded && typeof configInlineParams !== 'undefined') {
-        loadInlineConfig();
+    window.configScriptLoaded = true;
+    if (window.configScriptLoaded && typeof window.configInlineParams !== 'undefined') {
+        window.Config.loadInlineConfig();
     }
     // register validators and mark custom values
     var $elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
@@ -567,11 +563,11 @@ function setupValidation () {
             validateFieldset(this, false, errors);
         });
 
-        displayErrors(errors);
+        window.Config.displayErrors(errors);
     } else if ($checkPageRefresh) {
         $checkPageRefresh.val('1');
     }
-}
+};
 
 //
 // END: Form validation and field operations
@@ -600,13 +596,13 @@ function adjustPrefsNotification () {
  */
 function restoreField (fieldId) {
     var $field = $('#' + fieldId);
-    if ($field.length === 0 || defaultValues[fieldId] === undefined) {
+    if ($field.length === 0 || window.defaultValues[fieldId] === undefined) {
         return;
     }
-    setFieldValue($field, getFieldType($field), defaultValues[fieldId]);
+    setFieldValue($field, getFieldType($field), window.defaultValues[fieldId]);
 }
 
-function setupRestoreField () {
+window.Config.setupRestoreField = function () {
     $('div.tab-content')
         .on('mouseenter', '.restore-default, .set-value', function () {
             $(this).css('opacity', 1);
@@ -631,7 +627,7 @@ function setupRestoreField () {
         .find('.restore-default, .set-value')
         // inline-block for IE so opacity inheritance works
         .css({ display: 'inline-block', opacity: 0.25 });
-}
+};
 
 //
 // END: "Restore default" and "set value" buttons
@@ -693,9 +689,9 @@ function updatePrefsDate () {
  * Prepares message which informs that localStorage preferences are available and can be imported or deleted
  */
 function offerPrefsAutoimport () {
-    var hasConfig = (isStorageSupported('localStorage')) && (window.localStorage.config || false);
+    var hasConfig = (window.Config.isStorageSupported('localStorage')) && (window.localStorage.config || false);
     var $cnt = $('#prefs_autoload');
-    if (!$cnt.length || !hasConfig) {
+    if (! $cnt.length || ! hasConfig) {
         return;
     }
     $cnt.find('a').on('click', function (e) {
@@ -723,104 +719,103 @@ function offerPrefsAutoimport () {
     $cnt.show();
 }
 
-window.Config = {
-    /**
-     * @return {function}
-     */
-    off: function () {
-        return function () {
-            $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
-            $('.optbox input[type=button][name=submit_reset]').off('click');
-            $('div.tab-content').off();
-            $('#import_local_storage, #export_local_storage').off('click');
-            $('form.prefs-form').off('change').off('submit');
-            $(document).off('click', 'div.click-hide-message');
-            $('#prefs_autoload').find('a').off('click');
-        };
-    },
-    /**
-     * @return {function}
-     */
-    on: function () {
-        return function () {
-            var $topmenuUpt = $('#user_prefs_tabs');
-            $topmenuUpt.find('a.active').attr('rel', 'samepage');
-            $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
+/**
+ * @return {function}
+ */
+window.Config.off = function () {
+    return function () {
+        $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
+        $('.optbox input[type=button][name=submit_reset]').off('click');
+        $('div.tab-content').off();
+        $('#import_local_storage, #export_local_storage').off('click');
+        $('form.prefs-form').off('change').off('submit');
+        $(document).off('click', 'div.click-hide-message');
+        $('#prefs_autoload').find('a').off('click');
+    };
+};
 
-            setupValidation();
-            adjustPrefsNotification();
+/**
+ * @return {function}
+ */
+window.Config.on = function () {
+    return function () {
+        var $topmenuUpt = $('#user_prefs_tabs');
+        $topmenuUpt.find('a.active').attr('rel', 'samepage');
+        $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
 
-            $('.optbox input[type=button][name=submit_reset]').on('click', function () {
-                var fields = $(this).closest('fieldset').find('input, select, textarea');
-                for (var i = 0, imax = fields.length; i < imax; i++) {
-                    setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
-                }
-                setDisplayError();
-            });
+        window.Config.setupValidation();
+        adjustPrefsNotification();
 
-            setupRestoreField();
-
-            offerPrefsAutoimport();
-            var $radios = $('#import_local_storage, #export_local_storage');
-            if (!$radios.length) {
-                return;
+        $('.optbox input[type=button][name=submit_reset]').on('click', function () {
+            var fields = $(this).closest('fieldset').find('input, select, textarea');
+            for (var i = 0, imax = fields.length; i < imax; i++) {
+                setFieldValue(fields[i], getFieldType(fields[i]), window.defaultValues[fields[i].id]);
             }
+            setDisplayError();
+        });
 
-            // enable JavaScript dependent fields
-            $radios
-                .prop('disabled', false)
-                .add('#export_text_file, #import_text_file')
-                .on('click', function () {
-                    var enableId = $(this).attr('id');
-                    var disableId;
-                    if (enableId.match(/local_storage$/)) {
-                        disableId = enableId.replace(/local_storage$/, 'text_file');
-                    } else {
-                        disableId = enableId.replace(/text_file$/, 'local_storage');
-                    }
-                    $('#opts_' + disableId).addClass('disabled').find('input').prop('disabled', true);
-                    $('#opts_' + enableId).removeClass('disabled').find('input').prop('disabled', false);
-                });
+        window.Config.setupRestoreField();
 
-            // detect localStorage state
-            var lsSupported = isStorageSupported('localStorage', true);
-            var lsExists = lsSupported ? (window.localStorage.config || false) : false;
-            $('div.localStorage-' + (lsSupported ? 'un' : '') + 'supported').hide();
-            $('div.localStorage-' + (lsExists ? 'empty' : 'exists')).hide();
-            if (lsExists) {
-                updatePrefsDate();
+        offerPrefsAutoimport();
+        var $radios = $('#import_local_storage, #export_local_storage');
+        if (! $radios.length) {
+            return;
+        }
+
+        // enable JavaScript dependent fields
+        $radios
+            .prop('disabled', false)
+            .add('#export_text_file, #import_text_file')
+            .on('click', function () {
+                var enableId = $(this).attr('id');
+                var disableId;
+                if (enableId.match(/local_storage$/)) {
+                    disableId = enableId.replace(/local_storage$/, 'text_file');
+                } else {
+                    disableId = enableId.replace(/text_file$/, 'local_storage');
+                }
+                $('#opts_' + disableId).addClass('disabled').find('input').prop('disabled', true);
+                $('#opts_' + enableId).removeClass('disabled').find('input').prop('disabled', false);
+            });
+
+        // detect localStorage state
+        var lsSupported = window.Config.isStorageSupported('localStorage', true);
+        var lsExists = lsSupported ? (window.localStorage.config || false) : false;
+        $('div.localStorage-' + (lsSupported ? 'un' : '') + 'supported').hide();
+        $('div.localStorage-' + (lsExists ? 'empty' : 'exists')).hide();
+        if (lsExists) {
+            updatePrefsDate();
+        }
+        $('form.prefs-form').on('change', function () {
+            var $form = $(this);
+            var disabled = false;
+            if (! lsSupported) {
+                disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
+            } else if (! lsExists && $form.attr('name') === 'prefs_import' &&
+                $('#import_local_storage')[0].checked
+            ) {
+                disabled = true;
             }
-            $('form.prefs-form').on('change', function () {
-                var $form = $(this);
-                var disabled = false;
-                if (!lsSupported) {
-                    disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
-                } else if (!lsExists && $form.attr('name') === 'prefs_import' &&
-                    $('#import_local_storage')[0].checked
-                ) {
-                    disabled = true;
-                }
-                $form.find('input[type=submit]').prop('disabled', disabled);
-            }).on('submit', function (e) {
-                var $form = $(this);
-                if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
-                    e.preventDefault();
-                    // use AJAX to read JSON settings and save them
-                    savePrefsToLocalStorage($form);
-                } else if ($form.attr('name') === 'prefs_import' && $('#import_local_storage')[0].checked) {
-                    // set 'json' input and submit form
-                    $form.find('input[name=json]').val(window.localStorage.config);
-                }
-            });
+            $form.find('input[type=submit]').prop('disabled', disabled);
+        }).on('submit', function (e) {
+            var $form = $(this);
+            if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
+                e.preventDefault();
+                // use AJAX to read JSON settings and save them
+                savePrefsToLocalStorage($form);
+            } else if ($form.attr('name') === 'prefs_import' && $('#import_local_storage')[0].checked) {
+                // set 'json' input and submit form
+                $form.find('input[name=json]').val(window.localStorage.config);
+            }
+        });
 
-            $(document).on('click', 'div.click-hide-message', function () {
-                $(this)
-                    .hide()
-                    .parent('.card-body')
-                    .css('height', '')
-                    .next('form')
-                    .show();
-            });
-        };
-    }
+        $(document).on('click', 'div.click-hide-message', function () {
+            $(this)
+                .hide()
+                .parent('.card-body')
+                .css('height', '')
+                .next('form')
+                .show();
+        });
+    };
 };

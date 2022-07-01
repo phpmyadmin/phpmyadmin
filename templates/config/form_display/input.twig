@@ -65,7 +65,7 @@
       </a>
     {% endif %}
 
-    {# This must match with displayErrors() in scripts/config.js. #}
+    {# This must match with window.Config.displayErrors() in scripts/config.js. #}
     {% if has_errors %}
       <dl class="inline_errors">
         {% for error in errors %}

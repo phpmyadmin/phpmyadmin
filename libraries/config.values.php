@@ -376,7 +376,7 @@ return [
 
     /**
      * Basic validator assignments (functions from libraries/config/Validator.php
-     * and 'validators' object in js/config.js)
+     * and 'window.validators' object in js/config.js)
      * Use only full paths and form ids
      */
     '_validators' => [

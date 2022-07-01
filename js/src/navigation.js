@@ -4,8 +4,6 @@
  * @package phpMyAdmin-Navigation
  */
 
-/* global isStorageSupported, setupRestoreField, setupValidation */ // js/config.js
-
 var Navigation = {};
 
 /**
@@ -15,7 +13,7 @@ var Navigation = {};
  */
 Navigation.treeStateUpdate = function () {
     // update if session storage is supported
-    if (isStorageSupported('sessionStorage')) {
+    if (window.Config.isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // try catch necessary here to detect whether
         // content to be stored exceeds storage capacity
@@ -42,7 +40,7 @@ Navigation.treeStateUpdate = function () {
  * @return {void}
  */
 Navigation.filterStateUpdate = function (filterName, filterValue) {
-    if (isStorageSupported('sessionStorage')) {
+    if (window.Config.isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         try {
             var currentFilter = $.extend({}, JSON.parse(storage.getItem('navTreeSearchFilters')));
@@ -62,7 +60,7 @@ Navigation.filterStateUpdate = function (filterName, filterValue) {
  * @return {void}
  */
 Navigation.filterStateRestore = function () {
-    if (isStorageSupported('sessionStorage')
+    if (window.Config.isStorageSupported('sessionStorage')
         && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
     ) {
         var searchClauses = JSON.parse(window.sessionStorage.navTreeSearchFilters);
@@ -530,7 +528,7 @@ Navigation.onload = () => function () {
             }
         }
 
-        var hasLocalStorage = isStorageSupported('localStorage') &&
+        var hasLocalStorage = window.Config.isStorageSupported('localStorage') &&
             typeof window.localStorage.favoriteTables !== 'undefined';
         $.ajax({
             url: $self.attr('href'),
@@ -550,7 +548,7 @@ Navigation.onload = () => function () {
                         $('#' + anchorId).attr('title')
                     );
                     // Update localStorage.
-                    if (isStorageSupported('localStorage')) {
+                    if (window.Config.isStorageSupported('localStorage')) {
                         window.localStorage.favoriteTables = data.favoriteTables;
                     }
                 } else {
@@ -560,7 +558,7 @@ Navigation.onload = () => function () {
         });
     });
     // Check if session storage is supported
-    if (isStorageSupported('sessionStorage')) {
+    if (window.Config.isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
         $(document).on('submit', 'form.config-form', function () {
@@ -902,8 +900,8 @@ Navigation.ensureSettings = function (selflink) {
         $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#pma_navi_settings_container').html(data.message);
-                setupRestoreField();
-                setupValidation();
+                window.Config.setupRestoreField();
+                window.Config.setupValidation();
                 $('#pma_navigation_settings').find('form').attr('action', selflink);
             } else {
                 Functions.ajaxShowMessage(data.error);

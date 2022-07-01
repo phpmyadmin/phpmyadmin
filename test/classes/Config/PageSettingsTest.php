@@ -61,9 +61,9 @@ class PageSettingsTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="hidden" name="submit_save" value="Browse">', $html);
 
         $this->assertStringContainsString(
-            "registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
-            . "registerFieldValidator('RepeatCells', 'validateNonNegativeNumber', true);\n"
-            . "registerFieldValidator('LimitChars', 'validatePositiveNumber', true);\n",
+            "window.Config.registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
+            . "window.Config.registerFieldValidator('RepeatCells', 'validateNonNegativeNumber', true);\n"
+            . "window.Config.registerFieldValidator('LimitChars', 'validatePositiveNumber', true);\n",
             $html
         );
     }

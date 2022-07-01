@@ -266,10 +266,10 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertEquals(
             [
-                'registerFieldValidator(\'testID\', \'\\\';\', true, '
+                'window.Config.registerFieldValidator(\'testID\', \'\\\';\', true, '
                 . '[\'\\\\r\\\\n\\\\\\\''
                 . '<scrIpt></\\\' + \\\'script>\'])',
-                'registerFieldValidator(\'testID\', \'\', true)',
+                'window.Config.registerFieldValidator(\'testID\', \'\', true)',
             ],
             $js
         );
