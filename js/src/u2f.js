@@ -1,5 +1,3 @@
-/* global u2f */ // js/vendor/u2f-api-polyfill.js
-
 window.AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
     if ($inputReg.length > 0) {
@@ -8,7 +6,7 @@ window.AJAX.registerOnload('u2f.js', function () {
         setTimeout(function () {
             // A magic JS function that talks to the USB device. This function will keep polling for the USB device until it finds one.
             var request = JSON.parse($inputReg.attr('data-request'));
-            u2f.register(request.appId, [request], JSON.parse($inputReg.attr('data-signatures')), function (data) {
+            window.u2f.register(request.appId, [request], JSON.parse($inputReg.attr('data-signatures')), function (data) {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     switch (data.errorCode) {
@@ -45,7 +43,7 @@ window.AJAX.registerOnload('u2f.js', function () {
             // Magic JavaScript talking to your HID
             // appid, challenge, authenticateRequests
             var request = JSON.parse($inputAuth.attr('data-request'));
-            u2f.sign(request[0].appId, request[0].challenge, request, function (data) {
+            window.u2f.sign(request[0].appId, request[0].challenge, request, function (data) {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     switch (data.errorCode) {

@@ -8,7 +8,6 @@
  */
 
 /* global Navigation */
-/* global sprintf */ // js/vendor/sprintf.js
 
 /**
  * AJAX scripts for /table/structure
@@ -154,7 +153,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
 
                 // If Collation is changed, Warn and Confirm
                 if (checkIfConfirmRequired($form)) {
-                    var question = sprintf(
+                    var question = window.sprintf(
                         Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
                     $form.confirm(question, $form.attr('action'), function () {

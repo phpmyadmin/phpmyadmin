@@ -8,8 +8,6 @@
  *
  */
 
-/* global sprintf */ // js/vendor/sprintf.js
-
 function getFormatsText () {
     return {
         '=': ' = \'%s\'',
@@ -37,7 +35,7 @@ function generateCondition (criteriaDiv, table) {
     query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         var formatsText = getFormatsText();
-        query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        query += window.sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
     } else {
         query += ' ' + criteriaDiv.find('.criteria_op').first().val();
         query += ' `' + Functions.escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';

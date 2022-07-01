@@ -1,6 +1,3 @@
-
-/* global TraceKit */ // js/vendor/tracekit.js
-
 /**
  * general function, usually for data manipulation pages
  *
@@ -246,7 +243,7 @@ var ErrorReport = {
                 try {
                     return func.apply(this, arguments);
                 } catch (x) {
-                    TraceKit.report(x);
+                    window.TraceKit.report(x);
                 }
             };
             newFunc.wrapped = true;
@@ -299,6 +296,6 @@ var ErrorReport = {
 };
 
 window.AJAX.registerOnload('error_report.js', function () {
-    TraceKit.report.subscribe(ErrorReport.errorHandler);
+    window.TraceKit.report.subscribe(ErrorReport.errorHandler);
     ErrorReport.setUpErrorReporting();
 });

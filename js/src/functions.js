@@ -5,8 +5,6 @@
 /* global mysqlDocBuiltin, mysqlDocKeyword */ // js/doclinks.js
 /* global Indexes */ // js/indexes.js
 /* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, themeImagePath */ // templates/javascript/variables.twig
-/* global sprintf */ // js/vendor/sprintf.js
-/* global zxcvbnts */ // js/vendor/zxcvbn-ts.js
 
 /**
  * General functions, usually for data manipulation pages.
@@ -449,7 +447,7 @@ Functions.escapeSingleQuote = function (s) {
 };
 
 Functions.sprintf = function () {
-    return sprintf.apply(this, arguments);
+    return window.sprintf.apply(this, arguments);
 };
 
 /**
@@ -527,8 +525,8 @@ Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel
         customDict.push(username);
     }
 
-    zxcvbnts.core.zxcvbnOptions.setOptions({ dictionary: { userInputs: customDict } });
-    var zxcvbnObject = zxcvbnts.core.zxcvbn(value);
+    window.zxcvbnts.core.zxcvbnOptions.setOptions({ dictionary: { userInputs: customDict } });
+    var zxcvbnObject = window.zxcvbnts.core.zxcvbn(value);
     var strength = zxcvbnObject.score;
     strength = parseInt(strength);
     meterObject.val(strength);
