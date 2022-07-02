@@ -226,7 +226,7 @@ function onDataSeriesChange () {
             $('#lineChartTypeRadio').prop('checked', true);
             currentSettings.type = 'line';
         }
-        yAxisTitle = Messages.strYValues;
+        yAxisTitle = window.Messages.strYValues;
     }
     $('#yAxisLabelInput').val(yAxisTitle);
     currentSettings.yaxisLabel = yAxisTitle;

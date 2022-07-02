@@ -60,7 +60,7 @@
   window.configInlineParams.push(function () {
     {{ js_array|join(';\n')|raw }};
 
-    $.extend(Messages, {
+    $.extend(window.Messages, {
       'error_nan_p': '{{ 'Not a positive number!'|trans|e('js') }}',
       'error_nan_nneg': '{{ 'Not a non-negative number!'|trans|e('js') }}',
       'error_incorrect_port': '{{ 'Not a valid port number!'|trans|e('js') }}',

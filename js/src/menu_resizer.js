@@ -38,7 +38,7 @@
             'data-bs-toggle': 'dropdown',
             'aria-haspopup': 'true',
             'aria-expanded': 'false'
-        }).text(Messages.strMore);
+        }).text(window.Messages.strMore);
 
         var img = $container.find('li img');
         if (img.length) {

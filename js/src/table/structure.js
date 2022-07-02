@@ -74,7 +74,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
 
 
         function submitForm () {
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post($form.attr('action'), $form.serialize() + window.CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
@@ -154,7 +154,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
                 // If Collation is changed, Warn and Confirm
                 if (checkIfConfirmRequired($form)) {
                     var question = window.sprintf(
-                        Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
+                        window.Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
                     $form.confirm(question, $form.attr('action'), function () {
                         submitForm();
@@ -191,10 +191,10 @@ window.AJAX.registerOnload('table/structure.js', function () {
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
+        var question = Functions.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
         var $thisAnchor = $(this);
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(Messages.strDroppingColumn, false);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingColumn, false);
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += window.CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
@@ -234,7 +234,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
                     $('.index_info').replaceWith(data.indexes_list);
                     Navigation.reload();
                 } else {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         });
@@ -262,7 +262,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
         } else if ($this.is('.add_fulltext_anchor')) {
             addClause = 'ADD FULLTEXT';
         }
-        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' +
+        var question = Functions.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
                 Functions.escapeHtml(currTableName) + '` ' + addClause + '(`' + Functions.escapeHtml(currColumnName) + '`);');
 
         var $thisAnchor = $(this);
@@ -288,7 +288,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
         }
 
         var buttonOptionsError = {};
-        buttonOptionsError[Messages.strOK] = function () {
+        buttonOptionsError[window.Messages.strOK] = function () {
             $(this).dialog('close').remove();
         };
 
@@ -417,11 +417,11 @@ window.AJAX.registerOnload('table/structure.js', function () {
         }
 
         if ($link.is('#partition_action_DROP')) {
-            $link.confirm(Messages.strDropPartitionWarning, $link.attr('href'), function (url) {
+            $link.confirm(window.Messages.strDropPartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else if ($link.is('#partition_action_TRUNCATE')) {
-            $link.confirm(Messages.strTruncatePartitionWarning, $link.attr('href'), function (url) {
+            $link.confirm(window.Messages.strTruncatePartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else {
@@ -435,7 +435,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', '#remove_partitioning.ajax', function (e) {
         e.preventDefault();
         var $link = $(this);
-        var question = Messages.strRemovePartitioningWarning;
+        var question = window.Messages.strRemovePartitioningWarning;
         $link.confirm(question, $link.attr('href'), function (url) {
             var params = Functions.getJsConfirmCommonParam({
                 'ajax_request' : true,

@@ -55,14 +55,14 @@ window.AJAX.registerOnload('database/search.js', function () {
      * the hide/show criteria in search result forms
      */
     $('#togglesearchresultlink')
-        .html(Messages.strHideSearchResults)
+        .html(window.Messages.strHideSearchResults)
         .on('click', function () {
             var $link = $(this);
             $('#searchresults').slideToggle();
-            if ($link.text() === Messages.strHideSearchResults) {
-                $link.text(Messages.strShowSearchResults);
+            if ($link.text() === window.Messages.strHideSearchResults) {
+                $link.text(window.Messages.strShowSearchResults);
             } else {
-                $link.text(Messages.strHideSearchResults);
+                $link.text(window.Messages.strHideSearchResults);
             }
             /** avoid default click action */
             return false;
@@ -84,10 +84,10 @@ window.AJAX.registerOnload('database/search.js', function () {
         .on('click', function () {
             var $link = $(this);
             $('#sqlqueryform').slideToggle('medium');
-            if ($link.text() === Messages.strHideQueryBox) {
-                $link.text(Messages.strShowQueryBox);
+            if ($link.text() === window.Messages.strHideQueryBox) {
+                $link.text(window.Messages.strShowQueryBox);
             } else {
-                $link.text(Messages.strHideQueryBox);
+                $link.text(window.Messages.strHideQueryBox);
             }
             /** avoid default click action */
             return false;
@@ -100,14 +100,14 @@ window.AJAX.registerOnload('database/search.js', function () {
      * the hide/show criteria in search criteria form
      */
     $('#togglesearchformlink')
-        .html(Messages.strShowSearchCriteria)
+        .html(window.Messages.strShowSearchCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#db_search_form').slideToggle();
-            if ($link.text() === Messages.strHideSearchCriteria) {
-                $link.text(Messages.strShowSearchCriteria);
+            if ($link.text() === window.Messages.strHideSearchCriteria) {
+                $link.text(window.Messages.strShowSearchCriteria);
             } else {
-                $link.text(Messages.strHideSearchCriteria);
+                $link.text(window.Messages.strHideSearchCriteria);
             }
             /** avoid default click action */
             return false;
@@ -119,7 +119,7 @@ window.AJAX.registerOnload('database/search.js', function () {
     $(document).on('click', 'a.browse_results', function (e) {
         e.preventDefault();
         /**   Hides the results shown by the delete criteria */
-        var $msg = Functions.ajaxShowMessage(Messages.strBrowsing, false);
+        var $msg = Functions.ajaxShowMessage(window.Messages.strBrowsing, false);
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
@@ -164,11 +164,11 @@ window.AJAX.registerOnload('database/search.js', function () {
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
         var msg = Functions.sprintf(
-            Messages.strConfirmDeleteResults,
+            window.Messages.strConfirmDeleteResults,
             $(this).data('table-name')
         );
         if (confirm(msg)) {
-            var $msg = Functions.ajaxShowMessage(Messages.strDeleting, false);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
             var params = {
@@ -187,7 +187,7 @@ window.AJAX.registerOnload('database/search.js', function () {
                 $('#sqlqueryform').html(data.sql_query);
                 /** Refresh the search results after the deletion */
                 $('#buttonGo').trigger('click');
-                $('#togglequerybox').html(Messages.strHideQueryBox);
+                $('#togglequerybox').html(window.Messages.strHideQueryBox);
                 /** Show the results of the deletion option */
                 $('#browse-results').hide();
                 $('#sqlqueryform').show();
@@ -207,10 +207,10 @@ window.AJAX.registerOnload('database/search.js', function () {
     $(document).on('submit', '#db_search_form.ajax', function (event) {
         event.preventDefault();
         if ($('#criteriaTables :selected').length === 0) {
-            Functions.ajaxShowMessage(Messages.strNoTableSelected);
+            Functions.ajaxShowMessage(window.Messages.strNoTableSelected);
             return;
         }
-        var $msgbox = Functions.ajaxShowMessage(Messages.strSearching, false);
+        var $msgbox = Functions.ajaxShowMessage(window.Messages.strSearching, false);
         // jQuery object to reuse
         var $form = $(this);
 
@@ -224,7 +224,7 @@ window.AJAX.registerOnload('database/search.js', function () {
 
                 $('#togglesearchresultlink')
                 // always start with the Show message
-                    .text(Messages.strHideSearchResults);
+                    .text(window.Messages.strHideSearchResults);
                 $('#togglesearchresultsdiv')
                 // now it's time to show the div containing the link
                     .show();
@@ -237,7 +237,7 @@ window.AJAX.registerOnload('database/search.js', function () {
                     .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
-                    .text(Messages.strShowSearchCriteria);
+                    .text(window.Messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();

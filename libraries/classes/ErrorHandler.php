@@ -598,7 +598,7 @@ class ErrorHandler
                 // send the error reports asynchronously & without asking user
                 $jsCode .= '$("#pma_report_errors_form").submit();'
                         . 'Functions.ajaxShowMessage(
-                            Messages.phpErrorsBeingSubmitted, false
+                            window.Messages.phpErrorsBeingSubmitted, false
                         );';
                 // js code to appropriate focusing,
                 $jsCode .= '$("html, body").animate({
@@ -609,7 +609,7 @@ class ErrorHandler
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
-                $jsCode = 'Functions.ajaxShowMessage(Messages.phpErrorsFound);'
+                $jsCode = 'Functions.ajaxShowMessage(window.Messages.phpErrorsFound);'
                         . '$("#pma_ignore_errors_popup").on("click", function() {
                             Functions.ignorePhpErrors()
                         });'

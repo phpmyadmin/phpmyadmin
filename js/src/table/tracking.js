@@ -57,7 +57,7 @@ window.AJAX.registerOnload('table/tracking.js', function () {
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_version') {
-            var question = Messages.strDeleteTrackingVersionMultiple;
+            var question = window.Messages.strDeleteTrackingVersionMultiple;
             $button.confirm(question, $form.attr('action'), function (url) {
                 Functions.ajaxShowMessage();
                 window.AJAX.source = $form;
@@ -76,7 +76,7 @@ window.AJAX.registerOnload('table/tracking.js', function () {
     $('body').on('click', 'a.delete_version_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = Messages.strDeleteTrackingVersion;
+        var question = window.Messages.strDeleteTrackingVersion;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             window.AJAX.source = $anchor;
@@ -93,7 +93,7 @@ window.AJAX.registerOnload('table/tracking.js', function () {
     $('body').on('click', 'a.delete_entry_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = Messages.strDeletingTrackingEntry;
+        var question = window.Messages.strDeletingTrackingEntry;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             window.AJAX.source = $anchor;

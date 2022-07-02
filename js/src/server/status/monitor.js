@@ -20,13 +20,13 @@ var monitorSettings;
 
 function serverResponseError () {
     var btns = {};
-    btns[Messages.strReloadPage] = function () {
+    btns[window.Messages.strReloadPage] = function () {
         window.location.reload();
     };
-    $('#emptyDialog').dialog({ title: Messages.strRefreshFailed });
+    $('#emptyDialog').dialog({ title: window.Messages.strRefreshFailed });
     $('#emptyDialog').html(
         Functions.getImage('s_attention') +
-        Messages.strInvalidResponseExplanation
+        window.Messages.strInvalidResponseExplanation
     );
     $('#emptyDialog').dialog({ buttons: btns });
 }
@@ -211,9 +211,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     var presetCharts = {
         // Query cache efficiency
         'qce': {
-            title: Messages.strQueryCacheEfficiency,
+            title: window.Messages.strQueryCacheEfficiency,
             series: [{
-                label: Messages.strQueryCacheEfficiency
+                label: window.Messages.strQueryCacheEfficiency
             }],
             nodes: [{
                 dataPoints: [{ type: 'statusvar', name: 'Qcache_hits' }, { type: 'statusvar', name: 'Com_select' }],
@@ -223,9 +223,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         },
         // Query cache usage
         'qcu': {
-            title: Messages.strQueryCacheUsage,
+            title: window.Messages.strQueryCacheUsage,
             series: [{
-                label: Messages.strQueryCacheUsed
+                label: window.Messages.strQueryCacheUsed
             }],
             nodes: [{
                 dataPoints: [{ type: 'statusvar', name: 'Qcache_free_memory' }, { type: 'servervar', name: 'query_cache_size' }],
@@ -246,9 +246,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     case 'WINNT':
         $.extend(presetCharts, {
             'cpu': {
-                title: Messages.strSystemCPUUsage,
+                title: window.Messages.strSystemCPUUsage,
                 series: [{
-                    label: Messages.strAverageLoad
+                    label: window.Messages.strAverageLoad
                 }],
                 nodes: [{
                     dataPoints: [{ type: 'cpu', name: 'loadavg' }]
@@ -257,13 +257,13 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             },
 
             'memory': {
-                title: Messages.strSystemMemory,
+                title: window.Messages.strSystemMemory,
                 series: [{
                     dataType: 'memory',
-                    label: Messages.strUsedMemory,
+                    label: window.Messages.strUsedMemory,
                     fill: true
                 }, {
-                    label: Messages.strFreeMemory,
+                    label: window.Messages.strFreeMemory,
                     fill: true
                 }],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
@@ -273,12 +273,12 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             },
 
             'swap': {
-                title: Messages.strSystemSwap,
+                title: window.Messages.strSystemSwap,
                 series: [{
-                    label: Messages.strUsedSwap,
+                    label: window.Messages.strUsedSwap,
                     fill: true
                 }, {
-                    label: Messages.strFreeSwap,
+                    label: window.Messages.strFreeSwap,
                     fill: true
                 }],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
@@ -292,20 +292,20 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     case 'Linux':
         $.extend(presetCharts, {
             'cpu': {
-                title: Messages.strSystemCPUUsage,
+                title: window.Messages.strSystemCPUUsage,
                 series: [{
-                    label: Messages.strAverageLoad
+                    label: window.Messages.strAverageLoad
                 }],
                 nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux' }],
                 maxYLabel: 0
             },
             'memory': {
-                title: Messages.strSystemMemory,
+                title: window.Messages.strSystemMemory,
                 series: [
-                    { label: Messages.strBufferedMemory, fill: true },
-                    { label: Messages.strUsedMemory, fill: true },
-                    { label: Messages.strCachedMemory, fill: true },
-                    { label: Messages.strFreeMemory, fill: true }
+                    { label: window.Messages.strBufferedMemory, fill: true },
+                    { label: window.Messages.strUsedMemory, fill: true },
+                    { label: window.Messages.strCachedMemory, fill: true },
+                    { label: window.Messages.strFreeMemory, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
@@ -316,11 +316,11 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 maxYLabel: 0
             },
             'swap': {
-                title: Messages.strSystemSwap,
+                title: window.Messages.strSystemSwap,
                 series: [
-                    { label: Messages.strCachedSwap, fill: true },
-                    { label: Messages.strUsedSwap, fill: true },
-                    { label: Messages.strFreeSwap, fill: true }
+                    { label: window.Messages.strCachedSwap, fill: true },
+                    { label: window.Messages.strUsedSwap, fill: true },
+                    { label: window.Messages.strFreeSwap, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
@@ -335,9 +335,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     case 'SunOS':
         $.extend(presetCharts, {
             'cpu': {
-                title: Messages.strSystemCPUUsage,
+                title: window.Messages.strSystemCPUUsage,
                 series: [{
-                    label: Messages.strAverageLoad
+                    label: window.Messages.strAverageLoad
                 }],
                 nodes: [{
                     dataPoints: [{ type: 'cpu', name: 'loadavg' }]
@@ -345,10 +345,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 maxYLabel: 0
             },
             'memory': {
-                title: Messages.strSystemMemory,
+                title: window.Messages.strSystemMemory,
                 series: [
-                    { label: Messages.strUsedMemory, fill: true },
-                    { label: Messages.strFreeMemory, fill: true }
+                    { label: window.Messages.strUsedMemory, fill: true },
+                    { label: window.Messages.strFreeMemory, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
@@ -357,10 +357,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 maxYLabel: 0
             },
             'swap': {
-                title: Messages.strSystemSwap,
+                title: window.Messages.strSystemSwap,
                 series: [
-                    { label: Messages.strUsedSwap, fill: true },
-                    { label: Messages.strFreeSwap, fill: true }
+                    { label: window.Messages.strUsedSwap, fill: true },
+                    { label: window.Messages.strFreeSwap, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
@@ -375,9 +375,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     // Default setting for the chart grid
     var defaultChartGrid = {
         'c0': {
-            title: Messages.strQuestions,
+            title: window.Messages.strQuestions,
             series: [
-                { label: Messages.strQuestions }
+                { label: window.Messages.strQuestions }
             ],
             nodes: [
                 { dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }
@@ -385,10 +385,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             maxYLabel: 0
         },
         'c1': {
-            title: Messages.strChartConnectionsTitle,
+            title: window.Messages.strChartConnectionsTitle,
             series: [
-                { label: Messages.strConnections },
-                { label: Messages.strProcesses }
+                { label: window.Messages.strConnections },
+                { label: window.Messages.strProcesses }
             ],
             nodes: [
                 { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
@@ -397,10 +397,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             maxYLabel: 0
         },
         'c2': {
-            title: Messages.strTraffic,
+            title: window.Messages.strTraffic,
             series: [
-                { label: Messages.strBytesSent },
-                { label: Messages.strBytesReceived }
+                { label: window.Messages.strBytesSent },
+                { label: window.Messages.strBytesReceived }
             ],
             nodes: [
                 { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
@@ -539,7 +539,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 // each time they add a series
                 // So here we only warn if they didn't add a series yet
                 if (! newChart || ! newChart.nodes || newChart.nodes.length === 0) {
-                    alert(Messages.strAddOneSeriesWarning);
+                    alert(window.Messages.strAddOneSeriesWarning);
                     return;
                 }
             }
@@ -592,7 +592,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
         $('#addChartModal').modal('show');
 
-        $('#seriesPreview').html('<i>' + Messages.strNone + '</i>');
+        $('#seriesPreview').html('<i>' + window.Messages.strNone + '</i>');
 
         return false;
     });
@@ -634,18 +634,18 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a[href="#importMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
-        $('#emptyDialog').dialog({ title: Messages.strImportDialogTitle });
-        $('#emptyDialog').html(Messages.strImportDialogMessage + ':<br><form>' +
+        $('#emptyDialog').dialog({ title: window.Messages.strImportDialogTitle });
+        $('#emptyDialog').html(window.Messages.strImportDialogMessage + ':<br><form>' +
             '<input type="file" name="file" id="import_file"> </form>');
 
         var dlgBtns = {};
 
-        dlgBtns[Messages.strImport] = function () {
+        dlgBtns[window.Messages.strImport] = function () {
             var input = $('#emptyDialog').find('#import_file')[0];
             var reader = new FileReader();
 
             reader.onerror = function (event) {
-                alert(Messages.strFailedParsingConfig + '\n' + event.target.error.code);
+                alert(window.Messages.strFailedParsingConfig + '\n' + event.target.error.code);
             };
             reader.onload = function (e) {
                 var data = e.target.result;
@@ -654,14 +654,14 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 try {
                     json = JSON.parse(data);
                 } catch (err) {
-                    alert(Messages.strFailedParsingConfig);
+                    alert(window.Messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
                     return;
                 }
 
                 // Basic check, is this a monitor config json?
                 if (!json || ! json.monitorCharts || ! json.monitorCharts) {
-                    alert(Messages.strFailedParsingConfig);
+                    alert(window.Messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
                     return;
                 }
@@ -674,7 +674,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                     }
                     rebuildGrid();
                 } catch (err) {
-                    alert(Messages.strFailedBuildingGrid);
+                    alert(window.Messages.strFailedBuildingGrid);
                     // If an exception is thrown, load default again
                     if (window.Config.isStorageSupported('localStorage')) {
                         window.localStorage.removeItem('monitorCharts');
@@ -688,7 +688,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             reader.readAsText(input.files[0]);
         };
 
-        dlgBtns[Messages.strCancel] = function () {
+        dlgBtns[window.Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
@@ -714,9 +714,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         event.preventDefault();
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
-            $(this).html(Functions.getImage('play') + Messages.strResumeMonitor);
+            $(this).html(Functions.getImage('play') + window.Messages.strResumeMonitor);
         } else {
-            $(this).html(Functions.getImage('pause') + Messages.strPauseMonitor);
+            $(this).html(Functions.getImage('pause') + window.Messages.strPauseMonitor);
             if (! runtime.charts) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
@@ -730,7 +730,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
         var $dialog = $('#monitorInstructionsDialog');
         var dlgBtns = {};
-        dlgBtns[Messages.strClose] = function () {
+        dlgBtns[window.Messages.strClose] = function () {
             $(this).dialog('close');
         };
         $dialog.dialog({
@@ -762,40 +762,40 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
                     if (logVars.general_log === 'ON') {
                         if (logVars.slow_query_log === 'ON') {
-                            msg = Messages.strBothLogOn;
+                            msg = window.Messages.strBothLogOn;
                         } else {
-                            msg = Messages.strGenLogOn;
+                            msg = window.Messages.strGenLogOn;
                         }
                     }
 
                     if (msg.length === 0 && logVars.slow_query_log === 'ON') {
-                        msg = Messages.strSlowLogOn;
+                        msg = window.Messages.strSlowLogOn;
                     }
 
                     if (msg.length === 0) {
                         icon = Functions.getImage('s_error');
-                        msg = Messages.strBothLogOff;
+                        msg = window.Messages.strBothLogOff;
                     }
 
-                    str = '<b>' + Messages.strCurrentSettings + '</b><br><div class="smallIndent">';
+                    str = '<b>' + window.Messages.strCurrentSettings + '</b><br><div class="smallIndent">';
                     str += icon + msg + '<br>';
 
                     if (logVars.log_output !== 'TABLE') {
-                        str += Functions.getImage('s_error') + ' ' + Messages.strLogOutNotTable + '<br>';
+                        str += Functions.getImage('s_error') + ' ' + window.Messages.strLogOutNotTable + '<br>';
                     } else {
-                        str += Functions.getImage('s_success') + ' ' + Messages.strLogOutIsTable + '<br>';
+                        str += Functions.getImage('s_success') + ' ' + window.Messages.strLogOutIsTable + '<br>';
                     }
 
                     if (logVars.slow_query_log === 'ON') {
                         if (logVars.long_query_time > 2) {
                             str += Functions.getImage('s_attention') + ' ';
-                            str += Functions.sprintf(Messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
+                            str += Functions.sprintf(window.Messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
                             str += '<br>';
                         }
 
                         if (logVars.long_query_time < 2) {
                             str += Functions.getImage('s_success') + ' ';
-                            str += Functions.sprintf(Messages.strLongQueryTimeSet, logVars.long_query_time);
+                            str += Functions.sprintf(window.Messages.strLongQueryTimeSet, logVars.long_query_time);
                             str += '<br>';
                         }
                     }
@@ -803,9 +803,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                     str += '</div>';
 
                     if (isSuperUser) {
-                        str += '<p></p><b>' + Messages.strChangeSettings + '</b>';
+                        str += '<p></p><b>' + window.Messages.strChangeSettings + '</b>';
                         str += '<div class="smallIndent">';
-                        str += Messages.strSettingsAppliedGlobal + '<br>';
+                        str += window.Messages.strSettingsAppliedGlobal + '<br>';
 
                         var varValue = 'TABLE';
                         if (logVars.log_output === 'TABLE') {
@@ -813,26 +813,26 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#log_output-' + varValue + '">';
-                        str += Functions.sprintf(Messages.strSetLogOutput, varValue);
+                        str += Functions.sprintf(window.Messages.strSetLogOutput, varValue);
                         str += ' </a><br>';
 
                         if (logVars.general_log !== 'ON') {
                             str += '- <a class="set" href="#general_log-ON">';
-                            str += Functions.sprintf(Messages.strEnableVar, 'general_log');
+                            str += Functions.sprintf(window.Messages.strEnableVar, 'general_log');
                             str += ' </a><br>';
                         } else {
                             str += '- <a class="set" href="#general_log-OFF">';
-                            str += Functions.sprintf(Messages.strDisableVar, 'general_log');
+                            str += Functions.sprintf(window.Messages.strDisableVar, 'general_log');
                             str += ' </a><br>';
                         }
 
                         if (logVars.slow_query_log !== 'ON') {
                             str += '- <a class="set" href="#slow_query_log-ON">';
-                            str +=  Functions.sprintf(Messages.strEnableVar, 'slow_query_log');
+                            str +=  Functions.sprintf(window.Messages.strEnableVar, 'slow_query_log');
                             str += ' </a><br>';
                         } else {
                             str += '- <a class="set" href="#slow_query_log-OFF">';
-                            str +=  Functions.sprintf(Messages.strDisableVar, 'slow_query_log');
+                            str +=  Functions.sprintf(window.Messages.strDisableVar, 'slow_query_log');
                             str += ' </a><br>';
                         }
 
@@ -842,10 +842,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#long_query_time-' + varValue + '">';
-                        str += Functions.sprintf(Messages.setSetLongQueryTime, varValue);
+                        str += Functions.sprintf(window.Messages.setSetLongQueryTime, varValue);
                         str += ' </a><br>';
                     } else {
-                        str += Messages.strNoSuperUser + '<br>';
+                        str += window.Messages.strNoSuperUser + '<br>';
                     }
 
                     str += '</div>';
@@ -874,7 +874,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     $('input[name="chartType"]').on('change', function () {
         $('#chartVariableSettings').toggle(this.checked && this.value === 'variable');
         var title = $('input[name="chartTitle"]').val();
-        if (title === Messages.strChartTitle ||
+        if (title === window.Messages.strChartTitle ||
             title === $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
         ) {
             $('input[name="chartTitle"]')
@@ -900,7 +900,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     $('a[href="#kibDivisor"]').on('click', function (event) {
         event.preventDefault();
         $('input[name="valueDivisor"]').val(1024);
-        $('input[name="valueUnit"]').val(Messages.strKiB);
+        $('input[name="valueUnit"]').val(window.Messages.strKiB);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
         return false;
@@ -909,7 +909,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     $('a[href="#mibDivisor"]').on('click', function (event) {
         event.preventDefault();
         $('input[name="valueDivisor"]').val(1024 * 1024);
-        $('input[name="valueUnit"]').val(Messages.strMiB);
+        $('input[name="valueUnit"]').val(window.Messages.strMiB);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
         return false;
@@ -917,7 +917,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a[href="#submitClearSeries"]').on('click', function (event) {
         event.preventDefault();
-        $('#seriesPreview').html('<i>' + Messages.strNone + '</i>');
+        $('#seriesPreview').html('<i>' + window.Messages.strNone + '</i>');
         newChart = null;
         $('#clearSeriesLink').hide();
     });
@@ -956,9 +956,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             serie.unit = $('input[name="valueUnit"]').val();
         }
 
-        var str = serie.display === 'differential' ? ', ' + Messages.strDifferential : '';
-        str += serie.valueDivisor ? (', ' + Functions.sprintf(Messages.strDividedBy, serie.valueDivisor)) : '';
-        str += serie.unit ? (', ' + Messages.strUnit + ': ' + serie.unit) : '';
+        var str = serie.display === 'differential' ? ', ' + window.Messages.strDifferential : '';
+        str += serie.valueDivisor ? (', ' + Functions.sprintf(window.Messages.strDividedBy, serie.valueDivisor)) : '';
+        str += serie.unit ? (', ' + window.Messages.strUnit + ': ' + serie.unit) : '';
 
         var newSeries = {
             label: $('#variableInput').val().replace(/_/g, ' ')
@@ -1002,11 +1002,11 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 && typeof window.localStorage.monitorVersion !== 'undefined'
                 && monitorProtocolVersion !== window.localStorage.monitorVersion
             ) {
-                $('#emptyDialog').dialog({ title: Messages.strIncompatibleMonitorConfig });
-                $('#emptyDialog').html(Messages.strIncompatibleMonitorConfigDescription);
+                $('#emptyDialog').dialog({ title: window.Messages.strIncompatibleMonitorConfig });
+                $('#emptyDialog').html(window.Messages.strIncompatibleMonitorConfigDescription);
 
                 var dlgBtns = {};
-                dlgBtns[Messages.strClose] = function () {
+                dlgBtns[window.Messages.strClose] = function () {
                     $(this).dialog('close');
                 };
 
@@ -1154,25 +1154,25 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             }
         };
 
-        if (settings.title === Messages.strSystemCPUUsage ||
-            settings.title === Messages.strQueryCacheEfficiency
+        if (settings.title === window.Messages.strSystemCPUUsage ||
+            settings.title === window.Messages.strQueryCacheEfficiency
         ) {
             settings.axes.yaxis.tickOptions = {
                 formatString: '%d %%'
             };
-        } else if (settings.title === Messages.strSystemMemory ||
-            settings.title === Messages.strSystemSwap
+        } else if (settings.title === window.Messages.strSystemMemory ||
+            settings.title === window.Messages.strSystemSwap
         ) {
             settings.stackSeries = true;
             settings.axes.yaxis.tickOptions = {
                 formatter: $.jqplot.byteFormatter(2) // MiB
             };
-        } else if (settings.title === Messages.strTraffic) {
+        } else if (settings.title === window.Messages.strTraffic) {
             settings.axes.yaxis.tickOptions = {
                 formatter: $.jqplot.byteFormatter(1) // KiB
             };
-        } else if (settings.title === Messages.strQuestions ||
-            settings.title === Messages.strConnections
+        } else if (settings.title === window.Messages.strQuestions ||
+            settings.title === window.Messages.strConnections
         ) {
             settings.axes.yaxis.tickOptions = {
                 formatter: function (format, val) {
@@ -1371,12 +1371,12 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
         var dlgBtns = { };
 
-        dlgBtns[Messages.strFromSlowLog] = function () {
+        dlgBtns[window.Messages.strFromSlowLog] = function () {
             loadLog('slow', min, max);
             $(this).dialog('close');
         };
 
-        dlgBtns[Messages.strFromGeneralLog] = function () {
+        dlgBtns[window.Messages.strFromGeneralLog] = function () {
             loadLog('general', min, max);
             $(this).dialog('close');
         };
@@ -1513,8 +1513,8 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                                 elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                             }
                         }
-                        if (elem.title === Messages.strSystemMemory ||
-                            elem.title === Messages.strSystemSwap
+                        if (elem.title === window.Messages.strSystemMemory ||
+                            elem.title === window.Messages.strSystemSwap
                         ) {
                             total += value;
                         }
@@ -1528,15 +1528,15 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                     (runtime.xmax - tickInterval * 3), (runtime.xmax - tickInterval * 2),
                     (runtime.xmax - tickInterval), runtime.xmax];
 
-                if (elem.title !== Messages.strSystemCPUUsage &&
-                    elem.title !== Messages.strQueryCacheEfficiency &&
-                    elem.title !== Messages.strSystemMemory &&
-                    elem.title !== Messages.strSystemSwap
+                if (elem.title !== window.Messages.strSystemCPUUsage &&
+                    elem.title !== window.Messages.strQueryCacheEfficiency &&
+                    elem.title !== window.Messages.strSystemMemory &&
+                    elem.title !== window.Messages.strSystemSwap
                 ) {
                     elem.chart.axes.yaxis.max = Math.ceil(elem.maxYLabel * 1.1);
                     elem.chart.axes.yaxis.tickInterval = Math.ceil(elem.maxYLabel * 1.1 / 5);
-                } else if (elem.title === Messages.strSystemMemory ||
-                    elem.title === Messages.strSystemSwap
+                } else if (elem.title === window.Messages.strSystemMemory ||
+                    elem.title === window.Messages.strSystemSwap
                 ) {
                     elem.chart.axes.yaxis.max = Math.ceil(total * 1.1 / 100) * 100;
                     elem.chart.axes.yaxis.tickInterval = Math.ceil(total * 1.1 / 5);
@@ -1635,13 +1635,13 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             opts.limitTypes = false;
         }
 
-        $('#emptyDialog').dialog({ title: Messages.strAnalysingLogsTitle });
-        $('#emptyDialog').html(Messages.strAnalysingLogs +
+        $('#emptyDialog').dialog({ title: window.Messages.strAnalysingLogsTitle });
+        $('#emptyDialog').html(window.Messages.strAnalysingLogs +
                                 ' <img class="ajaxIcon" src="' + themeImagePath +
                                 'ajax_clock_small.gif" alt="">');
         var dlgBtns = {};
 
-        dlgBtns[Messages.strCancelRequest] = function () {
+        dlgBtns[window.Messages.strCancelRequest] = function () {
             if (logRequest !== null) {
                 logRequest.abort();
             }
@@ -1679,10 +1679,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 }
 
                 if (logData.rows.length === 0) {
-                    $('#emptyDialog').dialog({ title: Messages.strNoDataFoundTitle });
-                    $('#emptyDialog').html('<p>' + Messages.strNoDataFound + '</p>');
+                    $('#emptyDialog').dialog({ title: window.Messages.strNoDataFoundTitle });
+                    $('#emptyDialog').html('<p>' + window.Messages.strNoDataFound + '</p>');
 
-                    dlgBtns[Messages.strClose] = function () {
+                    dlgBtns[window.Messages.strClose] = function () {
                         $(this).dialog('close');
                     };
 
@@ -1693,8 +1693,8 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 runtime.logDataCols = buildLogTable(logData, opts.removeVariables);
 
                 /* Show some stats in the dialog */
-                $('#emptyDialog').dialog({ title: Messages.strLoadingLogs });
-                $('#emptyDialog').html('<p>' + Messages.strLogDataLoaded + '</p>');
+                $('#emptyDialog').dialog({ title: window.Messages.strLoadingLogs });
+                $('#emptyDialog').html('<p>' + window.Messages.strLogDataLoaded + '</p>');
                 $.each(logData.sum, function (key, value) {
                     var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                     if (newKey === 'Total') {
@@ -1707,15 +1707,15 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 if (logData.numRows > 12) {
                     $('#logTable').prepend(
                         '<fieldset class="pma-fieldset" id="logDataFilter">' +
-                        '    <legend>' + Messages.strFiltersForLogTable + '</legend>' +
+                        '    <legend>' + window.Messages.strFiltersForLogTable + '</legend>' +
                         '    <div class="formelement">' +
-                        '        <label for="filterQueryText">' + Messages.strFilterByWordRegexp + '</label>' +
+                        '        <label for="filterQueryText">' + window.Messages.strFilterByWordRegexp + '</label>' +
                         '        <input name="filterQueryText" type="text" id="filterQueryText">' +
                         '    </div>' +
-                        ((logData.numRows > 250) ? ' <div class="formelement"><button class="btn btn-secondary" name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
+                        ((logData.numRows > 250) ? ' <div class="formelement"><button class="btn btn-secondary" name="startFilterQueryText" id="startFilterQueryText">' + window.Messages.strFilter + '</button></div>' : '') +
                         '    <div class="formelement">' +
                         '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1"> ' +
-                        '       <label for="noWHEREData"> ' + Messages.strIgnoreWhereAndGroup + '</label>' +
+                        '       <label for="noWHEREData"> ' + window.Messages.strIgnoreWhereAndGroup + '</label>' +
                         '   </div' +
                         '</fieldset>'
                     );
@@ -1731,7 +1731,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                     }
                 }
 
-                dlgBtns[Messages.strJumpToTable] = function () {
+                dlgBtns[window.Messages.strJumpToTable] = function () {
                     $(this).dialog('close');
                     $(document).scrollTop($('#logTable').offset().top);
                 };
@@ -1894,8 +1894,8 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             // Display some stats at the bottom of the table
             $('#logTable').find('table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
-                      Messages.strSumRows + ' ' + rowSum + '<span class="float-end">' +
-                      Messages.strTotal + '</span></th><th class="text-end">' + totalSum + '</th>');
+                      window.Messages.strSumRows + ' ' + rowSum + '<span class="float-end">' +
+                      window.Messages.strTotal + '</span></th><th class="text-end">' + totalSum + '</th>');
         }
     }
 
@@ -1974,17 +1974,17 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         }
 
         $table.append('<tfoot>' +
-                    '<tr><th colspan="' + (cols.length - 1) + '">' + Messages.strSumRows +
-                    ' ' + data.numRows + '<span class="float-end">' + Messages.strTotal +
+                    '<tr><th colspan="' + (cols.length - 1) + '">' + window.Messages.strSumRows +
+                    ' ' + data.numRows + '<span class="float-end">' + window.Messages.strTotal +
                     '</span></th><th class="text-end">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable').find('tr').first().find('th').last().text().indexOf('#') > -1) {
             $('#logTable').find('tr').first().find('th').last().append('&nbsp;' + Functions.getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
 
-            var tooltipContent = Messages.strCountColumnExplanation;
+            var tooltipContent = window.Messages.strCountColumnExplanation;
             if (groupInserts) {
-                tooltipContent += '<p>' + Messages.strMoreCountColumnExplanation + '</p>';
+                tooltipContent += '<p>' + window.Messages.strMoreCountColumnExplanation + '</p>';
             }
 
             Functions.tooltip(
@@ -2026,10 +2026,10 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         var profilingChart = null;
         var dlgBtns = {};
 
-        dlgBtns[Messages.strAnalyzeQuery] = function () {
+        dlgBtns[window.Messages.strAnalyzeQuery] = function () {
             profilingChart = loadQueryAnalysis(rowData);
         };
-        dlgBtns[Messages.strClose] = function () {
+        dlgBtns[window.Messages.strClose] = function () {
             $(this).dialog('close');
         };
 
@@ -2058,7 +2058,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         var profilingChart = null;
 
         $('#queryAnalyzerDialog').find('div.placeHolder').html(
-            Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
+            window.Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
             themeImagePath + 'ajax_clock_small.gif" alt="">');
 
         $.post('index.php?route=/server/status/monitor/query', {
@@ -2075,7 +2075,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             }
             if (data.error) {
                 if (data.error.indexOf('1146') !== -1 || data.error.indexOf('1046') !== -1) {
-                    data.error = Messages.strServerLogError;
+                    data.error = window.Messages.strServerLogError;
                 }
                 $('#queryAnalyzerDialog').find('div.placeHolder').html('<div class="alert alert-danger" role="alert">' + data.error + '</div>');
                 return;
@@ -2085,7 +2085,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             $('#queryAnalyzerDialog').find('div.placeHolder')
                 .html('<table class="table table-borderless"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
-            var explain = '<b>' + Messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
+            var explain = '<b>' + window.Messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
                 explain += ' (';
                 for (i = 0; i < data.explain.length; i++) {
@@ -2116,7 +2116,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 explain += '</div>';
             }
 
-            explain += '<p><b>' + Messages.strAffectedRows + '</b> ' + data.affectedRows;
+            explain += '<p><b>' + window.Messages.strAffectedRows + '</b> ' + data.affectedRows;
 
             $('#queryAnalyzerDialog').find('div.placeHolder td.explain').append(explain);
 
@@ -2128,7 +2128,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
             if (data.profiling) {
                 var chartData = [];
-                var numberTable = '<table class="table table-sm table-striped table-hover w-auto queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
+                var numberTable = '<table class="table table-sm table-striped table-hover w-auto queryNums"><thead><tr><th>' + window.Messages.strStatus + '</th><th>' + window.Messages.strTime + '</th></tr></thead><tbody>';
                 var duration;
                 var otherTime = 0;
 
@@ -2152,15 +2152,15 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 }
 
                 if (otherTime > 0) {
-                    chartData.push([Functions.prettyProfilingNum(otherTime, 2) + ' ' + Messages.strOther, otherTime]);
+                    chartData.push([Functions.prettyProfilingNum(otherTime, 2) + ' ' + window.Messages.strOther, otherTime]);
                 }
 
-                numberTable += '<tr><td><b>' + Messages.strTotalTime + '</b></td><td>' + Functions.prettyProfilingNum(totalTime, 2) + '</td></tr>';
+                numberTable += '<tr><td><b>' + window.Messages.strTotalTime + '</b></td><td>' + Functions.prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
 
                 $('#queryAnalyzerDialog').find('div.placeHolder td.chart').append(
-                    '<b>' + Messages.strProfilingResults + ' ' + $('#profiling_docu').html() + '</b> ' +
-                    '(<a href="#showNums">' + Messages.strTable + '</a>, <a href="#showChart">' + Messages.strChart + '</a>)<br>' +
+                    '<b>' + window.Messages.strProfilingResults + ' ' + $('#profiling_docu').html() + '</b> ' +
+                    '(<a href="#showNums">' + window.Messages.strTable + '</a>, <a href="#showChart">' + window.Messages.strChart + '</a>)<br>' +
                     numberTable + ' <div id="queryProfiling"></div>');
 
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showNums"]').on('click', function () {

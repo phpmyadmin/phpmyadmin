@@ -15,8 +15,7 @@
         "jquery": true
     },
     "globals": {
-        "Functions": "readonly",
-        "Messages": "readonly"
+        "Functions": "readonly"
     },
     "rules": {
         "valid-jsdoc": ["error", {

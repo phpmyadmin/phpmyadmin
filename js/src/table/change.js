@@ -179,7 +179,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
             jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
                 return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
             },
-            Messages.strEnterValidNumber
+            window.Messages.strEnterValidNumber
             );
             validateMultipleIntField($thisInput, true);
         } else {
@@ -276,7 +276,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 
     // To generate the textbox that can take the salt
     var newSaltBox = '<br><input type=text name=salt[multi_edit][' + multiEdit + '][' + urlField + ']' +
-        ' id=salt_' + target.id + ' placeholder=\'' + Messages.strEncryptionKey + '\'>';
+        ' id=salt_' + target.id + ' placeholder=\'' + window.Messages.strEncryptionKey + '\'>';
 
     // If encrypting or decrypting functions that take salt as input is selected append the new textbox for salt
     if (target.value === 'AES_ENCRYPT' ||
@@ -321,7 +321,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 
     if (target.value === 'HEX' && theType.startsWith('int')) {
         // Add note when HEX function is selected on a int
-        var newHexInfo = '<br><p id="note' +  target.id + '">' + Messages.HexConversionInfo + '</p>';
+        var newHexInfo = '<br><p id="note' +  target.id + '">' + window.Messages.HexConversionInfo + '</p>';
         if (!$('#note' + target.id).length) {
             $thisInput.after(newHexInfo);
         }
@@ -773,7 +773,7 @@ function addNewContinueInsertionFields (event) {
             if (currRows === 1) {
                 $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
                     .insertBefore($('table.insertRowTable').last())
-                    .after('<label for="insert_ignore_1">' + Messages.strIgnore + '</label>');
+                    .after('<label for="insert_ignore_1">' + window.Messages.strIgnore + '</label>');
             } else {
                 /**
                  * @var $last_checkbox   Object reference to the last checkbox in #insertForm
@@ -828,7 +828,7 @@ function addNewContinueInsertionFields (event) {
          * of rows.
          */
         var checkLock = jQuery.isEmptyObject(window.AJAX.lockedTargets);
-        if (checkLock || confirm(Messages.strConfirmRowChange) === true) {
+        if (checkLock || confirm(window.Messages.strConfirmRowChange) === true) {
             while (currRows > targetRows) {
                 $('input[id^=insert_ignore]').last()
                     .nextUntil('fieldset')

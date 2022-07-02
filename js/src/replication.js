@@ -81,7 +81,7 @@ window.AJAX.registerOnload('replication.js', function () {
     $('#reset_replica').on('click', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = Messages.strResetReplicaWarning;
+        var question = window.Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             window.AJAX.source = $anchor;

@@ -40,13 +40,13 @@ window.AJAX.registerTeardown('database/structure.js', function () {
  */
 DatabaseStructure.adjustTotals = function () {
     var byteUnits = [
-        Messages.strB,
-        Messages.strKiB,
-        Messages.strMiB,
-        Messages.strGiB,
-        Messages.strTiB,
-        Messages.strPiB,
-        Messages.strEiB
+        window.Messages.strB,
+        window.Messages.strKiB,
+        window.Messages.strMiB,
+        window.Messages.strGiB,
+        window.Messages.strTiB,
+        window.Messages.strPiB,
+        window.Messages.strEiB
     ];
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
@@ -130,7 +130,7 @@ DatabaseStructure.adjustTotals = function () {
 
     // Update summary with new data
     var $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(Functions.sprintf(Messages.strNTables, tableSum));
+    $summary.find('.tbl_num').text(Functions.sprintf(window.Messages.strNTables, tableSum));
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
     } else {
@@ -176,11 +176,11 @@ DatabaseStructure.fetchRealRowCount = function ($target) {
                 // Adjust the 'Sum' displayed at the bottom.
                 DatabaseStructure.adjustTotals();
             } else {
-                Functions.ajaxShowMessage(Messages.strErrorRealRowCount);
+                Functions.ajaxShowMessage(window.Messages.strErrorRealRowCount);
             }
         },
         error: function () {
-            Functions.ajaxShowMessage(Messages.strErrorRealRowCount);
+            Functions.ajaxShowMessage(window.Messages.strErrorRealRowCount);
         }
     });
 };
@@ -233,16 +233,16 @@ window.AJAX.registerOnload('database/structure.js', function () {
             var modalTitle = '';
             if (action === 'copy_tbl') {
                 url = 'index.php?route=/database/structure/copy-form';
-                modalTitle = Messages.strCopyTablesTo;
+                modalTitle = window.Messages.strCopyTablesTo;
             } else if (action === 'add_prefix_tbl') {
                 url = 'index.php?route=/database/structure/add-prefix';
-                modalTitle = Messages.strAddPrefix;
+                modalTitle = window.Messages.strAddPrefix;
             } else if (action === 'replace_prefix_tbl') {
                 url = 'index.php?route=/database/structure/change-prefix-form';
-                modalTitle = Messages.strReplacePrefix;
+                modalTitle = window.Messages.strReplacePrefix;
             } else if (action === 'copy_tbl_change_prefix') {
                 url = 'index.php?route=/database/structure/change-prefix-form';
-                modalTitle = Messages.strCopyPrefix;
+                modalTitle = window.Messages.strCopyPrefix;
             }
             $.ajax({
                 type: 'POST',
@@ -323,12 +323,12 @@ window.AJAX.registerOnload('database/structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = Messages.strTruncateTableStrongWarning + ' ' +
-            Functions.sprintf(Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(currTableName) + '`') +
+        var question = window.Messages.strTruncateTableStrongWarning + ' ' +
+            Functions.sprintf(window.Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(currTableName) + '`') +
             Functions.getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
@@ -341,7 +341,7 @@ window.AJAX.registerOnload('database/structure.js', function () {
                     $tr.find('.tbl_size, .tbl_overhead').text('-');
                     DatabaseStructure.adjustTotals();
                 } else {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }, Functions.loadForeignKeyCheckbox);
@@ -373,16 +373,16 @@ window.AJAX.registerOnload('database/structure.js', function () {
          */
         var question;
         if (! isView) {
-            question = Messages.strDropTableStrongWarning + ' ' +
-                Functions.sprintf(Messages.strDoYouReally, 'DROP TABLE `' + Functions.escapeHtml(currTableName) + '`');
+            question = window.Messages.strDropTableStrongWarning + ' ' +
+                Functions.sprintf(window.Messages.strDoYouReally, 'DROP TABLE `' + Functions.escapeHtml(currTableName) + '`');
         } else {
             question =
-                Functions.sprintf(Messages.strDoYouReally, 'DROP VIEW `' + Functions.escapeHtml(currTableName) + '`');
+                Functions.sprintf(window.Messages.strDoYouReally, 'DROP VIEW `' + Functions.escapeHtml(currTableName) + '`');
         }
         question += Functions.getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
@@ -394,7 +394,7 @@ window.AJAX.registerOnload('database/structure.js', function () {
                     Navigation.reload();
                     Functions.ajaxRemoveMessage($msg);
                 } else {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }, Functions.loadForeignKeyCheckbox);
@@ -411,7 +411,7 @@ window.AJAX.registerOnload('database/structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = Messages.strOperationTakesLongTime;
+        var question = window.Messages.strOperationTakesLongTime;
 
         $(this).confirm(question, '', function () {
             return true;

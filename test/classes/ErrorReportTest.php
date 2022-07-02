@@ -217,7 +217,7 @@ class ErrorReportTest extends AbstractTestCase
             '            if (response.success) {',
             '                // Get the column min value.',
             '                var min = response.column_data.min',
-            '                    ? \'(\' + Messages.strColumnMin +',
+            '                    ? \'(\' + window.Messages.strColumnMin +',
             '    this.completion.cm.removeKeyMap(this.keyMap);',
             '                        \' \' + response.column_data.min + \')\'',
             '                    : \'\';',

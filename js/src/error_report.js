@@ -126,21 +126,21 @@ var ErrorReport = {
         var $div = $(
             '<div class="alert alert-danger" role="alert" id="error_notification_' + key + '"></div>'
         ).append(
-            Functions.getImage('s_error') + Messages.strErrorOccurred
+            Functions.getImage('s_error') + window.Messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="float-end"></div>');
         var buttonHtml  = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
-        buttonHtml += Messages.strShowReportDetails;
+        buttonHtml += window.Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
         var settingsUrl = 'index.php?route=/preferences/features&server=' + window.CommonParams.get('server');
         buttonHtml += '<a class="ajax" href="' + settingsUrl + '">';
-        buttonHtml += Functions.getImage('s_cog', Messages.strChangeReportSettings);
+        buttonHtml += Functions.getImage('s_cog', window.Messages.strChangeReportSettings);
         buttonHtml += '</a>';
 
         buttonHtml += '<a href="#" id="ignore_error_' + key + '" data-notification-id="' + key + '">';
-        buttonHtml += Functions.getImage('b_close', Messages.strIgnore);
+        buttonHtml += Functions.getImage('b_close', window.Messages.strIgnore);
         buttonHtml += '</a>';
 
         $buttons.html(buttonHtml);

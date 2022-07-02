@@ -123,7 +123,7 @@ DesignerPage.showNewPageTables = function (check) {
         }
     }
     selectedPage = -1;
-    $('#page_name').text(Messages.strUntitled);
+    $('#page_name').text(window.Messages.strUntitled);
     DesignerMove.markUnsaved();
 };
 
@@ -149,7 +149,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         DesignerMove.markSaved();
         if (tableMissing === true) {
             DesignerMove.markUnsaved();
-            Functions.ajaxShowMessage(Messages.strSavedPageTableMissing);
+            Functions.ajaxShowMessage(window.Messages.strSavedPageTableMissing);
         }
         selectedPage = page.pgNr;
     });

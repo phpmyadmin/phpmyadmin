@@ -73,7 +73,7 @@ window.AJAX.registerOnload('database/qbe.js', function () {
      * Ajax event handlers for 'Delete bookmark'
      */
     $(document).on('click', '#deleteSearch', function () {
-        var question = Functions.sprintf(Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
+        var question = Functions.sprintf(window.Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
         if (!confirm(question)) {
             return false;
         }

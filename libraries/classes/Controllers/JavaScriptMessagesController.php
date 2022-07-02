@@ -31,7 +31,7 @@ final class JavaScriptMessagesController
             return;
         }
 
-        echo 'var Messages = ' . $messages . ';';
+        echo 'window.Messages = ' . $messages . ';';
     }
 
     /**

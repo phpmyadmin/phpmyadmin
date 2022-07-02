@@ -27,10 +27,10 @@ class JavaScriptMessagesControllerTest extends TestCase
         ob_end_clean();
 
         $this->assertIsString($actual);
-        $this->assertStringStartsWith('var Messages = {', $actual);
+        $this->assertStringStartsWith('window.Messages = {', $actual);
         $this->assertStringEndsWith('};', $actual);
 
-        $json = substr($actual, strlen('var Messages = '), -1);
+        $json = substr($actual, strlen('window.Messages = '), -1);
         $array = json_decode($json, true);
 
         $this->assertIsArray($array);

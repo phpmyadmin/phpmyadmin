@@ -192,7 +192,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
     if (type === 'time') {
         $thisElement.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        Functions.tooltip($thisElement, 'input', Messages.strMysqlAllowedValuesTipTime);
+        Functions.tooltip($thisElement, 'input', window.Messages.strMysqlAllowedValuesTipTime);
     } else {
         $thisElement.datetimepicker($.extend(defaultOptions, options));
     }
@@ -236,9 +236,9 @@ Functions.addDateTimePicker = function () {
             // Add a tip regarding entering MySQL allowed-values
             // for TIME and DATE data-type
             if ($(this).hasClass('timefield')) {
-                Functions.tooltip($(this), 'input', Messages.strMysqlAllowedValuesTipTime);
+                Functions.tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
             } else if ($(this).hasClass('datefield')) {
-                Functions.tooltip($(this), 'input', Messages.strMysqlAllowedValuesTipDate);
+                Functions.tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
             }
         });
     }
@@ -531,19 +531,19 @@ Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel
     meterObject.val(strength);
     switch (strength) {
     case 0:
-        meterObjectLabel.html(Messages.strExtrWeak);
+        meterObjectLabel.html(window.Messages.strExtrWeak);
         break;
     case 1:
-        meterObjectLabel.html(Messages.strVeryWeak);
+        meterObjectLabel.html(window.Messages.strVeryWeak);
         break;
     case 2:
-        meterObjectLabel.html(Messages.strWeak);
+        meterObjectLabel.html(window.Messages.strWeak);
         break;
     case 3:
-        meterObjectLabel.html(Messages.strGood);
+        meterObjectLabel.html(window.Messages.strGood);
         break;
     case 4:
-        meterObjectLabel.html(Messages.strStrong);
+        meterObjectLabel.html(window.Messages.strStrong);
     }
 };
 
@@ -602,13 +602,13 @@ Functions.suggestPassword = function (passwordForm) {
  */
 Functions.displayPasswordGenerateButton = function () {
     var generatePwdRow = $('<tr></tr>').addClass('align-middle');
-    $('<td></td>').html(Messages.strGeneratePassword).appendTo(generatePwdRow);
+    $('<td></td>').html(window.Messages.strGeneratePassword).appendTo(generatePwdRow);
     var pwdCell = $('<td colspan="2"></td>').addClass('row').appendTo(generatePwdRow);
 
     pwdCell.append('<div class="d-flex align-items-center col-4"></div>');
 
     var pwdButton = $('<input>')
-        .attr({ type: 'button', id: 'button_generate_password', value: Messages.strGenerate })
+        .attr({ type: 'button', id: 'button_generate_password', value: window.Messages.strGenerate })
         .addClass('btn btn-secondary button')
         .on('click', function () {
             Functions.suggestPassword(this.form);
@@ -626,7 +626,7 @@ Functions.displayPasswordGenerateButton = function () {
 
     var generatePwdDiv = $('<div></div>').addClass('item');
     $('<label></label>').attr({ for: 'button_generate_password' })
-        .html(Messages.strGeneratePassword + ':')
+        .html(window.Messages.strGeneratePassword + ':')
         .appendTo(generatePwdDiv);
     var optionsSpan = $('<span></span>').addClass('options')
         .appendTo(generatePwdDiv);
@@ -650,11 +650,11 @@ Functions.displayPasswordGenerateButton = function () {
 Functions.confirmLink = function (theLink, theSqlQuery) {
     // Confirmation is not required in the configuration file
     // or browser is Opera (crappy js implementation)
-    if (Messages.strDoYouReally === '' || typeof (window.opera) !== 'undefined') {
+    if (window.Messages.strDoYouReally === '' || typeof (window.opera) !== 'undefined') {
         return true;
     }
 
-    var isConfirmed = confirm(Functions.sprintf(Messages.strDoYouReally, theSqlQuery));
+    var isConfirmed = confirm(Functions.sprintf(window.Messages.strDoYouReally, theSqlQuery));
     if (isConfirmed) {
         if (typeof (theLink.href) !== 'undefined') {
             theLink.href += window.CommonParams.get('arg_separator') + 'is_js_confirmed=1';
@@ -680,7 +680,7 @@ Functions.confirmLink = function (theLink, theSqlQuery) {
  */
 Functions.confirmQuery = function (theForm1, sqlQuery1) {
     // Confirmation is not required in the configuration file
-    if (Messages.strDoYouReally === '') {
+    if (window.Messages.strDoYouReally === '') {
         return true;
     }
 
@@ -708,7 +708,7 @@ Functions.confirmQuery = function (theForm1, sqlQuery1) {
         } else {
             message = sqlQuery1;
         }
-        var isConfirmed = confirm(Functions.sprintf(Messages.strDoYouReally, message));
+        var isConfirmed = confirm(Functions.sprintf(window.Messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
@@ -759,7 +759,7 @@ Functions.checkSqlQuery = function (theForm) {
     if (sqlQuery.replace(spaceRegExp, '') !== '') {
         result = Functions.confirmQuery(theForm, sqlQuery);
     } else {
-        alert(Messages.strFormEmpty);
+        alert(window.Messages.strFormEmpty);
     }
 
     if (window.codeMirrorEditor) {
@@ -811,7 +811,7 @@ Functions.checkFormElementInRange = function (theForm, theFieldName, message, mi
 
     if (isNaN(val)) {
         theField.select();
-        alert(Messages.strEnterValidNumber);
+        alert(window.Messages.strEnterValidNumber);
         theField.focus();
         return false;
     } else if (val < min || val > max) {
@@ -847,7 +847,7 @@ Functions.checkTableEditForm = function (theForm, fieldsCnt) {
             elm3 = $('#field_' + i + '_1');
             if (isNaN(val) && elm3.val() !== '') {
                 elm2.select();
-                alert(Messages.strEnterValidLength);
+                alert(window.Messages.strEnterValidLength);
                 elm2.focus();
                 return false;
             }
@@ -862,7 +862,7 @@ Functions.checkTableEditForm = function (theForm, fieldsCnt) {
     }
     if (atLeastOneField === 0) {
         var theField = theForm.elements.field_0_1;
-        alert(Messages.strFormEmpty);
+        alert(window.Messages.strFormEmpty);
         theField.focus();
         return false;
     }
@@ -870,7 +870,7 @@ Functions.checkTableEditForm = function (theForm, fieldsCnt) {
     // at least this section is under jQuery
     var $input = $('input.textfield[name=\'table\']');
     if ($input.val() === '') {
-        alert(Messages.strFormEmpty);
+        alert(window.Messages.strFormEmpty);
         $input.trigger('focus');
         return false;
     }
@@ -1113,7 +1113,7 @@ Functions.updateQueryParameters = function () {
                 }
             });
         } else {
-            $('#parametersDiv').text(Messages.strNoParam);
+            $('#parametersDiv').text(window.Messages.strNoParam);
             return;
         }
 
@@ -1161,7 +1161,7 @@ Functions.loadForeignKeyCheckbox = function () {
         var html = '<input type="hidden" name="fk_checks" value="0">' +
             '<input type="checkbox" name="fk_checks" id="fk_checks"' +
             (data.default_fk_check_value ? ' checked="checked"' : '') + '>' +
-            '<label for="fk_checks">' + Messages.strForeignKeyCheck + '</label>';
+            '<label for="fk_checks">' + window.Messages.strForeignKeyCheck + '</label>';
         $('.load-default-fk-check-value').replaceWith(html);
     });
 };
@@ -1225,8 +1225,8 @@ Functions.onloadSqlQueryEditEvents = function () {
 
         var newContent = '<textarea name="sql_query_edit" id="sql_query_edit">' + Functions.escapeHtml(sqlQuery) + '</textarea>\n';
         newContent += Functions.getForeignKeyCheckboxLoader();
-        newContent += '<input type="submit" id="sql_query_edit_save" class="btn btn-secondary button btnSave" value="' + Messages.strGo + '">\n';
-        newContent += '<input type="button" id="sql_query_edit_discard" class="btn btn-secondary button btnDiscard" value="' + Messages.strCancel + '">\n';
+        newContent += '<input type="submit" id="sql_query_edit_save" class="btn btn-secondary button btnSave" value="' + window.Messages.strGo + '">\n';
+        newContent += '<input type="button" id="sql_query_edit_discard" class="btn btn-secondary button btnDiscard" value="' + window.Messages.strCancel + '">\n';
         var $editorArea = $('div#inline_editor');
         if ($editorArea.length === 0) {
             $editorArea = $('<div id="inline_editor_outer"></div>');
@@ -1574,7 +1574,7 @@ Functions.updateCode = function ($base, htmlValue, rawValue) {
  * message either the Functions.ajaxRemoveMessage($msg) function must be called or
  * another message must be show with Functions.ajaxShowMessage() function.
  *
- * 2) var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+ * 2) var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
  * This is a special case. The behaviour is same as above,
  * just with a different message
  *
@@ -1619,10 +1619,10 @@ Functions.ajaxShowMessage = function (message = null, timeout = null, type = nul
         return true;
     } else if (! msg) {
         // If the message is undefined, show the default
-        msg = Messages.strLoading;
+        msg = window.Messages.strLoading;
         dismissable = false;
         selfClosing = false;
-    } else if (msg === Messages.strProcessingRequest) {
+    } else if (msg === window.Messages.strProcessingRequest) {
         // This is another case where the message should not disappear
         dismissable = false;
         selfClosing = false;
@@ -1684,11 +1684,11 @@ Functions.ajaxShowMessage = function (message = null, timeout = null, type = nul
         Functions.tooltip(
             $retval,
             'span',
-            Messages.strDismiss
+            window.Messages.strDismiss
         );
     }
     // Hide spinner if this is not a loading message
-    if (msg !== Messages.strLoading) {
+    if (msg !== window.Messages.strLoading) {
         $retval.css('background-image', 'none');
     }
     Functions.highlightSql($retval);
@@ -1740,7 +1740,7 @@ Functions.previewSql = function ($form) {
             if (response.success) {
                 $('#previewSqlModal').modal('show');
                 $('#previewSqlModal').find('.modal-body').first().html(response.sql_data);
-                $('#previewSqlModalLabel').first().html(Messages.strPreviewSQL);
+                $('#previewSqlModalLabel').first().html(window.Messages.strPreviewSQL);
                 $('#previewSqlModal').on('shown.bs.modal', function () {
                     Functions.highlightSql($('#previewSqlModal'));
                 });
@@ -1749,7 +1749,7 @@ Functions.previewSql = function ($form) {
             }
         },
         error: function () {
-            Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
+            Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest);
         }
     });
 };
@@ -1771,7 +1771,7 @@ Functions.previewSql = function ($form) {
  */
 Functions.confirmPreviewSql = function (sqlData, url, callback) {
     $('#previewSqlConfirmModal').modal('show');
-    $('#previewSqlConfirmModalLabel').first().html(Messages.strPreviewSQL);
+    $('#previewSqlConfirmModalLabel').first().html(window.Messages.strPreviewSQL);
     $('#previewSqlConfirmCode').first().text(sqlData);
     $('#previewSqlConfirmModal').on('shown.bs.modal', function () {
         Functions.highlightSql($('#previewSqlConfirmModal'));
@@ -1875,9 +1875,9 @@ Functions.dismissNotifications = () => function () {
         event.preventDefault();
         var res = Functions.copyToClipboard($(this).attr('data-text'));
         if (res) {
-            $(this).after('<span id=\'copyStatus\'> (' + Messages.strCopyQueryButtonSuccess + ')</span>');
+            $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
         } else {
-            $(this).after('<span id=\'copyStatus\'> (' + Messages.strCopyQueryButtonFailure + ')</span>');
+            $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
         }
         setTimeout(function () {
             $('#copyStatus').remove();
@@ -2181,7 +2181,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
             return true;
         }
     }
-    if (Messages.strDoYouReally === '') {
+    if (window.Messages.strDoYouReally === '') {
         return true;
     }
 
@@ -2278,7 +2278,7 @@ Functions.onloadCreateTableEvents = function () {
         if (Functions.checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
             Functions.prepareForAjaxRequest($form);
             if (Functions.checkReservedWordColumns($form)) {
-                Functions.ajaxShowMessage(Messages.strProcessingRequest);
+                Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
                 // User wants to submit the form
                 $.post($form.attr('action'), $form.serialize() + window.CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -2368,7 +2368,7 @@ Functions.onloadCreateTableEvents = function () {
          */
         var $form = $('form.create_table_form.ajax');
 
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
 
         // User wants to add more fields to the table
@@ -2439,8 +2439,8 @@ Functions.onloadCreateTableEvents = function () {
 /**
  * Validates the password field in a form
  *
- * @see    Messages.strPasswordEmpty
- * @see    Messages.strPasswordNotSame
+ * @see    window.Messages.strPasswordEmpty
+ * @see    window.Messages.strPasswordNotSame
  * @param {object} $theForm The form to be validated
  * @return {boolean}
  */
@@ -2460,9 +2460,9 @@ Functions.checkPassword = function ($theForm) {
     var alertMessage = false;
 
     if ($password.val() === '') {
-        alertMessage = Messages.strPasswordEmpty;
+        alertMessage = window.Messages.strPasswordEmpty;
     } else if ($password.val() !== $passwordRepeat.val()) {
-        alertMessage = Messages.strPasswordNotSame;
+        alertMessage = window.Messages.strPasswordNotSame;
     }
 
     if (alertMessage) {
@@ -2571,7 +2571,7 @@ Functions.onloadChangePasswordEvents = function () {
              */
             var thisValue = $(this).val();
 
-            var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
             $theForm.append('<input type="hidden" name="ajax_request" value="true">');
 
             $.post($theForm.attr('action'), $theForm.serialize() + window.CommonParams.get('arg_separator') + 'change_pw=' + thisValue, function (data) {
@@ -2767,9 +2767,9 @@ Functions.onloadEnumSetEditor = function () {
         var i;
         // And use it to make up a title for the page
         if (colname.length < 1) {
-            title = Messages.enum_newColumnVals;
+            title = window.Messages.enum_newColumnVals;
         } else {
-            title = Messages.enum_columnVals.replace(
+            title = window.Messages.enum_columnVals.replace(
                 /%s/,
                 '"' + Functions.escapeHtml(decodeURIComponent(colname)) + '"'
             );
@@ -2835,14 +2835,14 @@ Functions.onloadEnumSetEditor = function () {
             '<fieldset class="pma-fieldset">' +
             '<legend>' + title + '</legend>' +
             '<p>' + Functions.getImage('s_notice') +
-            Messages.enum_hint + '</p>' +
+            window.Messages.enum_hint + '</p>' +
             '<table class="table table-borderless values">' + fields + '</table>' +
             '</fieldset><fieldset class="pma-fieldset tblFooters">' +
             '<table class="table table-borderless add"><tr><td>' +
             '<div class=\'slider\'></div>' +
             '</td><td>' +
             '<form><div><input type=\'submit\' class=\'add_value btn btn-primary\' value=\'' +
-            Functions.sprintf(Messages.enum_addValue, 1) +
+            Functions.sprintf(window.Messages.enum_addValue, 1) +
             '\'></div></form>' +
             '</td></tr></table>' +
             '<input type=\'hidden\' value=\'' + // So we know which column's data is being edited
@@ -2881,7 +2881,7 @@ Functions.onloadEnumSetEditor = function () {
             max: 9,
             slide: function (event, ui) {
                 $(this).closest('table').find('input[type=submit]').val(
-                    Functions.sprintf(Messages.enum_addValue, ui.value)
+                    Functions.sprintf(window.Messages.enum_addValue, ui.value)
                 );
             }
         });
@@ -2938,20 +2938,20 @@ Functions.onloadEnumSetEditor = function () {
                 '</div></td>';
             if (pick) {
                 fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
-                    Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
+                    window.Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
             }
             fields += '</tr>';
         }
         var resultPointer = i;
-        var searchIn = '<input type="text" class="filter_rows" placeholder="' + Messages.searchList + '">';
+        var searchIn = '<input type="text" class="filter_rows" placeholder="' + window.Messages.searchList + '">';
         if (fields === '') {
-            fields = Functions.sprintf(Messages.strEmptyCentralList, '\'' + Functions.escapeHtml(db) + '\'');
+            fields = Functions.sprintf(window.Messages.strEmptyCentralList, '\'' + Functions.escapeHtml(db) + '\'');
             searchIn = '';
         }
         var seeMore = '';
         if (listSize > maxRows) {
             seeMore = '<fieldset class="pma-fieldset tblFooters text-center fw-bold">' +
-                '<a href=\'#\' id=\'seeMore\'>' + Messages.seeMore + '</a></fieldset>';
+                '<a href=\'#\' id=\'seeMore\'>' + window.Messages.seeMore + '</a></fieldset>';
         }
         var centralColumnsDialog = '<div class=\'max_height_400\'>' +
             '<fieldset class="pma-fieldset">' +
@@ -2973,7 +2973,7 @@ Functions.onloadEnumSetEditor = function () {
             minWidth: width,
             maxHeight: 450,
             modal: true,
-            title: Messages.pickColumnTitle,
+            title: window.Messages.pickColumnTitle,
             buttons: buttonOptions,
             open: function () {
                 $('#col_list').on('click', '.pick', function () {
@@ -3001,7 +3001,7 @@ Functions.onloadEnumSetEditor = function () {
                             '</div></td>';
                         if (pick) {
                             fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
-                                Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
+                                window.Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
                         }
                         fields += '</tr>';
                     }
@@ -3139,7 +3139,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
             data: formData,
             success: response => {
                 if (! response.success) {
-                    modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + Messages.strErrorProcessingRequest + '</div>';
+                    modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
                     return;
                 }
 
@@ -3147,13 +3147,13 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
                 Functions.highlightSql($('#indexDialogPreviewModal'));
             },
             error: () => {
-                modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + Messages.strErrorProcessingRequest + '</div>';
+                modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
             }
         });
     });
     indexDialogPreviewModal.addEventListener('hidden.bs.modal', () => {
         indexDialogPreviewModal.querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
-            '<span class="visually-hidden">' + Messages.strLoading + '</span></div>';
+            '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
     });
 
     /**
@@ -3165,7 +3165,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
          * @var the_form object referring to the export form
          */
         var $form = $('#index_frm');
-        Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
         // User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + window.CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
@@ -3255,7 +3255,7 @@ Functions.showIndexEditDialog = function ($outer) {
         max: 16,
         slide: function (event, ui) {
             $(this).closest('fieldset').find('input[type=submit]').val(
-                Functions.sprintf(Messages.strAddToIndex, ui.value)
+                Functions.sprintf(window.Messages.strAddToIndex, ui.value)
             );
         }
     });
@@ -4054,7 +4054,7 @@ Functions.checkNumberOfFields = function () {
     $('form').each(function () {
         var nbInputs = $(this).find(':input').length;
         if (nbInputs > maxInputVars) {
-            var warning = Functions.sprintf(Messages.strTooManyInputs, maxInputVars);
+            var warning = Functions.sprintf(window.Messages.strTooManyInputs, maxInputVars);
             Functions.ajaxShowMessage(warning);
             return false;
         }

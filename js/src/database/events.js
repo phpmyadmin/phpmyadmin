@@ -40,7 +40,7 @@ const DatabaseEvents = {
         $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
             $elm.trigger('focus');
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
@@ -50,7 +50,7 @@ const DatabaseEvents = {
             } else {
                 $('textarea[name=item_definition]').last().trigger('focus');
             }
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         // The validation has so far passed, so now
@@ -63,7 +63,7 @@ const DatabaseEvents = {
         if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
-                title: Messages.strExport,
+                title: window.Messages.strExport,
                 message: '',
                 error: ''
             };
@@ -106,7 +106,7 @@ const DatabaseEvents = {
                  *                     for jQueryUI dialog buttons
                  */
                 var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
+                buttonOptions[window.Messages.strClose] = function () {
                     $(this).dialog('close').remove();
                 };
                 /**
@@ -155,7 +155,7 @@ const DatabaseEvents = {
                 Functions.ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[Messages.strGo] = function () {
+                that.buttonOptions[window.Messages.strGo] = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof window.CodeMirror !== 'undefined') {
@@ -168,7 +168,7 @@ const DatabaseEvents = {
                          */
                         var data = $('form.rte_form').last().serialize();
                         $msg = Functions.ajaxShowMessage(
-                            Messages.strProcessingRequest
+                            window.Messages.strProcessingRequest
                         );
                         var url = $('form.rte_form').last().attr('action');
                         $.post(url, data, function (data) {
@@ -270,7 +270,7 @@ const DatabaseEvents = {
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[Messages.strClose] = function () {
+                that.buttonOptions[window.Messages.strClose] = function () {
                     $(this).dialog('close');
                 };
                 /**
@@ -342,7 +342,7 @@ const DatabaseEvents = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
             var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
@@ -399,12 +399,12 @@ const DatabaseEvents = {
 
     dropMultipleDialog: function ($this) {
         // We ask for confirmation here
-        $this.confirm(Messages.strDropRTEitems, '', function () {
+        $this.confirm(window.Messages.strDropRTEitems, '', function () {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
             var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
@@ -495,7 +495,7 @@ const DatabaseEvents = {
             $elm = this.$ajaxDialog.find('input[name=item_interval_value]');
             if ($elm.val() === '') {
                 $elm.trigger('focus');
-                alert(Messages.strFormEmpty);
+                alert(window.Messages.strFormEmpty);
                 return false;
             }
         } else {
@@ -503,7 +503,7 @@ const DatabaseEvents = {
             $elm = this.$ajaxDialog.find('input[name=item_execute_at]');
             if ($elm.val() === '') {
                 $elm.trigger('focus');
-                alert(Messages.strFormEmpty);
+                alert(window.Messages.strFormEmpty);
                 return false;
             }
         }

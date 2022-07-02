@@ -66,10 +66,10 @@ $( function() {
                         var statustext = Functions.sprintf(
                             "{{ statustext_str|raw }}",
                             Functions.formatBytes(
-                                complete, 1, Messages.strDecimalSeparator
+                                complete, 1, window.Messages.strDecimalSeparator
                             ),
                             Functions.formatBytes(
-                                total, 1, Messages.strDecimalSeparator
+                                total, 1, window.Messages.strDecimalSeparator
                             )
                         );
 
@@ -87,7 +87,7 @@ $( function() {
                             var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
                             var speed = Functions.sprintf(
                                 "{{ second_str|raw }}",
-                                Functions.formatBytes(complete / used_time * 1000, 1, Messages.strDecimalSeparator)
+                                Functions.formatBytes(complete / used_time * 1000, 1, window.Messages.strDecimalSeparator)
                             );
 
                             var minutes = parseInt(seconds / 60);

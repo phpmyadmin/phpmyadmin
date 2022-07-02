@@ -2,7 +2,7 @@ import $ from 'jquery';
 import CodeMirror from 'codemirror';
 import { Config } from './console/config.js';
 
-/* global Functions, Messages, Navigation */
+/* global Functions, Navigation */
 
 /**
  * Console object
@@ -889,7 +889,7 @@ var ConsoleMessages = {
         $targetMessage.find('.action.requery').on('click', function () {
             var query = $(this).parent().siblings('.query').text();
             var $message = $(this).closest('.message');
-            if (confirm(Messages.strConsoleRequeryConfirm + '\n' +
+            if (confirm(window.Messages.strConsoleRequeryConfirm + '\n' +
                 (query.length < 100 ? query : query.slice(0, 100) + '...'))
             ) {
                 Console.execute(query, { db: $message.attr('targetdb'), table: $message.attr('targettable') });
@@ -911,7 +911,7 @@ var ConsoleMessages = {
         });
         $targetMessage.find('.action.delete_bookmark').on('click', function () {
             var $message = $(this).closest('.message');
-            if (confirm(Messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
+            if (confirm(window.Messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('index.php?route=/import',
                     {
                         'server': window.CommonParams.get('server'),
@@ -1079,7 +1079,7 @@ var ConsoleBookmarks = {
         $('#pma_bookmarks').find('.card.add [name=submit]').on('click', function () {
             if ($('#pma_bookmarks').find('.card.add [name=label]').val().length === 0
                 || ConsoleInput.getText('bookmark').length === 0) {
-                alert(Messages.strFormEmpty);
+                alert(window.Messages.strFormEmpty);
                 return;
             }
             $(this).prop('disabled', true);
@@ -1205,7 +1205,7 @@ var ConsoleDebug = {
                     $('<div class="message welcome">')
                         .text(
                             Functions.sprintf(
-                                Messages.strConsoleDebugArgsSummary,
+                                window.Messages.strConsoleDebugArgsSummary,
                                 dbgStep.args.length
                             )
                         )
@@ -1268,12 +1268,12 @@ var ConsoleDebug = {
                                 $('<div class="action_content">')
                                     .append(
                                         '<span class="action dbg_show_args">' +
-                                Messages.strConsoleDebugShowArgs +
+                                window.Messages.strConsoleDebugShowArgs +
                                 '</span> '
                                     )
                                     .append(
                                         '<span class="action dbg_hide_args">' +
-                                Messages.strConsoleDebugHideArgs +
+                                window.Messages.strConsoleDebugHideArgs +
                                 '</span> '
                                     )
                             );
@@ -1341,7 +1341,7 @@ var ConsoleDebug = {
                     .text((parseInt(i) + 1) + '.')
                     .append(
                         $('<span class="time">').text(
-                            Messages.strConsoleDebugTimeTaken +
+                            window.Messages.strConsoleDebugTimeTaken +
                         ' ' + queryInfo[i].time + 's' +
                         ' (' + ((queryInfo[i].time * 100) / totalTime).toFixed(3) + '%)'
                         )
@@ -1386,7 +1386,7 @@ var ConsoleDebug = {
         }
         if (debugJson === false) {
             $('#debug_console').find('.debug>.welcome').text(
-                Messages.strConsoleDebugError
+                window.Messages.strConsoleDebugError
             );
             return;
         }
@@ -1418,7 +1418,7 @@ var ConsoleDebug = {
         $('#debug_console').find('.debug>.welcome').append(
             $('<span class="debug_summary">').text(
                 Functions.sprintf(
-                    Messages.strConsoleDebugSummary,
+                    window.Messages.strConsoleDebugSummary,
                     totalUnique,
                     totalExec,
                     totalTime

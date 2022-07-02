@@ -197,7 +197,7 @@ window.AJAX = {
         // Show lock icon if locked targets is not empty.
         // otherwise remove lock icon
         if (!jQuery.isEmptyObject(window.AJAX.lockedTargets)) {
-            $('#lock_page_icon').html(Functions.getImage('s_lock', Messages.strLockToolTip).toString());
+            $('#lock_page_icon').html(Functions.getImage('s_lock', window.Messages.strLockToolTip).toString());
         } else {
             $('#lock_page_icon').html('');
         }
@@ -262,7 +262,7 @@ window.AJAX = {
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
             !jQuery.isEmptyObject(window.AJAX.lockedTargets) &&
-            confirm(Messages.strConfirmNavigation) === false
+            confirm(window.Messages.strConfirmNavigation) === false
         ) {
             return false;
         }
@@ -279,7 +279,7 @@ window.AJAX = {
                 window.AJAX.xhr.abort();
                 if (window.AJAX.xhr.status === 0 && window.AJAX.xhr.statusText === 'abort') {
                     // If aborted
-                    window.AJAX.$msgbox = Functions.ajaxShowMessage(Messages.strAbortedRequest);
+                    window.AJAX.$msgbox = Functions.ajaxShowMessage(window.Messages.strAbortedRequest);
                     window.AJAX.active = false;
                     window.AJAX.xhr = null;
                     previousLinkAborted = true;
@@ -398,11 +398,11 @@ window.AJAX = {
                 data.stopErrorReportLoop !== '1'
             ) {
                 $('#pma_report_errors_form').trigger('submit');
-                Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
+                Functions.ajaxShowMessage(window.Messages.phpErrorsBeingSubmitted, false);
                 $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
             } else if (data.promptPhpErrors) {
                 // otherwise just prompt user if it is set so.
-                msg = msg + Messages.phpErrorsFound;
+                msg = msg + window.Messages.phpErrorsFound;
                 // scroll to bottom where all the errors are displayed.
                 $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
             }
@@ -421,7 +421,7 @@ window.AJAX = {
             // reload page if user trying to login has changed
             if (window.CommonParams.get('user') !== data.params.user) {
                 window.location = 'index.php';
-                Functions.ajaxShowMessage(Messages.strLoading, false);
+                Functions.ajaxShowMessage(window.Messages.strLoading, false);
                 window.AJAX.active = false;
                 window.AJAX.xhr = null;
                 return;
@@ -581,11 +581,11 @@ window.AJAX = {
                         data.stopErrorReportLoop !== '1'
                     ) {
                         $('#pma_report_errors_form').trigger('submit');
-                        Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
+                        Functions.ajaxShowMessage(window.Messages.phpErrorsBeingSubmitted, false);
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     } else if (data.promptPhpErrors) {
                         // otherwise just prompt user if it is set so.
-                        msg = msg + Messages.phpErrorsFound;
+                        msg = msg + window.Messages.phpErrorsFound;
                         // scroll to bottom where all the errors are displayed.
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     }
@@ -919,15 +919,15 @@ window.AJAX = {
                 }
 
                 if (request.status !== 0) {
-                    details += '<div>' + Functions.escapeHtml(Functions.sprintf(Messages.strErrorCode, request.status)) + '</div>';
+                    details += '<div>' + Functions.escapeHtml(Functions.sprintf(window.Messages.strErrorCode, request.status)) + '</div>';
                 }
-                details += '<div>' + Functions.escapeHtml(Functions.sprintf(Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+                details += '<div>' + Functions.escapeHtml(Functions.sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
                 if (state === 'rejected' || state === 'timeout') {
-                    details += '<div>' + Functions.escapeHtml(Messages.strErrorConnection) + '</div>';
+                    details += '<div>' + Functions.escapeHtml(window.Messages.strErrorConnection) + '</div>';
                 }
                 Functions.ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert">' +
-                    Messages.strErrorProcessingRequest +
+                    window.Messages.strErrorProcessingRequest +
                     details +
                     '</div>',
                     false

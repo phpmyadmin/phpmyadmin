@@ -51,12 +51,12 @@ const GitInfo = {
             versionInformationMessageLink.rel = 'noopener noreferrer';
             const versionInformationMessageLinkText = document.createTextNode(data.version);
             versionInformationMessageLink.appendChild(versionInformationMessageLinkText);
-            const prefixMessage = document.createTextNode(Messages.strLatestAvailable + ' ');
+            const prefixMessage = document.createTextNode(window.Messages.strLatestAvailable + ' ');
             versionInformationMessage.appendChild(prefixMessage);
             versionInformationMessage.appendChild(versionInformationMessageLink);
             if (latest > current) {
                 const message = Functions.sprintf(
-                    Messages.strNewerVersion,
+                    window.Messages.strNewerVersion,
                     Functions.escapeHtml(data.version),
                     Functions.escapeHtml(data.date)
                 );
@@ -80,7 +80,7 @@ const GitInfo = {
                 $('#maincontainer').append($(mainContainerDiv));
             }
             if (latest === current) {
-                versionInformationMessage = document.createTextNode(' (' + Messages.strUpToDate + ')');
+                versionInformationMessage = document.createTextNode(' (' + window.Messages.strUpToDate + ')');
             }
             /* Remove extra whitespace */
             const versionInfo = $('#li_pma_version').contents().get(2);

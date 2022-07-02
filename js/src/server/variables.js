@@ -43,7 +43,7 @@ window.AJAX.registerOnload('server/variables.js', function () {
         $myEditLink.remove(); // remove edit link
 
         $mySaveLink.on('click', function () {
-            var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post('index.php?route=/server/variables/set/' + encodeURIComponent(varName), {
                 'ajax_request': true,
                 'server': window.CommonParams.get('server'),
@@ -56,7 +56,7 @@ window.AJAX.registerOnload('server/variables.js', function () {
                     Functions.ajaxRemoveMessage($msgbox);
                 } else {
                     if (data.error === '') {
-                        Functions.ajaxShowMessage(Messages.strRequestFailed, false);
+                        Functions.ajaxShowMessage(window.Messages.strRequestFailed, false);
                     } else {
                         Functions.ajaxShowMessage(data.error, false);
                     }

@@ -16,8 +16,8 @@
 function displayHelp () {
     var modal = $('#helpModal');
     modal.modal('show');
-    modal.find('.modal-body').first().html(Messages.strDisplayHelp);
-    $('#helpModalLabel').first().html(Messages.strHelpTitle);
+    modal.find('.modal-body').first().html(window.Messages.strDisplayHelp);
+    $('#helpModalLabel').first().html(window.Messages.strHelpTitle);
     return false;
 }
 
@@ -247,9 +247,9 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
      **/
     $('#inputFormSubmitId').on('click', function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
-            Functions.ajaxShowMessage(Messages.strInputNull);
+            Functions.ajaxShowMessage(window.Messages.strInputNull);
         } else if (xLabel === yLabel) {
-            Functions.ajaxShowMessage(Messages.strSameInputs);
+            Functions.ajaxShowMessage(window.Messages.strSameInputs);
         }
     });
 
@@ -263,14 +263,14 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         .hide();
 
     $('#togglesearchformlink')
-        .html(Messages.strShowSearchCriteria)
+        .html(window.Messages.strShowSearchCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#zoom_search_form').slideToggle();
-            if ($link.text() === Messages.strHideSearchCriteria) {
-                $link.text(Messages.strShowSearchCriteria);
+            if ($link.text() === window.Messages.strHideSearchCriteria) {
+                $link.text(window.Messages.strShowSearchCriteria);
             } else {
-                $link.text(Messages.strHideSearchCriteria);
+                $link.text(window.Messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -411,7 +411,7 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         dataPointSave();
     });
 
-    $('#dataPointModalLabel').first().html(Messages.strDataPointContent);
+    $('#dataPointModalLabel').first().html(window.Messages.strDataPointContent);
 
     /**
      * Attach Ajax event handlers for input fields
@@ -437,7 +437,7 @@ window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             .slideToggle()
             .hide();
         $('#togglesearchformlink')
-            .text(Messages.strShowSearchCriteria);
+            .text(window.Messages.strShowSearchCriteria);
         $('#togglesearchformdiv').show();
         var selectedRow;
         var series = [];

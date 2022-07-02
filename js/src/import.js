@@ -18,7 +18,7 @@ function changePluginOpts () {
     const importNotification = document.getElementById('import_notification');
     importNotification.innerText = '';
     if (selectedPluginName === 'csv') {
-        importNotification.innerHTML = '<div class="alert alert-info mb-0 mt-3" role="alert">' + Messages.strImportCSV + '</div>';
+        importNotification.innerHTML = '<div class="alert alert-info mb-0 mt-3" role="alert">' + window.Messages.strImportCSV + '</div>';
     }
 }
 
@@ -61,9 +61,9 @@ window.AJAX.registerOnload('import.js', function () {
     $(document).on('submit', '#import_file_form', function () {
         var radioLocalImport = $('#localFileTab');
         var radioImport = $('#uploadFileTab');
-        var fileMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strImportDialogMessage + '</div>';
-        var wrongTblNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strTableNameDialogMessage + '</div>';
-        var wrongDBNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strDBNameDialogMessage + '</div>';
+        var fileMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strImportDialogMessage + '</div>';
+        var wrongTblNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strTableNameDialogMessage + '</div>';
+        var wrongDBNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strDBNameDialogMessage + '</div>';
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
@@ -76,7 +76,7 @@ window.AJAX.registerOnload('import.js', function () {
 
             if (radioLocalImport.hasClass('active')) {
                 if ($('#select_local_import_file').length === 0) {
-                    Functions.ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strNoImportFile + ' </div>', false);
+                    Functions.ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strNoImportFile + ' </div>', false);
                     return false;
                 }
 

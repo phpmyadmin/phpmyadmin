@@ -266,7 +266,7 @@ Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
     // Html list.
     var $compositeIndexList = $(
         '<ul id="composite_index_list">' +
-        '<div>' + Messages.strCompositeWith + '</div>' +
+        '<div>' + window.Messages.strCompositeWith + '</div>' +
         '</ul>'
     );
 
@@ -318,7 +318,7 @@ var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
     } else {
         Functions.ajaxShowMessage(
             '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
-            ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
+            ' class="icon ic_s_error"> ' + window.Messages.strMissingColumn +
             ' </div>', false
         );
 
@@ -404,7 +404,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                     }
                 });
                 $('#addIndexModal').modal('show');
-                $('#addIndexModalLabel').first().text(Messages.strAddIndex);
+                $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
                 $('#addIndexModal').find('.modal-body').first().html(data.message);
                 Functions.checkIndexName('index_frm');
                 Functions.showHints($div);
@@ -439,7 +439,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                 } else {
                     Functions.ajaxShowMessage(
                         '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
-                        ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
+                        ' class="icon ic_s_error"> ' + window.Messages.strMissingColumn +
                         ' </div>', false
                     );
 
@@ -468,10 +468,10 @@ var removeIndexOnChangeEvent = function () {
 Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex) {
     var $singleColumnRadio = $('<input type="radio" id="single_column" name="index_choice"' +
         ' checked="checked">' +
-        '<label for="single_column">' + Messages.strCreateSingleColumnIndex + '</label>');
+        '<label for="single_column">' + window.Messages.strCreateSingleColumnIndex + '</label>');
     var $compositeIndexRadio = $('<input type="radio" id="composite_index"' +
         ' name="index_choice">' +
-        '<label for="composite_index">' + Messages.strCreateCompositeIndex + '</label>');
+        '<label for="composite_index">' + window.Messages.strCreateCompositeIndex + '</label>');
     var $dialogContent = $('<fieldset class="pma-fieldset" id="advance_index_creator"></fieldset>');
     $dialogContent.append('<legend>' + indexChoice.toUpperCase() + '</legend>');
 
@@ -496,7 +496,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
                 Functions.ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title=""' +
                     ' alt="" class="icon ic_s_error"> ' +
-                    Messages.strFormEmpty +
+                    window.Messages.strFormEmpty +
                     ' </div>',
                     false
                 );
@@ -532,7 +532,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
         removeIndexOnChangeEvent();
     });
     $('#addIndexModal').modal('show');
-    $('#addIndexModalLabel').first().text(Messages.strAddIndex);
+    $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
     $('#addIndexModal').find('.modal-body').first().html($dialogContent);
     $('#composite_index').on('change', function () {
         if ($(this).is(':checked')) {
@@ -590,7 +590,7 @@ Indexes.on = () => function () {
         var $form = $('#index_frm');
         var argsep = window.CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-        Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         window.AJAX.source = $form;
         $.post($form.attr('action'), submitData, window.AJAX.responseHandler);
     });
@@ -629,7 +629,7 @@ Indexes.on = () => function () {
             .val();
 
         Functions.confirmPreviewSql(question, $anchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(Messages.strDroppingPrimaryKeyIndex, false);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingPrimaryKeyIndex, false);
             var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -660,7 +660,7 @@ Indexes.on = () => function () {
                     Navigation.reload();
                     window.CommonActions.refreshMain('index.php?route=/table/structure');
                 } else {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         });
@@ -684,11 +684,11 @@ Indexes.on = () => function () {
                 return;
             }
             url = $(this).closest('form').serialize();
-            title = Messages.strAddIndex;
+            title = window.Messages.strAddIndex;
         } else {
             // Edit index
             url = $(this).find('a').getPostData();
-            title = Messages.strEditIndex;
+            title = window.Messages.strEditIndex;
         }
         url += window.CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexEditorDialog(url, title, function (data) {
@@ -704,7 +704,7 @@ Indexes.on = () => function () {
     $(document).on('click', '#table_index tbody tr td.rename_index.ajax', function (event) {
         event.preventDefault();
         var url = $(this).find('a').getPostData();
-        var title = Messages.strRenameIndex;
+        var title = window.Messages.strRenameIndex;
         url += window.CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexRenameDialog(url, title, function (data) {
             window.CommonParams.set('db', data.params.db);

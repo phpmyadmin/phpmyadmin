@@ -232,10 +232,10 @@ window.AJAX.registerOnload('table/relation.js', function () {
                 .val()
         );
 
-        var question = Functions.sprintf(Messages.strDoYouReally, dropQuery);
+        var question = Functions.sprintf(window.Messages.strDoYouReally, dropQuery);
 
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(Messages.strDroppingForeignKey, false);
+            var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingForeignKey, false);
             var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
@@ -244,7 +244,7 @@ window.AJAX.registerOnload('table/relation.js', function () {
                         // Do nothing
                     });
                 } else {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         });

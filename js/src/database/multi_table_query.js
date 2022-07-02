@@ -120,7 +120,7 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
         var query = editor.getDoc().getValue();
         // Verifying that the query is not empty
         if (query === '') {
-            Functions.ajaxShowMessage(Messages.strEmptyQuery, false, 'error');
+            Functions.ajaxShowMessage(window.Messages.strEmptyQuery, false, 'error');
             return;
         }
         var data = {

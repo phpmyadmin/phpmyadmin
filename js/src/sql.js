@@ -212,7 +212,7 @@ const handleSimulateQueryButton = function () {
         if (! $simulateDml.length) {
             $('#button_submit_query').before(
                 '<input type="button" id="simulate_dml"' +
-                'tabindex="199" class="btn btn-primary" value="' + Messages.strSimulateDML + '">'
+                'tabindex="199" class="btn btn-primary" value="' + window.Messages.strSimulateDML + '">'
             );
         }
     } else {
@@ -269,7 +269,7 @@ const insertQuery = function (queryType) {
         return;
     } else if (queryType === 'format') {
         if (window.codeMirrorEditor) {
-            $('#querymessage').html(Messages.strFormatting +
+            $('#querymessage').html(window.Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
                 themeImagePath + 'ajax_clock_small.gif" alt="">');
             var params = {
@@ -307,7 +307,7 @@ const insertQuery = function (queryType) {
         } else if (window.Cookies.get(key, { path: window.CommonParams.get('rootPath') })) {
             setQuery(window.Cookies.get(key, { path: window.CommonParams.get('rootPath') }));
         } else {
-            Functions.ajaxShowMessage(Messages.strNoAutoSavedQuery);
+            Functions.ajaxShowMessage(window.Messages.strNoAutoSavedQuery);
         }
         return;
     }
@@ -486,7 +486,7 @@ window.AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $(document).on('click', 'a.delete_row.ajax', function (e) {
         e.preventDefault();
-        var question =  Functions.sprintf(Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
+        var question =  Functions.sprintf(window.Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
         var $link = $(this);
         $link.confirm(question, $link.attr('href'), function (url) {
             Functions.ajaxShowMessage();
@@ -637,7 +637,7 @@ window.AJAX.registerOnload('sql.js', function () {
     // do not add this link more than once
     if (! $('#sqlqueryform').find('button').is('#togglequerybox')) {
         $('<button class="btn btn-secondary" id="togglequerybox"></button>')
-            .html(Messages.strHideQueryBox)
+            .html(window.Messages.strHideQueryBox)
             .appendTo('#sqlqueryform')
         // initially hidden because at this point, nothing else
         // appears under the link
@@ -647,14 +647,14 @@ window.AJAX.registerOnload('sql.js', function () {
         $('#togglequerybox').on('click', function () {
             var $link = $(this);
             $link.siblings().slideToggle('fast');
-            if ($link.text() === Messages.strHideQueryBox) {
-                $link.text(Messages.strShowQueryBox);
+            if ($link.text() === window.Messages.strHideQueryBox) {
+                $link.text(window.Messages.strShowQueryBox);
                 // cheap trick to add a spacer between the menu tabs
                 // and "Show query box"; feel free to improve!
                 $('#togglequerybox_spacer').remove();
                 $link.before('<br id="togglequerybox_spacer">');
             } else {
-                $link.text(Messages.strHideQueryBox);
+                $link.text(window.Messages.strHideQueryBox);
             }
             // avoid default click action
             return false;
@@ -707,7 +707,7 @@ window.AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
             $varDiv.append($('<div class="mb-3">'));
-            $varDiv.append($('<label for="bookmarkVariable' + i + '">' + Functions.sprintf(Messages.strBookmarkVariable, i) + '</label>'));
+            $varDiv.append($('<label for="bookmarkVariable' + i + '">' + Functions.sprintf(window.Messages.strBookmarkVariable, i) + '</label>'));
             $varDiv.append($('<input class="form-control" type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmarkVariable' + i + '">'));
             $varDiv.append($('</div>'));
         }
@@ -926,7 +926,7 @@ window.AJAX.registerOnload('sql.js', function () {
         if (! $(this).is(':checked')) { // already showing all rows
             Sql.submitShowAllForm();
         } else {
-            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
+            $form.confirm(window.Messages.strShowAllRowsWarning, $form.attr('action'), function () {
                 Sql.submitShowAllForm();
             });
         }
@@ -952,7 +952,7 @@ window.AJAX.registerOnload('sql.js', function () {
         }
 
         if (query.length === 0) {
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             $('#sqlquery').trigger('focus');
             return false;
         }
@@ -975,9 +975,9 @@ window.AJAX.registerOnload('sql.js', function () {
                     if (response.sql_data) {
                         var len = response.sql_data.length;
                         for (var i = 0; i < len; i++) {
-                            dialogContent += '<strong>' + Messages.strSQLQuery +
+                            dialogContent += '<strong>' + window.Messages.strSQLQuery +
                                 '</strong>' + response.sql_data[i].sql_query +
-                                Messages.strMatchedRows +
+                                window.Messages.strMatchedRows +
                                 ' <a href="' + response.sql_data[i].matched_rows_url +
                                 '">' + response.sql_data[i].matched_rows + '</a><br>';
                             if (i < len - 1) {
@@ -1000,7 +1000,7 @@ window.AJAX.registerOnload('sql.js', function () {
                 }
             },
             error: function () {
-                Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
+                Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest);
             }
         });
     });
@@ -1042,13 +1042,13 @@ window.AJAX.registerOnload('sql.js', function () {
         var maxRowsCheck = Functions.checkFormElementInRange(
             this,
             'session_max_rows',
-            Messages.strNotValidRowNumber,
+            window.Messages.strNotValidRowNumber,
             1
         );
         var posCheck = Functions.checkFormElementInRange(
             this,
             'pos',
-            Messages.strNotValidRowNumber,
+            window.Messages.strNotValidRowNumber,
             0,
             unlimNumRows > 0 ? unlimNumRows - 1 : null
         );
@@ -1126,7 +1126,7 @@ Sql.browseForeignDialog = function ($thisA) {
     $.post($thisA.attr('href'), params, function (data) {
         // Creates browse foreign value dialog
         $dialog = $('<div>').append(data.message).dialog({
-            title: Messages.strBrowseForeignValues,
+            title: window.Messages.strBrowseForeignValues,
             width: Math.min($(window).width() - 100, 700),
             maxHeight: $(window).height() - 100,
             dialogClass: 'browse_foreign_modal',
@@ -1205,9 +1205,9 @@ Sql.checkSavedQuery = function () {
 
     if (window.Config.isStorageSupported('localStorage') &&
         typeof window.localStorage.getItem(key) === 'string') {
-        Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
+        Functions.ajaxShowMessage(window.Messages.strPreviousSaveQuery);
     } else if (window.Cookies.get(key, { path: window.CommonParams.get('rootPath') })) {
-        Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
+        Functions.ajaxShowMessage(window.Messages.strPreviousSaveQuery);
     }
 };
 

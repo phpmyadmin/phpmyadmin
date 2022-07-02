@@ -49,7 +49,7 @@ window.AJAX.registerOnload('database/central_columns.js', function () {
         event.preventDefault();
         var multiDeleteColumns = $('.checkall:checkbox:checked').serialize();
         if (multiDeleteColumns === '') {
-            Functions.ajaxShowMessage(Messages.strRadioUnchecked);
+            Functions.ajaxShowMessage(window.Messages.strRadioUnchecked);
             return false;
         }
         Functions.ajaxShowMessage();
@@ -60,7 +60,7 @@ window.AJAX.registerOnload('database/central_columns.js', function () {
         event.preventDefault();
         var editColumnList = $('.checkall:checkbox:checked').serialize();
         if (editColumnList === '') {
-            Functions.ajaxShowMessage(Messages.strRadioUnchecked);
+            Functions.ajaxShowMessage(window.Messages.strRadioUnchecked);
             return false;
         }
         var argsep = window.CommonParams.get('arg_separator');
@@ -115,7 +115,7 @@ window.AJAX.registerOnload('database/central_columns.js', function () {
         event.preventDefault();
         event.stopPropagation();
         var $td = $(this);
-        var question = Messages.strDeleteCentralColumnWarning;
+        var question = window.Messages.strDeleteCentralColumnWarning;
         $td.confirm(question, null, function () {
             var rownum = $td.data('rownum');
             $('#del_col_name').val('selected_fld%5B%5D=' + $('#checkbox_row_' + rownum).val());
@@ -183,7 +183,7 @@ window.AJAX.registerOnload('database/central_columns.js', function () {
             error: function () {
                 Functions.ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert">' +
-                        Messages.strErrorProcessingRequest +
+                        window.Messages.strErrorProcessingRequest +
                         '</div>',
                     false
                 );
@@ -200,7 +200,7 @@ window.AJAX.registerOnload('database/central_columns.js', function () {
             'db' : window.CommonParams.get('db'),
             'selectedTable' : selectValue
         };
-        $('#column-select').html('<option value="">' + Messages.strLoading + '</option>');
+        $('#column-select').html('<option value="">' + window.Messages.strLoading + '</option>');
         if (selectValue !== '') {
             $.post(href, params, function (data) {
                 $('#column-select').empty().append(defaultColumnSelect);

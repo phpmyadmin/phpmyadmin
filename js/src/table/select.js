@@ -64,14 +64,14 @@ window.AJAX.registerOnload('table/select.js', function () {
         .hide();
 
     $('#togglesearchformlink')
-        .html(Messages.strShowSearchCriteria)
+        .html(window.Messages.strShowSearchCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
-            if ($link.text() === Messages.strHideSearchCriteria) {
-                $link.text(Messages.strShowSearchCriteria);
+            if ($link.text() === window.Messages.strHideSearchCriteria) {
+                $link.text(window.Messages.strShowSearchCriteria);
             } else {
-                $link.text(Messages.strHideSearchCriteria);
+                $link.text(window.Messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -109,7 +109,7 @@ window.AJAX.registerOnload('table/select.js', function () {
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
-        var $msgbox = Functions.ajaxShowMessage(Messages.strSearching, false);
+        var $msgbox = Functions.ajaxShowMessage(window.Messages.strSearching, false);
 
         Functions.prepareForAjaxRequest($searchForm);
 
@@ -169,7 +169,7 @@ window.AJAX.registerOnload('table/select.js', function () {
                     .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
-                    .text(Messages.strShowSearchCriteria);
+                    .text(window.Messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
@@ -311,12 +311,12 @@ window.AJAX.registerOnload('table/select.js', function () {
                     if (response.success) {
                         // Get the column min value.
                         var min = response.column_data.min
-                            ? '(' + Messages.strColumnMin +
+                            ? '(' + window.Messages.strColumnMin +
                                 ' ' + response.column_data.min + ')'
                             : '';
                         // Get the column max value.
                         var max = response.column_data.max
-                            ? '(' + Messages.strColumnMax +
+                            ? '(' + window.Messages.strColumnMax +
                                 ' ' + response.column_data.max + ')'
                             : '';
                         $('#rangeSearchModal').modal('show');
@@ -375,7 +375,7 @@ window.AJAX.registerOnload('table/select.js', function () {
                     }
                 },
                 error: function () {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
+                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest);
                 }
             });
         }

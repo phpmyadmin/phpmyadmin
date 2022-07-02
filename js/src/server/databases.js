@@ -24,7 +24,7 @@ const DropDatabases = {
         if (! selectedDbs.length) {
             Functions.ajaxShowMessage(
                 $('<div class="alert alert-warning" role="alert"></div>').text(
-                    Messages.strNoDatabasesSelected
+                    window.Messages.strNoDatabasesSelected
                 ),
                 2000
             );
@@ -33,8 +33,8 @@ const DropDatabases = {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = Messages.strDropDatabaseStrongWarning + ' ' +
-            Functions.sprintf(Messages.strDoYouReally, selectedDbs.join('<br>'));
+        var question = window.Messages.strDropDatabaseStrongWarning + ' ' +
+            Functions.sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
 
         const modal = $('#dropDatabaseModal');
         modal.find('.modal-body').html(question);
@@ -43,7 +43,7 @@ const DropDatabases = {
         const url = 'index.php?route=/server/databases/destroy&' + $(this).serialize();
 
         $('#dropDatabaseModalDropButton').on('click', function () {
-            Functions.ajaxShowMessage(Messages.strProcessingRequest, false);
+            Functions.ajaxShowMessage(window.Messages.strProcessingRequest, false);
 
             var parts = url.split('?');
             var params = Functions.getJsConfirmCommonParam(this, parts[1]);
@@ -92,12 +92,12 @@ const CreateDatabase = {
         var newDbNameInput = $form.find('input[name=new_db]');
         if (newDbNameInput.val() === '') {
             newDbNameInput.trigger('focus');
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return;
         }
         // end remove
 
-        Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {

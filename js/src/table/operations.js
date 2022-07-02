@@ -29,14 +29,14 @@ var confirmAndPost = function (linkObject, action) {
      */
     var question = '';
     if (action === 'TRUNCATE') {
-        question += Messages.strTruncateTableStrongWarning + ' ';
+        question += window.Messages.strTruncateTableStrongWarning + ' ';
     } else if (action === 'DELETE') {
-        question += Messages.strDeleteTableStrongWarning + ' ';
+        question += window.Messages.strDeleteTableStrongWarning + ' ';
     }
-    question += Functions.sprintf(Messages.strDoYouReally, linkObject.data('query'));
+    question += Functions.sprintf(window.Messages.strDoYouReally, linkObject.data('query'));
     question += Functions.getForeignKeyCheckboxLoader();
     linkObject.confirm(question, linkObject.attr('href'), function (url) {
-        Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
 
         var params = Functions.getJsConfirmCommonParam(this, linkObject.getPostData());
 
@@ -131,7 +131,7 @@ window.AJAX.registerOnload('table/operations.js', function () {
         var $tblCollationField = $form.find('select[name=tbl_collation]');
         var collationOrigValue = $('select[name="tbl_collation"] option[selected]').val();
         var $changeAllColumnCollationsCheckBox = $('#checkbox_change_all_collations');
-        var question = Messages.strChangeAllColumnCollationsWarning;
+        var question = window.Messages.strChangeAllColumnCollationsWarning;
 
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
@@ -242,17 +242,17 @@ window.AJAX.registerOnload('table/operations.js', function () {
         function submitPartitionMaintenance () {
             var argsep = window.CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-            Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
             window.AJAX.source = $form;
             $.post($form.attr('action'), submitData, window.AJAX.responseHandler);
         }
 
         if ($('#partitionOperationRadioDrop').is(':checked')) {
-            $form.confirm(Messages.strDropPartitionWarning, $form.attr('action'), function () {
+            $form.confirm(window.Messages.strDropPartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else if ($('#partitionOperationRadioTruncate').is(':checked')) {
-            $form.confirm(Messages.strTruncatePartitionWarning, $form.attr('action'), function () {
+            $form.confirm(window.Messages.strTruncatePartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else {
@@ -266,12 +266,12 @@ window.AJAX.registerOnload('table/operations.js', function () {
         /**
          * @var {String} question String containing the question to be asked for confirmation
          */
-        var question = Messages.strDropTableStrongWarning + ' ';
-        question += Functions.sprintf(Messages.strDoYouReally, $link[0].getAttribute('data-query'));
+        var question = window.Messages.strDropTableStrongWarning + ' ';
+        question += Functions.sprintf(window.Messages.strDoYouReally, $link[0].getAttribute('data-query'));
         question += Functions.getForeignKeyCheckboxLoader();
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
 
             var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
 
@@ -300,14 +300,14 @@ window.AJAX.registerOnload('table/operations.js', function () {
         /**
          * @var {String} question String containing the question to be asked for confirmation
          */
-        var question = Messages.strDropTableStrongWarning + ' ';
+        var question = window.Messages.strDropTableStrongWarning + ' ';
         question += Functions.sprintf(
-            Messages.strDoYouReally,
+            window.Messages.strDoYouReally,
             'DROP VIEW `' + Functions.escapeHtml(window.CommonParams.get('table') + '`')
         );
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
             var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

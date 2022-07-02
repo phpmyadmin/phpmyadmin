@@ -15,14 +15,14 @@ window.AJAX.registerOnload('table/find_replace.js', function () {
         .hide();
 
     $('#toggle_find')
-        .html(Messages.strHideFindNReplaceCriteria)
+        .html(window.Messages.strHideFindNReplaceCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#find_replace_form').slideToggle();
-            if ($link.text() === Messages.strHideFindNReplaceCriteria) {
-                $link.text(Messages.strShowFindNReplaceCriteria);
+            if ($link.text() === window.Messages.strHideFindNReplaceCriteria) {
+                $link.text(window.Messages.strShowFindNReplaceCriteria);
             } else {
-                $link.text(Messages.strHideFindNReplaceCriteria);
+                $link.text(window.Messages.strHideFindNReplaceCriteria);
             }
             return false;
         });

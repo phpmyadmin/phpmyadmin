@@ -1497,7 +1497,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     if ($(g.cEdit).find('.edit_box').val().match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                     } else {
-                        var hexError = '<div class="alert alert-danger" role="alert">' + Messages.strEnterValidHex + '</div>';
+                        var hexError = '<div class="alert alert-danger" role="alert">' + window.Messages.strEnterValidHex + '</div>';
                         Functions.ajaxShowMessage(hexError, false);
                         thisFieldParams[fieldName] = Functions.getCellValue(g.currentEditCell);
                     }
@@ -1617,7 +1617,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             $(g.cPointer).css('visibility', 'hidden');  // set visibility to hidden instead of calling hide() to force browsers to cache the image in cPointer class
 
             // assign column reordering hint
-            g.reorderHint = Messages.strColOrderHint;
+            g.reorderHint = window.Messages.strColOrderHint;
 
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
@@ -1662,9 +1662,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     e.preventDefault();
                     var res = Functions.copyToClipboard($(this).data('column'));
                     if (res) {
-                        Functions.ajaxShowMessage(Messages.strCopyColumnSuccess, false, 'success');
+                        Functions.ajaxShowMessage(window.Messages.strCopyColumnSuccess, false, 'success');
                     } else {
-                        Functions.ajaxShowMessage(Messages.strCopyColumnFailure, false, 'error');
+                        Functions.ajaxShowMessage(window.Messages.strCopyColumnFailure, false, 'error');
                     }
                 });
             $(g.t).find('th.draggable a')
@@ -1704,7 +1704,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             $(g.cList).hide();
 
             // assign column visibility related hints
-            g.showAllColText = Messages.strShowAllCol;
+            g.showAllColText = window.Messages.strShowAllCol;
 
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
@@ -1730,7 +1730,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 Functions.tooltip(
                     $colVisibTh,
                     'th',
-                    Messages.strColVisibHint
+                    window.Messages.strColVisibHint
                 );
 
                 // create column visibility drop-down arrow(s)
@@ -2022,10 +2022,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             $(g.cEditTextarea).hide();
 
             // assign cell editing hint
-            g.cellEditHint = Messages.strCellEditHint;
-            g.saveCellWarning = Messages.strSaveCellWarning;
-            g.alertNonUnique = Messages.strAlertNonUnique;
-            g.gotoLinkText = Messages.strGoToLink;
+            g.cellEditHint = window.Messages.strCellEditHint;
+            g.saveCellWarning = window.Messages.strSaveCellWarning;
+            g.alertNonUnique = window.Messages.strAlertNonUnique;
+            g.gotoLinkText = window.Messages.strGoToLink;
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $(g.o).find('.save_cells_at_once').val();
@@ -2166,7 +2166,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     // todo update the original length after a grid edit
     $(t).find('td.data.truncated:not(:has(span))')
         .wrapInner(function () {
-            return '<span title="' + Messages.strOriginalLength + ' ' +
+            return '<span title="' + window.Messages.strOriginalLength + ' ' +
                 $(this).data('originallength') + '"></span>';
         });
 
@@ -2201,10 +2201,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     g.tableCreateTime = $(g.o).find('.table_create_time').val();
 
     // assign the hints
-    g.sortHint = Messages.strSortHint;
-    g.strMultiSortHint = Messages.strMultiSortHint;
-    g.markHint = Messages.strColMarkHint;
-    g.copyHint = Messages.strColNameCopyHint;
+    g.sortHint = window.Messages.strSortHint;
+    g.strMultiSortHint = window.Messages.strMultiSortHint;
+    g.markHint = window.Messages.strColMarkHint;
+    g.copyHint = window.Messages.strColNameCopyHint;
 
     // assign common hidden inputs
     var $commonHiddenInputs = $(g.o).find('div.common_hidden_inputs');

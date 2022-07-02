@@ -127,10 +127,10 @@ var processList = {
      */
     setRefreshLabel: function () {
         var img = 'play';
-        var label = Messages.strStartRefresh;
+        var label = window.Messages.strStartRefresh;
         if (processList.autoRefresh) {
             img = 'pause';
-            label = Messages.strStopRefresh;
+            label = window.Messages.strStopRefresh;
             processList.refresh();
         }
         $('a#toggleRefresh').html(Functions.getImage(img) + Functions.escapeHtml(label));

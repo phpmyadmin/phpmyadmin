@@ -586,9 +586,9 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     var dbEncoded = $(tableDom).find('.small_tab_pref').attr('db_url');
     var tableEncoded = $(tableDom).find('.small_tab_pref').attr('table_name_url');
     var tableIsChecked = $(tableDom).css('display') === 'block' ? 'checked' : '';
-    var checkboxStatus = (tableIsChecked === 'checked') ? Messages.strHide : Messages.strShow;
+    var checkboxStatus = (tableIsChecked === 'checked') ? window.Messages.strHide : window.Messages.strShow;
     var $newTableLine = $('<tr>' +
-        '    <td title="' + Messages.strStructure + '"' +
+        '    <td title="' + window.Messages.strStructure + '"' +
         '        width="1px"' +
         '        class="L_butt2_1">' +
         '        <img alt=""' +
@@ -618,7 +618,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     });
     $($newTableLine).find('.scroll_tab_checkbox').on('click', function () {
         $(this).attr('title', function (i, currentvalue) {
-            return currentvalue === Messages.strHide ? Messages.strShow : Messages.strHide;
+            return currentvalue === window.Messages.strHide ? window.Messages.strShow : window.Messages.strHide;
         });
         DesignerMove.visibleTab(this,$(this).val());
     });
@@ -644,10 +644,10 @@ DesignerMove.displayModal = function (form, heading, type) {
 
 DesignerMove.addOtherDbTables = function () {
     var $selectDb = $('<select id="add_table_from"></select>');
-    $selectDb.append('<option value="">' + Messages.strNone + '</option>');
+    $selectDb.append('<option value="">' + window.Messages.strNone + '</option>');
 
     var $selectTable = $('<select id="add_table"></select>');
-    $selectTable.append('<option value="">' + Messages.strNone + '</option>');
+    $selectTable.append('<option value="">' + window.Messages.strNone + '</option>');
 
     $.post('index.php?route=/sql', {
         'ajax_request' : true,
@@ -662,7 +662,7 @@ DesignerMove.addOtherDbTables = function () {
 
     var $form = $('<form action="" class="ajax"></form>')
         .append($selectDb).append($selectTable);
-    var modal = DesignerMove.displayModal($form, Messages.strAddTables, '#designerGoModal');
+    var modal = DesignerMove.displayModal($form, window.Messages.strAddTables, '#designerGoModal');
     $('#designerModalGoButton').on('click', function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
@@ -671,7 +671,7 @@ DesignerMove.addOtherDbTables = function () {
         var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
             Functions.ajaxShowMessage(
-                Functions.sprintf(Messages.strTableAlreadyExists, db + '.' + table),
+                Functions.sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
                 undefined,
                 'error'
             );
@@ -714,7 +714,7 @@ DesignerMove.addOtherDbTables = function () {
                 $selectTable.html('');
                 var rows = $(data.message).find('table.table_results.data.ajax').find('td.data');
                 if (rows.length === 0) {
-                    $selectTable.append('<option value="">' + Messages.strNone + '</option>');
+                    $selectTable.append('<option value="">' + window.Messages.strNone + '</option>');
                 }
                 rows.each(function () {
                     var val = $(this)[0].innerText;
@@ -785,13 +785,13 @@ DesignerMove.save2 = function (callback) {
         poststr += argsep + 'server=' + server + argsep + 'db=' + encodeURIComponent(db) + argsep + 'selected_page=' + selectedPage;
         poststr += DesignerMove.getUrlPos();
 
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         $.post('index.php?route=/database/designer', poststr, function (data) {
             if (data.success === false) {
                 Functions.ajaxShowMessage(data.error, false);
             } else {
                 Functions.ajaxRemoveMessage($msgbox);
-                Functions.ajaxShowMessage(Messages.strModificationSaved);
+                Functions.ajaxShowMessage(window.Messages.strModificationSaved);
                 DesignerMove.markSaved();
                 if (typeof callback !== 'undefined') {
                     callback();
@@ -813,13 +813,13 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
     var $form = $('#save_page');
     var name = $form.find('input[name="selected_value"]').val().trim();
     if (name === '') {
-        Functions.ajaxShowMessage(Messages.strEnterValidPageName, false);
+        Functions.ajaxShowMessage(window.Messages.strEnterValidPageName, false);
         return;
     }
     modal.modal('hide');
 
     if (designerTablesEnabled) {
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
             if (data.success === false) {
@@ -859,9 +859,9 @@ DesignerMove.save3 = function (callback) {
             .append($('<input type="hidden" name="db" />').val(db))
             .append('<input type="hidden" name="operation" value="savePage">')
             .append('<input type="hidden" name="save_page" value="new">')
-            .append('<label for="selected_value">' + Messages.strPageName +
+            .append('<label for="selected_value">' + window.Messages.strPageName +
                 '</label>:<input type="text" name="selected_value">');
-        var modal = DesignerMove.displayModal($form, Messages.strSavePage, '#designerGoModal');
+        var modal = DesignerMove.displayModal($form, window.Messages.strSavePage, '#designerGoModal');
         $form.on('submit', function (e) {
             e.preventDefault();
             DesignerMove.submitSaveDialogAndClose(callback, modal);
@@ -894,12 +894,12 @@ DesignerMove.editPages = function () {
                         $('#selected_page').append(options);
                     });
                 }
-                var modal = DesignerMove.displayModal(data.message, Messages.strOpenPage, '#designerGoModal');
+                var modal = DesignerMove.displayModal(data.message, window.Messages.strOpenPage, '#designerGoModal');
                 $('#designerModalGoButton').on('click', function () {
                     var $form = $('#edit_delete_pages');
                     var selected = $form.find('select[name="selected_page"]').val();
                     if (selected === '0') {
-                        Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                        Functions.ajaxShowMessage(window.Messages.strSelectPage, 2000);
                         return;
                     }
                     modal.modal('hide');
@@ -930,16 +930,16 @@ DesignerMove.deletePages = function () {
                 });
             }
 
-            var modal = DesignerMove.displayModal(data.message, Messages.strDeletePage, '#designerGoModal');
+            var modal = DesignerMove.displayModal(data.message, window.Messages.strDeletePage, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 var $form = $('#edit_delete_pages');
                 var selected = $form.find('select[name="selected_page"]').val();
                 if (selected === '0') {
-                    Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                    Functions.ajaxShowMessage(window.Messages.strSelectPage, 2000);
                     return;
                 }
 
-                var $messageBox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+                var $messageBox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
                 var deletingCurrentPage = parseInt(selected) === selectedPage;
                 Functions.prepareForAjaxRequest($form);
 
@@ -952,7 +952,7 @@ DesignerMove.deletePages = function () {
                             if (deletingCurrentPage) {
                                 DesignerMove.loadPage(null);
                             } else {
-                                Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                                Functions.ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
                             }
                         }
                     }); // end $.post()
@@ -965,7 +965,7 @@ DesignerMove.deletePages = function () {
                             if (deletingCurrentPage) {
                                 DesignerMove.loadPage(null);
                             } else {
-                                Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                                Functions.ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
                             }
                         }
                     });
@@ -996,7 +996,7 @@ DesignerMove.saveAs = function () {
                 });
             }
 
-            var modal = DesignerMove.displayModal(data.message, Messages.strSavePageAs, '#designerGoModal');
+            var modal = DesignerMove.displayModal(data.message, window.Messages.strSavePageAs, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 var $form           = $('#save_as_pages');
                 var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
@@ -1006,19 +1006,19 @@ DesignerMove.saveAs = function () {
 
                 if (choice === 'same') {
                     if ($selectedPage.val() === '0') {
-                        Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                        Functions.ajaxShowMessage(window.Messages.strSelectPage, 2000);
                         return;
                     }
                     name = $selectedPage.find('option:selected').text();
                 } else if (choice === 'new') {
                     if (selectedValue === '') {
-                        Functions.ajaxShowMessage(Messages.strEnterValidPageName, 2000);
+                        Functions.ajaxShowMessage(window.Messages.strEnterValidPageName, 2000);
                         return;
                     }
                     name = selectedValue;
                 }
 
-                var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+                var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
                 if (designerTablesEnabled) {
                     Functions.prepareForAjaxRequest($form);
                     $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
@@ -1068,8 +1068,8 @@ DesignerMove.saveAs = function () {
 
 DesignerMove.promptToSaveCurrentPage = function (callback) {
     if (change === 1 || selectedPage === -1) {
-        var modal = DesignerMove.displayModal('<div>' + Messages.strLeavingPage + '</div>',
-            Messages.strSavePage, '#designerPromptModal');
+        var modal = DesignerMove.displayModal('<div>' + window.Messages.strLeavingPage + '</div>',
+            window.Messages.strSavePage, '#designerPromptModal');
         $('#designerModalYesButton').on('click', function () {
             modal.modal('hide');
             DesignerMove.save3(callback);
@@ -1118,7 +1118,7 @@ DesignerMove.exportPages = function () {
                 $form.find('#' + format + '_options').show();
             }).trigger('change');
 
-            var modal = DesignerMove.displayModal($form, Messages.strExportRelationalSchema, '#designerGoModal');
+            var modal = DesignerMove.displayModal($form, window.Messages.strExportRelationalSchema, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 $('#id_export_pages').trigger('submit');
                 modal.modal('hide');
@@ -1203,7 +1203,7 @@ DesignerMove.startRelation = function () {
     if (!onRelation) {
         document.getElementById('foreign_relation').style.display = '';
         onRelation = 1;
-        document.getElementById('designer_hint').innerHTML = Messages.strSelectReferencedKey;
+        document.getElementById('designer_hint').innerHTML = window.Messages.strSelectReferencedKey;
         document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
@@ -1223,7 +1223,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
         if (!clickField) {
             // .style.display=='none'        .style.display = 'none'
             if (!pkLocal) {
-                alert(Messages.strPleaseSelectPrimaryOrUniqueKey);
+                alert(window.Messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
             if (jTabs[db + '.' + T] !== 1) {
@@ -1231,7 +1231,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
             }
             clickField = 1;
             linkRelation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
-            document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
+            document.getElementById('designer_hint').innerHTML = window.Messages.strSelectForeignKey;
         } else {
             DesignerMove.startRelation(); // hidden hint...
             if (jTabs[db + '.' + T] !== 1 || !pkLocal) {
@@ -1281,7 +1281,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
         document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
 
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         $.post('index.php?route=/database/designer',
             {
                 'operation': 'setDisplayField',
@@ -1296,7 +1296,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
                     Functions.ajaxShowMessage(data.error, false);
                 } else {
                     Functions.ajaxRemoveMessage($msgbox);
-                    Functions.ajaxShowMessage(Messages.strModificationSaved);
+                    Functions.ajaxShowMessage(window.Messages.strModificationSaved);
                 }
             });
     }
@@ -1309,7 +1309,7 @@ DesignerMove.newRelation = function () {
     linkRelation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
     linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+    var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
@@ -1535,7 +1535,7 @@ DesignerMove.updRelation = function () {
     linkRelation += argsep + 'server=' + server + argsep + 'db=' + db;
     linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+    var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
@@ -1715,7 +1715,7 @@ DesignerMove.startDisplayField = function () {
     }
     if (!onDisplayField) {
         onDisplayField = 1;
-        document.getElementById('designer_hint').innerHTML = Messages.strChangeDisplay;
+        document.getElementById('designer_hint').innerHTML = window.Messages.strChangeDisplay;
         document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';// '#FFEE99';gray #AAAAAA
 
@@ -1898,7 +1898,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var init = historyArray.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            Functions.ajaxShowMessage(Functions.sprintf(Messages.strQueryEmpty));
+            Functions.ajaxShowMessage(Functions.sprintf(window.Messages.strQueryEmpty));
             return;
         }
         p = document.getElementById('Query');
@@ -1941,7 +1941,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
         sum = sum + 1;
         // make orderby
     }
-    Functions.ajaxShowMessage(Functions.sprintf(Messages.strObjectsCreated, sum));
+    Functions.ajaxShowMessage(Functions.sprintf(window.Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(init, historyArray.length);
