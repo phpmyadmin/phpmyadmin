@@ -16,8 +16,7 @@
  * @param enableVisib Optional, if false, show/hide column feature will be disabled
  * @param enableGridEdit Optional, if false, grid editing feature will be disabled
  */
-// eslint-disable-next-line no-unused-vars
-var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGridEdit) {
+window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGridEdit) {
     var isResizeEnabled = enableResize === undefined ? true : enableResize;
     var isReorderEnabled = enableReorder === undefined ? true : enableReorder;
     var isVisibEnabled = enableVisib === undefined ? true : enableVisib;

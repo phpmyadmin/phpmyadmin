@@ -11,7 +11,6 @@ var designerTables = [
     }
 ];
 
-// eslint-disable-next-line no-unused-vars
 var DesignerOfflineDB = (function () {
     var designerDB = {};
 
@@ -232,3 +231,4 @@ var DesignerOfflineDB = (function () {
     // Export the designerDB object.
     return designerDB;
 }());
+window.DesignerOfflineDB = DesignerOfflineDB;

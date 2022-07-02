@@ -44,8 +44,7 @@ function generateCondition (criteriaDiv, table) {
     return query;
 }
 
-// eslint-disable-next-line no-unused-vars
-function generateWhereBlock () {
+window.generateWhereBlock = function () {
     var count = 0;
     var query = '';
     $('.tableNameSelect').each(function () {
@@ -64,7 +63,7 @@ function generateWhereBlock () {
         }
     });
     return query;
-}
+};
 
 function generateJoin (newTable, tableAliases, fk) {
     var query = '';
@@ -116,8 +115,7 @@ function appendTable (table, tableAliases, usedTables, foreignKeys) {
     return query;
 }
 
-// eslint-disable-next-line no-unused-vars
-function generateFromBlock (tableAliases, foreignKeys) {
+window.generateFromBlock = (tableAliases, foreignKeys) => {
     var usedTables = [];
     var query = '';
     for (var table in tableAliases) {
@@ -126,4 +124,4 @@ function generateFromBlock (tableAliases, foreignKeys) {
         }
     }
     return query;
-}
+};

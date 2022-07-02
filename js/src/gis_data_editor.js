@@ -8,8 +8,7 @@
 /* global addZoomPanControllers, storeGisSvgRef, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
-// eslint-disable-next-line no-unused-vars
-var gisEditorLoaded = false;
+window.gisEditorLoaded = false;
 
 /**
  * Closes the GIS data editor and perform necessary clean up work.
@@ -91,7 +90,6 @@ function initGISEditorVisualization () {
  * @param inputName name of the input field
  * @param token      token
  */
-// eslint-disable-next-line no-unused-vars
 function loadJSAndGISEditor (value, field, type, inputName) {
     var head = document.getElementsByTagName('head')[0];
     var script;
@@ -121,8 +119,9 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     script.src = 'js/vendor/openlayers/OpenLayers.js';
     head.appendChild(script);
 
-    gisEditorLoaded = true;
+    window.gisEditorLoaded = true;
 }
+window.loadJSAndGISEditor = loadJSAndGISEditor;
 
 /**
  * Loads the GIS editor via AJAX
@@ -152,11 +151,11 @@ function loadGISEditor (value, field, type, inputName) {
         }
     }, 'json');
 }
+window.loadGISEditor = loadGISEditor;
 
 /**
  * Opens up the dialog for the GIS data editor.
  */
-// eslint-disable-next-line no-unused-vars
 function openGISEditor () {
     // Center the popup
     var windowWidth = document.documentElement.clientWidth;
@@ -183,6 +182,7 @@ function openGISEditor () {
     $background.fadeIn('fast');
     $gisEditor.fadeIn('fast');
 }
+window.openGISEditor = openGISEditor;
 
 /**
  * Prepare and insert the GIS data in Well Known Text format

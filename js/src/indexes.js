@@ -10,6 +10,7 @@
  */
 
 var Indexes = {};
+window.Indexes = Indexes;
 
 /**
  * Returns the array of indexes based on the index choice

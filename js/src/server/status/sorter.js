@@ -19,6 +19,7 @@ function initTableSorter (tabid) {
     $table.find('tr').first().find('th')
         .append('<div class="sorticon"></div>');
 }
+window.initTableSorter = initTableSorter;
 
 $(function () {
     $.tablesorter.addParser({

@@ -5,6 +5,7 @@
  */
 
 var Navigation = {};
+window.Navigation = Navigation;
 
 /**
  * updates the tree state in sessionStorage

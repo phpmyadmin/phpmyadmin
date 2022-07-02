@@ -5,11 +5,10 @@
  * @requires    move.js
  */
 
-/* global contr */ // js/designer/init.js
-/* global fromArray:writable */ // js/designer/move.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
 var DesignerHistory = {};
+window.DesignerHistory = DesignerHistory;
 
 var historyArray = []; // Global array to store history objects
 var selectField = [];  // Global array to store information for columns which are used in select clause
@@ -145,10 +144,10 @@ DesignerHistory.andOr = function (index) {
  * @return {void}
  */
 DesignerHistory.historyDelete = function (index) {
-    var fromArrayLength = fromArray.length;
+    var fromArrayLength = window.fromArray.length;
     for (var k = 0; k < fromArrayLength; k++) {
-        if (fromArray[k] === historyArray[index].getTab()) {
-            fromArray.splice(k, 1);
+        if (window.fromArray[k] === historyArray[index].getTab()) {
+            window.fromArray.splice(k, 1);
             break;
         }
     }
@@ -630,7 +629,7 @@ DesignerHistory.queryFrom = function () {
     var quer = '';
     var parts = [];
     var tArray = [];
-    tArray = fromArray;
+    tArray = window.fromArray;
     var K = 0;
     var k;
     var key;
@@ -643,10 +642,10 @@ DesignerHistory.queryFrom = function () {
 
     var historyArrayLength = historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
-        fromArray.push(historyArray[i].getTab());
+        window.fromArray.push(historyArray[i].getTab());
     }
-    fromArray = DesignerHistory.unique(fromArray);
-    tabLeft = fromArray;
+    window.fromArray = DesignerHistory.unique(window.fromArray);
+    tabLeft = window.fromArray;
     temp = tabLeft.shift();
     quer = '`' + temp + '`';
     tabUsed.push(temp);
@@ -654,21 +653,21 @@ DesignerHistory.queryFrom = function () {
     // if master table (key2) matches with tab used get all keys and check if tab_left matches
     // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
     for (i = 0; i < 2; i++) {
-        for (K in contr) {
-            for (key in contr[K]) {// contr name
-                for (key2 in contr[K][key]) {// table name
+        for (K in window.contr) {
+            for (key in window.contr[K]) {// contr name
+                for (key2 in window.contr[K][key]) {// table name
                     parts = key2.split('.');
                     if (DesignerHistory.found(tabUsed, parts[1]) > 0) {
-                        for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split('.');
+                        for (key3 in window.contr[K][key][key2]) {
+                            parts1 = window.contr[K][key][key2][key3][0].split('.');
                             if (DesignerHistory.found(tabLeft, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` ';
                                 } else {
                                     query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
 
                                     constraintsAdded.push(key);
@@ -685,21 +684,21 @@ DesignerHistory.queryFrom = function () {
         tabUsed = DesignerHistory.addArray(tTabLeft, tabUsed);
         tabLeft = DesignerHistory.removeArray(tTabLeft, tabLeft);
         tTabLeft = [];
-        for (K in contr) {
-            for (key in contr[K]) {
-                for (key2 in contr[K][key]) {// table name
+        for (K in window.contr) {
+            for (key in window.contr[K]) {
+                for (key2 in window.contr[K][key]) {// table name
                     parts = key2.split('.');
                     if (DesignerHistory.found(tabLeft, parts[1]) > 0) {
-                        for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split('.');
+                        for (key3 in window.contr[K][key][key2]) {
+                            parts1 = window.contr[K][key][key2][key3][0].split('.');
                             if (DesignerHistory.found(tabUsed, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` ';
                                 } else {
                                     query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
 
                                     constraintsAdded.push(key);
@@ -720,7 +719,7 @@ DesignerHistory.queryFrom = function () {
         quer += ' , `' + tabLeft[k] + '`';
     }
     query = quer + query;
-    fromArray = tArray;
+    window.fromArray = tArray;
     return query;
 };
 

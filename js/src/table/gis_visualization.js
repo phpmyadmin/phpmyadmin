@@ -37,6 +37,7 @@ function zoomAndPan () {
     $('polyline.vector', gisSvg).attr('stroke-width', 2 / scale);
     $('path.vector', gisSvg).attr('stroke-width', 0.5 / scale);
 }
+window.zoomAndPan = zoomAndPan;
 
 /**
  * Initially loads either SVG or OSM visualization based on the choice.
@@ -48,6 +49,7 @@ function selectVisualization () {
         $('#placeholder').hide();
     }
 }
+window.selectVisualization = selectVisualization;
 
 /**
  * Adds necessary styles to the div that contains the openStreetMap.
@@ -62,6 +64,7 @@ function styleOSM () {
     };
     $('#openlayersmap').css(cssObj);
 }
+window.styleOSM = styleOSM;
 
 /**
  * Store a reference to the gis svg element.
@@ -69,6 +72,7 @@ function styleOSM () {
 function storeGisSvgRef () {
     gisSvg = $('#placeholder').find('svg').get(0);
 }
+window.storeGisSvgRef = storeGisSvgRef;
 
 /**
  * Adds controls for zooming and panning.
@@ -90,6 +94,7 @@ function addZoomPanControllers () {
         '<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">'
     );
 }
+window.addZoomPanControllers = addZoomPanControllers;
 
 /**
  * Resizes the GIS visualization to fit into the space available.

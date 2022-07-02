@@ -11,6 +11,7 @@ var ChartType = {
     TIMELINE: 'timeline',
     SCATTER: 'scatter'
 };
+window.ChartType = ChartType;
 
 /**
  * Column type enumeration
@@ -21,6 +22,7 @@ var ColumnType = {
     BOOLEAN : 'boolean',
     DATE : 'date'
 };
+window.ColumnType = ColumnType;
 
 /**
  * Abstract chart factory which defines the contract for chart factories
@@ -153,7 +155,6 @@ ScatterChart.prototype.validateColumns = function (dataTable) {
 /**
  * The data table contains column information and data for the chart.
  */
-// eslint-disable-next-line no-unused-vars
 var DataTable = function () {
     var columns = [];
     var data = null;
@@ -195,6 +196,7 @@ var DataTable = function () {
         }
     };
 };
+window.DataTable = DataTable;
 
 /** *****************************************************************************
  * JQPlot specific code
@@ -679,3 +681,4 @@ JQPlotChartFactory.prototype.createChart = function (type, elementId) {
 
     return chart;
 };
+window.JQPlotChartFactory = JQPlotChartFactory;

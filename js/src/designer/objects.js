@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 var DesignerObjects = {
     PdfPage: function (dbName, pageDescr, tblCords) {
         // eslint-disable-next-line no-unused-vars
@@ -15,3 +14,4 @@ var DesignerObjects = {
         this.y = y;
     }
 };
+window.DesignerObjects = DesignerObjects;

@@ -2,7 +2,6 @@
  * Definition of links to MySQL documentation.
  */
 
-// eslint-disable-next-line no-unused-vars
 var mysqlDocKeyword = {
     /* Multi word */
     'CHARACTER SET': ['charset'],
@@ -330,8 +329,8 @@ var mysqlDocKeyword = {
     'COUNT_DISTINCT': ['aggregate-functions', 'function_count-distinct'],
     'NOT_IN': ['comparison-operators', 'function_not-in']
 };
+window.mysqlDocKeyword = mysqlDocKeyword;
 
-// eslint-disable-next-line no-unused-vars
 var mysqlDocBuiltin = {
     'TINYINT': ['numeric-types'],
     'SMALLINT': ['numeric-types'],
@@ -365,3 +364,4 @@ var mysqlDocBuiltin = {
     'ENUM': ['string-types'],
     'SET': ['string-types']
 };
+window.mysqlDocBuiltin = mysqlDocBuiltin;

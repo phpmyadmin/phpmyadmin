@@ -9,8 +9,6 @@
  *
  */
 
-/* global generateFromBlock, generateWhereBlock */ // js/database/query_generator.js
-
 /**
  * js file for handling AJAX and other events in /database/multi-table-query
  */
@@ -104,12 +102,12 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
         }
         query += '\nFROM ';
 
-        query += generateFromBlock(tableAliases, foreignKeys);
+        query += window.generateFromBlock(tableAliases, foreignKeys);
 
         var $criteriaColCount = $('.criteria_col:checked').length;
         if ($criteriaColCount > 0) {
             query += '\nWHERE ';
-            query += generateWhereBlock();
+            query += window.generateWhereBlock();
         }
 
         query += ';';

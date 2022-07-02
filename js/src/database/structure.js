@@ -10,6 +10,7 @@
  */
 
 var DatabaseStructure = {};
+window.DatabaseStructure = DatabaseStructure;
 
 /**
  * AJAX scripts for /database/structure

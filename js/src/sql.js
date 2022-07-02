@@ -8,10 +8,10 @@
  */
 
 /* global Navigation */
-/* global makeGrid */ // js/makegrid.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
 var Sql = {};
+window.Sql = Sql;
 
 /**
  * decode a string URL_encoded
@@ -624,7 +624,7 @@ window.AJAX.registerOnload('sql.js', function () {
      */
     $(document).on('makegrid', '.sqlqueryresults', function () {
         $('.table_results').each(function () {
-            makeGrid(this);
+            window.makeGrid(this);
         });
     });
 

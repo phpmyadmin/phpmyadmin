@@ -6,7 +6,7 @@
  */
 
 /* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
-/* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
+/* global openGISEditor, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
 
 var TableSelect = {};
 
@@ -264,7 +264,7 @@ window.AJAX.registerOnload('table/select.js', function () {
         // Token
 
         openGISEditor();
-        if (!gisEditorLoaded) {
+        if (! window.gisEditorLoaded) {
             loadJSAndGISEditor(value, field, type, inputName);
         } else {
             loadGISEditor(value, field, type, inputName);

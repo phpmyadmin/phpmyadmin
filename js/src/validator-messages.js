@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 function extendingValidatorMessages () {
     $.extend($.validator.messages, {
         required: window.Messages.strValidatorRequired,
@@ -23,3 +22,4 @@ function extendingValidatorMessages () {
         validationFunctionForAesDesEncrypt: $.validator.format(window.Messages.strValidationFunctionForAesDesEncrypt),
     });
 }
+window.extendingValidatorMessages = extendingValidatorMessages;

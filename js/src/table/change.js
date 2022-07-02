@@ -8,7 +8,7 @@
  */
 
 /* global extendingValidatorMessages */ // templates/javascript/variables.twig
-/* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
+/* global openGISEditor, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
 
 /**
  * Modify form controls when the "NULL" checkbox is checked
@@ -58,7 +58,6 @@ function nullify (theType, urlField, md5Field, multiEdit) {
 
     return true;
 } // end of the 'nullify()' function
-
 
 /**
  * javascript DateTime format validation.
@@ -195,6 +194,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
         $thisInput.valid();
     }
 }
+window.verifyAfterSearchFieldChange = verifyAfterSearchFieldChange;
 
 /**
  * Validate the an input contains multiple int values
@@ -406,6 +406,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         $thisInput.data('rulesadded', null);
     }
 }
+window.verificationsAfterFieldChange = verificationsAfterFieldChange;
 /* End of fields validation*/
 
 /**
@@ -508,7 +509,7 @@ window.AJAX.registerOnload('table/change.js', function () {
         var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
 
         openGISEditor();
-        if (!gisEditorLoaded) {
+        if (! window.gisEditorLoaded) {
             loadJSAndGISEditor(value, field, type, inputName);
         } else {
             loadGISEditor(value, field, type, inputName);
@@ -844,7 +845,6 @@ function addNewContinueInsertionFields (event) {
     Functions.addDateTimePicker();
 }
 
-// eslint-disable-next-line no-unused-vars
 function changeValueFieldType (elem, searchIndex) {
     var fieldsValue = $('input#fieldID_' + searchIndex);
     if (0 === fieldsValue.size()) {
@@ -873,3 +873,4 @@ function changeValueFieldType (elem, searchIndex) {
         $('#fieldID_' + searchIndex).prop('multiple', false);
     }
 }
+window.changeValueFieldType = changeValueFieldType;

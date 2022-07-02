@@ -7,8 +7,6 @@
  * @package PhpMyAdmin
  */
 
-/* global makeGrid */ // js/makegrid.js
-
 /**
  * AJAX script for the Database Search page.
  *
@@ -139,7 +137,7 @@ window.AJAX.registerOnload('database/search.js', function () {
                 $('#browse-results').html(data.message);
                 Functions.ajaxRemoveMessage($msg);
                 $('.table_results').each(function () {
-                    makeGrid(this, true, true, true, true);
+                    window.makeGrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
                 Functions.highlightSql($('#browse-results'));
