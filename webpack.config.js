@@ -94,7 +94,9 @@ module.exports = [
         output: {
             filename: '[name].js',
             path: path.resolve(__dirname, 'js/dist'),
-            iife: false,
+        },
+        optimization: {
+            runtimeChunk: 'single',
         },
         externals: {
             jquery: 'jQuery',

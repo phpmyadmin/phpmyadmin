@@ -127,7 +127,7 @@ class Header
      */
     private function addDefaultScripts(): void
     {
-        // Localised strings
+        $this->scripts->addFile('runtime.js');
         $this->scripts->addFile('vendor/jquery/jquery.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-migrate.js');
         $this->scripts->addFile('vendor/sprintf.js');
