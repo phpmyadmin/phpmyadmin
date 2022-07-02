@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * Unbind all event handlers before tearing down a page
  */

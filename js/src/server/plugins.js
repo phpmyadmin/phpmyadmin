@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * Make columns sortable, but only for tables with more than 1 data row.
  */

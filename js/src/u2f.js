@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 window.AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
     if ($inputReg.length > 0) {

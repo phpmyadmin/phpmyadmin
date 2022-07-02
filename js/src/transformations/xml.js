@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * XML syntax highlighting transformation plugin
  */

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview   events handling from normalization page
  * @name            normalization

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * JavaScript functions used on Database Search page
  *

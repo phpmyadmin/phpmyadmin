@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    function used for page-related settings
  * @name            Page-related settings

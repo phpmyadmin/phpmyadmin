@@ -9,6 +9,7 @@
   "engines": {
     "node": ">=10"
   },
+  "type": "module",
   "dependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
@@ -68,7 +69,7 @@
     "postinstall": "yarn run build",
     "build": "webpack",
     "css-lint": "stylelint -s scss \"themes/**/scss/*.scss\" \"setup/scss/*.scss\"",
-    "js-lint": "eslint js/src test/javascript test/jest jest.config.js",
-    "test": "jest"
+    "js-lint": "eslint js/src test/javascript jest.config.cjs",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
   }
 }

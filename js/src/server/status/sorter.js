@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // TODO: tablesorter shouldn't sort already sorted columns
 // eslint-disable-next-line no-unused-vars
 function initTableSorter (tabid) {
@@ -28,7 +30,7 @@ $(function () {
             return (/^[0-9]?[0-9,\\.]*\s?(k|M|G|T|%)?$/).test(s);
         },
         format: function (s) {
-            var num = jQuery.tablesorter.formatFloat(
+            var num = $.tablesorter.formatFloat(
                 s.replace(window.Messages.strThousandsSeparator, '')
                     .replace(window.Messages.strDecimalSeparator, '.')
             );

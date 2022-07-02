@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /* global Navigation */
 
 window.AJAX.registerTeardown('database/routines.js', function () {

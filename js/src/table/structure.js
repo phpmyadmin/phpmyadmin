@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    functions used on the table structure page
  * @name            Table Structure

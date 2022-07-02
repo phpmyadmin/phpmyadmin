@@ -11,8 +11,7 @@
     },
     "env": {
         "browser": true,
-        "es6": true,
-        "jquery": true
+        "es6": true
     },
     "globals": {
         "Functions": "readonly"

@@ -2,4 +2,4 @@ js/vendor/
 js/dist/
 tmp/
 vendor/
-webpack.config.js
+webpack.config.cjs

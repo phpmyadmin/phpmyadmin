@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview JavaScript functions used on /table/search
  *

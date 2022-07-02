@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    function used in this file builds history tab and generates query.
  *

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    functions used for visualizing GIS data
  *

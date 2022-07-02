@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * Handles the resizing of a menu according to the available screen width
  *
@@ -184,4 +186,4 @@
             $.error('Method ' +  method + ' does not exist on jQuery.menuResizer');
         }
     };
-}(jQuery));
+}($));

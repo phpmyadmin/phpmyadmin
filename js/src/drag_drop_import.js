@@ -1,3 +1,4 @@
+import $ from 'jquery';
 
 /* This script handles PMA Drag Drop Import, loaded only when configuration is enabled.*/
 
@@ -38,13 +39,13 @@ var DragDropImport = {
         var ext = arr[arr.length - 1];
 
         // check if compressed
-        if (jQuery.inArray(ext.toLowerCase(),
+        if ($.inArray(ext.toLowerCase(),
             DragDropImport.allowedCompressedExtensions) !== -1) {
             ext = arr[arr.length - 2];
         }
 
         // Now check for extension
-        if (jQuery.inArray(ext.toLowerCase(),
+        if ($.inArray(ext.toLowerCase(),
             DragDropImport.allowedExtensions) !== -1) {
             return ext;
         }

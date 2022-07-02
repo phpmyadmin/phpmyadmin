@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * general function, usually for data manipulation pages
  *
@@ -249,7 +251,7 @@ var ErrorReport = {
             newFunc.wrapped = true;
             // Set guid of wrapped function same as original function, so it can be removed
             // See bug#4146 (problem with jquery draggable and sortable)
-            newFunc.guid = func.guid = func.guid || newFunc.guid || jQuery.guid++;
+            newFunc.guid = func.guid = func.guid || newFunc.guid || $.guid++;
             return newFunc;
         } else {
             return func;

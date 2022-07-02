@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    Javascript functions used in server variables page
  * @name            Server Replication

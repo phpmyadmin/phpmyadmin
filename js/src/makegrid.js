@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /* global Sql */
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
 
@@ -2318,4 +2320,4 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             });
         }
     }; // end noSelect
-}(jQuery));
+}($));

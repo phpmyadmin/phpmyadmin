@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    functions used wherever an sql query form is used
  *
