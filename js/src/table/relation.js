@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * for table relation
  */

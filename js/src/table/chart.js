@@ -1,3 +1,4 @@
+import $ from 'jquery';
 
 /* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 

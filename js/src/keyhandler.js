@@ -1,3 +1,4 @@
+import $ from 'jquery';
 
 // var that holds: 0- if ctrl key is not pressed 1- if ctrl key is pressed
 let ctrlKeyHistory = 0;

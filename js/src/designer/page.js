@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /* global DesignerOfflineDB */ // js/designer/database.js
 /* global DesignerMove */ // js/designer/move.js
 /* global DesignerObjects */ // js/designer/objects.js

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    Javascript functions used in server status query page
  * @name            Server Status Query

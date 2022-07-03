@@ -1,6 +1,8 @@
 /* eslint-env node, jest */
+/* global Sql */
 
-const Sql = require('phpmyadmin/sql');
+import 'phpmyadmin/ajax';
+import 'phpmyadmin/sql';
 
 describe('SQL', () => {
     test('test URL encode', () => {

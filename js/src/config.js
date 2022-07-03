@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * Functions used in configuration forms and on user preferences pages
  */

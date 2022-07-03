@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * SQL syntax highlighting transformation plugin js
  *

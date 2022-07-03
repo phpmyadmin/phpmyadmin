@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * Image upload transformations plugin js
  *

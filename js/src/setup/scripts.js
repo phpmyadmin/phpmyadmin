@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * Functions used in Setup configuration forms
  */

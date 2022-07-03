@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * function used in or for navigation panel
  *

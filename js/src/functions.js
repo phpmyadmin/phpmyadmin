@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /* global Navigation */
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
@@ -1704,7 +1706,7 @@ Functions.ajaxShowMessage = function (message = null, timeout = null, type = nul
  * @return {void}
  */
 Functions.ajaxRemoveMessage = function ($thisMessageBox) {
-    if ($thisMessageBox !== undefined && $thisMessageBox instanceof jQuery) {
+    if ($thisMessageBox !== undefined && $thisMessageBox instanceof $) {
         $thisMessageBox
             .stop(true, true)
             .fadeOut('medium');
@@ -2196,7 +2198,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
         openCallback();
     }
 };
-jQuery.fn.confirm = Functions.confirm;
+$.fn.confirm = Functions.confirm;
 
 /**
  * jQuery function to sort a table's body after a new row has been appended to it.
@@ -2239,7 +2241,7 @@ Functions.sortTable = function (textSelector) {
         });
     });
 };
-jQuery.fn.sortTable = Functions.sortTable;
+$.fn.sortTable = Functions.sortTable;
 
 /**
  * @return {void}
@@ -3287,7 +3289,7 @@ Functions.showIndexEditDialog = function ($outer) {
  **/
 Functions.showHints = function ($div) {
     var $newDiv = $div;
-    if ($newDiv === undefined || ! ($newDiv instanceof jQuery) || $newDiv.length === 0) {
+    if ($newDiv === undefined || ! ($newDiv instanceof $) || $newDiv.length === 0) {
         $newDiv = $('body');
     }
     $newDiv.find('.pma_hint').each(function () {
@@ -3549,7 +3551,7 @@ Functions.slidingMessage = function (msg, $object) {
         // Don't show an empty message
         return false;
     }
-    if ($obj === undefined || ! ($obj instanceof jQuery) || $obj.length === 0) {
+    if ($obj === undefined || ! ($obj instanceof $) || $obj.length === 0) {
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length === 0) {
@@ -3688,7 +3690,7 @@ Functions.onloadLockPage = function () {
             return $(this).val() === value;
         });
     };
-}(jQuery));
+}($));
 
 /**
  * Return value of a cell in a table.
@@ -4358,7 +4360,7 @@ Functions.getPostData = function () {
     }
     return dataPost;
 };
-jQuery.fn.getPostData = Functions.getPostData;
+$.fn.getPostData = Functions.getPostData;
 
 /**
  * @return {function}

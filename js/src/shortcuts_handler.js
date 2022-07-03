@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    Handle shortcuts in various pages
  * @name            Shortcuts handler

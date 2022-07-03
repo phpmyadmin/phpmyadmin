@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * Server Status Processes
  *

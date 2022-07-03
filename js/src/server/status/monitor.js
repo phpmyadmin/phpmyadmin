@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    Javascript functions used in server status monitor page
  * @name            Server Status Monitor

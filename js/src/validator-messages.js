@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 function extendingValidatorMessages () {
     $.extend($.validator.messages, {
         required: window.Messages.strValidatorRequired,

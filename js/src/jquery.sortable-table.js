@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * This file is internal to phpMyAdmin.
  * @license see the main phpMyAdmin license.
@@ -39,7 +41,7 @@
  * which is the actually draggable element.
  */
 (function ($) {
-    jQuery.fn.sortableTable = function (method) {
+    $.fn.sortableTable = function (method) {
         var methods = {
             init: function (options) {
                 var tb = new SortableTableInstance(this, options);
@@ -290,4 +292,4 @@
             }
         }
     };
-}(jQuery));
+}($));

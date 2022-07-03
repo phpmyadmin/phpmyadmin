@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /* global Indexes */
 /* global Navigation */
 

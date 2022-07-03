@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const GitInfo = {
     /**
      * Version string to integer conversion.

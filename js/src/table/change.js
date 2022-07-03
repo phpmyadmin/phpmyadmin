@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * @fileoverview    function used in table data manipulation pages
  *
@@ -175,7 +177,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
             });
             // validator method for IN(...), NOT IN(...)
             // BETWEEN and NOT BETWEEN
-            jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
+            $.validator.addMethod('validationFunctionForMultipleInt', function (value) {
                 return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
             },
             window.Messages.strEnterValidNumber
@@ -432,17 +434,17 @@ window.AJAX.registerOnload('table/change.js', function () {
     if ($('#insertForm').length) {
         // validate the comment form when it is submitted
         $('#insertForm').validate();
-        jQuery.validator.addMethod('validationFunctionForHex', function (value) {
+        $.validator.addMethod('validationFunctionForHex', function (value) {
             return value.match(/^[a-f0-9]*$/i) !== null;
         });
 
-        jQuery.validator.addMethod('validationFunctionForMd5', function (value, element, options) {
+        $.validator.addMethod('validationFunctionForMd5', function (value, element, options) {
             return !(value.startsWith('MD5') &&
                 typeof options.data('maxlength') !== 'undefined' &&
                 options.data('maxlength') < 32);
         });
 
-        jQuery.validator.addMethod('validationFunctionForAesDesEncrypt', function (value, element, options) {
+        $.validator.addMethod('validationFunctionForAesDesEncrypt', function (value, element, options) {
             var funType = value.substring(0, 3);
             if (funType !== 'AES' && funType !== 'DES') {
                 return false;
@@ -457,7 +459,7 @@ window.AJAX.registerOnload('table/change.js', function () {
             return false;
         });
 
-        jQuery.validator.addMethod('validationFunctionForDateTime', function (value, element, options) {
+        $.validator.addMethod('validationFunctionForDateTime', function (value, element, options) {
             var dtValue = value;
             var theType = options;
             if (theType === 'date') {
@@ -828,7 +830,7 @@ function addNewContinueInsertionFields (event) {
          * Displays alert if data loss possible on decrease
          * of rows.
          */
-        var checkLock = jQuery.isEmptyObject(window.AJAX.lockedTargets);
+        var checkLock = $.isEmptyObject(window.AJAX.lockedTargets);
         if (checkLock || confirm(window.Messages.strConfirmRowChange) === true) {
             while (currRows > targetRows) {
                 $('input[id^=insert_ignore]').last()

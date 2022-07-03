@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /* global Navigation */
 
 /**
@@ -196,7 +198,7 @@ window.AJAX = {
         }
         // Show lock icon if locked targets is not empty.
         // otherwise remove lock icon
-        if (!jQuery.isEmptyObject(window.AJAX.lockedTargets)) {
+        if (! $.isEmptyObject(window.AJAX.lockedTargets)) {
             $('#lock_page_icon').html(Functions.getImage('s_lock', window.Messages.strLockToolTip).toString());
         } else {
             $('#lock_page_icon').html('');
@@ -261,7 +263,7 @@ window.AJAX = {
         // the click event is not triggered by script
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
-            !jQuery.isEmptyObject(window.AJAX.lockedTargets) &&
+            ! $.isEmptyObject(window.AJAX.lockedTargets) &&
             confirm(window.Messages.strConfirmNavigation) === false
         ) {
             return false;

@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * jqplot formatter for byte values
  *
@@ -49,4 +51,4 @@
             }
         };
     };
-}(jQuery));
+}($));

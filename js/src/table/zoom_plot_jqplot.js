@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // TODO: change the axis
 /**
  * @fileoverview JavaScript functions used on /table/search
