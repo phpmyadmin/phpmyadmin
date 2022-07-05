@@ -2,7 +2,7 @@
  * Definition of links to MySQL documentation.
  */
 
-var mysqlDocKeyword = {
+export const mysqlDocKeyword = {
     /* Multi word */
     'CHARACTER SET': ['charset'],
     'SHOW AUTHORS': ['show-authors'],
@@ -329,9 +329,8 @@ var mysqlDocKeyword = {
     'COUNT_DISTINCT': ['aggregate-functions', 'function_count-distinct'],
     'NOT_IN': ['comparison-operators', 'function_not-in']
 };
-window.mysqlDocKeyword = mysqlDocKeyword;
 
-var mysqlDocBuiltin = {
+export const mysqlDocBuiltin = {
     'TINYINT': ['numeric-types'],
     'SMALLINT': ['numeric-types'],
     'MEDIUMINT': ['numeric-types'],
@@ -364,4 +363,3 @@ var mysqlDocBuiltin = {
     'ENUM': ['string-types'],
     'SET': ['string-types']
 };
-window.mysqlDocBuiltin = mysqlDocBuiltin;

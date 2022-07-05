@@ -36,7 +36,6 @@ module.exports = [
             'designer/move': './js/src/designer/move.js',
             'designer/objects': './js/src/designer/objects.js',
             'designer/page': './js/src/designer/page.js',
-            'doclinks': './js/src/doclinks.js',
             'drag_drop_import': './js/src/drag_drop_import.js',
             'error_report': './js/src/error_report.js',
             'export': './js/src/export.js',

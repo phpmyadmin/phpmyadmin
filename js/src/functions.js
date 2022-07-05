@@ -1,9 +1,9 @@
 import $ from 'jquery';
+import { mysqlDocKeyword, mysqlDocBuiltin } from './modules/doc-links.js';
 
 /* global Navigation */
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
-/* global mysqlDocBuiltin, mysqlDocKeyword */ // js/doclinks.js
 /* global Indexes */ // js/indexes.js
 /* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, themeImagePath */ // templates/javascript/variables.twig
 
