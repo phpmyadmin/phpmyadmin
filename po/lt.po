@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-03 00:22+0000\n"
-"PO-Revision-Date: 2022-02-15 16:20+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-07-05 15:20+0000\n"
+"Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lt/>\n"
 "Language: lt\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -30,21 +30,17 @@ msgstr ""
 #: libraries/classes/Advisory/Advisor.php:287
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Nepavyko apskaičiuoti reikšmės taisyklei „%s“."
 
 #: libraries/classes/Advisory/Advisor.php:306
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Nepavyko paleisti testo taisyklei „%s“."
 
 #: libraries/classes/Advisory/Advisor.php:334
-#, fuzzy, php-format
-#| msgid ""
-#| "Failed formatting string for rule '%s'. PHP threw following error: %s"
+#, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Nepavyko suformuoti eilutės taisyklei „%s“. PHP išspjovė štai tokią klaidą: "
-"%s"
+msgstr "Nepavyko suformuoti eilutės taisyklei „%s“."
 
 #: libraries/classes/Advisory/Advisor.php:419
 msgid "per second"
@@ -82,10 +78,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:47
-#, fuzzy
-#| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "Versijos"
+msgstr "Klausimų mažiau nei 1000"
 
 #: libraries/classes/Advisory/Rules.php:51
 msgid ""
@@ -100,16 +94,13 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:57
-#, fuzzy, php-format
-#| msgid "Current connection"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Dabartinis prisijungimas"
+msgstr "Dabartinis Klausimų kiekis: %s"
 
 #: libraries/classes/Advisory/Rules.php:62
-#, fuzzy
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Rodyti SQL užklausas"
+msgstr "Procentali lėtų užklausų dalis"
 
 #: libraries/classes/Advisory/Rules.php:66
 msgid ""
