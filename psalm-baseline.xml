@@ -15825,12 +15825,9 @@
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
-      <code>$this-&gt;serverPrivileges-&gt;extractPrivInfo(null, true)</code>
+      <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$returned_userGroup</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="19">
+    <MixedMethodCall occurrences="9">
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
@@ -15840,24 +15837,7 @@
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
     </MixedMethodCall>
-    <UndefinedMethod occurrences="5">
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-    </UndefinedMethod>
     <UnusedVariable occurrences="4">
       <code>$password</code>
       <code>$routinename</code>

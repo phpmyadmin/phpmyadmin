@@ -22,6 +22,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
+use RuntimeException;
 
 use function __;
 use function array_column;
@@ -2244,6 +2245,15 @@ class DatabaseInterface implements DbalInterface
     public function getVersion(): int
     {
         return $this->versionInt;
+    }
+
+    public function setVersion(int $version): void
+    {
+        if (! defined('TESTSUITE')) {
+            throw new RuntimeException('This method should only be executed in a testing environment.');
+        }
+
+        $this->versionInt = $version;
     }
 
     /**
