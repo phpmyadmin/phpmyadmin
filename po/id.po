@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-03 00:22+0000\n"
-"PO-Revision-Date: 2022-02-15 16:20+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-07-08 03:19+0000\n"
+"Last-Translator: Meriyati <meri08081982@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
@@ -168,10 +168,9 @@ msgstr ""
 "tergantung pada lingkungan Anda. Disarankan biasanya nilai dari 1-5 detik."
 
 #: libraries/classes/Advisory/Rules.php:101
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time disetel menjadi %d detik."
+msgstr "long_query_time disetel menjadi 1/10 detik %."
 
 #: libraries/classes/Advisory/Rules.php:106
 #: libraries/classes/Advisory/Rules.php:119
@@ -236,18 +235,16 @@ msgid "Minor Version"
 msgstr "Versi Minor"
 
 #: libraries/classes/Advisory/Rules.php:149
-#, fuzzy
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "Versi kurang dari 5.1.30 (GA rilis pertama dari 5.1)."
+msgstr "Versinya sebelum 5.1.30 (GA rilis pertama dari 5.1)."
 
 #: libraries/classes/Advisory/Rules.php:151
-#, fuzzy
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
 "Anda harus meng-upgrade, karena versi terbaru MySQL 5.1 telah meningkatkan "
-"kinerja dan MySQL 5.5 bahkan lebih."
+"kinerjanya dan bahkan MySQL 5.5 lebih dari itu."
 
 #: libraries/classes/Advisory/Rules.php:163
 #, fuzzy
