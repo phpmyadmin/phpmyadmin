@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-06-28 01:09+0000\n"
+"PO-Revision-Date: 2022-07-11 15:20+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -120,16 +120,13 @@ msgstr "long_query_time е моментално на %d секунди."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
-#, fuzzy
 msgid "Slow query logging"
-msgstr "SQL упит"
+msgstr "Логирање на спори барања"
 
 #: libraries/advisory_rules_generic.php:83
 #: libraries/advisory_rules_generic.php:96
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "Серверот не одговара"
+msgstr "Логирањето на спори барања е исклучено."
 
 #: libraries/advisory_rules_generic.php:85
 msgid ""
@@ -257,9 +254,8 @@ msgid "Available memory on this host: %s"
 msgstr "Достапна меморија на овој хост: %s"
 
 #: libraries/advisory_rules_generic.php:184
-#, fuzzy
 msgid "Query caching method"
-msgstr "Вид на упит"
+msgstr "Метод на кеширање за барања"
 
 #: libraries/advisory_rules_generic.php:188
 msgid "Suboptimal caching method."
@@ -286,10 +282,8 @@ msgstr "Процентажа на одредби што причунуваат �
 
 #: libraries/advisory_rules_generic.php:208
 #: libraries/advisory_rules_generic.php:221
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Премногу одредби предизвикуваат привремени табели."
 
 #: libraries/advisory_rules_generic.php:210
 #: libraries/advisory_rules_generic.php:223
@@ -319,10 +313,8 @@ msgid ""
 msgstr "Големина на меѓупросторот за подредување"
 
 #: libraries/advisory_rules_generic.php:231
-#, fuzzy
-#| msgid "Start"
 msgid "Sort rows"
-msgstr "Саб"
+msgstr "Одреди редови"
 
 #: libraries/advisory_rules_generic.php:234
 msgid "There are lots of rows being sorted."
@@ -382,10 +374,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:270
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Просек на скенирање на индекс: %s, оваа вредност треба да биде под 1 на саат"
 
 #: libraries/advisory_rules_generic.php:275
 #, fuzzy
@@ -456,10 +448,8 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:316
-#, fuzzy
-#| msgid "Table of contents"
 msgid "Percentage of temp tables on disk"
-msgstr "Содржина"
+msgstr "Процентажа на привремени табели на диск"
 
 #: libraries/advisory_rules_generic.php:320
 #: libraries/advisory_rules_generic.php:341
@@ -6280,10 +6270,8 @@ msgid "Time"
 msgstr "Време"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#, fuzzy
-#| msgid "Total"
 msgid "Total time:"
-msgstr "Вкупно"
+msgstr "Вкупно време:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:278
 #, fuzzy
@@ -6349,18 +6337,14 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "Број на записи на страница"
+msgstr "Сума на групирани редови:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 #: libraries/classes/Engines/Innodb.php:140
 #: templates/server/databases/index.twig:253
-#, fuzzy
-#| msgid "Total"
 msgid "Total:"
-msgstr "Вкупно"
+msgstr "Вкупно:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 #, fuzzy
@@ -6406,16 +6390,12 @@ msgid "Please select the file you want to import."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
-#, fuzzy
-#| msgid "Please select a database"
 msgid "Please enter a valid table name."
-msgstr "Изберете база на податоци"
+msgstr "Внесете валидно име на табела."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
-#, fuzzy
-#| msgid "Please select a database"
 msgid "Please enter a valid database name."
-msgstr "Изберете база на податоци"
+msgstr "Внесете валидно име на датабаза."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "No files available on server for import!"
