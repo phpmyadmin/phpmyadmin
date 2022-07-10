@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-03 00:22+0000\n"
+"POT-Creation-Date: 2022-07-10 00:23+0000\n"
 "PO-Revision-Date: 2022-03-03 21:56+0000\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -9071,7 +9071,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "V databáze %2$s nebola nájdená žiadna udalosť s menom %1$s"
 
-#: libraries/classes/DatabaseInterface.php:1130
+#: libraries/classes/DatabaseInterface.php:1131
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9079,21 +9079,21 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1175
+#: libraries/classes/DatabaseInterface.php:1176
 #, fuzzy
 msgid "Failed to set configured collation connection!"
 msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
-#: libraries/classes/DatabaseInterface.php:1864
+#: libraries/classes/DatabaseInterface.php:1865
 #, fuzzy
 msgid "Missing connection parameters!"
 msgstr "Chýbajúci parameter:"
 
-#: libraries/classes/DatabaseInterface.php:1889
+#: libraries/classes/DatabaseInterface.php:1890
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
-#: libraries/classes/DatabaseInterface.php:2294
+#: libraries/classes/DatabaseInterface.php:2304
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Pozri %sour documentation%s pre viacej informácií."

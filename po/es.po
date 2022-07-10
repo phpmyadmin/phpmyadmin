@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-03 00:22+0000\n"
+"POT-Creation-Date: 2022-07-10 00:23+0000\n"
 "PO-Revision-Date: 2022-04-20 02:09+0000\n"
 "Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -9352,7 +9352,7 @@ msgstr ""
 "Error en el procesamiento de la petición: No se encontró evento con el "
 "nombre %1$s en la base de datos %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1130
+#: libraries/classes/DatabaseInterface.php:1131
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9364,21 +9364,21 @@ msgstr ""
 "em]. phpMyAdmin está utilizando actualmente la zona horaria predeterminada "
 "del servidor de base de datos."
 
-#: libraries/classes/DatabaseInterface.php:1175
+#: libraries/classes/DatabaseInterface.php:1176
 msgid "Failed to set configured collation connection!"
 msgstr "¡Fallo al definir la conexión de colacion configurada!"
 
-#: libraries/classes/DatabaseInterface.php:1864
+#: libraries/classes/DatabaseInterface.php:1865
 msgid "Missing connection parameters!"
 msgstr "¡Parámetros de conexión faltantes!"
 
-#: libraries/classes/DatabaseInterface.php:1889
+#: libraries/classes/DatabaseInterface.php:1890
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "La conexión para controluser, como está definida en su configuración, "
 "fracasó."
 
-#: libraries/classes/DatabaseInterface.php:2294
+#: libraries/classes/DatabaseInterface.php:2304
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Revise %snuestra documentación%s para más información."
