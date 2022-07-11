@@ -50,7 +50,7 @@ class ProcessesControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -82,7 +82,7 @@ class ProcessesControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('Truncate shown queries', $html);
@@ -95,7 +95,7 @@ class ProcessesControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('Host', $html);

@@ -60,7 +60,7 @@ class LogVarsControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
         $this->assertEquals($value, $ret['message']);

@@ -47,7 +47,7 @@ class BookmarkTest extends AbstractTestCase
             'sakila'
         );
         $this->assertContainsOnlyInstancesOf(Bookmark::class, $actual);
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
     }
 
     /**
@@ -64,7 +64,7 @@ class BookmarkTest extends AbstractTestCase
                 '1'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
     }
 
     /**
@@ -83,6 +83,6 @@ class BookmarkTest extends AbstractTestCase
         $this->assertNotFalse($bookmark);
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse($bookmark->save());
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
     }
 }

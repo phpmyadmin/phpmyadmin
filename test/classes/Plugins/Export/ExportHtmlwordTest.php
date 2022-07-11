@@ -633,7 +633,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(
@@ -685,7 +685,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(

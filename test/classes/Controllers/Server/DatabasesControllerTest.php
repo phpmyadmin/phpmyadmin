@@ -61,7 +61,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
@@ -98,7 +98,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringNotContainsString(__('Enable statistics'), $actual);

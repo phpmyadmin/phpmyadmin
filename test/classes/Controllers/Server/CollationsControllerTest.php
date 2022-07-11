@@ -39,7 +39,7 @@ class CollationsControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('<div><strong>latin1</strong></div>', $actual);

@@ -50,7 +50,7 @@ class MonitorControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('<div class="tabLinks row">', $html);

@@ -133,7 +133,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $dummyDbi->addSelectDb('my_db');
         $replaceController($request);
         $output = $response->getHTMLResult();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $this->assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
             $output
@@ -181,7 +181,7 @@ class ReplaceControllerTest extends AbstractTestCase
 
         $replaceController($request);
         $output = $response->getHTMLResult();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
         $this->assertStringContainsString(
             '<form id="continueForm" method="post" '

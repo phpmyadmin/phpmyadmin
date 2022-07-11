@@ -542,7 +542,7 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->getTableDefStandIn('test_db', 'test_table', "\n"),
             ''
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<table:table table:name="test_table_data">'
@@ -796,7 +796,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
@@ -870,7 +870,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
@@ -912,7 +912,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'

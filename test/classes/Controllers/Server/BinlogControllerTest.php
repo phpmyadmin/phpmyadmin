@@ -48,7 +48,7 @@ class BinlogControllerTest extends AbstractTestCase
         $_POST['pos'] = '3';
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('Select binary log to view', $actual);

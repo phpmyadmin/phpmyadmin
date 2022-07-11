@@ -42,7 +42,7 @@ class ShowEngineControllerTest extends AbstractTestCase
             'page' => 'page',
         ]);
 
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $enginePlugin = StorageEngine::getEngine('Pbxt');

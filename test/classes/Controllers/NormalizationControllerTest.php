@@ -141,7 +141,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $normalizationController();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();
 
@@ -179,7 +179,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $normalizationController();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();
 

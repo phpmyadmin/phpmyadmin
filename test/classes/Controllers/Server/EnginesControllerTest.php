@@ -39,7 +39,7 @@ class EnginesControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller->__invoke();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $actual = $response->getHTMLResult();
 

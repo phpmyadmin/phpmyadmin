@@ -54,7 +54,7 @@ class SlowLogControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller();
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
         $resultRows = [

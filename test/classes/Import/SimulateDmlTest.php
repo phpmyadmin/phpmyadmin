@@ -37,7 +37,7 @@ class SimulateDmlTest extends AbstractTestCase
             'sql_signature' => Core::signSqlQuery($simulatedQuery),
         ]);
 
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $this->assertEquals([
             'sql_query' => Generator::formatSql($sqlQuery),
             'matched_rows' => 2,

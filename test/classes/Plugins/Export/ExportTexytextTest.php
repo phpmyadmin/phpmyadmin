@@ -228,7 +228,7 @@ class ExportTexytextTest extends AbstractTestCase
     {
         $this->dummyDbi->addSelectDb('test_db');
         $result = $this->object->getTableDefStandIn('test_db', 'test_table', "\n");
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '|------' . "\n"
@@ -373,7 +373,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertIsString($result);
@@ -424,7 +424,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(
@@ -451,7 +451,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test'
             )
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(
