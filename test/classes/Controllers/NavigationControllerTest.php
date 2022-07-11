@@ -161,7 +161,7 @@ class NavigationControllerTest extends AbstractTestCase
             . '</div>',
             $responseMessage
         );
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testIndexWithPosAndValue(): void
@@ -427,6 +427,6 @@ class NavigationControllerTest extends AbstractTestCase
             . '</div>' . "\n",
             $responseMessage
         );
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

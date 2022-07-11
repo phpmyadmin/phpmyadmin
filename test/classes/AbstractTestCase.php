@@ -102,12 +102,6 @@ abstract class AbstractTestCase extends TestCase
         Cache::purge();
     }
 
-    protected function assertAllQueriesConsumed(): void
-    {
-        $unUsedQueries = $this->dummyDbi->getUnUsedQueries();
-        $this->assertSame([], $unUsedQueries, 'Some queries where not used !');
-    }
-
     protected function assertAllSelectsConsumed(): void
     {
         $unUsedSelects = $this->dummyDbi->getUnUsedDatabaseSelects();

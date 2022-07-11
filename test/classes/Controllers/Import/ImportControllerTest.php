@@ -72,6 +72,6 @@ class ImportControllerTest extends AbstractTestCase
             $this->getResponseHtmlResult()
         );
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

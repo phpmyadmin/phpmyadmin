@@ -175,7 +175,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->assertTrue($object->check());
         $this->assertEquals('', $object->render());
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
 
         $this->loadResultForConfig(['type' => 'db']);
         $this->loadQueriesForConfigure('');
@@ -216,7 +216,7 @@ class TwoFactorTest extends AbstractTestCase
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
 
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('simple');
@@ -225,7 +225,7 @@ class TwoFactorTest extends AbstractTestCase
         $backend = $object->getBackend();
         $this->assertEquals('simple', $backend::$id);
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
 
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('');
@@ -234,14 +234,14 @@ class TwoFactorTest extends AbstractTestCase
         $backend = $object->getBackend();
         $this->assertEquals('', $backend::$id);
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
 
         $this->initStorageConfigAndData();// Needs a re-init
 
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $this->assertFalse($object->configure('simple'));
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -275,7 +275,7 @@ class TwoFactorTest extends AbstractTestCase
             $google2fa->getTimestamp()
         );
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('application', [
             'secret' => $object->config['settings']['secret'],
@@ -283,7 +283,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->assertTrue($object->configure('application'));
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
         unset($_POST['2fa_code']);
 
         /* Check code */
@@ -405,7 +405,7 @@ class TwoFactorTest extends AbstractTestCase
             . 'ZLVGZuelRPU2FOVU9XUXhSZDlUV3o1YUZPZzgiLCAib3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXB'
             . 'sZS5jb20iLCAidHlwIjogIm5hdmlnYXRvci5pZC5maW5pc2hFbnJvbGxtZW50IiB9", "errorCode": 0 }';
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('key', [
             'registrations' => [
@@ -454,7 +454,7 @@ class TwoFactorTest extends AbstractTestCase
             . 'yejRmVWpnYzBRN2ciLCAib3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXBsZS5jb20iLCAidHlwI'
             . 'jogIm5hdmlnYXRvci5pZC5nZXRBc3NlcnRpb24iIH0=", "keyHandle": "CTUayZo8hCBeC-sGQJC'
             . 'hC0wW-bBg99bmOlGCgw8XGq4dLsxO3yWh9mRYArZxocP5hBB1pEGB3bbJYiM-5acc5w", "errorCode": 0 }';
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
         $this->loadResultForConfig([]);
         $this->loadQueriesForConfigure('key', [
             'registrations' => [
@@ -481,7 +481,7 @@ class TwoFactorTest extends AbstractTestCase
             ],
         ]);
         $this->assertTrue($object->check(true));
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     /**

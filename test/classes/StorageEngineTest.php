@@ -335,7 +335,7 @@ class StorageEngineTest extends AbstractTestCase
         $this->dummyDbi->addResult('SELECT mroonga_command(\'object_list\');', false);
         $this->assertFalse(StorageEngine::hasMroongaEngine());
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testGetMroongaLengths(): void
@@ -706,6 +706,6 @@ class StorageEngineTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $this->assertSame([4521984, 578126], $lengths);
 
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 }
