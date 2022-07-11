@@ -14,6 +14,12 @@ use PhpMyAdmin\Transformations;
  */
 class PluginsTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::loadDbiIntoContainerBuilder();
+    }
+
     public function testGetExport(): void
     {
         $GLOBALS['server'] = 1;

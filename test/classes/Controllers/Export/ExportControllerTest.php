@@ -27,6 +27,8 @@ class ExportControllerTest extends AbstractTestCase
 {
     public function testExportController(): void
     {
+        parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';

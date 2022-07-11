@@ -23,6 +23,8 @@ class TrackerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDbiIntoContainerBuilder();
+
         /**
          * SET these to avoid undefined index error
          */

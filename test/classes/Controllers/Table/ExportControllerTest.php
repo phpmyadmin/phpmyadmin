@@ -22,6 +22,8 @@ class ExportControllerTest extends AbstractTestCase
 {
     public function testExportController(): void
     {
+        parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['cfg']['Server'] = $GLOBALS['config']->defaultServer;
