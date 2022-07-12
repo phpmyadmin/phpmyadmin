@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-07-11 16:15+0000\n"
+"PO-Revision-Date: 2022-07-13 04:16+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -3779,22 +3779,16 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/classes/Charsets.php:544
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Персиски"
 
 #: libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Полски"
 
 #: libraries/classes/Charsets.php:555
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Романски"
@@ -4251,10 +4245,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:241
-#, fuzzy
-#| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Можете да извршите:"
+msgstr "Исклучете одржување на мулти табели"
 
 #: libraries/classes/Config/Descriptions.php:244
 msgid ""
@@ -4279,9 +4271,8 @@ msgstr "Сочувај како податотека"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Config/Descriptions.php:629
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Кодна страна на податотеката:"
+msgstr "Сет на карактери на фајлот"
 
 #: libraries/classes/Config/Descriptions.php:258
 #: libraries/classes/Config/Descriptions.php:290
@@ -4337,8 +4328,6 @@ msgstr "Escape карактер &nbsp; &nbsp; &nbsp;"
 #: libraries/classes/Config/Descriptions.php:328
 #: libraries/classes/Config/Descriptions.php:336
 #: libraries/classes/Config/Descriptions.php:415
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with"
 msgstr "Замени NULL со"
 
@@ -17457,10 +17446,8 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:100
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Избери табели"
+msgstr "Серија на Издание"
 
 #: libraries/advisory_rules_generic.txt:103
 msgid "The MySQL server version less than 5.1."
@@ -17614,11 +17601,12 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "Дозволува креирање на привремени табели…"
 
 #: libraries/advisory_rules_generic.txt:166
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Просек на привремени табели: %s, оваа вредност треба да биде помала од 1 на "
+"саат."
 
 #: libraries/advisory_rules_generic.txt:168
 msgid "Sort rows"
@@ -17656,10 +17644,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:181
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Просек на споени табели: %s, оваа вредност треба да биде помала од 1 на саат"
 
 #: libraries/advisory_rules_generic.txt:183
 #, fuzzy
