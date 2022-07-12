@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-10 00:23+0000\n"
-"PO-Revision-Date: 2022-07-11 15:21+0000\n"
+"PO-Revision-Date: 2022-07-13 04:20+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -190,9 +190,8 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:133
-#, fuzzy
 msgid "Release Series"
-msgstr "Избери табели"
+msgstr "Серија на Издание"
 
 #: libraries/classes/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
@@ -345,10 +344,12 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "Дозволува креирање на привремени табели…"
 
 #: libraries/classes/Advisory/Rules.php:255
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Просек на привремени табели: %s, оваа вредност треба да биде помала од 1 на "
+"саат."
 
 #: libraries/classes/Advisory/Rules.php:260
 msgid "Sort rows"
@@ -386,9 +387,10 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:283
-#, fuzzy, php-format
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Просек на споени табели: %s, оваа вредност треба да биде помала од 1 на саат"
 
 #: libraries/classes/Advisory/Rules.php:288
 #, fuzzy
@@ -1564,19 +1566,16 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:540
-#, fuzzy
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Персиски"
 
 #: libraries/classes/Charsets/Collation.php:544
-#, fuzzy
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Полски"
 
 #: libraries/classes/Charsets/Collation.php:551
-#, fuzzy
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Романски"
@@ -2899,9 +2898,8 @@ msgid "Display servers as a list"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:653
-#, fuzzy
 msgid "Disable multi table maintenance"
-msgstr "Можете да извршите:"
+msgstr "Исклучете одржување на мулти табели"
 
 #: libraries/classes/Config/Descriptions.php:654
 msgid "Maximum execution time"
@@ -2917,9 +2915,8 @@ msgstr "Сочувај како податотека"
 
 #: libraries/classes/Config/Descriptions.php:657
 #: libraries/classes/Config/Descriptions.php:792
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Кодна страна на податотеката:"
+msgstr "Сет на карактери на фајлот"
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:674 templates/import.twig:165
@@ -2972,7 +2969,6 @@ msgstr "Escape карактер &nbsp; &nbsp; &nbsp;"
 #: libraries/classes/Config/Descriptions.php:693
 #: libraries/classes/Config/Descriptions.php:697
 #: libraries/classes/Config/Descriptions.php:742
-#, fuzzy
 msgid "Replace NULL with"
 msgstr "Замени NULL со"
 
