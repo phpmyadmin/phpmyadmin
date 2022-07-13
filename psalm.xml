@@ -20,7 +20,6 @@
         <file name="show_config_errors.php"/>
         <file name="url.php"/>
         <ignoreFiles>
-            <file name="config.inc.php"/>
             <directory name="vendor"/>
             <directory name="libraries/cache"/>
         </ignoreFiles>
