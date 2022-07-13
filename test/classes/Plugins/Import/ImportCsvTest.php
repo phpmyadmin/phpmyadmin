@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 use function __;
 use function basename;
@@ -17,6 +18,12 @@ use function basename;
  */
 class ImportCsvTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var ImportCsv */
     protected $object;
 
@@ -27,6 +34,9 @@ class ImportCsvTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'csv';
         $GLOBALS['errorUrl'] = 'index.php?route=/';
@@ -238,7 +248,9 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $this->dummyDbi->addResult(
             'SHOW DATABASES',
@@ -282,7 +294,9 @@ class ImportCsvTest extends AbstractTestCase
 
         $_REQUEST['csv_col_names'] = 'something';
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $this->dummyDbi->addResult(
             'SHOW DATABASES',

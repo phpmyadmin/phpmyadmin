@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Cache;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Engines\Bdb;
 use PhpMyAdmin\Engines\Berkeleydb;
 use PhpMyAdmin\Engines\Binlog;
@@ -18,6 +19,7 @@ use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\MockObject\MockObject;
 
 use function json_encode;
@@ -27,6 +29,12 @@ use function json_encode;
  */
 class StorageEngineTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var StorageEngine|MockObject */
     protected $object;
 
@@ -37,6 +45,9 @@ class StorageEngineTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
             StorageEngine::class,
