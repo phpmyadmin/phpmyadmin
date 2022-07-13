@@ -124,8 +124,6 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        vendor/phpseclib/phpseclib/phpseclib/openssl.cnf)
-        ;;
         vendor/pragmarx/google2fa-qrcode/composer.lock)
         ;;
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.json)
