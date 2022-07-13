@@ -124,6 +124,8 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
+        vendor/composer/ca-bundle/res/cacert.pem)
+        ;;
         vendor/pragmarx/google2fa-qrcode/composer.lock)
         ;;
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.json)
