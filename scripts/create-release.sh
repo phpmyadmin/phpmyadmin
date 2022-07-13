@@ -195,6 +195,8 @@ cleanup_composer_vendors() {
         vendor/webmozart/assert/psalm.xml \
         vendor/twig/twig/src/Test/ \
         vendor/psr/log/Psr/Log/Test/ \
+        vendor/psr/http-factory/.pullapprove.yml \
+        vendor/slim/psr7/MAINTAINERS.md \
         vendor/paragonie/constant_time_encoding/tests/ \
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
