@@ -19,6 +19,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\StatementInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
@@ -44,6 +45,12 @@ use const MYSQLI_TYPE_TIMESTAMP;
  */
 class ResultsTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var DisplayResults */
     protected $object;
 
@@ -56,6 +63,9 @@ class ResultsTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $this->setTheme();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';

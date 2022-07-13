@@ -6,14 +6,22 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 /**
  * @covers \PhpMyAdmin\Bookmark
  */
 class BookmarkTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -21,6 +29,9 @@ class BookmarkTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';

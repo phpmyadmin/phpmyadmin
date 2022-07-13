@@ -5,13 +5,29 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Import;
 
 use PhpMyAdmin\Controllers\Import\ImportController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Import\ImportController
  */
 class ImportControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+    }
+
     public function testIndexParametrized(): void
     {
         parent::loadContainerBuilder();

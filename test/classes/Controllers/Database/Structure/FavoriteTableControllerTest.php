@@ -6,9 +6,11 @@ namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use ReflectionClass;
 
@@ -19,6 +21,20 @@ use function json_encode;
  */
 class FavoriteTableControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+    }
+
     public function testSynchronizeFavoriteTables(): void
     {
         $GLOBALS['server'] = 1;

@@ -45,20 +45,6 @@ abstract class AbstractTestCase extends TestCase
     ];
 
     /**
-     * The DatabaseInterface loaded by setGlobalDbi
-     *
-     * @var DatabaseInterface
-     */
-    protected $dbi;
-
-    /**
-     * The DbiDummy loaded by setGlobalDbi
-     *
-     * @var DbiDummy
-     */
-    protected $dummyDbi;
-
-    /**
      * Prepares environment for the test.
      * Clean all variables
      */
@@ -97,7 +83,7 @@ abstract class AbstractTestCase extends TestCase
         // Config before DBI
         $this->setGlobalConfig();
         $this->loadContainerBuilder();
-        $this->setGlobalDbi();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->setTheme();
         Cache::purge();
     }
@@ -158,13 +144,6 @@ abstract class AbstractTestCase extends TestCase
         $response = $GLOBALS['containerBuilder']->get(ResponseRenderer::class);
 
         $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
-    }
-
-    protected function setGlobalDbi(): void
-    {
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
     }
 
     protected function createDatabaseInterface(?DbiExtension $extension = null): DatabaseInterface

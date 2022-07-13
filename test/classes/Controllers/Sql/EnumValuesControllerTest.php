@@ -5,17 +5,27 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Sql\EnumValuesController
  */
 class EnumValuesControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
         $GLOBALS['server'] = 1;

@@ -6,7 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\TwoFactor;
 
 use function count;
@@ -21,10 +23,19 @@ use const JSON_UNESCAPED_SLASHES;
  */
 class TwoFactorTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
         parent::setTheme();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = 'table';
@@ -66,7 +77,9 @@ class TwoFactorTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $this->dummyDbi->removeDefaultResults();
 

@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
@@ -18,6 +19,7 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use Psr\Container\ContainerInterface;
@@ -27,9 +29,18 @@ use Psr\Container\ContainerInterface;
  */
 class ReplaceControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['showtable'] = null;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';

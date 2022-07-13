@@ -5,13 +5,21 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Menu;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 /**
  * @covers \PhpMyAdmin\Menu
  */
 class MenuTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /**
      * Configures global environment.
      */
@@ -19,6 +27,9 @@ class MenuTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setTheme();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;

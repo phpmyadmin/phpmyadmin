@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 use function __;
 use function str_repeat;
@@ -17,6 +19,12 @@ use function str_repeat;
  */
 class ImportOdsTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var ImportOds */
     protected $object;
 
@@ -106,7 +114,9 @@ class ImportOdsTest extends AbstractTestCase
         $GLOBALS['import_file'] = 'test/test_data/db_test.ods';
         $_REQUEST['ods_empty_rows'] = true;
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->setDecompressContent(true);
@@ -165,7 +175,9 @@ class ImportOdsTest extends AbstractTestCase
         $_REQUEST['ods_col_names'] = true;
         $_REQUEST['ods_empty_rows'] = $odsEmptyRowsMode;
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->setDecompressContent(false);// Not compressed

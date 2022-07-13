@@ -12,6 +12,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
 
@@ -24,6 +25,12 @@ use const MYSQLI_TYPE_LONG;
  */
 class SearchControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var ResponseStub */
     private $response;
 
@@ -37,6 +44,9 @@ class SearchControllerTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setTheme();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         /**
          * SET these to avoid undefined index error
@@ -125,7 +135,9 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetDataRowAction(): void
     {
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         parent::loadDbiIntoContainerBuilder();
         parent::loadResponseIntoContainerBuilder();
 

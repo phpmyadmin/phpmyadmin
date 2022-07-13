@@ -6,9 +6,11 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /**
@@ -16,6 +18,20 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  */
 class ZoomSearchControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+    }
+
     public function testZoomSearchController(): void
     {
         $GLOBALS['server'] = 2;
