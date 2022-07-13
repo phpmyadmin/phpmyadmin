@@ -3689,22 +3689,22 @@
       <code>$fieldcontent</code>
       <code>$mimetype</code>
       <code>$newCol</code>
-      <code>Util::getValueByKey($_POST, "field_collation.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_collation_orig.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_comments.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_comments_orig.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_expression.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_expression_orig.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_extra.${i}", false)</code>
-      <code>Util::getValueByKey($_POST, "field_extra_orig.${i}", false)</code>
-      <code>Util::getValueByKey($_POST, "field_move_to.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_move_to_orig.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_null.${i}", 'NO')</code>
-      <code>Util::getValueByKey($_POST, "field_null_orig.${i}", 'NO')</code>
-      <code>Util::getValueByKey($_POST, "field_orig.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_orig.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_virtuality.${i}", '')</code>
-      <code>Util::getValueByKey($_POST, "field_virtuality_orig.${i}", '')</code>
+      <code>Util::getValueByKey($_POST, 'field_collation.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_collation_orig.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_comments.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_comments_orig.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_expression.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_expression_orig.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_extra.' . $i, false)</code>
+      <code>Util::getValueByKey($_POST, 'field_extra_orig.' . $i, false)</code>
+      <code>Util::getValueByKey($_POST, 'field_move_to.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_move_to_orig.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_null.' . $i, 'NO')</code>
+      <code>Util::getValueByKey($_POST, 'field_null_orig.' . $i, 'NO')</code>
+      <code>Util::getValueByKey($_POST, 'field_orig.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_orig.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_virtuality.' . $i, '')</code>
+      <code>Util::getValueByKey($_POST, 'field_virtuality_orig.' . $i, '')</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="31">
       <code>$_POST[$field . '_orig'][$i]</code>
@@ -13221,7 +13221,7 @@
       <code>$table</code>
       <code>$table</code>
       <code>$type</code>
-      <code>Util::getValueByKey($_POST, "field_key.${columnNumber}", '')</code>
+      <code>Util::getValueByKey($_POST, 'field_key.' . $columnNumber, '')</code>
       <code>Util::getValueByKey($extracted_columnspec, 'attribute', '')</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="10">
@@ -15660,6 +15660,11 @@
     <PossiblyUndefinedMethod occurrences="1">
       <code>getGroup</code>
     </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/RoutingTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>assertFileNotExists</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType occurrences="4">
