@@ -427,4 +427,60 @@ class GitTest extends AbstractTestCase
         // Assert that the value is replaced by cached one
         $this->assertEquals($gitFolder, 'randomdir/.git');
     }
+
+    /**
+     * Test that we can extract values from Git objects
+     */
+    public function testExtractDataFormTextBody(): void
+    {
+        $extractedData = $this->callFunction(
+            $this->object,
+            Git::class,
+            'extractDataFormTextBody',
+            [
+                [
+                    'tree ed7fec263e1813887001855ddca9293479289180',
+                    'parent 90543399991cdb294185f90e8ae1a45e059c31ab',
+                    'author William Desportes <williamdes@wdes.fr> 1657717000 +0200',
+                    'committer William Desportes <williamdes@wdes.fr> 1657717000 +0200',
+                    'gpgsig -----BEGIN PGP SIGNATURE-----',
+                    ' ',
+                    ' iQIzBAABCgAdFiEExNkf3872tKPGU\/14kKDvG4JRqIkFAmLOwQgACgkQkKDvG4JR',
+                    ' qIn8Kg\/+Os5e3bFLEtd3q\/w3e4IfvR64rdadA4IUugd4pJvGqJHleJNBQ8PNqwjR',
+                    ' 9W0S9PQXAsul0XW5YtuLmBMGFFQDOab2ieix9CVA1w0D7quVQR8uLNb1Gln28NuS',
+                    ' 6b24Q4cAQlp5uOoKT3ohRBUtGmu8SXF8Q\/5BwPY1AuL1LqY6w6EwSsInPXK1Yq3r',
+                    ' RShxRXDhonKx3NqoCdRkWmAKkQrztWGGBI7mBG\/\/X0F4hSjsuwdpHBsl6yyri9p2',
+                    ' bJbyAI+xQ+rBHb0iFIoLbxj6G1EkEmpISl+4980uef24SwMVk9ZOfH8cAgBZ62Mf',
+                    ' xJ3f99ujhD9dvwCQivOwcEav+fPObiLC0EzfoqZgB7rTQdxUIu7WRpShZGwfuiEv',
+                    ' sBmvQcnZptYHi0Kk78fdzISCQcPBgCw0gGcv+yLOE3HuQ24B+ncCusYdxyJQqMSc',
+                    ' pm9vVHpwioufy5c7aBa05K7f2b1AhiZeVpT2t\/rboIYlIhQGY9uRNGX44Qtt6Oeb',
+                    ' G6aU8O7gS5+Wsj00K+uSvUE\/znxx7Ad0zVuFQGUAhd3cDp9T09+FIr4TOE+3Z4Pk',
+                    ' PlssVGVBdbaNaI0\/eV6fTa6B0hMH9mhmZhtHLXdsTw5xVySz7by5DZqZldydSFtk',
+                    ' tVuUPxykK6F0qY79IPBH8Unx8egIlSzKWfP0JpRd+otemBnTKWg=',
+                    ' =BVHc',
+                    ' -----END PGP SIGNATURE-----',
+                    '',
+                    'Remove ignore config.inc.php for psalm because it fails the CI',
+                    '',
+                    'Signed-off-by: William Desportes <williamdes@wdes.fr>',
+                    '',
+                ],
+            ]
+        );
+
+        $this->assertSame([
+            [
+                'name' => 'William Desportes',
+                'email' => 'williamdes@wdes.fr',
+                'date' => '2022-07-13 12:56:40 +0200',
+            ],
+            [
+                'name' => 'William Desportes',
+                'email' => 'williamdes@wdes.fr',
+                'date' => '2022-07-13 12:56:40 +0200',
+            ],
+            'Remove ignore config.inc.php for psalm because '
+                . 'it fails the CI  Signed-off-by: William Desportes <williamdes@wdes.fr>',
+        ], $extractedData);
+    }
 }
