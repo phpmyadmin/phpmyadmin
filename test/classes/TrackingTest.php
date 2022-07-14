@@ -31,6 +31,7 @@ class TrackingTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA_db';

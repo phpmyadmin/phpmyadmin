@@ -26,6 +26,7 @@ class TriggersTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';

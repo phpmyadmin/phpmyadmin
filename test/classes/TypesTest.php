@@ -21,6 +21,7 @@ class TypesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->object = new Types($GLOBALS['dbi']);
     }
 

@@ -13,6 +13,12 @@ use PhpMyAdmin\Utils\ForeignKey;
  */
 class ForeignKeyTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     /**
      * foreign key supported test
      *

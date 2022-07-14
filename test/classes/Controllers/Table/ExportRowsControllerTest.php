@@ -18,6 +18,7 @@ class ExportRowsControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 2;
         $GLOBALS['active_page'] = null;
         $GLOBALS['single_table'] = null;

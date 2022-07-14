@@ -14,6 +14,7 @@ class ProfilingTest extends AbstractTestCase
 {
     public function testIsSupported(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
 
         SessionCache::set('profiling_supported', true);

@@ -13,6 +13,12 @@ use PhpMyAdmin\StatementInfo;
  */
 class ParseAnalyzeTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testSqlQuery(): void
     {
         $GLOBALS['lang'] = 'en';

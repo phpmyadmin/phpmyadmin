@@ -25,6 +25,7 @@ class OverviewControllerTest extends AbstractTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
 
         $GLOBALS['server'] = 1;

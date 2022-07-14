@@ -24,6 +24,7 @@ class ImportLdiTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['charset_conversion'] = null;
         $GLOBALS['ldi_terminated'] = null;
         $GLOBALS['ldi_escaped'] = null;

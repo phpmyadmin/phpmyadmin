@@ -26,6 +26,7 @@ class RefreshControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
         parent::setTheme();

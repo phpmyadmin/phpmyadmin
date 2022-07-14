@@ -27,6 +27,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

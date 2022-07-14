@@ -17,6 +17,12 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  */
 class AbstractControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testCheckParametersWithMissingParameters(): void
     {
         $_REQUEST = [];

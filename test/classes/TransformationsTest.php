@@ -22,6 +22,7 @@ class TransformationsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg'] = [

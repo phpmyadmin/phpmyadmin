@@ -28,6 +28,7 @@ class RoutinesTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;

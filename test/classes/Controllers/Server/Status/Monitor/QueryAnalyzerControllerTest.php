@@ -18,6 +18,12 @@ use PhpMyAdmin\Utils\SessionCache;
  */
 class QueryAnalyzerControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testQueryAnalyzer(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

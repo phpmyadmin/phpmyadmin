@@ -48,6 +48,7 @@ class ExportOdsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;

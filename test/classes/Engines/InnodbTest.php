@@ -24,6 +24,7 @@ class InnodbTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new Innodb('innodb');
     }

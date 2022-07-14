@@ -17,6 +17,12 @@ use PhpMyAdmin\UserPreferences;
  */
 class ThemeSetControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     /**
      * @runInSeparateProcess
      * @preserveGlobalState disabled

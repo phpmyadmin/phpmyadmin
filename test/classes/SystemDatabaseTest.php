@@ -27,6 +27,7 @@ class SystemDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         /**
          * SET these to avoid undefine d index error
          */

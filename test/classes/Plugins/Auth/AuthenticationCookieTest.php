@@ -44,6 +44,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalConfig();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';

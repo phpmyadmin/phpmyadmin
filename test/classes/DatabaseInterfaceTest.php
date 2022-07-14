@@ -18,6 +18,12 @@ use stdClass;
  */
 class DatabaseInterfaceTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     /**
      * Tests for DBI::getCurrentUser() method.
      *

@@ -30,6 +30,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';

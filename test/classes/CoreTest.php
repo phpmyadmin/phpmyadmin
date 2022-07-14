@@ -37,6 +37,7 @@ class CoreTest extends AbstractNetworkTestCase
         parent::setUp();
         parent::setTheme();
         parent::setLanguage();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';

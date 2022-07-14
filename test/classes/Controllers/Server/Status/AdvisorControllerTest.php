@@ -32,6 +32,7 @@ class AdvisorControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';

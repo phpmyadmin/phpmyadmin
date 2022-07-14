@@ -26,6 +26,7 @@ class HeaderTest extends AbstractTestCase
         parent::setUp();
         parent::setTheme();
         parent::setLanguage();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';

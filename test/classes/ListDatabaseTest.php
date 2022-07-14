@@ -24,6 +24,7 @@ class ListDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['only_db'] = ['single\\_db'];

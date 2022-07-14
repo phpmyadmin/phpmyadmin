@@ -28,6 +28,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';

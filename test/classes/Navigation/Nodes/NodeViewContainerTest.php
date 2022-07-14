@@ -18,6 +18,7 @@ class NodeViewContainerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';

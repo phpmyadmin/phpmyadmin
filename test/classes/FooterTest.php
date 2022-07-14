@@ -32,6 +32,7 @@ class FooterTest extends AbstractTestCase
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = '';

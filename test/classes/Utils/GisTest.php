@@ -16,6 +16,12 @@ use function hex2bin;
  */
 class GisTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     /**
      * @param string $expectedQuery The query to expect
      * @param array  $returnData    The data to return for fetchRow

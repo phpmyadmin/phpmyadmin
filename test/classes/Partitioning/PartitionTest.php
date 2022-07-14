@@ -13,6 +13,12 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class PartitionTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testGetPartitionMethodReturnsNull(): void
     {
         $GLOBALS['server'] = 1;

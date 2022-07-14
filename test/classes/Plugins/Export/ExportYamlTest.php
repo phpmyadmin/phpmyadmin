@@ -35,6 +35,7 @@ class ExportYamlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;

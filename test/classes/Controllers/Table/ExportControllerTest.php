@@ -20,6 +20,12 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  */
 class ExportControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testExportController(): void
     {
         parent::loadDbiIntoContainerBuilder();

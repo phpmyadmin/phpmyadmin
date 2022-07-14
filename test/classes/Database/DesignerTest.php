@@ -27,6 +27,7 @@ class DesignerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;

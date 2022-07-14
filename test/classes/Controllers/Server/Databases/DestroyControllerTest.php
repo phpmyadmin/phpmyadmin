@@ -20,6 +20,12 @@ use function __;
  */
 class DestroyControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testDropDatabases(): void
     {
         $GLOBALS['server'] = 1;

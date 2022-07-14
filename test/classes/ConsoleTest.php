@@ -13,6 +13,7 @@ class ConsoleTest extends AbstractTestCase
 {
     public function testGetScripts(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $console = new Console();
         $this->assertEquals(['console.js'], $console->getScripts());
     }

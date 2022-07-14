@@ -19,6 +19,12 @@ use ReflectionClass;
  */
 class SaveControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testSaveController(): void
     {
         $_POST = [

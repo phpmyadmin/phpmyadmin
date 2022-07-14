@@ -27,6 +27,7 @@ class OptionsTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         parent::loadDbiIntoContainerBuilder();
 
         $GLOBALS['cfg']['Server']['host'] = 'localhost';

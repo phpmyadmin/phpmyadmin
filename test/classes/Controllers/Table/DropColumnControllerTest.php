@@ -17,6 +17,12 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  */
 class DropColumnControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testDropColumnController(): void
     {
         $GLOBALS['db'] = 'test_db';

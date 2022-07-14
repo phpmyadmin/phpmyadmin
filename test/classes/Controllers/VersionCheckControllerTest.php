@@ -15,6 +15,12 @@ use PhpMyAdmin\VersionInformation;
  */
 class VersionCheckControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testWithLatestCompatibleVersion(): void
     {
         $_GET = [];

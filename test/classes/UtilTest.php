@@ -51,6 +51,7 @@ class UtilTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 
     /**

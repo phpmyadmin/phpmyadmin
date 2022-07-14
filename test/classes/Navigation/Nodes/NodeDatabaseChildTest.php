@@ -31,6 +31,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
         parent::setUp();
         parent::setTheme();
         parent::setLanguage();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;

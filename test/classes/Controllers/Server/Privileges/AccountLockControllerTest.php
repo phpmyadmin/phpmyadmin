@@ -34,6 +34,7 @@ class AccountLockControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';

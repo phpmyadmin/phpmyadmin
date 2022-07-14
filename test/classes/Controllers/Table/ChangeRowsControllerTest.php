@@ -19,6 +19,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 2;
         $GLOBALS['active_page'] = null;
         $GLOBALS['where_clause'] = null;

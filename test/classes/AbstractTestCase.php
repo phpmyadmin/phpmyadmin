@@ -83,7 +83,6 @@ abstract class AbstractTestCase extends TestCase
         // Config before DBI
         $this->setGlobalConfig();
         $this->loadContainerBuilder();
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->setTheme();
         Cache::purge();
     }

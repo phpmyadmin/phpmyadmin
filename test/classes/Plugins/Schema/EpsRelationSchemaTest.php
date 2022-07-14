@@ -22,6 +22,7 @@ class EpsRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['eps_show_color'] = true;
         $_REQUEST['eps_show_keys'] = true;

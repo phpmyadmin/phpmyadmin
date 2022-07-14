@@ -18,6 +18,12 @@ class PluginsTest extends AbstractTestCase
     /** @var Plugins */
     private $plugins;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testGetAll(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;

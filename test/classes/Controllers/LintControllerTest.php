@@ -16,6 +16,12 @@ use function json_encode;
  */
 class LintControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testWithoutParams(): void
     {
         $_POST = [];

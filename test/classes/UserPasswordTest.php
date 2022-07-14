@@ -25,6 +25,7 @@ class UserPasswordTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $relation = new Relation($GLOBALS['dbi']);
         $serverPrivileges = new Privileges(

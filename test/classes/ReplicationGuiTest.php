@@ -27,6 +27,7 @@ class ReplicationGuiTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         //$_POST
         $_POST['primary_add_user'] = 'primary_add_user';
 

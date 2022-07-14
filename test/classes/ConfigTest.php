@@ -54,6 +54,7 @@ class ConfigTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setTheme();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = new Config();
         $GLOBALS['server'] = 0;

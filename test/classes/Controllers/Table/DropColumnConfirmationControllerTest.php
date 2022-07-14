@@ -15,6 +15,12 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  */
 class DropColumnConfirmationControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testWithValidParameters(): void
     {
         $request = $this->createStub(ServerRequest::class);

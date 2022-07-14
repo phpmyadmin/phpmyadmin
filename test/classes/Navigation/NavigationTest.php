@@ -27,6 +27,7 @@ class NavigationTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setLanguage();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';

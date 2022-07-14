@@ -17,6 +17,7 @@ class AdvisorTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
     }
 
