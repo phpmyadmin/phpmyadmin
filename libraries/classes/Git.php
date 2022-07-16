@@ -394,7 +394,11 @@ class Git
                 $user2['date'] .= $user[4];
             }
 
-            ${$linetype} = $user2;
+            if ($linetype === 'author') {
+                $author = $user2;
+            } elseif ($linetype === 'committer') {
+                $committer = $user2;
+            }
         } while ($dataline != '');
 
         $message = trim(implode(' ', $commit));

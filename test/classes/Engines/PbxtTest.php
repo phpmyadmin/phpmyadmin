@@ -26,7 +26,7 @@ class PbxtTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
     }

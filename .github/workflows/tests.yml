@@ -71,12 +71,14 @@ jobs:
         experimental: [false]
         os: [ubuntu-latest]
         phpunit-options: ['--testsuite unit']
+        php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
           - php-version: 'nightly'
             experimental: true
             os: ubuntu-latest
             phpunit-options: '--configuration test/phpunit-php-nightly.xml'
             composer-options: '--ignore-platform-req=php+'
+            php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -94,7 +96,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          extensions: ${{ matrix.php-extensions }}
           coverage: xdebug
 
       - name: Install Composer dependencies

@@ -124,7 +124,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        vendor/phpseclib/phpseclib/phpseclib/openssl.cnf)
+        vendor/composer/ca-bundle/res/cacert.pem)
         ;;
         vendor/pragmarx/google2fa-qrcode/composer.lock)
         ;;

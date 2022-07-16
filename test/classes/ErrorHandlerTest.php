@@ -32,6 +32,8 @@ class ErrorHandlerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
         $GLOBALS['server'] = 0;
