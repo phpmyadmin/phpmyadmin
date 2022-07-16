@@ -15155,8 +15155,7 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="test/classes/LanguageTest.php">
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
   </file>
@@ -15660,11 +15659,6 @@
     <PossiblyUndefinedMethod occurrences="1">
       <code>getGroup</code>
     </PossiblyUndefinedMethod>
-  </file>
-  <file src="test/classes/RoutingTest.php">
-    <DeprecatedMethod occurrences="1">
-      <code>assertFileNotExists</code>
-    </DeprecatedMethod>
   </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType occurrences="4">
