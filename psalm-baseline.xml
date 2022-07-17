@@ -3042,7 +3042,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
-    <MixedArgument occurrences="26">
+    <MixedArgument occurrences="27">
       <code>$_POST['columnIndex']</code>
       <code>$_POST['columnIndex']</code>
       <code>$_POST['find']</code>
@@ -3050,6 +3050,7 @@
       <code>$_POST['replaceWith']</code>
       <code>$_POST['replaceWith']</code>
       <code>$_POST['useRegex']</code>
+      <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
