@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-07-19 20:14+0000\n"
+"Last-Translator: Sean Dylan Patterson <seandylanpatterson@gmail.com>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "af/>\n"
 "Language: af\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -30,17 +30,16 @@ msgstr ""
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Die sentrale lys kolomme vir die huidige databasis is leeg."
 
 #: db_central_columns.php:158
 msgid "Click to sort."
-msgstr ""
+msgstr "Klik om te sorteer."
 
 #: db_central_columns.php:177
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Vertoon rye"
+msgstr "Wys tans rye %1$s - %2$s."
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
@@ -50,10 +49,8 @@ msgstr "Databasis kommentaar"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Tabel kommentaar"
+msgstr "Tabel opmerkings:"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1913
@@ -267,9 +264,8 @@ msgstr "Geen tabelle in databasis gevind nie."
 #: libraries/classes/Plugins/Export/ExportXml.php:121
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
-#, fuzzy
 msgid "Tables"
-msgstr "Tabel"
+msgstr "Tabele"
 
 #: db_export.php:69 js/messages.php:757
 #: libraries/classes/Config/Forms/User/ExportForm.php:49
@@ -306,8 +302,6 @@ msgstr "Data"
 #: templates/database/designer/database_tables.twig:31
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/selection_form.twig:32
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "Kies Alles"
 
@@ -318,47 +312,39 @@ msgstr "Die databasis naam is leeg!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Kan nie databasis na dieselfde naam kopieer nie. Verander die naam en "
+"probeer weer."
 
 #: db_operations.php:156
-#, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Databasis %1$s se naam is verander na %2$s"
+msgstr "Databasis %1$s se naam is verander na %2$s."
 
 #: db_operations.php:168
-#, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s."
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Databasis %1$s is gekopieer na %2$s"
+msgstr "Databasis %1$s is na %2$s gekopieer."
 
 #: db_operations.php:297
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Die phpMyAdmin konfigurasie stoor is gedeaktiveer. Om uit te vind hoekom "
-"kliek %shier%s."
+"Die phpMyAdmin konfigurasieberging is gedeaktiveer. %sVind uit hoekom%s."
 
 #: db_qbe.php:133
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Jy moet ten minste een Kolom kies om te vertoon"
+msgstr "Jy moet ten minste een Kolom kies om te vertoon!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "in navraag"
+msgstr "Meertafel-navraag"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 #, fuzzy
 #| msgid "Query"
 msgid "Query by example"
-msgstr "Navraag dmv Voorbeeld"
+msgstr "Navraag deur voorbeeld"
 
 #: db_qbe.php:168
 #, php-format
@@ -3287,27 +3273,27 @@ msgstr "Fout"
 #: libraries/classes/Advisor.php:259
 #, php-format
 msgid "Error when evaluating: %s"
-msgstr ""
+msgstr "Fout tydens evaluering: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "Kon nie voorvereiste vir reël '%s' evalueer nie."
 
 #: libraries/classes/Advisor.php:307
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "Kon nie waarde vir reël '%s' bereken nie."
 
 #: libraries/classes/Advisor.php:326
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "Kon nie hardlooptoets vir reël '%s' nie."
 
 #: libraries/classes/Advisor.php:406
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Kon nie string formateer vir reël '%s' nie."
 
 #: libraries/classes/Advisor.php:523
 #, php-format
@@ -3337,21 +3323,21 @@ msgstr ""
 
 #: libraries/classes/Advisor.php:625
 msgid "per second"
-msgstr ""
+msgstr "per sekond"
 
 #: libraries/classes/Advisor.php:628
 msgid "per minute"
-msgstr ""
+msgstr "per minuut"
 
 #: libraries/classes/Advisor.php:631 libraries/classes/Server/Status.php:160
 #: libraries/classes/Server/Status.php:245
 #: libraries/classes/Server/Status/Queries.php:103
 msgid "per hour"
-msgstr ""
+msgstr "per uur"
 
 #: libraries/classes/Advisor.php:634
 msgid "per day"
-msgstr ""
+msgstr "per dag"
 
 #: libraries/classes/BrowseForeigners.php:193
 #, fuzzy
@@ -16656,7 +16642,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
-msgstr ""
+msgstr "Buitelandse sleutel beperking"
 
 #: templates/table/relation/common_form.twig:10
 #, fuzzy
@@ -16684,7 +16670,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Buitelandse sleutel beperking"
 
 #: templates/table/relation/common_form.twig:89
 #, fuzzy
@@ -16741,33 +16727,36 @@ msgstr "Geen databasisse"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptyd minder as een dag"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Uptyd is minder as 1 dag, werkverstelling is dalk nie akkuraat nie."
 
 #: libraries/advisory_rules_generic.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Om meer akkurate gemiddeldes te hê, word dit aanbeveel om die bediener "
+"langer as 'n dag te laat loop voordat hierdie ontleder uitgevoer word"
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Die optyd is slegs %s"
 
 #: libraries/advisory_rules_generic.txt:56
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Operasies"
+msgstr "Vrae onder 1,000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Minder as 1 000 vrae is teen hierdie bediener uitgevoer. Die aanbevelings is "
+"dalk nie akkuraat nie."
 
 #: libraries/advisory_rules_generic.txt:60
 msgid ""
