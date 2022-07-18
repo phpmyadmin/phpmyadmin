@@ -3388,10 +3388,10 @@ jquery-uitablefilter@^1.0.0:
   resolved "https://registry.yarnpkg.com/jquery-uitablefilter/-/jquery-uitablefilter-1.0.0.tgz#ba90c5345826b2fd1fe90ec127826f9e9e7bad39"
   integrity sha512-iH3k0iiNXKtf6z9qV5htz0iGhSb+Hs9Za6V9GIAOeHdij77U96S2UT7j7FwMEyNZQmgrsKKzjfnLJq7lMGaANw==
 
-jquery-validation@1.19.3:
-  version "1.19.3"
-  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.3.tgz#50b350eba8b02bcfd119ba15f199487b7eb64086"
-  integrity sha512-iXxCS5W7STthSTMFX/NDZfWHBLbJ1behVK3eAgHXAV8/0vRa9M4tiqHvJMr39VGWHMGdlkhrtrkBuaL2UlE8yw==
+jquery-validation@1.19.5:
+  version "1.19.5"
+  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.5.tgz#557495b7cad79716897057c4447ad3cd76fda811"
+  integrity sha512-X2SmnPq1mRiDecVYL8edWx+yTBZDyC8ohWXFhXdtqFHgU9Wd4KHkvcbCoIZ0JaSaumzS8s2gXSkP8F7ivg/8ZQ==
 
 jquery@3.6.0, jquery@>=1.2.6, jquery@>=1.7, "jquery@>=1.8.0 <4.0.0":
   version "3.6.0"
