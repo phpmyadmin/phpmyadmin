@@ -27,7 +27,7 @@
     "jquery-ui-dist": "1.13.1",
     "jquery-ui-timepicker-addon": "1.6.3",
     "jquery-uitablefilter": "^1.0.0",
-    "jquery-validation": "1.19.3",
+    "jquery-validation": "1.19.5",
     "js-cookie": "3.0.1",
     "locutus.sprintf": "^2.0.14-code-lts.2",
     "mini-css-extract-plugin": "^2.5.3",
