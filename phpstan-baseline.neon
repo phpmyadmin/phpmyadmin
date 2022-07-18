@@ -8321,11 +8321,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs \\(array\\) in isset\\(\\) is not nullable\\.$#"
-			count: 3
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php

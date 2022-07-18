@@ -1867,7 +1867,7 @@ class Table implements Stringable
      */
     public function getUiProp($property)
     {
-        if (! isset($this->uiprefs)) {
+        if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
         }
 
@@ -1937,7 +1937,7 @@ class Table implements Stringable
      */
     public function setUiProp($property, $value, $tableCreateTime = null)
     {
-        if (! isset($this->uiprefs)) {
+        if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
         }
 
@@ -1984,7 +1984,7 @@ class Table implements Stringable
      */
     public function removeUiProp($property)
     {
-        if (! isset($this->uiprefs)) {
+        if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
         }
 
