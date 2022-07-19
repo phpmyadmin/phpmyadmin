@@ -90,4 +90,24 @@ class FindReplaceControllerTest extends AbstractTestCase
             . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
         $this->assertEquals($result, $sql_query);
     }
+
+    public function testReplaceWithRegex(): void
+    {
+        $tableSearch = new FindReplaceController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
+
+        $columnIndex = 0;
+        $find = 'Field';
+        $replaceWith = 'Column';
+        $useRegex = true;
+        $charSet = 'UTF-8';
+
+        $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
+
+        $sql_query = $GLOBALS['sql_query'];
+
+        $result = 'UPDATE `table` SET `Field1` = `Field1`'
+            . " WHERE `Field1` RLIKE 'Field' COLLATE UTF-8_bin";
+
+        $this->assertEquals($result, $sql_query);
+    }
 }
