@@ -13071,11 +13071,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Table.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>isset($this-&gt;uiprefs)</code>
-      <code>isset($this-&gt;uiprefs)</code>
-      <code>isset($this-&gt;uiprefs)</code>
-    </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
