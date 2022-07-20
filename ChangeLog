@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - issue #17617 Sorting is correctly remembered when $cfg['RememberSorting'] is true
 - issue #17593 Table filtering now works when action buttons are on the right side of the row
 - issue #17388 Find and Replace using regex now makes a valid query if no matching result set found
+- issue #17551 Enum/Set editor will not fail to open when creating a new column
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
