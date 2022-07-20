@@ -131,7 +131,6 @@ function goToFinish1NF () {
     $('.tblFooters').html('');
 }
 
-// eslint-disable-next-line no-unused-vars
 function goToStep4 () {
     $.post(
         'index.php?route=/normalization',
@@ -154,6 +153,7 @@ function goToStep4 () {
         }
     );
 }
+window.goToStep4 = goToStep4;
 
 function goToStep3 () {
     $.post(
