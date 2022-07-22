@@ -1373,6 +1373,7 @@ class Util
             $binary = false;
             $unsigned = false;
             $zerofill = false;
+            $compressed = false;
         } else {
             $enumSetValues = [];
 
@@ -1394,6 +1395,8 @@ class Util
             $zerofill = ($zerofillCount > 0);
             $printType = (string) preg_replace('@unsigned@', '', $printType, -1, $unsignedCount);
             $unsigned = ($unsignedCount > 0);
+            $printType = (string) preg_replace('@\/\*!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
+            $compressed = ($compressedCount > 0);
             $printType = trim($printType);
         }
 
@@ -1408,6 +1411,10 @@ class Util
 
         if ($zerofill) {
             $attribute = 'UNSIGNED ZEROFILL';
+        }
+
+        if ($compressed) {
+            $attribute = 'COMPRESSED=zlib';
         }
 
         $canContainCollation = false;

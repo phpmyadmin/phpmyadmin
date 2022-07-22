@@ -713,13 +713,22 @@ class Types
      */
     public function getAttributes()
     {
-        return [
+        $isMariaDB = $this->dbi->isMariaDB();
+        $serverVersion = $this->dbi->getVersion();
+
+        $attributes = [
             '',
             'BINARY',
             'UNSIGNED',
             'UNSIGNED ZEROFILL',
             'on update CURRENT_TIMESTAMP',
         ];
+
+        if ($isMariaDB && $serverVersion >= 100100) {
+            $attributes[] = 'COMPRESSED=zlib';
+        }
+
+        return $attributes;
     }
 
     /**
