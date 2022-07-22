@@ -8,6 +8,8 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\RecentFavoriteTable;
 
+use function is_string;
+
 /**
  * Browse recent and favorite tables chosen from navigation.
  */
@@ -17,9 +19,11 @@ class RecentFavoriteController extends AbstractController
     {
         $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
 
-        RecentFavoriteTable::getInstance('recent')->removeIfInvalid($_REQUEST['db'], $_REQUEST['table']);
+        $db = isset($_REQUEST['db']) && is_string($_REQUEST['db']) ? $_REQUEST['db'] : '';
+        $table = isset($_REQUEST['table']) && is_string($_REQUEST['table']) ? $_REQUEST['table'] : '';
 
-        RecentFavoriteTable::getInstance('favorite')->removeIfInvalid($_REQUEST['db'], $_REQUEST['table']);
+        RecentFavoriteTable::getInstance('recent')->removeIfInvalid($db, $table);
+        RecentFavoriteTable::getInstance('favorite')->removeIfInvalid($db, $table);
 
         /** @var SqlController $controller */
         $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
