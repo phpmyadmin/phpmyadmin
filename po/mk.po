@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-07-13 04:16+0000\n"
+"PO-Revision-Date: 2022-07-23 07:22+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -542,7 +542,7 @@ msgstr "OK"
 
 #: gis_data_editor.php:420
 msgid "Output"
-msgstr ""
+msgstr "Излез"
 
 #: gis_data_editor.php:423
 msgid ""
@@ -1167,7 +1167,7 @@ msgstr "Избриши ги селектираните корисници"
 #: js/messages.php:150 js/messages.php:217 libraries/classes/Tracking.php:335
 #: libraries/classes/Tracking.php:651
 msgid "Close"
-msgstr ""
+msgstr "Затвори"
 
 #: js/messages.php:153
 #, fuzzy
@@ -1194,7 +1194,7 @@ msgstr "Записот е избришан"
 #: js/messages.php:159 libraries/classes/Server/Status/Data.php:132
 #: libraries/classes/Server/Status/Queries.php:149
 msgid "Other"
-msgstr ""
+msgstr "Други"
 
 #. l10n: Thousands separator
 #: js/messages.php:161 libraries/classes/Util.php:1353
@@ -1321,9 +1321,8 @@ msgstr "Конекции"
 
 #: js/messages.php:200 libraries/classes/Server/Status/Data.php:431
 #: libraries/classes/Server/Status/Processes.php:128
-#, fuzzy
 msgid "Processes"
-msgstr "Листа на процеси"
+msgstr "Процеси"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:203 libraries/classes/Util.php:1264
@@ -1370,9 +1369,8 @@ msgstr "%s табела"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:213
-#, fuzzy
 msgid "Questions"
-msgstr "Персиски"
+msgstr "Прашања"
 
 #: js/messages.php:214 libraries/classes/Server/Status.php:151
 msgid "Traffic"
@@ -1381,10 +1379,8 @@ msgstr "Сообраќај"
 #: js/messages.php:215 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3995
-#, fuzzy
-#| msgid "General relation features"
 msgid "Settings"
-msgstr "Општи особини на релациите"
+msgstr "Подесувања"
 
 #: js/messages.php:216
 msgid "Add chart to grid"
@@ -1522,7 +1518,7 @@ msgstr "Увоз на податотека"
 #. l10n: As in differential values
 #: js/messages.php:259
 msgid "Differential"
-msgstr ""
+msgstr "Диференцијал"
 
 #: js/messages.php:260
 #, php-format
@@ -1531,7 +1527,7 @@ msgstr ""
 
 #: js/messages.php:261
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 #: js/messages.php:263
 msgid "From slow log"
@@ -1595,7 +1591,7 @@ msgstr ""
 
 #: js/messages.php:290
 msgid "Analyzing…"
-msgstr ""
+msgstr "Се Анализира…"
 
 #: js/messages.php:291
 #, fuzzy
@@ -1634,17 +1630,13 @@ msgid "Profiling results"
 msgstr "SQL резултат"
 
 #: js/messages.php:296
-#, fuzzy
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Табела"
 
 #: js/messages.php:297
-#, fuzzy
-#| msgid "Charset"
 msgid "Chart"
-msgstr "Кодна страна"
+msgstr "Графикон"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:579
 #, fuzzy
@@ -1677,7 +1669,7 @@ msgstr "Опции на табелата"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:306
 msgid "Filter"
-msgstr ""
+msgstr "Филтер"
 
 #: js/messages.php:307
 msgid "Filter queries by word/regexp:"
@@ -1737,9 +1729,8 @@ msgstr ""
 #: libraries/classes/Util.php:3994 libraries/classes/Util.php:4009
 #: libraries/classes/Util.php:4026 prefs_manage.php:228
 #: templates/display/import/import.twig:38
-#, fuzzy
 msgid "Import"
-msgstr "Извоз"
+msgstr "Увоз"
 
 #: js/messages.php:331
 msgid "Import monitor configuration"
@@ -1814,7 +1805,7 @@ msgstr "Додади ново поле"
 #: templates/database/designer/where_query_panel.twig:85
 #: templates/database/designer/new_relation_panel.twig:90
 msgid "Cancel"
-msgstr ""
+msgstr "Откажи"
 
 #: js/messages.php:358 libraries/classes/Header.php:461
 #, fuzzy
@@ -1934,8 +1925,6 @@ msgid "Failed to get real row count."
 msgstr ""
 
 #: js/messages.php:393
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
 msgstr "Пребарување"
 
@@ -1950,16 +1939,12 @@ msgid "Show search results"
 msgstr "SQL упит"
 
 #: js/messages.php:396
-#, fuzzy
-#| msgid "Browse"
 msgid "Browsing"
-msgstr "Преглед"
+msgstr "Прегледување"
 
 #: js/messages.php:397
-#, fuzzy
-#| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Бришам %s"
+msgstr "Бришење"
 
 #: js/messages.php:398
 #, fuzzy, php-format
@@ -2085,7 +2070,7 @@ msgstr "Променлива"
 
 #: js/messages.php:430 libraries/classes/Normalization.php:967
 msgid "Pick"
-msgstr ""
+msgstr "Избери"
 
 #: js/messages.php:431
 #, fuzzy
@@ -2121,10 +2106,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:443
-#, fuzzy
-#| msgid "Attributes"
 msgid "Continue"
-msgstr "Атрибути"
+msgstr "Продолжи"
 
 #: js/messages.php:446
 msgid "Add primary key"
@@ -2163,10 +2146,8 @@ msgstr ""
 #. l10n: Display text for calendar close link
 #: js/messages.php:453 js/messages.php:782
 #: libraries/classes/Normalization.php:340
-#, fuzzy
-#| msgid "None"
 msgid "Done"
-msgstr "нема"
+msgstr "Готово"
 
 #: js/messages.php:454
 msgid "Confirm partial dependencies"
@@ -2204,7 +2185,7 @@ msgstr ""
 
 #: js/messages.php:469
 msgid "Step"
-msgstr ""
+msgstr "Чекор"
 
 #: js/messages.php:471
 msgid "The following actions will be performed:"
@@ -2348,7 +2329,7 @@ msgstr "Копирај"
 
 #: js/messages.php:523
 msgid "Point"
-msgstr ""
+msgstr "Точка"
 
 #: js/messages.php:525
 #, fuzzy
@@ -10087,10 +10068,8 @@ msgstr "Креирај нова табела во базата на подато
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1419
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#, fuzzy
-#| msgid "Creation"
 msgid "Creation:"
-msgstr "Направено"
+msgstr "Создадено:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1432
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:610
@@ -15824,9 +15803,8 @@ msgid "Delete tracking"
 msgstr "Дозволува вметнување и замена на података."
 
 #: templates/database/tracking/tracked_tables.twig:65
-#, fuzzy
 msgid "Versions"
-msgstr "Персиски"
+msgstr "Верзии"
 
 #: templates/database/create_table.twig:7
 #: templates/database/designer/side_menu.twig:78
