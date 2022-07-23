@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-17 00:20+0000\n"
-"PO-Revision-Date: 2022-07-23 07:18+0000\n"
+"PO-Revision-Date: 2022-07-24 00:23+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -3417,7 +3417,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:6
 msgid "Console"
-msgstr ""
+msgstr "Конзола"
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
@@ -6717,7 +6717,7 @@ msgstr "Линиите се завршуваат со"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 msgid "Polygon"
-msgstr ""
+msgstr "Полигон"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/display/results/table.twig:249
@@ -6854,7 +6854,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr ""
+msgstr "Без наслов"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #, fuzzy
@@ -6967,7 +6967,7 @@ msgstr "Прекинато"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid "Success"
-msgstr ""
+msgstr "Успех"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 #, fuzzy
@@ -7265,7 +7265,7 @@ msgstr "Бинарен"
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "February"
-msgstr ""
+msgstr "Февруари"
 
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
@@ -7307,7 +7307,7 @@ msgstr "авг"
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgid "September"
-msgstr ""
+msgstr "Септември"
 
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
@@ -7427,13 +7427,13 @@ msgstr "Вто"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #: libraries/config.values.php:193
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 #. l10n: Week day name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #: libraries/config.values.php:194
 msgid "Thursday"
-msgstr ""
+msgstr "Четврток"
 
 #. l10n: Week day name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:762
@@ -7446,7 +7446,7 @@ msgstr "Пет"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #: libraries/config.values.php:196
 msgid "Saturday"
-msgstr ""
+msgstr "Сабота"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:766
@@ -8905,7 +8905,7 @@ msgstr "или"
 #: libraries/classes/Database/Qbe.php:760
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
 msgid "And:"
-msgstr ""
+msgstr "И:"
 
 #: libraries/classes/Database/Qbe.php:766
 msgid "Ins"
