@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing;
 
 use function copy;
+use function method_exists;
 use function unlink;
 
 use const CACHE_DIR;
@@ -48,7 +49,14 @@ class RoutingTest extends AbstractTestCase
 
         // Create new cache file.
         $this->assertTrue(unlink($cacheFilename));
-        $this->assertFileNotExists($cacheFilename);
+
+        if (method_exists($this, 'assertFileDoesNotExist')) {
+            $this->assertFileDoesNotExist($cacheFilename);
+        } else {
+            /** @psalm-suppress DeprecatedMethod */
+            $this->assertFileNotExists($cacheFilename);
+        }
+
         $dispatcher = Routing::getDispatcher();
         $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
