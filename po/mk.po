@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-07-23 07:24+0000\n"
+"PO-Revision-Date: 2022-07-24 20:17+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -3548,7 +3548,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "Конзола"
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
@@ -6437,9 +6437,8 @@ msgstr ""
 #: templates/home/index.twig:289 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
-#, fuzzy
 msgid "Loading…"
-msgstr "Локален"
+msgstr "Вчитување…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Request aborted!!"
@@ -6978,7 +6977,7 @@ msgstr "Линиите се завршуваат со"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 msgid "Polygon"
-msgstr ""
+msgstr "Полигон"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 #: templates/display/results/table.twig:174
@@ -7124,7 +7123,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr ""
+msgstr "Без наслов"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #, fuzzy
@@ -7242,7 +7241,7 @@ msgstr "Прекинато"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Success"
-msgstr ""
+msgstr "Успех"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #, fuzzy
@@ -8848,7 +8847,7 @@ msgstr "или"
 #: libraries/classes/Database/Qbe.php:760
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
 msgid "And:"
-msgstr ""
+msgstr "И:"
 
 #: libraries/classes/Database/Qbe.php:766
 msgid "Ins"
@@ -13612,11 +13611,11 @@ msgstr "Вто"
 
 #: libraries/config.values.php:193 templates/javascript/variables.twig:51
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 #: libraries/config.values.php:194 templates/javascript/variables.twig:52
 msgid "Thursday"
-msgstr ""
+msgstr "Четврток"
 
 #: libraries/config.values.php:195 templates/javascript/variables.twig:53
 #, fuzzy
@@ -13626,7 +13625,7 @@ msgstr "Пет"
 
 #: libraries/config.values.php:196 templates/javascript/variables.twig:54
 msgid "Saturday"
-msgstr ""
+msgstr "Сабота"
 
 #: libraries/config.values.php:197 templates/javascript/variables.twig:48
 #, fuzzy
@@ -15175,26 +15174,20 @@ msgstr ""
 
 #: templates/database/qbe/selection_form.twig:12
 #: templates/table/find_replace/index.twig:41
-#, fuzzy
-#| msgid "Column names"
 msgid "Column:"
-msgstr "Имиња на колони"
+msgstr "Колона:"
 
 #: templates/database/qbe/selection_form.twig:17
 msgid "Alias:"
 msgstr ""
 
 #: templates/database/qbe/selection_form.twig:22
-#, fuzzy
-#| msgid "Show"
 msgid "Show:"
-msgstr "Прикажи"
+msgstr "Прикажи:"
 
 #: templates/database/qbe/selection_form.twig:27
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort:"
-msgstr "Подредуваање"
+msgstr "Подредување:"
 
 #: templates/database/qbe/selection_form.twig:32
 #, fuzzy
@@ -16505,7 +16498,6 @@ msgstr "Клучот %s е избиршан."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -16545,7 +16537,7 @@ msgstr "Бинарен"
 
 #: templates/javascript/variables.twig:21
 msgid "February"
-msgstr ""
+msgstr "Февруари"
 
 #: templates/javascript/variables.twig:22
 #, fuzzy
@@ -16585,7 +16577,7 @@ msgstr "авг"
 
 #: templates/javascript/variables.twig:28
 msgid "September"
-msgstr ""
+msgstr "Септември"
 
 #: templates/javascript/variables.twig:29
 #, fuzzy
