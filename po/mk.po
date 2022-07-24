@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-07-24 20:15+0000\n"
+"PO-Revision-Date: 2022-07-25 21:21+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -3330,10 +3330,8 @@ msgid "per day"
 msgstr "на ден"
 
 #: libraries/classes/BrowseForeigners.php:193
-#, fuzzy
-#| msgid "Search"
 msgid "Search:"
-msgstr "Пребарување"
+msgstr "Пребарај:"
 
 #: libraries/classes/BrowseForeigners.php:216
 #: libraries/classes/BrowseForeigners.php:220 libraries/classes/Index.php:719
@@ -7260,20 +7258,16 @@ msgstr "Внатрешни релации"
 
 #: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
-#, fuzzy
-#| msgid "Column names"
 msgid "Column:"
-msgstr "Имиња на колони"
+msgstr "Колона:"
 
 #: libraries/classes/Database/Qbe.php:502
 msgid "Alias:"
 msgstr ""
 
 #: libraries/classes/Database/Qbe.php:554
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort:"
-msgstr "Подредуваање"
+msgstr "Подредување:"
 
 #: libraries/classes/Database/Qbe.php:616
 #, fuzzy
@@ -7282,16 +7276,12 @@ msgid "Sort order:"
 msgstr "Подредуваање"
 
 #: libraries/classes/Database/Qbe.php:665
-#, fuzzy
-#| msgid "Show"
 msgid "Show:"
-msgstr "Прикажи"
+msgstr "Прикажи:"
 
 #: libraries/classes/Database/Qbe.php:714
-#, fuzzy
-#| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Критериум"
+msgstr "Критериуми:"
 
 #: libraries/classes/Database/Qbe.php:797
 #: libraries/classes/Database/Qbe.php:829
@@ -7304,10 +7294,8 @@ msgstr "Користи табели"
 
 #: libraries/classes/Database/Qbe.php:850
 #: libraries/classes/Database/Qbe.php:961
-#, fuzzy
-#| msgid "Or"
 msgid "Or:"
-msgstr "или"
+msgstr "Или:"
 
 #: libraries/classes/Database/Qbe.php:854
 #: libraries/classes/Database/Qbe.php:946
@@ -7323,10 +7311,8 @@ msgid "Del"
 msgstr "Del"
 
 #: libraries/classes/Database/Qbe.php:878
-#, fuzzy
-#| msgid "Modify"
 msgid "Modify:"
-msgstr "Промени"
+msgstr "Измени:"
 
 #: libraries/classes/Database/Qbe.php:941
 msgid "Ins:"
@@ -7496,10 +7482,8 @@ msgstr ""
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:878
 #: libraries/classes/Server/Privileges.php:1704
-#, fuzzy
-#| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Повтори внес"
+msgstr "Повторно напишете:"
 
 #: libraries/classes/Display/ChangePassword.php:118
 #: libraries/classes/Display/ChangePassword.php:151
@@ -8723,32 +8707,25 @@ msgid "Groups:"
 msgstr "Имиња на колони"
 
 #: libraries/classes/Navigation/Navigation.php:208
-#, fuzzy
 msgid "Events:"
-msgstr "Пратено"
+msgstr "Настани:"
 
 #: libraries/classes/Navigation/Navigation.php:209
-#, fuzzy
 msgid "Functions:"
-msgstr "Функција"
+msgstr "Функции:"
 
 #: libraries/classes/Navigation/Navigation.php:210
-#, fuzzy
 msgid "Procedures:"
-msgstr "Листа на процеси"
+msgstr "Процедури:"
 
 #: libraries/classes/Navigation/Navigation.php:211
 #: templates/display/export/selection.twig:5
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Табели"
+msgstr "Табели:"
 
 #: libraries/classes/Navigation/Navigation.php:212
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
-msgstr "Поглед"
+msgstr "Прегледи:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
@@ -9590,10 +9567,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
 #: templates/display/export/format_dropdown.twig:2
-#, fuzzy
-#| msgid "Format"
 msgid "Format:"
-msgstr "Формат"
+msgstr "Формат:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -9827,10 +9802,8 @@ msgstr "Стави ги имињата на полињата во првата �
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 #: libraries/classes/ReplicationGui.php:443
 #: libraries/classes/ReplicationGui.php:709
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "Host"
+msgstr "Хост:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:701
@@ -9852,23 +9825,17 @@ msgstr "PHP верзија"
 #: libraries/classes/Plugins/Export/ExportSql.php:896
 #: libraries/classes/Plugins/Export/ExportXml.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:158
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "База на податоци"
+msgstr "База на податоци:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:327
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Податоци"
+msgstr "Податоци:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:507
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Структура"
+msgstr "Структура:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:81
 #, fuzzy
@@ -15541,10 +15508,8 @@ msgid ""
 msgstr ""
 
 #: templates/display/export/options_output_compression.twig:4
-#, fuzzy
-#| msgid "Compression"
 msgid "Compression:"
-msgstr "Компресија"
+msgstr "Компресија:"
 
 #: templates/display/export/options_output_compression.twig:11
 #, fuzzy
@@ -16140,10 +16105,8 @@ msgid "Size"
 msgstr "Големина"
 
 #: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
 msgid "Rows:"
-msgstr "Записи"
+msgstr "Редови:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
