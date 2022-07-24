@@ -3417,7 +3417,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:786
 #: templates/console/display.twig:6
 msgid "Console"
-msgstr ""
+msgstr "Конзола"
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
@@ -3567,6 +3567,7 @@ msgstr "Опции за извоз на бази на податоци"
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: libraries/classes/Navigation/NavigationTree.php:1352
+#: libraries/classes/Navigation/NavigationTree.php:1354
 #, fuzzy
 msgid "Link with main panel"
 msgstr "Опции за извоз на бази на податоци"
@@ -6183,6 +6184,7 @@ msgstr "Откажи"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 #: templates/header.twig:45 templates/modals/page_settings.twig:5
+#: templates/header.twig:43
 #, fuzzy
 msgid "Page-related settings"
 msgstr "Општи особини на релациите"
@@ -6717,7 +6719,7 @@ msgstr "Линиите се завршуваат со"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 msgid "Polygon"
-msgstr ""
+msgstr "Полигон"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/display/results/table.twig:249
@@ -6854,7 +6856,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr ""
+msgstr "Без наслов"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #, fuzzy
@@ -6967,7 +6969,7 @@ msgstr "Прекинато"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid "Success"
-msgstr ""
+msgstr "Успех"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 #, fuzzy
@@ -7017,6 +7019,7 @@ msgstr "Додади ново поле"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 #: libraries/classes/Navigation/NavigationTree.php:1355
+#: libraries/classes/Navigation/NavigationTree.php:1357
 #, fuzzy
 msgid "Unlink from main panel"
 msgstr "Опции за извоз на бази на податоци"
@@ -7265,7 +7268,7 @@ msgstr "Бинарен"
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "February"
-msgstr ""
+msgstr "Февруари"
 
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
@@ -7307,7 +7310,7 @@ msgstr "авг"
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgid "September"
-msgstr ""
+msgstr "Септември"
 
 #. l10n: Month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
@@ -7427,13 +7430,13 @@ msgstr "Вто"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:758
 #: libraries/config.values.php:193
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 #. l10n: Week day name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:760
 #: libraries/config.values.php:194
 msgid "Thursday"
-msgstr ""
+msgstr "Четврток"
 
 #. l10n: Week day name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:762
@@ -7446,7 +7449,7 @@ msgstr "Пет"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:764
 #: libraries/config.values.php:196
 msgid "Saturday"
-msgstr ""
+msgstr "Сабота"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:766
@@ -8905,7 +8908,7 @@ msgstr "или"
 #: libraries/classes/Database/Qbe.php:760
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
 msgid "And:"
-msgstr ""
+msgstr "И:"
 
 #: libraries/classes/Database/Qbe.php:766
 msgid "Ins"
@@ -10149,17 +10152,20 @@ msgid "Views:"
 msgstr "Поглед"
 
 #: libraries/classes/Navigation/NavigationTree.php:758
+#: libraries/classes/Navigation/NavigationTree.php:759
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:832
+#: libraries/classes/Navigation/NavigationTree.php:833
 #, fuzzy
 msgid "Groups"
 msgstr "Имиња на колони"
 
 #: libraries/classes/Navigation/NavigationTree.php:945
+#: libraries/classes/Navigation/NavigationTree.php:946
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -10167,6 +10173,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Navigation/NavigationTree.php:1346
+#: libraries/classes/Navigation/NavigationTree.php:1348
 msgid "Collapse all"
 msgstr ""
 
@@ -15719,11 +15726,12 @@ msgid ""
 msgstr ""
 
 #: templates/header.twig:36 templates/login/header.twig:13
+#: templates/header.twig:34
 #, fuzzy
 msgid "Javascript must be enabled past this point!"
 msgstr "вашиот веб прелистувач треба да допушти cookies"
 
-#: templates/header.twig:47
+#: templates/header.twig:47 templates/header.twig:45
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
