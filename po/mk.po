@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-24 00:23+0000\n"
-"PO-Revision-Date: 2022-07-23 07:18+0000\n"
+"PO-Revision-Date: 2022-07-24 20:22+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -1170,9 +1170,8 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:198
-#, fuzzy
 msgid "Search:"
-msgstr "Пребарување"
+msgstr "Пребарај:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
@@ -6200,9 +6199,8 @@ msgstr ""
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
-#, fuzzy
 msgid "Loading…"
-msgstr "Локален"
+msgstr "Вчитување…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 msgid "Request aborted!!"
@@ -7542,7 +7540,6 @@ msgstr ""
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:797
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -8901,9 +8898,8 @@ msgstr ""
 
 #: libraries/classes/Database/Qbe.php:756
 #: templates/database/qbe/ins_del_and_or_cell.twig:21
-#, fuzzy
 msgid "Or:"
-msgstr "или"
+msgstr "Или:"
 
 #: libraries/classes/Database/Qbe.php:760
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
@@ -10126,30 +10122,25 @@ msgid "Groups:"
 msgstr "Имиња на колони"
 
 #: libraries/classes/Navigation/Navigation.php:230
-#, fuzzy
 msgid "Events:"
-msgstr "Пратено"
+msgstr "Настани:"
 
 #: libraries/classes/Navigation/Navigation.php:231
-#, fuzzy
 msgid "Functions:"
-msgstr "Функција"
+msgstr "Функции:"
 
 #: libraries/classes/Navigation/Navigation.php:232
-#, fuzzy
 msgid "Procedures:"
-msgstr "Листа на процеси"
+msgstr "Процедури:"
 
 #: libraries/classes/Navigation/Navigation.php:233
 #: templates/database/export/index.twig:14
-#, fuzzy
 msgid "Tables:"
-msgstr "Табели"
+msgstr "Табели:"
 
 #: libraries/classes/Navigation/Navigation.php:234
-#, fuzzy
 msgid "Views:"
-msgstr "Поглед"
+msgstr "Прегледи:"
 
 #: libraries/classes/Navigation/NavigationTree.php:758
 #: libraries/classes/Navigation/NavigationTree.php:759
@@ -10792,9 +10783,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
 #: templates/export.twig:119
-#, fuzzy
 msgid "Format:"
-msgstr "Формат"
+msgstr "Формат:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:57
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:36
@@ -11083,9 +11073,8 @@ msgstr "Стави ги имињата на полињата во првата �
 #: libraries/classes/Plugins/Export/ExportXml.php:231
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
-#, fuzzy
 msgid "Host:"
-msgstr "Host"
+msgstr "Хост:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:761
@@ -14758,23 +14747,20 @@ msgstr ""
 
 #: templates/database/qbe/selection_form.twig:12
 #: templates/table/find_replace/index.twig:41
-#, fuzzy
 msgid "Column:"
-msgstr "Имиња на колони"
+msgstr "Колона:"
 
 #: templates/database/qbe/selection_form.twig:17
 msgid "Alias:"
 msgstr ""
 
 #: templates/database/qbe/selection_form.twig:22
-#, fuzzy
 msgid "Show:"
-msgstr "Прикажи"
+msgstr "Прикажи:"
 
 #: templates/database/qbe/selection_form.twig:27
-#, fuzzy
 msgid "Sort:"
-msgstr "Подредуваање"
+msgstr "Подредување:"
 
 #: templates/database/qbe/selection_form.twig:32
 #, fuzzy
@@ -14782,14 +14768,12 @@ msgid "Sort order:"
 msgstr "Подредуваање"
 
 #: templates/database/qbe/selection_form.twig:37
-#, fuzzy
 msgid "Criteria:"
-msgstr "Критериум"
+msgstr "Критериуми:"
 
 #: templates/database/qbe/selection_form.twig:44
-#, fuzzy
 msgid "Modify:"
-msgstr "Промени"
+msgstr "Измени:"
 
 #: templates/database/qbe/selection_form.twig:54
 #, fuzzy
@@ -15475,9 +15459,8 @@ msgid "File format to export"
 msgstr "Дел на текстот"
 
 #: templates/export.twig:137
-#, fuzzy
 msgid "Rows:"
-msgstr "Записи"
+msgstr "Редови:"
 
 #: templates/export.twig:141
 msgid "Dump all rows"
@@ -15579,9 +15562,8 @@ msgid "Character set of the file:"
 msgstr "Кодна страна на податотеката:"
 
 #: templates/export.twig:429
-#, fuzzy
 msgid "Compression:"
-msgstr "Компресија"
+msgstr "Компресија:"
 
 #: templates/export.twig:437
 #, fuzzy
@@ -16810,9 +16792,8 @@ msgstr ""
 #: templates/server/privileges/change_password.twig:31
 #: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
-#, fuzzy
 msgid "Re-type:"
-msgstr "Повтори внес"
+msgstr "Повторно напишете:"
 
 #: templates/server/privileges/change_password.twig:37
 #: templates/server/privileges/login_information_fields.twig:55
