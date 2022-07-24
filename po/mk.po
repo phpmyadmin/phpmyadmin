@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-07-24 20:17+0000\n"
+"PO-Revision-Date: 2022-07-25 21:22+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -1204,10 +1204,8 @@ msgid "per day"
 msgstr "на ден"
 
 #: libraries/classes/BrowseForeigners.php:200
-#, fuzzy
-#| msgid "Search"
 msgid "Search:"
-msgstr "Пребарување"
+msgstr "Пребарај:"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
@@ -8839,10 +8837,8 @@ msgstr ""
 
 #: libraries/classes/Database/Qbe.php:756
 #: templates/database/qbe/ins_del_and_or_cell.twig:21
-#, fuzzy
-#| msgid "Or"
 msgid "Or:"
-msgstr "или"
+msgstr "Или:"
 
 #: libraries/classes/Database/Qbe.php:760
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
@@ -10107,32 +10103,25 @@ msgid "Groups:"
 msgstr "Имиња на колони"
 
 #: libraries/classes/Navigation/Navigation.php:232
-#, fuzzy
 msgid "Events:"
-msgstr "Пратено"
+msgstr "Настани:"
 
 #: libraries/classes/Navigation/Navigation.php:233
-#, fuzzy
 msgid "Functions:"
-msgstr "Функција"
+msgstr "Функции:"
 
 #: libraries/classes/Navigation/Navigation.php:234
-#, fuzzy
 msgid "Procedures:"
-msgstr "Листа на процеси"
+msgstr "Процедури:"
 
 #: libraries/classes/Navigation/Navigation.php:235
 #: templates/database/export/index.twig:14
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Табели"
+msgstr "Табели:"
 
 #: libraries/classes/Navigation/Navigation.php:236
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
-msgstr "Поглед"
+msgstr "Прегледи:"
 
 #: libraries/classes/Navigation/NavigationTree.php:759
 msgid ""
@@ -10787,10 +10776,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
 #: templates/export.twig:119
-#, fuzzy
-#| msgid "Format"
 msgid "Format:"
-msgstr "Формат"
+msgstr "Формат:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:58
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:36
@@ -11097,10 +11084,8 @@ msgstr "Стави ги имињата на полињата во првата �
 #: libraries/classes/Plugins/Export/ExportXml.php:232
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "Host"
+msgstr "Хост:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:761
@@ -11131,23 +11116,17 @@ msgstr "PHP верзија"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "База на податоци"
+msgstr "База на податоци:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:312
 #: libraries/classes/Plugins/Export/ExportSql.php:2226
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Податоци"
+msgstr "Податоци:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:513
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Структура"
+msgstr "Структура:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:77
 #, fuzzy
@@ -15196,16 +15175,12 @@ msgid "Sort order:"
 msgstr "Подредуваање"
 
 #: templates/database/qbe/selection_form.twig:37
-#, fuzzy
-#| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Критериум"
+msgstr "Критериуми:"
 
 #: templates/database/qbe/selection_form.twig:44
-#, fuzzy
-#| msgid "Modify"
 msgid "Modify:"
-msgstr "Промени"
+msgstr "Измени:"
 
 #: templates/database/qbe/selection_form.twig:54
 #, fuzzy
@@ -15901,10 +15876,8 @@ msgid "File format to export"
 msgstr "Дел на текстот"
 
 #: templates/export.twig:137
-#, fuzzy
-#| msgid "Rows"
 msgid "Rows:"
-msgstr "Записи"
+msgstr "Редови:"
 
 #: templates/export.twig:141
 msgid "Dump all rows"
@@ -16016,10 +15989,8 @@ msgid "Character set of the file:"
 msgstr "Кодна страна на податотеката:"
 
 #: templates/export.twig:429
-#, fuzzy
-#| msgid "Compression"
 msgid "Compression:"
-msgstr "Компресија"
+msgstr "Компресија:"
 
 #: templates/export.twig:437
 #, fuzzy
@@ -17574,10 +17545,8 @@ msgstr "Должина на запис"
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
 #: templates/server/replication/primary_add_replica_user.twig:62
-#, fuzzy
-#| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Повтори внес"
+msgstr "Повторно напишете:"
 
 #: templates/server/privileges/change_password.twig:40
 #, fuzzy
