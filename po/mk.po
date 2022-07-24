@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-24 00:23+0000\n"
-"PO-Revision-Date: 2022-07-24 20:22+0000\n"
+"PO-Revision-Date: 2022-07-25 21:17+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -11103,20 +11103,17 @@ msgstr "PHP верзија"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:200
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
-#, fuzzy
 msgid "Database:"
-msgstr "База на податоци"
+msgstr "База на податоци:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:315
 #: libraries/classes/Plugins/Export/ExportSql.php:2197
-#, fuzzy
 msgid "Data:"
-msgstr "Податоци"
+msgstr "Податоци:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:500
-#, fuzzy
 msgid "Structure:"
-msgstr "Структура"
+msgstr "Структура:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:77
 #, fuzzy
