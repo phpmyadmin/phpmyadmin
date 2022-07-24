@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-07-23 07:22+0000\n"
+"PO-Revision-Date: 2022-07-24 20:15+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -1819,9 +1819,8 @@ msgstr ""
 
 #: js/messages.php:362 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
-#, fuzzy
 msgid "Loading…"
-msgstr "Локален"
+msgstr "Вчитување…"
 
 #: js/messages.php:363
 msgid "Request aborted!!"
@@ -2339,7 +2338,7 @@ msgstr "Линиите се завршуваат со"
 
 #: js/messages.php:526
 msgid "Polygon"
-msgstr ""
+msgstr "Полигон"
 
 #: js/messages.php:527 templates/display/results/options_block.twig:79
 msgid "Geometry"
@@ -2454,7 +2453,7 @@ msgstr "избери се"
 
 #: js/messages.php:571 templates/database/designer/side_menu.twig:4
 msgid "Untitled"
-msgstr ""
+msgstr "Без наслов"
 
 #: js/messages.php:572
 #, fuzzy
@@ -2577,7 +2576,7 @@ msgstr "Прекинато"
 
 #: js/messages.php:620
 msgid "Success"
-msgstr ""
+msgstr "Успех"
 
 #: js/messages.php:621
 #, fuzzy
@@ -2900,7 +2899,7 @@ msgstr "Бинарен"
 
 #: js/messages.php:799
 msgid "February"
-msgstr ""
+msgstr "Февруари"
 
 #: js/messages.php:800
 #, fuzzy
@@ -2938,7 +2937,7 @@ msgstr "авг"
 
 #: js/messages.php:806
 msgid "September"
-msgstr ""
+msgstr "Септември"
 
 #: js/messages.php:807
 #, fuzzy
@@ -3037,11 +3036,11 @@ msgstr "Вто"
 
 #: js/messages.php:847
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 #: js/messages.php:848
 msgid "Thursday"
-msgstr ""
+msgstr "Четврток"
 
 #: js/messages.php:849
 #, fuzzy
@@ -3051,7 +3050,7 @@ msgstr "Пет"
 
 #: js/messages.php:850
 msgid "Saturday"
-msgstr ""
+msgstr "Сабота"
 
 #. l10n: Short week day name for Sunday
 #: js/messages.php:857
@@ -3149,7 +3148,6 @@ msgstr ""
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -4900,7 +4898,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:603
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "Конзола"
 
 #: libraries/classes/Config/Descriptions.php:606
 msgid "Enable gzip compression for import and export operations."
@@ -7314,7 +7312,7 @@ msgstr "или"
 #: libraries/classes/Database/Qbe.php:854
 #: libraries/classes/Database/Qbe.php:946
 msgid "And:"
-msgstr ""
+msgstr "И:"
 
 #: libraries/classes/Database/Qbe.php:859
 msgid "Ins"
