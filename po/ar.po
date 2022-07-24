@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-17 00:20+0000\n"
+"POT-Creation-Date: 2022-07-24 00:23+0000\n"
 "PO-Revision-Date: 2022-05-21 00:27+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3586,7 +3586,7 @@ msgstr "إطار التصفح"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "ربط مع اللوحة الرئيسية"
 
@@ -6207,7 +6207,7 @@ msgid "Cancel"
 msgstr "ألغاء"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/header.twig:43 templates/modals/page_settings.twig:5
+#: templates/header.twig:45 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "الإعدادات المتعلقة بالصفحة"
 
@@ -7017,7 +7017,7 @@ msgid "Hide panel"
 msgstr "إخفاء اللوحة"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "إلغاء الربط من اللوحة الرئيسية"
 
@@ -10160,19 +10160,19 @@ msgstr "جداول :"
 msgid "Views:"
 msgstr "عرض :"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 #, fuzzy
 #| msgid "Column names"
 msgid "Groups"
 msgstr "اسم العمود"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -10183,7 +10183,7 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr ""
 
@@ -15927,11 +15927,11 @@ msgstr ""
 "اختر \"جيومفرومتيكست\" من العمود \"دالة\" ولصق السلسلة أدناه في الحقل "
 "\"القيمة\"."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "يجب تفعيل Javascript بعد هذه النقطة!"
 
-#: templates/header.twig:45
+#: templates/header.twig:47
 msgid "Click on the bar to scroll to top of page"
 msgstr "انقر على الشريط للتمرير إلى أعلى الصفحة"
 

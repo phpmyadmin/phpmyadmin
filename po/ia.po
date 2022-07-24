@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-17 00:20+0000\n"
+"POT-Creation-Date: 2022-07-24 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3667,7 +3667,7 @@ msgstr "Largessa de pannello de navigation"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Ligamine con pannello principal"
 
@@ -6319,7 +6319,7 @@ msgid "Cancel"
 msgstr "Cancella"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/header.twig:43 templates/modals/page_settings.twig:5
+#: templates/header.twig:45 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "Preferentias referite al pagina"
 
@@ -7146,7 +7146,7 @@ msgid "Hide panel"
 msgstr "Cela pannello"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Leva ligamine ex pannello principal"
 
@@ -10257,7 +10257,7 @@ msgstr "Tabulas:"
 msgid "Views:"
 msgstr "Vistas:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10266,18 +10266,18 @@ msgstr ""
 "influentiar le prestationes. Considera dishabilitar le gruppamento de "
 "elementos in le pannello de navigation."
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 msgid "Groups"
 msgstr "Gruppos"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultato trovate"
 msgstr[1] "%s resultatos trovate"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr "Plica toto"
 
@@ -15632,11 +15632,11 @@ msgstr ""
 "Selige \"GeomFromText\" (GeomExText) ex le columna \"Function\" e colla le "
 "catena a basso in le campo \"Value\" (Valor)."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript debe esser habilitate passate iste puncto!"
 
-#: templates/header.twig:45
+#: templates/header.twig:47
 msgid "Click on the bar to scroll to top of page"
 msgstr "Pulsa sur le barra pro rolar al culmine del pagina"
 

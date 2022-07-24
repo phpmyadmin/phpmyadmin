@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-17 00:20+0000\n"
+"POT-Creation-Date: 2022-07-24 00:23+0000\n"
 "PO-Revision-Date: 2022-07-08 08:03+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4090,7 +4090,7 @@ msgstr "Lebar panel navigasi"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Link ke panel utama"
 
@@ -6791,7 +6791,7 @@ msgid "Cancel"
 msgstr "Batal"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/header.twig:43 templates/modals/page_settings.twig:5
+#: templates/header.twig:45 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "Pengaturan Terkait dengan Halaman"
 
@@ -7616,7 +7616,7 @@ msgid "Hide panel"
 msgstr "Sembunyikan panel"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Unlink dari panel utama"
 
@@ -11004,7 +11004,7 @@ msgstr "Tabel:"
 msgid "Views:"
 msgstr "Penonton:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -11012,19 +11012,19 @@ msgstr ""
 "Terdapat grup item besar di panel navigasi yang dapat mempengaruhi kinerja. "
 "Pertimbangkan untuk menonaktifkan pengelompokan barang di panel navigasi."
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Kelompok:"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "ditemukan %s hasil"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr "Tutup semua"
 
@@ -16858,11 +16858,11 @@ msgstr ""
 "Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string dibawahnya "
 "ke dalam isian \"Nilai\"."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript harus diaktifkan lewat point ini!"
 
-#: templates/header.twig:45
+#: templates/header.twig:47
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klik pada bar untuk menggulir ke atas halaman"
 

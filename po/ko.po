@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-17 00:20+0000\n"
+"POT-Creation-Date: 2022-07-24 00:23+0000\n"
 "PO-Revision-Date: 2022-04-23 11:51+0000\n"
 "Last-Translator: Yonjae Lee <yjyj93@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3834,7 +3834,7 @@ msgstr "내비게이션 패널"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "매인 패널에 링크"
 
@@ -6483,7 +6483,7 @@ msgid "Cancel"
 msgstr "취소"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/header.twig:43 templates/modals/page_settings.twig:5
+#: templates/header.twig:45 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "페이지 관련 설정"
 
@@ -7294,7 +7294,7 @@ msgid "Hide panel"
 msgstr "패널 숨기기"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "매인 패널에서 링크 해제"
 
@@ -10441,25 +10441,25 @@ msgstr "테이블:"
 msgid "Views:"
 msgstr "뷰:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "그룹:"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s 개의 결과가 발견됨"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr "전부 접기"
 
@@ -15999,11 +15999,11 @@ msgstr ""
 "\"기능\"컬럼에서 \"GeomFromText\"를 선택하고 아래 문자를 복사하여 \"값\"필드"
 "에 붙여넣으십시오."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "이 페이지를 넘기려면 Javascript 사용을 허용해야 합니다!"
 
-#: templates/header.twig:45
+#: templates/header.twig:47
 msgid "Click on the bar to scroll to top of page"
 msgstr "클릭하여 페이지 상단으로 이동"
 

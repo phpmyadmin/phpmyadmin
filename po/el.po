@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-17 00:20+0000\n"
+"POT-Creation-Date: 2022-07-24 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4025,7 +4025,7 @@ msgstr "Πλάτος πίνακα πλοήγησης"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Σύνδεσμος με τον βασικό πίνακα"
 
@@ -6700,7 +6700,7 @@ msgid "Cancel"
 msgstr "Άκυρο"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/header.twig:43 templates/modals/page_settings.twig:5
+#: templates/header.twig:45 templates/modals/page_settings.twig:5
 msgid "Page-related settings"
 msgstr "Ρυθμίσεις σχετικές με τη σελίδα"
 
@@ -7520,7 +7520,7 @@ msgid "Hide panel"
 msgstr "Απόκρυψη πίνακα"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Αποσύνδεση από τον βασικό πίνακα"
 
@@ -10842,7 +10842,7 @@ msgstr "Πίνακες:"
 msgid "Views:"
 msgstr "Προβολές:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10851,20 +10851,20 @@ msgstr ""
 "επηρεάσουν την απόδοση. Λάβετε υπόψη σας να απενεργοποίησετε την ομοδοποίηση "
 "αντικειμένων στον πίνακα πλοήγησης."
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Ομάδες:"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s αποτέλεσμα βρέθηκε"
 msgstr[1] "%s αποτελέσματα βρέθηκαν"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr "Σύμπτηξη όλων"
 
@@ -16438,11 +16438,11 @@ msgstr ""
 "Επιλέξτε το «GeomFromText» από τη στήλη «Function» και επικολλήστε το "
 "παρακάτω κείμενο στο πεδίο «Value»."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:36 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένη την Javascript!"
 
-#: templates/header.twig:45
+#: templates/header.twig:47
 msgid "Click on the bar to scroll to top of page"
 msgstr "Πατήστε στη γραμμή για να μεταβείτε στην κορυφή της σελίδας"
 
