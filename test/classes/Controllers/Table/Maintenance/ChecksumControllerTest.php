@@ -1,0 +1,54 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PhpMyAdmin\Tests\Controllers\Table\Maintenance;
+
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Controllers\Table\Maintenance\ChecksumController;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Table\Maintenance;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\Maintenance\ChecksumController
+ */
+class ChecksumControllerTest extends AbstractTestCase
+{
+    /**
+     * @param string[][]|string[]|string|null $tables
+     *
+     * @dataProvider providerForTestNoTableSelected
+     */
+    public function testNoTableSelected($tables): void
+    {
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([['selected_tbl', null, $tables]]);
+        $dbi = $this->createDatabaseInterface();
+        $GLOBALS['dbi'] = $dbi;
+        $response = new ResponseRenderer();
+        $controller = new ChecksumController($response, new Template(), new Maintenance($dbi), new Config());
+        $controller($request);
+        $this->assertFalse($response->hasSuccessState());
+        $this->assertSame(['message' => 'No table selected.'], $response->getJSONResult());
+        $this->assertSame('', $response->getHTMLResult());
+    }
+
+    /**
+     * @return array<int, array{string[][]|string[]|string|null}>
+     */
+    public function providerForTestNoTableSelected(): array
+    {
+        return [
+            [null],
+            [''],
+            ['table'],
+            [[]],
+            [['']],
+            [['table', '']],
+            [[['table']]],
+        ];
+    }
+}
