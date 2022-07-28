@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -129,7 +130,7 @@ class NavigationControllerTest extends AbstractTestCase
         $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController();
+        $navigationController($this->createStub(ServerRequest::class));
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];
@@ -283,7 +284,7 @@ class NavigationControllerTest extends AbstractTestCase
         $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController();
+        $navigationController($this->createStub(ServerRequest::class));
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];

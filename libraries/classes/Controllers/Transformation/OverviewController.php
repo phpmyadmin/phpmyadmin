@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Transformation;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
@@ -25,7 +26,7 @@ class OverviewController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();

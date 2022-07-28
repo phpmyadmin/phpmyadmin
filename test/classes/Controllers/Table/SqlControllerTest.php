@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\Table\SqlController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -80,7 +81,7 @@ class SqlControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        (new SqlController($response, $template, new SqlQueryForm($template)))();
+        (new SqlController($response, $template, new SqlQueryForm($template)))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

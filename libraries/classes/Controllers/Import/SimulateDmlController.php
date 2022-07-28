@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -32,7 +33,7 @@ final class SimulateDmlController extends AbstractController
         $this->simulateDml = $simulateDml;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $error = '';
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');

@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -170,7 +171,7 @@ class SearchController extends AbstractController
     /**
      * Index action
      */
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->checkParameters(['db', 'table']);
 

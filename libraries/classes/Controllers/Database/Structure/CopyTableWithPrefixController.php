@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
@@ -29,7 +30,7 @@ final class CopyTableWithPrefixController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
 
@@ -61,6 +62,6 @@ final class CopyTableWithPrefixController extends AbstractController
             $_POST['message'] = $GLOBALS['message'];
         }
 
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

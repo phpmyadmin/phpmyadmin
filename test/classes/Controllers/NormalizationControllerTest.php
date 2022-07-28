@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -73,7 +74,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
-        $normalizationController();
+        $normalizationController($this->createStub(ServerRequest::class));
 
         $this->assertResponseWasSuccessfull();
 
@@ -123,7 +124,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
-        $normalizationController();
+        $normalizationController($this->createStub(ServerRequest::class));
         $this->expectOutputString(
             '<p><b>In order to put the original table \'test_tbl\' into Second normal'
             . ' form we need to create the following tables:</b></p><p><input type="text" '
@@ -150,7 +151,7 @@ class NormalizationControllerTest extends AbstractTestCase
         /** @var NormalizationController $normalizationController */
         $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
-        $normalizationController();
+        $normalizationController($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();
@@ -188,7 +189,7 @@ class NormalizationControllerTest extends AbstractTestCase
         /** @var NormalizationController $normalizationController */
         $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
-        $normalizationController();
+        $normalizationController($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();

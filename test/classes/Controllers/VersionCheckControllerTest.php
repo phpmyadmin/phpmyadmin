@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\VersionCheckController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -49,7 +50,11 @@ class VersionCheckControllerTest extends AbstractTestCase
             ->with($this->equalTo($versionInfo->releases))
             ->willReturn(['version' => '5.1.3', 'date' => '2022-02-11']);
 
-        (new VersionCheckController(new ResponseRenderer(), new Template(), $versionInformation))();
+        (new VersionCheckController(
+            new ResponseRenderer(),
+            new Template(),
+            $versionInformation
+        ))($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
         $this->assertTrue(isset($_GET['ajax_request']));
@@ -84,7 +89,11 @@ class VersionCheckControllerTest extends AbstractTestCase
             ->with($this->equalTo($versionInfo->releases))
             ->willReturn(null);
 
-        (new VersionCheckController(new ResponseRenderer(), new Template(), $versionInformation))();
+        (new VersionCheckController(
+            new ResponseRenderer(),
+            new Template(),
+            $versionInformation
+        ))($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
         $this->assertTrue(isset($_GET['ajax_request']));
@@ -99,7 +108,11 @@ class VersionCheckControllerTest extends AbstractTestCase
         $versionInformation->expects($this->once())->method('getLatestVersion')->willReturn(null);
         $versionInformation->expects($this->never())->method('getLatestCompatibleVersion');
 
-        (new VersionCheckController(new ResponseRenderer(), new Template(), $versionInformation))();
+        (new VersionCheckController(
+            new ResponseRenderer(),
+            new Template(),
+            $versionInformation
+        ))($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
         $this->assertTrue(isset($_GET['ajax_request']));

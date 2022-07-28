@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
@@ -69,7 +70,7 @@ class RefreshControllerTest extends AbstractTestCase
         $_POST['order_by_field'] = 'process';
         $_POST['sort_order'] = 'DESC';
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('index.php?route=/server/status/processes', $html);

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -253,7 +254,7 @@ class CreateControllerTest extends AbstractTestCase
             new Config(),
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations)
-        ))();
+        ))($this->createStub(ServerRequest::class));
 
         $this->assertSame($expected, $response->getHTMLResult());
     }

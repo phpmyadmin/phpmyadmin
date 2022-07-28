@@ -10,6 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
@@ -55,7 +56,7 @@ class CreateController extends AbstractController
         $this->columnsDefinition = $columnsDefinition;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
         $GLOBALS['result'] = $GLOBALS['result'] ?? null;

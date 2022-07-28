@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -55,7 +56,7 @@ class AdvisorControllerTest extends AbstractTestCase
             new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
         );
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
 
         $expected = $this->template->render('server/status/advisor/index', [
             'data' => [],
@@ -99,7 +100,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $controller = new AdvisorController($this->response, $this->template, $this->data, $advisor);
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 

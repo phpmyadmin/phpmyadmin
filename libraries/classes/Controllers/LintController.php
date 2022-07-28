@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
 
 use function json_encode;
@@ -17,7 +18,7 @@ use function json_encode;
  */
 class LintController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $params = [
             'sql_query' => $_POST['sql_query'] ?? null,

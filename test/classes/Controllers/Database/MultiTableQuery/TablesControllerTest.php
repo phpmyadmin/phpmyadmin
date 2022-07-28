@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -44,7 +45,7 @@ class TablesControllerTest extends AbstractTestCase
 
         /** @var TablesController $multiTableQueryController */
         $multiTableQueryController = $GLOBALS['containerBuilder']->get(TablesController::class);
-        $multiTableQueryController();
+        $multiTableQueryController($this->createStub(ServerRequest::class));
         $this->assertSame(
             [
                 'foreignKeyConstrains' => [

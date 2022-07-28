@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\LintController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -26,7 +27,7 @@ class LintControllerTest extends AbstractTestCase
     {
         $_POST = [];
 
-        $this->getLintController()();
+        $this->getLintController()($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
         $this->assertJson($output);
@@ -37,7 +38,7 @@ class LintControllerTest extends AbstractTestCase
     {
         $_POST['sql_query'] = 'SELECT * FROM `actor` WHERE `actor_id` = 1;';
 
-        $this->getLintController()();
+        $this->getLintController()($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
         $this->assertJson($output);
@@ -84,7 +85,7 @@ class LintControllerTest extends AbstractTestCase
         ]);
         $this->assertNotFalse($expectedJson);
 
-        $this->getLintController()();
+        $this->getLintController()($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
         $this->assertJson($output);

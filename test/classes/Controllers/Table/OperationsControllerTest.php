@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Controllers\Table\OperationsController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -118,7 +119,7 @@ class OperationsControllerTest extends AbstractTestCase
 
         /** @var OperationsController $controller */
         $controller = $GLOBALS['containerBuilder']->get(OperationsController::class);
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
 
         $this->assertEquals($expectedOutput, $this->getResponseHtmlResult());
     }

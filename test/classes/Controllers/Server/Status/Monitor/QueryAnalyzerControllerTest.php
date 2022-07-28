@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
@@ -50,7 +51,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
 
         $dummyDbi->addSelectDb('mysql');
         $dummyDbi->addSelectDb('database');
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 

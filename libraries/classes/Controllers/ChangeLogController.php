@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Http\ServerRequest;
+
 use function __;
 use function array_keys;
 use function file_get_contents;
@@ -21,7 +23,7 @@ use function substr;
 
 class ChangeLogController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();

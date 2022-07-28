@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -41,7 +42,7 @@ final class DropColumnController extends AbstractController
         $this->relationCleanup = $relationCleanup;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $selected = $_POST['selected'] ?? [];
 

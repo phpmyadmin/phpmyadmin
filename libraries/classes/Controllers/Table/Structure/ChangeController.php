@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -34,7 +35,7 @@ final class ChangeController extends AbstractController
         $this->columnsDefinition = $columnsDefinition;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if (isset($_GET['change_column'])) {
             $this->displayHtmlForColumnChange(null);

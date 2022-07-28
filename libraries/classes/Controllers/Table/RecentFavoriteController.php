@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\RecentFavoriteTable;
 
 use function is_string;
@@ -15,7 +16,7 @@ use function is_string;
  */
 class RecentFavoriteController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
 
@@ -27,6 +28,6 @@ class RecentFavoriteController extends AbstractController
 
         /** @var SqlController $controller */
         $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
-        $controller();
+        $controller($request);
     }
 }

@@ -343,7 +343,7 @@ final class ReplaceController extends AbstractController
             if ($gotoInclude === '/sql') {
                 /** @var SqlController $controller */
                 $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
-                $controller();
+                $controller($request);
 
                 return;
             }
@@ -351,7 +351,7 @@ final class ReplaceController extends AbstractController
             if ($gotoInclude === '/database/sql') {
                 /** @var DatabaseSqlController $controller */
                 $controller = $GLOBALS['containerBuilder']->get(DatabaseSqlController::class);
-                $controller();
+                $controller($request);
 
                 return;
             }
@@ -367,7 +367,7 @@ final class ReplaceController extends AbstractController
             if ($gotoInclude === '/table/sql') {
                 /** @var TableSqlController $controller */
                 $controller = $GLOBALS['containerBuilder']->get(TableSqlController::class);
-                $controller();
+                $controller($request);
 
                 return;
             }
@@ -542,7 +542,7 @@ final class ReplaceController extends AbstractController
         if ($gotoInclude === '/sql') {
             /** @var SqlController $controller */
             $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
-            $controller();
+            $controller($request);
 
             return;
         }
@@ -550,7 +550,7 @@ final class ReplaceController extends AbstractController
         if ($gotoInclude === '/database/sql') {
             /** @var DatabaseSqlController $controller */
             $controller = $GLOBALS['containerBuilder']->get(DatabaseSqlController::class);
-            $controller();
+            $controller($request);
 
             return;
         }
@@ -566,7 +566,7 @@ final class ReplaceController extends AbstractController
         if ($gotoInclude === '/table/sql') {
             /** @var TableSqlController $controller */
             $controller = $GLOBALS['containerBuilder']->get(TableSqlController::class);
-            $controller();
+            $controller($request);
 
             return;
         }

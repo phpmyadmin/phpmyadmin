@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Databases;
 
 use PhpMyAdmin\Controllers\Server\Databases\CreateController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -50,7 +51,7 @@ final class CreateControllerTest extends AbstractTestCase
 
         $_POST['new_db'] = 'test_db_error';
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
@@ -64,7 +65,7 @@ final class CreateControllerTest extends AbstractTestCase
         $_POST['new_db'] = 'test_db';
         $_POST['db_collation'] = 'utf8_general_ci';
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);

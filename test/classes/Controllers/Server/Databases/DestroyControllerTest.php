@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\Databases\DestroyController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -49,7 +50,7 @@ class DestroyControllerTest extends AbstractTestCase
             new RelationCleanup($dbi, new Relation($dbi))
         );
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -52,7 +53,7 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
-        $sqlController();
+        $sqlController($this->createStub(ServerRequest::class));
 
         $this->assertResponseWasNotSuccessfull();
 
@@ -100,7 +101,7 @@ class SetValuesControllerTest extends AbstractTestCase
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
-        $sqlController();
+        $sqlController($this->createStub(ServerRequest::class));
 
         $this->assertResponseWasSuccessfull();
 

@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SavedSearches;
@@ -39,7 +40,7 @@ class QueryByExampleController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['savedSearchList'] = $GLOBALS['savedSearchList'] ?? null;
         $GLOBALS['savedSearch'] = $GLOBALS['savedSearch'] ?? null;

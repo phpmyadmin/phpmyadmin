@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\Table\ImportController;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -80,7 +81,7 @@ class ImportControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        (new ImportController($response, $template, $dbi))();
+        (new ImportController($response, $template, $dbi))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

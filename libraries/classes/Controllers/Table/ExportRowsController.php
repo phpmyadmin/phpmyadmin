@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -26,7 +27,7 @@ final class ExportRowsController extends AbstractController
         $this->exportController = $exportController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
@@ -55,6 +56,6 @@ final class ExportRowsController extends AbstractController
 
         $GLOBALS['active_page'] = Url::getFromRoute('/table/export');
 
-        ($this->exportController)();
+        ($this->exportController)($request);
     }
 }

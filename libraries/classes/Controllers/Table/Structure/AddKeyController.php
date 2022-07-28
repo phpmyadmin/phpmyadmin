@@ -34,7 +34,7 @@ final class AddKeyController extends AbstractController
     {
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
 
-        ($this->sqlController)();
+        ($this->sqlController)($request);
 
         $GLOBALS['reload'] = true;
 

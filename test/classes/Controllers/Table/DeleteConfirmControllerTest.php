@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\DeleteConfirmController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -42,7 +43,7 @@ class DeleteConfirmControllerTest extends AbstractTestCase
             'is_foreign_key_check' => true,
         ]);
 
-        (new DeleteConfirmController($response, $template))();
+        (new DeleteConfirmController($response, $template))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

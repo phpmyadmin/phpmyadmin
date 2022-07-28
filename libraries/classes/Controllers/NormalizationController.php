@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -32,7 +33,7 @@ class NormalizationController extends AbstractController
         $this->normalization = $normalization;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if (isset($_POST['getColumns'])) {
             $html = '<option selected disabled>' . __('Select one…') . '</option>'

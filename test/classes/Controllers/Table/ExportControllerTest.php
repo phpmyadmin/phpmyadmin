@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -102,7 +103,7 @@ class ExportControllerTest extends AbstractTestCase
             $response,
             $template,
             new Options(new Relation($dbi), new TemplateModel($dbi))
-        ))();
+        ))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

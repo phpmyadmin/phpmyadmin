@@ -110,7 +110,7 @@ final class DbTableExists
 
         /** @var SqlController $controller */
         $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
-        $controller();
+        $controller(Common::getRequest());
 
         exit;
     }

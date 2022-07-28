@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\CollationConnectionController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -28,6 +29,10 @@ class CollationConnectionControllerTest extends AbstractTestCase
         $config->expects($this->once())->method('setUserValue')
             ->with(null, 'DefaultConnectionCollation', 'utf8mb4_general_ci', 'utf8mb4_unicode_ci');
 
-        (new CollationConnectionController($response, new Template(), $config))();
+        (new CollationConnectionController(
+            $response,
+            new Template(),
+            $config
+        ))($this->createStub(ServerRequest::class));
     }
 }

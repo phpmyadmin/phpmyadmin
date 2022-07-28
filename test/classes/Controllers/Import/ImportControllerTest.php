@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Import;
 
 use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -73,7 +74,7 @@ class ImportControllerTest extends AbstractTestCase
         $importController = $GLOBALS['containerBuilder']->get(ImportController::class);
         $this->dummyDbi->addSelectDb('pma_test');
         $this->dummyDbi->addSelectDb('pma_test');
-        $importController();
+        $importController($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $this->assertResponseWasSuccessfull();
 

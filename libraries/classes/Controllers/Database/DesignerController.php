@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -36,7 +37,7 @@ class DesignerController extends AbstractController
         $this->designerCommon = $designerCommon;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['script_display_field'] = $GLOBALS['script_display_field'] ?? null;
         $GLOBALS['tab_column'] = $GLOBALS['tab_column'] ?? null;

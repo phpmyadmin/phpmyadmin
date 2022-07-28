@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexRenameController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
@@ -39,7 +40,12 @@ class IndexRenameControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        (new IndexRenameController($response, $template, $dbi, new Indexes($response, $template, $dbi)))();
+        (new IndexRenameController(
+            $response,
+            $template,
+            $dbi,
+            new Indexes($response, $template, $dbi)
+        ))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

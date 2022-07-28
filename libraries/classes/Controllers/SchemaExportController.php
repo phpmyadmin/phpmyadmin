@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
 
@@ -23,7 +24,7 @@ class SchemaExportController
         $this->export = $export;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if (! isset($_POST['export_type'])) {
             $errorMessage = __('Missing parameter:') . ' export_type'

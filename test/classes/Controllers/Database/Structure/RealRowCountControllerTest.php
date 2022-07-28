@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\Database\Structure\RealRowCountController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -46,14 +47,14 @@ class RealRowCountControllerTest extends AbstractTestCase
 
         $_REQUEST['table'] = 'City';
 
-        (new RealRowCountController($response, new Template(), $this->dbi))();
+        (new RealRowCountController($response, new Template(), $this->dbi))($this->createStub(ServerRequest::class));
 
         $json = $response->getJSONResult();
         $this->assertEquals('4,079', $json['real_row_count']);
 
         $_REQUEST['real_row_count_all'] = 'on';
 
-        (new RealRowCountController($response, new Template(), $this->dbi))();
+        (new RealRowCountController($response, new Template(), $this->dbi))($this->createStub(ServerRequest::class));
 
         $json = $response->getJSONResult();
         $expected = [

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
@@ -30,7 +31,7 @@ class StatusController
         $this->template = $template;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['SESSION_KEY'] = $GLOBALS['SESSION_KEY'] ?? null;
         $GLOBALS['upload_id'] = $GLOBALS['upload_id'] ?? null;

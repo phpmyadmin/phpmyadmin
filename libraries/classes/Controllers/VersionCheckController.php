@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\VersionInformation;
@@ -25,7 +26,7 @@ class VersionCheckController extends AbstractController
         $this->versionInformation = $versionInformation;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $_GET['ajax_request'] = 'true';
 

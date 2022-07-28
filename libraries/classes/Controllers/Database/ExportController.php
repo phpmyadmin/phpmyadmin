@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
@@ -38,7 +39,7 @@ final class ExportController extends AbstractController
         $this->exportOptions = $exportOptions;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;

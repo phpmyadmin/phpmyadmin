@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -34,7 +35,7 @@ final class RelationalValuesController extends AbstractController
      *
      * During grid edit, if we have a relational field, show the dropdown for it.
      */
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->checkUserPrivileges->getPrivileges();
 

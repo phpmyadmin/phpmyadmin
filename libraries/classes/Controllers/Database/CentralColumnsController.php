@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -33,7 +34,7 @@ class CentralColumnsController extends AbstractController
         $this->centralColumns = $centralColumns;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;

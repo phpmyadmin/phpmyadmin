@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Providers\ServerVariables\VoidProvider as ServerVariablesVoidProvider;
 use PhpMyAdmin\ResponseRenderer;
@@ -96,7 +97,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $controller = new VariablesController($response, new Template(), $dbi);
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(

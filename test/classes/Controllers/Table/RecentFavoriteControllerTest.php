@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -61,7 +62,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
 
-        (new RecentFavoriteController(new ResponseRenderer(), new Template()))();
+        (new RecentFavoriteController(new ResponseRenderer(), new Template()))($this->createStub(ServerRequest::class));
 
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
@@ -96,7 +97,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $this->assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $recent->getTables());
         $this->assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $favorite->getTables());
 
-        (new RecentFavoriteController(new ResponseRenderer(), new Template()))();
+        (new RecentFavoriteController(new ResponseRenderer(), new Template()))($this->createStub(ServerRequest::class));
 
         $this->assertSame([], $recent->getTables());
         $this->assertSame([], $favorite->getTables());

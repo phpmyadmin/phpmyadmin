@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -23,7 +24,7 @@ final class TablesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $params = [
             'tables' => $_GET['tables'] ?? [],

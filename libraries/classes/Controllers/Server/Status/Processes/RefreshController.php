@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
@@ -21,7 +22,7 @@ final class RefreshController extends AbstractController
         $this->processes = $processes;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $params = [
             'showExecuting' => $_POST['showExecuting'] ?? null,

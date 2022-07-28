@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\DropColumnController;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -48,7 +49,7 @@ class DropColumnControllerTest extends AbstractTestCase
             $dbi,
             new FlashMessages(),
             new RelationCleanup($dbi, new Relation($dbi))
-        ))();
+        ))($this->createStub(ServerRequest::class));
 
         $this->assertArrayHasKey('flashMessages', $_SESSION);
         /** @psalm-suppress InvalidArrayOffset */

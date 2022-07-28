@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\DeleteRowsController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -52,7 +53,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $response = new ResponseRenderer();
-        (new DeleteRowsController($response, new Template(), $dbi))();
+        (new DeleteRowsController($response, new Template(), $dbi))($this->createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();
         $this->assertStringContainsString(
             '<div class="alert alert-success" role="alert">Your SQL query has been executed successfully.</div>',

@@ -347,7 +347,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
                         /** @var DatabaseExportController $controller */
                         $controller = $GLOBALS['containerBuilder']->get(DatabaseExportController::class);
-                        $controller();
+                        $controller($request);
                         exit;
                     }
                 }

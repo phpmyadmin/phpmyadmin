@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\PrivilegesController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -45,7 +46,12 @@ class PrivilegesControllerTest extends AbstractTestCase
             ->willReturn($privileges);
 
         $response = new ResponseRenderer();
-        (new PrivilegesController($response, new Template(), $serverPrivileges, $GLOBALS['dbi']))();
+        (new PrivilegesController(
+            $response,
+            new Template(),
+            $serverPrivileges,
+            $GLOBALS['dbi']
+        ))($this->createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString($GLOBALS['db'] . '.' . $GLOBALS['table'], $actual);
