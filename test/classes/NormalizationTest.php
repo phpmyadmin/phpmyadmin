@@ -12,7 +12,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
-use PhpMyAdmin\Url;
 use stdClass;
 
 use function __;
@@ -452,25 +451,6 @@ class NormalizationTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="checkbox" name="pd" value="col1"', $result['extra']);
         $result1 = $this->normalization->getHtmlFor3NFstep1($db, ['PMA_table2']);
         $this->assertEquals('', $result1['subText']);
-    }
-
-    /**
-     * Test for getHtmlForNormalizeTable
-     */
-    public function testgetHtmlForNormalizeTable(): void
-    {
-        $result = $this->normalization->getHtmlForNormalizeTable();
-        $this->assertStringContainsString(
-            '<form method="post" action="' . Url::getFromRoute('/normalization')
-            . '" name="normalize" id="normalizeTable"',
-            $result
-        );
-        $this->assertStringContainsString('<input type="hidden" name="step1" value="1">', $result);
-
-        $this->assertStringContainsString('type="radio" name="normalizeTo"', $result);
-        $this->assertStringContainsString('id="normalizeToRadio1" value="1nf" checked>', $result);
-        $this->assertStringContainsString('id="normalizeToRadio2" value="2nf">', $result);
-        $this->assertStringContainsString('id="normalizeToRadio3" value="3nf">', $result);
     }
 
     /**

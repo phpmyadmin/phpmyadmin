@@ -152,24 +152,49 @@ class NormalizationController extends AbstractController
         if (isset($_POST['step1'])) {
             $html = $this->normalization->getHtmlFor1NFStep1($GLOBALS['db'], $GLOBALS['table'], $normalForm);
             $this->response->addHTML($html);
-        } elseif (isset($_POST['step2'])) {
+
+            return;
+        }
+
+        if (isset($_POST['step2'])) {
             $res = $this->normalization->getHtmlContentsFor1NFStep2($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
-        } elseif (isset($_POST['step3'])) {
+
+            return;
+        }
+
+        if (isset($_POST['step3'])) {
             $res = $this->normalization->getHtmlContentsFor1NFStep3($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
-        } elseif (isset($_POST['step4'])) {
+
+            return;
+        }
+
+        if (isset($_POST['step4'])) {
             $res = $this->normalization->getHtmlContentsFor1NFStep4($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
-        } elseif (isset($_POST['step']) && $_POST['step'] == '2.1') {
+
+            return;
+        }
+
+        if (isset($_POST['step']) && $_POST['step'] == '2.1') {
             $res = $this->normalization->getHtmlFor2NFstep1($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);
-        } elseif (isset($_POST['step']) && $_POST['step'] == '3.1') {
+
+            return;
+        }
+
+        if (isset($_POST['step']) && $_POST['step'] == '3.1') {
             $tables = $_POST['tables'];
             $res = $this->normalization->getHtmlFor3NFstep1($GLOBALS['db'], $tables);
             $this->response->addJSON($res);
-        } else {
-            $this->response->addHTML($this->normalization->getHtmlForNormalizeTable());
+
+            return;
         }
+
+        $this->render('table/normalization/normalization', [
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+        ]);
     }
 }

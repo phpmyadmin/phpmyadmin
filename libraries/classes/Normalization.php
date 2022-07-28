@@ -938,52 +938,6 @@ class Normalization
     }
 
     /**
-     * get html for options to normalize table
-     *
-     * @return string HTML
-     */
-    public function getHtmlForNormalizeTable()
-    {
-        $htmlOutput = '<form method="post" action="' . Url::getFromRoute('/normalization')
-            . '" name="normalize" '
-            . 'id="normalizeTable" '
-            . '>'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-            . '<input type="hidden" name="step1" value="1">';
-        $htmlOutput .= '<fieldset class="pma-fieldset">';
-        $htmlOutput .= '<legend>'
-            . __('Improve table structure (Normalization):') . '</legend>';
-        $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
-            . '</h3>';
-
-        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio1" value="1nf" checked>';
-        $htmlOutput .= ' <label for="normalizeToRadio1">';
-        $htmlOutput .= __('First step of normalization (1NF)');
-        $htmlOutput .= '</label></div>';
-
-        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio2" value="2nf">';
-        $htmlOutput .= ' <label for="normalizeToRadio2">';
-        $htmlOutput .= __('Second step of normalization (1NF+2NF)');
-        $htmlOutput .= '</label></div>';
-
-        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio3" value="3nf">';
-        $htmlOutput .= ' <label for="normalizeToRadio3">';
-        $htmlOutput .= __('Third step of normalization (1NF+2NF+3NF)');
-        $htmlOutput .= '</label></div>';
-
-        $htmlOutput .= '</fieldset><fieldset class="pma-fieldset tblFooters">'
-            . "<span class='float-start'>" . __(
-                'Hint: Please follow the procedure carefully in order to obtain correct normalization'
-            ) . '</span>'
-            . '<input class="btn btn-primary" type="submit" name="submit_normalize" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $htmlOutput;
-    }
-
-    /**
      * find all the possible partial dependencies based on data in the table.
      *
      * @param string $table current table
