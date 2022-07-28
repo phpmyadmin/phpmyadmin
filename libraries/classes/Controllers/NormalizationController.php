@@ -13,7 +13,6 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function _pgettext;
-use function in_array;
 use function intval;
 use function json_decode;
 use function json_encode;
@@ -104,11 +103,6 @@ class NormalizationController extends AbstractController
 
         $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
-        $normalForm = '1nf';
-        if (isset($_POST['normalizeTo']) && in_array($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
-            $normalForm = $_POST['normalizeTo'];
-        }
-
         if (isset($_POST['createNewTables2NF'])) {
             $partialDependencies = json_decode($_POST['pd'], true);
             $tablesName = json_decode($_POST['newTablesName']);
@@ -145,13 +139,6 @@ class NormalizationController extends AbstractController
                 $GLOBALS['db']
             );
             $this->response->addJSON($res);
-
-            return;
-        }
-
-        if (isset($_POST['step1'])) {
-            $html = $this->normalization->getHtmlFor1NFStep1($GLOBALS['db'], $GLOBALS['table'], $normalForm);
-            $this->response->addHTML($html);
 
             return;
         }

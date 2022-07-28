@@ -238,12 +238,12 @@ class NormalizationControllerTest extends AbstractTestCase
 
         $output = $response->getHTMLResult();
         $this->assertStringContainsString(
-            '<form method="post" action="index.php?route=/normalization&lang=en" name="normalize" id="normalizeTable"',
+            '<form method="post" action="index.php?route=/normalization/1nf/step1&lang=en"'
+            . ' name="normalize" id="normalizeTable"',
             $output
         );
         $this->assertStringContainsString('<input type="hidden" name="db" value="test_db">', $output);
         $this->assertStringContainsString('<input type="hidden" name="table" value="test_table">', $output);
-        $this->assertStringContainsString('<input type="hidden" name="step1" value="1">', $output);
         $this->assertStringContainsString('type="radio" name="normalizeTo"', $output);
         $this->assertStringContainsString('id="normalizeToRadio1" value="1nf" checked>', $output);
         $this->assertStringContainsString('id="normalizeToRadio2" value="2nf">', $output);

@@ -21,6 +21,7 @@ use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
+use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
@@ -582,6 +583,14 @@ return [
                 '$template' => '@template',
                 '$navigation' => '@navigation',
                 '$relation' => '@relation',
+            ],
+        ],
+        Normalization\FirstNormalForm\FirstStepController::class => [
+            'class' => Normalization\FirstNormalForm\FirstStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
             ],
         ],
         NormalizationController::class => [

@@ -1,6 +1,5 @@
-<form method="post" action="{{ url('/normalization') }}" name="normalize" id="normalizeTable">
+<form method="post" action="{{ url('/normalization/1nf/step1') }}" name="normalize" id="normalizeTable">
   {{ get_hidden_inputs(db, table) }}
-  <input type="hidden" name="step1" value="1">
 
   <fieldset class="pma-fieldset">
     <legend>{{ 'Improve table structure (Normalization):'|trans }}</legend>

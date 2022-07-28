@@ -2399,8 +2399,16 @@
       <code>$_POST['itemType']</code>
     </MixedArgument>
   </file>
+  <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
+    <MixedArgument occurrences="1">
+      <code>$normalForm</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$normalForm</code>
+    </MixedAssignment>
+  </file>
   <file src="libraries/classes/Controllers/NormalizationController.php">
-    <MixedArgument occurrences="18">
+    <MixedArgument occurrences="17">
       <code>$_POST['newTables']</code>
       <code>$_POST['newTablesName']</code>
       <code>$_POST['pd']</code>
@@ -2411,7 +2419,6 @@
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$newtables</code>
-      <code>$normalForm</code>
       <code>$partialDependencies</code>
       <code>$partialDependencies</code>
       <code>$primary_columns</code>
@@ -2420,12 +2427,11 @@
       <code>$tables</code>
       <code>$tablesName</code>
     </MixedArgument>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="11">
       <code>$dependencies</code>
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$newtables</code>
-      <code>$normalForm</code>
       <code>$partialDependencies</code>
       <code>$partialDependencies</code>
       <code>$primary_columns</code>
