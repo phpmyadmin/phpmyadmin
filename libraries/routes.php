@@ -133,6 +133,7 @@ return static function (RouteCollector $routes): void {
     $routes->addGroup('/normalization', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', NormalizationController::class);
         $routes->post('/1nf/step1', Normalization\FirstNormalForm\FirstStepController::class);
+        $routes->post('/1nf/step2', Normalization\FirstNormalForm\SecondStepController::class);
     });
     $routes->get('/phpinfo', PhpInfoController::class);
     $routes->addGroup('/preferences', static function (RouteCollector $routes): void {

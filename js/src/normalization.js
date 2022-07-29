@@ -181,13 +181,12 @@ function goToStep3 () {
 
 function goToStep2 (extra) {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step2',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server'),
-            'step2': true
+            'server': window.CommonParams.get('server')
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
