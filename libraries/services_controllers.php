@@ -593,6 +593,14 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
+        Normalization\FirstNormalForm\FourthStepController::class => [
+            'class' => Normalization\FirstNormalForm\FourthStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
         Normalization\FirstNormalForm\SecondStepController::class => [
             'class' => Normalization\FirstNormalForm\SecondStepController::class,
             'arguments' => [

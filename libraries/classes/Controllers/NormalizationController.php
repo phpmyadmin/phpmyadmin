@@ -143,13 +143,6 @@ class NormalizationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['step4'])) {
-            $res = $this->normalization->getHtmlContentsFor1NFStep4($GLOBALS['db'], $GLOBALS['table']);
-            $this->response->addJSON($res);
-
-            return;
-        }
-
         if (isset($_POST['step']) && $_POST['step'] == '2.1') {
             $res = $this->normalization->getHtmlFor2NFstep1($GLOBALS['db'], $GLOBALS['table']);
             $this->response->addJSON($res);

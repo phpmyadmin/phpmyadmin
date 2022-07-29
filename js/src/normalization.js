@@ -133,13 +133,12 @@ function goToFinish1NF () {
 
 function goToStep4 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step4',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'step4': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
