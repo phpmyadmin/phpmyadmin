@@ -271,6 +271,32 @@ button:not(.accordion-button) {
   }
 }
 
+button.jsAccountLocking {
+  background: none;
+  color: var(--bs-link-color);
+  margin-left: 0;
+
+  &:hover {
+    background: none;
+    color: var(--bs-link-color);
+    text-decoration: underline;
+  }
+}
+
+button.jsPrintButton {
+  background: none;
+  color: #444;
+  margin-left: 0;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+
+  &:hover {
+    background: none;
+    color: #444;
+    text-decoration: none;
+    border: 1px solid #444;
+  }
+}
+
 textarea {
   overflow: visible;
   border: 1px solid $browse-gray-color;
