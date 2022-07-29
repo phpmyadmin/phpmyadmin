@@ -2688,8 +2688,15 @@ meter {
 body {
   .ui-dialog {
     .ui-dialog-titlebar-close {
-      right: 0.3em;
+      right: 1em;
       left: initial;
+      border: 1px solid white;
+
+      &::after {
+        content: "\00d7";
+        font-size: 1.2rem;
+        line-height: 0.6rem;
+      }
     }
 
     .ui-dialog-title {
