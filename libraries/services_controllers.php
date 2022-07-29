@@ -601,6 +601,14 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
+        Normalization\FirstNormalForm\ThirdStepController::class => [
+            'class' => Normalization\FirstNormalForm\ThirdStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
         NormalizationController::class => [
             'class' => NormalizationController::class,
             'arguments' => [

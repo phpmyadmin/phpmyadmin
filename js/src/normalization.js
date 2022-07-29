@@ -157,13 +157,12 @@ window.goToStep4 = goToStep4;
 
 function goToStep3 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step3',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'step3': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
