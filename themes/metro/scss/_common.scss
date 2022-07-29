@@ -263,6 +263,12 @@ button:not(.accordion-button) {
   color: $button-color;
   text-decoration: none;
   background-color: $button-background;
+
+  &:hover {
+    background-color: $button-hover;
+    color: white;
+    text-decoration: none;
+  }
 }
 
 textarea {
