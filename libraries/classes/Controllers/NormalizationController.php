@@ -135,14 +135,6 @@ class NormalizationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['step']) && $_POST['step'] == '3.1') {
-            $tables = $_POST['tables'];
-            $res = $this->normalization->getHtmlFor3NFstep1($GLOBALS['db'], $tables);
-            $this->response->addJSON($res);
-
-            return;
-        }
-
         $this->render('table/normalization/normalization', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],

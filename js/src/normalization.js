@@ -40,13 +40,12 @@ function goTo3NFStep1 (newTables) {
         tables = [window.CommonParams.get('table')];
     }
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/3nf/step1',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'server': window.CommonParams.get('server'),
             'tables': tables,
-            'step': '3.1'
         }, function (data) {
             $('#page_content').find('h3').html(window.Messages.str3NFNormalization);
             $('#mainContent').find('legend').html(data.legendText);

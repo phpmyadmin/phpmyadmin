@@ -35,7 +35,6 @@ class FirstStepControllerTest extends AbstractTestCase
         );
         $controller($this->createStub(ServerRequest::class));
 
-        // phpcs:disable Generic.Files.LineLength.TooLong
         $this->assertSame([
             'legendText' => 'Step 2.1 Find partial dependencies',
             'headText' => 'No partial dependencies possible as the primary key ( id ) has just one column.<br>',
@@ -43,6 +42,5 @@ class FirstStepControllerTest extends AbstractTestCase
             'extra' => '<h3>Table is already in second normal form.</h3>',
             'primary_key' => 'id',
         ], $response->getJSONResult());
-        // phpcs:enable
     }
 }
