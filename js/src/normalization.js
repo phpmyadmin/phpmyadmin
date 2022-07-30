@@ -80,13 +80,12 @@ function goTo3NFStep1 (newTables) {
 
 function goTo2NFStep1 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/2nf/step1',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'step': '2.1'
         }, function (data) {
             $('#page_content h3').html(window.Messages.str2NFNormalization);
             $('#mainContent legend').html(data.legendText);
