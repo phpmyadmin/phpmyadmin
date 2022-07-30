@@ -82,14 +82,6 @@ class NormalizationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['getNewTables2NF'])) {
-            $partialDependencies = json_decode($_POST['pd'], true);
-            $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $GLOBALS['table']);
-            echo $html;
-
-            return;
-        }
-
         if (isset($_POST['getNewTables3NF'])) {
             $dependencies = json_decode($_POST['pd']);
             $tables = json_decode($_POST['tables'], true);

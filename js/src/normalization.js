@@ -318,10 +318,10 @@ function goTo2NFStep2 (pd, primaryKey) {
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
             'pd': JSON.stringify(pd),
-            'getNewTables2NF':1 };
+        };
         $.ajax({
             type: 'POST',
-            url: 'index.php?route=/normalization',
+            url: 'index.php?route=/normalization/2nf/new-tables',
             data: datastring,
             async:false,
             success: function (data) {

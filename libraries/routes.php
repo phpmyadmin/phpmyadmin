@@ -136,6 +136,7 @@ return static function (RouteCollector $routes): void {
         $routes->post('/1nf/step2', Normalization\FirstNormalForm\SecondStepController::class);
         $routes->post('/1nf/step3', Normalization\FirstNormalForm\ThirdStepController::class);
         $routes->post('/1nf/step4', Normalization\FirstNormalForm\FourthStepController::class);
+        $routes->post('/2nf/new-tables', Normalization\SecondNormalForm\NewTablesController::class);
         $routes->post('/2nf/step1', Normalization\SecondNormalForm\FirstStepController::class);
     });
     $routes->get('/phpinfo', PhpInfoController::class);
