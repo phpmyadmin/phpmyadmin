@@ -21,6 +21,7 @@ use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
+use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
@@ -582,6 +583,62 @@ return [
                 '$template' => '@template',
                 '$navigation' => '@navigation',
                 '$relation' => '@relation',
+            ],
+        ],
+        Normalization\FirstNormalForm\FirstStepController::class => [
+            'class' => Normalization\FirstNormalForm\FirstStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\FirstNormalForm\FourthStepController::class => [
+            'class' => Normalization\FirstNormalForm\FourthStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\FirstNormalForm\SecondStepController::class => [
+            'class' => Normalization\FirstNormalForm\SecondStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\FirstNormalForm\ThirdStepController::class => [
+            'class' => Normalization\FirstNormalForm\ThirdStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\SecondNormalForm\FirstStepController::class => [
+            'class' => Normalization\SecondNormalForm\FirstStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\SecondNormalForm\NewTablesController::class => [
+            'class' => Normalization\SecondNormalForm\NewTablesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\ThirdNormalForm\FirstStepController::class => [
+            'class' => Normalization\ThirdNormalForm\FirstStepController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
             ],
         ],
         NormalizationController::class => [

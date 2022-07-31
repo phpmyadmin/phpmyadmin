@@ -13,7 +13,6 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function _pgettext;
-use function in_array;
 use function intval;
 use function json_decode;
 use function json_encode;
@@ -83,14 +82,6 @@ class NormalizationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['getNewTables2NF'])) {
-            $partialDependencies = json_decode($_POST['pd'], true);
-            $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $GLOBALS['table']);
-            echo $html;
-
-            return;
-        }
-
         if (isset($_POST['getNewTables3NF'])) {
             $dependencies = json_decode($_POST['pd']);
             $tables = json_decode($_POST['tables'], true);
@@ -103,11 +94,6 @@ class NormalizationController extends AbstractController
         }
 
         $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
-
-        $normalForm = '1nf';
-        if (isset($_POST['normalizeTo']) && in_array($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
-            $normalForm = $_POST['normalizeTo'];
-        }
 
         if (isset($_POST['createNewTables2NF'])) {
             $partialDependencies = json_decode($_POST['pd'], true);
@@ -144,49 +130,6 @@ class NormalizationController extends AbstractController
                 $GLOBALS['table'],
                 $GLOBALS['db']
             );
-            $this->response->addJSON($res);
-
-            return;
-        }
-
-        if (isset($_POST['step1'])) {
-            $html = $this->normalization->getHtmlFor1NFStep1($GLOBALS['db'], $GLOBALS['table'], $normalForm);
-            $this->response->addHTML($html);
-
-            return;
-        }
-
-        if (isset($_POST['step2'])) {
-            $res = $this->normalization->getHtmlContentsFor1NFStep2($GLOBALS['db'], $GLOBALS['table']);
-            $this->response->addJSON($res);
-
-            return;
-        }
-
-        if (isset($_POST['step3'])) {
-            $res = $this->normalization->getHtmlContentsFor1NFStep3($GLOBALS['db'], $GLOBALS['table']);
-            $this->response->addJSON($res);
-
-            return;
-        }
-
-        if (isset($_POST['step4'])) {
-            $res = $this->normalization->getHtmlContentsFor1NFStep4($GLOBALS['db'], $GLOBALS['table']);
-            $this->response->addJSON($res);
-
-            return;
-        }
-
-        if (isset($_POST['step']) && $_POST['step'] == '2.1') {
-            $res = $this->normalization->getHtmlFor2NFstep1($GLOBALS['db'], $GLOBALS['table']);
-            $this->response->addJSON($res);
-
-            return;
-        }
-
-        if (isset($_POST['step']) && $_POST['step'] == '3.1') {
-            $tables = $_POST['tables'];
-            $res = $this->normalization->getHtmlFor3NFstep1($GLOBALS['db'], $tables);
             $this->response->addJSON($res);
 
             return;

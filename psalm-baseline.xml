@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="v4.25.0@d7cd84c4ebca74ba3419b9601f81d177bcbe2aac">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument occurrences="8">
       <code>$matches[1]</code>
@@ -2399,11 +2399,35 @@
       <code>$_POST['itemType']</code>
     </MixedArgument>
   </file>
+  <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
+    <MixedArgument occurrences="1">
+      <code>$normalForm</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$normalForm</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Normalization/SecondNormalForm/NewTablesController.php">
+    <MixedArgument occurrences="2">
+      <code>$_POST['pd']</code>
+      <code>$partialDependencies</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$partialDependencies</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/FirstStepController.php">
+    <MixedArgument occurrences="1">
+      <code>$tables</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$tables</code>
+    </MixedAssignment>
+  </file>
   <file src="libraries/classes/Controllers/NormalizationController.php">
-    <MixedArgument occurrences="18">
+    <MixedArgument occurrences="14">
       <code>$_POST['newTables']</code>
       <code>$_POST['newTablesName']</code>
-      <code>$_POST['pd']</code>
       <code>$_POST['pd']</code>
       <code>$_POST['pd']</code>
       <code>$_POST['tables']</code>
@@ -2411,26 +2435,20 @@
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$newtables</code>
-      <code>$normalForm</code>
-      <code>$partialDependencies</code>
       <code>$partialDependencies</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
       <code>$tables</code>
-      <code>$tables</code>
       <code>$tablesName</code>
     </MixedArgument>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="9">
       <code>$dependencies</code>
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$newtables</code>
-      <code>$normalForm</code>
-      <code>$partialDependencies</code>
       <code>$partialDependencies</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
-      <code>$tables</code>
       <code>$tables</code>
       <code>$tablesName</code>
     </MixedAssignment>

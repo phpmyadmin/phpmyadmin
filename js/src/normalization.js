@@ -40,13 +40,12 @@ function goTo3NFStep1 (newTables) {
         tables = [window.CommonParams.get('table')];
     }
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/3nf/step1',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'server': window.CommonParams.get('server'),
             'tables': tables,
-            'step': '3.1'
         }, function (data) {
             $('#page_content').find('h3').html(window.Messages.str3NFNormalization);
             $('#mainContent').find('legend').html(data.legendText);
@@ -80,13 +79,12 @@ function goTo3NFStep1 (newTables) {
 
 function goTo2NFStep1 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/2nf/step1',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'step': '2.1'
         }, function (data) {
             $('#page_content h3').html(window.Messages.str2NFNormalization);
             $('#mainContent legend').html(data.legendText);
@@ -133,13 +131,12 @@ function goToFinish1NF () {
 
 function goToStep4 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step4',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'step4': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -157,13 +154,12 @@ window.goToStep4 = goToStep4;
 
 function goToStep3 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step3',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'step3': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -181,13 +177,12 @@ function goToStep3 () {
 
 function goToStep2 (extra) {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step2',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server'),
-            'step2': true
+            'server': window.CommonParams.get('server')
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -322,10 +317,10 @@ function goTo2NFStep2 (pd, primaryKey) {
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
             'pd': JSON.stringify(pd),
-            'getNewTables2NF':1 };
+        };
         $.ajax({
             type: 'POST',
-            url: 'index.php?route=/normalization',
+            url: 'index.php?route=/normalization/2nf/new-tables',
             data: datastring,
             async:false,
             success: function (data) {

@@ -117,28 +117,6 @@ class NormalizationControllerTest extends AbstractTestCase
         $this->expectOutputString($data);
     }
 
-    public function testGetNewTables2NF(): void
-    {
-        $_POST['getNewTables2NF'] = 1;
-        $_POST['pd'] = json_encode([
-            'ID, task' => [],
-            'task' => ['timestamp'],
-        ]);
-
-        $GLOBALS['goto'] = 'index.php?route=/sql';
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
-        /** @var NormalizationController $normalizationController */
-        $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
-        $normalizationController($this->createStub(ServerRequest::class));
-        $this->expectOutputString(
-            '<p><b>In order to put the original table \'test_tbl\' into Second normal'
-            . ' form we need to create the following tables:</b></p><p><input type="text" '
-            . 'name="ID, task" value="test_tbl">( <u>ID, task</u> )<p><input type="text" name="task"'
-            . ' value="table2">( <u>task</u>, timestamp )'
-        );
-    }
-
     public function testCreateNewTables2NF(): void
     {
         $_POST['createNewTables2NF'] = 1;
@@ -238,12 +216,12 @@ class NormalizationControllerTest extends AbstractTestCase
 
         $output = $response->getHTMLResult();
         $this->assertStringContainsString(
-            '<form method="post" action="index.php?route=/normalization&lang=en" name="normalize" id="normalizeTable"',
+            '<form method="post" action="index.php?route=/normalization/1nf/step1&lang=en"'
+            . ' name="normalize" id="normalizeTable"',
             $output
         );
         $this->assertStringContainsString('<input type="hidden" name="db" value="test_db">', $output);
         $this->assertStringContainsString('<input type="hidden" name="table" value="test_table">', $output);
-        $this->assertStringContainsString('<input type="hidden" name="step1" value="1">', $output);
         $this->assertStringContainsString('type="radio" name="normalizeTo"', $output);
         $this->assertStringContainsString('id="normalizeToRadio1" value="1nf" checked>', $output);
         $this->assertStringContainsString('id="normalizeToRadio2" value="2nf">', $output);
