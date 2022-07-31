@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-24 00:23+0000\n"
+"POT-Creation-Date: 2022-07-31 00:21+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1398,8 +1398,7 @@ msgstr "Izdeý:"
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: libraries/classes/Controllers/Server/PrivilegesController.php:341
-#: libraries/classes/Normalization.php:255
-#: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:325
+#: libraries/classes/Normalization.php:255 libraries/classes/Tracking.php:325
 #: libraries/classes/Tracking.php:479
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
@@ -1437,6 +1436,7 @@ msgstr "Izdeý:"
 #: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
+#: templates/table/normalization/normalization.twig:25
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -3666,7 +3666,7 @@ msgid "Servers"
 msgstr "Serverler"
 
 #: libraries/classes/Config/Descriptions.php:763
-#: libraries/classes/Controllers/Server/DatabasesController.php:309
+#: libraries/classes/Controllers/Server/DatabasesController.php:310
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:115
@@ -4404,7 +4404,7 @@ msgid "Explain SQL"
 msgstr "Explain SQL qosý"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1288 libraries/classes/Html/Generator.php:704
+#: libraries/classes/Export.php:1289 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4709,7 +4709,7 @@ msgstr "Qurylym"
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
-#: libraries/classes/Controllers/Server/DatabasesController.php:319
+#: libraries/classes/Controllers/Server/DatabasesController.php:320
 #: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
@@ -5095,39 +5095,39 @@ msgstr "Betbelgiler joq"
 
 #: libraries/classes/Controllers/AbstractController.php:77
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:71
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:72
 #: libraries/classes/DbTableExists.php:46
 msgid "No databases selected."
 msgstr "Derekqorlar bólektelmegen."
 
 #: libraries/classes/Controllers/AbstractController.php:135
-#: libraries/classes/Controllers/SchemaExportController.php:29
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/SchemaExportController.php:30
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:47
 msgid "Missing parameter:"
 msgstr "Jetispeıtin parametr:"
 
-#: libraries/classes/Controllers/ChangeLogController.php:38
-#: libraries/classes/Controllers/LicenseController.php:36
+#: libraries/classes/Controllers/ChangeLogController.php:40
+#: libraries/classes/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr "Osy júıede %s faıly qoljetimdi emes, kóbirek aqparat úshin %s baryńyz."
 
-#: libraries/classes/Controllers/Database/CentralColumnsController.php:146
+#: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s joldardy kórsetý."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: libraries/classes/Controllers/Database/DesignerController.php:113
+#: libraries/classes/Controllers/Database/DesignerController.php:114
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: libraries/classes/Controllers/Database/ExportController.php:89
-#: libraries/classes/Controllers/Database/TrackingController.php:138
+#: libraries/classes/Controllers/Database/ExportController.php:90
+#: libraries/classes/Controllers/Database/TrackingController.php:139
 #: libraries/classes/Controllers/Export/ExportController.php:345
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
@@ -5135,46 +5135,46 @@ msgstr ""
 msgid "No tables found in database."
 msgstr "Derekqorda kesteler tabylmady."
 
-#: libraries/classes/Controllers/Database/ExportController.php:151
-#: libraries/classes/Controllers/Server/ExportController.php:75
-#: libraries/classes/Controllers/Table/ExportController.php:111
+#: libraries/classes/Controllers/Database/ExportController.php:152
+#: libraries/classes/Controllers/Server/ExportController.php:76
+#: libraries/classes/Controllers/Table/ExportController.php:112
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Eksporttaý plagınderi júktelmedi, ornatylymdy tekserińiz!"
 
-#: libraries/classes/Controllers/Database/ImportController.php:80
-#: libraries/classes/Controllers/Import/ImportController.php:608
-#: libraries/classes/Controllers/Server/ImportController.php:59
-#: libraries/classes/Controllers/Table/ImportController.php:70
+#: libraries/classes/Controllers/Database/ImportController.php:81
+#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Server/ImportController.php:60
+#: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Import plagınderin júkteý múmkin bolmady, ornatymyńyzdy tekserińiz!"
 
-#: libraries/classes/Controllers/Database/Operations/CollationController.php:47
-#: libraries/classes/Controllers/Table/OperationsController.php:282
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:48
+#: libraries/classes/Controllers/Table/OperationsController.php:283
 msgid "No collation provided."
 msgstr "Kolasıa jetkizilmedi."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:106
-#: libraries/classes/Controllers/Table/CreateController.php:69
+#: libraries/classes/Controllers/Database/OperationsController.php:107
+#: libraries/classes/Controllers/Table/CreateController.php:70
 msgid "The database name is empty!"
 msgstr "Derekqor aty bos!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:115
+#: libraries/classes/Controllers/Database/OperationsController.php:116
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Derekqordy birattasqa kóshirý múmkin emes. Atyn ózgertińiz jáne qaıtalap "
 "kórińiz."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:200
+#: libraries/classes/Controllers/Database/OperationsController.php:201
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s derekqor aty %2$s atymen ózgertildi."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:210
+#: libraries/classes/Controllers/Database/OperationsController.php:211
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s derekqory %2$s ishine kóshirildi."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:319
+#: libraries/classes/Controllers/Database/OperationsController.php:320
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -5182,20 +5182,20 @@ msgstr ""
 "phpMyAdmin konfıgýrasıasyn saqtaýyshy ajyratyldy. %sNelikten ekenin tabyńyz"
 "%s."
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:67
+#: libraries/classes/Controllers/Database/PrivilegesController.php:68
 #: libraries/classes/Controllers/Server/PrivilegesController.php:153
-#: libraries/classes/Controllers/Server/UserGroupsController.php:53
-#: libraries/classes/Controllers/Table/PrivilegesController.php:65
+#: libraries/classes/Controllers/Server/UserGroupsController.php:54
+#: libraries/classes/Controllers/Table/PrivilegesController.php:66
 msgid "No Privileges"
 msgstr "Artyqshylyqtar joq"
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:76
+#: libraries/classes/Controllers/Database/PrivilegesController.php:77
 #: libraries/classes/Controllers/Server/PrivilegesController.php:162
-#: libraries/classes/Controllers/Table/PrivilegesController.php:74
+#: libraries/classes/Controllers/Table/PrivilegesController.php:75
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Paıdalanýshylardy basqarý úshin artyqshylyqtaryńyz joq!"
 
-#: libraries/classes/Controllers/Database/SearchController.php:55
+#: libraries/classes/Controllers/Database/SearchController.php:56
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
@@ -5203,16 +5203,16 @@ msgstr "Paıdalanýshylardy basqarý úshin artyqshylyqtaryńyz joq!"
 msgid "Access denied!"
 msgstr "Qatynaýdan bastartyldy!"
 
-#: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:19
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:44
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:44
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:44
-#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:20
-#: libraries/classes/Controllers/Database/Structure/CopyFormController.php:21
-#: libraries/classes/Controllers/Database/Structure/DropFormController.php:35
-#: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:22
-#: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
-#: libraries/classes/Controllers/Export/TablesController.php:29
+#: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:45
+#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:21
+#: libraries/classes/Controllers/Database/Structure/CopyFormController.php:22
+#: libraries/classes/Controllers/Database/Structure/DropFormController.php:36
+#: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:23
+#: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:33
+#: libraries/classes/Controllers/Export/TablesController.php:30
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:53
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:53
@@ -5224,33 +5224,33 @@ msgstr "Qatynaýdan bastartyldy!"
 msgid "No table selected."
 msgstr "Kesteler bólektenbedi."
 
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:52
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:52
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:52
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
 msgid "Success!"
 msgstr "Sáttilik!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:366
+#: libraries/classes/Controllers/Database/StructureController.php:367
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s kórinisi joıyldy."
 
-#: libraries/classes/Controllers/Database/StructureController.php:367
+#: libraries/classes/Controllers/Database/StructureController.php:368
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s kestesi joıyldy."
 
-#: libraries/classes/Controllers/Database/StructureController.php:414
+#: libraries/classes/Controllers/Database/StructureController.php:415
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s kestesi bosatyldy."
 
-#: libraries/classes/Controllers/Database/StructureController.php:577
+#: libraries/classes/Controllers/Database/StructureController.php:578
 #: libraries/classes/Display/Results.php:3761
 #, php-format
 msgid ""
@@ -5258,15 +5258,15 @@ msgid ""
 "%s."
 msgstr "Bul kóriniste keminde osy jol sany bar. %sQujattamany%s qarańyz."
 
-#: libraries/classes/Controllers/Database/StructureController.php:766
+#: libraries/classes/Controllers/Database/StructureController.php:767
 msgid "unknown"
 msgstr "belgisiz"
 
-#: libraries/classes/Controllers/Database/Structure/DropTableController.php:55
-#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:71
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
-#: libraries/classes/Controllers/Table/DeleteRowsController.php:58
-#: libraries/classes/Controllers/Table/DropColumnController.php:56
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:59
+#: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:523
@@ -5304,25 +5304,25 @@ msgstr "belgisiz"
 msgid "Yes"
 msgstr "Ia"
 
-#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
-#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
-#: libraries/classes/Controllers/Table/DropColumnController.php:73
-#: libraries/classes/Controllers/Table/OperationsController.php:342
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
+#: libraries/classes/Controllers/Table/DropColumnController.php:74
+#: libraries/classes/Controllers/Table/OperationsController.php:343
 #: libraries/classes/Controllers/Table/ReplaceController.php:335
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ózgerister joq"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:107
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr "Tańdaýly tizimi toldy!"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:91
-#: libraries/classes/Controllers/Database/TrackingController.php:111
+#: libraries/classes/Controllers/Database/TrackingController.php:92
+#: libraries/classes/Controllers/Database/TrackingController.php:112
 msgid "Tracking data deleted successfully."
 msgstr "Qadaǵalaý derekteri sátti joıyldy."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:98
+#: libraries/classes/Controllers/Database/TrackingController.php:99
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -5330,11 +5330,11 @@ msgstr ""
 "%1$s nusqasy bólektelgen kesteler úshin jasaldy, olar úshin qadaǵalaý "
 "belsendi."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:128
+#: libraries/classes/Controllers/Database/TrackingController.php:129
 msgid "No tables selected."
 msgstr "Kesteler bólektenbedi."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:163
+#: libraries/classes/Controllers/Database/TrackingController.php:164
 msgid "Database Log"
 msgstr "Derekqor jurnaly"
 
@@ -5368,7 +5368,7 @@ msgid "You may want to refresh the page."
 msgstr "Betti jańartýdy qalaýyńyz múmkin."
 
 #: libraries/classes/Controllers/Export/ExportController.php:136
-#: libraries/classes/Export.php:1275
+#: libraries/classes/Export.php:1276
 msgid "Bad type!"
 msgstr "Nashar túr!"
 
@@ -5376,7 +5376,7 @@ msgstr "Nashar túr!"
 msgid "Bad parameters!"
 msgstr "Nashar parametrler!"
 
-#: libraries/classes/Controllers/HomeController.php:102
+#: libraries/classes/Controllers/HomeController.php:103
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5384,7 +5384,7 @@ msgstr ""
 "Tek bir serverden shyqtyńyz, phpMyAdmin baǵdarlamasynan tolyqtaı shyǵý úshin "
 "barlyq serverlerden shyǵý qajet."
 
-#: libraries/classes/Controllers/HomeController.php:197
+#: libraries/classes/Controllers/HomeController.php:198
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5393,14 +5393,14 @@ msgstr ""
 "phpMyAdmin konfıgýrasıasyn saqtaýyshy tolyǵymen teńshelmegen, keıbir "
 "keńeıtilgen múmkindikter ajyratylǵan. %sNelikten ekenin tabyńyz%s. "
 
-#: libraries/classes/Controllers/HomeController.php:203
+#: libraries/classes/Controllers/HomeController.php:204
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Nemese ony sonda ornatý úshin, sonymen qatar, kezkelgen derekqordyń "
 "«Áreketter» qoıyndysyna ótińiz."
 
-#: libraries/classes/Controllers/HomeController.php:268
+#: libraries/classes/Controllers/HomeController.php:269
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5412,7 +5412,7 @@ msgstr ""
 "ishinde teńshelgen cookie-faıldyń jaramdylyǵynan góri tómen, sondyqtan "
 "seansyńyz phpMyAdmin ishindegi teńshelgenine qaraǵanda erte aıaqtalýy múmkin."
 
-#: libraries/classes/Controllers/HomeController.php:288
+#: libraries/classes/Controllers/HomeController.php:289
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5421,7 +5421,7 @@ msgstr ""
 "jaramdylyǵynan góri tómen, sondyqtan seansyńyz phpMyAdmin ishindegi "
 "teńshelgenine qaraǵanda erte aıaqtalady."
 
-#: libraries/classes/Controllers/HomeController.php:307
+#: libraries/classes/Controllers/HomeController.php:308
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5432,11 +5432,11 @@ msgstr ""
 "bul qaýipsizdik álsizdigin «pma» basqarýshy paıdalanýsahy parólin ózgertý "
 "arqyly túzetýge bolady."
 
-#: libraries/classes/Controllers/HomeController.php:323
+#: libraries/classes/Controllers/HomeController.php:324
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Konfıgýrasıa faıly qazir qupıa sóılemge (blowfish_secret) muqtaj."
 
-#: libraries/classes/Controllers/HomeController.php:331
+#: libraries/classes/Controllers/HomeController.php:332
 #, fuzzy, php-format
 #| msgid ""
 #| "The secret passphrase in configuration (blowfish_secret) is too short."
@@ -5445,7 +5445,7 @@ msgid ""
 "length. It should be %d bytes long."
 msgstr "Konfıgýrasıanyń qupıa sóılemi (blowfish_secret) tym qysqa."
 
-#: libraries/classes/Controllers/HomeController.php:348
+#: libraries/classes/Controllers/HomeController.php:349
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5457,7 +5457,7 @@ msgstr ""
 "Áıtpese, konfıgýrasıańyzdy júktep alǵan ókilettiligisiz adamdar arqyly "
 "serverińizdiń qaýipsizdigi buzylýy múmkin."
 
-#: libraries/classes/Controllers/HomeController.php:369
+#: libraries/classes/Controllers/HomeController.php:370
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5466,7 +5466,7 @@ msgstr ""
 "Server «Suhosin» arqyly jumys isteıdi. Yqtımal máseleler úshin %squjattamany"
 "%s qarańyz."
 
-#: libraries/classes/Controllers/HomeController.php:383
+#: libraries/classes/Controllers/HomeController.php:384
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5475,7 +5475,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) qoljetimdi emes. phpMyAdmin úlgilerdi keshke jibere "
 "almaıdy jáne sondyqtan baıaý bolady."
 
-#: libraries/classes/Controllers/HomeController.php:440
+#: libraries/classes/Controllers/HomeController.php:441
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5486,7 +5486,7 @@ msgstr ""
 "joldardy durys bólip shyǵarmaıdy jáne ol kútpegen nátıjelerge yshyrastyrýy "
 "múmkin."
 
-#: libraries/classes/Controllers/HomeController.php:458
+#: libraries/classes/Controllers/HomeController.php:459
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5495,20 +5495,20 @@ msgstr ""
 "baılanysty qate týraly esep berý nemese nusqany tekserý sıaqty keıbir "
 "múmkindikter óshirilgen."
 
-#: libraries/classes/Controllers/Import/ImportController.php:134
+#: libraries/classes/Controllers/Import/ImportController.php:135
 msgid "Incomplete params"
 msgstr "Tolyq emes parametrler"
 
-#: libraries/classes/Controllers/Import/ImportController.php:148
+#: libraries/classes/Controllers/Import/ImportController.php:149
 msgid "Succeeded"
 msgstr "Sátti aıaqtaldy"
 
-#: libraries/classes/Controllers/Import/ImportController.php:152
+#: libraries/classes/Controllers/Import/ImportController.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Failed"
 msgstr "Sátsiz aıaqtaldy"
 
-#: libraries/classes/Controllers/Import/ImportController.php:253
+#: libraries/classes/Controllers/Import/ImportController.php:254
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5517,17 +5517,17 @@ msgstr ""
 "Múmkin tym úlken faıldy júktep salýǵa tyrysqan bolarsyz. Bul shekteý úshin "
 "ýaqytsha sheshimdi %squjattamadan%s qarańyz."
 
-#: libraries/classes/Controllers/Import/ImportController.php:411
-#: libraries/classes/Controllers/Import/ImportController.php:648
+#: libraries/classes/Controllers/Import/ImportController.php:412
+#: libraries/classes/Controllers/Import/ImportController.php:649
 msgid "Showing bookmark"
 msgstr "Betbelgini kórsetý"
 
-#: libraries/classes/Controllers/Import/ImportController.php:437
-#: libraries/classes/Controllers/Import/ImportController.php:644
+#: libraries/classes/Controllers/Import/ImportController.php:438
+#: libraries/classes/Controllers/Import/ImportController.php:645
 msgid "The bookmark has been deleted."
 msgstr "Betbelgi joıyldy."
 
-#: libraries/classes/Controllers/Import/ImportController.php:554
+#: libraries/classes/Controllers/Import/ImportController.php:555
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5537,14 +5537,14 @@ msgstr ""
 "faıl ólshemi PHP konfıgýrasıasymen ruqsat etilgen eń úlken ólshemnen asyp "
 "ketti. [doc@faq1-16]FAQ 1.16[/doc] qarańyz."
 
-#: libraries/classes/Controllers/Import/ImportController.php:656
+#: libraries/classes/Controllers/Import/ImportController.php:657
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Import sátti aıaqtaldy, %d saýal oryndaldy."
 msgstr[1] "Import sátti aıaqtaldy, sany %d saýal oryndaldy."
 
-#: libraries/classes/Controllers/Import/ImportController.php:688
+#: libraries/classes/Controllers/Import/ImportController.php:689
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5553,7 +5553,7 @@ msgstr ""
 "Skrıptiniń kútý ýaqyty ótti, eger bul ımporttaýdy doǵarǵyńyz kelse, %ssol "
 "faıldy qaıta jiberińiz%s, al ımporttaý jalǵasady."
 
-#: libraries/classes/Controllers/Import/ImportController.php:698
+#: libraries/classes/Controllers/Import/ImportController.php:699
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5562,16 +5562,16 @@ msgstr ""
 "ádettegi maǵynasy, php parametrlerińizde ýaqyt shekteýlerin arttyrmaǵansha "
 "deıin, phpMyAdmin ımporttaýdy aıaqtaı almaıtynyn bildiredi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:766
-#: libraries/classes/Controllers/Sql/SqlController.php:172
+#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "«DROP DATABASE» nusqaýlary óshirilgen."
 
-#: libraries/classes/Controllers/Import/SimulateDmlController.php:38
+#: libraries/classes/Controllers/Import/SimulateDmlController.php:39
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Tek jalǵyz kestelik UPDATE men DELETE saýaldaryn elikteýge bolady."
 
-#: libraries/classes/Controllers/Import/StatusController.php:69
+#: libraries/classes/Controllers/Import/StatusController.php:70
 msgid "Could not load the progress of the import."
 msgstr "Importtyń oryndalý barysyn júkteý múmkin bolmady."
 
@@ -5965,7 +5965,7 @@ msgstr "Úlgi joýyldy."
 
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
-#: libraries/classes/Controllers/Server/Status/QueriesController.php:93
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:94
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr "Ózge"
@@ -6592,8 +6592,8 @@ msgid "Request failed!!"
 msgstr "Saýal sátsiz aıaqtaldy!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:340
-#: libraries/classes/Controllers/Sql/EnumValuesController.php:49
-#: libraries/classes/Controllers/Sql/SetValuesController.php:52
+#: libraries/classes/Controllers/Sql/EnumValuesController.php:50
+#: libraries/classes/Controllers/Sql/SetValuesController.php:53
 msgid "Error in processing request"
 msgstr "Saýaldy óńdep shyǵarý qatesi"
 
@@ -6819,7 +6819,7 @@ msgid "Variable %d:"
 msgstr "Aınymaly %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:403
-#: libraries/classes/Normalization.php:1051
+#: libraries/classes/Normalization.php:1005
 msgid "Pick"
 msgstr "Tańdaý"
 
@@ -6902,7 +6902,7 @@ msgid "No partial dependencies selected!"
 msgstr "Eshqandaı táýeldilik bólektelmedi!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Export.php:1328 libraries/classes/Html/Generator.php:977
+#: libraries/classes/Export.php:1329 libraries/classes/Html/Generator.php:977
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7333,7 +7333,7 @@ msgid "cancel"
 msgstr "boldyrmaý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:578
-#: libraries/classes/Controllers/Server/Status/StatusController.php:191
+#: libraries/classes/Controllers/Server/Status/StatusController.php:192
 msgid "Aborted"
 msgstr "Úzilgen"
 
@@ -8022,21 +8022,21 @@ msgid ""
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: libraries/classes/Controllers/NavigationController.php:46
+#: libraries/classes/Controllers/NavigationController.php:47
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Túzetilmeıtin qate: Sharlaýǵa tek AJAX arqyly qatynaý bolady"
 
-#: libraries/classes/Controllers/NormalizationController.php:38
+#: libraries/classes/Controllers/NormalizationController.php:39
 #: libraries/classes/Normalization.php:245
 msgid "Select one…"
 msgstr "Bireýin bólekteý…"
 
-#: libraries/classes/Controllers/NormalizationController.php:39
+#: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "Mundaı baǵan joq"
 
-#: libraries/classes/Controllers/NormalizationController.php:44
+#: libraries/classes/Controllers/NormalizationController.php:45
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
@@ -8062,7 +8062,7 @@ msgstr "Qos-faktorlyq túpnusqalyq rastamasy alastaldy."
 msgid "Two-factor authentication has been configured."
 msgstr "Qos-faktorly túpnusqalyq rastama teńsheldi."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:314
+#: libraries/classes/Controllers/Server/DatabasesController.php:315
 #: libraries/classes/Import.php:149
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:29
@@ -8071,7 +8071,7 @@ msgstr "Qos-faktorly túpnusqalyq rastama teńsheldi."
 msgid "Rows"
 msgstr "Joldar"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:324
+#: libraries/classes/Controllers/Server/DatabasesController.php:325
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
@@ -8080,25 +8080,25 @@ msgstr "Joldar"
 msgid "Indexes"
 msgstr "Indekster"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:329
-#: libraries/classes/Controllers/Server/Status/StatusController.php:145
-#: libraries/classes/Controllers/Server/Status/StatusController.php:197
+#: libraries/classes/Controllers/Server/DatabasesController.php:330
+#: libraries/classes/Controllers/Server/Status/StatusController.php:146
+#: libraries/classes/Controllers/Server/Status/StatusController.php:198
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Qorytyndy"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:334
+#: libraries/classes/Controllers/Server/DatabasesController.php:335
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Ústeme"
 
-#: libraries/classes/Controllers/Server/Databases/CreateController.php:85
+#: libraries/classes/Controllers/Server/Databases/CreateController.php:86
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "%1$s derekqory jasaldy."
 
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:96
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:97
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -8138,34 +8138,34 @@ msgstr ""
 "phpMyAdmin úshin %s tizbegin joıý múmkin bolmady. Ol áldeqashan jabylǵany "
 "yqtımal."
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:135
+#: libraries/classes/Controllers/Server/Status/StatusController.php:136
 msgid "Received"
 msgstr "Alynǵan"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:140
+#: libraries/classes/Controllers/Server/Status/StatusController.php:141
 msgid "Sent"
 msgstr "Jiberilgen"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:179
+#: libraries/classes/Controllers/Server/Status/StatusController.php:180
 msgid "Max. concurrent connections"
 msgstr "Eń kóp birkezdi qosylymdar"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:185
+#: libraries/classes/Controllers/Server/Status/StatusController.php:186
 msgid "Failed attempts"
 msgstr "Sátsiz áreketter"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:238
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:239
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 "Klıent qosylymdy durys jabylmastan quraǵandyqtan úzilgen qosylymnyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:242
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "MySQL serverine qosylý sátsiz áreketiniń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:243
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:244
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -8175,16 +8175,16 @@ msgstr ""
 "asatyn tranzaksıanyń sany, jáne tranzaksıadan  nusqaýlardy saqtaý úshin "
 "ýaqytsha faıl paıdalanatyn."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:247
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Ýaqytsha ekilik jurnal keshin paıdalanatyn tranzaksıa sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "MySQL serverine qosylý áreketiniń (sátti nemese joq) sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:250
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:251
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -8196,11 +8196,11 @@ msgstr ""
 "dıski-negizdi ornyna jad-negizdi týdyrý úshin tmp_table_size mánin "
 "arttyrǵyńyz múmkin."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:256
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:257
 msgid "How many temporary files mysqld has created."
 msgstr "mysqld arqyly qansha ýaqytsha faıl jasaldy."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:259
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -8208,7 +8208,7 @@ msgstr ""
 "Nusqaýlardy oryndaý kezinde server arqyly avtomatty jasalatyn jadtaǵy "
 "ýaqytsha kesteniń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:262
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:263
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -8216,7 +8216,7 @@ msgstr ""
 "INSERT DELAYED nusqaýmen jazylǵan, olarda keıbir qateler (múmkin "
 "qaıtalanatyn kiltten) oryn alǵan úshin, joldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:266
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:267
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -8224,23 +8224,23 @@ msgstr ""
 "Qoldanylatyn INSERT DELAYED óńdeýish tizbeginiń sany. Onda bireýi INSERT "
 "DELAYED paıdalanatyn árbir ártúrli keste óz tizbegin alady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:271
 msgid "The number of INSERT DELAYED rows written."
 msgstr "INSERT DELAYED jazylǵan joldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:271
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
 msgid "The number of executed FLUSH statements."
 msgstr "Oryndalǵan FLUSH nusqaýnyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:273
 msgid "The number of internal COMMIT statements."
 msgstr "Ishki COMMIT nusqaýnyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:273
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
 msgid "The number of times a row was deleted from a table."
 msgstr "Kesteden jol joıylǵan ret sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:276
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -8250,7 +8250,7 @@ msgstr ""
 "keste týraly bilse, ony suraı alady. Bul ashyp kórsetý dep atalady. "
 "Handler_discover ashyp kórsetilgen ýaqytsha kesteniń sanyn anyqtaıdy."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:281
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:282
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -8260,7 +8260,7 @@ msgstr ""
 "tolyq ındekstik skanerleýdi kóp jasaıdy dep boljaıdy; mysaly, SELECT col1 "
 "FROM foo, sonda col1 ındekstelgen dep boljanǵan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:287
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:288
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -8268,7 +8268,7 @@ msgstr ""
 "Kiltke negizdelgen joldy oqýǵa arnalǵan saýal sany. Eger bul joǵary bolsa, "
 "bul saýaldar men kesteler durys ındekstelgenin jaqsy kórsetedi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:292
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:293
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8278,7 +8278,7 @@ msgstr ""
 "shekteýleri bar ındekstik baǵanǵa saýal jasasańyz nemese eger ındekstik "
 "skanerleýdi isteseńiz, bul arttyrylady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:297
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -8286,7 +8286,7 @@ msgstr ""
 "Kilt retimen aldyńǵy joldy oqý úshin saýal sany. Bul oqý ádisi ORDER BY … "
 "DESC ońtaılandyrý úshin basymdy paıdalanylady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:302
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8298,7 +8298,7 @@ msgstr ""
 "Múmkin búkil kestelerdi skanerleý úshin MySQL qajet etetin kóptegen "
 "saýaldaryńyz bar nemese kiltterdi durys paıdalanbaıtyn jalǵasýlaryńyz bar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:308
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:309
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8310,35 +8310,35 @@ msgstr ""
 "ındekstelmegenin nemese bar ındeksterden paıda alý úshin saýaldaryńyz "
 "jazylmaǵanyn kórsetedi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:314
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
 msgid "The number of internal ROLLBACK statements."
 msgstr "Ishki ROLLBACK nusqaýnyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:316
 msgid "The number of requests to update a row in a table."
 msgstr "Kestede joldy jańartý saýaldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:316
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid "The number of requests to insert a row in a table."
 msgstr "Kestege joldy kiristirý saýaldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:318
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Derekter bar bettiń sany (bos emes nemese taza)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:318
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:319
 msgid "The number of pages currently dirty."
 msgstr "Aǵymda bos emes bet sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:320
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:321
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Tazartý saýaly jiberilgen býfer pýly betiniń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:322
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:323
 msgid "The number of free pages."
 msgstr "Bos bet sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:324
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:325
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -8348,7 +8348,7 @@ msgstr ""
 "nemese jazylyp jatqan nemese olar basqa sebeppen tazartylmaıdy nemese "
 "alastalmaıdy."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:329
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:330
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -8360,11 +8360,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data retinde eseptelýi múmkin."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:336
 msgid "Total size of buffer pool, in pages."
 msgstr "Býfer pýlynyń qorytyndy ólshemi, betpen alǵanda."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:337
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:338
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -8372,7 +8372,7 @@ msgstr ""
 "InnoDB iske qosqan «kezdeısoq» aldymen oqý sany. Bul saýal arqyly kezdeısoq "
 "retimen kesteniń úlken bóligin skanerleý kezinde oryn alady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:342
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -8380,11 +8380,11 @@ msgstr ""
 "InnoDB iske qosqan tizbektik aldymen oqý sany. Bul InnoDB kesteni tizbektik "
 "tolyq skanerleý istegen kezinde oryn alady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:345
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB oryndaǵan logıkalyq oqý saýalynyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:348
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -8392,7 +8392,7 @@ msgstr ""
 "InnoDB býferlik pýldan qanaǵattandyra almaǵan jáne jalǵyz bet oqý áreketin "
 "istegen logıkalyq oqý sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:351
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8405,51 +8405,51 @@ msgstr ""
 "tazalanýyn kútý qajet. Bul eseptegish osy kútýlerdiń danalaryn sanaıdy. Eger "
 "býfer pýlynyń ólshemi durys ornatylǵan bolsa, bul mán az bolýy kerek."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:358
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB býferlik pýlyna jazý jasalǵan sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid "The number of fsync() operations so far."
 msgstr "Osyi ýaqytqa deıin fsync() áreketiniń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
 msgid "The current number of pending fsync() operations."
 msgstr "Bógelis fsync() áreketiniń aǵymdaǵy sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid "The current number of pending reads."
 msgstr "Bógelis oqylymdardyń aǵymdyq sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
 msgid "The current number of pending writes."
 msgstr "Bógelis jazylymdardyń aǵymdyq sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:364
 msgid "The amount of data read so far, in bytes."
 msgstr "Ázirshe oqylǵan derekterdiń kólemi, baıttar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:364
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 msgid "The total number of data reads."
 msgstr "Derekter oqylymdarynyń qorytyndy sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:366
 msgid "The total number of data writes."
 msgstr "Derekter jazylymdarynyń qorytyndy sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:366
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
 msgid "The amount of data written so far, in bytes."
 msgstr "Ázirshe jazylǵan derekter kólemi, baıttar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:368
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Qos jazý áreketteri úshin jazylǵan bet sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:370
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Oryndalǵan qos jazý áreket sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:373
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -8457,35 +8457,35 @@ msgstr ""
 "Kútip jatqan sany, sebebi jurnaldyń býferi tym az boldy jáne jalǵastyrmas "
 "buryn ony tazalaýdy kútýge týra keldi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:375
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of log write requests."
 msgstr "Jurnalǵa jazý saýal sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of physical writes to the log file."
 msgstr "Jýrnal faılyna fızıkalyq jazylym sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
 msgid "The number of fsync() writes done to the log file."
 msgstr "Jýrnal faılyna jasalǵan fsync () jazylymnyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
 msgid "The number of pending log file fsyncs."
 msgstr "Jurnal faılynyń bógelis fsync() sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid "Pending log file writes."
 msgstr "Jurnal faılynyń bógelis jazylymdar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
 msgid "The number of bytes written to the log file."
 msgstr "Jurnal faılyna jazylǵan baıt sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
 msgid "The number of pages created."
 msgstr "Jasalǵan bet sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:383
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:384
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -8493,51 +8493,51 @@ msgstr ""
 "Qurastyrylǵan InnoDB bet ólshemi (ádepki 16KB). Kóptegen mánder betterde "
 "esepteledi; bet ólshemi olardy baıtqa ońaı túrlendirýge ruqsat etedi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:387
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
 msgid "The number of pages read."
 msgstr "Oqylǵan bet sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
 msgid "The number of pages written."
 msgstr "Jazylǵan bet sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
 msgid "The number of row locks currently being waited for."
 msgstr "Aǵymda kútip jatqan jol qulpynyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Joldy qulyptap alýdyń ortasha ýaqyty, mıllısekýntpen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:392
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Joldy qulyptap alýdyń jumsalǵan qorytyndy ýaqyty, mıllısekýntpen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:392
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Joldy qulyptap alýdyń eń uzaq ýaqyty, mıllısekýntpen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
 msgid "The number of times a row lock had to be waited for."
 msgstr "Joldy qulyptaýdyń kútip jatqan retiniń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB kestelerinen joıylǵan joldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB kestelerine kiristirilgen joldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB kestelerinen oqylǵan joldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:398
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB kestelerinde jańartylǵan joldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:399
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:400
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -8545,7 +8545,7 @@ msgstr ""
 "Ózgertilgen, biraq dıskige áli tazartylmaǵan kilt keshindegi kilt blogynyń "
 "sany. Ol ádette Not_flushed_key_blocks dep atalady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:404
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -8553,7 +8553,7 @@ msgstr ""
 "Kilt keshindegi paıdalanylmaǵan bloktyń sany. Bul mándi kilt keshiniń qansha "
 "paıdalanylýyn anyqtaý úshin paıdalana alasyz."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:408
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -8562,15 +8562,15 @@ msgstr ""
 "Kilt keshindegi paıdalanylǵan bloktyń sany. Bul mán bir ýaqytta qoldanystaǵy "
 "bloktardy eń kóp sanyn kórsetetin joǵary deńgeı belgisi bolyp tabylady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:412
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Qoldanylǵan kilt keshiniń paıyzdyǵy (eseptelgen mán)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
 msgid "The number of requests to read a key block from the cache."
 msgstr "Keshten kilt blogyn oqý úshin saýal sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:415
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:416
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -8580,7 +8580,7 @@ msgstr ""
 "key_buffer_size máni tym kishkentaı bolýy yqtımal. Kesh nátıjesizdiginiń "
 "araqatynasy Key_reads/Key_read_requests retinde esepteledi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:421
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -8588,22 +8588,22 @@ msgstr ""
 "Oqý saýaldarymen salystyrǵanda fızıkalyq oqýlardyń araqatynasy retinde "
 "eseptelgen kilt keshiniń nátıjesizdigi (eseptelgen mán)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
 msgid "The number of requests to write a key block to the cache."
 msgstr "Keshke kiltti blokty jazý saýalynyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
 msgid "The number of physical writes of a key block to disk."
 msgstr "Dıskige kilttik bloktyń fızıkalyq jazýynyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 "Jazý saýaldarymen salystyrǵanda fızıkalyq jazýlardyń paıyzdyǵy (eseptelgen "
 "mán)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:427
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:428
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -8613,18 +8613,18 @@ msgstr ""
 "shyǵyny. Birdeı saýal úshin ártúrli saýal josparlarynyń shyǵynyn salystyrýǵa "
 "paıdaly. Ádepki 0 máni eshbir saýal áli qurastyrylmaǵanyn bildiredi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:433
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 "Server iske qosylǵan keıin bir ýaqytta paıdalanylǵan qosylymnyń eń kóp sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:436
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "INSERT DELAYED kezegine jazylýdy kútip jatqan joldyń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:437
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:438
 #, fuzzy
 #| msgid ""
 #| "The number of tables that have been opened. If opened tables is big, your "
@@ -8636,19 +8636,19 @@ msgstr ""
 "Ashylǵan keste sany. Eger ashyq kesteler úlken bolsa, keste keshiniń máni "
 "tym shamaly bolýy múmkin."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:440
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
 msgid "The number of files that are open."
 msgstr "Ashyq faıl sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Ashyq aǵyn sany (jurnalǵa jazý úshin basymdy paıdalanylady)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 msgid "The number of tables that are open."
 msgstr "Ashyq keste sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -8658,19 +8658,19 @@ msgstr ""
 "nusqaýynyń shyǵarylýy arqyly sheshilýi múmkin bólshekteý máselelerin kórsete "
 "alady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:448
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The amount of free memory for query cache."
 msgstr "Saýal keshi úshin bos jad mólsheri."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
 msgid "The number of cache hits."
 msgstr "Keshke ushyrasý sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
 msgid "The number of queries added to the cache."
 msgstr "Keshke ústelgen saýal sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:452
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -8682,7 +8682,7 @@ msgstr ""
 "saýaldar keshten alastalatynyn sheshý úshin saýal keshi jýyqta az "
 "paıdalanylǵandardy (LRU) yǵystyryp shyǵarý strategıasyn paıdalanady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:459
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -8690,19 +8690,19 @@ msgstr ""
 "Keshtelmegen saýaldyń sany (keshtelýi múmkin emes, nemese query_cache_type "
 "parametrine baılanysty keshtelmegen)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:462
 msgid "The number of queries registered in the cache."
 msgstr "Keshte tirkelgen saýal sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:462
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The total number of blocks in the query cache."
 msgstr "Saýal keshindegi bloktyń qorytyndy sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:464
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Buzylýǵa turaqtylyq replıkalaý mártebesi (áli endirilmegen)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -8710,11 +8710,11 @@ msgstr ""
 "Indeksterdi paıdalanbaıtyn jalǵasý sany. Eger bul mán 0 bolmasa, "
 "kestelerińizdiń ındeksterin muqıat tekserińiz."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:468
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Anyqtamalyq kestede aýqymdy izdeýdi qoldanatyn jalǵasý sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:470
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:471
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -8722,7 +8722,7 @@ msgstr ""
 "Ár joldan keıin kilt paıdalanýdy tekseretin kilttersiz jalǵasý sany. (Eger "
 "bul 0 bolmasa, kestelerdiń ındeksterin muqıat tekserýińiz qajet.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:475
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -8730,11 +8730,11 @@ msgstr ""
 "Birinshi kestede aýqymdardy paıdalanatyn jalǵasý sany. (Bul úlken bolsa da, "
 "ádette mańyzdy emes.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:479
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Birinshi kesteni tolyq skanerleýdi istegen jalǵasý sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:479
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
 #, fuzzy
 #| msgid ""
 #| "The number of temporary tables currently open by the slave SQL thread."
@@ -8742,7 +8742,7 @@ msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr "Jetektegi SQL tizbek arqyly aǵymda ashylǵan ýaqytsha kesteniń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:481
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
 #, fuzzy
 #| msgid ""
 #| "Total (since startup) number of times the replication slave SQL thread "
@@ -8754,28 +8754,28 @@ msgstr ""
 "Jetektegi SQL-tizbekti replıkalaýy qaıtalanǵan tranzaksıasynyń qorytyndy "
 "(iske qosqannan beri) sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:483
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
 #, fuzzy
 #| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
 "Eger bul server jetekshige qosylǵan jetektegi bolsa, bunyń kúıi QOS bolady."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:485
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "Jasaý úshin slow_launch_time sekýntten kóbirek ýaqytty alǵan tizbek sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:487
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:488
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "long_query_time parametrindegi sekýntterden kóbirek ýaqyt jumsaǵan saýal "
 "sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -8785,23 +8785,23 @@ msgstr ""
 "úlken bolsa, sort_buffer_size júıe aınymaly mánin joǵarylatýdy qarastyrýyńyz "
 "kerek."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:494
 msgid "The number of sorts that were done with ranges."
 msgstr "Aýqymdarmen daıyndalǵan suryptaý sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:494
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
 msgid "The number of sorted rows."
 msgstr "Suryptalǵan jol sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Kesteni skanerleý arqyly istelgen suryptaý sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:497
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Keste qulpynyń birden alynǵan retiniń sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:499
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -8813,7 +8813,7 @@ msgstr ""
 "ońtaılandyryp, kesteńizdi nemese kestelerińizdi bólińiz nemese replıkalaýdy "
 "paıdalanyńyz."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:504
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:505
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -8823,11 +8823,11 @@ msgstr ""
 "Thread_created/Connections órnegi retinde esepteýge bolady. Eger bul mán "
 "qyzyl tústi bolsa, thread_cache_size mánin joǵarylatýyńyz qajet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:508
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:509
 msgid "The number of currently open connections."
 msgstr "Aǵymda ashyq qosylym sany."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:510
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:511
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -8839,15 +8839,15 @@ msgstr ""
 "tizbek endirýi jaqsy bolsa, bul ónimdiliktiń aıtarlyqtaı jaqsarýyna "
 "ákelmeıdi.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:516
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:517
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Tizbek keshiniń sáıkestik jıiligi (eseptelgen máni)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:517
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:518
 msgid "The number of threads that are not sleeping."
 msgstr "Belsendi tizbek sany."
 
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:61
 #, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
@@ -8881,13 +8881,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Qorǵalmaǵan qosylym"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:245
+#: libraries/classes/Controllers/Sql/SqlController.php:246
 #: libraries/classes/Sql.php:1139
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Betbelgi %s jasaldy."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:252
+#: libraries/classes/Controllers/Sql/SqlController.php:253
 msgid "Bookmark not created!"
 msgstr "Betbelgi jasalmady!"
 
@@ -8900,37 +8900,37 @@ msgid "Table %1$s has been altered successfully."
 msgstr "%1$s kestesi sátti ózgertildi."
 
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:37
-#: libraries/classes/Controllers/Table/DeleteConfirmController.php:27
-#: libraries/classes/Controllers/Table/ExportRowsController.php:37
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:28
+#: libraries/classes/Controllers/Table/ExportRowsController.php:38
 msgid "No row selected."
 msgstr "Jol bólektelmedi."
 
-#: libraries/classes/Controllers/Table/ChartController.php:59
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:69
+#: libraries/classes/Controllers/Table/ChartController.php:60
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:70
 msgid "No SQL query was set to fetch data."
 msgstr "Derekterdi shyǵaryp alý úshin SQL-saýal ornatylmaǵan."
 
-#: libraries/classes/Controllers/Table/ChartController.php:144
+#: libraries/classes/Controllers/Table/ChartController.php:145
 msgid "No numeric columns present in the table to plot."
 msgstr "Syzba úshin kestede sandyq baǵandar kórsetilmegen."
 
-#: libraries/classes/Controllers/Table/ChartController.php:207
+#: libraries/classes/Controllers/Table/ChartController.php:208
 msgid "No data to display"
 msgstr "Beıneleletin derekter joq"
 
-#: libraries/classes/Controllers/Table/CreateController.php:81
-#: libraries/classes/Controllers/Table/GetFieldController.php:48
+#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "«%s» derekqory joq."
 
-#: libraries/classes/Controllers/Table/CreateController.php:91
+#: libraries/classes/Controllers/Table/CreateController.php:92
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s kestesi áldeqashan bar!"
 
-#: libraries/classes/Controllers/Table/DeleteRowsController.php:79
-#: libraries/classes/Controllers/Table/FindReplaceController.php:178
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:80
+#: libraries/classes/Controllers/Table/FindReplaceController.php:179
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:82
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:82
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:82
@@ -8944,7 +8944,7 @@ msgstr "%s kestesi áldeqashan bar!"
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:299
-#: libraries/classes/Controllers/View/OperationsController.php:89
+#: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
@@ -8952,12 +8952,12 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL-saýalyńyz sátti oryndaldy."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
-#: libraries/classes/Controllers/Table/DropColumnController.php:50
+#: libraries/classes/Controllers/Table/DropColumnController.php:51
 #: libraries/classes/Controllers/Table/Structure/AddIndexController.php:46
-#: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
+#: libraries/classes/Controllers/Table/Structure/BrowseController.php:35
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:44
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:44
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:49
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:50
 #: libraries/classes/Controllers/Table/Structure/FulltextController.php:46
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
 #: libraries/classes/Controllers/Table/Structure/SpatialController.php:46
@@ -8965,7 +8965,7 @@ msgstr "SQL-saýalyńyz sátti oryndaldy."
 msgid "No column selected."
 msgstr "Bólektelgen baǵan joq."
 
-#: libraries/classes/Controllers/Table/DropColumnController.php:79
+#: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, fuzzy, php-format
 #| msgid "%1$d database has been dropped successfully."
 #| msgid_plural "%1$d databases have been dropped successfully."
@@ -8974,19 +8974,19 @@ msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d derekqor sátti joıyldy."
 msgstr[1] "sany %1$d derekqor sátti joıyldy."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:56
+#: libraries/classes/Controllers/Table/GetFieldController.php:57
 msgid "Invalid table name"
 msgstr "Jaramsyz keste aty"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:65
+#: libraries/classes/Controllers/Table/GetFieldController.php:66
 #: libraries/classes/Controllers/Transformation/WrapperController.php:78
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Munda tym kóp ındekssiz jalǵasýlar bar."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:79
+#: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1245
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:241
 #: libraries/classes/Sql.php:954
@@ -9001,8 +9001,8 @@ msgstr "MySQL bos nátıje jıynyn qaıtardy (ıaǵnı nóldik joldar)."
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/OperationsController.php:129
-#: libraries/classes/Controllers/Table/OperationsController.php:322
+#: libraries/classes/Controllers/Table/OperationsController.php:130
+#: libraries/classes/Controllers/Table/OperationsController.php:323
 #: libraries/classes/Controllers/Table/StructureController.php:108
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
@@ -9011,10 +9011,22 @@ msgstr ""
 msgid "View"
 msgstr "Kórinis"
 
+#: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:41
+#: libraries/classes/Controllers/Table/Partition/CheckController.php:41
+#: libraries/classes/Controllers/Table/Partition/DropController.php:41
+#: libraries/classes/Controllers/Table/Partition/OptimizeController.php:41
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
+#: libraries/classes/Controllers/Table/Partition/RepairController.php:41
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The partition name must be a non-empty string."
+msgstr "Keste aty bos!"
+
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
-#: libraries/classes/Controllers/View/OperationsController.php:92
+#: libraries/classes/Controllers/View/OperationsController.php:93
 #: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:737 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
@@ -9035,7 +9047,7 @@ msgstr "Ishki qatynastar sátti jańartyldy."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Jol: %1$s, Baǵan: %2$s, Qate: %3$s"
 
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:81
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:82
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "%s baǵanynyń sıpattamasyn alý sátsiz aıaqtaldy!"
@@ -9062,7 +9074,7 @@ msgstr "Alǵashqy"
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:170
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:171
 msgid "The columns have been moved successfully."
 msgstr "Baǵandar sátti jyljytyldy."
 
@@ -9072,7 +9084,7 @@ msgstr "Baǵandar sátti jyljytyldy."
 msgid "Query error"
 msgstr "Saýal qatesi"
 
-#: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:48
+#: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:49
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -9085,20 +9097,20 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s kestesi sátti ózgertildi. Artyqshylyqtar naqtylandy."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:77
+#: libraries/classes/Controllers/Table/TrackingController.php:78
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s qadaǵalaýy belsendirildi."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:153
+#: libraries/classes/Controllers/Table/TrackingController.php:154
 msgid "Tracking versions deleted successfully."
 msgstr "Qadaǵalaýshy nusqalar sátti joıyldy."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:158
+#: libraries/classes/Controllers/Table/TrackingController.php:159
 msgid "No versions selected."
 msgstr "Nusqalar bólektelmedi."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:191
+#: libraries/classes/Controllers/Table/TrackingController.php:192
 msgid "SQL statements executed."
 msgstr "SQL nusqaýlary oryndaldy."
 
@@ -10803,7 +10815,7 @@ msgid "Make all columns atomic"
 msgstr "Barlyq baǵandardy «atomic» etip jasaý"
 
 #: libraries/classes/Normalization.php:225
-#: libraries/classes/Normalization.php:961
+#: templates/table/normalization/normalization.twig:12
 msgid "First step of normalization (1NF)"
 msgstr "Biryńǵaılaýdyń birinshi qadamy (1NF)"
 
@@ -11068,29 +11080,7 @@ msgstr ""
 msgid "Table is already in Third normal form!"
 msgstr "Keste áldeqashan úshinshi qalypty pishinde!"
 
-#: libraries/classes/Normalization.php:955
-msgid "Improve table structure (Normalization):"
-msgstr "Kesteniń qurylymyn jaqsartý (Biryńǵaılaý):"
-
-#: libraries/classes/Normalization.php:956
-msgid "Select up to what step you want to normalize"
-msgstr "Qandaı qadamdy biryńǵaılaǵyńyz keletinin bólekteńiz"
-
-#: libraries/classes/Normalization.php:966
-msgid "Second step of normalization (1NF+2NF)"
-msgstr "Biryńǵaılaýdyń ekinshi qadamy (1NF+2NF)"
-
-#: libraries/classes/Normalization.php:971
-msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr "Biryńǵaılaýdyń úshinshi qadamy (1NF+2NF+3NF)"
-
-#: libraries/classes/Normalization.php:976
-msgid ""
-"Hint: Please follow the procedure carefully in order to obtain correct "
-"normalization"
-msgstr "Tuspal: Durys biryńǵaılaýdy alý úshin rásimdi muqıat oryndańyz"
-
-#: libraries/classes/Normalization.php:1047
+#: libraries/classes/Normalization.php:1001
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -11098,7 +11088,7 @@ msgstr ""
 "Bul tizim kesteniń derekteriniń ishki jıynyn negizge alady jáne durys bolýǵa "
 "qajet etpeıdi. "
 
-#: libraries/classes/Normalization.php:1062
+#: libraries/classes/Normalization.php:1016
 msgid "No partial dependencies found!"
 msgstr "Ishinara táýeldilikter tabylmady!"
 
@@ -18991,6 +18981,28 @@ msgstr "%s jolymen kiristirýdi jalǵastyrý"
 #| msgid "Check"
 msgid "Checksum"
 msgstr "Tekserý"
+
+#: templates/table/normalization/normalization.twig:6
+msgid "Improve table structure (Normalization):"
+msgstr "Kesteniń qurylymyn jaqsartý (Biryńǵaılaý):"
+
+#: templates/table/normalization/normalization.twig:8
+msgid "Select up to what step you want to normalize"
+msgstr "Qandaı qadamdy biryńǵaılaǵyńyz keletinin bólekteńiz"
+
+#: templates/table/normalization/normalization.twig:16
+msgid "Second step of normalization (1NF+2NF)"
+msgstr "Biryńǵaılaýdyń ekinshi qadamy (1NF+2NF)"
+
+#: templates/table/normalization/normalization.twig:20
+msgid "Third step of normalization (1NF+2NF+3NF)"
+msgstr "Biryńǵaılaýdyń úshinshi qadamy (1NF+2NF+3NF)"
+
+#: templates/table/normalization/normalization.twig:24
+msgid ""
+"Hint: Please follow the procedure carefully in order to obtain correct "
+"normalization"
+msgstr "Tuspal: Durys biryńǵaılaýdy alý úshin rásimdi muqıat oryndańyz"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"

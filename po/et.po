@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-24 00:23+0000\n"
+"POT-Creation-Date: 2022-07-31 00:21+0000\n"
 "PO-Revision-Date: 2022-06-15 11:20+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1342,8 +1342,7 @@ msgstr "Otsi:"
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: libraries/classes/Controllers/Server/PrivilegesController.php:341
-#: libraries/classes/Normalization.php:255
-#: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:325
+#: libraries/classes/Normalization.php:255 libraries/classes/Tracking.php:325
 #: libraries/classes/Tracking.php:479
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
@@ -1381,6 +1380,7 @@ msgstr "Otsi:"
 #: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
+#: templates/table/normalization/normalization.twig:25
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -3531,7 +3531,7 @@ msgid "Servers"
 msgstr "Serverid"
 
 #: libraries/classes/Config/Descriptions.php:763
-#: libraries/classes/Controllers/Server/DatabasesController.php:309
+#: libraries/classes/Controllers/Server/DatabasesController.php:310
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:115
@@ -4268,7 +4268,7 @@ msgid "Explain SQL"
 msgstr "Selgita SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1288 libraries/classes/Html/Generator.php:704
+#: libraries/classes/Export.php:1289 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4565,7 +4565,7 @@ msgstr "Struktuur"
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
-#: libraries/classes/Controllers/Server/DatabasesController.php:319
+#: libraries/classes/Controllers/Server/DatabasesController.php:320
 #: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
@@ -4943,19 +4943,19 @@ msgstr "Järjehoidjad puuduvad"
 
 #: libraries/classes/Controllers/AbstractController.php:77
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:71
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:72
 #: libraries/classes/DbTableExists.php:46
 msgid "No databases selected."
 msgstr "Ühtegi andmebaasi ei ole valitud."
 
 #: libraries/classes/Controllers/AbstractController.php:135
-#: libraries/classes/Controllers/SchemaExportController.php:29
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/SchemaExportController.php:30
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:47
 msgid "Missing parameter:"
 msgstr "Puudulik parameeter:"
 
-#: libraries/classes/Controllers/ChangeLogController.php:38
-#: libraries/classes/Controllers/LicenseController.php:36
+#: libraries/classes/Controllers/ChangeLogController.php:40
+#: libraries/classes/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -4964,21 +4964,21 @@ msgstr ""
 "Fail %s ei ole selles süsteemis saadaval; täiendavat informatsiooni leiad "
 "aadressilt %s."
 
-#: libraries/classes/Controllers/Database/CentralColumnsController.php:146
+#: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Kuvatakse read %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: libraries/classes/Controllers/Database/DesignerController.php:113
+#: libraries/classes/Controllers/Database/DesignerController.php:114
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 "Lehekülg nimega \"%s\" on juba olemas. Palun anna sellele mõni muu nimi."
 
-#: libraries/classes/Controllers/Database/ExportController.php:89
-#: libraries/classes/Controllers/Database/TrackingController.php:138
+#: libraries/classes/Controllers/Database/ExportController.php:90
+#: libraries/classes/Controllers/Database/TrackingController.php:139
 #: libraries/classes/Controllers/Export/ExportController.php:345
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
@@ -4986,67 +4986,67 @@ msgstr ""
 msgid "No tables found in database."
 msgstr "Andmebaasist tabeleid ei leitud."
 
-#: libraries/classes/Controllers/Database/ExportController.php:151
-#: libraries/classes/Controllers/Server/ExportController.php:75
-#: libraries/classes/Controllers/Table/ExportController.php:111
+#: libraries/classes/Controllers/Database/ExportController.php:152
+#: libraries/classes/Controllers/Server/ExportController.php:76
+#: libraries/classes/Controllers/Table/ExportController.php:112
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Ei saanud laadida eksportimise pluginaid, palun kontrolli oma paigaldust!"
 
-#: libraries/classes/Controllers/Database/ImportController.php:80
-#: libraries/classes/Controllers/Import/ImportController.php:608
-#: libraries/classes/Controllers/Server/ImportController.php:59
-#: libraries/classes/Controllers/Table/ImportController.php:70
+#: libraries/classes/Controllers/Database/ImportController.php:81
+#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Server/ImportController.php:60
+#: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Ei saanud importimise pluginaid laadida, palun kontrolli oma paigaldust!"
 
-#: libraries/classes/Controllers/Database/Operations/CollationController.php:47
-#: libraries/classes/Controllers/Table/OperationsController.php:282
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:48
+#: libraries/classes/Controllers/Table/OperationsController.php:283
 msgid "No collation provided."
 msgstr "Järjestamise reeglid puuduvad."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:106
-#: libraries/classes/Controllers/Table/CreateController.php:69
+#: libraries/classes/Controllers/Database/OperationsController.php:107
+#: libraries/classes/Controllers/Table/CreateController.php:70
 msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:115
+#: libraries/classes/Controllers/Database/OperationsController.php:116
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Andmebaasi koopia nimi ei saa olla ta vana nimi. Muuda koopia nime ja proovi "
 "uuesti."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:200
+#: libraries/classes/Controllers/Database/OperationsController.php:201
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s andmebaasi uueks nimeks on %2$sˇ."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:210
+#: libraries/classes/Controllers/Database/OperationsController.php:211
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s andmebaas on kopeeritud kohta %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:319
+#: libraries/classes/Controllers/Database/OperationsController.php:320
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "phpMyAdmini seadistuse salvestus on deaktiveeritud. %sVaata põhjust%s."
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:67
+#: libraries/classes/Controllers/Database/PrivilegesController.php:68
 #: libraries/classes/Controllers/Server/PrivilegesController.php:153
-#: libraries/classes/Controllers/Server/UserGroupsController.php:53
-#: libraries/classes/Controllers/Table/PrivilegesController.php:65
+#: libraries/classes/Controllers/Server/UserGroupsController.php:54
+#: libraries/classes/Controllers/Table/PrivilegesController.php:66
 msgid "No Privileges"
 msgstr "Õigused puuduvad"
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:76
+#: libraries/classes/Controllers/Database/PrivilegesController.php:77
 #: libraries/classes/Controllers/Server/PrivilegesController.php:162
-#: libraries/classes/Controllers/Table/PrivilegesController.php:74
+#: libraries/classes/Controllers/Table/PrivilegesController.php:75
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Sul puuduvad kasutajate haldamise õigused!"
 
-#: libraries/classes/Controllers/Database/SearchController.php:55
+#: libraries/classes/Controllers/Database/SearchController.php:56
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
@@ -5054,16 +5054,16 @@ msgstr "Sul puuduvad kasutajate haldamise õigused!"
 msgid "Access denied!"
 msgstr "Ligipääs keelatud!"
 
-#: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:19
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:44
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:44
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:44
-#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:20
-#: libraries/classes/Controllers/Database/Structure/CopyFormController.php:21
-#: libraries/classes/Controllers/Database/Structure/DropFormController.php:35
-#: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:22
-#: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
-#: libraries/classes/Controllers/Export/TablesController.php:29
+#: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:45
+#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:21
+#: libraries/classes/Controllers/Database/Structure/CopyFormController.php:22
+#: libraries/classes/Controllers/Database/Structure/DropFormController.php:36
+#: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:23
+#: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:33
+#: libraries/classes/Controllers/Export/TablesController.php:30
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:53
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:53
@@ -5073,33 +5073,33 @@ msgstr "Ligipääs keelatud!"
 msgid "No table selected."
 msgstr "Ühtegi tabelit ei ole valitud."
 
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:52
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:52
-#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:52
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
 msgid "Success!"
 msgstr "Õnnestus!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:366
+#: libraries/classes/Controllers/Database/StructureController.php:367
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vaade %s kustutati."
 
-#: libraries/classes/Controllers/Database/StructureController.php:367
+#: libraries/classes/Controllers/Database/StructureController.php:368
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabel %s kustutati."
 
-#: libraries/classes/Controllers/Database/StructureController.php:414
+#: libraries/classes/Controllers/Database/StructureController.php:415
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabel %s on tühjendatud."
 
-#: libraries/classes/Controllers/Database/StructureController.php:577
+#: libraries/classes/Controllers/Database/StructureController.php:578
 #: libraries/classes/Display/Results.php:3761
 #, php-format
 msgid ""
@@ -5108,15 +5108,15 @@ msgid ""
 msgstr ""
 "Sellel vaatel on vähemalt nii palju ridu. Palun loe %sdokumentatsiooni%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:766
+#: libraries/classes/Controllers/Database/StructureController.php:767
 msgid "unknown"
 msgstr "tundmatu"
 
-#: libraries/classes/Controllers/Database/Structure/DropTableController.php:55
-#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:71
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
-#: libraries/classes/Controllers/Table/DeleteRowsController.php:58
-#: libraries/classes/Controllers/Table/DropColumnController.php:56
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:59
+#: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:523
@@ -5154,36 +5154,36 @@ msgstr "tundmatu"
 msgid "Yes"
 msgstr "Jah"
 
-#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
-#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
-#: libraries/classes/Controllers/Table/DropColumnController.php:73
-#: libraries/classes/Controllers/Table/OperationsController.php:342
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
+#: libraries/classes/Controllers/Table/DropColumnController.php:74
+#: libraries/classes/Controllers/Table/OperationsController.php:343
 #: libraries/classes/Controllers/Table/ReplaceController.php:335
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ei muudetud"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:107
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:108
 msgid "Favorite List is full!"
 msgstr "Lemmikute nimekiri on täis!"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:91
-#: libraries/classes/Controllers/Database/TrackingController.php:111
+#: libraries/classes/Controllers/Database/TrackingController.php:92
+#: libraries/classes/Controllers/Database/TrackingController.php:112
 msgid "Tracking data deleted successfully."
 msgstr "Jälgimise andmed kustutati edukalt."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:98
+#: libraries/classes/Controllers/Database/TrackingController.php:99
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
 "Versioon %1$s loodi valitud tabelitele; nende jälgimine on aktiveeritud."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:128
+#: libraries/classes/Controllers/Database/TrackingController.php:129
 msgid "No tables selected."
 msgstr "Ühtegi tabelit ei ole valitud."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:163
+#: libraries/classes/Controllers/Database/TrackingController.php:164
 msgid "Database Log"
 msgstr "Andmebaasi logi"
 
@@ -5214,7 +5214,7 @@ msgid "You may want to refresh the page."
 msgstr "Sa võiksid lehekülje uuesti laadida."
 
 #: libraries/classes/Controllers/Export/ExportController.php:136
-#: libraries/classes/Export.php:1275
+#: libraries/classes/Export.php:1276
 msgid "Bad type!"
 msgstr "Halb tüüp!"
 
@@ -5222,7 +5222,7 @@ msgstr "Halb tüüp!"
 msgid "Bad parameters!"
 msgstr "Halvad parameetrid!"
 
-#: libraries/classes/Controllers/HomeController.php:102
+#: libraries/classes/Controllers/HomeController.php:103
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5230,7 +5230,7 @@ msgstr ""
 "Sind logiti väja ühest serverist. phpMyAdminist täielikuks välja logimiseks "
 "pead logima välja kõigist serveritest."
 
-#: libraries/classes/Controllers/HomeController.php:197
+#: libraries/classes/Controllers/HomeController.php:198
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5239,14 +5239,14 @@ msgstr ""
 "phpMyAdmini häälestuse salvestuskoht ei ole lõplikult häälestatud; mõned "
 "laiendatud funktsioonid ei ole aktiveeritud. %sVaata põhjust%s. "
 
-#: libraries/classes/Controllers/HomeController.php:203
+#: libraries/classes/Controllers/HomeController.php:204
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Alternatiivina mine suvalises andmebaasis sakile 'Operatsioonid' ja seadista "
 "ta seal."
 
-#: libraries/classes/Controllers/HomeController.php:268
+#: libraries/classes/Controllers/HomeController.php:269
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5258,7 +5258,7 @@ msgstr ""
 "väiksem, kui phpMyAdminis seadistatud küpsise kehtivus. Seetõttu võib "
 "sessioon aeguda kiiremini, kui phpMyAdminis seadistatud."
 
-#: libraries/classes/Controllers/HomeController.php:288
+#: libraries/classes/Controllers/HomeController.php:289
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5267,7 +5267,7 @@ msgstr ""
 "küpsise kehtivus, seetõttu sinu sisselogimine aegub varem, kui phpMyAdminis "
 "seadistatud."
 
-#: libraries/classes/Controllers/HomeController.php:307
+#: libraries/classes/Controllers/HomeController.php:308
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5277,11 +5277,11 @@ msgstr ""
 "ning on seetõttu sissetungimiseks avatud. Sa peaksid vahetama "
 "kontrollkasutaja 'pma' salasõna, et parandada see turvanõrkus."
 
-#: libraries/classes/Controllers/HomeController.php:323
+#: libraries/classes/Controllers/HomeController.php:324
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Seadistusfail vajab nüüd turvasõna (blowfish_secret)."
 
-#: libraries/classes/Controllers/HomeController.php:331
+#: libraries/classes/Controllers/HomeController.php:332
 #, php-format
 msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
@@ -5290,7 +5290,7 @@ msgstr ""
 "Konfiguratsioonis on salastatud fraas (blowfish_secret) vale pikkusega. See "
 "peaks olema %d baiti pikk."
 
-#: libraries/classes/Controllers/HomeController.php:348
+#: libraries/classes/Controllers/HomeController.php:349
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5302,7 +5302,7 @@ msgstr ""
 "kataloogi kindlasti kustutama. Vastasel korral võivad su serveri turvalisust "
 "ohustada isikud, kes on alla laadinud serveri seadistuste faili."
 
-#: libraries/classes/Controllers/HomeController.php:369
+#: libraries/classes/Controllers/HomeController.php:370
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5311,7 +5311,7 @@ msgstr ""
 "Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
 "%sdokumentatsioonist%s."
 
-#: libraries/classes/Controllers/HomeController.php:383
+#: libraries/classes/Controllers/HomeController.php:384
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5320,7 +5320,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) ei ole kasutatav. phpMyAdmin ei saa malle puhvermälus "
 "hoida ja on seetõttu aeglane."
 
-#: libraries/classes/Controllers/HomeController.php:440
+#: libraries/classes/Controllers/HomeController.php:441
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5330,7 +5330,7 @@ msgstr ""
 "märgitabelit. Ilma mbstring laiendita ei suuda phpMyAdmin sõnesid "
 "korralikult poolitada ja see võib viia ettearvamatute tulemusteni."
 
-#: libraries/classes/Controllers/HomeController.php:458
+#: libraries/classes/Controllers/HomeController.php:459
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5339,20 +5339,20 @@ msgstr ""
 "keelatud ka mõned võimalused nagu vigade raporteerimine või versiooni "
 "kontroll."
 
-#: libraries/classes/Controllers/Import/ImportController.php:134
+#: libraries/classes/Controllers/Import/ImportController.php:135
 msgid "Incomplete params"
 msgstr "Puudulikud parameetrid"
 
-#: libraries/classes/Controllers/Import/ImportController.php:148
+#: libraries/classes/Controllers/Import/ImportController.php:149
 msgid "Succeeded"
 msgstr "Õnnestus"
 
-#: libraries/classes/Controllers/Import/ImportController.php:152
+#: libraries/classes/Controllers/Import/ImportController.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Failed"
 msgstr "Nurjus"
 
-#: libraries/classes/Controllers/Import/ImportController.php:253
+#: libraries/classes/Controllers/Import/ImportController.php:254
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5361,17 +5361,17 @@ msgstr ""
 "Tõenäoliselt üritasid üles laadida liiga suurt faili. Palun loe "
 "%sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
 
-#: libraries/classes/Controllers/Import/ImportController.php:411
-#: libraries/classes/Controllers/Import/ImportController.php:648
+#: libraries/classes/Controllers/Import/ImportController.php:412
+#: libraries/classes/Controllers/Import/ImportController.php:649
 msgid "Showing bookmark"
 msgstr "Näitan järjehoidjat"
 
-#: libraries/classes/Controllers/Import/ImportController.php:437
-#: libraries/classes/Controllers/Import/ImportController.php:644
+#: libraries/classes/Controllers/Import/ImportController.php:438
+#: libraries/classes/Controllers/Import/ImportController.php:645
 msgid "The bookmark has been deleted."
 msgstr "Järjehoidja on kustutatud."
 
-#: libraries/classes/Controllers/Import/ImportController.php:554
+#: libraries/classes/Controllers/Import/ImportController.php:555
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5381,14 +5381,14 @@ msgstr ""
 "maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
 "[doc@faq1-16]KKK 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:656
+#: libraries/classes/Controllers/Import/ImportController.php:657
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importimine lõpetati edukalt, teostati %d päring."
 msgstr[1] "Importimine lõpetati edukalt, teostati %d päringut."
 
-#: libraries/classes/Controllers/Import/ImportController.php:688
+#: libraries/classes/Controllers/Import/ImportController.php:689
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5397,7 +5397,7 @@ msgstr ""
 "Ületati skripti ooteaeg. Kui tahad importimise lõpetada, siis palun %ssaada "
 "fail uuesti%s ja importimine jätkub poolelijäänud kohast."
 
-#: libraries/classes/Controllers/Import/ImportController.php:698
+#: libraries/classes/Controllers/Import/ImportController.php:699
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5406,18 +5406,18 @@ msgstr ""
 "phpMyAdmin ei suuda importimist lõpetada, kuni sa ei suurenda php aja "
 "piiranguid."
 
-#: libraries/classes/Controllers/Import/ImportController.php:766
-#: libraries/classes/Controllers/Sql/SqlController.php:172
+#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
 
-#: libraries/classes/Controllers/Import/SimulateDmlController.php:38
+#: libraries/classes/Controllers/Import/SimulateDmlController.php:39
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Simuleerida on võimalik ainult ühe tabeli uuendamise ja kustutamise "
 "päringuid."
 
-#: libraries/classes/Controllers/Import/StatusController.php:69
+#: libraries/classes/Controllers/Import/StatusController.php:70
 msgid "Could not load the progress of the import."
 msgstr "Importimise edenemise laadimine nurjus."
 
@@ -5800,7 +5800,7 @@ msgstr "Mall on kustutatud."
 
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
-#: libraries/classes/Controllers/Server/Status/QueriesController.php:93
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:94
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr "Muud"
@@ -6422,8 +6422,8 @@ msgid "Request failed!!"
 msgstr "Päring nurjus!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:340
-#: libraries/classes/Controllers/Sql/EnumValuesController.php:49
-#: libraries/classes/Controllers/Sql/SetValuesController.php:52
+#: libraries/classes/Controllers/Sql/EnumValuesController.php:50
+#: libraries/classes/Controllers/Sql/SetValuesController.php:53
 msgid "Error in processing request"
 msgstr "Taotluse töötlemisel esines viga"
 
@@ -6647,7 +6647,7 @@ msgid "Variable %d:"
 msgstr "Muutuja %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:403
-#: libraries/classes/Normalization.php:1051
+#: libraries/classes/Normalization.php:1005
 msgid "Pick"
 msgstr "Vali"
 
@@ -6730,7 +6730,7 @@ msgid "No partial dependencies selected!"
 msgstr "Ühtegi osalist sõltuvust ei ole valitud!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Export.php:1328 libraries/classes/Html/Generator.php:977
+#: libraries/classes/Export.php:1329 libraries/classes/Html/Generator.php:977
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7160,7 +7160,7 @@ msgid "cancel"
 msgstr "katkesta"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:578
-#: libraries/classes/Controllers/Server/Status/StatusController.php:191
+#: libraries/classes/Controllers/Server/Status/StatusController.php:192
 msgid "Aborted"
 msgstr "Katkestatud"
 
@@ -7838,21 +7838,21 @@ msgstr ""
 "Need funktsioonid on mõeldud binaartulemusele. Vasturääkivate tulemuste "
 "vältimiseks peaksid neid salvestama BINARY, VARBINARY või BLOB tüüpi veerus."
 
-#: libraries/classes/Controllers/NavigationController.php:46
+#: libraries/classes/Controllers/NavigationController.php:47
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Fataalne viga: navigeerimiseks on vajalik AJAX"
 
-#: libraries/classes/Controllers/NormalizationController.php:38
+#: libraries/classes/Controllers/NormalizationController.php:39
 #: libraries/classes/Normalization.php:245
 msgid "Select one…"
 msgstr "Vali üks…"
 
-#: libraries/classes/Controllers/NormalizationController.php:39
+#: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "Sellist veergu ei ole"
 
-#: libraries/classes/Controllers/NormalizationController.php:44
+#: libraries/classes/Controllers/NormalizationController.php:45
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
@@ -7878,7 +7878,7 @@ msgstr "Kaheastmeline autentimine eemaldatud."
 msgid "Two-factor authentication has been configured."
 msgstr "Kaheastmeline autentimine seadistatud."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:314
+#: libraries/classes/Controllers/Server/DatabasesController.php:315
 #: libraries/classes/Import.php:149
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:29
@@ -7887,7 +7887,7 @@ msgstr "Kaheastmeline autentimine seadistatud."
 msgid "Rows"
 msgstr "Ridu"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:324
+#: libraries/classes/Controllers/Server/DatabasesController.php:325
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
@@ -7896,25 +7896,25 @@ msgstr "Ridu"
 msgid "Indexes"
 msgstr "Indeksid"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:329
-#: libraries/classes/Controllers/Server/Status/StatusController.php:145
-#: libraries/classes/Controllers/Server/Status/StatusController.php:197
+#: libraries/classes/Controllers/Server/DatabasesController.php:330
+#: libraries/classes/Controllers/Server/Status/StatusController.php:146
+#: libraries/classes/Controllers/Server/Status/StatusController.php:198
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Kokku"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:334
+#: libraries/classes/Controllers/Server/DatabasesController.php:335
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Ballast"
 
-#: libraries/classes/Controllers/Server/Databases/CreateController.php:85
+#: libraries/classes/Controllers/Server/Databases/CreateController.php:86
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Andmebaas %1$s on loodud."
 
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:96
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:97
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -7951,23 +7951,23 @@ msgid ""
 msgstr ""
 "phpMyAdmin ei suutnud katkestada %s lõimu. Tõenäoliselt on see juba suletud."
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:135
+#: libraries/classes/Controllers/Server/Status/StatusController.php:136
 msgid "Received"
 msgstr "Vastu võetud"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:140
+#: libraries/classes/Controllers/Server/Status/StatusController.php:141
 msgid "Sent"
 msgstr "Saadetud"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:179
+#: libraries/classes/Controllers/Server/Status/StatusController.php:180
 msgid "Max. concurrent connections"
 msgstr "Maks. paralleelühendusi"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:185
+#: libraries/classes/Controllers/Server/Status/StatusController.php:186
 msgid "Failed attempts"
 msgstr "Ebaõnnestunud katseid"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:238
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:239
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -7975,11 +7975,11 @@ msgstr ""
 "Ühenduste hulk, mis katkestati seetõttu, et klient lahkus liinilt ilma "
 "ühendust korralikult sulgemata."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:242
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Ühenduste hulk, millel ei õnnestunud MySQL serveriga ühendada."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:243
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:244
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -7989,17 +7989,17 @@ msgstr ""
 "ületas binlog_cache_size väärtuse ja mis kasutasid ülekannete käskude "
 "salvestamiseks ajutist faili."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:247
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Ülekannete hulk, mis kasutasid ajutist binaarse logi puhvrit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 "Ühenduste hulk, mis üritas (edukalt või mitte) ühendada MySQL serveriga."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:250
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:251
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -8011,11 +8011,11 @@ msgstr ""
 "suurendada tmp_table_size  väärtust, et ajutised tabelid oleksid "
 "mälupõhised, mitte kettapõhised."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:256
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:257
 msgid "How many temporary files mysqld has created."
 msgstr "Mysqld poolt loodud ajutiste failide hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:259
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -8023,7 +8023,7 @@ msgstr ""
 "Mälupõhiste ajutiste tabelite hulk, mis on loodud automaatselt serveri poolt "
 "käskude täitmise ajal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:262
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:263
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -8031,7 +8031,7 @@ msgstr ""
 "INSERT DELAYED käsuga kirjutatud ridade hulk, millel esines mõni viga "
 "(tõenäoliselt korduv võti)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:266
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:267
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -8039,23 +8039,23 @@ msgstr ""
 "Kasutusel olevate INSERT DELAYED töötleja lõimude hulk. Iga erinev tabel, "
 "mis kasutab INSERT DELAYED käsku, saab endale isikliku lõimu."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:271
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Kirjutatud INSERT DELAYED ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:271
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
 msgid "The number of executed FLUSH statements."
 msgstr "Käivitatud FLUSH käskude hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:273
 msgid "The number of internal COMMIT statements."
 msgstr "Sisemiste COMMIT käskude hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:273
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
 msgid "The number of times a row was deleted from a table."
 msgstr "Tabelist kustutatud ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:276
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -8065,7 +8065,7 @@ msgstr ""
 "nimega tabelit. Seda nimetatakse avastamiseks. Handler_discover näitab, mitu "
 "korda on tabeleid avastatud."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:281
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:282
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -8075,7 +8075,7 @@ msgstr ""
 "tähendada seda, et server teeb väga palju täielikke indeksite kontrolle. "
 "Näiteks SELECT veerg1 FROM tabel viitab, et veerg1 on indekseeritud."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:287
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:288
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -8083,7 +8083,7 @@ msgstr ""
 "Võtmel põhineva rea lugemise taotluste hulk. Kui see on kõrge, siis on see "
 "hea näitaja, et sinu päringud ja tabelid on korralikult indekseeritud."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:292
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:293
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8092,7 +8092,7 @@ msgstr ""
 "Võtme järjekorras järgmise rea lugemise taotluste hulk. See on suurem, kui "
 "pärid kitsendatud indekseeritud veergu või teed indeksi kontrolli."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:297
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -8100,7 +8100,7 @@ msgstr ""
 "Võtme järjekorras eelmise rea lugemise taotluste hulk. Seda lugemise "
 "meetodit kasutatakse peamiselt ORDER BY … DESC optimeerimiseks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:302
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8112,7 +8112,7 @@ msgstr ""
 "palju päringuid, millega peab MySQL kontrolliga terveid tabeleid või kasutad "
 "liitmisi, mis ei kasuta võtmeid korralikult."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:308
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:309
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8124,35 +8124,35 @@ msgstr ""
 "korralikult indekseeritud või sinu päringud ei ole kirjutatud selliselt, et "
 "need kasutaksid ära indeksid, mis sul on."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:314
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
 msgid "The number of internal ROLLBACK statements."
 msgstr "Sisemiste ROLLBACK käskude hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:316
 msgid "The number of requests to update a row in a table."
 msgstr "Tabeli rea uuendamise taotluste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:316
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid "The number of requests to insert a row in a table."
 msgstr "Tabelisse rea lisamise taotluste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:318
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Andmeid (räpased või puhtad) sisaldavate lehtede hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:318
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:319
 msgid "The number of pages currently dirty."
 msgstr "Hetkel räpaseid andmeid sisaldavate lehtede hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:320
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:321
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Puhvertsooni lehtede hulk, mida on taotletud tühjendama."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:322
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:323
 msgid "The number of free pages."
 msgstr "Vabade lehtede hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:324
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:325
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -8162,7 +8162,7 @@ msgstr ""
 "loetakse või kirjutatakse või mida ei saa mingil muul põhjusel tühjendada "
 "ega eemaldada."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:329
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:330
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -8174,11 +8174,11 @@ msgstr ""
 "valemiga Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:336
 msgid "Total size of buffer pool, in pages."
 msgstr "Puhvertsooni kogumaht lehtedes."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:337
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:338
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -8186,7 +8186,7 @@ msgstr ""
 "InnoDB algatatud \"juhuslike\" ettelugemiste hulk. See juhtub siis, kui "
 "päring peab kontrollima palju tabeleid, aga juhuslikus järjekorras."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:342
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -8194,11 +8194,11 @@ msgstr ""
 "InnoDB algatatud järjestike ettelugemiste hulk. See juhtub siis, kui InnoDB "
 "teeb järjestikulist kogu tabeli kontrolli."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:345
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB poolt tehtud loogiliste lugemise taotluste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:348
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -8206,7 +8206,7 @@ msgstr ""
 "Loogiliste lugemiste hulk, mida InnoDB puhvertsoonist teha ei saanud ja mida "
 "pidi tegema ühelehelise lugemisena."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:351
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8220,51 +8220,51 @@ msgstr ""
 "palju veel ootama peab. Kui puhvertsooni maht on õigesti seadistatud, siis "
 "see väärtus peaks olema madal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:358
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB puhvertsooni tehtud kirjutamiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid "The number of fsync() operations so far."
 msgstr "Seni tehtud fsync() operatsioonide hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
 msgid "The current number of pending fsync() operations."
 msgstr "Hetkel järjekorras olevate fsync() operatsioonide hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid "The current number of pending reads."
 msgstr "Hetkel järjekorras olevate lugemiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
 msgid "The current number of pending writes."
 msgstr "Hetkel järjekorras olevate kirjutamiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:364
 msgid "The amount of data read so far, in bytes."
 msgstr "Seni loetud andmete koguhulk baitides."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:364
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 msgid "The total number of data reads."
 msgstr "Andmete lugemiste koguhulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:366
 msgid "The total number of data writes."
 msgstr "Andmete kirjutamiste koguhulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:366
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
 msgid "The amount of data written so far, in bytes."
 msgstr "Seni kirjutatud andmete koguhulk baitides."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:368
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Topeltkirjutamise operatsioonide jaoks kirjutatud lehtede hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:370
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Teostatud topeltkirjutamise operatsioonide hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:373
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -8272,35 +8272,35 @@ msgstr ""
 "Ootamiste hulk, mida on põhjustanud väike logi puhver ja mille tõttu on enne "
 "jätkamist pidanud ootama selle tühjendamist."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:375
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of log write requests."
 msgstr "Logi kirjutamise taotluste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of physical writes to the log file."
 msgstr "Logi failisse füüsiliste kirjutamiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
 msgid "The number of fsync() writes done to the log file."
 msgstr "fsync() poolt logi failisse tehtud kirjutamiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
 msgid "The number of pending log file fsyncs."
 msgstr "Järjekorras olevate logifailide fsync() operatsioonide hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid "Pending log file writes."
 msgstr "Järjekorras olevad logi faili kirjutamised."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
 msgid "The number of bytes written to the log file."
 msgstr "Logi faili kirjutatud baitide hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
 msgid "The number of pages created."
 msgstr "Loodud lehtede hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:383
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:384
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -8308,51 +8308,51 @@ msgstr ""
 "Sisseehitatud InnoDB lehe maht (vaikimisi 16KB). Siin lehel on loendatud "
 "mitmeid väärtusi. Lehe maht lubab neid kergesti baitidesse teisendada."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:387
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
 msgid "The number of pages read."
 msgstr "Loetud lehtede hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
 msgid "The number of pages written."
 msgstr "Kirjutatud lehtede hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
 msgid "The number of row locks currently being waited for."
 msgstr "Hetkel ootel olevate rea lukustamiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Rea lukustamise saamise keskmine aeg millisekundites."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:392
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Rea lukustamise saamiseks kulutatud aeg kokku millisekundites."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:392
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Rea lukustamise saamise maksimaalne aeg millisekundites."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
 msgid "The number of times a row lock had to be waited for."
 msgstr "Ootama pidanud rea lukustamised kokku."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB tabelitest kustutatud ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB tabelitesse lisatud ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB tabelitest loetud ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:398
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB tabelites uuendatud ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:399
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:400
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -8360,7 +8360,7 @@ msgstr ""
 "Võtme puhvris võtmeplokkide hulk, mida on küll muudetud, kuid pole veel "
 "kettale tühjendatud. Seda kasutatakse kui Not_flushed_key_blocks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:404
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -8368,7 +8368,7 @@ msgstr ""
 "Võtmepuhvris kasutamata plokkide hulk. Seda väärtust saad kasutada kasutusel "
 "oleva võtme puhvri mahu tuvastamiseks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:408
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -8378,15 +8378,15 @@ msgstr ""
 "näitab maksimaalset plokkide hulka, mis on kunagi samaaegselt kasutusel "
 "olnud."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:412
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Kasutatud võtme puhvri protsent (arvutatud väärtus)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
 msgid "The number of requests to read a key block from the cache."
 msgstr "Puhvrist võtmeploki lugemise taotluste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:415
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:416
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -8396,7 +8396,7 @@ msgstr ""
 "tõenäoliselt on sinu key_buffer_size väärtus liiga väike. Puhvri puudujääki "
 "saab arvutada valemiga Key_reads/Key_read_requests."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:421
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -8404,22 +8404,22 @@ msgstr ""
 "Võtme puhvri puudujäägi arvutamisel võrreldakse füüsilisi lugemisi lugemise "
 "taotlustega (arvutatud väärtus)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
 msgid "The number of requests to write a key block to the cache."
 msgstr "Puhvrisse võtmeploki kirjutamise taotluste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
 msgid "The number of physical writes of a key block to disk."
 msgstr "Kettale võtmeploki füüsiliste kirjutamiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 "Füüsiliste kirjutamiste ja kirjutamise taotluste võrdlemise protsent "
 "(arvutatud väärtus)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:427
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:428
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -8429,7 +8429,7 @@ msgstr ""
 "on kasulik erinevate päringuplaanide kulu võrdlemisel sama päringuga. "
 "Vaikimisi väärtus 0 tähendab, et ühtegi päringut pole veel koostatud."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:433
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -8437,12 +8437,12 @@ msgstr ""
 "Maksimaalne ühenduste hulk, mis on korraga kasutusel olnud alates serveri "
 "käivitamisest."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:436
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "INSERT DELAYED järjekordades kirjutamisvalmis olevate ootel ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:437
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:438
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
@@ -8450,19 +8450,19 @@ msgstr ""
 "Avatud tabelite arv. Kui avatud tabeleid on palju, siis sinu on parameetri "
 "table_open_cache väärtus tõenäoliselt liiga väike."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:440
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
 msgid "The number of files that are open."
 msgstr "Avatud failide hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Avatud striimide hulk (kasutatakse peamiselt sisselogimisel)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 msgid "The number of tables that are open."
 msgstr "Avatud tabelite hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -8472,19 +8472,19 @@ msgstr ""
 "killustumise probleemidele, mida saab lahendada FLUSH QUERY CACHE käsu "
 "täitmisega."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:448
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The amount of free memory for query cache."
 msgstr "Päringu puhvri jaoks vaba mälu hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
 msgid "The number of cache hits."
 msgstr "Puhvri kasutamise hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
 msgid "The number of queries added to the cache."
 msgstr "Puhvrisse lisatud päringute hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:452
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -8496,7 +8496,7 @@ msgstr ""
 "puhver kasutab hiljutise kasutamise (LRU) strateegiat, et otsustada, milline "
 "päring puhvrist kustutada."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:459
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -8504,19 +8504,19 @@ msgstr ""
 "Puhverdamata päringute hulk (pole puhverdatav või ei puhverdatud "
 "query_cache_type sätte tõttu)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:462
 msgid "The number of queries registered in the cache."
 msgstr "Puhvris registreeritud päringute hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:462
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The total number of blocks in the query cache."
 msgstr "Päringu puhvris olevate plokkide koguhulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:464
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Töökindla paljundamise staatus (pole veel kasutusele võetud)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -8524,11 +8524,11 @@ msgstr ""
 "Indekseid mittekasutatavate liitmiste hulk. Kui see väärtus ei ole 0, siis "
 "peaksid hoolikalt kontrollima oma tabelite indekseid."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:468
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Viidete tabelis piirkondlikku otsimist kasutanud liitmiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:470
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:471
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -8537,7 +8537,7 @@ msgstr ""
 "rida. (Kui see ei ole 0, siis peaksid hoolikalt kontrollima oma tabelite "
 "indekseid.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:475
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -8545,16 +8545,16 @@ msgstr ""
 "Esimeses tabelis piirkonda kasutanud liitmiste hulk. (Tavaliselt pole "
 "kriitiline, kui see on suur.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:479
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Esimeses tabelis täielikku kontrolli teinud liitmiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:479
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr "Ajutiste tabelite arv, mille on hetkel avanud tiražeeriv SQL lõim."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:481
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
@@ -8562,25 +8562,25 @@ msgstr ""
 "Tehingute korduskatsete koguarv (alates käivitusest), mida teeb "
 "tiražeerimisel kordistav SQL lõim."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:483
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
 "See on aktiivne (ON), kui see server on esmaserveriga ühendatud kordistaja."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:485
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "Lõimude hulk, mille loomiseks kulus rohkem, kui slow_launch_time sekundit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:487
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:488
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Päringute hulk, milleks kulus rohkem aega, kui long_query_time sekundit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -8590,23 +8590,23 @@ msgstr ""
 "suur, siis peaksid kaaluma süsteemi muutuja sort_buffer_size väärtuse "
 "vähendamist."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:494
 msgid "The number of sorts that were done with ranges."
 msgstr "Piirkondlike sorteerimiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:494
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
 msgid "The number of sorted rows."
 msgstr "Sorteeritud ridade hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Tabeli kontrollimisel tehtud sorteerimiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:497
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Koheselt teostatud tabeli lukustamiste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:499
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -8618,7 +8618,7 @@ msgstr ""
 "peaksid kõigepealt optimeerima oma päringuid ja seejärel kas poolita oma "
 "tabel või tabelid või kasuta paljundamist."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:504
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:505
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -8628,11 +8628,11 @@ msgstr ""
 "valemiga Threads_created/Connections. Kui see väärtus on punane, siis "
 "peaksid vähendama oma thread_cache_size väärtust."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:508
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:509
 msgid "The number of currently open connections."
 msgstr "Hetkel avatud ühenduste hulk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:510
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:511
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -8643,15 +8643,15 @@ msgstr ""
 "peaksid suurendama thread_cache_size väärtust. (Tavaliselt ei anna see "
 "märkimisväärset jõudluse kasvu, kui sul on hea lõimu kasutus.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:516
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:517
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Lõimu puhvri kasutushulk (arvutatud väärtus)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:517
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:518
 msgid "The number of threads that are not sleeping."
 msgstr "Lõimude hulk, mis ei ole jõude."
 
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:61
 msgid "User groups management is not enabled."
 msgstr "Kasutajagruppide haldamine ei ole lubatud."
 
@@ -8683,13 +8683,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Ebaturvaline ühendus"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:245
+#: libraries/classes/Controllers/Sql/SqlController.php:246
 #: libraries/classes/Sql.php:1139
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Loodi järjehoidja %s."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:252
+#: libraries/classes/Controllers/Sql/SqlController.php:253
 msgid "Bookmark not created!"
 msgstr "Järjehoidjat ei loodud!"
 
@@ -8702,37 +8702,37 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabeli %1$s muutmine õnnestus."
 
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:37
-#: libraries/classes/Controllers/Table/DeleteConfirmController.php:27
-#: libraries/classes/Controllers/Table/ExportRowsController.php:37
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:28
+#: libraries/classes/Controllers/Table/ExportRowsController.php:38
 msgid "No row selected."
 msgstr "Mitte ühtegi rida ei valitud."
 
-#: libraries/classes/Controllers/Table/ChartController.php:59
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:69
+#: libraries/classes/Controllers/Table/ChartController.php:60
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:70
 msgid "No SQL query was set to fetch data."
 msgstr "Puudub SQL päring andmete hankimiseks."
 
-#: libraries/classes/Controllers/Table/ChartController.php:144
+#: libraries/classes/Controllers/Table/ChartController.php:145
 msgid "No numeric columns present in the table to plot."
 msgstr "Graafiku loomiseks puuduvad tabelis numbritüüpi veerud."
 
-#: libraries/classes/Controllers/Table/ChartController.php:207
+#: libraries/classes/Controllers/Table/ChartController.php:208
 msgid "No data to display"
 msgstr "Puuduvad kuvatavad andmed"
 
-#: libraries/classes/Controllers/Table/CreateController.php:81
-#: libraries/classes/Controllers/Table/GetFieldController.php:48
+#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' andmebaasi pole olemas."
 
-#: libraries/classes/Controllers/Table/CreateController.php:91
+#: libraries/classes/Controllers/Table/CreateController.php:92
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s tabel on juba olemas!"
 
-#: libraries/classes/Controllers/Table/DeleteRowsController.php:79
-#: libraries/classes/Controllers/Table/FindReplaceController.php:178
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:80
+#: libraries/classes/Controllers/Table/FindReplaceController.php:179
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:82
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:82
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:82
@@ -8746,7 +8746,7 @@ msgstr "%s tabel on juba olemas!"
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:299
-#: libraries/classes/Controllers/View/OperationsController.php:89
+#: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
@@ -8754,12 +8754,12 @@ msgid "Your SQL query has been executed successfully."
 msgstr "Sinu SQL päring teostati edukalt."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
-#: libraries/classes/Controllers/Table/DropColumnController.php:50
+#: libraries/classes/Controllers/Table/DropColumnController.php:51
 #: libraries/classes/Controllers/Table/Structure/AddIndexController.php:46
-#: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
+#: libraries/classes/Controllers/Table/Structure/BrowseController.php:35
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:44
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:44
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:49
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:50
 #: libraries/classes/Controllers/Table/Structure/FulltextController.php:46
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
 #: libraries/classes/Controllers/Table/Structure/SpatialController.php:46
@@ -8767,24 +8767,24 @@ msgstr "Sinu SQL päring teostati edukalt."
 msgid "No column selected."
 msgstr "Veergu ei ole valitud."
 
-#: libraries/classes/Controllers/Table/DropColumnController.php:79
+#: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d veerg kustutati edukalt."
 msgstr[1] "%1$d veergu kustutati edukalt."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:56
+#: libraries/classes/Controllers/Table/GetFieldController.php:57
 msgid "Invalid table name"
 msgstr "Vigane tabeli nimi"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:65
+#: libraries/classes/Controllers/Table/GetFieldController.php:66
 #: libraries/classes/Controllers/Transformation/WrapperController.php:78
 msgid "There is an issue with your request."
 msgstr "Sinu päring ei läbinud turvalisuse kontrolli."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:79
+#: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1245
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:241
 #: libraries/classes/Sql.php:954
@@ -8799,8 +8799,8 @@ msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "Mitme tabeli hooldustoimingud on keelatud."
 
-#: libraries/classes/Controllers/Table/OperationsController.php:129
-#: libraries/classes/Controllers/Table/OperationsController.php:322
+#: libraries/classes/Controllers/Table/OperationsController.php:130
+#: libraries/classes/Controllers/Table/OperationsController.php:323
 #: libraries/classes/Controllers/Table/StructureController.php:108
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
@@ -8809,10 +8809,22 @@ msgstr "Mitme tabeli hooldustoimingud on keelatud."
 msgid "View"
 msgstr "Vaade"
 
+#: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:41
+#: libraries/classes/Controllers/Table/Partition/CheckController.php:41
+#: libraries/classes/Controllers/Table/Partition/DropController.php:41
+#: libraries/classes/Controllers/Table/Partition/OptimizeController.php:41
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
+#: libraries/classes/Controllers/Table/Partition/RepairController.php:41
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
+#, fuzzy
+#| msgid "The table name must be a non-empty string."
+msgid "The partition name must be a non-empty string."
+msgstr "Tabeli nimi ei saa olla tühi sõne."
+
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
-#: libraries/classes/Controllers/View/OperationsController.php:92
+#: libraries/classes/Controllers/View/OperationsController.php:93
 #: libraries/classes/Html/Generator.php:853 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:737 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
@@ -8833,7 +8845,7 @@ msgstr "Siseseosete värskendamine õnnestus."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rida: %1$s, veerg: %2$s, viga: %3$s"
 
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:81
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:82
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Veeru %s kirjelduse hankimine nurjus!"
@@ -8860,7 +8872,7 @@ msgstr "Primaarne"
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:170
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:171
 msgid "The columns have been moved successfully."
 msgstr "Veerud on edukalt liigutatud."
 
@@ -8870,7 +8882,7 @@ msgstr "Veerud on edukalt liigutatud."
 msgid "Query error"
 msgstr "Päringu viga"
 
-#: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:48
+#: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:49
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8883,20 +8895,20 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabeli %1$s muutmine õnnestus. Õiguseid kohandati vastavalt."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:77
+#: libraries/classes/Controllers/Table/TrackingController.php:78
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s jälgimine on aktiveeritud."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:153
+#: libraries/classes/Controllers/Table/TrackingController.php:154
 msgid "Tracking versions deleted successfully."
 msgstr "Jälgimise versioonid kustutati edukalt."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:158
+#: libraries/classes/Controllers/Table/TrackingController.php:159
 msgid "No versions selected."
 msgstr "Versioone ei ole valitud."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:191
+#: libraries/classes/Controllers/Table/TrackingController.php:192
 msgid "SQL statements executed."
 msgstr "SQL käsud on käivitatud."
 
@@ -10573,7 +10585,7 @@ msgid "Make all columns atomic"
 msgstr "Muuda kõik veerud atomaarseks"
 
 #: libraries/classes/Normalization.php:225
-#: libraries/classes/Normalization.php:961
+#: templates/table/normalization/normalization.twig:12
 msgid "First step of normalization (1NF)"
 msgstr "Normaliseerimise esimene samm (1NK)"
 
@@ -10840,30 +10852,7 @@ msgstr ""
 msgid "Table is already in Third normal form!"
 msgstr "Tabel on juba kolmandal normaalkujul!"
 
-#: libraries/classes/Normalization.php:955
-msgid "Improve table structure (Normalization):"
-msgstr "Parenda tabeli struktuuri (Normaliseerimine):"
-
-#: libraries/classes/Normalization.php:956
-msgid "Select up to what step you want to normalize"
-msgstr "Vali, millise sammuni sa soovid normaliseerida"
-
-#: libraries/classes/Normalization.php:966
-msgid "Second step of normalization (1NF+2NF)"
-msgstr "Normaliseeriminse teine samm (1NK + 2NK)"
-
-#: libraries/classes/Normalization.php:971
-msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr "Normaliseerimise kolmas samm (1NK + 2NK + 3NK)"
-
-#: libraries/classes/Normalization.php:976
-msgid ""
-"Hint: Please follow the procedure carefully in order to obtain correct "
-"normalization"
-msgstr ""
-"Vihje: palun järgi protseduuri hoolikalt, et saada korrektne normaalkuju"
-
-#: libraries/classes/Normalization.php:1047
+#: libraries/classes/Normalization.php:1001
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -10871,7 +10860,7 @@ msgstr ""
 "See nimekiri põhineb tabelis olevate andmete alamhulgal ja ei pruugi olla "
 "täpne. "
 
-#: libraries/classes/Normalization.php:1062
+#: libraries/classes/Normalization.php:1016
 msgid "No partial dependencies found!"
 msgstr "Osalisi sõltuvusi ei leitud!"
 
@@ -18386,6 +18375,29 @@ msgstr "Jätka %s rea lisamist"
 #: templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
 msgstr "Kontrollsumma"
+
+#: templates/table/normalization/normalization.twig:6
+msgid "Improve table structure (Normalization):"
+msgstr "Parenda tabeli struktuuri (Normaliseerimine):"
+
+#: templates/table/normalization/normalization.twig:8
+msgid "Select up to what step you want to normalize"
+msgstr "Vali, millise sammuni sa soovid normaliseerida"
+
+#: templates/table/normalization/normalization.twig:16
+msgid "Second step of normalization (1NF+2NF)"
+msgstr "Normaliseeriminse teine samm (1NK + 2NK)"
+
+#: templates/table/normalization/normalization.twig:20
+msgid "Third step of normalization (1NF+2NF+3NF)"
+msgstr "Normaliseerimise kolmas samm (1NK + 2NK + 3NK)"
+
+#: templates/table/normalization/normalization.twig:24
+msgid ""
+"Hint: Please follow the procedure carefully in order to obtain correct "
+"normalization"
+msgstr ""
+"Vihje: palun järgi protseduuri hoolikalt, et saada korrektne normaalkuju"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
