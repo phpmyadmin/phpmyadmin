@@ -387,7 +387,7 @@ using the volumes directive:
 .. code-block:: yaml
 
     phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin:latest
         container_name: phpmyadmin
         environment:
          - PMA_ARBITRARY=1
@@ -466,7 +466,7 @@ configuration:
     services:
       phpmyadmin:
         restart: always
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin:latest
         container_name: phpmyadmin
         hostname: phpmyadmin
         domainname: example.com
