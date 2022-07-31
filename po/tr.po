@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-31 00:21+0000\n"
-"PO-Revision-Date: 2022-05-30 14:15+0000\n"
+"PO-Revision-Date: 2022-08-01 10:21+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -8900,10 +8900,8 @@ msgstr "Görünüm"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The partition name must be a non-empty string."
-msgstr "Tablo adı boş olmayan bir dizgi olmak zorundadır."
+msgstr "Bölüm adı boş olmayan bir dizgi olmak zorundadır."
 
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
