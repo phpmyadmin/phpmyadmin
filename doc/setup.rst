@@ -243,6 +243,39 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. seealso:: :config:option:`$cfg['QueryHistoryMax']`
 
+.. envvar:: PMA_CONTROLHOST
+
+    When set, this points to an alternate database host used for storing the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlhost']`
+
+.. envvar:: PMA_CONTROLUSER
+
+    Defines the username for phpMyAdmin to use for the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controluser']`
+
+.. envvar:: PMA_CONTROLPASS
+
+    Defines the password for phpMyAdmin to use for the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlpass']`
+
+.. envvar:: PMA_CONTROLPORT
+
+    When set, will override the default port (`3306`) for connecting to the control host.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlport']`
+
+.. envvar:: PMA_PMADB
+
+    When set, define the name of the database to be used for the ":ref:`linked-tables`" database.
+    When not set, the advanced features are not enabled by default: they can still potentially be enabled by the user when logging in with the :ref:`zeroconf` feature.
+
+    .. note:: Suggested values: `phpmyadmin` or `pmadb`
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['pmadb']`
+
 .. envvar:: HIDE_PHP_VERSION
 
     If defined, this option will hide the PHP version (`expose_php = Off`).
