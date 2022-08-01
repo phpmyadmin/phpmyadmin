@@ -240,6 +240,12 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. note:: Format as `[0-9+](K,M,G)` default value is `2048K`
 
+.. envvar:: MEMORY_LIMIT
+
+    If set, this option will override the phpMyAdmin memory limit :config:option:`$cfg['MemoryLimit']` and PHP's `memory_limit`.
+
+    .. note:: Format as `[0-9+](K,M,G)` where `K` is for Kilobytes, `M` for Megabytes, `G` for Gigabytes and `1K` = 1024 bytes. Default value is `512M`.
+
 .. envvar:: PMA_CONFIG_BASE64
 
     If set, this option will override the default `config.inc.php` with the base64 decoded contents of the variable.
