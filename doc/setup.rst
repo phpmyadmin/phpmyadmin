@@ -229,6 +229,20 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
+.. envvar:: PMA_QUERYHISTORYDB
+
+    When set to `true`, enables storing SQL history to :config:option:`$cfg['Servers'][$i]['pmadb']`.
+    When `false`, history is stored in the browser and is cleared when logging out.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['history']`
+    .. seealso:: :config:option:`$cfg['QueryHistoryDB']`
+
+.. envvar:: PMA_QUERYHISTORYMAX
+
+    When set to an integer, controls the number of history items.
+
+    .. seealso:: :config:option:`$cfg['QueryHistoryMax']`
+
 .. envvar:: HIDE_PHP_VERSION
 
     If defined, this option will hide the PHP version (`expose_php = Off`).
