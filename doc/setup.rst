@@ -246,6 +246,12 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. note:: Format as `[0-9+](K,M,G)` where `K` is for Kilobytes, `M` for Megabytes, `G` for Gigabytes and `1K` = 1024 bytes. Default value is `512M`.
 
+.. envvar:: MAX_EXECUTION_TIME
+
+    If set, this option will override the maximum execution time in seconds for phpMyAdmin :config:option:`$cfg['ExecTimeLimit']` and PHP's `max_execution_time`.
+
+    .. note:: Format as `[0-9+]`. Default value is `600`.
+
 .. envvar:: PMA_CONFIG_BASE64
 
     If set, this option will override the default `config.inc.php` with the base64 decoded contents of the variable.
