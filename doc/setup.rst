@@ -229,6 +229,53 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
+.. envvar:: PMA_QUERYHISTORYDB
+
+    When set to `true`, enables storing SQL history to :config:option:`$cfg['Servers'][$i]['pmadb']`.
+    When `false`, history is stored in the browser and is cleared when logging out.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['history']`
+    .. seealso:: :config:option:`$cfg['QueryHistoryDB']`
+
+.. envvar:: PMA_QUERYHISTORYMAX
+
+    When set to an integer, controls the number of history items.
+
+    .. seealso:: :config:option:`$cfg['QueryHistoryMax']`
+
+.. envvar:: PMA_CONTROLHOST
+
+    When set, this points to an alternate database host used for storing the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlhost']`
+
+.. envvar:: PMA_CONTROLUSER
+
+    Defines the username for phpMyAdmin to use for the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controluser']`
+
+.. envvar:: PMA_CONTROLPASS
+
+    Defines the password for phpMyAdmin to use for the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlpass']`
+
+.. envvar:: PMA_CONTROLPORT
+
+    When set, will override the default port (`3306`) for connecting to the control host.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlport']`
+
+.. envvar:: PMA_PMADB
+
+    When set, define the name of the database to be used for the ":ref:`linked-tables`" database.
+    When not set, the advanced features are not enabled by default: they can still potentially be enabled by the user when logging in with the :ref:`zeroconf` feature.
+
+    .. note:: Suggested values: `phpmyadmin` or `pmadb`
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['pmadb']`
+
 .. envvar:: HIDE_PHP_VERSION
 
     If defined, this option will hide the PHP version (`expose_php = Off`).
@@ -239,6 +286,18 @@ You can configure several phpMyAdmin features using environment variables:
     If set, this option will override the default value for apache and php-fpm (this will change ``upload_max_filesize`` and ``post_max_size`` values).
 
     .. note:: Format as `[0-9+](K,M,G)` default value is `2048K`
+
+.. envvar:: MEMORY_LIMIT
+
+    If set, this option will override the phpMyAdmin memory limit :config:option:`$cfg['MemoryLimit']` and PHP's `memory_limit`.
+
+    .. note:: Format as `[0-9+](K,M,G)` where `K` is for Kilobytes, `M` for Megabytes, `G` for Gigabytes and `1K` = 1024 bytes. Default value is `512M`.
+
+.. envvar:: MAX_EXECUTION_TIME
+
+    If set, this option will override the maximum execution time in seconds for phpMyAdmin :config:option:`$cfg['ExecTimeLimit']` and PHP's `max_execution_time`.
+
+    .. note:: Format as `[0-9+]`. Default value is `600`.
 
 .. envvar:: PMA_CONFIG_BASE64
 
@@ -387,7 +446,7 @@ using the volumes directive:
 .. code-block:: yaml
 
     phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin:latest
         container_name: phpmyadmin
         environment:
          - PMA_ARBITRARY=1
@@ -466,7 +525,7 @@ configuration:
     services:
       phpmyadmin:
         restart: always
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin:latest
         container_name: phpmyadmin
         hostname: phpmyadmin
         domainname: example.com
