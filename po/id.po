@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-31 00:21+0000\n"
-"PO-Revision-Date: 2022-07-08 08:03+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-08-04 19:16+0000\n"
+"Last-Translator: Holiq Ibrahim <holiq.ibrahim376@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
@@ -168,7 +168,7 @@ msgstr ""
 "tergantung pada lingkungan Anda. Disarankan biasanya nilai dari 1-5 detik."
 
 #: libraries/classes/Advisory/Rules.php:101
-#, fuzzy, php-format
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time saat ini disetel menjadi %d detik."
 
