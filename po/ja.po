@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-31 00:21+0000\n"
-"PO-Revision-Date: 2022-07-21 15:18+0000\n"
+"PO-Revision-Date: 2022-08-04 19:16+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -8792,10 +8792,8 @@ msgstr "ビュー"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The partition name must be a non-empty string."
-msgstr "テーブル名を空文字列にすることはできません。"
+msgstr "パーティション名を空文字列にすることはできません。"
 
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
