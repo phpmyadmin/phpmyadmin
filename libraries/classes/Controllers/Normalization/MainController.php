@@ -11,8 +11,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
-use function __;
-use function _pgettext;
 use function intval;
 use function min;
 
@@ -32,20 +30,6 @@ class MainController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if (isset($_POST['getColumns'])) {
-            $html = '<option selected disabled>' . __('Select one…') . '</option>'
-                . '<option value="no_such_col">' . __('No such column') . '</option>';
-            //get column whose datatype falls under string category
-            $html .= $this->normalization->getHtmlForColumnsList(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                _pgettext('string types', 'String')
-            );
-            echo $html;
-
-            return;
-        }
-
         if (isset($_POST['splitColumn'])) {
             $num_fields = min(4096, intval($_POST['numFields']));
             $html = $this->normalization->getHtmlForCreateNewColumn($num_fields, $GLOBALS['db'], $GLOBALS['table']);

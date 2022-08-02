@@ -18,13 +18,12 @@ var dataParsed = null;
 
 function appendHtmlColumnsList () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/get-columns',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'getColumns': true
         },
         function (data) {
             if (data.success === true) {
