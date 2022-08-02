@@ -46,40 +46,6 @@ class NormalizationControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_tbl';
     }
 
-    public function testCreateNewTables2NF(): void
-    {
-        $_POST['createNewTables2NF'] = 1;
-        $_POST['pd'] = json_encode([
-            'ID, task' => [],
-            'task' => ['timestamp'],
-        ]);
-        $_POST['newTablesName'] = json_encode([
-            'ID, task' => 'batch_log2',
-            'task' => 'table2',
-        ]);
-
-        $GLOBALS['goto'] = 'index.php?route=/sql';
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
-        /** @var NormalizationController $normalizationController */
-        $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
-        $this->dummyDbi->addSelectDb('my_db');
-        $normalizationController($this->createStub(ServerRequest::class));
-        $this->dummyDbi->assertAllSelectsConsumed();
-
-        $this->assertResponseWasSuccessfull();
-
-        $this->assertSame(
-            [
-                'legendText' => 'End of step',
-                'headText' => '<h3>The second step of normalization is complete for table \'test_tbl\'.</h3>',
-                'queryError' => false,
-                'extra' => '',
-            ],
-            $this->getResponseJsonResult()
-        );
-    }
-
     public function testCreateNewTables3NF(): void
     {
         $_POST['createNewTables3NF'] = 1;

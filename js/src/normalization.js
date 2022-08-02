@@ -220,11 +220,11 @@ function goTo2NFFinish (pd) {
         'table': window.CommonParams.get('table'),
         'server': window.CommonParams.get('server'),
         'pd': JSON.stringify(pd),
-        'newTablesName':JSON.stringify(tables),
-        'createNewTables2NF':1 };
+        'newTablesName': JSON.stringify(tables),
+    };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/2nf/create-new-tables',
         data: datastring,
         async:false,
         success: function (data) {
