@@ -2407,6 +2407,20 @@
       <code>$normalForm</code>
     </MixedAssignment>
   </file>
+  <file src="libraries/classes/Controllers/Normalization/MoveRepeatingGroup.php">
+    <MixedArgument occurrences="4">
+      <code>$newColumn</code>
+      <code>$newTable</code>
+      <code>$primary_columns</code>
+      <code>$repeatingColumns</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
+      <code>$newColumn</code>
+      <code>$newTable</code>
+      <code>$primary_columns</code>
+      <code>$repeatingColumns</code>
+    </MixedAssignment>
+  </file>
   <file src="libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php">
     <MixedArgument occurrences="4">
       <code>$_POST['newTablesName']</code>
@@ -2455,20 +2469,6 @@
     <MixedAssignment occurrences="2">
       <code>$dependencies</code>
       <code>$tables</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/NormalizationController.php">
-    <MixedArgument occurrences="4">
-      <code>$newColumn</code>
-      <code>$newTable</code>
-      <code>$primary_columns</code>
-      <code>$repeatingColumns</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="4">
-      <code>$newColumn</code>
-      <code>$newTable</code>
-      <code>$primary_columns</code>
-      <code>$repeatingColumns</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/PhpInfoController.php">

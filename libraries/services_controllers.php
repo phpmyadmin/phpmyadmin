@@ -665,6 +665,14 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
+        Normalization\MoveRepeatingGroup::class => [
+            'class' => Normalization\MoveRepeatingGroup::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
         NormalizationController::class => [
             'class' => NormalizationController::class,
             'arguments' => [

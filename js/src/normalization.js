@@ -465,7 +465,7 @@ function moveRepeatingGroup (repeatingCols) {
     };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/move-repeating-group',
         data: datastring,
         async:false,
         success: function (data) {

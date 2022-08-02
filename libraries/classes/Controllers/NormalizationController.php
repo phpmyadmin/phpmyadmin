@@ -81,24 +81,6 @@ class NormalizationController extends AbstractController
 
         $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
-        if (isset($_POST['repeatingColumns'])) {
-            $repeatingColumns = $_POST['repeatingColumns'];
-            $newTable = $_POST['newTable'];
-            $newColumn = $_POST['newColumn'];
-            $primary_columns = $_POST['primary_columns'];
-            $res = $this->normalization->moveRepeatingGroup(
-                $repeatingColumns,
-                $primary_columns,
-                $newTable,
-                $newColumn,
-                $GLOBALS['table'],
-                $GLOBALS['db']
-            );
-            $this->response->addJSON($res);
-
-            return;
-        }
-
         $this->render('table/normalization/normalization', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
