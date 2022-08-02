@@ -2424,32 +2424,38 @@
       <code>$tables</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/NormalizationController.php">
-    <MixedArgument occurrences="14">
-      <code>$_POST['newTables']</code>
-      <code>$_POST['newTablesName']</code>
-      <code>$_POST['pd']</code>
+  <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php">
+    <MixedArgument occurrences="4">
       <code>$_POST['pd']</code>
       <code>$_POST['tables']</code>
       <code>$dependencies</code>
+      <code>$tables</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$dependencies</code>
+      <code>$tables</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/NormalizationController.php">
+    <MixedArgument occurrences="10">
+      <code>$_POST['newTables']</code>
+      <code>$_POST['newTablesName']</code>
+      <code>$_POST['pd']</code>
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$newtables</code>
       <code>$partialDependencies</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
-      <code>$tables</code>
       <code>$tablesName</code>
     </MixedArgument>
-    <MixedAssignment occurrences="9">
-      <code>$dependencies</code>
+    <MixedAssignment occurrences="7">
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$newtables</code>
       <code>$partialDependencies</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
-      <code>$tables</code>
       <code>$tablesName</code>
     </MixedAssignment>
   </file>

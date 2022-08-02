@@ -366,10 +366,10 @@ function goTo3NFStep2 (pd, tablesTds) {
             'tables': JSON.stringify(tablesTds),
             'server': window.CommonParams.get('server'),
             'pd': JSON.stringify(pd),
-            'getNewTables3NF':1 };
+        };
         $.ajax({
             type: 'POST',
-            url: 'index.php?route=/normalization',
+            url: 'index.php?route=/normalization/3nf/new-tables',
             data: datastring,
             async:false,
             success: function (data) {

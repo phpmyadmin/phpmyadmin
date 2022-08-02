@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -15,7 +14,6 @@ use function __;
 use function _pgettext;
 use function intval;
 use function json_decode;
-use function json_encode;
 use function min;
 
 /**
@@ -78,17 +76,6 @@ class NormalizationController extends AbstractController
         if (isset($_POST['findPdl'])) {
             $html = $this->normalization->findPartialDependencies($GLOBALS['table'], $GLOBALS['db']);
             echo $html;
-
-            return;
-        }
-
-        if (isset($_POST['getNewTables3NF'])) {
-            $dependencies = json_decode($_POST['pd']);
-            $tables = json_decode($_POST['tables'], true);
-            $newTables = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $GLOBALS['db']);
-            $this->response->disable();
-            Core::headerJSON();
-            echo json_encode($newTables);
 
             return;
         }
