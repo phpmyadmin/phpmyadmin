@@ -2428,6 +2428,15 @@
       <code>$partialDependencies</code>
     </MixedAssignment>
   </file>
+  <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php">
+    <MixedArgument occurrences="2">
+      <code>$_POST['newTables']</code>
+      <code>$newtables</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$newtables</code>
+    </MixedAssignment>
+  </file>
   <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/FirstStepController.php">
     <MixedArgument occurrences="1">
       <code>$tables</code>
@@ -2449,18 +2458,15 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/NormalizationController.php">
-    <MixedArgument occurrences="6">
-      <code>$_POST['newTables']</code>
+    <MixedArgument occurrences="4">
       <code>$newColumn</code>
       <code>$newTable</code>
-      <code>$newtables</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
     </MixedArgument>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$newColumn</code>
       <code>$newTable</code>
-      <code>$newtables</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
     </MixedAssignment>

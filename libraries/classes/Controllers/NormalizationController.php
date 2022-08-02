@@ -13,7 +13,6 @@ use PhpMyAdmin\Url;
 use function __;
 use function _pgettext;
 use function intval;
-use function json_decode;
 use function min;
 
 /**
@@ -81,14 +80,6 @@ class NormalizationController extends AbstractController
         }
 
         $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
-
-        if (isset($_POST['createNewTables3NF'])) {
-            $newtables = json_decode($_POST['newTables'], true);
-            $res = $this->normalization->createNewTablesFor3NF($newtables, $GLOBALS['db']);
-            $this->response->addJSON($res);
-
-            return;
-        }
 
         if (isset($_POST['repeatingColumns'])) {
             $repeatingColumns = $_POST['repeatingColumns'];

@@ -16,7 +16,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 
 use function in_array;
-use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\Controllers\NormalizationController
@@ -44,44 +43,6 @@ class NormalizationControllerTest extends AbstractTestCase
         parent::loadResponseIntoContainerBuilder();
         $GLOBALS['db'] = 'my_db';
         $GLOBALS['table'] = 'test_tbl';
-    }
-
-    public function testCreateNewTables3NF(): void
-    {
-        $_POST['createNewTables3NF'] = 1;
-        $_POST['newTables'] = json_encode([
-            'test_tbl' => [
-                'event' => [
-                    'pk' => 'eventID',
-                    'nonpk' => 'Start_time, DateOfEvent, NumberOfGuests, NameOfVenue, LocationOfVenue',
-                ],
-                'table2' => [
-                    'pk' => 'Start_time',
-                    'nonpk' => 'TypeOfEvent, period',
-                ],
-            ],
-        ]);
-
-        $GLOBALS['goto'] = 'index.php?route=/sql';
-        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
-        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
-        /** @var NormalizationController $normalizationController */
-        $normalizationController = $GLOBALS['containerBuilder']->get(NormalizationController::class);
-        $this->dummyDbi->addSelectDb('my_db');
-        $normalizationController($this->createStub(ServerRequest::class));
-        $this->dummyDbi->assertAllSelectsConsumed();
-
-        $this->assertResponseWasSuccessfull();
-
-        $this->assertSame(
-            [
-                'legendText' => 'End of step',
-                'headText' => '<h3>The third step of normalization is complete.</h3>',
-                'queryError' => false,
-                'extra' => '',
-            ],
-            $this->getResponseJsonResult()
-        );
     }
 
     public function testNormalization(): void

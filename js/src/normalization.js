@@ -265,11 +265,11 @@ function goTo3NFFinish (newTables) {
         'ajax_request': true,
         'db': window.CommonParams.get('db'),
         'server': window.CommonParams.get('server'),
-        'newTables':JSON.stringify(newTables),
-        'createNewTables3NF':1 };
+        'newTables': JSON.stringify(newTables),
+    };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/3nf/create-new-tables',
         data: datastring,
         async:false,
         success: function (data) {
