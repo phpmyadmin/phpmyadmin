@@ -55,24 +55,6 @@ class MainController extends AbstractController
             return;
         }
 
-        if (isset($_POST['addNewPrimary'])) {
-            $num_fields = 1;
-            $columnMeta = [
-                'Field' => $GLOBALS['table'] . '_id',
-                'Extra' => 'auto_increment',
-            ];
-            $html = $this->normalization->getHtmlForCreateNewColumn(
-                $num_fields,
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $columnMeta
-            );
-            $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-            echo $html;
-
-            return;
-        }
-
         if (isset($_POST['findPdl'])) {
             $html = $this->normalization->findPartialDependencies($GLOBALS['table'], $GLOBALS['db']);
             echo $html;

@@ -594,13 +594,12 @@ window.AJAX.registerOnload('normalization.js', function () {
 
     $('#extra').on('click', '#addNewPrimary', function () {
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/add-new-primary',
             {
                 'ajax_request': true,
                 'db': window.CommonParams.get('db'),
                 'table': window.CommonParams.get('table'),
                 'server': window.CommonParams.get('server'),
-                'addNewPrimary': true
             },
             function (data) {
                 if (data.success === true) {

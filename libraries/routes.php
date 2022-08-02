@@ -141,6 +141,7 @@ return static function (RouteCollector $routes): void {
         $routes->post('/3nf/create-new-tables', Normalization\ThirdNormalForm\CreateNewTablesController::class);
         $routes->post('/3nf/new-tables', Normalization\ThirdNormalForm\NewTablesController::class);
         $routes->post('/3nf/step1', Normalization\ThirdNormalForm\FirstStepController::class);
+        $routes->post('/add-new-primary', Normalization\AddNewPrimaryController::class);
         $routes->post('/move-repeating-group', Normalization\MoveRepeatingGroup::class);
     });
     $routes->get('/phpinfo', PhpInfoController::class);
