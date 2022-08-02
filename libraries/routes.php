@@ -22,7 +22,6 @@ use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
-use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -131,7 +130,7 @@ return static function (RouteCollector $routes): void {
     $routes->addRoute(['GET', 'POST'], '/logout', LogoutController::class);
     $routes->addRoute(['GET', 'POST'], '/navigation', NavigationController::class);
     $routes->addGroup('/normalization', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '', NormalizationController::class);
+        $routes->addRoute(['GET', 'POST'], '', Normalization\MainController::class);
         $routes->post('/1nf/step1', Normalization\FirstNormalForm\FirstStepController::class);
         $routes->post('/1nf/step2', Normalization\FirstNormalForm\SecondStepController::class);
         $routes->post('/1nf/step3', Normalization\FirstNormalForm\ThirdStepController::class);

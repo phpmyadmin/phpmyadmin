@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Controllers;
+namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\NormalizationController;
+use PhpMyAdmin\Controllers\Normalization\MainController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
@@ -18,9 +18,9 @@ use PhpMyAdmin\Transformations;
 use function in_array;
 
 /**
- * @covers \PhpMyAdmin\Controllers\NormalizationController
+ * @covers \PhpMyAdmin\Controllers\Normalization\MainController
  */
-class NormalizationControllerTest extends AbstractTestCase
+class MainControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
     protected $dbi;
@@ -53,7 +53,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
 
-        $controller = new NormalizationController(
+        $controller = new MainController(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)

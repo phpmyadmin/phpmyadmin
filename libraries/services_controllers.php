@@ -22,7 +22,6 @@ use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
-use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -673,8 +672,8 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
-        NormalizationController::class => [
-            'class' => NormalizationController::class,
+        Normalization\MainController::class => [
+            'class' => Normalization\MainController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',

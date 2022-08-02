@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Normalization;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -18,7 +19,7 @@ use function min;
 /**
  * Normalization process (temporarily specific to 1NF).
  */
-class NormalizationController extends AbstractController
+class MainController extends AbstractController
 {
     /** @var Normalization */
     private $normalization;
