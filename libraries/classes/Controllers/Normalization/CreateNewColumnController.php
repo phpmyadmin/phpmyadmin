@@ -9,11 +9,12 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
-/**
- * Normalization process (temporarily specific to 1NF).
- */
-class MainController extends AbstractController
+use function intval;
+use function min;
+
+final class CreateNewColumnController extends AbstractController
 {
     /** @var Normalization */
     private $normalization;
@@ -26,18 +27,9 @@ class MainController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if (isset($_POST['findPdl'])) {
-            $html = $this->normalization->findPartialDependencies($GLOBALS['table'], $GLOBALS['db']);
-            echo $html;
-
-            return;
-        }
-
-        $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
-
-        $this->render('table/normalization/normalization', [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ]);
+        $num_fields = min(4096, intval($_POST['numFields']));
+        $html = $this->normalization->getHtmlForCreateNewColumn($num_fields, $GLOBALS['db'], $GLOBALS['table']);
+        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+        $this->response->addHTML($html);
     }
 }

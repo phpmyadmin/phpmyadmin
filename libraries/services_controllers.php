@@ -672,6 +672,14 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
+        Normalization\CreateNewColumnController::class => [
+            'class' => Normalization\CreateNewColumnController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
         Normalization\GetColumnsController::class => [
             'class' => Normalization\GetColumnsController::class,
             'arguments' => [

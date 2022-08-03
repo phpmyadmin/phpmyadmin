@@ -510,13 +510,12 @@ window.AJAX.registerOnload('normalization.js', function () {
         }
         var numField = $('#numField').val();
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/create-new-column',
             {
                 'ajax_request': true,
                 'db': window.CommonParams.get('db'),
                 'table': window.CommonParams.get('table'),
                 'server': window.CommonParams.get('server'),
-                'splitColumn': true,
                 'numFields': numField
             },
             function (data) {

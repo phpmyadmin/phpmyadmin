@@ -143,6 +143,7 @@ return static function (RouteCollector $routes): void {
         $routes->post('/3nf/step1', Normalization\ThirdNormalForm\FirstStepController::class);
         $routes->post('/add-new-primary', Normalization\AddNewPrimaryController::class);
         $routes->post('/get-columns', Normalization\GetColumnsController::class);
+        $routes->post('/create-new-column', Normalization\CreateNewColumnController::class);
         $routes->post('/move-repeating-group', Normalization\MoveRepeatingGroup::class);
     });
     $routes->get('/phpinfo', PhpInfoController::class);
