@@ -18,13 +18,12 @@ var dataParsed = null;
 
 function appendHtmlColumnsList () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/get-columns',
         {
             'ajax_request': true,
             'db': window.CommonParams.get('db'),
             'table': window.CommonParams.get('table'),
             'server': window.CommonParams.get('server'),
-            'getColumns': true
         },
         function (data) {
             if (data.success === true) {
@@ -220,11 +219,11 @@ function goTo2NFFinish (pd) {
         'table': window.CommonParams.get('table'),
         'server': window.CommonParams.get('server'),
         'pd': JSON.stringify(pd),
-        'newTablesName':JSON.stringify(tables),
-        'createNewTables2NF':1 };
+        'newTablesName': JSON.stringify(tables),
+    };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/2nf/create-new-tables',
         data: datastring,
         async:false,
         success: function (data) {
@@ -265,11 +264,11 @@ function goTo3NFFinish (newTables) {
         'ajax_request': true,
         'db': window.CommonParams.get('db'),
         'server': window.CommonParams.get('server'),
-        'newTables':JSON.stringify(newTables),
-        'createNewTables3NF':1 };
+        'newTables': JSON.stringify(newTables),
+    };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/3nf/create-new-tables',
         data: datastring,
         async:false,
         success: function (data) {
@@ -366,10 +365,10 @@ function goTo3NFStep2 (pd, tablesTds) {
             'tables': JSON.stringify(tablesTds),
             'server': window.CommonParams.get('server'),
             'pd': JSON.stringify(pd),
-            'getNewTables3NF':1 };
+        };
         $.ajax({
             type: 'POST',
-            url: 'index.php?route=/normalization',
+            url: 'index.php?route=/normalization/3nf/new-tables',
             data: datastring,
             async:false,
             success: function (data) {
@@ -465,7 +464,7 @@ function moveRepeatingGroup (repeatingCols) {
     };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/move-repeating-group',
         data: datastring,
         async:false,
         success: function (data) {
@@ -511,13 +510,12 @@ window.AJAX.registerOnload('normalization.js', function () {
         }
         var numField = $('#numField').val();
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/create-new-column',
             {
                 'ajax_request': true,
                 'db': window.CommonParams.get('db'),
                 'table': window.CommonParams.get('table'),
                 'server': window.CommonParams.get('server'),
-                'splitColumn': true,
                 'numFields': numField
             },
             function (data) {
@@ -594,13 +592,12 @@ window.AJAX.registerOnload('normalization.js', function () {
 
     $('#extra').on('click', '#addNewPrimary', function () {
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/add-new-primary',
             {
                 'ajax_request': true,
                 'db': window.CommonParams.get('db'),
                 'table': window.CommonParams.get('table'),
                 'server': window.CommonParams.get('server'),
-                'addNewPrimary': true
             },
             function (data) {
                 if (data.success === true) {
@@ -758,13 +755,12 @@ window.AJAX.registerOnload('normalization.js', function () {
         $('#newCols').insertAfter('#mainContent h4');
         $('#newCols').html('<div class="text-center">' + window.Messages.strLoading + '<br>' + window.Messages.strWaitForPd + '</div>');
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/partial-dependencies',
             {
                 'ajax_request': true,
                 'db': window.CommonParams.get('db'),
                 'table': window.CommonParams.get('table'),
                 'server': window.CommonParams.get('server'),
-                'findPdl': true
             }, function (data) {
                 $('#showPossiblePd').html('- ' + window.Messages.strHidePd);
                 $('#showPossiblePd').addClass('hideList');

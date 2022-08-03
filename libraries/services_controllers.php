@@ -22,7 +22,6 @@ use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
-use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -617,6 +616,14 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
+        Normalization\SecondNormalForm\CreateNewTablesController::class => [
+            'class' => Normalization\SecondNormalForm\CreateNewTablesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
         Normalization\SecondNormalForm\FirstStepController::class => [
             'class' => Normalization\SecondNormalForm\FirstStepController::class,
             'arguments' => [
@@ -633,6 +640,14 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
+        Normalization\ThirdNormalForm\CreateNewTablesController::class => [
+            'class' => Normalization\ThirdNormalForm\CreateNewTablesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
         Normalization\ThirdNormalForm\FirstStepController::class => [
             'class' => Normalization\ThirdNormalForm\FirstStepController::class,
             'arguments' => [
@@ -641,8 +656,52 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
-        NormalizationController::class => [
-            'class' => NormalizationController::class,
+        Normalization\ThirdNormalForm\NewTablesController::class => [
+            'class' => Normalization\ThirdNormalForm\NewTablesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\AddNewPrimaryController::class => [
+            'class' => Normalization\AddNewPrimaryController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\CreateNewColumnController::class => [
+            'class' => Normalization\CreateNewColumnController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\GetColumnsController::class => [
+            'class' => Normalization\GetColumnsController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\MainController::class => [
+            'class' => Normalization\MainController::class,
+            'arguments' => ['$response' => '@response', '$template' => '@template'],
+        ],
+        Normalization\MoveRepeatingGroup::class => [
+            'class' => Normalization\MoveRepeatingGroup::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$normalization' => '@normalization',
+            ],
+        ],
+        Normalization\PartialDependenciesController::class => [
+            'class' => Normalization\PartialDependenciesController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',

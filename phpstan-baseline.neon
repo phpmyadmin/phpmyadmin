@@ -1221,34 +1221,34 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
+			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
+
+		-
+			message: "#^Parameter \\#2 \\$tablesName of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects object, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
+
+		-
 			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables2NF\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/SecondNormalForm/NewTablesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/NormalizationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$newTables of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor3NF\\(\\) expects array, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/NormalizationController.php
+			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$dependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects object, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/NormalizationController.php
+			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
 
 		-
 			message: "#^Parameter \\#2 \\$tables of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects array, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/NormalizationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tablesName of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/NormalizationController.php
+			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs type has no value type specified in iterable type array\\.$#"

@@ -22,7 +22,6 @@ use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
-use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -131,14 +130,22 @@ return static function (RouteCollector $routes): void {
     $routes->addRoute(['GET', 'POST'], '/logout', LogoutController::class);
     $routes->addRoute(['GET', 'POST'], '/navigation', NavigationController::class);
     $routes->addGroup('/normalization', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '', NormalizationController::class);
+        $routes->addRoute(['GET', 'POST'], '', Normalization\MainController::class);
         $routes->post('/1nf/step1', Normalization\FirstNormalForm\FirstStepController::class);
         $routes->post('/1nf/step2', Normalization\FirstNormalForm\SecondStepController::class);
         $routes->post('/1nf/step3', Normalization\FirstNormalForm\ThirdStepController::class);
         $routes->post('/1nf/step4', Normalization\FirstNormalForm\FourthStepController::class);
+        $routes->post('/2nf/create-new-tables', Normalization\SecondNormalForm\CreateNewTablesController::class);
         $routes->post('/2nf/new-tables', Normalization\SecondNormalForm\NewTablesController::class);
         $routes->post('/2nf/step1', Normalization\SecondNormalForm\FirstStepController::class);
+        $routes->post('/3nf/create-new-tables', Normalization\ThirdNormalForm\CreateNewTablesController::class);
+        $routes->post('/3nf/new-tables', Normalization\ThirdNormalForm\NewTablesController::class);
         $routes->post('/3nf/step1', Normalization\ThirdNormalForm\FirstStepController::class);
+        $routes->post('/add-new-primary', Normalization\AddNewPrimaryController::class);
+        $routes->post('/get-columns', Normalization\GetColumnsController::class);
+        $routes->post('/create-new-column', Normalization\CreateNewColumnController::class);
+        $routes->post('/move-repeating-group', Normalization\MoveRepeatingGroup::class);
+        $routes->post('/partial-dependencies', Normalization\PartialDependenciesController::class);
     });
     $routes->get('/phpinfo', PhpInfoController::class);
     $routes->addGroup('/preferences', static function (RouteCollector $routes): void {
