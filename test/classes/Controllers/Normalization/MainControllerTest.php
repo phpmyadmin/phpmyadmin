@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\MainController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\Transformations;
 
 use function in_array;
 
@@ -49,15 +46,9 @@ class MainControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $dbi = $this->createDatabaseInterface();
         $response = new ResponseRenderer();
-        $template = new Template();
 
-        $controller = new MainController(
-            $response,
-            $template,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
-        );
+        $controller = new MainController($response, new Template());
         $controller($this->createStub(ServerRequest::class));
 
         $files = $response->getHeader()->getScripts()->getFiles();

@@ -755,13 +755,12 @@ window.AJAX.registerOnload('normalization.js', function () {
         $('#newCols').insertAfter('#mainContent h4');
         $('#newCols').html('<div class="text-center">' + window.Messages.strLoading + '<br>' + window.Messages.strWaitForPd + '</div>');
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/partial-dependencies',
             {
                 'ajax_request': true,
                 'db': window.CommonParams.get('db'),
                 'table': window.CommonParams.get('table'),
                 'server': window.CommonParams.get('server'),
-                'findPdl': true
             }, function (data) {
                 $('#showPossiblePd').html('- ' + window.Messages.strHidePd);
                 $('#showPossiblePd').addClass('hideList');

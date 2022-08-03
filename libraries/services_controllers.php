@@ -688,6 +688,10 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
+        Normalization\MainController::class => [
+            'class' => Normalization\MainController::class,
+            'arguments' => ['$response' => '@response', '$template' => '@template'],
+        ],
         Normalization\MoveRepeatingGroup::class => [
             'class' => Normalization\MoveRepeatingGroup::class,
             'arguments' => [
@@ -696,8 +700,8 @@ return [
                 '$normalization' => '@normalization',
             ],
         ],
-        Normalization\MainController::class => [
-            'class' => Normalization\MainController::class,
+        Normalization\PartialDependenciesController::class => [
+            'class' => Normalization\PartialDependenciesController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
