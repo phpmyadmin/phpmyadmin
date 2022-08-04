@@ -1448,7 +1448,7 @@ class Sql
             }
         }
 
-        $hasUnique = $table && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
+        $hasUnique = $table !== null && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
 
         $editable = ($hasUnique
             || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
