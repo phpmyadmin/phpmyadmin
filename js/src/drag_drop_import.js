@@ -130,7 +130,7 @@ var DragDropImport = {
                                 var filename = $this.parent('span').attr('data-filename');
                                 $('body').append('<div class="pma_drop_result"><h2>' +
                                 Messages.dropImportImportResultHeader + ' - ' +
-                                filename + '<span class="close">x</span></h2>' + value.message + '</div>');
+                                Functions.escapeHtml(filename) + '<span class="close">x</span></h2>' + value.message + '</div>');
                                 $('.pma_drop_result').draggable();  // to make this dialog draggable
                             }
                         });
