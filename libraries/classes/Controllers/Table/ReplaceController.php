@@ -244,20 +244,23 @@ final class ReplaceController extends AbstractController
                 $file_to_insert->cleanUp();
 
                 if (empty($multi_edit_funcs[$key])) {
-                    $current_value_as_an_array = $this->insertEdit->getCurrentValueForDifferentTypes(
-                        $possibly_uploaded_val,
-                        $key,
-                        $multi_edit_columns_type,
-                        $current_value,
-                        $multi_edit_auto_increment,
-                        $multi_edit_columns_name,
-                        $multi_edit_columns_null,
-                        $multi_edit_columns_null_prev,
-                        $isInsert,
-                        $usingKey,
-                        $where_clause,
-                        $GLOBALS['table']
-                    );
+                    if ($possibly_uploaded_val !== false) {
+                        $current_value_as_an_array = $current_value;
+                    } else {
+                        $current_value_as_an_array = $this->insertEdit->getCurrentValueForDifferentTypes(
+                            $key,
+                            $multi_edit_columns_type,
+                            $current_value,
+                            $multi_edit_auto_increment,
+                            $column_name,
+                            $multi_edit_columns_null,
+                            $multi_edit_columns_null_prev,
+                            $isInsert,
+                            $usingKey,
+                            $where_clause,
+                            $GLOBALS['table']
+                        );
+                    }
                 } else {
                     $current_value_as_an_array = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
                         $multi_edit_funcs[$key],
@@ -271,7 +274,7 @@ final class ReplaceController extends AbstractController
                         $queryValues,
                         $queryFields,
                     ] = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-                        $multi_edit_columns_name,
+                        $column_name,
                         $multi_edit_columns_null,
                         $current_value,
                         $multi_edit_columns_prev,
@@ -286,11 +289,9 @@ final class ReplaceController extends AbstractController
                     );
                 }
 
-                if (! isset($multi_edit_columns_null[$key])) {
-                    continue;
+                if (isset($multi_edit_columns_null[$key])) {
+                    $multi_edit_columns[$key] = null;
                 }
-
-                $multi_edit_columns[$key] = null;
             }
 
             // temporarily store rows not inserted
@@ -299,7 +300,7 @@ final class ReplaceController extends AbstractController
                 $GLOBALS['unsaved_values'][$rownumber] = $multi_edit_columns;
             }
 
-            if ($insert_fail || count($queryValues) <= 0) {
+            if ($insert_fail || $queryValues === []) {
                 continue;
             }
 

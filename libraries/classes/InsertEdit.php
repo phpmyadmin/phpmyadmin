@@ -1613,7 +1613,7 @@ class InsertEdit
     /**
      * Get query values array and query fields array for insert and update in multi edit
      *
-     * @param array  $multiEditColumnsName     multiple edit columns name array
+     * @param string  $columnName
      * @param array  $multiEditColumnsNull     multiple edit columns null array
      * @param string $currentValue             current value in the column in loop
      * @param array  $multiEditColumnsPrev     multiple edit previous columns array
@@ -1631,7 +1631,7 @@ class InsertEdit
      * @return array[] ($query_values, $query_fields)
      */
     public function getQueryValuesForInsertAndUpdateInMultipleEdit(
-        $multiEditColumnsName,
+        $columnName,
         $multiEditColumnsNull,
         $currentValue,
         $multiEditColumnsPrev,
@@ -1651,7 +1651,7 @@ class InsertEdit
                 $queryValues[] = $currentValueAsAnArray;
                 // first inserted row so prepare the list of fields
                 if (empty($valueSets)) {
-                    $queryFields[] = Util::backquote($multiEditColumnsName[$key]);
+                    $queryFields[] = Util::backquote($columnName);
                 }
             }
         } elseif (! empty($multiEditColumnsNullPrev[$key]) && ! isset($multiEditColumnsNull[$key])) {
@@ -1659,8 +1659,7 @@ class InsertEdit
 
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $queryValues[] = Util::backquote($multiEditColumnsName[$key])
-                . ' = ' . $currentValueAsAnArray;
+            $queryValues[] = Util::backquote($columnName) . ' = ' . $currentValueAsAnArray;
         } elseif (
             ! (empty($multiEditFuncs[$key])
                 && empty($multiEditColumnsNull[$key])
@@ -1672,8 +1671,7 @@ class InsertEdit
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
             if (empty($multiEditColumnsNullPrev[$key]) || empty($multiEditColumnsNull[$key])) {
-                $queryValues[] = Util::backquote($multiEditColumnsName[$key])
-                    . ' = ' . $currentValueAsAnArray;
+                $queryValues[] = Util::backquote($columnName) . ' = ' . $currentValueAsAnArray;
             }
         }
 
@@ -1686,12 +1684,11 @@ class InsertEdit
     /**
      * Get the current column value in the form for different data types
      *
-     * @param string|false $possiblyUploadedVal      uploaded file content
      * @param string       $key                      an md5 of the column name
      * @param array|null   $multiEditColumnsType     array of multi edit column types
      * @param string       $currentValue             current column value in the form
      * @param array|null   $multiEditAutoIncrement   multi edit auto increment
-     * @param array        $multiEditColumnsName     multi edit column names array
+     * @param string       $columnName
      * @param array        $multiEditColumnsNull     multi edit columns null array
      * @param array        $multiEditColumnsNullPrev multi edit columns previous null
      * @param bool         $isInsert                 whether insert or not
@@ -1702,12 +1699,11 @@ class InsertEdit
      * @return string  current column value in the form
      */
     public function getCurrentValueForDifferentTypes(
-        $possiblyUploadedVal,
         $key,
         ?array $multiEditColumnsType,
         string $currentValue,
         ?array $multiEditAutoIncrement,
-        $multiEditColumnsName,
+        $columnName,
         $multiEditColumnsNull,
         $multiEditColumnsNullPrev,
         $isInsert,
@@ -1715,10 +1711,6 @@ class InsertEdit
         $whereClause,
         $table
     ): string {
-        if ($possiblyUploadedVal !== false) {
-            return $possiblyUploadedVal;
-        }
-
         // c o l u m n    v a l u e    i n    t h e    f o r m
         $type = $multiEditColumnsType[$key] ?? '';
 
@@ -1732,18 +1724,6 @@ class InsertEdit
         } elseif ($type === 'set') {
             $currentValue = "'" . $this->dbi->escapeString($currentValue) . "'";
         } elseif ($type === 'protected') {
-            // Fetch the current values of a row to use in case we have a protected field
-            if (
-                $isInsert
-                && $usingKey
-                && is_array($multiEditColumnsType) && $whereClause
-            ) {
-                $protectedRow = $this->dbi->fetchSingleRow(
-                    'SELECT * FROM ' . Util::backquote($table)
-                    . ' WHERE ' . $whereClause . ';'
-                );
-            }
-
             // here we are in protected mode (asked in the config)
             // so tbl_change has put this special value in the
             // columns array, so we do not change the column value
@@ -1753,9 +1733,20 @@ class InsertEdit
             // mode, insert empty field because no values were submitted.
             // If protected blobs where set, insert original fields content.
             $currentValue = '';
-            if (! empty($protectedRow[$multiEditColumnsName[$key]])) {
-                $currentValue = '0x'
-                    . bin2hex($protectedRow[$multiEditColumnsName[$key]]);
+            if (
+                $isInsert
+                && $usingKey
+                && $whereClause
+            ) {
+                // Fetch the current values of a row to use in case we have a protected field
+                $protectedValue = $this->dbi->fetchValue(
+                    'SELECT '.Util::backquote($columnName).' FROM ' . Util::backquote($table)
+                    . ' WHERE ' . $whereClause . ';'
+                );
+
+                if ($protectedValue) {
+                    $currentValue = '0x' . bin2hex($protectedValue);
+                }
             }
         } elseif ($type === 'hex') {
             if (substr($currentValue, 0, 2) != '0x') {
@@ -1769,8 +1760,7 @@ class InsertEdit
             || ($currentValue !== 'CURRENT_TIMESTAMP'
                 && $currentValue !== 'current_timestamp()')
         ) {
-            $currentValue = "'" . $this->dbi->escapeString($currentValue)
-                . "'";
+            $currentValue = "'" . $this->dbi->escapeString($currentValue) . "'";
         }
 
         // Was the Null checkbox checked for this field?
