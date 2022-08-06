@@ -46,7 +46,7 @@ class Sanitize
         $url = strtolower($url);
         $valid_starts = [
             'https://',
-            './url.php?url=https%3a%2f%2f',
+            'index.php?route=/url&url=https%3a%2f%2f',
             './doc/html/',
             './index.php?',
         ];

@@ -42,7 +42,7 @@ class SanitizeTest extends AbstractTestCase
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
+            '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             Sanitize::sanitizeMessage('[a@https://www.phpmyadmin.net/@target]link[/a]')
         );
 
@@ -60,7 +60,7 @@ class SanitizeTest extends AbstractTestCase
     public function testDoc(string $link, string $expected): void
     {
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
+            '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
                 . $expected . '" target="documentation">doclink</a>',
             Sanitize::sanitizeMessage('[doc@' . $link . ']doclink[/doc]')
         );
@@ -121,7 +121,7 @@ class SanitizeTest extends AbstractTestCase
     public function testLinkAndXssInHref(): void
     {
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
+            '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
                 . '[a@javascript:alert(\'XSS\');@target]link</a>',
             Sanitize::sanitizeMessage(
                 '[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]'
@@ -402,13 +402,13 @@ class SanitizeTest extends AbstractTestCase
             ],
             [
                 false,
-                './url.php?url=https://example.com',
+                'index.php?route=/url&url=https://example.com',
                 false,
                 false,
             ],
             [
                 true,
-                './url.php?url=https%3a%2f%2fexample.com',
+                'index.php?route=/url&url=https%3a%2f%2fexample.com',
                 false,
                 false,
             ],

@@ -484,7 +484,7 @@ class CoreTest extends AbstractNetworkTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
             Core::getPHPDocLink('function'),
-            './url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
+            'index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
             . $lang . '%2Ffunction'
         );
     }
@@ -512,11 +512,11 @@ class CoreTest extends AbstractNetworkTestCase
         return [
             [
                 'https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
             [
                 'https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
             [
                 'wiki.phpmyadmin.net',

@@ -177,7 +177,7 @@ class GeneratorTest extends AbstractTestCase
 
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="./url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
+        $expected = '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';
@@ -282,14 +282,15 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    'url.php?url=http://phpmyadmin.net/',
+                    'index.php?route=/url&url=http://phpmyadmin.net/',
                     null,
                     'text',
                     [],
                     '_blank',
                 ],
                 1000,
-                '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+                '<a href="index.php?route=/url&url=http://phpmyadmin.net/" target="_blank"'
+                . ' rel="noopener noreferrer">text</a>',
             ],
             [
                 [
@@ -355,12 +356,12 @@ class GeneratorTest extends AbstractTestCase
     public function testGetServerSSL(): void
     {
         $sslNotUsed = '<span class="">SSL is not being used</span>'
-        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
         $sslNotUsedCaution = '<span class="text-danger">SSL is not being used</span>'
-        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
@@ -414,7 +415,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used with disabled verification</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
             Generator::getServerSSL()
@@ -428,7 +429,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used without certification authority</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
             Generator::getServerSSL()
@@ -443,7 +444,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="">SSL is used</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
             Generator::getServerSSL()

@@ -227,7 +227,7 @@ class AdvisorTest extends AbstractTestCase
                     'justification_formula' => 'value',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                    'recommendation' => 'See <a href="index.php?route=/url&url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
                     'id' => 'Distribution',
                 ],
@@ -247,7 +247,7 @@ class AdvisorTest extends AbstractTestCase
                     'justification_formula' => 'ADVISOR_timespanFormat(1377027)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                    'recommendation' => 'See <a href="index.php?route=/url&url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
                     'id' => 'Distribution',
                 ],
@@ -268,9 +268,9 @@ class AdvisorTest extends AbstractTestCase
                     'justification_formula' => 'ADVISOR_formatByteDown(1000000, 2, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F'
+                    'recommendation' => 'See <a href="index.php?route=/url&url=https%3A%2F%2F'
                         . 'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>'
-                        . ' and <a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="_blank"'
+                        . ' and <a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="_blank"'
                         . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
                 ],
@@ -292,9 +292,9 @@ class AdvisorTest extends AbstractTestCase
                     'name' => 'Distribution',
                     'issue' => '<a href="index.php?route=/server/variables&filter=long_query_time&lang=en">'
                         . 'long_query_time</a> is set to 10 seconds or more',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F'
+                    'recommendation' => 'See <a href="index.php?route=/url&url=https%3A%2F%2F'
                         . 'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>'
-                        . ' and <a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="_blank"'
+                        . ' and <a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="_blank"'
                         . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
                 ],

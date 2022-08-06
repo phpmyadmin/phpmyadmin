@@ -172,8 +172,8 @@
 </fieldset>
 
 <div id="footer">
-  <a href="../url.php?url=https://www.phpmyadmin.net/">{% trans 'phpMyAdmin homepage' %}</a>
-  <a href="../url.php?url=https://www.phpmyadmin.net/donate/">{% trans 'Donate' %}</a>
+  <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/'}) }}">{% trans 'phpMyAdmin homepage' %}</a>
+  <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/donate/'}) }}">{% trans 'Donate' %}</a>
   <a href="{{ get_common({'version_check': '1'}) }}">{% trans 'Check for latest version' %}</a>
 </div>
 

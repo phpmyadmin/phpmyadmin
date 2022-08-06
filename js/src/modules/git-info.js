@@ -43,7 +43,7 @@ const GitInfo = {
         if (data && data.version && data.date) {
             const current = GitInfo.parseVersionString($('span.version').text());
             const latest = GitInfo.parseVersionString(data.version);
-            const url = './url.php?url=https://www.phpmyadmin.net/files/' + Functions.escapeHtml(encodeURIComponent(data.version)) + '/';
+            const url = 'index.php?route=/url&url=https://www.phpmyadmin.net/files/' + Functions.escapeHtml(encodeURIComponent(data.version)) + '/';
             let versionInformationMessage = document.createElement('span');
             versionInformationMessage.className = 'latest';
             const versionInformationMessageLink = document.createElement('a');
