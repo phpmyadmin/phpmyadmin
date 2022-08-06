@@ -633,10 +633,10 @@ class Core
         $query = http_build_query(['url' => $vars['url']]);
 
         if ($GLOBALS['config'] !== null && $GLOBALS['config']->get('is_setup')) {
-            return '../url.php?' . $query;
+            return '../index.php?route=/url&' . $query;
         }
 
-        return './url.php?' . $query;
+        return 'index.php?route=/url&' . $query;
     }
 
     /**

@@ -312,7 +312,8 @@ class FormDisplayTest extends AbstractTestCase
     public function testGetDocLink(): void
     {
         $this->assertEquals(
-            './url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_Servers_3_test_2_',
+            'index.php?route=/url&url='
+            . 'https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_Servers_3_test_2_',
             $this->object->getDocLink('Servers/3/test/2/')
         );
 

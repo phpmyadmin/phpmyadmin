@@ -95,7 +95,7 @@ final class Common
         $request = self::getRequest();
         $route = $request->getRoute();
 
-        if ($route === '/import-status') {
+        if ($route === '/import-status' || $route === '/url') {
             $GLOBALS['isMinimumCommon'] = true;
         }
 
@@ -208,6 +208,10 @@ final class Common
             $GLOBALS['config']->loadUserPreferences();
             $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
             Tracker::enable();
+
+            if ($route === '/url') {
+                UrlRedirector::redirect();
+            }
 
             return;
         }

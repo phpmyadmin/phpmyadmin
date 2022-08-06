@@ -636,8 +636,8 @@ class Generator
                         . urlencode(self::generateRowQueryOutput($sqlQuery));
                     $explainLink .= ' ['
                         . self::linkOrButton(
-                            htmlspecialchars('url.php?url=' . urlencode($url)),
-                            null,
+                            Url::getFromRoute('/url'),
+                            ['url' => $url],
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             [],
                             '_blank',
@@ -1071,7 +1071,7 @@ class Generator
 
         if (! empty($target)) {
             $tagParams['target'] = $target;
-            if ($target === '_blank' && str_starts_with($url, 'url.php?')) {
+            if ($target === '_blank' && str_starts_with($url, 'index.php?route=/url&url=')) {
                 $tagParams['rel'] = 'noopener noreferrer';
             }
         }
