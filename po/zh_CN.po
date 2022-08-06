@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-07-06 18:40+0000\n"
-"Last-Translator: Jason Ren <tempren19990743@gmail.com>\n"
+"PO-Revision-Date: 2022-08-07 12:15+0000\n"
+"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3097,10 +3097,8 @@ msgid "Remember filename template"
 msgstr "记住文件名模板"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "从中央列表中删除列"
+msgstr "从定义中删除DEFINER子句"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -4684,7 +4682,7 @@ msgstr "正在显示第 %1$s - %2$s 行。"
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7039,7 +7037,8 @@ msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
-msgstr ""
+msgstr "您无法打开、保存或删除页面布局，因为IndexedDB在浏览器中不工作，并且您的phpMyA"
+"dmin配置存储未为此进行配置。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, php-format
@@ -12497,11 +12496,8 @@ msgid "Could not save configuration"
 msgstr "无法保存设置"
 
 #: libraries/classes/UserPreferences.php:184
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "在当前数据库%s创建%sphpMyAdmin配置存储。"
+msgstr "无法访问phpMyAdmin配置存储数据库。"
 
 #: libraries/classes/Util.php:131
 #, php-format
