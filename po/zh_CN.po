@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-07-31 00:21+0000\n"
 "PO-Revision-Date: 2022-08-06 11:59+0000\n"
-"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
+"Last-Translator: Jason Ren <tempren19990743@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -4683,7 +4683,7 @@ msgstr "正在显示第 %1$s - %2$s 行。"
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 
 #: libraries/classes/Controllers/Database/ExportController.php:90
 #: libraries/classes/Controllers/Database/TrackingController.php:139
