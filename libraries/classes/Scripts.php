@@ -88,7 +88,7 @@ class Scripts
     {
         return ! str_contains($filename, 'jquery')
             && ! str_contains($filename, 'codemirror')
-            && ! str_contains($filename, 'messages.php')
+            && ! str_contains($filename, 'index.php')
             && ! str_contains($filename, 'ajax.js')
             && ! str_contains($filename, 'datetimepicker.js')
             && ! str_contains($filename, 'validator-messages.js')

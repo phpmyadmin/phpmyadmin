@@ -1,4 +1,4 @@
-// js/messages.php
+// libraries/classes/Controllers/JavaScriptMessagesController.php
 declare var Messages: { [p: string]: string };
 
 // templates/javascript/variables.twig
