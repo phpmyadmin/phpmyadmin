@@ -1691,7 +1691,6 @@ class InsertEdit
      * @param array|null   $multiEditColumnsType     array of multi edit column types
      * @param string       $currentValue             current column value in the form
      * @param array|null   $multiEditAutoIncrement   multi edit auto increment
-     * @param int          $rownumber                index of where clause array
      * @param array        $multiEditColumnsName     multi edit column names array
      * @param array        $multiEditColumnsNull     multi edit columns null array
      * @param array        $multiEditColumnsNullPrev multi edit columns previous null
@@ -1708,7 +1707,6 @@ class InsertEdit
         ?array $multiEditColumnsType,
         string $currentValue,
         ?array $multiEditAutoIncrement,
-        $rownumber,
         $multiEditColumnsName,
         $multiEditColumnsNull,
         $multiEditColumnsNullPrev,
@@ -1732,12 +1730,7 @@ class InsertEdit
                 $currentValue = 'NULL';
             }
         } elseif ($type === 'set') {
-            $currentValue = "''";
-            if (! empty($_POST['fields']['multi_edit'][$rownumber][$key])) {
-                $currentValue = implode(',', $_POST['fields']['multi_edit'][$rownumber][$key]);
-                $currentValue = "'"
-                    . $this->dbi->escapeString($currentValue) . "'";
-            }
+            $currentValue = "'" . $this->dbi->escapeString($currentValue) . "'";
         } elseif ($type === 'protected') {
             // Fetch the current values of a row to use in case we have a protected field
             if (
