@@ -28,7 +28,6 @@ use function __;
 use function array_keys;
 use function array_values;
 use function class_exists;
-use function count;
 use function implode;
 use function in_array;
 use function is_array;
@@ -146,6 +145,7 @@ final class ReplaceController extends AbstractController
         $insertErrors = [];
         $rowSkipped = false;
         $GLOBALS['unsaved_values'] = [];
+        /** @var string|int $where_clause */
         foreach ($loopArray as $rownumber => $where_clause) {
             // skip fields to be ignored
             if (! $usingKey && isset($_POST['insert_ignore_' . $where_clause])) {
@@ -158,14 +158,14 @@ final class ReplaceController extends AbstractController
             // Map multi-edit keys to single-level arrays, dependent on how we got the fields
             $multi_edit_columns = $_POST['fields']['multi_edit'][$rownumber] ?? [];
             $multi_edit_columns_name = $_POST['fields_name']['multi_edit'][$rownumber] ?? [];
-            $multi_edit_columns_prev = $_POST['fields_prev']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_funcs = $_POST['funcs']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_salt = $_POST['salt']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_columns_type = $_POST['fields_type']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_columns_null = $_POST['fields_null']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_columns_null_prev = $_POST['fields_null_prev']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_auto_increment = $_POST['auto_increment']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_virtual = $_POST['virtual']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_columns_prev = $_POST['fields_prev']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_funcs = $_POST['funcs']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_salt = $_POST['salt']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_columns_type = $_POST['fields_type']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_columns_null = $_POST['fields_null']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_columns_null_prev = $_POST['fields_null_prev']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_auto_increment = $_POST['auto_increment']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_virtual = $_POST['virtual']['multi_edit'][$rownumber] ?? [];
 
             // When a select field is nullified, it's not present in $_POST
             // so initialize it; this way, the foreach($multi_edit_columns) will process it
@@ -185,6 +185,7 @@ final class ReplaceController extends AbstractController
                 // Note: $key is an md5 of the fieldname. The actual fieldname is
                 // available in $multi_edit_columns_name[$key]
 
+                /** @var array|string $current_value */
                 $current_value = $multi_edit_columns[$key];
                 if (is_array($current_value)) {
                     // Some column types accept comma-separated values e.g. set
@@ -257,21 +258,27 @@ final class ReplaceController extends AbstractController
                     $possibly_uploaded_val !== false
                 );
 
-                if (! isset($multi_edit_virtual, $multi_edit_virtual[$key])) {
-                    [
-                        $queryValues,
-                        $queryFields,
-                    ] = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-                        $editField,
-                        $isInsert,
-                        $queryValues,
-                        $queryFields,
-                        $valueSets,
-                        $usingKey,
-                        $where_clause
-                    );
+                if (! isset($multi_edit_virtual[$key])) {
+                    if ($isInsert) {
+                        $queryPart = $this->insertEdit->getQueryValuesForInsert(
+                            $editField,
+                            $usingKey,
+                            $where_clause
+                        );
+                        if ($queryPart !== '' && $valueSets === []) {
+                            // first inserted row so prepare the list of fields
+                            $queryFields[] = Util::backquote($editField->columnName);
+                        }
+                    } else {
+                        $queryPart = $this->insertEdit->getQueryValuesForUpdate($editField);
+                    }
+
+                    if ($queryPart !== '') {
+                        $queryValues[] = $queryPart;
+                    }
                 }
 
+                // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
                 if ($editField->isNull) {
                     $multi_edit_columns[$key] = null;
                 }
@@ -306,7 +313,6 @@ final class ReplaceController extends AbstractController
             $multi_edit_columns_type,
             $multi_edit_columns_null,
             $multi_edit_auto_increment,
-            $current_value_as_an_array,
             $key,
             $current_value,
             $where_clause,

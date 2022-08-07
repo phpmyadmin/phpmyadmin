@@ -1550,11 +1550,9 @@ class InsertEdit
     }
 
     /**
-     * Get current value in multi edit mode
-     *
-     * @param EditField  $editField
+     * Get value part if a function was specified
      */
-    public function getCurrentValueAsAnArrayForMultipleEdit(
+    private function formatAsSqlFunction(
         EditField $editField
     ): string {
         if ($editField->function === 'PHP_PASSWORD_HASH') {
@@ -1605,103 +1603,88 @@ class InsertEdit
         return $editField->function . '()';
     }
 
-    private function getAsAnArrayForMultipleEdit(
+    /**
+     * Get the field value formatted for use in a SQL statement.
+     * Used in both INSERT and UPDATE statements.
+     */
+    private function getValueFormattedAsSql(
         EditField $editField,
-        $isInsert,
-        $usingKey,
-        $whereClause
+        string $protectedValue = ''
     ): string {
         if ($editField->isUploaded) {
             return $editField->value;
         }
 
         if ($editField->function !== '') {
-            return $this->getCurrentValueAsAnArrayForMultipleEdit($editField);
+            return $this->formatAsSqlFunction($editField);
         }
 
-        return $this->getCurrentValueForDifferentTypes(
+        return $this->formatAsSqlValueBasedOnType(
             $editField,
-            $isInsert,
-            $usingKey,
-            $whereClause,
-            $GLOBALS['table']
+            $protectedValue
         );
     }
 
     /**
      * Get query values array and query fields array for insert and update in multi edit
      *
-     * @param bool   $isInsert                 boolean value whether insert or not
-     * @param array  $queryValues              SET part of the sql query
-     * @param array  $queryFields              array of query fields
-     * @param array  $valueSets                array of valu sets
-     *
-     * @return array[] ($query_values, $query_fields)
+     * @param string|int $whereClause Either a positional index or string representing selected row
      */
-    public function getQueryValuesForInsertAndUpdateInMultipleEdit(
+    public function getQueryValuesForInsert(
         EditField $editField,
-        $isInsert,
-        $queryValues,
-        $queryFields,
-        $valueSets,
-        $usingKey,
+        bool $usingKey,
         $whereClause
-    ) {
-        $currentValueAsAnArray = $this->getAsAnArrayForMultipleEdit($editField, $isInsert, $usingKey, $whereClause);
+    ): string {
+        $protectedValue = '';
+        if ($editField->type === 'protected' && $usingKey && $whereClause !== '') {
+            // Fetch the current values of a row to use in case we have a protected field
+            $protectedValue = $this->dbi->fetchValue(
+                'SELECT ' . Util::backquote($editField->columnName)
+                . ' FROM ' . Util::backquote($GLOBALS['table'])
+                . ' WHERE ' . $whereClause
+            ) ?: '';
+        }
 
-        //  i n s e r t
-        if ($isInsert) {
-            // no need to add column into the valuelist
-            if ($currentValueAsAnArray !== '') {
-                $queryValues[] = $currentValueAsAnArray;
-                // first inserted row so prepare the list of fields
-                if ($valueSets === []) {
-                    $queryFields[] = Util::backquote($editField->columnName);
-                }
-            }
-        } elseif ($editField->wasPreviouslyNull && ! $editField->isNull) {
-            //  u p d a t e
+        return $this->getValueFormattedAsSql($editField, $protectedValue);
+    }
 
+    /**
+     * Get query values array and query fields array for insert and update in multi edit
+     */
+    public function getQueryValuesForUpdate(EditField $editField): string
+    {
+        $currentValueFormattedAsSql = $this->getValueFormattedAsSql($editField);
+
+        if ($editField->wasPreviouslyNull && ! $editField->isNull) {
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $queryValues[] = Util::backquote($editField->columnName) . ' = ' . $currentValueAsAnArray;
-        } elseif (
+            return Util::backquote($editField->columnName) . ' = ' . $currentValueFormattedAsSql;
+        }
+
+        if (
             ! ($editField->function === ''
                 && ! $editField->isNull
                 && $editField->previousValue !== null
                 && $editField->value === $editField->previousValue)
-            && $currentValueAsAnArray !== ''
+            && $currentValueFormattedAsSql !== ''
         ) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
-            if (!$editField->wasPreviouslyNull || ! $editField->isNull) {
-                $queryValues[] = Util::backquote($editField->columnName) . ' = ' . $currentValueAsAnArray;
+            if (! $editField->wasPreviouslyNull || ! $editField->isNull) {
+                return Util::backquote($editField->columnName) . ' = ' . $currentValueFormattedAsSql;
             }
         }
 
-        return [
-            $queryValues,
-            $queryFields,
-        ];
+        return '';
     }
 
     /**
      * Get the current column value in the form for different data types
-     *
-     * @param bool         $isInsert                 whether insert or not
-     * @param bool         $usingKey                 whether editing or new row
-     * @param string       $whereClause              where clause
-     * @param string       $table                    table name
-     *
-     * @return string  current column value in the form
      */
-    public function getCurrentValueForDifferentTypes(
+    private function formatAsSqlValueBasedOnType(
         EditField $editField,
-        $isInsert,
-        $usingKey,
-        $whereClause,
-        $table
+        string $protectedValue
     ): string {
         $currentValue = $editField->value;
 
@@ -1724,21 +1707,9 @@ class InsertEdit
             // mode, insert empty field because no values were submitted.
             // If protected blobs where set, insert original fields content.
             $currentValue = '';
-            if (
-                $isInsert
-                && $usingKey
-                && $whereClause
-            ) {
-                // Fetch the current values of a row to use in case we have a protected field
-                $protectedValue = $this->dbi->fetchValue(
-                    'SELECT ' . Util::backquote($editField->columnName)
-                    . ' FROM ' . Util::backquote($table)
-                    . ' WHERE ' . $whereClause
-                );
 
-                if ($protectedValue) {
-                    $currentValue = '0x' . bin2hex($protectedValue);
-                }
+            if ($protectedValue) {
+                $currentValue = '0x' . bin2hex($protectedValue);
             }
         } elseif ($editField->type === 'hex') {
             if (substr($currentValue, 0, 2) != '0x') {

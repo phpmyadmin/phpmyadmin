@@ -2266,7 +2266,7 @@ class InsertEditTest extends AbstractTestCase
             new Template()
         );
 
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+        $result = $this->insertEdit->formatAsSqlFunction(
             $multi_edit_function,
             null,
             'currVal'
@@ -2277,7 +2277,7 @@ class InsertEditTest extends AbstractTestCase
         // case 3
         $multi_edit_function = 'AES_ENCRYPT';
         $multi_edit_salt = '';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+        $result = $this->insertEdit->formatAsSqlFunction(
             $multi_edit_function,
             $multi_edit_salt,
             "'"
@@ -2286,7 +2286,7 @@ class InsertEditTest extends AbstractTestCase
 
         // case 4
         $multi_edit_function = 'ABS';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+        $result = $this->insertEdit->formatAsSqlFunction(
             $multi_edit_function,
             null,
             "'"
@@ -2295,7 +2295,7 @@ class InsertEditTest extends AbstractTestCase
 
         // case 5
         $multi_edit_function = 'RAND';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+        $result = $this->insertEdit->formatAsSqlFunction(
             $multi_edit_function,
             null,
             ''
@@ -2304,7 +2304,7 @@ class InsertEditTest extends AbstractTestCase
 
         // case 6
         $multi_edit_function = 'PHP_PASSWORD_HASH';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
+        $result = $this->insertEdit->formatAsSqlFunction(
             $multi_edit_function,
             null,
             "a'c"
@@ -2325,7 +2325,7 @@ class InsertEditTest extends AbstractTestCase
             new Template()
         );
 
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             '123',
             '0',
             [],
@@ -2343,7 +2343,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('123', $result);
 
         // case 2
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['test'],
@@ -2361,7 +2361,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('NULL', $result);
 
         // case 3
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['test'],
@@ -2380,7 +2380,7 @@ class InsertEditTest extends AbstractTestCase
 
         // case 4
         $_POST['fields']['multi_edit'][0][0] = [];
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['set'],
@@ -2398,7 +2398,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("''", $result);
 
         // case 5
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['protected'],
@@ -2416,7 +2416,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('0x313031', $result);
 
         // case 6
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['protected'],
@@ -2434,7 +2434,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('', $result);
 
         // case 7
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['bit'],
@@ -2452,7 +2452,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("b'00010'", $result);
 
         // case 7
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['date'],
@@ -2471,7 +2471,7 @@ class InsertEditTest extends AbstractTestCase
 
         // case 8
         $_POST['fields']['multi_edit'][0][0] = [];
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['set'],
@@ -2489,7 +2489,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('NULL', $result);
 
         // case 9
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+        $result = $this->insertEdit->formatAsSqlValueBasedOnType(
             false,
             '0',
             ['protected'],
