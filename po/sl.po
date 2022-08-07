@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-31 00:21+0000\n"
+"POT-Creation-Date: 2022-08-07 00:23+0000\n"
 "PO-Revision-Date: 2022-08-04 19:16+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1384,7 +1384,7 @@ msgstr "Iskanje:"
 #: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
-#: templates/table/normalization/normalization.twig:25
+#: templates/table/normalization/normalization.twig:24
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1726,16 +1726,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamsko"
 
-#: libraries/classes/Common.php:253
+#: libraries/classes/Common.php:257
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 
-#: libraries/classes/Common.php:285
+#: libraries/classes/Common.php:289
 msgid "Error: Token mismatch"
 msgstr "Napaka: Neujemanje žetonov"
 
-#: libraries/classes/Common.php:496
+#: libraries/classes/Common.php:500
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1743,7 +1743,7 @@ msgstr ""
 "Nastavljanje piškotka seje je spodletelo. Morda uporabljate HTTP namesto "
 "HTTPS za dostop do phpMyAdmina."
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:556
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1752,7 +1752,7 @@ msgstr ""
 "V vaši konfiguraciji PHP ste omogočili mbstring.func_overload. Možnost ni "
 "združljiva s phpMyAdminom in lahko pokvari nekatere podatke!"
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:573
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1760,11 +1760,11 @@ msgstr ""
 "Funkciji ini_get in/ali ini_set sta onemogočeni v php.ini. phpMyAdmin "
 "potrebuje ti funkciji!"
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:584
 msgid "GLOBALS overwrite attempt"
 msgstr "poskus prepisa GLOBALS"
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:594
 msgid "possible exploit"
 msgstr "možno izkoriščanje"
 
@@ -4992,7 +4992,7 @@ msgstr "Ni izbranih zbirk podatkov."
 msgid "Missing parameter:"
 msgstr "Manjkajoč parameter:"
 
-#: libraries/classes/Controllers/ChangeLogController.php:40
+#: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
@@ -7893,17 +7893,17 @@ msgstr ""
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Usodna napaka: Do navigacije lahko dostopate samo z Ajaxom"
 
-#: libraries/classes/Controllers/NormalizationController.php:39
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
 #: libraries/classes/Normalization.php:245
 msgid "Select one…"
 msgstr "Izberite enega …"
 
-#: libraries/classes/Controllers/NormalizationController.php:40
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
 #: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "Ni takšnega stolpca"
 
-#: libraries/classes/Controllers/NormalizationController.php:45
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
@@ -10668,7 +10668,7 @@ msgid "Make all columns atomic"
 msgstr "Naredi vse stolpce atomske"
 
 #: libraries/classes/Normalization.php:225
-#: templates/table/normalization/normalization.twig:12
+#: templates/table/normalization/normalization.twig:11
 msgid "First step of normalization (1NF)"
 msgstr "Prvi korak normalizacije (1NF)"
 
@@ -18495,23 +18495,23 @@ msgstr "Nadaljuj vstavljanje z %s vrsticami"
 msgid "Checksum"
 msgstr "Kontrolna vsota"
 
-#: templates/table/normalization/normalization.twig:6
+#: templates/table/normalization/normalization.twig:5
 msgid "Improve table structure (Normalization):"
 msgstr "Izboljšaj strukturo tabele (normalizacija):"
 
-#: templates/table/normalization/normalization.twig:8
+#: templates/table/normalization/normalization.twig:7
 msgid "Select up to what step you want to normalize"
 msgstr "Označite, do katere stopnje želite normalizirati"
 
-#: templates/table/normalization/normalization.twig:16
+#: templates/table/normalization/normalization.twig:15
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Druga stopnja normalizacije (1NF+2NF)"
 
-#: templates/table/normalization/normalization.twig:20
+#: templates/table/normalization/normalization.twig:19
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Tretja stopnja normalizacije (1NF+2NF+3NF)"
 
-#: templates/table/normalization/normalization.twig:24
+#: templates/table/normalization/normalization.twig:23
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"

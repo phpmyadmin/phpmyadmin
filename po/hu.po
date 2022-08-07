@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-31 00:21+0000\n"
+"POT-Creation-Date: 2022-08-07 00:23+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1462,7 +1462,7 @@ msgstr "Keresés:"
 #: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
-#: templates/table/normalization/normalization.twig:25
+#: templates/table/normalization/normalization.twig:24
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1807,22 +1807,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "vietnámi"
 
-#: libraries/classes/Common.php:253
+#: libraries/classes/Common.php:257
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Frissítenie kell %s %s vagy újabb verzióra."
 
-#: libraries/classes/Common.php:285
+#: libraries/classes/Common.php:289
 msgid "Error: Token mismatch"
 msgstr "Hiba: Token eltérés"
 
-#: libraries/classes/Common.php:496
+#: libraries/classes/Common.php:500
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:556
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1831,17 +1831,17 @@ msgstr ""
 "Ön engedélyezte az mbstring.func_overload funkciót a PHP konfigurációban. Ez "
 "a beállítás nem kompatibilis a phpMyAdminnal, és az adatsérüléssel járhat!"
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:573
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:584
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS felülírási kísérlet"
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:594
 msgid "possible exploit"
 msgstr "lehetséges kiaknázás"
 
@@ -5212,7 +5212,7 @@ msgstr "Nincs kiválasztott adatbázis."
 msgid "Missing parameter:"
 msgstr "Hiányzó paraméter:"
 
-#: libraries/classes/Controllers/ChangeLogController.php:40
+#: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
@@ -8147,17 +8147,17 @@ msgstr ""
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Végzetes hiba: a navigáció csak AJAX-on keresztül hozzáférhető"
 
-#: libraries/classes/Controllers/NormalizationController.php:39
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
 #: libraries/classes/Normalization.php:245
 msgid "Select one…"
 msgstr "Válasszon egy…"
 
-#: libraries/classes/Controllers/NormalizationController.php:40
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
 #: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "Nincs ilyen oszlop"
 
-#: libraries/classes/Controllers/NormalizationController.php:45
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
@@ -10971,7 +10971,7 @@ msgid "Make all columns atomic"
 msgstr "Minden oszlop atomivá tétele"
 
 #: libraries/classes/Normalization.php:225
-#: templates/table/normalization/normalization.twig:12
+#: templates/table/normalization/normalization.twig:11
 msgid "First step of normalization (1NF)"
 msgstr "A normalizálás első lépése (1NF)"
 
@@ -19245,23 +19245,23 @@ msgstr "Beszúrás folytatása a(z) %s sorokkal"
 msgid "Checksum"
 msgstr "Ellenőrzés"
 
-#: templates/table/normalization/normalization.twig:6
+#: templates/table/normalization/normalization.twig:5
 msgid "Improve table structure (Normalization):"
 msgstr "Táblaszerkezet javítása (normalizálás):"
 
-#: templates/table/normalization/normalization.twig:8
+#: templates/table/normalization/normalization.twig:7
 msgid "Select up to what step you want to normalize"
 msgstr "Válassza ki, hogy legfeljebb melyik lépésre szeretne normalizálni"
 
-#: templates/table/normalization/normalization.twig:16
+#: templates/table/normalization/normalization.twig:15
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "A normalizálás második lépése (1NF+2NF)"
 
-#: templates/table/normalization/normalization.twig:20
+#: templates/table/normalization/normalization.twig:19
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "A normalizálás harmadik lépése (1NF+2NF+3NF)"
 
-#: templates/table/normalization/normalization.twig:24
+#: templates/table/normalization/normalization.twig:23
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-31 00:21+0000\n"
+"POT-Creation-Date: 2022-08-07 00:23+0000\n"
 "PO-Revision-Date: 2022-05-27 05:55+0000\n"
 "Last-Translator: David Kindl <mtwango@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1366,7 +1366,7 @@ msgstr "Vyhledat:"
 #: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
-#: templates/table/normalization/normalization.twig:25
+#: templates/table/normalization/normalization.twig:24
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1708,16 +1708,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamština"
 
-#: libraries/classes/Common.php:253
+#: libraries/classes/Common.php:257
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/classes/Common.php:285
+#: libraries/classes/Common.php:289
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/classes/Common.php:496
+#: libraries/classes/Common.php:500
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1725,7 +1725,7 @@ msgstr ""
 "Nepodařilo se nastavit session cookie. Možná pro přístup do phpMyAdmina "
 "používáte protokol HTTP místo HTTPS."
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:556
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1734,7 +1734,7 @@ msgstr ""
 "V nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není "
 "kompatibilní s phpMyAdminem a může způsobit poškození dat!"
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:573
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1742,11 +1742,11 @@ msgstr ""
 "V souboru php.ini je zakázaná funkce ini_get nebo ini_set. phpMyAdmin však "
 "tyto funkce vyžaduje!"
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:584
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:594
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
@@ -4967,7 +4967,7 @@ msgstr "Nebyla vybrána žádná databáze."
 msgid "Missing parameter:"
 msgstr "Chybějící parametr:"
 
-#: libraries/classes/Controllers/ChangeLogController.php:40
+#: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
@@ -7847,17 +7847,17 @@ msgstr ""
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Chyba: Navigace je přístupná jen přes AJAX"
 
-#: libraries/classes/Controllers/NormalizationController.php:39
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
 #: libraries/classes/Normalization.php:245
 msgid "Select one…"
 msgstr "Vyberte jeden…"
 
-#: libraries/classes/Controllers/NormalizationController.php:40
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
 #: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "Žádný ze sloupců"
 
-#: libraries/classes/Controllers/NormalizationController.php:45
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
@@ -10600,7 +10600,7 @@ msgid "Make all columns atomic"
 msgstr "Převést všechny sloupce na atomické"
 
 #: libraries/classes/Normalization.php:225
-#: templates/table/normalization/normalization.twig:12
+#: templates/table/normalization/normalization.twig:11
 msgid "First step of normalization (1NF)"
 msgstr "První krok normalizace (1NF)"
 
@@ -18396,23 +18396,23 @@ msgstr "Pokračovat ve vkládání s %s řádky"
 msgid "Checksum"
 msgstr "Kontrolní součet"
 
-#: templates/table/normalization/normalization.twig:6
+#: templates/table/normalization/normalization.twig:5
 msgid "Improve table structure (Normalization):"
 msgstr "Zlepšit strukturu tabulky(Normalizace):"
 
-#: templates/table/normalization/normalization.twig:8
+#: templates/table/normalization/normalization.twig:7
 msgid "Select up to what step you want to normalize"
 msgstr "Vyberte který krok chcete normalizovat"
 
-#: templates/table/normalization/normalization.twig:16
+#: templates/table/normalization/normalization.twig:15
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Druhý krok normalizace (1NF+2NF)"
 
-#: templates/table/normalization/normalization.twig:20
+#: templates/table/normalization/normalization.twig:19
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Třetí krok normalizace (1NF+2NF+3NF)"
 
-#: templates/table/normalization/normalization.twig:24
+#: templates/table/normalization/normalization.twig:23
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"

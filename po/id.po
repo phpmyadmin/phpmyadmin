@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-31 00:21+0000\n"
+"POT-Creation-Date: 2022-08-07 00:23+0000\n"
 "PO-Revision-Date: 2022-08-04 19:16+0000\n"
 "Last-Translator: Holiq Ibrahim <holiq.ibrahim376@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1519,7 +1519,7 @@ msgstr "Cari:"
 #: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
-#: templates/table/normalization/normalization.twig:25
+#: templates/table/normalization/normalization.twig:24
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1861,16 +1861,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: libraries/classes/Common.php:253
+#: libraries/classes/Common.php:257
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/classes/Common.php:285
+#: libraries/classes/Common.php:289
 msgid "Error: Token mismatch"
 msgstr "Error: Token tidak cocok"
 
-#: libraries/classes/Common.php:496
+#: libraries/classes/Common.php:500
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1878,7 +1878,7 @@ msgstr ""
 "Gagal mengatur cookie sesi. Mungkin Anda menggunakan HTTP, bukan HTTPS untuk "
 "mengakses phpMyAdmin."
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:556
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1887,7 +1887,7 @@ msgstr ""
 "Anda mengaktifkan Fungsi mbstring.func_overload pada konfigurasi PHP. "
 "Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:573
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1895,11 +1895,11 @@ msgstr ""
 "Fungsi ini_get dan / atau ini_set dinonaktifkan di php.ini. phpMyAdmin "
 "membutuhkan fungsi-fungsi ini!"
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:584
 msgid "GLOBALS overwrite attempt"
 msgstr "upaya penimpaan GLOBALS"
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:594
 msgid "possible exploit"
 msgstr "memungkinkan mengeksploitasi"
 
@@ -5325,7 +5325,7 @@ msgstr "Basis data belum dipilih."
 msgid "Missing parameter:"
 msgstr "Parameter yang hilang:"
 
-#: libraries/classes/Controllers/ChangeLogController.php:40
+#: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
@@ -8266,17 +8266,17 @@ msgstr ""
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Kesalahan fatal: navigasi hanya dapat diakses melalui AJAX"
 
-#: libraries/classes/Controllers/NormalizationController.php:39
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
 #: libraries/classes/Normalization.php:245
 msgid "Select one…"
 msgstr "Pilih satu…"
 
-#: libraries/classes/Controllers/NormalizationController.php:40
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
 #: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "Tidak ada kolom seperti itu"
 
-#: libraries/classes/Controllers/NormalizationController.php:45
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
@@ -11194,7 +11194,7 @@ msgid "Make all columns atomic"
 msgstr "Membuat semua kolom atom"
 
 #: libraries/classes/Normalization.php:225
-#: templates/table/normalization/normalization.twig:12
+#: templates/table/normalization/normalization.twig:11
 msgid "First step of normalization (1NF)"
 msgstr "Tahap pertama normalisasi (1NF)"
 
@@ -19800,26 +19800,26 @@ msgstr "Lanjutkan penambahan untuk %s baris"
 msgid "Checksum"
 msgstr "Periksa"
 
-#: templates/table/normalization/normalization.twig:6
+#: templates/table/normalization/normalization.twig:5
 #, fuzzy
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Sembunyikan stuktur aksi tabel"
 
-#: templates/table/normalization/normalization.twig:8
+#: templates/table/normalization/normalization.twig:7
 #, fuzzy
 msgid "Select up to what step you want to normalize"
 msgstr "Pilih hingga langkah apa yang ingin Anda menormalkan"
 
-#: templates/table/normalization/normalization.twig:16
+#: templates/table/normalization/normalization.twig:15
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Normalisasi tahap kedua (1NF+2NF)"
 
-#: templates/table/normalization/normalization.twig:20
+#: templates/table/normalization/normalization.twig:19
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Normalisasi tahap ketiga (1NF+2NF+3NF)"
 
-#: templates/table/normalization/normalization.twig:24
+#: templates/table/normalization/normalization.twig:23
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-07-31 00:21+0000\n"
+"POT-Creation-Date: 2022-08-07 00:23+0000\n"
 "PO-Revision-Date: 2022-04-23 11:51+0000\n"
 "Last-Translator: Yonjae Lee <yjyj93@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1379,7 +1379,7 @@ msgstr "검색:"
 #: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
-#: templates/table/normalization/normalization.twig:25
+#: templates/table/normalization/normalization.twig:24
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1724,22 +1724,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "베트남어"
 
-#: libraries/classes/Common.php:253
+#: libraries/classes/Common.php:257
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/classes/Common.php:285
+#: libraries/classes/Common.php:289
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: libraries/classes/Common.php:496
+#: libraries/classes/Common.php:500
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:556
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1748,17 +1748,17 @@ msgstr ""
 "PHP 설정에서 mbstring.func_overload를 활성화해야합니다. 이 옵션은 phpMyAdmin"
 "와 호환되지 않고 일부 데이터가 손상될 수 있습니다!"
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:573
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:584
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:594
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
@@ -5044,7 +5044,7 @@ msgstr "데이터베이스를 선택하지 않았습니다."
 msgid "Missing parameter:"
 msgstr "매개 변수 누락:"
 
-#: libraries/classes/Controllers/ChangeLogController.php:40
+#: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
 #, php-format
 msgid ""
@@ -7941,19 +7941,19 @@ msgstr ""
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "심각한 오류: 네비게이션은 AJAX를 통해서만 접근할 수 있습니다"
 
-#: libraries/classes/Controllers/NormalizationController.php:39
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
 #: libraries/classes/Normalization.php:245
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select one…"
 msgstr "컬럼 선택."
 
-#: libraries/classes/Controllers/NormalizationController.php:40
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
 #: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "그런 컬럼이 없습니다"
 
-#: libraries/classes/Controllers/NormalizationController.php:45
+#: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
@@ -10628,7 +10628,7 @@ msgid "Make all columns atomic"
 msgstr ""
 
 #: libraries/classes/Normalization.php:225
-#: templates/table/normalization/normalization.twig:12
+#: templates/table/normalization/normalization.twig:11
 msgid "First step of normalization (1NF)"
 msgstr ""
 
@@ -18825,23 +18825,23 @@ msgstr "%s 개의 행을 추가로 삽입"
 msgid "Checksum"
 msgstr "검사"
 
-#: templates/table/normalization/normalization.twig:6
+#: templates/table/normalization/normalization.twig:5
 msgid "Improve table structure (Normalization):"
 msgstr "테이블 구조 개선 (표준화):"
 
-#: templates/table/normalization/normalization.twig:8
+#: templates/table/normalization/normalization.twig:7
 msgid "Select up to what step you want to normalize"
 msgstr "정규화 할 단계 선택"
 
-#: templates/table/normalization/normalization.twig:16
+#: templates/table/normalization/normalization.twig:15
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "정규화 두번째 단계"
 
-#: templates/table/normalization/normalization.twig:20
+#: templates/table/normalization/normalization.twig:19
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "정규화 세번째 단계"
 
-#: templates/table/normalization/normalization.twig:24
+#: templates/table/normalization/normalization.twig:23
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
