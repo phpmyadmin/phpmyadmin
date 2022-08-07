@@ -1263,6 +1263,7 @@ msgstr "搜索："
 #: templates/table/structure/display_structure.twig:437
 #: templates/table/structure/display_structure.twig:555
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
+#: templates/table/normalization/normalization.twig:25
 msgid "Go"
 msgstr "执行"
 
@@ -1592,22 +1593,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南语"
 
-#: libraries/classes/Common.php:257
+#: libraries/classes/Common.php:257 libraries/classes/Common.php:253
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
 
-#: libraries/classes/Common.php:289
+#: libraries/classes/Common.php:289 libraries/classes/Common.php:285
 msgid "Error: Token mismatch"
 msgstr "错误：令牌不符"
 
-#: libraries/classes/Common.php:500
+#: libraries/classes/Common.php:500 libraries/classes/Common.php:496
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "无法设置会话cookie。也许您使用HTTP而不是HTTPS来访问phpMyAdmin。"
 
-#: libraries/classes/Common.php:556
+#: libraries/classes/Common.php:556 libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1616,17 +1617,17 @@ msgstr ""
 "您在 PHP 设置中启用了 mbstring.func_overload。该选项和 phpMyAdmin 不兼容并可"
 "能会导致一些数据损坏！"
 
-#: libraries/classes/Common.php:573
+#: libraries/classes/Common.php:573 libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr "php.ini中禁用了ini_get和/或ini_set函数。 phpMyAdmin需要这些函数！"
 
-#: libraries/classes/Common.php:584
+#: libraries/classes/Common.php:584 libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "企图覆盖 GLOBALS"
 
-#: libraries/classes/Common.php:594
+#: libraries/classes/Common.php:594 libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "检测到有利用漏洞的企图"
 
@@ -4667,6 +4668,7 @@ msgstr "缺少参数："
 
 #: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
+#: libraries/classes/Controllers/ChangeLogController.php:40
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -7462,16 +7464,19 @@ msgstr "致命错误：导航只能通过AJAX访问"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
 #: libraries/classes/Normalization.php:245
+#: libraries/classes/Controllers/NormalizationController.php:39
 msgid "Select one…"
 msgstr "选择一个……"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
 #: libraries/classes/Normalization.php:246
+#: libraries/classes/Controllers/NormalizationController.php:40
 msgid "No such column"
 msgstr "没有这样的字段"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
+#: libraries/classes/Controllers/NormalizationController.php:45
 msgctxt "string types"
 msgid "String"
 msgstr "文本"
@@ -8370,10 +8375,8 @@ msgstr "视图"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The partition name must be a non-empty string."
-msgstr "表名必须是非空字符串。"
+msgstr "分区名称必须是一个非空的字符串。"
 
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
@@ -10087,6 +10090,7 @@ msgstr "使所有字段原子化"
 
 #: libraries/classes/Normalization.php:225
 #: templates/table/normalization/normalization.twig:11
+#: templates/table/normalization/normalization.twig:12
 msgid "First step of normalization (1NF)"
 msgstr "第一范式"
 
@@ -15560,7 +15564,7 @@ msgstr "好的"
 
 #: templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
-msgstr ""
+msgstr "回去"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -16156,10 +16160,8 @@ msgid "Grant all privileges on database %s."
 msgstr "授予数据库 %s 所有权限。"
 
 #: templates/server/privileges/add_user.twig:38
-#, fuzzy
-#| msgid "Create %s"
 msgid "Create user"
-msgstr "新建%s"
+msgstr "创建用户"
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
@@ -16476,10 +16478,8 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "要求提供包含此主题的有效X509证书。"
 
 #: templates/server/privileges/privileges_table.twig:878
-#, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
-msgstr "调整权限"
+msgstr "更新用户权限"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -17651,22 +17651,27 @@ msgid "Checksum"
 msgstr "校验值"
 
 #: templates/table/normalization/normalization.twig:5
+#: templates/table/normalization/normalization.twig:6
 msgid "Improve table structure (Normalization):"
 msgstr "改进表结构（规范化）："
 
 #: templates/table/normalization/normalization.twig:7
+#: templates/table/normalization/normalization.twig:8
 msgid "Select up to what step you want to normalize"
 msgstr "选择您要标准化的步骤"
 
 #: templates/table/normalization/normalization.twig:15
+#: templates/table/normalization/normalization.twig:16
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "规范化的第二步（第一范式 + 第二范式 ）"
 
 #: templates/table/normalization/normalization.twig:19
+#: templates/table/normalization/normalization.twig:20
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "规范化的第三步（第一范式 + 第二范式 + 第三范式）"
 
 #: templates/table/normalization/normalization.twig:23
+#: templates/table/normalization/normalization.twig:24
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -18243,8 +18248,6 @@ msgstr "字段名"
 #~ msgstr "找不到主题 %s 的路径！"
 
 #, fuzzy
-#~| msgctxt "Create new column"
-#~| msgid "New"
 #~ msgctxt "Create new routine"
 #~ msgid "New"
 #~ msgstr "新建"
@@ -18337,7 +18340,6 @@ msgstr "字段名"
 #~ msgstr "使用主机表"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "说明"
@@ -18362,15 +18364,11 @@ msgstr "字段名"
 #~ msgstr "GET 文件属性值错误"
 
 #, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%count% second"
 #~ msgid_plural "%count% seconds"
 #~ msgstr[0] "%d 秒"
 
 #, fuzzy
-#~| msgid "%d minute"
-#~| msgid_plural "%d minutes"
 #~ msgid "%count% minute"
 #~ msgid_plural "%count% minutes"
 #~ msgstr[0] "%d 分"
@@ -18425,7 +18423,6 @@ msgstr "字段名"
 #~ msgstr "“<i>%s</i>”的搜索结果 %s："
 
 #, fuzzy
-#~| msgid "Text"
 #~ msgctxt "Text context"
 #~ msgid "Text"
 #~ msgstr "文字"
@@ -18443,15 +18440,12 @@ msgstr "字段名"
 #~ msgstr "自定义主面板"
 
 #, fuzzy
-#~| msgid ""
-#~| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 #~ msgid ""
 #~ "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 #~ msgstr ""
 #~ "不正确的表单集，请检查 setup/frames/form.inc.php 中的 $formsets 数组"
 
 #, fuzzy
-#~| msgid "unknown"
 #~ msgid "Unknonwn"
 #~ msgstr "未知"
 
@@ -18459,7 +18453,6 @@ msgstr "字段名"
 #~ msgstr "全局值"
 
 #, fuzzy
-#~| msgid "Height"
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"
 #~ msgstr "高"
@@ -18498,7 +18491,6 @@ msgstr "字段名"
 #~ msgstr "所有词"
 
 #, fuzzy
-#~| msgid "Propose table structure"
 #~ msgid "Improve table structure"
 #~ msgstr "规划表结构"
 
@@ -18533,82 +18525,66 @@ msgstr "字段名"
 #~ msgstr "加载"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "字段名"
 
 #, fuzzy
-#~| msgid "Iconic table operations"
 #~ msgid "Unrecognized alter operation."
 #~ msgstr "数据表操作显示"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected keyword."
 #~ msgstr "第 %s 行有不应出现的字符。"
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A symbol name was expected!"
 #~ msgstr "表名称模板"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "A comma or a closing bracket was expected."
 #~ msgstr "没有已选择的数据库。"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "An alias was expected."
 #~ msgstr "没有已选择的数据库。"
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "An expression was expected."
 #~ msgstr "没有选中任何行"
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Value/Expression for the option %1$s was expected"
 #~ msgstr "已创建事件 %1$s 。"
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The old name of the table was expected."
 #~ msgstr "打开的数据表个数。"
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The new name of the table was expected."
 #~ msgstr "打开的数据表个数。"
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "A rename operation was expected."
 #~ msgstr "已删除该行。"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected character."
 #~ msgstr "第 %s 行有不应出现的字符。"
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Ending quote %1$s was expected."
 #~ msgstr "已创建事件 %1$s 。"
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "Variable name was expected."
 #~ msgstr "表名称模板"
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected beginning of statement."
 #~ msgstr "于表开头"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected token."
 #~ msgstr "第 %s 行有不应出现的字符。"
 
@@ -18616,37 +18592,30 @@ msgstr "字段名"
 #~ msgstr "不能识别的关键词"
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected ordering of clauses."
 #~ msgstr "于表开头"
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The name of the entity was expected."
 #~ msgstr "打开的数据表个数。"
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A table name was expected."
 #~ msgstr "表名称模板"
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "At least one column definition was expected."
 #~ msgstr "已删除该行。"
 
 #, fuzzy
-#~| msgid "errors."
 #~ msgid "error #1"
 #~ msgstr "个错误。"
 
 #, fuzzy
-#~| msgid "Gather errors"
 #~ msgid "strict error"
 #~ msgstr "收集错误"
 
 #, fuzzy
-#~| msgid "Cookie authentication"
 #~ msgid "Native MySQL Authentication"
 #~ msgstr "Cookie 认证"
 
@@ -18657,9 +18626,6 @@ msgstr "字段名"
 #~ msgstr "用空密码连接"
 
 #, fuzzy
-#~| msgid ""
-#~| "You tried to import an invalid file or the imported file contains "
-#~| "invalid data"
 #~ msgid ""
 #~ "You tried to import an invalid file or the imported file contains invalid "
 #~ "data!"
@@ -18840,17 +18806,14 @@ msgstr "字段名"
 #~ msgstr "正在前往%s。"
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "认证"
 
 #, fuzzy
-#~| msgid "Generate password"
 #~ msgid "MySQL native password"
 #~ msgstr "生成密码"
 
 #, fuzzy
-#~| msgid "Change password"
 #~ msgid "SHA256 password"
 #~ msgstr "修改密码"
 
@@ -18920,7 +18883,6 @@ msgstr "字段名"
 #~ msgstr "格式特定选项："
 
 #, fuzzy
-#~| msgid "Generate Password"
 #~ msgid "Generate Password:"
 #~ msgstr "生成密码"
 
@@ -19021,22 +18983,18 @@ msgstr "字段名"
 #~ msgstr "SQL 查询结果"
 
 #, fuzzy
-#~| msgid "Generated by"
 #~ msgid "Generated by:"
 #~ msgstr "生成者"
 
 #, fuzzy
-#~| msgid "Row Statistics"
 #~ msgid "Row Statistics:"
 #~ msgstr "行统计"
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "Space usage:"
 #~ msgstr "已用空间"
 
 #, fuzzy
-#~| msgid "Showing tables"
 #~ msgid "Showing tables:"
 #~ msgstr "正在显示表"
 
@@ -19047,17 +19005,14 @@ msgstr "字段名"
 #~ msgstr "（已禁用）"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Temporarily disable foreign key checks while importing"
 #~ msgstr "禁止外键约束"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Disable foreign key check"
 #~ msgstr "禁止外键约束"
 
 #, fuzzy
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "正在重新载入权限"
 
@@ -19077,12 +19032,10 @@ msgstr "字段名"
 #~ msgstr "(根据一张表的数据生成报告)"
 
 #, fuzzy
-#~| msgid "Please select a database"
 #~ msgid "Please select a database."
 #~ msgstr "请选择数据库"
 
 #, fuzzy
-#~| msgid "Autoextend increment"
 #~ msgid "auto_increment"
 #~ msgstr "自动增加"
 
@@ -19090,7 +19043,6 @@ msgstr "字段名"
 #~ msgstr "保存位置"
 
 #, fuzzy
-#~| msgid "Save position"
 #~ msgid "Save positions as"
 #~ msgstr "保存位置"
 
@@ -19098,7 +19050,6 @@ msgstr "字段名"
 #~ msgstr "未知的语言：%1$s."
 
 #, fuzzy
-#~| msgid "Display databases as a list"
 #~ msgid "Disable database expansion"
 #~ msgstr "显示数据库为列表"
 
@@ -19106,7 +19057,6 @@ msgstr "字段名"
 #~ msgstr "删除该表的追踪数据"
 
 #, fuzzy
-#~| msgid "Table structure"
 #~ msgid "Table Structure"
 #~ msgstr "表结构"
 
@@ -19121,7 +19071,6 @@ msgstr "字段名"
 #~ msgstr "快速编辑"
 
 #, fuzzy
-#~| msgid "after %s"
 #~ msgid "after"
 #~ msgstr "于 %s 之后"
 
@@ -19141,9 +19090,6 @@ msgstr "字段名"
 #~ msgstr "默认显示模式"
 
 #, fuzzy
-#~| msgid ""
-#~| "Defines whether or not type display direction option is shown when "
-#~| "browsing a table"
 #~ msgid ""
 #~ "Defines whether or not type display direction option is shown when "
 #~ "browsing a table."
@@ -19171,17 +19117,14 @@ msgstr "字段名"
 #~ msgstr "此页没有包含任何表！"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "Dia export page"
 #~ msgstr "导出类型无效"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "EPS export page"
 #~ msgstr "导出类型无效"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "SVG export page"
 #~ msgstr "导出类型无效"
 
@@ -19198,7 +19141,6 @@ msgstr "字段名"
 #~ msgstr "在窗口中编辑"
 
 #, fuzzy
-#~| msgid "Tab displayed when opening a new query window"
 #~ msgid "Tab displayed when opening a new query window."
 #~ msgstr "打开一个新查询窗口时默认显示的页面"
 
@@ -19206,7 +19148,6 @@ msgstr "字段名"
 #~ msgstr "默认查询窗口标签"
 
 #, fuzzy
-#~| msgid "Query window height (in pixels)"
 #~ msgid "Query window height (in pixels)."
 #~ msgstr "查询窗口高度 (单位：像素)"
 
@@ -19214,7 +19155,6 @@ msgstr "字段名"
 #~ msgstr "查询窗口高度"
 
 #, fuzzy
-#~| msgid "Query window width (in pixels)"
 #~ msgid "Query window width (in pixels)."
 #~ msgstr "查询窗口宽度 (单位：像素)"
 
@@ -19234,12 +19174,10 @@ msgstr "字段名"
 #~ msgstr "文件不存在"
 
 #, fuzzy
-#~| msgid "SQL Validator is disabled"
 #~ msgid "Plugin is disabled"
 #~ msgstr "SQL 校验器已禁用"
 
 #, fuzzy
-#~| msgid "Customize main panel"
 #~ msgid "Unlink with main panel"
 #~ msgstr "自定义主面板"
 
@@ -19247,12 +19185,10 @@ msgstr "字段名"
 #~ msgstr "没有已定义的索引！在下面创建一个"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "eps export page"
 #~ msgstr "导出类型"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "导出类型无效"
 
@@ -19266,26 +19202,21 @@ msgstr "字段名"
 #~ "志的必要功能。MySQL 自 5.1.6 起有该功能。但你仍然可以使用服务器图表功能。"
 
 #, fuzzy
-#~| msgid "Click to sort."
 #~ msgid "Click to sort"
 #~ msgstr "点击以排序。"
 
 #, fuzzy
-#~| msgid "Total"
 #~ msgid "Total "
 #~ msgstr "总计"
 
 #, fuzzy
-#~| msgid "Delete relation"
 #~ msgid " bookmarks, "
 #~ msgstr "删除关系"
 
 #, fuzzy
-#~| msgid "Select two columns"
 #~ msgid "Select one ..."
 #~ msgstr "选择两列"
 
-#~| msgid "Add unique index"
 #~ msgid "Add unique/primary index"
 #~ msgstr "添加唯一键或主键"
 
@@ -19293,12 +19224,10 @@ msgstr "字段名"
 #~ msgstr "已添加唯一列"
 
 #, fuzzy
-#~| msgid "Move columns"
 #~ msgid "Have unique columns"
 #~ msgstr "移动字段"
 
 #, fuzzy
-#~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "用户 %s 己存在！"
 
@@ -19332,9 +19261,6 @@ msgstr "字段名"
 #~ msgstr "找不到 <b>%s</b> 表或还未在 %s 设置"
 
 #, fuzzy
-#~| msgid ""
-#~| "Disable the default warning that is displayed if mcrypt is missing for "
-#~| "cookie authentication."
 #~ msgid ""
 #~ "Disable the default warning that is displayed if mcrypt is missing for "
 #~ "[kbd]cookie[/kbd] authentication."
@@ -19347,7 +19273,6 @@ msgstr "字段名"
 #~ msgstr "设计表"
 
 #, fuzzy
-#~| msgid "Import/Export coordinates for PDF schema"
 #~ msgid "Import/Export coordinates for relational schema"
 #~ msgstr "为 PDF 大纲导入/导出坐标"
 
@@ -19355,22 +19280,18 @@ msgstr "字段名"
 #~ msgstr "已创建页面"
 
 #, fuzzy
-#~| msgid "Page creation failed"
 #~ msgid "Page creation has failed!"
 #~ msgstr "页面创建失败"
 
 #, fuzzy
-#~| msgid "Page"
 #~ msgid "Page:"
 #~ msgstr "页面"
 
 #, fuzzy
-#~| msgid "Import from selected page"
 #~ msgid "Import from selected page."
 #~ msgstr "从所选页导入"
 
 #, fuzzy
-#~| msgid "Export/Import to scale"
 #~ msgid "Export/Import to scale:"
 #~ msgstr "按比例导出/导入"
 
@@ -19395,7 +19316,6 @@ msgstr "字段名"
 #~ "新。"
 
 #, fuzzy
-#~| msgid "Show binary contents as HEX by default"
 #~ msgid "Show binary contents as HEX by default."
 #~ msgstr "默认以十六进制显示二进制内容"
 
@@ -19426,23 +19346,16 @@ msgstr "字段名"
 #~ "[/a]，版权所有 2002 Upright Database Technology. 保留所有权利。[/em]"
 
 #, fuzzy
-#~| msgid "Requires SQL Validator to be enabled"
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "需要启用 SQL 校验器"
 
 #, fuzzy
-#~| msgid ""
-#~| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
-#~| "installed"
 #~ msgid ""
 #~ "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 #~ "installed."
 #~ msgstr "[strong]警告：[/strong]需要安装 PHP SOAP 扩展或 PEAR SOAP"
 
 #, fuzzy
-#~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to "
-#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
 #~ "If you have a custom username, specify it here (defaults to "
 #~ "[kbd]anonymous[/kbd])."
@@ -19461,30 +19374,21 @@ msgstr "字段名"
 #~ "展。"
 
 #, fuzzy
-#~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "错误：关系未添加。"
 
 #, fuzzy
-#~| msgid ""
-#~| "<b>One or more errors have occured while processing your request:</b>"
 #~ msgid ""
 #~ "<b>One or more errors have occurred while processing your request:</b>"
 #~ msgstr "<b>处理请求时发生错误:</b>"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__users[/kbd]."
 #~ msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__usergroups[/kbd]."
@@ -19566,17 +19470,14 @@ msgstr "字段名"
 #~ msgstr "显示数据库(SHOW DATABASES)命令"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy url"
 #~ msgstr "检查更新"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy username"
 #~ msgstr "检查更新"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy password"
 #~ msgstr "检查更新"
 
@@ -19597,7 +19498,6 @@ msgstr "字段名"
 #~ msgstr "URL 协议和 CURL 都不可用，无法检查新版本。"
 
 #, fuzzy
-#~| msgid "Find:"
 #~ msgid "Find"
 #~ msgstr "查找:"
 
@@ -19608,7 +19508,6 @@ msgstr "字段名"
 #~ msgstr "每 %s 行重复表头"
 
 #, fuzzy
-#~| msgid "Table Search"
 #~ msgid "Enable reCaptcha"
 #~ msgstr "普通搜索"
 
@@ -19790,7 +19689,6 @@ msgstr "字段名"
 #~ msgstr "目标数据库将完全根据源数据库同步。源数据库将保持不变。"
 
 #, fuzzy
-#~| msgid "New"
 #~ msgctxt "Crate new trigger"
 #~ msgid "New"
 #~ msgstr "新建"
@@ -19857,7 +19755,6 @@ msgstr "字段名"
 #~ msgstr "zh"
 
 #, fuzzy
-#~| msgid "Do you really want to "
 #~ msgid "Do you really want to execute following query?"
 #~ msgstr "您真的要"
 
@@ -19896,7 +19793,6 @@ msgstr "字段名"
 #~ msgstr "为了绘图，字符串被转换成了整数"
 
 #, fuzzy
-#~| msgid "Lines terminated by"
 #~ msgid "String"
 #~ msgstr "换行符"
 
@@ -19924,7 +19820,6 @@ msgstr "字段名"
 #~ msgstr "为多个语句输出更多信息"
 
 #, fuzzy
-#~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "仅数据"
 
