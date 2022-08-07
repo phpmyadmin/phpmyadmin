@@ -1552,27 +1552,23 @@ class InsertEdit
     /**
      * Get current value in multi edit mode
      *
-     * @param string  $multiEditFunction multiple edit functions array
-     * @param ?string $multiEditSalt     multiple edit array with encryption salt
-     * @param string  $currentValue      current value in the column
+     * @param EditField  $editField
      */
     public function getCurrentValueAsAnArrayForMultipleEdit(
-        string $multiEditFunction,
-        ?string $multiEditSalt,
-        string $currentValue
+        EditField $editField
     ): string {
-        if ($multiEditFunction === 'PHP_PASSWORD_HASH') {
+        if ($editField->function === 'PHP_PASSWORD_HASH') {
             /**
              * @see https://github.com/vimeo/psalm/issues/3350
              *
              * @psalm-suppress InvalidArgument
              */
-            $hash = password_hash($currentValue, PASSWORD_DEFAULT);
+            $hash = password_hash($editField->value, PASSWORD_DEFAULT);
 
             return "'" . $this->dbi->escapeString($hash) . "'";
         }
 
-        if ($multiEditFunction === 'UUID') {
+        if ($editField->function === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = (string) $this->dbi->fetchValue('SELECT UUID()');
 
@@ -1580,98 +1576,107 @@ class InsertEdit
         }
 
         if (
-            in_array($multiEditFunction, $this->getGisFromTextFunctions())
-            || in_array($multiEditFunction, $this->getGisFromWKBFunctions())
+            in_array($editField->function, $this->getGisFromTextFunctions())
+            || in_array($editField->function, $this->getGisFromWKBFunctions())
         ) {
-            return $multiEditFunction . "('" . $this->dbi->escapeString($currentValue) . "')";
+            return $editField->function . "('" . $this->dbi->escapeString($editField->value) . "')";
         }
 
         if (
-            ! in_array($multiEditFunction, self::FUNC_NO_PARAM)
-            || ($currentValue !== ''
-                && in_array($multiEditFunction, self::FUNC_OPTIONAL_PARAM))
+            ! in_array($editField->function, self::FUNC_NO_PARAM)
+            || ($editField->value !== '' && in_array($editField->function, self::FUNC_OPTIONAL_PARAM))
         ) {
             if (
-                (isset($multiEditSalt)
-                    && ($multiEditFunction === 'AES_ENCRYPT'
-                        || $multiEditFunction === 'AES_DECRYPT'))
-                || (! empty($multiEditSalt)
-                    && ($multiEditFunction === 'DES_ENCRYPT'
-                        || $multiEditFunction === 'DES_DECRYPT'
-                        || $multiEditFunction === 'ENCRYPT'))
+                ($editField->salt !== null
+                    && ($editField->function === 'AES_ENCRYPT'
+                        || $editField->function === 'AES_DECRYPT'))
+                || ($editField->salt
+                    && ($editField->function === 'DES_ENCRYPT'
+                        || $editField->function === 'DES_DECRYPT'
+                        || $editField->function === 'ENCRYPT'))
             ) {
-                return $multiEditFunction . "('" . $this->dbi->escapeString($currentValue) . "','"
-                    . $this->dbi->escapeString($multiEditSalt) . "')";
+                return $editField->function . "('" . $this->dbi->escapeString($editField->value) . "','"
+                    . $this->dbi->escapeString($editField->salt) . "')";
             }
 
-            return $multiEditFunction . "('" . $this->dbi->escapeString($currentValue) . "')";
+            return $editField->function . "('" . $this->dbi->escapeString($editField->value) . "')";
         }
 
-        return $multiEditFunction . '()';
+        return $editField->function . '()';
+    }
+
+    private function getAsAnArrayForMultipleEdit(
+        EditField $editField,
+        $isInsert,
+        $usingKey,
+        $whereClause
+    ): string {
+        if ($editField->isUploaded) {
+            return $editField->value;
+        }
+
+        if ($editField->function !== '') {
+            return $this->getCurrentValueAsAnArrayForMultipleEdit($editField);
+        }
+
+        return $this->getCurrentValueForDifferentTypes(
+            $editField,
+            $isInsert,
+            $usingKey,
+            $whereClause,
+            $GLOBALS['table']
+        );
     }
 
     /**
      * Get query values array and query fields array for insert and update in multi edit
      *
-     * @param string  $columnName
-     * @param array  $multiEditColumnsNull     multiple edit columns null array
-     * @param string $currentValue             current value in the column in loop
-     * @param array  $multiEditColumnsPrev     multiple edit previous columns array
-     * @param array  $multiEditFuncs           multiple edit functions array
      * @param bool   $isInsert                 boolean value whether insert or not
      * @param array  $queryValues              SET part of the sql query
      * @param array  $queryFields              array of query fields
-     * @param string $currentValueAsAnArray    current value in the column
-     *                                                as an array
      * @param array  $valueSets                array of valu sets
-     * @param string $key                      an md5 of the column name
-     * @param array  $multiEditColumnsNullPrev array of multiple edit columns
-     *                                              null previous
      *
      * @return array[] ($query_values, $query_fields)
      */
     public function getQueryValuesForInsertAndUpdateInMultipleEdit(
-        $columnName,
-        $multiEditColumnsNull,
-        $currentValue,
-        $multiEditColumnsPrev,
-        $multiEditFuncs,
+        EditField $editField,
         $isInsert,
         $queryValues,
         $queryFields,
-        $currentValueAsAnArray,
         $valueSets,
-        $key,
-        $multiEditColumnsNullPrev
+        $usingKey,
+        $whereClause
     ) {
+        $currentValueAsAnArray = $this->getAsAnArrayForMultipleEdit($editField, $isInsert, $usingKey, $whereClause);
+
         //  i n s e r t
         if ($isInsert) {
             // no need to add column into the valuelist
-            if (strlen($currentValueAsAnArray) > 0) {
+            if ($currentValueAsAnArray !== '') {
                 $queryValues[] = $currentValueAsAnArray;
                 // first inserted row so prepare the list of fields
-                if (empty($valueSets)) {
-                    $queryFields[] = Util::backquote($columnName);
+                if ($valueSets === []) {
+                    $queryFields[] = Util::backquote($editField->columnName);
                 }
             }
-        } elseif (! empty($multiEditColumnsNullPrev[$key]) && ! isset($multiEditColumnsNull[$key])) {
+        } elseif ($editField->wasPreviouslyNull && ! $editField->isNull) {
             //  u p d a t e
 
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $queryValues[] = Util::backquote($columnName) . ' = ' . $currentValueAsAnArray;
+            $queryValues[] = Util::backquote($editField->columnName) . ' = ' . $currentValueAsAnArray;
         } elseif (
-            ! (empty($multiEditFuncs[$key])
-                && empty($multiEditColumnsNull[$key])
-                && isset($multiEditColumnsPrev[$key])
-                && $currentValue === $multiEditColumnsPrev[$key])
+            ! ($editField->function === ''
+                && ! $editField->isNull
+                && $editField->previousValue !== null
+                && $editField->value === $editField->previousValue)
             && $currentValueAsAnArray !== ''
         ) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
-            if (empty($multiEditColumnsNullPrev[$key]) || empty($multiEditColumnsNull[$key])) {
-                $queryValues[] = Util::backquote($columnName) . ' = ' . $currentValueAsAnArray;
+            if (!$editField->wasPreviouslyNull || ! $editField->isNull) {
+                $queryValues[] = Util::backquote($editField->columnName) . ' = ' . $currentValueAsAnArray;
             }
         }
 
@@ -1684,13 +1689,6 @@ class InsertEdit
     /**
      * Get the current column value in the form for different data types
      *
-     * @param string       $key                      an md5 of the column name
-     * @param array|null   $multiEditColumnsType     array of multi edit column types
-     * @param string       $currentValue             current column value in the form
-     * @param array|null   $multiEditAutoIncrement   multi edit auto increment
-     * @param string       $columnName
-     * @param array        $multiEditColumnsNull     multi edit columns null array
-     * @param array        $multiEditColumnsNullPrev multi edit columns previous null
      * @param bool         $isInsert                 whether insert or not
      * @param bool         $usingKey                 whether editing or new row
      * @param string       $whereClause              where clause
@@ -1699,31 +1697,24 @@ class InsertEdit
      * @return string  current column value in the form
      */
     public function getCurrentValueForDifferentTypes(
-        $key,
-        ?array $multiEditColumnsType,
-        string $currentValue,
-        ?array $multiEditAutoIncrement,
-        $columnName,
-        $multiEditColumnsNull,
-        $multiEditColumnsNullPrev,
+        EditField $editField,
         $isInsert,
         $usingKey,
         $whereClause,
         $table
     ): string {
-        // c o l u m n    v a l u e    i n    t h e    f o r m
-        $type = $multiEditColumnsType[$key] ?? '';
+        $currentValue = $editField->value;
 
-        if ($type !== 'protected' && $type !== 'set' && strlen($currentValue) === 0) {
+        if ($editField->type !== 'protected' && $editField->type !== 'set' && $currentValue === '') {
             // best way to avoid problems in strict mode
             // (works also in non-strict mode)
             $currentValue = "''";
-            if (isset($multiEditAutoIncrement, $multiEditAutoIncrement[$key])) {
+            if ($editField->autoIncrement) {
                 $currentValue = 'NULL';
             }
-        } elseif ($type === 'set') {
+        } elseif ($editField->type === 'set') {
             $currentValue = "'" . $this->dbi->escapeString($currentValue) . "'";
-        } elseif ($type === 'protected') {
+        } elseif ($editField->type === 'protected') {
             // here we are in protected mode (asked in the config)
             // so tbl_change has put this special value in the
             // columns array, so we do not change the column value
@@ -1740,23 +1731,24 @@ class InsertEdit
             ) {
                 // Fetch the current values of a row to use in case we have a protected field
                 $protectedValue = $this->dbi->fetchValue(
-                    'SELECT '.Util::backquote($columnName).' FROM ' . Util::backquote($table)
-                    . ' WHERE ' . $whereClause . ';'
+                    'SELECT ' . Util::backquote($editField->columnName)
+                    . ' FROM ' . Util::backquote($table)
+                    . ' WHERE ' . $whereClause
                 );
 
                 if ($protectedValue) {
                     $currentValue = '0x' . bin2hex($protectedValue);
                 }
             }
-        } elseif ($type === 'hex') {
+        } elseif ($editField->type === 'hex') {
             if (substr($currentValue, 0, 2) != '0x') {
                 $currentValue = '0x' . $currentValue;
             }
-        } elseif ($type === 'bit') {
+        } elseif ($editField->type === 'bit') {
             $currentValue = (string) preg_replace('/[^01]/', '0', $currentValue);
             $currentValue = "b'" . $this->dbi->escapeString($currentValue) . "'";
         } elseif (
-            ! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
+            ! ($editField->type === 'datetime' || $editField->type === 'timestamp' || $editField->type === 'date')
             || ($currentValue !== 'CURRENT_TIMESTAMP'
                 && $currentValue !== 'current_timestamp()')
         ) {
@@ -1766,15 +1758,15 @@ class InsertEdit
         // Was the Null checkbox checked for this field?
         // (if there is a value, we ignore the Null checkbox: this could
         // be possible if Javascript is disabled in the browser)
-        if (! empty($multiEditColumnsNull[$key]) && ($currentValue == "''" || $currentValue == '')) {
+        if ($editField->isNull && ($currentValue == "''" || $currentValue == '')) {
             $currentValue = 'NULL';
         }
 
         // The Null checkbox was unchecked for this field
         if (
-            empty($currentValue)
-            && ! empty($multiEditColumnsNullPrev[$key])
-            && ! isset($multiEditColumnsNull[$key])
+            $currentValue === ''
+            && $editField->wasPreviouslyNull
+            && ! $editField->isNull
         ) {
             $currentValue = "''";
         }

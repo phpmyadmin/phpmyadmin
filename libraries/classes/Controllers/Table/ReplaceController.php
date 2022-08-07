@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\EditField;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -243,53 +244,35 @@ final class ReplaceController extends AbstractController
                 // delete $file_to_insert temporary variable
                 $file_to_insert->cleanUp();
 
-                if (empty($multi_edit_funcs[$key])) {
-                    if ($possibly_uploaded_val !== false) {
-                        $current_value_as_an_array = $current_value;
-                    } else {
-                        $current_value_as_an_array = $this->insertEdit->getCurrentValueForDifferentTypes(
-                            $key,
-                            $multi_edit_columns_type,
-                            $current_value,
-                            $multi_edit_auto_increment,
-                            $column_name,
-                            $multi_edit_columns_null,
-                            $multi_edit_columns_null_prev,
-                            $isInsert,
-                            $usingKey,
-                            $where_clause,
-                            $GLOBALS['table']
-                        );
-                    }
-                } else {
-                    $current_value_as_an_array = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-                        $multi_edit_funcs[$key],
-                        $multi_edit_salt[$key] ?? null,
-                        $current_value
-                    );
-                }
+                $editField = new EditField(
+                    $column_name,
+                    $current_value,
+                    $multi_edit_columns_type[$key] ?? '',
+                    isset($multi_edit_auto_increment[$key]),
+                    ! empty($multi_edit_columns_null[$key]),
+                    ! empty($multi_edit_columns_null_prev[$key]),
+                    $multi_edit_funcs[$key] ?? '',
+                    $multi_edit_salt[$key] ?? null,
+                    $multi_edit_columns_prev[$key] ?? null,
+                    $possibly_uploaded_val !== false
+                );
 
                 if (! isset($multi_edit_virtual, $multi_edit_virtual[$key])) {
                     [
                         $queryValues,
                         $queryFields,
                     ] = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-                        $column_name,
-                        $multi_edit_columns_null,
-                        $current_value,
-                        $multi_edit_columns_prev,
-                        $multi_edit_funcs,
+                        $editField,
                         $isInsert,
                         $queryValues,
                         $queryFields,
-                        $current_value_as_an_array,
                         $valueSets,
-                        $key,
-                        $multi_edit_columns_null_prev
+                        $usingKey,
+                        $where_clause
                     );
                 }
 
-                if (isset($multi_edit_columns_null[$key])) {
+                if ($editField->isNull) {
                     $multi_edit_columns[$key] = null;
                 }
             }
