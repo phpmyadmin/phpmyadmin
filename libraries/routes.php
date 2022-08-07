@@ -17,6 +17,7 @@ use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\GitInfoController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Import;
+use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
@@ -128,6 +129,7 @@ return static function (RouteCollector $routes): void {
     $routes->get('/license', LicenseController::class);
     $routes->addRoute(['GET', 'POST'], '/lint', LintController::class);
     $routes->addRoute(['GET', 'POST'], '/logout', LogoutController::class);
+    $routes->get('/messages', JavaScriptMessagesController::class);
     $routes->addRoute(['GET', 'POST'], '/navigation', NavigationController::class);
     $routes->addGroup('/normalization', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', Normalization\MainController::class);

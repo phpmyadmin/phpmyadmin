@@ -183,8 +183,6 @@ validateExtension() {
         ;;
         index.php)
         ;;
-        js/messages.php)
-        ;;
         config.sample.inc.php)
         ;;
         show_config_errors.php)

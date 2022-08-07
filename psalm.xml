@@ -15,7 +15,6 @@
         <directory name="setup"/>
         <directory name="test/classes"/>
         <directory name="test/selenium"/>
-        <file name="js/messages.php"/>
         <file name="index.php"/>
         <file name="show_config_errors.php"/>
         <ignoreFiles>

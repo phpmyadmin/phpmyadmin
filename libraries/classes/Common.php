@@ -25,7 +25,9 @@ use function defined;
 use function explode;
 use function extension_loaded;
 use function function_exists;
+use function gmdate;
 use function hash_equals;
+use function header;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
@@ -41,6 +43,7 @@ use function mb_substr;
 use function register_shutdown_function;
 use function session_id;
 use function strlen;
+use function time;
 use function trigger_error;
 use function urldecode;
 
@@ -95,8 +98,18 @@ final class Common
         $request = self::getRequest();
         $route = $request->getRoute();
 
-        if ($route === '/import-status' || $route === '/url') {
+        if ($route === '/import-status' || $route === '/url' || $route === '/messages') {
             $GLOBALS['isMinimumCommon'] = true;
+        }
+
+        if ($route === '/messages') {
+            // Send correct type.
+            header('Content-Type: text/javascript; charset=UTF-8');
+            // Cache output in client
+            // the nocache query parameter makes sure that this file is reloaded when config changes.
+            header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+
+            define('PMA_NO_SESSION', true);
         }
 
         $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
