@@ -2189,7 +2189,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
 
     $('#functionConfirmModal').modal('show');
     $('#functionConfirmModal').find('.modal-body').first().html(question);
-    $('#functionConfirmOkButton').on('click', function () {
+    $('#functionConfirmOkButton').off('click').on('click', function () {
         if (typeof callbackFn === 'function') {
             callbackFn.call(this, url);
         }
