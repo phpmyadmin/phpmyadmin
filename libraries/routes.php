@@ -28,6 +28,7 @@ use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
+use PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
@@ -212,6 +213,11 @@ return static function (RouteCollector $routes): void {
             $routes->get('/get/{name}', Server\Variables\GetVariableController::class);
             $routes->post('/set/{name}', Server\Variables\SetVariableController::class);
         });
+    });
+    $routes->addGroup('/setup', static function (RouteCollector $routes): void {
+        $routes->get('', Setup\MainController::class);
+        $routes->post('/show-config', Setup\ShowConfigController::class);
+        $routes->post('/validate', Setup\ValidateController::class);
     });
     $routes->addGroup('/sql', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', Sql\SqlController::class);

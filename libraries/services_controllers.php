@@ -27,6 +27,7 @@ use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
+use PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
@@ -1099,6 +1100,9 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
+        Setup\MainController::class => ['class' => Setup\MainController::class],
+        Setup\ShowConfigController::class => ['class' => Setup\ShowConfigController::class],
+        Setup\ValidateController::class => ['class' => Setup\ValidateController::class],
         Sql\ColumnPreferencesController::class => [
             'class' => Sql\ColumnPreferencesController::class,
             'arguments' => [

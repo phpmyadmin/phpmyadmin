@@ -261,7 +261,7 @@
       <code>$sqlDelimiter</code>
       <code>$userLink</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="8">
+    <MixedMethodCall occurrences="10">
       <code>checkErrors</code>
       <code>checkPermissions</code>
       <code>checkServers</code>
@@ -269,6 +269,8 @@
       <code>loadUserPreferences</code>
       <code>loadUserPreferences</code>
       <code>selectServer</code>
+      <code>set</code>
+      <code>setCookie</code>
       <code>setCookie</code>
     </MixedMethodCall>
     <PossiblyNullArgument occurrences="3">
@@ -279,7 +281,7 @@
     <PossiblyNullPropertyFetch occurrences="1">
       <code>$GLOBALS['config']-&gt;settings</code>
     </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="8">
+    <PossiblyNullReference occurrences="10">
       <code>checkErrors</code>
       <code>checkPermissions</code>
       <code>checkServers</code>
@@ -287,6 +289,8 @@
       <code>loadUserPreferences</code>
       <code>loadUserPreferences</code>
       <code>selectServer</code>
+      <code>set</code>
+      <code>setCookie</code>
       <code>setCookie</code>
     </PossiblyNullReference>
   </file>
@@ -3062,6 +3066,11 @@
       <code>$id</code>
       <code>$id</code>
     </MixedArgumentTypeCoercion>
+  </file>
+  <file src="libraries/classes/Controllers/Setup/ValidateController.php">
+    <MixedAssignment occurrences="1">
+      <code>$values</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Sql/EnumValuesController.php">
     <MixedArgument occurrences="2">
@@ -14317,16 +14326,6 @@
       <code>$argumentName</code>
       <code>$service</code>
       <code>$serviceName</code>
-    </MixedAssignment>
-  </file>
-  <file src="setup/lib/common.inc.php">
-    <RedundantCast occurrences="1">
-      <code>(string) $GLOBALS['lang']</code>
-    </RedundantCast>
-  </file>
-  <file src="setup/validate.php">
-    <MixedAssignment occurrences="1">
-      <code>$values</code>
     </MixedAssignment>
   </file>
   <file src="test/classes/AbstractNetworkTestCase.php">
