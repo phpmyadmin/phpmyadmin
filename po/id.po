@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-08-03 15:15+0000\n"
+"PO-Revision-Date: 2022-08-11 21:20+0000\n"
 "Last-Translator: Holiq Ibrahim <holiq.ibrahim376@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/id/>\n"
@@ -210,10 +210,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Versi kurang dari 5.5.8 (pertama GA rilis dari 5.5)."
 
 #: libraries/advisory_rules_generic.php:137
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Anda harus memperbarui ke versi stabil MySQL 5.5"
+msgstr "Anda harus meng-upgrade, ke versi stabil MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
@@ -221,20 +219,18 @@ msgid "Distribution"
 msgstr "Distribusi"
 
 #: libraries/advisory_rules_generic.php:146
-#, fuzzy
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "Versi dikompilasi dari sumber, bukan biner resmi MySQL."
 
 #: libraries/advisory_rules_generic.php:148
-#, fuzzy
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"Jika Anda tidak mengkompilasi dari source, Anda mungkin menggunakan paket "
-"dimodifikasi oleh distribusi. The MySQL manual saja cukup akurat untuk MySQL "
-"binari resmi, tidak ada distribusi paket (seperti RedHat, Debian / Ubuntu "
+"Jika Anda tidak mengkompilasi dari sumber, Anda mungkin menggunakan paket "
+"yang dimodifikasi oleh distribusi. Manual MySQL hanya akurat untuk binari "
+"MySQL resmi, bukan distribusi paket apa pun (seperti RedHat, Debian/Ubuntu "
 "dll)."
 
 #: libraries/advisory_rules_generic.php:152
@@ -242,9 +238,8 @@ msgid "'source' found in version_comment"
 msgstr "'source' ditemukan pada version_comment"
 
 #: libraries/advisory_rules_generic.php:159
-#, fuzzy
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "The MySQL manual saja cukup akurat untuk MySQL binari resmi."
+msgstr "Manual MySQL hanya akurat untuk binari MySQL resmi."
 
 #: libraries/advisory_rules_generic.php:161
 msgid ""
@@ -263,38 +258,33 @@ msgid "MySQL Architecture"
 msgstr "Arsitektur MySQL"
 
 #: libraries/advisory_rules_generic.php:172
-#, fuzzy
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL tidak dikompilasi sebagai paket 64-bit."
 
 #: libraries/advisory_rules_generic.php:174
-#, fuzzy
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Kapasitas memori Anda di atas 3 GiB (dengan asumsi Server adalah pada "
-"localhost), sehingga MySQL mungkin tidak dapat mengakses semua memori Anda. "
-"Anda mungkin ingin mempertimbangkan untuk menginstal versi 64-bit dari MySQL."
+"Kapasitas memori Anda di atas 3 GiB (dengan asumsi Server berada di "
+"localhost), jadi MySQL mungkin tidak dapat mengakses semua memori Anda. Anda "
+"mungkin ingin mempertimbangkan untuk menginstal MySQL versi 64-bit."
 
 #: libraries/advisory_rules_generic.php:178
-#, fuzzy, php-format
+#, php-format
 msgid "Available memory on this host: %s"
-msgstr "Tersedia memori pada host ini: %s"
+msgstr "Memori yang tersedia pada host ini: %s"
 
 #: libraries/advisory_rules_generic.php:184
 msgid "Query caching method"
 msgstr "Metode penyinggahan kueri"
 
 #: libraries/advisory_rules_generic.php:188
-#, fuzzy
-#| msgid "Query caching method"
 msgid "Suboptimal caching method."
-msgstr "Metode penyinggahan kueri"
+msgstr "Metode caching suboptimal."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -302,18 +292,19 @@ msgid ""
 "cache, especially if you have multiple replicas."
 msgstr ""
 "Anda menggunakan cache MySQL Query dengan database lalu lintas yang cukup "
-"tinggi. Mungkin layak mempertimbangkan untuk menggunakan <a href=\"https://"
-"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> bukan "
-"cache MySQL Query, terutama jika Anda memiliki beberapa budak."
+"tinggi. Mungkin ada baiknya mempertimbangkan untuk menggunakan <a href="
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> "
+"sebagai pengganti cache MySQL Query, terutama jika Anda memiliki banyak "
+"replika."
 
 #: libraries/advisory_rules_generic.php:196
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"The cache query diaktifkan dan server menerima %d query per detik. Aturan "
-"ini kebakaran jika ada lebih dari 100 permintaan per detik."
+"Cache kueri diaktifkan dan server menerima %d kueri per detik. Aturan ini "
+"akan menyala jika ada lebih dari 100 kueri per detik."
 
 #: libraries/advisory_rules_generic.php:204
 msgid "Percentage of sorts that cause temporary tables"
@@ -326,25 +317,21 @@ msgstr "Terlalu banyak pengurutan yang menyebabkan tabel temporer."
 
 #: libraries/advisory_rules_generic.php:210
 #: libraries/advisory_rules_generic.php:223
-#, fuzzy
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
-"Pertimbangkan untuk meningkatkan {sort_buffer_size} dan / atau "
-"{read_rnd_buffer_size}, tergantung pada batas memori sistem Anda"
+"Pertimbangkan untuk meningkatkan {sort_buffer_size} dan/atau "
+"{read_rnd_buffer_size}, tergantung pada batas memori sistem anda."
 
 #: libraries/advisory_rules_generic.php:213
-#, fuzzy, php-format
-#| msgid ""
-#| "Rate of temporary tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
+#, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
-"per jam"
+"%s%% dari segala macam penyebab tabel sementara, nilai ini harus lebih "
+"rendah dari 10%%."
 
 #: libraries/advisory_rules_generic.php:218
 msgid "Rate of sorts that cause temporary tables"
