@@ -11,6 +11,8 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
+use function htmlspecialchars;
+
 /**
  * @covers \PhpMyAdmin\Export
  * @group large
@@ -179,7 +181,7 @@ INSERT INTO test_table (id, name, datetimefield) VALUES
 
 SQL;
 
-        $this->assertSame($expected, $this->getActualOutputForAssertion());
+        $this->assertSame(htmlspecialchars($expected), $this->getActualOutputForAssertion());
     }
 
     public function testExportServer(): void
@@ -256,6 +258,6 @@ INSERT INTO test_table (id, name, datetimefield) VALUES
 
 SQL;
 
-        $this->assertSame($expected, $this->getActualOutputForAssertion());
+        $this->assertSame(htmlspecialchars($expected), $this->getActualOutputForAssertion());
     }
 }
