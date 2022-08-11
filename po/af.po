@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-07-19 20:14+0000\n"
+"PO-Revision-Date: 2022-08-12 19:17+0000\n"
 "Last-Translator: Sean Dylan Patterson <seandylanpatterson@gmail.com>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "af/>\n"
@@ -341,8 +341,6 @@ msgid "Multi-table query"
 msgstr "Meertafel-navraag"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query"
 msgid "Query by example"
 msgstr "Navraag deur voorbeeld"
 
@@ -359,22 +357,20 @@ msgid "Access denied!"
 msgstr "Toegang Geweier!"
 
 #: db_tracking.php:55 db_tracking.php:80
-#, fuzzy
-#| msgid "Database %s has been dropped."
 msgid "Tracking data deleted successfully."
-msgstr "Databasis %s is verwyder."
+msgstr "Naspoordata is suksesvol uitgevee."
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Weergawe %1$s is geskep vir geselekteerde tabelle, nasporing is aktief "
+"daarvoor."
 
 #: db_tracking.php:95
-#, fuzzy
-#| msgid "With selected:"
 msgid "No tables selected."
-msgstr "Met gekose:"
+msgstr "Geen tabelle geselekteer nie."
 
 #: db_tracking.php:153
 msgid "Database Log"
@@ -544,32 +540,24 @@ msgid "Output"
 msgstr "Uitvoer"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field"
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Kies \"GeomFromText\" van die \"Function\" kolom en plaas die onderstaande "
-"string in die \"Value\" veld"
+"Kies \"ST_GeomFromText\" uit die \"Function\" kolom en plak die string "
+"hieronder in die \"Value\" veld."
 
 #: import.php:73
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Toegang Geweier!"
+msgstr "Suksesvol"
 
 #: import.php:77 js/messages.php:619
 msgid "Failed"
-msgstr ""
+msgstr "Misluk"
 
 #: import.php:81
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Voltooi invoegings"
+msgstr "Onvolledige params"
 
 #: import.php:205
 #, php-format
@@ -594,22 +582,25 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Geen data is ontvang om in te voer nie. Óf geen lêernaam is ingedien nie, óf "
+"die lêergrootte het die maksimum grootte wat deur jou PHP-konfigurasie "
+"toegelaat word, oorskry. Sien [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "Kon nie invoer-inproppe laai nie, kyk asseblief na jou installasie!"
 
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1631
-#, fuzzy, php-format
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "Tabel %s is verwyder"
+msgstr "Boekmerk %s is geskep."
 
 #: import.php:597
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Invoer is suksesvol voltooi, %d navraag is uitgevoer."
+msgstr[1] "Invoer is suksesvol voltooi, %d navrae is uitgevoer."
 
 #: import.php:628
 #, php-format
@@ -617,12 +608,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Skrip-uitteltyd geslaag, as jy invoer wil voltooi, %sdien asseblief "
+"dieselfde lêer%s in en invoer sal hervat."
 
 #: import.php:638
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Op die laaste lopie is geen data egter ontleed nie, dit beteken gewoonlik "
+"dat phpMyAdmin nie hierdie invoer sal kan voltooi nie, tensy jy php-tydperke "
+"verhoog."
 
 #: import.php:706 sql.php:164
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -630,7 +626,7 @@ msgstr "\"DROP DATABASE\" stellings word nie toegelaat nie."
 
 #: import_status.php:108
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Kon nie die vordering van die invoer laai nie."
 
 #: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:509
