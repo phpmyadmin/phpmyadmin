@@ -30,6 +30,7 @@ use function class_exists;
 use function count;
 use function implode;
 use function in_array;
+use function is_array;
 use function is_file;
 use function is_numeric;
 use function method_exists;
@@ -180,9 +181,14 @@ final class ReplaceController extends AbstractController
             // when inserting multiple entries
             $insert_fail = false;
             foreach ($multi_edit_columns_name as $key => $column_name) {
-                $current_value = $multi_edit_columns[$key];
                 // Note: $key is an md5 of the fieldname. The actual fieldname is
                 // available in $multi_edit_columns_name[$key]
+
+                $current_value = $multi_edit_columns[$key];
+                if (is_array($current_value)) {
+                    // Some column types accept comma-separated values e.g. set
+                    $current_value = implode(',', $current_value);
+                }
 
                 $file_to_insert = new File();
                 $file_to_insert->checkTblChangeForm((string) $key, (string) $rownumber);
@@ -244,7 +250,6 @@ final class ReplaceController extends AbstractController
                         $multi_edit_columns_type,
                         $current_value,
                         $multi_edit_auto_increment,
-                        $rownumber,
                         $multi_edit_columns_name,
                         $multi_edit_columns_null,
                         $multi_edit_columns_null_prev,

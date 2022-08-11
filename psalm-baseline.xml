@@ -3658,16 +3658,13 @@
     <InvalidArgument occurrences="1">
       <code>$insertErrors</code>
     </InvalidArgument>
-    <MixedArgument occurrences="31">
+    <MixedArgument occurrences="28">
       <code>$_POST['db']</code>
       <code>$_POST['rel_fields_list']</code>
       <code>$_POST['table']</code>
       <code>$_POST['transform_fields_list']</code>
       <code>$column_name</code>
       <code>$column_name</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
       <code>$errorMessages</code>
       <code>$extra_data</code>
       <code>$lastMessages</code>
@@ -3692,11 +3689,11 @@
       <code>$where_clause</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="5">
+      <code>$current_value</code>
       <code>$key</code>
       <code>$key</code>
       <code>$queryValues</code>
       <code>$queryValues</code>
-      <code>$rownumber</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="4">
       <code>$_POST['fields_name']['multi_edit']</code>
@@ -3713,7 +3710,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$mimeMap[$column_name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="32">
+    <MixedAssignment occurrences="31">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['cfg']['InsertRows']</code>
       <code>$GLOBALS['disp_message']</code>
@@ -3729,7 +3726,6 @@
       <code>$column_name</code>
       <code>$column_name</code>
       <code>$curr_rel_field</code>
-      <code>$current_value</code>
       <code>$extra_data['row_count']</code>
       <code>$insertRows</code>
       <code>$multi_edit_auto_increment</code>
@@ -3755,12 +3751,9 @@
       <code>$where_clause</code>
       <code>$where_clause</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="11">
+    <PossiblyNullArgument occurrences="8">
       <code>$GLOBALS['urlParams']</code>
       <code>$GLOBALS['urlParams']</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
       <code>$multi_edit_columns_null</code>
       <code>$multi_edit_columns_null</code>
       <code>$multi_edit_columns_null_prev</code>
@@ -7910,9 +7903,8 @@
   </file>
   <file src="libraries/classes/InsertEdit.php">
     <LessSpecificReturnStatement occurrences="1"/>
-    <MixedArgument occurrences="78">
+    <MixedArgument occurrences="77">
       <code>$_POST['fields']['multi_edit']</code>
-      <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
       <code>$columnMime['input_transformation_options']</code>
       <code>$column['Default']</code>
