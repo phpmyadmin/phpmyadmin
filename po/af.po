@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-08-07 00:23+0000\n"
-"PO-Revision-Date: 2022-07-19 20:16+0000\n"
+"PO-Revision-Date: 2022-08-12 19:19+0000\n"
 "Last-Translator: Sean Dylan Patterson <seandylanpatterson@gmail.com>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/af/>\n"
@@ -4811,7 +4811,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "Kon nie invoer-inproppe laai nie, kyk asseblief na jou installasie!"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:283
@@ -4990,16 +4990,16 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/TrackingController.php:92
 #: libraries/classes/Controllers/Database/TrackingController.php:112
-#, fuzzy
-#| msgid "Database %s has been dropped."
 msgid "Tracking data deleted successfully."
-msgstr "Databasis %s is verwyder."
+msgstr "Naspoordata is suksesvol uitgevee."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:99
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Weergawe %1$s is geskep vir geselekteerde tabelle, nasporing is aktief "
+"daarvoor."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:129
 msgid "No tables selected."
@@ -5138,10 +5138,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:135
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Voltooi invoegings"
+msgstr "Onvolledige params"
 
 #: libraries/classes/Controllers/Import/ImportController.php:149
 msgid "Succeeded"
@@ -5150,7 +5148,7 @@ msgstr "Suksesvol"
 #: libraries/classes/Controllers/Import/ImportController.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Failed"
-msgstr ""
+msgstr "Misluk"
 
 #: libraries/classes/Controllers/Import/ImportController.php:254
 #, php-format
@@ -5177,13 +5175,16 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Geen data is ontvang om in te voer nie. Óf geen lêernaam is ingedien nie, óf "
+"die lêergrootte het die maksimum grootte wat deur jou PHP-konfigurasie "
+"toegelaat word, oorskry. Sien [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: libraries/classes/Controllers/Import/ImportController.php:657
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Invoer is suksesvol voltooi, %d navraag is uitgevoer."
+msgstr[1] "Invoer is suksesvol voltooi, %d navrae is uitgevoer."
 
 #: libraries/classes/Controllers/Import/ImportController.php:689
 #, php-format
@@ -5191,12 +5192,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Skrip-uitteltyd geslaag, as jy invoer wil voltooi, %sdien asseblief "
+"dieselfde lêer%s in en invoer sal hervat."
 
 #: libraries/classes/Controllers/Import/ImportController.php:699
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Op die laaste lopie is geen data egter ontleed nie, dit beteken gewoonlik "
+"dat phpMyAdmin nie hierdie invoer sal kan voltooi nie, tensy jy php-tydperke "
+"verhoog."
 
 #: libraries/classes/Controllers/Import/ImportController.php:767
 #: libraries/classes/Controllers/Sql/SqlController.php:173
@@ -5209,7 +5215,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/StatusController.php:70
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Kon nie die vordering van die invoer laai nie."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:44
 #, php-format
@@ -14725,7 +14731,6 @@ msgstr "Multi-tabel navraag"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
 msgid "Query by example"
 msgstr "Navraag deur voorbeeld"
 
