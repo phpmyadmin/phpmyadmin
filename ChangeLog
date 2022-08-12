@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - issue #17388 Find and Replace using regex now makes a valid query if no matching result set found
 - issue #17551 Enum/Set editor will not fail to open when creating a new column
 - issue #17659 Fix error when a database group is named tables, views, functions, procedures or events
+- issue #17673 Allow empty values to be inserted into columns
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

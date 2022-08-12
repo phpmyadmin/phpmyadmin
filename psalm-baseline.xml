@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -7672,7 +7672,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <MixedArgument occurrences="86">
+    <MixedArgument occurrences="85">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
@@ -7739,7 +7739,6 @@
       <code>$multiEditColumnsName[$key]</code>
       <code>$multiEditColumnsName[$key]</code>
       <code>$multiEditColumnsName[$key]</code>
-      <code>$multiEditColumnsPrev[$key]</code>
       <code>$multiEditSalt[$key]</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
       <code>$rows[$keyId]</code>
@@ -7862,12 +7861,11 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="8">
       <code>$_POST['where_clause'][0]</code>
       <code>$column['pma_type']</code>
       <code>$file</code>
       <code>$maxlength</code>
-      <code>$multiEditColumnsPrev[$key]</code>
       <code>$multiEditFuncs[$key]</code>
       <code>$multiEditFuncs[$key]</code>
       <code>$multiEditFuncs[$key]</code>
