@@ -2097,6 +2097,126 @@ class InsertEditTest extends AbstractTestCase
             ],
             $result
         );
+
+        // Test to see if a zero-string is not ignored
+        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,
+            [],
+            '0',
+            [],
+            [],
+            false,
+            [],
+            [],
+            "'0'",
+            [],
+            '0',
+            []
+        );
+
+        $this->assertEquals(
+            [
+                ["`fld` = '0'"],
+                [],
+            ],
+            $result
+        );
+
+        // Can only happen when table contains blob field that was left unchanged during edit
+        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,
+            [],
+            '',
+            [],
+            [],
+            false,
+            [],
+            [],
+            '',
+            [],
+            '0',
+            []
+        );
+
+        $this->assertEquals(
+            [
+                [],
+                [],
+            ],
+            $result
+        );
+
+        // Test to see if a field will be set to null when it wasn't null previously
+        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,
+            ['on'],
+            '',
+            [],
+            [],
+            false,
+            [],
+            [],
+            'NULL',
+            [],
+            '0',
+            []
+        );
+
+        $this->assertEquals(
+            [
+                ['`fld` = NULL'],
+                [],
+            ],
+            $result
+        );
+
+        // Test to see if a field will be ignored if it was null previously
+        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,
+            ['on'],
+            '',
+            [],
+            [],
+            false,
+            [],
+            [],
+            'NULL',
+            [],
+            '0',
+            ['on']
+        );
+
+        $this->assertEquals(
+            [
+                [],
+                [],
+            ],
+            $result
+        );
+
+        // Test to see if a field will be ignored if it the value is unchanged
+        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,
+            [],
+            "a'b",
+            ["a'b"],
+            [],
+            false,
+            [],
+            [],
+            "'a\'b'",
+            [],
+            '0',
+            []
+        );
+
+        $this->assertEquals(
+            [
+                [],
+                [],
+            ],
+            $result
+        );
     }
 
     /**

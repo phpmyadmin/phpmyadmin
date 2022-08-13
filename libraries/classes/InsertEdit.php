@@ -1664,9 +1664,8 @@ class InsertEdit
         } elseif (
             ! (empty($multiEditFuncs[$key])
                 && isset($multiEditColumnsPrev[$key])
-                && (($currentValue === "'" . $this->dbi->escapeString($multiEditColumnsPrev[$key]) . "'")
-                    || ($currentValue === '0x' . $multiEditColumnsPrev[$key])))
-            && $currentValue
+                && $currentValue === $multiEditColumnsPrev[$key])
+            && $currentValueAsAnArray !== ''
         ) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update

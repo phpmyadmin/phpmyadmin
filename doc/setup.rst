@@ -88,7 +88,7 @@ Installing from Git
 
 In order to install from Git, you'll need a few supporting applications:
 
-* `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/master>`_
+* `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/QA_5_2>`_
 * `Composer <https://getcomposer.org/download/>`__
 * `Node.js <https://nodejs.org/en/download/>`_ (version 10 or higher)
 * `Yarn <https://classic.yarnpkg.com/en/docs/install>`_
@@ -394,37 +394,37 @@ To connect phpMyAdmin to a given server use:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:80 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d -e PMA_HOST=dbhost -p 8080:80 phpmyadmin:latest
 
 To connect phpMyAdmin to more servers use:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:80 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:80 phpmyadmin:latest
 
 To use arbitrary server option:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d --link mysql_db_server:db -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin:latest
 
 You can also link the database container using Docker:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin:latest
 
 Running with additional configuration:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin:latest
 
 Running with additional themes:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /custom/phpmyadmin/theme/:/www/themes/theme/ phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/custom/phpmyadmin/themeName/:/var/www/html/themes/themeName/ phpmyadmin:latest
 
 Using docker-compose
 --------------------

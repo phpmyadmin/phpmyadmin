@@ -3658,13 +3658,16 @@
     <InvalidArgument occurrences="1">
       <code>$insertErrors</code>
     </InvalidArgument>
-    <MixedArgument occurrences="28">
+    <MixedArgument occurrences="31">
       <code>$_POST['db']</code>
       <code>$_POST['rel_fields_list']</code>
       <code>$_POST['table']</code>
       <code>$_POST['transform_fields_list']</code>
       <code>$column_name</code>
       <code>$column_name</code>
+      <code>$current_value</code>
+      <code>$current_value</code>
+      <code>$current_value</code>
       <code>$errorMessages</code>
       <code>$extra_data</code>
       <code>$lastMessages</code>
@@ -3710,7 +3713,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$mimeMap[$column_name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="31">
+    <MixedAssignment occurrences="32">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['cfg']['InsertRows']</code>
       <code>$GLOBALS['disp_message']</code>
@@ -3726,6 +3729,7 @@
       <code>$column_name</code>
       <code>$column_name</code>
       <code>$curr_rel_field</code>
+      <code>$current_value</code>
       <code>$extra_data['row_count']</code>
       <code>$insertRows</code>
       <code>$multi_edit_auto_increment</code>
@@ -3751,9 +3755,12 @@
       <code>$where_clause</code>
       <code>$where_clause</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="8">
+    <PossiblyNullArgument occurrences="11">
       <code>$GLOBALS['urlParams']</code>
       <code>$GLOBALS['urlParams']</code>
+      <code>$current_value</code>
+      <code>$current_value</code>
+      <code>$current_value</code>
       <code>$multi_edit_columns_null</code>
       <code>$multi_edit_columns_null</code>
       <code>$multi_edit_columns_null_prev</code>
@@ -7903,7 +7910,7 @@
   </file>
   <file src="libraries/classes/InsertEdit.php">
     <LessSpecificReturnStatement occurrences="1"/>
-    <MixedArgument occurrences="77">
+    <MixedArgument occurrences="76">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$backupField</code>
       <code>$columnMime['input_transformation_options']</code>
@@ -7963,7 +7970,6 @@
       <code>$multiEditColumnsName[$key]</code>
       <code>$multiEditColumnsName[$key]</code>
       <code>$multiEditColumnsName[$key]</code>
-      <code>$multiEditColumnsPrev[$key]</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
       <code>$rows[$keyId]</code>
       <code>$singleQuery</code>
@@ -8082,12 +8088,11 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="5">
+    <MixedOperand occurrences="4">
       <code>$_POST['where_clause'][0]</code>
       <code>$column['pma_type']</code>
       <code>$file</code>
       <code>$maxlength</code>
-      <code>$multiEditColumnsPrev[$key]</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="2">
       <code>$_POST['err_url']</code>
