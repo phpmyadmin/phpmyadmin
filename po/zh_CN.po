@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-03-25 16:09+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"PO-Revision-Date: 2022-08-15 07:16+0000\n"
+"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -11008,7 +11008,7 @@ msgstr "使用文本域"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr "已存在具有相同用户名但可能具有不同主机名的帐户。"
+msgstr "已存在具有相同用户名但可能具有不同主机名的账户。"
 
 #: libraries/classes/Server/Privileges.php:1565
 msgid "Host name:"
@@ -11234,8 +11234,7 @@ msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
-msgstr ""
-"存在允许来自localhost的任何用户连接的用户帐户。如果其帐户的主机部分允许来自任"
+msgstr "存在允许来自localhost的任何用户连接的用户账户。如果其账户的主机部分允许来自任"
 "何（％）主机的连接，这将阻止其他用户连接。"
 
 #: libraries/classes/Server/Privileges.php:4758
@@ -14253,12 +14252,12 @@ msgstr "以下composer包缺失："
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr "可以为此帐户配置双因素身份验证。"
+msgstr "可以为此账户配置双因素身份验证。"
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr "可以使用双因素身份验证，但不为此帐户配置。"
+msgstr "可以使用双因素身份验证，但不为此账户配置。"
 
 #: templates/prefs_twofactor.twig:24
 msgid ""
