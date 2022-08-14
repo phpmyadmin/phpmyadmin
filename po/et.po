@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-07 00:23+0000\n"
+"POT-Creation-Date: 2022-08-14 00:20+0000\n"
 "PO-Revision-Date: 2022-06-15 11:20+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1722,16 +1722,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnami"
 
-#: libraries/classes/Common.php:257
+#: libraries/classes/Common.php:270
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Peaksid uuendama %s %s või uuemale versioonile."
 
-#: libraries/classes/Common.php:289
+#: libraries/classes/Common.php:302
 msgid "Error: Token mismatch"
 msgstr "Viga: sobimatu sümbol"
 
-#: libraries/classes/Common.php:500
+#: libraries/classes/Common.php:513
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1739,7 +1739,7 @@ msgstr ""
 "Sessiooni küpsise seadmine nurjus. Võib-olla kasutad sa phpMyAdmin'i HTTPS "
 "protokolli asemel HTTP protokolliga."
 
-#: libraries/classes/Common.php:556
+#: libraries/classes/Common.php:569
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1748,7 +1748,7 @@ msgstr ""
 "Oled PHP seadistuses lubanud mbstring.func_overload. See ei ühildu "
 "phpMyAdminiga ja võib andmeid rikkuda!"
 
-#: libraries/classes/Common.php:573
+#: libraries/classes/Common.php:586
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1756,11 +1756,11 @@ msgstr ""
 "Funktsioon(id) ini_get ja/või ini_set on failis php.ini keelatud. phpMyAdmin "
 "vajab neid funktsioone!"
 
-#: libraries/classes/Common.php:584
+#: libraries/classes/Common.php:597
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS ülekirjutamise katse"
 
-#: libraries/classes/Common.php:594
+#: libraries/classes/Common.php:607
 msgid "possible exploit"
 msgstr "võimalik turvaauk"
 
@@ -5158,7 +5158,7 @@ msgstr "Jah"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
-#: libraries/classes/Controllers/Table/ReplaceController.php:335
+#: libraries/classes/Controllers/Table/ReplaceController.php:340
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ei muudetud"
@@ -6864,7 +6864,7 @@ msgstr "Andmepunkti sisu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignoreeri"
@@ -8840,7 +8840,7 @@ msgstr "Kuva veergu uuendati edukalt."
 msgid "Internal relationships were successfully updated."
 msgstr "Siseseosete värskendamine õnnestus."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:223
+#: libraries/classes/Controllers/Table/ReplaceController.php:229
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rida: %1$s, veerg: %2$s, viga: %3$s"

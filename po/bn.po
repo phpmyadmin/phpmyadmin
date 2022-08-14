@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-07 00:23+0000\n"
+"POT-Creation-Date: 2022-08-14 00:20+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1694,22 +1694,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ফাইলের নাম"
 
-#: libraries/classes/Common.php:257
+#: libraries/classes/Common.php:270
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "আপনি অবশ্যই %s %s বা পরের কোন সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/classes/Common.php:289
+#: libraries/classes/Common.php:302
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
-#: libraries/classes/Common.php:500
+#: libraries/classes/Common.php:513
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:556
+#: libraries/classes/Common.php:569
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1718,17 +1718,17 @@ msgstr ""
 "আপনার পিএইচপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা "
 "phpMyAdmin এর সঙ্গে সামঞ্জস্যপূর্ণ নয় এবং কিছু তথ্য নষ্ট করতে পারে!"
 
-#: libraries/classes/Common.php:573
+#: libraries/classes/Common.php:586
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:584
+#: libraries/classes/Common.php:597
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS পুন লিখনের চেষ্টা"
 
-#: libraries/classes/Common.php:594
+#: libraries/classes/Common.php:607
 msgid "possible exploit"
 msgstr "সাম্ভাব্য বিপদের সুযোগ"
 
@@ -5356,7 +5356,7 @@ msgstr "হ্যাঁ"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
-#: libraries/classes/Controllers/Table/ReplaceController.php:335
+#: libraries/classes/Controllers/Table/ReplaceController.php:340
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "পরিবর্তন নয়"
@@ -7160,7 +7160,7 @@ msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "উপেক্ষা"
@@ -9234,7 +9234,7 @@ msgstr "প্রক্রিয়া %s সফলভাবে ধ্বংস ক
 msgid "Internal relationships were successfully updated."
 msgstr "আভ্যন্তরীন সম্পর্ক যোগ করা হয়েছে"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:223
+#: libraries/classes/Controllers/Table/ReplaceController.php:229
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""

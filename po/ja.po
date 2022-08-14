@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-07 00:23+0000\n"
+"POT-Creation-Date: 2022-08-14 00:20+0000\n"
 "PO-Revision-Date: 2022-08-04 19:16+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1742,16 +1742,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ベトナム語"
 
-#: libraries/classes/Common.php:257
+#: libraries/classes/Common.php:270
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください。"
 
-#: libraries/classes/Common.php:289
+#: libraries/classes/Common.php:302
 msgid "Error: Token mismatch"
 msgstr "エラー: トークンが一致しません"
 
-#: libraries/classes/Common.php:500
+#: libraries/classes/Common.php:513
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1759,7 +1759,7 @@ msgstr ""
 "セッションクッキーの設定に失敗しました。 phpMyAdminにアクセスするのにHTTPSの"
 "代わりにHTTPが使用されている可能性があります。"
 
-#: libraries/classes/Common.php:556
+#: libraries/classes/Common.php:569
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1768,7 +1768,7 @@ msgstr ""
 "PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
 "プションに対応していないため、データが破壊されることがあります!"
 
-#: libraries/classes/Common.php:573
+#: libraries/classes/Common.php:586
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1776,11 +1776,11 @@ msgstr ""
 "php.iniでini_getまたはini_set、あるいはその両方を無効にしました。 この機能は"
 "phpMyAdminとして必要です!"
 
-#: libraries/classes/Common.php:584
+#: libraries/classes/Common.php:597
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 変数が書き換えられている可能性があります"
 
-#: libraries/classes/Common.php:594
+#: libraries/classes/Common.php:607
 msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
@@ -5169,7 +5169,7 @@ msgstr "はい"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
-#: libraries/classes/Controllers/Table/ReplaceController.php:335
+#: libraries/classes/Controllers/Table/ReplaceController.php:340
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "変更なし"
@@ -6867,7 +6867,7 @@ msgstr "プロット点におけるデータ内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "無視"
@@ -8814,7 +8814,7 @@ msgstr "表示カラムは正常に更新されました。"
 msgid "Internal relationships were successfully updated."
 msgstr "内部リレーションは正常に更新されました。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:223
+#: libraries/classes/Controllers/Table/ReplaceController.php:229
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-07 00:23+0000\n"
+"POT-Creation-Date: 2022-08-14 00:20+0000\n"
 "PO-Revision-Date: 2022-06-23 22:58+0000\n"
 "Last-Translator: Leonardo José de Lima Ferrucci <leojau@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -1754,16 +1754,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: libraries/classes/Common.php:257
+#: libraries/classes/Common.php:270
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Você deveria atualizar para %s %s ou posterior."
 
-#: libraries/classes/Common.php:289
+#: libraries/classes/Common.php:302
 msgid "Error: Token mismatch"
 msgstr "Erro: Incompatibilidade de token"
 
-#: libraries/classes/Common.php:500
+#: libraries/classes/Common.php:513
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1771,7 +1771,7 @@ msgstr ""
 "Falha ao configurar o cookie da sessão. Talvez você esteja usando HTTP em "
 "vez de HTTPS para acessar o phpMyAdmin."
 
-#: libraries/classes/Common.php:556
+#: libraries/classes/Common.php:569
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1780,7 +1780,7 @@ msgstr ""
 "Você habilitou mbstring.func_overload nas configurações do PHP. Essa opção é "
 "incompatível com o phpMyAdmin e certamente causará a perda de algum dado!"
 
-#: libraries/classes/Common.php:573
+#: libraries/classes/Common.php:586
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1788,11 +1788,11 @@ msgstr ""
 "As funções ini_get e/ou ini_set estão desabilitadas no php.ini. O phpMyAdmin "
 "requer estas funções!"
 
-#: libraries/classes/Common.php:584
+#: libraries/classes/Common.php:597
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentativa de sobrescrever variáveis GLOBALS"
 
-#: libraries/classes/Common.php:594
+#: libraries/classes/Common.php:607
 msgid "possible exploit"
 msgstr "Possível exploit"
 
@@ -5262,7 +5262,7 @@ msgstr "Sim"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
-#: libraries/classes/Controllers/Table/ReplaceController.php:335
+#: libraries/classes/Controllers/Table/ReplaceController.php:340
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nenhuma alteração"
@@ -6994,7 +6994,7 @@ msgstr "Conteúdo do ponteiro de dados"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorar"
@@ -8992,7 +8992,7 @@ msgstr "A coluna de exibição foi atualizada com sucesso."
 msgid "Internal relationships were successfully updated."
 msgstr "Os relacionamentos internos foram atualizadas com êxito."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:223
+#: libraries/classes/Controllers/Table/ReplaceController.php:229
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Linha: %1$s, Coluna: %2$s, Erro: %3$s"

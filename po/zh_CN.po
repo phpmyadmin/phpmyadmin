@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-07 00:23+0000\n"
+"POT-Creation-Date: 2022-08-14 00:20+0000\n"
 "PO-Revision-Date: 2022-08-06 11:59+0000\n"
 "Last-Translator: Jason Ren <tempren19990743@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1263,7 +1263,6 @@ msgstr "搜索："
 #: templates/table/structure/display_structure.twig:437
 #: templates/table/structure/display_structure.twig:555
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
-#: templates/table/normalization/normalization.twig:25
 msgid "Go"
 msgstr "执行"
 
@@ -1593,22 +1592,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南语"
 
-#: libraries/classes/Common.php:257 libraries/classes/Common.php:253
+#: libraries/classes/Common.php:270
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
 
-#: libraries/classes/Common.php:289 libraries/classes/Common.php:285
+#: libraries/classes/Common.php:302
 msgid "Error: Token mismatch"
 msgstr "错误：令牌不符"
 
-#: libraries/classes/Common.php:500 libraries/classes/Common.php:496
+#: libraries/classes/Common.php:513
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "无法设置会话cookie。也许您使用HTTP而不是HTTPS来访问phpMyAdmin。"
 
-#: libraries/classes/Common.php:556 libraries/classes/Common.php:552
+#: libraries/classes/Common.php:569
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1617,17 +1616,17 @@ msgstr ""
 "您在 PHP 设置中启用了 mbstring.func_overload。该选项和 phpMyAdmin 不兼容并可"
 "能会导致一些数据损坏！"
 
-#: libraries/classes/Common.php:573 libraries/classes/Common.php:569
+#: libraries/classes/Common.php:586
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr "php.ini中禁用了ini_get和/或ini_set函数。 phpMyAdmin需要这些函数！"
 
-#: libraries/classes/Common.php:584 libraries/classes/Common.php:580
+#: libraries/classes/Common.php:597
 msgid "GLOBALS overwrite attempt"
 msgstr "企图覆盖 GLOBALS"
 
-#: libraries/classes/Common.php:594 libraries/classes/Common.php:590
+#: libraries/classes/Common.php:607
 msgid "possible exploit"
 msgstr "检测到有利用漏洞的企图"
 
@@ -4668,7 +4667,6 @@ msgstr "缺少参数："
 
 #: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
-#: libraries/classes/Controllers/ChangeLogController.php:40
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -4863,7 +4861,7 @@ msgstr "是"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
-#: libraries/classes/Controllers/Table/ReplaceController.php:335
+#: libraries/classes/Controllers/Table/ReplaceController.php:340
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "无更改"
@@ -6507,7 +6505,7 @@ msgstr "数据点内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1982
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "忽略"
@@ -7464,19 +7462,16 @@ msgstr "致命错误：导航只能通过AJAX访问"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
 #: libraries/classes/Normalization.php:245
-#: libraries/classes/Controllers/NormalizationController.php:39
 msgid "Select one…"
 msgstr "选择一个……"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
 #: libraries/classes/Normalization.php:246
-#: libraries/classes/Controllers/NormalizationController.php:40
 msgid "No such column"
 msgstr "没有这样的字段"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
-#: libraries/classes/Controllers/NormalizationController.php:45
 msgctxt "string types"
 msgid "String"
 msgstr "文本"
@@ -8397,7 +8392,7 @@ msgstr "显示字段已成功更新。"
 msgid "Internal relationships were successfully updated."
 msgstr "成功更新内联关系。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:223
+#: libraries/classes/Controllers/Table/ReplaceController.php:229
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "行：%1$s，列：%2$s，错误：%3$s"
@@ -10090,7 +10085,6 @@ msgstr "使所有字段原子化"
 
 #: libraries/classes/Normalization.php:225
 #: templates/table/normalization/normalization.twig:11
-#: templates/table/normalization/normalization.twig:12
 msgid "First step of normalization (1NF)"
 msgstr "第一范式"
 
@@ -17651,27 +17645,22 @@ msgid "Checksum"
 msgstr "校验值"
 
 #: templates/table/normalization/normalization.twig:5
-#: templates/table/normalization/normalization.twig:6
 msgid "Improve table structure (Normalization):"
 msgstr "改进表结构（规范化）："
 
 #: templates/table/normalization/normalization.twig:7
-#: templates/table/normalization/normalization.twig:8
 msgid "Select up to what step you want to normalize"
 msgstr "选择您要标准化的步骤"
 
 #: templates/table/normalization/normalization.twig:15
-#: templates/table/normalization/normalization.twig:16
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "规范化的第二步（第一范式 + 第二范式 ）"
 
 #: templates/table/normalization/normalization.twig:19
-#: templates/table/normalization/normalization.twig:20
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "规范化的第三步（第一范式 + 第二范式 + 第三范式）"
 
 #: templates/table/normalization/normalization.twig:23
-#: templates/table/normalization/normalization.twig:24
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
