@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-08-07 12:15+0000\n"
+"PO-Revision-Date: 2022-08-15 07:20+0000\n"
 "Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/zh_Hans/>\n"
@@ -11432,7 +11432,7 @@ msgstr "旧的 MySQL-4.0 的身份验证"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr "不支持帐户锁定。"
+msgstr "不支持账户锁定。"
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
@@ -11764,8 +11764,7 @@ msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
-msgstr ""
-"存在允许来自localhost的任何用户连接的用户帐户。如果其帐户的主机部分允许来自任"
+msgstr "存在允许来自localhost的任何用户连接的用户账户。如果其账户的主机部分允许来自任"
 "何（％）主机的连接，这将阻止其他用户连接。"
 
 #: libraries/classes/Server/Privileges.php:3016
@@ -15668,12 +15667,12 @@ msgstr "以下composer包缺失："
 
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
-msgstr "可以为此帐户配置双因素身份验证。"
+msgstr "可以为此账户配置双因素身份验证。"
 
 #: templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr "可以使用双因素身份验证，但不为此帐户配置。"
+msgstr "可以使用双因素身份验证，但不为此账户配置。"
 
 #: templates/preferences/two_factor/main.twig:26
 msgid ""
@@ -16138,7 +16137,7 @@ msgstr "允许执行此例程。"
 
 #: templates/server/privileges/initials_row.twig:1
 msgid "Pagination of user accounts"
-msgstr "用户帐户分页"
+msgstr "用户账户分页"
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:106
@@ -16168,7 +16167,7 @@ msgstr "使用文本域"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr "已存在具有相同用户名但可能具有不同主机名的帐户。"
+msgstr "已存在具有相同用户名但可能具有不同主机名的账户。"
 
 #: templates/server/privileges/login_information_fields.twig:22
 msgid "Host name:"
