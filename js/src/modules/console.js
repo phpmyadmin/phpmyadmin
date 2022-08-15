@@ -2,7 +2,7 @@ import $ from 'jquery';
 import CodeMirror from 'codemirror';
 import { Config } from './console/config.js';
 
-/* global Functions, Navigation */
+/* global Functions, Messages, Navigation */
 
 /**
  * Console object
