@@ -64,7 +64,7 @@ var Console = {
             Config.init(data);
             Console.setupAfterInit();
         }, () => {
-            Console.config = {};// Avoid null pointers in setupAfterInit()
+            Config.init({});// Avoid null pointers in setupAfterInit()
             // Fetching data failed, still perform the console init
             Console.setupAfterInit();
         });
