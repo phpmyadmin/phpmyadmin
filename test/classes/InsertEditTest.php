@@ -2143,6 +2143,30 @@ class InsertEditTest extends AbstractTestCase
             ],
             $result
         );
+
+        // Test to see if a field can be set to NULL
+        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,
+            ['on'],
+            '',
+            [''],
+            [],
+            false,
+            [],
+            [],
+            'NULL',
+            [],
+            '0',
+            []
+        );
+
+        $this->assertEquals(
+            [
+                ['`fld` = NULL'],
+                [],
+            ],
+            $result
+        );
     }
 
     /**
