@@ -25,7 +25,6 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 use function __;
-use function array_keys;
 use function array_values;
 use function class_exists;
 use function implode;
@@ -167,25 +166,19 @@ final class ReplaceController extends AbstractController
             $multi_edit_auto_increment = $_POST['auto_increment']['multi_edit'][$rownumber] ?? [];
             $multi_edit_virtual = $_POST['virtual']['multi_edit'][$rownumber] ?? [];
 
-            // When a select field is nullified, it's not present in $_POST
-            // so initialize it; this way, the foreach($multi_edit_columns) will process it
-            foreach (array_keys($multi_edit_columns_name) as $key) {
-                if (isset($multi_edit_columns[$key])) {
-                    continue;
-                }
-
-                $multi_edit_columns[$key] = '';
-            }
-
             // Iterate in the order of $multi_edit_columns_name,
             // not $multi_edit_columns, to avoid problems
             // when inserting multiple entries
             $insert_fail = false;
+            /** @var int|string $key */
             foreach ($multi_edit_columns_name as $key => $column_name) {
                 // Note: $key is an md5 of the fieldname. The actual fieldname is
                 // available in $multi_edit_columns_name[$key]
 
-                /** @var array|string $current_value */
+                // When a select field is nullified, it's not present in $_POST so initialize it
+                $multi_edit_columns[$key] = $multi_edit_columns[$key] ?? '';
+
+                /** @var string[]|string $current_value */
                 $current_value = $multi_edit_columns[$key];
                 if (is_array($current_value)) {
                     // Some column types accept comma-separated values e.g. set
@@ -317,7 +310,8 @@ final class ReplaceController extends AbstractController
             $current_value,
             $where_clause,
             $multi_edit_columns_null_prev,
-            $insert_fail
+            $insert_fail,
+            $multi_edit_columns
         );
 
         // Builds the sql query
@@ -337,8 +331,6 @@ final class ReplaceController extends AbstractController
 
             return;
         }
-
-        unset($multi_edit_columns);
 
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
