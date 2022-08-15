@@ -4273,8 +4273,10 @@ Functions.getImage = function (image, alternate, attributes) {
  * @param {object}     value       Configuration value.
  */
 Functions.configSet = function (key, value) {
+    // Updating value in local storage.
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
+
     $.ajax({
         url: 'index.php?route=/config/set',
         type: 'POST',
@@ -4286,15 +4288,12 @@ Functions.configSet = function (key, value) {
             value: serialized,
         },
         success: function (data) {
-            // Updating value in local storage.
-            if (! data.success) {
-                if (data.error) {
-                    Functions.ajaxShowMessage(data.error);
-                } else {
-                    Functions.ajaxShowMessage(data.message);
+            if (data.success !== true) {
+                // Try to find a message to display
+                if (data.error || data.message || false) {
+                    Functions.ajaxShowMessage(data.error || data.message);
                 }
             }
-            // Eventually, call callback.
         }
     });
 };
@@ -4309,11 +4308,12 @@ Functions.configSet = function (key, value) {
  *
  * @param {string}     key             Configuration key.
  * @param {boolean}    cached          Configuration type.
- * @param {Function}   successCallback The callback to call after the value is received
+ * @param {Function}   successCallback The callback to call after the value is successfully received
+ * @param {Function}   failureCallback The callback to call when the value can not be received
  *
  * @return {void}
  */
-Functions.configGet = function (key, cached, successCallback) {
+Functions.configGet = function (key, cached, successCallback, failureCallback) {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
     if (isCached && value !== undefined && value !== null) {
@@ -4332,12 +4332,23 @@ Functions.configGet = function (key, cached, successCallback) {
             key: key
         },
         success: function (data) {
-            // Updating value in local storage.
-            if (data.success) {
-                localStorage.setItem(key, JSON.stringify(data.value));
-            } else {
-                Functions.ajaxShowMessage(data.message);
+            if (data.success !== true) {
+                // Try to find a message to display
+                if (data.error || data.message || false) {
+                    Functions.ajaxShowMessage(data.error || data.message);
+                }
+
+                // Call the callback if it is defined
+                if (typeof failureCallback === 'function') {
+                    failureCallback();
+                }
+
+                // return here, exit non success mode
+                return;
             }
+
+            // Updating value in local storage.
+            localStorage.setItem(key, JSON.stringify(data.value));
             // Call the callback if it is defined
             if (typeof successCallback === 'function') {
                 // Feed it the value previously saved like on async mode

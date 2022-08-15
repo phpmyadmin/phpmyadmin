@@ -63,6 +63,10 @@ var Console = {
         Functions.configGet('Console', false, (data) => {
             Config.init(data);
             Console.setupAfterInit();
+        }, () => {
+            Console.config = {};// Avoid null pointers in setupAfterInit()
+            // Fetching data failed, still perform the console init
+            Console.setupAfterInit();
         });
     },
 
@@ -1318,20 +1322,23 @@ var ConsoleDebug = {
             .data('queryInfo', queryInfo)
             .data('totalTime', totalTime);
         if (grouped) {
-            $query.find('.text.count').removeClass('hide');
-            $query.find('.text.count span').text(count);
+            $query.find('span.text.count').removeClass('hide');
+            $query.find('span.text.count span').text(count);
         }
-        $query.find('.text.time span').text(queryTime + 's (' + ((queryTime * 100) / totalTime).toFixed(3) + '%)');
+        $query.find('span.text.time span').text(ConsoleDebug.getQueryTimeTaken(queryTime, totalTime));
 
         return $query;
     },
     appendQueryExtraInfo: function (query, $elem) {
         if ('error' in query) {
             $elem.append(
-                $('<div>').html(query.error)
+                $('<div>').append($('<span class="text-danger">').text(query.error))
             );
         }
         $elem.append(this.formatBackTrace(query.trace));
+    },
+    getQueryTimeTaken: function (queryTime, totalTime) {
+        return queryTime + 's (' + ((queryTime * 100) / totalTime).toFixed(3) + '%)';
     },
     getQueryDetails: function (queryInfo, totalTime, $query) {
         if (Array.isArray(queryInfo)) {
@@ -1341,9 +1348,7 @@ var ConsoleDebug = {
                     .text((parseInt(i) + 1) + '.')
                     .append(
                         $('<span class="time">').text(
-                            window.Messages.strConsoleDebugTimeTaken +
-                        ' ' + queryInfo[i].time + 's' +
-                        ' (' + ((queryInfo[i].time * 100) / totalTime).toFixed(3) + '%)'
+                            Messages.strConsoleDebugTimeTaken + ' ' + ConsoleDebug.getQueryTimeTaken(queryInfo[i].time, totalTime)
                         )
                     );
                 this.appendQueryExtraInfo(queryInfo[i], $singleQuery);

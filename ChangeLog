@@ -27,6 +27,12 @@ phpMyAdmin - ChangeLog
 - issue #17551 Enum/Set editor will not fail to open when creating a new column
 - issue #17659 Fix error when a database group is named tables, views, functions, procedures or events
 - issue #17673 Allow empty values to be inserted into columns
+- issue #17620 Fix error handling at phpMyAdmin startup for the JS SQL console
+- issue        Fixed debug queries console broken UI for query time and group count
+- issue        Fixed escaping of SQL query and errors for the debug console
+- issue        Fix console toolbar UI when the bookmark feature is disabled and sql debug is enabled
+- issue #17543 Fix JS error on saving a new designer page
+- issue #17546 Fix JS error after using save as and open page operation on the designer
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
