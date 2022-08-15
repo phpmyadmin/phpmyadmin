@@ -1994,7 +1994,7 @@ class InsertEditTest extends AbstractTestCase
     public function testGetQueryValuesForInsert(): void
     {
         // Simple insert
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 'fld',
                 'foo',
@@ -2016,7 +2016,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Test for file upload
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '0x123',
@@ -2044,7 +2044,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // case 1
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '',
@@ -2064,7 +2064,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("'uuid1234'", $result);
 
         // case 2
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 "'",
@@ -2083,7 +2083,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("AES_ENCRYPT('\\'','')", $result);
 
         // case 3
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 "'",
@@ -2102,7 +2102,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("ABS('\\'')", $result);
 
         // case 4
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '',
@@ -2121,7 +2121,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('RAND()', $result);
 
         // case 5
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 "a'c",
@@ -2143,7 +2143,7 @@ class InsertEditTest extends AbstractTestCase
 
         // Datatype: protected copied from the databse
         $GLOBALS['table'] = 'test_table';
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 'name',
                 '',
@@ -2162,7 +2162,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('0x313031', $result);
 
         // An empty value for auto increment column should be converted to NULL
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '', // empty for null
@@ -2181,7 +2181,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('NULL', $result);
 
         // Simple empty value
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '',
@@ -2200,7 +2200,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("''", $result);
 
         // Datatype: set
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '', // doesn't matter what the value is
@@ -2219,7 +2219,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("''", $result);
 
         // Datatype: protected with no value should produce an empty string
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '',
@@ -2238,7 +2238,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('', $result);
 
         // Datatype: protected with null flag set
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '',
@@ -2257,7 +2257,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('NULL', $result);
 
         // Datatype: bit
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '20\'12',
@@ -2276,7 +2276,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("b'00010'", $result);
 
         // Datatype: date
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '20\'12',
@@ -2295,7 +2295,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals("'20\\'12'", $result);
 
         // A NULL checkbox
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '',
@@ -2314,7 +2314,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals('NULL', $result);
 
         // Datatype: protected but NULL checkbox was unchecked without uploading a file
-        $result = $this->insertEdit->getQueryValuesForInsert(
+        $result = $this->insertEdit->getQueryValueForInsert(
             new EditField(
                 '',
                 '',
@@ -2339,7 +2339,7 @@ class InsertEditTest extends AbstractTestCase
     public function testGetQueryValuesForUpdate(): void
     {
         // Simple update
-        $result = $this->insertEdit->getQueryValuesForUpdate(
+        $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
                 'foo',
@@ -2359,7 +2359,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Update of null when it was null previously
-        $result = $this->insertEdit->getQueryValuesForUpdate(
+        $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
                 '', // null fields will have no value
@@ -2379,7 +2379,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Update of null when it was NOT null previously
-        $result = $this->insertEdit->getQueryValuesForUpdate(
+        $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
                 '', // null fields will have no value
@@ -2399,7 +2399,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Update to NOT null when it was null previously
-        $result = $this->insertEdit->getQueryValuesForUpdate(
+        $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
                 "ab'c",
@@ -2419,7 +2419,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Test to see if a zero-string is not ignored
-        $result = $this->insertEdit->getQueryValuesForUpdate(
+        $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
                 '0', // zero-string provided as value
@@ -2439,7 +2439,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Test to check if blob field that was left unchanged during edit will be ignored
-        $result = $this->insertEdit->getQueryValuesForUpdate(
+        $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
                 '', // no value
@@ -2459,7 +2459,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Test to see if a field will be ignored if it the value is unchanged
-        $result = $this->insertEdit->getQueryValuesForUpdate(
+        $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
                 "a'b",

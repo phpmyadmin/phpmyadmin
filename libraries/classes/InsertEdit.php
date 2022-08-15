@@ -1630,7 +1630,7 @@ class InsertEdit
      *
      * @param string|int $whereClause Either a positional index or string representing selected row
      */
-    public function getQueryValuesForInsert(
+    public function getQueryValueForInsert(
         EditField $editField,
         bool $usingKey,
         $whereClause
@@ -1652,7 +1652,7 @@ class InsertEdit
      * Get field-value pairs for update SQL.
      * During update, we build the SQL only with the fields that should be updated.
      */
-    public function getQueryValuesForUpdate(EditField $editField): string
+    public function getQueryValueForUpdate(EditField $editField): string
     {
         $currentValueFormattedAsSql = $this->getValueFormattedAsSql($editField);
 

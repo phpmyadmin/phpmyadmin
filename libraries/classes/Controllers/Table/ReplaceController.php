@@ -260,7 +260,7 @@ final class ReplaceController extends AbstractController
 
                 if (! isset($multi_edit_virtual[$key])) {
                     if ($isInsert) {
-                        $queryPart = $this->insertEdit->getQueryValuesForInsert(
+                        $queryPart = $this->insertEdit->getQueryValueForInsert(
                             $editField,
                             $usingKey,
                             $where_clause
@@ -270,7 +270,7 @@ final class ReplaceController extends AbstractController
                             $queryFields[] = Util::backquote($editField->columnName);
                         }
                     } else {
-                        $queryPart = $this->insertEdit->getQueryValuesForUpdate($editField);
+                        $queryPart = $this->insertEdit->getQueryValueForUpdate($editField);
                     }
 
                     if ($queryPart !== '') {
