@@ -13,6 +13,7 @@ use function array_slice;
 use function debug_backtrace;
 use function explode;
 use function htmlspecialchars;
+use function htmlspecialchars_decode;
 use function intval;
 use function md5;
 use function sprintf;
@@ -181,11 +182,11 @@ class Utilities
         $dbgInfo = [];
 
         if ($result === false && $errorMessage !== null) {
-            $dbgInfo['error'] = '<span class="text-danger">'
-                . htmlspecialchars($errorMessage) . '</span>';
+            // because Utilities::formatError is applied in DbiMysqli
+            $dbgInfo['error'] = htmlspecialchars_decode($errorMessage);
         }
 
-        $dbgInfo['query'] = htmlspecialchars($query);
+        $dbgInfo['query'] = $query;
         $dbgInfo['time'] = $time;
         // Get and slightly format backtrace, this is used
         // in the javascript console.

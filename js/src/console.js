@@ -1364,7 +1364,7 @@ var ConsoleDebug = {
     appendQueryExtraInfo: function (query, $elem) {
         if ('error' in query) {
             $elem.append(
-                $('<div>').html(query.error)
+                $('<div>').append($('<span class="text-danger">').text(query.error))
             );
         }
         $elem.append(this.formatBackTrace(query.trace));
