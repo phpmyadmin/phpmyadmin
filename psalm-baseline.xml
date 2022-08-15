@@ -3656,29 +3656,20 @@
     <InvalidArgument occurrences="1">
       <code>$insertErrors</code>
     </InvalidArgument>
-    <MixedArgument occurrences="31">
+    <MixedArgument occurrences="21">
       <code>$_POST['db']</code>
       <code>$_POST['rel_fields_list']</code>
       <code>$_POST['table']</code>
       <code>$_POST['transform_fields_list']</code>
       <code>$column_name</code>
       <code>$column_name</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
+      <code>$column_name</code>
       <code>$errorMessages</code>
       <code>$extra_data</code>
       <code>$lastMessages</code>
-      <code>$multi_edit_auto_increment</code>
-      <code>$multi_edit_columns_name</code>
-      <code>$multi_edit_columns_null</code>
-      <code>$multi_edit_columns_null</code>
-      <code>$multi_edit_columns_null_prev</code>
-      <code>$multi_edit_columns_null_prev</code>
-      <code>$multi_edit_columns_prev</code>
-      <code>$multi_edit_columns_type</code>
-      <code>$multi_edit_funcs</code>
-      <code>$multi_edit_funcs[$key]</code>
+      <code>$multi_edit_columns_prev[$key] ?? null</code>
+      <code>$multi_edit_columns_type[$key] ?? ''</code>
+      <code>$multi_edit_funcs[$key] ?? ''</code>
       <code>$multi_edit_salt[$key] ?? null</code>
       <code>$one_where_clause</code>
       <code>$relation_field</code>
@@ -3687,19 +3678,14 @@
       <code>$totalAffectedRows</code>
       <code>$totalAffectedRows</code>
       <code>$warningMessages</code>
-      <code>$where_clause</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
-      <code>$current_value</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$queryValues</code>
-      <code>$queryValues</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="4">
+    <MixedArrayAccess occurrences="7">
       <code>$_POST['fields_name']['multi_edit']</code>
       <code>$extra_data['relations']</code>
       <code>$multi_edit_columns[$key]</code>
+      <code>$multi_edit_columns_prev[$key]</code>
+      <code>$multi_edit_columns_type[$key]</code>
+      <code>$multi_edit_funcs[$key]</code>
       <code>$multi_edit_salt[$key]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="4">
@@ -3711,7 +3697,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$mimeMap[$column_name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="32">
+    <MixedAssignment occurrences="31">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['cfg']['InsertRows']</code>
       <code>$GLOBALS['disp_message']</code>
@@ -3727,11 +3713,11 @@
       <code>$column_name</code>
       <code>$column_name</code>
       <code>$curr_rel_field</code>
-      <code>$current_value</code>
       <code>$extra_data['row_count']</code>
       <code>$insertRows</code>
       <code>$multi_edit_auto_increment</code>
       <code>$multi_edit_columns</code>
+      <code>$multi_edit_columns[$key]</code>
       <code>$multi_edit_columns_name</code>
       <code>$multi_edit_columns_null</code>
       <code>$multi_edit_columns_null_prev</code>
@@ -3743,32 +3729,17 @@
       <code>$one_where_clause</code>
       <code>$relation_field</code>
       <code>$relation_field_value</code>
-      <code>$where_clause</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
       <code>new $classname()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="1">
       <code>$relation_field_value</code>
-      <code>$where_clause</code>
-      <code>$where_clause</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="11">
+    <PossiblyNullArgument occurrences="2">
       <code>$GLOBALS['urlParams']</code>
       <code>$GLOBALS['urlParams']</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
-      <code>$current_value</code>
-      <code>$multi_edit_columns_null</code>
-      <code>$multi_edit_columns_null</code>
-      <code>$multi_edit_columns_null_prev</code>
-      <code>$multi_edit_columns_null_prev</code>
-      <code>$multi_edit_columns_prev</code>
-      <code>$multi_edit_funcs</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="1">
-      <code>$multi_edit_salt[$key]</code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullReference occurrences="1">
       <code>get</code>
     </PossiblyNullReference>
@@ -7900,7 +7871,7 @@
   </file>
   <file src="libraries/classes/InsertEdit.php">
     <LessSpecificReturnStatement occurrences="1"/>
-    <MixedArgument occurrences="76">
+    <MixedArgument occurrences="72">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$backupField</code>
       <code>$columnMime['input_transformation_options']</code>
@@ -7957,10 +7928,6 @@
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_table']</code>
-      <code>$multiEditColumnsName[$key]</code>
-      <code>$multiEditColumnsName[$key]</code>
-      <code>$multiEditColumnsName[$key]</code>
-      <code>$protectedRow[$multiEditColumnsName[$key]]</code>
       <code>$rows[$keyId]</code>
       <code>$singleQuery</code>
       <code>$singleQuery</code>
@@ -7988,7 +7955,7 @@
       <code>$urlParams</code>
       <code>$valueSets</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="7">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['where_clause'][0]</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
@@ -7996,13 +7963,12 @@
       <code>$enumValue['plain']</code>
       <code>$enumValue['plain']</code>
       <code>$enumValue['plain']</code>
-      <code>$protectedRow[$multiEditColumnsName[$key]]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="2">
       <code>$editedValues[$cellIndex][$columnName]</code>
       <code>$extraData['transformations'][$cellIndex]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="28">
+    <MixedArrayOffset occurrences="27">
       <code>$commentsMap[$column['Field']]</code>
       <code>$commentsMap[$column['Field']]</code>
       <code>$currentRow[$column['Field']]</code>
@@ -8030,9 +7996,8 @@
       <code>$currentRow[$column['Field']]</code>
       <code>$mimeMap[$tableColumn['Field']]</code>
       <code>$mimeMap[$tableColumn['Field']]</code>
-      <code>$protectedRow[$multiEditColumnsName[$key]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="36">
+    <MixedAssignment occurrences="35">
       <code>$GLOBALS['cfg']['ShowFieldTypesInDataEditView']</code>
       <code>$GLOBALS['cfg']['ShowFunctionFields']</code>
       <code>$_SESSION['edit_next']</code>
@@ -8061,7 +8026,6 @@
       <code>$tmp['Default']</code>
       <code>$transformedHtml</code>
       <code>$trueType</code>
-      <code>$type</code>
       <code>$urlParams['sql_query']</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -8093,13 +8057,10 @@
     </MixedReturnTypeCoercion>
     <MoreSpecificReturnType occurrences="1"/>
     <PossiblyNullArgument occurrences="3">
-      <code>$multiEditSalt</code>
+      <code>$editField-&gt;salt</code>
       <code>$newValue</code>
       <code>$newValue</code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedVariable occurrences="1">
-      <code>$protectedRow</code>
-    </PossiblyUndefinedVariable>
     <RedundantCast occurrences="1">
       <code>(int) $GLOBALS['cfg']['InsertRows']</code>
     </RedundantCast>
@@ -15238,9 +15199,7 @@
       <code>$result['pma_type']</code>
       <code>$result['wrap']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
-      <code>$_POST['fields']['multi_edit']</code>
-      <code>$_POST['fields']['multi_edit']</code>
+    <MixedArrayAssignment occurrences="3">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
