@@ -1690,18 +1690,7 @@ class InsertEdit
         EditField $editField,
         string $protectedValue
     ): string {
-        $currentValue = $editField->value;
-
-        if ($editField->type !== 'protected' && $editField->type !== 'set' && $currentValue === '') {
-            // best way to avoid problems in strict mode
-            // (works also in non-strict mode)
-            $currentValue = "''";
-            if ($editField->autoIncrement) {
-                $currentValue = 'NULL';
-            }
-        } elseif ($editField->type === 'set') {
-            $currentValue = "'" . $this->dbi->escapeString($currentValue) . "'";
-        } elseif ($editField->type === 'protected') {
+        if ($editField->type === 'protected') {
             // here we are in protected mode (asked in the config)
             // so tbl_change has put this special value in the
             // columns array, so we do not change the column value
@@ -1710,43 +1699,54 @@ class InsertEdit
             // when in UPDATE mode, do not alter field's contents. When in INSERT
             // mode, insert empty field because no values were submitted.
             // If protected blobs where set, insert original fields content.
-            $currentValue = '';
+            if ($protectedValue !== '') {
+                return '0x' . bin2hex($protectedValue);
+            }
 
-            if ($protectedValue) {
-                $currentValue = '0x' . bin2hex($protectedValue);
+            if ($editField->isNull) {
+                return 'NULL';
             }
-        } elseif ($editField->type === 'hex') {
-            if (substr($currentValue, 0, 2) != '0x') {
-                $currentValue = '0x' . $currentValue;
+
+            // The Null checkbox was unchecked for this field
+            if ($editField->wasPreviouslyNull) {
+                return "''";
             }
-        } elseif ($editField->type === 'bit') {
-            $currentValue = (string) preg_replace('/[^01]/', '0', $currentValue);
-            $currentValue = "b'" . $this->dbi->escapeString($currentValue) . "'";
-        } elseif (
-            ! ($editField->type === 'datetime' || $editField->type === 'timestamp' || $editField->type === 'date')
-            || ($currentValue !== 'CURRENT_TIMESTAMP'
-                && $currentValue !== 'current_timestamp()')
-        ) {
-            $currentValue = "'" . $this->dbi->escapeString($currentValue) . "'";
+
+            return '';
         }
 
-        // Was the Null checkbox checked for this field?
-        // (if there is a value, we ignore the Null checkbox: this could
-        // be possible if Javascript is disabled in the browser)
-        if ($editField->isNull && ($currentValue == "''" || $currentValue == '')) {
-            $currentValue = 'NULL';
+        if ($editField->value === '') {
+            // When the field is autoIncrement, the best way to avoid problems
+            // in strict mode is to set the value to null (works also in non-strict mode)
+
+            // If the value is empty and the null checkbox is checked, set it to null
+            return $editField->autoIncrement || $editField->isNull ? 'NULL' : "''";
         }
 
-        // The Null checkbox was unchecked for this field
+        if ($editField->type === 'hex') {
+            if (substr($editField->value, 0, 2) != '0x') {
+                return '0x' . $editField->value;
+            }
+
+            return $editField->value;
+        }
+
+        if ($editField->type === 'bit') {
+            $currentValue = (string) preg_replace('/[^01]/', '0', $editField->value);
+
+            return "b'" . $this->dbi->escapeString($currentValue) . "'";
+        }
+
         if (
-            $currentValue === ''
-            && $editField->wasPreviouslyNull
-            && ! $editField->isNull
+            ($editField->type !== 'datetime' && $editField->type !== 'timestamp' && $editField->type !== 'date')
+            || ($editField->value !== 'CURRENT_TIMESTAMP' && $editField->value !== 'current_timestamp()')
         ) {
-            $currentValue = "''";
+            return "'" . $this->dbi->escapeString($editField->value) . "'";
         }
 
-        return $currentValue;
+        // If there is a value, we ignore the Null checkbox;
+        // this could be possible if Javascript is disabled in the browser
+        return $editField->value;
     }
 
     /**
