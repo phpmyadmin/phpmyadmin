@@ -1649,31 +1649,35 @@ class InsertEdit
     }
 
     /**
-     * Get query values array and query fields array for insert and update in multi edit
+     * Get field-value pairs for update SQL.
+     * During update, we build the SQL only with the fields that should be updated.
      */
     public function getQueryValuesForUpdate(EditField $editField): string
     {
         $currentValueFormattedAsSql = $this->getValueFormattedAsSql($editField);
 
-        if ($editField->wasPreviouslyNull && ! $editField->isNull) {
-            // field had the null checkbox before the update
-            // field no longer has the null checkbox
-            return Util::backquote($editField->columnName) . ' = ' . $currentValueFormattedAsSql;
+        // avoid setting a field to NULL when it's already NULL
+        // (field had the null checkbox before the update; field still has the null checkbox)
+        if ($editField->wasPreviouslyNull && $editField->isNull) {
+            return '';
+        }
+
+        // A blob field that hasn't been changed will have no value
+        if ($currentValueFormattedAsSql === '') {
+            return '';
         }
 
         if (
-            ! ($editField->function === ''
-                && ! $editField->isNull
-                && $editField->previousValue !== null
-                && $editField->value === $editField->previousValue)
-            && $currentValueFormattedAsSql !== ''
+            // Field had the null checkbox before the update; field no longer has the null checkbox
+            $editField->wasPreviouslyNull ||
+            // Field was marked as NULL (the value will be unchanged if it was an empty string)
+            $editField->isNull ||
+            // A function was applied to the field
+            $editField->function !== '' ||
+            // The value was changed
+            $editField->value !== $editField->previousValue
         ) {
-            // avoid setting a field to NULL when it's already NULL
-            // (field had the null checkbox before the update
-            //  field still has the null checkbox)
-            if (! $editField->wasPreviouslyNull || ! $editField->isNull) {
-                return Util::backquote($editField->columnName) . ' = ' . $currentValueFormattedAsSql;
-            }
+            return Util::backquote($editField->columnName) . ' = ' . $currentValueFormattedAsSql;
         }
 
         return '';
