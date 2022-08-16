@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-07-25 21:21+0000\n"
+"PO-Revision-Date: 2022-08-17 04:14+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -5494,10 +5494,8 @@ msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:947
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Промени го името на табелата во "
+msgstr "Запомнете го сортирањето на табелата"
 
 #: libraries/classes/Config/Descriptions.php:949
 msgid "Default sort order for tables with a primary key."
