@@ -133,7 +133,7 @@
     {% block selection_options %}{% endblock %}
 
     {% if rows is not empty %}
-      <div class="card mb-3" id="rows">
+      <div class="card mb-3 d-none" id="rows">
         <div class="card-header">{% trans 'Rows:' %}</div>
         <div class="card-body">
           <div class="form-check">
@@ -328,7 +328,7 @@
       </div>
     </div>
 
-    <div class="card mb-3" id="output">
+    <div class="card mb-3 d-none" id="output">
       <div class="card-header">{% trans 'Output:' %}</div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
@@ -478,7 +478,7 @@
       </ul>
     </div>
 
-    <div class="card mb-3" id="format_specific_opts">
+    <div class="card mb-3 d-none" id="format_specific_opts">
       <div class="card-header">{% trans 'Format-specific options:' %}</div>
       <div class="card-body">
         {{ options|raw }}

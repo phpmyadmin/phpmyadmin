@@ -698,25 +698,55 @@ window.AJAX.registerOnload('export.js', function () {
 /**
  * Toggles display of options when quick and custom export are selected
  */
-Export.toggleQuickOrCustom = function () {
-    if ($('input[name=\'quick_or_custom\']').length === 0 // custom_no_form option
-        || $('#radio_custom_export').prop('checked') // custom
-    ) {
-        $('#databases_and_tables').show();
-        $('#rows').show();
-        $('#output').show();
-        $('#format_specific_opts').show();
-        $('#output_quick_export').addClass('d-none');
-        var selectedPluginName = $('#plugins').find('option:selected').val();
-        $('#' + selectedPluginName + '_options').removeClass('d-none');
-    } else { // quick
-        $('#databases_and_tables').hide();
-        $('#rows').hide();
-        $('#output').hide();
-        $('#format_specific_opts').hide();
-        $('#output_quick_export').removeClass('d-none');
+function toggleQuickOrCustom () {
+    const isCustomNoFormOption = ! document.getElementById('quick_or_custom');
+    const radioCustomExportElement = document.getElementById('radio_custom_export');
+    const isCustomExport = isCustomNoFormOption
+        || radioCustomExportElement instanceof HTMLInputElement
+        && radioCustomExportElement.checked;
+
+    const databasesAndTablesElement = document.getElementById('databases_and_tables');
+    if (databasesAndTablesElement) {
+        databasesAndTablesElement.classList.toggle('d-none', ! isCustomExport);
     }
-};
+
+    const rowsElement = document.getElementById('rows');
+    if (rowsElement) {
+        rowsElement.classList.toggle('d-none', ! isCustomExport);
+    }
+
+    const outputElement = document.getElementById('output');
+    if (outputElement) {
+        outputElement.classList.toggle('d-none', ! isCustomExport);
+    }
+
+    const formatSpecificOptionsElement = document.getElementById('format_specific_opts');
+    if (formatSpecificOptionsElement) {
+        formatSpecificOptionsElement.classList.toggle('d-none', ! isCustomExport);
+    }
+
+    const outputQuickExportElement = document.getElementById('output_quick_export');
+    if (outputQuickExportElement) {
+        outputQuickExportElement.classList.toggle('d-none', isCustomExport);
+    }
+
+    if (! isCustomExport) {
+        return;
+    }
+
+    const selectedPluginElement = document.querySelector('#plugins > option[selected]');
+    const selectedPluginName = selectedPluginElement instanceof HTMLOptionElement ? selectedPluginElement.value : null;
+    if (selectedPluginName === null) {
+        return;
+    }
+
+    const pluginOptionsElement = document.getElementById(selectedPluginName + '_options');
+    if (! pluginOptionsElement) {
+        return;
+    }
+
+    pluginOptionsElement.classList.remove('d-none');
+}
 
 var timeOut;
 
@@ -835,13 +865,13 @@ Export.addAlias = function (type, name, field, value) {
 };
 
 window.AJAX.registerOnload('export.js', function () {
-    $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', Export.toggleQuickOrCustom);
-
+    $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', toggleQuickOrCustom);
     $('#format_specific_opts').find('div.format_specific_options')
         .addClass('d-none')
         .find('h3')
         .remove();
-    Export.toggleQuickOrCustom();
+    toggleQuickOrCustom();
+
     Export.toggleStructureDataOpts();
     Export.toggleSqlIncludeComments();
     Export.checkTableSelectAll();
