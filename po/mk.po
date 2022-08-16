@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-08-14 00:20+0000\n"
-"PO-Revision-Date: 2022-07-25 21:17+0000\n"
+"PO-Revision-Date: 2022-08-17 04:17+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -3730,9 +3730,8 @@ msgid "Recoding engine"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:872
-#, fuzzy
 msgid "Remember table's sorting"
-msgstr "Промени го името на табелата во "
+msgstr "Запомнете го сортирањето на табелата"
 
 #: libraries/classes/Config/Descriptions.php:873
 #, fuzzy
