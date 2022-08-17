@@ -433,6 +433,9 @@ final class ReplaceController extends AbstractController
         $this->moveBackToCallingScript($gotoInclude, $request);
     }
 
+    /**
+     * @param string[][] $mimeMap
+     */
     private function doTransformations(array $mimeMap): void
     {
         if (isset($_POST['rel_fields_list']) && $_POST['rel_fields_list'] != '') {

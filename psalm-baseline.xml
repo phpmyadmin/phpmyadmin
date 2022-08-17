@@ -3771,15 +3771,7 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$multi_edit_salt[$key]</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullReference occurrences="9">
-      <code>get</code>
-      <code>get</code>
-      <code>get</code>
-      <code>get</code>
-      <code>get</code>
-      <code>get</code>
-      <code>get</code>
-      <code>get</code>
+    <PossiblyNullReference occurrences="1">
       <code>get</code>
     </PossiblyNullReference>
     <PossiblyUndefinedVariable occurrences="1">
