@@ -343,42 +343,7 @@ final class ReplaceController extends AbstractController
                 $gotoInclude = '/table/change';
             }
 
-            $GLOBALS['active_page'] = $gotoInclude;
-
-            if ($gotoInclude === '/sql') {
-                /** @var SqlController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
-                $controller($request);
-
-                return;
-            }
-
-            if ($gotoInclude === '/database/sql') {
-                /** @var DatabaseSqlController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(DatabaseSqlController::class);
-                $controller($request);
-
-                return;
-            }
-
-            if ($gotoInclude === '/table/change') {
-                /** @var ChangeController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
-                $controller($request);
-
-                return;
-            }
-
-            if ($gotoInclude === '/table/sql') {
-                /** @var TableSqlController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(TableSqlController::class);
-                $controller($request);
-
-                return;
-            }
-
-            /** @psalm-suppress UnresolvableInclude */
-            include ROOT_PATH . Core::securePath($gotoInclude);
+            $this->moveBackToCallingScript($gotoInclude, $request);
 
             return;
         }
@@ -456,8 +421,6 @@ final class ReplaceController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
 
-        $GLOBALS['active_page'] = $gotoInclude;
-
         /**
          * If user asked for "and then Insert another new row" we have to remove
          * WHERE clause information so that /table/change does not go back
@@ -467,43 +430,7 @@ final class ReplaceController extends AbstractController
             unset($_POST['where_clause']);
         }
 
-        if ($gotoInclude === '/sql') {
-            /** @var SqlController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
-            $controller($request);
-
-            return;
-        }
-
-        if ($gotoInclude === '/database/sql') {
-            /** @var DatabaseSqlController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(DatabaseSqlController::class);
-            $controller($request);
-
-            return;
-        }
-
-        if ($gotoInclude === '/table/change') {
-            /** @var ChangeController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
-            $controller($request);
-
-            return;
-        }
-
-        if ($gotoInclude === '/table/sql') {
-            /** @var TableSqlController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(TableSqlController::class);
-            $controller($request);
-
-            return;
-        }
-
-        /**
-         * Load target page.
-         */
-        /** @psalm-suppress UnresolvableInclude */
-        require ROOT_PATH . Core::securePath($gotoInclude);
+        $this->moveBackToCallingScript($gotoInclude, $request);
     }
 
     private function doTransformations(array $mimeMap): void
@@ -586,5 +513,48 @@ final class ReplaceController extends AbstractController
         $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
         $this->response->addJSON('message', $GLOBALS['message']);
         $this->response->addJSON($extra_data);
+    }
+
+    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): void
+    {
+        $GLOBALS['active_page'] = $gotoInclude;
+
+        if ($gotoInclude === '/sql') {
+            /** @var SqlController $controller */
+            $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
+            $controller($request);
+
+            return;
+        }
+
+        if ($gotoInclude === '/database/sql') {
+            /** @var DatabaseSqlController $controller */
+            $controller = $GLOBALS['containerBuilder']->get(DatabaseSqlController::class);
+            $controller($request);
+
+            return;
+        }
+
+        if ($gotoInclude === '/table/change') {
+            /** @var ChangeController $controller */
+            $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
+            $controller($request);
+
+            return;
+        }
+
+        if ($gotoInclude === '/table/sql') {
+            /** @var TableSqlController $controller */
+            $controller = $GLOBALS['containerBuilder']->get(TableSqlController::class);
+            $controller($request);
+
+            return;
+        }
+
+        /**
+         * Load target page.
+         */
+        /** @psalm-suppress UnresolvableInclude */
+        require ROOT_PATH . Core::securePath($gotoInclude);
     }
 }
