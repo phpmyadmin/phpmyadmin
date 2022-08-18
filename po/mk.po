@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-08-17 04:14+0000\n"
+"PO-Revision-Date: 2022-08-19 04:18+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -17587,14 +17587,12 @@ msgstr ""
 "Просек на споени табели: %s, оваа вредност треба да биде помала од 1 на саат"
 
 #: libraries/advisory_rules_generic.txt:183
-#, fuzzy
 msgid "Rate of reading first index entry"
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на читање првиот внес на индекс"
 
 #: libraries/advisory_rules_generic.txt:186
-#, fuzzy
 msgid "The rate of reading the first index entry is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Ратата на читање на првиот внес на индескот е висока."
 
 #: libraries/advisory_rules_generic.txt:187
 msgid ""
@@ -17613,14 +17611,12 @@ msgstr ""
 "Просек на скенирање на индекс: %s, оваа вредност треба да биде под 1 на саат"
 
 #: libraries/advisory_rules_generic.txt:190
-#, fuzzy
 msgid "Rate of reading fixed position"
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на читање на фиксна позиција"
 
 #: libraries/advisory_rules_generic.txt:193
-#, fuzzy
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Ратата на читање од фиксна позиција е висока."
 
 #: libraries/advisory_rules_generic.txt:194
 msgid ""
@@ -17637,14 +17633,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:197
-#, fuzzy
 msgid "Rate of reading next table row"
-msgstr "Направи нова страница"
+msgstr "Рата на читање на следниот ред на табелата"
 
 #: libraries/advisory_rules_generic.txt:200
-#, fuzzy
 msgid "The rate of reading the next table row is high."
-msgstr "Направи нова страница"
+msgstr "Ратата на читање на следниот ред на табелата е висока."
 
 #: libraries/advisory_rules_generic.txt:201
 msgid ""
@@ -17653,11 +17647,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:202
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Рата на читање на следниот ред на табелата: %s, оваа вредност треба да биде "
+"под 1 на саат"
 
 #: libraries/advisory_rules_generic.txt:205
 msgid "Different tmp_table_size and max_heap_table_size"
@@ -17710,10 +17705,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:219
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Temp disk rate"
-msgstr "%s табела"
+msgstr "Рата на привремен диск"
 
 #: libraries/advisory_rules_generic.txt:223
 msgid ""
@@ -17734,10 +17727,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:228
-#, fuzzy
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Големина на бафер за MyISAM клучеви"
 
 #: libraries/advisory_rules_generic.txt:231
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -17750,10 +17741,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:233
-#, fuzzy
-#| msgid "Sort buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "key_buffer_size е 0"
 
 #: libraries/advisory_rules_generic.txt:235
 #, fuzzy, php-format
