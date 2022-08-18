@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-08-14 00:20+0000\n"
-"PO-Revision-Date: 2022-08-17 04:17+0000\n"
+"PO-Revision-Date: 2022-08-19 04:22+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -393,14 +393,12 @@ msgstr ""
 "Просек на споени табели: %s, оваа вредност треба да биде помала од 1 на саат"
 
 #: libraries/classes/Advisory/Rules.php:288
-#, fuzzy
 msgid "Rate of reading first index entry"
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на читање првиот внес на индекс"
 
 #: libraries/classes/Advisory/Rules.php:291
-#, fuzzy
 msgid "The rate of reading the first index entry is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Ратата на читање на првиот внес на индескот е висока."
 
 #: libraries/classes/Advisory/Rules.php:293
 msgid ""
@@ -419,14 +417,12 @@ msgstr ""
 "Просек на скенирање на индекс: %s, оваа вредност треба да биде под 1 на саат"
 
 #: libraries/classes/Advisory/Rules.php:304
-#, fuzzy
 msgid "Rate of reading fixed position"
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на читање на фиксна позиција"
 
 #: libraries/classes/Advisory/Rules.php:307
-#, fuzzy
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Ратата на читање од фиксна позиција е висока."
 
 #: libraries/classes/Advisory/Rules.php:309
 msgid ""
@@ -443,14 +439,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:319
-#, fuzzy
 msgid "Rate of reading next table row"
-msgstr "Направи нова страница"
+msgstr "Рата на читање на следниот ред на табелата"
 
 #: libraries/classes/Advisory/Rules.php:322
-#, fuzzy
 msgid "The rate of reading the next table row is high."
-msgstr "Направи нова страница"
+msgstr "Ратата на читање на следниот ред на табелата е висока."
 
 #: libraries/classes/Advisory/Rules.php:324
 msgid ""
@@ -459,10 +453,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:326
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Рата на читање на следниот ред на табелата: %s, оваа вредност треба да биде "
+"под 1 на саат"
 
 #: libraries/classes/Advisory/Rules.php:332
 msgid "Different tmp_table_size and max_heap_table_size"
@@ -515,9 +511,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:368
-#, fuzzy
 msgid "Temp disk rate"
-msgstr "%s табела"
+msgstr "Рата на привремен диск"
 
 #: libraries/classes/Advisory/Rules.php:374
 msgid ""
@@ -538,9 +533,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:390
-#, fuzzy
 msgid "MyISAM key buffer size"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Големина на бафер за MyISAM клучеви"
 
 #: libraries/classes/Advisory/Rules.php:393
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -553,9 +547,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:397
-#, fuzzy
 msgid "key_buffer_size is 0"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "key_buffer_size е 0"
 
 #: libraries/classes/Advisory/Rules.php:402
 #, fuzzy, no-php-format
