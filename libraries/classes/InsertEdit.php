@@ -1673,6 +1673,7 @@ class InsertEdit
                 . ' = ' . $currentValueAsAnArray;
         } elseif (
             ! (empty($multiEditFuncs[$key])
+                && empty($multiEditColumnsNull[$key])
                 && isset($multiEditColumnsPrev[$key])
                 && $currentValue === $multiEditColumnsPrev[$key])
             && $currentValueAsAnArray !== ''
