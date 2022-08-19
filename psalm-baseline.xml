@@ -3283,9 +3283,7 @@
       <code>$_POST['field_transformation'][$fieldindex]</code>
       <code>$_POST['field_transformation_options'][$fieldindex]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="3">
-      <code>$GLOBALS['num_fields']</code>
-      <code>$GLOBALS['result']</code>
+    <MixedAssignment occurrences="1">
       <code>$mimetype</code>
     </MixedAssignment>
   </file>
