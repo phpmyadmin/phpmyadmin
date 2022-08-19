@@ -343,42 +343,7 @@ final class ReplaceController extends AbstractController
                 $gotoInclude = '/table/change';
             }
 
-            $GLOBALS['active_page'] = $gotoInclude;
-
-            if ($gotoInclude === '/sql') {
-                /** @var SqlController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
-                $controller($request);
-
-                return;
-            }
-
-            if ($gotoInclude === '/database/sql') {
-                /** @var DatabaseSqlController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(DatabaseSqlController::class);
-                $controller($request);
-
-                return;
-            }
-
-            if ($gotoInclude === '/table/change') {
-                /** @var ChangeController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
-                $controller($request);
-
-                return;
-            }
-
-            if ($gotoInclude === '/table/sql') {
-                /** @var TableSqlController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(TableSqlController::class);
-                $controller($request);
-
-                return;
-            }
-
-            /** @psalm-suppress UnresolvableInclude */
-            include ROOT_PATH . Core::securePath($gotoInclude);
+            $this->moveBackToCallingScript($gotoInclude, $request);
 
             return;
         }
@@ -442,84 +407,7 @@ final class ReplaceController extends AbstractController
              * transformed fields, if they were edited. After that, output the correct
              * link/transformed value and exit
              */
-            if (isset($_POST['rel_fields_list']) && $_POST['rel_fields_list'] != '') {
-                $map = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
-
-                /** @var array<int,array> $relation_fields */
-                $relation_fields = [];
-                parse_str($_POST['rel_fields_list'], $relation_fields);
-
-                // loop for each relation cell
-                foreach ($relation_fields as $cell_index => $curr_rel_field) {
-                    foreach ($curr_rel_field as $relation_field => $relation_field_value) {
-                        $where_comparison = "='" . $relation_field_value . "'";
-                        $dispval = $this->insertEdit->getDisplayValueForForeignTableColumn(
-                            $where_comparison,
-                            $map,
-                            $relation_field
-                        );
-
-                        $extra_data['relations'][$cell_index] = $this->insertEdit->getLinkForRelationalDisplayField(
-                            $map,
-                            $relation_field,
-                            $where_comparison,
-                            $dispval,
-                            $relation_field_value
-                        );
-                    }
-                }
-            }
-
-            if (isset($_POST['do_transformations']) && $_POST['do_transformations'] == true) {
-                $edited_values = [];
-                parse_str($_POST['transform_fields_list'], $edited_values);
-
-                if (! isset($extra_data)) {
-                    $extra_data = [];
-                }
-
-                $transformation_types = [
-                    'input_transformation',
-                    'transformation',
-                ];
-                foreach ($mimeMap as $transformation) {
-                    $column_name = $transformation['column_name'];
-                    foreach ($transformation_types as $type) {
-                        $file = Core::securePath($transformation[$type]);
-                        $extra_data = $this->insertEdit->transformEditedValues(
-                            $GLOBALS['db'],
-                            $GLOBALS['table'],
-                            $transformation,
-                            $edited_values,
-                            $file,
-                            $column_name,
-                            $extra_data,
-                            $type
-                        );
-                    }
-                }
-            }
-
-            // Need to check the inline edited value can be truncated by MySQL
-            // without informing while saving
-            $column_name = $_POST['fields_name']['multi_edit'][0][0];
-
-            $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-                $GLOBALS['db'],
-                $GLOBALS['table'],
-                $column_name,
-                $extra_data
-            );
-
-            /**Get the total row count of the table*/
-            $_table = new Table($_POST['table'], $_POST['db']);
-            $extra_data['row_count'] = $_table->countRecords();
-
-            $extra_data['sql_query'] = Generator::getMessage($GLOBALS['message'], $GLOBALS['display_query']);
-
-            $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
-            $this->response->addJSON('message', $GLOBALS['message']);
-            $this->response->addJSON($extra_data);
+            $this->doTransformations($mimeMap);
 
             return;
         }
@@ -533,8 +421,6 @@ final class ReplaceController extends AbstractController
 
         $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
 
-        $GLOBALS['active_page'] = $gotoInclude;
-
         /**
          * If user asked for "and then Insert another new row" we have to remove
          * WHERE clause information so that /table/change does not go back
@@ -543,6 +429,98 @@ final class ReplaceController extends AbstractController
         if (isset($_POST['after_insert']) && $_POST['after_insert'] === 'new_insert') {
             unset($_POST['where_clause']);
         }
+
+        $this->moveBackToCallingScript($gotoInclude, $request);
+    }
+
+    /**
+     * @param string[][] $mimeMap
+     */
+    private function doTransformations(array $mimeMap): void
+    {
+        if (isset($_POST['rel_fields_list']) && $_POST['rel_fields_list'] != '') {
+            $map = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
+
+            /** @var array<int,array> $relation_fields */
+            $relation_fields = [];
+            parse_str($_POST['rel_fields_list'], $relation_fields);
+
+            // loop for each relation cell
+            foreach ($relation_fields as $cell_index => $curr_rel_field) {
+                foreach ($curr_rel_field as $relation_field => $relation_field_value) {
+                    $where_comparison = "='" . $relation_field_value . "'";
+                    $dispval = $this->insertEdit->getDisplayValueForForeignTableColumn(
+                        $where_comparison,
+                        $map,
+                        $relation_field
+                    );
+
+                    $extra_data['relations'][$cell_index] = $this->insertEdit->getLinkForRelationalDisplayField(
+                        $map,
+                        $relation_field,
+                        $where_comparison,
+                        $dispval,
+                        $relation_field_value
+                    );
+                }
+            }
+        }
+
+        if (isset($_POST['do_transformations']) && $_POST['do_transformations'] == true) {
+            $edited_values = [];
+            parse_str($_POST['transform_fields_list'], $edited_values);
+
+            if (! isset($extra_data)) {
+                $extra_data = [];
+            }
+
+            $transformation_types = [
+                'input_transformation',
+                'transformation',
+            ];
+            foreach ($mimeMap as $transformation) {
+                $column_name = $transformation['column_name'];
+                foreach ($transformation_types as $type) {
+                    $file = Core::securePath($transformation[$type]);
+                    $extra_data = $this->insertEdit->transformEditedValues(
+                        $GLOBALS['db'],
+                        $GLOBALS['table'],
+                        $transformation,
+                        $edited_values,
+                        $file,
+                        $column_name,
+                        $extra_data,
+                        $type
+                    );
+                }
+            }
+        }
+
+        // Need to check the inline edited value can be truncated by MySQL
+        // without informing while saving
+        $column_name = $_POST['fields_name']['multi_edit'][0][0];
+
+        $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            $column_name,
+            $extra_data
+        );
+
+        /**Get the total row count of the table*/
+        $_table = new Table($_POST['table'], $_POST['db']);
+        $extra_data['row_count'] = $_table->countRecords();
+
+        $extra_data['sql_query'] = Generator::getMessage($GLOBALS['message'], $GLOBALS['display_query']);
+
+        $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
+        $this->response->addJSON('message', $GLOBALS['message']);
+        $this->response->addJSON($extra_data);
+    }
+
+    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): void
+    {
+        $GLOBALS['active_page'] = $gotoInclude;
 
         if ($gotoInclude === '/sql') {
             /** @var SqlController $controller */
