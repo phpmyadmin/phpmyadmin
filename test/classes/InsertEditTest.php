@@ -2331,6 +2331,63 @@ class InsertEditTest extends AbstractTestCase
             ''
         );
         $this->assertEquals("''", $result);
+
+        // Datatype: date with default value
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                'current_timestamp()',
+                'date',
+                false,
+                false,
+                true, // NULL should be ignored
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('current_timestamp()', $result);
+
+        // Datatype: hex without 0x
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '222aaafff',
+                'hex',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('0x222aaafff', $result);
+
+        // Datatype: hex with 0x
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '0x222aaafff',
+                'hex',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('0x222aaafff', $result);
     }
 
     /**
