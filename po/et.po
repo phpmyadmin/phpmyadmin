@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-05-23 06:17+0000\n"
+"PO-Revision-Date: 2022-08-21 15:21+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -16163,7 +16163,7 @@ msgstr "Kuvatakse loomise päringuid"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
-msgstr "Võõrvõtme piirangud"
+msgstr "välisvõtme piirangud"
 
 #: templates/table/relation/common_form.twig:10
 msgid "Actions"
@@ -16191,7 +16191,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr "Võõrvõtme piirang"
+msgstr "välisvõtme piirang"
 
 #: templates/table/relation/common_form.twig:89
 msgid "+ Add constraint"
