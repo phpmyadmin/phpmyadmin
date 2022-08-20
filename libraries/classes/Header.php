@@ -111,7 +111,7 @@ class Header
         $this->isAjax = false;
         $this->bodyId = '';
         $this->title = '';
-        $this->console = new Console();
+        $this->console = new Console(new Relation($GLOBALS['dbi']), $this->template);
         $this->menu = new Menu($GLOBALS['dbi'], $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
         $this->menuEnabled = true;
         $this->warningsEnabled = true;

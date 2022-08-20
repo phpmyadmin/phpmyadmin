@@ -975,11 +975,6 @@
       <code>(string) $groupName</code>
     </RedundantCastGivenDocblockType>
   </file>
-  <file src="libraries/classes/Console.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$isAjax</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="libraries/classes/Controllers/AbstractController.php">
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$params</code>

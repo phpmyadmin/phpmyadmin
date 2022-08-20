@@ -24,14 +24,14 @@ class Console
      *
      * @var bool
      */
-    private $isEnabled;
+    private $isEnabled = true;
 
     /**
      * Whether we are servicing an ajax request.
      *
      * @var bool
      */
-    private $isAjax;
+    private $isAjax = false;
 
     /** @var Relation */
     private $relation;
@@ -39,14 +39,10 @@ class Console
     /** @var Template */
     public $template;
 
-    /**
-     * Creates a new class instance
-     */
-    public function __construct()
+    public function __construct(Relation $relation, Template $template)
     {
-        $this->isEnabled = true;
-        $this->relation = new Relation($GLOBALS['dbi']);
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->template = $template;
     }
 
     /**
