@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-08-14 00:20+0000\n"
-"PO-Revision-Date: 2022-08-20 07:15+0000\n"
+"PO-Revision-Date: 2022-08-21 00:20+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -18518,7 +18518,7 @@ msgstr "tabelipõhine"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Võõrvõtme piirangud"
+msgstr "välisvõtme piirangud"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18546,7 +18546,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Võõrvõtme piirang"
+msgstr "välisvõtme piirang"
 
 #: templates/table/relation/common_form.twig:44
 msgid "+ Add constraint"
