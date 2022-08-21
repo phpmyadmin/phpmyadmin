@@ -4930,14 +4930,14 @@ msgstr "Ei ole mitte-negatiivne number!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Väärtus peab olema väiksem või võrdne kui %s!"
 
-#: libraries/classes/Console.php:84
+#: libraries/classes/Console.php:84 libraries/classes/Console.php:88
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "Kuvatakse %1$d järjehoidja (isiklikud ja ühised)"
 msgstr[1] "Kuvatakse %1$d järjehoidjat (isiklikud ja ühised)"
 
-#: libraries/classes/Console.php:91
+#: libraries/classes/Console.php:91 libraries/classes/Console.php:95
 msgid "No bookmarks"
 msgstr "Järjehoidjad puuduvad"
 
@@ -5008,6 +5008,7 @@ msgstr "Järjestamise reeglid puuduvad."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
 #: libraries/classes/Controllers/Table/CreateController.php:68
+#: libraries/classes/Controllers/Table/CreateController.php:70
 msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
@@ -6866,6 +6867,7 @@ msgstr "Andmepunkti sisu"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
+#: libraries/classes/InsertEdit.php:1974
 msgid "Ignore"
 msgstr "Ignoreeri"
 
@@ -8723,11 +8725,13 @@ msgstr "Puuduvad kuvatavad andmed"
 
 #: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
+#: libraries/classes/Controllers/Table/CreateController.php:82
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' andmebaasi pole olemas."
 
 #: libraries/classes/Controllers/Table/CreateController.php:90
+#: libraries/classes/Controllers/Table/CreateController.php:92
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s tabel on juba olemas!"
@@ -12213,6 +12217,7 @@ msgid "For testing purposes only!"
 msgstr "Ainult testimiseks!"
 
 #: libraries/classes/Query/Utilities.php:97
+#: libraries/classes/Query/Utilities.php:96
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12220,18 +12225,22 @@ msgstr ""
 "Server ei vasta (või kohaliku serveri sokkel ei ole õigesti seadistatud)."
 
 #: libraries/classes/Query/Utilities.php:100
+#: libraries/classes/Query/Utilities.php:99
 msgid "The server is not responding."
 msgstr "Server ei vasta."
 
 #: libraries/classes/Query/Utilities.php:104
+#: libraries/classes/Query/Utilities.php:103
 msgid "Logout and try as another user."
 msgstr "Logi välja ja proovi teise kasutajana."
 
 #: libraries/classes/Query/Utilities.php:109
+#: libraries/classes/Query/Utilities.php:108
 msgid "Please check privileges of directory containing database."
 msgstr "Palun kontrolli andmebaasi sisaldava kataloogi õigusi."
 
 #: libraries/classes/Query/Utilities.php:118
+#: libraries/classes/Query/Utilities.php:117
 msgid "Details…"
 msgstr "Detailid…"
 
@@ -14107,6 +14116,7 @@ msgstr "Järjestus:"
 
 #: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
+#: templates/console/display.twig:108
 msgid "Count"
 msgstr "Kogus"
 
@@ -14114,7 +14124,7 @@ msgstr "Kogus"
 msgid "Execution order"
 msgstr "Käivitusjärjekord"
 
-#: templates/console/display.twig:85
+#: templates/console/display.twig:85 templates/console/display.twig:109
 msgid "Time taken"
 msgstr "Aega kulus"
 
@@ -18523,7 +18533,7 @@ msgstr "tabelipõhine"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Võõrvõtme piirangud"
+msgstr "välisvõtme piirangud"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18551,7 +18561,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Võõrvõtme piirang"
+msgstr "välisvõtme piirang"
 
 #: templates/table/relation/common_form.twig:44
 msgid "+ Add constraint"
