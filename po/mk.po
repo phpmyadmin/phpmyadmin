@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-08-19 04:22+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4721,14 +4721,14 @@ msgstr ""
 msgid "Value must be less than or equal to %s!"
 msgstr ""
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 #, fuzzy
 msgid "No bookmarks"
 msgstr "Пребарување"
@@ -4797,7 +4797,7 @@ msgid "No collation provided."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Името на базата на податоци е празно!"
 
@@ -6662,7 +6662,7 @@ msgstr "Големина на покажувачите на податоци"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Игнорирај"
@@ -7130,6 +7130,7 @@ msgid "Hide arguments"
 msgstr "SQL упит"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr ""
 
@@ -8435,13 +8436,13 @@ msgstr ""
 msgid "No data to display"
 msgstr "Базата на податоци не постои"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, fuzzy, php-format
 msgid "Table %s already exists!"
 msgstr "Корисник %s веќе постои!"
@@ -11909,27 +11910,27 @@ msgstr "Промена на лозинка"
 msgid "For testing purposes only!"
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 #, fuzzy
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr "(или приклучокот со локалниот MySQL сервер не е исправно подесен)"
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 #, fuzzy
 msgid "The server is not responding."
 msgstr "Серверот не одговара"
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr ""
 
@@ -13836,7 +13837,7 @@ msgstr "Опаѓачки редослед"
 msgid "Order:"
 msgstr ""
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 #, fuzzy
 msgid "Count"
@@ -13847,7 +13848,7 @@ msgstr "Имиња на колони"
 msgid "Execution order"
 msgstr "Изврши запамтен упит"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr ""
 
@@ -13869,6 +13870,11 @@ msgstr "Прикажи боја"
 #, fuzzy
 msgid "Hide trace"
 msgstr "Додади ново поле"
+
+#: templates/console/display.twig:108
+#, fuzzy
+msgid "Count:"
+msgstr "Имиња на колони"
 
 #: templates/console/display.twig:135
 #, fuzzy
@@ -19205,10 +19211,6 @@ msgstr "Имиња на колони"
 #, fuzzy
 #~ msgid "Related Links"
 #~ msgstr "Релации"
-
-#, fuzzy
-#~ msgid "Count:"
-#~ msgstr "Имиња на колони"
 
 #, fuzzy
 #~ msgid "Total %d bookmark"

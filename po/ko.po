@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-04-23 11:51+0000\n"
 "Last-Translator: Yonjae Lee <yjyj93@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5021,13 +5021,13 @@ msgstr "0 또는 양수가 아닙니다!"
 msgid "Value must be less than or equal to %s!"
 msgstr "값은 %s보다 작거나 같아야 합니다!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "%1$d 북마크 보이기 (개인 및 공유)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "북마크 없음"
 
@@ -5096,7 +5096,7 @@ msgid "No collation provided."
 msgstr "데이터 정렬이 제공되지 않음."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "데이터베이스명이 없습니다!"
 
@@ -6951,7 +6951,7 @@ msgstr "데이터 포인트 내용"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "무시"
@@ -7415,6 +7415,7 @@ msgid "Hide arguments"
 msgstr "매개변수 숨기기"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "소요 시간 :"
 
@@ -8745,13 +8746,13 @@ msgstr "테이블에 숫자형 컬럼이 없어 표시할 수 없습니다."
 msgid "No data to display"
 msgstr "표시할 데이터 없음"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s'라는 데이터베이스가 존재하지 않습니다."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "테이블 %s 가 이미 존재합니다!"
@@ -12168,7 +12169,7 @@ msgstr "Signon 인증"
 msgid "For testing purposes only!"
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12176,19 +12177,19 @@ msgstr ""
 "서버가 응답하지 않습니다 (또는 로컬 서버의 소켓이 현재 제대로 구성되어 있지 "
 "않습니다)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "서버가 응답하지 않습니다."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하십시오."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "자세히…"
 
@@ -14165,7 +14166,7 @@ msgstr "내림차순"
 msgid "Order:"
 msgstr "순서:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "개수"
@@ -14174,7 +14175,7 @@ msgstr "개수"
 msgid "Execution order"
 msgstr "실행 순서"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "소요 시간"
 
@@ -14193,6 +14194,10 @@ msgstr "추적 보기"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "추적 숨기기"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "개수:"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19881,9 +19886,6 @@ msgstr "열(칼럼) 이름"
 #~ msgstr ""
 #~ "업로드된 파일을 이동할 수 없습니다. 서버 설정에 open_basedir이 활성화되어 "
 #~ "있지만, %s 디렉토리(임시 파일 저장용)에 접근 권한이 없습니다."
-
-#~ msgid "Count:"
-#~ msgstr "개수:"
 
 #~ msgid "numeric key detected"
 #~ msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다"

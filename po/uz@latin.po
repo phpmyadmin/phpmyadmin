@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5638,13 +5638,13 @@ msgstr "Nomanfiy son emas"
 msgid "Value must be less than or equal to %s!"
 msgstr ""
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] ""
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 #, fuzzy
 #| msgid "Delete relation"
 msgid "No bookmarks"
@@ -5719,7 +5719,7 @@ msgid "No collation provided."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Ma`lumotlar bazasi nomi bo‘sh!"
 
@@ -7808,7 +7808,7 @@ msgstr "Ma`lumotlar fayli ko‘rsatgichi hajmi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "E`tibor bermaslik"
@@ -8324,6 +8324,7 @@ msgid "Hide arguments"
 msgstr "SQL so‘rovlari qutisi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr ""
 
@@ -9868,13 +9869,13 @@ msgstr ""
 msgid "No data to display"
 msgstr "Ma`lumotlar bazasi mavjud emas"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' nomli baza mavjud emas."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "\"%s\" nomli jadval mavjud!"
@@ -13690,7 +13691,7 @@ msgstr "Autentifikatsiya tartibi"
 msgid "For testing purposes only!"
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -13698,21 +13699,21 @@ msgid ""
 "configured)."
 msgstr "(yoki lokal MySQL serverning soketi noto‘g‘ri sozlangan)"
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Server javob bermayapti"
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Tafsilotlar…"
 
@@ -15798,7 +15799,7 @@ msgstr "Kamayish tartibida"
 msgid "Order:"
 msgstr ""
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 #, fuzzy
 #| msgid "Column names"
@@ -15811,7 +15812,7 @@ msgstr "Maydon nomlari"
 msgid "Execution order"
 msgstr "Belgilangan so‘rovni bajarish"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr ""
 
@@ -15836,6 +15837,12 @@ msgstr "Rangda ko‘rsatish"
 #| msgid "Apply index(s)"
 msgid "Hide trace"
 msgstr "Indеks(lar)ni saqlash"
+
+#: templates/console/display.twig:108
+#, fuzzy
+#| msgid "Column names"
+msgid "Count:"
+msgstr "Maydon nomlari"
 
 #: templates/console/display.twig:135
 #, fuzzy
@@ -22059,11 +22066,6 @@ msgstr "Maydon nomlari"
 #~| msgid "Relations"
 #~ msgid "Related Links"
 #~ msgstr "Aloqalar"
-
-#, fuzzy
-#~| msgid "Column names"
-#~ msgid "Count:"
-#~ msgstr "Maydon nomlari"
 
 #, fuzzy
 #~| msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-05-30 14:15+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5036,7 +5036,7 @@ msgstr "Nu este un număr negativ!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Valoarea trebuie să fie mai mică sau egală cu %s!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -5044,7 +5044,7 @@ msgstr[0] "Arăt un semn de carte (atât privat cât și partajat)"
 msgstr[1] "Arăt %1$d semne de carte (atât private cât și partajate)"
 msgstr[2] "Arăt %1$d de semne de carte (atât private cât și partajate)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Niciun semn de carte"
 
@@ -5111,7 +5111,7 @@ msgid "No collation provided."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Numele bazei de date este gol!"
 
@@ -6978,7 +6978,7 @@ msgstr "Conținut punct de date"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignoră"
@@ -7448,6 +7448,7 @@ msgid "Hide arguments"
 msgstr "Ascunde argumente"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Timp luat:"
 
@@ -8800,13 +8801,13 @@ msgstr ""
 msgid "No data to display"
 msgstr "Nu sunt date de afișat"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Baza de date „%s” nu există."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
@@ -12339,7 +12340,7 @@ msgstr "Autentificare pe două niveluri simplă"
 msgid "For testing purposes only!"
 msgstr "Numai pentru testare!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12347,19 +12348,19 @@ msgstr ""
 "Serverul nu răspunde (sau socket-ul serverului local nu este configurat "
 "corect)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Serverul nu răspunde."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Dezautentifică-te și încearcă ca un alt utilizator."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Te rog verifică privilegiile directorului care conține baza de date."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Detalii…"
 
@@ -14258,7 +14259,7 @@ msgstr "descrescător"
 msgid "Order:"
 msgstr "Ordine:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Număr"
@@ -14267,7 +14268,7 @@ msgstr "Număr"
 msgid "Execution order"
 msgstr "Ordine de execuție"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Timp luat"
 
@@ -14286,6 +14287,11 @@ msgstr "Arată urmărirea"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "Ascunde urmărirea"
+
+#: templates/console/display.twig:108
+#, fuzzy
+msgid "Count:"
+msgstr "Numără"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19697,10 +19703,6 @@ msgstr "Nume coloane"
 #~ "Fișierul încărcat nu poate fi mutat, deoarece server-ul are activat "
 #~ "open_basedir , dar fără drepturi de acces la directorul %s (pentru "
 #~ "fișiere temporare)."
-
-#, fuzzy
-#~ msgid "Count:"
-#~ msgstr "Numără"
 
 #~ msgid "numeric key detected"
 #~ msgstr "cheie numerica detectată"

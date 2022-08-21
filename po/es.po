@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-04-20 02:09+0000\n"
 "Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5079,14 +5079,14 @@ msgstr "¡No es un número no-negativo!"
 msgid "Value must be less than or equal to %s!"
 msgstr "¡El valor debe ser igual o menor que %s!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "Mostrando %1$d favorito (privados y compartidos)"
 msgstr[1] "Mostrando %1$d favoritos (privados y compartidos)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Ningún favorito"
 
@@ -5154,7 +5154,7 @@ msgid "No collation provided."
 msgstr "No se proporcionó reglas de clasificación."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "¡El nombre de la base de datos está vacío!"
 
@@ -7035,7 +7035,7 @@ msgstr "Contenido del punto de datos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorar"
@@ -7508,6 +7508,7 @@ msgid "Hide arguments"
 msgstr "Ocultar argumentos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Tiempo necesario:"
 
@@ -8941,13 +8942,13 @@ msgstr "No existen columnas numéricas en la tabla a graficar."
 msgid "No data to display"
 msgstr "No hay datos para mostrar"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "la base de datos «%s» no existe."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "La tabla %s ya existe!"
@@ -12506,7 +12507,7 @@ msgstr "Autenticación simple de dos factores"
 msgid "For testing purposes only!"
 msgstr "¡Solo para fines de prueba!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12514,19 +12515,19 @@ msgstr ""
 "El servidor no está respondiendo (o el zócalo local al servidor MySQL no "
 "está configurado correctamente)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "El servidor no está respondiendo."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Cierre la sesión e intente con otro usuario."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Revisa los permisos del directorio que contiene la base de datos."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Detalles…"
 
@@ -14439,7 +14440,7 @@ msgstr "descendente"
 msgid "Order:"
 msgstr "Orden:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Cantidad"
@@ -14448,7 +14449,7 @@ msgstr "Cantidad"
 msgid "Execution order"
 msgstr "Orden de ejecución"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Tiempo necesario"
 
@@ -14467,6 +14468,10 @@ msgstr "Mostrar rastro"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "Ocultar rastro"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "Cantidad:"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19875,9 +19880,6 @@ msgstr "Nombre de las columnas"
 #~ msgstr ""
 #~ "No se pudo mover el archivo subido porque el servidor tiene activado "
 #~ "«open_basedir» sin acceso al directorio %s (para archivos temporales)."
-
-#~ msgid "Count:"
-#~ msgstr "Cantidad:"
 
 #~ msgid "numeric key detected"
 #~ msgstr "telado numérico detectado"

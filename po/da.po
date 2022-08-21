@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5075,14 +5075,14 @@ msgstr "Ikke et ikke-negativt tal!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Værdien skal være mindre end eller lig med %s!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "Viser %1$d bogmærke (både privat og delt)"
 msgstr[1] "Viser %1$d bogmærker (både private og delte)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Ingen bogmærker"
 
@@ -5147,7 +5147,7 @@ msgid "No collation provided."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
@@ -7028,7 +7028,7 @@ msgstr "Datapunkt-indhold"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorer"
@@ -7499,6 +7499,7 @@ msgid "Hide arguments"
 msgstr "Skjul argumenterne"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Tidsforbrug:"
 
@@ -8925,13 +8926,13 @@ msgstr "Ingen numeriske kolonner tilstede i tabellen til plotning."
 msgid "No data to display"
 msgstr "Ingen data til visning"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' database eksisterer ikke."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabellen %s eksisterer allerede!"
@@ -12465,7 +12466,7 @@ msgstr "Simpel to-faktor autentificering"
 msgid "For testing purposes only!"
 msgstr "Kun til testformål!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12473,19 +12474,19 @@ msgstr ""
 "Serveren svarer ikke (eller den lokale servers socket er ikke korrekt "
 "konfigureret)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Serveren svarer ikke."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Logud og prøv en anden bruger."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Tjek venligst privilegier for mappen som indeholder databasen."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Detaljer…"
 
@@ -14402,7 +14403,7 @@ msgstr "Faldende"
 msgid "Order:"
 msgstr "Rækkefølge:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Antal"
@@ -14411,7 +14412,7 @@ msgstr "Antal"
 msgid "Execution order"
 msgstr "Rækkefølge for udførelse"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Tidsforbrug"
 
@@ -14430,6 +14431,10 @@ msgstr "Vis sporing"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "Skjul sporing"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "Antal:"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -20209,9 +20214,6 @@ msgstr "Kolonnenavne"
 #~ msgstr ""
 #~ "Den uploadede fil kan ikke flyttes, da serveren har open_basedir slået "
 #~ "til, uden adgang til %s mappen (til midlertidige filer)."
-
-#~ msgid "Count:"
-#~ msgstr "Antal:"
 
 #~ msgid "numeric key detected"
 #~ msgstr "numerisk tast opfanget"

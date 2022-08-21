@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4719,14 +4719,14 @@ msgstr "Արժեքը ոչ բացասական թիվ չէ։"
 msgid "Value must be less than or equal to %s!"
 msgstr "Արժեքը պետք է լինի %s-ին հավասար կամ ավելի փոքր։"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Առանց էջանիշերի"
 
@@ -4797,7 +4797,7 @@ msgid "No collation provided."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Տվյալների բազայի անունն նշված չէ"
 
@@ -6679,7 +6679,7 @@ msgstr "Տվյալների կետի պարունակությունը"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Անտեսել"
@@ -7149,6 +7149,7 @@ msgid "Hide arguments"
 msgstr "Թաքցնել փաստարկները"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Տևողությունը՝"
 
@@ -8442,13 +8443,13 @@ msgstr ""
 msgid "No data to display"
 msgstr "Ցուցադրելու տվյալներ չկան"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' տվյալների բազան գոյություն չունի։"
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s աղյուսակը արդեն սիկ առկա է։"
@@ -11819,7 +11820,7 @@ msgstr "Signon-ով վավերացում"
 msgid "For testing purposes only!"
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -11827,20 +11828,20 @@ msgstr ""
 "Սպասարկիչի չի պատասխանում (կամ էլ սպասարկչի տեղային բնակը պատշաճ կազմաձևած "
 "չէ)։"
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Սպասարկիչը չի պատասխանում։"
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Խնդրում ենք ստուգել տվյալների բազան պարունակող պանակի արտոնությունները։"
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Մանրամասները …"
 
@@ -13678,7 +13679,7 @@ msgstr "ըստ նվազման"
 msgid "Order:"
 msgstr "Հերթականություն՝"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Քանակ"
@@ -13687,7 +13688,7 @@ msgstr "Քանակ"
 msgid "Execution order"
 msgstr "Կատարման հերթականությունը"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Տևողություն"
 
@@ -13706,6 +13707,10 @@ msgstr "Ցուցադրել հետագիծը"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "Թաքցնել հետագիծը"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "Քանակ՝"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19152,9 +19157,6 @@ msgstr "Սյունակների անուններ"
 #~ msgstr ""
 #~ "Հնարավոր չէ տեղափոխել վերբեռնված ֆայլը, քանի որ սպասարկչում open_basedir "
 #~ "հարաչափը միացրած է առանց %s ժամանակավոր պանակի մատչման արտոնությանը։"
-
-#~ msgid "Count:"
-#~ msgstr "Քանակ՝"
 
 #~ msgid "numeric key detected"
 #~ msgstr "բացահայտվել է թվային ստեղն"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-08-12 19:19+0000\n"
 "Last-Translator: Holiq Ibrahim <holiq.ibrahim376@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5289,13 +5289,13 @@ msgstr "Bukan angka non-negatif!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Nilai harus sama dengan atau lebih kecil dari %s!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "Menampilkan bookmark %1$d (baik privat maupun publik)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Tidak ada penanda"
 
@@ -5362,7 +5362,7 @@ msgid "No collation provided."
 msgstr "Tidak ada pemeriksaan yang tersedia."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Nama database kosong!"
 
@@ -7252,7 +7252,7 @@ msgstr "Isi titk data"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Abaikan"
@@ -7730,6 +7730,7 @@ msgid "Hide arguments"
 msgstr "Sembunyikan argumen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Waktu yang dipakai:"
 
@@ -9224,13 +9225,13 @@ msgstr "Tidak ada kolom numerik pada tabel yang dapat dibuat grafik."
 msgid "No data to display"
 msgstr "Tidak ada data untuk ditampilkan"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Basis data '%s' tidak ditemukan."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabel %s sudah ada!"
@@ -12914,7 +12915,7 @@ msgstr "Autentikasi signon"
 msgid "For testing purposes only!"
 msgstr "Hanya untuk keperluan pengujian!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12922,19 +12923,19 @@ msgstr ""
 "Server tidak merespon (atau soket server lokal tidak dikonfigurasi dengan "
 "benar)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Server tidak merespon."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Keluar dan coba sebagai pengguna lain."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Harap periksa hak akses direktori basis data."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Rincian…"
 
@@ -14967,7 +14968,7 @@ msgstr "Menurun"
 msgid "Order:"
 msgstr "Lainnya"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Jumlah"
@@ -14978,7 +14979,7 @@ msgstr "Jumlah"
 msgid "Execution order"
 msgstr "Dieksekusi setiap"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 #, fuzzy
 msgid "Time taken"
 msgstr "Waktu tempuh"
@@ -15006,6 +15007,12 @@ msgstr "Tampilkan warna"
 #| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "Sembunyikan Panel"
+
+#: templates/console/display.twig:108
+#, fuzzy
+#| msgid "Count"
+msgid "Count:"
+msgstr "Jumlah"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -21074,11 +21081,6 @@ msgstr "Nama kolom"
 #~ msgstr ""
 #~ "Berkas upload tidak dapat dipindahkan, karena server mengaktifkan "
 #~ "open_basedir tanpa akses ke direktori %s (untuk berkas sementara)."
-
-#, fuzzy
-#~| msgid "Count"
-#~ msgid "Count:"
-#~ msgstr "Jumlah"
 
 #~ msgid "numeric key detected"
 #~ msgstr "tombol angka terdeteksi"

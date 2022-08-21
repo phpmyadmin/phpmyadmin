@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-08-04 19:16+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4940,13 +4940,13 @@ msgstr "負でない値ではありません!"
 msgid "Value must be less than or equal to %s!"
 msgstr "値は %s 以下でなければいけません!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "個人用と共用を含む %1$d ブックマークを表示しています"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "ブックマークはありません"
 
@@ -5017,7 +5017,7 @@ msgid "No collation provided."
 msgstr "照合順序が提供されていません。"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "データベース名が空です!"
 
@@ -6867,7 +6867,7 @@ msgstr "プロット点におけるデータ内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "無視"
@@ -7324,6 +7324,7 @@ msgid "Hide arguments"
 msgstr "引数を非表示"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "所要時間:"
 
@@ -8697,13 +8698,13 @@ msgstr ""
 msgid "No data to display"
 msgstr "表示するデータはありません"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "データベース '%s' が存在しません。"
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "テーブル %s は既に存在します!"
@@ -12169,7 +12170,7 @@ msgstr "単純な二要素認証"
 msgid "For testing purposes only!"
 msgstr "テスト目的のみ！"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12177,19 +12178,19 @@ msgstr ""
 "サーバが応答しません (あるいはローカルサーバのソケットが正しく設定されていま"
 "せん)。"
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "サーバが応答しません。"
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "ログアウトし、別のユーザとして試してみてください。"
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "データベースがあるディレクトリの権限を確認してください。"
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "詳細…"
 
@@ -14063,7 +14064,7 @@ msgstr "降順"
 msgid "Order:"
 msgstr "順序:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "カウント"
@@ -14072,7 +14073,7 @@ msgstr "カウント"
 msgid "Execution order"
 msgstr "実行順"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "所要時間"
 
@@ -14091,6 +14092,11 @@ msgstr "トレースを表示"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "トレースを非表示"
+
+#: templates/console/display.twig:108
+#, fuzzy
+msgid "Count:"
+msgstr "カラム"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19409,10 +19415,6 @@ msgstr "カラム名"
 #~ "アップロードされたファイルは、移動できませんでした。なぜなら、サーバは、"
 #~ "open_basedirのディレクトリ%s (テンポラリファイル)へのアクセス許可がありま"
 #~ "せん。"
-
-#, fuzzy
-#~ msgid "Count:"
-#~ msgstr "カラム"
 
 #~ msgid "numeric key detected"
 #~ msgstr "グローバル変数から数値キーが検出されました"

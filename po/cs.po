@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-05-27 05:55+0000\n"
 "Last-Translator: David Kindl <mtwango@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4942,7 +4942,7 @@ msgstr "Nebylo zadáno nezáporné číslo!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Hodnota musí být menší nebo rovna %s!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -4950,7 +4950,7 @@ msgstr[0] "Zobrazuje se %1$d záložka (soukromá i sdílená)"
 msgstr[1] "Zobrazují se %1$d záložky (soukromé i sdílené)"
 msgstr[2] "Zobrazuje se %1$d záložek (soukromých i sdílených)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Žádné záložky"
 
@@ -5017,7 +5017,7 @@ msgid "No collation provided."
 msgstr "Není uvedeno kódování."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Název databáze je prázdný!"
 
@@ -6871,7 +6871,7 @@ msgstr "Obsah datového bodu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorovat"
@@ -7334,6 +7334,7 @@ msgid "Hide arguments"
 msgstr "Skrýt argumenty"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Doba běhu:"
 
@@ -8713,13 +8714,13 @@ msgstr ""
 msgid "No data to display"
 msgstr "Nebyla nalezena žádná data"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Databáze '%s' neexistuje."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabulka %s již existuje!"
@@ -12221,27 +12222,27 @@ msgstr "Jednoduché dvoustupňové ověřování"
 msgid "For testing purposes only!"
 msgstr "Pouze pro účely testování!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Server neodpovídá (nebo není správně nastaven lokální socket MySQL serveru)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Server neodpovídá."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Odhlásit se a zkusit přihlásit se jako jiný uživatel."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Prosím zkontrolujte přístupová práva u adresáře obsahujícího tuto databázi."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Podrobnosti…"
 
@@ -14112,7 +14113,7 @@ msgstr "sestupně"
 msgid "Order:"
 msgstr "Pořadí:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Počet"
@@ -14121,7 +14122,7 @@ msgstr "Počet"
 msgid "Execution order"
 msgstr "Pořadí provedení"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Čas běhu"
 
@@ -14140,6 +14141,10 @@ msgstr "Zobrazit trasovací informace"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "Skrýt trasovací informace"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "Počet:"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19425,9 +19430,6 @@ msgstr "Názvy sloupců"
 #~ msgstr ""
 #~ "Nahraný soubor nemohl být přesunut, protože na serveru je nastaveno "
 #~ "open_basedir bez přístupu k adresáři %s (nutné pro dočasné soubory)."
-
-#~ msgid "Count:"
-#~ msgstr "Počet:"
 
 #~ msgid "numeric key detected"
 #~ msgstr "detekován číselný klíč"

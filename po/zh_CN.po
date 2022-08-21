@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-08-15 07:17+0000\n"
 "Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -4642,13 +4642,13 @@ msgstr "请输入非负数！"
 msgid "Value must be less than or equal to %s!"
 msgstr "值应小于或等于 %s！"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "已显示 %1$d 个书签（包括私有和共享）"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "没有书签"
 
@@ -4713,7 +4713,7 @@ msgid "No collation provided."
 msgstr "未提供排序规则。"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "数据库名不能为空！"
 
@@ -6505,7 +6505,7 @@ msgstr "数据点内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "忽略"
@@ -6949,6 +6949,7 @@ msgid "Hide arguments"
 msgstr "隐藏注释"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "用时："
 
@@ -8275,13 +8276,13 @@ msgstr "在将表格转为图表时没有找到数字类型的列。"
 msgid "No data to display"
 msgstr "没有可显示数据"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "数据库 '%s' 不存在。"
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
@@ -11631,25 +11632,25 @@ msgstr "简单的双因素身份验证"
 msgid "For testing purposes only!"
 msgstr "仅用于测试目的！"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr "服务器没有响应（或本地服务器的套接字没有正确设置）。"
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "服务器没有响应。"
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "注销并尝试作为另一个用户。"
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "请检查数据库所在文件夹的权限。"
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "详细…"
 
@@ -12134,7 +12135,8 @@ msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
-msgstr "存在允许来自localhost的任何用户连接的用户账户。如果其账户的主机部分允许来自任"
+msgstr ""
+"存在允许来自localhost的任何用户连接的用户账户。如果其账户的主机部分允许来自任"
 "何（％）主机的连接，这将阻止其他用户连接。"
 
 #: libraries/classes/Server/Privileges.php:3016
@@ -13474,7 +13476,7 @@ msgstr "递减排序"
 msgid "Order:"
 msgstr "命令："
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "数量"
@@ -13483,7 +13485,7 @@ msgstr "数量"
 msgid "Execution order"
 msgstr "运行顺序"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "用时"
 
@@ -13502,6 +13504,10 @@ msgstr "显示跟踪"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "隐藏跟踪"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "记录数："
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -18644,9 +18650,6 @@ msgstr "字段名"
 #~ msgstr ""
 #~ "上传的文件无法被移动，因该服务器已启用 open_basedir ，没有相应的权限访问临"
 #~ "时目录（%s）。"
-
-#~ msgid "Count:"
-#~ msgstr "记录数："
 
 #~ msgid "numeric key detected"
 #~ msgstr "检测到数字索引"

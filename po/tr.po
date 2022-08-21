@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-08-01 10:21+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4993,14 +4993,14 @@ msgstr "Negatif olmayan bir sayı değil!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Değer, %s değerinden az ya da eşit olmalıdır!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "%1$d yer işareti gösteriliyor (hem özel hem de paylaşılan)"
 msgstr[1] "%1$d yer işareti gösteriliyor (hem özel hem de paylaşılan)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Yer işaretleri yok"
 
@@ -5068,7 +5068,7 @@ msgid "No collation provided."
 msgstr "Sağlanan karşılaştırma yok."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Veritabanı adı boş!"
 
@@ -6935,7 +6935,7 @@ msgstr "Veri imleci içeriği"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Yoksay"
@@ -7404,6 +7404,7 @@ msgid "Hide arguments"
 msgstr "Bağımsız değişkenleri gizle"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Aldığı süre:"
 
@@ -8804,13 +8805,13 @@ msgstr "Tabloda çizmek için sayısal sütunlar mevcut değil."
 msgid "No data to display"
 msgstr "Görüntülemek için veri yok"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' veritabanı mevcut değil."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s tablosu zaten var!"
@@ -12320,7 +12321,7 @@ msgstr "Basit iki etkenli kimlik doğrulaması"
 msgid "For testing purposes only!"
 msgstr "Yalnızca deneme amaçlı!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12328,19 +12329,19 @@ msgstr ""
 "Sunucu yanıt vermiyor (ya da yerel MySQL sunucusunun soketi doğru olarak "
 "yapılandırılmamış)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Sunucu yanıt vermiyor."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Oturumu kapatın ve başka bir kullanıcı olarak deneyin."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Lütfen veritabanını içeren dizinin yetkilerini denetleyin."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Ayrıntılar…"
 
@@ -14232,7 +14233,7 @@ msgstr "büyükten küçüğe"
 msgid "Order:"
 msgstr "Sıra:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Sayı"
@@ -14241,7 +14242,7 @@ msgstr "Sayı"
 msgid "Execution order"
 msgstr "Çalıştırma sırası"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Aldığı süre"
 
@@ -14260,6 +14261,10 @@ msgstr "İzi göster"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "İzi gizle"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "Sayı:"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19626,9 +19631,6 @@ msgstr "Sütun adları"
 #~ msgstr ""
 #~ "Gönderilen dosya açılamaz çünkü sunucu %s dizinine (geçici dosyalar için) "
 #~ "erişmeden open_basedir etkinleştirildi."
-
-#~ msgid "Count:"
-#~ msgstr "Sayı:"
 
 #~ msgid "numeric key detected"
 #~ msgstr "sayısal tuş algılandı"

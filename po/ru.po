@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-06-18 09:16+0000\n"
 "Last-Translator: AHOHNMYC <lqwh2h2cwa@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5026,7 +5026,7 @@ msgstr "Значение должно быть отрицательным чис
 msgid "Value must be less than or equal to %s!"
 msgstr "Значение должно быть меньше или равно %s!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -5034,7 +5034,7 @@ msgstr[0] "Показать %1$d закладку (как частных, так
 msgstr[1] "Показать %1$d закладки (как частных, так и общих)"
 msgstr[2] "Показать %1$d закладок (как частных, так и общих)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Нет закладок"
 
@@ -5104,7 +5104,7 @@ msgid "No collation provided."
 msgstr "Не предоставлено сопоставление."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Не указано имя базы данных!"
 
@@ -6975,7 +6975,7 @@ msgstr "Содержание точки данных"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Игнорировать"
@@ -7446,6 +7446,7 @@ msgid "Hide arguments"
 msgstr "Скрыть аргументы"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Занято времени:"
 
@@ -8876,13 +8877,13 @@ msgstr "В таблице отсутствуют числовые столбцы
 msgid "No data to display"
 msgstr "Данные не найдены"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "База данных '%s' не существует."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Таблица %s уже существует!"
@@ -12413,26 +12414,26 @@ msgstr "Простая двухфакторная аутентификация"
 msgid "For testing purposes only!"
 msgstr "Только для тестирования!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Сервер не отвечает (либо локальный сокет сервера MySQL неверно настроен)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Сервер не отвечает."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Выйдите из системы и попробуйте другим пользователем."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Пожалуйста, проверьте привилегии каталога содержащего базу данных."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Детали…"
 
@@ -14326,7 +14327,7 @@ msgstr "по убыванию"
 msgid "Order:"
 msgstr "Порядок сортировки:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Количество"
@@ -14335,7 +14336,7 @@ msgstr "Количество"
 msgid "Execution order"
 msgstr "Порядок выполнения"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Занято времени"
 
@@ -14354,6 +14355,10 @@ msgstr "Показать трассировку"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "Скрыть трассировку"
+
+#: templates/console/display.twig:108
+msgid "Count:"
+msgstr "Количество:"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19781,9 +19786,6 @@ msgstr "Названия столбцов"
 #~ msgstr ""
 #~ "Загруженный файл невозможно переместить, т. к. параметр open_basedir на "
 #~ "сервере включен без доступа к каталогу %s (для временных файлов)."
-
-#~ msgid "Count:"
-#~ msgstr "Количество:"
 
 #~ msgid "numeric key detected"
 #~ msgstr "определена числовая клавиша"

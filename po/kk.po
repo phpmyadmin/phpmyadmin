@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-14 00:20+0000\n"
+"POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5082,14 +5082,14 @@ msgstr "Teris-emes san emes!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Mán %s shamasynan az nemese teń bolýy mindetti!"
 
-#: libraries/classes/Console.php:88
+#: libraries/classes/Console.php:84
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "%1$d betbelgi kórsetý (ekeýin de jeke men bóliskendi)"
 msgstr[1] "sany %1$d betbelgi kórsetý (ekeýin de jeke men bóliskendi)"
 
-#: libraries/classes/Console.php:95
+#: libraries/classes/Console.php:91
 msgid "No bookmarks"
 msgstr "Betbelgiler joq"
 
@@ -5154,7 +5154,7 @@ msgid "No collation provided."
 msgstr "Kolasıa jetkizilmedi."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:70
+#: libraries/classes/Controllers/Table/CreateController.php:68
 msgid "The database name is empty!"
 msgstr "Derekqor aty bos!"
 
@@ -7036,7 +7036,7 @@ msgstr "Derekter núktesiniń mazmuny"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1974
+#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1975
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Elemeý"
@@ -7503,6 +7503,7 @@ msgid "Hide arguments"
 msgstr "Dálelderdi jasyrý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: templates/console/display.twig:109
 msgid "Time taken:"
 msgstr "Alynǵan ýaqyt:"
 
@@ -8918,13 +8919,13 @@ msgstr "Syzba úshin kestede sandyq baǵandar kórsetilmegen."
 msgid "No data to display"
 msgstr "Beıneleletin derekter joq"
 
-#: libraries/classes/Controllers/Table/CreateController.php:82
+#: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "«%s» derekqory joq."
 
-#: libraries/classes/Controllers/Table/CreateController.php:92
+#: libraries/classes/Controllers/Table/CreateController.php:90
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s kestesi áldeqashan bar!"
@@ -12470,7 +12471,7 @@ msgstr "Qarapaıym qos-faktorly túpnusqalyq rastamasy"
 msgid "For testing purposes only!"
 msgstr "Synaq maqsattarynda ǵana!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12478,19 +12479,19 @@ msgstr ""
 "Server jaýap qaıtarmaıdy (nemese jergilikti serverdiń soketi durys "
 "teńshelmegen)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Server jaýap bermeıdi."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Shyǵýp, basqa paıdalanýshy retinde kirińiz."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Derekqory bar katalogtyń artyqshylyqtaryn tekserińiz."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Egjeıler…"
 
@@ -14410,7 +14411,7 @@ msgstr "kemýmen"
 msgid "Order:"
 msgstr "Reti:"
 
-#: templates/console/display.twig:79 templates/console/display.twig:108
+#: templates/console/display.twig:79
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr "Sany"
@@ -14419,7 +14420,7 @@ msgstr "Sany"
 msgid "Execution order"
 msgstr "Oryndaý reti"
 
-#: templates/console/display.twig:85 templates/console/display.twig:109
+#: templates/console/display.twig:85
 msgid "Time taken"
 msgstr "Alǵan ýaqyt"
 
@@ -14438,6 +14439,12 @@ msgstr "Qadaǵalaýdy kórsetý"
 #: templates/console/display.twig:107
 msgid "Hide trace"
 msgstr "Qadaǵalaýdy jasyrý"
+
+#: templates/console/display.twig:108
+#, fuzzy
+#| msgid "Column"
+msgid "Count:"
+msgstr "Бағана"
 
 #: templates/console/display.twig:135
 msgid "Add bookmark"
@@ -19840,11 +19847,6 @@ msgstr "Baǵan ataýlary"
 #~| msgid "Error"
 #~ msgid "error #1"
 #~ msgstr "Қате"
-
-#, fuzzy
-#~| msgid "Column"
-#~ msgid "Count:"
-#~ msgstr "Бағана"
 
 #, fuzzy
 #~| msgid "Delete"
