@@ -85,8 +85,6 @@ final class Common
     public static function run(): void
     {
         $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
-        $GLOBALS['errorHandler'] = $GLOBALS['errorHandler'] ?? null;
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
         $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
@@ -114,7 +112,9 @@ final class Common
 
         $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
 
-        $GLOBALS['errorHandler'] = $GLOBALS['containerBuilder']->get('error_handler');
+        /** @var ErrorHandler $errorHandler */
+        $errorHandler = $GLOBALS['containerBuilder']->get('error_handler');
+        $GLOBALS['errorHandler'] = $errorHandler;
 
         self::checkRequiredPhpExtensions();
         self::configurePhpSettings();
@@ -127,17 +127,15 @@ final class Common
 
         register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
-        /**
-         * Force reading of config file, because we removed sensitive values
-         * in the previous iteration.
-         */
-        $GLOBALS['config'] = $GLOBALS['containerBuilder']->get('config');
+        /** @var Config $config */
+        $config = $GLOBALS['containerBuilder']->get('config');
+        $GLOBALS['config'] = $config;
 
         /**
          * include session handling after the globals, to prevent overwriting
          */
         if (! defined('PMA_NO_SESSION')) {
-            Session::setUp($GLOBALS['config'], $GLOBALS['errorHandler']);
+            Session::setUp($config, $errorHandler);
         }
 
         $request = Core::populateRequestWithEncryptedQueryParams($request);
@@ -154,7 +152,7 @@ final class Common
         $GLOBALS['urlParams'] = [];
         $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
 
-        self::setGotoAndBackGlobals($GLOBALS['containerBuilder'], $GLOBALS['config']);
+        self::setGotoAndBackGlobals($GLOBALS['containerBuilder'], $config);
         self::checkTokenRequestParam();
         self::setDatabaseAndTableFromRequest($GLOBALS['containerBuilder'], $request);
 
@@ -189,27 +187,27 @@ final class Common
          * check for errors occurred while loading configuration
          * this check is done here after loading language files to present errors in locale
          */
-        $GLOBALS['config']->checkPermissions();
-        $GLOBALS['config']->checkErrors();
+        $config->checkPermissions();
+        $config->checkErrors();
 
         self::checkServerConfiguration();
         self::checkRequest();
 
         /* setup servers                                       LABEL_setup_servers    */
 
-        $GLOBALS['config']->checkServers();
+        $config->checkServers();
 
         /**
          * current server
          *
          * @global integer $server
          */
-        $GLOBALS['server'] = $GLOBALS['config']->selectServer();
+        $GLOBALS['server'] = $config->selectServer();
         $GLOBALS['urlParams']['server'] = $GLOBALS['server'];
         $GLOBALS['containerBuilder']->setParameter('server', $GLOBALS['server']);
         $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
 
-        $GLOBALS['cfg'] = $GLOBALS['config']->settings;
+        $GLOBALS['cfg'] = $config->settings;
 
         /* setup themes                                          LABEL_theme_setup    */
 
@@ -218,7 +216,7 @@ final class Common
         $GLOBALS['dbi'] = null;
 
         if (isset($GLOBALS['isMinimumCommon'])) {
-            $GLOBALS['config']->loadUserPreferences();
+            $config->loadUserPreferences();
             $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
             Tracker::enable();
 
@@ -231,10 +229,8 @@ final class Common
 
         /**
          * save some settings in cookies
-         *
-         * @todo should be done in PhpMyAdmin\Config
          */
-        $GLOBALS['config']->setCookie('pma_lang', (string) $GLOBALS['lang']);
+        $config->setCookie('pma_lang', (string) $GLOBALS['lang']);
 
         ThemeManager::getInstance()->setThemeCookie();
 
@@ -243,7 +239,7 @@ final class Common
         $GLOBALS['containerBuilder']->setAlias('dbi', DatabaseInterface::class);
 
         if (! empty($GLOBALS['cfg']['Server'])) {
-            $GLOBALS['config']->getLoginCookieValidityFromCache($GLOBALS['server']);
+            $config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
             $GLOBALS['auth_plugin'] = Plugins::getAuthPlugin();
             $GLOBALS['auth_plugin']->authenticate();
@@ -309,7 +305,7 @@ final class Common
         $GLOBALS['containerBuilder']->set('response', ResponseRenderer::getInstance());
 
         // load user preferences
-        $GLOBALS['config']->loadUserPreferences();
+        $config->loadUserPreferences();
 
         $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
 

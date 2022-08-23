@@ -222,19 +222,13 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="libraries/classes/Common.php">
-    <ArgumentTypeCoercion occurrences="3">
-      <code>$GLOBALS['config']</code>
-      <code>$GLOBALS['config']</code>
-      <code>$GLOBALS['errorHandler']</code>
-    </ArgumentTypeCoercion>
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['Server']['controluser']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="7">
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$GLOBALS['goto']</code>
-      <code>$GLOBALS['server']</code>
       <code>$_REQUEST['back']</code>
       <code>$_REQUEST['goto']</code>
       <code>$_SESSION[' PMA_token ']</code>
@@ -245,50 +239,19 @@
       <code>$GLOBALS['cfg']['MysqlMinVersion']['internal']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="11">
       <code>$GLOBALS['auth_plugin']</code>
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['back']</code>
-      <code>$GLOBALS['cfg']</code>
       <code>$GLOBALS['goto']</code>
       <code>$GLOBALS['isConfigLoading']</code>
-      <code>$GLOBALS['server']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['theme']</code>
       <code>$GLOBALS['urlParams']['goto']</code>
-      <code>$GLOBALS['urlParams']['server']</code>
       <code>$controlLink</code>
       <code>$sqlDelimiter</code>
       <code>$userLink</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="8">
-      <code>checkErrors</code>
-      <code>checkPermissions</code>
-      <code>checkServers</code>
-      <code>getLoginCookieValidityFromCache</code>
-      <code>loadUserPreferences</code>
-      <code>loadUserPreferences</code>
-      <code>selectServer</code>
-      <code>setCookie</code>
-    </MixedMethodCall>
-    <PossiblyNullArgument occurrences="3">
-      <code>$GLOBALS['config']</code>
-      <code>$GLOBALS['config']</code>
-      <code>$GLOBALS['errorHandler']</code>
-    </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="1">
-      <code>$GLOBALS['config']-&gt;settings</code>
-    </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="8">
-      <code>checkErrors</code>
-      <code>checkPermissions</code>
-      <code>checkServers</code>
-      <code>getLoginCookieValidityFromCache</code>
-      <code>loadUserPreferences</code>
-      <code>loadUserPreferences</code>
-      <code>selectServer</code>
-      <code>setCookie</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Config.php">
     <InvalidArgument occurrences="1">
