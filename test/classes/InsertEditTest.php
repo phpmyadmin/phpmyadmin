@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
+use PhpMyAdmin\EditField;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\InsertEdit;
@@ -1988,269 +1989,53 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getQueryValuesForInsertAndUpdateInMultipleEdit
+     * Test for getQueryValuesForInsert
      */
-    public function testGetQueryValuesForInsertAndUpdateInMultipleEdit(): void
+    public function testGetQueryValuesForInsert(): void
     {
-        $multi_edit_columns_name = ['0' => 'fld'];
-
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            [],
-            '',
-            [],
-            [],
-            true,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                [
-                    1,
-                    'foo',
-                ],
-                [
-                    2,
-                    '`fld`',
-                ],
-            ],
-            $result
-        );
-
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            [],
-            '',
-            [],
-            [],
+        // Simple insert
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                'fld',
+                'foo',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
             false,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            ['a']
+            ''
         );
-
         $this->assertEquals(
-            [
-                [
-                    1,
-                    '`fld` = foo',
-                ],
-                [2],
-            ],
+            "'foo'",
             $result
         );
 
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            ['b'],
-            "'`c`'",
-            ['c'],
-            [],
+        // Test for file upload
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '0x123',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                true
+            ),
             false,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            ['a']
+            ''
         );
 
-        $this->assertEquals(
-            [
-                [1],
-                [2],
-            ],
-            $result
-        );
+        $this->assertEquals('0x123', $result);
 
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            ['b'],
-            "'`c`'",
-            ['c'],
-            [3],
-            false,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                [
-                    1,
-                    '`fld` = foo',
-                ],
-                [2],
-            ],
-            $result
-        );
-
-        // Test to see if a zero-string is not ignored
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            [],
-            '0',
-            [],
-            [],
-            false,
-            [],
-            [],
-            "'0'",
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                ["`fld` = '0'"],
-                [],
-            ],
-            $result
-        );
-
-        // Can only happen when table contains blob field that was left unchanged during edit
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            [],
-            '',
-            [],
-            [],
-            false,
-            [],
-            [],
-            '',
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                [],
-                [],
-            ],
-            $result
-        );
-
-        // Test to see if a field will be set to null when it wasn't null previously
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            ['on'],
-            '',
-            [],
-            [],
-            false,
-            [],
-            [],
-            'NULL',
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                ['`fld` = NULL'],
-                [],
-            ],
-            $result
-        );
-
-        // Test to see if a field will be ignored if it was null previously
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            ['on'],
-            '',
-            [],
-            [],
-            false,
-            [],
-            [],
-            'NULL',
-            [],
-            '0',
-            ['on']
-        );
-
-        $this->assertEquals(
-            [
-                [],
-                [],
-            ],
-            $result
-        );
-
-        // Test to see if a field will be ignored if it the value is unchanged
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            [],
-            "a'b",
-            ["a'b"],
-            [],
-            false,
-            [],
-            [],
-            "'a\'b'",
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                [],
-                [],
-            ],
-            $result
-        );
-
-        // Test to see if a field can be set to NULL
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            ['on'],
-            '',
-            [''],
-            [],
-            false,
-            [],
-            [],
-            'NULL',
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                ['`fld` = NULL'],
-                [],
-            ],
-            $result
-        );
-    }
-
-    /**
-     * Test for getCurrentValueAsAnArrayForMultipleEdit
-     */
-    public function testGetCurrentValueAsAnArrayForMultipleEdit(): void
-    {
-        // case 2
-        $multi_edit_function = 'UUID';
-
+        // Test functions
         $this->dummyDbi->addResult(
             'SELECT UUID()',
             [
@@ -2258,253 +2043,498 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
-            new Transformations(),
-            new FileListing(),
-            new Template()
-        );
-
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
-            'currVal'
+        // case 1
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                '',
+                false,
+                false,
+                false,
+                'UUID',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
         );
 
         $this->assertEquals("'uuid1234'", $result);
 
-        // case 3
-        $multi_edit_function = 'AES_ENCRYPT';
-        $multi_edit_salt = '';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            $multi_edit_salt,
-            "'"
+        // case 2
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "'",
+                '',
+                false,
+                false,
+                false,
+                'AES_ENCRYPT',
+                '',
+                null,
+                false
+            ),
+            false,
+            ''
         );
         $this->assertEquals("AES_ENCRYPT('\\'','')", $result);
 
-        // case 4
-        $multi_edit_function = 'ABS';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
-            "'"
+        // case 3
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "'",
+                '',
+                false,
+                false,
+                false,
+                'ABS',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
         );
         $this->assertEquals("ABS('\\'')", $result);
 
-        // case 5
-        $multi_edit_function = 'RAND';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
+        // case 4
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                '',
+                false,
+                false,
+                false,
+                'RAND',
+                null,
+                null,
+                false
+            ),
+            false,
             ''
         );
         $this->assertEquals('RAND()', $result);
 
-        // case 6
-        $multi_edit_function = 'PHP_PASSWORD_HASH';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
-            "a'c"
+        // case 5
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "a'c",
+                '',
+                false,
+                false,
+                false,
+                'PHP_PASSWORD_HASH',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
         );
         $this->assertTrue(password_verify("a'c", mb_substr($result, 1, -1)));
+
+        // Test different data types
+
+        // Datatype: protected copied from the databse
+        $GLOBALS['table'] = 'test_table';
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                'name',
+                '',
+                'protected',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            true,
+            '`id` = 4'
+        );
+        $this->assertEquals('0x313031', $result);
+
+        // An empty value for auto increment column should be converted to NULL
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '', // empty for null
+                '',
+                true,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('NULL', $result);
+
+        // Simple empty value
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("''", $result);
+
+        // Datatype: set
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '', // doesn't matter what the value is
+                'set',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("''", $result);
+
+        // Datatype: protected with no value should produce an empty string
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'protected',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('', $result);
+
+        // Datatype: protected with null flag set
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'protected',
+                false,
+                true,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('NULL', $result);
+
+        // Datatype: bit
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '20\'12',
+                'bit',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("b'00010'", $result);
+
+        // Datatype: date
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '20\'12',
+                'date',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("'20\\'12'", $result);
+
+        // A NULL checkbox
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'set',
+                false,
+                true,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('NULL', $result);
+
+        // Datatype: protected but NULL checkbox was unchecked without uploading a file
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'protected',
+                false,
+                false,
+                true, // was previously NULL
+                '',
+                null,
+                null,
+                false // no upload
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("''", $result);
+
+        // Datatype: date with default value
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                'current_timestamp()',
+                'date',
+                false,
+                false,
+                true, // NULL should be ignored
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('current_timestamp()', $result);
+
+        // Datatype: hex without 0x
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '222aaafff',
+                'hex',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('0x222aaafff', $result);
+
+        // Datatype: hex with 0x
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '0x222aaafff',
+                'hex',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('0x222aaafff', $result);
     }
 
     /**
-     * Test for getCurrentValueForDifferentTypes
+     * Test for getQueryValuesForUpdate
      */
-    public function testGetCurrentValueForDifferentTypes(): void
+    public function testGetQueryValuesForUpdate(): void
     {
-        $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
-            new Transformations(),
-            new FileListing(),
-            new Template()
+        // Simple update
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                'foo',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
+            "`fld` = 'foo'",
+            $result
         );
 
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            '123',
-            '0',
-            [],
+        // Update of null when it was null previously
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '', // null fields will have no value
+                '',
+                false,
+                true,
+                true,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
             '',
-            [],
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+            $result
         );
 
-        $this->assertEquals('123', $result);
-
-        // case 2
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['test'],
-            '',
-            [1],
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Update of null when it was NOT null previously
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '', // null fields will have no value
+                '',
+                false,
+                true,
+                false,
+                '',
+                null,
+                '', // in edit mode the previous value will be empty string
+                false
+            )
+        );
+        $this->assertEquals(
+            '`fld` = NULL',
+            $result
         );
 
-        $this->assertEquals('NULL', $result);
-
-        // case 3
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['test'],
-            '',
-            [],
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Update to NOT null when it was null previously
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "ab'c",
+                '',
+                false,
+                false,
+                true,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
+            "`fld` = 'ab\'c'",
+            $result
         );
 
-        $this->assertEquals("''", $result);
-
-        // case 4
-        $_POST['fields']['multi_edit'][0][0] = [];
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['set'],
-            '',
-            [],
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Test to see if a zero-string is not ignored
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '0', // zero-string provided as value
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
+            "`fld` = '0'",
+            $result
         );
 
-        $this->assertEquals("''", $result);
-
-        // case 5
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['protected'],
+        // Test to check if blob field that was left unchanged during edit will be ignored
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '', // no value
+                'protected',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
             '',
-            [],
-            ['name'],
-            [],
-            [],
-            true,
-            true,
-            '`id` = 4',
-            'test_table'
+            $result
         );
 
-        $this->assertEquals('0x313031', $result);
-
-        // case 6
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['protected'],
-            '',
-            [],
-            ['a'],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Test to see if a field will be ignored if it the value is unchanged
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "a'b",
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                "a'b",
+                false
+            )
         );
 
-        $this->assertEquals('', $result);
-
-        // case 7
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['bit'],
-            '20\'12',
-            [],
-            ['a'],
-            [],
-            [],
-            true,
-            true,
+        $this->assertEquals(
             '',
-            'test_table'
+            $result
         );
-
-        $this->assertEquals("b'00010'", $result);
-
-        // case 7
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['date'],
-            '20\'12',
-            [],
-            ['a'],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
-        );
-
-        $this->assertEquals("'20\\'12'", $result);
-
-        // case 8
-        $_POST['fields']['multi_edit'][0][0] = [];
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['set'],
-            '',
-            [],
-            [],
-            [1],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
-        );
-
-        $this->assertEquals('NULL', $result);
-
-        // case 9
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['protected'],
-            '',
-            [],
-            ['a'],
-            [],
-            [1],
-            true,
-            true,
-            '',
-            'test_table'
-        );
-
-        $this->assertEquals("''", $result);
     }
 
     /**

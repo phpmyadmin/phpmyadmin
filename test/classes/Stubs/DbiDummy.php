@@ -2762,9 +2762,9 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT * FROM `test_table` WHERE `id` = 4;',
-                'columns' => ['id', 'name', 'datetimefield'],
-                'result' => [['4', '101', '2013-01-20 02:00:02']],
+                'query' => 'SELECT `name` FROM `test_table` WHERE `id` = 4',
+                'columns' => ['name'],
+                'result' => [['101']],
             ],
             [
                 'query' => 'SELECT * FROM `mysql`.`user` WHERE `User` = \'username\' AND `Host` = \'hostname\';',

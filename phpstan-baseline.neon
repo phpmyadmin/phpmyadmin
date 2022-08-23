@@ -4351,31 +4351,6 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditAutoIncrement with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditColumnsName with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditColumnsNull with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditColumnsNullPrev with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getCurrentValueForDifferentTypes\\(\\) has parameter \\$multiEditColumnsType with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getDisplayValueForForeignTableColumn\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -4497,51 +4472,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getParamsForUpdateOrInsert\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$multiEditColumnsName with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$multiEditColumnsNull with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$multiEditColumnsNullPrev with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$multiEditColumnsPrev with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$multiEditFuncs with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$queryFields with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$queryValues with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) has parameter \\$valueSets with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
