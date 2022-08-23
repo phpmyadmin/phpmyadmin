@@ -1698,10 +1698,9 @@ class Privileges
                 continue;
             }
 
-            $dbRightsSqls[] = '
-                SELECT DISTINCT `' . $dbOrTableName . '`
-                FROM `mysql`.' . Util::backquote($tableSearchIn)
-               . $userHostCondition;
+            $dbRightsSqls[] = 'SELECT DISTINCT `' . $dbOrTableName
+                . '` FROM `mysql`.' . Util::backquote($tableSearchIn)
+                . $userHostCondition;
         }
 
         $userDefaults = [

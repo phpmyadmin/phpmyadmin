@@ -1636,7 +1636,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi->addResult(
-            '( SELECT DISTINCT `Table_name` FROM `mysql`.`columns_priv` WHERE `User` = \'pma\' AND `Host` = \'host\' AND `Db` LIKE \'pmadb\') ORDER BY `Table_name` ASC',
+            '(SELECT DISTINCT `Table_name` FROM `mysql`.`columns_priv` WHERE `User` = \'pma\' AND `Host` = \'host\' AND `Db` LIKE \'pmadb\') ORDER BY `Table_name` ASC',
             [],
             ['Table_name']
         );
@@ -1646,7 +1646,7 @@ class PrivilegesTest extends AbstractTestCase
             ['Table_name', 'Table_priv', 'Column_priv']
         );
         $dummyDbi->addResult(
-            '( SELECT DISTINCT `Db` FROM `mysql`.`tables_priv` WHERE `User` = \'pma2\' AND `Host` = \'host2\') UNION ( SELECT DISTINCT `Db` FROM `mysql`.`columns_priv` WHERE `User` = \'pma2\' AND `Host` = \'host2\') ORDER BY `Db` ASC',
+            '(SELECT DISTINCT `Db` FROM `mysql`.`tables_priv` WHERE `User` = \'pma2\' AND `Host` = \'host2\') UNION (SELECT DISTINCT `Db` FROM `mysql`.`columns_priv` WHERE `User` = \'pma2\' AND `Host` = \'host2\') ORDER BY `Db` ASC',
             [],
             ['Db']
         );
