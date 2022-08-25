@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\InvalidDatabaseName;
@@ -238,7 +239,7 @@ final class Common
         $GLOBALS['containerBuilder']->set(DatabaseInterface::class, $GLOBALS['dbi']);
         $GLOBALS['containerBuilder']->setAlias('dbi', DatabaseInterface::class);
 
-        if (! empty($GLOBALS['cfg']['Server'])) {
+        if ($config->config->Server !== null) {
             $config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
             $GLOBALS['auth_plugin'] = Plugins::getAuthPlugin();
@@ -252,21 +253,21 @@ final class Common
                 // phpcs:enable
             }
 
-            self::connectToDatabaseServer($GLOBALS['dbi'], $GLOBALS['auth_plugin']);
+            self::connectToDatabaseServer($GLOBALS['dbi'], $GLOBALS['auth_plugin'], $config->config->Server);
 
             $GLOBALS['auth_plugin']->rememberCredentials();
 
             $GLOBALS['auth_plugin']->checkTwoFactor();
 
             /* Log success */
-            Logging::logUser($GLOBALS['cfg']['Server']['user']);
+            Logging::logUser($config->config->Server->user);
 
-            if ($GLOBALS['dbi']->getVersion() < $GLOBALS['cfg']['MysqlMinVersion']['internal']) {
+            if ($GLOBALS['dbi']->getVersion() < $config->config->MysqlMinVersion['internal']) {
                 Core::fatalError(
                     __('You should upgrade to %s %s or later.'),
                     [
                         'MySQL',
-                        $GLOBALS['cfg']['MysqlMinVersion']['human'],
+                        $config->config->MysqlMinVersion['human'],
                     ]
                 );
             }
@@ -312,7 +313,7 @@ final class Common
         /* Tell tracker that it can actually work */
         Tracker::enable();
 
-        if (empty($GLOBALS['server']) || ! isset($GLOBALS['cfg']['ZeroConf']) || $GLOBALS['cfg']['ZeroConf'] !== true) {
+        if (empty($GLOBALS['server']) || ! $config->config->ZeroConf) {
             return;
         }
 
@@ -603,14 +604,17 @@ final class Common
         Core::fatalError(__('possible exploit'));
     }
 
-    private static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void
-    {
+    private static function connectToDatabaseServer(
+        DatabaseInterface $dbi,
+        AuthenticationPlugin $auth,
+        Server $server
+    ): void {
         /**
          * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
          * user but the true user link must be open after this one so it would be default one for all the scripts).
          */
         $controlLink = false;
-        if ($GLOBALS['cfg']['Server']['controluser'] !== '') {
+        if ($server->controluser !== '') {
             $controlLink = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
         }
 

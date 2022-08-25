@@ -103,8 +103,11 @@ class Config
      */
     public $done = false;
 
+    /** @var Settings */
+    public $config;
+
     /**
-     * @param string $source source to read config from
+     * @param string|null $source source to read config from
      */
     public function __construct(?string $source = null)
     {
@@ -118,6 +121,7 @@ class Config
         $this->checkSystem();
 
         $this->baseSettings = $this->settings;
+        $this->config = new Settings($this->settings);
     }
 
     /**
@@ -340,7 +344,7 @@ class Config
      * loads configuration from $source, usually the config file
      * should be called on object creation
      *
-     * @param string $source config file
+     * @param string|null $source config file
      */
     public function load(?string $source = null): bool
     {
@@ -462,6 +466,7 @@ class Config
         // load config array
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
+        $this->config = new Settings($this->settings);
 
         if (isset($GLOBALS['isMinimumCommon'])) {
             return;
@@ -568,6 +573,7 @@ class Config
 
         Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
         Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
+        $this->config = new Settings($this->settings);
 
         return $result;
     }
@@ -729,6 +735,7 @@ class Config
         }
 
         $this->settings[$setting] = $value;
+        $this->config = new Settings($this->settings);
         $this->setMtime = time();
     }
 
@@ -1195,6 +1202,8 @@ class Config
                 $this->settings['Server'] = [];
             }
         }
+
+        $this->config = new Settings($this->settings);
 
         return (int) $server;
     }

@@ -142,6 +142,13 @@ final class Settings
     public $Servers;
 
     /**
+     * Selected server configuration.
+     *
+     * @var Server|null
+     */
+    public $Server;
+
+    /**
      * Default server (0 = no default server)
      *
      * If you have more than one server configured, you can set $cfg['ServerDefault']
@@ -1588,6 +1595,7 @@ final class Settings
         $this->AllowThirdPartyFraming = $this->setAllowThirdPartyFraming($settings);
         $this->blowfish_secret = $this->setBlowfishSecret($settings);
         $this->Servers = $this->setServers($settings);
+        $this->Server = $this->setServer($settings);
         $this->ServerDefault = $this->setServerDefault($settings);
         $this->VersionCheck = $this->setVersionCheck($settings);
         $this->ProxyUrl = $this->setProxyUrl($settings);
@@ -1953,6 +1961,18 @@ final class Settings
         }
 
         return $servers;
+    }
+
+    /**
+     * @param array<int|string, mixed> $settings
+     */
+    private function setServer(array $settings): ?Server
+    {
+        if (! isset($settings['Server']) || ! is_array($settings['Server'])) {
+            return null;
+        }
+
+        return new Server($settings['Server']);
     }
 
     /**
