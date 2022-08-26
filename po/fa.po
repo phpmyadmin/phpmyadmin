@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-08-21 00:19+0000\n"
 "PO-Revision-Date: 2022-08-27 09:16+0000\n"
-"Last-Translator: aliheydariafshar <afshar13ali@gmail.com>\n"
+"Last-Translator: Mojtaba Matboyi <m.matboyi@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fa/>\n"
 "Language: fa\n"
@@ -34,7 +34,7 @@ msgstr "محاسبه ناموفق مقدار برای قانون '%s'."
 #: libraries/classes/Advisory/Advisor.php:306
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "خطا در زمان اجرای تست برای شرط '%s'."
 
 #: libraries/classes/Advisory/Advisor.php:334
 #, php-format
