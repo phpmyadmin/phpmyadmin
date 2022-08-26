@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
@@ -518,7 +519,7 @@ interface DbalInterface
      *
      * @return mixed false on error or a connection object on success
      */
-    public function connect(int $mode, ?array $server = null, ?int $target = null);
+    public function connect(Server $selectedServer, int $mode, ?array $server = null, ?int $target = null);
 
     /**
      * selects given database

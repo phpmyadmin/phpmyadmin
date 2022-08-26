@@ -615,11 +615,11 @@ final class Common
          */
         $controlLink = false;
         if ($server->controluser !== '') {
-            $controlLink = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
+            $controlLink = $dbi->connect($server, DatabaseInterface::CONNECT_CONTROL);
         }
 
         // Connects to the server (validates user's login)
-        $userLink = $dbi->connect(DatabaseInterface::CONNECT_USER);
+        $userLink = $dbi->connect($server, DatabaseInterface::CONNECT_USER);
 
         if ($userLink === false) {
             $auth->showFailure('mysql-denied');
@@ -633,7 +633,7 @@ final class Common
          * Open separate connection for control queries, this is needed to avoid problems with table locking used in
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
-        $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
+        $dbi->connect($server, DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
     }
 
     public static function getRequest(): ServerRequest

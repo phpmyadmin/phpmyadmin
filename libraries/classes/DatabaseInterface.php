@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbal\DatabaseName;
@@ -1852,9 +1853,9 @@ class DatabaseInterface implements DbalInterface
      *
      * @return mixed false on error or a connection object on success
      */
-    public function connect(int $mode, ?array $server = null, ?int $target = null)
+    public function connect(Server $selectedServer, int $mode, ?array $server = null, ?int $target = null)
     {
-        [$user, $password, $server] = Config::getConnectionParams($mode, $server);
+        [$user, $password, $server] = Config::getConnectionParams($selectedServer, $mode, $server);
 
         if ($target === null) {
             $target = $mode;

@@ -17,6 +17,7 @@ use function file_put_contents;
 use function fileperms;
 use function function_exists;
 use function gd_info;
+use function get_object_vars;
 use function mb_strstr;
 use function ob_end_clean;
 use function ob_get_contents;
@@ -1201,8 +1202,8 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
     {
-        $GLOBALS['cfg']['Server'] = $server_cfg;
-        $result = Config::getConnectionParams($mode, $server);
+        $expected[2] = get_object_vars(new Settings\Server($expected[2]));
+        $result = Config::getConnectionParams(new Settings\Server($server_cfg), $mode, $server);
         $this->assertEquals($expected, $result);
     }
 

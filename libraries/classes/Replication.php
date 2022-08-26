@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\ResultInterface;
 
 use function explode;
@@ -136,7 +137,11 @@ class Replication
 
         // 5th parameter set to true means that it's an auxiliary connection
         // and we must not go back to login page if it fails
-        return $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_AUXILIARY, $server);
+        return $GLOBALS['dbi']->connect(
+            $GLOBALS['config']->config->Server ?? new Server(),
+            DatabaseInterface::CONNECT_AUXILIARY,
+            $server
+        );
     }
 
     /**

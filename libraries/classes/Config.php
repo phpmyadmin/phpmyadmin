@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Config\Settings\Server;
 
 use function __;
 use function array_filter;
@@ -435,9 +436,7 @@ class Config
     {
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
-        $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
-                ? $GLOBALS['cfg']['ServerDefault']
-                : 0);
+        $server = $GLOBALS['server'] ?? $this->config->ServerDefault;
         $cache_key = 'server_' . $server;
         if ($server > 0 && ! isset($GLOBALS['isMinimumCommon'])) {
             // cache user preferences, use database only when needed
@@ -465,7 +464,7 @@ class Config
 
         // load config array
         $this->settings = array_replace_recursive($this->settings, $config_data);
-        $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
+        $GLOBALS['cfg'] = $this->settings;
         $this->config = new Settings($this->settings);
 
         if (isset($GLOBALS['isMinimumCommon'])) {
@@ -571,8 +570,8 @@ class Config
             $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
 
-        Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
         Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
+        $GLOBALS['cfg'] = $this->settings;
         $this->config = new Settings($this->settings);
 
         return $result;
@@ -1259,31 +1258,32 @@ class Config
      *
      * @return array user, host and server settings array
      */
-    public static function getConnectionParams(int $mode, ?array $server = null): array
+    public static function getConnectionParams(Server $selectedServer, int $mode, ?array $server = null): array
     {
         $user = null;
         $password = null;
 
         if ($mode == DatabaseInterface::CONNECT_USER) {
-            $user = $GLOBALS['cfg']['Server']['user'];
-            $password = $GLOBALS['cfg']['Server']['password'];
-            $server = $GLOBALS['cfg']['Server'];
+            $user = $selectedServer->user;
+            $password = $selectedServer->password;
+            $server = get_object_vars($selectedServer);
         } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
-            $user = $GLOBALS['cfg']['Server']['controluser'];
-            $password = $GLOBALS['cfg']['Server']['controlpass'];
+            $user = $selectedServer->controluser;
+            $password = $selectedServer->controlpass;
 
-            $server = [];
+            $server = get_object_vars(new Server());
 
-            $server['hide_connection_errors'] = $GLOBALS['cfg']['Server']['hide_connection_errors'];
+            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+            $server['hide_connection_errors'] = $selectedServer->hide_connection_errors;
 
-            if (! empty($GLOBALS['cfg']['Server']['controlhost'])) {
-                $server['host'] = $GLOBALS['cfg']['Server']['controlhost'];
+            if (! empty($selectedServer->controlhost)) {
+                $server['host'] = $selectedServer->controlhost;
             } else {
-                $server['host'] = $GLOBALS['cfg']['Server']['host'];
+                $server['host'] = $selectedServer->host;
             }
 
             // Share the settings if the host is same
-            if ($server['host'] == $GLOBALS['cfg']['Server']['host']) {
+            if ($server['host'] == $selectedServer->host) {
                 $shared = [
                     'port',
                     'socket',
@@ -1297,21 +1297,21 @@ class Config
                     'ssl_verify',
                 ];
                 foreach ($shared as $item) {
-                    if (! isset($GLOBALS['cfg']['Server'][$item])) {
+                    if ($selectedServer->$item === null) {
                         continue;
                     }
 
-                    $server[$item] = $GLOBALS['cfg']['Server'][$item];
+                    $server[$item] = $selectedServer->$item;
                 }
             }
 
             // Set configured port
-            if (! empty($GLOBALS['cfg']['Server']['controlport'])) {
-                $server['port'] = $GLOBALS['cfg']['Server']['controlport'];
+            if (! empty($selectedServer->controlport)) {
+                $server['port'] = $selectedServer->controlport;
             }
 
             // Set any configuration with control_ prefix
-            foreach ($GLOBALS['cfg']['Server'] as $key => $val) {
+            foreach (get_object_vars($selectedServer) as $key => $val) {
                 if (substr($key, 0, 8) !== 'control_') {
                     continue;
                 }
@@ -1376,14 +1376,15 @@ class Config
      */
     public function getLoginCookieValidityFromCache(int $server): void
     {
-        $cacheKey = 'server_' . $server;
-
-        if (! isset($_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'])) {
+        /** @psalm-suppress MixedArrayAccess */
+        $value = (int) ($_SESSION['cache']['server_' . $server]['userprefs']['LoginCookieValidity'] ?? 0);
+        if ($value <= 0) {
             return;
         }
 
-        $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
-        $this->set('LoginCookieValidity', $value);
         $GLOBALS['cfg']['LoginCookieValidity'] = $value;
+        $this->settings['LoginCookieValidity'] = $value;
+        /** @psalm-suppress InaccessibleProperty */
+        $this->config->LoginCookieValidity = $value;
     }
 }

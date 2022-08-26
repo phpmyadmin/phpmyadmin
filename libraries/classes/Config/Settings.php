@@ -1791,6 +1791,7 @@ final class Settings
         $settings['Import'] = get_object_vars($this->Import);
         $settings['Schema'] = get_object_vars($this->Schema);
         $settings['DefaultTransformations'] = get_object_vars($this->DefaultTransformations);
+        $settings['Server'] = $this->Server !== null ? get_object_vars($this->Server) : null;
 
         foreach (array_keys($settings['Servers']) as $key) {
             $settings['Servers'][$key] = get_object_vars($this->Servers[$key]);
