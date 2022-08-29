@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
@@ -94,19 +95,12 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * connects to the database server
+     * Connects to the database server.
      *
-     * @param string $user     mysql user name
-     * @param string $password mysql user password
-     * @param array  $server   host/port/socket/persistent
-     *
-     * @return mixed false on error or a mysqli object on success
+     * @return object|bool A connection object on success or false on failure.
      */
-    public function connect(
-        $user,
-        $password,
-        array $server = []
-    ) {
+    public function connect(string $user, string $password, Server $server)
+    {
         return true;
     }
 

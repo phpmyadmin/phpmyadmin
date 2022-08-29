@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbal\DatabaseName;
@@ -1860,7 +1861,7 @@ class DatabaseInterface implements DbalInterface
             $target = $mode;
         }
 
-        if ($user === null || $password === null) {
+        if ($user === null || $password === null || ! is_array($server)) {
             trigger_error(
                 __('Missing connection parameters!'),
                 E_USER_WARNING
@@ -1869,9 +1870,11 @@ class DatabaseInterface implements DbalInterface
             return false;
         }
 
+        $server['host'] = ! is_string($server['host']) || $server['host'] === '' ? 'localhost' : $server['host'];
+
         // Do not show location and backtrace for connection errors
         $GLOBALS['errorHandler']->setHideLocation(true);
-        $result = $this->extension->connect($user, $password, $server);
+        $result = $this->extension->connect($user, $password, new Server($server));
         $GLOBALS['errorHandler']->setHideLocation(false);
 
         if ($result) {

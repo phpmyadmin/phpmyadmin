@@ -5682,7 +5682,7 @@
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="37">
+    <MixedAssignment occurrences="36">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$database</code>
@@ -5700,7 +5700,6 @@
       <code>$oneResult['name']</code>
       <code>$oneResult['table']</code>
       <code>$oneShow</code>
-      <code>$result</code>
       <code>$resultRows[$row[$key]]</code>
       <code>$resultRows[]</code>
       <code>$resultTarget</code>
@@ -5787,22 +5786,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <MixedArgument occurrences="7">
-      <code>$host</code>
-      <code>$server['port']</code>
-      <code>$server['ssl_ca'] ?? ''</code>
-      <code>$server['ssl_ca_path'] ?? ''</code>
-      <code>$server['ssl_cert'] ?? ''</code>
-      <code>$server['ssl_ciphers'] ?? ''</code>
-      <code>$server['ssl_key'] ?? ''</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$host</code>
-      <code>$server['host']</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$server['host']</code>
-    </MixedOperand>
     <MoreSpecificImplementedParamType occurrences="12">
       <code>$link</code>
       <code>$link</code>

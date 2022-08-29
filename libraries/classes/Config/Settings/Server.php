@@ -576,6 +576,17 @@ final class Server
     }
 
     /**
+     * @return static
+     */
+    public function withSSL(bool $ssl): Server
+    {
+        $clone = clone $this;
+        $clone->ssl = $ssl;
+
+        return $clone;
+    }
+
+    /**
      * @param array<int|string, mixed> $server
      */
     private function setHost(array $server): string

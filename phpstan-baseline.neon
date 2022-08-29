@@ -2726,16 +2726,6 @@ parameters:
 			path: libraries/classes/Dbal/DbalInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiExtension.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 2
 			path: libraries/classes/Dbal/MysqliResult.php
@@ -9974,11 +9964,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\StorageEngineTest\\:\\:providerGetEngine\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/StorageEngineTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAny\\(\\) return type has no value type specified in iterable type array\\.$#"

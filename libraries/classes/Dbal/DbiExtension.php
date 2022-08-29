@@ -7,25 +7,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
+use PhpMyAdmin\Config\Settings\Server;
+
 /**
  * Contract for every database extension supported by phpMyAdmin
  */
 interface DbiExtension
 {
     /**
-     * connects to the database server
+     * Connects to the database server.
      *
-     * @param string $user     user name
-     * @param string $password user password
-     * @param array  $server   host/port/socket/persistent
-     *
-     * @return mixed false on error or a connection object on success
+     * @return object|bool A connection object on success or false on failure.
      */
-    public function connect(
-        $user,
-        $password,
-        array $server
-    );
+    public function connect(string $user, string $password, Server $server);
 
     /**
      * selects given database

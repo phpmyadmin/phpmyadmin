@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Dbal;
 use mysqli;
 use mysqli_sql_exception;
 use mysqli_stmt;
+use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 
@@ -43,22 +44,12 @@ use const MYSQLI_USE_RESULT;
 class DbiMysqli implements DbiExtension
 {
     /**
-     * connects to the database server
+     * Connects to the database server.
      *
-     * @param string $user     mysql user name
-     * @param string $password mysql user password
-     * @param array  $server   host/port/socket/persistent
-     *
-     * @return mysqli|bool false on error or a mysqli object on success
+     * @return object|bool A connection object on success or false on failure.
      */
-    public function connect($user, $password, array $server)
+    public function connect(string $user, string $password, Server $server)
     {
-        if ($server) {
-            $server['host'] = empty($server['host'])
-                ? 'localhost'
-                : $server['host'];
-        }
-
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         $mysqli = mysqli_init();
@@ -70,44 +61,46 @@ class DbiMysqli implements DbiExtension
         $client_flags = 0;
 
         /* Optionally compress connection */
-        if ($server['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
+        if ($server->compress && defined('MYSQLI_CLIENT_COMPRESS')) {
             $client_flags |= MYSQLI_CLIENT_COMPRESS;
         }
 
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         /* Optionally enable SSL */
-        if ($server['ssl']) {
+        if ($server->ssl) {
             $client_flags |= MYSQLI_CLIENT_SSL;
             if (
-                ! empty($server['ssl_key']) ||
-                ! empty($server['ssl_cert']) ||
-                ! empty($server['ssl_ca']) ||
-                ! empty($server['ssl_ca_path']) ||
-                ! empty($server['ssl_ciphers'])
+                $server->ssl_key !== null && $server->ssl_key !== '' ||
+                $server->ssl_cert !== null && $server->ssl_cert !== '' ||
+                $server->ssl_ca !== null && $server->ssl_ca !== '' ||
+                $server->ssl_ca_path !== null && $server->ssl_ca_path !== '' ||
+                $server->ssl_ciphers !== null && $server->ssl_ciphers !== ''
             ) {
                 $mysqli->ssl_set(
-                    $server['ssl_key'] ?? '',
-                    $server['ssl_cert'] ?? '',
-                    $server['ssl_ca'] ?? '',
-                    $server['ssl_ca_path'] ?? '',
-                    $server['ssl_ciphers'] ?? ''
+                    $server->ssl_key ?? '',
+                    $server->ssl_cert ?? '',
+                    $server->ssl_ca ?? '',
+                    $server->ssl_ca_path ?? '',
+                    $server->ssl_ciphers ?? ''
                 );
             }
 
-            /*
+            /**
              * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
+             *
              * @link https://bugs.php.net/bug.php?id=68344
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
-            if (! $server['ssl_verify']) {
-                $mysqli->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, (int) $server['ssl_verify']);
+            if (! $server->ssl_verify) {
+                $mysqli->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, (int) $server->ssl_verify);
                 $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
         }
 
         if ($GLOBALS['cfg']['PersistentConnections']) {
-            $host = 'p:' . $server['host'];
+            $host = 'p:' . $server->host;
         } else {
-            $host = $server['host'];
+            $host = $server->host;
         }
 
         try {
@@ -116,8 +109,8 @@ class DbiMysqli implements DbiExtension
                 $user,
                 $password,
                 '',
-                $server['port'],
-                (string) $server['socket'],
+                (int) $server->port,
+                $server->socket,
                 $client_flags
             );
         } catch (mysqli_sql_exception $exception) {
@@ -129,12 +122,10 @@ class DbiMysqli implements DbiExtension
              * - #2001 - SSL Connection is required. Please specify SSL options and retry.
              * - #9002 - SSL connection is required. Please specify SSL options and retry.
              */
-            // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             $error_number = $mysqli->connect_errno;
             $error_message = $mysqli->connect_error;
-            // phpcs:enable
             if (
-                ! $server['ssl']
+                ! $server->ssl
                 && ($error_number == 3159
                     || (($error_number == 2001 || $error_number == 9002)
                         && stripos($error_message, 'SSL Connection is required') !== false))
@@ -143,12 +134,11 @@ class DbiMysqli implements DbiExtension
                     __('SSL connection enforced by server, automatically enabling it.'),
                     E_USER_WARNING
                 );
-                $server['ssl'] = true;
 
-                return self::connect($user, $password, $server);
+                return self::connect($user, $password, $server->withSSL(true));
             }
 
-            if ($error_number === 1045 && $server['hide_connection_errors']) {
+            if ($error_number === 1045 && $server->hide_connection_errors) {
                 trigger_error(
                     sprintf(
                         __(
@@ -168,6 +158,8 @@ class DbiMysqli implements DbiExtension
 
             return false;
         }
+
+        // phpcs:enable
 
         $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
 
