@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-08-28 00:24+0000\n"
-"PO-Revision-Date: 2022-08-19 04:22+0000\n"
+"PO-Revision-Date: 2022-08-31 05:15+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -339,9 +339,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:247
-#, fuzzy
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Рата на одредба што предизвикува привремени табели"
 
 #: libraries/classes/Advisory/Rules.php:255
 #, php-format
@@ -551,15 +550,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size е 0"
 
 #: libraries/classes/Advisory/Rules.php:402
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Максимум % MyISAM искористен клучен бафер"
 
 #: libraries/classes/Advisory/Rules.php:407
 #: libraries/classes/Advisory/Rules.php:424
-#, fuzzy, no-php-format
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Големина на MyISAM клучен бафер (индекс кеш) % на користење е низок."
 
 #: libraries/classes/Advisory/Rules.php:409
 #: libraries/classes/Advisory/Rules.php:426
@@ -570,15 +569,16 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:413
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Максимум %% MyISAM искористен клучен бафер: %s%%, оваа вредност треба да "
+"биде над 95%%"
 
 #: libraries/classes/Advisory/Rules.php:418
-#, fuzzy
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Големина на искористен MyISAM клучен бафер"
 
 #: libraries/classes/Advisory/Rules.php:430
 #, fuzzy, php-format
