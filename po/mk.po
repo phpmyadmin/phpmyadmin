@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-08-19 04:18+0000\n"
+"PO-Revision-Date: 2022-08-31 05:18+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -17532,10 +17532,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:161
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Рата на одредба што предизвикува привремени табели"
 
 #: libraries/advisory_rules_generic.txt:166
 #, php-format
@@ -17766,17 +17764,16 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:240
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Максимум %% MyISAM искористен клучен бафер: %s%%, оваа вредност треба да "
+"биде над 95%%"
 
 #: libraries/advisory_rules_generic.txt:243
-#, fuzzy
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Големина на искористен MyISAM клучен бафер"
 
 #: libraries/advisory_rules_generic.txt:248
 #, fuzzy, php-format
