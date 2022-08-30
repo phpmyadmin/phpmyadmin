@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-08-19 04:22+0000\n"
+"PO-Revision-Date: 2022-08-31 05:20+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -298,10 +298,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:218
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Рата на одредба што предизвикува привремени табели"
 
 #: libraries/advisory_rules_generic.php:226
 #, php-format
@@ -511,17 +509,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size е 0"
 
 #: libraries/advisory_rules_generic.php:371
-#, fuzzy, no-php-format
-#| msgid "Sort buffer size"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Максимум % MyISAM искористен клучен бафер"
 
 #: libraries/advisory_rules_generic.php:376
 #: libraries/advisory_rules_generic.php:393
-#, fuzzy, no-php-format
-#| msgid "Sort buffer size"
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Големина на MyISAM клучен бафер (индекс кеш) % на користење е низок."
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
@@ -532,17 +528,16 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:382
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Максимум %% MyISAM искористен клучен бафер: %s%%, оваа вредност треба да "
+"биде над 95%%"
 
 #: libraries/advisory_rules_generic.php:387
-#, fuzzy
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Големина на искористен MyISAM клучен бафер"
 
 #: libraries/advisory_rules_generic.php:399
 #, fuzzy, php-format
