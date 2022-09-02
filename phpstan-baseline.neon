@@ -1916,22 +1916,22 @@ parameters:
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-empty\\-string\\>\\}\\.$#"
+			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -2431,11 +2431,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Comparison operation \"\\<\\=\\>\" between \\(array\\|float\\|int\\) and \\(array\\|float\\|int\\) results in an error\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:attachIndexInfoToColumns\\(\\) has parameter \\$fields with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -2729,16 +2724,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 2
 			path: libraries/classes/Dbal/MysqliResult.php
-
-		-
-			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string and array\\{default_action\\: 'insert'\\} results in an error\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Binary operation \"\\+\" between array\\<string, bool\\|string\\>\\|string and array\\{default_action\\: 'update'\\} results in an error\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
@@ -6611,7 +6596,7 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Offset non\\-empty\\-string does not exist on array\\|string\\.$#"
+			message: "#^Offset non\\-falsy\\-string does not exist on array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 
@@ -7777,11 +7762,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tracker\\:\\:\\$trackingCache type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Variable \\$dbname on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
 

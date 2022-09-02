@@ -929,7 +929,7 @@ class Tracker
         //     3. the statements
         // we want to track
         $sqlQuery .= " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
-        " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname ?? '') . "' " .
+        " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' " .
         " AND `table_name` = '"
         . $GLOBALS['dbi']->escapeString($result['tablename']) . "' " .
         " AND `version` = '" . $GLOBALS['dbi']->escapeString((string) $version) . "' ";
