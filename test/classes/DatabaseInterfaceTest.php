@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SystemDatabase;
@@ -717,5 +719,18 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ], $databaseList);
 
         $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    public function testPrepare(): void
+    {
+        $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
+        $stmtStub = $this->createStub(mysqli_stmt::class);
+        $dummyDbi = $this->createMock(DbiExtension::class);
+        $dummyDbi->expects($this->once())->method('prepare')
+            ->with($this->identicalTo(2), $this->equalTo($query))
+            ->willReturn($stmtStub);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $stmt = $dbi->prepare($query, DatabaseInterface::CONNECT_CONTROL);
+        $this->assertSame($stmtStub, $stmt);
     }
 }
