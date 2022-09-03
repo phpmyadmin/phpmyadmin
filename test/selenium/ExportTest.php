@@ -33,8 +33,8 @@ class ExportTest extends TestBase
     /**
      * Test for server level export
      *
-     * @param string $plugin   Export format
-     * @param array  $expected Array of expected strings
+     * @param string   $plugin   Export format
+     * @param string[] $expected Array of expected strings
      *
      * @dataProvider exportDataProvider
      * @group large
@@ -51,8 +51,8 @@ class ExportTest extends TestBase
     /**
      * Test for db level export
      *
-     * @param string $plugin   Export format
-     * @param array  $expected Array of expected strings
+     * @param string   $plugin   Export format
+     * @param string[] $expected Array of expected strings
      *
      * @dataProvider exportDataProvider
      * @group large
@@ -71,8 +71,8 @@ class ExportTest extends TestBase
     /**
      * Test for table level export
      *
-     * @param string $plugin   Export format
-     * @param array  $expected Array of expected strings
+     * @param string   $plugin   Export format
+     * @param string[] $expected Array of expected strings
      *
      * @dataProvider exportDataProvider
      * @group large
@@ -91,7 +91,8 @@ class ExportTest extends TestBase
     }
 
     /**
-     * Data provider for testServerExport
+     * @return array<int, array<int, string|array<int, string>>>
+     * @psalm-return array<int, array{string, string[]}>
      */
     public function exportDataProvider(): array
     {

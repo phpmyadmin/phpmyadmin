@@ -16151,21 +16151,6 @@
       <code>$sqlMode</code>
     </MixedReturnStatement>
   </file>
-  <file src="test/selenium/ExportTest.php">
-    <MixedArgument occurrences="3">
-      <code>$str</code>
-      <code>$str</code>
-      <code>$str</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$str</code>
-      <code>$str</code>
-      <code>$str</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="test/selenium/TestBase.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;webDriver === null</code>
@@ -16189,20 +16174,13 @@
       <code>$proj</code>
       <code>$this-&gt;sqlWindowHandle</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
-      <code>RemoteWebElement</code>
-      <code>RemoteWebElement</code>
-      <code>WebDriverElement</code>
-    </MixedInferredReturnType>
     <MixedOperand occurrences="2">
       <code>$ajax_message_count</code>
       <code>$proj-&gt;automation_session-&gt;public_url</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="2">
-      <code>$proj-&gt;automation_session</code>
+    <MixedPropertyFetch occurrences="1">
       <code>$proj-&gt;automation_session-&gt;public_url</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="3"/>
     <RedundantConditionGivenDocblockType occurrences="5">
       <code>$text &amp;&amp; is_string($text)</code>
       <code>$text &amp;&amp; is_string($text)</code>

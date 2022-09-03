@@ -33,11 +33,13 @@ use function end;
 use function file_put_contents;
 use function getenv;
 use function is_bool;
+use function is_object;
 use function is_string;
 use function json_decode;
 use function json_encode;
 use function mb_strtolower;
 use function preg_match;
+use function property_exists;
 use function random_bytes;
 use function reset;
 use function sprintf;
@@ -732,9 +734,12 @@ abstract class TestBase extends TestCase
      */
     public function waitForElement(string $func, string $arg): RemoteWebElement
     {
-        return $this->webDriver->wait(30, 500)->until(
+        $element = $this->webDriver->wait(30, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
         );
+        $this->assertInstanceOf(RemoteWebElement::class, $element);
+
+        return $element;
     }
 
     /**
@@ -746,9 +751,12 @@ abstract class TestBase extends TestCase
      */
     public function waitUntilElementIsPresent(string $func, string $arg, int $timeout): RemoteWebElement
     {
-        return $this->webDriver->wait($timeout, 500)->until(
+        $element = $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
         );
+        $this->assertInstanceOf(RemoteWebElement::class, $element);
+
+        return $element;
     }
 
     /**
@@ -760,9 +768,12 @@ abstract class TestBase extends TestCase
      */
     public function waitUntilElementIsVisible(string $func, string $arg, int $timeout): WebDriverElement
     {
-        return $this->webDriver->wait($timeout, 500)->until(
+        $element = $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg))
         );
+        $this->assertInstanceOf(WebDriverElement::class, $element);
+
+        return $element;
     }
 
     /**
@@ -1181,8 +1192,7 @@ JS;
         }
 
         $proj = json_decode($result);
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        if (isset($proj->automation_session)) {
+        if (is_object($proj) && property_exists($proj, 'automation_session')) {
             // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
         }
