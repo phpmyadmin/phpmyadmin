@@ -8321,7 +8321,12 @@ parameters:
 			path: libraries/classes/ZipExtension.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: '', data\\: string\\|false\\}\\.$#"
+			count: 1
+			path: libraries/classes/ZipExtension.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: string, data\\: string\\|false\\}\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
 
@@ -10324,14 +10329,4 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:testGetLatestCompatibleVersionWithNewPHPVersion\\(\\) has parameter \\$versions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\ZipExtensionTest\\:\\:provideTestFindFile\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\ZipExtensionTest\\:\\:provideTestGetContents\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/ZipExtensionTest.php
 

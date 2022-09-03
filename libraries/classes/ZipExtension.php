@@ -46,10 +46,10 @@ class ZipExtension
      * @param string $file          path to zip file
      * @param string $specificEntry regular expression to match a file
      *
-     * @return array ($error_message, $file_data); $error_message
-     *                  is empty if no error
+     * @return array<string, string>
+     * @psalm-return array{error: string, data: string}
      */
-    public function getContents($file, $specificEntry = null)
+    public function getContents($file, $specificEntry = null): array
     {
         /**
         * This function is used to "import" a SQL file which has been exported earlier

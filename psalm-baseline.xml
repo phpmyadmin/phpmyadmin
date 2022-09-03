@@ -6520,9 +6520,8 @@
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>$this-&gt;handle</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$file['tmp_name']</code>
-      <code>$result['error']</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="5">
       <code>$file['error']['multi_edit']</code>
@@ -6531,9 +6530,6 @@
       <code>$file['tmp_name']['multi_edit']</code>
       <code>$file['type']['multi_edit']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$this-&gt;content</code>
-    </MixedAssignment>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_FILES['fields_upload']</code>
     </PossiblyInvalidArgument>
@@ -15353,9 +15349,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/OpenDocumentTest.php">
-    <MixedArgument occurrences="1">
-      <code>$zipExtension-&gt;getContents($tmpFile, '/meta\.xml/')['data']</code>
-    </MixedArgument>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertNotFalse</code>
     </RedundantConditionGivenDocblockType>
@@ -16136,12 +16129,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
     </PossiblyInvalidArgument>
-  </file>
-  <file src="test/classes/ZipExtensionTest.php">
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/selenium/Database/ProceduresTest.php">
     <MixedInferredReturnType occurrences="1">

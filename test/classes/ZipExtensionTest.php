@@ -29,13 +29,14 @@ class ZipExtensionTest extends AbstractTestCase
     /**
      * Test for getContents
      *
-     * @param string      $file           path to zip file
-     * @param string|null $specific_entry regular expression to match a file
-     * @param mixed       $output         expected output
+     * @param string                $file           path to zip file
+     * @param string|null           $specific_entry regular expression to match a file
+     * @param array<string, string> $output         expected output
+     * @psalm-param array{error: string, data: string} $output
      *
      * @dataProvider provideTestGetContents
      */
-    public function testGetContents(string $file, ?string $specific_entry, $output): void
+    public function testGetContents(string $file, ?string $specific_entry, array $output): void
     {
         $this->assertEquals(
             $this->zipExtension->getContents($file, $specific_entry),
@@ -44,9 +45,8 @@ class ZipExtensionTest extends AbstractTestCase
     }
 
     /**
-     * Provider for testGetZipContents
-     *
-     * @return array
+     * @return array<string, array<int, array<string, string>|string|null>>
+     * @psalm-return array<string, array{string, string|null, array{error: string, data: string}}>
      */
     public function provideTestGetContents(): array
     {
@@ -81,9 +81,10 @@ class ZipExtensionTest extends AbstractTestCase
     /**
      * Test for findFile
      *
-     * @param string $file        path to zip file
-     * @param string $file_regexp regular expression for the file name to match
-     * @param mixed  $output      expected output
+     * @param string      $file        path to zip file
+     * @param string      $file_regexp regular expression for the file name to match
+     * @param string|bool $output      expected output
+     * @psalm-param string|false $output
      *
      * @dataProvider provideTestFindFile
      */
@@ -98,7 +99,8 @@ class ZipExtensionTest extends AbstractTestCase
     /**
      * Provider for testFindFileFromZipArchive
      *
-     * @return array Test data
+     * @return array<int, array<int, string|bool>>
+     * @psalm-return array<int, array{string, string, string|false}>
      */
     public function provideTestFindFile(): array
     {
@@ -107,6 +109,11 @@ class ZipExtensionTest extends AbstractTestCase
                 './test/test_data/test.zip',
                 '/test/',
                 'test.file',
+            ],
+            [
+                './test/test_data/test.zip',
+                '/invalid/',
+                false,
             ],
         ];
     }
