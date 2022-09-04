@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-28 00:24+0000\n"
+"POT-Creation-Date: 2022-09-04 00:22+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -9009,7 +9009,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Không có sự kiện nào mang tên %1$s ở trong cơ sở dữ liệu %2$s"
 
-#: libraries/classes/DatabaseInterface.php:1131
+#: libraries/classes/DatabaseInterface.php:1132
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9017,25 +9017,25 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1176
+#: libraries/classes/DatabaseInterface.php:1177
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Không thể thiết lập kết nối với sự đối chiếu cấu hình!"
 
-#: libraries/classes/DatabaseInterface.php:1865
+#: libraries/classes/DatabaseInterface.php:1866
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Thiếu tham số kết nối!"
 
-#: libraries/classes/DatabaseInterface.php:1890
+#: libraries/classes/DatabaseInterface.php:1893
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Kết nối cho bộ điều khiển được định nghĩa trong cấu hình của bạn không thành "
 "công."
 
-#: libraries/classes/DatabaseInterface.php:2304
+#: libraries/classes/DatabaseInterface.php:2307
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Xem %stài liệu của chúng tôi%s để có thêm thông tin."
@@ -9275,11 +9275,11 @@ msgid ""
 "%2$s."
 msgstr "Không có bẫy nào mang tên %1$s ở trong cơ sở dữ liệu %2$s"
 
-#: libraries/classes/Dbal/DbiMysqli.php:143
+#: libraries/classes/Dbal/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Dbal/DbiMysqli.php:155
+#: libraries/classes/Dbal/DbiMysqli.php:145
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "

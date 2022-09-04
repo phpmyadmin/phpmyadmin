@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-28 00:24+0000\n"
+"POT-Creation-Date: 2022-09-04 00:22+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -9345,7 +9345,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "%2$s derekqorynda %1$s ataýy bar oqıǵa tabylmady."
 
-#: libraries/classes/DatabaseInterface.php:1131
+#: libraries/classes/DatabaseInterface.php:1132
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9357,21 +9357,21 @@ msgstr ""
 "úshin teńsheýdi tekserińiz. Aǵymda phpMyAdmin derekqor serveriniń ádepki "
 "ýaqyt beldeýin paıdalanady."
 
-#: libraries/classes/DatabaseInterface.php:1176
+#: libraries/classes/DatabaseInterface.php:1177
 msgid "Failed to set configured collation connection!"
 msgstr "Teńshelgen kolasıa qosylymyn ornatý sátsiz aıaqtaldy!"
 
-#: libraries/classes/DatabaseInterface.php:1865
+#: libraries/classes/DatabaseInterface.php:1866
 msgid "Missing connection parameters!"
 msgstr "Qosylym parametrleri jetispeıdi!"
 
-#: libraries/classes/DatabaseInterface.php:1890
+#: libraries/classes/DatabaseInterface.php:1893
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Basqarýshy paıdalanýshy úshin konfıgýrasıańyzda anyqtalǵan qosylym sátsiz "
 "aıaqtaldy."
 
-#: libraries/classes/DatabaseInterface.php:2304
+#: libraries/classes/DatabaseInterface.php:2307
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Kóbirek aqparat úshin %sbizdiń qujattamyzdy%s qarańyz."
@@ -9613,11 +9613,11 @@ msgid ""
 "%2$s."
 msgstr "%2$s derekqorynda %1$s ataýy bar trıger tabylmady."
 
-#: libraries/classes/Dbal/DbiMysqli.php:143
+#: libraries/classes/Dbal/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-qosylym server arqyly májbúrlengen, ony avtomatty qosady."
 
-#: libraries/classes/Dbal/DbiMysqli.php:155
+#: libraries/classes/Dbal/DbiMysqli.php:145
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "

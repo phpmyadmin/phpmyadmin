@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-08-28 00:24+0000\n"
+"POT-Creation-Date: 2022-09-04 00:22+0000\n"
 "PO-Revision-Date: 2022-05-27 05:55+0000\n"
 "Last-Translator: Justin Nogossek <justmegaliga10000@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -9386,7 +9386,7 @@ msgstr ""
 "Fehler bei der Verarbeitung der Anfrage: Kein Ereignis mit dem Namen %1$s in "
 "Datenbank %2$s gefunden."
 
-#: libraries/classes/DatabaseInterface.php:1131
+#: libraries/classes/DatabaseInterface.php:1132
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9398,23 +9398,23 @@ msgstr ""
 "[%3$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet aktuell die Standard-"
 "Zeitzone des Datenbankservers."
 
-#: libraries/classes/DatabaseInterface.php:1176
+#: libraries/classes/DatabaseInterface.php:1177
 msgid "Failed to set configured collation connection!"
 msgstr ""
 "Fehler beim Einstellen des konfigurierten Zeichensatzes/der konfigurierten "
 "Kollation für die Verbindung!"
 
-#: libraries/classes/DatabaseInterface.php:1865
+#: libraries/classes/DatabaseInterface.php:1866
 msgid "Missing connection parameters!"
 msgstr "Fehlende Verbindungs-Parameter!"
 
-#: libraries/classes/DatabaseInterface.php:1890
+#: libraries/classes/DatabaseInterface.php:1893
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Verbindung für den controluser, wie er in Ihrer Konfiguration angegeben ist, "
 "ist fehlgeschlagen."
 
-#: libraries/classes/DatabaseInterface.php:2304
+#: libraries/classes/DatabaseInterface.php:2307
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Siehe %sunsere Dokumentation%s für mehr Informationen."
@@ -9660,11 +9660,11 @@ msgstr ""
 "Fehler bei der Verarbeitung der Anfrage: Kein Auslöser mit dem Namen %1$s in "
 "Datenbank %2$s gefunden."
 
-#: libraries/classes/Dbal/DbiMysqli.php:143
+#: libraries/classes/Dbal/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-Verbindung vom Server erzwungen, aktiviere automatisch."
 
-#: libraries/classes/Dbal/DbiMysqli.php:155
+#: libraries/classes/Dbal/DbiMysqli.php:145
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
