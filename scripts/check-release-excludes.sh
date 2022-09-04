@@ -163,6 +163,8 @@ validateExtension() {
         ;;
         RELEASE-DATE-[1-9].[0-9].[0-9]-dev)
         ;;
+        RELEASE-DATE-[1-9].[0-9]+snapshot)
+        ;;
         CONTRIBUTING.md)
         ;;
         README)
