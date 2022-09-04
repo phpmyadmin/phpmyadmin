@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-04 00:22+0000\n"
-"PO-Revision-Date: 2022-09-04 10:06+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2022-09-04 10:11+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -4798,8 +4798,8 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony — "
-"ustawień %1$shost uwierzytelniania%2$s i listy zaufanych serwerów proxy "
-"%3$%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
+"ustawień %1$shost uwierzytelniania%2$s i listy %3$szaufanych serwerów "
+"proxy%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
 "adres IP należy do dostawcy usług internetowych, z którym połączone są "
 "tysiące użytkowników, w tym Ty."
 
@@ -5379,8 +5379,8 @@ msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr ""
-"Tajne wyrażenie hasłowe (ang. secret passphrase), podane w konfiguracji "
-"(blowfish_secret), jest zbyt krótkie."
+"Tajne hasło w konfiguracji (blowfish_secret) nie ma prawidłowej długości. "
+"Powinna mieć długość %d bajtów."
 
 #: libraries/classes/Controllers/HomeController.php:349
 msgid ""
@@ -8035,12 +8035,12 @@ msgstr[2] "%1$d baz danych zostało pomyślnie usuniętych."
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Kolumny przeniesiono pomyślnie."
+msgstr "Konto %s@%s zostało pomyślnie zablokowane."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
 #, fuzzy, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Kolumny przeniesiono pomyślnie."
+msgstr "Konto %s@%s zostało pomyślnie odblokowane."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:177
 msgid ""
@@ -9560,7 +9560,7 @@ msgstr "Nazwa bazy danych jest pusta!"
 #, fuzzy, php-format
 #| msgid "Please enter no more than {0} characters"
 msgid "The database name cannot be longer than %d characters."
-msgstr "Wprowadź nie więcej niż {0} znaków"
+msgstr "Nazwa bazy danych nie może być dłuższa niż %d znaków."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:27
 #, fuzzy
@@ -9578,7 +9578,7 @@ msgstr "Nazwa tabeli jest pusta!"
 #, fuzzy, php-format
 #| msgid "Please enter no more than {0} characters"
 msgid "The table name cannot be longer than %d characters."
-msgstr "Wprowadź nie więcej niż {0} znaków"
+msgstr "Nazwa tabeli nie może być dłuższa niż %d znaków."
 
 #: libraries/classes/Dbal/InvalidTableName.php:27
 #, fuzzy
@@ -11053,6 +11053,7 @@ msgstr "Napraw"
 
 #: libraries/classes/Operations.php:558
 #: templates/table/structure/display_partitions.twig:135
+#, fuzzy
 msgid "Truncate"
 msgstr "Truncate"
 
