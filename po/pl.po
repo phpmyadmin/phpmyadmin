@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
 "PO-Revision-Date: 2022-09-04 10:52+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -5109,8 +5109,8 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony — "
-"ustawień %1$shost uwierzytelniania%2$s i listy zaufanych serwerów proxy "
-"%3$%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
+"ustawień %1$shost uwierzytelniania%2$s i listy %3$szaufanych serwerów "
+"proxy%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
 "adres IP należy do dostawcy usług internetowych, z którym połączone są "
 "tysiące użytkowników, w tym Ty."
 
@@ -5693,8 +5693,8 @@ msgid ""
 "The secret passphrase in configuration (blowfish_secret) is not the correct "
 "length. It should be %d bytes long."
 msgstr ""
-"Tajne wyrażenie hasłowe (ang. secret passphrase), podane w konfiguracji "
-"(blowfish_secret), jest zbyt krótkie."
+"Tajne hasło w konfiguracji (blowfish_secret) nie ma prawidłowej długości. "
+"Powinna mieć długość %d bajtów."
 
 #: libraries/classes/Controllers/HomeController.php:342
 #, fuzzy
@@ -8113,12 +8113,12 @@ msgstr[2] "%1$d baz danych zostało pomyślnie usuniętych."
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Kolumny przeniesiono pomyślnie."
+msgstr "Konto %s@%s zostało pomyślnie zablokowane."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
 #, fuzzy, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Kolumny przeniesiono pomyślnie."
+msgstr "Konto %s@%s zostało pomyślnie odblokowane."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:153
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -11258,6 +11258,7 @@ msgstr "Napraw"
 
 #: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:134
+#, fuzzy
 msgid "Truncate"
 msgstr "Truncate"
 
