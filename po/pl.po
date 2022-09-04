@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-04-11 08:11+0000\n"
-"Last-Translator: darek525 <duda.dariusz.dd@gmail.com>\n"
+"PO-Revision-Date: 2022-09-04 09:52+0000\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1832,26 +1832,27 @@ msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Wpisz swój klucz prywatny do domeny usługi reCAPTCHA."
 
 #: libraries/classes/Config/Descriptions.php:106
-#, fuzzy
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr "Wpisz swój klucz prywatny do domeny usługi reCAPTCHA."
+msgstr ""
+"Wpisz fragment kodu Content-Security-Policy dla interfejsu API zgodnego z "
+"reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:107
-#, fuzzy
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Wpisz swój klucz prywatny do domeny usługi reCAPTCHA."
+msgstr ""
+"Wprowadź parametr żądania używany przez interfejs API zgodny z reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:108
-#, fuzzy
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Wpisz swój klucz prywatny do domeny usługi reCAPTCHA."
+msgstr ""
+"Wprowadź parametr odpowiedzi używany przez interfejs API zgodny z reCAPTCHA "
+"v2."
 
 #: libraries/classes/Config/Descriptions.php:109
-#, fuzzy
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Wpisz swój klucz publiczny do domeny usługi reCAPTCHA."
+msgstr "Wpisz swój klucz publiczny usługi reCAPTCHA w swojej domenie."
 
 #: libraries/classes/Config/Descriptions.php:110
 #, fuzzy
@@ -3228,7 +3229,7 @@ msgstr "Maksymalny czas wykonania"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Użyj instrukcji [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -4467,15 +4468,15 @@ msgstr "URL do reCAPTCHA v2 API"
 
 #: libraries/classes/Config/Descriptions.php:968
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Fragment kodu Content-Security-Policy dla interfejsu API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parametr żądania dla interfejsu API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parametr odpowiedzi dla API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:971
 #, fuzzy
@@ -4489,7 +4490,7 @@ msgstr "Klucz publiczny dla reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "URL for reCAPTCHA siteverify"
-msgstr ""
+msgstr "URL do weryfikacji witryny reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Send error reports"
@@ -4787,7 +4788,7 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Należy używać połączeń SSL, jeśli serwer bazy danych je obsługuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -4795,10 +4796,10 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Jeśli uważasz, że jest to konieczne, użyj dodatkowych ustawień ochrony — "
-"ustawień %1$shost uwierzytelniania%2$s i listy zaufanych serwerów proxy %3$"
-"%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój adres "
-"IP należy do dostawcy usług internetowych, z którym połączone są tysiące "
-"użytkowników, w tym Ty."
+"ustawień %1$shost uwierzytelniania%2$s i listy zaufanych serwerów proxy "
+"%3$%4$s. Jednak ochrona oparta na IP może nie być niezawodna, jeśli Twój "
+"adres IP należy do dostawcy usług internetowych, z którym połączone są "
+"tysiące użytkowników, w tym Ty."
 
 #: libraries/classes/Config/ServerConfigChecks.php:195
 #, php-format
@@ -5053,7 +5054,7 @@ msgstr "Pokazano wiersze %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Strona o nazwie \"%s\" już istnieje, zmień jej nazwę na inną."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -7455,7 +7456,7 @@ msgstr "Dodaj prefiks tabeli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Replace table with prefix"
-msgstr "Zastąp tabelę przedrostkiem"
+msgstr "Zamień tabelę na prefiks"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #: templates/database/structure/check_all_tables.twig:28
@@ -10118,7 +10119,7 @@ msgstr "Wtyczki"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Zmodyfikowanych rekordów: %1$d."
+msgstr[0] "Zmodyfikowano rekord: %1$d."
 msgstr[1] "Zmodyfikowanych rekordów: %1$d."
 msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 
@@ -13748,9 +13749,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
 msgid "Loading"
-msgstr "Wczytywanie…"
+msgstr "Ładowanie"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -15019,8 +15019,8 @@ msgstr[2] "%1$s dopasowań w <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
-msgstr[1] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
+msgstr[0] "<strong>Ogółem:</strong> <em>%s</em> dopasowanie"
+msgstr[1] "<strong>Ogółem:</strong> <em>%s</em> dopasowań"
 msgstr[2] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
 
 #: templates/database/structure/add_prefix.twig:7
