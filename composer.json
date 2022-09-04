@@ -24,7 +24,10 @@
         "psr-4": {
             "PhpMyAdmin\\": "libraries/classes"
         },
-        "files": ["vendor/phpmyadmin/motranslator/src/functions.php"]
+        "files": ["vendor/phpmyadmin/motranslator/src/functions.php"],
+        "exclude-from-classmap": [
+            "/test/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
