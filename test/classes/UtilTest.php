@@ -44,17 +44,6 @@ use const MYSQLI_UNIQUE_KEY_FLAG;
 class UtilTest extends AbstractTestCase
 {
     /**
-     * init data for the test
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-        parent::setLanguage();
-        parent::setTheme();
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-    }
-
-    /**
      * Test for listPHPExtensions
      *
      * @requires extension mysqli
@@ -87,6 +76,8 @@ class UtilTest extends AbstractTestCase
 
     public function testGetUniqueConditionWithMultipleFields(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
         $meta = [
             new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
                 'name' => 'field1',
@@ -222,6 +213,8 @@ class UtilTest extends AbstractTestCase
 
     public function testGetUniqueConditionWithPrimaryKey(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
         $meta = [
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG, (object) [
                 'name' => 'id',
@@ -241,6 +234,8 @@ class UtilTest extends AbstractTestCase
 
     public function testGetUniqueConditionWithUniqueKey(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
         $meta = [
             new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_UNIQUE_KEY_FLAG, (object) [
                 'name' => 'id',
@@ -1264,6 +1259,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
+        parent::setLanguage();
         // A test case for #15830 could be added for using the php setlocale on a Windows CI
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         _setlocale(LC_ALL, $locale);
@@ -1895,10 +1891,8 @@ class UtilTest extends AbstractTestCase
             ->method('getCurrentUserAndHost')
             ->will($this->returnValue(['', '']));
 
-        $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     public function testCurrentUserHasUserPrivilege(): void
@@ -1917,10 +1911,8 @@ class UtilTest extends AbstractTestCase
             )
             ->will($this->returnValue('EVENT'));
 
-        $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     public function testCurrentUserHasNotUserPrivilege(): void
@@ -1939,10 +1931,8 @@ class UtilTest extends AbstractTestCase
             )
             ->will($this->returnValue(false));
 
-        $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT'));
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
@@ -1970,10 +1960,8 @@ class UtilTest extends AbstractTestCase
             )
             ->willReturnOnConsecutiveCalls(false, 'EVENT');
 
-        $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
@@ -2001,10 +1989,8 @@ class UtilTest extends AbstractTestCase
             )
             ->willReturnOnConsecutiveCalls(false, false);
 
-        $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
@@ -2037,10 +2023,8 @@ class UtilTest extends AbstractTestCase
             )
             ->willReturnOnConsecutiveCalls(false, false, 'EVENT');
 
-        $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
@@ -2073,10 +2057,8 @@ class UtilTest extends AbstractTestCase
             )
             ->willReturnOnConsecutiveCalls(false, false, false);
 
-        $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     /**
@@ -2246,6 +2228,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
+        $GLOBALS['lang'] = 'en';
         $this->assertSame(
             $finalLink,
             Util::getScriptNameForOption($target, $location)
