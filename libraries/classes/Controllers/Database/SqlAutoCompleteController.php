@@ -10,8 +10,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
-use function json_encode;
-
 /**
  * Table/Column autocomplete in SQL editors.
  */
@@ -28,18 +26,17 @@ class SqlAutoCompleteController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['sql_autocomplete'] = true;
+        $sqlAutocomplete = [];
         if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
-            $GLOBALS['db'] = $_POST['db'] ?? $GLOBALS['db'];
-            $GLOBALS['sql_autocomplete'] = [];
-            if ($GLOBALS['db']) {
-                $tableNames = $this->dbi->getTables($GLOBALS['db']);
+            $db = $request->getParam('db', $GLOBALS['db']);
+            if ($db) {
+                $tableNames = $this->dbi->getTables($db);
                 foreach ($tableNames as $tableName) {
-                    $GLOBALS['sql_autocomplete'][$tableName] = $this->dbi->getColumns($GLOBALS['db'], $tableName);
+                    $sqlAutocomplete[$tableName] = $this->dbi->getColumns($db, $tableName);
                 }
             }
         }
 
-        $this->response->addJSON(['tables' => json_encode($GLOBALS['sql_autocomplete'])]);
+        $this->response->addJSON(['tables' => $sqlAutocomplete]);
     }
 }
