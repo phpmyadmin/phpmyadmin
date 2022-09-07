@@ -1373,13 +1373,12 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="3">
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
+    <MixedArgument occurrences="2">
+      <code>$db</code>
       <code>$tableName</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
-      <code>$GLOBALS['db']</code>
+      <code>$db</code>
       <code>$tableName</code>
     </MixedAssignment>
   </file>
