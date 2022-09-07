@@ -239,7 +239,7 @@ class Index
     /**
      * Add column to index
      *
-     * @param string[] $params column params
+     * @param array<string, string|null> $params column params
      */
     public function addColumn(array $params): void
     {

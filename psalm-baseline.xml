@@ -5019,7 +5019,7 @@
       <code>$table</code>
       <code>$table</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="19">
+    <MixedArrayAccess occurrences="17">
       <code>$_POST['Or' . $rowIndex][$columnIndex]</code>
       <code>$_POST['criteriaColumn'][$columnIndex]</code>
       <code>$foreigner['foreign_field']</code>
@@ -5028,8 +5028,6 @@
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_table']</code>
-      <code>$index['Column_name']</code>
-      <code>$index['Non_unique']</code>
       <code>$oneKey['index_list']</code>
       <code>$oneKey['ref_index_list']</code>
       <code>$oneKey['ref_table_name']</code>
@@ -5064,7 +5062,7 @@
       <code>$tsize[$table]</code>
       <code>$tsize[$table]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="51">
+    <MixedAssignment occurrences="50">
       <code>$GLOBALS[${'cur' . $or}][$newColumnCount]</code>
       <code>$clause</code>
       <code>$clause</code>
@@ -5079,7 +5077,6 @@
       <code>$foreignTables[$oneKey['ref_table_name']]</code>
       <code>$foreigner</code>
       <code>$foreigner</code>
-      <code>$index</code>
       <code>$index</code>
       <code>$indexColumns</code>
       <code>$isWhere</code>
@@ -5121,11 +5118,10 @@
       <code>array</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="12">
+    <MixedOperand occurrences="11">
       <code>$_POST['Or' . $rowIndex][$columnIndex]</code>
       <code>$clause</code>
       <code>$columns[$columnIndex]</code>
-      <code>$index['Column_name']</code>
       <code>$select</code>
       <code>$selected['and'] ?? ''</code>
       <code>$selected['or'] ?? ''</code>
@@ -5150,6 +5146,9 @@
       <code>$sortOrder</code>
       <code>$table</code>
     </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="1">
+      <code>$index['Column_name']</code>
+    </PossiblyNullOperand>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
@@ -5737,8 +5736,9 @@
       <code>SessionCache::get('mysql_cur_user')</code>
       <code>reset($columns)</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="2">
+    <MixedReturnTypeCoercion occurrences="4">
       <code>$this-&gt;fetchResult($sql, null, 'Field', $link)</code>
+      <code>$this-&gt;fetchResult($sql, null, null, $link)</code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement occurrences="2">
@@ -7719,27 +7719,16 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;packed === null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="4">
-      <code>$_each_index</code>
-      <code>$_each_index</code>
+    <MixedArgument occurrences="2">
       <code>$column</code>
       <code>$params['columns']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$_each_index['Key_name']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$_each_index['Schema']</code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="3">
+    <MixedArrayOffset occurrences="1">
       <code>$columns['sub_parts'][$key]</code>
-      <code>self::$registry[$schema][$table][$keyName]</code>
-      <code>self::$registry[$schema][$table][$keyName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
+    <MixedAssignment occurrences="15">
       <code>$column</code>
       <code>$key</code>
-      <code>$keyName</code>
       <code>$name</code>
       <code>$sub_part</code>
       <code>$this-&gt;choice</code>
@@ -7754,9 +7743,9 @@
       <code>$this-&gt;table</code>
       <code>$this-&gt;type</code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion occurrences="1">
-      <code>self::$registry</code>
-    </MixedPropertyTypeCoercion>
+    <PossiblyNullOperand occurrences="1">
+      <code>$params['Seq_in_index']</code>
+    </PossiblyNullOperand>
     <PossiblyNullPropertyAssignmentValue occurrences="3">
       <code>null</code>
       <code>null</code>
@@ -9274,12 +9263,8 @@
       <code>$trigger['event_manipulation']</code>
       <code>$trigger['name']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="10">
+    <MixedArrayAccess occurrences="6">
       <code>$comments[$field_name]</code>
-      <code>$key['Column_name']</code>
-      <code>$key['Column_name']</code>
-      <code>$key['Non_unique']</code>
-      <code>$key['Non_unique']</code>
       <code>$mime_map[$field_name]</code>
       <code>$trigger['action_timing']</code>
       <code>$trigger['definition']</code>
@@ -9292,7 +9277,7 @@
       <code>$comments[$field_name]</code>
       <code>$mime_map[$field_name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="10">
       <code>$GLOBALS['what']</code>
       <code>$col_alias</code>
       <code>$col_as</code>
@@ -9301,11 +9286,7 @@
       <code>$col_as</code>
       <code>$col_as</code>
       <code>$field_name</code>
-      <code>$key</code>
-      <code>$key</code>
       <code>$trigger</code>
-      <code>$unique_keys[]</code>
-      <code>$unique_keys[]</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
@@ -9353,23 +9334,19 @@
       <code>$mime_map[$field_name]['mimetype']</code>
       <code>$row['Type']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$key['Column_name']</code>
-      <code>$key['Non_unique']</code>
+    <MixedArrayAccess occurrences="1">
       <code>$mime_map[$field_name]['mimetype']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="1">
       <code>$aliases[$db]['tables'][$table]['columns'][$col_as]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="6">
       <code>$col_as</code>
       <code>$col_as</code>
       <code>$col_as</code>
       <code>$columns_alias[$i]</code>
       <code>$field_name</code>
-      <code>$key</code>
       <code>$type</code>
-      <code>$unique_keys[]</code>
     </MixedAssignment>
     <MixedOperand occurrences="4">
       <code>$col_as</code>
@@ -9806,12 +9783,8 @@
       <code>$type</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="10">
+    <MixedArrayAccess occurrences="6">
       <code>$comments[$field_name]</code>
-      <code>$key['Column_name']</code>
-      <code>$key['Column_name']</code>
-      <code>$key['Non_unique']</code>
-      <code>$key['Non_unique']</code>
       <code>$mime_map[$field_name]</code>
       <code>$trigger['action_timing']</code>
       <code>$trigger['definition']</code>
@@ -9824,7 +9797,7 @@
       <code>$comments[$field_name]</code>
       <code>$mime_map[$field_name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="11">
       <code>$GLOBALS['what']</code>
       <code>$col_alias</code>
       <code>$col_as</code>
@@ -9833,12 +9806,8 @@
       <code>$col_as</code>
       <code>$col_as</code>
       <code>$field_name</code>
-      <code>$key</code>
-      <code>$key</code>
       <code>$trigger</code>
       <code>$type</code>
-      <code>$unique_keys[]</code>
-      <code>$unique_keys[]</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand occurrences="5">

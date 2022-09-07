@@ -231,7 +231,25 @@ interface DbalInterface
      * @param string $table    name of the table whose indexes are to be retrieved
      * @param mixed  $link     mysql link resource
      *
-     * @return array
+     * @return array<int, array<string, string|null>>
+     * @psalm-return array<int, array{
+     *   Table: string,
+     *   Non_unique: '0'|'1',
+     *   Key_name: string,
+     *   Seq_in_index: string,
+     *   Column_name: string|null,
+     *   Collation: 'A'|'D'|null,
+     *   Cardinality: string,
+     *   Sub_part: string|null,
+     *   Packed: string|null,
+     *   Null: string|null,
+     *   Index_type: 'BTREE'|'FULLTEXT'|'HASH'|'RTREE',
+     *   Comment: string,
+     *   Index_comment: string,
+     *   Ignored?: string,
+     *   Visible?: string,
+     *   Expression?: string|null
+     * }>
      */
     public function getTableIndexes(
         string $database,
