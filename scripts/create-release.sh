@@ -262,7 +262,7 @@ restore_vendor_folder() {
         echo 'No backup to restore'
         exit 1;
     fi
-    rm -rf ./vendor
+    rm -r ./vendor
     mv "${TEMP_FOLDER}/vendor" ./vendor
     rmdir "${TEMP_FOLDER}"
 }
@@ -284,7 +284,7 @@ delete_phpunit_sandbox() {
         echo 'No phpunit sandbox to delete'
         exit 1;
     fi
-    rm -rf "${TEMP_PHPUNIT_FOLDER}"
+    rm -r "${TEMP_PHPUNIT_FOLDER}"
 }
 
 security_checkup() {
@@ -425,16 +425,16 @@ fi
 echo "* Removing unneeded files"
 
 # Remove developer information
-rm -rf .github CODE_OF_CONDUCT.md DCO
+rm -r .github CODE_OF_CONDUCT.md DCO
 
 # Testsuite setup
-rm -f .scrutinizer.yml .weblate codecov.yml
+rm .scrutinizer.yml .weblate codecov.yml
 
 # Remove Doctum config file
-rm -f test/doctum-config.php
+rm test/doctum-config.php
 
 # Remove readme for github
-rm -f README.rst
+rm README.rst
 
 if [ -f ./scripts/console ]; then
     # Update the vendors to have the dev vendors
@@ -494,8 +494,8 @@ fi
 
 # Remove git metadata
 rm .git
-find . -name .gitignore -print0 | xargs -0 -r rm -f
-find . -name .gitattributes -print0 | xargs -0 -r rm -f
+find . -name .gitignore -print0 | xargs -0 -r rm
+find . -name .gitattributes -print0 | xargs -0 -r rm
 
 if [ $do_test -eq 1 ] ; then
     # Move the folder out and install dev vendors
@@ -508,7 +508,7 @@ if [ $do_test -eq 1 ] ; then
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
-        rm -rf $workdir
+        rm -r $workdir
         git worktree prune
         if [ "$branch" = "ci" ] ; then
             git branch -D ci
@@ -523,7 +523,7 @@ if [ $do_test -eq 1 ] ; then
     # Generate an normal autoload (this is just a security, because normally the vendor folder will be restored)
     composer dump-autoload
     # Remove libs installed for testing
-    rm -rf build
+    rm -r build
     delete_phpunit_sandbox
     restore_vendor_folder
 fi
@@ -546,27 +546,27 @@ for kit in $KITS ; do
     if [ $kit != source ] ; then
         echo "* Removing source files"
         # Testsuite
-        rm -rf test/
+        rm -r test/
         # Template test files
         rm -r templates/test/
         rm phpunit.xml.* build.xml
-        rm -f .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.js infection.json.dist
+        rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.js infection.json.dist
         # Gettext po files
-        rm -rf po/
+        rm -r po
         # Documentation source code
         mv doc/html htmldoc
-        rm -rf doc
+        rm -r doc
         mkdir doc
         mv htmldoc doc/html
         rm doc/html/.buildinfo doc/html/objects.inv
-        rm -rf node_modules
+        rm -r node_modules
         # Remove bin files for non source version
         # https://github.com/phpmyadmin/phpmyadmin/issues/16033
-        rm -rf vendor/bin
+        rm -r vendor/bin
     fi
 
     # Remove developer scripts
-    rm -rf scripts
+    rm -r scripts
 
     # Remove possible tmp folder
     rm -rf tmp
@@ -607,11 +607,11 @@ for kit in $KITS ; do
     # Cleanup
     rm -f $name.tar
     # Remove directory with current dist set
-    rm -rf $name
+    rm -r $name
 done
 
 # Cleanup
-rm -rf phpMyAdmin-${version}
+rm -r phpMyAdmin-${version}
 git worktree prune
 
 # Signing of files with default GPG key
@@ -660,7 +660,7 @@ if [ $do_tag -eq 1 ] ; then
     git rm --force composer.lock
     git commit -s -m "Removing composer.lock"
     cd ../..
-    rm -rf $workdir
+    rm -r $workdir
     git worktree prune
 fi
 
