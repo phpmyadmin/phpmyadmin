@@ -327,6 +327,8 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         *PERFORMANCE.md*)
         foundFile;;
+        *phar*)
+        foundFile;;
         *) ;;
     esac
 done
