@@ -428,7 +428,7 @@ echo "* Removing unneeded files"
 rm -rf .github CODE_OF_CONDUCT.md DCO
 
 # Testsuite setup
-rm -f .scrutinizer.yml .jshintrc .weblate codecov.yml
+rm -f .scrutinizer.yml .weblate codecov.yml
 
 # Remove Doctum config file
 rm -f test/doctum-config.php
