@@ -731,6 +731,11 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
+    public function testFormatByteDownWithNullValue(): void
+    {
+        $this->assertNull(Util::formatByteDown(null));
+    }
+
     /**
      * format byte test, globals are defined
      *
@@ -2233,5 +2238,106 @@ class UtilTest extends AbstractTestCase
             $finalLink,
             Util::getScriptNameForOption($target, $location)
         );
+    }
+
+    public function testShowIcons(): void
+    {
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $this->assertTrue(Util::showIcons('ActionLinksMode'));
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $this->assertTrue(Util::showIcons('ActionLinksMode'));
+        $GLOBALS['cfg']['ActionLinksMode'] = 'text';
+        $this->assertFalse(Util::showIcons('ActionLinksMode'));
+    }
+
+    public function testShowText(): void
+    {
+        $GLOBALS['cfg']['ActionLinksMode'] = 'text';
+        $this->assertTrue(Util::showText('ActionLinksMode'));
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $this->assertTrue(Util::showText('ActionLinksMode'));
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $this->assertFalse(Util::showText('ActionLinksMode'));
+    }
+
+    /**
+     * @dataProvider providerForTestGetMySQLDocuURL
+     */
+    public function testGetMySQLDocuURL(string $link, string $anchor, int $version, string $expected): void
+    {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $GLOBALS['dbi']->setVersion($version);
+        $this->assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
+    }
+
+    /**
+     * @return array<int, array<int, int|string>>
+     * @psalm-return array<int, array{string, string, int, string}>
+     */
+    public function providerForTestGetMySQLDocuURL(): array
+    {
+        return [
+            [
+                'ALTER_TABLE',
+                'alter-table-index',
+                80000,
+                'index.php?route=/url&url='
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Falter-table.html%23alter-table-index',
+            ],
+            [
+                'ALTER_TABLE',
+                'alter-table-index',
+                50700,
+                'index.php?route=/url&url='
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Falter-table.html%23alter-table-index',
+            ],
+            [
+                '',
+                'alter-table-index',
+                50600,
+                'index.php?route=/url&url='
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Findex.html%23alter-table-index',
+            ],
+            [
+                'ALTER_TABLE',
+                '',
+                50500,
+                'index.php?route=/url&url='
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Falter-table.html',
+            ],
+            [
+                '',
+                '',
+                50700,
+                'index.php?route=/url&url='
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
+            ],
+        ];
+    }
+
+    public function testGetDocuURL(): void
+    {
+        $this->assertSame(
+            'index.php?route=/url&url=https%3A%2F%2Fmariadb.com%2Fkb%2Fen%2Fdocumentation%2F',
+            Util::getDocuURL(true)
+        );
+        $this->assertSame(
+            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
+            Util::getDocuURL(false)
+        );
+        $this->assertSame(
+            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
+            Util::getDocuURL()
+        );
+    }
+
+    public function testSplitURLQuery(): void
+    {
+        $actual = Util::splitURLQuery('');
+        $this->assertSame([], $actual);
+        $actual = Util::splitURLQuery('index.php');
+        $this->assertSame([], $actual);
+        $actual = Util::splitURLQuery('index.php?route=/table/structure&db=sakila&table=address');
+        $this->assertSame(['route=/table/structure', 'db=sakila', 'table=address'], $actual);
     }
 }
