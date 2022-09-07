@@ -468,15 +468,18 @@ do
     PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:$PKG_VERSION"
 done
 
-echo "Installing composer packages '$PACKAGES_VERSIONS'"
+echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
 composer require --no-interaction --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
 
+echo "* Running a security checkup"
 security_checkup
 
+echo "* Cleaning up vendor folders"
 mv composer.json.backup composer.json
 cleanup_composer_vendors
 
+echo "* Running a security checkup"
 security_checkup
 if [ $do_tag -eq 1 ] ; then
     echo "* Commiting composer.lock"
