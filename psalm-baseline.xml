@@ -7719,11 +7719,10 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;packed === null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$_each_index</code>
       <code>$_each_index</code>
       <code>$column</code>
-      <code>$key</code>
       <code>$params['columns']</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="1">
@@ -7737,11 +7736,8 @@
       <code>self::$registry[$schema][$table][$keyName]</code>
       <code>self::$registry[$schema][$table][$keyName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="16">
       <code>$column</code>
-      <code>$column</code>
-      <code>$data['columns'][]</code>
-      <code>$key</code>
       <code>$key</code>
       <code>$keyName</code>
       <code>$name</code>
@@ -7758,19 +7754,9 @@
       <code>$this-&gt;table</code>
       <code>$this-&gt;type</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getCompareData</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$key</code>
-    </MixedOperand>
     <MixedPropertyTypeCoercion occurrences="1">
       <code>self::$registry</code>
     </MixedPropertyTypeCoercion>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>$this-&gt;columns</code>
-      <code>IndexColumn[]</code>
-    </MixedReturnTypeCoercion>
     <PossiblyNullPropertyAssignmentValue occurrences="3">
       <code>null</code>
       <code>null</code>
@@ -12797,9 +12783,6 @@
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['possible_as_geometry']</code>
     </MixedArrayAssignment>
-    <MixedArrayTypeCoercion occurrences="1">
-      <code>$columns[$indexColumnName]</code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="16">
       <code>$maxRows</code>
       <code>$oneFieldMeta</code>

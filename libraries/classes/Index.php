@@ -40,7 +40,7 @@ class Index
     /**
      * Columns in index
      *
-     * @var array
+     * @var array<string, IndexColumn>
      */
     private $columns = [];
 
@@ -239,7 +239,7 @@ class Index
     /**
      * Add column to index
      *
-     * @param array $params column params
+     * @param string[] $params column params
      */
     public function addColumn(array $params): void
     {
@@ -556,7 +556,7 @@ class Index
     /**
      * Returns the columns of the index
      *
-     * @return IndexColumn[] the columns of the index
+     * @return array<string, IndexColumn>
      */
     public function getColumns()
     {

@@ -4216,11 +4216,6 @@ parameters:
 			path: libraries/classes/Index.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Index\\:\\:addColumn\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Index.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Index\\:\\:addColumns\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Index.php
@@ -4232,11 +4227,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Index\\:\\:set\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Index.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Index\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Index.php
 
