@@ -7726,26 +7726,21 @@
       <code>$key</code>
       <code>$params['columns']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="1">
       <code>$_each_index['Key_name']</code>
-      <code>self::$registry[$schema][$table][$keyName]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
+    <MixedArrayAssignment occurrences="1">
       <code>$_each_index['Schema']</code>
-      <code>self::$registry[$schema][$table]</code>
-      <code>self::$registry[$schema][$table]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="4">
+    <MixedArrayOffset occurrences="3">
       <code>$columns['sub_parts'][$key]</code>
       <code>self::$registry[$schema][$table][$keyName]</code>
       <code>self::$registry[$schema][$table][$keyName]</code>
-      <code>self::$registry[$schema][$table][$keyName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="20">
+    <MixedAssignment occurrences="19">
       <code>$column</code>
       <code>$column</code>
       <code>$data['columns'][]</code>
-      <code>$key</code>
       <code>$key</code>
       <code>$key</code>
       <code>$keyName</code>
@@ -7763,23 +7758,15 @@
       <code>$this-&gt;table</code>
       <code>$this-&gt;type</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
-      <code>Index</code>
-      <code>Index[]</code>
-      <code>Index|false</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="2">
-      <code>addColumn</code>
+    <MixedMethodCall occurrences="1">
       <code>getCompareData</code>
     </MixedMethodCall>
     <MixedOperand occurrences="1">
       <code>$key</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
-      <code>self::$registry[$schema][$table]</code>
-      <code>self::$registry[$schema][$table][$index_name]</code>
-      <code>self::$registry[$schema][$table]['PRIMARY']</code>
-    </MixedReturnStatement>
+    <MixedPropertyTypeCoercion occurrences="1">
+      <code>self::$registry</code>
+    </MixedPropertyTypeCoercion>
     <MixedReturnTypeCoercion occurrences="2">
       <code>$this-&gt;columns</code>
       <code>IndexColumn[]</code>

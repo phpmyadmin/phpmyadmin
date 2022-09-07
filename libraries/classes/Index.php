@@ -24,7 +24,7 @@ class Index
     /**
      * Class-wide storage container for indexes (caching, singleton)
      *
-     * @var array
+     * @var array<string, array<string, array<string, Index>>>
      */
     private static $registry = [];
 

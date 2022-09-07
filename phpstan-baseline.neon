@@ -4241,7 +4241,7 @@ parameters:
 			path: libraries/classes/Index.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Index\\:\\:\\$registry type has no value type specified in iterable type array\\.$#"
+			message: "#^Static property PhpMyAdmin\\\\Index\\:\\:\\$registry \\(array\\<string, array\\<string, array\\<string, PhpMyAdmin\\\\Index\\>\\>\\>\\) does not accept array\\<string, array\\<string, array\\<int\\|string, PhpMyAdmin\\\\Index\\>\\>\\>\\.$#"
 			count: 1
 			path: libraries/classes/Index.php
 
@@ -5851,6 +5851,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportSql.php
 
 		-
+			message: "#^Cannot assign new offset to array\\<int, array\\<int, string\\>\\|string\\>\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
 			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
@@ -5863,6 +5868,16 @@ parameters:
 		-
 			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 8
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
+			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int, array\\<int, string\\>\\|string\\>\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
+			message: "#^array\\<int, array\\<int, string\\>\\|string\\>\\|string does not accept array\\<int, string\\>\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
