@@ -543,6 +543,8 @@ for kit in $KITS ; do
         echo "* Removing source files"
         # Testsuite
         rm -rf test/
+        # Template test files
+        rm -r templates/test/
         rm phpunit.xml.* build.xml
         rm -f .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.js infection.json.dist
         # Gettext po files
