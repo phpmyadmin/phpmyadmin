@@ -964,7 +964,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Check if column is a part of multiple-column index and set its 'Key'.
-        $indexes = Index::getFromTable($table, $database);
+        $indexes = Index::getFromTable($this, $table, $database);
         foreach ($fields as $field => $fieldData) {
             if (! empty($fieldData['Key'])) {
                 continue;

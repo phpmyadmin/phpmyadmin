@@ -8560,7 +8560,7 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Normalization.php">
-    <MixedArgument occurrences="29">
+    <MixedArgument occurrences="28">
       <code>$arrDependson</code>
       <code>$col</code>
       <code>$cols['nonpk']</code>
@@ -8582,7 +8582,6 @@
       <code>$dropCols['pk']</code>
       <code>$key</code>
       <code>$partialKey</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>

@@ -106,17 +106,17 @@ class Index
     }
 
     /**
-     * Creates(if not already created) and returns the corresponding Index object
-     *
-     * @param string $schema     database name
-     * @param string $table      table name
-     * @param string $index_name index name
+     * Creates (if not already created) and returns the corresponding Index object
      *
      * @return Index corresponding Index object
      */
-    public static function singleton($schema, $table, $index_name = '')
-    {
-        self::loadIndexes($table, $schema);
+    public static function singleton(
+        DatabaseInterface $dbi,
+        string $schema,
+        string $table,
+        string $index_name = ''
+    ): Index {
+        self::loadIndexes($dbi, $table, $schema);
         if (! isset(self::$registry[$schema][$table][$index_name])) {
             $index = new Index();
             if (strlen($index_name) > 0) {
@@ -133,14 +133,11 @@ class Index
     /**
      * returns an array with all indexes from the given table
      *
-     * @param string $table  table
-     * @param string $schema schema
-     *
-     * @return Index[]  array of indexes
+     * @return Index[]
      */
-    public static function getFromTable($table, $schema)
+    public static function getFromTable(DatabaseInterface $dbi, string $table, string $schema): array
     {
-        self::loadIndexes($table, $schema);
+        self::loadIndexes($dbi, $table, $schema);
 
         if (isset(self::$registry[$schema][$table])) {
             return self::$registry[$schema][$table];
@@ -161,7 +158,7 @@ class Index
     public static function getFromTableByChoice($table, $schema, $choices = 31)
     {
         $indexes = [];
-        foreach (self::getFromTable($table, $schema) as $index) {
+        foreach (self::getFromTable($GLOBALS['dbi'], $table, $schema) as $index) {
             if (($choices & self::PRIMARY) && $index->getChoice() === 'PRIMARY') {
                 $indexes[] = $index;
             }
@@ -191,14 +188,11 @@ class Index
     /**
      * return primary if set, false otherwise
      *
-     * @param string $table  table
-     * @param string $schema schema
-     *
      * @return Index|false primary index or false if no one exists
      */
-    public static function getPrimary($table, $schema)
+    public static function getPrimary(DatabaseInterface $dbi, string $table, string $schema)
     {
-        self::loadIndexes($table, $schema);
+        self::loadIndexes($dbi, $table, $schema);
 
         if (isset(self::$registry[$schema][$table]['PRIMARY'])) {
             return self::$registry[$schema][$table]['PRIMARY'];
@@ -209,17 +203,14 @@ class Index
 
     /**
      * Load index data for table
-     *
-     * @param string $table  table
-     * @param string $schema schema
      */
-    private static function loadIndexes($table, $schema): bool
+    private static function loadIndexes(DatabaseInterface $dbi, string $table, string $schema): bool
     {
         if (isset(self::$registry[$schema][$table])) {
             return true;
         }
 
-        $_raw_indexes = $GLOBALS['dbi']->getTableIndexes($schema, $table);
+        $_raw_indexes = $dbi->getTableIndexes($schema, $table);
         foreach ($_raw_indexes as $_each_index) {
             $_each_index['Schema'] = $schema;
             $keyName = $_each_index['Key_name'];
@@ -471,7 +462,7 @@ class Index
 
     public function hasPrimary(): bool
     {
-        return (bool) self::getPrimary($this->table, $this->schema);
+        return (bool) self::getPrimary($GLOBALS['dbi'], $this->table, $this->schema);
     }
 
     /**
@@ -592,7 +583,7 @@ class Index
      */
     public static function findDuplicates($table, $schema)
     {
-        $indexes = self::getFromTable($table, $schema);
+        $indexes = self::getFromTable($GLOBALS['dbi'], $table, $schema);
 
         $output = '';
 

@@ -134,7 +134,7 @@ class StructureController extends AbstractController
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
-        $primary = Index::getPrimary($GLOBALS['table'], $GLOBALS['db']);
+        $primary = Index::getPrimary($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
         $columns_with_index = $this->dbi
             ->getTable($GLOBALS['db'], $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
@@ -262,7 +262,7 @@ class StructureController extends AbstractController
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
-            'indexes' => Index::getFromTable($GLOBALS['table'], $GLOBALS['db']),
+            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
             'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], $GLOBALS['db']),
             'relation_parameters' => $relationParameters,
             'hide_structure_actions' => $GLOBALS['cfg']['HideStructureActions'] === true,

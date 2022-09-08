@@ -91,7 +91,7 @@ final class Indexes
                     Generator::getMessage($message, $sql_query, 'success')
                 );
 
-                $indexes = Index::getFromTable($table, $db);
+                $indexes = Index::getFromTable($this->dbi, $table, $db);
                 $indexesDuplicates = Index::findDuplicates($table, $db);
 
                 $this->response->addJSON(

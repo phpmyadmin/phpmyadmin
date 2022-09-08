@@ -110,7 +110,7 @@ class DataDictionaryController extends AbstractController
                 'has_relation' => $hasRelation,
                 'has_mime' => $relationParameters->browserTransformationFeature !== null,
                 'columns' => $rows,
-                'indexes' => Index::getFromTable($tableName, $GLOBALS['db']),
+                'indexes' => Index::getFromTable($this->dbi, $tableName, $GLOBALS['db']),
             ];
         }
 

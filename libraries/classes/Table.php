@@ -2060,7 +2060,7 @@ class Table implements Stringable
      */
     public function getIndex($index)
     {
-        return Index::singleton($this->dbName, $this->name, $index);
+        return Index::singleton($this->dbi, $this->dbName, $this->name, $index);
     }
 
     /**

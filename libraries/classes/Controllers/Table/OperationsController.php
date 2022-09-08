@@ -407,7 +407,7 @@ class OperationsController extends AbstractController
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
         if ($GLOBALS['tbl_storage_engine'] === 'INNODB') {
-            $GLOBALS['indexes'] = Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+            $GLOBALS['indexes'] = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
             foreach ($GLOBALS['indexes'] as $name => $idx) {
                 if ($name === 'PRIMARY') {
                     $GLOBALS['hideOrderTable'] = true;

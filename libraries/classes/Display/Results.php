@@ -997,7 +997,7 @@ class Results
         string $unsortedSqlQuery
     ): array {
         // grab indexes data:
-        $indexes = Index::getFromTable($this->properties['table'], $this->properties['db']);
+        $indexes = Index::getFromTable($this->dbi, $this->properties['table'], $this->properties['db']);
 
         // do we have any index?
         if ($indexes === []) {

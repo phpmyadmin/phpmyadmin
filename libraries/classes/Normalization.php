@@ -273,7 +273,7 @@ class Normalization
     {
         $step = 2;
         $stepTxt = __('Have a primary key');
-        $primary = Index::getPrimary($table, $db);
+        $primary = Index::getPrimary($this->dbi, $table, $db);
         $hasPrimaryKey = '0';
         $legendText = __('Step 1.') . $step . ' ' . $stepTxt;
         $extra = '';
@@ -375,7 +375,7 @@ class Normalization
             . __('Done') . '">'
             . '<input class="btn btn-secondary" type="submit" value="' . __('No repeating group')
             . '" onclick="goToStep4();">';
-        $primary = Index::getPrimary($table, $db);
+        $primary = Index::getPrimary($this->dbi, $table, $db);
         $primarycols = $primary === false ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {
@@ -402,7 +402,7 @@ class Normalization
     public function getHtmlFor2NFstep1($db, $table)
     {
         $legendText = __('Step 2.') . '1 ' . __('Find partial dependencies');
-        $primary = Index::getPrimary($table, $db);
+        $primary = Index::getPrimary($this->dbi, $table, $db);
         $primarycols = $primary === false ? [] : $primary->getColumns();
         $pk = [];
         $subText = '';
@@ -626,7 +626,7 @@ class Normalization
                 continue;
             }
 
-            $primary = Index::getPrimary($table, $db);
+            $primary = Index::getPrimary($this->dbi, $table, $db);
             $primarycols = $primary === false ? [] : $primary->getColumns();
             $pk = [];
             foreach ($primarycols as $col) {
@@ -878,7 +878,7 @@ class Normalization
         );
         $cnt = 0;
         foreach ($tables as $table) {
-            $primary = Index::getPrimary($table, $db);
+            $primary = Index::getPrimary($this->dbi, $table, $db);
             $primarycols = $primary === false ? [] : $primary->getColumns();
             $selectTdForm = '';
             $pk = [];
@@ -960,7 +960,7 @@ class Normalization
             . Util::backquote($table) . ' LIMIT 500) as dt;'
         );
         $totalRows = $totalRowsRes[0];
-        $primary = Index::getPrimary($table, $db);
+        $primary = Index::getPrimary($this->dbi, $table, $db);
         $primarycols = $primary === false ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {

@@ -221,7 +221,7 @@ class Common
         foreach ($designerTables as $designerTable) {
             $schema = $designerTable->getDatabaseName();
             // for now, take into account only the first index segment
-            foreach (Index::getFromTable($designerTable->getTableName(), $schema) as $index) {
+            foreach (Index::getFromTable($this->dbi, $designerTable->getTableName(), $schema) as $index) {
                 if ($unique_only && ! $index->isUnique()) {
                     continue;
                 }
