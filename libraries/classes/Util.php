@@ -2191,7 +2191,7 @@ class Util
             // We must use union operator here instead of array_merge to preserve numerical keys
             $tables = $groupTable + $GLOBALS['dbi']->getTablesFull(
                 $db,
-                $groupWithSeparator !== false ? $groupWithSeparator : '',
+                $groupWithSeparator !== false ? $groupWithSeparator : $tables,
                 $groupWithSeparator !== false,
                 $limitOffset,
                 $limitCount,
