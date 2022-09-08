@@ -277,7 +277,7 @@ class Normalization
         $hasPrimaryKey = '0';
         $legendText = __('Step 1.') . $step . ' ' . $stepTxt;
         $extra = '';
-        if ($primary !== false) {
+        if ($primary !== null) {
             $headText = __('Primary key already exists.');
             $subText = __('Taking you to next step…');
             $hasPrimaryKey = '1';
@@ -376,7 +376,7 @@ class Normalization
             . '<input class="btn btn-secondary" type="submit" value="' . __('No repeating group')
             . '" onclick="goToStep4();">';
         $primary = Index::getPrimary($this->dbi, $table, $db);
-        $primarycols = $primary === false ? [] : $primary->getColumns();
+        $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {
             $pk[] = $col->getName();
@@ -403,7 +403,7 @@ class Normalization
     {
         $legendText = __('Step 2.') . '1 ' . __('Find partial dependencies');
         $primary = Index::getPrimary($this->dbi, $table, $db);
-        $primarycols = $primary === false ? [] : $primary->getColumns();
+        $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
         $subText = '';
         $selectPkForm = '';
@@ -627,7 +627,7 @@ class Normalization
             }
 
             $primary = Index::getPrimary($this->dbi, $table, $db);
-            $primarycols = $primary === false ? [] : $primary->getColumns();
+            $primarycols = $primary === null ? [] : $primary->getColumns();
             $pk = [];
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
@@ -879,7 +879,7 @@ class Normalization
         $cnt = 0;
         foreach ($tables as $table) {
             $primary = Index::getPrimary($this->dbi, $table, $db);
-            $primarycols = $primary === false ? [] : $primary->getColumns();
+            $primarycols = $primary === null ? [] : $primary->getColumns();
             $selectTdForm = '';
             $pk = [];
             foreach ($primarycols as $col) {
@@ -961,7 +961,7 @@ class Normalization
         );
         $totalRows = $totalRowsRes[0];
         $primary = Index::getPrimary($this->dbi, $table, $db);
-        $primarycols = $primary === false ? [] : $primary->getColumns();
+        $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {
             $pk[] = Util::backquote($col->getName());

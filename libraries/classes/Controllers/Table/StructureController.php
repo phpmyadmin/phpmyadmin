@@ -158,10 +158,9 @@ class StructureController extends AbstractController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param array       $columns_with_unique_index Columns with unique index
-     * @param Index|false $primary_index             primary index or false if no one exists
-     * @param array       $fields                    Fields
-     * @param array       $columns_with_index        Columns with index
+     * @param array $columns_with_unique_index Columns with unique index
+     * @param array $fields                    Fields
+     * @param array $columns_with_index        Columns with index
      * @psalm-param non-empty-string $route
      *
      * @return string
@@ -169,7 +168,7 @@ class StructureController extends AbstractController
     protected function displayStructure(
         RelationParameters $relationParameters,
         array $columns_with_unique_index,
-        $primary_index,
+        ?Index $primaryIndex,
         array $fields,
         array $columns_with_index,
         bool $isSystemSchema,
@@ -234,7 +233,7 @@ class StructureController extends AbstractController
                 $row_comments[$rownum] = $comments_map[$field['Field']];
             }
 
-            if ($primary_index && $primary_index->hasColumn($field['Field'])) {
+            if ($primaryIndex !== null && $primaryIndex->hasColumn($field['Field'])) {
                 $displayed_fields[$rownum]->icon .= Generator::getImage('b_primary', __('Primary'));
             }
 
@@ -272,7 +271,7 @@ class StructureController extends AbstractController
             'tbl_is_view' => $GLOBALS['tbl_is_view'],
             'mime_map' => $mime_map,
             'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
-            'primary' => $primary_index,
+            'primary' => $primaryIndex,
             'columns_with_unique_index' => $columns_with_unique_index,
             'columns_list' => $columns_list,
             'table_stats' => $tablestats ?? null,

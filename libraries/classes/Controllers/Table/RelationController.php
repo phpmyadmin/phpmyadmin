@@ -358,9 +358,8 @@ final class RelationController extends AbstractController
 
         $this->response->addJSON('columns', $columnList);
 
-        // @todo should be: $server->db($db)->table($table)->primary()
         $primary = Index::getPrimary($this->dbi, $foreignTable, $_POST['foreignDb']);
-        if ($primary === false) {
+        if ($primary === null) {
             return;
         }
 

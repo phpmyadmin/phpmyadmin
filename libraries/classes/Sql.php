@@ -504,7 +504,7 @@ class Sql
             $primaryKey = null;
             $primary = Index::getPrimary($this->dbi, $table, $db);
 
-            if ($primary !== false) {
+            if ($primary !== null) {
                 $primarycols = $primary->getColumns();
 
                 foreach ($primarycols as $col) {

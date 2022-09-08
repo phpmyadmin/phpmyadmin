@@ -185,20 +185,11 @@ class Index
         return $indexes;
     }
 
-    /**
-     * return primary if set, false otherwise
-     *
-     * @return Index|false primary index or false if no one exists
-     */
-    public static function getPrimary(DatabaseInterface $dbi, string $table, string $schema)
+    public static function getPrimary(DatabaseInterface $dbi, string $table, string $schema): ?Index
     {
         self::loadIndexes($dbi, $table, $schema);
 
-        if (isset(self::$registry[$schema][$table]['PRIMARY'])) {
-            return self::$registry[$schema][$table]['PRIMARY'];
-        }
-
-        return false;
+        return self::$registry[$schema][$table]['PRIMARY'] ?? null;
     }
 
     /**
@@ -462,7 +453,7 @@ class Index
 
     public function hasPrimary(): bool
     {
-        return (bool) self::getPrimary($GLOBALS['dbi'], $this->table, $this->schema);
+        return self::getPrimary($GLOBALS['dbi'], $this->table, $this->schema) !== null;
     }
 
     /**
