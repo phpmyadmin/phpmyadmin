@@ -385,6 +385,10 @@ class DatabaseInterface implements DbalInterface
         }
 
         $tables = [];
+		
+		if ($limitCount && is_array($table)) {
+			$table = array_slice($table, $limitOffset, $limitCount);
+		}
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_where_table = QueryGenerator::getTableCondition(
@@ -500,8 +504,7 @@ class DatabaseInterface implements DbalInterface
                                         $this,
                                         'escapeString',
                                     ],
-                                    $table,
-                                    $link
+                                    $table
                                 )
                             ) . '\')';
                     } else {
