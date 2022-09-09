@@ -4211,22 +4211,12 @@ parameters:
 			path: libraries/classes/Index.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Index\\:\\:getCompareData\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Index.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Index\\:\\:set\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Index.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\IndexColumn\\:\\:__construct\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/IndexColumn.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\IndexColumn\\:\\:getCompareData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/IndexColumn.php
 

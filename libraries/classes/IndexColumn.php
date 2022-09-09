@@ -191,9 +191,16 @@ class IndexColumn
     /**
      * Gets the properties in an array for comparison purposes
      *
-     * @return array an array containing the properties of the index column
+     * @return array<string, int|string|null>
+     * @psalm-return array{
+     *   Column_name: string,
+     *   Seq_in_index: int,
+     *   Collation: string|null,
+     *   Sub_part: int|null,
+     *   Null: string
+     * }
      */
-    public function getCompareData()
+    public function getCompareData(): array
     {
         return [
             'Column_name' => $this->name,

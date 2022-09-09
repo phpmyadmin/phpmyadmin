@@ -548,9 +548,20 @@ class Index
     /**
      * Gets the properties in an array for comparison purposes
      *
-     * @return array an array containing the properties of the index
+     * @return array<string, array<int, array<string, int|string|null>>|string|null>
+     * @psalm-return array{
+     *   Packed: string|null,
+     *   Index_choice: string,
+     *   columns?: list<array{
+     *     Column_name: string,
+     *     Seq_in_index: int,
+     *     Collation: string|null,
+     *     Sub_part: int|null,
+     *     Null: string
+     *   }>
+     * }
      */
-    public function getCompareData()
+    public function getCompareData(): array
     {
         $data = [
             'Packed' => $this->packed,
