@@ -1524,47 +1524,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns details about the EVENTs for a specific database
-     *
-     * @param string $db   db name
-     * @param string $name event name
-     *
-     * @return array information about EVENTs
-     */
-    public function getEvents(string $db, string $name = ''): array
-    {
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = QueryGenerator::getInformationSchemaEventsRequest(
-                $this->escapeString($db),
-                empty($name) ? null : $this->escapeString($name)
-            );
-        } else {
-            $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
-            if ($name) {
-                $query .= " WHERE `Name` = '"
-                    . $this->escapeString($name) . "'";
-            }
-        }
-
-        $result = [];
-        $events = $this->fetchResult($query);
-
-        foreach ($events as $event) {
-            $result[] = [
-                'name' => $event['Name'],
-                'type' => $event['Type'],
-                'status' => $event['Status'],
-            ];
-        }
-
-        // Sort results by name
-        $name = array_column($result, 'name');
-        array_multisort($name, SORT_ASC, $result);
-
-        return $result;
-    }
-
-    /**
      * returns details about the TRIGGERs for a specific table or database
      *
      * @param string $db        db name

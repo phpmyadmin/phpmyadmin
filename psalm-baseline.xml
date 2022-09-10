@@ -4908,7 +4908,10 @@
       <code>$event['name']</code>
       <code>$itemName</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
+    <MixedArrayAccess occurrences="4">
+      <code>$event['Name']</code>
+      <code>$event['Status']</code>
+      <code>$event['Type']</code>
       <code>$event['name']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="9">
@@ -4922,9 +4925,10 @@
       <code>$GLOBALS['errors'][]</code>
       <code>$GLOBALS['errors'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="19">
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['errors']</code>
+      <code>$event</code>
       <code>$event</code>
       <code>$itemName</code>
       <code>$item['item_original_name']</code>
@@ -5630,10 +5634,7 @@
       <code>uksort($eachTables, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="28">
-      <code>$event['Name']</code>
-      <code>$event['Status']</code>
-      <code>$event['Type']</code>
+    <MixedArrayAccess occurrences="25">
       <code>$link</code>
       <code>$oneShow['Db']</code>
       <code>$oneShow['Name']</code>
@@ -5680,13 +5681,12 @@
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="35">
+    <MixedAssignment occurrences="34">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$database</code>
       <code>$databaseName</code>
       <code>$databases[$databaseName]['SCHEMA_NAME']</code>
-      <code>$event</code>
       <code>$grant</code>
       <code>$grant</code>
       <code>$keyIndex</code>

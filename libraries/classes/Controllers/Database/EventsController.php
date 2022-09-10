@@ -81,7 +81,7 @@ final class EventsController extends AbstractController
         $this->events->handleEditor();
         $this->events->export();
 
-        $items = $this->dbi->getEvents($GLOBALS['db']);
+        $items = $this->events->getDetails($GLOBALS['db']);
 
         $this->render('database/events/index', [
             'db' => $GLOBALS['db'],

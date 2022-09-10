@@ -7,11 +7,14 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_column;
+use function array_multisort;
 use function count;
 use function explode;
 use function htmlspecialchars;
@@ -22,6 +25,8 @@ use function sprintf;
 use function str_contains;
 use function strtoupper;
 use function trim;
+
+use const SORT_ASC;
 
 /**
  * Functions for event management.
@@ -174,7 +179,7 @@ class Events
 
             if ($this->response->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {
-                    $events = $this->dbi->getEvents($GLOBALS['db'], $_POST['item_name']);
+                    $events = $this->getDetails($GLOBALS['db'], $_POST['item_name']);
                     $event = $events[0];
                     $this->response->addJSON(
                         'name',
@@ -595,5 +600,46 @@ class Events
         }
 
         $this->response->addHTML($message->getDisplay());
+    }
+
+    /**
+     * Returns details about the EVENTs for a specific database.
+     *
+     * @param string $db   db name
+     * @param string $name event name
+     *
+     * @return array information about EVENTs
+     */
+    public function getDetails(string $db, string $name = ''): array
+    {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = QueryGenerator::getInformationSchemaEventsRequest(
+                $this->dbi->escapeString($db),
+                empty($name) ? null : $this->dbi->escapeString($name)
+            );
+        } else {
+            $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
+            if ($name) {
+                $query .= " WHERE `Name` = '"
+                    . $this->dbi->escapeString($name) . "'";
+            }
+        }
+
+        $result = [];
+        $events = $this->dbi->fetchResult($query);
+
+        foreach ($events as $event) {
+            $result[] = [
+                'name' => $event['Name'],
+                'type' => $event['Type'],
+                'status' => $event['Status'],
+            ];
+        }
+
+        // Sort results by name
+        $name = array_column($result, 'name');
+        array_multisort($name, SORT_ASC, $result);
+
+        return $result;
     }
 }

@@ -462,16 +462,6 @@ interface DbalInterface
     ): ?string;
 
     /**
-     * returns details about the EVENTs for a specific database
-     *
-     * @param string $db   db name
-     * @param string $name event name
-     *
-     * @return array information about EVENTs
-     */
-    public function getEvents(string $db, string $name = ''): array;
-
-    /**
      * returns details about the TRIGGERs for a specific table or database
      *
      * @param string $db        db name
