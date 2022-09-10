@@ -5251,7 +5251,7 @@
       <code>$stmt-&gt;return-&gt;parameters</code>
       <code>$value</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="35">
+    <MixedArrayAccess occurrences="40">
       <code>$_POST['funcs'][$routine['item_param_name'][$i]]</code>
       <code>$_POST['funcs'][$routine['item_param_name'][$i]]</code>
       <code>$_POST['params'][$routine['item_param_name'][$i]]</code>
@@ -5263,6 +5263,11 @@
       <code>$priv[5]</code>
       <code>$priv[6]</code>
       <code>$priv[7]</code>
+      <code>$routine['DTD_IDENTIFIER']</code>
+      <code>$routine['Db']</code>
+      <code>$routine['Definer']</code>
+      <code>$routine['Name']</code>
+      <code>$routine['Type']</code>
       <code>$routine['item_param_dir'][$i]</code>
       <code>$routine['item_param_dir'][$i]</code>
       <code>$routine['item_param_dir'][$routine['item_num_params'] - 1]</code>
@@ -5330,7 +5335,7 @@
       <code>$routine['item_param_type'][$i]</code>
       <code>$routine['item_param_type'][$routine['item_num_params'] - 1]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="47">
+    <MixedAssignment occurrences="48">
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['errors']</code>
@@ -5367,6 +5372,7 @@
       <code>$retval['item_returntype']</code>
       <code>$retval['item_sqldataaccess']</code>
       <code>$retval['item_type']</code>
+      <code>$routine</code>
       <code>$routine</code>
       <code>$routine['item_num_params']</code>
       <code>$routine['item_num_params']</code>
@@ -5624,7 +5630,7 @@
       <code>uksort($eachTables, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="33">
+    <MixedArrayAccess occurrences="28">
       <code>$event['Name']</code>
       <code>$event['Status']</code>
       <code>$event['Type']</code>
@@ -5632,11 +5638,6 @@
       <code>$oneShow['Db']</code>
       <code>$oneShow['Name']</code>
       <code>$oneShow['Type']</code>
-      <code>$routine['DTD_IDENTIFIER']</code>
-      <code>$routine['Db']</code>
-      <code>$routine['Definer']</code>
-      <code>$routine['Name']</code>
-      <code>$routine['Type']</code>
       <code>$tableData[$sortBy]</code>
       <code>$tableData['Data_length']</code>
       <code>$tableData['Engine']</code>
@@ -5679,7 +5680,7 @@
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="36">
+    <MixedAssignment occurrences="35">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$database</code>
@@ -5701,7 +5702,6 @@
       <code>$resultRows[]</code>
       <code>$resultTarget</code>
       <code>$result[]</code>
-      <code>$routine</code>
       <code>$table</code>
       <code>$tableData</code>
       <code>$tableData</code>

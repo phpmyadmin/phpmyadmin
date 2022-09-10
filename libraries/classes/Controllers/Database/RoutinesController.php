@@ -113,7 +113,7 @@ class RoutinesController extends AbstractController
             $type = null;
         }
 
-        $items = $this->dbi->getRoutines($GLOBALS['db'], $type);
+        $items = Routines::getDetails($this->dbi, $GLOBALS['db'], $type);
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';

@@ -11,6 +11,7 @@ use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Dbal\ResultInterface;
@@ -1966,7 +1967,7 @@ class Privileges
 
             $data['tables'] = $tables;
         } else { // routine
-            $routineData = $this->dbi->getRoutines($dbname);
+            $routineData = Routines::getDetails($this->dbi, $dbname);
 
             $routines = [];
             foreach ($routineData as $routine) {
@@ -3660,7 +3661,7 @@ class Privileges
      */
     public function getRoutineType(string $dbname, string $routineName)
     {
-        $routineData = $this->dbi->getRoutines($dbname);
+        $routineData = Routines::getDetails($this->dbi, $dbname);
         $routineName = mb_strtolower($routineName);
 
         foreach ($routineData as $routine) {

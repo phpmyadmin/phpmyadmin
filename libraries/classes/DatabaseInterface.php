@@ -30,7 +30,6 @@ use function array_column;
 use function array_diff;
 use function array_keys;
 use function array_map;
-use function array_merge;
 use function array_multisort;
 use function array_reverse;
 use function array_shift;
@@ -41,7 +40,6 @@ use function count;
 use function defined;
 use function explode;
 use function implode;
-use function in_array;
 use function is_array;
 use function is_int;
 use function is_string;
@@ -1523,72 +1521,6 @@ class DatabaseInterface implements DbalInterface
         $result = $this->fetchValue($query, $returnedField[$which], $link);
 
         return is_string($result) ? $result : null;
-    }
-
-    /**
-     * returns details about the PROCEDUREs or FUNCTIONs for a specific database
-     * or details about a specific routine
-     *
-     * @param string      $db    db name
-     * @param string|null $which PROCEDURE | FUNCTION or null for both
-     * @param string      $name  name of the routine (to fetch a specific routine)
-     *
-     * @return array information about PROCEDUREs or FUNCTIONs
-     */
-    public function getRoutines(
-        string $db,
-        ?string $which = null,
-        string $name = ''
-    ): array {
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = QueryGenerator::getInformationSchemaRoutinesRequest(
-                $this->escapeString($db),
-                isset($which) && in_array($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
-                empty($name) ? null : $this->escapeString($name)
-            );
-            $routines = $this->fetchResult($query);
-        } else {
-            $routines = [];
-
-            if ($which === 'FUNCTION' || $which == null) {
-                $query = 'SHOW FUNCTION STATUS'
-                    . " WHERE `Db` = '" . $this->escapeString($db) . "'";
-                if ($name) {
-                    $query .= " AND `Name` = '"
-                        . $this->escapeString($name) . "'";
-                }
-
-                $routines = $this->fetchResult($query);
-            }
-
-            if ($which === 'PROCEDURE' || $which == null) {
-                $query = 'SHOW PROCEDURE STATUS'
-                    . " WHERE `Db` = '" . $this->escapeString($db) . "'";
-                if ($name) {
-                    $query .= " AND `Name` = '"
-                        . $this->escapeString($name) . "'";
-                }
-
-                $routines = array_merge($routines, $this->fetchResult($query));
-            }
-        }
-
-        $ret = [];
-        foreach ($routines as $routine) {
-            $ret[] = [
-                'db' => $routine['Db'],
-                'name' => $routine['Name'],
-                'type' => $routine['Type'],
-                'definer' => $routine['Definer'],
-                'returns' => $routine['DTD_IDENTIFIER'] ?? '',
-            ];
-        }
-
-        // Sort results by name
-        $name = array_column($ret, 'name');
-        array_multisort($name, SORT_ASC, $ret);
-
-        return $ret;
     }
 
     /**

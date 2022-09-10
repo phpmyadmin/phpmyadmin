@@ -462,18 +462,6 @@ interface DbalInterface
     ): ?string;
 
     /**
-     * returns details about the PROCEDUREs or FUNCTIONs for a specific database
-     * or details about a specific routine
-     *
-     * @param string      $db    db name
-     * @param string|null $which PROCEDURE | FUNCTION or null for both
-     * @param string      $name  name of the routine (to fetch a specific routine)
-     *
-     * @return array information about ROCEDUREs or FUNCTIONs
-     */
-    public function getRoutines(string $db, ?string $which = null, string $name = ''): array;
-
-    /**
      * returns details about the EVENTs for a specific database
      *
      * @param string $db   db name
