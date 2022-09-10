@@ -2426,6 +2426,11 @@ parameters:
 			path: libraries/classes/Database/Triggers.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Triggers\\:\\:getDetails\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Database/Triggers.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Triggers\\:\\:getEditorForm\\(\\) has parameter \\$item with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Triggers.php
@@ -2566,11 +2571,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTriggers\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$fields has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: libraries/classes/DatabaseInterface.php
@@ -2697,11 +2697,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getTablesFull\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getTriggers\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 

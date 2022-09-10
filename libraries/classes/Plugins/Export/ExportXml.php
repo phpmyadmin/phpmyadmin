@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -307,7 +308,7 @@ class ExportXml extends ExportPlugin
                 }
 
                 // Export triggers
-                $triggers = $GLOBALS['dbi']->getTriggers($GLOBALS['db'], $table);
+                $triggers = Triggers::getDetails($GLOBALS['dbi'], $GLOBALS['db'], $table);
                 if (! $triggers) {
                     continue;
                 }

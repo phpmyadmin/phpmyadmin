@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -472,7 +473,7 @@ class ExportHtmlword extends ExportPlugin
         $dump .= '<td class="print"><strong>' . __('Definition') . '</strong></td>';
         $dump .= '</tr>';
 
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
@@ -546,7 +547,7 @@ class ExportHtmlword extends ExportPlugin
                 break;
             case 'triggers':
                 $dump = '';
-                $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers) {
                     $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($table_alias)

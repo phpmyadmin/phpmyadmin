@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
@@ -335,7 +336,7 @@ class Pdf extends PdfLib
      */
     public function getTriggers($db, $table): void
     {
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
         if ($triggers === []) {
             return; //prevents printing blank trigger list for any table
         }

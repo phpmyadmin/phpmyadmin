@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -205,7 +206,7 @@ class Operations
             // keep the triggers from the original db+table
             // (third param is empty because delimiters are only intended
             //  for importing via the mysql client or our Import feature)
-            $triggers = $this->dbi->getTriggers($db, (string) $each_table, '');
+            $triggers = Triggers::getDetails($this->dbi, $db, (string) $each_table, '');
 
             if (
                 ! Table::moveCopy(

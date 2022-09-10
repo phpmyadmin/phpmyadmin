@@ -197,6 +197,70 @@ class TableTest extends AbstractTestCase
                     ],
                 ],
             ],
+            [
+                'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_BookMark\';',
+                null,
+                null,
+                DatabaseInterface::CONNECT_USER,
+                [
+                    [
+                        'Trigger' => 'name1',
+                        'Event' => 'INSERT',
+                        'Table' => 'PMA_BookMark',
+                        'Timing' => 'AFTER',
+                        'Statement' => 'BEGIN END',
+                        'Definer' => 'test_user@localhost',
+                    ],
+                    [
+                        'Trigger' => 'name2',
+                        'Event' => 'INSERT',
+                        'Table' => 'PMA_BookMark',
+                        'Timing' => 'AFTER',
+                        'Statement' => 'BEGIN END',
+                        'Definer' => 'test_user@localhost',
+                    ],
+                    [
+                        'Trigger' => 'name3',
+                        'Event' => 'INSERT',
+                        'Table' => 'PMA_BookMark',
+                        'Timing' => 'AFTER',
+                        'Statement' => 'BEGIN END',
+                        'Definer' => 'test_user@localhost',
+                    ],
+                ],
+            ],
+            [
+                'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_.BookMark\';',
+                null,
+                null,
+                DatabaseInterface::CONNECT_USER,
+                [
+                    [
+                        'Trigger' => 'name1',
+                        'Event' => 'INSERT',
+                        'Table' => 'PMA_.BookMark',
+                        'Timing' => 'AFTER',
+                        'Statement' => 'BEGIN END',
+                        'Definer' => 'test_user@localhost',
+                    ],
+                    [
+                        'Trigger' => 'name2',
+                        'Event' => 'INSERT',
+                        'Table' => 'PMA_.BookMark',
+                        'Timing' => 'AFTER',
+                        'Statement' => 'BEGIN END',
+                        'Definer' => 'test_user@localhost',
+                    ],
+                    [
+                        'Trigger' => 'name3',
+                        'Event' => 'INSERT',
+                        'Table' => 'PMA_.BookMark',
+                        'Timing' => 'AFTER',
+                        'Statement' => 'BEGIN END',
+                        'Definer' => 'test_user@localhost',
+                    ],
+                ],
+            ],
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
@@ -240,24 +304,6 @@ class TableTest extends AbstractTestCase
 
         $dbi->expects($this->any())->method('tryQuery')
             ->will($this->returnValue($resultStub));
-
-        $triggers = [
-            [
-                'name' => 'name1',
-                'create' => 'crate1',
-            ],
-            [
-                'name' => 'name2',
-                'create' => 'crate2',
-            ],
-            [
-                'name' => 'name3',
-                'create' => 'crate3',
-            ],
-        ];
-
-        $dbi->expects($this->any())->method('getTriggers')
-            ->will($this->returnValue($triggers));
 
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValue($resultStub));
@@ -1031,6 +1077,8 @@ class TableTest extends AbstractTestCase
      */
     public function testRename(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
         $table = 'PMA_BookMark';
         $db = 'PMA';
 

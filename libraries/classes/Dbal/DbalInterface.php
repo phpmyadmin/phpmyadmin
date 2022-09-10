@@ -462,17 +462,6 @@ interface DbalInterface
     ): ?string;
 
     /**
-     * returns details about the TRIGGERs for a specific table or database
-     *
-     * @param string $db        db name
-     * @param string $table     table name
-     * @param string $delimiter the delimiter to use (may be empty)
-     *
-     * @return array information about triggers (may be empty)
-     */
-    public function getTriggers(string $db, string $table = '', string $delimiter = '//'): array;
-
-    /**
      * gets the current user with host
      *
      * @return string the current user i.e. user@host

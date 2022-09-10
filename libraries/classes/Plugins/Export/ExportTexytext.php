@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -453,7 +454,7 @@ class ExportTexytext extends ExportPlugin
         $dump .= '|' . __('Definition');
         $dump .= "\n|------\n";
 
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '|' . $trigger['name'];
@@ -530,7 +531,7 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'triggers':
                 $dump = '';
-                $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers) {
                     $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
                     $dump .= $this->getTriggers($db, $table);

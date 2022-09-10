@@ -26,7 +26,6 @@ use PhpMyAdmin\Utils\SessionCache;
 use RuntimeException;
 
 use function __;
-use function array_column;
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -1521,73 +1520,6 @@ class DatabaseInterface implements DbalInterface
         $result = $this->fetchValue($query, $returnedField[$which], $link);
 
         return is_string($result) ? $result : null;
-    }
-
-    /**
-     * returns details about the TRIGGERs for a specific table or database
-     *
-     * @param string $db        db name
-     * @param string $table     table name
-     * @param string $delimiter the delimiter to use (may be empty)
-     *
-     * @return array information about triggers (may be empty)
-     */
-    public function getTriggers(string $db, string $table = '', string $delimiter = '//'): array
-    {
-        $result = [];
-        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = QueryGenerator::getInformationSchemaTriggersRequest(
-                $this->escapeString($db),
-                empty($table) ? null : $this->escapeString($table)
-            );
-        } else {
-            $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
-            if ($table) {
-                $query .= " LIKE '" . $this->escapeString($table) . "';";
-            }
-        }
-
-        $triggers = $this->fetchResult($query);
-
-        foreach ($triggers as $trigger) {
-            if ($GLOBALS['cfg']['Server']['DisableIS']) {
-                $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
-                $trigger['ACTION_TIMING'] = $trigger['Timing'];
-                $trigger['EVENT_MANIPULATION'] = $trigger['Event'];
-                $trigger['EVENT_OBJECT_TABLE'] = $trigger['Table'];
-                $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
-                $trigger['DEFINER'] = $trigger['Definer'];
-            }
-
-            $oneResult = [];
-            $oneResult['name'] = $trigger['TRIGGER_NAME'];
-            $oneResult['table'] = $trigger['EVENT_OBJECT_TABLE'];
-            $oneResult['action_timing'] = $trigger['ACTION_TIMING'];
-            $oneResult['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
-            $oneResult['definition'] = $trigger['ACTION_STATEMENT'];
-            $oneResult['definer'] = $trigger['DEFINER'];
-
-            // do not prepend the schema name; this way, importing the
-            // definition into another schema will work
-            $oneResult['full_trigger_name'] = Util::backquote($trigger['TRIGGER_NAME']);
-            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS '
-                . $oneResult['full_trigger_name'];
-            $oneResult['create'] = 'CREATE TRIGGER '
-                . $oneResult['full_trigger_name'] . ' '
-                . $trigger['ACTION_TIMING'] . ' '
-                . $trigger['EVENT_MANIPULATION']
-                . ' ON ' . Util::backquote($trigger['EVENT_OBJECT_TABLE'])
-                . "\n" . ' FOR EACH ROW '
-                . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
-
-            $result[] = $oneResult;
-        }
-
-        // Sort results by name
-        $name = array_column($result, 'name');
-        array_multisort($name, SORT_ASC, $result);
-
-        return $result;
     }
 
     /**

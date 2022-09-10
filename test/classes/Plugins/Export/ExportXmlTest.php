@@ -203,23 +203,22 @@ class ExportXmlTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(3))
-            ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result, $result, []);
+        $triggers = [
+            [
+                'TRIGGER_SCHEMA' => 'd<"b',
+                'TRIGGER_NAME' => 'trname',
+                'EVENT_MANIPULATION' => 'INSERT',
+                'EVENT_OBJECT_TABLE' => 'table',
+                'ACTION_TIMING' => 'AFTER',
+                'ACTION_STATEMENT' => 'BEGIN END',
+                'EVENT_OBJECT_SCHEMA' => 'd<"b',
+                'DEFINER' => 'test_user@localhost',
+            ],
+        ];
 
-        $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('d<"b', 'table')
-            ->will(
-                $this->returnValue(
-                    [
-                        [
-                            'create' => 'crt',
-                            'name' => 'trname',
-                        ],
-                    ]
-                )
-            );
+        $dbi->expects($this->exactly(4))
+            ->method('fetchResult')
+            ->willReturnOnConsecutiveCalls($result, $result, [], $triggers);
 
         $dbi->expects($this->exactly(2))
             ->method('getProceduresOrFunctions')
@@ -265,7 +264,8 @@ class ExportXmlTest extends AbstractTestCase
             '                &amp;quot;tbl&amp;quot;;' . "\n" .
             '            &lt;/pma:table&gt;' . "\n" .
             '            &lt;pma:trigger name=&quot;trname&quot;&gt;' . "\n" .
-            '                ' . "\n" .
+            '                CREATE TRIGGER `trname` AFTER INSERT ON `table`' . "\n" .
+            '                 FOR EACH ROW BEGIN END' . "\n" .
             '            &lt;/pma:trigger&gt;' . "\n" .
             '            &lt;pma:function name=&quot;fn&quot;&gt;' . "\n" .
             '                fndef' . "\n" .

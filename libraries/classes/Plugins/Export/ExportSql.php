@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -2064,7 +2065,7 @@ class ExportSql extends ExportPlugin
             case 'triggers':
                 $dump = '';
                 $delimiter = '$$';
-                $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $delimiter);
+                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table, $delimiter);
                 if ($triggers) {
                     $dump .= $this->possibleCRLF()
                     . $this->exportComment()
