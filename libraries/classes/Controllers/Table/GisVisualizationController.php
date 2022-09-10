@@ -171,7 +171,7 @@ final class GisVisualizationController extends AbstractController
                 'session_max_rows' => $rows,
                 'pos' => $pos,
                 'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
-                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'],
+                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'] ?? null,
             ]
         ));
 
