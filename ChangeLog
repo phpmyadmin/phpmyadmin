@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix console toolbar UI when the bookmark feature is disabled and sql debug is enabled
 - issue #17543 Fix JS error on saving a new designer page
 - issue #17546 Fix JS error after using save as and open page operation on the designer
+- issue        Fix PHP warning on GIS visualization when there is only one GIS column
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
