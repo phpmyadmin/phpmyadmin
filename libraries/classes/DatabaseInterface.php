@@ -1472,7 +1472,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $which PROCEDURE | FUNCTION
      * @param int    $link  link type
      *
-     * @return array the procedure names or function names
+     * @return string[] the procedure names or function names
      */
     public function getProceduresOrFunctions(
         string $db,

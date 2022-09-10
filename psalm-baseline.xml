@@ -5734,9 +5734,11 @@
       <code>SessionCache::get('mysql_cur_user')</code>
       <code>reset($columns)</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="4">
+    <MixedReturnTypeCoercion occurrences="6">
+      <code>$result</code>
       <code>$this-&gt;fetchResult($sql, null, 'Field', $link)</code>
       <code>$this-&gt;fetchResult($sql, null, null, $link)</code>
+      <code>string[]</code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement occurrences="2">
@@ -8663,7 +8665,7 @@
     </InvalidReturnType>
   </file>
   <file src="libraries/classes/Operations.php">
-    <MixedArgument occurrences="35">
+    <MixedArgument occurrences="33">
       <code>$_POST['comment']</code>
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
@@ -8689,12 +8691,10 @@
       <code>$event_name</code>
       <code>$foreignTable</code>
       <code>$foreignTable</code>
-      <code>$function_name</code>
       <code>$newRowFormat</code>
       <code>$newRowFormat</code>
       <code>$old_priv</code>
       <code>$one_query</code>
-      <code>$procedure_name</code>
       <code>$this_what ?? 'data'</code>
       <code>$trigger['create']</code>
       <code>$view</code>
@@ -8756,12 +8756,11 @@
       <code>$trigger['create']</code>
       <code>$trigger['create']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="17">
+    <MixedAssignment occurrences="15">
       <code>$GLOBALS['auto_increment']</code>
       <code>$arr</code>
       <code>$event_name</code>
       <code>$foreignTable</code>
-      <code>$function_name</code>
       <code>$newRowFormat</code>
       <code>$old_priv</code>
       <code>$old_priv</code>
@@ -8770,7 +8769,6 @@
       <code>$old_priv</code>
       <code>$old_priv</code>
       <code>$one_query</code>
-      <code>$procedure_name</code>
       <code>$this_what</code>
       <code>$trigger</code>
       <code>$view</code>
@@ -9837,16 +9835,18 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportXml.php">
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="7">
       <code>$code</code>
       <code>$col_as</code>
       <code>$db_charset</code>
       <code>$db_collation</code>
-      <code>$name</code>
       <code>$table</code>
       <code>$table</code>
       <code>$trigger['name']</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$events</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$result[$table][1]</code>
       <code>$result[0]['DEFAULT_CHARACTER_SET_NAME']</code>
@@ -9860,18 +9860,16 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$result[$table]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['tables']</code>
       <code>$code</code>
       <code>$col_as</code>
       <code>$db_charset</code>
       <code>$db_collation</code>
-      <code>$name</code>
       <code>$table</code>
       <code>$trigger</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="2">
-      <code>$sql</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$table_alias</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="35">
