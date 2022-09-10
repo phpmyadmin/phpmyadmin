@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
+<files psalm-version="4.27.0@faf106e717c37b8c81721845dba9de3d8deed8ff">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -13401,7 +13401,8 @@
     </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Tracker.php">
-    <DocblockTypeContradiction occurrences="3">
+    <DocblockTypeContradiction occurrences="4">
+      <code>''</code>
       <code>null</code>
       <code>null</code>
       <code>null</code>
@@ -13463,17 +13464,12 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $version</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="4">
       <code>$dbname</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="3">
       <code>$statement-&gt;name !== null</code>
       <code>$statement-&gt;name !== null</code>
       <code>isset($statement-&gt;options)</code>
     </RedundantConditionGivenDocblockType>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>''</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Tracking.php">
     <MixedArgument occurrences="47">
