@@ -449,6 +449,10 @@ if [ -z "$PHP_REQ" ] ; then
     echo "Failed to figure out required PHP version from composer.json"
     exit 2
 fi
+
+echo "* Writing the version to composer.json (version: $version)"
+composer config version "$version"
+
 # Okay, there is no way to tell composer to install
 # suggested package. Let's require it and then revert
 # composer.json to original state.
