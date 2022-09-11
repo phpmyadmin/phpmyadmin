@@ -5175,8 +5175,9 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <MixedArgument occurrences="70">
+    <MixedArgument occurrences="71">
       <code>$GLOBALS['errors']</code>
+      <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
@@ -5217,7 +5218,7 @@
       <code>$itemType</code>
       <code>$newErrors</code>
       <code>$routine</code>
-      <code>$routine['ROUTINE_TYPE']</code>
+      <code>$routine['SPECIFIC_NAME']</code>
       <code>$routine['SPECIFIC_NAME']</code>
       <code>$routine['item_name']</code>
       <code>$routine['item_name']</code>
@@ -5237,7 +5238,7 @@
       <code>$routine['name']</code>
       <code>$routine['name']</code>
       <code>$routine['name']</code>
-      <code>$routine['type']</code>
+      <code>$routine['name']</code>
       <code>$routine['type']</code>
       <code>$routine['type']</code>
       <code>$value</code>

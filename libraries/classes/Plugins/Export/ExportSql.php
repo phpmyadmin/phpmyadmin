@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Database\Events;
+use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
@@ -556,9 +558,9 @@ class ExportSql extends ExportPlugin
             }
 
             if ($type === 'FUNCTION') {
-                $definition = $GLOBALS['dbi']->getDefinition($db, 'FUNCTION', $routine);
+                $definition = Routines::getFunctionDefinition($GLOBALS['dbi'], $db, $routine);
             } else {
-                $definition = $GLOBALS['dbi']->getDefinition($db, 'PROCEDURE', $routine);
+                $definition = Routines::getProcedureDefinition($GLOBALS['dbi'], $db, $routine);
             }
 
             $createQuery = $this->replaceWithAliases($definition, $aliases, $db, '', $flag);
@@ -1012,7 +1014,7 @@ class ExportSql extends ExportPlugin
                         . $delimiter . $GLOBALS['crlf'];
                 }
 
-                $eventDef = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $eventName);
+                $eventDef = Events::getDefinition($GLOBALS['dbi'], $db, $eventName);
                 if (! empty($eventDef) && $GLOBALS['cfg']['Export']['remove_definer_from_definitions']) {
                     // remove definer clause from the event definition
                     $parser = new Parser($eventDef);

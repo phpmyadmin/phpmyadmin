@@ -445,23 +445,6 @@ interface DbalInterface
     ): array;
 
     /**
-     * returns the definition of a specific PROCEDURE, FUNCTION, EVENT or VIEW
-     *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION | EVENT | VIEW
-     * @param string $name  the procedure|function|event|view name
-     * @param int    $link  link type
-     *
-     * @return string|null the definition
-     */
-    public function getDefinition(
-        string $db,
-        string $which,
-        string $name,
-        $link = DatabaseInterface::CONNECT_USER
-    ): ?string;
-
-    /**
      * gets the current user with host
      *
      * @return string the current user i.e. user@host

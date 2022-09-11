@@ -204,9 +204,9 @@ class Routines
                 } else {
                     // Backup the old routine, in case something goes wrong
                     if ($_POST['item_original_type'] === 'FUNCTION') {
-                        $create_routine = $this->dbi->getDefinition($db, 'FUNCTION', $_POST['item_original_name']);
+                        $create_routine = self::getFunctionDefinition($this->dbi, $db, $_POST['item_original_name']);
                     } else {
-                        $create_routine = $this->dbi->getDefinition($db, 'PROCEDURE', $_POST['item_original_name']);
+                        $create_routine = self::getProcedureDefinition($this->dbi, $db, $_POST['item_original_name']);
                     }
 
                     $privilegesBackup = $this->backupPrivileges();
@@ -575,7 +575,11 @@ class Routines
         $retval['item_name'] = $routine['SPECIFIC_NAME'];
         $retval['item_type'] = $routine['ROUTINE_TYPE'];
 
-        $definition = $this->dbi->getDefinition($GLOBALS['db'], $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME']);
+        if ($routine['ROUTINE_TYPE'] === 'FUNCTION') {
+            $definition = self::getFunctionDefinition($this->dbi, $GLOBALS['db'], $routine['SPECIFIC_NAME']);
+        } else {
+            $definition = self::getProcedureDefinition($this->dbi, $GLOBALS['db'], $routine['SPECIFIC_NAME']);
+        }
 
         if ($definition === null) {
             return null;
@@ -1474,7 +1478,12 @@ class Routines
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
 
-        $definition = $this->dbi->getDefinition($GLOBALS['db'], $routine['type'], $routine['name']);
+        if ($routine['type'] === 'FUNCTION') {
+            $definition = self::getFunctionDefinition($this->dbi, $GLOBALS['db'], $routine['name']);
+        } else {
+            $definition = self::getProcedureDefinition($this->dbi, $GLOBALS['db'], $routine['name']);
+        }
+
         $executeAction = '';
 
         if ($definition !== null) {
@@ -1540,11 +1549,14 @@ class Routines
             return;
         }
 
-        if ($_GET['item_type'] !== 'FUNCTION' && $_GET['item_type'] !== 'PROCEDURE') {
+        if ($_GET['item_type'] === 'FUNCTION') {
+            $routineDefinition = self::getFunctionDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
+        } elseif ($_GET['item_type'] === 'PROCEDURE') {
+            $routineDefinition = self::getProcedureDefinition($this->dbi, $GLOBALS['db'], $_GET['item_name']);
+        } else {
             return;
         }
 
-        $routineDefinition = $this->dbi->getDefinition($GLOBALS['db'], $_GET['item_type'], $_GET['item_name']);
         $exportData = false;
 
         if ($routineDefinition !== null) {
@@ -1659,5 +1671,25 @@ class Routines
         array_multisort($name, SORT_ASC, $ret);
 
         return $ret;
+    }
+
+    public static function getFunctionDefinition(DatabaseInterface $dbi, string $db, string $name): ?string
+    {
+        $result = $dbi->fetchValue(
+            'SHOW CREATE FUNCTION ' . Util::backquote($db) . '.' . Util::backquote($name),
+            'Create Function'
+        );
+
+        return is_string($result) ? $result : null;
+    }
+
+    public static function getProcedureDefinition(DatabaseInterface $dbi, string $db, string $name): ?string
+    {
+        $result = $dbi->fetchValue(
+            'SHOW CREATE PROCEDURE ' . Util::backquote($db) . '.' . Util::backquote($name),
+            'Create Procedure'
+        );
+
+        return is_string($result) ? $result : null;
     }
 }

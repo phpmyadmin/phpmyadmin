@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Database\Events;
+use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Partitioning\Partition;
@@ -59,7 +61,7 @@ class Operations
         if ($procedure_names) {
             foreach ($procedure_names as $procedure_name) {
                 $this->dbi->selectDb($db);
-                $tmp_query = $this->dbi->getDefinition($db, 'PROCEDURE', $procedure_name);
+                $tmp_query = Routines::getProcedureDefinition($this->dbi, $db, $procedure_name);
                 if ($tmp_query === null) {
                     continue;
                 }
@@ -78,7 +80,7 @@ class Operations
 
         foreach ($function_names as $function_name) {
             $this->dbi->selectDb($db);
-            $tmp_query = $this->dbi->getDefinition($db, 'FUNCTION', $function_name);
+            $tmp_query = Routines::getFunctionDefinition($this->dbi, $db, $function_name);
             if ($tmp_query === null) {
                 continue;
             }
@@ -266,7 +268,7 @@ class Operations
 
         foreach ($event_names as $event_name) {
             $this->dbi->selectDb($db);
-            $tmp_query = $this->dbi->getDefinition($db, 'EVENT', $event_name);
+            $tmp_query = Events::getDefinition($this->dbi, $db, $event_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             $this->dbi->selectDb($_POST['newname']);

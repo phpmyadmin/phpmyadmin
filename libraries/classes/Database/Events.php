@@ -20,6 +20,7 @@ use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function str_contains;
@@ -100,7 +101,7 @@ class Events
                 // Execute the created query
                 if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $create_item = $this->dbi->getDefinition($GLOBALS['db'], 'EVENT', $_POST['item_original_name']);
+                    $create_item = self::getDefinition($this->dbi, $GLOBALS['db'], $_POST['item_original_name']);
                     $drop_item = 'DROP EVENT IF EXISTS '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
@@ -556,7 +557,7 @@ class Events
         }
 
         $itemName = $_GET['item_name'];
-        $exportData = $this->dbi->getDefinition($GLOBALS['db'], 'EVENT', $itemName);
+        $exportData = self::getDefinition($this->dbi, $GLOBALS['db'], $itemName);
 
         if (! $exportData) {
             $exportData = false;
@@ -641,5 +642,15 @@ class Events
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
+    }
+
+    public static function getDefinition(DatabaseInterface $dbi, string $db, string $name): ?string
+    {
+        $result = $dbi->fetchValue(
+            'SHOW CREATE EVENT ' . Util::backquote($db) . '.' . Util::backquote($name),
+            'Create Event'
+        );
+
+        return is_string($result) ? $result : null;
     }
 }

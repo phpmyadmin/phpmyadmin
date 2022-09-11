@@ -228,7 +228,7 @@ class ExportXmlTest extends AbstractTestCase
             );
 
         $dbi->expects($this->exactly(2))
-            ->method('getDefinition')
+            ->method('fetchValue')
             ->willReturnOnConsecutiveCalls('fndef', 'prdef');
 
         $dbi->expects($this->once())

@@ -581,27 +581,11 @@ class ExportSqlTest extends AbstractTestCase
             ->will($this->returnValue(['f1', 'f2']));
 
         $dbi->expects($this->exactly(2))
-            ->method('getDefinition')
-            ->will(
-                $this->returnValueMap(
-                    [
-                        [
-                            'db',
-                            'EVENT',
-                            'f1',
-                            DatabaseInterface::CONNECT_USER,
-                            'f1event',
-                        ],
-                        [
-                            'db',
-                            'EVENT',
-                            'f2',
-                            DatabaseInterface::CONNECT_USER,
-                            'f2event',
-                        ],
-                    ]
-                )
-            );
+            ->method('fetchValue')
+            ->will($this->returnValueMap([
+                ['SHOW CREATE EVENT `db`.`f1`', 'Create Event', DatabaseInterface::CONNECT_USER, 'f1event'],
+                ['SHOW CREATE EVENT `db`.`f2`', 'Create Event', DatabaseInterface::CONNECT_USER, 'f2event'],
+            ]));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 

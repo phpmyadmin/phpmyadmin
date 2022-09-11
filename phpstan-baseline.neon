@@ -5421,6 +5421,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Parameter \\#1 \\$sqlQuery of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:replaceWithAliases\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of function strtoupper expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php

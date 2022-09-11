@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Database\Events;
+use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -167,11 +169,11 @@ class ExportXml extends ExportPlugin
             $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($name) . '">' . $GLOBALS['crlf'];
 
             if ($type === 'function') {
-                $definition = $GLOBALS['dbi']->getDefinition($db, 'FUNCTION', $name);
+                $definition = Routines::getFunctionDefinition($GLOBALS['dbi'], $db, $name);
             } elseif ($type === 'procedure') {
-                $definition = $GLOBALS['dbi']->getDefinition($db, 'PROCEDURE', $name);
+                $definition = Routines::getProcedureDefinition($GLOBALS['dbi'], $db, $name);
             } else {
-                $definition = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $name);
+                $definition = Events::getDefinition($GLOBALS['dbi'], $db, $name);
             }
 
             // Do some formatting
