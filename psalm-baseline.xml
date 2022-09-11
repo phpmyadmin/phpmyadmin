@@ -5195,7 +5195,7 @@
       <code>$_POST['item_name']</code>
       <code>$_POST['item_original_name']</code>
       <code>$_POST['item_original_name']</code>
-      <code>$_POST['item_original_type']</code>
+      <code>$_POST['item_original_name']</code>
       <code>$_POST['item_original_type']</code>
       <code>$_POST['item_returnopts_num']</code>
       <code>$_POST['item_returnopts_text']</code>
@@ -5389,11 +5389,10 @@
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="28">
+    <MixedOperand occurrences="27">
       <code>$_POST['funcs'][$routine['item_param_name'][$i]]</code>
       <code>$_POST['item_name']</code>
       <code>$_POST['item_original_name']</code>
-      <code>$_POST['item_original_type']</code>
       <code>$_POST['item_original_type']</code>
       <code>$_POST['item_returnlength']</code>
       <code>$_POST['item_type']</code>

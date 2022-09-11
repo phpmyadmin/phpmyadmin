@@ -196,26 +196,18 @@ class Routines
         if (! count($errors)) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
-                $isProcOrFunc = in_array(
-                    $_POST['item_original_type'],
-                    [
-                        'PROCEDURE',
-                        'FUNCTION',
-                    ]
-                );
-
-                if (! $isProcOrFunc) {
+                if (! in_array($_POST['item_original_type'], ['PROCEDURE', 'FUNCTION'], true)) {
                     $errors[] = sprintf(
                         __('Invalid routine type: "%s"'),
                         htmlspecialchars($_POST['item_original_type'])
                     );
                 } else {
                     // Backup the old routine, in case something goes wrong
-                    $create_routine = $this->dbi->getDefinition(
-                        $db,
-                        $_POST['item_original_type'],
-                        $_POST['item_original_name']
-                    );
+                    if ($_POST['item_original_type'] === 'FUNCTION') {
+                        $create_routine = $this->dbi->getDefinition($db, 'FUNCTION', $_POST['item_original_name']);
+                    } else {
+                        $create_routine = $this->dbi->getDefinition($db, 'PROCEDURE', $_POST['item_original_name']);
+                    }
 
                     $privilegesBackup = $this->backupPrivileges();
 
