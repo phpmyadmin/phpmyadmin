@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-04 00:22+0000\n"
+"POT-Creation-Date: 2022-09-11 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1696,7 +1696,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:184
 #: libraries/classes/Config/Descriptions.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:345
+#: libraries/classes/Plugins/Export/ExportSql.php:346
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -2841,10 +2841,10 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:741
 #: libraries/classes/Plugins/Export/ExportCsv.php:87
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:84
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:85
 #: libraries/classes/Plugins/Export/ExportOds.php:69
-#: libraries/classes/Plugins/Export/ExportOdt.php:127
-#: libraries/classes/Plugins/Export/ExportTexytext.php:78
+#: libraries/classes/Plugins/Export/ExportOdt.php:128
+#: libraries/classes/Plugins/Export/ExportTexytext.php:79
 msgid "Put columns names in the first row"
 msgstr ""
 
@@ -2911,14 +2911,14 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:699
 #: libraries/classes/Config/Descriptions.php:737
 #: libraries/classes/Config/Descriptions.php:743
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:55
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:56
 #: libraries/classes/Plugins/Export/ExportLatex.php:88
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
-#: libraries/classes/Plugins/Export/ExportOdt.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:70
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:237
-#: libraries/classes/Plugins/Export/ExportTexytext.php:54
+#: libraries/classes/Plugins/Export/ExportSql.php:238
+#: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
 msgstr ""
 
@@ -2930,11 +2930,11 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:731
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:384
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:385
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
-#: libraries/classes/Plugins/Export/ExportOdt.php:488
-#: libraries/classes/Plugins/Export/ExportTexytext.php:386
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:543
+#: libraries/classes/Plugins/Export/ExportOdt.php:489
+#: libraries/classes/Plugins/Export/ExportTexytext.php:387
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:544
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
 #: templates/columns_definitions/table_fields_definitions.twig:54
@@ -2961,10 +2961,10 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:734
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:391
-#: libraries/classes/Plugins/Export/ExportOdt.php:495
-#: libraries/classes/Plugins/Export/ExportTexytext.php:391
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:551
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:392
+#: libraries/classes/Plugins/Export/ExportOdt.php:496
+#: libraries/classes/Plugins/Export/ExportTexytext.php:392
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:552
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
 #, fuzzy
@@ -3036,12 +3036,12 @@ msgid "Use delayed inserts"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:183
+#: libraries/classes/Plugins/Export/ExportSql.php:184
 msgid "Disable foreign key checks"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:197
+#: libraries/classes/Plugins/Export/ExportSql.php:198
 msgid "Export views as tables"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
@@ -3073,7 +3073,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
-#: libraries/classes/Plugins/Export/ExportSql.php:351
+#: libraries/classes/Plugins/Export/ExportSql.php:352
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s view"
@@ -3088,7 +3088,7 @@ msgid "Syntax to use when inserting data"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:488
+#: libraries/classes/Plugins/Export/ExportSql.php:489
 msgid "Maximal length of created query"
 msgstr ""
 
@@ -3097,7 +3097,7 @@ msgid "Export type"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:169
+#: libraries/classes/Plugins/Export/ExportSql.php:170
 msgid "Enclose export in a transaction"
 msgstr ""
 
@@ -3192,7 +3192,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/DatabasesController.php:310
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:115
+#: libraries/classes/Plugins/Export/ExportXml.php:116
 #: libraries/classes/Server/Status/Data.php:159
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
@@ -3993,11 +3993,11 @@ msgid "Textarea rows"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:954
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:140
-#: libraries/classes/Plugins/Export/ExportOdt.php:185
-#: libraries/classes/Plugins/Export/ExportTexytext.php:124
-#: libraries/classes/Server/Privileges.php:1816
-#: libraries/classes/Server/Privileges.php:1818
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:141
+#: libraries/classes/Plugins/Export/ExportOdt.php:186
+#: libraries/classes/Plugins/Export/ExportTexytext.php:125
+#: libraries/classes/Server/Privileges.php:1817
+#: libraries/classes/Server/Privileges.php:1819
 #: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
@@ -4025,9 +4025,9 @@ msgid "Server"
 msgstr "வழங்கி"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Plugins/Export/ExportXml.php:464
-#: libraries/classes/Server/Privileges.php:1822
-#: libraries/classes/Server/Privileges.php:1824
+#: libraries/classes/Plugins/Export/ExportXml.php:460
+#: libraries/classes/Server/Privileges.php:1823
+#: libraries/classes/Server/Privileges.php:1825
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4298,7 +4298,7 @@ msgstr "கட்டற்றஆவண உரை"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1511
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1512
 #: libraries/classes/Util.php:1868 libraries/classes/Util.php:1883
 #: libraries/classes/Util.php:1900 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4781,11 +4781,11 @@ msgstr ""
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
-#: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:523
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:627
+#: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:505
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:628
 #: libraries/classes/Plugins/Export/ExportLatex.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:777
-#: libraries/classes/Plugins/Export/ExportTexytext.php:613
+#: libraries/classes/Plugins/Export/ExportOdt.php:778
+#: libraries/classes/Plugins/Export/ExportTexytext.php:614
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -5366,13 +5366,13 @@ msgid "The user name is empty!"
 msgstr "பயனர் பெயர் வெறுமையாக உள்ளது!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
-#: libraries/classes/Server/Privileges.php:943
+#: libraries/classes/Server/Privileges.php:944
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "கடவுச்சொல் வெறுமையாக உள்ளது!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Server/Privileges.php:941
+#: libraries/classes/Server/Privileges.php:942
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை!"
@@ -5679,7 +5679,7 @@ msgstr "தயவுசெய்து குறைந்தது ஒரு ம
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1065
-#: libraries/classes/Plugins/Export/ExportSql.php:2197
+#: libraries/classes/Plugins/Export/ExportSql.php:2198
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -5905,10 +5905,10 @@ msgstr "நிகழ்நிலை"
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:801
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
-#: libraries/classes/Plugins/Export/ExportOdt.php:593
-#: libraries/classes/Plugins/Export/ExportTexytext.php:451
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:471
+#: libraries/classes/Plugins/Export/ExportOdt.php:594
+#: libraries/classes/Plugins/Export/ExportTexytext.php:452
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:359
 #: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
@@ -6206,12 +6206,12 @@ msgid "Changing charset"
 msgstr "எழுத்துத்தொகுதி மாற்றப்படுகின்றது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:359
-#: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:496
-#: libraries/classes/Index.php:524
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:626
+#: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:478
+#: libraries/classes/Index.php:506
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:627
 #: libraries/classes/Plugins/Export/ExportLatex.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:776
-#: libraries/classes/Plugins/Export/ExportTexytext.php:613
+#: libraries/classes/Plugins/Export/ExportOdt.php:777
+#: libraries/classes/Plugins/Export/ExportTexytext.php:614
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -8412,7 +8412,7 @@ msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ள
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:299
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Database/Routines.php:1226
+#: libraries/classes/Database/Routines.php:1230
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
@@ -8452,7 +8452,7 @@ msgid "There is an issue with your request."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
-#: libraries/classes/Database/Routines.php:1245
+#: libraries/classes/Database/Routines.php:1249
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:241
 #: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -8520,7 +8520,7 @@ msgstr ""
 msgid "Failed to get description of column %s!"
 msgstr "நிறைவரிசை எண்ணிக்கையை பெற தவறியது."
 
-#: libraries/classes/Controllers/Table/StructureController.php:238
+#: libraries/classes/Controllers/Table/StructureController.php:237
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8530,7 +8530,7 @@ msgstr "நிறைவரிசை எண்ணிக்கையை பெற 
 msgid "Primary"
 msgstr "முதன்மை"
 
-#: libraries/classes/Controllers/Table/StructureController.php:242
+#: libraries/classes/Controllers/Table/StructureController.php:241
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8714,124 +8714,124 @@ msgstr ""
 "ஒழுங்கமைவு செருகுநிரல்களை நினைவேற்ற இயலவில்லை, தயவுசெய்து உங்கள் நிறுவலை "
 "சரிபார்க்கவும்!"
 
-#: libraries/classes/Database/Events.php:105
-#: libraries/classes/Database/Events.php:114
-#: libraries/classes/Database/Events.php:140
-#: libraries/classes/Database/Routines.php:224
-#: libraries/classes/Database/Routines.php:249
-#: libraries/classes/Database/Routines.php:351
-#: libraries/classes/Database/Routines.php:1252
-#: libraries/classes/Database/Triggers.php:116
-#: libraries/classes/Database/Triggers.php:125
-#: libraries/classes/Database/Triggers.php:152
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr ""
-
-#: libraries/classes/Database/Events.php:109
-#: libraries/classes/Database/Events.php:118
-#: libraries/classes/Database/Events.php:144
-#: libraries/classes/Database/Events.php:502
+#: libraries/classes/Database/Events.php:110
+#: libraries/classes/Database/Events.php:119
+#: libraries/classes/Database/Events.php:145
 #: libraries/classes/Database/Routines.php:228
 #: libraries/classes/Database/Routines.php:253
 #: libraries/classes/Database/Routines.php:355
 #: libraries/classes/Database/Routines.php:1256
-#: libraries/classes/Database/Routines.php:1536
-#: libraries/classes/Database/Triggers.php:120
-#: libraries/classes/Database/Triggers.php:129
-#: libraries/classes/Database/Triggers.php:156
-#: libraries/classes/Database/Triggers.php:438
+#: libraries/classes/Database/Triggers.php:121
+#: libraries/classes/Database/Triggers.php:130
+#: libraries/classes/Database/Triggers.php:157
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr ""
+
+#: libraries/classes/Database/Events.php:114
+#: libraries/classes/Database/Events.php:123
+#: libraries/classes/Database/Events.php:149
+#: libraries/classes/Database/Events.php:507
+#: libraries/classes/Database/Routines.php:232
+#: libraries/classes/Database/Routines.php:257
+#: libraries/classes/Database/Routines.php:359
+#: libraries/classes/Database/Routines.php:1260
+#: libraries/classes/Database/Routines.php:1540
+#: libraries/classes/Database/Triggers.php:125
+#: libraries/classes/Database/Triggers.php:134
+#: libraries/classes/Database/Triggers.php:161
+#: libraries/classes/Database/Triggers.php:443
 #: libraries/classes/Html/Generator.php:921
 msgid "MySQL said: "
 msgstr "MySQL சொன்னது: "
 
-#: libraries/classes/Database/Events.php:127
+#: libraries/classes/Database/Events.php:132
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:147
+#: libraries/classes/Database/Events.php:152
 #, php-format
 msgid "Event %1$s has been created."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:161
-#: libraries/classes/Database/Routines.php:269
-#: libraries/classes/Database/Triggers.php:173
+#: libraries/classes/Database/Events.php:166
+#: libraries/classes/Database/Routines.php:273
+#: libraries/classes/Database/Triggers.php:178
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:240
+#: libraries/classes/Database/Events.php:245
 msgid "Add event"
 msgstr "புதிய பயனாளரை சேர்க்க->நிகழ்வை சேர்க்க"
 
-#: libraries/classes/Database/Events.php:244
+#: libraries/classes/Database/Events.php:249
 msgid "Edit event"
 msgstr "நிகழ்வை தொகுக்க"
 
-#: libraries/classes/Database/Events.php:401
-#: libraries/classes/Database/Routines.php:988
-#: libraries/classes/Database/Triggers.php:382
+#: libraries/classes/Database/Events.php:406
+#: libraries/classes/Database/Routines.php:992
+#: libraries/classes/Database/Triggers.php:387
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:409
+#: libraries/classes/Database/Events.php:414
 msgid "You must provide an event name!"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:423
+#: libraries/classes/Database/Events.php:428
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:443
+#: libraries/classes/Database/Events.php:448
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:447
+#: libraries/classes/Database/Events.php:452
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:473
+#: libraries/classes/Database/Events.php:478
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:499
+#: libraries/classes/Database/Events.php:504
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:500
-#: libraries/classes/Database/Routines.php:1534
-#: libraries/classes/Database/Triggers.php:436
+#: libraries/classes/Database/Events.php:505
+#: libraries/classes/Database/Routines.php:1538
+#: libraries/classes/Database/Triggers.php:441
 msgid "The backed up query was:"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:531
-#: libraries/classes/Database/Routines.php:150
-#: libraries/classes/Database/Routines.php:1145
-#: libraries/classes/Database/Routines.php:1312
-#: libraries/classes/Database/Triggers.php:467
+#: libraries/classes/Database/Events.php:536
+#: libraries/classes/Database/Routines.php:154
+#: libraries/classes/Database/Routines.php:1149
+#: libraries/classes/Database/Routines.php:1316
+#: libraries/classes/Database/Triggers.php:472
 msgid "Error in processing request:"
 msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
 
-#: libraries/classes/Database/Events.php:533
+#: libraries/classes/Database/Events.php:538
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
-#: libraries/classes/Database/Events.php:563
+#: libraries/classes/Database/Events.php:568
 #, php-format
 msgid "Export of event %s"
 msgstr "%s நிகழ்வின் தரவேற்றம்"
 
-#: libraries/classes/Database/Events.php:584
+#: libraries/classes/Database/Events.php:589
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
-#: libraries/classes/DatabaseInterface.php:1132
+#: libraries/classes/DatabaseInterface.php:1147
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8839,21 +8839,21 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1177
+#: libraries/classes/DatabaseInterface.php:1192
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1866
+#: libraries/classes/DatabaseInterface.php:1707
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
-#: libraries/classes/DatabaseInterface.php:1893
+#: libraries/classes/DatabaseInterface.php:1734
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "அமைப்பாக்கத்தில் உள்ளவாறு அமைத்த கட்டுபாட்டுபயனருக்கான இணைப்பு தோல்வியடைந்தது."
 
-#: libraries/classes/DatabaseInterface.php:2307
+#: libraries/classes/DatabaseInterface.php:2148
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -8896,104 +8896,104 @@ msgstr "புத்தகக்குறி புதுப்பிக்க"
 msgid "Delete bookmark"
 msgstr "புத்தகக்குறியை அழிக்க"
 
-#: libraries/classes/Database/Routines.php:117
+#: libraries/classes/Database/Routines.php:121
 msgid "Add routine"
 msgstr "%s களத்தை சேர்க்க->செயல்முறையை சேர்க்க"
 
-#: libraries/classes/Database/Routines.php:121
+#: libraries/classes/Database/Routines.php:125
 msgid "Edit routine"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:153
+#: libraries/classes/Database/Routines.php:157
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:205
-#: libraries/classes/Database/Routines.php:996
+#: libraries/classes/Database/Routines.php:209
+#: libraries/classes/Database/Routines.php:1000
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:256
+#: libraries/classes/Database/Routines.php:260
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:416
+#: libraries/classes/Database/Routines.php:420
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:421
+#: libraries/classes/Database/Routines.php:425
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:829
+#: libraries/classes/Database/Routines.php:833
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:847
+#: libraries/classes/Database/Routines.php:851
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "மதிப்புருபுக்கு தகா வழிமதிப்பு \"%s\" அளிக்கப்பட்டுள்ளது."
 
-#: libraries/classes/Database/Routines.php:867
-#: libraries/classes/Database/Routines.php:934
+#: libraries/classes/Database/Routines.php:871
+#: libraries/classes/Database/Routines.php:938
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:916
+#: libraries/classes/Database/Routines.php:920
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1004
+#: libraries/classes/Database/Routines.php:1008
 msgid "You must provide a routine name!"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1069
+#: libraries/classes/Database/Routines.php:1073
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1147
-#: libraries/classes/Database/Routines.php:1314
+#: libraries/classes/Database/Routines.php:1151
+#: libraries/classes/Database/Routines.php:1318
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
-#: libraries/classes/Database/Routines.php:1186
+#: libraries/classes/Database/Routines.php:1190
 #, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1234
+#: libraries/classes/Database/Routines.php:1238
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Database/Routines.php:1297
-#: libraries/classes/Database/Routines.php:1304
+#: libraries/classes/Database/Routines.php:1301
+#: libraries/classes/Database/Routines.php:1308
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1533
+#: libraries/classes/Database/Routines.php:1537
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1561
+#: libraries/classes/Database/Routines.php:1565
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s செயல்முறையின் தரவேற்றம்"
 
-#: libraries/classes/Database/Routines.php:1583
+#: libraries/classes/Database/Routines.php:1587
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -9032,61 +9032,61 @@ msgstr "சரியான சொற்றொடர்"
 msgid "as regular expression"
 msgstr "வழக்கமான வெளிப்பாடு"
 
-#: libraries/classes/Database/Triggers.php:139
+#: libraries/classes/Database/Triggers.php:144
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:159
+#: libraries/classes/Database/Triggers.php:164
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:258
+#: libraries/classes/Database/Triggers.php:263
 msgid "Add trigger"
 msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டியை சேர்க்க"
 
-#: libraries/classes/Database/Triggers.php:262
+#: libraries/classes/Database/Triggers.php:267
 msgid "Edit trigger"
 msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டியை தொகுக்க"
 
-#: libraries/classes/Database/Triggers.php:390
+#: libraries/classes/Database/Triggers.php:395
 msgid "You must provide a trigger name!"
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:396
+#: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a valid timing for the trigger!"
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:402
+#: libraries/classes/Database/Triggers.php:407
 msgid "You must provide a valid event for the trigger!"
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:409
+#: libraries/classes/Database/Triggers.php:414
 msgid "You must provide a valid table name!"
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:416
+#: libraries/classes/Database/Triggers.php:421
 msgid "You must provide a trigger definition."
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:435
+#: libraries/classes/Database/Triggers.php:440
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:469
+#: libraries/classes/Database/Triggers.php:474
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
-#: libraries/classes/Database/Triggers.php:501
+#: libraries/classes/Database/Triggers.php:506
 #: templates/database/triggers/export.twig:2
 #, php-format
 msgid "Export of trigger %s"
 msgstr "%s செயல்தூண்டியின் தரவேற்றம்"
 
-#: libraries/classes/Database/Triggers.php:519
+#: libraries/classes/Database/Triggers.php:524
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
@@ -9738,17 +9738,17 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:45
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:45
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
 #: libraries/classes/Plugins/Export/ExportJson.php:71
 #: libraries/classes/Plugins/Export/ExportLatex.php:67
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:45
 #: libraries/classes/Plugins/Export/ExportOds.php:52
-#: libraries/classes/Plugins/Export/ExportOdt.php:59
+#: libraries/classes/Plugins/Export/ExportOdt.php:60
 #: libraries/classes/Plugins/Export/ExportPdf.php:65
 #: libraries/classes/Plugins/Export/ExportPhparray.php:44
-#: libraries/classes/Plugins/Export/ExportSql.php:115
-#: libraries/classes/Plugins/Export/ExportTexytext.php:44
-#: libraries/classes/Plugins/Export/ExportXml.php:76
+#: libraries/classes/Plugins/Export/ExportSql.php:116
+#: libraries/classes/Plugins/Export/ExportTexytext.php:45
+#: libraries/classes/Plugins/Export/ExportXml.php:77
 #: libraries/classes/Plugins/Export/ExportYaml.php:43
 #: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
@@ -9795,7 +9795,7 @@ msgid ""
 "engine tables can be rolled back."
 msgstr ""
 
-#: libraries/classes/Index.php:618
+#: libraries/classes/Index.php:611
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -9811,14 +9811,14 @@ msgid "Function"
 msgstr "செயல்கூறு"
 
 #: libraries/classes/InsertEdit.php:367
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:275
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:368
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:276
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:369
 #: libraries/classes/Plugins/Export/ExportLatex.php:523
-#: libraries/classes/Plugins/Export/ExportOdt.php:370
-#: libraries/classes/Plugins/Export/ExportOdt.php:472
-#: libraries/classes/Plugins/Export/ExportTexytext.php:288
-#: libraries/classes/Plugins/Export/ExportTexytext.php:378
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:522
+#: libraries/classes/Plugins/Export/ExportOdt.php:371
+#: libraries/classes/Plugins/Export/ExportOdt.php:473
+#: libraries/classes/Plugins/Export/ExportTexytext.php:289
+#: libraries/classes/Plugins/Export/ExportTexytext.php:379
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:523
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:666
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:700
 #: templates/columns_definitions/table_fields_definitions.twig:12
@@ -9921,7 +9921,7 @@ msgid "Insert"
 msgstr "செருகு"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2845 libraries/classes/Util.php:1886
+#: libraries/classes/Server/Privileges.php:2846 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -9945,12 +9945,12 @@ msgstr ""
 #: libraries/classes/Menu.php:325 libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:552
-#: libraries/classes/Plugins/Export/ExportOdt.php:697
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:553
+#: libraries/classes/Plugins/Export/ExportOdt.php:698
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2072
-#: libraries/classes/Plugins/Export/ExportTexytext.php:535
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportSql.php:2073
+#: libraries/classes/Plugins/Export/ExportTexytext.php:536
+#: libraries/classes/Plugins/Export/ExportXml.php:121
 #: libraries/classes/Util.php:1889 libraries/classes/Util.php:1905
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -9973,8 +9973,8 @@ msgstr ""
 #: libraries/classes/Menu.php:411
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1004
-#: libraries/classes/Plugins/Export/ExportXml.php:100
+#: libraries/classes/Plugins/Export/ExportSql.php:1005
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 #: libraries/classes/Util.php:1888 templates/database/events/index.twig:3
 msgid "Events"
 msgstr ""
@@ -10122,14 +10122,14 @@ msgid "New"
 msgstr "புதியது"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:272
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:365
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:273
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:366
 #: libraries/classes/Plugins/Export/ExportLatex.php:522
-#: libraries/classes/Plugins/Export/ExportOdt.php:367
-#: libraries/classes/Plugins/Export/ExportOdt.php:469
-#: libraries/classes/Plugins/Export/ExportTexytext.php:287
-#: libraries/classes/Plugins/Export/ExportTexytext.php:377
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:520
+#: libraries/classes/Plugins/Export/ExportOdt.php:368
+#: libraries/classes/Plugins/Export/ExportOdt.php:470
+#: libraries/classes/Plugins/Export/ExportTexytext.php:288
+#: libraries/classes/Plugins/Export/ExportTexytext.php:378
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:521
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:665
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:699
 #: templates/columns_definitions/column_name.twig:16
@@ -10173,10 +10173,10 @@ msgid "New"
 msgstr "புதியது"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:471
-#: libraries/classes/Plugins/Export/ExportOdt.php:596
-#: libraries/classes/Plugins/Export/ExportTexytext.php:452
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:472
+#: libraries/classes/Plugins/Export/ExportOdt.php:597
+#: libraries/classes/Plugins/Export/ExportTexytext.php:453
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
 msgid "Event"
@@ -10184,8 +10184,8 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:634
-#: libraries/classes/Plugins/Export/ExportXml.php:105
+#: libraries/classes/Plugins/Export/ExportSql.php:635
+#: libraries/classes/Plugins/Export/ExportXml.php:106
 msgid "Functions"
 msgstr ""
 
@@ -10205,8 +10205,8 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:623
-#: libraries/classes/Plugins/Export/ExportXml.php:110
+#: libraries/classes/Plugins/Export/ExportSql.php:624
+#: libraries/classes/Plugins/Export/ExportXml.php:111
 msgid "Procedures"
 msgstr ""
 
@@ -10237,7 +10237,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->செய�
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:126
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr ""
@@ -10486,37 +10486,37 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: libraries/classes/Operations.php:553
+#: libraries/classes/Operations.php:554
 #: templates/table/structure/display_partitions.twig:85
 msgid "Analyze"
 msgstr "ஆரய்தல்"
 
-#: libraries/classes/Operations.php:554
+#: libraries/classes/Operations.php:555
 #: templates/table/structure/display_partitions.twig:95
 msgid "Check"
 msgstr "சரிபார்"
 
-#: libraries/classes/Operations.php:555
+#: libraries/classes/Operations.php:556
 #: templates/table/structure/display_partitions.twig:105
 msgid "Optimize"
 msgstr "உகப்பாக்கு"
 
-#: libraries/classes/Operations.php:556
+#: libraries/classes/Operations.php:557
 #: templates/table/structure/display_partitions.twig:115
 msgid "Rebuild"
 msgstr "மீள்வாகு"
 
-#: libraries/classes/Operations.php:557
+#: libraries/classes/Operations.php:558
 #: templates/table/structure/display_partitions.twig:125
 msgid "Repair"
 msgstr "திருத்து"
 
-#: libraries/classes/Operations.php:558
+#: libraries/classes/Operations.php:559
 #: templates/table/structure/display_partitions.twig:135
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:570 templates/database/events/index.twig:19
+#: libraries/classes/Operations.php:571 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
 #: templates/database/events/index.twig:96
 #: templates/database/events/index.twig:102
@@ -10542,41 +10542,41 @@ msgstr ""
 msgid "Drop"
 msgstr "அழி"
 
-#: libraries/classes/Operations.php:572
+#: libraries/classes/Operations.php:573
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
 msgstr "சுருக்கு"
 
-#: libraries/classes/Operations.php:926
+#: libraries/classes/Operations.php:927
 msgid "Can't move table to same one!"
 msgstr ""
 
-#: libraries/classes/Operations.php:928
+#: libraries/classes/Operations.php:929
 msgid "Can't copy table to same one!"
 msgstr ""
 
-#: libraries/classes/Operations.php:952
+#: libraries/classes/Operations.php:953
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr ""
 
-#: libraries/classes/Operations.php:958
+#: libraries/classes/Operations.php:959
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr ""
 
-#: libraries/classes/Operations.php:965
+#: libraries/classes/Operations.php:966
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
-#: libraries/classes/Operations.php:969
+#: libraries/classes/Operations.php:970
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
-#: libraries/classes/Operations.php:993
+#: libraries/classes/Operations.php:994
 msgid "The table name is empty!"
 msgstr ""
 
@@ -10703,11 +10703,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:77
 #: libraries/classes/Plugins/Export/ExportExcel.php:51
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:79
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:80
 #: libraries/classes/Plugins/Export/ExportLatex.php:187
 #: libraries/classes/Plugins/Export/ExportOds.php:64
-#: libraries/classes/Plugins/Export/ExportOdt.php:132
-#: libraries/classes/Plugins/Export/ExportTexytext.php:83
+#: libraries/classes/Plugins/Export/ExportOdt.php:133
+#: libraries/classes/Plugins/Export/ExportTexytext.php:84
 msgid "Replace NULL with:"
 msgstr ""
 
@@ -10720,68 +10720,68 @@ msgstr ""
 msgid "Excel edition:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:61
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:62
 #: libraries/classes/Plugins/Export/ExportLatex.php:94
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
-#: libraries/classes/Plugins/Export/ExportOdt.php:75
+#: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:242
-#: libraries/classes/Plugins/Export/ExportTexytext.php:60
+#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
 #: libraries/config.values.php:347
 msgid "structure"
 msgstr "கட்டமைப்பு"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:62
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
 #: libraries/classes/Plugins/Export/ExportLatex.php:95
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
-#: libraries/classes/Plugins/Export/ExportOdt.php:76
+#: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:243
-#: libraries/classes/Plugins/Export/ExportTexytext.php:61
+#: libraries/classes/Plugins/Export/ExportSql.php:244
+#: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
 #: libraries/config.values.php:348
 msgid "data"
 msgstr "தரவு"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:64
 #: libraries/classes/Plugins/Export/ExportLatex.php:96
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
-#: libraries/classes/Plugins/Export/ExportOdt.php:77
+#: libraries/classes/Plugins/Export/ExportOdt.php:78
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:244
-#: libraries/classes/Plugins/Export/ExportTexytext.php:62
+#: libraries/classes/Plugins/Export/ExportSql.php:245
+#: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
 msgid "structure and data"
 msgstr "கட்டமைப்பும் தரவும்"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:73
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:74
 #: libraries/classes/Plugins/Export/ExportLatex.php:158
-#: libraries/classes/Plugins/Export/ExportOdt.php:121
-#: libraries/classes/Plugins/Export/ExportTexytext.php:72
-#: libraries/classes/Plugins/Export/ExportXml.php:133
+#: libraries/classes/Plugins/Export/ExportOdt.php:122
+#: libraries/classes/Plugins/Export/ExportTexytext.php:73
+#: libraries/classes/Plugins/Export/ExportXml.php:134
 msgid "Data dump options"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:193
-#: libraries/classes/Plugins/Export/ExportOdt.php:249
-#: libraries/classes/Plugins/Export/ExportSql.php:2322
-#: libraries/classes/Plugins/Export/ExportTexytext.php:177
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:194
+#: libraries/classes/Plugins/Export/ExportOdt.php:250
+#: libraries/classes/Plugins/Export/ExportSql.php:2323
+#: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:278
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:371
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:279
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
 #: libraries/classes/Plugins/Export/ExportLatex.php:524
-#: libraries/classes/Plugins/Export/ExportOdt.php:373
-#: libraries/classes/Plugins/Export/ExportOdt.php:475
-#: libraries/classes/Plugins/Export/ExportTexytext.php:289
-#: libraries/classes/Plugins/Export/ExportTexytext.php:379
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:524
+#: libraries/classes/Plugins/Export/ExportOdt.php:374
+#: libraries/classes/Plugins/Export/ExportOdt.php:476
+#: libraries/classes/Plugins/Export/ExportTexytext.php:290
+#: libraries/classes/Plugins/Export/ExportTexytext.php:380
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:525
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: templates/columns_definitions/table_fields_definitions.twig:30
@@ -10799,14 +10799,14 @@ msgstr ""
 msgid "Null"
 msgstr "வெற்று"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:281
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:374
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:282
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:375
 #: libraries/classes/Plugins/Export/ExportLatex.php:525
-#: libraries/classes/Plugins/Export/ExportOdt.php:376
-#: libraries/classes/Plugins/Export/ExportOdt.php:478
-#: libraries/classes/Plugins/Export/ExportTexytext.php:290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:380
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:526
+#: libraries/classes/Plugins/Export/ExportOdt.php:377
+#: libraries/classes/Plugins/Export/ExportOdt.php:479
+#: libraries/classes/Plugins/Export/ExportTexytext.php:291
+#: libraries/classes/Plugins/Export/ExportTexytext.php:381
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:527
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:703
 #: templates/columns_definitions/table_fields_definitions.twig:20
@@ -10821,21 +10821,21 @@ msgstr "வெற்று"
 msgid "Default"
 msgstr "இயல்நிலை"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:378
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:379
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
-#: libraries/classes/Plugins/Export/ExportOdt.php:482
-#: libraries/classes/Plugins/Export/ExportTexytext.php:382
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:535
+#: libraries/classes/Plugins/Export/ExportOdt.php:483
+#: libraries/classes/Plugins/Export/ExportTexytext.php:383
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "இணைப்புகள்"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:469
-#: libraries/classes/Plugins/Export/ExportOdt.php:590
-#: libraries/classes/Plugins/Export/ExportTexytext.php:450
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:356
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
+#: libraries/classes/Plugins/Export/ExportOdt.php:591
+#: libraries/classes/Plugins/Export/ExportTexytext.php:451
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:357
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
@@ -10849,34 +10849,34 @@ msgstr "இணைப்புகள்"
 msgid "Name"
 msgstr "பெயர்"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:472
-#: libraries/classes/Plugins/Export/ExportOdt.php:599
-#: libraries/classes/Plugins/Export/ExportTexytext.php:453
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:362
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:473
+#: libraries/classes/Plugins/Export/ExportOdt.php:600
+#: libraries/classes/Plugins/Export/ExportTexytext.php:454
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:363
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
 #: templates/database/triggers/editor_form.twig:57
 msgid "Definition"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:542
-#: libraries/classes/Plugins/Export/ExportOdt.php:675
-#: libraries/classes/Plugins/Export/ExportSql.php:2058
-#: libraries/classes/Plugins/Export/ExportTexytext.php:515
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:543
+#: libraries/classes/Plugins/Export/ExportOdt.php:676
+#: libraries/classes/Plugins/Export/ExportSql.php:2059
+#: libraries/classes/Plugins/Export/ExportTexytext.php:516
 msgid "Table structure for table"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:560
-#: libraries/classes/Plugins/Export/ExportOdt.php:707
-#: libraries/classes/Plugins/Export/ExportSql.php:2109
-#: libraries/classes/Plugins/Export/ExportTexytext.php:541
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:561
+#: libraries/classes/Plugins/Export/ExportOdt.php:708
+#: libraries/classes/Plugins/Export/ExportSql.php:2110
+#: libraries/classes/Plugins/Export/ExportTexytext.php:542
 msgid "Structure for view"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:566
-#: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2141
-#: libraries/classes/Plugins/Export/ExportTexytext.php:557
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:567
+#: libraries/classes/Plugins/Export/ExportOdt.php:728
+#: libraries/classes/Plugins/Export/ExportSql.php:2142
+#: libraries/classes/Plugins/Export/ExportTexytext.php:558
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -10901,8 +10901,8 @@ msgid "Structure of table @TABLE@"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
-#: libraries/classes/Plugins/Export/ExportOdt.php:88
-#: libraries/classes/Plugins/Export/ExportSql.php:257
+#: libraries/classes/Plugins/Export/ExportOdt.php:89
+#: libraries/classes/Plugins/Export/ExportSql.php:258
 msgid "Object creation options"
 msgstr ""
 
@@ -10922,19 +10922,19 @@ msgid "Label key:"
 msgstr "சிட்டை குறிப்பெழுத்து:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
-#: libraries/classes/Plugins/Export/ExportOdt.php:96
-#: libraries/classes/Plugins/Export/ExportSql.php:151
+#: libraries/classes/Plugins/Export/ExportOdt.php:97
+#: libraries/classes/Plugins/Export/ExportSql.php:152
 msgid "Display foreign key relationships"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
-#: libraries/classes/Plugins/Export/ExportOdt.php:103
+#: libraries/classes/Plugins/Export/ExportOdt.php:104
 msgid "Display comments"
 msgstr "கருத்துரைகளை காட்டுக"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:146
-#: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:159
+#: libraries/classes/Plugins/Export/ExportOdt.php:110
+#: libraries/classes/Plugins/Export/ExportSql.php:160
 #, fuzzy
 #| msgid "Display Features"
 msgid "Display media types"
@@ -10945,43 +10945,43 @@ msgid "Put columns names in the first row:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:754
-#: libraries/classes/Plugins/Export/ExportXml.php:231
+#: libraries/classes/Plugins/Export/ExportSql.php:755
+#: libraries/classes/Plugins/Export/ExportXml.php:219
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
 msgid "Host:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:761
-#: libraries/classes/Plugins/Export/ExportXml.php:237
+#: libraries/classes/Plugins/Export/ExportSql.php:762
+#: libraries/classes/Plugins/Export/ExportXml.php:225
 msgid "Generation Time:"
 msgstr "இயற்றப்பட்ட நேரம்:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:765
-#: libraries/classes/Plugins/Export/ExportXml.php:239
+#: libraries/classes/Plugins/Export/ExportSql.php:766
+#: libraries/classes/Plugins/Export/ExportXml.php:227
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "வழங்கி பதிப்பு:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:767
-#: libraries/classes/Plugins/Export/ExportXml.php:240
+#: libraries/classes/Plugins/Export/ExportSql.php:768
+#: libraries/classes/Plugins/Export/ExportXml.php:228
 msgid "PHP Version:"
 msgstr "PHP பதிப்பு:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:939
-#: libraries/classes/Plugins/Export/ExportXml.php:389
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:200
+#: libraries/classes/Plugins/Export/ExportSql.php:940
+#: libraries/classes/Plugins/Export/ExportXml.php:385
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
 msgstr "தரவுத்தளம்:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:315
-#: libraries/classes/Plugins/Export/ExportSql.php:2197
+#: libraries/classes/Plugins/Export/ExportSql.php:2198
 msgid "Data:"
 msgstr "தரவு:"
 
@@ -10997,8 +10997,8 @@ msgstr "அட்டவணை பெயர்களை தரவாக்கு�
 msgid "Export table headers"
 msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:250
-#: libraries/classes/Plugins/Export/ExportTexytext.php:178
+#: libraries/classes/Plugins/Export/ExportOdt.php:251
+#: libraries/classes/Plugins/Export/ExportTexytext.php:179
 msgid "Dumping data for query result"
 msgstr ""
 
@@ -11028,254 +11028,254 @@ msgstr "கட்டமைப்பு"
 msgid "Stand in"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:130
+#: libraries/classes/Plugins/Export/ExportSql.php:131
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:137
+#: libraries/classes/Plugins/Export/ExportSql.php:138
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:143
+#: libraries/classes/Plugins/Export/ExportSql.php:144
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:204
+#: libraries/classes/Plugins/Export/ExportSql.php:205
 #, fuzzy
 #| msgid "Export schema"
 msgid "Export metadata"
 msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:219
+#: libraries/classes/Plugins/Export/ExportSql.php:220
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:265
+#: libraries/classes/Plugins/Export/ExportSql.php:266
 msgid "Add statements:"
 msgstr "கூற்றுகளை சேர்க்க:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:273
-#: libraries/classes/Plugins/Export/ExportSql.php:282
-#: libraries/classes/Plugins/Export/ExportSql.php:299
-#: libraries/classes/Plugins/Export/ExportSql.php:308
-#: libraries/classes/Plugins/Export/ExportSql.php:332
-#: libraries/classes/Plugins/Export/ExportSql.php:360
-#: libraries/classes/Plugins/Export/ExportSql.php:369
+#: libraries/classes/Plugins/Export/ExportSql.php:274
+#: libraries/classes/Plugins/Export/ExportSql.php:283
+#: libraries/classes/Plugins/Export/ExportSql.php:300
+#: libraries/classes/Plugins/Export/ExportSql.php:309
+#: libraries/classes/Plugins/Export/ExportSql.php:333
+#: libraries/classes/Plugins/Export/ExportSql.php:361
+#: libraries/classes/Plugins/Export/ExportSql.php:370
 #, php-format
 msgid "Add %s statement"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:315
+#: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:322
+#: libraries/classes/Plugins/Export/ExportSql.php:323
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "அமர்வு மதிப்பு"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:339
+#: libraries/classes/Plugins/Export/ExportSql.php:340
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:378
+#: libraries/classes/Plugins/Export/ExportSql.php:379
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:393
+#: libraries/classes/Plugins/Export/ExportSql.php:394
 msgid "Data creation options"
 msgstr "தரவேற்ற விருப்பங்கள்"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2279
+#: libraries/classes/Plugins/Export/ExportSql.php:399
+#: libraries/classes/Plugins/Export/ExportSql.php:2280
 msgid "Truncate table before insert"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:405
+#: libraries/classes/Plugins/Export/ExportSql.php:406
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:411
+#: libraries/classes/Plugins/Export/ExportSql.php:412
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:423
-#: libraries/classes/Plugins/Export/ExportSql.php:457
+#: libraries/classes/Plugins/Export/ExportSql.php:424
+#: libraries/classes/Plugins/Export/ExportSql.php:458
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:437
+#: libraries/classes/Plugins/Export/ExportSql.php:438
 msgid "Function to use when dumping data:"
 msgstr "தரவுகளை குவிக்கும் போது பயன்படும் செயல்கூறு:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:452
+#: libraries/classes/Plugins/Export/ExportSql.php:453
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:462
+#: libraries/classes/Plugins/Export/ExportSql.php:463
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:467
+#: libraries/classes/Plugins/Export/ExportSql.php:468
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:472
+#: libraries/classes/Plugins/Export/ExportSql.php:473
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:477
+#: libraries/classes/Plugins/Export/ExportSql.php:478
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:496
+#: libraries/classes/Plugins/Export/ExportSql.php:497
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:505
+#: libraries/classes/Plugins/Export/ExportSql.php:506
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:582
+#: libraries/classes/Plugins/Export/ExportSql.php:583
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:585
-#: libraries/classes/Plugins/Export/ExportSql.php:1595
-#: libraries/classes/Plugins/Export/ExportSql.php:2097
+#: libraries/classes/Plugins/Export/ExportSql.php:586
+#: libraries/classes/Plugins/Export/ExportSql.php:1596
+#: libraries/classes/Plugins/Export/ExportSql.php:2098
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1056
+#: libraries/classes/Plugins/Export/ExportSql.php:1057
 #, fuzzy
 #| msgid "data"
 msgid "Metadata"
 msgstr "தரவு"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1122
+#: libraries/classes/Plugins/Export/ExportSql.php:1123
 #, fuzzy, php-format
 #| msgid "Delete data or table"
 msgid "Metadata for table %s"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1129
+#: libraries/classes/Plugins/Export/ExportSql.php:1130
 #, fuzzy, php-format
 #| msgid "Go to database: %s"
 msgid "Metadata for database %s"
 msgstr "தரவுத்தளம்: %s க்கு செல்க"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1436
+#: libraries/classes/Plugins/Export/ExportSql.php:1437
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "உருவாக்கம்:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1446
+#: libraries/classes/Plugins/Export/ExportSql.php:1447
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "கடைசி நிகழ்நிலையாக்கம்:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1456
+#: libraries/classes/Plugins/Export/ExportSql.php:1457
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "கடைசி சரிபார்ப்பு:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1507
+#: libraries/classes/Plugins/Export/ExportSql.php:1508
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1592
+#: libraries/classes/Plugins/Export/ExportSql.php:1593
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1759
+#: libraries/classes/Plugins/Export/ExportSql.php:1760
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1760
+#: libraries/classes/Plugins/Export/ExportSql.php:1761
 msgid "Constraints for table"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1787
+#: libraries/classes/Plugins/Export/ExportSql.php:1788
 msgid "Indexes for dumped tables"
 msgstr "குவிக்கப்பட்ட அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1788
+#: libraries/classes/Plugins/Export/ExportSql.php:1789
 msgid "Indexes for table"
 msgstr "அட்டவணைகளில்:->அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1824
+#: libraries/classes/Plugins/Export/ExportSql.php:1825
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "குவிக்கப்பட்ட அட்டவணைகளுக்கான AUTO_INCREMENT(தன்னிலைகூட்டு)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1825
+#: libraries/classes/Plugins/Export/ExportSql.php:1826
 msgid "AUTO_INCREMENT for table"
 msgstr "அட்டவணைக்கான AUTO_INCREMENT(தன்னிலைகூட்டு)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1900
+#: libraries/classes/Plugins/Export/ExportSql.php:1901
 msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1925
+#: libraries/classes/Plugins/Export/ExportSql.php:1926
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2094
+#: libraries/classes/Plugins/Export/ExportSql.php:2095
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2124
+#: libraries/classes/Plugins/Export/ExportSql.php:2125
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2144
+#: libraries/classes/Plugins/Export/ExportSql.php:2145
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2212
+#: libraries/classes/Plugins/Export/ExportSql.php:2213
 #, fuzzy, php-format
 #| msgid "Delete data or table"
 msgid "Error reading data for table %s:"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:95
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:138
+#: libraries/classes/Plugins/Export/ExportXml.php:139
 msgid "Export contents"
 msgstr "உள்ளடக்கத்தை தரவேற்றுக"
 
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:202
 #: templates/menu/breadcrumbs.twig:29
 msgid "Table:"
 msgstr "அட்டவணை:"
 
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:202
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:203
 msgid "Purpose:"
 msgstr ""
 
@@ -11919,8 +11919,8 @@ msgid "Error while loading the search."
 msgstr ""
 
 #: libraries/classes/Server/Plugins.php:66
-#: libraries/classes/Server/Privileges.php:792
-#: libraries/classes/Server/Privileges.php:3723
+#: libraries/classes/Server/Privileges.php:793
+#: libraries/classes/Server/Privileges.php:3724
 #, fuzzy
 #| msgid "Authentication"
 msgid "Native MySQL authentication"
@@ -11955,16 +11955,16 @@ msgstr "உறுதிப்படுத்தல்"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:262
+#: libraries/classes/Server/Privileges.php:263
 msgid "No privileges."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:270
+#: libraries/classes/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:292
-#: libraries/classes/Server/Privileges.php:359
+#: libraries/classes/Server/Privileges.php:293
+#: libraries/classes/Server/Privileges.php:360
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -11972,7 +11972,7 @@ msgstr ""
 msgid "Allows deleting data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:297
+#: libraries/classes/Server/Privileges.php:298
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -11980,7 +11980,7 @@ msgstr ""
 msgid "Allows creating new tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:302
+#: libraries/classes/Server/Privileges.php:303
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -11988,8 +11988,8 @@ msgstr ""
 msgid "Allows dropping tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:307
-#: libraries/classes/Server/Privileges.php:399
+#: libraries/classes/Server/Privileges.php:308
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -11997,8 +11997,8 @@ msgstr ""
 msgid "Allows creating and dropping indexes."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:312
-#: libraries/classes/Server/Privileges.php:404
+#: libraries/classes/Server/Privileges.php:313
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12006,9 +12006,9 @@ msgstr ""
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:317
-#: libraries/classes/Server/Privileges.php:443
-#: libraries/classes/Server/Privileges.php:459
+#: libraries/classes/Server/Privileges.php:318
+#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:460
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12018,9 +12018,9 @@ msgstr ""
 msgid "Allows creating new views."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:322
-#: libraries/classes/Server/Privileges.php:464
-#: libraries/classes/Server/Privileges.php:470
+#: libraries/classes/Server/Privileges.php:323
+#: libraries/classes/Server/Privileges.php:465
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12028,8 +12028,8 @@ msgstr ""
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:327
-#: libraries/classes/Server/Privileges.php:453
+#: libraries/classes/Server/Privileges.php:328
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12037,76 +12037,76 @@ msgstr ""
 msgid "Allows creating and dropping triggers."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:344
+#: libraries/classes/Server/Privileges.php:345
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:349
+#: libraries/classes/Server/Privileges.php:350
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:354
+#: libraries/classes/Server/Privileges.php:355
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:364
+#: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:369
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:374
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:379
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:384
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:389
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:394
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:409
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:415
+#: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12115,39 +12115,39 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:423
+#: libraries/classes/Server/Privileges.php:424
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:428
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:433
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:438
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:448
+#: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:477
-#: libraries/classes/Server/Privileges.php:486
+#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
@@ -12155,47 +12155,47 @@ msgstr ""
 msgid "Allows deleting historical rows."
 msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
-#: libraries/classes/Server/Privileges.php:491
+#: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:496
+#: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:501
+#: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:506
+#: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1076
+#: libraries/classes/Server/Privileges.php:1077
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1124
+#: libraries/classes/Server/Privileges.php:1125
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1441
+#: libraries/classes/Server/Privileges.php:1442
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1503
+#: libraries/classes/Server/Privileges.php:1504
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12205,24 +12205,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
-#: libraries/classes/Server/Privileges.php:1507
+#: libraries/classes/Server/Privileges.php:1508
 msgid "Revoke"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1817
+#: libraries/classes/Server/Privileges.php:1818
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1823
+#: libraries/classes/Server/Privileges.php:1824
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1828
-#: libraries/classes/Server/Privileges.php:1830
+#: libraries/classes/Server/Privileges.php:1829
+#: libraries/classes/Server/Privileges.php:1831
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
@@ -12231,69 +12231,69 @@ msgstr ""
 msgid "Routine"
 msgstr "%s களத்தை சேர்க்க->செயல்முறை"
 
-#: libraries/classes/Server/Privileges.php:1829
+#: libraries/classes/Server/Privileges.php:1830
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Check Privileges"
 msgid "Routine-specific privileges"
 msgstr "தனிசலுகைகளை சரிபார்க்க"
 
-#: libraries/classes/Server/Privileges.php:2173
+#: libraries/classes/Server/Privileges.php:2174
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2176
+#: libraries/classes/Server/Privileges.php:2177
 msgid "Reloading the privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2201
+#: libraries/classes/Server/Privileges.php:2202
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2278
+#: libraries/classes/Server/Privileges.php:2279
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2365
+#: libraries/classes/Server/Privileges.php:2366
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2452
+#: libraries/classes/Server/Privileges.php:2453
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2483
+#: libraries/classes/Server/Privileges.php:2484
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2587
+#: libraries/classes/Server/Privileges.php:2588
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2862
+#: libraries/classes/Server/Privileges.php:2863
 #, php-format
 msgid "Privileges for %s"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2871
+#: libraries/classes/Server/Privileges.php:2872
 #: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2981
+#: libraries/classes/Server/Privileges.php:2982
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3015
+#: libraries/classes/Server/Privileges.php:3016
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12302,7 +12302,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3031
+#: libraries/classes/Server/Privileges.php:3032
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12311,7 +12311,7 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:3346
 msgid "You have added a new user."
 msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்."
 
@@ -12513,7 +12513,7 @@ msgstr ""
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2103
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2100
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr ""
 
@@ -12522,50 +12522,50 @@ msgstr ""
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: libraries/classes/Table.php:348
+#: libraries/classes/Table.php:349
 msgid "Unknown table status:"
 msgstr "தெரியாத அட்டவணை நிலை:"
 
-#: libraries/classes/Table.php:1001
+#: libraries/classes/Table.php:1002
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr ""
 
-#: libraries/classes/Table.php:1010
+#: libraries/classes/Table.php:1011
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr ""
 
-#: libraries/classes/Table.php:1475
+#: libraries/classes/Table.php:1476
 msgid "Invalid database:"
 msgstr "செல்லாத தரவுத்தளம்:"
 
-#: libraries/classes/Table.php:1493
+#: libraries/classes/Table.php:1494
 msgid "Invalid table name:"
 msgstr "செல்லாத அட்டவணைப் பெயர்:"
 
-#: libraries/classes/Table.php:1533
+#: libraries/classes/Table.php:1530
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "அட்டவணை %1$sஐ %2$s என மறுபெயரிடுதல் தோல்வியடைந்தது!"
 
-#: libraries/classes/Table.php:1550
+#: libraries/classes/Table.php:1547
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s அட்டவணையானது %2$s ஆக பெயர் மாற்றப்பட்டது."
 
-#: libraries/classes/Table.php:1795
+#: libraries/classes/Table.php:1792
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: libraries/classes/Table.php:1821
+#: libraries/classes/Table.php:1818
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/classes/Table.php:1956
+#: libraries/classes/Table.php:1953
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12573,15 +12573,15 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/classes/Table.php:2115
+#: libraries/classes/Table.php:2112
 msgid "Can't rename index to PRIMARY!"
 msgstr "தொகுப்புக்குறிகாட்டியை முதனிலையாக பெயர்மாற்றம் செய்யமுடியவில்லை!"
 
-#: libraries/classes/Table.php:2141
+#: libraries/classes/Table.php:2138
 msgid "No index parts defined!"
 msgstr ""
 
-#: libraries/classes/Table.php:2437
+#: libraries/classes/Table.php:2434
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

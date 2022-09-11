@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-04 00:22+0000\n"
+"POT-Creation-Date: 2022-09-11 00:21+0000\n"
 "PO-Revision-Date: 2022-08-01 10:21+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1980,7 +1980,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:184
 #: libraries/classes/Config/Descriptions.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:345
+#: libraries/classes/Plugins/Export/ExportSql.php:346
 msgid "Exclude definition of current user"
 msgstr "Sluit definitie van huidige gebruiker uit"
 
@@ -3293,10 +3293,10 @@ msgstr "Compressie"
 #: libraries/classes/Config/Descriptions.php:741
 #: libraries/classes/Plugins/Export/ExportCsv.php:87
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:84
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:85
 #: libraries/classes/Plugins/Export/ExportOds.php:69
-#: libraries/classes/Plugins/Export/ExportOdt.php:127
-#: libraries/classes/Plugins/Export/ExportTexytext.php:78
+#: libraries/classes/Plugins/Export/ExportOdt.php:128
+#: libraries/classes/Plugins/Export/ExportTexytext.php:79
 msgid "Put columns names in the first row"
 msgstr "Kolomnamen in de eerste rij plaatsen"
 
@@ -3363,14 +3363,14 @@ msgstr "Tabelnaamtemplate"
 #: libraries/classes/Config/Descriptions.php:699
 #: libraries/classes/Config/Descriptions.php:737
 #: libraries/classes/Config/Descriptions.php:743
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:55
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:56
 #: libraries/classes/Plugins/Export/ExportLatex.php:88
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
-#: libraries/classes/Plugins/Export/ExportOdt.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:70
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:237
-#: libraries/classes/Plugins/Export/ExportTexytext.php:54
+#: libraries/classes/Plugins/Export/ExportSql.php:238
+#: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
 msgstr "Exporteer tabel"
 
@@ -3382,11 +3382,11 @@ msgstr "Tabeltitel toevoegen"
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:731
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:384
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:385
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
-#: libraries/classes/Plugins/Export/ExportOdt.php:488
-#: libraries/classes/Plugins/Export/ExportTexytext.php:386
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:543
+#: libraries/classes/Plugins/Export/ExportOdt.php:489
+#: libraries/classes/Plugins/Export/ExportTexytext.php:387
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:544
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
 #: templates/columns_definitions/table_fields_definitions.twig:54
@@ -3413,10 +3413,10 @@ msgstr "Labelsleutel"
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:734
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:391
-#: libraries/classes/Plugins/Export/ExportOdt.php:495
-#: libraries/classes/Plugins/Export/ExportTexytext.php:391
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:551
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:392
+#: libraries/classes/Plugins/Export/ExportOdt.php:496
+#: libraries/classes/Plugins/Export/ExportTexytext.php:392
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:552
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
 msgid "Media type"
@@ -3480,12 +3480,12 @@ msgid "Use delayed inserts"
 msgstr "Gebruik vertraagde inserts"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:183
+#: libraries/classes/Plugins/Export/ExportSql.php:184
 msgid "Disable foreign key checks"
 msgstr "Controle op vreemde sleutels uitschakelen"
 
 #: libraries/classes/Config/Descriptions.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:197
+#: libraries/classes/Plugins/Export/ExportSql.php:198
 msgid "Export views as tables"
 msgstr "Views exporteren als tabellen"
 
@@ -3519,7 +3519,7 @@ msgstr ""
 "tijdens het aanmaken van de tabel)"
 
 #: libraries/classes/Config/Descriptions.php:729
-#: libraries/classes/Plugins/Export/ExportSql.php:351
+#: libraries/classes/Plugins/Export/ExportSql.php:352
 #, php-format
 msgid "%s view"
 msgstr "%s view"
@@ -3533,7 +3533,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Syntax voor insert-opdrachten"
 
 #: libraries/classes/Config/Descriptions.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:488
+#: libraries/classes/Plugins/Export/ExportSql.php:489
 msgid "Maximal length of created query"
 msgstr "Maximale lengte van de gemaakte query"
 
@@ -3542,7 +3542,7 @@ msgid "Export type"
 msgstr "Exporttype"
 
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:169
+#: libraries/classes/Plugins/Export/ExportSql.php:170
 msgid "Enclose export in a transaction"
 msgstr "Sluit de export in een transactie"
 
@@ -3634,7 +3634,7 @@ msgstr "Servers"
 #: libraries/classes/Controllers/Server/DatabasesController.php:310
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:115
+#: libraries/classes/Plugins/Export/ExportXml.php:116
 #: libraries/classes/Server/Status/Data.php:159
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
@@ -4397,11 +4397,11 @@ msgid "Textarea rows"
 msgstr "Tekstveldregels"
 
 #: libraries/classes/Config/Descriptions.php:954
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:140
-#: libraries/classes/Plugins/Export/ExportOdt.php:185
-#: libraries/classes/Plugins/Export/ExportTexytext.php:124
-#: libraries/classes/Server/Privileges.php:1816
-#: libraries/classes/Server/Privileges.php:1818
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:141
+#: libraries/classes/Plugins/Export/ExportOdt.php:186
+#: libraries/classes/Plugins/Export/ExportTexytext.php:125
+#: libraries/classes/Server/Privileges.php:1817
+#: libraries/classes/Server/Privileges.php:1819
 #: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
@@ -4429,9 +4429,9 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Plugins/Export/ExportXml.php:464
-#: libraries/classes/Server/Privileges.php:1822
-#: libraries/classes/Server/Privileges.php:1824
+#: libraries/classes/Plugins/Export/ExportXml.php:460
+#: libraries/classes/Server/Privileges.php:1823
+#: libraries/classes/Server/Privileges.php:1825
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4691,7 +4691,7 @@ msgstr "OpenDocument Tekst"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1511
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1512
 #: libraries/classes/Util.php:1868 libraries/classes/Util.php:1883
 #: libraries/classes/Util.php:1900 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -5230,11 +5230,11 @@ msgstr "onbekend"
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
-#: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:523
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:627
+#: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:505
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:628
 #: libraries/classes/Plugins/Export/ExportLatex.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:777
-#: libraries/classes/Plugins/Export/ExportTexytext.php:613
+#: libraries/classes/Plugins/Export/ExportOdt.php:778
+#: libraries/classes/Plugins/Export/ExportTexytext.php:614
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -5820,13 +5820,13 @@ msgid "The user name is empty!"
 msgstr "De gebruikersnaam is leeg!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
-#: libraries/classes/Server/Privileges.php:943
+#: libraries/classes/Server/Privileges.php:944
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "Het wachtwoord is leeg!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Server/Privileges.php:941
+#: libraries/classes/Server/Privileges.php:942
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "De wachtwoorden zijn niet gelijk!"
@@ -6120,7 +6120,7 @@ msgstr "Voeg tenminste één variabele toe aan de reeks!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1065
-#: libraries/classes/Plugins/Export/ExportSql.php:2197
+#: libraries/classes/Plugins/Export/ExportSql.php:2198
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -6346,10 +6346,10 @@ msgstr "Status"
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:801
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
-#: libraries/classes/Plugins/Export/ExportOdt.php:593
-#: libraries/classes/Plugins/Export/ExportTexytext.php:451
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:471
+#: libraries/classes/Plugins/Export/ExportOdt.php:594
+#: libraries/classes/Plugins/Export/ExportTexytext.php:452
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:359
 #: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
@@ -6615,12 +6615,12 @@ msgid "Changing charset"
 msgstr "Karakterset aanpassen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:359
-#: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:496
-#: libraries/classes/Index.php:524
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:626
+#: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:478
+#: libraries/classes/Index.php:506
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:627
 #: libraries/classes/Plugins/Export/ExportLatex.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:776
-#: libraries/classes/Plugins/Export/ExportTexytext.php:613
+#: libraries/classes/Plugins/Export/ExportOdt.php:777
+#: libraries/classes/Plugins/Export/ExportTexytext.php:614
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -8920,7 +8920,7 @@ msgstr "Tabel %s bestaat reeds!"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:299
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Database/Routines.php:1226
+#: libraries/classes/Database/Routines.php:1230
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
@@ -8958,7 +8958,7 @@ msgid "There is an issue with your request."
 msgstr "Er is een probleem met je vraag."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
-#: libraries/classes/Database/Routines.php:1245
+#: libraries/classes/Database/Routines.php:1249
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:241
 #: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -9021,7 +9021,7 @@ msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
 msgid "Failed to get description of column %s!"
 msgstr "Ophalen van omschrijving van kolom %s mislukt!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:238
+#: libraries/classes/Controllers/Table/StructureController.php:237
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -9031,7 +9031,7 @@ msgstr "Ophalen van omschrijving van kolom %s mislukt!"
 msgid "Primary"
 msgstr "Primaire sleutel"
 
-#: libraries/classes/Controllers/Table/StructureController.php:242
+#: libraries/classes/Controllers/Table/StructureController.php:241
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -9197,117 +9197,117 @@ msgstr ""
 "De plugins voor schema's konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: libraries/classes/Database/Events.php:105
-#: libraries/classes/Database/Events.php:114
-#: libraries/classes/Database/Events.php:140
-#: libraries/classes/Database/Routines.php:224
-#: libraries/classes/Database/Routines.php:249
-#: libraries/classes/Database/Routines.php:351
-#: libraries/classes/Database/Routines.php:1252
-#: libraries/classes/Database/Triggers.php:116
-#: libraries/classes/Database/Triggers.php:125
-#: libraries/classes/Database/Triggers.php:152
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "De volgende query is mislukt: \"%s\""
-
-#: libraries/classes/Database/Events.php:109
-#: libraries/classes/Database/Events.php:118
-#: libraries/classes/Database/Events.php:144
-#: libraries/classes/Database/Events.php:502
+#: libraries/classes/Database/Events.php:110
+#: libraries/classes/Database/Events.php:119
+#: libraries/classes/Database/Events.php:145
 #: libraries/classes/Database/Routines.php:228
 #: libraries/classes/Database/Routines.php:253
 #: libraries/classes/Database/Routines.php:355
 #: libraries/classes/Database/Routines.php:1256
-#: libraries/classes/Database/Routines.php:1536
-#: libraries/classes/Database/Triggers.php:120
-#: libraries/classes/Database/Triggers.php:129
-#: libraries/classes/Database/Triggers.php:156
-#: libraries/classes/Database/Triggers.php:438
+#: libraries/classes/Database/Triggers.php:121
+#: libraries/classes/Database/Triggers.php:130
+#: libraries/classes/Database/Triggers.php:157
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "De volgende query is mislukt: \"%s\""
+
+#: libraries/classes/Database/Events.php:114
+#: libraries/classes/Database/Events.php:123
+#: libraries/classes/Database/Events.php:149
+#: libraries/classes/Database/Events.php:507
+#: libraries/classes/Database/Routines.php:232
+#: libraries/classes/Database/Routines.php:257
+#: libraries/classes/Database/Routines.php:359
+#: libraries/classes/Database/Routines.php:1260
+#: libraries/classes/Database/Routines.php:1540
+#: libraries/classes/Database/Triggers.php:125
+#: libraries/classes/Database/Triggers.php:134
+#: libraries/classes/Database/Triggers.php:161
+#: libraries/classes/Database/Triggers.php:443
 #: libraries/classes/Html/Generator.php:921
 msgid "MySQL said: "
 msgstr "MySQL meldt: "
 
-#: libraries/classes/Database/Events.php:127
+#: libraries/classes/Database/Events.php:132
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Gebeurtenis %1$s is gewijzigd."
 
-#: libraries/classes/Database/Events.php:147
+#: libraries/classes/Database/Events.php:152
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Gebeurtenis %1$s is aangemaakt."
 
-#: libraries/classes/Database/Events.php:161
-#: libraries/classes/Database/Routines.php:269
-#: libraries/classes/Database/Triggers.php:173
+#: libraries/classes/Database/Events.php:166
+#: libraries/classes/Database/Routines.php:273
+#: libraries/classes/Database/Triggers.php:178
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw opdracht:"
 
-#: libraries/classes/Database/Events.php:240
+#: libraries/classes/Database/Events.php:245
 msgid "Add event"
 msgstr "Gebeurtenis toevoegen"
 
-#: libraries/classes/Database/Events.php:244
+#: libraries/classes/Database/Events.php:249
 msgid "Edit event"
 msgstr "Gebeurtenis bewerken"
 
-#: libraries/classes/Database/Events.php:401
-#: libraries/classes/Database/Routines.php:988
-#: libraries/classes/Database/Triggers.php:382
+#: libraries/classes/Database/Events.php:406
+#: libraries/classes/Database/Routines.php:992
+#: libraries/classes/Database/Triggers.php:387
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "De naam moet het formaat \"gebruikersnaam@computernaam\" hebben!"
 
-#: libraries/classes/Database/Events.php:409
+#: libraries/classes/Database/Events.php:414
 msgid "You must provide an event name!"
 msgstr "Vul een naam voor de gebeurtenis in!"
 
-#: libraries/classes/Database/Events.php:423
+#: libraries/classes/Database/Events.php:428
 msgid "You must provide a valid interval value for the event."
 msgstr "Vul een geldige waarde in voor het interval van de gebeurtenis."
 
-#: libraries/classes/Database/Events.php:443
+#: libraries/classes/Database/Events.php:448
 msgid "You must provide a valid execution time for the event."
 msgstr "Vul een geldige uitvoeringstijd in voor de gebeurtenis."
 
-#: libraries/classes/Database/Events.php:447
+#: libraries/classes/Database/Events.php:452
 msgid "You must provide a valid type for the event."
 msgstr "Vul een geldig type in voor de gebeurtenis."
 
-#: libraries/classes/Database/Events.php:473
+#: libraries/classes/Database/Events.php:478
 msgid "You must provide an event definition."
 msgstr "Vul een definitie voor de gebeurtenis in."
 
-#: libraries/classes/Database/Events.php:499
+#: libraries/classes/Database/Events.php:504
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Sorry, het herstellen van de verwijderde gebeurtenis is mislukt."
 
-#: libraries/classes/Database/Events.php:500
-#: libraries/classes/Database/Routines.php:1534
-#: libraries/classes/Database/Triggers.php:436
+#: libraries/classes/Database/Events.php:505
+#: libraries/classes/Database/Routines.php:1538
+#: libraries/classes/Database/Triggers.php:441
 msgid "The backed up query was:"
 msgstr "De gebackupte query was:"
 
-#: libraries/classes/Database/Events.php:531
-#: libraries/classes/Database/Routines.php:150
-#: libraries/classes/Database/Routines.php:1145
-#: libraries/classes/Database/Routines.php:1312
-#: libraries/classes/Database/Triggers.php:467
+#: libraries/classes/Database/Events.php:536
+#: libraries/classes/Database/Routines.php:154
+#: libraries/classes/Database/Routines.php:1149
+#: libraries/classes/Database/Routines.php:1316
+#: libraries/classes/Database/Triggers.php:472
 msgid "Error in processing request:"
 msgstr "Fout tijdens het uitvoeren van de opdracht:"
 
-#: libraries/classes/Database/Events.php:533
+#: libraries/classes/Database/Events.php:538
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Geen gebeurtenis met naam %1$s gevonden in database %2$s."
 
-#: libraries/classes/Database/Events.php:563
+#: libraries/classes/Database/Events.php:568
 #, php-format
 msgid "Export of event %s"
 msgstr "Export van gebeurtenis %s"
 
-#: libraries/classes/Database/Events.php:584
+#: libraries/classes/Database/Events.php:589
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -9315,7 +9315,7 @@ msgstr ""
 "Fout opgetreden in de verwerking van de aanvraag: Geen gebeurtenis met naam "
 "%1$s gevonden in database %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1132
+#: libraries/classes/DatabaseInterface.php:1147
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9327,21 +9327,21 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin gebruikt nu de standaard tijdzone van "
 "de database server."
 
-#: libraries/classes/DatabaseInterface.php:1177
+#: libraries/classes/DatabaseInterface.php:1192
 msgid "Failed to set configured collation connection!"
 msgstr "Instellen van geconfigureerde vergelijking verbinding mislukt!"
 
-#: libraries/classes/DatabaseInterface.php:1866
+#: libraries/classes/DatabaseInterface.php:1707
 msgid "Missing connection parameters!"
 msgstr "Ontbrekende connectie parameters!"
 
-#: libraries/classes/DatabaseInterface.php:1893
+#: libraries/classes/DatabaseInterface.php:1734
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Verbinding voor de controlegebruiker zoals in de configuratie is opgegeven "
 "is mislukt."
 
-#: libraries/classes/DatabaseInterface.php:2307
+#: libraries/classes/DatabaseInterface.php:2148
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Bekijk %sonze documentatie%s voor meer informatie."
@@ -9384,15 +9384,15 @@ msgstr "Bladwijzer bijwerken"
 msgid "Delete bookmark"
 msgstr "Bladwijzer verwijderen"
 
-#: libraries/classes/Database/Routines.php:117
+#: libraries/classes/Database/Routines.php:121
 msgid "Add routine"
 msgstr "Routine toevoegen"
 
-#: libraries/classes/Database/Routines.php:121
+#: libraries/classes/Database/Routines.php:125
 msgid "Edit routine"
 msgstr "Routine aanpassen"
 
-#: libraries/classes/Database/Routines.php:153
+#: libraries/classes/Database/Routines.php:157
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -9401,38 +9401,38 @@ msgstr ""
 "Geen routine met de naam %1$s gevonden in database %2$s. Je hebt mogelijk "
 "niet de benodigde rechten om deze routine te wijzigen."
 
-#: libraries/classes/Database/Routines.php:205
-#: libraries/classes/Database/Routines.php:996
+#: libraries/classes/Database/Routines.php:209
+#: libraries/classes/Database/Routines.php:1000
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Ongeldig routine-type: \"%s\""
 
-#: libraries/classes/Database/Routines.php:256
+#: libraries/classes/Database/Routines.php:260
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Routine %1$s is aangemaakt."
 
-#: libraries/classes/Database/Routines.php:416
+#: libraries/classes/Database/Routines.php:420
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Routine %1$s is gewijzigd. Rechten zijn aangepast."
 
-#: libraries/classes/Database/Routines.php:421
+#: libraries/classes/Database/Routines.php:425
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Routine %1$s is gewijzigd."
 
-#: libraries/classes/Database/Routines.php:829
+#: libraries/classes/Database/Routines.php:833
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Vul een naam en type in voor elke routineparameter."
 
-#: libraries/classes/Database/Routines.php:847
+#: libraries/classes/Database/Routines.php:851
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Ongeldige richting \"%s\" opgegeven voor parameter."
 
-#: libraries/classes/Database/Routines.php:867
-#: libraries/classes/Database/Routines.php:934
+#: libraries/classes/Database/Routines.php:871
+#: libraries/classes/Database/Routines.php:938
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -9440,51 +9440,51 @@ msgstr ""
 "Vul de lengte/waarden in voor routineparameters van het type ENUM, SET, "
 "VARCHAR en VARBINARY."
 
-#: libraries/classes/Database/Routines.php:916
+#: libraries/classes/Database/Routines.php:920
 msgid "You must provide a valid return type for the routine."
 msgstr "Vul een geldig returntype in voor de routine."
 
-#: libraries/classes/Database/Routines.php:1004
+#: libraries/classes/Database/Routines.php:1008
 msgid "You must provide a routine name!"
 msgstr "Vul een routinenaam in!"
 
-#: libraries/classes/Database/Routines.php:1069
+#: libraries/classes/Database/Routines.php:1073
 msgid "You must provide a routine definition."
 msgstr "Vul een routinedefinitie in."
 
-#: libraries/classes/Database/Routines.php:1147
-#: libraries/classes/Database/Routines.php:1314
+#: libraries/classes/Database/Routines.php:1151
+#: libraries/classes/Database/Routines.php:1318
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Geen routine met naam %1$s gevonden in database %2$s."
 
-#: libraries/classes/Database/Routines.php:1186
+#: libraries/classes/Database/Routines.php:1190
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Resultaten van uitgevoerde routine %s"
 
-#: libraries/classes/Database/Routines.php:1234
+#: libraries/classes/Database/Routines.php:1238
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d regel beïnvloed door het laatste statement in de procedure."
 msgstr[1] "%d regels beïnvloed door het laatste statement in de procedure."
 
-#: libraries/classes/Database/Routines.php:1297
-#: libraries/classes/Database/Routines.php:1304
+#: libraries/classes/Database/Routines.php:1301
+#: libraries/classes/Database/Routines.php:1308
 msgid "Execute routine"
 msgstr "Routine uitvoeren"
 
-#: libraries/classes/Database/Routines.php:1533
+#: libraries/classes/Database/Routines.php:1537
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Het terugzetten van de verwijderde routine is mislukt."
 
-#: libraries/classes/Database/Routines.php:1561
+#: libraries/classes/Database/Routines.php:1565
 #, php-format
 msgid "Export of routine %s"
 msgstr "Routine %s exporteren"
 
-#: libraries/classes/Database/Routines.php:1583
+#: libraries/classes/Database/Routines.php:1587
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -9520,60 +9520,60 @@ msgstr "de exacte uitdrukking als heel veld"
 msgid "as regular expression"
 msgstr "als een reguliere expressie"
 
-#: libraries/classes/Database/Triggers.php:139
+#: libraries/classes/Database/Triggers.php:144
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Trigger %1$s is gewijzigd."
 
-#: libraries/classes/Database/Triggers.php:159
+#: libraries/classes/Database/Triggers.php:164
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Trigger %1$s is aangemaakt."
 
-#: libraries/classes/Database/Triggers.php:258
+#: libraries/classes/Database/Triggers.php:263
 msgid "Add trigger"
 msgstr "Een trigger toevoegen"
 
-#: libraries/classes/Database/Triggers.php:262
+#: libraries/classes/Database/Triggers.php:267
 msgid "Edit trigger"
 msgstr "Trigger bewerken"
 
-#: libraries/classes/Database/Triggers.php:390
+#: libraries/classes/Database/Triggers.php:395
 msgid "You must provide a trigger name!"
 msgstr "U moet een triggernaam ingeven!"
 
-#: libraries/classes/Database/Triggers.php:396
+#: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a valid timing for the trigger!"
 msgstr "U moet een geldig tijdstip voor de trigger ingeven!"
 
-#: libraries/classes/Database/Triggers.php:402
+#: libraries/classes/Database/Triggers.php:407
 msgid "You must provide a valid event for the trigger!"
 msgstr "U moet een geldige gebeurtenis voor de trigger ingeven!"
 
-#: libraries/classes/Database/Triggers.php:409
+#: libraries/classes/Database/Triggers.php:414
 msgid "You must provide a valid table name!"
 msgstr "U moet een geldige tabelnaam ingeven!"
 
-#: libraries/classes/Database/Triggers.php:416
+#: libraries/classes/Database/Triggers.php:421
 msgid "You must provide a trigger definition."
 msgstr "U moet een triggerdefinitie ingeven."
 
-#: libraries/classes/Database/Triggers.php:435
+#: libraries/classes/Database/Triggers.php:440
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "De verwijderde trigger kon niet hersteld worden."
 
-#: libraries/classes/Database/Triggers.php:469
+#: libraries/classes/Database/Triggers.php:474
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Geen trigger met naam %1$s gevonden in database %2$s."
 
-#: libraries/classes/Database/Triggers.php:501
+#: libraries/classes/Database/Triggers.php:506
 #: templates/database/triggers/export.twig:2
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Export van trigger %s"
 
-#: libraries/classes/Database/Triggers.php:519
+#: libraries/classes/Database/Triggers.php:524
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -10273,17 +10273,17 @@ msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen."
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:45
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:45
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
 #: libraries/classes/Plugins/Export/ExportJson.php:71
 #: libraries/classes/Plugins/Export/ExportLatex.php:67
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:45
 #: libraries/classes/Plugins/Export/ExportOds.php:52
-#: libraries/classes/Plugins/Export/ExportOdt.php:59
+#: libraries/classes/Plugins/Export/ExportOdt.php:60
 #: libraries/classes/Plugins/Export/ExportPdf.php:65
 #: libraries/classes/Plugins/Export/ExportPhparray.php:44
-#: libraries/classes/Plugins/Export/ExportSql.php:115
-#: libraries/classes/Plugins/Export/ExportTexytext.php:44
-#: libraries/classes/Plugins/Export/ExportXml.php:76
+#: libraries/classes/Plugins/Export/ExportSql.php:116
+#: libraries/classes/Plugins/Export/ExportTexytext.php:45
+#: libraries/classes/Plugins/Export/ExportXml.php:77
 #: libraries/classes/Plugins/Export/ExportYaml.php:43
 #: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
@@ -10332,7 +10332,7 @@ msgstr ""
 "Alleen INSERT, UPDATE, DELETE en REPLACE SQL-query's die transactionele "
 "tabellen bevatten, kunnen teruggedraaid worden."
 
-#: libraries/classes/Index.php:618
+#: libraries/classes/Index.php:611
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -10350,14 +10350,14 @@ msgid "Function"
 msgstr "Functie"
 
 #: libraries/classes/InsertEdit.php:367
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:275
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:368
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:276
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:369
 #: libraries/classes/Plugins/Export/ExportLatex.php:523
-#: libraries/classes/Plugins/Export/ExportOdt.php:370
-#: libraries/classes/Plugins/Export/ExportOdt.php:472
-#: libraries/classes/Plugins/Export/ExportTexytext.php:288
-#: libraries/classes/Plugins/Export/ExportTexytext.php:378
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:522
+#: libraries/classes/Plugins/Export/ExportOdt.php:371
+#: libraries/classes/Plugins/Export/ExportOdt.php:473
+#: libraries/classes/Plugins/Export/ExportTexytext.php:289
+#: libraries/classes/Plugins/Export/ExportTexytext.php:379
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:523
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:666
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:700
 #: templates/columns_definitions/table_fields_definitions.twig:12
@@ -10462,7 +10462,7 @@ msgid "Insert"
 msgstr "Invoegen"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2845 libraries/classes/Util.php:1886
+#: libraries/classes/Server/Privileges.php:2846 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -10486,12 +10486,12 @@ msgstr "Traceren"
 #: libraries/classes/Menu.php:325 libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:552
-#: libraries/classes/Plugins/Export/ExportOdt.php:697
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:553
+#: libraries/classes/Plugins/Export/ExportOdt.php:698
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2072
-#: libraries/classes/Plugins/Export/ExportTexytext.php:535
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportSql.php:2073
+#: libraries/classes/Plugins/Export/ExportTexytext.php:536
+#: libraries/classes/Plugins/Export/ExportXml.php:121
 #: libraries/classes/Util.php:1889 libraries/classes/Util.php:1905
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10514,8 +10514,8 @@ msgstr "Routines"
 #: libraries/classes/Menu.php:411
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1004
-#: libraries/classes/Plugins/Export/ExportXml.php:100
+#: libraries/classes/Plugins/Export/ExportSql.php:1005
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 #: libraries/classes/Util.php:1888 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Gebeurtenissen"
@@ -10659,14 +10659,14 @@ msgid "New"
 msgstr "Nieuw"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:272
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:365
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:273
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:366
 #: libraries/classes/Plugins/Export/ExportLatex.php:522
-#: libraries/classes/Plugins/Export/ExportOdt.php:367
-#: libraries/classes/Plugins/Export/ExportOdt.php:469
-#: libraries/classes/Plugins/Export/ExportTexytext.php:287
-#: libraries/classes/Plugins/Export/ExportTexytext.php:377
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:520
+#: libraries/classes/Plugins/Export/ExportOdt.php:368
+#: libraries/classes/Plugins/Export/ExportOdt.php:470
+#: libraries/classes/Plugins/Export/ExportTexytext.php:288
+#: libraries/classes/Plugins/Export/ExportTexytext.php:378
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:521
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:665
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:699
 #: templates/columns_definitions/column_name.twig:16
@@ -10710,10 +10710,10 @@ msgid "New"
 msgstr "Nieuw"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:471
-#: libraries/classes/Plugins/Export/ExportOdt.php:596
-#: libraries/classes/Plugins/Export/ExportTexytext.php:452
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:472
+#: libraries/classes/Plugins/Export/ExportOdt.php:597
+#: libraries/classes/Plugins/Export/ExportTexytext.php:453
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
 msgid "Event"
@@ -10721,8 +10721,8 @@ msgstr "Gebeurtenis"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:634
-#: libraries/classes/Plugins/Export/ExportXml.php:105
+#: libraries/classes/Plugins/Export/ExportSql.php:635
+#: libraries/classes/Plugins/Export/ExportXml.php:106
 msgid "Functions"
 msgstr "Functies"
 
@@ -10742,8 +10742,8 @@ msgstr "Uitklappen/samenvouwen"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:623
-#: libraries/classes/Plugins/Export/ExportXml.php:110
+#: libraries/classes/Plugins/Export/ExportSql.php:624
+#: libraries/classes/Plugins/Export/ExportXml.php:111
 msgid "Procedures"
 msgstr "Procedures"
 
@@ -10772,7 +10772,7 @@ msgstr "Trigger"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:126
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "Views"
@@ -11072,37 +11072,37 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Geen gedeeltelijke afhankelijkheden gevonden!"
 
-#: libraries/classes/Operations.php:553
+#: libraries/classes/Operations.php:554
 #: templates/table/structure/display_partitions.twig:85
 msgid "Analyze"
 msgstr "Analyseren"
 
-#: libraries/classes/Operations.php:554
+#: libraries/classes/Operations.php:555
 #: templates/table/structure/display_partitions.twig:95
 msgid "Check"
 msgstr "Controleren"
 
-#: libraries/classes/Operations.php:555
+#: libraries/classes/Operations.php:556
 #: templates/table/structure/display_partitions.twig:105
 msgid "Optimize"
 msgstr "Optimaliseren"
 
-#: libraries/classes/Operations.php:556
+#: libraries/classes/Operations.php:557
 #: templates/table/structure/display_partitions.twig:115
 msgid "Rebuild"
 msgstr "Heropbouwen"
 
-#: libraries/classes/Operations.php:557
+#: libraries/classes/Operations.php:558
 #: templates/table/structure/display_partitions.twig:125
 msgid "Repair"
 msgstr "Repareren"
 
-#: libraries/classes/Operations.php:558
+#: libraries/classes/Operations.php:559
 #: templates/table/structure/display_partitions.twig:135
 msgid "Truncate"
 msgstr "Afbreken"
 
-#: libraries/classes/Operations.php:570 templates/database/events/index.twig:19
+#: libraries/classes/Operations.php:571 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
 #: templates/database/events/index.twig:96
 #: templates/database/events/index.twig:102
@@ -11128,39 +11128,39 @@ msgstr "Afbreken"
 msgid "Drop"
 msgstr "Verwijderen"
 
-#: libraries/classes/Operations.php:572
+#: libraries/classes/Operations.php:573
 msgid "Coalesce"
 msgstr "Samenvoegen"
 
-#: libraries/classes/Operations.php:926
+#: libraries/classes/Operations.php:927
 msgid "Can't move table to same one!"
 msgstr "Kan de tabel niet naar dezelfde verplaatsen!"
 
-#: libraries/classes/Operations.php:928
+#: libraries/classes/Operations.php:929
 msgid "Can't copy table to same one!"
 msgstr "Kan de tabel niet naar dezelfde kopiëren!"
 
-#: libraries/classes/Operations.php:952
+#: libraries/classes/Operations.php:953
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabel %s is verplaatst naar %s. Rechten zijn aangepast."
 
-#: libraries/classes/Operations.php:958
+#: libraries/classes/Operations.php:959
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabel %s is gekopieerd naar %s. Rechten zijn aangepast."
 
-#: libraries/classes/Operations.php:965
+#: libraries/classes/Operations.php:966
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabel %s is verplaatst naar %s."
 
-#: libraries/classes/Operations.php:969
+#: libraries/classes/Operations.php:970
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabel %s is gekopieerd naar %s."
 
-#: libraries/classes/Operations.php:993
+#: libraries/classes/Operations.php:994
 msgid "The table name is empty!"
 msgstr "De tabelnaam is leeg!"
 
@@ -11296,11 +11296,11 @@ msgstr "Regels beëindigd door:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:77
 #: libraries/classes/Plugins/Export/ExportExcel.php:51
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:79
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:80
 #: libraries/classes/Plugins/Export/ExportLatex.php:187
 #: libraries/classes/Plugins/Export/ExportOds.php:64
-#: libraries/classes/Plugins/Export/ExportOdt.php:132
-#: libraries/classes/Plugins/Export/ExportTexytext.php:83
+#: libraries/classes/Plugins/Export/ExportOdt.php:133
+#: libraries/classes/Plugins/Export/ExportTexytext.php:84
 msgid "Replace NULL with:"
 msgstr "Vervang NULL door:"
 
@@ -11313,68 +11313,68 @@ msgstr "Verwijder CRLF-tekens uit kolommen"
 msgid "Excel edition:"
 msgstr "Excel-editie:"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:61
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:62
 #: libraries/classes/Plugins/Export/ExportLatex.php:94
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
-#: libraries/classes/Plugins/Export/ExportOdt.php:75
+#: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:242
-#: libraries/classes/Plugins/Export/ExportTexytext.php:60
+#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
 #: libraries/config.values.php:347
 msgid "structure"
 msgstr "structuur"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:62
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
 #: libraries/classes/Plugins/Export/ExportLatex.php:95
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
-#: libraries/classes/Plugins/Export/ExportOdt.php:76
+#: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:243
-#: libraries/classes/Plugins/Export/ExportTexytext.php:61
+#: libraries/classes/Plugins/Export/ExportSql.php:244
+#: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
 #: libraries/config.values.php:348
 msgid "data"
 msgstr "data"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:64
 #: libraries/classes/Plugins/Export/ExportLatex.php:96
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
-#: libraries/classes/Plugins/Export/ExportOdt.php:77
+#: libraries/classes/Plugins/Export/ExportOdt.php:78
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:244
-#: libraries/classes/Plugins/Export/ExportTexytext.php:62
+#: libraries/classes/Plugins/Export/ExportSql.php:245
+#: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
 msgid "structure and data"
 msgstr "structuur en data"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:73
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:74
 #: libraries/classes/Plugins/Export/ExportLatex.php:158
-#: libraries/classes/Plugins/Export/ExportOdt.php:121
-#: libraries/classes/Plugins/Export/ExportTexytext.php:72
-#: libraries/classes/Plugins/Export/ExportXml.php:133
+#: libraries/classes/Plugins/Export/ExportOdt.php:122
+#: libraries/classes/Plugins/Export/ExportTexytext.php:73
+#: libraries/classes/Plugins/Export/ExportXml.php:134
 msgid "Data dump options"
 msgstr "Dataexport-opties"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:193
-#: libraries/classes/Plugins/Export/ExportOdt.php:249
-#: libraries/classes/Plugins/Export/ExportSql.php:2322
-#: libraries/classes/Plugins/Export/ExportTexytext.php:177
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:194
+#: libraries/classes/Plugins/Export/ExportOdt.php:250
+#: libraries/classes/Plugins/Export/ExportSql.php:2323
+#: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr "Gegevens worden geëxporteerd voor tabel"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:278
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:371
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:279
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
 #: libraries/classes/Plugins/Export/ExportLatex.php:524
-#: libraries/classes/Plugins/Export/ExportOdt.php:373
-#: libraries/classes/Plugins/Export/ExportOdt.php:475
-#: libraries/classes/Plugins/Export/ExportTexytext.php:289
-#: libraries/classes/Plugins/Export/ExportTexytext.php:379
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:524
+#: libraries/classes/Plugins/Export/ExportOdt.php:374
+#: libraries/classes/Plugins/Export/ExportOdt.php:476
+#: libraries/classes/Plugins/Export/ExportTexytext.php:290
+#: libraries/classes/Plugins/Export/ExportTexytext.php:380
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:525
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: templates/columns_definitions/table_fields_definitions.twig:30
@@ -11392,14 +11392,14 @@ msgstr "Gegevens worden geëxporteerd voor tabel"
 msgid "Null"
 msgstr "Leeg"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:281
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:374
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:282
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:375
 #: libraries/classes/Plugins/Export/ExportLatex.php:525
-#: libraries/classes/Plugins/Export/ExportOdt.php:376
-#: libraries/classes/Plugins/Export/ExportOdt.php:478
-#: libraries/classes/Plugins/Export/ExportTexytext.php:290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:380
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:526
+#: libraries/classes/Plugins/Export/ExportOdt.php:377
+#: libraries/classes/Plugins/Export/ExportOdt.php:479
+#: libraries/classes/Plugins/Export/ExportTexytext.php:291
+#: libraries/classes/Plugins/Export/ExportTexytext.php:381
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:527
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:703
 #: templates/columns_definitions/table_fields_definitions.twig:20
@@ -11414,21 +11414,21 @@ msgstr "Leeg"
 msgid "Default"
 msgstr "Standaardwaarde"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:378
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:379
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
-#: libraries/classes/Plugins/Export/ExportOdt.php:482
-#: libraries/classes/Plugins/Export/ExportTexytext.php:382
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:535
+#: libraries/classes/Plugins/Export/ExportOdt.php:483
+#: libraries/classes/Plugins/Export/ExportTexytext.php:383
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "Verwijst naar"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:469
-#: libraries/classes/Plugins/Export/ExportOdt.php:590
-#: libraries/classes/Plugins/Export/ExportTexytext.php:450
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:356
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
+#: libraries/classes/Plugins/Export/ExportOdt.php:591
+#: libraries/classes/Plugins/Export/ExportTexytext.php:451
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:357
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
@@ -11442,34 +11442,34 @@ msgstr "Verwijst naar"
 msgid "Name"
 msgstr "Naam"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:472
-#: libraries/classes/Plugins/Export/ExportOdt.php:599
-#: libraries/classes/Plugins/Export/ExportTexytext.php:453
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:362
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:473
+#: libraries/classes/Plugins/Export/ExportOdt.php:600
+#: libraries/classes/Plugins/Export/ExportTexytext.php:454
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:363
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
 #: templates/database/triggers/editor_form.twig:57
 msgid "Definition"
 msgstr "Definitie"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:542
-#: libraries/classes/Plugins/Export/ExportOdt.php:675
-#: libraries/classes/Plugins/Export/ExportSql.php:2058
-#: libraries/classes/Plugins/Export/ExportTexytext.php:515
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:543
+#: libraries/classes/Plugins/Export/ExportOdt.php:676
+#: libraries/classes/Plugins/Export/ExportSql.php:2059
+#: libraries/classes/Plugins/Export/ExportTexytext.php:516
 msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:560
-#: libraries/classes/Plugins/Export/ExportOdt.php:707
-#: libraries/classes/Plugins/Export/ExportSql.php:2109
-#: libraries/classes/Plugins/Export/ExportTexytext.php:541
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:561
+#: libraries/classes/Plugins/Export/ExportOdt.php:708
+#: libraries/classes/Plugins/Export/ExportSql.php:2110
+#: libraries/classes/Plugins/Export/ExportTexytext.php:542
 msgid "Structure for view"
 msgstr "Structuur voor de view"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:566
-#: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2141
-#: libraries/classes/Plugins/Export/ExportTexytext.php:557
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:567
+#: libraries/classes/Plugins/Export/ExportOdt.php:728
+#: libraries/classes/Plugins/Export/ExportSql.php:2142
+#: libraries/classes/Plugins/Export/ExportTexytext.php:558
 msgid "Stand-in structure for view"
 msgstr "Stand-in structuur voor view"
 
@@ -11495,8 +11495,8 @@ msgid "Structure of table @TABLE@"
 msgstr "Structuur van de tabel @TABLE@"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
-#: libraries/classes/Plugins/Export/ExportOdt.php:88
-#: libraries/classes/Plugins/Export/ExportSql.php:257
+#: libraries/classes/Plugins/Export/ExportOdt.php:89
+#: libraries/classes/Plugins/Export/ExportSql.php:258
 msgid "Object creation options"
 msgstr "Object-aanmaakopties"
 
@@ -11516,19 +11516,19 @@ msgid "Label key:"
 msgstr "Labelsleutel:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
-#: libraries/classes/Plugins/Export/ExportOdt.php:96
-#: libraries/classes/Plugins/Export/ExportSql.php:151
+#: libraries/classes/Plugins/Export/ExportOdt.php:97
+#: libraries/classes/Plugins/Export/ExportSql.php:152
 msgid "Display foreign key relationships"
 msgstr "Toon vreemdesleutelrelaties"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
-#: libraries/classes/Plugins/Export/ExportOdt.php:103
+#: libraries/classes/Plugins/Export/ExportOdt.php:104
 msgid "Display comments"
 msgstr "Toon opmerkingen"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:146
-#: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:159
+#: libraries/classes/Plugins/Export/ExportOdt.php:110
+#: libraries/classes/Plugins/Export/ExportSql.php:160
 msgid "Display media types"
 msgstr "Toon beschikbare media typen"
 
@@ -11537,43 +11537,43 @@ msgid "Put columns names in the first row:"
 msgstr "Kolomnamen in de eerste regel plaatsen:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:754
-#: libraries/classes/Plugins/Export/ExportXml.php:231
+#: libraries/classes/Plugins/Export/ExportSql.php:755
+#: libraries/classes/Plugins/Export/ExportXml.php:219
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
 msgid "Host:"
 msgstr "Host:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:761
-#: libraries/classes/Plugins/Export/ExportXml.php:237
+#: libraries/classes/Plugins/Export/ExportSql.php:762
+#: libraries/classes/Plugins/Export/ExportXml.php:225
 msgid "Generation Time:"
 msgstr "Gegenereerd op:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:765
-#: libraries/classes/Plugins/Export/ExportXml.php:239
+#: libraries/classes/Plugins/Export/ExportSql.php:766
+#: libraries/classes/Plugins/Export/ExportXml.php:227
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "Serverversie:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:767
-#: libraries/classes/Plugins/Export/ExportXml.php:240
+#: libraries/classes/Plugins/Export/ExportSql.php:768
+#: libraries/classes/Plugins/Export/ExportXml.php:228
 msgid "PHP Version:"
 msgstr "PHP-versie:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:939
-#: libraries/classes/Plugins/Export/ExportXml.php:389
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:200
+#: libraries/classes/Plugins/Export/ExportSql.php:940
+#: libraries/classes/Plugins/Export/ExportXml.php:385
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
 msgstr "Database:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:315
-#: libraries/classes/Plugins/Export/ExportSql.php:2197
+#: libraries/classes/Plugins/Export/ExportSql.php:2198
 msgid "Data:"
 msgstr "Gegevens:"
 
@@ -11589,8 +11589,8 @@ msgstr "Tabelnamen exporteren"
 msgid "Export table headers"
 msgstr "Exporteer tabel kopregels"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:250
-#: libraries/classes/Plugins/Export/ExportTexytext.php:178
+#: libraries/classes/Plugins/Export/ExportOdt.php:251
+#: libraries/classes/Plugins/Export/ExportTexytext.php:179
 msgid "Dumping data for query result"
 msgstr "Gegevens worden geëxporteerd voor query resultaat"
 
@@ -11614,7 +11614,7 @@ msgstr "View structuur"
 msgid "Stand in"
 msgstr "Staan in"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:130
+#: libraries/classes/Plugins/Export/ExportSql.php:131
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -11622,11 +11622,11 @@ msgstr ""
 "Opmerkingen weergeven <i>(bevat informatie zoals tijdstip van export, PHP-"
 "versie en serverversie)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:137
+#: libraries/classes/Plugins/Export/ExportSql.php:138
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Een opmerking toevoegen in de header (\\n om regels af te breken):"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:143
+#: libraries/classes/Plugins/Export/ExportSql.php:144
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -11634,49 +11634,49 @@ msgstr ""
 "Voeg een tijdstip toe waarop databases aangemaakt, laatst aangepast en "
 "laatst gecontroleerd zijn"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:204
+#: libraries/classes/Plugins/Export/ExportSql.php:205
 msgid "Export metadata"
 msgstr "Exporteer metadata"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:219
+#: libraries/classes/Plugins/Export/ExportSql.php:220
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Databasesysteem of oudere MySQL-server om uitvoercompatibiliteit mee te "
 "maximaliseren:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:265
+#: libraries/classes/Plugins/Export/ExportSql.php:266
 msgid "Add statements:"
 msgstr "Statements toevoegen:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:273
-#: libraries/classes/Plugins/Export/ExportSql.php:282
-#: libraries/classes/Plugins/Export/ExportSql.php:299
-#: libraries/classes/Plugins/Export/ExportSql.php:308
-#: libraries/classes/Plugins/Export/ExportSql.php:332
-#: libraries/classes/Plugins/Export/ExportSql.php:360
-#: libraries/classes/Plugins/Export/ExportSql.php:369
+#: libraries/classes/Plugins/Export/ExportSql.php:274
+#: libraries/classes/Plugins/Export/ExportSql.php:283
+#: libraries/classes/Plugins/Export/ExportSql.php:300
+#: libraries/classes/Plugins/Export/ExportSql.php:309
+#: libraries/classes/Plugins/Export/ExportSql.php:333
+#: libraries/classes/Plugins/Export/ExportSql.php:361
+#: libraries/classes/Plugins/Export/ExportSql.php:370
 #, php-format
 msgid "Add %s statement"
 msgstr "%s statement toevoegen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:315
+#: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(minder efficiënt doordat indexen worden gegenereerd tijdens het aanmaken "
 "van de tabel)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:322
+#: libraries/classes/Plugins/Export/ExportSql.php:323
 #, php-format
 msgid "%s value"
 msgstr "%s waarde"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:339
+#: libraries/classes/Plugins/Export/ExportSql.php:340
 msgid "Use simple view export"
 msgstr "Gebruik de eenvoudige (simple) view export"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:378
+#: libraries/classes/Plugins/Export/ExportSql.php:379
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -11684,37 +11684,37 @@ msgstr ""
 "Voeg aanhalingstekens toe aan tabel- en kolomnamen <i>(Beschermt tabel- en "
 "kolomnamen die speciale tekens en sleutelwoorden bevatten)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:393
+#: libraries/classes/Plugins/Export/ExportSql.php:394
 msgid "Data creation options"
 msgstr "Data-aanmaakopties"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2279
+#: libraries/classes/Plugins/Export/ExportSql.php:399
+#: libraries/classes/Plugins/Export/ExportSql.php:2280
 msgid "Truncate table before insert"
 msgstr "Tabel leegmaken voor invoegen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:405
+#: libraries/classes/Plugins/Export/ExportSql.php:406
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "In plaats van <code>INSERT</code>-opdrachten, gebruik:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:411
+#: libraries/classes/Plugins/Export/ExportSql.php:412
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code>-opdrachten"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:423
-#: libraries/classes/Plugins/Export/ExportSql.php:457
+#: libraries/classes/Plugins/Export/ExportSql.php:424
+#: libraries/classes/Plugins/Export/ExportSql.php:458
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code>-opdrachten"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:437
+#: libraries/classes/Plugins/Export/ExportSql.php:438
 msgid "Function to use when dumping data:"
 msgstr "Functie om te gebruiken bij het exporteren van gegevens:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:452
+#: libraries/classes/Plugins/Export/ExportSql.php:453
 msgid "Syntax to use when inserting data:"
 msgstr "Syntax om te gebruiken bij het toevoegen van gegevens:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:462
+#: libraries/classes/Plugins/Export/ExportSql.php:463
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11724,7 +11724,7 @@ msgstr ""
 "&nbsp; Voorbeeld: <code>INSERT INTO tbl_naam (kol_A,kol_B,kol_C) VALUES "
 "(1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:467
+#: libraries/classes/Plugins/Export/ExportSql.php:468
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11734,7 +11734,7 @@ msgstr ""
 "&nbsp; &nbsp; Voorbeeld: <code>INSERT INTO tbl_naam VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:472
+#: libraries/classes/Plugins/Export/ExportSql.php:473
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -11742,7 +11742,7 @@ msgstr ""
 "beide van bovenstaande<br> &nbsp; &nbsp; &nbsp; Voorbeeld: <code>INSERT INTO "
 "tbl_naam (kol_A,kol_B,kol_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:477
+#: libraries/classes/Plugins/Export/ExportSql.php:478
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11750,7 +11750,7 @@ msgstr ""
 "geen van bovenstaande<br> &nbsp; &nbsp; &nbsp; Voorbeeld: <code>INSERT INTO "
 "tbl_naam VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:496
+#: libraries/classes/Plugins/Export/ExportSql.php:497
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -11758,7 +11758,7 @@ msgstr ""
 "Exporteer kolommen in binair formaat met hexadecimale notatie "
 "<i>(bijvoorbeeld, \"abc\" wordt 0x616263)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:505
+#: libraries/classes/Plugins/Export/ExportSql.php:506
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -11767,118 +11767,118 @@ msgstr ""
 "kolommen geëxporteerd en opnieuw ingeladen kunnen worden in servers in "
 "verschillende tijdszones)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:582
+#: libraries/classes/Plugins/Export/ExportSql.php:583
 msgid "It appears your database uses routines;"
 msgstr "Het lijkt erop dat uw database programmaroutines gebruikt;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:585
-#: libraries/classes/Plugins/Export/ExportSql.php:1595
-#: libraries/classes/Plugins/Export/ExportSql.php:2097
+#: libraries/classes/Plugins/Export/ExportSql.php:586
+#: libraries/classes/Plugins/Export/ExportSql.php:1596
+#: libraries/classes/Plugins/Export/ExportSql.php:2098
 msgid "alias export may not work reliably in all cases."
 msgstr "alias uitvoer mogelijk niet betrouwbaar in alle gevallen."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1056
+#: libraries/classes/Plugins/Export/ExportSql.php:1057
 msgid "Metadata"
 msgstr "Metadata"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1122
+#: libraries/classes/Plugins/Export/ExportSql.php:1123
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadata voor tabel %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1129
+#: libraries/classes/Plugins/Export/ExportSql.php:1130
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadata voor database %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1436
+#: libraries/classes/Plugins/Export/ExportSql.php:1437
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "Aangemaakt:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1446
+#: libraries/classes/Plugins/Export/ExportSql.php:1447
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "Laatst bijgewerkt:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1456
+#: libraries/classes/Plugins/Export/ExportSql.php:1457
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "Laatst gecontroleerd:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1507
+#: libraries/classes/Plugins/Export/ExportSql.php:1508
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Fout bij lezen van tabelstructuur van tabel %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1592
+#: libraries/classes/Plugins/Export/ExportSql.php:1593
 msgid "It appears your database uses views;"
 msgstr "Het lijkt erop dat uw databaseviews gebruikt;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1759
+#: libraries/classes/Plugins/Export/ExportSql.php:1760
 msgid "Constraints for dumped tables"
 msgstr "Beperkingen voor geëxporteerde tabellen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1760
+#: libraries/classes/Plugins/Export/ExportSql.php:1761
 msgid "Constraints for table"
 msgstr "Beperkingen voor tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1787
+#: libraries/classes/Plugins/Export/ExportSql.php:1788
 msgid "Indexes for dumped tables"
 msgstr "Indexen voor geëxporteerde tabellen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1788
+#: libraries/classes/Plugins/Export/ExportSql.php:1789
 msgid "Indexes for table"
 msgstr "Indexen voor tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1824
+#: libraries/classes/Plugins/Export/ExportSql.php:1825
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT voor geëxporteerde tabellen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1825
+#: libraries/classes/Plugins/Export/ExportSql.php:1826
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT voor een tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1900
+#: libraries/classes/Plugins/Export/ExportSql.php:1901
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MEDIA TYPEN VOOR TABEL"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1925
+#: libraries/classes/Plugins/Export/ExportSql.php:1926
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2094
+#: libraries/classes/Plugins/Export/ExportSql.php:2095
 msgid "It appears your table uses triggers;"
 msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2124
+#: libraries/classes/Plugins/Export/ExportSql.php:2125
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Structuur voor view %s geëxporteerd als tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2144
+#: libraries/classes/Plugins/Export/ExportSql.php:2145
 msgid "(See below for the actual view)"
 msgstr "(Zie onder voor de actuele view)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2212
+#: libraries/classes/Plugins/Export/ExportSql.php:2213
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Fout bij het lezen van gegevens voor tabel %s:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:95
 msgid "Object creation options (all are recommended)"
 msgstr "Object-aanmaakopties (alle zijn aangeraden)"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:138
+#: libraries/classes/Plugins/Export/ExportXml.php:139
 msgid "Export contents"
 msgstr "Exporteerinhoud"
 
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:202
 #: templates/menu/breadcrumbs.twig:29
 msgid "Table:"
 msgstr "Tabel:"
 
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:202
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:203
 msgid "Purpose:"
 msgstr "Doel:"
 
@@ -12588,8 +12588,8 @@ msgid "Error while loading the search."
 msgstr "Fout bij het laden van de opzoeking."
 
 #: libraries/classes/Server/Plugins.php:66
-#: libraries/classes/Server/Privileges.php:792
-#: libraries/classes/Server/Privileges.php:3723
+#: libraries/classes/Server/Privileges.php:793
+#: libraries/classes/Server/Privileges.php:3724
 msgid "Native MySQL authentication"
 msgstr "MySQL authenticatie"
 
@@ -12614,16 +12614,16 @@ msgstr "Oude MySQL-4.0 authenticatie"
 msgid "Account locking is not supported."
 msgstr "Gebruikersaccount vergrendeling wordt niet ondersteund."
 
-#: libraries/classes/Server/Privileges.php:262
+#: libraries/classes/Server/Privileges.php:263
 msgid "No privileges."
 msgstr "Geen rechten."
 
-#: libraries/classes/Server/Privileges.php:270
+#: libraries/classes/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "Omvat alle rechten behalve GRANT."
 
-#: libraries/classes/Server/Privileges.php:292
-#: libraries/classes/Server/Privileges.php:359
+#: libraries/classes/Server/Privileges.php:293
+#: libraries/classes/Server/Privileges.php:360
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12631,7 +12631,7 @@ msgstr "Omvat alle rechten behalve GRANT."
 msgid "Allows deleting data."
 msgstr "Maakt het mogelijk om gegevens te verwijderen."
 
-#: libraries/classes/Server/Privileges.php:297
+#: libraries/classes/Server/Privileges.php:298
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12639,7 +12639,7 @@ msgstr "Maakt het mogelijk om gegevens te verwijderen."
 msgid "Allows creating new tables."
 msgstr "Maakt het mogelijk nieuwe tabellen te maken."
 
-#: libraries/classes/Server/Privileges.php:302
+#: libraries/classes/Server/Privileges.php:303
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12647,8 +12647,8 @@ msgstr "Maakt het mogelijk nieuwe tabellen te maken."
 msgid "Allows dropping tables."
 msgstr "Maakt het mogelijk tabellen te verwijderen."
 
-#: libraries/classes/Server/Privileges.php:307
-#: libraries/classes/Server/Privileges.php:399
+#: libraries/classes/Server/Privileges.php:308
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12656,8 +12656,8 @@ msgstr "Maakt het mogelijk tabellen te verwijderen."
 msgid "Allows creating and dropping indexes."
 msgstr "Maakt het mogelijk om indexen aan te maken en te verwijderen."
 
-#: libraries/classes/Server/Privileges.php:312
-#: libraries/classes/Server/Privileges.php:404
+#: libraries/classes/Server/Privileges.php:313
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12665,9 +12665,9 @@ msgstr "Maakt het mogelijk om indexen aan te maken en te verwijderen."
 msgid "Allows altering the structure of existing tables."
 msgstr "Maakt het mogelijk de structuur van bestaande tabellen aan te passen."
 
-#: libraries/classes/Server/Privileges.php:317
-#: libraries/classes/Server/Privileges.php:443
-#: libraries/classes/Server/Privileges.php:459
+#: libraries/classes/Server/Privileges.php:318
+#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:460
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12677,9 +12677,9 @@ msgstr "Maakt het mogelijk de structuur van bestaande tabellen aan te passen."
 msgid "Allows creating new views."
 msgstr "Maakt het mogelijk om nieuwe views te maken."
 
-#: libraries/classes/Server/Privileges.php:322
-#: libraries/classes/Server/Privileges.php:464
-#: libraries/classes/Server/Privileges.php:470
+#: libraries/classes/Server/Privileges.php:323
+#: libraries/classes/Server/Privileges.php:465
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12687,8 +12687,8 @@ msgstr "Maakt het mogelijk om nieuwe views te maken."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Maakt het mogelijk om SHOW CREATE VIEW uit te voeren."
 
-#: libraries/classes/Server/Privileges.php:327
-#: libraries/classes/Server/Privileges.php:453
+#: libraries/classes/Server/Privileges.php:328
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12696,40 +12696,40 @@ msgstr "Maakt het mogelijk om SHOW CREATE VIEW uit te voeren."
 msgid "Allows creating and dropping triggers."
 msgstr "Maakt het mogelijk om triggers aan te maken en te verwijderen."
 
-#: libraries/classes/Server/Privileges.php:344
+#: libraries/classes/Server/Privileges.php:345
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Maakt het lezen van gegevens mogelijk."
 
-#: libraries/classes/Server/Privileges.php:349
+#: libraries/classes/Server/Privileges.php:350
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Maakt het mogelijk om gegevens in te voegen en te vervangen."
 
-#: libraries/classes/Server/Privileges.php:354
+#: libraries/classes/Server/Privileges.php:355
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Maakt het mogelijk gegevens aan te passen."
 
-#: libraries/classes/Server/Privileges.php:364
+#: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Maakt het mogelijk om nieuwe databases en tabellen te maken."
 
-#: libraries/classes/Server/Privileges.php:369
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Maakt het mogelijk om databases en tabellen te verwijderen."
 
-#: libraries/classes/Server/Privileges.php:374
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -12737,19 +12737,19 @@ msgstr ""
 "Maakt het mogelijk om de serverinstellingen opnieuw op te vragen en de cache "
 "van de server leeg te maken."
 
-#: libraries/classes/Server/Privileges.php:379
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Maakt het mogelijk om de server te stoppen."
 
-#: libraries/classes/Server/Privileges.php:384
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "Maakt het mogelijk om processen van alle gebruikers te zien."
 
-#: libraries/classes/Server/Privileges.php:389
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
@@ -12757,19 +12757,19 @@ msgstr ""
 "Maakt het mogelijk om gegevens te importeren en te exporteren van en naar "
 "bestanden."
 
-#: libraries/classes/Server/Privileges.php:394
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Heeft geen effect in deze MySQL-versie."
 
-#: libraries/classes/Server/Privileges.php:409
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Geeft toegang tot de volledige lijst van databases."
 
-#: libraries/classes/Server/Privileges.php:415
+#: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12782,25 +12782,25 @@ msgstr ""
 "opties zoals het instellen van globale variabelen of het stoppen van threads "
 "van andere gebruikers."
 
-#: libraries/classes/Server/Privileges.php:423
+#: libraries/classes/Server/Privileges.php:424
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Maakt het mogelijk om tijdelijke tabellen te maken."
 
-#: libraries/classes/Server/Privileges.php:428
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Maakt het mogelijk tabellen op slot te zetten voor de huidige thread."
 
-#: libraries/classes/Server/Privileges.php:433
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr "Nodig voor de replica's."
 
-#: libraries/classes/Server/Privileges.php:438
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -12808,63 +12808,63 @@ msgstr ""
 "Geeft het recht aan de gebruiker om te vragen waar de replica's / primaire "
 "databases zijn."
 
-#: libraries/classes/Server/Privileges.php:448
+#: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "Maakt het mogelijk om gebeurtenissen in de planner te zetten."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:477
-#: libraries/classes/Server/Privileges.php:486
+#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 msgid "Allows deleting historical rows."
 msgstr "Staat verwijderen van historische rijen toe."
 
-#: libraries/classes/Server/Privileges.php:491
+#: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Maakt het mogelijk om opgeslagen routines aan te maken."
 
-#: libraries/classes/Server/Privileges.php:496
+#: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 "Maakt het mogelijk om opgeslagen routines te bewerken en te verwijderen."
 
-#: libraries/classes/Server/Privileges.php:501
+#: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Maakt het mogelijk om gebruikersaccounts te maken, hernoemen en verwijderen."
 
-#: libraries/classes/Server/Privileges.php:506
+#: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Maakt het mogelijk om opgeslagen routines uit te voeren."
 
-#: libraries/classes/Server/Privileges.php:1076
+#: libraries/classes/Server/Privileges.php:1077
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Het wachtwoord voor %s is succesvol veranderd."
 
-#: libraries/classes/Server/Privileges.php:1124
+#: libraries/classes/Server/Privileges.php:1125
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "U heeft de rechten ingetrokken voor %s."
 
-#: libraries/classes/Server/Privileges.php:1441
+#: libraries/classes/Server/Privileges.php:1442
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Niet genoeg rechten om gebruikers in te zien."
 
-#: libraries/classes/Server/Privileges.php:1503
+#: libraries/classes/Server/Privileges.php:1504
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12872,85 +12872,85 @@ msgstr "Niet genoeg rechten om gebruikers in te zien."
 msgid "Edit privileges"
 msgstr "Rechten bewerken"
 
-#: libraries/classes/Server/Privileges.php:1507
+#: libraries/classes/Server/Privileges.php:1508
 msgid "Revoke"
 msgstr "Ongedaan maken"
 
-#: libraries/classes/Server/Privileges.php:1817
+#: libraries/classes/Server/Privileges.php:1818
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Database-specifieke rechten"
 
-#: libraries/classes/Server/Privileges.php:1823
+#: libraries/classes/Server/Privileges.php:1824
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Tabel-specifieke rechten"
 
-#: libraries/classes/Server/Privileges.php:1828
-#: libraries/classes/Server/Privileges.php:1830
+#: libraries/classes/Server/Privileges.php:1829
+#: libraries/classes/Server/Privileges.php:1831
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "Routine"
 
-#: libraries/classes/Server/Privileges.php:1829
+#: libraries/classes/Server/Privileges.php:1830
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Routine-specifieke rechten"
 
-#: libraries/classes/Server/Privileges.php:2173
+#: libraries/classes/Server/Privileges.php:2174
 msgid "No users selected for deleting!"
 msgstr "Geen gebruikers geselecteerd om te verwijderen!"
 
-#: libraries/classes/Server/Privileges.php:2176
+#: libraries/classes/Server/Privileges.php:2177
 msgid "Reloading the privileges"
 msgstr "De rechten worden opnieuw geladen"
 
-#: libraries/classes/Server/Privileges.php:2201
+#: libraries/classes/Server/Privileges.php:2202
 msgid "The selected users have been deleted successfully."
 msgstr "De geselecteerde gebruikers zijn met succes verwijderd."
 
-#: libraries/classes/Server/Privileges.php:2278
+#: libraries/classes/Server/Privileges.php:2279
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "U heeft de rechten aangepast voor %s."
 
 # Enkelvoud.
-#: libraries/classes/Server/Privileges.php:2365
+#: libraries/classes/Server/Privileges.php:2366
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Geen gebruiker gevonden."
 
-#: libraries/classes/Server/Privileges.php:2452
+#: libraries/classes/Server/Privileges.php:2453
 #, php-format
 msgid "Deleting %s"
 msgstr "Verwijderen van %s"
 
-#: libraries/classes/Server/Privileges.php:2483
+#: libraries/classes/Server/Privileges.php:2484
 msgid "The privileges were reloaded successfully."
 msgstr "De rechten zijn succesvol opnieuw geladen."
 
-#: libraries/classes/Server/Privileges.php:2587
+#: libraries/classes/Server/Privileges.php:2588
 #, php-format
 msgid "The user %s already exists!"
 msgstr "De gebruiker %s bestaat al!"
 
-#: libraries/classes/Server/Privileges.php:2862
+#: libraries/classes/Server/Privileges.php:2863
 #, php-format
 msgid "Privileges for %s"
 msgstr "Rechten voor %s"
 
-#: libraries/classes/Server/Privileges.php:2871
+#: libraries/classes/Server/Privileges.php:2872
 #: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Gebruiker"
 
-#: libraries/classes/Server/Privileges.php:2981
+#: libraries/classes/Server/Privileges.php:2982
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12961,7 +12961,7 @@ msgstr ""
 "maken als het server deel van hun account een verbinding toestaat vanaf elke "
 "server (%)."
 
-#: libraries/classes/Server/Privileges.php:3015
+#: libraries/classes/Server/Privileges.php:3016
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12975,7 +12975,7 @@ msgstr ""
 "dit het geval zijn dan moet men %s de rechtentabel vernieuwen %s voordat men "
 "verder gaat."
 
-#: libraries/classes/Server/Privileges.php:3031
+#: libraries/classes/Server/Privileges.php:3032
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12989,7 +12989,7 @@ msgstr ""
 "aangebracht. Mocht dit het geval zijn dan moet de gebruikersrechten opnieuw "
 "geladen worden, maar op dit moment heeft u niet het RELOAD gebruikersrecht."
 
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:3346
 msgid "You have added a new user."
 msgstr "U heeft een nieuwe gebruiker toegevoegd."
 
@@ -13185,7 +13185,7 @@ msgstr "%s is uitgeschakeld op deze MySQL-server."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s opslag-engine niet."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2103
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2100
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "De naam van de primaire sleutel moet \"PRIMARY\" zijn!"
 
@@ -13194,43 +13194,43 @@ msgstr "De naam van de primaire sleutel moet \"PRIMARY\" zijn!"
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"
 
-#: libraries/classes/Table.php:348
+#: libraries/classes/Table.php:349
 msgid "Unknown table status:"
 msgstr "Onbekende tabelstatus:"
 
-#: libraries/classes/Table.php:1001
+#: libraries/classes/Table.php:1002
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Brondatabase `%s` is niet gevonden!"
 
-#: libraries/classes/Table.php:1010
+#: libraries/classes/Table.php:1011
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Doeldatabase `%s` niet gevonden!"
 
-#: libraries/classes/Table.php:1475
+#: libraries/classes/Table.php:1476
 msgid "Invalid database:"
 msgstr "Ongeldige database:"
 
-#: libraries/classes/Table.php:1493
+#: libraries/classes/Table.php:1494
 msgid "Invalid table name:"
 msgstr "Ongeldige tabelnaam:"
 
-#: libraries/classes/Table.php:1533
+#: libraries/classes/Table.php:1530
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Fout bij hernoemen van tabel %1$s naar %2$s!"
 
-#: libraries/classes/Table.php:1550
+#: libraries/classes/Table.php:1547
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
-#: libraries/classes/Table.php:1795
+#: libraries/classes/Table.php:1792
 msgid "Could not save table UI preferences!"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen!"
 
-#: libraries/classes/Table.php:1821
+#: libraries/classes/Table.php:1818
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13239,7 +13239,7 @@ msgstr ""
 "Opkuisen van tabelinterfacevoorkeuren is mislukt (zie $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1956
+#: libraries/classes/Table.php:1953
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13250,15 +13250,15 @@ msgstr ""
 "wijzigingen zullen verdwijnen na verversen van deze pagina. Controleer of de "
 "tabelstructuur is gewijzigd."
 
-#: libraries/classes/Table.php:2115
+#: libraries/classes/Table.php:2112
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan index niet naar PRIMARY hernoemen!"
 
-#: libraries/classes/Table.php:2141
+#: libraries/classes/Table.php:2138
 msgid "No index parts defined!"
 msgstr "Geen index-delen gedefinieerd!"
 
-#: libraries/classes/Table.php:2437
+#: libraries/classes/Table.php:2434
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
