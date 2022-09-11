@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
 "PO-Revision-Date: 2022-09-14 10:18+0000\n"
-"Last-Translator: ETHEVE Jade <etheve.jade.mandy@gmail.com>\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Réunion Creole <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/rcf/>\n"
 "Language: rcf\n"
@@ -10724,7 +10724,7 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
 #: libraries/classes/Util.php:707
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%A %d %B %Y à %H:%M"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:31
 msgid ""
