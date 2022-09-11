@@ -524,17 +524,17 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db        Database
      * @param array  $aliases   Aliases of db/table/columns
-     * @param string $type      Type of exported routine
      * @param string $name      Verbose name of exported routine
      * @param array  $routines  List of routines to export
      * @param string $delimiter Delimiter to use in SQL
+     * @psalm-param 'FUNCTION'|'PROCEDURE' $type
      *
      * @return string SQL query
      */
     protected function exportRoutineSQL(
         $db,
         array $aliases,
-        $type,
+        string $type,
         $name,
         array $routines,
         $delimiter
@@ -555,13 +555,13 @@ class ExportSql extends ExportPlugin
                     . $delimiter . $GLOBALS['crlf'];
             }
 
-            $createQuery = $this->replaceWithAliases(
-                $GLOBALS['dbi']->getDefinition($db, $type, $routine),
-                $aliases,
-                $db,
-                '',
-                $flag
-            );
+            if ($type === 'FUNCTION') {
+                $definition = $GLOBALS['dbi']->getDefinition($db, 'FUNCTION', $routine);
+            } else {
+                $definition = $GLOBALS['dbi']->getDefinition($db, 'PROCEDURE', $routine);
+            }
+
+            $createQuery = $this->replaceWithAliases($definition, $aliases, $db, '', $flag);
             if (! empty($createQuery) && $GLOBALS['cfg']['Export']['remove_definer_from_definitions']) {
                 // Remove definer clause from routine definitions
                 $parser = new Parser($createQuery);

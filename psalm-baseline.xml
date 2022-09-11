@@ -9559,7 +9559,7 @@
       <code>$GLOBALS['cfg']['Export']</code>
       <code>$GLOBALS['cfg']['Export']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="50">
+    <MixedArgument occurrences="51">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_backquotes']</code>
@@ -9605,6 +9605,7 @@
       <code>$relFieldAlias</code>
       <code>$rel['foreign_field']</code>
       <code>$rel['foreign_table']</code>
+      <code>$routine</code>
       <code>$routine</code>
       <code>$routine</code>
       <code>$table</code>
@@ -9702,8 +9703,8 @@
       <code>Context::escape($alias)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument occurrences="5">
-      <code>$GLOBALS['dbi']-&gt;getDefinition($db, $type, $routine)</code>
       <code>$createQuery</code>
+      <code>$definition</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
