@@ -611,8 +611,8 @@ class ExportSql extends ExportPlugin
         $text = '';
         $delimiter = '$$';
 
-        $procedureNames = $GLOBALS['dbi']->getProceduresOrFunctions($db, 'PROCEDURE');
-        $functionNames = $GLOBALS['dbi']->getProceduresOrFunctions($db, 'FUNCTION');
+        $procedureNames = Routines::getProcedureNames($GLOBALS['dbi'], $db);
+        $functionNames = Routines::getFunctionNames($GLOBALS['dbi'], $db);
 
         if ($procedureNames || $functionNames) {
             $text .= $GLOBALS['crlf']

@@ -1466,33 +1466,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns an array of PROCEDURE or FUNCTION names for a db
-     *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION
-     * @param int    $link  link type
-     *
-     * @return string[] the procedure names or function names
-     */
-    public function getProceduresOrFunctions(
-        string $db,
-        string $which,
-        $link = self::CONNECT_USER
-    ): array {
-        $shows = $this->fetchResult('SHOW ' . $which . ' STATUS;', null, null, $link);
-        $result = [];
-        foreach ($shows as $oneShow) {
-            if ($oneShow['Db'] != $db || $oneShow['Type'] != $which) {
-                continue;
-            }
-
-            $result[] = $oneShow['Name'];
-        }
-
-        return $result;
-    }
-
-    /**
      * gets the current user with host
      *
      * @return string the current user i.e. user@host

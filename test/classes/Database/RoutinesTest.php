@@ -1433,4 +1433,84 @@ class RoutinesTest extends AbstractTestCase
             ],
         ];
     }
+
+    public function testGetFunctionNames(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW FUNCTION STATUS;',
+            [
+                ['db_test', 'test_func', 'FUNCTION'],
+                ['test_db', 'test_func1', 'FUNCTION'],
+                ['test_db', '', 'FUNCTION'],
+                ['test_db', 'test_func2', 'FUNCTION'],
+                ['test_db', 'test_func', 'PROCEDURE'],
+            ],
+            ['Db', 'Name', 'Type']
+        );
+
+        $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame(['test_func1', 'test_func2'], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetFunctionNamesWithEmptyReturn(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW FUNCTION STATUS;',
+            [
+                ['db_test', 'test_func', 'FUNCTION'],
+                ['test_db', '', 'FUNCTION'],
+                ['test_db', 'test_func', 'PROCEDURE'],
+            ],
+            ['Db', 'Name', 'Type']
+        );
+
+        $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame([], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetProcedureNames(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW PROCEDURE STATUS;',
+            [
+                ['db_test', 'test_proc', 'PROCEDURE'],
+                ['test_db', 'test_proc1', 'PROCEDURE'],
+                ['test_db', '', 'PROCEDURE'],
+                ['test_db', 'test_proc2', 'PROCEDURE'],
+                ['test_db', 'test_proc', 'FUNCTION'],
+            ],
+            ['Db', 'Name', 'Type']
+        );
+
+        $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame(['test_proc1', 'test_proc2'], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetProcedureNamesWithEmptyReturn(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW PROCEDURE STATUS;',
+            [
+                ['db_test', 'test_proc', 'PROCEDURE'],
+                ['test_db', '', 'PROCEDURE'],
+                ['test_db', 'test_proc', 'FUNCTION'],
+            ],
+            ['Db', 'Name', 'Type']
+        );
+
+        $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame([], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
 }

@@ -5673,11 +5673,8 @@
       <code>uksort($eachTables, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="5">
       <code>$link</code>
-      <code>$oneShow['Db']</code>
-      <code>$oneShow['Name']</code>
-      <code>$oneShow['Type']</code>
       <code>$tableData[$sortBy]</code>
       <code>$tableData['Data_length']</code>
       <code>$tableData['Engine']</code>
@@ -5695,7 +5692,7 @@
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="21">
+    <MixedAssignment occurrences="19">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$database</code>
@@ -5705,11 +5702,9 @@
       <code>$grant</code>
       <code>$keyIndex</code>
       <code>$map['real_column']</code>
-      <code>$oneShow</code>
       <code>$resultRows[$row[$key]]</code>
       <code>$resultRows[]</code>
       <code>$resultTarget</code>
-      <code>$result[]</code>
       <code>$table</code>
       <code>$tableData</code>
       <code>$tableData</code>
@@ -5734,11 +5729,9 @@
       <code>SessionCache::get('mysql_cur_user')</code>
       <code>reset($columns)</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="6">
-      <code>$result</code>
+    <MixedReturnTypeCoercion occurrences="4">
       <code>$this-&gt;fetchResult($sql, null, 'Field', $link)</code>
       <code>$this-&gt;fetchResult($sql, null, null, $link)</code>
-      <code>string[]</code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement occurrences="2">

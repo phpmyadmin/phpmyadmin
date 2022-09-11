@@ -430,21 +430,6 @@ interface DbalInterface
     public function getWarnings($link = DatabaseInterface::CONNECT_USER): array;
 
     /**
-     * returns an array of PROCEDURE or FUNCTION names for a db
-     *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION
-     * @param int    $link  link type
-     *
-     * @return string[] the procedure names or function names
-     */
-    public function getProceduresOrFunctions(
-        string $db,
-        string $which,
-        $link = DatabaseInterface::CONNECT_USER
-    ): array;
-
-    /**
      * gets the current user with host
      *
      * @return string the current user i.e. user@host

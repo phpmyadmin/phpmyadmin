@@ -57,7 +57,7 @@ class Operations
      */
     public function runProcedureAndFunctionDefinitions($db): void
     {
-        $procedure_names = $this->dbi->getProceduresOrFunctions($db, 'PROCEDURE');
+        $procedure_names = Routines::getProcedureNames($this->dbi, $db);
         if ($procedure_names) {
             foreach ($procedure_names as $procedure_name) {
                 $this->dbi->selectDb($db);
@@ -73,7 +73,7 @@ class Operations
             }
         }
 
-        $function_names = $this->dbi->getProceduresOrFunctions($db, 'FUNCTION');
+        $function_names = Routines::getFunctionNames($this->dbi, $db);
         if (! $function_names) {
             return;
         }

@@ -1692,4 +1692,44 @@ class Routines
 
         return is_string($result) ? $result : null;
     }
+
+    /**
+     * @return array<int, string>
+     * @psalm-return list<non-empty-string>
+     */
+    public static function getFunctionNames(DatabaseInterface $dbi, string $db): array
+    {
+        /** @psalm-var list<array{Db: string, Name: string, Type: string}> $functions */
+        $functions = $dbi->fetchResult('SHOW FUNCTION STATUS;');
+        $names = [];
+        foreach ($functions as $function) {
+            if ($function['Db'] !== $db || $function['Type'] !== 'FUNCTION' || $function['Name'] === '') {
+                continue;
+            }
+
+            $names[] = $function['Name'];
+        }
+
+        return $names;
+    }
+
+    /**
+     * @return array<int, string>
+     * @psalm-return list<non-empty-string>
+     */
+    public static function getProcedureNames(DatabaseInterface $dbi, string $db): array
+    {
+        /** @psalm-var list<array{Db: string, Name: string, Type: string}> $procedures */
+        $procedures = $dbi->fetchResult('SHOW PROCEDURE STATUS;');
+        $names = [];
+        foreach ($procedures as $procedure) {
+            if ($procedure['Db'] !== $db || $procedure['Type'] !== 'PROCEDURE' || $procedure['Name'] === '') {
+                continue;
+            }
+
+            $names[] = $procedure['Name'];
+        }
+
+        return $names;
+    }
 }

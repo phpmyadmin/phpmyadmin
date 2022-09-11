@@ -323,7 +323,7 @@ class ExportXml extends ExportPlugin
                 $head .= $this->exportDefinitions(
                     $GLOBALS['db'],
                     'function',
-                    $GLOBALS['dbi']->getProceduresOrFunctions($GLOBALS['db'], 'FUNCTION')
+                    Routines::getFunctionNames($GLOBALS['dbi'], $GLOBALS['db'])
                 );
             }
 
@@ -331,7 +331,7 @@ class ExportXml extends ExportPlugin
                 $head .= $this->exportDefinitions(
                     $GLOBALS['db'],
                     'procedure',
-                    $GLOBALS['dbi']->getProceduresOrFunctions($GLOBALS['db'], 'PROCEDURE')
+                    Routines::getProcedureNames($GLOBALS['dbi'], $GLOBALS['db'])
                 );
             }
 
