@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-09-14 10:18+0000\n"
+"Last-Translator: ETHEVE Jade <etheve.jade.mandy@gmail.com>\n"
 "Language-Team: Réunion Creole <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/rcf/>\n"
 "Language: rcf\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 #, fuzzy
@@ -27,12 +27,16 @@ msgstr "Le temps de disponibilité lé inférieur à un jour"
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"le système lé en marche depuis moins d'un jour, le band conseils de "
+"performance y peut être inexacts."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Pou obtenir de meilleurs résultats, lé recommandé de laisse le serveur en "
+"marche plus d'un jour avant d'utiliser l'analyseur"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
@@ -48,12 +52,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Moins de 1000 instruction la été traitées par ce serveur. Le ban "
+"recommandation peuvent être inexactes."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Laisse out serveur fonctionner plus longtemps jusqu'à ce que li lé traité un "
+"plus grand nombre de requêtes."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -68,6 +76,8 @@ msgstr ""
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Néna un grand nombre de requêtes lé lentes par rapport au nombre total de "
+"requêtes."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
@@ -75,20 +85,26 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Y faudrait où augmente la valeur du paramètre {long_query_time} ou qu'ou "
+"optimise le ban requêtes qui apparaissent dans le journal de requêtes lentes"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"Le ban taux de requêtes lé lentes y devrait être sous 5%%, dans ce cas li lé "
+"de %s%%."
 
 #: libraries/advisory_rules_generic.php:50
 msgid "Slow query rate"
-msgstr ""
+msgstr "Le taux de requêtes lé lentes"
 
 #: libraries/advisory_rules_generic.php:54
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Le pourcentage de requêtes lé lentes par rapport au temps de disponibilité "
+"d'out serveur qui est élevé."
 
 #: libraries/advisory_rules_generic.php:58
 #, php-format
@@ -96,6 +112,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Le ban taux de requêtes lentes lé de %s par heure, y faudrait en avoir moins "
+"de 1%% par heure."
 
 #: libraries/advisory_rules_generic.php:63
 msgid "Long query time"
@@ -106,17 +124,23 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"La valeur du paramètre {long_query_time} lé de 10 secondes ou plus, donc "
+"seules le ban requêtes lentes prenant plus de 10 secondes sont inscrites au "
+"journal."
 
 #: libraries/advisory_rules_generic.php:71
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Li lé suggéré de donner à {long_query_time} ène valeur plus petite , selon "
+"l'environnement. Habituellement une valeur entre 1 et 5 secondes y fait "
+"l'affaire."
 
 #: libraries/advisory_rules_generic.php:74
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time lé actuellement défini à %d seconde(s)."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
@@ -126,23 +150,29 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:83
 #: libraries/advisory_rules_generic.php:96
 msgid "The slow query log is disabled."
-msgstr ""
+msgstr "Le journal des requêtes lentes lé désactivé."
 
 #: libraries/advisory_rules_generic.php:85
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Active out journalisation des requêtes lentes en réglant {log_slow_queries} "
+"à « Activé » (ON). Ceci y sa aide a ou à dépanne le ban problèmes de lenteur "
+"de requêtes."
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries néna ène valeur définie à « Désactivé » (OFF)"
 
 #: libraries/advisory_rules_generic.php:98
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Active out journalisation des requêtes lentes en réglant {slow_query_log} à «"
+" Activé » (ON). Ceci y ca aide a ou à dépanner le ban problèmes de lenteur "
+"de requêtes."
 
 #: libraries/advisory_rules_generic.php:101
 msgid "slow_query_log is set to 'OFF'"
@@ -988,7 +1018,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:56
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Le cache de requêtes lé très fragmenté."
 
 #: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
@@ -1009,6 +1039,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Le cache lé fragmanté à %s%% ; ène valeur de 100%% signifie que li contient "
+"des blocs libres et occupés en alternance. Cette valeur y devrait être sous "
+"les 20%%."
 
 #: libraries/advisory_rules_mysql_before80003.php:73
 msgid "Query cache low memory prunes"
@@ -1103,7 +1136,7 @@ msgstr ""
 #: libraries/classes/Advisor.php:328
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Le formatage de la chaîne lé en échec pou la règle « %s »."
 
 #: libraries/classes/Advisor.php:413
 msgid "per second"
@@ -1114,8 +1147,9 @@ msgid "per minute"
 msgstr ""
 
 #: libraries/classes/Advisor.php:419
+#, fuzzy
 msgid "per hour"
-msgstr ""
+msgstr "par heure"
 
 #: libraries/classes/Advisor.php:422
 msgid "per day"
@@ -1123,7 +1157,7 @@ msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:200
 msgid "Search:"
-msgstr ""
+msgstr "Rechercher :"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
@@ -1180,7 +1214,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:555
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
 msgid "Go"
-msgstr ""
+msgstr "Exécuter"
 
 #: libraries/classes/BrowseForeigners.php:221
 #: libraries/classes/BrowseForeigners.php:225
@@ -1196,7 +1230,7 @@ msgstr ""
 #: templates/server/plugins/index.twig:27
 #: templates/server/status/variables/index.twig:77
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: libraries/classes/BrowseForeigners.php:321
 #: libraries/classes/Language.php:204 libraries/classes/Pdf.php:81
@@ -1204,44 +1238,45 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:530
 #: templates/list_navigator.twig:4
 msgid "Page number:"
-msgstr ""
+msgstr "Page n° :"
 
 #: libraries/classes/BrowseForeigners.php:335
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
+#, fuzzy
 msgid "Show all"
-msgstr ""
+msgstr "Affiche toute"
 
 #: libraries/classes/Charsets/Collation.php:170
 #: libraries/classes/Charsets.php:176 libraries/classes/Charsets.php:177
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: libraries/classes/Charsets/Collation.php:203
 #: libraries/classes/Charsets/Collation.php:501
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Allemand (tri par annuaire)"
 
 #: libraries/classes/Charsets/Collation.php:207
 #: libraries/classes/Charsets/Collation.php:498
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr ""
+msgstr "Allemand (ordre dictionnaire)"
 
 #: libraries/classes/Charsets/Collation.php:216
 #: libraries/classes/Charsets/Collation.php:576
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Espagnol (traditionnel)"
 
 #: libraries/classes/Charsets/Collation.php:220
 #: libraries/classes/Charsets/Collation.php:569
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr ""
+msgstr "Espagnol"
 
 #: libraries/classes/Charsets/Collation.php:298
 msgctxt "Collation variant"
@@ -1298,86 +1333,86 @@ msgstr ""
 #: libraries/classes/Charsets/Collation.php:547
 msgctxt "Collation"
 msgid "West European"
-msgstr ""
+msgstr "Europe de l'ouest"
 
 #: libraries/classes/Charsets/Collation.php:368
 msgctxt "Collation"
 msgid "Central European"
-msgstr ""
+msgstr "Europe centrale"
 
 #: libraries/classes/Charsets/Collation.php:373
 #: libraries/classes/Charsets/Collation.php:554
 msgctxt "Collation"
 msgid "Russian"
-msgstr ""
+msgstr "Russe"
 
 #: libraries/classes/Charsets/Collation.php:378
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Chinois simplifié"
 
 #: libraries/classes/Charsets/Collation.php:381
 msgctxt "Collation"
 msgid "Traditional Chinese"
-msgstr ""
+msgstr "Chinois traditionnel"
 
 #: libraries/classes/Charsets/Collation.php:384
 #: libraries/classes/Charsets/Collation.php:469
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Chinois"
 
 #: libraries/classes/Charsets/Collation.php:392
 #: libraries/classes/Charsets/Collation.php:518
 msgctxt "Collation"
 msgid "Japanese"
-msgstr ""
+msgstr "Japonais"
 
 #: libraries/classes/Charsets/Collation.php:397
 msgctxt "Collation"
 msgid "Baltic"
-msgstr ""
+msgstr "Baltique"
 
 #: libraries/classes/Charsets/Collation.php:402
 msgctxt "Collation"
 msgid "Armenian"
-msgstr ""
+msgstr "Arménien"
 
 #: libraries/classes/Charsets/Collation.php:405
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr ""
+msgstr "Cyrillique"
 
 #: libraries/classes/Charsets/Collation.php:408
 msgctxt "Collation"
 msgid "Arabic"
-msgstr ""
+msgstr "Arabe"
 
 #: libraries/classes/Charsets/Collation.php:411
 #: libraries/classes/Charsets/Collation.php:533
 msgctxt "Collation"
 msgid "Korean"
-msgstr ""
+msgstr "Coréen"
 
 #: libraries/classes/Charsets/Collation.php:414
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr ""
+msgstr "Hébreu"
 
 #: libraries/classes/Charsets/Collation.php:417
 msgctxt "Collation"
 msgid "Georgian"
-msgstr ""
+msgstr "Géorgien"
 
 #: libraries/classes/Charsets/Collation.php:420
 msgctxt "Collation"
 msgid "Greek"
-msgstr ""
+msgstr "Grec"
 
 #: libraries/classes/Charsets/Collation.php:423
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "Tchèque-slovaque"
 
 #: libraries/classes/Charsets/Collation.php:426
 #: libraries/classes/Charsets/Collation.php:592
@@ -1389,139 +1424,142 @@ msgstr ""
 #: libraries/classes/Charsets/Collation.php:588
 msgctxt "Collation"
 msgid "Turkish"
-msgstr ""
+msgstr "Turc"
 
 #: libraries/classes/Charsets/Collation.php:432
 #: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Swedish"
-msgstr ""
+msgstr "Suédois"
 
 #: libraries/classes/Charsets/Collation.php:435
 #: libraries/classes/Charsets/Collation.php:584
 msgctxt "Collation"
 msgid "Thai"
-msgstr ""
+msgstr "Thaï"
 
 #: libraries/classes/Charsets/Collation.php:438
 msgctxt "Collation"
 msgid "Unknown"
-msgstr ""
+msgstr "inconnu"
 
 #: libraries/classes/Charsets/Collation.php:463
 msgctxt "Collation"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgare"
 
 #: libraries/classes/Charsets/Collation.php:475
 msgctxt "Collation"
 msgid "Croatian"
-msgstr ""
+msgstr "Croate"
 
 #: libraries/classes/Charsets/Collation.php:479
 msgctxt "Collation"
 msgid "Czech"
-msgstr ""
+msgstr "Tchèque"
 
 #: libraries/classes/Charsets/Collation.php:483
 msgctxt "Collation"
 msgid "Danish"
-msgstr ""
+msgstr "Danois"
 
 #: libraries/classes/Charsets/Collation.php:487
 msgctxt "Collation"
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: libraries/classes/Charsets/Collation.php:491
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr ""
+msgstr "Espéranto"
 
 #: libraries/classes/Charsets/Collation.php:495
 msgctxt "Collation"
 msgid "Estonian"
-msgstr ""
+msgstr "Estonien"
 
 #: libraries/classes/Charsets/Collation.php:510
 msgctxt "Collation"
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongrois"
 
 #: libraries/classes/Charsets/Collation.php:514
 msgctxt "Collation"
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandais"
 
 #: libraries/classes/Charsets/Collation.php:521
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latin classique"
 
 #: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Latvian"
-msgstr ""
+msgstr "Letton"
 
 #: libraries/classes/Charsets/Collation.php:529
 msgctxt "Collation"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lituanien"
 
 #: libraries/classes/Charsets/Collation.php:537
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Birman"
 
 #: libraries/classes/Charsets/Collation.php:540
 msgctxt "Collation"
 msgid "Persian"
-msgstr ""
+msgstr "Farsi"
 
 #: libraries/classes/Charsets/Collation.php:544
 msgctxt "Collation"
 msgid "Polish"
-msgstr ""
+msgstr "Polonais"
 
 #: libraries/classes/Charsets/Collation.php:551
 msgctxt "Collation"
 msgid "Romanian"
-msgstr ""
+msgstr "Roumain"
 
 #: libraries/classes/Charsets/Collation.php:558
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "Cinghalais"
 
 #: libraries/classes/Charsets/Collation.php:562
 msgctxt "Collation"
 msgid "Slovak"
-msgstr ""
+msgstr "Slovaque"
 
 #: libraries/classes/Charsets/Collation.php:566
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovène"
 
 #: libraries/classes/Charsets/Collation.php:596
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamien"
 
 #: libraries/classes/Common.php:244
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "Y faudrait utilise %s en version %s ou plus récent."
 
 #: libraries/classes/Common.php:276
 msgid "Error: Token mismatch"
 msgstr ""
 
 #: libraries/classes/Common.php:490
+#, fuzzy
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Impossible de créer le cookie de session. Peut-être HTTP lé utilisé au lieu "
+"de HTTPS pou accéder à phpMyAdmin."
 
 #: libraries/classes/Common.php:549
 msgid ""
@@ -1529,6 +1567,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"mbstring.func_overload la été activé dans la configuration PHP. Cette option "
+"lé incompatible avec phpMyAdmin et li pourrait corrompre certaines données !"
 
 #: libraries/classes/Common.php:566
 msgid ""
@@ -10636,7 +10676,7 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:58
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:55
 msgid "Same width for all tables"
-msgstr ""
+msgstr "La largeur lé pareil pou toutes le ban tables"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:83
 msgid "Show grid"
@@ -10664,6 +10704,9 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Convertir le ban valeurs booléennes en texte (par défaut « T » et « F »). La "
+"première option y remplace ène valeur vraie et la seconde y remplace ène "
+"valeur fausse. Ene valeur différente de zéro y signifie que lé vrai."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:39
 msgid ""
@@ -10690,6 +10733,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
+"Affiche un lien pou télécharge le contenu binaire d'ène colonne. La première "
+"option lé le nom du fichier binaire ; la seconde option lé le nom de la "
+"colonne contenant le nom du fichier. Si la seconde option lé utilisée, merci "
+"de laisse la première option vide."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:42
 msgid ""
@@ -10712,6 +10759,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Où utilise le champ d'options de la ligne de commande de transformation "
+"externe, qui a été désactivé pour des raisons de sécurité.Où ajoute toutes "
+"les options de la ligne de commande directement à la définition dans %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:29
 msgid ""
@@ -10724,10 +10774,13 @@ msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
+"Affiche ène représentation hexadécimale des données. Le premier paramètre lé "
+"optionnel et spécifie à quel intervalle ène espace sera ajoutée (par défaut, "
+"à chaque 2 « nibbles »)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:29
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "Affiche un lien pou télécharge cette image."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:31
 msgid ""
@@ -10957,20 +11010,20 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:461
 msgid "Success."
-msgstr ""
+msgstr "Succès."
 
 #: libraries/classes/ReplicationGui.php:462
 msgid "Error."
-msgstr ""
+msgstr "Erreur."
 
 #: libraries/classes/ReplicationGui.php:507
 msgid "Unknown error"
-msgstr ""
+msgstr "Erreur inconnue"
 
 #: libraries/classes/ReplicationGui.php:520
 #, php-format
 msgid "Unable to connect to primary %s."
-msgstr ""
+msgstr "La connexion lé impossible pou l'original %s."
 
 #: libraries/classes/ReplicationGui.php:530
 msgid ""
@@ -10992,15 +11045,17 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Le cache de routage la pas pu être écrit, ou doit ajuster le ban permissions "
+"sur le dossier/fichier \"%s\""
 
 #: libraries/classes/Routing.php:163
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr ""
+msgstr "Erreur 404 ! La page %s la pas été trouvée."
 
 #: libraries/classes/Routing.php:174
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Erreur 405 ! Méthode de requête lé pas autorisée."
 
 #: libraries/classes/SavedSearches.php:239
 msgid "Please provide a name for this bookmarked search."
@@ -11009,11 +11064,12 @@ msgstr ""
 #: libraries/classes/SavedSearches.php:255
 msgid "Missing information to save the bookmarked search."
 msgstr ""
+"Néna des informations manquantes pou enregistrer le signet de recherche."
 
 #: libraries/classes/SavedSearches.php:276
 #: libraries/classes/SavedSearches.php:310
 msgid "An entry with this name already exists."
-msgstr ""
+msgstr "Ene entrée y existe déjà sous ce nom."
 
 #: libraries/classes/SavedSearches.php:338
 msgid "Missing information to delete the search."
@@ -11021,11 +11077,11 @@ msgstr ""
 
 #: libraries/classes/SavedSearches.php:365
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Informations manquantes pou charger la recherche."
 
 #: libraries/classes/SavedSearches.php:385
 msgid "Error while loading the search."
-msgstr ""
+msgstr "Erreur lors d'out chargement de la recherche."
 
 #: libraries/classes/Server/Plugins.php:68
 #: libraries/classes/Server/Privileges.php:788
@@ -11250,7 +11306,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 msgid "Allows deleting historical rows."
-msgstr ""
+msgstr "Ou autorise a moin pou supprime des données historique"
 
 #: libraries/classes/Server/Privileges.php:491
 #: templates/server/privileges/privileges_table.twig:454
