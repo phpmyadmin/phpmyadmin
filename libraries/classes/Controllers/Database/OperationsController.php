@@ -10,6 +10,8 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidDatabaseName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -23,7 +25,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
-use function is_string;
 use function mb_strtolower;
 use function strlen;
 
@@ -104,18 +105,18 @@ class OperationsController extends AbstractController
                 $GLOBALS['move'] = false;
             }
 
-            /** @var mixed|null $newDatabaseName */
-            $newDatabaseName = $request->getParsedBodyParam('newname');
-            if (! is_string($newDatabaseName) || $newDatabaseName === '') {
-                $GLOBALS['message'] = Message::error(__('The database name is empty!'));
-                $newDatabaseName = null;
-            } else {
-                // lower_case_table_names=1 `DB` becomes `db`
+            try {
+                $newDatabaseName = DatabaseName::fromValue($request->getParsedBodyParam('newname'));
                 if ($this->dbi->getLowerCaseNames() === '1') {
-                    $newDatabaseName = mb_strtolower($newDatabaseName);
+                    $newDatabaseName = DatabaseName::fromValue(mb_strtolower($newDatabaseName->getName()));
                 }
+            } catch (InvalidDatabaseName $exception) {
+                $newDatabaseName = null;
+                $GLOBALS['message'] = Message::error($exception->getMessage());
+            }
 
-                if ($newDatabaseName === $_REQUEST['db']) {
+            if ($newDatabaseName !== null) {
+                if ($newDatabaseName->getName() === $_REQUEST['db']) {
                     $GLOBALS['message'] = Message::error(
                         __('Cannot copy database to the same name. Change the name and try again.')
                     );
@@ -215,7 +216,7 @@ class OperationsController extends AbstractController
                             __('Database %1$s has been renamed to %2$s.')
                         );
                         $GLOBALS['message']->addParam($GLOBALS['db']);
-                        $GLOBALS['message']->addParam($newDatabaseName);
+                        $GLOBALS['message']->addParam($newDatabaseName->getName());
                     } elseif (! $_error) {
                         if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesCopyDb($GLOBALS['db'], $newDatabaseName);
@@ -225,7 +226,7 @@ class OperationsController extends AbstractController
                             __('Database %1$s has been copied to %2$s.')
                         );
                         $GLOBALS['message']->addParam($GLOBALS['db']);
-                        $GLOBALS['message']->addParam($newDatabaseName);
+                        $GLOBALS['message']->addParam($newDatabaseName->getName());
                     } else {
                         $GLOBALS['message'] = Message::error();
                     }
@@ -234,11 +235,11 @@ class OperationsController extends AbstractController
 
                     /* Change database to be used */
                     if (! $_error && $GLOBALS['move']) {
-                        $GLOBALS['db'] = $newDatabaseName;
+                        $GLOBALS['db'] = $newDatabaseName->getName();
                     } elseif (! $_error) {
                         if (isset($_POST['switch_to_new']) && $_POST['switch_to_new'] === 'true') {
                             $_SESSION['pma_switch_to_new'] = true;
-                            $GLOBALS['db'] = $newDatabaseName;
+                            $GLOBALS['db'] = $newDatabaseName->getName();
                         } else {
                             $_SESSION['pma_switch_to_new'] = false;
                         }
@@ -253,7 +254,7 @@ class OperationsController extends AbstractController
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                 $this->response->addJSON('message', $GLOBALS['message']);
-                $this->response->addJSON('newname', $newDatabaseName);
+                $this->response->addJSON('newname', $newDatabaseName !== null ? $newDatabaseName->getName() : '');
                 $this->response->addJSON(
                     'sql_query',
                     Generator::getMessage('', $GLOBALS['sql_query'])

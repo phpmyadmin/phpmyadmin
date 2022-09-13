@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\Triggers;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -55,7 +56,7 @@ class Operations
      *
      * @param string $db database name
      */
-    public function runProcedureAndFunctionDefinitions($db, string $newDatabaseName): void
+    public function runProcedureAndFunctionDefinitions($db, DatabaseName $newDatabaseName): void
     {
         $procedure_names = Routines::getProcedureNames($this->dbi, $db);
         if ($procedure_names) {
@@ -95,7 +96,7 @@ class Operations
     /**
      * Create database before copy
      */
-    public function createDbBeforeCopy(string $newDatabaseName): void
+    public function createDbBeforeCopy(DatabaseName $newDatabaseName): void
     {
         $local_query = 'CREATE DATABASE IF NOT EXISTS '
             . Util::backquote($newDatabaseName);
@@ -137,7 +138,7 @@ class Operations
         array $tables_full,
         $export_sql_plugin,
         $db,
-        string $newDatabaseName
+        DatabaseName $newDatabaseName
     ) {
         $views = [];
         foreach (array_keys($tables_full) as $each_table) {
@@ -178,7 +179,7 @@ class Operations
      *
      * @return array SQL queries for the constraints
      */
-    public function copyTables(array $tables_full, $move, $db, string $newDatabaseName)
+    public function copyTables(array $tables_full, $move, $db, DatabaseName $newDatabaseName)
     {
         $sqlContraints = [];
         foreach (array_keys($tables_full) as $each_table) {
@@ -215,7 +216,7 @@ class Operations
                 ! Table::moveCopy(
                     $db,
                     $each_table,
-                    $newDatabaseName,
+                    $newDatabaseName->getName(),
                     $each_table,
                     ($this_what ?? 'data'),
                     $move,
@@ -257,7 +258,7 @@ class Operations
      *
      * @param string $db database name
      */
-    public function runEventDefinitionsForDb($db, string $newDatabaseName): void
+    public function runEventDefinitionsForDb($db, DatabaseName $newDatabaseName): void
     {
         $event_names = $this->dbi->fetchResult(
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
@@ -284,14 +285,14 @@ class Operations
      * @param bool   $move  whether database name is empty or not
      * @param string $db    database name
      */
-    public function handleTheViews(array $views, $move, $db, string $newDatabaseName): void
+    public function handleTheViews(array $views, $move, $db, DatabaseName $newDatabaseName): void
     {
         // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
             $copying_succeeded = Table::moveCopy(
                 $db,
                 $view,
-                $newDatabaseName,
+                $newDatabaseName->getName(),
                 $view,
                 'structure',
                 $move,
@@ -310,7 +311,7 @@ class Operations
      *
      * @param string $oldDb Database name before renaming
      */
-    public function adjustPrivilegesMoveDb($oldDb, string $newDatabaseName): void
+    public function adjustPrivilegesMoveDb($oldDb, DatabaseName $newDatabaseName): void
     {
         if (
             ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
@@ -321,30 +322,30 @@ class Operations
         }
 
         $this->dbi->selectDb('mysql');
-        $newDatabaseName = str_replace('_', '\_', $newDatabaseName);
+        $newName = str_replace('_', '\_', $newDatabaseName->getName());
         $oldDb = str_replace('_', '\_', $oldDb);
 
         // For Db specific privileges
         $query_db_specific = 'UPDATE ' . Util::backquote('db')
-            . 'SET Db = \'' . $this->dbi->escapeString($newDatabaseName)
+            . 'SET Db = \'' . $this->dbi->escapeString($newName)
             . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
         $this->dbi->query($query_db_specific);
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newDatabaseName)
+            . 'SET Db = \'' . $this->dbi->escapeString($newName)
             . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
         $this->dbi->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newDatabaseName)
+            . 'SET Db = \'' . $this->dbi->escapeString($newName)
             . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
         $this->dbi->query($query_col_specific);
 
         // For procedures specific privileges
         $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newDatabaseName)
+            . 'SET Db = \'' . $this->dbi->escapeString($newName)
             . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
         $this->dbi->query($query_proc_specific);
 
@@ -358,7 +359,7 @@ class Operations
      *
      * @param string $oldDb Database name before copying
      */
-    public function adjustPrivilegesCopyDb($oldDb, string $newDatabaseName): void
+    public function adjustPrivilegesCopyDb($oldDb, DatabaseName $newDatabaseName): void
     {
         if (
             ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
@@ -369,7 +370,7 @@ class Operations
         }
 
         $this->dbi->selectDb('mysql');
-        $newDatabaseName = str_replace('_', '\_', $newDatabaseName);
+        $newName = str_replace('_', '\_', $newDatabaseName->getName());
         $oldDb = str_replace('_', '\_', $oldDb);
 
         $query_db_specific_old = 'SELECT * FROM '
@@ -380,7 +381,7 @@ class Operations
 
         foreach ($old_privs_db as $old_priv) {
             $newDb_db_privs_query = 'INSERT INTO ' . Util::backquote('db')
-                . ' VALUES("' . $old_priv[0] . '", "' . $newDatabaseName . '"';
+                . ' VALUES("' . $old_priv[0] . '", "' . $newName . '"';
             $privCount = count($old_priv);
             for ($i = 2; $i < $privCount; $i++) {
                 $newDb_db_privs_query .= ', "' . $old_priv[$i] . '"';
@@ -401,7 +402,7 @@ class Operations
         foreach ($old_privs_table as $old_priv) {
             $newDb_table_privs_query = 'INSERT INTO ' . Util::backquote(
                 'tables_priv'
-            ) . ' VALUES("' . $old_priv[0] . '", "' . $newDatabaseName . '", "'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newName . '", "'
             . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
             . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
             . $old_priv[7] . '");';
@@ -419,7 +420,7 @@ class Operations
         foreach ($old_privs_col as $old_priv) {
             $newDb_col_privs_query = 'INSERT INTO ' . Util::backquote(
                 'columns_priv'
-            ) . ' VALUES("' . $old_priv[0] . '", "' . $newDatabaseName . '", "'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newName . '", "'
             . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
             . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '");';
 
@@ -436,7 +437,7 @@ class Operations
         foreach ($old_privs_proc as $old_priv) {
             $newDb_proc_privs_query = 'INSERT INTO ' . Util::backquote(
                 'procs_priv'
-            ) . ' VALUES("' . $old_priv[0] . '", "' . $newDatabaseName . '", "'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newName . '", "'
             . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
             . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
             . $old_priv[7] . '");';
@@ -454,7 +455,7 @@ class Operations
      *
      * @param array $sqlConstratints array of sql constraints for the database
      */
-    public function createAllAccumulatedConstraints(array $sqlConstratints, string $newDatabaseName): void
+    public function createAllAccumulatedConstraints(array $sqlConstratints, DatabaseName $newDatabaseName): void
     {
         $this->dbi->selectDb($newDatabaseName);
         foreach ($sqlConstratints as $one_query) {
@@ -470,9 +471,9 @@ class Operations
      * @param bool   $_error whether table rename/copy or not
      * @param string $db     database name
      */
-    public function duplicateBookmarks($_error, $db, string $newDatabaseName): void
+    public function duplicateBookmarks($_error, $db, DatabaseName $newDatabaseName): void
     {
-        if ($_error || $db === $newDatabaseName) {
+        if ($_error || $db === $newDatabaseName->getName()) {
             return;
         }
 
@@ -482,7 +483,7 @@ class Operations
             'query',
         ];
         $where_fields = ['dbase' => $db];
-        $new_fields = ['dbase' => $newDatabaseName];
+        $new_fields = ['dbase' => $newDatabaseName->getName()];
         Table::duplicateInfo('bookmarkwork', 'bookmark', $get_fields, $where_fields, $new_fields);
     }
 
