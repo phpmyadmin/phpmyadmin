@@ -1254,25 +1254,10 @@
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['PmaNoRelation_DisableWarning']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="10">
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
+    <MixedArgument occurrences="1">
       <code>$_POST['comment']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>['db' =&gt; $GLOBALS['db']]</code>
-      <code>['db' =&gt; $GLOBALS['db']]</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="20">
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
+    <MixedAssignment occurrences="18">
       <code>$GLOBALS['db_collation']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['export_sql_plugin']</code>
@@ -8658,20 +8643,10 @@
     </InvalidReturnType>
   </file>
   <file src="libraries/classes/Operations.php">
-    <MixedArgument occurrences="33">
+    <MixedArgument occurrences="23">
       <code>$_POST['comment']</code>
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
       <code>$_POST['prev_comment']</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['what']</code>
