@@ -20,6 +20,8 @@ use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
+use const PHP_EOL;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportPhparray
  * @group medium
@@ -123,8 +125,6 @@ class ExportPhparrayTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['crlf'] = ' ';
-
         ob_start();
         $this->assertTrue(
             $this->object->exportHeader()
@@ -133,7 +133,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString('<?php ', $result);
+        $this->assertStringContainsString('<?php' . PHP_EOL, $result);
     }
 
     public function testExportFooter(): void
@@ -145,8 +145,6 @@ class ExportPhparrayTest extends AbstractTestCase
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
-
         ob_start();
         $this->assertTrue(
             $this->object->exportDBHeader('db')
@@ -179,7 +177,6 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'phpmyadmin.net/err',
                 'SELECT * FROM `test_db`.`test_table`;'
             )
@@ -202,7 +199,6 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 '0`932table',
-                "\n",
                 'phpmyadmin.net/err',
                 'SELECT * FROM `test_db`.`test_table`;'
             )

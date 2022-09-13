@@ -305,7 +305,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -376,7 +375,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             '<td class="print"><strong>Null</strong></td>' .
             '<td class="print"><strong>Default</strong></td></tr>' .
             '1</tr></table>',
-            $this->object->getTableDefStandIn('database', 'view', "\n")
+            $this->object->getTableDefStandIn('database', 'view')
         );
     }
 
@@ -642,7 +641,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_table',
                 'test'
@@ -670,7 +668,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'triggers',
                 'test'
@@ -694,7 +691,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_view',
                 'test'
@@ -722,7 +718,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'stand_in',
                 'test'

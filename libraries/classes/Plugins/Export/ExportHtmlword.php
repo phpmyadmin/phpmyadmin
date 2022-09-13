@@ -169,7 +169,6 @@ class ExportHtmlword extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -177,7 +176,6 @@ class ExportHtmlword extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -260,12 +258,11 @@ class ExportHtmlword extends ExportPlugin
      *
      * @param string $db      the database name
      * @param string $view    the view name
-     * @param string $crlf    the end of line sequence
      * @param array  $aliases Aliases of db/table/columns
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = [])
     {
         $schema_insert = '<table width="100%" cellspacing="1">'
             . '<tr class="print-category">'
@@ -502,7 +499,6 @@ class ExportHtmlword extends ExportPlugin
      *
      * @param string $db          database name
      * @param string $table       table name
-     * @param string $crlf        the end of line sequence
      * @param string $errorUrl    the url to go back in case of error
      * @param string $exportMode  'create_table', 'triggers', 'create_view',
      *                             'stand_in'
@@ -521,7 +517,6 @@ class ExportHtmlword extends ExportPlugin
     public function exportStructure(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $exportMode,
         $exportType,
@@ -568,7 +563,7 @@ class ExportHtmlword extends ExportPlugin
                 . htmlspecialchars($table_alias)
                 . '</h2>';
                 // export a stand-in definition to resolve view dependencies
-                $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
+                $dump .= $this->getTableDefStandIn($db, $table, $aliases);
         }
 
         return $this->export->outputHandler($dump);

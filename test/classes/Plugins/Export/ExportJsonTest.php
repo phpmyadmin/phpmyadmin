@@ -19,6 +19,8 @@ use ReflectionProperty;
 
 use function array_shift;
 
+use const PHP_EOL;
+
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportJson
  * @group medium
@@ -122,8 +124,6 @@ class ExportJsonTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
-
         $this->expectOutputString(
             "[\n"
             . '{"type":"header","version":"' . Version::VERSION
@@ -138,9 +138,7 @@ class ExportJsonTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $GLOBALS['crlf'] = '';
-
-        $this->expectOutputString(']');
+        $this->expectOutputString(']' . PHP_EOL);
 
         $this->assertTrue(
             $this->object->exportFooter()
@@ -149,8 +147,6 @@ class ExportJsonTest extends AbstractTestCase
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
-
         $this->expectOutputString('{"type":"database","name":"testDB"},' . "\n");
 
         $this->assertTrue(
@@ -187,7 +183,6 @@ class ExportJsonTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -211,7 +206,6 @@ class ExportJsonTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table_complex',
-                "\n",
                 'example.com',
                 'SELECT * FROM `test_db`.`test_table_complex`;'
             )
@@ -234,8 +228,7 @@ class ExportJsonTest extends AbstractTestCase
         $this->assertTrue(
             $this->object->exportRawQuery(
                 'example.com',
-                'SELECT * FROM `test_db`.`test_table_complex`;',
-                "\n"
+                'SELECT * FROM `test_db`.`test_table_complex`;'
             )
         );
     }

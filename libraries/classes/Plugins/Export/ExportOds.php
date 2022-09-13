@@ -187,7 +187,6 @@ class ExportOds extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -195,7 +194,6 @@ class ExportOds extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -317,10 +315,9 @@ class ExportOds extends ExportPlugin
      *
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery): bool
     {
-        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
+        return $this->exportData('', '', $errorUrl, $sqlQuery);
     }
 }

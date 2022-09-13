@@ -26,6 +26,7 @@ use function rtrim;
 use function str_replace;
 use function strlen;
 
+use const PHP_EOL;
 use const PHP_VERSION;
 
 /**
@@ -161,12 +162,10 @@ class ExportXml extends ExportPlugin
      */
     private function exportDefinitions(string $db, string $type, array $names): string
     {
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
-
         $head = '';
 
         foreach ($names as $name) {
-            $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($name) . '">' . $GLOBALS['crlf'];
+            $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($name) . '">' . PHP_EOL;
 
             if ($type === 'function') {
                 $definition = Routines::getFunctionDefinition($GLOBALS['dbi'], $db, $name);
@@ -180,8 +179,8 @@ class ExportXml extends ExportPlugin
             $sql = htmlspecialchars(rtrim((string) $definition));
             $sql = str_replace("\n", "\n                ", $sql);
 
-            $head .= '                ' . $sql . $GLOBALS['crlf'];
-            $head .= '            </pma:' . $type . '>' . $GLOBALS['crlf'];
+            $head .= '                ' . $sql . PHP_EOL;
+            $head .= '            </pma:' . $type . '>' . PHP_EOL;
         }
 
         return $head;
@@ -195,7 +194,6 @@ class ExportXml extends ExportPlugin
     {
         $this->initSpecificVariables();
 
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
         $table = $this->getTable();
         $tables = $this->getTables();
 
@@ -212,29 +210,29 @@ class ExportXml extends ExportPlugin
             $charset = 'utf-8';
         }
 
-        $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . $GLOBALS['crlf']
-            . '<!--' . $GLOBALS['crlf']
-            . '- phpMyAdmin XML Dump' . $GLOBALS['crlf']
-            . '- version ' . Version::VERSION . $GLOBALS['crlf']
-            . '- https://www.phpmyadmin.net' . $GLOBALS['crlf']
-            . '-' . $GLOBALS['crlf']
+        $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . PHP_EOL
+            . '<!--' . PHP_EOL
+            . '- phpMyAdmin XML Dump' . PHP_EOL
+            . '- version ' . Version::VERSION . PHP_EOL
+            . '- https://www.phpmyadmin.net' . PHP_EOL
+            . '-' . PHP_EOL
             . '- ' . __('Host:') . ' ' . htmlspecialchars($GLOBALS['cfg']['Server']['host']);
         if (! empty($GLOBALS['cfg']['Server']['port'])) {
             $head .= ':' . $GLOBALS['cfg']['Server']['port'];
         }
 
-        $head .= $GLOBALS['crlf']
+        $head .= PHP_EOL
             . '- ' . __('Generation Time:') . ' '
-            . Util::localisedDate() . $GLOBALS['crlf']
-            . '- ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $GLOBALS['crlf']
-            . '- ' . __('PHP Version:') . ' ' . PHP_VERSION . $GLOBALS['crlf']
-            . '-->' . $GLOBALS['crlf'] . $GLOBALS['crlf'];
+            . Util::localisedDate() . PHP_EOL
+            . '- ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . PHP_EOL
+            . '- ' . __('PHP Version:') . ' ' . PHP_VERSION . PHP_EOL
+            . '-->' . PHP_EOL . PHP_EOL;
 
         $head .= '<pma_xml_export version="1.0"'
             . ($export_struct
                 ? ' xmlns:pma="https://www.phpmyadmin.net/some_doc_url/"'
                 : '')
-            . '>' . $GLOBALS['crlf'];
+            . '>' . PHP_EOL;
 
         if ($export_struct) {
             $result = $GLOBALS['dbi']->fetchResult(
@@ -245,13 +243,13 @@ class ExportXml extends ExportPlugin
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
             $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
 
-            $head .= '    <!--' . $GLOBALS['crlf'];
-            $head .= '    - Structure schemas' . $GLOBALS['crlf'];
-            $head .= '    -->' . $GLOBALS['crlf'];
-            $head .= '    <pma:structure_schemas>' . $GLOBALS['crlf'];
+            $head .= '    <!--' . PHP_EOL;
+            $head .= '    - Structure schemas' . PHP_EOL;
+            $head .= '    -->' . PHP_EOL;
+            $head .= '    <pma:structure_schemas>' . PHP_EOL;
             $head .= '        <pma:database name="' . htmlspecialchars($GLOBALS['db'])
                 . '" collation="' . htmlspecialchars($db_collation) . '" charset="' . htmlspecialchars($db_charset)
-                . '">' . $GLOBALS['crlf'];
+                . '">' . PHP_EOL;
 
             if (count($tables) === 0) {
                 $tables[] = $table;
@@ -284,13 +282,13 @@ class ExportXml extends ExportPlugin
                 }
 
                 $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($table) . '">'
-                    . $GLOBALS['crlf'];
+                    . PHP_EOL;
 
                 $tbl = '                ' . htmlspecialchars($tbl);
                 $tbl = str_replace("\n", "\n                ", $tbl);
 
-                $head .= $tbl . ';' . $GLOBALS['crlf'];
-                $head .= '            </pma:' . $type . '>' . $GLOBALS['crlf'];
+                $head .= $tbl . ';' . PHP_EOL;
+                $head .= '            </pma:' . $type . '>' . PHP_EOL;
 
                 if (! isset($GLOBALS['xml_export_triggers']) || ! $GLOBALS['xml_export_triggers']) {
                     continue;
@@ -305,15 +303,15 @@ class ExportXml extends ExportPlugin
                 foreach ($triggers as $trigger) {
                     $code = $trigger['create'];
                     $head .= '            <pma:trigger name="'
-                        . htmlspecialchars($trigger['name']) . '">' . $GLOBALS['crlf'];
+                        . htmlspecialchars($trigger['name']) . '">' . PHP_EOL;
 
                     // Do some formatting
                     $code = mb_substr(rtrim($code), 0, -3);
                     $code = '                ' . htmlspecialchars($code);
                     $code = str_replace("\n", "\n                ", $code);
 
-                    $head .= $code . $GLOBALS['crlf'];
-                    $head .= '            </pma:trigger>' . $GLOBALS['crlf'];
+                    $head .= $code . PHP_EOL;
+                    $head .= '            </pma:trigger>' . PHP_EOL;
                 }
 
                 unset($trigger, $triggers);
@@ -347,11 +345,11 @@ class ExportXml extends ExportPlugin
 
             unset($result);
 
-            $head .= '        </pma:database>' . $GLOBALS['crlf'];
-            $head .= '    </pma:structure_schemas>' . $GLOBALS['crlf'];
+            $head .= '        </pma:database>' . PHP_EOL;
+            $head .= '    </pma:structure_schemas>' . PHP_EOL;
 
             if ($export_data) {
-                $head .= $GLOBALS['crlf'];
+                $head .= PHP_EOL;
             }
         }
 
@@ -376,18 +374,16 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBHeader($db, $dbAlias = ''): bool
     {
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
-
         if (empty($dbAlias)) {
             $dbAlias = $db;
         }
 
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
-            $head = '    <!--' . $GLOBALS['crlf']
+            $head = '    <!--' . PHP_EOL
                 . '    - ' . __('Database:') . ' \''
-                . htmlspecialchars($dbAlias) . '\'' . $GLOBALS['crlf']
-                . '    -->' . $GLOBALS['crlf'] . '    <database name="'
-                . htmlspecialchars($dbAlias) . '">' . $GLOBALS['crlf'];
+                . htmlspecialchars($dbAlias) . '\'' . PHP_EOL
+                . '    -->' . PHP_EOL . '    <database name="'
+                . htmlspecialchars($dbAlias) . '">' . PHP_EOL;
 
             return $this->export->outputHandler($head);
         }
@@ -402,10 +398,8 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBFooter($db): bool
     {
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
-
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
-            return $this->export->outputHandler('    </database>' . $GLOBALS['crlf']);
+            return $this->export->outputHandler('    </database>' . PHP_EOL);
         }
 
         return true;
@@ -428,7 +422,6 @@ class ExportXml extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -436,7 +429,6 @@ class ExportXml extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -460,14 +452,14 @@ class ExportXml extends ExportPlugin
             $columns = $result->getFieldNames();
 
             $buffer = '        <!-- ' . __('Table') . ' '
-                . htmlspecialchars($table_alias) . ' -->' . $crlf;
+                . htmlspecialchars($table_alias) . ' -->' . PHP_EOL;
             if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
 
             while ($record = $result->fetchRow()) {
                 $buffer = '        <table name="'
-                    . htmlspecialchars($table_alias) . '">' . $crlf;
+                    . htmlspecialchars($table_alias) . '">' . PHP_EOL;
                 for ($i = 0; $i < $columns_cnt; $i++) {
                     $col_as = $columns[$i];
                     if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -483,10 +475,10 @@ class ExportXml extends ExportPlugin
                     $buffer .= '            <column name="'
                         . htmlspecialchars($col_as) . '">'
                         . htmlspecialchars((string) $record[$i])
-                        . '</column>' . $crlf;
+                        . '</column>' . PHP_EOL;
                 }
 
-                $buffer .= '        </table>' . $crlf;
+                $buffer .= '        </table>' . PHP_EOL;
 
                 if (! $this->export->outputHandler($buffer)) {
                     return false;

@@ -562,7 +562,6 @@ class Export
      * @param string|array $dbSelect        the selected databases to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
@@ -576,7 +575,6 @@ class Export
         $dbSelect,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
         string $exportType,
         bool $doRelation,
@@ -605,7 +603,6 @@ class Export
                 $tables,
                 $tables,
                 $exportPlugin,
-                $crlf,
                 $errorUrl,
                 $exportType,
                 $doRelation,
@@ -632,7 +629,6 @@ class Export
      * @param array        $tableStructure  whether to export structure for each table
      * @param array        $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
@@ -649,7 +645,6 @@ class Export
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
         string $exportType,
         bool $doRelation,
@@ -711,7 +706,6 @@ class Export
                         && ! $exportPlugin->exportStructure(
                             $db,
                             $table,
-                            $crlf,
                             $errorUrl,
                             'stand_in',
                             $exportType,
@@ -747,7 +741,6 @@ class Export
                         ! $exportPlugin->exportStructure(
                             $db,
                             $table,
-                            $crlf,
                             $errorUrl,
                             'create_table',
                             $exportType,
@@ -776,7 +769,7 @@ class Export
                     . ' FROM ' . Util::backquote($db)
                     . '.' . Util::backquote($table);
 
-                if (! $exportPlugin->exportData($db, $table, $crlf, $errorUrl, $localQuery, $aliases)) {
+                if (! $exportPlugin->exportData($db, $table, $errorUrl, $localQuery, $aliases)) {
                     break;
                 }
             }
@@ -800,7 +793,6 @@ class Export
                 ! $exportPlugin->exportStructure(
                     $db,
                     $table,
-                    $crlf,
                     $errorUrl,
                     'triggers',
                     $exportType,
@@ -832,7 +824,6 @@ class Export
                     ! $exportPlugin->exportStructure(
                         $db,
                         $view,
-                        $crlf,
                         $errorUrl,
                         'create_view',
                         $exportType,
@@ -896,7 +887,6 @@ class Export
      *
      * @param string       $whatStrucOrData whether to export structure for each table or raw
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
      * @param string       $sqlQuery        the query to be executed
      * @param string       $exportType      the export type
@@ -904,7 +894,6 @@ class Export
     public static function exportRaw(
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
         string $sqlQuery,
         string $exportType
@@ -914,7 +903,7 @@ class Export
             return;
         }
 
-        if (! $exportPlugin->exportRawQuery($errorUrl, $sqlQuery, $crlf)) {
+        if (! $exportPlugin->exportRawQuery($errorUrl, $sqlQuery)) {
             $GLOBALS['message'] = Message::error(
                 // phpcs:disable Generic.Files.LineLength.TooLong
                 /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
@@ -932,7 +921,6 @@ class Export
      * @param string       $table           the table to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
@@ -950,7 +938,6 @@ class Export
         string $table,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
         string $exportType,
         bool $doRelation,
@@ -986,7 +973,6 @@ class Export
                         ! $exportPlugin->exportStructure(
                             $db,
                             $table,
-                            $crlf,
                             $errorUrl,
                             'create_view',
                             $exportType,
@@ -1005,7 +991,6 @@ class Export
                     ! $exportPlugin->exportStructure(
                         $db,
                         $table,
-                        $crlf,
                         $errorUrl,
                         'create_table',
                         $exportType,
@@ -1044,7 +1029,7 @@ class Export
                     . '.' . Util::backquote($table) . $addQuery;
             }
 
-            if (! $exportPlugin->exportData($db, $table, $crlf, $errorUrl, $localQuery, $aliases)) {
+            if (! $exportPlugin->exportData($db, $table, $errorUrl, $localQuery, $aliases)) {
                 return;
             }
         }
@@ -1059,7 +1044,6 @@ class Export
                 ! $exportPlugin->exportStructure(
                     $db,
                     $table,
-                    $crlf,
                     $errorUrl,
                     'triggers',
                     $exportType,

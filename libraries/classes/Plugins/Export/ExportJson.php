@@ -24,6 +24,7 @@ use function json_encode;
 
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_UNICODE;
+use const PHP_EOL;
 
 /**
  * Handles the export for the JSON format
@@ -107,8 +108,6 @@ class ExportJson extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
-
         $data = $this->encode([
             'type' => 'header',
             'version' => Version::VERSION,
@@ -118,7 +117,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler('[' . $GLOBALS['crlf'] . $data . ',' . $GLOBALS['crlf']);
+        return $this->export->outputHandler('[' . PHP_EOL . $data . ',' . PHP_EOL);
     }
 
     /**
@@ -126,9 +125,7 @@ class ExportJson extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
-
-        return $this->export->outputHandler(']' . $GLOBALS['crlf']);
+        return $this->export->outputHandler(']' . PHP_EOL);
     }
 
     /**
@@ -139,8 +136,6 @@ class ExportJson extends ExportPlugin
      */
     public function exportDBHeader($db, $dbAlias = ''): bool
     {
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
-
         if (empty($dbAlias)) {
             $dbAlias = $db;
         }
@@ -150,7 +145,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler($data . ',' . $GLOBALS['crlf']);
+        return $this->export->outputHandler($data . ',' . PHP_EOL);
     }
 
     /**
@@ -180,7 +175,6 @@ class ExportJson extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -188,7 +182,6 @@ class ExportJson extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -215,7 +208,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->doExportForQuery($GLOBALS['dbi'], $sqlQuery, $buffer, $crlf, $aliases, $db, $table);
+        return $this->doExportForQuery($GLOBALS['dbi'], $sqlQuery, $buffer, $aliases, $db, $table);
     }
 
     /**
@@ -235,14 +228,13 @@ class ExportJson extends ExportPlugin
         DatabaseInterface $dbi,
         string $sqlQuery,
         string $buffer,
-        string $crlf,
         ?array $aliases,
         ?string $db,
         ?string $table
     ): bool {
         [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
-        if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
+        if (! $this->export->outputHandler($header . PHP_EOL . '[' . PHP_EOL)) {
             return false;
         }
 
@@ -269,7 +261,7 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt > 1) {
-                if (! $this->export->outputHandler(',' . $crlf)) {
+                if (! $this->export->outputHandler(',' . PHP_EOL)) {
                     return false;
                 }
             }
@@ -311,7 +303,7 @@ class ExportJson extends ExportPlugin
             }
         }
 
-        return $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf);
+        return $this->export->outputHandler(PHP_EOL . ']' . PHP_EOL . $footer . PHP_EOL);
     }
 
     /**
@@ -319,9 +311,8 @@ class ExportJson extends ExportPlugin
      *
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery): bool
     {
         $buffer = $this->encode([
             'type' => 'raw',
@@ -331,6 +322,6 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->doExportForQuery($GLOBALS['dbi'], $sqlQuery, $buffer, $crlf, null, null, null);
+        return $this->doExportForQuery($GLOBALS['dbi'], $sqlQuery, $buffer, null, null, null);
     }
 }

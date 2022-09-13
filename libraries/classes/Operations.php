@@ -160,7 +160,7 @@ class Operations
 
             $views[] = $each_table;
             // Create stand-in definition to resolve view dependencies
-            $sql_view_standin = $export_sql_plugin->getTableDefStandIn($db, $each_table, "\n");
+            $sql_view_standin = $export_sql_plugin->getTableDefStandIn($db, $each_table);
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($sql_view_standin);
             $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;

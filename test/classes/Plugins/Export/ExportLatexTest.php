@@ -419,7 +419,6 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
@@ -443,8 +442,6 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
-
         $this->expectOutputString("% \n% Database: 'testDB'\n% \n");
 
         $this->assertTrue(
@@ -481,7 +478,6 @@ class ExportLatexTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -513,7 +509,6 @@ class ExportLatexTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -627,7 +622,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'test',
                 'test',
@@ -729,7 +723,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'test',
                 'test',
@@ -788,7 +781,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'test',
                 'test'
@@ -807,7 +799,6 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'triggers',
                 'test'

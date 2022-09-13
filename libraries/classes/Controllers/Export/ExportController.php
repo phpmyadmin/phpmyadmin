@@ -35,8 +35,6 @@ use function register_shutdown_function;
 use function strlen;
 use function time;
 
-use const PHP_EOL;
-
 final class ExportController extends AbstractController
 {
     /** @var Export */
@@ -56,7 +54,6 @@ final class ExportController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['compression'] = $GLOBALS['compression'] ?? null;
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
         $GLOBALS['asfile'] = $GLOBALS['asfile'] ?? null;
         $GLOBALS['buffer_needed'] = $GLOBALS['buffer_needed'] ?? null;
         $GLOBALS['save_on_server'] = $GLOBALS['save_on_server'] ?? null;
@@ -261,14 +258,6 @@ final class ExportController extends AbstractController
         // We send fake headers to avoid browser timeout when buffering
         $GLOBALS['time_start'] = time();
 
-        // Defines the default <CR><LF> format.
-        // For SQL always use \n as MySQL wants this on all platforms.
-        if ($GLOBALS['what'] === 'sql') {
-            $GLOBALS['crlf'] = "\n";
-        } else {
-            $GLOBALS['crlf'] = PHP_EOL;
-        }
-
         $GLOBALS['output_kanji_conversion'] = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
@@ -397,7 +386,6 @@ final class ExportController extends AbstractController
                     $GLOBALS['db_select'],
                     $GLOBALS['whatStrucOrData'],
                     $GLOBALS['export_plugin'],
-                    $GLOBALS['crlf'],
                     $GLOBALS['errorUrl'],
                     $GLOBALS['export_type'],
                     $GLOBALS['do_relation'],
@@ -431,7 +419,6 @@ final class ExportController extends AbstractController
                             $GLOBALS['table_structure'],
                             $GLOBALS['table_data'],
                             $GLOBALS['export_plugin'],
-                            $GLOBALS['crlf'],
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $GLOBALS['do_relation'],
@@ -452,7 +439,6 @@ final class ExportController extends AbstractController
                         $GLOBALS['table_structure'],
                         $GLOBALS['table_data'],
                         $GLOBALS['export_plugin'],
-                        $GLOBALS['crlf'],
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $GLOBALS['do_relation'],
@@ -467,7 +453,6 @@ final class ExportController extends AbstractController
                 Export::exportRaw(
                     $GLOBALS['whatStrucOrData'],
                     $GLOBALS['export_plugin'],
-                    $GLOBALS['crlf'],
                     $GLOBALS['errorUrl'],
                     $GLOBALS['sql_query'],
                     $GLOBALS['export_type']
@@ -495,7 +480,6 @@ final class ExportController extends AbstractController
                             $GLOBALS['table'],
                             $GLOBALS['whatStrucOrData'],
                             $GLOBALS['export_plugin'],
-                            $GLOBALS['crlf'],
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $GLOBALS['do_relation'],
@@ -517,7 +501,6 @@ final class ExportController extends AbstractController
                         $GLOBALS['table'],
                         $GLOBALS['whatStrucOrData'],
                         $GLOBALS['export_plugin'],
-                        $GLOBALS['crlf'],
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $GLOBALS['do_relation'],

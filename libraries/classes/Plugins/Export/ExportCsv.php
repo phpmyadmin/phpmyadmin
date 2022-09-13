@@ -23,6 +23,8 @@ use function preg_replace;
 use function str_replace;
 use function trim;
 
+use const PHP_EOL;
+
 /**
  * Handles the export for the CSV format
  */
@@ -137,7 +139,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
-                $GLOBALS['csv_terminated'] = $GLOBALS['crlf'];
+                $GLOBALS['csv_terminated'] = PHP_EOL;
             } else {
                 $GLOBALS['csv_terminated'] = str_replace(
                     [
@@ -206,7 +208,6 @@ class ExportCsv extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -214,7 +215,6 @@ class ExportCsv extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -343,10 +343,9 @@ class ExportCsv extends ExportPlugin
      *
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery): bool
     {
-        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
+        return $this->exportData('', '', $errorUrl, $sqlQuery);
     }
 }

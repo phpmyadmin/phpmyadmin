@@ -407,7 +407,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'ta<ble',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -474,7 +473,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -529,7 +527,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -549,7 +546,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $this->dummyDbi->addSelectDb('test_db');
         $this->assertSame(
-            $this->object->getTableDefStandIn('test_db', 'test_table', "\n"),
+            $this->object->getTableDefStandIn('test_db', 'test_table'),
             ''
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -649,7 +646,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->getTableDef(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 true,
                 true,
@@ -742,7 +738,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->getTableDef(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 true,
                 true,
@@ -805,7 +800,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_table',
                 'test'
@@ -847,7 +841,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'triggers',
                 'test'
@@ -879,7 +872,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_view',
                 'test'
@@ -921,7 +913,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'stand_in',
                 'test'

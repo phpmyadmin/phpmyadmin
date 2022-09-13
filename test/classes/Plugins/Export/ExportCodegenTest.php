@@ -195,7 +195,7 @@ class ExportCodegenTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
-        $this->object->exportData('test_db', 'test_table', "\n", 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
+        $this->object->exportData('test_db', 'test_table', 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         $this->assertIsString($result);
@@ -220,7 +220,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $GLOBALS['codegen_format'] = 4;
 
-        $this->object->exportData('test_db', 'test_table', "\n", 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
+        $this->object->exportData('test_db', 'test_table', 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
 
         $this->expectOutputString('4 is not supported.');
     }
@@ -247,7 +247,7 @@ class ExportCodegenTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
         $method->setAccessible(true);
-        $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
+        $result = $method->invoke($this->object, 'test_db', 'test_table');
 
         $this->assertEquals(
             'using System;' . "\n" .
@@ -300,7 +300,7 @@ class ExportCodegenTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
         $method->setAccessible(true);
-        $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
+        $result = $method->invoke($this->object, 'test_db', 'test_table');
 
         $this->assertEquals(
             '<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
