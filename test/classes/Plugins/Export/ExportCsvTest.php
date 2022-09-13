@@ -299,7 +299,6 @@ class ExportCsvTest extends AbstractTestCase
         // case 5
 
         $GLOBALS['what'] = 'notExcel';
-        $GLOBALS['crlf'] = "\n";
         $GLOBALS['csv_terminated'] = '';
         $GLOBALS['csv_separator'] = 'a\\t';
 
@@ -379,7 +378,6 @@ class ExportCsvTest extends AbstractTestCase
         $this->assertFalse($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -400,7 +398,6 @@ class ExportCsvTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -419,7 +416,6 @@ class ExportCsvTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -441,7 +437,6 @@ class ExportCsvTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -462,7 +457,6 @@ class ExportCsvTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -483,7 +477,6 @@ class ExportCsvTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));

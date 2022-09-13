@@ -41,7 +41,6 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['crlf'] = "\n";
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
@@ -166,7 +165,6 @@ class ExportYamlTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'SELECT * FROM `test_db`.`test_table_yaml`;'
             )

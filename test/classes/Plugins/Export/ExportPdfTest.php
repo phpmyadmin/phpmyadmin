@@ -239,7 +239,6 @@ class ExportPdfTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'phpmyadmin.net/err',
                 'SELECT'
             )

@@ -246,7 +246,7 @@ class Tracker
         }
 
         $createSql .= self::getLogComment() .
-            $exportSqlPlugin->getTableDef($dbName, $tableName, "\n", '');
+            $exportSqlPlugin->getTableDef($dbName, $tableName, '');
 
         // Save version
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;

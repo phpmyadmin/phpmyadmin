@@ -161,7 +161,6 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             ['test_table'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            "\n",
             'index.php?route=/database/export&db=test_db',
             'database',
             false,
@@ -238,7 +237,6 @@ SQL;
             ['test_db'],
             'structure_and_data',
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            "\n",
             'index.php?route=/server/export',
             'server',
             false,
@@ -250,7 +248,9 @@ SQL;
         );
 
         $expected = <<<SQL
-CREATE DATABASE IF NOT EXISTS test_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;USE test_db;
+CREATE DATABASE IF NOT EXISTS test_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE test_db;
+
 INSERT INTO test_table (id, name, datetimefield) VALUES
 ('1', 'abcd', '2011-01-20 02:00:02'),
 ('2', 'foo', '2010-01-20 02:00:02'),

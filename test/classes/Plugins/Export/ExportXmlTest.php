@@ -49,7 +49,6 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['crlf'] = "\n";
         $this->object = new ExportXml(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
@@ -185,7 +184,6 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_triggers'] = 1;
         $GLOBALS['xml_export_procedures'] = 1;
         $GLOBALS['xml_export_functions'] = 1;
-        $GLOBALS['crlf'] = "\n";
         $GLOBALS['db'] = 'd<"b';
 
         $result = [
@@ -408,7 +406,6 @@ class ExportXmlTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'SELECT * FROM `test_db`.`test_table`;'
             )

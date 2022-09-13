@@ -214,7 +214,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'SELECT * FROM `test_db`.`test_table`;'
             )
@@ -237,7 +236,7 @@ class ExportTexytextTest extends AbstractTestCase
     public function testGetTableDefStandIn(): void
     {
         $this->dummyDbi->addSelectDb('test_db');
-        $result = $this->object->getTableDefStandIn('test_db', 'test_table', "\n");
+        $result = $this->object->getTableDefStandIn('test_db', 'test_table');
         $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertEquals(
@@ -334,7 +333,7 @@ class ExportTexytextTest extends AbstractTestCase
             'column_info' => 'col',
         ])->toArray();
 
-        $result = $this->object->getTableDef('db', 'table', "\n", 'example.com', true, true, true);
+        $result = $this->object->getTableDef('db', 'table', 'example.com', true, true, true);
 
         $this->assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }
@@ -382,7 +381,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_table',
                 'test'
@@ -409,7 +407,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'triggers',
                 'test'
@@ -433,7 +430,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_view',
                 'test'
@@ -460,7 +456,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'stand_in',
                 'test'

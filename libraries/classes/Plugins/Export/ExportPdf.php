@@ -167,7 +167,6 @@ class ExportPdf extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -175,7 +174,6 @@ class ExportPdf extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -200,9 +198,8 @@ class ExportPdf extends ExportPlugin
      *
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery): bool
     {
         $pdf = $this->getPdf();
         $pdf->setDbAlias('----');
@@ -218,7 +215,6 @@ class ExportPdf extends ExportPlugin
      *
      * @param string $db          database name
      * @param string $table       table name
-     * @param string $crlf        the end of line sequence
      * @param string $errorUrl    the url to go back in case of error
      * @param string $exportMode  'create_table', 'triggers', 'create_view',
      *                             'stand_in'
@@ -237,7 +233,6 @@ class ExportPdf extends ExportPlugin
     public function exportStructure(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $exportMode,
         $exportType,
@@ -292,7 +287,7 @@ class ExportPdf extends ExportPlugin
             case 'stand_in':
                 /* export a stand-in definition to resolve view dependencies
                  * Yet to develop this function
-                 * $pdf->getTableDefStandIn($db, $table, $crlf);
+                 * $pdf->getTableDefStandIn($db, $table);
                  */
         }
 

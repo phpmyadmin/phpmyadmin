@@ -283,7 +283,6 @@ class ExportOdsTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -357,7 +356,6 @@ class ExportOdsTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -410,7 +408,6 @@ class ExportOdsTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'SELECT'
             )
