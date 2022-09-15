@@ -867,6 +867,37 @@ If using PHP 5.4.0 or higher, you must set
 starting from phpMyAdmin version 4.0.4, session-based upload progress has
 been temporarily deactivated due to its problematic behavior.
 
+.. _faq2_10:
+
+2.10 How to generate a string of random bytes
+---------------------------------------------
+
+One way to generate a string of random bytes suitable for cryptographic use is using the
+`random_bytes <https://www.php.net/random_bytes>`_ :term:`PHP` function. Since this function returns a binary string,
+the returned value should be converted to printable format before being able to copy it.
+
+For example, the :config:option:`$cfg['blowfish_secret']` configuration directive requires a 32-bytes long string. The
+following command can be used to generate a hexadecimal representation of this string.
+
+.. code-block:: sh
+
+    php -r 'echo bin2hex(random_bytes(32)) . PHP_EOL;'
+
+The above example will output something similar to:
+
+.. code-block:: sh
+
+    f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851
+
+And then this hexadecimal value can be used in the configuration file.
+
+.. code-block:: php
+
+    $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
+
+The `sodium_hex2bin <https://www.php.net/sodium_hex2bin>`_ is used here to convert the hexadecimal value back to the
+binary format.
+
 .. _faqlimitations:
 
 Known limitations

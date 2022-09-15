@@ -1888,6 +1888,8 @@ Generic settings
     A secret key used to encrypt/decrypt the URL query string.
     Should be 32 bytes long.
 
+    .. seealso:: :ref:`faq2_10`
+
 Cookie authentication options
 -----------------------------
 
@@ -1932,6 +1934,8 @@ Cookie authentication options
         `sodium\_crypto\_secretbox <https://www.php.net/sodium_crypto_secretbox>`_ and
         `sodium\_crypto\_secretbox\_open <https://www.php.net/sodium_crypto_secretbox_open>`_ PHP functions to encrypt
         and decrypt cookies, respectively.
+
+    .. seealso:: :ref:`faq2_10`
 
 .. config:option:: $cfg['CookieSameSite']
 
