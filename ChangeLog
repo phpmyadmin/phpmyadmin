@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix PHP warning on GIS visualization when there is only one GIS column
 - issue #17728 Some select HTML tags will now have the correct UI style
 - issue #17734 PHP deprecations will only be shown when in a development environment
+- issue #17369 Fix server error when blowfish_secret is not exactly 32 bytes long
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

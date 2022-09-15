@@ -118,10 +118,9 @@ final class Settings
     public $AllowThirdPartyFraming;
 
     /**
-     * The 'cookie' auth_type uses AES algorithm to encrypt the password. If
-     * at least one server configuration uses 'cookie' auth_type, enter here a
-     * pass phrase that will be used by AES. The maximum length seems to be 46
-     * characters.
+     * The 'cookie' auth_type uses the Sodium extension to encrypt the cookies. If at least one server configuration
+     * uses 'cookie' auth_type, enter here a generated string of random bytes to be used as an encryption key. The
+     * encryption key must be 32 bytes long.
      *
      * @var string
      */

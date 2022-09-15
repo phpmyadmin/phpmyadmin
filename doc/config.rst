@@ -1896,13 +1896,23 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The "cookie" auth\_type uses AES algorithm to encrypt the password. If you
-    are using the "cookie" auth\_type, enter here a random passphrase of your
-    choice. It will be used internally by the AES algorithm: you won’t be
-    prompted for this passphrase.
+    The "cookie" auth\_type uses the :term:`Sodium` extension to encrypt the cookies (see :term:`Cookie`). If you are
+    using the "cookie" auth\_type, enter here a generated string of random bytes to be used as an encryption key. It
+    will be used internally by the :term:`Sodium` extension: you won't be prompted for this encryption key.
 
-    The secret should be 32 characters long. Using shorter will lead to weaker security
-    of encrypted cookies, using longer will cause no harm.
+    Since a binary string is usually not printable, it can be converted into a hexadecimal representation (using a
+    function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_) and then used in the configuration file. For
+    example:
+
+    .. code-block:: php
+
+        // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
+        $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
+
+    .. warning::
+
+        The encryption key must be 32 bytes long. If it has a different length of bytes, a new key will be automatically
+        generated for you. However it will only last for the duration of the session.
 
     .. note::
 
@@ -1910,10 +1920,18 @@ Cookie authentication options
         Blowfish algorithm was originally used to do the encryption.
 
     .. versionchanged:: 3.1.0
+
         Since version 3.1.0 phpMyAdmin can generate this on the fly, but it
         makes a bit weaker security as this generated secret is stored in
         session and furthermore it makes impossible to recall user name from
         cookie.
+
+    .. versionchanged:: 5.2.0
+
+        Since version 5.2.0, phpMyAdmin uses the
+        `sodium\_crypto\_secretbox <https://www.php.net/sodium_crypto_secretbox>`_ and
+        `sodium\_crypto\_secretbox\_open <https://www.php.net/sodium_crypto_secretbox_open>`_ PHP functions to encrypt
+        and decrypt cookies, respectively.
 
 .. config:option:: $cfg['CookieSameSite']
 
@@ -3809,8 +3827,8 @@ following example shows two of them:
 .. code-block:: php
 
     <?php
-    $cfg['blowfish_secret'] = 'multiServerExample70518';
-    // any string of your choice
+    // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
+    $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
     $i = 0;
 
     $i++; // server 1 :
