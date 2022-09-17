@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-09-14 10:18+0000\n"
+"PO-Revision-Date: 2022-09-18 08:18+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Réunion Creole <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/rcf/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 #, fuzzy
@@ -11306,7 +11306,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 msgid "Allows deleting historical rows."
-msgstr "Ou autorise a moin pou supprime des données historique"
+msgstr "Ou autorise a moin pou supprime des données historique."
 
 #: libraries/classes/Server/Privileges.php:491
 #: templates/server/privileges/privileges_table.twig:454
@@ -14772,7 +14772,6 @@ msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
