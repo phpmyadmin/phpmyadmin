@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-11 00:21+0000\n"
+"POT-Creation-Date: 2022-09-18 00:23+0000\n"
 "PO-Revision-Date: 2022-09-15 13:15+0000\n"
 "Last-Translator: Андрей <platon436@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1992,7 +1992,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:184
 #: libraries/classes/Config/Descriptions.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:346
+#: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
 msgstr "Исключить определение текущего пользователя"
 
@@ -3280,7 +3280,7 @@ msgstr "Упаковать"
 #: libraries/classes/Config/Descriptions.php:692
 #: libraries/classes/Config/Descriptions.php:694
 #: libraries/classes/Config/Descriptions.php:741
-#: libraries/classes/Plugins/Export/ExportCsv.php:87
+#: libraries/classes/Plugins/Export/ExportCsv.php:89
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:85
 #: libraries/classes/Plugins/Export/ExportOds.php:69
@@ -3353,28 +3353,28 @@ msgstr "Шаблон имени таблицы"
 #: libraries/classes/Config/Descriptions.php:737
 #: libraries/classes/Config/Descriptions.php:743
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:56
-#: libraries/classes/Plugins/Export/ExportLatex.php:88
+#: libraries/classes/Plugins/Export/ExportLatex.php:89
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:55
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
 #: libraries/classes/Plugins/Export/ExportOdt.php:70
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:238
+#: libraries/classes/Plugins/Export/ExportSql.php:240
 #: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
 msgstr "Сохранение таблицы"
 
 #: libraries/classes/Config/Descriptions.php:678
-#: libraries/classes/Plugins/Export/ExportLatex.php:79
+#: libraries/classes/Plugins/Export/ExportLatex.php:80
 msgid "Include table caption"
 msgstr "Добавить заголовок таблицы"
 
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:731
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:385
-#: libraries/classes/Plugins/Export/ExportLatex.php:531
-#: libraries/classes/Plugins/Export/ExportOdt.php:489
-#: libraries/classes/Plugins/Export/ExportTexytext.php:387
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:382
+#: libraries/classes/Plugins/Export/ExportLatex.php:523
+#: libraries/classes/Plugins/Export/ExportOdt.php:483
+#: libraries/classes/Plugins/Export/ExportTexytext.php:381
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:544
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
@@ -3402,9 +3402,9 @@ msgstr "Идентификатор метки"
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:734
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:392
-#: libraries/classes/Plugins/Export/ExportOdt.php:496
-#: libraries/classes/Plugins/Export/ExportTexytext.php:392
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:389
+#: libraries/classes/Plugins/Export/ExportOdt.php:490
+#: libraries/classes/Plugins/Export/ExportTexytext.php:386
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:552
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
@@ -3471,12 +3471,12 @@ msgid "Use delayed inserts"
 msgstr "Использовать отложенные вставки (DELAYED)"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:184
+#: libraries/classes/Plugins/Export/ExportSql.php:186
 msgid "Disable foreign key checks"
 msgstr "Отключить проверку внешних ключей"
 
 #: libraries/classes/Config/Descriptions.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:198
+#: libraries/classes/Plugins/Export/ExportSql.php:200
 msgid "Export views as tables"
 msgstr "Экспортировать представления как таблицы"
 
@@ -3511,7 +3511,7 @@ msgstr ""
 "время создания таблицы)"
 
 #: libraries/classes/Config/Descriptions.php:729
-#: libraries/classes/Plugins/Export/ExportSql.php:352
+#: libraries/classes/Plugins/Export/ExportSql.php:354
 #, php-format
 msgid "%s view"
 msgstr "%s вид"
@@ -3525,7 +3525,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Использовать синтаксис при вставке данных"
 
 #: libraries/classes/Config/Descriptions.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:489
+#: libraries/classes/Plugins/Export/ExportSql.php:491
 msgid "Maximal length of created query"
 msgstr "Максимальная длина создаваемого запроса"
 
@@ -3534,7 +3534,7 @@ msgid "Export type"
 msgstr "Тип экспорта"
 
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:170
+#: libraries/classes/Plugins/Export/ExportSql.php:172
 msgid "Enclose export in a transaction"
 msgstr "Заключить экспорт в транзакцию"
 
@@ -3625,7 +3625,7 @@ msgstr "Сервера"
 #: libraries/classes/Controllers/Server/DatabasesController.php:310
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:116
+#: libraries/classes/Plugins/Export/ExportXml.php:119
 #: libraries/classes/Server/Status/Data.php:159
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
@@ -3703,7 +3703,7 @@ msgid "Database structure"
 msgstr "Структура базы данных"
 
 #: libraries/classes/Config/Descriptions.php:780
-#: libraries/classes/Plugins/Export/ExportPdf.php:258
+#: libraries/classes/Plugins/Export/ExportPdf.php:253
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "Структура таблицы"
@@ -4359,7 +4359,7 @@ msgid "Explain SQL"
 msgstr "Анализ SQL запроса"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1289 libraries/classes/Html/Generator.php:704
+#: libraries/classes/Export.php:1273 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4420,7 +4420,7 @@ msgid "Server"
 msgstr "Сервер"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Plugins/Export/ExportXml.php:460
+#: libraries/classes/Plugins/Export/ExportXml.php:454
 #: libraries/classes/Server/Privileges.php:1823
 #: libraries/classes/Server/Privileges.php:1825
 #: templates/database/structure/show_create.twig:10
@@ -5076,7 +5076,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:90
 #: libraries/classes/Controllers/Database/TrackingController.php:139
-#: libraries/classes/Controllers/Export/ExportController.php:345
+#: libraries/classes/Controllers/Export/ExportController.php:334
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -5103,28 +5103,23 @@ msgstr "Не удалось загрузить плагины импорта. П
 msgid "No collation provided."
 msgstr "Не предоставлено сопоставление."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:107
-#: libraries/classes/Controllers/Table/CreateController.php:68
-msgid "The database name is empty!"
-msgstr "Не указано имя базы данных!"
-
-#: libraries/classes/Controllers/Database/OperationsController.php:116
+#: libraries/classes/Controllers/Database/OperationsController.php:121
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Невозможно скопировать базу данных с тем же именем. Измените имя и повторите "
 "попытку."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:201
+#: libraries/classes/Controllers/Database/OperationsController.php:216
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "База данных %1$s переименована в %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:211
+#: libraries/classes/Controllers/Database/OperationsController.php:226
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "База данных %1$s скопирована в %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:320
+#: libraries/classes/Controllers/Database/OperationsController.php:335
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -5218,10 +5213,10 @@ msgstr "неизвестно"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:505
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:628
-#: libraries/classes/Plugins/Export/ExportLatex.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:778
-#: libraries/classes/Plugins/Export/ExportTexytext.php:614
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:623
+#: libraries/classes/Plugins/Export/ExportLatex.php:592
+#: libraries/classes/Plugins/Export/ExportOdt.php:768
+#: libraries/classes/Plugins/Export/ExportTexytext.php:604
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -5310,12 +5305,12 @@ msgstr "Если у вас возникают проблемы, отправьт
 msgid "You may want to refresh the page."
 msgstr "Возможно вы хотите перезагрузить страницу."
 
-#: libraries/classes/Controllers/Export/ExportController.php:136
-#: libraries/classes/Export.php:1276
+#: libraries/classes/Controllers/Export/ExportController.php:133
+#: libraries/classes/Export.php:1260
 msgid "Bad type!"
 msgstr "Неучтённый тип!"
 
-#: libraries/classes/Controllers/Export/ExportController.php:228
+#: libraries/classes/Controllers/Export/ExportController.php:225
 msgid "Bad parameters!"
 msgstr "Ошибочные параметры!"
 
@@ -6100,7 +6095,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #: libraries/classes/Display/Results.php:1065
-#: libraries/classes/Plugins/Export/ExportSql.php:2198
+#: libraries/classes/Plugins/Export/ExportSql.php:2170
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -6329,9 +6324,9 @@ msgstr "Состояние"
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:801
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:471
-#: libraries/classes/Plugins/Export/ExportOdt.php:594
-#: libraries/classes/Plugins/Export/ExportTexytext.php:452
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:468
+#: libraries/classes/Plugins/Export/ExportOdt.php:588
+#: libraries/classes/Plugins/Export/ExportTexytext.php:446
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:359
 #: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
@@ -6596,10 +6591,10 @@ msgstr "Смена кодировки"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:478
 #: libraries/classes/Index.php:506
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:627
-#: libraries/classes/Plugins/Export/ExportLatex.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:777
-#: libraries/classes/Plugins/Export/ExportTexytext.php:614
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:622
+#: libraries/classes/Plugins/Export/ExportLatex.php:592
+#: libraries/classes/Plugins/Export/ExportOdt.php:767
+#: libraries/classes/Plugins/Export/ExportTexytext.php:604
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -6841,7 +6836,7 @@ msgid "No partial dependencies selected!"
 msgstr "Не выбраны зависимости!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Export.php:1329 libraries/classes/Html/Generator.php:977
+#: libraries/classes/Export.php:1313 libraries/classes/Html/Generator.php:977
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -8875,6 +8870,10 @@ msgstr "В таблице отсутствуют числовые столбцы
 msgid "No data to display"
 msgstr "Данные не найдены"
 
+#: libraries/classes/Controllers/Table/CreateController.php:68
+msgid "The database name is empty!"
+msgstr "Не указано имя базы данных!"
+
 #: libraries/classes/Controllers/Table/CreateController.php:80
 #: libraries/classes/Controllers/Table/GetFieldController.php:49
 #, php-format
@@ -8902,7 +8901,7 @@ msgstr "Таблица %s уже существует!"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:299
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Database/Routines.php:1230
+#: libraries/classes/Database/Routines.php:1226
 #: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
@@ -8945,7 +8944,7 @@ msgid "There is an issue with your request."
 msgstr "Слишком большое количество объединения не использующих индексы."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
-#: libraries/classes/Database/Routines.php:1249
+#: libraries/classes/Database/Routines.php:1245
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:241
 #: libraries/classes/Sql.php:954
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -9188,13 +9187,13 @@ msgstr ""
 "Не удалось загрузить плагины схемы, проверьте содержимое установленной копии "
 "phpMyAdmin, пожалуйста!"
 
-#: libraries/classes/Database/Events.php:110
-#: libraries/classes/Database/Events.php:119
-#: libraries/classes/Database/Events.php:145
-#: libraries/classes/Database/Routines.php:228
-#: libraries/classes/Database/Routines.php:253
-#: libraries/classes/Database/Routines.php:355
-#: libraries/classes/Database/Routines.php:1256
+#: libraries/classes/Database/Events.php:111
+#: libraries/classes/Database/Events.php:120
+#: libraries/classes/Database/Events.php:146
+#: libraries/classes/Database/Routines.php:220
+#: libraries/classes/Database/Routines.php:245
+#: libraries/classes/Database/Routines.php:347
+#: libraries/classes/Database/Routines.php:1252
 #: libraries/classes/Database/Triggers.php:121
 #: libraries/classes/Database/Triggers.php:130
 #: libraries/classes/Database/Triggers.php:157
@@ -9202,15 +9201,15 @@ msgstr ""
 msgid "The following query has failed: \"%s\""
 msgstr "Данный запрос не был выполнен: \"%s\""
 
-#: libraries/classes/Database/Events.php:114
-#: libraries/classes/Database/Events.php:123
-#: libraries/classes/Database/Events.php:149
-#: libraries/classes/Database/Events.php:507
-#: libraries/classes/Database/Routines.php:232
-#: libraries/classes/Database/Routines.php:257
-#: libraries/classes/Database/Routines.php:359
-#: libraries/classes/Database/Routines.php:1260
-#: libraries/classes/Database/Routines.php:1540
+#: libraries/classes/Database/Events.php:115
+#: libraries/classes/Database/Events.php:124
+#: libraries/classes/Database/Events.php:150
+#: libraries/classes/Database/Events.php:508
+#: libraries/classes/Database/Routines.php:224
+#: libraries/classes/Database/Routines.php:249
+#: libraries/classes/Database/Routines.php:351
+#: libraries/classes/Database/Routines.php:1256
+#: libraries/classes/Database/Routines.php:1541
 #: libraries/classes/Database/Triggers.php:125
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:161
@@ -9219,85 +9218,85 @@ msgstr "Данный запрос не был выполнен: \"%s\""
 msgid "MySQL said: "
 msgstr "Ответ MySQL: "
 
-#: libraries/classes/Database/Events.php:132
+#: libraries/classes/Database/Events.php:133
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Было изменено событие %1$s."
 
-#: libraries/classes/Database/Events.php:152
+#: libraries/classes/Database/Events.php:153
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Было создано событие %1$s."
 
-#: libraries/classes/Database/Events.php:166
-#: libraries/classes/Database/Routines.php:273
+#: libraries/classes/Database/Events.php:167
+#: libraries/classes/Database/Routines.php:265
 #: libraries/classes/Database/Triggers.php:178
 msgid "One or more errors have occurred while processing your request:"
 msgstr "При обработке вашего запроса были обнаружены ошибки:"
 
-#: libraries/classes/Database/Events.php:245
+#: libraries/classes/Database/Events.php:246
 msgid "Add event"
 msgstr "Добавить событие"
 
-#: libraries/classes/Database/Events.php:249
+#: libraries/classes/Database/Events.php:250
 msgid "Edit event"
 msgstr "Редактировать событие"
 
-#: libraries/classes/Database/Events.php:406
-#: libraries/classes/Database/Routines.php:992
+#: libraries/classes/Database/Events.php:407
+#: libraries/classes/Database/Routines.php:988
 #: libraries/classes/Database/Triggers.php:387
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Определитель должен быть в формате \"username@hostname\"!"
 
-#: libraries/classes/Database/Events.php:414
+#: libraries/classes/Database/Events.php:415
 msgid "You must provide an event name!"
 msgstr "Необходимо задать имя события!"
 
-#: libraries/classes/Database/Events.php:428
+#: libraries/classes/Database/Events.php:429
 msgid "You must provide a valid interval value for the event."
 msgstr "Необходимо задать корректный интервал значений для события."
 
-#: libraries/classes/Database/Events.php:448
+#: libraries/classes/Database/Events.php:449
 msgid "You must provide a valid execution time for the event."
 msgstr "Необходимо задать корректное время выполнения события."
 
-#: libraries/classes/Database/Events.php:452
+#: libraries/classes/Database/Events.php:453
 msgid "You must provide a valid type for the event."
 msgstr "Необходимо задать корректный тип события."
 
-#: libraries/classes/Database/Events.php:478
+#: libraries/classes/Database/Events.php:479
 msgid "You must provide an event definition."
 msgstr "Вы должны задать определение события."
 
-#: libraries/classes/Database/Events.php:504
+#: libraries/classes/Database/Events.php:505
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Невозможно восстановить удаленное событие."
 
-#: libraries/classes/Database/Events.php:505
-#: libraries/classes/Database/Routines.php:1538
+#: libraries/classes/Database/Events.php:506
+#: libraries/classes/Database/Routines.php:1539
 #: libraries/classes/Database/Triggers.php:441
 msgid "The backed up query was:"
 msgstr "Сохраненный запрос был:"
 
-#: libraries/classes/Database/Events.php:536
+#: libraries/classes/Database/Events.php:537
 #: libraries/classes/Database/Routines.php:154
-#: libraries/classes/Database/Routines.php:1149
-#: libraries/classes/Database/Routines.php:1316
+#: libraries/classes/Database/Routines.php:1145
+#: libraries/classes/Database/Routines.php:1312
 #: libraries/classes/Database/Triggers.php:472
 msgid "Error in processing request:"
 msgstr "Ошибка при обработке запроса:"
 
-#: libraries/classes/Database/Events.php:538
+#: libraries/classes/Database/Events.php:539
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "В базе данных %2$s не найдено событие с именем %1$s."
 
-#: libraries/classes/Database/Events.php:568
+#: libraries/classes/Database/Events.php:569
 #, php-format
 msgid "Export of event %s"
 msgstr "Экспортировать событие %s"
 
-#: libraries/classes/Database/Events.php:589
+#: libraries/classes/Database/Events.php:590
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s."
 msgid ""
@@ -9320,15 +9319,15 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "Не удалось установить настроенное соединение для сопоставления!"
 
-#: libraries/classes/DatabaseInterface.php:1707
+#: libraries/classes/DatabaseInterface.php:1650
 msgid "Missing connection parameters!"
 msgstr "Отсутствуют параметры подключения!"
 
-#: libraries/classes/DatabaseInterface.php:1734
+#: libraries/classes/DatabaseInterface.php:1677
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Ошибка при указании соединения для controluser в конфигурации."
 
-#: libraries/classes/DatabaseInterface.php:2148
+#: libraries/classes/DatabaseInterface.php:2091
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Смотрите %sour documentation%s для дополнительной информации."
@@ -9388,38 +9387,38 @@ msgstr ""
 "Процедура с именем %1$s не найдена в базе данных %2$s. Возможно, у вас "
 "отсутствуют привилегии, необходимые для правки этой процедуры."
 
-#: libraries/classes/Database/Routines.php:209
-#: libraries/classes/Database/Routines.php:1000
+#: libraries/classes/Database/Routines.php:201
+#: libraries/classes/Database/Routines.php:996
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Ошибочный тип процедуры: \"%s\""
 
-#: libraries/classes/Database/Routines.php:260
+#: libraries/classes/Database/Routines.php:252
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Была создана процедура %1$s."
 
-#: libraries/classes/Database/Routines.php:420
+#: libraries/classes/Database/Routines.php:412
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Была изменена процедура %1$s. Привилегии обновлены."
 
-#: libraries/classes/Database/Routines.php:425
+#: libraries/classes/Database/Routines.php:417
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Была изменена процедура %1$s."
 
-#: libraries/classes/Database/Routines.php:833
+#: libraries/classes/Database/Routines.php:829
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Вы должны задать имя и тип для каждого параметра процедуры."
 
-#: libraries/classes/Database/Routines.php:851
+#: libraries/classes/Database/Routines.php:847
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "\"%s\" является ошибочным параметром."
 
-#: libraries/classes/Database/Routines.php:871
-#: libraries/classes/Database/Routines.php:938
+#: libraries/classes/Database/Routines.php:867
+#: libraries/classes/Database/Routines.php:934
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -9427,30 +9426,30 @@ msgstr ""
 "Вы должны задать длину/значения для параметров процедуры, имеющих тип ENUM, "
 "SET, VARCHAR и VARBINARY."
 
-#: libraries/classes/Database/Routines.php:920
+#: libraries/classes/Database/Routines.php:916
 msgid "You must provide a valid return type for the routine."
 msgstr "Необходимо задать корректный возвращаемый тип для процедуры."
 
-#: libraries/classes/Database/Routines.php:1008
+#: libraries/classes/Database/Routines.php:1004
 msgid "You must provide a routine name!"
 msgstr "Необходимо задать имя процедуры!"
 
-#: libraries/classes/Database/Routines.php:1073
+#: libraries/classes/Database/Routines.php:1069
 msgid "You must provide a routine definition."
 msgstr "Вы должны задать определение процедуры."
 
-#: libraries/classes/Database/Routines.php:1151
-#: libraries/classes/Database/Routines.php:1318
+#: libraries/classes/Database/Routines.php:1147
+#: libraries/classes/Database/Routines.php:1314
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "В базе данных %2$s процедура с именем %1$s не найдена."
 
-#: libraries/classes/Database/Routines.php:1190
+#: libraries/classes/Database/Routines.php:1186
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Результаты выполнения процедуры %s"
 
-#: libraries/classes/Database/Routines.php:1238
+#: libraries/classes/Database/Routines.php:1234
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -9458,21 +9457,21 @@ msgstr[0] "Последним выражением в процедуре был�
 msgstr[1] "Последним выражением в процедуре были затронуты %d строки."
 msgstr[2] "Последним выражением в процедуре было затронуто %d строк."
 
-#: libraries/classes/Database/Routines.php:1301
-#: libraries/classes/Database/Routines.php:1308
+#: libraries/classes/Database/Routines.php:1297
+#: libraries/classes/Database/Routines.php:1304
 msgid "Execute routine"
 msgstr "Выполнить процедуру"
 
-#: libraries/classes/Database/Routines.php:1537
+#: libraries/classes/Database/Routines.php:1538
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Невозможно восстановить удаленную процедуру."
 
-#: libraries/classes/Database/Routines.php:1565
+#: libraries/classes/Database/Routines.php:1569
 #, php-format
 msgid "Export of routine %s"
 msgstr "Экспорт процедуры %s"
 
-#: libraries/classes/Database/Routines.php:1587
+#: libraries/classes/Database/Routines.php:1591
 #, fuzzy, php-format
 #| msgid ""
 #| "No routine with name %1$s found in database %2$s. You might be lacking "
@@ -10088,7 +10087,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:921
+#: libraries/classes/Export.php:910
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -10263,21 +10262,21 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr "Отредактировать структуру, перейдя по ссылке \"Структура\"."
 
 #: libraries/classes/Import.php:1223 libraries/classes/Import.php:1257
-#: libraries/classes/Plugins/Export/ExportCodegen.php:66
-#: libraries/classes/Plugins/Export/ExportCsv.php:45
+#: libraries/classes/Plugins/Export/ExportCodegen.php:68
+#: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:46
-#: libraries/classes/Plugins/Export/ExportJson.php:71
-#: libraries/classes/Plugins/Export/ExportLatex.php:67
+#: libraries/classes/Plugins/Export/ExportJson.php:72
+#: libraries/classes/Plugins/Export/ExportLatex.php:68
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:45
 #: libraries/classes/Plugins/Export/ExportOds.php:52
 #: libraries/classes/Plugins/Export/ExportOdt.php:60
 #: libraries/classes/Plugins/Export/ExportPdf.php:65
-#: libraries/classes/Plugins/Export/ExportPhparray.php:44
-#: libraries/classes/Plugins/Export/ExportSql.php:116
+#: libraries/classes/Plugins/Export/ExportPhparray.php:46
+#: libraries/classes/Plugins/Export/ExportSql.php:118
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
-#: libraries/classes/Plugins/Export/ExportXml.php:77
-#: libraries/classes/Plugins/Export/ExportYaml.php:43
+#: libraries/classes/Plugins/Export/ExportXml.php:80
+#: libraries/classes/Plugins/Export/ExportYaml.php:45
 #: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
@@ -10341,13 +10340,13 @@ msgid "Function"
 msgstr "Функция"
 
 #: libraries/classes/InsertEdit.php:367
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:276
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:369
-#: libraries/classes/Plugins/Export/ExportLatex.php:523
-#: libraries/classes/Plugins/Export/ExportOdt.php:371
-#: libraries/classes/Plugins/Export/ExportOdt.php:473
-#: libraries/classes/Plugins/Export/ExportTexytext.php:289
-#: libraries/classes/Plugins/Export/ExportTexytext.php:379
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:273
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:366
+#: libraries/classes/Plugins/Export/ExportLatex.php:515
+#: libraries/classes/Plugins/Export/ExportOdt.php:367
+#: libraries/classes/Plugins/Export/ExportOdt.php:467
+#: libraries/classes/Plugins/Export/ExportTexytext.php:285
+#: libraries/classes/Plugins/Export/ExportTexytext.php:373
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:523
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:666
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:700
@@ -10476,12 +10475,12 @@ msgstr "Слежение"
 #: libraries/classes/Menu.php:325 libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:553
-#: libraries/classes/Plugins/Export/ExportOdt.php:698
-#: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2073
-#: libraries/classes/Plugins/Export/ExportTexytext.php:536
-#: libraries/classes/Plugins/Export/ExportXml.php:121
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:548
+#: libraries/classes/Plugins/Export/ExportOdt.php:689
+#: libraries/classes/Plugins/Export/ExportPdf.php:256
+#: libraries/classes/Plugins/Export/ExportSql.php:2047
+#: libraries/classes/Plugins/Export/ExportTexytext.php:527
+#: libraries/classes/Plugins/Export/ExportXml.php:124
 #: libraries/classes/Util.php:1889 libraries/classes/Util.php:1905
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10504,8 +10503,8 @@ msgstr "Процедуры"
 #: libraries/classes/Menu.php:411
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1005
-#: libraries/classes/Plugins/Export/ExportXml.php:101
+#: libraries/classes/Plugins/Export/ExportSql.php:993
+#: libraries/classes/Plugins/Export/ExportXml.php:104
 #: libraries/classes/Util.php:1888 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "События"
@@ -10653,13 +10652,13 @@ msgid "New"
 msgstr "Новое"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:273
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:366
-#: libraries/classes/Plugins/Export/ExportLatex.php:522
-#: libraries/classes/Plugins/Export/ExportOdt.php:368
-#: libraries/classes/Plugins/Export/ExportOdt.php:470
-#: libraries/classes/Plugins/Export/ExportTexytext.php:288
-#: libraries/classes/Plugins/Export/ExportTexytext.php:378
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:270
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:363
+#: libraries/classes/Plugins/Export/ExportLatex.php:514
+#: libraries/classes/Plugins/Export/ExportOdt.php:364
+#: libraries/classes/Plugins/Export/ExportOdt.php:464
+#: libraries/classes/Plugins/Export/ExportTexytext.php:284
+#: libraries/classes/Plugins/Export/ExportTexytext.php:372
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:521
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:665
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:699
@@ -10704,9 +10703,9 @@ msgid "New"
 msgstr "Новое"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:472
-#: libraries/classes/Plugins/Export/ExportOdt.php:597
-#: libraries/classes/Plugins/Export/ExportTexytext.php:453
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:469
+#: libraries/classes/Plugins/Export/ExportOdt.php:591
+#: libraries/classes/Plugins/Export/ExportTexytext.php:447
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
@@ -10715,8 +10714,8 @@ msgstr "Событие"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:635
-#: libraries/classes/Plugins/Export/ExportXml.php:106
+#: libraries/classes/Plugins/Export/ExportSql.php:633
+#: libraries/classes/Plugins/Export/ExportXml.php:109
 msgid "Functions"
 msgstr "Функции"
 
@@ -10736,8 +10735,8 @@ msgstr "Развернуть/Свернуть"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:624
-#: libraries/classes/Plugins/Export/ExportXml.php:111
+#: libraries/classes/Plugins/Export/ExportSql.php:622
+#: libraries/classes/Plugins/Export/ExportXml.php:114
 msgid "Procedures"
 msgstr "Процедуры"
 
@@ -10766,7 +10765,7 @@ msgstr "Триггер"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:126
+#: libraries/classes/Plugins/Export/ExportXml.php:129
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "Представления"
@@ -11061,37 +11060,37 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Частичных зависимостей не найдено!"
 
-#: libraries/classes/Operations.php:554
+#: libraries/classes/Operations.php:556
 #: templates/table/structure/display_partitions.twig:85
 msgid "Analyze"
 msgstr "Анализ"
 
-#: libraries/classes/Operations.php:555
+#: libraries/classes/Operations.php:557
 #: templates/table/structure/display_partitions.twig:95
 msgid "Check"
 msgstr "Проверка"
 
-#: libraries/classes/Operations.php:556
+#: libraries/classes/Operations.php:558
 #: templates/table/structure/display_partitions.twig:105
 msgid "Optimize"
 msgstr "Оптимизация"
 
-#: libraries/classes/Operations.php:557
+#: libraries/classes/Operations.php:559
 #: templates/table/structure/display_partitions.twig:115
 msgid "Rebuild"
 msgstr "Перестройка"
 
-#: libraries/classes/Operations.php:558
+#: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:125
 msgid "Repair"
 msgstr "Исправление"
 
-#: libraries/classes/Operations.php:559
+#: libraries/classes/Operations.php:561
 #: templates/table/structure/display_partitions.twig:135
 msgid "Truncate"
 msgstr "Очистить"
 
-#: libraries/classes/Operations.php:571 templates/database/events/index.twig:19
+#: libraries/classes/Operations.php:573 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
 #: templates/database/events/index.twig:96
 #: templates/database/events/index.twig:102
@@ -11117,39 +11116,39 @@ msgstr "Очистить"
 msgid "Drop"
 msgstr "Удалить"
 
-#: libraries/classes/Operations.php:573
+#: libraries/classes/Operations.php:575
 msgid "Coalesce"
 msgstr "Объединить"
 
-#: libraries/classes/Operations.php:927
+#: libraries/classes/Operations.php:929
 msgid "Can't move table to same one!"
 msgstr "Не возможно переместить таблицу саму в себя!"
 
-#: libraries/classes/Operations.php:929
+#: libraries/classes/Operations.php:931
 msgid "Can't copy table to same one!"
 msgstr "Невозможно скопировать таблицу саму в себя!"
 
-#: libraries/classes/Operations.php:953
+#: libraries/classes/Operations.php:955
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблица %s была перемещена в %s. Привилегии обновлены."
 
-#: libraries/classes/Operations.php:959
+#: libraries/classes/Operations.php:961
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблица %s была скопирована в %s. Привилегии обновлены."
 
-#: libraries/classes/Operations.php:966
+#: libraries/classes/Operations.php:968
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблица %s была перемещена в %s."
 
-#: libraries/classes/Operations.php:970
+#: libraries/classes/Operations.php:972
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблица %s была скопирована в %s."
 
-#: libraries/classes/Operations.php:994
+#: libraries/classes/Operations.php:996
 msgid "The table name is empty!"
 msgstr "Не задано имя таблицы!"
 
@@ -11249,42 +11248,42 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Вы включили двухфакторную аутентификацию, пожалуйста, подтвердите свой логин."
 
-#: libraries/classes/Plugins/Export/ExportCodegen.php:80
+#: libraries/classes/Plugins/Export/ExportCodegen.php:82
 #: templates/export.twig:119
 msgid "Format:"
 msgstr "Формат:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:57
+#: libraries/classes/Plugins/Export/ExportCsv.php:59
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Разделитель полей:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:62
+#: libraries/classes/Plugins/Export/ExportCsv.php:64
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "Значения полей обрамлены:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:67
+#: libraries/classes/Plugins/Export/ExportCsv.php:69
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "Символ экранирования:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:72
+#: libraries/classes/Plugins/Export/ExportCsv.php:74
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "Разделитель строк:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:77
+#: libraries/classes/Plugins/Export/ExportCsv.php:79
 #: libraries/classes/Plugins/Export/ExportExcel.php:51
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:80
-#: libraries/classes/Plugins/Export/ExportLatex.php:187
+#: libraries/classes/Plugins/Export/ExportLatex.php:188
 #: libraries/classes/Plugins/Export/ExportOds.php:64
 #: libraries/classes/Plugins/Export/ExportOdt.php:133
 #: libraries/classes/Plugins/Export/ExportTexytext.php:84
 msgid "Replace NULL with:"
 msgstr "Заменить NULL на:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:82
+#: libraries/classes/Plugins/Export/ExportCsv.php:84
 #: libraries/classes/Plugins/Export/ExportExcel.php:56
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Удалить из полей символы разрыва строк"
@@ -11294,11 +11293,11 @@ msgid "Excel edition:"
 msgstr "Версия Excel:"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:62
-#: libraries/classes/Plugins/Export/ExportLatex.php:94
+#: libraries/classes/Plugins/Export/ExportLatex.php:95
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportSql.php:245
 #: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
@@ -11307,11 +11306,11 @@ msgid "structure"
 msgstr "структура"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:63
-#: libraries/classes/Plugins/Export/ExportLatex.php:95
+#: libraries/classes/Plugins/Export/ExportLatex.php:96
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:244
+#: libraries/classes/Plugins/Export/ExportSql.php:246
 #: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
@@ -11320,11 +11319,11 @@ msgid "data"
 msgstr "данные"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:64
-#: libraries/classes/Plugins/Export/ExportLatex.php:96
+#: libraries/classes/Plugins/Export/ExportLatex.php:97
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
 #: libraries/classes/Plugins/Export/ExportOdt.php:78
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:245
+#: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
@@ -11333,27 +11332,27 @@ msgid "structure and data"
 msgstr "структура и данные"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:74
-#: libraries/classes/Plugins/Export/ExportLatex.php:158
+#: libraries/classes/Plugins/Export/ExportLatex.php:159
 #: libraries/classes/Plugins/Export/ExportOdt.php:122
 #: libraries/classes/Plugins/Export/ExportTexytext.php:73
-#: libraries/classes/Plugins/Export/ExportXml.php:134
+#: libraries/classes/Plugins/Export/ExportXml.php:137
 msgid "Data dump options"
 msgstr "Параметры сохранения данных"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:194
-#: libraries/classes/Plugins/Export/ExportOdt.php:250
-#: libraries/classes/Plugins/Export/ExportSql.php:2323
-#: libraries/classes/Plugins/Export/ExportTexytext.php:178
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:192
+#: libraries/classes/Plugins/Export/ExportOdt.php:248
+#: libraries/classes/Plugins/Export/ExportSql.php:2295
+#: libraries/classes/Plugins/Export/ExportTexytext.php:176
 msgid "Dumping data for table"
 msgstr "Дамп данных таблицы"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:279
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
-#: libraries/classes/Plugins/Export/ExportLatex.php:524
-#: libraries/classes/Plugins/Export/ExportOdt.php:374
-#: libraries/classes/Plugins/Export/ExportOdt.php:476
-#: libraries/classes/Plugins/Export/ExportTexytext.php:290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:380
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:276
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:369
+#: libraries/classes/Plugins/Export/ExportLatex.php:516
+#: libraries/classes/Plugins/Export/ExportOdt.php:370
+#: libraries/classes/Plugins/Export/ExportOdt.php:470
+#: libraries/classes/Plugins/Export/ExportTexytext.php:286
+#: libraries/classes/Plugins/Export/ExportTexytext.php:374
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:525
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
@@ -11372,13 +11371,13 @@ msgstr "Дамп данных таблицы"
 msgid "Null"
 msgstr "Null"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:282
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:375
-#: libraries/classes/Plugins/Export/ExportLatex.php:525
-#: libraries/classes/Plugins/Export/ExportOdt.php:377
-#: libraries/classes/Plugins/Export/ExportOdt.php:479
-#: libraries/classes/Plugins/Export/ExportTexytext.php:291
-#: libraries/classes/Plugins/Export/ExportTexytext.php:381
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:279
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
+#: libraries/classes/Plugins/Export/ExportLatex.php:517
+#: libraries/classes/Plugins/Export/ExportOdt.php:373
+#: libraries/classes/Plugins/Export/ExportOdt.php:473
+#: libraries/classes/Plugins/Export/ExportTexytext.php:287
+#: libraries/classes/Plugins/Export/ExportTexytext.php:375
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:527
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:703
@@ -11394,10 +11393,10 @@ msgstr "Null"
 msgid "Default"
 msgstr "По умолчанию"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:379
-#: libraries/classes/Plugins/Export/ExportLatex.php:527
-#: libraries/classes/Plugins/Export/ExportOdt.php:483
-#: libraries/classes/Plugins/Export/ExportTexytext.php:383
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:376
+#: libraries/classes/Plugins/Export/ExportLatex.php:519
+#: libraries/classes/Plugins/Export/ExportOdt.php:477
+#: libraries/classes/Plugins/Export/ExportTexytext.php:377
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
@@ -11405,9 +11404,9 @@ msgstr "По умолчанию"
 msgid "Links to"
 msgstr "Ссылки на"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
-#: libraries/classes/Plugins/Export/ExportOdt.php:591
-#: libraries/classes/Plugins/Export/ExportTexytext.php:451
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:467
+#: libraries/classes/Plugins/Export/ExportOdt.php:585
+#: libraries/classes/Plugins/Export/ExportTexytext.php:445
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:357
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
@@ -11422,9 +11421,9 @@ msgstr "Ссылки на"
 msgid "Name"
 msgstr "Имя"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:473
-#: libraries/classes/Plugins/Export/ExportOdt.php:600
-#: libraries/classes/Plugins/Export/ExportTexytext.php:454
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
+#: libraries/classes/Plugins/Export/ExportOdt.php:594
+#: libraries/classes/Plugins/Export/ExportTexytext.php:448
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:363
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
@@ -11432,131 +11431,131 @@ msgstr "Имя"
 msgid "Definition"
 msgstr "Определение"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:543
-#: libraries/classes/Plugins/Export/ExportOdt.php:676
-#: libraries/classes/Plugins/Export/ExportSql.php:2059
-#: libraries/classes/Plugins/Export/ExportTexytext.php:516
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:538
+#: libraries/classes/Plugins/Export/ExportOdt.php:668
+#: libraries/classes/Plugins/Export/ExportSql.php:2033
+#: libraries/classes/Plugins/Export/ExportTexytext.php:508
 msgid "Table structure for table"
 msgstr "Структура таблицы"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:561
-#: libraries/classes/Plugins/Export/ExportOdt.php:708
-#: libraries/classes/Plugins/Export/ExportSql.php:2110
-#: libraries/classes/Plugins/Export/ExportTexytext.php:542
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:556
+#: libraries/classes/Plugins/Export/ExportOdt.php:699
+#: libraries/classes/Plugins/Export/ExportSql.php:2084
+#: libraries/classes/Plugins/Export/ExportTexytext.php:533
 msgid "Structure for view"
 msgstr "Структура для представления"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:567
-#: libraries/classes/Plugins/Export/ExportOdt.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:2142
-#: libraries/classes/Plugins/Export/ExportTexytext.php:558
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:562
+#: libraries/classes/Plugins/Export/ExportOdt.php:718
+#: libraries/classes/Plugins/Export/ExportSql.php:2116
+#: libraries/classes/Plugins/Export/ExportTexytext.php:548
 msgid "Stand-in structure for view"
 msgstr "Дублирующая структура для представления"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:86
+#: libraries/classes/Plugins/Export/ExportJson.php:87
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr "Вывод печатного JSON (используйте человекочитаемое форматирование)"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:92
+#: libraries/classes/Plugins/Export/ExportJson.php:93
 msgid "Output unicode characters unescaped"
 msgstr "Вывести символы Unicode без сохранения"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:49
+#: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "Content of table @TABLE@"
 msgstr "Содержимое таблицы @TABLE@"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:50
+#: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "(continued)"
 msgstr "(продолжение)"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:51
+#: libraries/classes/Plugins/Export/ExportLatex.php:52
 msgid "Structure of table @TABLE@"
 msgstr "Структура таблицы @TABLE@"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:107
+#: libraries/classes/Plugins/Export/ExportLatex.php:108
 #: libraries/classes/Plugins/Export/ExportOdt.php:89
-#: libraries/classes/Plugins/Export/ExportSql.php:258
+#: libraries/classes/Plugins/Export/ExportSql.php:260
 msgid "Object creation options"
 msgstr "Параметры создания объектов"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:113
-#: libraries/classes/Plugins/Export/ExportLatex.php:169
+#: libraries/classes/Plugins/Export/ExportLatex.php:114
+#: libraries/classes/Plugins/Export/ExportLatex.php:170
 msgid "Table caption:"
 msgstr "Заголовок таблицы:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:119
-#: libraries/classes/Plugins/Export/ExportLatex.php:175
+#: libraries/classes/Plugins/Export/ExportLatex.php:120
+#: libraries/classes/Plugins/Export/ExportLatex.php:176
 msgid "Table caption (continued):"
 msgstr "Заголовок таблицы (продолжение):"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:125
-#: libraries/classes/Plugins/Export/ExportLatex.php:181
+#: libraries/classes/Plugins/Export/ExportLatex.php:126
+#: libraries/classes/Plugins/Export/ExportLatex.php:182
 msgid "Label key:"
 msgstr "Идентификатор метки:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:133
+#: libraries/classes/Plugins/Export/ExportLatex.php:134
 #: libraries/classes/Plugins/Export/ExportOdt.php:97
-#: libraries/classes/Plugins/Export/ExportSql.php:152
+#: libraries/classes/Plugins/Export/ExportSql.php:154
 msgid "Display foreign key relationships"
 msgstr "Отобразить связи внешних ключей"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:140
+#: libraries/classes/Plugins/Export/ExportLatex.php:141
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
 msgid "Display comments"
 msgstr "Отобразить комментарии"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:146
+#: libraries/classes/Plugins/Export/ExportLatex.php:147
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
-#: libraries/classes/Plugins/Export/ExportSql.php:160
+#: libraries/classes/Plugins/Export/ExportSql.php:162
 msgid "Display media types"
 msgstr "Отобразить медиатипы"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:164
+#: libraries/classes/Plugins/Export/ExportLatex.php:165
 msgid "Put columns names in the first row:"
 msgstr "Поместить названия полей в первой строке:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:755
+#: libraries/classes/Plugins/Export/ExportLatex.php:209
+#: libraries/classes/Plugins/Export/ExportSql.php:749
 #: libraries/classes/Plugins/Export/ExportXml.php:219
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
 msgid "Host:"
 msgstr "Хост:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:762
+#: libraries/classes/Plugins/Export/ExportLatex.php:215
+#: libraries/classes/Plugins/Export/ExportSql.php:756
 #: libraries/classes/Plugins/Export/ExportXml.php:225
 msgid "Generation Time:"
 msgstr "Время создания:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:766
+#: libraries/classes/Plugins/Export/ExportLatex.php:217
+#: libraries/classes/Plugins/Export/ExportSql.php:760
 #: libraries/classes/Plugins/Export/ExportXml.php:227
 #: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "Версия сервера:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:768
+#: libraries/classes/Plugins/Export/ExportLatex.php:218
+#: libraries/classes/Plugins/Export/ExportSql.php:762
 #: libraries/classes/Plugins/Export/ExportXml.php:228
 msgid "PHP Version:"
 msgstr "Версия PHP:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:247
-#: libraries/classes/Plugins/Export/ExportSql.php:940
-#: libraries/classes/Plugins/Export/ExportXml.php:385
+#: libraries/classes/Plugins/Export/ExportLatex.php:244
+#: libraries/classes/Plugins/Export/ExportSql.php:930
+#: libraries/classes/Plugins/Export/ExportXml.php:383
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
 msgstr "База данных:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:315
-#: libraries/classes/Plugins/Export/ExportSql.php:2198
+#: libraries/classes/Plugins/Export/ExportLatex.php:310
+#: libraries/classes/Plugins/Export/ExportSql.php:2170
 msgid "Data:"
 msgstr "Данные:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:500
+#: libraries/classes/Plugins/Export/ExportLatex.php:492
 msgid "Structure:"
 msgstr "Структура:"
 
@@ -11568,8 +11567,8 @@ msgstr "Экспорт имен таблиц"
 msgid "Export table headers"
 msgstr "Экспорт заголовков таблиц"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:251
-#: libraries/classes/Plugins/Export/ExportTexytext.php:179
+#: libraries/classes/Plugins/Export/ExportOdt.php:249
+#: libraries/classes/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for query result"
 msgstr "Дамп данных результата запроса"
 
@@ -11577,25 +11576,25 @@ msgstr "Дамп данных результата запроса"
 msgid "Report title:"
 msgstr "Заголовок отчета:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:192
+#: libraries/classes/Plugins/Export/ExportPdf.php:190
 msgid "Dumping data"
 msgstr "Дамп данных"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:210
+#: libraries/classes/Plugins/Export/ExportPdf.php:207
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "Результаты запроса"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:264
+#: libraries/classes/Plugins/Export/ExportPdf.php:259
 msgid "View structure"
 msgstr "Просмотреть структуру"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:267
+#: libraries/classes/Plugins/Export/ExportPdf.php:262
 msgid "Stand in"
 msgstr "Замена"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:131
+#: libraries/classes/Plugins/Export/ExportSql.php:133
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -11603,12 +11602,12 @@ msgstr ""
 "Вывести комментарии <i>(включает такую информацию, как: время экспорта, "
 "версия PHP, и версия MySQL сервера)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:138
+#: libraries/classes/Plugins/Export/ExportSql.php:140
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Добавить в заголовок собственный комментарий (\\n для разделения строк):"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:144
+#: libraries/classes/Plugins/Export/ExportSql.php:146
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -11616,48 +11615,48 @@ msgstr ""
 "Включить время создания базы данных, время последнего обновления, и время "
 "последней проверки"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:205
+#: libraries/classes/Plugins/Export/ExportSql.php:207
 msgid "Export metadata"
 msgstr "Экспорт метаданных"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:220
+#: libraries/classes/Plugins/Export/ExportSql.php:222
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Максимальная совместимость с системой базы данных, или устаревшей версией "
 "MySQL:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:266
+#: libraries/classes/Plugins/Export/ExportSql.php:268
 msgid "Add statements:"
 msgstr "Добавить выражения:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:274
-#: libraries/classes/Plugins/Export/ExportSql.php:283
-#: libraries/classes/Plugins/Export/ExportSql.php:300
-#: libraries/classes/Plugins/Export/ExportSql.php:309
-#: libraries/classes/Plugins/Export/ExportSql.php:333
-#: libraries/classes/Plugins/Export/ExportSql.php:361
-#: libraries/classes/Plugins/Export/ExportSql.php:370
+#: libraries/classes/Plugins/Export/ExportSql.php:276
+#: libraries/classes/Plugins/Export/ExportSql.php:285
+#: libraries/classes/Plugins/Export/ExportSql.php:302
+#: libraries/classes/Plugins/Export/ExportSql.php:311
+#: libraries/classes/Plugins/Export/ExportSql.php:335
+#: libraries/classes/Plugins/Export/ExportSql.php:363
+#: libraries/classes/Plugins/Export/ExportSql.php:372
 #, php-format
 msgid "Add %s statement"
 msgstr "Добавить выражение %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:316
+#: libraries/classes/Plugins/Export/ExportSql.php:318
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(менее эффективно, т.к. индексы будут созданы во время создания таблицы)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:323
+#: libraries/classes/Plugins/Export/ExportSql.php:325
 #, php-format
 msgid "%s value"
 msgstr "%s значение"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:340
+#: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:379
+#: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -11665,37 +11664,37 @@ msgstr ""
 "Заключить имена таблиц и полей в обратные кавычки <i>(Защищает имена таблиц "
 "и полей содержащих специальные символы или зарезервированные слова)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:394
+#: libraries/classes/Plugins/Export/ExportSql.php:396
 msgid "Data creation options"
 msgstr "Параметры создания данных"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:399
-#: libraries/classes/Plugins/Export/ExportSql.php:2280
+#: libraries/classes/Plugins/Export/ExportSql.php:401
+#: libraries/classes/Plugins/Export/ExportSql.php:2252
 msgid "Truncate table before insert"
 msgstr "Очистить таблицу перед добавлением данных"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:406
+#: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Использовать вместо <code>INSERT</code> выражения:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:412
+#: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:424
-#: libraries/classes/Plugins/Export/ExportSql.php:458
+#: libraries/classes/Plugins/Export/ExportSql.php:426
+#: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:438
+#: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Function to use when dumping data:"
 msgstr "Использовать оператор при сохранении данных:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:453
+#: libraries/classes/Plugins/Export/ExportSql.php:455
 msgid "Syntax to use when inserting data:"
 msgstr "Использовать синтаксис при вставке данных:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:463
+#: libraries/classes/Plugins/Export/ExportSql.php:465
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11705,7 +11704,7 @@ msgstr ""
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:468
+#: libraries/classes/Plugins/Export/ExportSql.php:470
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11715,7 +11714,7 @@ msgstr ""
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:473
+#: libraries/classes/Plugins/Export/ExportSql.php:475
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -11724,7 +11723,7 @@ msgstr ""
 "<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:478
+#: libraries/classes/Plugins/Export/ExportSql.php:480
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11732,7 +11731,7 @@ msgstr ""
 "ни один из выше перечисленных<br> &nbsp; &nbsp; &nbsp; Пример: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:497
+#: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -11740,7 +11739,7 @@ msgstr ""
 "Сохранение бинарных полей в шестнадцатеричном виде <i>(к примеру, \"abc\" "
 "станет 0x616263)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:506
+#: libraries/classes/Plugins/Export/ExportSql.php:508
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -11754,104 +11753,104 @@ msgid "It appears your database uses routines;"
 msgstr "Кажется, ваша база данных использует подпрограммы;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:586
-#: libraries/classes/Plugins/Export/ExportSql.php:1596
-#: libraries/classes/Plugins/Export/ExportSql.php:2098
+#: libraries/classes/Plugins/Export/ExportSql.php:1576
+#: libraries/classes/Plugins/Export/ExportSql.php:2072
 msgid "alias export may not work reliably in all cases."
 msgstr "экспорт псевдонима не может надёжно работать во всех случаях."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1057
+#: libraries/classes/Plugins/Export/ExportSql.php:1045
 msgid "Metadata"
 msgstr "Метаданные"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1123
+#: libraries/classes/Plugins/Export/ExportSql.php:1111
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Метаданные для таблицы %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1130
+#: libraries/classes/Plugins/Export/ExportSql.php:1118
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Метаданные для базы данных %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1437
+#: libraries/classes/Plugins/Export/ExportSql.php:1417
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "Создание:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1447
+#: libraries/classes/Plugins/Export/ExportSql.php:1427
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1457
+#: libraries/classes/Plugins/Export/ExportSql.php:1437
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "Последняя проверка:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1508
+#: libraries/classes/Plugins/Export/ExportSql.php:1488
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Структура чтения ошибок для таблицы %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1593
+#: libraries/classes/Plugins/Export/ExportSql.php:1573
 msgid "It appears your database uses views;"
 msgstr "Похоже, что база данных использует представления;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1760
+#: libraries/classes/Plugins/Export/ExportSql.php:1739
 msgid "Constraints for dumped tables"
 msgstr "Ограничения внешнего ключа сохраненных таблиц"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1761
+#: libraries/classes/Plugins/Export/ExportSql.php:1740
 msgid "Constraints for table"
 msgstr "Ограничения внешнего ключа таблицы"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1788
+#: libraries/classes/Plugins/Export/ExportSql.php:1766
 msgid "Indexes for dumped tables"
 msgstr "Индексы сохранённых таблиц"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1789
+#: libraries/classes/Plugins/Export/ExportSql.php:1767
 msgid "Indexes for table"
 msgstr "Индексы таблицы"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1825
+#: libraries/classes/Plugins/Export/ExportSql.php:1802
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT для сохранённых таблиц"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1826
+#: libraries/classes/Plugins/Export/ExportSql.php:1803
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT для таблицы"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1901
+#: libraries/classes/Plugins/Export/ExportSql.php:1878
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "МЕДИАТИПЫ ДЛЯ ТАБЛИЦЫ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1926
+#: libraries/classes/Plugins/Export/ExportSql.php:1903
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ССЫЛКИ ТАБЛИЦЫ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2095
+#: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
 msgstr "Похоже, что ваша таблица использует триггеры;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2125
+#: libraries/classes/Plugins/Export/ExportSql.php:2099
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура для представления %s экспортирована как таблица"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2145
+#: libraries/classes/Plugins/Export/ExportSql.php:2119
 msgid "(See below for the actual view)"
 msgstr "(См. Ниже фактическое представление)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2213
+#: libraries/classes/Plugins/Export/ExportSql.php:2185
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Ошибка считывания данных таблицы %s:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:95
+#: libraries/classes/Plugins/Export/ExportXml.php:98
 msgid "Object creation options (all are recommended)"
 msgstr "Параметры создания объекта (рекомендуется выбрать все)"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:139
+#: libraries/classes/Plugins/Export/ExportXml.php:142
 msgid "Export contents"
 msgstr "Экспортировать содержимое"
 
