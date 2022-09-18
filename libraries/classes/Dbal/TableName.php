@@ -64,6 +64,18 @@ final class TableName implements Stringable
     }
 
     /**
+     * @param mixed $name
+     */
+    public static function tryFromValue($name): ?self
+    {
+        try {
+            return new self($name);
+        } catch (InvalidTableName $exception) {
+            return null;
+        }
+    }
+
+    /**
      * @psalm-return non-empty-string
      */
     public function getName(): string
