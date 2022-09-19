@@ -6,8 +6,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\InvalidDatabaseName;
-use PhpMyAdmin\Dbal\InvalidTableName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -526,17 +524,11 @@ final class Common
     ): void {
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
-        try {
-            $GLOBALS['db'] = DatabaseName::fromValue($request->getParam('db'))->getName();
-        } catch (InvalidDatabaseName $exception) {
-            $GLOBALS['db'] = '';
-        }
+        $db = DatabaseName::tryFromValue($request->getParam('db'));
+        $table = TableName::tryFromValue($request->getParam('table'));
 
-        try {
-            $GLOBALS['table'] = TableName::fromValue($request->getParam('table'))->getName();
-        } catch (InvalidTableName $exception) {
-            $GLOBALS['table'] = '';
-        }
+        $GLOBALS['db'] = $db !== null ? $db->getName() : '';
+        $GLOBALS['table'] = $table !== null ? $table->getName() : '';
 
         if (! is_array($GLOBALS['urlParams'])) {
             $GLOBALS['urlParams'] = [];
