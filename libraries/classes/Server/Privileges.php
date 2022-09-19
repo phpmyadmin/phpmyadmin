@@ -1253,12 +1253,9 @@ class Privileges
     }
 
     /**
-     * @param DatabaseName $db    database name
-     * @param TableName $table table name
-     *
      * @return array
      */
-    public function getAllPrivileges(DatabaseName $db, TableName $table = null): array
+    public function getAllPrivileges(DatabaseName $db, ?TableName $table = null): array
     {
         $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);
         $tablePrivileges = [];
@@ -1324,8 +1321,6 @@ class Privileges
     }
 
     /**
-     * @param DatabaseName $db database name
-     *
      * @return array
      */
     private function getGlobalAndDatabasePrivileges(DatabaseName $db): array
@@ -1378,7 +1373,8 @@ class Privileges
             (
                 SELECT `User`, `Host`, ' . $listOfPrivileges . ' `Db`, \'d\' AS `Type`
                 FROM `mysql`.`db`
-                WHERE \'' . $this->dbi->escapeString($db->getName()) . '\' LIKE `Db` AND NOT (' . $listOfComparedPrivileges . ')
+                WHERE \'' . $this->dbi->escapeString($db->getName()) . '\' LIKE `Db` AND NOT ('
+                . $listOfComparedPrivileges . ')
             )
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC;
         ';
@@ -1388,9 +1384,6 @@ class Privileges
     }
 
     /**
-     * @param DatabaseName $db    database name
-     * @param TableName $table table name
-     *
      * @return array
      */
     private function getTablePrivileges(DatabaseName $db, TableName $table): array
@@ -1416,8 +1409,6 @@ class Privileges
     }
 
     /**
-     * @param DatabaseName $db database name
-     *
      * @return array
      */
     private function getRoutinesPrivileges(DatabaseName $db): array
