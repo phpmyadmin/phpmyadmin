@@ -201,9 +201,13 @@ cleanup_composer_vendors() {
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
         vendor/paragonie/constant_time_encoding/.travis.yml \
+        vendor/paragonie/random_compat/other/build_phar.php \
+        vendor/paragonie/random_compat/other \
         vendor/paragonie/random_compat/build-phar.sh \
         vendor/paragonie/random_compat/dist/random_compat.phar.pubkey \
         vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc \
+        vendor/paragonie/random_compat/dist \
+        vendor/paragonie/random_compat/psalm-autoload.php \
         vendor/paragonie/random_compat/psalm.xml \
         vendor/paragonie/sodium_compat/.github/ \
         vendor/paragonie/sodium_compat/dist/ \
@@ -218,11 +222,13 @@ cleanup_composer_vendors() {
         vendor/paragonie/sodium_compat/autoload-fast.php \
         vendor/paragonie/sodium_compat/composer-php52.json \
         vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php \
+        vendor/paragonie/sodium_compat/src/PHP52 \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/google/recaptcha/src/autoload.php \
         vendor/google/recaptcha/app.yaml \
         vendor/google/recaptcha/.travis.yml \
         vendor/google/recaptcha/phpunit.xml.dist \
@@ -422,7 +428,7 @@ echo "* Removing unneeded files"
 rm -rf .github CODE_OF_CONDUCT.md DCO
 
 # Testsuite setup
-rm -f .travis.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
+rm -f .scrutinizer.yml .weblate codecov.yml
 
 # Remove Doctum config file
 rm -f test/doctum-config.php
@@ -538,6 +544,8 @@ for kit in $KITS ; do
         echo "* Removing source files"
         # Testsuite
         rm -rf test/
+        # Template test files
+        rm -r templates/test/
         rm phpunit.xml.* build.xml
         rm -f .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.js infection.json.dist
         # Gettext po files

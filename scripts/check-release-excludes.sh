@@ -163,6 +163,8 @@ validateExtension() {
         ;;
         RELEASE-DATE-[1-9].[0-9].[0-9]-dev)
         ;;
+        RELEASE-DATE-[1-9].[0-9]+snapshot)
+        ;;
         CONTRIBUTING.md)
         ;;
         README)
@@ -318,6 +320,8 @@ for filePath in ${FILE_LIST}; do
         *CODE_OF_CONDUCT.md*)
         foundFile;;
         *PERFORMANCE.md*)
+        foundFile;;
+        *phar*)
         foundFile;;
         *) ;;
     esac
