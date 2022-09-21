@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Controllers\Config;
+use PhpMyAdmin\Controllers\Console;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -94,6 +95,10 @@ return [
                 '$template' => '@template',
                 '$config' => '@config',
             ],
+        ],
+        Console\Bookmark\RefreshController::class => [
+            'class' => Console\Bookmark\RefreshController::class,
+            'arguments' => ['$response' => '@response', '$template' => '@template'],
         ],
         Database\CentralColumns\PopulateColumnsController::class => [
             'class' => Database\CentralColumns\PopulateColumnsController::class,

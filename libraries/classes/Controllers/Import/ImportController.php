@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -118,16 +117,6 @@ final class ImportController extends AbstractController
         $GLOBALS['skip_queries'] = $_POST['skip_queries'] ?? null;
         $GLOBALS['local_import_file'] = $_POST['local_import_file'] ?? null;
         $GLOBALS['show_as_php'] = $_POST['show_as_php'] ?? null;
-
-        // If it's a refresh console bookmarks request
-        if (isset($_GET['console_bookmark_refresh'])) {
-            $this->response->addJSON(
-                'console_message_bookmark',
-                Console::getBookmarkContent()
-            );
-
-            return;
-        }
 
         // If it's a console bookmark add request
         if (isset($_POST['console_bookmark_add'])) {

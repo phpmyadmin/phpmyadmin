@@ -1051,11 +1051,10 @@ var ConsoleBookmarks = {
         }
     },
     refresh: function () {
-        $.get('index.php?route=/import',
+        $.get('index.php?route=/console/bookmark/refresh',
             {
                 'ajax_request': true,
                 'server': window.CommonParams.get('server'),
-                'console_bookmark_refresh': 'refresh'
             },
             function (data) {
                 if (data.console_message_bookmark) {
