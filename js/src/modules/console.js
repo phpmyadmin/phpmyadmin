@@ -1086,10 +1086,9 @@ var ConsoleBookmarks = {
                 return;
             }
             $(this).prop('disabled', true);
-            $.post('index.php?route=/import',
+            $.post('index.php?route=/console/bookmark/add',
                 {
                     'ajax_request': true,
-                    'console_bookmark_add': 'true',
                     'label': $('#pma_bookmarks').find('.card.add [name=label]').val(),
                     'server': window.CommonParams.get('server'),
                     'db': $('#pma_bookmarks').find('.card.add [name=targetdb]').val(),

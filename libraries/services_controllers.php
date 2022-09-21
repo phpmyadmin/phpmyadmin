@@ -96,6 +96,10 @@ return [
                 '$config' => '@config',
             ],
         ],
+        Console\Bookmark\AddController::class => [
+            'class' => Console\Bookmark\AddController::class,
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+        ],
         Console\Bookmark\RefreshController::class => [
             'class' => Console\Bookmark\RefreshController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template'],

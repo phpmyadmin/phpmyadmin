@@ -9,7 +9,7 @@ use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Controllers\Config;
-use PhpMyAdmin\Controllers\Console\Bookmark\RefreshController;
+use PhpMyAdmin\Controllers\Console\Bookmark;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -54,7 +54,10 @@ return static function (RouteCollector $routes): void {
         $routes->post('/get', Config\GetConfigController::class);
         $routes->post('/set', Config\SetConfigController::class);
     });
-    $routes->get('/console/bookmark/refresh', RefreshController::class);
+    $routes->addGroup('/console/bookmark', static function (RouteCollector $routes): void {
+        $routes->post('/add', Bookmark\AddController::class);
+        $routes->get('/refresh', Bookmark\RefreshController::class);
+    });
     $routes->addGroup('/database', static function (RouteCollector $routes): void {
         $routes->addGroup('/central-columns', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', Database\CentralColumnsController::class);

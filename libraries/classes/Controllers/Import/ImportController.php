@@ -118,33 +118,6 @@ final class ImportController extends AbstractController
         $GLOBALS['local_import_file'] = $_POST['local_import_file'] ?? null;
         $GLOBALS['show_as_php'] = $_POST['show_as_php'] ?? null;
 
-        // If it's a console bookmark add request
-        if (isset($_POST['console_bookmark_add'])) {
-            if (! isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
-                $this->response->addJSON('message', __('Incomplete params'));
-
-                return;
-            }
-
-            $bookmarkFields = [
-                'bkm_database' => $_POST['db'],
-                'bkm_user' => $GLOBALS['cfg']['Server']['user'],
-                'bkm_sql_query' => $_POST['bookmark_query'],
-                'bkm_label' => $_POST['label'],
-            ];
-            $isShared = ($_POST['shared'] === 'true');
-            $bookmark = Bookmark::createBookmark($this->dbi, $bookmarkFields, $isShared);
-            if ($bookmark !== false && $bookmark->save()) {
-                $this->response->addJSON('message', __('Succeeded'));
-                $this->response->addJSON('data', $bookmarkFields);
-                $this->response->addJSON('isShared', $isShared);
-            } else {
-                $this->response->addJSON('message', __('Failed'));
-            }
-
-            return;
-        }
-
         // reset import messages for ajax request
         $_SESSION['Import_message']['message'] = null;
         $_SESSION['Import_message']['go_back_url'] = null;
