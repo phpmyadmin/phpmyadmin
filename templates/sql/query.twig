@@ -60,7 +60,7 @@
               <div class="col-xl-2 col-lg-3">
                 <div class="mb-3">
                   <label class="visually-hidden" for="fieldsSelect">{% trans 'Columns' %}</label>
-                  <select class="form-control resize-vertical" id="fieldsSelect" name="dummy" size="{{ textarea_rows }}" ondblclick="Functions.insertValueQuery()" multiple>
+                  <select class="form-select resize-vertical" id="fieldsSelect" name="dummy" size="{{ textarea_rows }}" ondblclick="Functions.insertValueQuery()" multiple>
                     {% for field in columns_list %}
                       <option value="{{ backquote(field['Field']) }}"
                         {{- field['Field'] is not null and field['Comment'] is not null and field['Field']|length > 0 ? ' title="' ~ field['Comment'] ~ '"' }}>
@@ -160,7 +160,7 @@
             <label class="form-label" for="id_bookmark">{% trans 'Bookmark:' %}</label>
           </div>
           <div class="col-6">
-            <select class="form-control" name="id_bookmark" id="id_bookmark">
+            <select class="form-select" name="id_bookmark" id="id_bookmark">
               <option value="">&nbsp;</option>
               {% for bookmark in bookmarks %}
                 <option value="{{ bookmark.id }}" data-varcount="{{ bookmark.variable_count }}">
