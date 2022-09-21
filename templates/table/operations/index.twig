@@ -11,7 +11,7 @@
         <div class="row g-3">
           <div class="col-auto">
             <label class="visually-hidden" for="tableOrderFieldSelect">{% trans 'Column' %}</label>
-            <select id="tableOrderFieldSelect" class="form-control" name="order_field" aria-describedby="tableOrderFieldSelectHelp">
+            <select id="tableOrderFieldSelect" class="form-select" name="order_field" aria-describedby="tableOrderFieldSelectHelp">
               {% for column in columns %}
                 <option value="{{ column.Field }}">{{ column.Field }}</option>
               {% endfor %}
@@ -53,7 +53,7 @@
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
-              <select id="moveTableDatabaseInput" class="form-control" name="target_db" aria-label="{% trans 'Database' %}">
+              <select id="moveTableDatabaseInput" class="form-select" name="target_db" aria-label="{% trans 'Database' %}">
                 {% for each_db in database_list %}
                   <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
                 {% endfor %}
@@ -135,7 +135,7 @@
           </label>
         </div>
         <div class="col-6">
-          <select class="form-control" name="new_tbl_storage_engine" id="newTableStorageEngineSelect">
+          <select class="form-select" name="new_tbl_storage_engine" id="newTableStorageEngineSelect">
             {% for engine in storage_engines %}
               <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
                 {{- engine.name|lower == storage_engine|lower or (storage_engine is empty and engine.is_default) ? ' selected' }}>
@@ -151,7 +151,7 @@
           <label for="collationSelect">{% trans 'Collation' %}</label>
         </div>
         <div class="col-6">
-          <select class="form-control" id="collationSelect" lang="en" dir="ltr" name="tbl_collation">
+          <select class="form-select" id="collationSelect" lang="en" dir="ltr" name="tbl_collation">
             <option value=""></option>
             {% for charset in charsets %}
               <optgroup label="{{ charset.getName() }}" title="{{ charset.getDescription() }}">
@@ -177,7 +177,7 @@
             <label for="new_pack_keys">PACK_KEYS</label>
           </div>
           <div class="col-6">
-            <select class="form-control" name="new_pack_keys" id="new_pack_keys">
+            <select class="form-select" name="new_pack_keys" id="new_pack_keys">
               <option value="DEFAULT"{{ pack_keys == 'DEFAULT' ? ' selected' }}>DEFAULT</option>
               <option value="0"{{ pack_keys == '0' ? ' selected' }}>0</option>
               <option value="1"{{ pack_keys == '1' ? ' selected' }}>1</option>
@@ -227,7 +227,7 @@
             <label for="new_row_format">ROW_FORMAT</label>
           </div>
           <div class="col-12">
-            <select class="form-control" id="new_row_format" name="new_row_format">
+            <select class="form-select" id="new_row_format" name="new_row_format">
               {% for row_format in row_formats %}
                 <option value="{{ row_format }}"{{ row_format == row_format_current|upper ? ' selected' }}>{{ row_format }}</option>
               {% endfor %}
@@ -254,7 +254,7 @@
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
-              <select class="form-control" name="target_db" aria-label="{% trans 'Database' %}">
+              <select class="form-select" name="target_db" aria-label="{% trans 'Database' %}">
                 {% for each_db in database_list %}
                   <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
                 {% endfor %}
@@ -478,7 +478,7 @@
       <div class="card-body">
         <div class="mb-3">
           <label for="partition_name">{% trans 'Partition' %}</label>
-          <select class="form-control resize-vertical" id="partition_name" name="partition_name[]" multiple required>
+          <select class="form-select resize-vertical" id="partition_name" name="partition_name[]" multiple required>
             {% for partition in partitions %}
               <option value="{{ partition }}"{{ loop.first ? ' selected' }}>{{ partition }}</option>
             {% endfor %}
