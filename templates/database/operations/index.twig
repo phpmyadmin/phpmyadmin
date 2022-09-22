@@ -196,7 +196,7 @@
         <div class="mb-3 row g-3">
           <div class="col-auto">
             <label class="visually-hidden" for="select_db_collation">{% trans 'Collation' %}</label>
-            <select class="form-control" lang="en" dir="ltr" name="db_collation" id="select_db_collation">
+            <select class="form-select" lang="en" dir="ltr" name="db_collation" id="select_db_collation">
               <option value=""></option>
               {% for charset in charsets %}
                 <optgroup label="{{ charset.getName() }}" title="{{ charset.getDescription() }}">
