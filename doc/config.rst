@@ -1913,8 +1913,9 @@ Cookie authentication options
 
     .. warning::
 
-        The encryption key must be 32 bytes long. If it has a different length of bytes, a new key will be automatically
-        generated for you. However it will only last for the duration of the session.
+        The encryption key must be 32 bytes long. If it is longer than the length of bytes, only the first 32 bytes will
+        be used, and if it is shorter, a new temporary key will be automatically generated for you. However, this
+        temporary key will only last for the duration of the session.
 
     .. note::
 

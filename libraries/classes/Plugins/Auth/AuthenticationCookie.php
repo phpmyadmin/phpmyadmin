@@ -597,9 +597,19 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function getEncryptionSecret(): string
     {
+        /** @var mixed $key */
         $key = $GLOBALS['cfg']['blowfish_secret'] ?? null;
-        if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+        if (! is_string($key)) {
+            return $this->getSessionEncryptionSecret();
+        }
+
+        $length = mb_strlen($key, '8bit');
+        if ($length === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
+        }
+
+        if ($length > SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+            return mb_substr($key, 0, SODIUM_CRYPTO_SECRETBOX_KEYBYTES, '8bit');
         }
 
         return $this->getSessionEncryptionSecret();
@@ -610,6 +620,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function getSessionEncryptionSecret(): string
     {
+        /** @var mixed $key */
         $key = $_SESSION['encryption_key'] ?? null;
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
