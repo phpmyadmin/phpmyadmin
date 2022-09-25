@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1579,39 +1579,39 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Bạn nên nâng cấp lên %s %s hay bản mới hơn."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "Lỗi: Không khớp thẻ"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "Cố gắng kết nối gặp lỗi"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "Kết quả có thể"
 
@@ -4875,6 +4875,19 @@ msgstr ""
 "Tập tin %s  không có sẵn trên hệ thống, hãy truy cập %s để biết thêm thông "
 "tin."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "Tham số chưa hoàn thiện"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "Thất bại"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "Thành công"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -4904,7 +4917,7 @@ msgstr ""
 "Không thể tải phần bổ xung xuất, vui lòng kiểm tra bản cài đặt của bạn!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5250,20 +5263,7 @@ msgstr ""
 "Không tìm thấy phần mở rộng curl và allow_url_fopen bị tắt. Do đó một số "
 "tính năng như báo cáo lỗi hoặc kiểm tra phiên bản bị vô hiệu."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "Tham số chưa hoàn thiện"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "Thành công"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "Thất bại"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5272,17 +5272,17 @@ msgstr ""
 "Gần như chắc chắn là bạn cố tải một tập tin có kích cỡ quá lớn. Vui lòng đọc "
 "%stài liệu%s để khắc phục giới hạn này."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "Hiển thị đánh dấu"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "Đánh dấu đã được xóa."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5292,14 +5292,14 @@ msgstr ""
 "hoặc là cỡ của tập tin vượt quá kích thước mà phần cấu hình PHP của bạn cho "
 "phép. Xem [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
 "Việc nhập vào đã được thực hiện thành công, %d truy vấn đã thực thi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5308,7 +5308,7 @@ msgstr ""
 "Văn lệnh đã vượt quá thời hạn chờ, nếu bạn muốn hoàn tất nhập khẩu, vui lòng "
 "%sgửi lại cùng tập tin%s và việc nhập vào sẽ được tiếp tục."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5317,7 +5317,7 @@ msgstr ""
 "thường có nghĩa là phpMyAdmin sẽ không thể hoàn tất việc nhập vào trừ khi "
 "bạn gia tăng giới hạn chờ của PHP."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Câu lệnh \"DROP DATABASE\" bị tăt."

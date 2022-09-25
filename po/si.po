@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1708,22 +1708,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "වියට්නාම්"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1732,17 +1732,17 @@ msgstr ""
 "ඔබගේ PHP වින්‍යාසයන් හි mbstring.func_overload සක්‍රීය කර ඇත. මෙම විකල්පය phpMyAdmin "
 "සමඟ නොගැළපෙන අතර යම් දත්ත විනාශ වීමට හේතු විය හැකිය!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS අගයන් උඩින් ලිවීමේ උත්සාහය"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "විය හැකි අයුතු ප්‍රයෝජන ගැනීමක්"
 
@@ -5232,6 +5232,19 @@ msgid ""
 "information."
 msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා %s වෙත යන්න."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "අසම්පූර්ණ පරාමිති"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "අසාර්ථකයි"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "සාර්ථක විය"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -5260,7 +5273,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "අපනයන පේණු පූරණය කල නොහැකි විය, ඔබගේ ස්ථාපනය පරීක්ෂා කර බලන්න!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5584,20 +5597,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "අසම්පූර්ණ පරාමිති"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "සාර්ථක විය"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "අසාර්ථකයි"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5606,17 +5606,17 @@ msgstr ""
 "ඔබ උඩුගත කිරීමට උත්සාහ කල ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර "
 "%sලියකියවිලි%s බලන්න."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "පොත් සලකුණ පෙන්වන්න"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "පොත් සලකුණ ඉවත් කරන ලදි."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5626,14 +5626,14 @@ msgstr ""
 "විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු විය හැකිය. "
 "[doc@faq1-16]FAQ 1.16[/doc] බලන්න."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "ආනයනය සාර්ථකව අවසන් කරන ලදි, එක් විමසුමක් ක්‍රියාත්මක කරන ලදි."
 msgstr[1] "ආනයනය සාර්ථකව අවසන් කරන ලදි, විමසුම් %dක් ක්‍රියාත්මක කරන ලදි."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5642,7 +5642,7 @@ msgstr ""
 "විධානාවලිය ක්‍රියාත්මක වීමට ලබා දුන් කාලය අවසන් විය. ඔබට ආනයනය සම්පූර්ණ කිරීමට අවශ්‍ය නම් %sඑම "
 "ආනයන ගොනුවම නැවත ආනයනය සඳහා යොමු කරන්න%s."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5650,7 +5650,7 @@ msgstr ""
 "කෙසේ නමුදු අවසන් වාරයේදී කිසිදු දත්තයක් ලබා ගත නොහැකි විය. මෙයින් අදහස් වන්නේ ඔබගේ php කාල "
 "සීමාව වැඩි කිරීමකින් තොරව phpMyAdmin හට මෙම ආනයනය සම්පූර්ණ කිරීමට හැකි නොවන බවය."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇත."

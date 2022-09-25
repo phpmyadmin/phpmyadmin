@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-05-27 05:55+0000\n"
 "Last-Translator: David Kindl <mtwango@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1708,16 +1708,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamština"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1725,7 +1725,7 @@ msgstr ""
 "Nepodařilo se nastavit session cookie. Možná pro přístup do phpMyAdmina "
 "používáte protokol HTTP místo HTTPS."
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1734,7 +1734,7 @@ msgstr ""
 "V nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není "
 "kompatibilní s phpMyAdminem a může způsobit poškození dat!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1742,11 +1742,11 @@ msgstr ""
 "V souboru php.ini je zakázaná funkce ini_get nebo ini_set. phpMyAdmin však "
 "tyto funkce vyžaduje!"
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
@@ -4975,6 +4975,19 @@ msgid ""
 "information."
 msgstr "Soubor %s nebyl nalezen, více informací naleznete na stránce %s."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "Chybí parametry"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "Chyba"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "Úspěch"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -5004,7 +5017,7 @@ msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5346,20 +5359,7 @@ msgstr ""
 "Rozšíření curl nebylo nalezeno a allow_url_fopen je vypnuto. Kvůli tomuto "
 "jsou některé funkce, jako hlášení chyb a kontrola verze, vypnuty."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "Chybí parametry"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "Úspěch"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "Chyba"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5368,17 +5368,17 @@ msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "Zobrazuji oblíbený dotaz"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "Položka byla smazána z oblíbených."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5388,7 +5388,7 @@ msgstr ""
 "nebo jeho velikost překročila maximální velikost povolenou v nastavení PHP. "
 "Viz [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5396,7 +5396,7 @@ msgstr[0] "Import byl úspěšně dokončen, byl proveden %d dotaz."
 msgstr[1] "Import byl úspěšně dokončen, byly provedeny %d dotazy."
 msgstr[2] "Import byl úspěšně dokončen, bylo provedeno %d dotazů."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5405,7 +5405,7 @@ msgstr ""
 "Limit pro běh importu vypršel, prosím %sodešlete formulář%s znovu se stejným "
 "souborem a import bude pokračovat."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5414,7 +5414,7 @@ msgstr ""
 "znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud nezvýšíte "
 "časové limity v PHP."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Příkaz „DROP DATABASE“ je vypnutý."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-03-29 23:08+0000\n"
 "Last-Translator: Eotones <eotones@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1659,22 +1659,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南文"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "應升級到 %s %s 或更新版本。"
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "錯誤：連線資訊失效，請重新連線"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "未能設定連線階段 cookie。可能正在以 HTTP 而非 HTTPS 存取 phpMyAdmin。"
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1683,17 +1683,17 @@ msgstr ""
 "已啟用 PHP 設定的 mbstring.func_overload。此選項與 phpMyAdmin 不相容，可能會"
 "導致一些資料損壞！"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "可能被駭"
 
@@ -4794,6 +4794,19 @@ msgid ""
 "information."
 msgstr "在本系統找不到 %s 檔案，詳情請參閱 %s。"
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "參數不完整"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "失敗"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "成功"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -4822,7 +4835,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "無法載入匯出外掛程式，請檢查安裝！"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5141,37 +5154,24 @@ msgstr ""
 "找不到 curl 擴充套件，且 allow_url_fopen 已停用；故此某些功能，例如錯誤回報與"
 "版本檢查等，會無法使用。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "參數不完整"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "成功"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "失敗"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "上傳的檔案過大，請參閱%s說明文件%s了解如何解決此問題。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5180,13 +5180,13 @@ msgstr ""
 "沒有接收到要匯入的資料。可能是因為未附上檔案名稱，或是檔案大小超出 PHP 限"
 "制。 請參閱 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "完成匯入，共執行了 %d 個查詢指令。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5194,7 +5194,7 @@ msgid ""
 msgstr ""
 "Script 執行已逾時，若要完成匯入，請%s重新上傳原來的檔案%s，匯入會繼續進行。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5202,7 +5202,7 @@ msgstr ""
 "最近一次執行的匯入沒有資料可以解析，通常是因為 phpMyAdmin 無法在指定時間內完"
 "成匯入。可試試增加 PHP 執行時間上限。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫 DROP DATABASE 指令已經被停用。"

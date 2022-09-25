@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -1763,22 +1763,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Imia tablicy"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Vam treba abnavić %s da versii %s ci paźniejšaj."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1787,17 +1787,17 @@ msgstr ""
 "Vy ŭklučyli mbstring.func_overload u vašym kanfihuracyjnym fajle PHP. Hetaja "
 "opcyja niesumiaščalnaja z phpMyAdmin i moža vyklikać paškodžańnie dadzienych!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr ""
 
@@ -5075,6 +5075,23 @@ msgid ""
 "information."
 msgstr ""
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+#, fuzzy
+#| msgid "Complete inserts"
+msgid "Incomplete params"
+msgstr "Poŭnaja ŭstaŭka"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr ""
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+#, fuzzy
+#| msgid "Access denied!"
+msgid "Succeeded"
+msgstr "U dostupie admoŭlena!"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, fuzzy, php-format
 #| msgid "Showing rows"
@@ -5106,7 +5123,7 @@ msgstr ""
 "ŭstalavanyja fajły!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5442,24 +5459,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-#, fuzzy
-#| msgid "Complete inserts"
-msgid "Incomplete params"
-msgstr "Poŭnaja ŭstaŭka"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-#, fuzzy
-#| msgid "Access denied!"
-msgid "Succeeded"
-msgstr "U dostupie admoŭlena!"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr ""
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, fuzzy, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
@@ -5472,17 +5472,17 @@ msgstr ""
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
 "abmiežavańnie."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "Pakazvajučy zakładku"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "Zakładka była vydalenaja."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5492,7 +5492,7 @@ msgstr ""
 "zahružany, albo pamier fajła pieravysiŭ maksymalny pamier, vyznačany "
 "kanfihuracyjaj PHP. Hł. [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -5501,7 +5501,7 @@ msgstr[0] "Impartravańnie paśpiachova zavieršanaje, vykanana %d zapytaŭ."
 msgstr[1] "Impartravańnie paśpiachova zavieršanaje, vykanana %d zapytaŭ."
 msgstr[2] "Impartravańnie paśpiachova zavieršanaje, vykanana %d zapytaŭ."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -5513,7 +5513,7 @@ msgstr ""
 "Vyjšaŭ dazvoleny čas vykanańnia skrypta. Kali vy chočacie zavieršyć "
 "impartavańnie, kali łaska, zahruzicie fajł znoŭ i impartavańnie ŭznavicca."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5522,7 +5522,7 @@ msgstr ""
 "Heta zvyčajna značyć, što phpMyAdmin nia zmoža skončyć hetaje impartavańnia, "
 "kali vy nie pavialičycie limity vykanańnia php-skryptoŭ."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Kamandy \"DROP DATABASE\" adklučanyja."

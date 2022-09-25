@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1763,22 +1763,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Jadval nomi"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "\"%s\" ni \"%s\" versiyaga yoki kattaroq versiyaga yangilash zarur."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1788,17 +1788,17 @@ msgstr ""
 "func_overload parametri yoqilgan. Ma`lumot yo‘qolishi oldini olish uchun, "
 "ushbu parametr o‘chirilishi kerak!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr ""
 
@@ -5675,6 +5675,23 @@ msgstr ""
 "Ushbu tizimda %s fayli mavzhud emas, marhamat, qo'shimcha ma`lumotlarni "
 "olish uchun %s saytiga tashrif buyuring."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+#, fuzzy
+#| msgid "Complete inserts"
+msgid "Incomplete params"
+msgstr "To‘la qo‘yish"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr ""
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+#, fuzzy
+#| msgid "Access denied!"
+msgid "Succeeded"
+msgstr "Ruxsat berilmadi!"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -5705,7 +5722,7 @@ msgstr ""
 "export katalogini tekshiring!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -6067,24 +6084,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-#, fuzzy
-#| msgid "Complete inserts"
-msgid "Incomplete params"
-msgstr "To‘la qo‘yish"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-#, fuzzy
-#| msgid "Access denied!"
-msgid "Succeeded"
-msgstr "Ruxsat berilmadi!"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr ""
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, fuzzy, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
@@ -6096,17 +6096,17 @@ msgstr ""
 "Ehtimol, yuklanayotgan fayl hajmi juda katta. Bu muammoni yechishning "
 "usullari %sdokumentatsiyada%s keltirilgan."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "Xatcho‘plarni ko‘rsatish"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "Xatcho‘p o‘chirildi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -6116,14 +6116,14 @@ msgstr ""
 "qilinayotgan fayl hajmi PHP konfiguratsion faylida ko‘rsatilgan maksimal "
 "qiymatdan katta. Qarang: [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Import muvaffaqiyatli tugatildi, bajarilgan so‘rovlar soni: %d."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -6136,7 +6136,7 @@ msgstr ""
 "unda o‘sha faylni tanlagan holda uni qayta ishga tushiring va jarayon "
 "uzilgan joydan boshlab davom etadi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -6145,7 +6145,7 @@ msgstr ""
 "Odatda, bu hol, php-ssenariylar uchun ajratilgan vaqt oshirilmaguncha "
 "phpMyAdmin dasturi import jarayonini yakunla olmasligini bildiradi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""

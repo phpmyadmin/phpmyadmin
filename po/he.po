@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2021-07-22 19:35+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1561,22 +1561,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "וייטנאמי"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "אתה צריך לשדרג אל %s %s לפחות."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1585,17 +1585,17 @@ msgstr ""
 "הפעלת את mbstring.func_overload בתצורת ה־PHP שלך. אפשרות זו אינה תואמת ל־"
 "phpMyAdmin ועלולה לגרום לפגם בנתונים!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr ""
 
@@ -4591,6 +4591,19 @@ msgid ""
 "information."
 msgstr "הקובץ %s אינו זמין במערכת זו, נא לבקר בכתובת %s למידע נוסף."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "חסרים נתונים בפרמטרים"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "נכשל"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "הצליח"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -4619,7 +4632,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "לא ניתן לייצא תוספים, נא לבדוק את ההתקנה שלך!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -4945,20 +4958,7 @@ msgstr ""
 "הרחבת ה־curl לא נמצאה והאפשרות allow_url_fopen מושבתת. עקב כך חלק מהתכונות "
 "כגון דיווח על שגיאות או בדיקת גרסאות מושבתות."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "חסרים נתונים בפרמטרים"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "הצליח"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "נכשל"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -4967,17 +4967,17 @@ msgstr ""
 "כפי הנראה ניסית להעלות קובץ גדול מדי. נא לפנות ל%s תיעוד %s למצוא דרך לעקיפת "
 "מגבלה זו."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "הצגת סימנייה"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "הסימנייה נמחקה."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -4986,14 +4986,14 @@ msgstr ""
 "לא התקבלו נתונים לייבוא. או שלא נשלח שום קובץ או שגודל הקובץ חרג מהגודל "
 "המרבי המותר בתצורת ה־PHP שלך. ניתן לעיין ב[doc@faq1-16]שו״ת 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "הייבוא הושלם בהצלחה, הופעלה שאילתה אחת."
 msgstr[1] "הייבוא הושלם בהצלחה, הופעלו %d שאילתות."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5002,7 +5002,7 @@ msgstr ""
 "תום זמן ההמתנה של הסקריפט עבר, אם ברצונך לסיים את הייבוא נא %sלשלוח מחדש את "
 "אותו הקובץ%s והייבוא יימשך."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5010,7 +5010,7 @@ msgstr ""
 "עם זאת, בהרצה האחרונה לא נותחו נתונים כלל, לרוב משמעות הדבר היא ש־phpMyAdmin "
 "לא יוכל להשלים יבוא זה אלמלא גבול זמן ההמתנה של ה־php יוגדל."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "הוראות \"DROP DATABASE\" מנוטרלות."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-04-23 11:51+0000\n"
 "Last-Translator: Yonjae Lee <yjyj93@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1724,22 +1724,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "베트남어"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1748,17 +1748,17 @@ msgstr ""
 "PHP 설정에서 mbstring.func_overload를 활성화해야합니다. 이 옵션은 phpMyAdmin"
 "와 호환되지 않고 일부 데이터가 손상될 수 있습니다!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
@@ -5054,6 +5054,19 @@ msgstr ""
 "%s 파일은 이 시스템에서 사용할 수 없습니다. %s에 방문하여 정보를 확인하시기 "
 "바랍니다."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "불완전한 인자"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "실패함"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "성공함"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -5083,7 +5096,7 @@ msgstr ""
 "내보내기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5422,20 +5435,7 @@ msgstr ""
 "curl 확장 기능이 발견되지 않았고 allow_url_fopen 이 비활성화 되어있습니다. 이"
 "로 인해 오류 보고나 버전 체크와 같은 기능들이 제한됩니다."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "불완전한 인자"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "성공함"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "실패함"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5444,17 +5444,17 @@ msgstr ""
 "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
 "%sdocumentation%s를 참조하여 주십시오."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "북마크 보이기"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "북마크를 제거했습니다."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5463,13 +5463,13 @@ msgstr ""
 "가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
 "대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5478,7 +5478,7 @@ msgstr ""
 "스크립트 시간 제한이 초과되었습니다. 이어서 하시려면 같은 파일을 다시 전송해 "
 "주세요 (%s, %s)."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5486,7 +5486,7 @@ msgstr ""
 "파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
 "는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."

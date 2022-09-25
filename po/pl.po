@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-09-04 23:40+0000\n"
 "Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1739,16 +1739,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Wietnamski"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Należy uaktualnić do %s %s lub nowszej."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "Błąd: Token niedopasowany"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1756,7 +1756,7 @@ msgstr ""
 "Nie udało się ustawić pliku cookie sesji. Być może używasz HTTP zamiast "
 "HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1766,7 +1766,7 @@ msgstr ""
 "jest niezgodna z phpMyAdminem i może spowodować uszkodzenie niektórych "
 "danych!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1774,11 +1774,11 @@ msgstr ""
 "Funkcje ini_get i/lub ini_set są wyłączone w php.ini. phpMyAdmin wymaga tych "
 "funkcji!"
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "Próba nadpisania GLOBALS"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "można wykorzystać"
 
@@ -5048,6 +5048,19 @@ msgstr ""
 "Plik %s nie jest dostępny w tym systemie. Proszę odwiedzić %s, aby uzyskać "
 "więcej informacji."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "Parametry są niekompletne"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "Nie udało się"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "Udało się"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -5076,7 +5089,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Nie udało się załadować modułów eksportu, proszę sprawdzić instalację!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5428,20 +5441,7 @@ msgstr ""
 "allow_url_fopen. W związku z tym niektóre funkcjonalności, jak raportowanie "
 "błędów czy sprawdzanie wersji nie będą dostępne."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "Parametry są niekompletne"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "Udało się"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "Nie udało się"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5450,17 +5450,17 @@ msgstr ""
 "Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się z "
 "%sdokumentacją%s, aby obejść to ograniczenie."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "Pokazywanie zakładki"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "Zakładka została usunięta."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5470,7 +5470,7 @@ msgstr ""
 "albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez twoją "
 "konfigurację PHP. Zobacz [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5478,7 +5478,7 @@ msgstr[0] "Import zakończony sukcesem, wykonano %d zapytanie."
 msgstr[1] "Import zakończony sukcesem, wykonano %d zapytań."
 msgstr[2] "Import zakończony sukcesem, wykonano %d zapytań."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5487,7 +5487,7 @@ msgstr ""
 "Limit czasu wykonania skryptu minął. Aby ukończyć import, proszę %sponownie "
 "przesłać ten sam plik%s, a import zostanie wznowiony."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5496,7 +5496,7 @@ msgstr ""
 "dane, co zwykle oznacza, że phpMyAdmin nie będzie w stanie ukończyć tego "
 "importu bez zwiększenia limitów czasowych PHP."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrukcje \"DROP DATABASE\" są wyłączone."

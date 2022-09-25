@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-08-01 10:21+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1719,16 +1719,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "Hata: Belirteç uyuşmazlığı"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1736,7 +1736,7 @@ msgstr ""
 "Oturum tanımlama bilgisini ayarlamak için başarısız. Belki phpMyAdmin'e "
 "erişmek için HTTPS yerine HTTP kullanıyorsunuz."
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1745,7 +1745,7 @@ msgstr ""
 "PHP yapılandırmanızda mbstring.func_overload işlevini etkinleştirdiniz. Bu "
 "seçenek phpMyAdmin ile uyumsuzdur ve bazı veri bozulmalarına sebep olabilir!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1753,11 +1753,11 @@ msgstr ""
 "Ini_get ve/veya ini_set işlevleri php.ini içinde etkisizleştirildi. "
 "phpMyAdmin bu işlevleri gerektirir!"
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS üzerine yazma girişimi"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "olası kötüye kullanma"
 
@@ -5027,6 +5027,19 @@ msgstr ""
 "%s dosyası bu sistemde mevcut değil, lütfen daha fazla bilgi için %s "
 "adresini ziyaret edin."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "Tamamlanmamış parametreler"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "Başarısız oldu"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "Başarılı oldu"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -5056,7 +5069,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5399,20 +5412,7 @@ msgstr ""
 "Curl uzantısı bulunamadı ve allow_url_fopen etkisizleştirildi. Bu nedenle "
 "hata raporlama veya sürüm denetleme gibi bazı özellikler etkisizleştirildi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "Tamamlanmamış parametreler"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "Başarılı oldu"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "Başarısız oldu"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5421,17 +5421,17 @@ msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgelere%s bakın."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "Gösterilen yer işareti"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "Yer işareti silindi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5441,14 +5441,14 @@ msgstr ""
 "boyutu PHP yapılandırmanız tarafından izin verilen en fazla boyutu aştı. "
 "[doc@faq1-16]SSS 1.16[/doc]'ya bakın."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "İçe aktarma başarılı olarak tamamlandı, %d sorgu çalıştırıldı."
 msgstr[1] "İçe aktarma başarılı olarak tamamlandı, %d sorgu çalıştırıldı."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5457,7 +5457,7 @@ msgstr ""
 "Betik zaman aşımı geçti, eğer içe aktarmayı bitirmek istiyorsanız, lütfen "
 "%saynı dosyayı yeniden gönderin%s ve içe aktarma devam edecektir."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5466,7 +5466,7 @@ msgstr ""
 "sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içe aktarmayı "
 "biteremeyeceği anlamına gelir."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."

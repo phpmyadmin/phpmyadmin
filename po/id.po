@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-18 00:23+0000\n"
+"POT-Creation-Date: 2022-09-25 00:23+0000\n"
 "PO-Revision-Date: 2022-08-12 19:19+0000\n"
 "Last-Translator: Holiq Ibrahim <holiq.ibrahim376@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1848,16 +1848,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: libraries/classes/Common.php:266
+#: libraries/classes/Common.php:264
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/classes/Common.php:298
+#: libraries/classes/Common.php:296
 msgid "Error: Token mismatch"
 msgstr "Error: Token tidak cocok"
 
-#: libraries/classes/Common.php:509
+#: libraries/classes/Common.php:507
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1865,7 +1865,7 @@ msgstr ""
 "Gagal mengatur cookie sesi. Mungkin Anda menggunakan HTTP, bukan HTTPS untuk "
 "mengakses phpMyAdmin."
 
-#: libraries/classes/Common.php:565
+#: libraries/classes/Common.php:557
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1874,7 +1874,7 @@ msgstr ""
 "Anda mengaktifkan Fungsi mbstring.func_overload pada konfigurasi PHP. "
 "Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
 
-#: libraries/classes/Common.php:582
+#: libraries/classes/Common.php:574
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1882,11 +1882,11 @@ msgstr ""
 "Fungsi ini_get dan / atau ini_set dinonaktifkan di php.ini. phpMyAdmin "
 "membutuhkan fungsi-fungsi ini!"
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr "upaya penimpaan GLOBALS"
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "memungkinkan mengeksploitasi"
 
@@ -5322,6 +5322,19 @@ msgstr ""
 "Berkas %s tidak tersedia di sistem ini, kunjungi %s untuk informasi lebih "
 "lanjut."
 
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:36
+msgid "Incomplete params"
+msgstr "Parameter kurang lengkap"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+msgid "Failed"
+msgstr "Gagal"
+
+#: libraries/classes/Controllers/Console/Bookmark/AddController.php:54
+msgid "Succeeded"
+msgstr "Berhasil"
+
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:147
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -5350,7 +5363,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin export, harap periksa instalasi Anda!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:609
+#: libraries/classes/Controllers/Import/ImportController.php:571
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5702,20 +5715,7 @@ msgstr ""
 "Sehingga menyebabkan beberapa fitur seperti laporan kesalahan atau "
 "pengecekan versi tidak aktif."
 
-#: libraries/classes/Controllers/Import/ImportController.php:135
-msgid "Incomplete params"
-msgstr "Parameter kurang lengkap"
-
-#: libraries/classes/Controllers/Import/ImportController.php:149
-msgid "Succeeded"
-msgstr "Berhasil"
-
-#: libraries/classes/Controllers/Import/ImportController.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
-msgid "Failed"
-msgstr "Gagal"
-
-#: libraries/classes/Controllers/Import/ImportController.php:254
+#: libraries/classes/Controllers/Import/ImportController.php:216
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5724,17 +5724,17 @@ msgstr ""
 "Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silakan lihat "
 "%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
-#: libraries/classes/Controllers/Import/ImportController.php:412
-#: libraries/classes/Controllers/Import/ImportController.php:649
+#: libraries/classes/Controllers/Import/ImportController.php:374
+#: libraries/classes/Controllers/Import/ImportController.php:611
 msgid "Showing bookmark"
 msgstr "Menampilkan markah"
 
-#: libraries/classes/Controllers/Import/ImportController.php:438
-#: libraries/classes/Controllers/Import/ImportController.php:645
+#: libraries/classes/Controllers/Import/ImportController.php:400
+#: libraries/classes/Controllers/Import/ImportController.php:607
 msgid "The bookmark has been deleted."
 msgstr "Markah telah dihapus."
 
-#: libraries/classes/Controllers/Import/ImportController.php:555
+#: libraries/classes/Controllers/Import/ImportController.php:517
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5744,13 +5744,13 @@ msgstr ""
 "nama berkas yang diberikan, atau ukuran berkas melebihi ukuran maksimum yang "
 "diizinkan oleh konfigurasi PHP Anda. Lihat [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:657
+#: libraries/classes/Controllers/Import/ImportController.php:619
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Impor telah selesai, %d kueri dilakukan."
 
-#: libraries/classes/Controllers/Import/ImportController.php:689
+#: libraries/classes/Controllers/Import/ImportController.php:651
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5759,7 +5759,7 @@ msgstr ""
 "Masa waktu skrip telah habis, jika Anda ingin menyelesaikan mengimpor, "
 "%skirim kembali berkas yang sama%s dan impor akan berlanjut."
 
-#: libraries/classes/Controllers/Import/ImportController.php:699
+#: libraries/classes/Controllers/Import/ImportController.php:661
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5768,7 +5768,7 @@ msgstr ""
 "phpMyAdmin tidak bisa menyelesaikan proses impor kecuali Anda menambah batas "
 "waktu eksekusi php."
 
-#: libraries/classes/Controllers/Import/ImportController.php:767
+#: libraries/classes/Controllers/Import/ImportController.php:729
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
