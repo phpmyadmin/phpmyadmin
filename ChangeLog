@@ -32,6 +32,8 @@ phpMyAdmin - ChangeLog
 - issue #17543 Fix JS error on saving a new designer page
 - issue #17546 Fix JS error after using save as and open page operation on the designer
 - issue        Fix PHP warning on GIS visualization when there is only one GIS column
+- issue #17728 Some select HTML tags will now have the correct UI style
+- issue #17734 PHP deprecations will only be shown when in a development environment
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
