@@ -1911,6 +1911,15 @@ Cookie authentication options
         // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
         $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
 
+    Using a binary string is recommended. However, if all 32 bytes of the string are visible
+    characters, then a function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_ is not required. For
+    example:
+
+    .. code-block:: php
+
+        // A string of 32 characters.
+        $cfg['blowfish_secret'] = 'JOFw435365IScA&Q!cDugr!lSfuAz*OW';
+
     .. warning::
 
         The encryption key must be 32 bytes long. If it is longer than the length of bytes, only the first 32 bytes will
