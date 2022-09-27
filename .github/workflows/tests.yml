@@ -49,17 +49,17 @@ jobs:
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
           composer update && \
           ./scripts/generate-mo && \
-          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
+          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s --random-order-seed 1664232984" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
       - name: Set up multi arch support
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.15 uname -a
+        run: docker run --rm ${{ matrix.arch }}/alpine:3.16 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.15 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.16 sh /app/do-tests.sh
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
