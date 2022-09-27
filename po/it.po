@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:54-0300\n"
-"PO-Revision-Date: 2022-03-21 17:56+0000\n"
-"Last-Translator: Lorenzo Asolan <brixiumx@gmail.com>\n"
+"PO-Revision-Date: 2022-09-28 09:18+0000\n"
+"Last-Translator: Giovanni Vella <giovanni.vella98@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -16226,7 +16226,7 @@ msgstr "Agosto"
 
 #: templates/javascript/variables.twig:28
 msgid "September"
-msgstr "Setttembre"
+msgstr "Settembre"
 
 #: templates/javascript/variables.twig:29
 msgid "October"
