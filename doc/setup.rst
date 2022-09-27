@@ -587,8 +587,8 @@ simple configuration may look like this:
 .. code-block:: xml+php
 
     <?php
-    // use here a value of your choice at least 32 chars long
-    $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
+    // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
+    $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
 
     $i=0;
     $i++;

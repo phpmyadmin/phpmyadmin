@@ -9042,13 +9042,11 @@
     <MixedArrayOffset occurrences="1">
       <code>$_SESSION['browser_access_time'][$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="12">
       <code>$GLOBALS['pma_auth_server']</code>
       <code>$_form_params['route']</code>
       <code>$captchaSiteVerifyURL</code>
       <code>$captchaSiteVerifyURL</code>
-      <code>$key</code>
-      <code>$key</code>
       <code>$key</code>
       <code>$password</code>
       <code>$serverCookie</code>
@@ -12573,6 +12571,10 @@
     </UnusedFunctionCall>
   </file>
   <file src="libraries/classes/Setup/ConfigGenerator.php">
+    <LessSpecificReturnStatement occurrences="2">
+      <code>$key</code>
+      <code>sodium_crypto_secretbox_keygen()</code>
+    </LessSpecificReturnStatement>
     <MixedArgument occurrences="1">
       <code>$conf['Servers']</code>
     </MixedArgument>
@@ -12590,6 +12592,9 @@
       <code>$v</code>
       <code>$v</code>
     </MixedAssignment>
+    <MoreSpecificReturnType occurrences="1">
+      <code>non-empty-string</code>
+    </MoreSpecificReturnType>
     <PossiblyNullOperand occurrences="1">
       <code>self::getServerPart($cf, $crlf, $conf['Servers'])</code>
     </PossiblyNullOperand>
@@ -14280,40 +14285,24 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/Config/ServerConfigChecksTest.php">
-    <MixedArgument occurrences="5">
-      <code>$_SESSION['messages']</code>
+    <MixedArgument occurrences="2">
       <code>$_SESSION['messages']['error']</code>
-      <code>$_SESSION['messages']['error']</code>
-      <code>$_SESSION['messages']['notice']</code>
       <code>$_SESSION['messages']['notice']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
+    <MixedArrayAccess occurrences="2">
       <code>$_SESSION['messages']['error']</code>
-      <code>$_SESSION['messages']['error']</code>
-      <code>$_SESSION['messages']['notice']</code>
       <code>$_SESSION['messages']['notice']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="20">
-      <code>$_SESSION[$this-&gt;sessionID]['AllowArbitraryServer']</code>
+    <MixedArrayAssignment occurrences="9">
       <code>$_SESSION[$this-&gt;sessionID]['AllowArbitraryServer']</code>
       <code>$_SESSION[$this-&gt;sessionID]['BZipDump']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['BZipDump']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['GZipDump']</code>
       <code>$_SESSION[$this-&gt;sessionID]['GZipDump']</code>
       <code>$_SESSION[$this-&gt;sessionID]['LoginCookieStore']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['LoginCookieStore']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['LoginCookieValidity']</code>
       <code>$_SESSION[$this-&gt;sessionID]['LoginCookieValidity']</code>
       <code>$_SESSION[$this-&gt;sessionID]['SaveDir']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['SaveDir']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['Servers']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['Servers']</code>
       <code>$_SESSION[$this-&gt;sessionID]['Servers']</code>
       <code>$_SESSION[$this-&gt;sessionID]['TempDir']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['TempDir']</code>
       <code>$_SESSION[$this-&gt;sessionID]['ZipDump']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['ZipDump']</code>
-      <code>$_SESSION[$this-&gt;sessionID]['blowfish_secret']</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="1">
       <code>$_SESSION[$this-&gt;sessionID]</code>
