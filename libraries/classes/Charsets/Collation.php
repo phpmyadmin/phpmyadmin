@@ -344,6 +344,7 @@ final class Collation
             // Fall through to other unicode
             case 'ucs2':
             case 'utf8':
+            case 'utf8mb3':
             case 'utf16':
             case 'utf16le':
             case 'utf16be':
