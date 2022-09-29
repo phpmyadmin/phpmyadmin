@@ -1233,6 +1233,8 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetUsersOverview(): void
     {
+        $this->setTheme();
+
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['server'] = 1;
