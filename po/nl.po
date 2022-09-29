@@ -1,13 +1,13 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-21 15:54-0300\n"
+"POT-Creation-Date: 2022-09-29 00:17-0300\n"
 "PO-Revision-Date: 2022-04-23 11:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
-"\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1376,7 +1376,7 @@ msgstr "Zoeken:"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
-#: libraries/classes/Controllers/Server/PrivilegesController.php:330
+#: libraries/classes/Controllers/Server/PrivilegesController.php:329
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
@@ -1414,6 +1414,7 @@ msgstr "Zoeken:"
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
+#: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/operations/index.twig:38
@@ -1469,25 +1470,25 @@ msgid "Unknown"
 msgstr "Onbekend"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:501
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Duits (telefoonboek volgorde)"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:498
+#: libraries/classes/Charsets/Collation.php:499
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Duits (woordenboek volgorde)"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:576
+#: libraries/classes/Charsets/Collation.php:577
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Spaans (traditioneel)"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:569
+#: libraries/classes/Charsets/Collation.php:570
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spaans (modern)"
@@ -1537,236 +1538,236 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Binair"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:600
+#: libraries/classes/Charsets/Collation.php:352
+#: libraries/classes/Charsets/Collation.php:601
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:361
-#: libraries/classes/Charsets/Collation.php:547
+#: libraries/classes/Charsets/Collation.php:362
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "West European"
 msgstr "West-Europees"
 
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:369
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Centraal Europees"
 
-#: libraries/classes/Charsets/Collation.php:373
-#: libraries/classes/Charsets/Collation.php:554
+#: libraries/classes/Charsets/Collation.php:374
+#: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Russisch"
 
-#: libraries/classes/Charsets/Collation.php:378
+#: libraries/classes/Charsets/Collation.php:379
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Vereenvoudigd Chinees"
 
-#: libraries/classes/Charsets/Collation.php:381
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Traditioneel Chinees"
 
-#: libraries/classes/Charsets/Collation.php:384
-#: libraries/classes/Charsets/Collation.php:469
+#: libraries/classes/Charsets/Collation.php:385
+#: libraries/classes/Charsets/Collation.php:470
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Chinees"
 
-#: libraries/classes/Charsets/Collation.php:392
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:393
+#: libraries/classes/Charsets/Collation.php:519
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japans"
 
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:398
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltisch"
 
-#: libraries/classes/Charsets/Collation.php:402
+#: libraries/classes/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armeens"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrillisch"
 
-#: libraries/classes/Charsets/Collation.php:408
+#: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: libraries/classes/Charsets/Collation.php:411
-#: libraries/classes/Charsets/Collation.php:533
+#: libraries/classes/Charsets/Collation.php:412
+#: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreaans"
 
-#: libraries/classes/Charsets/Collation.php:414
+#: libraries/classes/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
-#: libraries/classes/Charsets/Collation.php:417
+#: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgisch"
 
-#: libraries/classes/Charsets/Collation.php:420
+#: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grieks"
 
-#: libraries/classes/Charsets/Collation.php:423
+#: libraries/classes/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tsjecho-Slowaaks"
 
-#: libraries/classes/Charsets/Collation.php:426
-#: libraries/classes/Charsets/Collation.php:592
+#: libraries/classes/Charsets/Collation.php:427
+#: libraries/classes/Charsets/Collation.php:593
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Oekraïens"
 
-#: libraries/classes/Charsets/Collation.php:429
-#: libraries/classes/Charsets/Collation.php:588
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:589
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turks"
 
-#: libraries/classes/Charsets/Collation.php:432
-#: libraries/classes/Charsets/Collation.php:580
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:581
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: libraries/classes/Charsets/Collation.php:435
-#: libraries/classes/Charsets/Collation.php:584
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:585
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thais"
 
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:439
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: libraries/classes/Charsets/Collation.php:463
+#: libraries/classes/Charsets/Collation.php:464
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgaars"
 
-#: libraries/classes/Charsets/Collation.php:475
+#: libraries/classes/Charsets/Collation.php:476
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: libraries/classes/Charsets/Collation.php:479
+#: libraries/classes/Charsets/Collation.php:480
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tsjechisch"
 
-#: libraries/classes/Charsets/Collation.php:483
+#: libraries/classes/Charsets/Collation.php:484
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Deens"
 
-#: libraries/classes/Charsets/Collation.php:487
+#: libraries/classes/Charsets/Collation.php:488
 msgctxt "Collation"
 msgid "English"
 msgstr "Engels"
 
-#: libraries/classes/Charsets/Collation.php:491
+#: libraries/classes/Charsets/Collation.php:492
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:495
+#: libraries/classes/Charsets/Collation.php:496
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estisch"
 
-#: libraries/classes/Charsets/Collation.php:510
+#: libraries/classes/Charsets/Collation.php:511
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: libraries/classes/Charsets/Collation.php:514
+#: libraries/classes/Charsets/Collation.php:515
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "IJslands"
 
-#: libraries/classes/Charsets/Collation.php:521
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Klassiek Latijn"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:526
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lets"
 
-#: libraries/classes/Charsets/Collation.php:529
+#: libraries/classes/Charsets/Collation.php:530
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: libraries/classes/Charsets/Collation.php:537
+#: libraries/classes/Charsets/Collation.php:538
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birmees"
 
-#: libraries/classes/Charsets/Collation.php:540
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perzisch"
 
-#: libraries/classes/Charsets/Collation.php:544
+#: libraries/classes/Charsets/Collation.php:545
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Pools"
 
-#: libraries/classes/Charsets/Collation.php:551
+#: libraries/classes/Charsets/Collation.php:552
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: libraries/classes/Charsets/Collation.php:558
+#: libraries/classes/Charsets/Collation.php:559
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Singalees"
 
-#: libraries/classes/Charsets/Collation.php:562
+#: libraries/classes/Charsets/Collation.php:563
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: libraries/classes/Charsets/Collation.php:566
+#: libraries/classes/Charsets/Collation.php:567
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: libraries/classes/Charsets/Collation.php:596
+#: libraries/classes/Charsets/Collation.php:597
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamees"
 
-#: libraries/classes/Common.php:244
+#: libraries/classes/Common.php:245
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet upgraden naar %s %s of hoger."
 
-#: libraries/classes/Common.php:276
+#: libraries/classes/Common.php:277
 msgid "Error: Token mismatch"
 msgstr "Fout: token niet hetzelfde"
 
-#: libraries/classes/Common.php:490
+#: libraries/classes/Common.php:491
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1774,7 +1775,7 @@ msgstr ""
 "Plaatsen van sessie cookie mislukt. Misschien gebruikt u HTTP in plaats van "
 "HTTPS om phpMyAdmin te benaderen."
 
-#: libraries/classes/Common.php:549
+#: libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1784,7 +1785,7 @@ msgstr ""
 "optie is incompatibel met phpMyAdmin en kan ervoor zorgen dat sommige "
 "gegevens corrupt raken!"
 
-#: libraries/classes/Common.php:566
+#: libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1792,11 +1793,11 @@ msgstr ""
 "De ini_get en/of ini_set functies zijn uitgeschakeld in php.ini. phpMyAdmin "
 "heeft deze functies nodig!"
 
-#: libraries/classes/Common.php:577
+#: libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "poging om GLOBALS te overschrijven"
 
-#: libraries/classes/Common.php:587
+#: libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
@@ -3883,7 +3884,7 @@ msgstr "Navigatiepaneelbreedte"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Verbinden met hoofdpaneel"
 
@@ -4339,7 +4340,7 @@ msgstr "Herken vergrendelde tabellen"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2962
+#: libraries/classes/Display/Results.php:2976
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4403,7 +4404,7 @@ msgstr "Tekstveldregels"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
 #: libraries/classes/Server/Privileges.php:1812
 #: libraries/classes/Server/Privileges.php:1814
-#: libraries/classes/Server/Status/Processes.php:126
+#: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4851,7 +4852,7 @@ msgstr ""
 msgid "You allow for connecting to the server without a password."
 msgstr "U staat het toe dat een gebruiker zonder wachtwoord kan aanmelden."
 
-#: libraries/classes/Config/ServerConfigChecks.php:304
+#: libraries/classes/Config/ServerConfigChecks.php:307
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -4860,7 +4861,7 @@ msgstr ""
 "%sZip-decompressie%s vereist functies (%s) die niet beschikbaar zijn op dit "
 "systeem."
 
-#: libraries/classes/Config/ServerConfigChecks.php:325
+#: libraries/classes/Config/ServerConfigChecks.php:328
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -4869,7 +4870,7 @@ msgstr ""
 "%sZip-compressie%s vereist functies (%s) die niet beschikbaar zijn op dit "
 "systeem."
 
-#: libraries/classes/Config/ServerConfigChecks.php:359
+#: libraries/classes/Config/ServerConfigChecks.php:361
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
@@ -4879,16 +4880,7 @@ msgstr ""
 "authenticatie, een sleutel was automatisch voor u gegenereerd. Deze wordt "
 "gebruikt om cookies te versleutelen en hoeft u niet zelf te onthouden."
 
-#: libraries/classes/Config/ServerConfigChecks.php:373
-msgid "Key is too short, it should have at least 32 characters."
-msgstr "Sleutel is te kort, deze moet minimaal 32 tekens bevatten."
-
-#: libraries/classes/Config/ServerConfigChecks.php:383
-msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
-"Sleutel hoort letters, cijfers [em]en[/em] speciale tekens te bevatten."
-
-#: libraries/classes/Config/ServerConfigChecks.php:416
+#: libraries/classes/Config/ServerConfigChecks.php:385
 #, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -4899,7 +4891,7 @@ msgstr ""
 "gc_maxlifetime%4$s kan willekeurige sessieproblemen veroorzaken (huidige "
 "waarde van session.gc_maxlifetime is %5$d)."
 
-#: libraries/classes/Config/ServerConfigChecks.php:438
+#: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -4909,7 +4901,7 @@ msgstr ""
 "moeten zijn. Een waarde hoger dan 1800 kan een beveiligingsrisico opleveren, "
 "iemand kan bijvoorbeeld uw identiteit misbruiken."
 
-#: libraries/classes/Config/ServerConfigChecks.php:464
+#: libraries/classes/Config/ServerConfigChecks.php:433
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
@@ -4919,7 +4911,7 @@ msgstr ""
 "opslag%s niet gelijk is aan 0, dan moet %sAanmeldingscookiegeldigheid%s een "
 "waarde hebben die kleiner of gelijk is."
 
-#: libraries/classes/Config/ServerConfigChecks.php:503
+#: libraries/classes/Config/ServerConfigChecks.php:472
 #, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
@@ -4928,7 +4920,7 @@ msgstr ""
 "%1$sBzip2-compressie en decompressie%2$s vereisen functies (%3$s) die niet "
 "beschikbaar zijn op dit systeem."
 
-#: libraries/classes/Config/ServerConfigChecks.php:534
+#: libraries/classes/Config/ServerConfigChecks.php:503
 #, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
@@ -4937,11 +4929,11 @@ msgstr ""
 "%1$sGZip-compressie en decompressie%2$s vereisen functies (%3$s) welke niet "
 "beschikbaar zijn op dit systeem."
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "Geen beschrijving aanwezig"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5143,7 +5135,7 @@ msgid ""
 msgstr ""
 "De configuratieopslag van phpMyAdmin is uitgeschakeld. %sOntdek waarom%s."
 
-#: libraries/classes/Controllers/Database/SearchController.php:52
+#: libraries/classes/Controllers/Database/SearchController.php:47
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:103
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
@@ -5197,7 +5189,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeggemaakt."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3971
+#: libraries/classes/Display/Results.php:3982
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5255,8 +5247,8 @@ msgstr "Ja"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:419
-#: libraries/classes/Core.php:728 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:415
+#: libraries/classes/Core.php:732 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Geen verandering"
 
@@ -5322,7 +5314,7 @@ msgstr "Verkeerd type!"
 msgid "Bad parameters!"
 msgstr "Verkeerde parameters!"
 
-#: libraries/classes/Controllers/HomeController.php:95
+#: libraries/classes/Controllers/HomeController.php:98
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5330,7 +5322,7 @@ msgstr ""
 "U bent afgemeld bij één server, om volledig uit te loggen van phpAdmin, moet "
 "u zich afmelden bij alle servers."
 
-#: libraries/classes/Controllers/HomeController.php:196
+#: libraries/classes/Controllers/HomeController.php:195
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5339,7 +5331,7 @@ msgstr ""
 "De configuratieopslag van phpMyAdmin is niet volledig ingesteld, sommige "
 "uitgebreide mogelijkheden zijn uitgeschakeld. %sOntdek waarom%s. "
 
-#: libraries/classes/Controllers/HomeController.php:202
+#: libraries/classes/Controllers/HomeController.php:201
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
@@ -5378,22 +5370,22 @@ msgstr ""
 "beveiligingsrisico verhelpen door het wachtwoord voor administrator 'pma' te "
 "wijzigen."
 
-#: libraries/classes/Controllers/HomeController.php:317
-msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
+#: libraries/classes/Controllers/HomeController.php:318
+msgid ""
+"The configuration file needs a valid key for cookie encryption. A temporary "
+"key was automatically generated for you. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"Het configuratiebestand heeft nu een geheime wachtwoordzin nodig "
-"(blowfish_secret)."
 
-#: libraries/classes/Controllers/HomeController.php:325
+#: libraries/classes/Controllers/HomeController.php:328
 #, php-format
 msgid ""
-"The secret passphrase in configuration (blowfish_secret) is not the correct "
-"length. It should be %d bytes long."
+"The cookie encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"De geconfigureerde geheime passphrase (blowfish_secret) heeft niet de "
-"correcte lengte. Deze moet %d bytes lang zijn."
 
-#: libraries/classes/Controllers/HomeController.php:342
+#: libraries/classes/Controllers/HomeController.php:346
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5406,7 +5398,7 @@ msgstr ""
 "aangetast worden omdat ongepriviligieerde personen uw configuratie kunnen "
 "downloaden."
 
-#: libraries/classes/Controllers/HomeController.php:363
+#: libraries/classes/Controllers/HomeController.php:367
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5414,7 +5406,7 @@ msgid ""
 msgstr ""
 "De server gebruikt Suhosin. Zie de %sdocumentatie%s voor mogelijke problemen."
 
-#: libraries/classes/Controllers/HomeController.php:377
+#: libraries/classes/Controllers/HomeController.php:381
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5423,7 +5415,7 @@ msgstr ""
 "De $cfg['TempDir'] (%s) is niet benaderbaar. phpMyAdmin kan de templates "
 "niet in de cache zetten en zal daardoor langzamer werken."
 
-#: libraries/classes/Controllers/HomeController.php:434
+#: libraries/classes/Controllers/HomeController.php:438
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5433,7 +5425,7 @@ msgstr ""
 "karakterset te gebruiken. Zonder de uitbreiding mbstring kan phpMyAdmin "
 "strings niet correct splitsen, wat tot onverwachte resultaten kan leiden."
 
-#: libraries/classes/Controllers/HomeController.php:452
+#: libraries/classes/Controllers/HomeController.php:456
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5511,7 +5503,7 @@ msgstr ""
 "tijdsbeperkingen van PHP worden versoepeld."
 
 #: libraries/classes/Controllers/Import/ImportController.php:725
-#: libraries/classes/Controllers/Sql/SqlController.php:163
+#: libraries/classes/Controllers/Sql/SqlController.php:162
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
@@ -5746,7 +5738,7 @@ msgid "Rename index"
 msgstr "Hernoem index"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
-#: templates/table/index_form.twig:234
+#: templates/table/index_form.twig:237
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Voeg %s kolom(men) toe aan index"
@@ -5770,7 +5762,8 @@ msgstr "Gelieve de kolom(men) voor de index te selecteren."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
-#: templates/table/index_form.twig:240
+#: templates/modals/index_dialog_modal.twig:21
+#: templates/table/index_form.twig:244
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:224
@@ -5832,13 +5825,14 @@ msgstr "Geselecteerde gebruikers worden verwijderd"
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
-#: templates/home/index.twig:285 templates/home/index.twig:293
+#: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
 #: templates/modals/index_dialog_modal.twig:12
+#: templates/modals/index_dialog_modal.twig:22
 #: templates/modals/preview_sql_confirmation.twig:6
 #: templates/modals/preview_sql_confirmation.twig:15
 #: templates/modals/preview_sql_modal.twig:6
@@ -6104,7 +6098,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Voeg tenminste één variabele toe aan de reeks!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:208
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1266
 #: libraries/classes/Plugins/Export/ExportSql.php:2226
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6114,7 +6108,7 @@ msgstr "Voeg tenminste één variabele toe aan de reeks!"
 #: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
-#: templates/server/status/processes/list.twig:54
+#: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
 msgid "None"
@@ -6319,7 +6313,7 @@ msgstr "Verklaar resultaat"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 #: libraries/classes/Menu.php:490
-#: libraries/classes/Server/Status/Processes.php:138
+#: libraries/classes/Server/Status/Processes.php:134
 #: libraries/classes/Util.php:1946 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
@@ -6333,7 +6327,7 @@ msgstr "Status"
 #: libraries/classes/Plugins/Export/ExportOdt.php:597
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
-#: libraries/classes/Server/Status/Processes.php:134
+#: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6501,7 +6495,7 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: templates/header.twig:43
+#: templates/header.twig:44
 msgid "Page-related settings"
 msgstr "Pagina gerelateerde instellingen"
 
@@ -6511,7 +6505,8 @@ msgid "Apply"
 msgstr "Toepassen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/home/index.twig:289 templates/navigation/main.twig:58
+#: templates/home/index.twig:300 templates/modals/index_dialog_modal.twig:26
+#: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -6710,7 +6705,7 @@ msgid "Show query box"
 msgstr "SQL-queryveld tonen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3030
+#: libraries/classes/Display/Results.php:3044
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6979,13 +6974,13 @@ msgstr "Inhoud gegevenspunt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2000
-#: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:1984
+#: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Negeren"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2966
+#: libraries/classes/Display/Results.php:2980
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7344,7 +7339,7 @@ msgid "Hide panel"
 msgstr "Paneel verbergen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Loskoppelen van hoofdpaneel"
 
@@ -7411,7 +7406,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Gelieve de onderkant van dit venster te bekijken."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:634
-#: libraries/classes/ErrorHandler.php:444
+#: libraries/classes/ErrorHandler.php:451
 msgid "Ignore All"
 msgstr "Alles negeren"
 
@@ -7578,13 +7573,13 @@ msgid "Table %s already exists!"
 msgstr "Tabel %s bestaat reeds!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:704
-#: libraries/classes/InsertEdit.php:327
+#: libraries/classes/InsertEdit.php:326
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Verbergen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:705
-#: libraries/classes/Controllers/Table/ChangeController.php:188
+#: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7684,16 +7679,16 @@ msgstr "Het gebruikersaccount %s@2%s is succesvol vergrendeld."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Het gebruikersaccount %s@%s is succesvol ontgrendeld."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:153
+#: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
 msgstr "Geen rechten"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:162
+#: libraries/classes/Controllers/Server/PrivilegesController.php:161
 msgid "You do not have the privileges to administrate the users!"
 msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:177
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7701,7 +7696,7 @@ msgstr ""
 "Gebruikersnaam en servernaam zijn ongewijzigd. Als u alleen het wachtwoord "
 "wil wijzigen, gebruik de 'Wijzig wachtwoord' tab."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:406
+#: libraries/classes/Controllers/Server/PrivilegesController.php:405
 msgid "User has been added."
 msgstr "Gebruiker is toegevoegd."
 
@@ -8478,13 +8473,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Onveilige verbinding"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:236
-#: libraries/classes/Sql.php:1154
+#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Sql.php:1153
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:243
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt!"
 
@@ -8544,7 +8539,7 @@ msgstr "Tabel %s bestaat reeds!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3683 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3695 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd."
@@ -8582,7 +8577,7 @@ msgstr "Er is een probleem met je vraag."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:220
 #: libraries/classes/Sql.php:967
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
@@ -8610,7 +8605,7 @@ msgstr "View"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:863 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8624,7 +8619,7 @@ msgstr "De weergavekolom is succesvol bijgewerkt."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne relaties zijn succesvol bijgewerkt."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:300
+#: libraries/classes/Controllers/Table/ReplaceController.php:294
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
@@ -8704,7 +8699,7 @@ msgstr "U heeft niet genoeg rechten om hier te zijn!"
 msgid "View name can not be empty!"
 msgstr "View naam kan niet leeg zijn!"
 
-#: libraries/classes/Core.php:200 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:204 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
@@ -9223,24 +9218,24 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Volgende"
 
-#: libraries/classes/Display/Results.php:955 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Einde"
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1473
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Gedeeltelijke teksten"
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1477
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "Volledige teksten"
 
-#: libraries/classes/Display/Results.php:1813
-#: libraries/classes/Display/Results.php:1839 libraries/classes/Util.php:2575
+#: libraries/classes/Display/Results.php:1818
+#: libraries/classes/Display/Results.php:1844 libraries/classes/Util.php:2575
 #: libraries/classes/Util.php:2598 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9253,8 +9248,8 @@ msgstr "Volledige teksten"
 msgid "Descending"
 msgstr "Aflopend"
 
-#: libraries/classes/Display/Results.php:1821
-#: libraries/classes/Display/Results.php:1831 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1826
+#: libraries/classes/Display/Results.php:1836 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9267,41 +9262,41 @@ msgstr "Aflopend"
 msgid "Ascending"
 msgstr "Oplopend"
 
-#: libraries/classes/Display/Results.php:3006
-#: libraries/classes/Display/Results.php:3021
+#: libraries/classes/Display/Results.php:3020
+#: libraries/classes/Display/Results.php:3035
 msgid "The row has been deleted."
 msgstr "De rij is verwijderd."
 
-#: libraries/classes/Display/Results.php:3053
+#: libraries/classes/Display/Results.php:3067
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "stop proces"
 
-#: libraries/classes/Display/Results.php:3614
+#: libraries/classes/Display/Results.php:3628
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3980
+#: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3994
+#: libraries/classes/Display/Results.php:4005
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d in totaal, %2$d in de query"
 
-#: libraries/classes/Display/Results.php:3999
+#: libraries/classes/Display/Results.php:4010
 #, php-format
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/classes/Display/Results.php:4012 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:973
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
 
-#: libraries/classes/Display/Results.php:4343
+#: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
 msgstr "Link niet gevonden!"
 
@@ -9666,15 +9661,15 @@ msgstr ""
 "Documentatie en meer informatie over PBXT kan gevonden worden op de "
 "%sPrimeBase XT home pagina%s."
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Er zijn teveel foutmeldingen, sommige worden niet weergegeven."
 
-#: libraries/classes/ErrorHandler.php:428
+#: libraries/classes/ErrorHandler.php:435
 msgid "Report"
 msgstr "Rapporteren"
 
-#: libraries/classes/ErrorHandler.php:433 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:440 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Verslag voortaan automatisch verzenden"
 
@@ -9949,7 +9944,7 @@ msgstr ""
 "De indexen %1$s en %2$s lijken hetzelfde, mogelijk kan een van beide worden "
 "verwijderd."
 
-#: libraries/classes/InsertEdit.php:343
+#: libraries/classes/InsertEdit.php:342
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9957,7 +9952,7 @@ msgstr ""
 msgid "Function"
 msgstr "Functie"
 
-#: libraries/classes/InsertEdit.php:346
+#: libraries/classes/InsertEdit.php:345
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:536
@@ -9991,12 +9986,12 @@ msgstr "Functie"
 msgid "Type"
 msgstr "Type"
 
-#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:716 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "De map die u heeft ingesteld om te uploaden kan niet worden bereikt."
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:724
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10006,15 +10001,15 @@ msgstr "De map die u heeft ingesteld om te uploaden kan niet worden bereikt."
 msgid "Or"
 msgstr "Of"
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:725
 msgid "web server upload directory:"
 msgstr "uploadmap op webserver:"
 
-#: libraries/classes/InsertEdit.php:1333 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:964
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/classes/InsertEdit.php:1357 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:944
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -10220,7 +10215,7 @@ msgstr "Tabellen:"
 msgid "Views:"
 msgstr "Views:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10229,18 +10224,18 @@ msgstr ""
 "beïnvloeden. Overweeg om artikelgroepering uit te schakelen in het "
 "navigatiepaneel."
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 msgid "Groups"
 msgstr "Groepen"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultaat gevonden"
 msgstr[1] "%s resultaten gevonden"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr "Alles samenvouwen"
 
@@ -10280,7 +10275,7 @@ msgstr "Nieuw"
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
-#: templates/table/index_form.twig:138
+#: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
 #: templates/table/relation/common_form.twig:18
@@ -11658,11 +11653,11 @@ msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:592
+#: libraries/classes/Plugins.php:589
 msgid "This format has no options"
 msgstr "Dit formaat heeft geen opties"
 
-#: libraries/classes/Plugins.php:610
+#: libraries/classes/Plugins.php:607
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 
@@ -12068,26 +12063,26 @@ msgstr "Eenvoudige tweeweg authenticatie"
 msgid "For testing purposes only!"
 msgstr "Alleen voor testdoeleinden!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "De server reageert niet (of de socket van de server is niet juist ingesteld)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "De server reageert niet."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Meld je af en probeer het opnieuw met een andere gebruikersnaam."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Controleer de rechten op de map met de database."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Details…"
 
@@ -12176,7 +12171,7 @@ msgstr "Wijzigen van primaire server is mislukt!"
 msgid "Primary server changed successfully to %s."
 msgstr "Primaire server succesvol gewijzigd in %s."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:103
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12185,12 +12180,12 @@ msgstr ""
 "De routing cache kon niet weggeschreven worden, u moet de rechten op map/"
 "bestand \"%s\" aanpassen"
 
-#: libraries/classes/Routing.php:163
+#: libraries/classes/Routing.php:162
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Fout 404! De pagina %s is niet gevonden."
 
-#: libraries/classes/Routing.php:174
+#: libraries/classes/Routing.php:173
 msgid "Error 405! Request method not allowed."
 msgstr "Fout 405! Methode voor aanvragen niet toegestaan."
 
@@ -12577,7 +12572,7 @@ msgid "Privileges for %s"
 msgstr "Rechten voor %s"
 
 #: libraries/classes/Server/Privileges.php:2868
-#: libraries/classes/Server/Status/Processes.php:118
+#: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Gebruiker"
@@ -12626,7 +12621,7 @@ msgid "You have added a new user."
 msgstr "U heeft een nieuwe gebruiker toegevoegd."
 
 #: libraries/classes/Server/Status/Data.php:146
-#: libraries/classes/Server/Status/Processes.php:146
+#: libraries/classes/Server/Status/Processes.php:147
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL-query"
@@ -12697,22 +12692,22 @@ msgstr "Toon replica status"
 msgid "Flush query cache"
 msgstr "Schoon querycache"
 
-#: libraries/classes/Server/Status/Processes.php:114
+#: libraries/classes/Server/Status/Processes.php:110
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:122
+#: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Host"
 
-#: libraries/classes/Server/Status/Processes.php:130
+#: libraries/classes/Server/Status/Processes.php:126
 msgid "Command"
 msgstr "Opdracht"
 
-#: libraries/classes/Server/Status/Processes.php:142
+#: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
 msgstr "Voortgang"
 
@@ -12754,7 +12749,7 @@ msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/classes/Sql.php:1337
+#: libraries/classes/Sql.php:1336
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12764,7 +12759,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar. %s"
 
-#: libraries/classes/Sql.php:1351
+#: libraries/classes/Sql.php:1350
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13372,11 +13367,11 @@ msgstr "Het profiel is aangepast."
 msgid "Password is too long!"
 msgstr "Wachtwoord is te lang!"
 
-#: libraries/classes/UserPreferences.php:173
+#: libraries/classes/UserPreferences.php:181
 msgid "Could not save configuration"
 msgstr "Opslaan van het configuratiebestand is niet mogelijk"
 
-#: libraries/classes/UserPreferences.php:184
+#: libraries/classes/UserPreferences.php:192
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "De phpMyAdmin configuratie opslagdatabase kon niet worden benaderd."
 
@@ -15282,7 +15277,7 @@ msgstr ""
 "[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:141
+#: templates/table/index_form.twig:144
 msgid "Size"
 msgstr "Grootte"
 
@@ -15776,11 +15771,11 @@ msgstr ""
 "Kies 'GeomFormText' uit de kolom 'Functie' en kopieer onderstaande string in "
 "het veld 'Waarde'."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:35 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript moet ingeschakeld zijn voorbij dit punt!"
 
-#: templates/header.twig:45
+#: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klik op de balk om te scrollen naar het begin van de pagina"
 
@@ -15921,11 +15916,19 @@ msgstr "Lijst met wijzigingen"
 msgid "License"
 msgstr "Licentie"
 
-#: templates/home/index.twig:284
+#: templates/home/index.twig:280 templates/setup/error.twig:2
+msgid "Warning"
+msgstr "Waarschuwing"
+
+#: templates/home/index.twig:282
+msgid "Notice"
+msgstr ""
+
+#: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin Thema's"
 
-#: templates/home/index.twig:295
+#: templates/home/index.twig:306
 msgid "Get more themes!"
 msgstr "Bekijk meer thema's!"
 
@@ -16401,6 +16404,10 @@ msgstr "Verifieer"
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
 msgstr "View:"
+
+#: templates/modals/index_dialog_modal.twig:30
+msgid "Go back"
+msgstr ""
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -18142,10 +18149,6 @@ msgstr "Gegenereerd configuratiebestand"
 msgid "Download"
 msgstr "Download"
 
-#: templates/setup/error.twig:2
-msgid "Warning"
-msgstr "Waarschuwing"
-
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
 msgstr "Het verstuurde formulier bevat fouten"
@@ -18482,42 +18485,42 @@ msgstr "Plaatshoudende kolom"
 msgid "Importing into the table \"%s\""
 msgstr "Importeren in tabel \"%s\""
 
-#: templates/table/index_form.twig:15 templates/table/index_rename_form.twig:11
+#: templates/table/index_form.twig:18 templates/table/index_rename_form.twig:11
 msgid "Index name:"
 msgstr "Indexnaam:"
 
-#: templates/table/index_form.twig:16 templates/table/index_rename_form.twig:12
+#: templates/table/index_form.twig:19 templates/table/index_rename_form.twig:12
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
 "\"PRIMARY\" <b>moet</b> de naam van en <b>alleen van</b> een primaire "
 "sleutel zijn!"
 
-#: templates/table/index_form.twig:34
+#: templates/table/index_form.twig:37
 msgid "Index choice:"
 msgstr "Index keuze:"
 
-#: templates/table/index_form.twig:54
+#: templates/table/index_form.twig:57
 msgid "Advanced options"
 msgstr "Geavanceerde opties"
 
-#: templates/table/index_form.twig:64
+#: templates/table/index_form.twig:67
 msgid "Key block size:"
 msgstr "Sleutelveldgrootte:"
 
-#: templates/table/index_form.twig:81
+#: templates/table/index_form.twig:84
 msgid "Index type:"
 msgstr "Indextype:"
 
-#: templates/table/index_form.twig:98
+#: templates/table/index_form.twig:101
 msgid "Parser:"
 msgstr "Lezer:"
 
-#: templates/table/index_form.twig:114
+#: templates/table/index_form.twig:117
 msgid "Comment:"
 msgstr "Opmerking:"
 
-#: templates/table/index_form.twig:159 templates/table/index_form.twig:196
+#: templates/table/index_form.twig:162 templates/table/index_form.twig:199
 msgid "Drag to reorder"
 msgstr "Sleep om te herschikken"
 
@@ -19072,6 +19075,27 @@ msgstr "VIEW-naam"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Kolomnamen"
+
+#~ msgid "Key is too short, it should have at least 32 characters."
+#~ msgstr "Sleutel is te kort, deze moet minimaal 32 tekens bevatten."
+
+#~ msgid "Key should contain letters, numbers [em]and[/em] special characters."
+#~ msgstr ""
+#~ "Sleutel hoort letters, cijfers [em]en[/em] speciale tekens te bevatten."
+
+#~ msgid ""
+#~ "The configuration file now needs a secret passphrase (blowfish_secret)."
+#~ msgstr ""
+#~ "Het configuratiebestand heeft nu een geheime wachtwoordzin nodig "
+#~ "(blowfish_secret)."
+
+#, php-format
+#~ msgid ""
+#~ "The secret passphrase in configuration (blowfish_secret) is not the "
+#~ "correct length. It should be %d bytes long."
+#~ msgstr ""
+#~ "De geconfigureerde geheime passphrase (blowfish_secret) heeft niet de "
+#~ "correcte lengte. Deze moet %d bytes lang zijn."
 
 #~ msgid "Configuration saved."
 #~ msgstr "Configuratie opgeslagen."

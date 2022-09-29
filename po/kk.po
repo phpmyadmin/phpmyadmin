@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-21 15:54-0300\n"
+"POT-Creation-Date: 2022-09-29 00:17-0300\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1397,7 +1397,7 @@ msgstr "Izdeý:"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
-#: libraries/classes/Controllers/Server/PrivilegesController.php:330
+#: libraries/classes/Controllers/Server/PrivilegesController.php:329
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
@@ -1435,6 +1435,7 @@ msgstr "Izdeý:"
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
+#: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/operations/index.twig:38
@@ -1490,25 +1491,25 @@ msgid "Unknown"
 msgstr "Belgisiz"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:501
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Nemis (telefon kitaby reti)"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:498
+#: libraries/classes/Charsets/Collation.php:499
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Nemis (sózdik reti)"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:576
+#: libraries/classes/Charsets/Collation.php:577
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Ispan (dástúr)"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:569
+#: libraries/classes/Charsets/Collation.php:570
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Ispan (zamanaýı)"
@@ -1558,236 +1559,236 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Ekilik"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:600
+#: libraries/classes/Charsets/Collation.php:352
+#: libraries/classes/Charsets/Collation.php:601
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:361
-#: libraries/classes/Charsets/Collation.php:547
+#: libraries/classes/Charsets/Collation.php:362
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "West European"
 msgstr "Batys Eýropa"
 
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:369
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Ortalyq Eýropa"
 
-#: libraries/classes/Charsets/Collation.php:373
-#: libraries/classes/Charsets/Collation.php:554
+#: libraries/classes/Charsets/Collation.php:374
+#: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Orys"
 
-#: libraries/classes/Charsets/Collation.php:378
+#: libraries/classes/Charsets/Collation.php:379
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Hanzý (jeńil)"
 
-#: libraries/classes/Charsets/Collation.php:381
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Hanzý (dástúr)"
 
-#: libraries/classes/Charsets/Collation.php:384
-#: libraries/classes/Charsets/Collation.php:469
+#: libraries/classes/Charsets/Collation.php:385
+#: libraries/classes/Charsets/Collation.php:470
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Hanzý"
 
-#: libraries/classes/Charsets/Collation.php:392
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:393
+#: libraries/classes/Charsets/Collation.php:519
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japon"
 
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:398
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltyq"
 
-#: libraries/classes/Charsets/Collation.php:402
+#: libraries/classes/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armán"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kırıl"
 
-#: libraries/classes/Charsets/Collation.php:408
+#: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arab"
 
-#: libraries/classes/Charsets/Collation.php:411
-#: libraries/classes/Charsets/Collation.php:533
+#: libraries/classes/Charsets/Collation.php:412
+#: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreı"
 
-#: libraries/classes/Charsets/Collation.php:414
+#: libraries/classes/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Ivrıt"
 
-#: libraries/classes/Charsets/Collation.php:417
+#: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Grýzın"
 
-#: libraries/classes/Charsets/Collation.php:420
+#: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grek"
 
-#: libraries/classes/Charsets/Collation.php:423
+#: libraries/classes/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cheh-Slovak"
 
-#: libraries/classes/Charsets/Collation.php:426
-#: libraries/classes/Charsets/Collation.php:592
+#: libraries/classes/Charsets/Collation.php:427
+#: libraries/classes/Charsets/Collation.php:593
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ýkraın"
 
-#: libraries/classes/Charsets/Collation.php:429
-#: libraries/classes/Charsets/Collation.php:588
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:589
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Túrik"
 
-#: libraries/classes/Charsets/Collation.php:432
-#: libraries/classes/Charsets/Collation.php:580
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:581
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Shved"
 
-#: libraries/classes/Charsets/Collation.php:435
-#: libraries/classes/Charsets/Collation.php:584
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:585
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Taı"
 
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:439
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Belgisiz"
 
-#: libraries/classes/Charsets/Collation.php:463
+#: libraries/classes/Charsets/Collation.php:464
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bolǵar"
 
-#: libraries/classes/Charsets/Collation.php:475
+#: libraries/classes/Charsets/Collation.php:476
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Horvat"
 
-#: libraries/classes/Charsets/Collation.php:479
+#: libraries/classes/Charsets/Collation.php:480
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Cheh"
 
-#: libraries/classes/Charsets/Collation.php:483
+#: libraries/classes/Charsets/Collation.php:484
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dat"
 
-#: libraries/classes/Charsets/Collation.php:487
+#: libraries/classes/Charsets/Collation.php:488
 msgctxt "Collation"
 msgid "English"
 msgstr "Aǵylshyn"
 
-#: libraries/classes/Charsets/Collation.php:491
+#: libraries/classes/Charsets/Collation.php:492
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:495
+#: libraries/classes/Charsets/Collation.php:496
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Eston"
 
-#: libraries/classes/Charsets/Collation.php:510
+#: libraries/classes/Charsets/Collation.php:511
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Majar"
 
-#: libraries/classes/Charsets/Collation.php:514
+#: libraries/classes/Charsets/Collation.php:515
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Island"
 
-#: libraries/classes/Charsets/Collation.php:521
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Latyn (klasıkalyq)"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:526
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latysh"
 
-#: libraries/classes/Charsets/Collation.php:529
+#: libraries/classes/Charsets/Collation.php:530
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lıtva"
 
-#: libraries/classes/Charsets/Collation.php:537
+#: libraries/classes/Charsets/Collation.php:538
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Bırman"
 
-#: libraries/classes/Charsets/Collation.php:540
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Parsy"
 
-#: libraries/classes/Charsets/Collation.php:544
+#: libraries/classes/Charsets/Collation.php:545
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polák"
 
-#: libraries/classes/Charsets/Collation.php:551
+#: libraries/classes/Charsets/Collation.php:552
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rýmyn"
 
-#: libraries/classes/Charsets/Collation.php:558
+#: libraries/classes/Charsets/Collation.php:559
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Sıngalı"
 
-#: libraries/classes/Charsets/Collation.php:562
+#: libraries/classes/Charsets/Collation.php:563
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovak"
 
-#: libraries/classes/Charsets/Collation.php:566
+#: libraries/classes/Charsets/Collation.php:567
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Sloven"
 
-#: libraries/classes/Charsets/Collation.php:596
+#: libraries/classes/Charsets/Collation.php:597
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vetnam"
 
-#: libraries/classes/Common.php:244
+#: libraries/classes/Common.php:245
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s%s nusqasyna nemese odan keıingige jańartýyńyz qajet."
 
-#: libraries/classes/Common.php:276
+#: libraries/classes/Common.php:277
 msgid "Error: Token mismatch"
 msgstr "Qate: Token sáıkessizdigi"
 
-#: libraries/classes/Common.php:490
+#: libraries/classes/Common.php:491
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1795,7 +1796,7 @@ msgstr ""
 "Seanstyń cookie-faılyn ornatý sátsiz aıaqtaldy. Múmkin phpMyAdmin-ge qatynaý "
 "úshin HTTPS ornyna HTTP paıdalanǵansyz."
 
-#: libraries/classes/Common.php:549
+#: libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1804,7 +1805,7 @@ msgstr ""
 "PHP konfıgýrasıasynda mbstring.func_overload qosylǵan. Bul opsıa phpMyAdmin "
 "úshin úılespeıdi jáne keıbir derekterdiń búlinýine ákelýi múmkin!"
 
-#: libraries/classes/Common.php:566
+#: libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1812,11 +1813,11 @@ msgstr ""
 "ini_get jáne/nemese ini_set fýnksıalary php.ini ishinde óshirilgen. "
 "phpMyAdmin bul fýnksıalardy qajet etedi!"
 
-#: libraries/classes/Common.php:577
+#: libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS qaıta jazý áreketi"
 
-#: libraries/classes/Common.php:587
+#: libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "osaldyq yqtımal"
 
@@ -3918,7 +3919,7 @@ msgstr "Sharlaý taqtasynyń eni"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Negizgi taqtamen baılanystyrý"
 
@@ -4374,7 +4375,7 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2962
+#: libraries/classes/Display/Results.php:2976
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4438,7 +4439,7 @@ msgstr "Mátinaýmaq joldary"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
 #: libraries/classes/Server/Privileges.php:1812
 #: libraries/classes/Server/Privileges.php:1814
-#: libraries/classes/Server/Status/Processes.php:126
+#: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4894,7 +4895,7 @@ msgstr ""
 msgid "You allow for connecting to the server without a password."
 msgstr "Serverge parólsiz qosylý úshin ruqsat berdińiz."
 
-#: libraries/classes/Config/ServerConfigChecks.php:304
+#: libraries/classes/Config/ServerConfigChecks.php:307
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -4903,7 +4904,7 @@ msgstr ""
 "%sZip qysýdan shyǵarý%s osy júıede qoljetimdi emes fýnksıalardy (%s) qajet "
 "etedi."
 
-#: libraries/classes/Config/ServerConfigChecks.php:325
+#: libraries/classes/Config/ServerConfigChecks.php:328
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -4911,7 +4912,7 @@ msgid ""
 msgstr ""
 "%sZip qysylymy%s osy júıede qoljetimdi emes fýnksıalardy (%s) qajet etedi."
 
-#: libraries/classes/Config/ServerConfigChecks.php:359
+#: libraries/classes/Config/ServerConfigChecks.php:361
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
@@ -4921,15 +4922,7 @@ msgstr ""
 "qosylǵan, sondyqtan kiltińiz avtomatty jasaldy. Ol cookie-faıldardy shıfrlaý "
 "úshin qoldanylady; ony este saqtaýdyń qajeti joq."
 
-#: libraries/classes/Config/ServerConfigChecks.php:373
-msgid "Key is too short, it should have at least 32 characters."
-msgstr "Kilt tym qysqa, keminde 32 tańba bolýy qajet."
-
-#: libraries/classes/Config/ServerConfigChecks.php:383
-msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Kiltte áripter, sıfrlar [em]jáne[/em] arnaıy tańbalar bolýy qajet."
-
-#: libraries/classes/Config/ServerConfigChecks.php:416
+#: libraries/classes/Config/ServerConfigChecks.php:385
 #, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -4940,7 +4933,7 @@ msgstr ""
 "úlkenirek bolǵany kezdeısoq seans jaramsyzdyǵynyń sebebi bolýy múmkin "
 "(aǵymda session.gc_maxlifetime - %5$d)."
 
-#: libraries/classes/Config/ServerConfigChecks.php:438
+#: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -4950,7 +4943,7 @@ msgstr ""
 "ornatylýy qajet. 1800 kóp mánder elikteý sıaqty qaýipsizdik qater tóndiretin "
 "múmkin."
 
-#: libraries/classes/Config/ServerConfigChecks.php:464
+#: libraries/classes/Config/ServerConfigChecks.php:433
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
@@ -4960,7 +4953,7 @@ msgstr ""
 "jáne %sLogin cookie store%s máni 0 emes bolsa, %sLogin cookie validity%s "
 "máni odan kem nemese oǵan teń bolyp ornatylýy qajet."
 
-#: libraries/classes/Config/ServerConfigChecks.php:503
+#: libraries/classes/Config/ServerConfigChecks.php:472
 #, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
@@ -4969,7 +4962,7 @@ msgstr ""
 "%1$sBzip2 qysý jáne qysýdan shyǵarý%2$s osy júıede qoljetimdi emes "
 "fýnksıalardy (%3$s) qajet etedi."
 
-#: libraries/classes/Config/ServerConfigChecks.php:534
+#: libraries/classes/Config/ServerConfigChecks.php:503
 #, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
@@ -4978,11 +4971,11 @@ msgstr ""
 "%1$sGZip qysý men qysýdan shyǵarý%2$s osy júıede qoljetimdi emes "
 "fýnksıalardy qajet etedi (%3$s)."
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "sipattamasy joq"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5180,7 +5173,7 @@ msgstr ""
 "phpMyAdmin konfıgýrasıasyn saqtaýyshy ajyratyldy. %sNelikten ekenin "
 "tabyńyz%s."
 
-#: libraries/classes/Controllers/Database/SearchController.php:52
+#: libraries/classes/Controllers/Database/SearchController.php:47
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:103
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
@@ -5236,7 +5229,7 @@ msgid "Table %s has been emptied."
 msgstr "%s kestesi bosatyldy."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3971
+#: libraries/classes/Display/Results.php:3982
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5293,8 +5286,8 @@ msgstr "Ia"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:419
-#: libraries/classes/Core.php:728 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:415
+#: libraries/classes/Core.php:732 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ózgerister joq"
 
@@ -5361,7 +5354,7 @@ msgstr "Nashar túr!"
 msgid "Bad parameters!"
 msgstr "Nashar parametrler!"
 
-#: libraries/classes/Controllers/HomeController.php:95
+#: libraries/classes/Controllers/HomeController.php:98
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5369,7 +5362,7 @@ msgstr ""
 "Tek bir serverden shyqtyńyz, phpMyAdmin baǵdarlamasynan tolyqtaı shyǵý úshin "
 "barlyq serverlerden shyǵý qajet."
 
-#: libraries/classes/Controllers/HomeController.php:196
+#: libraries/classes/Controllers/HomeController.php:195
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5378,7 +5371,7 @@ msgstr ""
 "phpMyAdmin konfıgýrasıasyn saqtaýyshy tolyǵymen teńshelmegen, keıbir "
 "keńeıtilgen múmkindikter ajyratylǵan. %sNelikten ekenin tabyńyz%s. "
 
-#: libraries/classes/Controllers/HomeController.php:202
+#: libraries/classes/Controllers/HomeController.php:201
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
@@ -5417,20 +5410,22 @@ msgstr ""
 "bul qaýipsizdik álsizdigin «pma» basqarýshy paıdalanýsahy parólin ózgertý "
 "arqyly túzetýge bolady."
 
-#: libraries/classes/Controllers/HomeController.php:317
-msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "Konfıgýrasıa faıly qazir qupıa sóılemge (blowfish_secret) muqtaj."
-
-#: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#: libraries/classes/Controllers/HomeController.php:318
 msgid ""
-"The secret passphrase in configuration (blowfish_secret) is not the correct "
-"length. It should be %d bytes long."
-msgstr "Konfıgýrasıanyń qupıa sóılemi (blowfish_secret) tym qysqa."
+"The configuration file needs a valid key for cookie encryption. A temporary "
+"key was automatically generated for you. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
+msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:342
+#: libraries/classes/Controllers/HomeController.php:328
+#, php-format
+msgid ""
+"The cookie encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
+msgstr ""
+
+#: libraries/classes/Controllers/HomeController.php:346
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5442,7 +5437,7 @@ msgstr ""
 "Áıtpese, konfıgýrasıańyzdy júktep alǵan ókilettiligisiz adamdar arqyly "
 "serverińizdiń qaýipsizdigi buzylýy múmkin."
 
-#: libraries/classes/Controllers/HomeController.php:363
+#: libraries/classes/Controllers/HomeController.php:367
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5451,7 +5446,7 @@ msgstr ""
 "Server «Suhosin» arqyly jumys isteıdi. Yqtımal máseleler úshin "
 "%squjattamany%s qarańyz."
 
-#: libraries/classes/Controllers/HomeController.php:377
+#: libraries/classes/Controllers/HomeController.php:381
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5460,7 +5455,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) qoljetimdi emes. phpMyAdmin úlgilerdi keshke jibere "
 "almaıdy jáne sondyqtan baıaý bolady."
 
-#: libraries/classes/Controllers/HomeController.php:434
+#: libraries/classes/Controllers/HomeController.php:438
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5471,7 +5466,7 @@ msgstr ""
 "joldardy durys bólip shyǵarmaıdy jáne ol kútpegen nátıjelerge yshyrastyrýy "
 "múmkin."
 
-#: libraries/classes/Controllers/HomeController.php:452
+#: libraries/classes/Controllers/HomeController.php:456
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5548,7 +5543,7 @@ msgstr ""
 "deıin, phpMyAdmin ımporttaýdy aıaqtaı almaıtynyn bildiredi."
 
 #: libraries/classes/Controllers/Import/ImportController.php:725
-#: libraries/classes/Controllers/Sql/SqlController.php:163
+#: libraries/classes/Controllers/Sql/SqlController.php:162
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "«DROP DATABASE» nusqaýlary óshirilgen."
 
@@ -5783,7 +5778,7 @@ msgid "Rename index"
 msgstr "Kórinisti kelesige qaıta ataý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
-#: templates/table/index_form.twig:234
+#: templates/table/index_form.twig:237
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Indekske %s baǵan ústeý"
@@ -5807,7 +5802,8 @@ msgstr "Indeks úshin baǵan(dar)dy bólekteńiz."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
-#: templates/table/index_form.twig:240
+#: templates/modals/index_dialog_modal.twig:21
+#: templates/table/index_form.twig:244
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:224
@@ -5869,13 +5865,14 @@ msgstr "Bólektelgen paıdalanushylardy alastaý"
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
-#: templates/home/index.twig:285 templates/home/index.twig:293
+#: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
 #: templates/modals/index_dialog_modal.twig:12
+#: templates/modals/index_dialog_modal.twig:22
 #: templates/modals/preview_sql_confirmation.twig:6
 #: templates/modals/preview_sql_confirmation.twig:15
 #: templates/modals/preview_sql_modal.twig:6
@@ -6144,7 +6141,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Toptamaǵa eń keminde bir aınymalyny qosyńyz!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:208
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1266
 #: libraries/classes/Plugins/Export/ExportSql.php:2226
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6154,7 +6151,7 @@ msgstr "Toptamaǵa eń keminde bir aınymalyny qosyńyz!"
 #: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
-#: templates/server/status/processes/list.twig:54
+#: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
 msgid "None"
@@ -6360,7 +6357,7 @@ msgstr "Explain shyǵarýy"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 #: libraries/classes/Menu.php:490
-#: libraries/classes/Server/Status/Processes.php:138
+#: libraries/classes/Server/Status/Processes.php:134
 #: libraries/classes/Util.php:1946 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
@@ -6374,7 +6371,7 @@ msgstr "Mártebesi"
 #: libraries/classes/Plugins/Export/ExportOdt.php:597
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
-#: libraries/classes/Server/Status/Processes.php:134
+#: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6541,7 +6538,7 @@ msgid "Cancel"
 msgstr "Boldyrmaý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: templates/header.twig:43
+#: templates/header.twig:44
 msgid "Page-related settings"
 msgstr "Betke qatysty parametrler"
 
@@ -6551,7 +6548,8 @@ msgid "Apply"
 msgstr "Qoldaný"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/home/index.twig:289 templates/navigation/main.twig:58
+#: templates/home/index.twig:300 templates/modals/index_dialog_modal.twig:26
+#: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -6749,7 +6747,7 @@ msgid "Show query box"
 msgstr "Saýal uıasyn kórsetý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3030
+#: libraries/classes/Display/Results.php:3044
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7013,13 +7011,13 @@ msgstr "Derekter núktesiniń mazmuny"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2000
-#: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:1984
+#: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Elemeý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2966
+#: libraries/classes/Display/Results.php:2980
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7376,7 +7374,7 @@ msgid "Hide panel"
 msgstr "Taqtany jasyrý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Negizgi taqtadan ajyratý"
 
@@ -7442,7 +7440,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Osy terezeniń tómengi jaǵyn qarańyz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:634
-#: libraries/classes/ErrorHandler.php:444
+#: libraries/classes/ErrorHandler.php:451
 msgid "Ignore All"
 msgstr "Barlyǵyn elemeý"
 
@@ -7610,13 +7608,13 @@ msgid "Table %s already exists!"
 msgstr "%s kestesi áldeqashan bar!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:704
-#: libraries/classes/InsertEdit.php:327
+#: libraries/classes/InsertEdit.php:326
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Jasyrý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:705
-#: libraries/classes/Controllers/Table/ChangeController.php:188
+#: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7718,16 +7716,16 @@ msgstr "Baǵandar sátti jyljytyldy."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Baǵandar sátti jyljytyldy."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:153
+#: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
 msgstr "Artyqshylyqtar joq"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:162
+#: libraries/classes/Controllers/Server/PrivilegesController.php:161
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Paıdalanýshylardy basqarý úshin artyqshylyqtaryńyz joq!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:177
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7735,7 +7733,7 @@ msgstr ""
 "Paıdalanýshy aty men túıin aty ózgergen joq. Eger paróldi ózgertkińiz kelse, "
 "«Paróldi ózgertý» qoıyndysyn paıdalanýyńyz qajet."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:406
+#: libraries/classes/Controllers/Server/PrivilegesController.php:405
 msgid "User has been added."
 msgstr "Paıdalanushy ústeldi."
 
@@ -8500,13 +8498,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Qorǵalmaǵan qosylym"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:236
-#: libraries/classes/Sql.php:1154
+#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Sql.php:1153
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Betbelgi %s jasaldy."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:243
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 msgid "Bookmark not created!"
 msgstr "Betbelgi jasalmady!"
 
@@ -8565,7 +8563,7 @@ msgstr "%s kestesi áldeqashan bar!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3683 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3695 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-saýalyńyz sátti oryndaldy."
@@ -8607,7 +8605,7 @@ msgstr "Munda tym kóp ındekssiz jalǵasýlar bar."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:220
 #: libraries/classes/Sql.php:967
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bos nátıje jıynyn qaıtardy (ıaǵnı nóldik joldar)."
@@ -8635,7 +8633,7 @@ msgstr "Kórinis"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:863 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8649,7 +8647,7 @@ msgstr "Beınelenetin baǵan sátti jańartyldy."
 msgid "Internal relationships were successfully updated."
 msgstr "Ishki qatynastar sátti jańartyldy."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:300
+#: libraries/classes/Controllers/Table/ReplaceController.php:294
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Jol: %1$s, Baǵan: %2$s, Qate: %3$s"
@@ -8729,7 +8727,7 @@ msgstr "Munda bolý úshin jetkilikti artyqshylyqtaryńyz qazirgi ýaqytta joq!"
 msgid "View name can not be empty!"
 msgstr "Kórinis aty bos bolýy múmkin emes!"
 
-#: libraries/classes/Core.php:200 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:204 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s keńeıtimi jetispeıdi. PHP konfıgýrasıasyn tekserińiz."
@@ -9245,24 +9243,24 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Kelesi"
 
-#: libraries/classes/Display/Results.php:955 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Aıaǵy"
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1473
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Ishinara mátinder"
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1477
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "Tolyq mátinder"
 
-#: libraries/classes/Display/Results.php:1813
-#: libraries/classes/Display/Results.php:1839 libraries/classes/Util.php:2575
+#: libraries/classes/Display/Results.php:1818
+#: libraries/classes/Display/Results.php:1844 libraries/classes/Util.php:2575
 #: libraries/classes/Util.php:2598 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9275,8 +9273,8 @@ msgstr "Tolyq mátinder"
 msgid "Descending"
 msgstr "Kemý boıynsha"
 
-#: libraries/classes/Display/Results.php:1821
-#: libraries/classes/Display/Results.php:1831 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1826
+#: libraries/classes/Display/Results.php:1836 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9289,41 +9287,41 @@ msgstr "Kemý boıynsha"
 msgid "Ascending"
 msgstr "Ósý boıynsha"
 
-#: libraries/classes/Display/Results.php:3006
-#: libraries/classes/Display/Results.php:3021
+#: libraries/classes/Display/Results.php:3020
+#: libraries/classes/Display/Results.php:3035
 msgid "The row has been deleted."
 msgstr "Jol joıyldy."
 
-#: libraries/classes/Display/Results.php:3053
+#: libraries/classes/Display/Results.php:3067
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Doǵarý"
 
-#: libraries/classes/Display/Results.php:3614
+#: libraries/classes/Display/Results.php:3628
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Shamamen bolýy múmkin. [doc@faq3-11]FAQ 3.11[/doc] qarańyz."
 
-#: libraries/classes/Display/Results.php:3980
+#: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s joldardy kórsetýde"
 
-#: libraries/classes/Display/Results.php:3994
+#: libraries/classes/Display/Results.php:4005
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d qorytyndy, %2$d saýalda"
 
-#: libraries/classes/Display/Results.php:3999
+#: libraries/classes/Display/Results.php:4010
 #, php-format
 msgid "%d total"
 msgstr "%d qorytyndy"
 
-#: libraries/classes/Display/Results.php:4012 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:973
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Saýal %01.4f sekýnt jumsady."
 
-#: libraries/classes/Display/Results.php:4343
+#: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
 msgstr "Silteme tabylmady!"
 
@@ -9678,15 +9676,15 @@ msgstr ""
 "Qujattamany jáne PBXT týraly kóbirek aqparatty %sPrimeBase XT basqy "
 "betinde%s tabýǵa bolady."
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Tym kóp qate týraly habarlar, keıbireýleri beınelenbeıdi."
 
-#: libraries/classes/ErrorHandler.php:428
+#: libraries/classes/ErrorHandler.php:435
 msgid "Report"
 msgstr "Esep"
 
-#: libraries/classes/ErrorHandler.php:433 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:440 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Esepti kelesi kezde avtomatty jiberedi"
 
@@ -9961,7 +9959,7 @@ msgstr ""
 "%1$s men %2$s ındeksteri birdeı kórinedi jáne olardyń bireýi alastalýy "
 "múmkin."
 
-#: libraries/classes/InsertEdit.php:343
+#: libraries/classes/InsertEdit.php:342
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9969,7 +9967,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funksıa"
 
-#: libraries/classes/InsertEdit.php:346
+#: libraries/classes/InsertEdit.php:345
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:536
@@ -10003,12 +10001,12 @@ msgstr "Funksıa"
 msgid "Type"
 msgstr "Túri"
 
-#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:716 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Júktep salý jumysyna ornatylǵan katalogqa jetý múmkin emes."
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:724
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10018,15 +10016,15 @@ msgstr "Júktep salý jumysyna ornatylǵan katalogqa jetý múmkin emes."
 msgid "Or"
 msgstr "Nemese"
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:725
 msgid "web server upload directory:"
 msgstr "ýeb-serverdiń júktep salý katalogy:"
 
-#: libraries/classes/InsertEdit.php:1333 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:964
 msgid "Showing SQL query"
 msgstr "SQL-saýal kórsetý"
 
-#: libraries/classes/InsertEdit.php:1357 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:944
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiristirilgen jol uqsatqyshy: %1$d"
@@ -10231,7 +10229,7 @@ msgstr "Kesteler:"
 msgid "Views:"
 msgstr "Kórinister:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10239,18 +10237,18 @@ msgstr ""
 "Sharlaý taqtasynda ónimdilikke áser etýi múmkin úlken elementter toptary "
 "bar. Sharlaý taqtasynda elementterdi toptastyrýdy óshirýin qarastyryńyz."
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 msgid "Groups"
 msgstr "Toptar"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s nátije tabyldy"
 msgstr[1] "sany %s nátije tabyldy"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr "Barlyǵyn tasalaý"
 
@@ -10290,7 +10288,7 @@ msgstr "Jańa"
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
-#: templates/table/index_form.twig:138
+#: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
 #: templates/table/relation/common_form.twig:18
@@ -11664,11 +11662,11 @@ msgstr "Nóldik mánder úshin <code> AUTO_INCREMENT</code> paıdalanbańyz"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:592
+#: libraries/classes/Plugins.php:589
 msgid "This format has no options"
 msgstr "Bul pishimde opsıalar joq"
 
-#: libraries/classes/Plugins.php:610
+#: libraries/classes/Plugins.php:607
 msgid "Invalid authentication method set in configuration:"
 msgstr "Konfıgýrasıada ornatylǵan túpnusqalyq rastamasynyń jaramsyz ádisi:"
 
@@ -12084,7 +12082,7 @@ msgstr "Qarapaıym qos-faktorly túpnusqalyq rastamasy"
 msgid "For testing purposes only!"
 msgstr "Synaq maqsattarynda ǵana!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -12092,19 +12090,19 @@ msgstr ""
 "Server jaýap qaıtarmaıdy (nemese jergilikti serverdiń soketi durys "
 "teńshelmegen)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Server jaýap bermeıdi."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Shyǵýp, basqa paıdalanýshy retinde kirińiz."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Derekqory bar katalogtyń artyqshylyqtaryn tekserińiz."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Egjeıler…"
 
@@ -12200,20 +12198,20 @@ msgstr "Jetekshini ózgertý múmkin emes!"
 msgid "Primary server changed successfully to %s."
 msgstr "Jetekshi server %s úshin sátti ózgertildi."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:103
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:163
+#: libraries/classes/Routing.php:162
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "«%s» qaınar derekqory tabylmady!"
 
-#: libraries/classes/Routing.php:174
+#: libraries/classes/Routing.php:173
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12604,7 +12602,7 @@ msgid "Privileges for %s"
 msgstr "%s úshin artyqshylyqtar"
 
 #: libraries/classes/Server/Privileges.php:2868
-#: libraries/classes/Server/Status/Processes.php:118
+#: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Paıdalanushy"
@@ -12652,7 +12650,7 @@ msgid "You have added a new user."
 msgstr "Jańa paıdalanushyny ústedińiz."
 
 #: libraries/classes/Server/Status/Data.php:146
-#: libraries/classes/Server/Status/Processes.php:146
+#: libraries/classes/Server/Status/Processes.php:147
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL-saýal"
@@ -12729,22 +12727,22 @@ msgstr "Jetektegi mártebeni kórsetý"
 msgid "Flush query cache"
 msgstr "Saýal keshin tazartý"
 
-#: libraries/classes/Server/Status/Processes.php:114
+#: libraries/classes/Server/Status/Processes.php:110
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:122
+#: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Túın"
 
-#: libraries/classes/Server/Status/Processes.php:130
+#: libraries/classes/Server/Status/Processes.php:126
 msgid "Command"
 msgstr "Pármen"
 
-#: libraries/classes/Server/Status/Processes.php:142
+#: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
 msgstr "Barysy"
 
@@ -12786,7 +12784,7 @@ msgstr "Ádepki sharlaý saýaly retinde «%s» betbelgisi paıdalanylady."
 msgid "Showing as PHP code"
 msgstr "PHP-kod retinde kórsetilýde"
 
-#: libraries/classes/Sql.php:1337
+#: libraries/classes/Sql.php:1336
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12795,7 +12793,7 @@ msgstr ""
 "Aǵymdyq bólekteýde biregeı baǵan joq. Tor óńdeý, qusbelgi, Óńdeý, Kóshiriý "
 "jáne Joıý múmkindikter qoljetimdi emes. %s"
 
-#: libraries/classes/Sql.php:1351
+#: libraries/classes/Sql.php:1350
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13392,11 +13390,11 @@ msgstr "Profaıl jańartyldy."
 msgid "Password is too long!"
 msgstr "Paról tym uzyn!"
 
-#: libraries/classes/UserPreferences.php:173
+#: libraries/classes/UserPreferences.php:181
 msgid "Could not save configuration"
 msgstr "Konfıgýrasıany saqtaý múmkin bolmady"
 
-#: libraries/classes/UserPreferences.php:184
+#: libraries/classes/UserPreferences.php:192
 #, fuzzy
 #| msgid ""
 #| "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -15346,7 +15344,7 @@ msgstr ""
 "[doc@faq3-11]FAQ 3.11[/doc] qarańyz."
 
 #: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:141
+#: templates/table/index_form.twig:144
 msgid "Size"
 msgstr "Ólshem"
 
@@ -15852,11 +15850,11 @@ msgstr ""
 "«Fýnksıa» baǵanynan «GeomFromText» tańdap, tómendegi joldy «Máni» órisine "
 "qoıý."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:35 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Osy sátten bastap Javascript qosýly bolýy qajet!"
 
-#: templates/header.twig:45
+#: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
 msgstr "Bettiń joǵarǵy jaǵyna jyljý úshin jolaqty basyńyz"
 
@@ -16003,13 +16001,21 @@ msgstr "Ózgerister tizimi"
 msgid "License"
 msgstr "Lısenzıa"
 
-#: templates/home/index.twig:284
+#: templates/home/index.twig:280 templates/setup/error.twig:2
+msgid "Warning"
+msgstr "Eskertý"
+
+#: templates/home/index.twig:282
+msgid "Notice"
+msgstr ""
+
+#: templates/home/index.twig:295
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin basqy beti"
 
-#: templates/home/index.twig:295
+#: templates/home/index.twig:306
 msgid "Get more themes!"
 msgstr "Kóbirek taqyryptar alý!"
 
@@ -16519,6 +16525,10 @@ msgstr "Rasaý"
 #| msgid "Views:"
 msgid "View:"
 msgstr "Kórinister:"
+
+#: templates/modals/index_dialog_modal.twig:30
+msgid "Go back"
+msgstr ""
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -18401,10 +18411,6 @@ msgstr "Konfıgýrasıa faıly oqylmady!"
 msgid "Download"
 msgstr "Júktep alý"
 
-#: templates/setup/error.twig:2
-msgid "Warning"
-msgstr "Eskertý"
-
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
 msgstr "Jiberilgen pishimde qateler bar"
@@ -18742,43 +18748,43 @@ msgstr "Keńistik baǵan"
 msgid "Importing into the table \"%s\""
 msgstr "«%s» kestesine ımporttaý"
 
-#: templates/table/index_form.twig:15 templates/table/index_rename_form.twig:11
+#: templates/table/index_form.twig:18 templates/table/index_rename_form.twig:11
 msgid "Index name:"
 msgstr "Indeks aty:"
 
-#: templates/table/index_form.twig:16 templates/table/index_rename_form.twig:12
+#: templates/table/index_form.twig:19 templates/table/index_rename_form.twig:12
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
 "«PRIMARY» aty <b>mindetti</b> jáne <b>tek</b> alǵashqy kilttiki bolsyn!"
 
-#: templates/table/index_form.twig:34
+#: templates/table/index_form.twig:37
 msgid "Index choice:"
 msgstr "Indeks tańdaý:"
 
-#: templates/table/index_form.twig:54
+#: templates/table/index_form.twig:57
 #, fuzzy
 #| msgid "Advanced Options"
 msgid "Advanced options"
 msgstr "Keńeıtilgen opsıalar"
 
-#: templates/table/index_form.twig:64
+#: templates/table/index_form.twig:67
 msgid "Key block size:"
 msgstr "Kilt bloginiń ólshemi:"
 
-#: templates/table/index_form.twig:81
+#: templates/table/index_form.twig:84
 msgid "Index type:"
 msgstr "Indeks túri:"
 
-#: templates/table/index_form.twig:98
+#: templates/table/index_form.twig:101
 msgid "Parser:"
 msgstr "Taldaǵysh:"
 
-#: templates/table/index_form.twig:114
+#: templates/table/index_form.twig:117
 msgid "Comment:"
 msgstr "Túsinikteme:"
 
-#: templates/table/index_form.twig:159 templates/table/index_form.twig:196
+#: templates/table/index_form.twig:162 templates/table/index_form.twig:199
 msgid "Drag to reorder"
 msgstr "Retin ózgertý úshin súıreý"
 
@@ -19366,6 +19372,24 @@ msgstr "VIEW aty"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Baǵan ataýlary"
+
+#~ msgid "Key is too short, it should have at least 32 characters."
+#~ msgstr "Kilt tym qysqa, keminde 32 tańba bolýy qajet."
+
+#~ msgid "Key should contain letters, numbers [em]and[/em] special characters."
+#~ msgstr "Kiltte áripter, sıfrlar [em]jáne[/em] arnaıy tańbalar bolýy qajet."
+
+#~ msgid ""
+#~ "The configuration file now needs a secret passphrase (blowfish_secret)."
+#~ msgstr "Konfıgýrasıa faıly qazir qupıa sóılemge (blowfish_secret) muqtaj."
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "The secret passphrase in configuration (blowfish_secret) is too short."
+#~ msgid ""
+#~ "The secret passphrase in configuration (blowfish_secret) is not the "
+#~ "correct length. It should be %d bytes long."
+#~ msgstr "Konfıgýrasıanyń qupıa sóılemi (blowfish_secret) tym qysqa."
 
 #~ msgid "Configuration saved."
 #~ msgstr "Konfıgýrasıa saqtaldy."

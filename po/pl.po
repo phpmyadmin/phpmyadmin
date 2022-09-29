@@ -1,9 +1,9 @@
 # iMutrix <lord_dark@wp.pl>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-21 15:54-0300\n"
+"POT-Creation-Date: 2022-09-29 00:17-0300\n"
 "PO-Revision-Date: 2022-09-04 23:40+0000\n"
 "Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-2/pl/"
@@ -593,8 +593,8 @@ msgstr ""
 "wartości tych zmiennych. Aby wyeliminować te trzeba będzie przepisać "
 "zapytania, aby uniknąć tych warunków (w obrębie tabeli tymczasowej: Obecność "
 "kolumny BLOB lub TEXT lub obecności kolumny większego niż 512 bajtów), jak "
-"wspomniano na początku <a href=\"https://www.facebook.com/note."
-"php?note_id=10150111255065841&comments\">Artykuł wg Pythian Group</a>"
+"wspomniano na początku <a href=\"https://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Artykuł wg Pythian Group</a>"
 
 #: libraries/advisory_rules_generic.php:331
 #, fuzzy, php-format
@@ -646,7 +646,8 @@ msgstr "Rozmiar bufora klucza MyISAM"
 #: libraries/advisory_rules_generic.php:362
 #, fuzzy
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr "Klucz bufora nie jest inicjowany. Brak indeksów MyISAM będą buforowane."
+msgstr ""
+"Klucz bufora nie jest inicjowany. Brak indeksów MyISAM będą buforowane."
 
 #: libraries/advisory_rules_generic.php:364
 #, fuzzy
@@ -980,10 +981,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Połączenia są zwykle przerywane, gdy nie można ich autoryzować. <a href="
-"\"https://www.percona.com/blog/2008/08/23/"
-"how-to-track-down-the-source-of-aborted_connects/\">Ten artykuł</a> może "
-"pomóc w odnalezieniu źródła."
+"Połączenia są zwykle przerywane, gdy nie można ich autoryzować. <a "
+"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
+"of-aborted_connects/\">Ten artykuł</a> może pomóc w odnalezieniu źródła."
 
 #: libraries/advisory_rules_generic.php:551
 #, fuzzy, php-format
@@ -1102,8 +1102,8 @@ msgstr ""
 "większa jest ta wartość, tym dłuższy będzie czas przywracania w przypadku "
 "awarii bazy danych, więc wartość ta nie powinna być znacznie wyższa niż 256 "
 "MiB. Pamiętaj jednak, że nie możesz po prostu zmienić wartości tej zmiennej. "
-"Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić nową wartość w "
-"my.cnf, uruchomić serwer, a następnie sprawdzić logi błędów, czy wszystko "
+"Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić nową wartość w my."
+"cnf, uruchomić serwer, a następnie sprawdzić logi błędów, czy wszystko "
 "poszło dobrze. Zobacz także <a href=\"https://mysqldatabaseadministration."
 "blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">ten wpis "
 "na blogu</a>"
@@ -1143,12 +1143,12 @@ msgid ""
 msgstr ""
 "Zwykle wystarczy ustawić {innodb_log_file_size} na 25% wielkości "
 "{innodb_buffer_pool_size}. Bardzo duży {innodb_log_file_size} znacznie "
-"spowalnia czas odzyskiwania po awarii bazy danych. Zobacz też <a href=\"https"
-"://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\""
-">ten artykuł</a>. Musisz wyłączyć serwer, usunąć pliki logów InnoDB, ustawić "
-"nową wartość w my.cnf, uruchomić serwer, a następnie sprawdzić logi błędów, "
-"czy wszystko poszło dobrze. Zobacz także <a href=\"https"
-"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"spowalnia czas odzyskiwania po awarii bazy danych. Zobacz też <a "
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">ten artykuł</a>. Musisz wyłączyć serwer, usunąć "
+"pliki logów InnoDB, ustawić nową wartość w my.cnf, uruchomić serwer, a "
+"następnie sprawdzić logi błędów, czy wszystko poszło dobrze. Zobacz także <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">ten wpis na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:676
@@ -1506,7 +1506,7 @@ msgstr "Szukaj:"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
-#: libraries/classes/Controllers/Server/PrivilegesController.php:330
+#: libraries/classes/Controllers/Server/PrivilegesController.php:329
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
@@ -1544,6 +1544,7 @@ msgstr "Szukaj:"
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
+#: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/operations/index.twig:38
@@ -1605,28 +1606,28 @@ msgid "Unknown"
 msgstr "Nieznany"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:501
+#: libraries/classes/Charsets/Collation.php:502
 #, fuzzy
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Język niemiecki (kolejność w telefonicznej książce adresowej)"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:498
+#: libraries/classes/Charsets/Collation.php:499
 #, fuzzy
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Niemiecki (kolejność słownikowa)"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:576
+#: libraries/classes/Charsets/Collation.php:577
 #, fuzzy
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Język hiszpański (tradycyjny)"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:569
+#: libraries/classes/Charsets/Collation.php:570
 #, fuzzy
 msgctxt "Collation"
 msgid "Spanish (modern)"
@@ -1686,279 +1687,279 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Binarne"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:600
+#: libraries/classes/Charsets/Collation.php:352
+#: libraries/classes/Charsets/Collation.php:601
 #, fuzzy
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:361
-#: libraries/classes/Charsets/Collation.php:547
+#: libraries/classes/Charsets/Collation.php:362
+#: libraries/classes/Charsets/Collation.php:548
 #, fuzzy
 msgctxt "Collation"
 msgid "West European"
 msgstr "Zachodnioeuropejski"
 
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:369
 #, fuzzy
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Środkowoeuropejski"
 
-#: libraries/classes/Charsets/Collation.php:373
-#: libraries/classes/Charsets/Collation.php:554
+#: libraries/classes/Charsets/Collation.php:374
+#: libraries/classes/Charsets/Collation.php:555
 #, fuzzy
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rosyjski"
 
-#: libraries/classes/Charsets/Collation.php:378
+#: libraries/classes/Charsets/Collation.php:379
 #, fuzzy
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Chiński uproszczony"
 
-#: libraries/classes/Charsets/Collation.php:381
+#: libraries/classes/Charsets/Collation.php:382
 #, fuzzy
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Chiński tradycyjny"
 
-#: libraries/classes/Charsets/Collation.php:384
-#: libraries/classes/Charsets/Collation.php:469
+#: libraries/classes/Charsets/Collation.php:385
+#: libraries/classes/Charsets/Collation.php:470
 #, fuzzy
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Język chiński"
 
-#: libraries/classes/Charsets/Collation.php:392
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:393
+#: libraries/classes/Charsets/Collation.php:519
 #, fuzzy
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japoński"
 
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:398
 #, fuzzy
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Bałtycki"
 
-#: libraries/classes/Charsets/Collation.php:402
+#: libraries/classes/Charsets/Collation.php:403
 #, fuzzy
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Ormiański"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:406
 #, fuzzy
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrylica"
 
-#: libraries/classes/Charsets/Collation.php:408
+#: libraries/classes/Charsets/Collation.php:409
 #, fuzzy
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabski"
 
-#: libraries/classes/Charsets/Collation.php:411
-#: libraries/classes/Charsets/Collation.php:533
+#: libraries/classes/Charsets/Collation.php:412
+#: libraries/classes/Charsets/Collation.php:534
 #, fuzzy
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreański"
 
-#: libraries/classes/Charsets/Collation.php:414
+#: libraries/classes/Charsets/Collation.php:415
 #, fuzzy
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrajski"
 
-#: libraries/classes/Charsets/Collation.php:417
+#: libraries/classes/Charsets/Collation.php:418
 #, fuzzy
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruziński"
 
-#: libraries/classes/Charsets/Collation.php:420
+#: libraries/classes/Charsets/Collation.php:421
 #, fuzzy
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grecki"
 
-#: libraries/classes/Charsets/Collation.php:423
+#: libraries/classes/Charsets/Collation.php:424
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Czesko-słowacki"
 
-#: libraries/classes/Charsets/Collation.php:426
-#: libraries/classes/Charsets/Collation.php:592
+#: libraries/classes/Charsets/Collation.php:427
+#: libraries/classes/Charsets/Collation.php:593
 #, fuzzy
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukraiński"
 
-#: libraries/classes/Charsets/Collation.php:429
-#: libraries/classes/Charsets/Collation.php:588
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:589
 #, fuzzy
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turecki"
 
-#: libraries/classes/Charsets/Collation.php:432
-#: libraries/classes/Charsets/Collation.php:580
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:581
 #, fuzzy
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Szwedzki"
 
-#: libraries/classes/Charsets/Collation.php:435
-#: libraries/classes/Charsets/Collation.php:584
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:585
 #, fuzzy
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tajski"
 
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:439
 #, fuzzy
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Nieznany"
 
-#: libraries/classes/Charsets/Collation.php:463
+#: libraries/classes/Charsets/Collation.php:464
 #, fuzzy
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bułgarski"
 
-#: libraries/classes/Charsets/Collation.php:475
+#: libraries/classes/Charsets/Collation.php:476
 #, fuzzy
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorwacki"
 
-#: libraries/classes/Charsets/Collation.php:479
+#: libraries/classes/Charsets/Collation.php:480
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Czeski"
 
-#: libraries/classes/Charsets/Collation.php:483
+#: libraries/classes/Charsets/Collation.php:484
 #, fuzzy
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Duński"
 
-#: libraries/classes/Charsets/Collation.php:487
+#: libraries/classes/Charsets/Collation.php:488
 #, fuzzy
 msgctxt "Collation"
 msgid "English"
 msgstr "Angielski"
 
-#: libraries/classes/Charsets/Collation.php:491
+#: libraries/classes/Charsets/Collation.php:492
 #, fuzzy
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:495
+#: libraries/classes/Charsets/Collation.php:496
 #, fuzzy
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estoński"
 
-#: libraries/classes/Charsets/Collation.php:510
+#: libraries/classes/Charsets/Collation.php:511
 #, fuzzy
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Węgierski"
 
-#: libraries/classes/Charsets/Collation.php:514
+#: libraries/classes/Charsets/Collation.php:515
 #, fuzzy
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandzki"
 
-#: libraries/classes/Charsets/Collation.php:521
+#: libraries/classes/Charsets/Collation.php:522
 #, fuzzy
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Język łaciński klasyczny"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:526
 #, fuzzy
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Łotewski"
 
-#: libraries/classes/Charsets/Collation.php:529
+#: libraries/classes/Charsets/Collation.php:530
 #, fuzzy
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litewski"
 
-#: libraries/classes/Charsets/Collation.php:537
+#: libraries/classes/Charsets/Collation.php:538
 #, fuzzy
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birmański"
 
-#: libraries/classes/Charsets/Collation.php:540
+#: libraries/classes/Charsets/Collation.php:541
 #, fuzzy
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perski"
 
-#: libraries/classes/Charsets/Collation.php:544
+#: libraries/classes/Charsets/Collation.php:545
 #, fuzzy
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polski"
 
-#: libraries/classes/Charsets/Collation.php:551
+#: libraries/classes/Charsets/Collation.php:552
 #, fuzzy
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumuński"
 
-#: libraries/classes/Charsets/Collation.php:558
+#: libraries/classes/Charsets/Collation.php:559
 #, fuzzy
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Cejloński"
 
-#: libraries/classes/Charsets/Collation.php:562
+#: libraries/classes/Charsets/Collation.php:563
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Słowacki"
 
-#: libraries/classes/Charsets/Collation.php:566
+#: libraries/classes/Charsets/Collation.php:567
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Słoweński"
 
-#: libraries/classes/Charsets/Collation.php:596
+#: libraries/classes/Charsets/Collation.php:597
 #, fuzzy
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Wietnamski"
 
-#: libraries/classes/Common.php:244
+#: libraries/classes/Common.php:245
 #, fuzzy, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Należy uaktualnić do %s %s lub nowszej."
 
-#: libraries/classes/Common.php:276
+#: libraries/classes/Common.php:277
 #, fuzzy
 msgid "Error: Token mismatch"
 msgstr "Błąd: Token niedopasowany"
 
-#: libraries/classes/Common.php:490
+#: libraries/classes/Common.php:491
 #, fuzzy
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
@@ -1967,7 +1968,7 @@ msgstr ""
 "Nie udało się ustawić pliku cookie sesji. Być może używasz HTTP zamiast "
 "HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
-#: libraries/classes/Common.php:549
+#: libraries/classes/Common.php:552
 #, fuzzy
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
@@ -1978,7 +1979,7 @@ msgstr ""
 "jest niezgodna z phpMyAdminem i może spowodować uszkodzenie niektórych "
 "danych!"
 
-#: libraries/classes/Common.php:566
+#: libraries/classes/Common.php:569
 #, fuzzy
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
@@ -1987,12 +1988,12 @@ msgstr ""
 "Funkcje ini_get i/lub ini_set są wyłączone w php.ini. phpMyAdmin wymaga tych "
 "funkcji!"
 
-#: libraries/classes/Common.php:577
+#: libraries/classes/Common.php:580
 #, fuzzy
 msgid "GLOBALS overwrite attempt"
 msgstr "Próba nadpisania GLOBALS"
 
-#: libraries/classes/Common.php:587
+#: libraries/classes/Common.php:590
 #, fuzzy
 msgid "possible exploit"
 msgstr "można wykorzystać"
@@ -2031,8 +2032,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Włączenie tego umożliwia stronie zlokalizowanej w innej domenie wywołanie "
-"phpMyAdmin wewnątrz ramki i jest potencjalną [strong] luką bezpieczeństwa "
-"[/strong], pozwalającą na ataki typu cross-frame scripting (XSS)."
+"phpMyAdmin wewnątrz ramki i jest potencjalną [strong] luką bezpieczeństwa [/"
+"strong], pozwalającą na ataki typu cross-frame scripting (XSS)."
 
 #: libraries/classes/Config/Descriptions.php:102
 #, fuzzy
@@ -2209,9 +2210,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Porządek sortowania dla pozycji w polu wyboru klucza obcego; "
-"[kbd]content[/kbd] to dane referencyjne, [kbd]id[/kbd] jest wartością "
-"kluczową."
+"Porządek sortowania dla pozycji w polu wyboru klucza obcego; [kbd]content[/"
+"kbd] to dane referencyjne, [kbd]id[/kbd] jest wartością kluczową."
 
 #: libraries/classes/Config/Descriptions.php:190
 #, fuzzy
@@ -2219,9 +2219,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Określ tekst paska tytułu przeglądarki. Zapoznaj się z dokumentem "
-"[doc@q6-27][/doc], aby uzyskać magiczne ciągi znaków, które można "
-"wykorzystać do uzyskania specjalnych wartości."
+"Określ tekst paska tytułu przeglądarki. Zapoznaj się z dokumentem [doc@q6-27]"
+"[/doc], aby uzyskać magiczne ciągi znaków, które można wykorzystać do "
+"uzyskania specjalnych wartości."
 
 #: libraries/classes/Config/Descriptions.php:195
 #, fuzzy
@@ -2515,8 +2515,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Liczba bajtów, jaką skrypt może przydzielić, m.in. [kbd]32M[/kbd] "
-"([kbd]-1[/kbd] bez limitu i [kbd]0[/kbd] bez zmian)."
+"Liczba bajtów, jaką skrypt może przydzielić, m.in. [kbd]32M[/kbd] ([kbd]-1[/"
+"kbd] bez limitu i [kbd]0[/kbd] bez zmian)."
 
 #: libraries/classes/Config/Descriptions.php:291
 #, fuzzy
@@ -2731,8 +2731,8 @@ msgid ""
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
 "Więcej informacji pod adresem: [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970] Narzędzie do śledzenia problemów phpMyAdmin[/a] i "
-"[a@https://bugs.mysql.com/19588]Błędy MySQL[/a]"
+"issues/8970] Narzędzie do śledzenia problemów phpMyAdmin[/a] i [a@https://"
+"bugs.mysql.com/19588]Błędy MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 #, fuzzy
@@ -2840,7 +2840,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr "Zobacz przykład [doc@authentication-modes]typy uwierzytelniania [/doc]."
+msgstr ""
+"Zobacz przykład [doc@authentication-modes]typy uwierzytelniania [/doc]."
 
 #: libraries/classes/Config/Descriptions.php:415
 #, fuzzy
@@ -3177,8 +3178,8 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"Wprowadź serwery pośredniczące (proxy) jako [kbd]IP: zaufany nagłówek "
-"HTTP[/kbd]. Następujący przykład określa jak phpMyAdmin powinien polegać na "
+"Wprowadź serwery pośredniczące (proxy) jako [kbd]IP: zaufany nagłówek HTTP[/"
+"kbd]. Następujący przykład określa jak phpMyAdmin powinien polegać na "
 "nagłówku HTTP_X_FORWARDED_FOR (X-Forwarded-For) przesłanym przez serwer "
 "pośredniczący (proxy) 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
@@ -3285,7 +3286,8 @@ msgstr "Czy działania struktury tabeli powinny być ukryte."
 #: libraries/classes/Config/Descriptions.php:560
 #, fuzzy
 msgid "Whether column comments should be shown in table structure view"
-msgstr "Czy komentarze kolumn powinny być wyświetlane w widoku struktury tabeli"
+msgstr ""
+"Czy komentarze kolumn powinny być wyświetlane w widoku struktury tabeli"
 
 #: libraries/classes/Config/Descriptions.php:561
 #, fuzzy
@@ -3405,7 +3407,8 @@ msgstr "Ile zapytań ma być przechowywanych w historii."
 #: libraries/classes/Config/Descriptions.php:584
 #, fuzzy
 msgid "Select which functions will be used for character set conversion."
-msgstr "Wybierz, które funkcje będą wykorzystywane do konwersji zestawu znaków."
+msgstr ""
+"Wybierz, które funkcje będą wykorzystywane do konwersji zestawu znaków."
 
 #: libraries/classes/Config/Descriptions.php:585
 #, fuzzy
@@ -4425,7 +4428,7 @@ msgstr "Szerokość panelu nawigacyjnego"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 #, fuzzy
 msgid "Link with main panel"
 msgstr "Połącz z głównym panelem"
@@ -4993,7 +4996,7 @@ msgstr "Pomiń zablokowane tabele"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2962
+#: libraries/classes/Display/Results.php:2976
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -5065,7 +5068,7 @@ msgstr "Wierszy w polu textarea"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
 #: libraries/classes/Server/Privileges.php:1812
 #: libraries/classes/Server/Privileges.php:1814
-#: libraries/classes/Server/Status/Processes.php:126
+#: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -5568,7 +5571,7 @@ msgstr ""
 msgid "You allow for connecting to the server without a password."
 msgstr "Możesz umożliwić podłączenie do serwera bez hasła."
 
-#: libraries/classes/Config/ServerConfigChecks.php:304
+#: libraries/classes/Config/ServerConfigChecks.php:307
 #, fuzzy, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -5577,7 +5580,7 @@ msgstr ""
 "%sDekompresja Zip%s wymaga funkcji (%s), która nie jest dostępna w tym "
 "systemie."
 
-#: libraries/classes/Config/ServerConfigChecks.php:325
+#: libraries/classes/Config/ServerConfigChecks.php:328
 #, fuzzy, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -5586,7 +5589,7 @@ msgstr ""
 "%sZip compression%s wymaga funkcji (%s), która nie jest dostępna w tym "
 "systemie."
 
-#: libraries/classes/Config/ServerConfigChecks.php:359
+#: libraries/classes/Config/ServerConfigChecks.php:361
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
@@ -5596,15 +5599,7 @@ msgstr ""
 "kbd], więc klucz został automatycznie wygenerowany dla Ciebie. Jest on "
 "używany do szyfrowania plików cookie, nie musisz go pamiętać."
 
-#: libraries/classes/Config/ServerConfigChecks.php:373
-msgid "Key is too short, it should have at least 32 characters."
-msgstr "Klucz jest za krótki, powinien mieć co najmniej 32 znaki."
-
-#: libraries/classes/Config/ServerConfigChecks.php:383
-msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Klucz powinien zawierać litery, cyfry [em]i[/em] znaki specjalne."
-
-#: libraries/classes/Config/ServerConfigChecks.php:416
+#: libraries/classes/Config/ServerConfigChecks.php:385
 #, fuzzy, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -5612,20 +5607,20 @@ msgid ""
 "%5$d)."
 msgstr ""
 "%1$sWażność ciasteczka logowania%2$s większa niż %3$ssession."
-"gc_maxlifetime%4$s może powodować losowe wygasanie sesji (aktualnie "
-"session.gc_maxlifetime wynosi %5$d)."
+"gc_maxlifetime%4$s może powodować losowe wygasanie sesji (aktualnie session."
+"gc_maxlifetime wynosi %5$d)."
 
-#: libraries/classes/Config/ServerConfigChecks.php:438
+#: libraries/classes/Config/ServerConfigChecks.php:407
 #, fuzzy, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"%sWażności ciasteczko logowania%s ma być ustawiona na 1800 sekund (30 minut)"
-", co najwyżej. Wartości większa niż 1800 mogą stwarzać zagrożenie dla "
+"%sWażności ciasteczko logowania%s ma być ustawiona na 1800 sekund (30 "
+"minut), co najwyżej. Wartości większa niż 1800 mogą stwarzać zagrożenie dla "
 "bezpieczeństwa, takich jak personifikacji."
 
-#: libraries/classes/Config/ServerConfigChecks.php:464
+#: libraries/classes/Config/ServerConfigChecks.php:433
 #, fuzzy, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
@@ -5635,7 +5630,7 @@ msgstr ""
 "nie wynosi 0, musi być ustawiona wartość mniejsza lub jemu równa %sLogin "
 "cookie validity%s."
 
-#: libraries/classes/Config/ServerConfigChecks.php:503
+#: libraries/classes/Config/ServerConfigChecks.php:472
 #, fuzzy, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
@@ -5644,7 +5639,7 @@ msgstr ""
 "Kompresja i dekompresja %1$sBzip2%2$s wymaga funkcji (%3$s), które są "
 "niedostępne w tym systemie."
 
-#: libraries/classes/Config/ServerConfigChecks.php:534
+#: libraries/classes/Config/ServerConfigChecks.php:503
 #, fuzzy, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
@@ -5653,11 +5648,11 @@ msgstr ""
 "Kompresja i dekompresja %1$sGZip%2$s wymaga funkcji (%3$s), które są "
 "niedostępne w tym systemie."
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "brak opisu"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5698,8 +5693,8 @@ msgstr "Nieprawidłowy typ uwierzytelniania!"
 #, fuzzy
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Pomiń nazwę użytkownika podczas używania metody uwierzytelnienia z [kbd]"
-"pliku konfiguracyjnego[/kbd]!"
+"Pomiń nazwę użytkownika podczas używania metody uwierzytelnienia z "
+"[kbd]pliku konfiguracyjnego[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:290
 #, fuzzy
@@ -5870,7 +5865,7 @@ msgstr ""
 "Przechowywanie konfiguracji phpMyAdmin zostało wyłączone. Aby dowiedzieć się "
 "dlaczego, kliknij %stutaj%s."
 
-#: libraries/classes/Controllers/Database/SearchController.php:52
+#: libraries/classes/Controllers/Database/SearchController.php:47
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:103
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
@@ -5925,7 +5920,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabela %s została opróżniona."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3971
+#: libraries/classes/Display/Results.php:3982
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5984,8 +5979,8 @@ msgstr "Tak"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:419
-#: libraries/classes/Core.php:728 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:415
+#: libraries/classes/Core.php:732 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Bez zmian"
 
@@ -6059,7 +6054,7 @@ msgstr "Zły typ!"
 msgid "Bad parameters!"
 msgstr "Złe parametry!"
 
-#: libraries/classes/Controllers/HomeController.php:95
+#: libraries/classes/Controllers/HomeController.php:98
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -6067,7 +6062,7 @@ msgstr ""
 "Wylogowałeś się z jednego serwera. Aby się całkowicie wylogować z "
 "phpMyAdmin, musisz wylogować się ze wszystkich serwerów."
 
-#: libraries/classes/Controllers/HomeController.php:196
+#: libraries/classes/Controllers/HomeController.php:195
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -6077,7 +6072,7 @@ msgstr ""
 "przechowywania danych, niektóre rozszerzone funkcje zostały wyłączone. Aby "
 "dowiedzieć się dlaczego kliknij %stutaj%s. "
 
-#: libraries/classes/Controllers/HomeController.php:202
+#: libraries/classes/Controllers/HomeController.php:201
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
@@ -6115,23 +6110,22 @@ msgstr ""
 "(controlpass) i jest otwarty na włamania; naprawdę powinieneś naprawić ten "
 "słaby punkt bezpieczeństwa, zmieniając hasło użytkownika kontrolnego 'pma'."
 
-#: libraries/classes/Controllers/HomeController.php:317
-msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
-"Plik konfiguracyjny wymaga teraz tajnej frazy kodującej (blowfish_secret)."
-
-#: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#: libraries/classes/Controllers/HomeController.php:318
 msgid ""
-"The secret passphrase in configuration (blowfish_secret) is not the correct "
-"length. It should be %d bytes long."
+"The configuration file needs a valid key for cookie encryption. A temporary "
+"key was automatically generated for you. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"Tajne hasło w konfiguracji (blowfish_secret) nie ma prawidłowej długości. "
-"Powinna mieć długość %d bajtów."
 
-#: libraries/classes/Controllers/HomeController.php:342
+#: libraries/classes/Controllers/HomeController.php:328
+#, php-format
+msgid ""
+"The cookie encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
+msgstr ""
+
+#: libraries/classes/Controllers/HomeController.php:346
 #, fuzzy
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
@@ -6145,7 +6139,7 @@ msgstr ""
 "serwera jest zagrożone przez osoby nieupoważnione ściągające twoją "
 "konfigurację."
 
-#: libraries/classes/Controllers/HomeController.php:363
+#: libraries/classes/Controllers/HomeController.php:367
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -6154,7 +6148,7 @@ msgstr ""
 "Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje "
 "%sdokumentacja%s."
 
-#: libraries/classes/Controllers/HomeController.php:377
+#: libraries/classes/Controllers/HomeController.php:381
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -6163,7 +6157,7 @@ msgstr ""
 "$Cfg['TempDir'] (%s) nie jest dostępne. phpMyAdmin nie może buforować "
 "szablonów i będzie z tego powodu powolny."
 
-#: libraries/classes/Controllers/HomeController.php:434
+#: libraries/classes/Controllers/HomeController.php:438
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -6174,7 +6168,7 @@ msgstr ""
 "phpMyAdmin nie ma możliwości poprawnego rozbijania napisów, co może "
 "skutkować niespodziewanymi rezultatami."
 
-#: libraries/classes/Controllers/HomeController.php:452
+#: libraries/classes/Controllers/HomeController.php:456
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -6254,7 +6248,7 @@ msgstr ""
 "importu bez zwiększenia limitów czasowych PHP."
 
 #: libraries/classes/Controllers/Import/ImportController.php:725
-#: libraries/classes/Controllers/Sql/SqlController.php:163
+#: libraries/classes/Controllers/Sql/SqlController.php:162
 #, fuzzy
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrukcje \"DROP DATABASE\" są wyłączone."
@@ -6431,7 +6425,8 @@ msgstr "Nieczytelne dane"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:83
 #, fuzzy
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr "Czy jesteś pewien, że chcesz zmienić sortowanie i przekonwertować dane?"
+msgstr ""
+"Czy jesteś pewien, że chcesz zmienić sortowanie i przekonwertować dane?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:86
 msgid ""
@@ -6506,7 +6501,7 @@ msgid "Rename index"
 msgstr "Zmień nazwę indeksu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
-#: templates/table/index_form.twig:234
+#: templates/table/index_form.twig:237
 #, fuzzy, php-format
 msgid "Add %s column(s) to index"
 msgstr "Dodaj %s kolumny do indeksu"
@@ -6533,7 +6528,8 @@ msgstr "Wybierz kolumny dla indeksu."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
-#: templates/table/index_form.twig:240
+#: templates/modals/index_dialog_modal.twig:21
+#: templates/table/index_form.twig:244
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:224
@@ -6595,13 +6591,14 @@ msgstr "Usuwanie wybranych użytkowników"
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
-#: templates/home/index.twig:285 templates/home/index.twig:293
+#: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
 #: templates/modals/index_dialog_modal.twig:12
+#: templates/modals/index_dialog_modal.twig:22
 #: templates/modals/preview_sql_confirmation.twig:6
 #: templates/modals/preview_sql_confirmation.twig:15
 #: templates/modals/preview_sql_modal.twig:6
@@ -6885,7 +6882,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Dodaj co najmniej jedną zmienną do serii!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:208
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1266
 #: libraries/classes/Plugins/Export/ExportSql.php:2226
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6895,7 +6892,7 @@ msgstr "Dodaj co najmniej jedną zmienną do serii!"
 #: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
-#: templates/server/status/processes/list.twig:54
+#: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
 msgid "None"
@@ -7113,7 +7110,7 @@ msgstr "Wyjaśnij wynik przetworzenia danych"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 #: libraries/classes/Menu.php:490
-#: libraries/classes/Server/Status/Processes.php:138
+#: libraries/classes/Server/Status/Processes.php:134
 #: libraries/classes/Util.php:1946 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
@@ -7127,7 +7124,7 @@ msgstr "Status"
 #: libraries/classes/Plugins/Export/ExportOdt.php:597
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
-#: libraries/classes/Server/Status/Processes.php:134
+#: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -7307,7 +7304,7 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: templates/header.twig:43
+#: templates/header.twig:44
 msgid "Page-related settings"
 msgstr "Ustawienia strony"
 
@@ -7318,7 +7315,8 @@ msgid "Apply"
 msgstr "Zastosuj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/home/index.twig:289 templates/navigation/main.twig:58
+#: templates/home/index.twig:300 templates/modals/index_dialog_modal.twig:26
+#: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -7527,7 +7525,7 @@ msgid "Show query box"
 msgstr "Pokaż okno zapytań"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3030
+#: libraries/classes/Display/Results.php:3044
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7814,13 +7812,13 @@ msgstr "Treść punktu danych"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2000
-#: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:1984
+#: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignoruj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2966
+#: libraries/classes/Display/Results.php:2980
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -8203,7 +8201,7 @@ msgid "Hide panel"
 msgstr "Ukryj panel"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Odłącz od głównego panelu"
 
@@ -8271,7 +8269,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Proszę, popatrz na dół tego okienka."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:634
-#: libraries/classes/ErrorHandler.php:444
+#: libraries/classes/ErrorHandler.php:451
 msgid "Ignore All"
 msgstr "Ignoruj wszystko"
 
@@ -8448,14 +8446,14 @@ msgid "Table %s already exists!"
 msgstr "Tabela %s już istnieje!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:704
-#: libraries/classes/InsertEdit.php:327
+#: libraries/classes/InsertEdit.php:326
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 #, fuzzy
 msgid "Hide"
 msgstr "Ukryj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:705
-#: libraries/classes/Controllers/Table/ChangeController.php:188
+#: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8465,7 +8463,8 @@ msgstr "Pokaż"
 #: libraries/classes/Controllers/NavigationController.php:46
 #, fuzzy
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "Błąd krytyczny: Nawigacja może być dostępna tylko za pośrednictwem AJAX"
+msgstr ""
+"Błąd krytyczny: Nawigacja może być dostępna tylko za pośrednictwem AJAX"
 
 #: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:245
@@ -8558,16 +8557,16 @@ msgstr "Konto %s@%s zostało pomyślnie zablokowane."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Konto %s@%s zostało pomyślnie odblokowane."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:153
+#: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
 msgstr "Brak uprawnień"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:162
+#: libraries/classes/Controllers/Server/PrivilegesController.php:161
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nie masz uprawnień do administrowania użytkownikami!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:177
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -8575,7 +8574,7 @@ msgstr ""
 "Nazwa użytkownika i nazwa hosta nie uległy zmianie. Jeśli chcesz zmienić "
 "hasło, użyj karty \"Zmień hasło\"."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:406
+#: libraries/classes/Controllers/Server/PrivilegesController.php:405
 msgid "User has been added."
 msgstr "Użytkownik został dodany."
 
@@ -9347,13 +9346,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Niezabezpieczone połączenie"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:236
-#: libraries/classes/Sql.php:1154
+#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Sql.php:1153
 #, fuzzy, php-format
 msgid "Bookmark %s has been created."
 msgstr "Zakładka %s została utworzona."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:243
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 #, fuzzy
 msgid "Bookmark not created!"
 msgstr "Zakładka nie utworzona!"
@@ -9413,7 +9412,7 @@ msgstr "Tabela %s już istnieje!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3683 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3695 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Zapytanie SQL zostało wykonane pomyślnie."
@@ -9452,7 +9451,7 @@ msgstr "Wystąpił problem z Twoją prośbą."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:220
 #: libraries/classes/Sql.php:967
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL zwrócił pusty wynik (zero wierszy)."
@@ -9480,7 +9479,7 @@ msgstr "Widok"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:863 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 #, fuzzy
@@ -9496,7 +9495,7 @@ msgstr "Kolumna wyświetlania została pomyślnie zaktualizowana."
 msgid "Internal relationships were successfully updated."
 msgstr "Relacje wewnętrzne zostały pomyślnie zaktualizowane."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:300
+#: libraries/classes/Controllers/Table/ReplaceController.php:294
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Linia: %1$s, Kolumna: %2$s, Błąd: %3$s"
@@ -9578,7 +9577,7 @@ msgstr "Nie masz wystarczających uprawnień, aby być tu i teraz!"
 msgid "View name can not be empty!"
 msgstr "Wyświetlana nazwa nie może być pusta!"
 
-#: libraries/classes/Core.php:200 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:204 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Brak rozszerzenia %s. Proszę sprawdzić konfigurację PHP."
@@ -10118,25 +10117,25 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Następne"
 
-#: libraries/classes/Display/Results.php:955 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Koniec"
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1473
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Częściowe teksty"
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1477
 #: templates/display/results/table.twig:133
 #, fuzzy
 msgid "Full texts"
 msgstr "Pełne teksty"
 
-#: libraries/classes/Display/Results.php:1813
-#: libraries/classes/Display/Results.php:1839 libraries/classes/Util.php:2575
+#: libraries/classes/Display/Results.php:1818
+#: libraries/classes/Display/Results.php:1844 libraries/classes/Util.php:2575
 #: libraries/classes/Util.php:2598 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -10150,8 +10149,8 @@ msgstr "Pełne teksty"
 msgid "Descending"
 msgstr "Malejąco"
 
-#: libraries/classes/Display/Results.php:1821
-#: libraries/classes/Display/Results.php:1831 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1826
+#: libraries/classes/Display/Results.php:1836 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -10165,41 +10164,41 @@ msgstr "Malejąco"
 msgid "Ascending"
 msgstr "Rosnąco"
 
-#: libraries/classes/Display/Results.php:3006
-#: libraries/classes/Display/Results.php:3021
+#: libraries/classes/Display/Results.php:3020
+#: libraries/classes/Display/Results.php:3035
 msgid "The row has been deleted."
 msgstr "Wiersz został usunięty."
 
-#: libraries/classes/Display/Results.php:3053
+#: libraries/classes/Display/Results.php:3067
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Zabij"
 
-#: libraries/classes/Display/Results.php:3614
+#: libraries/classes/Display/Results.php:3628
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Może być w przybliżeniu. Zobacz [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3980
+#: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Pokazano wiersze %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3994
+#: libraries/classes/Display/Results.php:4005
 #, fuzzy, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d ogółem, %2$d w zapytaniu"
 
-#: libraries/classes/Display/Results.php:3999
+#: libraries/classes/Display/Results.php:4010
 #, fuzzy, php-format
 msgid "%d total"
 msgstr "%d ogółem"
 
-#: libraries/classes/Display/Results.php:4012 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:973
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Wykonanie zapytania trwało %01.4f sekund(y)."
 
-#: libraries/classes/Display/Results.php:4343
+#: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
 msgstr "Łącza nie znaleziono!"
 
@@ -10577,15 +10576,15 @@ msgstr ""
 "Dokumentacja i dodatkowe informacje o PBXT można znaleźć na %sStronie "
 "domowej PrimeBase XT%s."
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Zbyt wiele komunikatów o błędach, niektóre nie są wyświetlane."
 
-#: libraries/classes/ErrorHandler.php:428
+#: libraries/classes/ErrorHandler.php:435
 msgid "Report"
 msgstr "Raport"
 
-#: libraries/classes/ErrorHandler.php:433 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:440 templates/error/report_form.twig:25
 #, fuzzy
 msgid "Automatically send report next time"
 msgstr "Wyślij zgłoszenie automatycznie następnym razem"
@@ -10675,7 +10674,8 @@ msgstr "Nie można odczytać pliku!"
 #: libraries/classes/File.php:465
 #, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "Błąd przenoszenia przesłanego pliku, patrz [doc@faq1-11]FAQ 1.11[/doc]."
+msgstr ""
+"Błąd przenoszenia przesłanego pliku, patrz [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/classes/File.php:485
 #, fuzzy
@@ -10870,7 +10870,7 @@ msgstr ""
 "Indeksy %1$s i %2$s wyglądają na identyczne i jeden z nich mógłby zostać "
 "usunięty."
 
-#: libraries/classes/InsertEdit.php:343
+#: libraries/classes/InsertEdit.php:342
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10879,7 +10879,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funkcja"
 
-#: libraries/classes/InsertEdit.php:346
+#: libraries/classes/InsertEdit.php:345
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:536
@@ -10913,12 +10913,12 @@ msgstr "Funkcja"
 msgid "Type"
 msgstr "Typ"
 
-#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:716 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików."
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:724
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10928,15 +10928,15 @@ msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików."
 msgid "Or"
 msgstr "Lub"
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:725
 msgid "web server upload directory:"
 msgstr "katalog przesyłania serwera web:"
 
-#: libraries/classes/InsertEdit.php:1333 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:964
 msgid "Showing SQL query"
 msgstr "Wyświetl zapytanie SQL"
 
-#: libraries/classes/InsertEdit.php:1357 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:944
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id wstawionego wiersza: %1$d"
@@ -11156,7 +11156,7 @@ msgstr "Tabele:"
 msgid "Views:"
 msgstr "Widoki:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -11164,12 +11164,12 @@ msgstr ""
 "W panelu nawigacyjnym znajdują się duże grupy elementów, które mogą wpływać "
 "na wydajność. Rozważ wyłączenie grupowania towarów w panelu nawigacyjnym."
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 #, fuzzy
 msgid "Groups"
 msgstr "Grupy"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, fuzzy, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -11177,7 +11177,7 @@ msgstr[0] "Znaleziono %s wynik"
 msgstr[1] "Znaleziono %s wyniki"
 msgstr[2] "Znaleziono %s wyników"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 #, fuzzy
 msgid "Collapse all"
 msgstr "Zwiń wszystko"
@@ -11220,7 +11220,7 @@ msgstr "Nowy"
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
-#: templates/table/index_form.twig:138
+#: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
 #: templates/table/relation/common_form.twig:18
@@ -12251,9 +12251,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:137
 #, fuzzy
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Dodatkowe komentarz niestandardowych nagłówków (\\n"
-"dzieli wiersze):"
+msgstr "Dodatkowe komentarz niestandardowych nagłówków (\\ndzieli wiersze):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:143
 msgid ""
@@ -12676,11 +12674,11 @@ msgstr "Nie używaj <code>AUTO_INCREMENT</code> dla wartości zerowych"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:592
+#: libraries/classes/Plugins.php:589
 msgid "This format has no options"
 msgstr "Ten format nie ma żadnych opcji"
 
-#: libraries/classes/Plugins.php:610
+#: libraries/classes/Plugins.php:607
 msgid "Invalid authentication method set in configuration:"
 msgstr "W konfiguracji ustawiono błędną metodę uwierzytelniania:"
 
@@ -12926,8 +12924,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Wyświetla klikalną miniaturkę; opcje: szerokość,wysokość w pikselach ("
-"oryginalne proporcje zostaną zachowane)."
+"Wyświetla klikalną miniaturkę; opcje: szerokość,wysokość w pikselach "
+"(oryginalne proporcje zostaną zachowane)."
 
 #: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:30
 #, fuzzy
@@ -13110,7 +13108,7 @@ msgstr "Proste uwierzytelnianie dwuskładnikowe"
 msgid "For testing purposes only!"
 msgstr "Tylko do celów testowych!"
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -13118,19 +13116,19 @@ msgstr ""
 "Serwer nie odpowiada (lub gniazdo lokalnego serwera nie jest prawidłowo "
 "skonfigurowane)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Serwer nie odpowiada."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr "Wyloguj się i spróbuj jako inny użytkownik."
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Proszę sprawdzić uprawnienia katalogu zawierającej bazę danych."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 #, fuzzy
 msgid "Details…"
 msgstr "Szczegóły…"
@@ -13230,7 +13228,7 @@ msgstr "Nie można zmienić serwera głównego!"
 msgid "Primary server changed successfully to %s."
 msgstr "Serwer główny został pomyślnie zmieniony na %s."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:103
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -13239,12 +13237,12 @@ msgstr ""
 "Nie można zapisać pamięci podręcznej routingu, musisz dostosować uprawnienia "
 "do folderu/pliku „%s”"
 
-#: libraries/classes/Routing.php:163
+#: libraries/classes/Routing.php:162
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Błąd 404! Strona %s nie została znaleziona."
 
-#: libraries/classes/Routing.php:174
+#: libraries/classes/Routing.php:173
 #, fuzzy
 msgid "Error 405! Request method not allowed."
 msgstr "Błąd 405! Niedozwolona metoda żądania."
@@ -13661,7 +13659,7 @@ msgid "Privileges for %s"
 msgstr "Uprawnienia dla %s"
 
 #: libraries/classes/Server/Privileges.php:2868
-#: libraries/classes/Server/Status/Processes.php:118
+#: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Użytkownik"
@@ -13709,7 +13707,7 @@ msgid "You have added a new user."
 msgstr "Dodałeś nowego użytkownika."
 
 #: libraries/classes/Server/Status/Data.php:146
-#: libraries/classes/Server/Status/Processes.php:146
+#: libraries/classes/Server/Status/Processes.php:147
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "Zapytanie SQL"
@@ -13788,12 +13786,12 @@ msgstr "Status serwera podrzędnego"
 msgid "Flush query cache"
 msgstr "Opróżnij bufor podręczny zapytań"
 
-#: libraries/classes/Server/Status/Processes.php:114
+#: libraries/classes/Server/Status/Processes.php:110
 #, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:122
+#: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
@@ -13801,12 +13799,12 @@ msgstr "ID"
 msgid "Host"
 msgstr "Host"
 
-#: libraries/classes/Server/Status/Processes.php:130
+#: libraries/classes/Server/Status/Processes.php:126
 #, fuzzy
 msgid "Command"
 msgstr "Polecenie"
 
-#: libraries/classes/Server/Status/Processes.php:142
+#: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
 msgstr "Postęp"
 
@@ -13849,7 +13847,7 @@ msgstr "Korzystanie z zakładki \"%s\" jako domyślne przeglądanie zapytania."
 msgid "Showing as PHP code"
 msgstr "Pokaż jako kod PHP"
 
-#: libraries/classes/Sql.php:1337
+#: libraries/classes/Sql.php:1336
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13858,7 +13856,7 @@ msgstr ""
 "Bieżący wybór nie zawiera unikalnej kolumny. Opcje edycji siatki, pola "
 "wyboru, edycji, kopiowania i usuwania są niedostępne. %s"
 
-#: libraries/classes/Sql.php:1351
+#: libraries/classes/Sql.php:1350
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13960,8 +13958,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Nie udało się czyszczenie preferencji tabeli UI (see "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Nie udało się czyszczenie preferencji tabeli UI (see $cfg['Servers'][$i]"
+"['MaxTableUiprefs'] %s)"
 
 #: libraries/classes/Table.php:1954
 #, fuzzy, php-format
@@ -14199,9 +14197,9 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
-"Szereg stałoprzecinkowych (M, D) - Maksymalna liczba cyfr (M) wynosi 65 ("
-"domyślnie 10), maksymalna liczba miejsc po przecinku (D) wynosi 30 ("
-"domyślnie 0)"
+"Szereg stałoprzecinkowych (M, D) - Maksymalna liczba cyfr (M) wynosi 65 "
+"(domyślnie 10), maksymalna liczba miejsc po przecinku (D) wynosi 30 "
+"(domyślnie 0)"
 
 #: libraries/classes/Types.php:240
 #, fuzzy
@@ -14220,8 +14218,8 @@ msgid ""
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Podwójnej precyzji numer, dopuszczalne wartości zmiennoprzecinkowych są - "
-"1.7976931348623157E 308 do - 2.2250738585072014E-308, 0 i 2."
-"2250738585072014E-308 do 1.7976931348623157E 308"
+"1.7976931348623157E 308 do - 2.2250738585072014E-308, 0 i "
+"2.2250738585072014E-308 do 1.7976931348623157E 308"
 
 #: libraries/classes/Types.php:253
 msgid ""
@@ -14493,12 +14491,12 @@ msgstr "Profil został zaktualizowany."
 msgid "Password is too long!"
 msgstr "Hasło jest za długie!"
 
-#: libraries/classes/UserPreferences.php:173
+#: libraries/classes/UserPreferences.php:181
 #, fuzzy
 msgid "Could not save configuration"
 msgstr "Nie można zapisać konfiguracji"
 
-#: libraries/classes/UserPreferences.php:184
+#: libraries/classes/UserPreferences.php:192
 #, fuzzy
 #| msgid ""
 #| "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -16554,7 +16552,7 @@ msgstr ""
 "[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:141
+#: templates/table/index_form.twig:144
 msgid "Size"
 msgstr "Rozmiar"
 
@@ -17081,11 +17079,11 @@ msgstr ""
 "Wybierz \"GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg znaków "
 "do pola \"Wartość\"."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:35 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Obsługa javascript musi być włączona!"
 
-#: templates/header.twig:45
+#: templates/header.twig:46
 #, fuzzy
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kliknij na pasku, aby przewinąć do góry strony"
@@ -17236,12 +17234,20 @@ msgstr "Lista zmian"
 msgid "License"
 msgstr "Licencja"
 
-#: templates/home/index.twig:284
+#: templates/home/index.twig:280 templates/setup/error.twig:2
+msgid "Warning"
+msgstr "Ostrzeżenie"
+
+#: templates/home/index.twig:282
+msgid "Notice"
+msgstr ""
+
+#: templates/home/index.twig:295
 #, fuzzy
 msgid "phpMyAdmin Themes"
 msgstr "Strona główna phpMyAdmina"
 
-#: templates/home/index.twig:295
+#: templates/home/index.twig:306
 #, fuzzy
 msgid "Get more themes!"
 msgstr "Pobierz więcej motywów!"
@@ -17318,9 +17324,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Nazwa skompresowanego pliku musi kończyć się na "
-"<strong>.[format].[compression]</strong>. Przykład: <strong> .sql.zip "
-"</strong>"
+"Nazwa skompresowanego pliku musi kończyć się na <strong>.[format]."
+"[compression]</strong>. Przykład: <strong> .sql.zip </strong>"
 
 #: templates/import.twig:40
 #, fuzzy
@@ -17737,6 +17742,10 @@ msgstr "Zweryfikować"
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
 msgstr "Widok:"
+
+#: templates/modals/index_dialog_modal.twig:30
+msgid "Go back"
+msgstr ""
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -18215,8 +18224,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Włącz zaawansowane funkcje w pliku konfiguracyjnym (<code>config.inc."
-"php</code>), na przykład zaczynając od <code>config.sample.inc.php</code>."
+"Włącz zaawansowane funkcje w pliku konfiguracyjnym (<code>config.inc.php</"
+"code>), na przykład zaczynając od <code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -19592,10 +19601,6 @@ msgstr "Wygenerowany plik konfiguracyjny"
 msgid "Download"
 msgstr "Ściągnij"
 
-#: templates/setup/error.twig:2
-msgid "Warning"
-msgstr "Ostrzeżenie"
-
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
 msgstr "Wysłany formularz zawiera błędy"
@@ -19963,43 +19968,43 @@ msgstr "Przestrzenna kolumna"
 msgid "Importing into the table \"%s\""
 msgstr "Import do tabeli \"%s\""
 
-#: templates/table/index_form.twig:15 templates/table/index_rename_form.twig:11
+#: templates/table/index_form.twig:18 templates/table/index_rename_form.twig:11
 msgid "Index name:"
 msgstr "Nazwa indeksu :"
 
-#: templates/table/index_form.twig:16 templates/table/index_rename_form.twig:12
+#: templates/table/index_form.twig:19 templates/table/index_rename_form.twig:12
 #, fuzzy
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr "\"PRIMARY\" <b>musi</b> być nazwą <b>jedynie</b> klucza podstawowego!"
 
-#: templates/table/index_form.twig:34
+#: templates/table/index_form.twig:37
 msgid "Index choice:"
 msgstr "Wybór indeksu:"
 
-#: templates/table/index_form.twig:54
+#: templates/table/index_form.twig:57
 #, fuzzy
 msgid "Advanced options"
 msgstr "Zaawansowane opcje"
 
-#: templates/table/index_form.twig:64
+#: templates/table/index_form.twig:67
 msgid "Key block size:"
 msgstr "Rozmiar bloku klucza:"
 
-#: templates/table/index_form.twig:81
+#: templates/table/index_form.twig:84
 msgid "Index type:"
 msgstr "Rodzaj indeksu :"
 
-#: templates/table/index_form.twig:98
+#: templates/table/index_form.twig:101
 msgid "Parser:"
 msgstr "Analizator składni:"
 
-#: templates/table/index_form.twig:114
+#: templates/table/index_form.twig:117
 #, fuzzy
 msgid "Comment:"
 msgstr "Komentarz:"
 
-#: templates/table/index_form.twig:159 templates/table/index_form.twig:196
+#: templates/table/index_form.twig:162 templates/table/index_form.twig:199
 #, fuzzy
 msgid "Drag to reorder"
 msgstr "Przeciągnij, aby zmienić kolejność"
@@ -20608,6 +20613,27 @@ msgstr "Nazwa widoku"
 #, fuzzy
 msgid "Column names"
 msgstr "Nazwy kolumn"
+
+#~ msgid "Key is too short, it should have at least 32 characters."
+#~ msgstr "Klucz jest za krótki, powinien mieć co najmniej 32 znaki."
+
+#~ msgid "Key should contain letters, numbers [em]and[/em] special characters."
+#~ msgstr "Klucz powinien zawierać litery, cyfry [em]i[/em] znaki specjalne."
+
+#~ msgid ""
+#~ "The configuration file now needs a secret passphrase (blowfish_secret)."
+#~ msgstr ""
+#~ "Plik konfiguracyjny wymaga teraz tajnej frazy kodującej (blowfish_secret)."
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "The secret passphrase in configuration (blowfish_secret) is too short."
+#~ msgid ""
+#~ "The secret passphrase in configuration (blowfish_secret) is not the "
+#~ "correct length. It should be %d bytes long."
+#~ msgstr ""
+#~ "Tajne hasło w konfiguracji (blowfish_secret) nie ma prawidłowej długości. "
+#~ "Powinna mieć długość %d bajtów."
 
 #~ msgid "Configuration saved."
 #~ msgstr "Konfiguracja zapisana."

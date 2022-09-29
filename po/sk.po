@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-04-21 15:54-0300\n"
+"POT-Creation-Date: 2022-09-29 00:17-0300\n"
 "PO-Revision-Date: 2022-03-03 21:55+0000\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/5-2/sk/"
@@ -1227,7 +1227,7 @@ msgstr "Hľadať:"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
-#: libraries/classes/Controllers/Server/PrivilegesController.php:330
+#: libraries/classes/Controllers/Server/PrivilegesController.php:329
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
@@ -1265,6 +1265,7 @@ msgstr "Hľadať:"
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
+#: templates/table/index_form.twig:243
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/operations/index.twig:38
@@ -1320,26 +1321,26 @@ msgid "Unknown"
 msgstr "Neznámy"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:501
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:498
+#: libraries/classes/Charsets/Collation.php:499
 #, fuzzy
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Dátový slovník"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:576
+#: libraries/classes/Charsets/Collation.php:577
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:569
+#: libraries/classes/Charsets/Collation.php:570
 #, fuzzy
 msgctxt "Collation"
 msgid "Spanish (modern)"
@@ -1398,277 +1399,277 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Binárny"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:600
+#: libraries/classes/Charsets/Collation.php:352
+#: libraries/classes/Charsets/Collation.php:601
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:361
-#: libraries/classes/Charsets/Collation.php:547
+#: libraries/classes/Charsets/Collation.php:362
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "West European"
 msgstr "Západoeurópsky"
 
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:369
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Stredoeurópsky"
 
-#: libraries/classes/Charsets/Collation.php:373
-#: libraries/classes/Charsets/Collation.php:554
+#: libraries/classes/Charsets/Collation.php:374
+#: libraries/classes/Charsets/Collation.php:555
 #, fuzzy
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruština"
 
-#: libraries/classes/Charsets/Collation.php:378
+#: libraries/classes/Charsets/Collation.php:379
 #, fuzzy
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Zjednodušená Čínština"
 
-#: libraries/classes/Charsets/Collation.php:381
+#: libraries/classes/Charsets/Collation.php:382
 #, fuzzy
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradičná Čínština"
 
-#: libraries/classes/Charsets/Collation.php:384
-#: libraries/classes/Charsets/Collation.php:469
+#: libraries/classes/Charsets/Collation.php:385
+#: libraries/classes/Charsets/Collation.php:470
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:392
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:393
+#: libraries/classes/Charsets/Collation.php:519
 #, fuzzy
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japončina"
 
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:398
 #, fuzzy
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltické"
 
-#: libraries/classes/Charsets/Collation.php:402
+#: libraries/classes/Charsets/Collation.php:403
 #, fuzzy
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Arménština"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:406
 #, fuzzy
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrilika"
 
-#: libraries/classes/Charsets/Collation.php:408
+#: libraries/classes/Charsets/Collation.php:409
 #, fuzzy
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabština"
 
-#: libraries/classes/Charsets/Collation.php:411
-#: libraries/classes/Charsets/Collation.php:533
+#: libraries/classes/Charsets/Collation.php:412
+#: libraries/classes/Charsets/Collation.php:534
 #, fuzzy
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Kórejčina"
 
-#: libraries/classes/Charsets/Collation.php:414
+#: libraries/classes/Charsets/Collation.php:415
 #, fuzzy
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrejsky"
 
-#: libraries/classes/Charsets/Collation.php:417
+#: libraries/classes/Charsets/Collation.php:418
 #, fuzzy
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzínčina"
 
-#: libraries/classes/Charsets/Collation.php:420
+#: libraries/classes/Charsets/Collation.php:421
 #, fuzzy
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Gréčtina"
 
-#: libraries/classes/Charsets/Collation.php:423
+#: libraries/classes/Charsets/Collation.php:424
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Čeština/Slovenčina"
 
-#: libraries/classes/Charsets/Collation.php:426
-#: libraries/classes/Charsets/Collation.php:592
+#: libraries/classes/Charsets/Collation.php:427
+#: libraries/classes/Charsets/Collation.php:593
 #, fuzzy
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrajinsky"
 
-#: libraries/classes/Charsets/Collation.php:429
-#: libraries/classes/Charsets/Collation.php:588
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:589
 #, fuzzy
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turecky"
 
-#: libraries/classes/Charsets/Collation.php:432
-#: libraries/classes/Charsets/Collation.php:580
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:581
 #, fuzzy
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
 
-#: libraries/classes/Charsets/Collation.php:435
-#: libraries/classes/Charsets/Collation.php:584
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:585
 #, fuzzy
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajčina"
 
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:439
 #, fuzzy
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámy"
 
-#: libraries/classes/Charsets/Collation.php:463
+#: libraries/classes/Charsets/Collation.php:464
 #, fuzzy
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
 
-#: libraries/classes/Charsets/Collation.php:475
+#: libraries/classes/Charsets/Collation.php:476
 #, fuzzy
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvátsky"
 
-#: libraries/classes/Charsets/Collation.php:479
+#: libraries/classes/Charsets/Collation.php:480
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
 
-#: libraries/classes/Charsets/Collation.php:483
+#: libraries/classes/Charsets/Collation.php:484
 #, fuzzy
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dánština"
 
-#: libraries/classes/Charsets/Collation.php:487
+#: libraries/classes/Charsets/Collation.php:488
 #, fuzzy
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglicky"
 
-#: libraries/classes/Charsets/Collation.php:491
+#: libraries/classes/Charsets/Collation.php:492
 #, fuzzy
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:495
+#: libraries/classes/Charsets/Collation.php:496
 #, fuzzy
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estónsky"
 
-#: libraries/classes/Charsets/Collation.php:510
+#: libraries/classes/Charsets/Collation.php:511
 #, fuzzy
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maďarsky"
 
-#: libraries/classes/Charsets/Collation.php:514
+#: libraries/classes/Charsets/Collation.php:515
 #, fuzzy
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandčina"
 
-#: libraries/classes/Charsets/Collation.php:521
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:526
 #, fuzzy
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lotyšstina"
 
-#: libraries/classes/Charsets/Collation.php:529
+#: libraries/classes/Charsets/Collation.php:530
 #, fuzzy
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litovsky"
 
-#: libraries/classes/Charsets/Collation.php:537
+#: libraries/classes/Charsets/Collation.php:538
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:540
+#: libraries/classes/Charsets/Collation.php:541
 #, fuzzy
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perština"
 
-#: libraries/classes/Charsets/Collation.php:544
+#: libraries/classes/Charsets/Collation.php:545
 #, fuzzy
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poľština"
 
-#: libraries/classes/Charsets/Collation.php:551
+#: libraries/classes/Charsets/Collation.php:552
 #, fuzzy
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: libraries/classes/Charsets/Collation.php:558
+#: libraries/classes/Charsets/Collation.php:559
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:562
+#: libraries/classes/Charsets/Collation.php:563
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovenčina"
 
-#: libraries/classes/Charsets/Collation.php:566
+#: libraries/classes/Charsets/Collation.php:567
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovinčina"
 
-#: libraries/classes/Charsets/Collation.php:596
+#: libraries/classes/Charsets/Collation.php:597
 #, fuzzy
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamčina"
 
-#: libraries/classes/Common.php:244
+#: libraries/classes/Common.php:245
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Mali by ste aktualizovať %s na verziu %s alebo vyššiu."
 
-#: libraries/classes/Common.php:276
+#: libraries/classes/Common.php:277
 msgid "Error: Token mismatch"
 msgstr "Chyba: Nesprávny token"
 
-#: libraries/classes/Common.php:490
+#: libraries/classes/Common.php:491
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:549
+#: libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1677,17 +1678,17 @@ msgstr ""
 "V nastavení PHP je aktívna funkcia mbstring.func_overload, ktorá nie je "
 "kompatibilná s phpMyAdmin-om a môže spôsobiť stratu dát!"
 
-#: libraries/classes/Common.php:566
+#: libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:577
+#: libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o prepísanie GLOBALS"
 
-#: libraries/classes/Common.php:587
+#: libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
@@ -3745,7 +3746,7 @@ msgstr "Navigačný panel"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Prepojiť s hlavným panelom"
 
@@ -4203,7 +4204,7 @@ msgstr "Preskočiť zamknuté tabuľky"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2962
+#: libraries/classes/Display/Results.php:2976
 #: libraries/classes/Html/Generator.php:664
 #: libraries/classes/Html/Generator.php:915
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4267,7 +4268,7 @@ msgstr "Riadkov v textovej oblasti"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
 #: libraries/classes/Server/Privileges.php:1812
 #: libraries/classes/Server/Privileges.php:1814
-#: libraries/classes/Server/Status/Processes.php:126
+#: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4705,7 +4706,7 @@ msgstr ""
 msgid "You allow for connecting to the server without a password."
 msgstr "Dovoľujete pripojiť sa k serveru bez hesla."
 
-#: libraries/classes/Config/ServerConfigChecks.php:304
+#: libraries/classes/Config/ServerConfigChecks.php:307
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -4714,7 +4715,7 @@ msgstr ""
 "%sZip dekompresia%s vyžaduje funkcie (%s), ktoré nie sú dostupné na tomto "
 "systéme."
 
-#: libraries/classes/Config/ServerConfigChecks.php:325
+#: libraries/classes/Config/ServerConfigChecks.php:328
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -4723,22 +4724,14 @@ msgstr ""
 "%sZip kompresia%s vyžaduje funkcie (%s), ktoré nie sú dostupné na tomto "
 "systéme."
 
-#: libraries/classes/Config/ServerConfigChecks.php:359
+#: libraries/classes/Config/ServerConfigChecks.php:361
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:373
-msgid "Key is too short, it should have at least 32 characters."
-msgstr "Kľúč je príliš krátky, mal by mať aspoň 32 znakov."
-
-#: libraries/classes/Config/ServerConfigChecks.php:383
-msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Kľúč by mal obsahovať písmená, čísla [em] a [/em] špeciálne znaky."
-
-#: libraries/classes/Config/ServerConfigChecks.php:416
+#: libraries/classes/Config/ServerConfigChecks.php:385
 #, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -4746,21 +4739,21 @@ msgid ""
 "%5$d)."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:438
+#: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:464
+#: libraries/classes/Config/ServerConfigChecks.php:433
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:503
+#: libraries/classes/Config/ServerConfigChecks.php:472
 #, fuzzy, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
@@ -4769,7 +4762,7 @@ msgstr ""
 "%sBzip2 kompresia a dekompresia %s vyžaduje funkcie (%s), ktoré nie sú k "
 "dispozícii v tomto systéme."
 
-#: libraries/classes/Config/ServerConfigChecks.php:534
+#: libraries/classes/Config/ServerConfigChecks.php:503
 #, fuzzy, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
@@ -4778,11 +4771,11 @@ msgstr ""
 "%sGZip kompresia a dekompresia%s vyžaduje funkicie  (%s), ktoré nie sú "
 "dostupné na tomto systéme."
 
-#: libraries/classes/ConfigStorage/Relation.php:1361
+#: libraries/classes/ConfigStorage/Relation.php:1362
 msgid "no description"
 msgstr "bez popisu"
 
-#: libraries/classes/ConfigStorage/Relation.php:1563
+#: libraries/classes/ConfigStorage/Relation.php:1564
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -4981,7 +4974,7 @@ msgstr ""
 "Konfiguračná pamäť phpMyAdmina bola deaktivovaná. Ak chcete zistiť prečo, "
 "kliknite %ssem%s."
 
-#: libraries/classes/Controllers/Database/SearchController.php:52
+#: libraries/classes/Controllers/Database/SearchController.php:47
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:103
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:82
@@ -5036,7 +5029,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabuľka %s bola vyprázdená."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3971
+#: libraries/classes/Display/Results.php:3982
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5094,8 +5087,8 @@ msgstr "Áno"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:419
-#: libraries/classes/Core.php:728 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:415
+#: libraries/classes/Core.php:732 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Žiadna zmena"
 
@@ -5161,7 +5154,7 @@ msgstr "Nesprávny typ!"
 msgid "Bad parameters!"
 msgstr "Chybné parametre!"
 
-#: libraries/classes/Controllers/HomeController.php:95
+#: libraries/classes/Controllers/HomeController.php:98
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5169,7 +5162,7 @@ msgstr ""
 "Odhlásili ste sa z jedného servera. Pre úplné odhlásenie z phpMyAdmina sa "
 "musíte odhlásiť zo všetkých serverov."
 
-#: libraries/classes/Controllers/HomeController.php:196
+#: libraries/classes/Controllers/HomeController.php:195
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5178,7 +5171,7 @@ msgstr ""
 "Miesto uloženia phpMyAdmin konfigurácie nie je úplne nastavené, niektoré "
 "rozšírené vlastnosti boli vypnuté. Ak chcete zistiť prečo, kliknite %ssem%s. "
 
-#: libraries/classes/Controllers/HomeController.php:202
+#: libraries/classes/Controllers/HomeController.php:201
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "Voliteľne môžete ísť do záložky 'Operácie' a nastaviť to tam."
@@ -5211,22 +5204,22 @@ msgid ""
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:317
-msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
-"Nastavte prosím kľúč pre šifrovanie cookies v konfiguračnom súbore "
-"(blowfish_secret)."
-
-#: libraries/classes/Controllers/HomeController.php:325
-#, fuzzy, php-format
-#| msgid ""
-#| "The secret passphrase in configuration (blowfish_secret) is too short."
+#: libraries/classes/Controllers/HomeController.php:318
 msgid ""
-"The secret passphrase in configuration (blowfish_secret) is not the correct "
-"length. It should be %d bytes long."
-msgstr "Tajné heslo v konfigurácii (blowfish_secret) je príliš krátke."
+"The configuration file needs a valid key for cookie encryption. A temporary "
+"key was automatically generated for you. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
+msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:342
+#: libraries/classes/Controllers/HomeController.php:328
+#, php-format
+msgid ""
+"The cookie encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
+msgstr ""
+
+#: libraries/classes/Controllers/HomeController.php:346
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5238,7 +5231,7 @@ msgstr ""
 "nakonfigurovaný. V opačnom prípade bezpečnosť Vášho servera môže byť "
 "narušená neautorizovanými užívateľmi, ktorí stiahnu Vašu konfiguráciu."
 
-#: libraries/classes/Controllers/HomeController.php:363
+#: libraries/classes/Controllers/HomeController.php:367
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5247,7 +5240,7 @@ msgstr ""
 "Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s "
 "%sdokumentáciou%s."
 
-#: libraries/classes/Controllers/HomeController.php:377
+#: libraries/classes/Controllers/HomeController.php:381
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5256,7 +5249,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) nie je dostupný. phpMyAdmin nie je schopný ukladať "
 "šablóny do vyrovnávacej pamäte a bude kvôli tomu pomalý."
 
-#: libraries/classes/Controllers/HomeController.php:434
+#: libraries/classes/Controllers/HomeController.php:438
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5267,7 +5260,7 @@ msgstr ""
 "rozdeľovať reťazce kódované v týchto znakových sadách a môže to viesť k "
 "nečakaným výsledkom."
 
-#: libraries/classes/Controllers/HomeController.php:452
+#: libraries/classes/Controllers/HomeController.php:456
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5344,7 +5337,7 @@ msgstr ""
 "časový limit behu skriptu v php."
 
 #: libraries/classes/Controllers/Import/ImportController.php:725
-#: libraries/classes/Controllers/Sql/SqlController.php:163
+#: libraries/classes/Controllers/Sql/SqlController.php:162
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 
@@ -5561,7 +5554,7 @@ msgid "Rename index"
 msgstr "Odstrániť index(y)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
-#: templates/table/index_form.twig:234
+#: templates/table/index_form.twig:237
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Pridať %s polí do indexu"
@@ -5585,7 +5578,8 @@ msgstr "Vyberte stĺpce pre index."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/modals/index_dialog_modal.twig:11
-#: templates/table/index_form.twig:240
+#: templates/modals/index_dialog_modal.twig:21
+#: templates/table/index_form.twig:244
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:224
@@ -5648,13 +5642,14 @@ msgstr "Odstránenie vybraných používateľov"
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
 #: templates/export.twig:92 templates/export.twig:194
-#: templates/home/index.twig:285 templates/home/index.twig:293
+#: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
 #: templates/modals/index_dialog_modal.twig:12
+#: templates/modals/index_dialog_modal.twig:22
 #: templates/modals/preview_sql_confirmation.twig:6
 #: templates/modals/preview_sql_confirmation.twig:15
 #: templates/modals/preview_sql_modal.twig:6
@@ -5920,7 +5915,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Pridajte prosím aspoň jednu hodnotu do série!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:208
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1266
 #: libraries/classes/Plugins/Export/ExportSql.php:2226
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -5930,7 +5925,7 @@ msgstr "Pridajte prosím aspoň jednu hodnotu do série!"
 #: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
-#: templates/server/status/processes/list.twig:54
+#: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
 msgid "None"
@@ -6138,7 +6133,7 @@ msgstr "Vysvetliť výstup"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 #: libraries/classes/Menu.php:490
-#: libraries/classes/Server/Status/Processes.php:138
+#: libraries/classes/Server/Status/Processes.php:134
 #: libraries/classes/Util.php:1946 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
@@ -6152,7 +6147,7 @@ msgstr "Stav"
 #: libraries/classes/Plugins/Export/ExportOdt.php:597
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
-#: libraries/classes/Server/Status/Processes.php:134
+#: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6320,7 +6315,7 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: templates/header.twig:43
+#: templates/header.twig:44
 msgid "Page-related settings"
 msgstr "Nastavenia stránky"
 
@@ -6330,7 +6325,8 @@ msgid "Apply"
 msgstr "Použiť"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/home/index.twig:289 templates/navigation/main.twig:58
+#: templates/home/index.twig:300 templates/modals/index_dialog_modal.twig:26
+#: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -6524,7 +6520,7 @@ msgid "Show query box"
 msgstr "Zobrazit vyhľadávacie pole"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3030
+#: libraries/classes/Display/Results.php:3044
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6780,13 +6776,13 @@ msgstr "Obsah datového bodu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:439 libraries/classes/InsertEdit.php:2000
-#: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:1984
+#: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorovať"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2966
+#: libraries/classes/Display/Results.php:2980
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7130,7 +7126,7 @@ msgid "Hide panel"
 msgstr "Skryť panel"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1357
+#: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Zrušiť prepojenie s hlavným panelom"
 
@@ -7194,7 +7190,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Prosím, pozrite sa na spodnú časť okna."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:634
-#: libraries/classes/ErrorHandler.php:444
+#: libraries/classes/ErrorHandler.php:451
 msgid "Ignore All"
 msgstr "Ignorovať všetko"
 
@@ -7354,13 +7350,13 @@ msgid "Table %s already exists!"
 msgstr "Tabuľka %s už existuje!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:704
-#: libraries/classes/InsertEdit.php:327
+#: libraries/classes/InsertEdit.php:326
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Skryť"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:705
-#: libraries/classes/Controllers/Table/ChangeController.php:188
+#: libraries/classes/Controllers/Table/ChangeController.php:187
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7464,23 +7460,23 @@ msgstr "Stĺpce boli úspešne presunuté."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Stĺpce boli úspešne presunuté."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:153
+#: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
 msgstr "Žiadne oprávnenia"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:162
+#: libraries/classes/Controllers/Server/PrivilegesController.php:161
 #, fuzzy
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nemáte potrebné oprávnenia na vytvorenie triggera"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:177
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:406
+#: libraries/classes/Controllers/Server/PrivilegesController.php:405
 msgid "User has been added."
 msgstr "Užívateľ bol pridaný."
 
@@ -8238,13 +8234,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Nezabezpečené pripojenie"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:236
-#: libraries/classes/Sql.php:1154
+#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Sql.php:1153
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:243
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 msgid "Bookmark not created!"
 msgstr "Záložka nebola vytvorená!"
 
@@ -8303,7 +8299,7 @@ msgstr "Tabuľka %s už existuje!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3683 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3695 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL dopyt bol úspešne vykonaný."
@@ -8343,7 +8339,7 @@ msgstr "Je príliš veľa spojení bez indexov."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:221
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:220
 #: libraries/classes/Sql.php:967
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
@@ -8371,7 +8367,7 @@ msgstr "Pohľad"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:863 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:716 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8386,7 +8382,7 @@ msgstr "Zobrazený stĺpec bol aktualizovný."
 msgid "Internal relationships were successfully updated."
 msgstr "Interné vzťahy boli úspešne zmenené."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:300
+#: libraries/classes/Controllers/Table/ReplaceController.php:294
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -8467,7 +8463,7 @@ msgstr "Nemáte dostatočné práva na vykonanie tejto akcie!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:200 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:204 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chýba rozšírenie %s. Skontrolujte prosín nastavenia PHP."
@@ -8976,24 +8972,24 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Ďalší"
 
-#: libraries/classes/Display/Results.php:955 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Koniec"
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1473
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Čiastočné texty"
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1477
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "Plné texty"
 
-#: libraries/classes/Display/Results.php:1813
-#: libraries/classes/Display/Results.php:1839 libraries/classes/Util.php:2575
+#: libraries/classes/Display/Results.php:1818
+#: libraries/classes/Display/Results.php:1844 libraries/classes/Util.php:2575
 #: libraries/classes/Util.php:2598 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9006,8 +9002,8 @@ msgstr "Plné texty"
 msgid "Descending"
 msgstr "Zostupne"
 
-#: libraries/classes/Display/Results.php:1821
-#: libraries/classes/Display/Results.php:1831 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1826
+#: libraries/classes/Display/Results.php:1836 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9020,41 +9016,41 @@ msgstr "Zostupne"
 msgid "Ascending"
 msgstr "Vzostupne"
 
-#: libraries/classes/Display/Results.php:3006
-#: libraries/classes/Display/Results.php:3021
+#: libraries/classes/Display/Results.php:3020
+#: libraries/classes/Display/Results.php:3035
 msgid "The row has been deleted."
 msgstr "Riadok bol zmazaný."
 
-#: libraries/classes/Display/Results.php:3053
+#: libraries/classes/Display/Results.php:3067
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Zabiť"
 
-#: libraries/classes/Display/Results.php:3614
+#: libraries/classes/Display/Results.php:3628
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Môže byť nepresné. Viď [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3980
+#: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazené riadky %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3994
+#: libraries/classes/Display/Results.php:4005
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d celkom, %2$d v dotaze"
 
-#: libraries/classes/Display/Results.php:3999
+#: libraries/classes/Display/Results.php:4010
 #, php-format
 msgid "%d total"
 msgstr "celkom %d"
 
-#: libraries/classes/Display/Results.php:4012 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:973
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dopyt zabral %01.4f sekúnd."
 
-#: libraries/classes/Display/Results.php:4343
+#: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
 msgstr "Odkaz nebol nájdený!"
 
@@ -9387,15 +9383,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Príliš veľa chybových správ, niektoré neboli zobrazené."
 
-#: libraries/classes/ErrorHandler.php:428
+#: libraries/classes/ErrorHandler.php:435
 msgid "Report"
 msgstr "Nahlásiť"
 
-#: libraries/classes/ErrorHandler.php:433 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:440 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Nabudúce automaticky odosielať hlásenia"
 
@@ -9665,7 +9661,7 @@ msgstr ""
 "Indexy %1$s a %2$s vyzerajú rovnaké a jeden z nich môže byť pravdepodobne "
 "odstránený."
 
-#: libraries/classes/InsertEdit.php:343
+#: libraries/classes/InsertEdit.php:342
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9673,7 +9669,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funkcia"
 
-#: libraries/classes/InsertEdit.php:346
+#: libraries/classes/InsertEdit.php:345
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:536
@@ -9707,12 +9703,12 @@ msgstr "Funkcia"
 msgid "Type"
 msgstr "Typ"
 
-#: libraries/classes/InsertEdit.php:717 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:716 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresár určený pre upload súborov sa nedá otvoriť."
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:724
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -9722,15 +9718,15 @@ msgstr "Adresár určený pre upload súborov sa nedá otvoriť."
 msgid "Or"
 msgstr "Alebo"
 
-#: libraries/classes/InsertEdit.php:726
+#: libraries/classes/InsertEdit.php:725
 msgid "web server upload directory:"
 msgstr "upload adresár web serveru:"
 
-#: libraries/classes/InsertEdit.php:1333 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:964
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: libraries/classes/InsertEdit.php:1357 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:944
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Vložený riadok id: %1$d"
@@ -9937,18 +9933,18 @@ msgstr "Tabuľky:"
 msgid "Views:"
 msgstr "Náhľady:"
 
-#: libraries/classes/Navigation/NavigationTree.php:759
+#: libraries/classes/Navigation/NavigationTree.php:758
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:833
+#: libraries/classes/Navigation/NavigationTree.php:832
 #, fuzzy
 msgid "Groups"
 msgstr "Skupiny:"
 
-#: libraries/classes/Navigation/NavigationTree.php:946
+#: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -9956,7 +9952,7 @@ msgstr[0] "nájdený %s výsledok"
 msgstr[1] "nájdené %s výsledky"
 msgstr[2] "nájdených %s výsledkov"
 
-#: libraries/classes/Navigation/NavigationTree.php:1348
+#: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
 msgstr "Zbaliť všetko"
 
@@ -9996,7 +9992,7 @@ msgstr "Nový"
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
 #: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
-#: templates/table/index_form.twig:138
+#: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
 #: templates/table/relation/common_form.twig:18
@@ -11288,11 +11284,11 @@ msgstr "Nepoužívať <code>AUTO_INCREMENT</code> pre nulové hodnoty"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:592
+#: libraries/classes/Plugins.php:589
 msgid "This format has no options"
 msgstr "Tento formát nemá žiadne nastavenia"
 
-#: libraries/classes/Plugins.php:610
+#: libraries/classes/Plugins.php:607
 msgid "Invalid authentication method set in configuration:"
 msgstr "V konfigurácii je nastavená nesprávna autentifikačná metóda:"
 
@@ -11664,7 +11660,7 @@ msgstr "Overovanie signon"
 msgid "For testing purposes only!"
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:96
+#: libraries/classes/Query/Utilities.php:97
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -11672,19 +11668,19 @@ msgstr ""
 "Server neodpovedá (alebo socket lokálneho MySQL servera nie je správne "
 "nastavený)."
 
-#: libraries/classes/Query/Utilities.php:99
+#: libraries/classes/Query/Utilities.php:100
 msgid "The server is not responding."
 msgstr "Server neodpovedá."
 
-#: libraries/classes/Query/Utilities.php:103
+#: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:108
+#: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
 msgstr "Overte prístupové práva k adresáru, v ktorom je uložená databáza."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Podrobnosti…"
 
@@ -11771,19 +11767,19 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "Master server zmenený úspešne na %s."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:103
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:163
+#: libraries/classes/Routing.php:162
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Zdrojová databáza `%s` nebola nájdená!"
 
-#: libraries/classes/Routing.php:174
+#: libraries/classes/Routing.php:173
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12171,7 +12167,7 @@ msgid "Privileges for %s"
 msgstr "Oprávnenia pre %s"
 
 #: libraries/classes/Server/Privileges.php:2868
-#: libraries/classes/Server/Status/Processes.php:118
+#: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Používateľ"
@@ -12215,7 +12211,7 @@ msgid "You have added a new user."
 msgstr "Používateľ bol pridaný."
 
 #: libraries/classes/Server/Status/Data.php:146
-#: libraries/classes/Server/Status/Processes.php:146
+#: libraries/classes/Server/Status/Processes.php:147
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL dopyt"
@@ -12292,22 +12288,22 @@ msgstr "Zobraziť stav podriadených hostov"
 msgid "Flush query cache"
 msgstr "Vyprázdniť vyrovnávaciu pamäť príkazov"
 
-#: libraries/classes/Server/Status/Processes.php:114
+#: libraries/classes/Server/Status/Processes.php:110
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:122
+#: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Hostiteľ"
 
-#: libraries/classes/Server/Status/Processes.php:130
+#: libraries/classes/Server/Status/Processes.php:126
 msgid "Command"
 msgstr "Príkaz"
 
-#: libraries/classes/Server/Status/Processes.php:142
+#: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
 msgstr "Progres"
 
@@ -12345,7 +12341,7 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: libraries/classes/Sql.php:1337
+#: libraries/classes/Sql.php:1336
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12354,7 +12350,7 @@ msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
 "editácia, kopírovanie a mazanie nie sú dostupné. %s"
 
-#: libraries/classes/Sql.php:1351
+#: libraries/classes/Sql.php:1350
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12937,11 +12933,11 @@ msgstr "Profil bol aktualizovaný."
 msgid "Password is too long!"
 msgstr "Hashovanie hesla:"
 
-#: libraries/classes/UserPreferences.php:173
+#: libraries/classes/UserPreferences.php:181
 msgid "Could not save configuration"
 msgstr "Nemožno uložiť nastavenie"
 
-#: libraries/classes/UserPreferences.php:184
+#: libraries/classes/UserPreferences.php:192
 #, fuzzy
 #| msgid ""
 #| "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -14908,7 +14904,7 @@ msgstr ""
 "[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:141
+#: templates/table/index_form.twig:144
 msgid "Size"
 msgstr "Veľkosť"
 
@@ -15408,11 +15404,11 @@ msgstr ""
 "Z voľby „Funkcie“ zvoľte „GeomFromText“ a vložte nižšie uvedený text ako "
 "hodnotu."
 
-#: templates/header.twig:34 templates/login/header.twig:13
+#: templates/header.twig:35 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Pokiaľ chcete pokračovať, JavaScript musí byť povolený!"
 
-#: templates/header.twig:45
+#: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kliknutím v pruhu prejdete na začiatok stránky"
 
@@ -15556,12 +15552,20 @@ msgstr "Zoznam zmien"
 msgid "License"
 msgstr "Licencia"
 
-#: templates/home/index.twig:284
+#: templates/home/index.twig:280 templates/setup/error.twig:2
+msgid "Warning"
+msgstr "Upozornenie"
+
+#: templates/home/index.twig:282
+msgid "Notice"
+msgstr ""
+
+#: templates/home/index.twig:295
 #, fuzzy
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin domovská stránka"
 
-#: templates/home/index.twig:295
+#: templates/home/index.twig:306
 msgid "Get more themes!"
 msgstr "Získať viac tém!"
 
@@ -16043,6 +16047,10 @@ msgstr ""
 #, fuzzy
 msgid "View:"
 msgstr "Náhľady:"
+
+#: templates/modals/index_dialog_modal.twig:30
+msgid "Go back"
+msgstr ""
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -17800,10 +17808,6 @@ msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: templates/setup/error.twig:2
-msgid "Warning"
-msgstr "Upozornenie"
-
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
 msgstr ""
@@ -18143,41 +18147,41 @@ msgstr "Priestorový stĺpec"
 msgid "Importing into the table \"%s\""
 msgstr "Importujem do tabuľky \"%s\""
 
-#: templates/table/index_form.twig:15 templates/table/index_rename_form.twig:11
+#: templates/table/index_form.twig:18 templates/table/index_rename_form.twig:11
 msgid "Index name:"
 msgstr "Meno indexu&nbsp;:"
 
-#: templates/table/index_form.twig:16 templates/table/index_rename_form.twig:12
+#: templates/table/index_form.twig:19 templates/table/index_rename_form.twig:12
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr "\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!"
 
-#: templates/table/index_form.twig:34
+#: templates/table/index_form.twig:37
 msgid "Index choice:"
 msgstr "Výber indexu:"
 
-#: templates/table/index_form.twig:54
+#: templates/table/index_form.twig:57
 #, fuzzy
 msgid "Advanced options"
 msgstr "Zapnuté parametre"
 
-#: templates/table/index_form.twig:64
+#: templates/table/index_form.twig:67
 msgid "Key block size:"
 msgstr ""
 
-#: templates/table/index_form.twig:81
+#: templates/table/index_form.twig:84
 msgid "Index type:"
 msgstr "Typ indexu&nbsp;:"
 
-#: templates/table/index_form.twig:98
+#: templates/table/index_form.twig:101
 msgid "Parser:"
 msgstr "Syntaktický analyzátor:"
 
-#: templates/table/index_form.twig:114
+#: templates/table/index_form.twig:117
 msgid "Comment:"
 msgstr "Komentár:"
 
-#: templates/table/index_form.twig:159 templates/table/index_form.twig:196
+#: templates/table/index_form.twig:162 templates/table/index_form.twig:199
 msgid "Drag to reorder"
 msgstr "Usporiadajte pretiahnutím"
 
@@ -18748,6 +18752,26 @@ msgstr "Meno pohľadu"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Názvy stĺpcov"
+
+#~ msgid "Key is too short, it should have at least 32 characters."
+#~ msgstr "Kľúč je príliš krátky, mal by mať aspoň 32 znakov."
+
+#~ msgid "Key should contain letters, numbers [em]and[/em] special characters."
+#~ msgstr "Kľúč by mal obsahovať písmená, čísla [em] a [/em] špeciálne znaky."
+
+#~ msgid ""
+#~ "The configuration file now needs a secret passphrase (blowfish_secret)."
+#~ msgstr ""
+#~ "Nastavte prosím kľúč pre šifrovanie cookies v konfiguračnom súbore "
+#~ "(blowfish_secret)."
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "The secret passphrase in configuration (blowfish_secret) is too short."
+#~ msgid ""
+#~ "The secret passphrase in configuration (blowfish_secret) is not the "
+#~ "correct length. It should be %d bytes long."
+#~ msgstr "Tajné heslo v konfigurácii (blowfish_secret) je príliš krátke."
 
 #~ msgid "Configuration saved."
 #~ msgstr "Konfigurácia bola uložená."
