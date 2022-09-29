@@ -58,7 +58,7 @@ while [ $# -gt 0 ] ; do
                 git branch ci
                 branch="ci"
             fi
-            version="ci"
+            version="${VERSION_SERIES}+ci"
             ;;
         --help)
             echo "Usages:"
