@@ -27,6 +27,7 @@ class OperationsControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->loadContainerBuilder();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

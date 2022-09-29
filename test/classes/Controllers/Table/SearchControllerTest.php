@@ -138,6 +138,7 @@ class SearchControllerTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
+        $this->loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
         parent::loadResponseIntoContainerBuilder();
 

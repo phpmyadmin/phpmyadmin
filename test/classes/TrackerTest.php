@@ -23,6 +23,7 @@ class TrackerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->loadContainerBuilder();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         parent::loadDbiIntoContainerBuilder();
 
