@@ -11,17 +11,17 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function function_exists;
 use function htmlspecialchars;
-use function implode;
 use function ini_get;
-use function preg_match;
+use function is_string;
+use function mb_strlen;
+use function sodium_crypto_secretbox_keygen;
 use function sprintf;
-use function strlen;
+
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
  * Performs various compatibility, security and consistency checks on current config
@@ -247,9 +247,12 @@ class ServerConfigChecks
         $cookieAuthServer,
         $blowfishSecretSet
     ): array {
-        if ($cookieAuthServer && $blowfishSecret === null) {
+        if (
+            $cookieAuthServer
+            && (! is_string($blowfishSecret) || mb_strlen($blowfishSecret, '8bit') !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES)
+        ) {
             $blowfishSecretSet = true;
-            $this->cfg->set('blowfish_secret', Util::generateRandom(32));
+            $this->cfg->set('blowfish_secret', sodium_crypto_secretbox_keygen());
         }
 
         return [
@@ -345,55 +348,21 @@ class ServerConfigChecks
     ): void {
         // $cfg['blowfish_secret']
         // it's required for 'cookie' authentication
-        if (! $cookieAuthUsed) {
+        if (! $cookieAuthUsed || ! $blowfishSecretSet) {
             return;
         }
 
-        if ($blowfishSecretSet) {
-            // 'cookie' auth used, blowfish_secret was generated
-            SetupIndex::messagesSet(
-                'notice',
-                'blowfish_secret_created',
-                Descriptions::get('blowfish_secret'),
-                Sanitize::sanitizeMessage(__(
-                    'You didn\'t have blowfish secret set and have enabled '
-                    . '[kbd]cookie[/kbd] authentication, so a key was automatically '
-                    . 'generated for you. It is used to encrypt cookies; you don\'t need to '
-                    . 'remember it.'
-                ))
-            );
-
-            return;
-        }
-
-        $blowfishWarnings = [];
-        // check length
-        if (strlen($blowfishSecret) < 32) {
-            // too short key
-            $blowfishWarnings[] = __('Key is too short, it should have at least 32 characters.');
-        }
-
-        // check used characters
-        $hasDigits = (bool) preg_match('/\d/', $blowfishSecret);
-        $hasChars = (bool) preg_match('/\S/', $blowfishSecret);
-        $hasNonword = (bool) preg_match('/\W/', $blowfishSecret);
-        if (! $hasDigits || ! $hasChars || ! $hasNonword) {
-            $blowfishWarnings[] = Sanitize::sanitizeMessage(
-                __(
-                    'Key should contain letters, numbers [em]and[/em] special characters.'
-                )
-            );
-        }
-
-        if (empty($blowfishWarnings)) {
-            return;
-        }
-
+        // 'cookie' auth used, blowfish_secret was generated
         SetupIndex::messagesSet(
-            'error',
-            'blowfish_warnings' . count($blowfishWarnings),
+            'notice',
+            'blowfish_secret_created',
             Descriptions::get('blowfish_secret'),
-            implode('<br>', $blowfishWarnings)
+            Sanitize::sanitizeMessage(__(
+                'You didn\'t have blowfish secret set and have enabled '
+                . '[kbd]cookie[/kbd] authentication, so a key was automatically '
+                . 'generated for you. It is used to encrypt cookies; you don\'t need to '
+                . 'remember it.'
+            ))
         );
     }
 

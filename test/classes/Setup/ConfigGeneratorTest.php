@@ -10,6 +10,13 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use ReflectionClass;
 
+use function explode;
+use function hex2bin;
+use function mb_strlen;
+use function str_repeat;
+
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
+
 /**
  * @covers \PhpMyAdmin\Setup\ConfigGenerator
  */
@@ -113,6 +120,29 @@ class ConfigGeneratorTest extends AbstractTestCase
                 "\n"
             )
         );
+    }
+
+    public function testGetVarExportForBlowfishSecret(): void
+    {
+        $reflection = new ReflectionClass(ConfigGenerator::class);
+        $method = $reflection->getMethod('getVarExport');
+        $method->setAccessible(true);
+
+        $this->assertEquals(
+            '$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\''
+            . '6161616161616161616161616161616161616161616161616161616161616161\');' . "\n",
+            $method->invoke(null, 'blowfish_secret', str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES), "\n")
+        );
+
+        /** @var string $actual */
+        $actual = $method->invoke(null, 'blowfish_secret', 'invalid secret', "\n");
+        $this->assertStringStartsWith('$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\'', $actual);
+        $this->assertStringEndsWith('\');' . "\n", $actual);
+        $pieces = explode('\'', $actual);
+        $this->assertCount(5, $pieces);
+        $binaryString = hex2bin($pieces[3]);
+        $this->assertIsString($binaryString);
+        $this->assertSame(SODIUM_CRYPTO_SECRETBOX_KEYBYTES, mb_strlen($binaryString, '8bit'));
     }
 
     /**

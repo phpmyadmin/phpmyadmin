@@ -7146,6 +7146,11 @@ parameters:
 			path: libraries/classes/Setup/ConfigGenerator.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getBlowfishSecretKey\\(\\) should return non\\-empty\\-string but returns string\\.$#"
+			count: 2
+			path: libraries/classes/Setup/ConfigGenerator.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getServerPart\\(\\) has parameter \\$servers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Setup/ConfigGenerator.php

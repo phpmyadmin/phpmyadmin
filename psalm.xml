@@ -42,6 +42,7 @@
                 AllowThirdPartyFraming: bool|'sameorigin',
                 ArbitraryServerRegexp: string,
                 AvailableCharsets: string[],
+                blowfish_secret: string,
                 BrowseMarkerEnable: bool,
                 BrowsePointerEnable: bool,
                 BrowseMIME: bool,
