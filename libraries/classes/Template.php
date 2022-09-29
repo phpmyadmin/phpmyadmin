@@ -63,8 +63,6 @@ class Template
 
     public static function getTwigEnvironment(?string $cacheDir): Environment
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
-
         /* Twig expects false when cache is not configured */
         if ($cacheDir === null) {
             $cacheDir = false;
@@ -76,7 +74,7 @@ class Template
             'cache' => $cacheDir,
         ]);
 
-        $twig->addRuntimeLoader(new ContainerRuntimeLoader($GLOBALS['containerBuilder']));
+        $twig->addRuntimeLoader(new ContainerRuntimeLoader(Core::getContainerBuilder()));
 
         if (is_array($GLOBALS['cfg']) && ($GLOBALS['cfg']['environment'] ?? '') === 'development') {
             $twig->enableDebug();

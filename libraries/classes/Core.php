@@ -963,11 +963,13 @@ class Core
         return hash_equals($hmac, $signature);
     }
 
-    /**
-     * Get the container builder
-     */
     public static function getContainerBuilder(): ContainerBuilder
     {
+        $containerBuilder = $GLOBALS['containerBuilder'] ?? null;
+        if ($containerBuilder instanceof ContainerBuilder) {
+            return $containerBuilder;
+        }
+
         $containerBuilder = new ContainerBuilder();
         $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'libraries'));
         $loader->load('services_loader.php');

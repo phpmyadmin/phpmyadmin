@@ -13245,12 +13245,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Template.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$GLOBALS['containerBuilder']</code>
-    </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$GLOBALS['cfg']['environment']</code>
-    </PossiblyUndefinedArrayOffset>
     <RedundantCondition occurrences="1">
       <code>is_array($GLOBALS['cfg'])</code>
     </RedundantCondition>
