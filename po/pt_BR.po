@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-06-23 22:58+0000\n"
-"Last-Translator: Leonardo José de Lima Ferrucci <leojau@gmail.com>\n"
+"PO-Revision-Date: 2022-09-30 18:54+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3254,7 +3254,7 @@ msgstr "Tempo máximo de execução"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Usar a instrução [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -3444,10 +3444,8 @@ msgid "Remember filename template"
 msgstr "Lembrar do nome de arquivo do modelo"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Remover colunas da lista central"
+msgstr "Remover a cláusula DEFINER das definições"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5372,6 +5370,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"O arquivo de configuração precisa de uma chave válida para a criptografia de "
+"cookie. Uma chave temporária foi gerada automaticamente para você. Por "
+"favor, consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:328
 #, php-format
@@ -5380,6 +5381,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"A chave de criptografia de cookie no arquivo de configuração é mais longa do "
+"que o necessário. Deve ter apenas %d bytes. Por favor, consulte a "
+"[doc@cfg_blowfish_secret]documentação[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:346
 msgid ""
@@ -7555,6 +7559,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Você não pode abrir, salvar ou excluir o layout da sua página, pois o "
+"IndexedDB não está funcionando em seu navegador e seu armazenamento de "
+"configuração do phpMyAdmin não está configurado para isso."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, php-format
@@ -8557,7 +8564,7 @@ msgstr "Nome de tabela inválido"
 #: libraries/classes/Controllers/Table/GetFieldController.php:72
 #: libraries/classes/Controllers/Transformation/WrapperController.php:103
 msgid "There is an issue with your request."
-msgstr "Existe um problema com a sua requisição."
+msgstr "Há um problema com sua solicitação."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
@@ -8909,10 +8916,10 @@ msgid ""
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
-"favor verifique sua configuração em [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. O phpMyAdmin está atualmente usando o fuso horário "
-"padrão do servidor."
+"Não foi possível usar o fuso horário \"%1$s\" para o servidor %2$d. Por "
+"favor, verifique sua configuração em relação a "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está "
+"atualmente usando o fuso horário padrão do servidor de banco de dados."
 
 #: libraries/classes/DatabaseInterface.php:1175
 msgid "Failed to set configured collation connection!"
@@ -15881,7 +15888,7 @@ msgstr "Aviso"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "Nota"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
@@ -16369,7 +16376,7 @@ msgstr "View:"
 
 #: templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
-msgstr ""
+msgstr "Voltar"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -18179,7 +18186,7 @@ msgstr "Adicionar novo servidor"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Algo deu errado."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
