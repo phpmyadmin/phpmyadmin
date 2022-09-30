@@ -1414,6 +1414,10 @@ class Util
         }
 
         if ($compressed) {
+            // With InnoDB page compression, multiple compression algorithms are supported.
+            // In contrast, with InnoDB's COMPRESSED row format, zlib is the only supported compression algorithm.
+            // This means that the COMPRESSED row format has less compression options than InnoDB page compression does.
+            // @see https://mariadb.com/kb/en/innodb-page-compression/#comparison-with-the-compressed-row-format
             $attribute = 'COMPRESSED=zlib';
         }
 
