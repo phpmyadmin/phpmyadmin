@@ -11,6 +11,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidIdentifierName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -46,7 +47,18 @@ class PrivilegesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        try {
+            $db = DatabaseName::fromValue($request->getParam('db'));
+            $table = TableName::fromValue($request->getParam('table'));
+            if ($this->dbi->getLowerCaseNames() === '1') {
+                $db = DatabaseName::fromValue(mb_strtolower($db->getName()));
+                $table = TableName::fromValue(mb_strtolower($table->getName()));
+            }
+        } catch (InvalidIdentifierName $exception) {
+            $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
+
+            return;
+        }
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
@@ -79,13 +91,6 @@ class PrivilegesController extends AbstractController
         }
 
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
-
-        $db = DatabaseName::fromValue($GLOBALS['db']);
-        $table = TableName::fromValue($GLOBALS['table']);
-        if ($this->dbi->getLowerCaseNames() === '1') {
-            $db = DatabaseName::fromValue(mb_strtolower($GLOBALS['db']));
-            $table = TableName::fromValue(mb_strtolower($GLOBALS['table']));
-        }
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {

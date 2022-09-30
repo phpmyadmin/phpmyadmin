@@ -65,13 +65,18 @@ class PrivilegesControllerTest extends AbstractTestCase
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParam')->willReturnMap([
+            ['db', null, 'test_db'],
+        ]);
+
         $response = new ResponseRenderer();
         (new PrivilegesController(
             $response,
             new Template(),
             $serverPrivileges,
             $GLOBALS['dbi']
-        ))($this->createStub(ServerRequest::class));
+        ))($request);
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -111,5 +116,25 @@ class PrivilegesControllerTest extends AbstractTestCase
             _pgettext('Create new user', 'New'),
             $actual
         );
+    }
+
+    public function testWithInvalidDatabaseName(): void
+    {
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParam')->willReturnMap([
+            ['db', null, ''],
+        ]);
+
+        $response = new ResponseRenderer();
+        (new PrivilegesController(
+            $response,
+            new Template(),
+            $this->createStub(Privileges::class),
+            $this->createDatabaseInterface()
+        ))($request);
+        $actual = $response->getHTMLResult();
+
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
+        $this->assertStringContainsString('The database name must be a non-empty string.', $actual);
     }
 }
