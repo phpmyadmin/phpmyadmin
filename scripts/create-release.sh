@@ -58,7 +58,7 @@ while [ $# -gt 0 ] ; do
                 git branch ci
                 branch="ci"
             fi
-            version="ci"
+            version="${VERSION_SERIES}+ci"
             ;;
         --help)
             echo "Usages:"
@@ -302,6 +302,42 @@ security_checkup() {
     fi
 }
 
+autoload_checkup() {
+    php <<'CODE'
+<?php
+
+$classMapFiles = require __DIR__ . '/vendor/composer/autoload_classmap.php';
+
+$foundFiles = 0;
+$notFoundFiles = 0;
+
+foreach ($classMapFiles as $classMapFile) {
+        if (! file_exists($classMapFile)) {
+            echo 'Does not exist: ' . $classMapFile . PHP_EOL;
+            $notFoundFiles++;
+            continue;
+        }
+        $foundFiles++;
+}
+
+echo '[autoload class map checkup] Found files: ' . $foundFiles . PHP_EOL;
+echo '[autoload class map checkup] NOT found files: ' . $notFoundFiles . PHP_EOL;
+$minFilesToHave = 1100;// An arbitrary value based on how many files the autoload has on average
+
+if ($foundFiles < $minFilesToHave) {
+    echo '[autoload class map checkup] The project expects at least ' . $minFilesToHave . ' in the autoload class map' . PHP_EOL;
+    exit(1);
+}
+
+if ($notFoundFiles > 0) {
+    echo '[autoload class map checkup] There is some missing files documented in the class map' . PHP_EOL;
+    exit(1);
+}
+echo '[autoload class map checkup] The autoload class map seems okay' . PHP_EOL;
+CODE
+
+}
+
 # Ensure we have tracking branch
 ensure_local_branch $branch
 
@@ -449,6 +485,10 @@ if [ -z "$PHP_REQ" ] ; then
     echo "Failed to figure out required PHP version from composer.json"
     exit 2
 fi
+
+echo "* Writing the version to composer.json (version: $version)"
+composer config version "$version"
+
 # Okay, there is no way to tell composer to install
 # suggested package. Let's require it and then revert
 # composer.json to original state.
@@ -456,7 +496,7 @@ cp composer.json composer.json.backup
 COMPOSER_VERSION="$(composer --version)"
 echo "* Running composer (version: $COMPOSER_VERSION)"
 composer config platform.php "$PHP_REQ"
-composer update --no-interaction --no-dev --optimize-autoloader
+composer update --no-interaction --no-dev
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
@@ -470,7 +510,7 @@ done
 
 echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
-composer require --no-interaction --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
+composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
 security_checkup
@@ -478,6 +518,15 @@ security_checkup
 echo "* Cleaning up vendor folders"
 mv composer.json.backup composer.json
 cleanup_composer_vendors
+
+echo "* Re-generating the autoload class map"
+# https://getcomposer.org/doc/articles/autoloader-optimization.md#what-does-it-do-
+# We removed some files, we also need that composer removes them from autoload class maps
+# If the class is in the class map (as explained in the link above) then it is assumed to exist as a file
+composer dump-autoload --no-interaction --optimize --dev
+
+echo "* Running an autoload checkup"
+autoload_checkup
 
 echo "* Running a security checkup"
 security_checkup
