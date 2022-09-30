@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - issue #17734 PHP deprecations will only be shown when in a development environment
 - issue #17369 Fix server error when blowfish_secret is not exactly 32 bytes long
 - issue #17736 Add utf8mb3 as an alias of utf8 on the charset description page
+- issue #16418 Fix FAQ 1.44 about manually removing vendor folders
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
