@@ -737,6 +737,21 @@ class UtilTest extends AbstractTestCase
                     'displayed_type' => 'varbinary(255)',
                 ],
             ],
+            [
+                'varchar(11) /*!100301 COMPRESSED*/',
+                [
+                    'type' => 'varchar',
+                    'print_type' => 'varchar(11)',
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => '11',
+                    'enum_set_values' => [],
+                    'attribute' => 'COMPRESSED=zlib',
+                    'can_contain_collation' => true,
+                    'displayed_type' => 'varchar(11)',
+                ],
+            ],
         ];
     }
 

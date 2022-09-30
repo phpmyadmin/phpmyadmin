@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Compatibility;
+
 use function __;
 use function _pgettext;
 use function array_diff;
@@ -713,13 +715,21 @@ class Types
      */
     public function getAttributes()
     {
-        return [
+        $serverVersion = $this->dbi->getVersion();
+
+        $attributes = [
             '',
             'BINARY',
             'UNSIGNED',
             'UNSIGNED ZEROFILL',
             'on update CURRENT_TIMESTAMP',
         ];
+
+        if (Compatibility::supportsCompressedColumns($serverVersion)) {
+            $attributes[] = 'COMPRESSED=zlib';
+        }
+
+        return $attributes;
     }
 
     /**
