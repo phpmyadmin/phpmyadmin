@@ -19,11 +19,10 @@ final class UrlRedirector
      */
     public static function redirect(): void
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
-
         // Load database service because services.php is not available here
         $GLOBALS['dbi'] = DatabaseInterface::load();
-        $GLOBALS['containerBuilder']->set(DatabaseInterface::class, $GLOBALS['dbi']);
+        $container = Core::getContainerBuilder();
+        $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
 
         // Only output the http headers
         $response = ResponseRenderer::getInstance();
@@ -46,7 +45,7 @@ final class UrlRedirector
          *
          * @var Template $template
          */
-        $template = $GLOBALS['containerBuilder']->get('template');
+        $template = $container->get('template');
         echo $template->render('javascript/redirect', [
             'url' => Sanitize::escapeJsString((string) $_GET['url']),
         ]);

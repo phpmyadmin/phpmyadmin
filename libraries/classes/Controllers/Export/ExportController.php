@@ -48,7 +48,6 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
         $GLOBALS['export_type'] = $GLOBALS['export_type'] ?? null;
         $GLOBALS['filename_template'] = $GLOBALS['filename_template'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -335,7 +334,7 @@ final class ExportController extends AbstractController
                         );
                         $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
                         /** @var DatabaseExportController $controller */
-                        $controller = $GLOBALS['containerBuilder']->get(DatabaseExportController::class);
+                        $controller = Core::getContainerBuilder()->get(DatabaseExportController::class);
                         $controller($request);
                         exit;
                     }

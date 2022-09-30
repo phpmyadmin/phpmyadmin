@@ -13,7 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\RecentFavoriteController
@@ -52,7 +52,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $controller = $this->createMock(SqlController::class);
         $controller->expects($this->once())->method('__invoke');
 
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createMock(ContainerBuilder::class);
         $container->expects($this->once())->method('get')->with(SqlController::class)->willReturn($controller);
         $GLOBALS['containerBuilder'] = $container;
 
@@ -87,7 +87,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $controller = $this->createMock(SqlController::class);
         $controller->expects($this->once())->method('__invoke');
 
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createMock(ContainerBuilder::class);
         $container->expects($this->once())->method('get')->with(SqlController::class)->willReturn($controller);
         $GLOBALS['containerBuilder'] = $container;
 

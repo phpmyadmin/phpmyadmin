@@ -22,7 +22,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
@@ -136,7 +136,7 @@ class ReplaceControllerTest extends AbstractTestCase
             new CheckUserPrivileges($dbi),
             $dbi
         );
-        $GLOBALS['containerBuilder'] = $this->createStub(ContainerInterface::class);
+        $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
         $GLOBALS['containerBuilder']->method('get')->willReturn($sqlController);
 
         $GLOBALS['goto'] = 'index.php?route=/sql';
@@ -181,7 +181,7 @@ class ReplaceControllerTest extends AbstractTestCase
 
         $request = $this->createStub(ServerRequest::class);
         $changeController = new ChangeController($response, $template, $insertEdit, $relation);
-        $GLOBALS['containerBuilder'] = $this->createStub(ContainerInterface::class);
+        $GLOBALS['containerBuilder'] = $this->createStub(ContainerBuilder::class);
         $GLOBALS['containerBuilder']->method('get')->willReturn($changeController);
 
         $dummyDbi->addSelectDb('my_db');

@@ -1078,13 +1078,12 @@ class Export
     public function showPage(string $exportType): void
     {
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
         $request = Common::getRequest();
-
+        $container = Core::getContainerBuilder();
         if ($exportType === 'server') {
             $GLOBALS['active_page'] = Url::getFromRoute('/server/export');
             /** @var ServerExportController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(ServerExportController::class);
+            $controller = $container->get(ServerExportController::class);
             $controller($request);
 
             return;
@@ -1093,7 +1092,7 @@ class Export
         if ($exportType === 'database') {
             $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
             /** @var DatabaseExportController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(DatabaseExportController::class);
+            $controller = $container->get(DatabaseExportController::class);
             $controller($request);
 
             return;
@@ -1101,7 +1100,7 @@ class Export
 
         $GLOBALS['active_page'] = Url::getFromRoute('/table/export');
         /** @var TableExportController $controller */
-        $controller = $GLOBALS['containerBuilder']->get(TableExportController::class);
+        $controller = $container->get(TableExportController::class);
         $controller($request);
     }
 

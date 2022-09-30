@@ -82,7 +82,6 @@ final class Common
      */
     public static function run(): void
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
         $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;

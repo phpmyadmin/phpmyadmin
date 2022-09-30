@@ -68,13 +68,13 @@ class Plugins
         }
 
         if ($type === 'export') {
-            /**
-             * @psalm-suppress InvalidArrayOffset, MixedAssignment, MixedMethodCall
-             */
+            $container = Core::getContainerBuilder();
+
+            /** @psalm-suppress MixedMethodCall */
             return new $class(
-                $GLOBALS['containerBuilder']->get('relation'),
-                $GLOBALS['containerBuilder']->get('export'),
-                $GLOBALS['containerBuilder']->get('transformations')
+                $container->get('relation'),
+                $container->get('export'),
+                $container->get('transformations')
             );
         }
 
@@ -157,10 +157,11 @@ class Plugins
             }
 
             if ($type === 'Export' && is_subclass_of($class, ExportPlugin::class)) {
+                $container = Core::getContainerBuilder();
                 $plugins[] = new $class(
-                    $GLOBALS['containerBuilder']->get('relation'),
-                    $GLOBALS['containerBuilder']->get('export'),
-                    $GLOBALS['containerBuilder']->get('transformations')
+                    $container->get('relation'),
+                    $container->get('export'),
+                    $container->get('transformations')
                 );
             } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {
                 $plugins[] = new $class();

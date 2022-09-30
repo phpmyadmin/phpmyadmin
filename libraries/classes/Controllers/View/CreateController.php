@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\View;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -59,7 +60,6 @@ class CreateController extends AbstractController
         $GLOBALS['column_map'] = $GLOBALS['column_map'] ?? null;
         $GLOBALS['systemDb'] = $GLOBALS['systemDb'] ?? null;
         $GLOBALS['pma_transformation_data'] = $GLOBALS['pma_transformation_data'] ?? null;
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
         $GLOBALS['new_transformations_sql'] = $GLOBALS['new_transformations_sql'] ?? null;
         $GLOBALS['view'] = $GLOBALS['view'] ?? null;
         $GLOBALS['item'] = $GLOBALS['item'] ?? null;
@@ -204,7 +204,7 @@ class CreateController extends AbstractController
             if (! isset($_POST['ajax_dialog'])) {
                 $GLOBALS['message'] = Message::success();
                 /** @var StructureController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(StructureController::class);
+                $controller = Core::getContainerBuilder()->get(StructureController::class);
                 $controller($request);
             } else {
                 $this->response->addJSON(

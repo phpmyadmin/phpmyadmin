@@ -70,7 +70,6 @@ final class ReplaceController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $this->checkParameters(['db', 'table', 'goto']);
@@ -95,7 +94,7 @@ final class ReplaceController extends AbstractController
             ]);
             $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
             /** @var ChangeController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
+            $controller = Core::getContainerBuilder()->get(ChangeController::class);
             $controller($request);
 
             return;
@@ -503,10 +502,10 @@ final class ReplaceController extends AbstractController
     private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): void
     {
         $GLOBALS['active_page'] = $gotoInclude;
-
+        $container = Core::getContainerBuilder();
         if ($gotoInclude === '/sql') {
             /** @var SqlController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
+            $controller = $container->get(SqlController::class);
             $controller($request);
 
             return;
@@ -514,7 +513,7 @@ final class ReplaceController extends AbstractController
 
         if ($gotoInclude === '/database/sql') {
             /** @var DatabaseSqlController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(DatabaseSqlController::class);
+            $controller = $container->get(DatabaseSqlController::class);
             $controller($request);
 
             return;
@@ -522,7 +521,7 @@ final class ReplaceController extends AbstractController
 
         if ($gotoInclude === '/table/change') {
             /** @var ChangeController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(ChangeController::class);
+            $controller = $container->get(ChangeController::class);
             $controller($request);
 
             return;
@@ -530,7 +529,7 @@ final class ReplaceController extends AbstractController
 
         if ($gotoInclude === '/table/sql') {
             /** @var TableSqlController $controller */
-            $controller = $GLOBALS['containerBuilder']->get(TableSqlController::class);
+            $controller = $container->get(TableSqlController::class);
             $controller($request);
 
             return;

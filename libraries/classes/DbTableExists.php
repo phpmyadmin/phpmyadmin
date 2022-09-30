@@ -70,8 +70,6 @@ final class DbTableExists
 
     private static function checkTable(string $db, string $table, bool $isTransformationWrapper): void
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
-
         if (! empty($GLOBALS['is_table']) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
             return;
         }
@@ -109,7 +107,7 @@ final class DbTableExists
         }
 
         /** @var SqlController $controller */
-        $controller = $GLOBALS['containerBuilder']->get(SqlController::class);
+        $controller = Core::getContainerBuilder()->get(SqlController::class);
         $controller(Common::getRequest());
 
         exit;
