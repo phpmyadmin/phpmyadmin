@@ -13,8 +13,10 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
@@ -1251,16 +1253,13 @@ class Privileges
     }
 
     /**
-     * @param string $db    database name
-     * @param string $table table name
-     *
      * @return array
      */
-    public function getAllPrivileges(string $db, string $table = ''): array
+    public function getAllPrivileges(DatabaseName $db, ?TableName $table = null): array
     {
         $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);
         $tablePrivileges = [];
-        if ($table !== '') {
+        if ($table !== null) {
             $tablePrivileges = $this->getTablePrivileges($db, $table);
         }
 
@@ -1322,11 +1321,9 @@ class Privileges
     }
 
     /**
-     * @param string $db database name
-     *
      * @return array
      */
-    private function getGlobalAndDatabasePrivileges(string $db): array
+    private function getGlobalAndDatabasePrivileges(DatabaseName $db): array
     {
         $listOfPrivileges = '`Select_priv`,
             `Insert_priv`,
@@ -1376,7 +1373,8 @@ class Privileges
             (
                 SELECT `User`, `Host`, ' . $listOfPrivileges . ' `Db`, \'d\' AS `Type`
                 FROM `mysql`.`db`
-                WHERE \'' . $this->dbi->escapeString($db) . '\' LIKE `Db` AND NOT (' . $listOfComparedPrivileges . ')
+                WHERE \'' . $this->dbi->escapeString($db->getName()) . '\' LIKE `Db` AND NOT ('
+                . $listOfComparedPrivileges . ')
             )
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC;
         ';
@@ -1386,12 +1384,9 @@ class Privileges
     }
 
     /**
-     * @param string $db    database name
-     * @param string $table table name
-     *
      * @return array
      */
-    private function getTablePrivileges(string $db, string $table): array
+    private function getTablePrivileges(DatabaseName $db, TableName $table): array
     {
         $query = '
             SELECT `User`, `Host`, `Db`, \'t\' AS `Type`, `Table_name`, `Table_priv`
@@ -1414,16 +1409,14 @@ class Privileges
     }
 
     /**
-     * @param string $db database name
-     *
      * @return array
      */
-    private function getRoutinesPrivileges(string $db): array
+    private function getRoutinesPrivileges(DatabaseName $db): array
     {
         $query = '
             SELECT *, \'r\' AS `Type`
             FROM `mysql`.`procs_priv`
-            WHERE Db = \'' . $this->dbi->escapeString($db) . '\';
+            WHERE Db = \'' . $this->dbi->escapeString($db->getName()) . '\';
         ';
         $result = $this->dbi->query($query);
 

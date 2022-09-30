@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -78,11 +80,11 @@ class PrivilegesController extends AbstractController
 
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
 
-        $db = $GLOBALS['db'];
-        $table = $GLOBALS['table'];
+        $db = DatabaseName::fromValue($GLOBALS['db']);
+        $table = TableName::fromValue($GLOBALS['table']);
         if ($this->dbi->getLowerCaseNames() === '1') {
-            $db = mb_strtolower($GLOBALS['db']);
-            $table = mb_strtolower($GLOBALS['table']);
+            $db = DatabaseName::fromValue(mb_strtolower($GLOBALS['db']));
+            $table = TableName::fromValue(mb_strtolower($GLOBALS['table']));
         }
 
         $privileges = [];
@@ -91,8 +93,8 @@ class PrivilegesController extends AbstractController
         }
 
         $this->render('table/privileges/index', [
-            'db' => $db,
-            'table' => $table,
+            'db' => $db->getName(),
+            'table' => $table->getName(),
             'is_superuser' => $this->dbi->isSuperUser(),
             'table_url' => $scriptName,
             'text_dir' => $GLOBALS['text_dir'],

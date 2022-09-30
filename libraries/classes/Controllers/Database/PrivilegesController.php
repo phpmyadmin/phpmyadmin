@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -97,9 +98,9 @@ class PrivilegesController extends AbstractController
 
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
 
-        $db = $GLOBALS['db'];
+        $db = DatabaseName::fromValue($GLOBALS['db']);
         if ($this->dbi->getLowerCaseNames() === '1') {
-            $db = mb_strtolower($GLOBALS['db']);
+            $db = DatabaseName::fromValue(mb_strtolower($GLOBALS['db']));
         }
 
         $privileges = [];
@@ -109,7 +110,7 @@ class PrivilegesController extends AbstractController
 
         $this->render('database/privileges/index', [
             'is_superuser' => $this->dbi->isSuperUser(),
-            'db' => $db,
+            'db' => $db->getName(),
             'database_url' => $scriptName,
             'text_dir' => $GLOBALS['text_dir'],
             'is_createuser' => $this->dbi->isCreateUser(),
