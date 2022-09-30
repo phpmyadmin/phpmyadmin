@@ -45,11 +45,20 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
+        js/global.d.ts)
+        ;;
         js/vendor/*)
             if [ \
                 "${extension}" != "js" -a "${extension}" != "map" \
                 -a "${extension}" != "css" -a "${filename}" != "LICENSE" \
                 -a "${extension}" != "txt" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        js/dist/*)
+            if [ \
+                "${extension}" != "js" -a "${extension}" != "map" \
             ]; then
                 foundFileExt
             fi
@@ -171,7 +180,9 @@ validateExtension() {
         ;;
         favicon.ico)
         ;;
-        webpack.config.js)
+        tsconfig.json)
+        ;;
+        webpack.config.cjs)
         ;;
         package.json)
         ;;
