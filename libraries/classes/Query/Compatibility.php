@@ -214,6 +214,20 @@ class Compatibility
     }
 
     /**
+     * Returns whether the database server supports compressed columns
+     */
+    public static function supportsCompressedColumns(int $serverVersion): bool
+    {
+        // @see https://mariadb.com/kb/en/innodb-page-compression/#comment_1992
+        // Comment: Page compression is only available in MariaDB >= 10.1. [...]
+        if (self::isMariaDb()) {
+            return $serverVersion >= 100100;
+        }
+
+        return false;
+    }
+
+    /**
      * @see https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-6.html#mysqld-5-7-6-account-management
      * @see https://mariadb.com/kb/en/mariadb-1042-release-notes/#notable-changes
      *

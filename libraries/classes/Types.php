@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Compatibility;
+
 use function __;
 use function _pgettext;
 use function array_diff;
@@ -724,7 +726,7 @@ class Types
             'on update CURRENT_TIMESTAMP',
         ];
 
-        if ($isMariaDB && $serverVersion >= 100100) {
+        if (Compatibility::supportsCompressedColumns($serverVersion)) {
             $attributes[] = 'COMPRESSED=zlib';
         }
 
