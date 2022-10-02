@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Html\Generator;
 
 use function count;
 use function implode;
@@ -475,8 +475,8 @@ class CreateAddField
      * Function to execute the column creation statement
      *
      * @param DatabaseName $db       current database
-     * @param string $sqlQuery the query to run
-     * @param string $errorUrl error page url
+     * @param string       $sqlQuery the query to run
+     * @param string       $errorUrl error page url
      */
     public function tryColumnCreationQuery(
         DatabaseName $db,
