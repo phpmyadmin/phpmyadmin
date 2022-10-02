@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-09-25 00:23+0000\n"
+"POT-Creation-Date: 2022-10-02 00:28+0000\n"
 "PO-Revision-Date: 2022-05-30 14:15+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1460,25 +1460,25 @@ msgid "Unknown"
 msgstr "Necunoscut"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:501
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Germană (uzuală)"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:498
+#: libraries/classes/Charsets/Collation.php:499
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Germană (literară)"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:576
+#: libraries/classes/Charsets/Collation.php:577
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Spaniolă (tradițională)"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:569
+#: libraries/classes/Charsets/Collation.php:570
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spaniolă (modernă)"
@@ -1529,236 +1529,236 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Binar"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:600
+#: libraries/classes/Charsets/Collation.php:352
+#: libraries/classes/Charsets/Collation.php:601
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicod"
 
-#: libraries/classes/Charsets/Collation.php:361
-#: libraries/classes/Charsets/Collation.php:547
+#: libraries/classes/Charsets/Collation.php:362
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "West European"
 msgstr "Vest European"
 
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:369
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Central European"
 
-#: libraries/classes/Charsets/Collation.php:373
-#: libraries/classes/Charsets/Collation.php:554
+#: libraries/classes/Charsets/Collation.php:374
+#: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusă"
 
-#: libraries/classes/Charsets/Collation.php:378
+#: libraries/classes/Charsets/Collation.php:379
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Chineză simplificată"
 
-#: libraries/classes/Charsets/Collation.php:381
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Chineză tradițională"
 
-#: libraries/classes/Charsets/Collation.php:384
-#: libraries/classes/Charsets/Collation.php:469
+#: libraries/classes/Charsets/Collation.php:385
+#: libraries/classes/Charsets/Collation.php:470
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Chineză"
 
-#: libraries/classes/Charsets/Collation.php:392
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:393
+#: libraries/classes/Charsets/Collation.php:519
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japoneză"
 
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:398
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltică"
 
-#: libraries/classes/Charsets/Collation.php:402
+#: libraries/classes/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armeană"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Chirilică"
 
-#: libraries/classes/Charsets/Collation.php:408
+#: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabă"
 
-#: libraries/classes/Charsets/Collation.php:411
-#: libraries/classes/Charsets/Collation.php:533
+#: libraries/classes/Charsets/Collation.php:412
+#: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Coreeană"
 
-#: libraries/classes/Charsets/Collation.php:414
+#: libraries/classes/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Ebraică"
 
-#: libraries/classes/Charsets/Collation.php:417
+#: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgiană"
 
-#: libraries/classes/Charsets/Collation.php:420
+#: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Greacă"
 
-#: libraries/classes/Charsets/Collation.php:423
+#: libraries/classes/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cehoslovacă"
 
-#: libraries/classes/Charsets/Collation.php:426
-#: libraries/classes/Charsets/Collation.php:592
+#: libraries/classes/Charsets/Collation.php:427
+#: libraries/classes/Charsets/Collation.php:593
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ucraineană"
 
-#: libraries/classes/Charsets/Collation.php:429
-#: libraries/classes/Charsets/Collation.php:588
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:589
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turcă"
 
-#: libraries/classes/Charsets/Collation.php:432
-#: libraries/classes/Charsets/Collation.php:580
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:581
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Suedeză"
 
-#: libraries/classes/Charsets/Collation.php:435
-#: libraries/classes/Charsets/Collation.php:584
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:585
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thailandeză"
 
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:439
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Necunoscută"
 
-#: libraries/classes/Charsets/Collation.php:463
+#: libraries/classes/Charsets/Collation.php:464
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgară"
 
-#: libraries/classes/Charsets/Collation.php:475
+#: libraries/classes/Charsets/Collation.php:476
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Croată"
 
-#: libraries/classes/Charsets/Collation.php:479
+#: libraries/classes/Charsets/Collation.php:480
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Cehă"
 
-#: libraries/classes/Charsets/Collation.php:483
+#: libraries/classes/Charsets/Collation.php:484
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Daneză"
 
-#: libraries/classes/Charsets/Collation.php:487
+#: libraries/classes/Charsets/Collation.php:488
 msgctxt "Collation"
 msgid "English"
 msgstr "Engleză"
 
-#: libraries/classes/Charsets/Collation.php:491
+#: libraries/classes/Charsets/Collation.php:492
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:495
+#: libraries/classes/Charsets/Collation.php:496
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estoniană"
 
-#: libraries/classes/Charsets/Collation.php:510
+#: libraries/classes/Charsets/Collation.php:511
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maghiară"
 
-#: libraries/classes/Charsets/Collation.php:514
+#: libraries/classes/Charsets/Collation.php:515
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandeză"
 
-#: libraries/classes/Charsets/Collation.php:521
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Latină clasică"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:526
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Letonă"
 
-#: libraries/classes/Charsets/Collation.php:529
+#: libraries/classes/Charsets/Collation.php:530
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lituaniană"
 
-#: libraries/classes/Charsets/Collation.php:537
+#: libraries/classes/Charsets/Collation.php:538
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birmaneză"
 
-#: libraries/classes/Charsets/Collation.php:540
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persană"
 
-#: libraries/classes/Charsets/Collation.php:544
+#: libraries/classes/Charsets/Collation.php:545
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poloneză"
 
-#: libraries/classes/Charsets/Collation.php:551
+#: libraries/classes/Charsets/Collation.php:552
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Română"
 
-#: libraries/classes/Charsets/Collation.php:558
+#: libraries/classes/Charsets/Collation.php:559
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Singaleză"
 
-#: libraries/classes/Charsets/Collation.php:562
+#: libraries/classes/Charsets/Collation.php:563
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovacă"
 
-#: libraries/classes/Charsets/Collation.php:566
+#: libraries/classes/Charsets/Collation.php:567
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovenă"
 
-#: libraries/classes/Charsets/Collation.php:596
+#: libraries/classes/Charsets/Collation.php:597
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnameză"
 
-#: libraries/classes/Common.php:264
+#: libraries/classes/Common.php:263
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Ar trebui să actualizezi %s %s sau ulterioară."
 
-#: libraries/classes/Common.php:296
+#: libraries/classes/Common.php:295
 msgid "Error: Token mismatch"
 msgstr "Eroare: tokenul nu se potrivește"
 
-#: libraries/classes/Common.php:507
+#: libraries/classes/Common.php:506
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1766,7 +1766,7 @@ msgstr ""
 "Setarea cookie-urilor de sesiune a eșuat. Probabil folosești HTTP în loc de "
 "HTTPS pentru a accesa phpMyAdmin."
 
-#: libraries/classes/Common.php:557
+#: libraries/classes/Common.php:556
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1775,7 +1775,7 @@ msgstr ""
 "Ai activat mbstring.func_overload în configurarea ta PHP. Această opțiune "
 "este incompatibilă cu phpMyAdmin și ar putea provoca deteriorarea unor date!"
 
-#: libraries/classes/Common.php:574
+#: libraries/classes/Common.php:573
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1783,11 +1783,11 @@ msgstr ""
 "Funcțiile ini_get și/sau ini_set sunt dezactivate în php.ini. phpMyAdmin are "
 "nevoie de aceste funcții!"
 
-#: libraries/classes/Common.php:585
+#: libraries/classes/Common.php:584
 msgid "GLOBALS overwrite attempt"
 msgstr "Încercare suprascriere GLOBALE"
 
-#: libraries/classes/Common.php:595
+#: libraries/classes/Common.php:594
 msgid "possible exploit"
 msgstr "vulnerabilitate potențială"
 
@@ -4378,7 +4378,7 @@ msgid "Explain SQL"
 msgstr "Explică SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1273 libraries/classes/Html/Generator.php:704
+#: libraries/classes/Export.php:1272 libraries/classes/Html/Generator.php:704
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4410,8 +4410,8 @@ msgstr "Rânduri zonă text"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:141
 #: libraries/classes/Plugins/Export/ExportOdt.php:186
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
-#: libraries/classes/Server/Privileges.php:1817
-#: libraries/classes/Server/Privileges.php:1819
+#: libraries/classes/Server/Privileges.php:1810
+#: libraries/classes/Server/Privileges.php:1812
 #: libraries/classes/Server/Status/Processes.php:122
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
@@ -4440,8 +4440,8 @@ msgstr "Server"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:454
-#: libraries/classes/Server/Privileges.php:1823
-#: libraries/classes/Server/Privileges.php:1825
+#: libraries/classes/Server/Privileges.php:1816
+#: libraries/classes/Server/Privileges.php:1818
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4701,7 +4701,7 @@ msgstr "Text OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1505
 #: libraries/classes/Util.php:1868 libraries/classes/Util.php:1883
 #: libraries/classes/Util.php:1900 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4848,7 +4848,7 @@ msgstr ""
 msgid "You allow for connecting to the server without a password."
 msgstr "Permiți conectarea la server fără o parolă."
 
-#: libraries/classes/Config/ServerConfigChecks.php:304
+#: libraries/classes/Config/ServerConfigChecks.php:307
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -4857,7 +4857,7 @@ msgstr ""
 "%sDecompresia Zip%s necesită funcții (%s) care nu sunt disponibile pe acest "
 "sistem."
 
-#: libraries/classes/Config/ServerConfigChecks.php:325
+#: libraries/classes/Config/ServerConfigChecks.php:328
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -4866,23 +4866,14 @@ msgstr ""
 "%sCompresia Zip%s necesită funcții (%s) care nu sunt disponibile pe acest "
 "sistem."
 
-#: libraries/classes/Config/ServerConfigChecks.php:359
+#: libraries/classes/Config/ServerConfigChecks.php:361
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:373
-msgid "Key is too short, it should have at least 32 characters."
-msgstr "Cheia este prea scurtă, ea trebuie să aibă cel puțin 32 de caractere."
-
-#: libraries/classes/Config/ServerConfigChecks.php:383
-msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
-"Cheia ar trebui să conțină litere, numere [em]și[/em] caractere speciale."
-
-#: libraries/classes/Config/ServerConfigChecks.php:416
+#: libraries/classes/Config/ServerConfigChecks.php:385
 #, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -4893,7 +4884,7 @@ msgstr ""
 "decât %3$ssession.gc_maxlifetime%4$s, poate provoca o invalidare aleatorie a "
 "sesiunii (acum session.gc_maxlifetime is %5$d)."
 
-#: libraries/classes/Config/ServerConfigChecks.php:438
+#: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -4903,7 +4894,7 @@ msgstr ""
 "1800 de secunde (30 de minute). Valorile mai mari de 1800 de secunde pot "
 "reprezenta un risc de securitate, cum ar fi impersonalizarea."
 
-#: libraries/classes/Config/ServerConfigChecks.php:464
+#: libraries/classes/Config/ServerConfigChecks.php:433
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
@@ -4914,7 +4905,7 @@ msgstr ""
 "autentificare%s trebuie să fie setată la o valoare mai mică sau egală cu "
 "aceasta."
 
-#: libraries/classes/Config/ServerConfigChecks.php:503
+#: libraries/classes/Config/ServerConfigChecks.php:472
 #, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
@@ -4923,7 +4914,7 @@ msgstr ""
 "%1$sCompresia și decompresia Bzip2%2$s necesită funcții (%3$s) care nu sunt "
 "disponibile pe acest sistem."
 
-#: libraries/classes/Config/ServerConfigChecks.php:534
+#: libraries/classes/Config/ServerConfigChecks.php:503
 #, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
@@ -5098,7 +5089,7 @@ msgstr "Există deja o pagină numită „%s”. Te rog să o redenumești în a
 
 #: libraries/classes/Controllers/Database/ExportController.php:90
 #: libraries/classes/Controllers/Database/TrackingController.php:139
-#: libraries/classes/Controllers/Export/ExportController.php:334
+#: libraries/classes/Controllers/Export/ExportController.php:333
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -5147,16 +5138,16 @@ msgstr ""
 "Spațiul de stocare pentru configurarea phpMyAdmin a fost dezactivat. %sAflă "
 "de ce%s."
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:68
+#: libraries/classes/Controllers/Database/PrivilegesController.php:79
 #: libraries/classes/Controllers/Server/PrivilegesController.php:153
 #: libraries/classes/Controllers/Server/UserGroupsController.php:54
-#: libraries/classes/Controllers/Table/PrivilegesController.php:66
+#: libraries/classes/Controllers/Table/PrivilegesController.php:80
 msgid "No Privileges"
 msgstr "Niciun privilegiu"
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:77
+#: libraries/classes/Controllers/Database/PrivilegesController.php:88
 #: libraries/classes/Controllers/Server/PrivilegesController.php:162
-#: libraries/classes/Controllers/Table/PrivilegesController.php:75
+#: libraries/classes/Controllers/Table/PrivilegesController.php:89
 #, fuzzy
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
@@ -5274,7 +5265,7 @@ msgstr "Da"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
-#: libraries/classes/Controllers/Table/ReplaceController.php:324
+#: libraries/classes/Controllers/Table/ReplaceController.php:323
 #: libraries/classes/Core.php:715 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nicio modificare"
@@ -5334,12 +5325,12 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Poate vrei să reîmprospătezi pagina."
 
-#: libraries/classes/Controllers/Export/ExportController.php:133
-#: libraries/classes/Export.php:1260
+#: libraries/classes/Controllers/Export/ExportController.php:132
+#: libraries/classes/Export.php:1259
 msgid "Bad type!"
 msgstr "Tip incorect!"
 
-#: libraries/classes/Controllers/Export/ExportController.php:225
+#: libraries/classes/Controllers/Export/ExportController.php:224
 msgid "Bad parameters!"
 msgstr "Parametri greșiți!"
 
@@ -5396,22 +5387,22 @@ msgid ""
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:324
-msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
+#: libraries/classes/Controllers/HomeController.php:325
+msgid ""
+"The configuration file needs a valid key for cookie encryption. A temporary "
+"key was automatically generated for you. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"Fișierul de configurare necesită acum o frază de acces secretă "
-"(blowfish_secret)."
 
-#: libraries/classes/Controllers/HomeController.php:332
+#: libraries/classes/Controllers/HomeController.php:335
 #, php-format
 msgid ""
-"The secret passphrase in configuration (blowfish_secret) is not the correct "
-"length. It should be %d bytes long."
+"The cookie encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"Fraza de acces secretă din configurare (blowfish_secret) nu are lungimea "
-"corectă. Ar trebui să aibe o lungime de %d octeți."
 
-#: libraries/classes/Controllers/HomeController.php:349
+#: libraries/classes/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5424,7 +5415,7 @@ msgstr ""
 "serverului tău poate fi compromisă de persoane neautorizate care îți "
 "descarcă configurarea."
 
-#: libraries/classes/Controllers/HomeController.php:370
+#: libraries/classes/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5433,7 +5424,7 @@ msgstr ""
 "Serverul rulează cu Suhosin. Te rog consultă %sdocumentația%s pentru "
 "posibile probleme."
 
-#: libraries/classes/Controllers/HomeController.php:384
+#: libraries/classes/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5442,7 +5433,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) nu este accesibil. phpMyAdmin nu poate memora în cache "
 "șabloane și va fi lent din cauza asta."
 
-#: libraries/classes/Controllers/HomeController.php:441
+#: libraries/classes/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5452,7 +5443,7 @@ msgstr ""
 "caractere multi-octet. Fără extensia mbstring, phpMyAdmin nu poate să "
 "împartă corect șirurile și pot apărea rezultate neașteptate."
 
-#: libraries/classes/Controllers/HomeController.php:459
+#: libraries/classes/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5801,13 +5792,13 @@ msgid "The user name is empty!"
 msgstr "Numele de utilizator este gol!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
-#: libraries/classes/Server/Privileges.php:944
+#: libraries/classes/Server/Privileges.php:946
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "Parola este goală!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Server/Privileges.php:942
+#: libraries/classes/Server/Privileges.php:944
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "Parolele nu sunt identice!"
@@ -6840,7 +6831,7 @@ msgid "No partial dependencies selected!"
 msgstr "Nicio dependență parțială selectată!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Export.php:1313 libraries/classes/Html/Generator.php:977
+#: libraries/classes/Export.php:1312 libraries/classes/Html/Generator.php:977
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6973,7 +6964,7 @@ msgstr "Conținut punct de date"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:445 libraries/classes/InsertEdit.php:1932
+#: libraries/classes/ErrorHandler.php:448 libraries/classes/InsertEdit.php:1932
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignoră"
@@ -7386,7 +7377,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Te rog uită-te în partea de jos a acestei ferestre."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/ErrorHandler.php:450
+#: libraries/classes/ErrorHandler.php:453
 msgid "Ignore All"
 msgstr "Ignoră tot"
 
@@ -8772,7 +8763,7 @@ msgstr "Semn de carte necreat!"
 #: libraries/classes/Controllers/Table/AddFieldController.php:161
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:274
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:222
-#: libraries/classes/Table/Indexes.php:86
+#: libraries/classes/Table/Indexes.php:85
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabelul %1$s a fost modificat cu succes."
@@ -8922,7 +8913,7 @@ msgstr "Coloana de afișare a fost actualizată cu succes."
 msgid "Internal relationships were successfully updated."
 msgstr "Relațiile interne au fost actualizate cu succes."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:224
+#: libraries/classes/Controllers/Table/ReplaceController.php:223
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rând: %1$s, coloană: %2$s, eroare: %3$s"
@@ -9982,11 +9973,11 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "Prea multe mesaje de eroare, unele nu sunt afișate."
 
-#: libraries/classes/ErrorHandler.php:434
+#: libraries/classes/ErrorHandler.php:437
 msgid "Report"
 msgstr "Raport"
 
-#: libraries/classes/ErrorHandler.php:439 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:442 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Trimite automat raportul data viitoare"
 
@@ -10379,7 +10370,7 @@ msgid "Insert"
 msgstr "Inserează"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2846 libraries/classes/Util.php:1886
+#: libraries/classes/Server/Privileges.php:2839 libraries/classes/Util.php:1886
 #: libraries/classes/Util.php:1902 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -11938,11 +11929,11 @@ msgstr "Nu folosi <code>AUTO_INCREMENT</code> pentru valorile zero"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:614
+#: libraries/classes/Plugins.php:615
 msgid "This format has no options"
 msgstr "Acest format nu are nicio opțiune"
 
-#: libraries/classes/Plugins.php:631
+#: libraries/classes/Plugins.php:632
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodă de autentificare invalidă setată în configurare:"
 
@@ -12494,8 +12485,8 @@ msgid "Error while loading the search."
 msgstr "Eroare în timpul încărcării căutării."
 
 #: libraries/classes/Server/Plugins.php:66
-#: libraries/classes/Server/Privileges.php:793
-#: libraries/classes/Server/Privileges.php:3724
+#: libraries/classes/Server/Privileges.php:795
+#: libraries/classes/Server/Privileges.php:3717
 msgid "Native MySQL authentication"
 msgstr "Autentificare nativă MySQL"
 
@@ -12523,16 +12514,16 @@ msgstr "Autentificare nativă MySQL"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:263
+#: libraries/classes/Server/Privileges.php:265
 msgid "No privileges."
 msgstr "Niciun privilegiu."
 
-#: libraries/classes/Server/Privileges.php:271
+#: libraries/classes/Server/Privileges.php:273
 msgid "Includes all privileges except GRANT."
 msgstr "Include toate privilegiile, cu excepția ACORDĂ."
 
-#: libraries/classes/Server/Privileges.php:293
-#: libraries/classes/Server/Privileges.php:360
+#: libraries/classes/Server/Privileges.php:295
+#: libraries/classes/Server/Privileges.php:362
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12540,7 +12531,7 @@ msgstr "Include toate privilegiile, cu excepția ACORDĂ."
 msgid "Allows deleting data."
 msgstr "Permite ștergerea datelor."
 
-#: libraries/classes/Server/Privileges.php:298
+#: libraries/classes/Server/Privileges.php:300
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12548,7 +12539,7 @@ msgstr "Permite ștergerea datelor."
 msgid "Allows creating new tables."
 msgstr "Permite crearea de tabele noi."
 
-#: libraries/classes/Server/Privileges.php:303
+#: libraries/classes/Server/Privileges.php:305
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12556,8 +12547,8 @@ msgstr "Permite crearea de tabele noi."
 msgid "Allows dropping tables."
 msgstr "Permite eliminarea tabelelor."
 
-#: libraries/classes/Server/Privileges.php:308
-#: libraries/classes/Server/Privileges.php:400
+#: libraries/classes/Server/Privileges.php:310
+#: libraries/classes/Server/Privileges.php:402
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12565,8 +12556,8 @@ msgstr "Permite eliminarea tabelelor."
 msgid "Allows creating and dropping indexes."
 msgstr "Permite crearea și eliminarea indexurilor."
 
-#: libraries/classes/Server/Privileges.php:313
-#: libraries/classes/Server/Privileges.php:405
+#: libraries/classes/Server/Privileges.php:315
+#: libraries/classes/Server/Privileges.php:407
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12574,9 +12565,9 @@ msgstr "Permite crearea și eliminarea indexurilor."
 msgid "Allows altering the structure of existing tables."
 msgstr "Permite modificarea structurii tabelelor existente."
 
-#: libraries/classes/Server/Privileges.php:318
-#: libraries/classes/Server/Privileges.php:444
-#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:320
+#: libraries/classes/Server/Privileges.php:446
+#: libraries/classes/Server/Privileges.php:462
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12586,9 +12577,9 @@ msgstr "Permite modificarea structurii tabelelor existente."
 msgid "Allows creating new views."
 msgstr "Permite crearea de vizualizări noi."
 
-#: libraries/classes/Server/Privileges.php:323
-#: libraries/classes/Server/Privileges.php:465
-#: libraries/classes/Server/Privileges.php:471
+#: libraries/classes/Server/Privileges.php:325
+#: libraries/classes/Server/Privileges.php:467
+#: libraries/classes/Server/Privileges.php:473
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12596,8 +12587,8 @@ msgstr "Permite crearea de vizualizări noi."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Permite executarea interogărilor ARATĂ CREARE VIZUALIZARE."
 
-#: libraries/classes/Server/Privileges.php:328
-#: libraries/classes/Server/Privileges.php:454
+#: libraries/classes/Server/Privileges.php:330
+#: libraries/classes/Server/Privileges.php:456
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12605,40 +12596,40 @@ msgstr "Permite executarea interogărilor ARATĂ CREARE VIZUALIZARE."
 msgid "Allows creating and dropping triggers."
 msgstr "Permite crearea și eliminarea declanșatorilor."
 
-#: libraries/classes/Server/Privileges.php:345
+#: libraries/classes/Server/Privileges.php:347
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Permite citirea datelor."
 
-#: libraries/classes/Server/Privileges.php:350
+#: libraries/classes/Server/Privileges.php:352
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Permite inserarea și înlocuirea datelor."
 
-#: libraries/classes/Server/Privileges.php:355
+#: libraries/classes/Server/Privileges.php:357
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Permite modificarea datelor."
 
-#: libraries/classes/Server/Privileges.php:365
+#: libraries/classes/Server/Privileges.php:367
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Permite crearea de baze de date și tabele noi."
 
-#: libraries/classes/Server/Privileges.php:370
+#: libraries/classes/Server/Privileges.php:372
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Permite eliminarea bazelor de date și tabelelor."
 
-#: libraries/classes/Server/Privileges.php:375
+#: libraries/classes/Server/Privileges.php:377
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -12646,37 +12637,37 @@ msgstr ""
 "Permite reîncărcarea setărilor serverului și golirea memoriei cache a "
 "serverului."
 
-#: libraries/classes/Server/Privileges.php:380
+#: libraries/classes/Server/Privileges.php:382
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Permite oprirea serverului."
 
-#: libraries/classes/Server/Privileges.php:385
+#: libraries/classes/Server/Privileges.php:387
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "Permite vizualizarea proceselor pentru toți utilizatorii."
 
-#: libraries/classes/Server/Privileges.php:390
+#: libraries/classes/Server/Privileges.php:392
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "Permite importul datelor din fișiere și exportul datelor în fișiere."
 
-#: libraries/classes/Server/Privileges.php:395
+#: libraries/classes/Server/Privileges.php:397
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Nu are niciun efect în această versiune MySQL."
 
-#: libraries/classes/Server/Privileges.php:410
+#: libraries/classes/Server/Privileges.php:412
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Dă acces la lista completă de baze de date."
 
-#: libraries/classes/Server/Privileges.php:416
+#: libraries/classes/Server/Privileges.php:418
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12688,33 +12679,33 @@ msgstr ""
 "necesară pentru majoritatea operațiunilor administrative, cum ar fi setarea "
 "variabilelor globale sau oprirea firelor de execuție a altor utilizatori."
 
-#: libraries/classes/Server/Privileges.php:424
+#: libraries/classes/Server/Privileges.php:426
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Permite crearea tabelelor temporare."
 
-#: libraries/classes/Server/Privileges.php:429
+#: libraries/classes/Server/Privileges.php:431
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Permite blocarea tabelelor pentru firul de execuție curent."
 
-#: libraries/classes/Server/Privileges.php:434
+#: libraries/classes/Server/Privileges.php:436
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 #, fuzzy
 msgid "Needed for the replication replicas."
 msgstr "Necesară pentru sclavii de replicare."
 
-#: libraries/classes/Server/Privileges.php:439
+#: libraries/classes/Server/Privileges.php:441
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 #, fuzzy
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Permite utilizatorului să întrebe unde sunt serverele sclav/master."
 
-#: libraries/classes/Server/Privileges.php:449
+#: libraries/classes/Server/Privileges.php:451
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
@@ -12722,55 +12713,55 @@ msgstr ""
 "Permite inițializarea evenimentelor pentru programatorul de evenimente."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:478
-#: libraries/classes/Server/Privileges.php:487
+#: libraries/classes/Server/Privileges.php:480
+#: libraries/classes/Server/Privileges.php:489
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
 msgid "Allows deleting historical rows."
 msgstr "Permite ștergerea datelor."
 
-#: libraries/classes/Server/Privileges.php:492
+#: libraries/classes/Server/Privileges.php:494
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Permite crearea de rutine stocate."
 
-#: libraries/classes/Server/Privileges.php:497
+#: libraries/classes/Server/Privileges.php:499
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "Permite modificarea și eliminarea rutinelor stocate."
 
-#: libraries/classes/Server/Privileges.php:502
+#: libraries/classes/Server/Privileges.php:504
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Permite crearea, eliminarea și redenumirea conturilor utilizatorilor."
 
-#: libraries/classes/Server/Privileges.php:507
+#: libraries/classes/Server/Privileges.php:509
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Permite executarea rutinelor stocate."
 
-#: libraries/classes/Server/Privileges.php:1077
+#: libraries/classes/Server/Privileges.php:1079
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Parola pentru %s a fost schimbată cu succes."
 
-#: libraries/classes/Server/Privileges.php:1125
+#: libraries/classes/Server/Privileges.php:1127
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Ai revocat privilegiile pentru %s."
 
-#: libraries/classes/Server/Privileges.php:1442
+#: libraries/classes/Server/Privileges.php:1435
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Nu ai privilegii suficiente pentru a vedea utilizatorii."
 
-#: libraries/classes/Server/Privileges.php:1504
+#: libraries/classes/Server/Privileges.php:1497
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12778,84 +12769,84 @@ msgstr "Nu ai privilegii suficiente pentru a vedea utilizatorii."
 msgid "Edit privileges"
 msgstr "Editează privilegiile"
 
-#: libraries/classes/Server/Privileges.php:1508
+#: libraries/classes/Server/Privileges.php:1501
 msgid "Revoke"
 msgstr "Revocă"
 
-#: libraries/classes/Server/Privileges.php:1818
+#: libraries/classes/Server/Privileges.php:1811
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Privilegii specifice bazei de date"
 
-#: libraries/classes/Server/Privileges.php:1824
+#: libraries/classes/Server/Privileges.php:1817
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Privilegii specifice tabelului"
 
-#: libraries/classes/Server/Privileges.php:1829
-#: libraries/classes/Server/Privileges.php:1831
+#: libraries/classes/Server/Privileges.php:1822
+#: libraries/classes/Server/Privileges.php:1824
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "Rutină"
 
-#: libraries/classes/Server/Privileges.php:1830
+#: libraries/classes/Server/Privileges.php:1823
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Privilegii specifice rutinei"
 
-#: libraries/classes/Server/Privileges.php:2174
+#: libraries/classes/Server/Privileges.php:2167
 msgid "No users selected for deleting!"
 msgstr "Niciun utilizator selectat pentru ștergere!"
 
-#: libraries/classes/Server/Privileges.php:2177
+#: libraries/classes/Server/Privileges.php:2170
 msgid "Reloading the privileges"
 msgstr "Reîncarc privilegiile"
 
-#: libraries/classes/Server/Privileges.php:2202
+#: libraries/classes/Server/Privileges.php:2195
 msgid "The selected users have been deleted successfully."
 msgstr "Utilizatorii selectați au fost șterși cu succes."
 
-#: libraries/classes/Server/Privileges.php:2279
+#: libraries/classes/Server/Privileges.php:2272
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ai actualizat privilegiile pentru %s."
 
-#: libraries/classes/Server/Privileges.php:2366
+#: libraries/classes/Server/Privileges.php:2359
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Niciun utilizator găsit."
 
-#: libraries/classes/Server/Privileges.php:2453
+#: libraries/classes/Server/Privileges.php:2446
 #, php-format
 msgid "Deleting %s"
 msgstr "Șterg %s"
 
-#: libraries/classes/Server/Privileges.php:2484
+#: libraries/classes/Server/Privileges.php:2477
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegiile au fost reîncărcate cu succes."
 
-#: libraries/classes/Server/Privileges.php:2588
+#: libraries/classes/Server/Privileges.php:2581
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Utilizatorul %s există deja!"
 
-#: libraries/classes/Server/Privileges.php:2863
+#: libraries/classes/Server/Privileges.php:2856
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegii pentru %s"
 
-#: libraries/classes/Server/Privileges.php:2872
+#: libraries/classes/Server/Privileges.php:2865
 #: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Utilizator"
 
-#: libraries/classes/Server/Privileges.php:2982
+#: libraries/classes/Server/Privileges.php:2975
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12865,7 +12856,7 @@ msgstr ""
 "conecteze. Acest lucru va împiedica conectarea altor utilizatori dacă partea "
 "gazdă a contului lor permite o conexiune de la orice gazdă (%)."
 
-#: libraries/classes/Server/Privileges.php:3016
+#: libraries/classes/Server/Privileges.php:3009
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12878,7 +12869,7 @@ msgstr ""
 "privilegiile pe care le utilizează serverul, dacă au fost modificate manual. "
 "În acest caz, ar trebui %ssă reîncarci privilegiile%s înainte de a continua."
 
-#: libraries/classes/Server/Privileges.php:3032
+#: libraries/classes/Server/Privileges.php:3025
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12892,7 +12883,7 @@ msgstr ""
 "În acest caz, privilegiile ar trebui să fie reîncărcate, dar în prezent nu "
 "ai privilegiul REÎNCARCĂ."
 
-#: libraries/classes/Server/Privileges.php:3346
+#: libraries/classes/Server/Privileges.php:3339
 msgid "You have added a new user."
 msgstr "Ai adăugat un utilizator nou."
 
@@ -13088,7 +13079,7 @@ msgstr "%s a fost dezactivat pentru acest server MySQL."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Acest server MySQL nu suportă motorul de stocare %s."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2100
+#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2100
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Numele cheii principale trebuie să fie „PRIMARY”!"
 
@@ -13166,7 +13157,7 @@ msgstr "Nicio parte de index definită!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Eroare la crearea cheii străine pe %1$s (verifică tipurile dedate)"
 
-#: libraries/classes/Template.php:133
+#: libraries/classes/Template.php:131
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Eroare în timpul lucrului cu cache-ul șablonului: %s"
@@ -13616,7 +13607,7 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spațial"
 
-#: libraries/classes/UrlRedirector.php:55
+#: libraries/classes/UrlRedirector.php:54
 msgid "Taking you to the target site."
 msgstr "Te duc la situl de destinație."
 
@@ -19188,6 +19179,27 @@ msgstr "Nume VIZUALIZARE"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Nume coloane"
+
+#~ msgid "Key is too short, it should have at least 32 characters."
+#~ msgstr ""
+#~ "Cheia este prea scurtă, ea trebuie să aibă cel puțin 32 de caractere."
+
+#~ msgid "Key should contain letters, numbers [em]and[/em] special characters."
+#~ msgstr ""
+#~ "Cheia ar trebui să conțină litere, numere [em]și[/em] caractere speciale."
+
+#~ msgid ""
+#~ "The configuration file now needs a secret passphrase (blowfish_secret)."
+#~ msgstr ""
+#~ "Fișierul de configurare necesită acum o frază de acces secretă "
+#~ "(blowfish_secret)."
+
+#~ msgid ""
+#~ "The secret passphrase in configuration (blowfish_secret) is not the "
+#~ "correct length. It should be %d bytes long."
+#~ msgstr ""
+#~ "Fraza de acces secretă din configurare (blowfish_secret) nu are lungimea "
+#~ "corectă. Ar trebui să aibe o lungime de %d octeți."
 
 #~ msgid "User has been added."
 #~ msgstr "Utilizatorul a fost adăugat."
