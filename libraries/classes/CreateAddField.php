@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Dbal\DatabaseName;
 
 use function count;
 use function implode;
@@ -473,12 +474,12 @@ class CreateAddField
     /**
      * Function to execute the column creation statement
      *
-     * @param string $db       current database
+     * @param DatabaseName $db       current database
      * @param string $sqlQuery the query to run
      * @param string $errorUrl error page url
      */
     public function tryColumnCreationQuery(
-        string $db,
+        DatabaseName $db,
         string $sqlQuery,
         string $errorUrl
     ): bool {
@@ -487,7 +488,7 @@ class CreateAddField
         if (! $this->dbi->selectDb($db)) {
             Generator::mysqlDie(
                 $this->dbi->getError(),
-                'USE ' . Util::backquote($db),
+                'USE ' . Util::backquote($db->getName()),
                 false,
                 $errorUrl
             );
