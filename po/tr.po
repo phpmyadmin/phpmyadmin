@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-09-30 10:21+0000\n"
+"PO-Revision-Date: 2022-10-03 13:17+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "tr/>\n"
@@ -5329,7 +5329,7 @@ msgid ""
 msgstr ""
 "Yapılandırma dosyası, tanımlama bilgisi şifrelemesi için geçerli bir "
 "anahtara ihtiyaç duyar. Sizin için otomatik olarak geçici bir anahtar "
-"oluşturuldu. Lütfen [doc@cfg_blowfish_secret]belgelere[/doc] bakın."
+"oluşturuldu. Lütfen [doc@cfg_blowfish_secret]belgelerine[/doc] bakın."
 
 #: libraries/classes/Controllers/HomeController.php:328
 #, php-format
@@ -5340,7 +5340,7 @@ msgid ""
 msgstr ""
 "Yapılandırma dosyasındaki tanımlama bilgisi şifreleme anahtarı gereğinden "
 "uzun. Sadece %d bayt uzunluğunda olmalıdır. Lütfen "
-"[doc@cfg_blowfish_secret]belgelere[/doc] bakın."
+"[doc@cfg_blowfish_secret]belgelerine[/doc] bakın."
 
 #: libraries/classes/Controllers/HomeController.php:346
 msgid ""
