@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-10-02 00:28+0000\n"
-"PO-Revision-Date: 2022-08-01 10:21+0000\n"
+"PO-Revision-Date: 2022-10-03 13:18+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5397,6 +5397,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Het configuratiebestand heeft een geldige sleutel nodig voor cookie "
+"encryptie. Een tijdelijke sleutel is automatisch voor u gegenereerd. Voor "
+"meer informatie zie [doc@cfg_blowfish_secret]documentatie[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:335
 #, php-format
@@ -5405,6 +5408,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"De cookie encryptie sleutel in het configuratiebestand is langer dan nodig. "
+"Het hoeft maar %d bytes lang te zijn. Voor meer informatie zie "
+"[doc@cfg_blowfish_secret]documentatie[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
