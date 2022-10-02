@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-10-02 00:28+0000\n"
-"PO-Revision-Date: 2022-04-20 02:09+0000\n"
-"Last-Translator: Cristian Alexander Avila González <ag089222@gmail.com>\n"
+"PO-Revision-Date: 2022-10-03 13:18+0000\n"
+"Last-Translator: Luis Méndez Alejo <gnumax@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -3475,10 +3475,8 @@ msgid "Remember filename template"
 msgstr "Recordar plantilla de nombre de archivo"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Eliminar columnas de la lista central"
+msgstr "Eliminar la cláusula DEFINER de las definiciones"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5128,6 +5126,7 @@ msgstr "Mostrando filas %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Ya existe una página llamada \"%s\", por favor, cámbiale el nombre por otro."
 
 #: libraries/classes/Controllers/Database/ExportController.php:90
 #: libraries/classes/Controllers/Database/TrackingController.php:139
@@ -5437,6 +5436,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"El archivo de configuración necesita una clave válida para el cifrado de las "
+"cookies. Se ha generado automáticamente una clave temporal para ti. Consulta "
+"la [doc@cfg_blowfish_secret]documentación[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:335
 #, php-format
@@ -5445,6 +5447,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"La clave de cifrado de la cookie en el archivo de configuración es más larga "
+"de lo necesario. Sólo debería tener %d bytes de longitud. Consulta la "
+"[doc@cfg_blowfish_secret]documentación[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
@@ -9029,10 +9034,8 @@ msgstr "Visualizar"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The partition name must be a non-empty string."
-msgstr "El nombre de la tabla debe ser una cadena no vacía."
+msgstr "El nombre de la partición debe ser una cadena no vacía."
 
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
@@ -16577,7 +16580,7 @@ msgstr "De acuerdo"
 
 #: templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
-msgstr ""
+msgstr "Volver"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -17208,10 +17211,8 @@ msgid "Grant all privileges on database %s."
 msgstr "Otorgar todos los privilegios para la base de datos %s."
 
 #: templates/server/privileges/add_user.twig:38
-#, fuzzy
-#| msgid "Create"
 msgid "Create user"
-msgstr "Crear"
+msgstr "Crear usuario"
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
@@ -17556,10 +17557,8 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Requiere un certificado X509 válido con el tema presentado."
 
 #: templates/server/privileges/privileges_table.twig:878
-#, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
-msgstr "Ajustar privilegios"
+msgstr "Actualizar privilegios del usuario"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
