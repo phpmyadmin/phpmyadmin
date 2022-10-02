@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-10-02 00:28+0000\n"
-"PO-Revision-Date: 2022-08-01 10:21+0000\n"
+"PO-Revision-Date: 2022-10-03 13:18+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5430,6 +5430,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Le fichier de configuration a besoin d'une clé valide pour le chiffrement "
+"des cookies. Une clé temporaire a été générée automatiquement pour vous. "
+"Veuillez vous référer à la [doc@cfg_blowfish_secret]documentation[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:335
 #, php-format
@@ -5438,6 +5441,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"La clé de chiffrement des cookies dans le fichier de configuration est plus "
+"longue que nécessaire. Elle ne devrait avoir qu'une longueur de %d octets. "
+"Veuillez consulter la [doc@cfg_blowfish_secret]documentation[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
