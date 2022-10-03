@@ -258,7 +258,7 @@ msgstr "वर्णन"
 
 #: libraries/classes/Advisory/Rules.php:173
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "संस्करण स्रोत से संकलित किया गया है, MySQL आधिकारिक बाइनरी नहीं।"
 
 #: libraries/classes/Advisory/Rules.php:175
 msgid ""
@@ -273,7 +273,7 @@ msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:186
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL मैनुअल केवल आधिकारिक MySQL बायनेरिज़ के लिए सटीक है।"
 
 #: libraries/classes/Advisory/Rules.php:188
 msgid ""
@@ -293,7 +293,7 @@ msgstr "MySQL वर्ण सेट"
 
 #: libraries/classes/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL को 64-बिट पैकेज के रूप में संकलित नहीं किया गया है।"
 
 #: libraries/classes/Advisory/Rules.php:201
 msgid ""
@@ -305,7 +305,7 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:205
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "इस होस्ट पर उपलब्ध मेमोरी: %s"
 
 #: libraries/classes/Advisory/Rules.php:211
 #, fuzzy
@@ -382,7 +382,7 @@ msgstr "क्षेत्र रोयाँ"
 
 #: libraries/classes/Advisory/Rules.php:263
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "बहुत सारी पंक्तियों को क्रमबद्ध किया जा रहा है।"
 
 #: libraries/classes/Advisory/Rules.php:265
 msgid ""
@@ -395,7 +395,7 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:269
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "क्रमबद्ध पंक्तियों का माध्य: %s"
 
 #: libraries/classes/Advisory/Rules.php:275
 #, fuzzy
@@ -6178,13 +6178,13 @@ msgstr "बंद"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "खाता लॉक करें।"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "खाता अनलॉक करें।"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 #: templates/server/privileges/users_overview.twig:100
@@ -6239,7 +6239,7 @@ msgstr ","
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 #: libraries/classes/Util.php:537 libraries/classes/Util.php:569
 msgid "."
-msgstr "."
+msgstr "।"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:160
 msgid "Connections / Processes"
@@ -6787,7 +6787,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
-msgstr ""
+msgstr "आयातित कॉन्फ़िगरेशन के साथ चार्ट ग्रिड बनाने में विफल। डिफ़ॉल्ट कॉन्फ़िगरेशन पर रीसेट किया जा रहा है…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "Import monitor configuration"
@@ -7123,7 +7123,7 @@ msgstr "विदेशी मूल्य ब्राउस करें"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "पहले से सेव की गई कोई भी क्वेरी उपलब्ध नहीं है। डिफ़ॉल्ट क्वेरी लोड हो रही है।"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:398
 msgid ""
@@ -10244,6 +10244,8 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"MyISAM तालिकाओं के लिए CREATE TABLE द्वारा उपयोग किए जाने वाले बाइट्स में डिफ़ॉल्ट पॉइंटर आकार"
+"जब कोई MAX_ROWS विकल्प निर्दिष्ट नहीं किया जाता है"
 
 #: libraries/classes/Engines/Myisam.php:36
 msgid "Automatic recovery mode"
@@ -10286,6 +10288,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"यदि यह मान 1 से अधिक है, तो MyISAM तालिका इंडेक्स"
+"समानांतर में बनाई जाती है (प्रत्येक इंडेक्स अपने स्वयं के धागे में) सॉर्टिंग प्रक्रिया द्वारा मरम्मत के दौरान।"
 
 #: libraries/classes/Engines/Myisam.php:70
 msgid "Sort buffer size"
@@ -10306,6 +10310,8 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"यह इंडेक्स कैश को आवंटित मेमोरी की मात्रा है। डिफ़ॉल्ट मान"
+"32MB है। यहां आवंटित स्मृति का उपयोग केवल इंडेक्स पृष्ठों को कैशिंग करने के लिए किया जाता है।"
 
 #: libraries/classes/Engines/Pbxt.php:42
 msgid "Record cache size"
@@ -10330,7 +10336,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:61
 msgid "Log file threshold"
-msgstr ""
+msgstr "लॉग फ़ाइल सीमा"
 
 #: libraries/classes/Engines/Pbxt.php:63
 msgid ""
@@ -10350,7 +10356,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:78
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "चेकपॉइंट आवृत्ति"
 
 #: libraries/classes/Engines/Pbxt.php:80
 msgid ""
@@ -10360,7 +10366,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:87
 msgid "Data log threshold"
-msgstr ""
+msgstr "डेटा लॉग सीमा"
 
 #: libraries/classes/Engines/Pbxt.php:89
 msgid ""
@@ -10372,7 +10378,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:98
 msgid "Garbage threshold"
-msgstr ""
+msgstr "कचरा सीमा"
 
 #: libraries/classes/Engines/Pbxt.php:100
 msgid ""
@@ -10382,7 +10388,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:107
 msgid "Log buffer size"
-msgstr ""
+msgstr "लॉग बफर परिमाण"
 
 #: libraries/classes/Engines/Pbxt.php:109
 msgid ""
@@ -10393,23 +10399,23 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:117
 msgid "Data file grow size"
-msgstr ""
+msgstr "डेटा फ़ाइल बढ़ने का परिमाण"
 
 #: libraries/classes/Engines/Pbxt.php:118
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "हैंडल डेटा (.xtd) फ़ाइलों का बढ़ता परिमाण"
 
 #: libraries/classes/Engines/Pbxt.php:122
 msgid "Row file grow size"
-msgstr ""
+msgstr "पंक्ति फ़ाइल का बढ़ता परिमाण"
 
 #: libraries/classes/Engines/Pbxt.php:123
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "पंक्ति सूचक(.xtr) फ़ाइलों का बढ़ता परिमाण"
 
 #: libraries/classes/Engines/Pbxt.php:127
 msgid "Log file count"
-msgstr ""
+msgstr "लॉग फ़ाइल गिनती"
 
 #: libraries/classes/Engines/Pbxt.php:129
 msgid ""
@@ -10532,11 +10538,11 @@ msgstr ""
 
 #: libraries/classes/File.php:485
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "अपलोड की गई फ़ाइल को स्थानांतरित करते समय त्रुटि ।"
 
 #: libraries/classes/File.php:494
 msgid "Cannot read uploaded file."
-msgstr ""
+msgstr "अपलोड की गई फ़ाइल नहीं पढ़ सकते ।"
 
 #: libraries/classes/File.php:571
 #, php-format
@@ -10574,19 +10580,19 @@ msgstr ""
 
 #: libraries/classes/Html/Generator.php:247
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL का उपयोग नहीं किया जा रहा है"
 
 #: libraries/classes/Html/Generator.php:250
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL का उपयोग किया जाता है"
 
 #: libraries/classes/Html/Generator.php:353
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "डिफ़ॉल्ट विकल्पों के साथ PHP फ़ंक्शन password_hash()।"
 
 #: libraries/classes/Html/Generator.php:354
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP फ़ंक्शन"
 
 #: libraries/classes/Html/Generator.php:632
 msgid "Skip Explain SQL"
@@ -10632,11 +10638,11 @@ msgstr "स्थिर (static) डॅटा"
 #: libraries/classes/Html/Generator.php:863
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "विश्लेषण के दौरान %d त्रुटियां पाई गईं"
 
 #: libraries/classes/Import.php:276 libraries/classes/Sql.php:968
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[रोलबैक हुआ।]"
 
 #: libraries/classes/Import.php:1215
 msgid ""
@@ -11107,7 +11113,7 @@ msgstr "स्तम्भ"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "नया डेटाबेस बनाएं"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
 #, fuzzy
@@ -11124,7 +11130,7 @@ msgstr "ग्रिड दिखाओ"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:33
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "नई घटना बनाएँ"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:469
@@ -11155,7 +11161,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/Node.php:622
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "विस्तार करें/संक्षिप्त करें"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
@@ -11183,7 +11189,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:33
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "नया ट्रिगर बनाएं"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
 #, fuzzy
@@ -11326,15 +11332,15 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:376
 msgid "No repeating group"
-msgstr ""
+msgstr "कोई दोहराव समूह नहीं"
 
 #: libraries/classes/Normalization.php:404
 msgid "Step 2."
-msgstr ""
+msgstr "दूसरा कदम"
 
 #: libraries/classes/Normalization.php:404
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "आंशिक निर्भरता खोजें"
 
 #: libraries/classes/Normalization.php:425
 #, php-format
@@ -11346,7 +11352,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:431
 #: libraries/classes/Normalization.php:473
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "तालिका पहले से ही दूसरे सामान्य रूप में है।"
 
 #: libraries/classes/Normalization.php:436
 #, php-format
