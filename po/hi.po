@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
 "PO-Revision-Date: 2022-10-05 05:19+0000\n"
-"Last-Translator: Nandini Gangadharan <nandinigangadharan13@gmail.com>\n"
+"Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/5-2/hi/>"
 "\n"
 "Language: hi\n"
@@ -16,8 +16,9 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #: libraries/advisory_rules_generic.php:9
+#, fuzzy
 msgid "Uptime below one day"
-msgstr ""
+msgstr "सक्रिय रहने की अवधि एक दिन से कम"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
@@ -38,7 +39,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "संस्करण"
+msgstr "1,000 . से नीचे के प्रश्न"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
