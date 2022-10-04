@@ -693,6 +693,7 @@ class InsertEdit
             }
         }
 
+        $inputMode = '';
         $inputMinMax = '';
         if (in_array($column['True_Type'], $this->dbi->types->getIntegerTypes())) {
             $extractedColumnspec = Util::extractColumnSpec($column['Type']);
@@ -701,6 +702,7 @@ class InsertEdit
             $inputMinMax = 'min="' . $minMaxValues[0] . '" '
                 . 'max="' . $minMaxValues[1] . '"';
             $dataType = 'INT';
+            $inputMode = 'inputmode="numeric"';
         }
 
         // do not use the 'date' or 'time' types here; they have no effect on some
@@ -716,6 +718,7 @@ class InsertEdit
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
+            . ($inputMode ? ' ' . $inputMode : '')
             . ' id="field_' . $idindex . '_3">';
     }
 

@@ -1052,6 +1052,32 @@ class InsertEditTest extends AbstractTestCase
             . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
             $result
         );
+
+        // case 4 int
+        $column['pma_type'] = 'int';
+        $column['True_Type'] = 'int';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlInput',
+            [
+                $column,
+                'a',
+                'b',
+                30,
+                'c',
+                23,
+                2,
+                0,
+                'DATE',
+                false,
+            ]
+        );
+        $this->assertEquals(
+            '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
+            . ' class="textfield datetimefield" c tabindex="25" inputmode="numeric" id="field_0_3">',
+            $result
+        );
     }
 
     /**
