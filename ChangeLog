@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 - issue #17369 Fix server error when blowfish_secret is not exactly 32 bytes long
 - issue #17736 Add utf8mb3 as an alias of utf8 on the charset description page
 - issue #16418 Fix FAQ 1.44 about manually removing vendor folders
+- issue #12359 Setup page now sends the Content-Security-Policy headers
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
