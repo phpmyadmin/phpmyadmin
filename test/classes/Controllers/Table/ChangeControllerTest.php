@@ -58,7 +58,7 @@ class ChangeControllerTest extends AbstractTestCase
             . ' size="4" min="-2147483648" max="2147483647" data-type="INT" class="textfield"'
             . ' onchange="return'
             . ' verificationsAfterFieldChange(\'b80bb7740288fda1f201890375a60c8f\', \'0\',\'int(11)\')"'
-            . ' tabindex="1" id="field_1_3"><input type="hidden"'
+            . ' tabindex="1" inputmode="numeric" id="field_1_3"><input type="hidden"'
             . ' name="auto_increment[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="1">',
             $actual
         );
