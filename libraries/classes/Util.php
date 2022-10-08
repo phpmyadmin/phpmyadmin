@@ -911,7 +911,7 @@ class Util
                 . self::printableBitValue((int) $row, (int) $meta->length) . "'";
         } else {
             $conditionValue = '= \''
-                . $dbi->escapeString($row) . '\'';
+                . $dbi->escapeString((string) $row) . '\'';
         }
 
         return [$conditionValue, $condition];
