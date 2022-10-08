@@ -67,6 +67,7 @@ final class FieldMetadata
     public const TYPE_TIMESTAMP = 11;
     public const TYPE_DATETIME = 12;
     public const TYPE_YEAR = 13;
+    public const TYPE_VARCHAR = 253;
 
     /**
      * @var bool
@@ -233,7 +234,8 @@ final class FieldMetadata
             $this->isNotNull = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
             $this->isUnsigned = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
             $this->isZerofill = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
-            $this->isNumeric = (bool) ($fieldFlags & MYSQLI_NUM_FLAG);
+            $this->isNumeric = (bool) (($fieldFlags & MYSQLI_NUM_FLAG)
+                && $fieldType !== self::TYPE_VARCHAR);
             $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
             $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
             $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);

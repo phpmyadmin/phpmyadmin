@@ -179,8 +179,8 @@ class UtilTest extends AbstractTestCase
         ], false, 'table');
         $this->assertEquals(
             [
-                '`table`.`field1` IS NULL AND `table`.`field2` = \'value\\\'s\' AND `table`.`field3` = "123456"'
-                . ' AND `table`.`field4` = "123.456" AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
+                '`table`.`field1` IS NULL AND `table`.`field2` = \'value\\\'s\' AND `table`.`field3` = 123456'
+                . ' AND `table`.`field4` = 123.456 AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
                 . ' AND `table`.`field7` = \'value\' AND `table`.`field8` = \'value\''
                 . ' AND `table`.`field9` = CAST(0x76616c7565 AS BINARY)'
                 . ' AND `table`.`field10` = CAST(0x76616c7565 AS BINARY)'
@@ -189,8 +189,8 @@ class UtilTest extends AbstractTestCase
                 [
                     '`table`.`field1`' => 'IS NULL',
                     '`table`.`field2`' => '= \'value\\\'s\'',
-                    '`table`.`field3`' => '= "123456"',
-                    '`table`.`field4`' => '= "123.456"',
+                    '`table`.`field3`' => '= 123456',
+                    '`table`.`field4`' => '= 123.456',
                     '`table`.`field5`' => '= CAST(0x76616c7565 AS BINARY)',
                     '`table`.`field7`' => '= \'value\'',
                     '`table`.`field8`' => '= \'value\'',
@@ -237,7 +237,7 @@ class UtilTest extends AbstractTestCase
         ];
 
         $actual = Util::getUniqueCondition(count($meta), $meta, [1, 'value']);
-        $this->assertEquals(['`table`.`id` = "1"', true, ['`table`.`id`' => '= "1"']], $actual);
+        $this->assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], $actual);
     }
 
     public function testGetUniqueConditionWithUniqueKey(): void
