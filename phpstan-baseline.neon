@@ -4506,6 +4506,11 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
+			message: "#^Parameter \\#1 \\$importRunBuffer of method PhpMyAdmin\\\\Import\\:\\:runQueryPost\\(\\) expects array\\|null, array\\|float\\|int\\|string\\|false\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Import.php
+
+		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
 			path: libraries/classes/Import.php
