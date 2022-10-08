@@ -247,6 +247,10 @@ img.lightbulb {
   padding: 0 0.5em;
 }
 
+#pma_demo {
+  z-index: -1;
+}
+
 .confirmation {
   background-color: #ffc;
 }
@@ -1605,6 +1609,7 @@ input#auto_increment_opt {
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em 0.2em;
+    white-space: nowrap;
 
     &:hover {
       background: #ddd;
