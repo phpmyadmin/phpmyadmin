@@ -100,7 +100,7 @@ class FieldMetadataTest extends AbstractTestCase
         $this->assertFalse($fm->isNotNull());
         $this->assertFalse($fm->isPrimaryKey());
         $this->assertFalse($fm->isMultipleKey());
-        $this->assertTrue($fm->isNumeric());
+        $this->assertFalse($fm->isNumeric());
         $this->assertFalse($fm->isBlob());
     }
 
@@ -134,7 +134,7 @@ class FieldMetadataTest extends AbstractTestCase
         $this->assertFalse($fm->isNotNull());
         $this->assertFalse($fm->isPrimaryKey());
         $this->assertFalse($fm->isMultipleKey());
-        $this->assertTrue($fm->isNumeric());
+        $this->assertFalse($fm->isNumeric());
         $this->assertFalse($fm->isBlob());
     }
 }

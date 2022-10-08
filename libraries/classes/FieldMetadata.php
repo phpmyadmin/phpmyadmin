@@ -227,6 +227,8 @@ final class FieldMetadata
 
     public function __construct(int $fieldType, int $fieldFlags, object $field)
     {
+            $this->mappedType = $this->getTypeMap()[$fieldType] ?? null;
+
             $this->isMultipleKey = (bool) ($fieldFlags & MYSQLI_MULTIPLE_KEY_FLAG);
             $this->isPrimaryKey = (bool) ($fieldFlags & MYSQLI_PRI_KEY_FLAG);
             $this->isUniqueKey = (bool) ($fieldFlags & MYSQLI_UNIQUE_KEY_FLAG);
@@ -236,9 +238,8 @@ final class FieldMetadata
 
             // as flags 32768 can be NUM_FLAG or GROUP_FLAG
             // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
-            // so also check field type that not 253 (VARCHAR)
-            $this->isNumeric = (bool) (($fieldFlags & MYSQLI_NUM_FLAG)
-                && $this->isType(self::TYPE_INT));
+            // so also check field type instead of flags
+            $this->isNumeric = $this->isType(self::TYPE_INT);
 
             $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
             $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
@@ -249,8 +250,6 @@ final class FieldMetadata
                 MYSQLI_TIMESTAMP_FLAG => 'timestamp',
                 MYSQLI_AUTO_INCREMENT_FLAG => 'auto_increment',
             */
-
-            $this->mappedType = $this->getTypeMap()[$fieldType] ?? null;
 
             $this->isMappedTypeBit = $this->isType(self::TYPE_BIT);
             $this->isMappedTypeGeometry = $this->isType(self::TYPE_GEOMETRY);
