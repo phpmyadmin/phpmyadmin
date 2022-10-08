@@ -67,7 +67,6 @@ final class FieldMetadata
     public const TYPE_TIMESTAMP = 11;
     public const TYPE_DATETIME = 12;
     public const TYPE_YEAR = 13;
-    public const TYPE_VARCHAR = 253;
 
     /**
      * @var bool
@@ -234,8 +233,13 @@ final class FieldMetadata
             $this->isNotNull = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
             $this->isUnsigned = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
             $this->isZerofill = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
+
+            // as flags 32768 can be NUM_FLAG or GROUP_FLAG
+            // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
+            // so also check field type that not 253 (VARCHAR)
             $this->isNumeric = (bool) (($fieldFlags & MYSQLI_NUM_FLAG)
-                && $fieldType !== self::TYPE_VARCHAR);
+                && $this->isType(self::TYPE_INT));
+
             $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
             $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
             $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
