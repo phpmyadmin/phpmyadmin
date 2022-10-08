@@ -51,6 +51,11 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Bookmark.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:applyVariables\\(\\) has parameter \\$variables with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Bookmark.php
@@ -96,6 +101,11 @@ parameters:
 			path: libraries/classes/BrowseForeigners.php
 
 		-
+			message: "#^Strict comparison using \\=\\=\\= between array\\{\\} and array\\{\\} will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/Cache.php
+
+		-
 			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array\\{Charset\\?\\: string, Description\\?\\: string, Default collation\\?\\: string, Maxlen\\?\\: string\\}, array\\<string, string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
@@ -111,9 +121,34 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 2
+			path: libraries/classes/CheckUserPrivileges.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 3
+			path: libraries/classes/CheckUserPrivileges.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the right side\\.$#"
+			count: 1
+			path: libraries/classes/CheckUserPrivileges.php
+
+		-
 			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/CheckUserPrivileges.php
+
+		-
+			message: "#^Call to method PhpMyAdmin\\\\Command\\\\CacheWarmupCommand\\:\\:warmUpTwigCache\\(\\) with incorrect case\\: warmUptwigCache$#"
+			count: 1
+			path: libraries/classes/Command/CacheWarmupCommand.php
+
+		-
+			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\SetVersionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
+			count: 1
+			path: libraries/classes/Command/SetVersionCommand.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:display\\(\\) has parameter \\$filesInfo with no value type specified in iterable type array\\.$#"
@@ -141,6 +176,11 @@ parameters:
 			path: libraries/classes/Command/TwigLintCommand.php
 
 		-
+			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\WriteGitRevisionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
+			count: 1
+			path: libraries/classes/Command/WriteGitRevisionCommand.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Common.php
@@ -152,6 +192,11 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Config.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 
@@ -387,6 +432,16 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
+			message: "#^Call to function function_exists\\(\\) with 'bzcompress'\\|'gzcompress'\\|'gzencode' will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
+			message: "#^Call to function function_exists\\(\\) with 'bzopen'\\|'gzopen'\\|'zip_open' will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -836,6 +891,11 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 3
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Do\\-while loop condition is always false\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1056,6 +1116,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
+
+		-
 			message: "#^Parameter \\#1 \\$buffer of static method PhpMyAdmin\\\\Core\\:\\:mimeDefaultFunction\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/ShowCreateController.php
@@ -1261,6 +1326,11 @@ parameters:
 			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
 
 		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/BinlogController.php
@@ -1416,6 +1486,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
+			message: "#^Variable \\$i might not be defined\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/FindReplaceController.php
+
+		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
@@ -1451,9 +1526,19 @@ parameters:
 			path: libraries/classes/Controllers/Table/RelationController.php
 
 		-
+			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin and 'isSuccess' will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^PHPDoc tag @var for variable \\$relation_fields has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -1621,6 +1706,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
@@ -1674,6 +1764,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$body \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 3
+			path: libraries/classes/Core.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Core\\:\\:arrayRead\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
@@ -1734,6 +1829,16 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getPartitionDefinition\\(\\) has parameter \\$partition with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
+
+		-
+			message: "#^Casting to array something that's already array\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
+			count: 2
+			path: libraries/classes/Database/CentralColumns.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) has parameter \\$field_select with no value type specified in iterable type array\\.$#"
@@ -1809,6 +1914,11 @@ parameters:
 			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 2
+			path: libraries/classes/Database/Designer.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_column with no value type specified in iterable type array\\.$#"
@@ -1887,6 +1997,11 @@ parameters:
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Database/Designer/Common.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -1989,6 +2104,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:\\$tables type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/MultiTableQuery.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:__construct\\(\\) has parameter \\$savedSearchList with no value type specified in iterable type array\\.$#"
@@ -2251,6 +2371,11 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
+			message: "#^Variable variables are not allowed\\.$#"
+			count: 4
+			path: libraries/classes/Database/Qbe.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Routines\\:\\:backupPrivileges\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
@@ -2452,6 +2577,16 @@ parameters:
 
 		-
 			message: "#^Binary operation \"\\+\" between string\\|null and string\\|null results in an error\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
+			message: "#^Foreach overwrites \\$database with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
+			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2696,12 +2831,92 @@ parameters:
 			path: libraries/classes/Dbal/DbalInterface.php
 
 		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:affectedRows\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:affectedRows\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:escapeString\\(\\) should be contravariant with parameter \\$link \\(mixed\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:escapeString\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getHostInfo\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:getHostInfo\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getProtoInfo\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:getProtoInfo\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:moreResults\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:moreResults\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:nextResult\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:nextResult\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:prepare\\(\\) should be contravariant with parameter \\$link \\(mixed\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:prepare\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:realMultiQuery\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:realMultiQuery\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:storeResult\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:storeResult\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\|false\\|null\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getError\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:getError\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#2 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:realQuery\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:realQuery\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#2 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:selectDb\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:selectDb\\(\\)$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Call to function method_exists\\(\\) with mysqli_result and 'fetch_all' will always evaluate to true\\.$#"
+			count: 3
+			path: libraries/classes/Dbal/MysqliResult.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 2
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
+			message: "#^Call to method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getMIMEType\\(\\) with incorrect case\\: getMIMEtype$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
@@ -2941,6 +3156,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Foreach overwrites \\$engine with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Encoding.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
@@ -2976,6 +3196,11 @@ parameters:
 			path: libraries/classes/Engines/Innodb.php
 
 		-
+			message: "#^Return type \\(array\\) of method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method PhpMyAdmin\\\\StorageEngine\\:\\:getInfoPages\\(\\)$#"
+			count: 1
+			path: libraries/classes/Engines/Innodb.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Memory\\:\\:getVariables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Memory.php
@@ -3002,6 +3227,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:resolveTypeSize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Engines/Pbxt.php
+
+		-
+			message: "#^Return type \\(array\\) of method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:getInfoPages\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method PhpMyAdmin\\\\StorageEngine\\:\\:getInfoPages\\(\\)$#"
 			count: 1
 			path: libraries/classes/Engines/Pbxt.php
 
@@ -3054,6 +3284,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Error\\:\\:\\$errortype type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Error.php
+
+		-
+			message: "#^Instanceof between PhpMyAdmin\\\\Error and PhpMyAdmin\\\\Error will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/ErrorHandler.php
 
 		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
@@ -3266,6 +3501,11 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
+			message: "#^Switch condition type \\(string\\) does not match case condition false \\(false\\)\\.$#"
+			count: 1
+			path: libraries/classes/File.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\FileListing\\:\\:getDirContent\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/FileListing.php
@@ -3391,6 +3631,16 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:explodeGeomCol\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
@@ -3446,6 +3696,16 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Gis/GisLineString.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 1
+			path: libraries/classes/Gis/GisLineString.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
@@ -3499,6 +3759,16 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisLineString\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiLineString.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -3559,6 +3829,16 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPoint.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -3626,6 +3906,16 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:drawPath\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -3691,6 +3981,16 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Gis/GisPoint.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 1
+			path: libraries/classes/Gis/GisPoint.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -3749,6 +4049,16 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPoint\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:area\\(\\) has parameter \\$ring with no value type specified in iterable type array\\.$#"
@@ -3839,6 +4149,11 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPolygon\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
+
+		-
+			message: "#^Call to function is_numeric\\(\\) with int will always evaluate to true\\.$#"
+			count: 2
+			path: libraries/classes/Gis/GisVisualization.php
 
 		-
 			message: "#^Cannot call method Output\\(\\) on mixed\\.$#"
@@ -3986,9 +4301,19 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
+			message: "#^Variable \\$position might not be defined\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Header\\:\\:getJsParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Html/Generator.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getDefaultFunctionForField\\(\\) has parameter \\$field with no value type specified in iterable type array\\.$#"
@@ -4081,6 +4406,11 @@ parameters:
 			path: libraries/classes/Http/ServerRequest.php
 
 		-
+			message: "#^Variable property access on object\\.$#"
+			count: 2
+			path: libraries/classes/Http/ServerRequest.php
+
+		-
 			message: "#^Function imagefilledpolygon invoked with 3 parameters, 4 required\\.$#"
 			count: 1
 			path: libraries/classes/Image/ImageWrapper.php
@@ -4099,6 +4429,16 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:width\\(\\) should return int but returns int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^Foreach overwrites \\$sqlQuery with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Import.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Import\\:\\:analyzeTable\\(\\) has parameter \\$table with no value type specified in iterable type array\\.$#"
@@ -4146,6 +4486,16 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the right side\\.$#"
+			count: 2
+			path: libraries/classes/Import.php
+
+		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
 			path: libraries/classes/Import.php
@@ -4156,12 +4506,12 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Import\\\\Ajax\\:\\:uploadProgressSetup\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Import.php
+			path: libraries/classes/Import/Ajax.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\\\Ajax\\:\\:uploadProgressSetup\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Variable static method call on PhpMyAdmin\\\\Import\\\\Ajax\\.$#"
 			count: 1
 			path: libraries/classes/Import/Ajax.php
 
@@ -4174,6 +4524,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Import/SimulateDml.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Index.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Index\\:\\:__construct\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
@@ -4681,6 +5036,11 @@ parameters:
 			path: libraries/classes/Menu.php
 
 		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Menu.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Message.php
@@ -4741,6 +5101,16 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 6
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Foreach overwrites \\$parent with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addDbContainers\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -4773,6 +5143,11 @@ parameters:
 		-
 			message: "#^Offset 'text' on array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 2
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
@@ -4821,6 +5196,21 @@ parameters:
 			path: libraries/classes/Navigation/NodeFactory.php
 
 		-
+			message: "#^Casting to bool something that's already bool\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 2
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
@@ -4856,6 +5246,11 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
+			message: "#^Strict comparison using \\!\\=\\= between PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node and null will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
@@ -4869,6 +5264,11 @@ parameters:
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeColumn\\:\\:getTruncateValue\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeColumn.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -4929,6 +5329,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
+
+		-
+			message: "#^Casting to array something that's already array\\.$#"
+			count: 1
+			path: libraries/classes/Normalization.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) has parameter \\$partialDependencies with no value type specified in iterable type array\\.$#"
@@ -5006,9 +5411,19 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
+			message: "#^Variable property access on object\\.$#"
+			count: 4
+			path: libraries/classes/Normalization.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\OpenDocument\\:\\:create\\(\\) should return string but returns bool\\|string\\.$#"
 			count: 1
 			path: libraries/classes/OpenDocument.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) has parameter \\$tables_full with no value type specified in iterable type array\\.$#"
@@ -5161,6 +5576,21 @@ parameters:
 			path: libraries/classes/Partitioning/TablePartitionDefinition.php
 
 		-
+			message: "#^Call to method TCPDF\\:\\:setAuthor\\(\\) with incorrect case\\: SetAuthor$#"
+			count: 1
+			path: libraries/classes/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
+			count: 2
+			path: libraries/classes/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setY\\(\\) with incorrect case\\: SetY$#"
+			count: 2
+			path: libraries/classes/Pdf.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$alias type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Pdf.php
@@ -5169,6 +5599,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$footerset type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Pdf.php
+
+		-
+			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/Plugins.php
 
 		-
 			message: "#^Left side of \\|\\| is always false\\.$#"
@@ -5184,6 +5619,11 @@ parameters:
 			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 3
 			path: libraries/classes/Plugins.php
+
+		-
+			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
 			message: "#^Parameter \\#2 \\$remoteIp of method ReCaptcha\\\\ReCaptcha\\:\\:verify\\(\\) expects string\\|null, bool\\|string given\\.$#"
@@ -5351,6 +5791,16 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:exportConfigurationMetadata\\(\\) has parameter \\$metadataTypes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -5496,6 +5946,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
+			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportXml.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportXml\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportXml.php
@@ -5521,6 +5976,26 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
+			message: "#^Call to method TCPDF\\:\\:setFillColor\\(\\) with incorrect case\\: SetFillColor$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
+			count: 5
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 7
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setY\\(\\) with incorrect case\\: SetY$#"
+			count: 5
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:getTableDef\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -5532,6 +6007,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of static method TCPDF_STATIC\\:\\:empty_string\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Parameter \\#1 \\$topMargin \\(float\\) of method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:setTopMargin\\(\\) should be contravariant with parameter \\$margin \\(float\\|int\\) of method TCPDF\\:\\:setTopMargin\\(\\)$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
@@ -5581,9 +6061,19 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
+			message: "#^Variable \\$columns_cnt might not be defined\\.$#"
+			count: 6
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\TableProperty\\:\\:__construct\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/TableProperty.php
+
+		-
+			message: "#^Foreach overwrites \\$db with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/ExportPlugin.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
@@ -5649,6 +6139,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/IOTransformationsPlugin.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:buildErrorsForParams\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -5786,6 +6281,21 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
+			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
+			message: "#^Variable property access on SimpleXMLElement\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
+			message: "#^Variable property access on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportSql\\:\\:setSQLMode\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportSql.php
@@ -5816,6 +6326,16 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
+			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
+			message: "#^Variable property access on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
 			message: "#^array\\<int, array\\<int, string\\>\\|string\\>\\|string does not accept array\\<int, string\\>\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
@@ -5834,6 +6354,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadSession\\:\\:getUploadStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/ImportPlugin.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\:\\:getDbnameAndOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -5876,6 +6401,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php
 
 		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
+
+		-
 			message: "#^Parameter \\#1 \\$x_from of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
@@ -5894,6 +6424,31 @@ parameters:
 			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setLineWidth\\(\\) with incorrect case\\: SetLineWidth$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setX\\(\\) with incorrect case\\: SetX$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:row\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
@@ -5919,6 +6474,56 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$widths type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:Line\\(\\) with incorrect case\\: line$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setDrawColor\\(\\) with incorrect case\\: SetDrawColor$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setLink\\(\\) with incorrect case\\: SetLink$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setMargins\\(\\) with incorrect case\\: SetMargins$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setTitle\\(\\) with incorrect case\\: SetTitle$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setX\\(\\) with incorrect case\\: SetX$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:dataDictionaryDoc\\(\\) has parameter \\$alltables with no value type specified in iterable type array\\.$#"
@@ -5971,6 +6576,26 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
+			message: "#^Call to method TCPDF\\:\\:setFillColor\\(\\) with incorrect case\\: SetFillColor$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
+			count: 4
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setLink\\(\\) with incorrect case\\: SetLink$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setTextColor\\(\\) with incorrect case\\: SetTextColor$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
@@ -5996,6 +6621,16 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
+			message: "#^Call to function is_int\\(\\) with int will always evaluate to true\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Svg/Svg.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Svg/Svg.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/Svg.php
@@ -6004,6 +6639,11 @@ parameters:
 			message: "#^Parameter mixed of print cannot be converted to string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/Svg.php
+
+		-
+			message: "#^Call to method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setAuthor\\(\\) with incorrect case\\: SetAuthor$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
@@ -6091,6 +6731,11 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 4
+			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\DateFormatTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
@@ -6107,6 +6752,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\ExternalTransformationsPlugin\\:\\:applyTransformationNoWrap\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between 0 and 0 will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php
 
@@ -6174,6 +6824,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\SQLTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\SubstringTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
@@ -6336,6 +6991,11 @@ parameters:
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
 		-
+			message: "#^Return type \\(bool\\|string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getForce\\(\\) should be covariant with return type \\(string\\|null\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getForce\\(\\)$#"
+			count: 1
+			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Providers\\\\ServerVariables\\\\MariaDbMySqlKbsProvider\\:\\:getStaticVariables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Providers/ServerVariables/MariaDbMySqlKbsProvider.php
@@ -6451,6 +7111,11 @@ parameters:
 			path: libraries/classes/ReplicationGui.php
 
 		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:fill\\(\\) has parameter \\$status with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationInfo.php
@@ -6506,6 +7171,11 @@ parameters:
 			path: libraries/classes/ReplicationInfo.php
 
 		-
+			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/ResponseRenderer.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ResponseRenderer\\:\\:addJSON\\(\\) has parameter \\$json with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
@@ -6519,6 +7189,16 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\ResponseRenderer\\:\\:\\$instance \\(PhpMyAdmin\\\\ResponseRenderer\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
+
+		-
+			message: "#^Casting to array\\<string, mixed\\> something that's already array\\<string, mixed\\>\\.$#"
+			count: 4
+			path: libraries/classes/Sanitize.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 2
+			path: libraries/classes/Sanitize.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) should return string but returns string\\|null\\.$#"
@@ -6594,6 +7274,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$description of method PhpMyAdmin\\\\Server\\\\Plugins\\:\\:getTranslatedDescription\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Plugins.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Foreach overwrites \\$sqlQuery with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) has parameter \\$dbname with no value type specified in iterable type array\\.$#"
@@ -6802,6 +7492,21 @@ parameters:
 
 		-
 			message: "#^Offset 'password' does not exist on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 4
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the right side\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -7126,6 +7831,11 @@ parameters:
 			path: libraries/classes/Server/Status/Processes.php
 
 		-
+			message: "#^Class COM referenced with incorrect case\\: com\\.$#"
+			count: 1
+			path: libraries/classes/Server/SysInfo/WindowsNt.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Session\\:\\:sessionFailed\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Session.php
@@ -7361,6 +8071,11 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
+			message: "#^Variable method call on \\$this\\(PhpMyAdmin\\\\StorageEngine\\)\\.$#"
+			count: 1
+			path: libraries/classes/StorageEngine.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) has parameter \\$columnMap with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/SystemDatabase.php
@@ -7368,6 +8083,11 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 9
 			path: libraries/classes/Table.php
 
 		-
@@ -7676,6 +8396,16 @@ parameters:
 			path: libraries/classes/Theme.php
 
 		-
+			message: "#^Casting to bool something that's already bool\\.$#"
+			count: 1
+			path: libraries/classes/ThemeManager.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/ThemeManager.php
+
+		-
 			message: "#^If condition is always true\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
@@ -7711,6 +8441,11 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:changeTrackingData\\(\\) has parameter \\$newData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
@@ -7718,6 +8453,11 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:parseQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 2
 			path: libraries/classes/Tracker.php
 
 		-
@@ -8066,9 +8806,19 @@ parameters:
 			path: libraries/classes/TwoFactor.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Types.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Types\\:\\:getColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Types.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 2
+			path: libraries/classes/Url.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Url\\:\\:getFromRoute\\(\\) has parameter \\$additionalParameters with no value type specified in iterable type array\\.$#"
@@ -8122,6 +8872,21 @@ parameters:
 
 		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Casting to int something that's already int\\<min, \\-2\\>\\|int\\<0, max\\>\\.$#"
+			count: 5
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Foreach overwrites \\$quote with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -8196,9 +8961,29 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
+			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Only numeric types are allowed in \\-, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
 			message: "#^Parameter \\#1 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getConditionValue\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
+
+		-
+			message: "#^Variable static method call on PhpMyAdmin\\\\Util\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Utils/ForeignKey.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
@@ -8281,6 +9066,11 @@ parameters:
 			path: libraries/classes/VersionInformation.php
 
 		-
+			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/ZipExtension.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:createFile\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
@@ -8336,6 +9126,41 @@ parameters:
 			path: test/classes/Advisory/AdvisorTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'formula' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Advisory/RulesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'id' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Advisory/RulesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'issue' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Advisory/RulesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'justification' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Advisory/RulesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'name' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Advisory/RulesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'recommendation' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Advisory/RulesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'test' and array\\{id\\: non\\-empty\\-string, name\\: string, precondition\\?\\: non\\-empty\\-string, formula\\: non\\-empty\\-string, test\\: non\\-empty\\-string, issue\\: string, recommendation\\: string, justification\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Advisory/RulesTest.php
+
+		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: test/classes/BrowseForeignersTest.php
@@ -8359,6 +9184,16 @@ parameters:
 			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
 			count: 1
 			path: test/classes/CacheTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Charset' and PhpMyAdmin\\\\Charsets\\\\Charset will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Charsets/CharsetTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Collation' and PhpMyAdmin\\\\Charsets\\\\Collation will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Charsets/CollationTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Charsets\\\\CollationTest\\:\\:providerTestBuildDescription\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -8391,6 +9226,11 @@ parameters:
 			path: test/classes/CommonTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
+			count: 3
+			path: test/classes/Config/DescriptionTest.php
+
+		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/Config/FormDisplayTest.php
@@ -8401,9 +9241,44 @@ parameters:
 			path: test/classes/Config/FormDisplayTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Forms\\\\\\\\BaseFormList' and PhpMyAdmin\\\\Config\\\\Forms\\\\BaseFormList will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/Forms/FormListTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/Forms/FormListTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\ServerConfigChecksTest\\:\\:\\$sessionID \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: test/classes/Config/ServerConfigChecksTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Console\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/ConsoleTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Debug\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/DebugTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Export\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/ExportTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Import\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/ImportTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Schema\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/SchemaTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\Settings\\\\ServerTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
@@ -8411,12 +9286,67 @@ parameters:
 			path: test/classes/Config/Settings/ServerTest.php
 
 		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Server\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/ServerTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\SqlQueryBox\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/SqlQueryBoxTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\Settings\\\\TransformationsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Config/Settings/TransformationsTest.php
 
 		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\\\Transformations\\.$#"
+			count: 1
+			path: test/classes/Config/Settings/TransformationsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Console' and PhpMyAdmin\\\\Config\\\\Settings\\\\Console will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Debug' and PhpMyAdmin\\\\Config\\\\Settings\\\\Debug will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Export' and PhpMyAdmin\\\\Config\\\\Settings\\\\Export will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Import' and PhpMyAdmin\\\\Config\\\\Settings\\\\Import will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Schema' and PhpMyAdmin\\\\Config\\\\Settings\\\\Schema will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\SqlQueryBox' and PhpMyAdmin\\\\Config\\\\Settings\\\\SqlQueryBox will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Transformations' and PhpMyAdmin\\\\Config\\\\Settings\\\\Transformations will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\SettingsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\.$#"
 			count: 1
 			path: test/classes/Config/SettingsTest.php
 
@@ -8619,6 +9549,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:testGetTableCreationQuery\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/CreateAddFieldTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
@@ -8856,6 +9791,16 @@ parameters:
 			path: test/classes/Database/TriggersTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Dbal\\\\\\\\ResultInterface' and PhpMyAdmin\\\\Dbal\\\\ResultInterface will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/DatabaseInterfaceTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\SystemDatabase' and PhpMyAdmin\\\\SystemDatabase will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/DatabaseInterfaceTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\DatabaseInterfaceTest\\:\\:currentUserData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/DatabaseInterfaceTest.php
@@ -9036,6 +9981,11 @@ parameters:
 			path: test/classes/Engines/PbxtTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with string will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/ErrorHandlerTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ErrorHandlerTest\\:\\:providerForTestHandleError\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ErrorHandlerTest.php
@@ -9054,6 +10004,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ErrorTest\\:\\:filePathProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ErrorTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string, mixed\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Export/OptionsTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\FileTest\\:\\:compressedFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9079,6 +10034,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:testScaleRow\\(\\) has parameter \\$min_max with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeomTestCase.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisGeometryCollectionTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9206,6 +10166,11 @@ parameters:
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisLineStringTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisLineStringTest.php
@@ -9254,6 +10219,16 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisLineStringTest.php
+
+		-
+			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisLineString of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Gis/GisLineStringTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiLineStringTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9306,6 +10281,16 @@ parameters:
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
 		-
+			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisMultiLineString of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiLineStringTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiPointTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPointTest.php
@@ -9354,6 +10339,16 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPointTest.php
+
+		-
+			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisMultiPoint of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiPointTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9421,6 +10416,16 @@ parameters:
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
+			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisMultiPolygon of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiPolygonTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPointTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPointTest.php
@@ -9479,6 +10484,16 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPointTest.php
+
+		-
+			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisPoint of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPointTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPolygonTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9581,6 +10596,21 @@ parameters:
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-
+			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisPolygon of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPolygonTest.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 2
+			path: test/classes/GitTest.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: test/classes/HeaderTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\HeaderTest\\:\\:providerForTestGetHttpHeaders\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/HeaderTest.php
@@ -9594,6 +10624,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Html\\\\GeneratorTest\\:\\:testLinkOrButton\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Html/GeneratorTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Import/AjaxTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ImportTest\\:\\:provDetectType\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9706,6 +10741,11 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/InternalRelationsTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\IpAllowDenyTest\\:\\:proxyIPs\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/IpAllowDenyTest.php
@@ -9751,9 +10791,109 @@ parameters:
 			path: test/classes/MimeTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeColumnContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeColumnTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeDatabaseTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeEventContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeEventTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeFunctionContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeFunctionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeIndexContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeIndexTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeProcedureContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeProcedureTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeTableContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeTableTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Navigation\\\\Nodes\\\\NodeTableTest\\:\\:providerForTestIcon\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Navigation/Nodes/NodeTableTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeTriggerContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeTriggerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeViewContainerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Navigation/Nodes/NodeViewTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
+			count: 4
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
+			count: 5
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotFalse\\(\\) with string will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/OpenDocumentTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\OperationsTest\\:\\:testGetPartitionMaintenanceChoices\\(\\) has parameter \\$extraChoice with no value type specified in iterable type array\\.$#"
@@ -9761,9 +10901,44 @@ parameters:
 			path: test/classes/OperationsTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\StatementInfo' and PhpMyAdmin\\\\StatementInfo will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/ParseAnalyzeTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Partitioning\\\\TablePartitionDefinitionTest\\:\\:testGetDetails\\(\\) has parameter \\$partitions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Partitioning/TablePartitionDefinitionTest.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:AddPage\\(\\) with incorrect case\\: Addpage$#"
+			count: 2
+			path: test/classes/PdfTest.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:Line\\(\\) with incorrect case\\: line$#"
+			count: 1
+			path: test/classes/PdfTest.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setDrawColor\\(\\) with incorrect case\\: SetDrawColor$#"
+			count: 1
+			path: test/classes/PdfTest.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
+			count: 1
+			path: test/classes/PdfTest.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setMargins\\(\\) with incorrect case\\: SetMargins$#"
+			count: 1
+			path: test/classes/PdfTest.php
+
+		-
+			message: "#^Call to method TCPDF\\:\\:setTitle\\(\\) with incorrect case\\: SetTitle$#"
+			count: 1
+			path: test/classes/PdfTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
@@ -9791,9 +10966,19 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
+
+		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
+
+		-
+			message: "#^Call to method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:getSubgroupHeader\\(\\) with incorrect case\\: getSubGroupHeader$#"
+			count: 1
+			path: test/classes/Plugins/Export/ExportMediawikiTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -9851,9 +11036,29 @@ parameters:
 			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/PluginsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/PluginsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\SchemaPlugin\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/PluginsTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, int given\\.$#"
@@ -9871,9 +11076,14 @@ parameters:
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ExportPluginProperties of property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object is not covariant with PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ImportPluginProperties of overridden property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object\\.$#"
+			message: "#^PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ExportPluginProperties of property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ImportPluginProperties of overridden property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object\\.$#"
 			count: 1
 			path: test/classes/Properties/Plugins/ExportPluginPropertiesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FastRoute\\\\\\\\Dispatcher' and FastRoute\\\\Dispatcher will always evaluate to true\\.$#"
+			count: 4
+			path: test/classes/RoutingTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\SanitizeTest\\:\\:dataProviderCheckLinks\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9896,6 +11106,26 @@ parameters:
 			path: test/classes/SanitizeTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Server/PluginTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/Server/PluginsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<PhpMyAdmin\\\\Server\\\\Plugin\\> will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/Server/PluginsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\|string, string\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Server/PluginsTest.php
+
+		-
 			message: "#^PHPDoc tag @var for variable \\$actual has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Server/PrivilegesTest.php
@@ -9904,6 +11134,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Server\\\\SelectTest\\:\\:renderDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Server/SelectTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\SysInfo\\\\\\\\Base' and PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Server/SysInfo/SysInfoTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\SqlTest\\:\\:dataProviderCountQueryResults\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9966,6 +11201,11 @@ parameters:
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
+			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
+			count: 1
+			path: test/classes/Stubs/ResponseRenderer.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\ResponseRenderer\\:\\:getJSONResult\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Stubs/ResponseRenderer.php
@@ -9976,7 +11216,17 @@ parameters:
 			path: test/classes/Stubs/ResponseRenderer.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table' and PhpMyAdmin\\\\Table will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TableTest\\:\\:dataValidateName\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between mixed and mixed will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/TableTest.php
 
@@ -10004,6 +11254,21 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TemplateTest\\:\\:testRenderGettext\\(\\) has parameter \\$renderParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TemplateTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/ThemeManagerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/ThemeManagerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme' and PhpMyAdmin\\\\Theme will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/ThemeTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ThemeTest\\:\\:providerForGetImgPath\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10114,6 +11379,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:testGetTypeOperators\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TypesTest.php
+
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: test/classes/UtilTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:charsetQueryData\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10299,4 +11569,59 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:testGetLatestCompatibleVersionWithNewPHPVersion\\(\\) has parameter \\$versions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/VersionInformationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsBool\\(\\) with true will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 0 will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 3 will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 5 will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with 'dev' will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
+			count: 1
+			path: test/selenium/Database/OperationsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
+			count: 1
+			path: test/selenium/Database/StructureTest.php
+
+		-
+			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
+			count: 2
+			path: test/selenium/TestBase.php
+
+		-
+			message: "#^Call to method Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver\\:\\:getSessionID\\(\\) with incorrect case\\: getSessionId$#"
+			count: 1
+			path: test/selenium/TestBase.php
+
+		-
+			message: "#^Variable static method call on Facebook\\\\WebDriver\\\\WebDriverBy\\.$#"
+			count: 4
+			path: test/selenium/TestBase.php
 
