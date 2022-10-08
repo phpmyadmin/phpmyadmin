@@ -880,7 +880,7 @@ class Util
         // See commit: 049fc7fef7548c2ba603196937c6dcaf9ff9bf00
         // See bug: https://sourceforge.net/p/phpmyadmin/bugs/3064/
         if ($meta->isNumeric && ! $meta->isMappedTypeTimestamp && $meta->isNotType(FieldMetadata::TYPE_REAL)) {
-            $conditionValue = '= ' . $row;
+            $conditionValue = '= "' . $dbi->escapeString((string) $row) . '"';
         } elseif ($isBlobAndIsBinaryCharset || (! empty($row) && $isBinaryString)) {
             // hexify only if this is a true not empty BLOB or a BINARY
 
