@@ -288,11 +288,19 @@ class UtilTest extends AbstractTestCase
     /**
      * Provider for testGetUniqueConditionForGroupFlag
      *
-     * @return array<string, array<mixed>>
+     * @return array<string, array<int, array<int, array<string, string>|bool|int|string>>>
      */
     public function providerGetUniqueConditionForGroupFlag(): array
     {
         return [
+            'value is number' => [
+                [123],
+                [
+                    "`table`.`col` = '123'",
+                    false,
+                    ['`table`.`col`' => "= '123'"],
+                ],
+            ],
             'value is string' => [
                 ['test'],
                 [
