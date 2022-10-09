@@ -265,8 +265,8 @@ class UtilTest extends AbstractTestCase
      * Test for Util::getUniqueCondition
      * note: GROUP_FLAG = MYSQLI_NUM_FLAG
      *
-     * @param array $row      Data Row
-     * @param array $expected Expected Result
+     * @param array<int, string>                           $row      Data Row
+     * @param array<int, array<string,string>|bool|string> $expected Expected Result
      *
      * @dataProvider providerGetUniqueConditionForGroupFlag
      */
@@ -288,7 +288,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Provider for testGetUniqueConditionForGroupFlag
      *
-     * @return array
+     * @return array<string, array<mixed>>
      */
     public function providerGetUniqueConditionForGroupFlag(): array
     {
