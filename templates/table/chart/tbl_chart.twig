@@ -73,7 +73,7 @@
           <label class="form-label" for="chartSeriesSelect">{% trans 'Series:' %}</label>
           <select class="form-select resize-vertical" name="chartSeriesSelect" id="chartSeriesSelect" multiple>
             {% for idx, key in keys %}
-              {% if fields_meta[idx].isNumericType() %}
+              {% if fields_meta[idx].isNumeric %}
                 {% if idx == xaxis and table_has_a_numeric_column %}
                   <option value="{{ idx }}">{{ key }}</option>
                 {% else %}
@@ -92,7 +92,7 @@
           {%- endfor %}">
         <input type="hidden" name="numericCols" value="
           {%- for idx, key in keys -%}
-            {%- if fields_meta[idx].isNumericType() -%}
+            {%- if fields_meta[idx].isNumeric -%}
               {{- idx ~ ' ' -}}
             {%- endif -%}
           {%- endfor %}">
@@ -127,7 +127,7 @@
           <select class="form-select" name="chartValueColumnSelect" id="chartValueColumnSelect" disabled>
             {% set selected = false %}
             {% for idx, key in keys %}
-              {% if fields_meta[idx].isNumericType() %}
+              {% if fields_meta[idx].isNumeric %}
                 {% if not selected and idx != xaxis and idx != series_column %}
                   <option value="{{ idx }}" selected>{{ key }}</option>
                   {% set selected = true %}

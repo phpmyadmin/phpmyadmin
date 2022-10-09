@@ -293,8 +293,6 @@ class ExportOdt extends ExportPlugin
                         . '</table:table-cell>';
                 } elseif (
                     $fieldsMeta[$j]->isNumeric
-                    && ! $fieldsMeta[$j]->isMappedTypeTimestamp
-                    && ! $fieldsMeta[$j]->isBlob
                 ) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'

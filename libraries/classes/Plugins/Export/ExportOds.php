@@ -283,10 +283,7 @@ class ExportOds extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif (
-                    ($fieldsMeta[$j]->isNumeric
-                    && ! $fieldsMeta[$j]->isMappedTypeTimestamp
-                    && ! $fieldsMeta[$j]->isBlob)
-                    || $fieldsMeta[$j]->isType(FieldMetadata::TYPE_REAL)
+                    $fieldsMeta[$j]->isNumeric
                 ) {
                     $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'
