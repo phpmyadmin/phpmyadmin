@@ -264,14 +264,21 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::getUniqueCondition
      *
-     * @param array $meta     Meta
      * @param array $row      Data Row
-     * @param array $expected Expected value
+     * @param array $expected Expected Result
      *
      * @dataProvider providerGetUniqueConditionAfterGroupByQuery
      */
-    public function testGetUniqueConditionAfterGroupByQuery($meta, $row, $expected): void
+    public function testGetUniqueConditionAfterGroupByQuery($row, $expected): void
     {
+        $meta = [
+            new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                'name' => 'col',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+        ];
+
         $actual = Util::getUniqueCondition(1, $meta, $row);
 
         $this->assertEquals($expected, $actual);
@@ -286,13 +293,6 @@ class UtilTest extends AbstractTestCase
     {
         return [
             'value is string' => [
-                [
-                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
-                        'name' => 'col',
-                        'table' => 'table',
-                        'orgtable' => 'table',
-                    ]),
-                ],
                 ['test'],
                 [
                     "`table`.`col` = 'test'",
@@ -301,13 +301,6 @@ class UtilTest extends AbstractTestCase
                 ],
             ],
             'value is string with double quote' => [
-                [
-                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
-                        'name' => 'col',
-                        'table' => 'table',
-                        'orgtable' => 'table',
-                    ]),
-                ],
                 ['"test"'],
                 [
                     "`table`.`col` = '\\\"test\\\"'",
@@ -316,13 +309,6 @@ class UtilTest extends AbstractTestCase
                 ],
             ],
             'value is string with single quote' => [
-                [
-                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
-                        'name' => 'col',
-                        'table' => 'table',
-                        'orgtable' => 'table',
-                    ]),
-                ],
                 ["'test'"],
                 [
                     "`table`.`col` = '\'test\''",
