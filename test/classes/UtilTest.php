@@ -286,8 +286,7 @@ class UtilTest extends AbstractTestCase
     /**
      * Provider for testGetUniqueConditionForGroupFlag
      *
-     * @return array
-     * @psalm-return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
+     * @return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
      */
     public function providerGetUniqueConditionForGroupFlag(): array
     {
