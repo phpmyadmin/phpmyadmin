@@ -694,7 +694,8 @@ class InsertEdit
         }
 
         $inputMinMax = '';
-        if (in_array($column['True_Type'], $this->dbi->types->getIntegerTypes())) {
+        $isInteger = in_array($column['True_Type'], $this->dbi->types->getIntegerTypes());
+        if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($column['Type']);
             $isUnsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($column['True_Type'], ! $isUnsigned);
@@ -716,6 +717,7 @@ class InsertEdit
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
+            . ($isInteger ? ' inputmode="numeric"' : '')
             . ' id="field_' . $idindex . '_3">';
     }
 
