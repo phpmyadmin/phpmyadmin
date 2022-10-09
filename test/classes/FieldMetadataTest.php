@@ -105,6 +105,23 @@ class FieldMetadataTest extends AbstractTestCase
         $this->assertFalse($fm->isBlob());
     }
 
+    public function testIsNumericForUnknownFieldType(): void
+    {
+        $fm = new FieldMetadata(-1, MYSQLI_NUM_FLAG, (object) []);
+        $this->assertSame('', $fm->getMappedType());
+        $this->assertFalse($fm->isBinary());
+        $this->assertFalse($fm->isEnum());
+        $this->assertFalse($fm->isUniqueKey());
+        $this->assertFalse($fm->isUnsigned());
+        $this->assertFalse($fm->isZerofill());
+        $this->assertFalse($fm->isSet());
+        $this->assertFalse($fm->isNotNull());
+        $this->assertFalse($fm->isPrimaryKey());
+        $this->assertFalse($fm->isMultipleKey());
+        $this->assertTrue($fm->isNumeric());
+        $this->assertFalse($fm->isBlob());
+    }
+
     public function testIsBlob(): void
     {
         $fm = new FieldMetadata(-1, MYSQLI_BLOB_FLAG, (object) []);

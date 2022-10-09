@@ -240,7 +240,7 @@ final class FieldMetadata
             // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
             // so check field type instead of flags
             // but if no or unknown field type then check flags
-            $this->isNumeric = (bool) $this->isType(self::TYPE_INT)
+            $this->isNumeric = $this->isType(self::TYPE_INT)
                 || ($fieldType <= 0 && ($fieldFlags & MYSQLI_NUM_FLAG));
 
             $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);

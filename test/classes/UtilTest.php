@@ -40,6 +40,8 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
+const FIELD_TYPE_VARCHAR = 253;
+
 /**
  * @covers \PhpMyAdmin\Util
  */
@@ -257,6 +259,78 @@ class UtilTest extends AbstractTestCase
 
         $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
         $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
+    }
+
+    /**
+     * Test for Util::getUniqueCondition
+     *
+     * @param array $meta     Meta
+     * @param array $row      Data Row
+     * @param array $expected Expected value
+     *
+     * @dataProvider providerGetUniqueConditionAfterGroupByQuery
+     */
+    public function testGetUniqueConditionAfterGroupByQuery($meta, $row, $expected): void
+    {
+        $actual = Util::getUniqueCondition(1, $meta, $row);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Provider for testGetUniqueConditionAfterGroupByQuery
+     *
+     * @return array
+     */
+    public function providerGetUniqueConditionAfterGroupByQuery(): array
+    {
+        return [
+            'value is string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test'],
+                [
+                    "`table`.`col` = 'test'",
+                    false,
+                    ['`table`.`col`' => "= 'test'"],
+                ],
+            ],
+            'value is string with double quote' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['"test"'],
+                [
+                    "`table`.`col` = '\\\"test\\\"'",
+                    false,
+                    ['`table`.`col`' => "= '\\\"test\\\"'"],
+                ],
+            ],
+            'value is string with single quote' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ["'test'"],
+                [
+                    "`table`.`col` = '\'test\''",
+                    false,
+                    ['`table`.`col`' => "= '\'test\''"],
+                ],
+            ],
+        ];
     }
 
     /**
