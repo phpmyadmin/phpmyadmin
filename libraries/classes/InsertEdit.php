@@ -693,16 +693,15 @@ class InsertEdit
             }
         }
 
-        $inputMode = '';
         $inputMinMax = '';
-        if (in_array($column['True_Type'], $this->dbi->types->getIntegerTypes())) {
+        $isInteger = in_array($column['True_Type'], $this->dbi->types->getIntegerTypes());
+        if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($column['Type']);
             $isUnsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($column['True_Type'], ! $isUnsigned);
             $inputMinMax = 'min="' . $minMaxValues[0] . '" '
                 . 'max="' . $minMaxValues[1] . '"';
             $dataType = 'INT';
-            $inputMode = 'inputmode="numeric"';
         }
 
         // do not use the 'date' or 'time' types here; they have no effect on some
@@ -718,7 +717,7 @@ class InsertEdit
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
-            . ($inputMode ? ' ' . $inputMode : '')
+            . ($isInteger ? ' inputmode="numeric"' : '')
             . ' id="field_' . $idindex . '_3">';
     }
 
