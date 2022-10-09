@@ -40,6 +40,10 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
+const FIELD_TYPE_INTEGER = 1;
+const FIELD_TYPE_VARCHAR = 253;
+const FIELD_TYPE_UNKNOWN = -1;
+
 /**
  * @covers \PhpMyAdmin\Util
  */
@@ -257,6 +261,135 @@ class UtilTest extends AbstractTestCase
 
         $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
         $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
+    }
+
+    /**
+     * Test for Util::getUniqueCondition
+     * note: GROUP_FLAG = MYSQLI_NUM_FLAG = 32769
+     *
+     * @param FieldMetadata[] $meta     Meta Information for Field
+     * @param array           $row      Current Ddata Row
+     * @param array           $expected Expected Result
+     * @psalm-param array<int, mixed> $row
+     * @psalm-param array{string, bool, array<string, string>} $expected
+     *
+     * @dataProvider providerGetUniqueConditionForGroupFlag
+     */
+    public function testGetUniqueConditionForGroupFlag(array $meta, array $row, array $expected): void
+    {
+        $fieldsCount = count($meta);
+        $actual = Util::getUniqueCondition($fieldsCount, $meta, $row);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Provider for testGetUniqueConditionForGroupFlag
+     *
+     * @return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
+     */
+    public function providerGetUniqueConditionForGroupFlag(): array
+    {
+        return [
+            'field type is integer, value is number - not escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                [123],
+                [
+                    '`table`.`col` = 123',
+                    false,
+                    ['`table`.`col`' => '= 123'],
+                ],
+            ],
+            'field type is unknown, value is string - not escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_UNKNOWN, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test'],
+                [
+                    '`table`.`col` = test',
+                    false,
+                    ['`table`.`col`' => '= test'],
+                ],
+            ],
+            'field type is varchar, value is string - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test'],
+                [
+                    "`table`.`col` = 'test'",
+                    false,
+                    ['`table`.`col`' => "= 'test'"],
+                ],
+            ],
+            'field type is varchar, value is string with double quote - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['"test"'],
+                [
+                    "`table`.`col` = '\\\"test\\\"'",
+                    false,
+                    ['`table`.`col`' => "= '\\\"test\\\"'"],
+                ],
+            ],
+            'field type is varchar, value is string with single quote - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ["'test'"],
+                [
+                    "`table`.`col` = '\'test\''",
+                    false,
+                    ['`table`.`col`' => "= '\'test\''"],
+                ],
+            ],
+            'group by multiple columns and field type is mixed' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'status_id',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test', 2],
+                [
+                    "`table`.`col` = 'test' AND `table`.`status_id` = 2",
+                    false,
+                    [
+                        '`table`.`col`' => "= 'test'",
+                        '`table`.`status_id`' => '= 2',
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
