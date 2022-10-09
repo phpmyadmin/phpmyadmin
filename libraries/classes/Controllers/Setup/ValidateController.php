@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PhpMyAdmin\Controllers\Setup;
+
+use PhpMyAdmin\Config\Validator;
+use PhpMyAdmin\Core;
+use stdClass;
+
+use function __;
+use function explode;
+use function implode;
+use function is_scalar;
+use function json_decode;
+use function json_encode;
+use function sprintf;
+
+final class ValidateController
+{
+    public function __invoke(): void
+    {
+        Core::headerJSON();
+
+        $ids = isset($_POST['id']) && is_scalar($_POST['id']) ? (string) $_POST['id'] : '';
+        $vids = explode(',', $ids);
+        $vals = isset($_POST['values']) && is_scalar($_POST['values']) ? (string) $_POST['values'] : '';
+        $values = json_decode($vals);
+        if (! ($values instanceof stdClass)) {
+            Core::fatalError(__('Wrong data'));
+        }
+
+        $values = (array) $values;
+        $result = Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
+        if ($result === false) {
+            $result = sprintf(
+                __('Wrong data or no validation for %s'),
+                implode(',', $vids)
+            );
+        }
+
+        echo $result !== true ? json_encode($result) : '';
+    }
+}
