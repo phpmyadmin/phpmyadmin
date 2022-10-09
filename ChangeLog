@@ -40,6 +40,8 @@ phpMyAdmin - ChangeLog
 - issue #17736 Add utf8mb3 as an alias of utf8 on the charset description page
 - issue #16418 Fix FAQ 1.44 about manually removing vendor folders
 - issue #12359 Setup page now sends the Content-Security-Policy headers
+- issue #17747 The Column Visibility Toggle will not be hidden by other elements
+- issue #17756 Edit/Copy/Delete row now works when using GROUP BY
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

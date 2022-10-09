@@ -10,6 +10,7 @@ use stdClass;
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_NUM_FLAG;
 use const MYSQLI_TYPE_FLOAT;
+use const MYSQLI_TYPE_INT24;
 use const MYSQLI_TYPE_STRING;
 
 /**
@@ -89,6 +90,23 @@ class FieldMetadataTest extends AbstractTestCase
 
     public function testIsNumeric(): void
     {
+        $fm = new FieldMetadata(MYSQLI_TYPE_INT24, MYSQLI_NUM_FLAG, (object) []);
+        $this->assertSame('int', $fm->getMappedType());
+        $this->assertFalse($fm->isBinary());
+        $this->assertFalse($fm->isEnum());
+        $this->assertFalse($fm->isUniqueKey());
+        $this->assertFalse($fm->isUnsigned());
+        $this->assertFalse($fm->isZerofill());
+        $this->assertFalse($fm->isSet());
+        $this->assertFalse($fm->isNotNull());
+        $this->assertFalse($fm->isPrimaryKey());
+        $this->assertFalse($fm->isMultipleKey());
+        $this->assertTrue($fm->isNumeric());
+        $this->assertFalse($fm->isBlob());
+    }
+
+    public function testIsNumericForUnknownFieldType(): void
+    {
         $fm = new FieldMetadata(-1, MYSQLI_NUM_FLAG, (object) []);
         $this->assertSame('', $fm->getMappedType());
         $this->assertFalse($fm->isBinary());
@@ -134,7 +152,7 @@ class FieldMetadataTest extends AbstractTestCase
         $this->assertFalse($fm->isNotNull());
         $this->assertFalse($fm->isPrimaryKey());
         $this->assertFalse($fm->isMultipleKey());
-        $this->assertTrue($fm->isNumeric());
+        $this->assertFalse($fm->isNumeric());
         $this->assertFalse($fm->isBlob());
     }
 }

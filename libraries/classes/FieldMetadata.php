@@ -227,13 +227,22 @@ final class FieldMetadata
 
     public function __construct(int $fieldType, int $fieldFlags, object $field)
     {
+            $this->mappedType = $this->getTypeMap()[$fieldType] ?? null;
+
             $this->isMultipleKey = (bool) ($fieldFlags & MYSQLI_MULTIPLE_KEY_FLAG);
             $this->isPrimaryKey = (bool) ($fieldFlags & MYSQLI_PRI_KEY_FLAG);
             $this->isUniqueKey = (bool) ($fieldFlags & MYSQLI_UNIQUE_KEY_FLAG);
             $this->isNotNull = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
             $this->isUnsigned = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
             $this->isZerofill = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
-            $this->isNumeric = (bool) ($fieldFlags & MYSQLI_NUM_FLAG);
+
+            // as flags 32768 can be NUM_FLAG or GROUP_FLAG
+            // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
+            // so check field type instead of flags
+            // but if no or unknown field type then check flags
+            $this->isNumeric = $this->isType(self::TYPE_INT)
+                || ($fieldType <= 0 && ($fieldFlags & MYSQLI_NUM_FLAG));
+
             $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
             $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
             $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
@@ -243,8 +252,6 @@ final class FieldMetadata
                 MYSQLI_TIMESTAMP_FLAG => 'timestamp',
                 MYSQLI_AUTO_INCREMENT_FLAG => 'auto_increment',
             */
-
-            $this->mappedType = $this->getTypeMap()[$fieldType] ?? null;
 
             $this->isMappedTypeBit = $this->isType(self::TYPE_BIT);
             $this->isMappedTypeGeometry = $this->isType(self::TYPE_GEOMETRY);
