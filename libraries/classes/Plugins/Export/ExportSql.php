@@ -2299,13 +2299,13 @@ class ExportSql extends ExportPlugin
                     $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmpUniqueCondition, $tmpClauseIsUnique] = Util::getUniqueCondition(
+                [$tmpUniqueCondition] = Util::getUniqueCondition(
                     $fieldsCnt,
                     $fieldsMeta,
                     $row
                 );
                 $insertLine .= ' WHERE ' . $tmpUniqueCondition;
-                unset($tmpUniqueCondition, $tmpClauseIsUnique);
+                unset($tmpUniqueCondition);
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {
                 // Extended inserts case
                 if ($current_row === 1) {

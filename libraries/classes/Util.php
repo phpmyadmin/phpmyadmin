@@ -860,7 +860,6 @@ class Util
         $primaryKeyArray = [];
         $uniqueKeyArray = [];
         $nonPrimaryConditionArray = [];
-        $conditionArray = [];
 
         for ($i = 0; $i < $fieldsCount; ++$i) {
             $meta = $fieldsMeta[$i];
@@ -945,6 +944,7 @@ class Util
         // but use conjunction of all values if no primary key
         $clauseIsUnique = true;
 
+        $conditionArray = [];
         if ($primaryKey) {
             $preferredCondition = $primaryKey;
             $conditionArray = $primaryKeyArray;

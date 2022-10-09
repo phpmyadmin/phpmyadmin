@@ -2435,7 +2435,7 @@ class Results
              * the conditions for the current table.
              */
             if (! isset($whereClauseMap[$rowNumber][$meta->orgtable])) {
-                $uniqueConditions = Util::getUniqueCondition(
+                [$uniqueConditions] = Util::getUniqueCondition(
                     $this->properties['fields_cnt'],
                     $this->properties['fields_meta'],
                     $row,
@@ -2443,7 +2443,7 @@ class Results
                     $meta->orgtable,
                     $expressions
                 );
-                $whereClauseMap[$rowNumber][$meta->orgtable] = $uniqueConditions[0];
+                $whereClauseMap[$rowNumber][$meta->orgtable] = $uniqueConditions;
             }
 
             $urlParams = [

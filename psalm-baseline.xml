@@ -4025,8 +4025,8 @@
       <code>$this-&gt;columnNullFlags[$column_index]</code>
       <code>$this-&gt;originalColumnTypes[$column_index]</code>
       <code>$type</code>
-      <code>$uniqueCondition[0]</code>
-      <code>$uniqueCondition[0]</code>
+      <code>$uniqueCondition</code>
+      <code>$uniqueCondition</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
