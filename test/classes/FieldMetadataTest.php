@@ -10,8 +10,8 @@ use stdClass;
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_NUM_FLAG;
 use const MYSQLI_TYPE_FLOAT;
-use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_INT24;
+use const MYSQLI_TYPE_STRING;
 
 /**
  * @covers \PhpMyAdmin\FieldMetadata
