@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 
 if (! defined('ROOT_PATH')) {
@@ -16,4 +17,4 @@ define('PHPMYADMIN', true);
 
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
-(new ShowConfigController())();
+(new ShowConfigController())(Common::getRequest());

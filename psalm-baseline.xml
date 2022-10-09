@@ -3147,10 +3147,6 @@
     <MixedAssignment occurrences="1">
       <code>$values</code>
     </MixedAssignment>
-    <RedundantCast occurrences="2">
-      <code>(string) $_POST['id']</code>
-      <code>(string) $_POST['values']</code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Sql/EnumValuesController.php">
     <PossiblyInvalidArgument occurrences="2">

@@ -6,26 +6,30 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use stdClass;
 
 use function __;
 use function explode;
 use function implode;
-use function is_scalar;
+use function is_string;
 use function json_decode;
 use function json_encode;
 use function sprintf;
 
 final class ValidateController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         Core::headerJSON();
 
-        $ids = isset($_POST['id']) && is_scalar($_POST['id']) ? (string) $_POST['id'] : '';
-        $vids = explode(',', $ids);
-        $vals = isset($_POST['values']) && is_scalar($_POST['values']) ? (string) $_POST['values'] : '';
-        $values = json_decode($vals);
+        /** @var mixed $id */
+        $id = $request->getParsedBodyParam('id');
+        $vids = explode(',', is_string($id) ? $id : '');
+
+        /** @var mixed $valuesParam */
+        $valuesParam = $request->getParsedBodyParam('values');
+        $values = json_decode(is_string($valuesParam) ? $valuesParam : '');
         if (! ($values instanceof stdClass)) {
             Core::fatalError(__('Wrong data'));
         }
