@@ -265,7 +265,7 @@ class UtilTest extends AbstractTestCase
 
     /**
      * Test for Util::getUniqueCondition
-     * note: GROUP_FLAG = MYSQLI_NUM_FLAG
+     * note: GROUP_FLAG = MYSQLI_NUM_FLAG = 32769
      *
      * @param FieldMetadata[] $meta     Meta Information for Field
      * @param array           $row      Current Ddata Row
@@ -386,7 +386,7 @@ class UtilTest extends AbstractTestCase
                     false,
                     [
                         '`table`.`col`' => "= 'test'",
-                        '`table`.`status_id`' => "= 2",
+                        '`table`.`status_id`' => '= 2',
                     ],
                 ],
             ],
