@@ -263,13 +263,14 @@ class UtilTest extends AbstractTestCase
 
     /**
      * Test for Util::getUniqueCondition
+     * note: GROUP_FLAG = MYSQLI_NUM_FLAG
      *
      * @param array $row      Data Row
      * @param array $expected Expected Result
      *
-     * @dataProvider providerGetUniqueConditionAfterGroupByQuery
+     * @dataProvider providerGetUniqueConditionForGroupFlag
      */
-    public function testGetUniqueConditionAfterGroupByQuery($row, $expected): void
+    public function testGetUniqueConditionForGroupFlag(array $row, array $expected): void
     {
         $meta = [
             new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
@@ -285,11 +286,11 @@ class UtilTest extends AbstractTestCase
     }
 
     /**
-     * Provider for testGetUniqueConditionAfterGroupByQuery
+     * Provider for testGetUniqueConditionForGroupFlag
      *
      * @return array
      */
-    public function providerGetUniqueConditionAfterGroupByQuery(): array
+    public function providerGetUniqueConditionForGroupFlag(): array
     {
         return [
             'value is string' => [
