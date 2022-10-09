@@ -239,9 +239,9 @@ final class FieldMetadata
             // as flags 32768 can be NUM_FLAG or GROUP_FLAG
             // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
             // so check field type instead of flags
-            // but if no field type then check flags
+            // but if no or unknown field type then check flags
             $this->isNumeric = $this->isType(self::TYPE_INT)
-                ||  (!$fieldType && ($fieldFlags & MYSQLI_NUM_FLAG));
+                ||  ($fieldType <= 0 && ($fieldFlags & MYSQLI_NUM_FLAG));
 
             $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
             $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
