@@ -1,7 +1,7 @@
 {% extends 'setup/base.twig' %}
 {% block content %}
 
-<form id="select_lang" method="post">
+<form id="select_lang" method="post" action="../setup/{{ url('/setup') }}">
   {{ get_hidden_inputs() }}
   <bdo lang="en" dir="ltr">
     <label for="lang">
@@ -33,7 +33,7 @@
 <fieldset class="pma-fieldset simple">
   <legend>{% trans 'Servers' %}</legend>
 
-  <form method="get" action="index.php" class="config-form disableAjax">
+  <form method="get" action="../setup/{{ url('/setup') }}" class="config-form disableAjax">
     <input type="hidden" name="tab_hash" value="">
     {% if has_check_page_refresh %}
       <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
@@ -59,11 +59,11 @@
             <td>{{ server.dsn }}</td>
             <td class="text-nowrap">
               <small>
-                <a href="{{ get_common(server.params.edit) }}">
+                <a href="../setup/{{ url('/setup', server.params.edit) }}">
                   {% trans 'Edit' %}
                 </a>
                 |
-                <a class="delete-server" href="{{ get_common(server.params.remove) }}" data-post="
+                <a class="delete-server" href="../setup/{{ url('/setup', server.params.remove) }}" data-post="
                   {{- get_common({ token: server.params.token }, '', false) }}">
                   {% trans 'Delete' %}
                 </a>
@@ -97,7 +97,7 @@
 <fieldset class="pma-fieldset simple">
   <legend>{% trans 'Configuration file' %}</legend>
 
-  <form method="post" action="config.php" class="config-form disableAjax">
+  <form method="post" action="../setup/{{ url('/setup/show-config') }}" class="config-form disableAjax">
     <input type="hidden" name="tab_hash" value="">
     {% if has_check_page_refresh %}
       <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
@@ -174,7 +174,7 @@
 <div id="footer">
   <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/'}) }}">{% trans 'phpMyAdmin homepage' %}</a>
   <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/donate/'}) }}">{% trans 'Donate' %}</a>
-  <a href="{{ get_common({'version_check': '1'}) }}">{% trans 'Check for latest version' %}</a>
+  <a href="../setup/{{ url('/setup', {'version_check': true}) }}">{% trans 'Check for latest version' %}</a>
 </div>
 
 {% endblock %}

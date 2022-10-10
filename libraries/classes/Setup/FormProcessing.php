@@ -33,7 +33,7 @@ class FormProcessing
             $form_display->fixErrors();
             $response = ResponseRenderer::getInstance();
             $response->disable();
-            $response->generateHeader303('index.php' . Url::getCommonRaw());
+            $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
         }
 
         if (! $form_display->process(false)) {
@@ -47,7 +47,7 @@ class FormProcessing
         if (! $form_display->hasErrors()) {
             $response = ResponseRenderer::getInstance();
             $response->disable();
-            $response->generateHeader303('index.php' . Url::getCommonRaw());
+            $response->generateHeader303('../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
 
             return;
         }

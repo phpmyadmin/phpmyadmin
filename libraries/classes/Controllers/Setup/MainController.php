@@ -58,7 +58,7 @@ final class MainController
                 $controller->destroy([
                     'id' => $params['id'] ?? null,
                 ]);
-                header('Location: index.php' . Url::getCommonRaw());
+                header('Location: ../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
 
                 return;
             }
