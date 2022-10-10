@@ -2283,6 +2283,21 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
+     * Set server version
+     */
+    public function setDatabaseVersion(string $database, string $version): void
+    {
+        $this->versionString = $version;
+        $this->versionInt = Utilities::versionToInt($version);
+
+        if ($database !== 'mariadb') {
+            return;
+        }
+
+        $this->isMariaDb = true;
+    }
+
+    /**
      * Load correct database driver
      *
      * @param DbiExtension|null $extension Force the use of an alternative extension

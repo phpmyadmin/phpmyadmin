@@ -72,6 +72,11 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
+
+        if (! empty($GLOBALS['dbi'])) {
+            $GLOBALS['dbi']->setDatabaseVersion('mariadb', '10.7.0');
+        }
+
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
     }
 
@@ -2820,6 +2825,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
         $this->assertStringContainsString('qwerty', $actual);
+        $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
         $this->assertStringContainsString(
             '<input type="text" name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',

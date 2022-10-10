@@ -553,7 +553,7 @@ class Types
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
 
-                if (! $this->isUUIDEnabled()) {
+                if (! Compatibility::isUUIDSupported($this->dbi)) {
                     $ret = array_diff($ret, ['UUID']);
                 }
 
@@ -638,7 +638,7 @@ class Types
                     $ret = array_diff($ret, ['INET6_ATON']);
                 }
 
-                if (! $this->isUUIDEnabled()) {
+                if (! Compatibility::isUUIDSupported($this->dbi)) {
                     $ret = array_diff($ret, ['UUID_SHORT']);
                 }
 
@@ -770,7 +770,7 @@ class Types
             'DATE',
         ];
 
-        if ($this->isUUIDEnabled()) {
+        if (Compatibility::isUUIDSupported($this->dbi)) {
             $ret[] = 'UUID';
         }
 
@@ -844,7 +844,7 @@ class Types
             $ret['JSON'] = ['JSON'];
         }
 
-        if ($this->isUUIDEnabled()) {
+        if (Compatibility::isUUIDSupported($this->dbi)) {
             $ret['UUID'] = ['UUID'];
         }
 
@@ -931,20 +931,5 @@ class Types
             '',
             '',
         ];
-    }
-
-    /**
-     * Check whether the database support uuid
-     * true if uuid is supported
-     *
-     * @return bool enabled status
-     */
-    private function isUUIDEnabled(): bool
-    {
-        if (! $this->dbi->isMariaDB()) {
-            return false;
-        }
-
-        return $this->dbi->getVersion() >= self::UUID_SUPPORT_MARIADB_VERSION;
     }
 }
