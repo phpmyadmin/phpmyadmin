@@ -362,12 +362,17 @@ class SearchController extends AbstractController
             ''
         );
         $htmlAttributes = '';
+        $is_integer = false;
+        $is_float = false;
         if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+            $is_integer = true;
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
             $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
                             . 'data-max="' . $minMaxValues[1] . '"';
+        } else if (in_array($cleanType, $this->dbi->types->getFloatTypes())) {
+            $is_float = true;
         }
 
         $htmlAttributes .= ' onfocus="return '
@@ -412,6 +417,8 @@ class SearchController extends AbstractController
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
             'search_column_in_foreigners' => $searchColumnInForeigners,
+            'is_integer' => $is_integer,
+            'is_float' => $is_float,
         ]);
 
         return [

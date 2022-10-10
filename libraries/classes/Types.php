@@ -842,6 +842,21 @@ class Types
     }
 
     /**
+     * Returns an array of float types
+     *
+     * @return string[] float types
+     */
+    public function getFloatTypes()
+    {
+        return [
+            'decimal',
+            'float',
+            'double',
+            'real',
+        ];
+    }
+
+    /**
      * Returns the min and max values of a given integer type
      *
      * @param string $type   integer type
