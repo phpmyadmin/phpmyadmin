@@ -83,7 +83,7 @@ function ajaxValidate (parent, id, values) {
     }
 
     $parent.data('ajax', $.ajax({
-        url: 'validate.php',
+        url: '../setup/index.php?route=/setup/validate',
         cache: false,
         type: 'POST',
         data: {
@@ -235,7 +235,7 @@ $(function () {
         e.preventDefault();
         var $this = $(this);
         $.post($this.attr('href'), $this.attr('data-post'), function () {
-            window.location.replace('index.php');
+            window.location.replace('../setup/index.php?route=/setup');
         });
     });
 });
