@@ -846,7 +846,7 @@ class Types
      *
      * @return string[] float types
      */
-    public function getFloatTypes()
+    public function getFloatTypes(): array
     {
         return [
             'decimal',
