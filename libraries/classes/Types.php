@@ -507,6 +507,7 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
+        $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         switch ($class) {
             case 'CHAR':
@@ -551,7 +552,7 @@ class Types
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
 
-                if (! Compatibility::isUUIDSupported($this->dbi)) {
+                if (! $isUUIDSupported) {
                     $ret = array_diff($ret, ['UUID']);
                 }
 
@@ -636,7 +637,7 @@ class Types
                     $ret = array_diff($ret, ['INET6_ATON']);
                 }
 
-                if (! Compatibility::isUUIDSupported($this->dbi)) {
+                if (! $isUUIDSupported) {
                     $ret = array_diff($ret, ['UUID_SHORT']);
                 }
 
@@ -759,6 +760,7 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
+        $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         // most used types
         $ret = [
@@ -768,7 +770,7 @@ class Types
             'DATE',
         ];
 
-        if (Compatibility::isUUIDSupported($this->dbi)) {
+        if ($isUUIDSupported) {
             $ret[] = 'UUID';
         }
 
@@ -842,7 +844,7 @@ class Types
             $ret['JSON'] = ['JSON'];
         }
 
-        if (Compatibility::isUUIDSupported($this->dbi)) {
+        if ($isUUIDSupported) {
             $ret['UUID'] = ['UUID'];
         }
 
