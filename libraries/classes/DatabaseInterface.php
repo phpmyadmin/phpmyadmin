@@ -2283,18 +2283,14 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Set server version
+     * Set server version (initially to use in unit test)
      */
     public function setDatabaseVersion(string $database, string $version): void
     {
         $this->versionString = $version;
         $this->versionInt = Utilities::versionToInt($version);
 
-        if ($database !== 'mariadb') {
-            return;
-        }
-
-        $this->isMariaDb = true;
+        $this->isMariaDb = $database === 'mariadb';
     }
 
     /**
