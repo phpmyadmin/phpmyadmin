@@ -3143,6 +3143,11 @@
       <code>$id</code>
     </MixedArgumentTypeCoercion>
   </file>
+  <file src="libraries/classes/Controllers/Setup/ValidateController.php">
+    <MixedAssignment occurrences="1">
+      <code>$values</code>
+    </MixedAssignment>
+  </file>
   <file src="libraries/classes/Controllers/Sql/EnumValuesController.php">
     <PossiblyInvalidArgument occurrences="2">
       <code>$column</code>
@@ -14367,8 +14372,7 @@
       <code>mb_strpos($value, '.')</code>
       <code>mb_strrpos($columnSpecification, ')')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="6">
-      <code>$row</code>
+    <PossiblyInvalidArgument occurrences="5">
       <code>$sep</code>
       <code>$sep</code>
       <code>$table</code>
@@ -14598,15 +14602,6 @@
   <file src="setup/lib/common.inc.php">
     <RedundantCast occurrences="1">
       <code>(string) $GLOBALS['lang']</code>
-    </RedundantCast>
-  </file>
-  <file src="setup/validate.php">
-    <MixedAssignment occurrences="1">
-      <code>$values</code>
-    </MixedAssignment>
-    <RedundantCast occurrences="2">
-      <code>(string) $_POST['id']</code>
-      <code>(string) $_POST['values']</code>
     </RedundantCast>
   </file>
   <file src="test/classes/AbstractNetworkTestCase.php">
@@ -15537,9 +15532,10 @@
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="29">
+    <MixedAssignment occurrences="30">
       <code>$actual</code>
       <code>$actual</code>
+      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
