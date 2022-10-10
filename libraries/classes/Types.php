@@ -25,8 +25,6 @@ use function strncasecmp;
  */
 class Types
 {
-    private const UUID_SUPPORT_MARIADB_VERSION = 100700; // 10.7.0
-
     /** @var DatabaseInterface Database interface */
     private $dbi;
 
