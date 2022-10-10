@@ -83,10 +83,8 @@
         {% if is_integer or is_float %}
             type="number"
             {% if is_integer %}
-                data-type="INT"
                 inputmode="numeric"
             {% else %}
-                data-type="FLOAT"
                 inputmode="decimal"
             {% endif %}
         {% else %}
