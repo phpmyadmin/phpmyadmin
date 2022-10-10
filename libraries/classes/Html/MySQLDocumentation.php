@@ -42,7 +42,7 @@ class MySQLDocumentation
             $url = Util::getMySQLDocuURL($link, $anchor);
         }
 
-        $openLink = '<a href="' . htmlspecialchars($url) . '" target="mysql_doc">';
+        $openLink = '<a href="index.php?route=/url&url=' . htmlspecialchars($url) . '" target="mysql_doc">';
         $closeLink = '</a>';
 
         if ($bigIcon) {
