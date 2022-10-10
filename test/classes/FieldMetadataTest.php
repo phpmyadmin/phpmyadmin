@@ -35,46 +35,11 @@ class FieldMetadataTest extends AbstractTestCase
         $this->assertFalse($fm->isBlob());
     }
 
-    public function testIsBinaryStdClassAsObject(): void
+    public function testIsBinary(): void
     {
         $obj = new stdClass();
         $obj->charsetnr = 63;
         $fm = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $obj);
-        $this->assertTrue($fm->isBinary());
-        $this->assertFalse($fm->isEnum());
-        $this->assertFalse($fm->isUniqueKey());
-        $this->assertFalse($fm->isUnsigned());
-        $this->assertFalse($fm->isZerofill());
-        $this->assertFalse($fm->isSet());
-        $this->assertFalse($fm->isNotNull());
-        $this->assertFalse($fm->isPrimaryKey());
-        $this->assertFalse($fm->isMultipleKey());
-        $this->assertFalse($fm->isNumeric());
-        $this->assertFalse($fm->isBlob());
-    }
-
-    public function testIsBinaryCustomClassAsObject(): void
-    {
-        $obj = new stdClass();
-        $obj->charsetnr = 63;
-        $objmd = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $obj);
-        $fm = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $objmd);
-        $this->assertTrue($fm->isBinary());
-        $this->assertFalse($fm->isEnum());
-        $this->assertFalse($fm->isUniqueKey());
-        $this->assertFalse($fm->isUnsigned());
-        $this->assertFalse($fm->isZerofill());
-        $this->assertFalse($fm->isSet());
-        $this->assertFalse($fm->isNotNull());
-        $this->assertFalse($fm->isPrimaryKey());
-        $this->assertFalse($fm->isMultipleKey());
-        $this->assertFalse($fm->isNumeric());
-        $this->assertFalse($fm->isBlob());
-    }
-
-    public function testIsBinary(): void
-    {
-        $fm = new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]);
         $this->assertTrue($fm->isBinary());
         $this->assertFalse($fm->isEnum());
         $this->assertFalse($fm->isUniqueKey());
