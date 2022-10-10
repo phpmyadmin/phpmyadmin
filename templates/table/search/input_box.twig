@@ -84,8 +84,10 @@
             type="number"
             {% if is_integer %}
                 data-type="INT"
+                inputmode="numeric"
             {% else %}
                 data-type="FLOAT"
+                inputmode="decimal"
             {% endif %}
         {% else %}
             type="text"
