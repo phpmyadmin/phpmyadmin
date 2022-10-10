@@ -25,6 +25,8 @@ use function strncasecmp;
  */
 class Types
 {
+    private const UUID_SUPPORT_MARIADB_VERSION = 100700; // 10.7.0
+
     /** @var DatabaseInterface Database interface */
     private $dbi;
 
@@ -418,6 +420,9 @@ class Types
                 return __('Intended for storage of IPv6 addresses, as well as IPv4 '
                     . 'addresses assuming conventional mapping of IPv4 addresses '
                     . 'into IPv6 addresses');
+
+            case 'UUID':
+                return __('128-bit UUID (Universally Unique Identifier)');
         }
 
         return '';
@@ -485,6 +490,9 @@ class Types
 
             case 'JSON':
                 return 'JSON';
+
+            case 'UUID':
+                return 'UUID';
         }
 
         return '';
@@ -543,6 +551,10 @@ class Types
 
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_NTOA']);
+                }
+
+                if (! $this->isUUIDEnabled()) {
+                    $ret = array_diff($ret, ['UUID']);
                 }
 
                 return $ret;
@@ -621,8 +633,13 @@ class Types
                     'WEEKOFYEAR',
                     'YEARWEEK',
                 ];
+
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_ATON']);
+                }
+
+                if (! $this->isUUIDEnabled()) {
+                    $ret = array_diff($ret, ['UUID_SHORT']);
                 }
 
                 return $ret;
@@ -752,6 +769,11 @@ class Types
             'TEXT',
             'DATE',
         ];
+
+        if ($this->isUUIDEnabled()) {
+            $ret[] = 'UUID';
+        }
+
         // numeric
         $ret[_pgettext('numeric types', 'Numeric')] = [
             'TINYINT',
@@ -820,6 +842,10 @@ class Types
 
         if (($isMariaDB && $serverVersion > 100207) || (! $isMariaDB && $serverVersion >= 50708)) {
             $ret['JSON'] = ['JSON'];
+        }
+
+        if ($this->isUUIDEnabled()) {
+            $ret['UUID'] = ['UUID'];
         }
 
         return $ret;
@@ -905,5 +931,20 @@ class Types
             '',
             '',
         ];
+    }
+
+    /**
+     * Check whether the database support uuid
+     * true if uuid is supported
+     *
+     * @return bool enabled status
+     */
+    private function isUUIDEnabled(): bool
+    {
+        if (! $this->dbi->isMariaDB()) {
+            return false;
+        }
+
+        return $this->dbi->getVersion() >= self::UUID_SUPPORT_MARIADB_VERSION;
     }
 }
