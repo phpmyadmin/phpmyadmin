@@ -702,4 +702,42 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $this->assertAllQueriesConsumed();
     }
+
+    /**
+     * Tests for setDatabaseVersion method.
+     *
+     * @param string $database   Database name
+     * @param string $version    Database version
+     * @param int    $versionInt Database version as integer
+     * @param bool   $isMariaDb  True if mariadb
+     *
+     * @dataProvider databaseVersionData
+     */
+    public function testSetDatabaseVersion(
+        string $database,
+        string $version,
+        int $versionInt,
+        bool $isMariaDb
+    ): void {
+        $this->dbi->setDatabaseVersion($database, $version);
+
+        $this->assertEquals($versionInt, $this->dbi->getVersion());
+        $this->assertEquals($isMariaDb, $this->dbi->isMariaDb());
+        $this->assertEquals($version, $this->dbi->getVersionString());
+    }
+
+    /**
+     * Data provider for setDatabaseVersion() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{string, string, int, bool}>
+     */
+    public function databaseVersionData(): array
+    {
+        return [
+            ['percona', '6.1.0', 60100, false],
+            ['mysql', '7.10.3', 71003, false],
+            ['mariadb', '10.01.40', 100140, true],
+        ];
+    }
 }
