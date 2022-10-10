@@ -2820,7 +2820,6 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
         $this->assertStringContainsString('qwerty', $actual);
-        $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
         $this->assertStringContainsString(
             '<input type="text" name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',
