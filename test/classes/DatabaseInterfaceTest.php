@@ -709,6 +709,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param array $version    Database version
      * @param int   $versionInt Database version as integer
      * @param bool  $isMariaDb  True if mariadb
+     * @param bool  $isPercona  True if percona
      * @phpstan-param array<string, string> $version
      *
      * @dataProvider databaseVersionData
@@ -716,12 +717,14 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testSetVersion(
         array $version,
         int $versionInt,
-        bool $isMariaDb
+        bool $isMariaDb,
+        bool $isPercona
     ): void {
         $this->dbi->setVersion($version);
 
         $this->assertEquals($versionInt, $this->dbi->getVersion());
         $this->assertEquals($isMariaDb, $this->dbi->isMariaDb());
+        $this->assertEquals($isPercona, $this->dbi->isPercona());
         $this->assertEquals($version['@@version'], $this->dbi->getVersionString());
     }
 
@@ -729,7 +732,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * Data provider for setVersion() tests.
      *
      * @return array
-     * @psalm-return array<int, array{array<string, string>, int, bool}>
+     * @psalm-return array<int, array{array<string, string>, int, bool, bool}>
      */
     public function databaseVersionData(): array
     {
@@ -737,10 +740,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
             [
                 [
                     '@@version' => '6.1.0',
-                    '@@version_comment' => 'Percona Server for Test',
+                    '@@version_comment' => "Percona Server (GPL), Release '11', Revision 'c1y2gr1df4a'",
                 ],
                 60100,
                 false,
+                true,
             ],
             [
                 [
@@ -748,6 +752,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     '@@version_comment' => 'MySQL Community Server (GPL)',
                 ],
                 71003,
+                false,
                 false,
             ],
             [
@@ -757,6 +762,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 ],
                 100140,
                 true,
+                false,
             ],
         ];
     }
