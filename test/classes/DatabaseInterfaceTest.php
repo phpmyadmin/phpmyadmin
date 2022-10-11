@@ -704,40 +704,60 @@ class DatabaseInterfaceTest extends AbstractTestCase
     }
 
     /**
-     * Tests for setDatabaseVersion method.
+     * Tests for setVersion method.
      *
-     * @param string $database   Database name
-     * @param string $version    Database version
-     * @param int    $versionInt Database version as integer
-     * @param bool   $isMariaDb  True if mariadb
+     * @param array $version    Database version
+     * @param int   $versionInt Database version as integer
+     * @param bool  $isMariaDb  True if mariadb
+     * @phpstan-param array<string, string> $version
      *
      * @dataProvider databaseVersionData
      */
-    public function testSetDatabaseVersion(
-        string $database,
-        string $version,
+    public function testSetVersion(
+        array $version,
         int $versionInt,
         bool $isMariaDb
     ): void {
-        $this->dbi->setDatabaseVersion($database, $version);
+        $this->dbi->setVersion($version);
 
         $this->assertEquals($versionInt, $this->dbi->getVersion());
         $this->assertEquals($isMariaDb, $this->dbi->isMariaDb());
-        $this->assertEquals($version, $this->dbi->getVersionString());
+        $this->assertEquals($version['@@version'], $this->dbi->getVersionString());
     }
 
     /**
-     * Data provider for setDatabaseVersion() tests.
+     * Data provider for setVersion() tests.
      *
      * @return array
-     * @psalm-return array<int, array{string, string, int, bool}>
+     * @psalm-return array<int, array{array<string, string>, int, bool}>
      */
     public function databaseVersionData(): array
     {
         return [
-            ['percona', '6.1.0', 60100, false],
-            ['mysql', '7.10.3', 71003, false],
-            ['mariadb', '10.01.40', 100140, true],
+            [
+                [
+                    '@@version' => '6.1.0',
+                    '@@version_comment' => 'Percona Server for Test',
+                ],
+                60100,
+                false,
+            ],
+            [
+                [
+                    '@@version' => '7.10.3',
+                    '@@version_comment' => 'MySQL Community Server (GPL)',
+                ],
+                71003,
+                false,
+            ],
+            [
+                [
+                    '@@version' => '10.01.40-MariaDB-1:10.01.40+maria~ubu2204',
+                    '@@version_comment' => 'mariadb.org binary distribution',
+                ],
+                100140,
+                true,
+            ],
         ];
     }
 }

@@ -74,7 +74,10 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
 
         if (! empty($GLOBALS['dbi'])) {
-            $GLOBALS['dbi']->setDatabaseVersion('mariadb', '10.7.0');
+            $GLOBALS['dbi']->setVersion([
+                '@@version' => '10.9.3-MariaDB-1:10.9.3+maria~ubu2204',
+                '@@version_comment' => 'mariadb.org binary distribution',
+            ]);
         }
 
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);

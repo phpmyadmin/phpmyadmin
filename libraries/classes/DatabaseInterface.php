@@ -1087,16 +1087,7 @@ class DatabaseInterface implements DbalInterface
         $version = $this->fetchSingleRow('SELECT @@version, @@version_comment');
 
         if (is_array($version)) {
-            $this->versionString = $version['@@version'] ?? '';
-            $this->versionInt = Utilities::versionToInt($this->versionString);
-            $this->versionComment = $version['@@version_comment'] ?? '';
-            if (stripos($this->versionString, 'mariadb') !== false) {
-                $this->isMariaDb = true;
-            }
-
-            if (stripos($this->versionComment, 'percona') !== false) {
-                $this->isPercona = true;
-            }
+            $this->setVersion($version);
         }
 
         if ($this->versionInt > 50503) {
@@ -2283,14 +2274,23 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Set server version (initially to use in unit test)
+     * Set version
      */
-    public function setDatabaseVersion(string $database, string $version): void
+    public function setVersion(array $version): void
     {
-        $this->versionString = $version;
-        $this->versionInt = Utilities::versionToInt($version);
+        $this->versionString = $version['@@version'] ?? '';
+        $this->versionInt = Utilities::versionToInt($this->versionString);
+        $this->versionComment = $version['@@version_comment'] ?? '';
 
-        $this->isMariaDb = $database === 'mariadb';
+        if (stripos($this->versionString, 'mariadb') !== false) {
+            $this->isMariaDb = true;
+        }
+
+        if (stripos($this->versionComment, 'percona') === false) {
+            return;
+        }
+
+        $this->isPercona = true;
     }
 
     /**
