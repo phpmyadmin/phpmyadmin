@@ -201,16 +201,12 @@ class Compatibility
     }
 
     /**
-     * Check whether the database support uuid
+     * Check whether the database supports UUID data type
      * true if uuid is supported
      */
     public static function isUUIDSupported(DatabaseInterface $dbi): bool
     {
-        if (! $dbi->isMariaDB()) {
-            return false;
-        }
-
-        return $dbi->getVersion() >= 100700; // 10.7.0
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 100700; // 10.7.0
     }
 
     /**
