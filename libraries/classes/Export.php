@@ -47,6 +47,8 @@ use function time;
 use function trim;
 use function urlencode;
 
+use const ENT_COMPAT;
+
 /**
  * PhpMyAdmin\Export class
  */
@@ -209,7 +211,7 @@ class Export
             }
         } else {
             // We export as html - replace special chars
-            echo htmlspecialchars((string) $line);
+            echo htmlspecialchars((string) $line, ENT_COMPAT);
         }
 
         return true;

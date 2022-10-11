@@ -12,7 +12,6 @@ use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_ENUM_FLAG;
 use const MYSQLI_MULTIPLE_KEY_FLAG;
 use const MYSQLI_NOT_NULL_FLAG;
-use const MYSQLI_NUM_FLAG;
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_SET_FLAG;
 use const MYSQLI_TYPE_BIT;
@@ -235,17 +234,14 @@ final class FieldMetadata
             $this->isNotNull = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
             $this->isUnsigned = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
             $this->isZerofill = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
+            $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
+            $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
+            $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
 
             // as flags 32768 can be NUM_FLAG or GROUP_FLAG
             // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
             // so check field type instead of flags
-            // but if no or unknown field type then check flags
-            $this->isNumeric = $this->isType(self::TYPE_INT)
-                || ($fieldType <= 0 && ($fieldFlags & MYSQLI_NUM_FLAG));
-
-            $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
-            $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
-            $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
+            $this->isNumeric = $this->isType(self::TYPE_INT) || $this->isType(self::TYPE_REAL);
 
             /*
                 MYSQLI_PART_KEY_FLAG => 'part_key',
@@ -375,14 +371,6 @@ final class FieldMetadata
     public function isSet(): bool
     {
         return $this->isSet;
-    }
-
-    /**
-     * Checks that it is type INT or type REAL
-     */
-    public function isNumericType(): bool
-    {
-        return $this->isType(self::TYPE_INT) || $this->isType(self::TYPE_REAL);
     }
 
     /**
