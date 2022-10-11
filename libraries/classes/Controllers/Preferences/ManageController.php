@@ -23,6 +23,7 @@ use function array_merge;
 use function define;
 use function file_exists;
 use function is_array;
+use function is_string;
 use function is_uploaded_file;
 use function json_decode;
 use function json_encode;
@@ -114,7 +115,10 @@ class ManageController extends AbstractController
             if (
                 isset($_POST['import_type'], $_FILES['import_file'])
                 && $_POST['import_type'] === 'text_file'
+                && is_array($_FILES['import_file'])
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
+                && isset($_FILES['import_file']['tmp_name'])
+                && is_string($_FILES['import_file']['tmp_name'])
                 && is_uploaded_file($_FILES['import_file']['tmp_name'])
             ) {
                 $importHandle = new File($_FILES['import_file']['tmp_name']);
