@@ -19,8 +19,6 @@ use function substr;
  */
 class Compatibility
 {
-    private const UUID_SUPPORT_MARIADB_VERSION = 100700; // 10.7.0
-
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
         foreach ($eachTables as $table_name => $_) {
@@ -212,7 +210,7 @@ class Compatibility
             return false;
         }
 
-        return $dbi->getVersion() >= self::UUID_SUPPORT_MARIADB_VERSION;
+        return $dbi->getVersion() >= 100700; // 10.7.0
     }
 
     /**

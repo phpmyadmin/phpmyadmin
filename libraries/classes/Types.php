@@ -13,6 +13,7 @@ use function __;
 use function _pgettext;
 use function array_diff;
 use function array_merge;
+use function array_values;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -556,7 +557,7 @@ class Types
                     $ret = array_diff($ret, ['UUID']);
                 }
 
-                return $ret;
+                return array_values($ret);
 
             case 'DATE':
                 return [
@@ -641,7 +642,7 @@ class Types
                     $ret = array_diff($ret, ['UUID_SHORT']);
                 }
 
-                return $ret;
+                return array_values($ret);
 
             case 'SPATIAL':
                 if ($serverVersion >= 50600) {

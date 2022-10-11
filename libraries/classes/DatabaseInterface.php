@@ -2285,15 +2285,8 @@ class DatabaseInterface implements DbalInterface
         $this->versionInt = Utilities::versionToInt($this->versionString);
         $this->versionComment = $version['@@version_comment'] ?? '';
 
-        if (stripos($this->versionString, 'mariadb') !== false) {
-            $this->isMariaDb = true;
-        }
-
-        if (stripos($this->versionComment, 'percona') === false) {
-            return;
-        }
-
-        $this->isPercona = true;
+        $this->isMariaDb = stripos($this->versionString, 'mariadb') !== false;
+        $this->isPercona = stripos($this->versionComment, 'percona') !== false;
     }
 
     /**
