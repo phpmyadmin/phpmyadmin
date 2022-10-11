@@ -93,6 +93,7 @@ class Generator
         $kbs = ServerVariablesProvider::getImplementation();
         $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) :
                             $kbs->getDocLinkByNameMysql($name);
+        $link = $link !== null ? Core::linkURL($link) : $link;
 
         return MySQLDocumentation::show($name, false, $link, $text);
     }
