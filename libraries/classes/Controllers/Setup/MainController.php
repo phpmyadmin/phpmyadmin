@@ -23,12 +23,9 @@ final class MainController
             Core::fatalError(__('Configuration already exists, setup is disabled!'));
         }
 
-        $params = $request->getQueryParams();
-
-        $page = 'index';
-        if (isset($params['page']) && in_array($params['page'], ['form', 'config', 'servers'], true)) {
-            $page = $params['page'];
-        }
+        /** @var mixed $pageParam */
+        $pageParam = $request->getQueryParam('page');
+        $page = in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
 
         Core::noCacheHeader();
 
@@ -37,7 +34,7 @@ final class MainController
 
         if ($page === 'form') {
             echo (new FormController($GLOBALS['ConfigFile'], new Template()))([
-                'formset' => $params['formset'] ?? null,
+                'formset' => $request->getQueryParam('formset'),
             ]);
 
             return;
@@ -45,8 +42,8 @@ final class MainController
 
         if ($page === 'config') {
             echo (new ConfigController($GLOBALS['ConfigFile'], new Template()))([
-                'formset' => $params['formset'] ?? null,
-                'eol' => $params['eol'] ?? null,
+                'formset' => $request->getQueryParam('formset'),
+                'eol' => $request->getQueryParam('eol'),
             ]);
 
             return;
@@ -54,9 +51,11 @@ final class MainController
 
         if ($page === 'servers') {
             $controller = new ServersController($GLOBALS['ConfigFile'], new Template());
-            if (isset($params['mode']) && $params['mode'] === 'remove' && $request->isPost()) {
+            /** @var mixed $mode */
+            $mode = $request->getQueryParam('mode');
+            if ($mode === 'remove' && $request->isPost()) {
                 $controller->destroy([
-                    'id' => $params['id'] ?? null,
+                    'id' => $request->getQueryParam('id'),
                 ]);
                 header('Location: ../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
 
@@ -64,17 +63,17 @@ final class MainController
             }
 
             echo $controller->index([
-                'formset' => $params['formset'] ?? null,
-                'mode' => $params['mode'] ?? null,
-                'id' => $params['id'] ?? null,
+                'formset' => $request->getQueryParam('formset'),
+                'mode' => $mode,
+                'id' => $request->getQueryParam('id'),
             ]);
 
             return;
         }
 
         echo (new HomeController($GLOBALS['ConfigFile'], new Template()))([
-            'formset' => $params['formset'] ?? null,
-            'version_check' => $params['version_check'] ?? null,
+            'formset' => $request->getQueryParam('formset'),
+            'version_check' => $request->getQueryParam('version_check'),
         ]);
     }
 }
