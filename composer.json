@@ -98,7 +98,7 @@
     "require-dev": {
         "bacon/bacon-qr-code": "^2.0",
         "code-lts/u2f-php-server": "^1.2",
-        "php-webdriver/webdriver": "^1.11",
+        "php-webdriver/webdriver": "^1.13",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.4.8",
