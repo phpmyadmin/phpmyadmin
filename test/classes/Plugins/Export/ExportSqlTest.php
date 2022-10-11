@@ -1225,7 +1225,7 @@ class ExportSqlTest extends AbstractTestCase
             $result
         );
 
-        $this->assertStringContainsString('(NULL, test, 0x3130, 0x36, 0x000a0d1a);', $result);
+        $this->assertStringContainsString('(NULL, \'test\', 0x3130, 0x36, 0x000a0d1a);', $result);
 
         $this->assertStringContainsString('SET IDENTITY_INSERT &quot;table&quot; OFF;', $result);
     }

@@ -2331,12 +2331,8 @@ class ExportSql extends ExportPlugin
                     $values[] = 'NULL';
                 } elseif (
                     $metaInfo->isNumeric
-                    && ! $metaInfo->isMappedTypeTimestamp
-                    && ! $metaInfo->isBlob
                 ) {
                     // a number
-                    // timestamp is numeric on some MySQL 4.1, BLOBs are
-                    // sometimes numeric
                     $values[] = $row[$j];
                 } elseif ($metaInfo->isBinary && isset($GLOBALS['sql_hex_for_binary'])) {
                     // a true BLOB

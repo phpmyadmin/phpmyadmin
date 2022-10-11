@@ -302,7 +302,7 @@ class UtilTest extends AbstractTestCase
                     ['`table`.`col`' => '= 123'],
                 ],
             ],
-            'field type is unknown, value is string - not escape string' => [
+            'field type is unknown, value is string - escape string' => [
                 [
                     new FieldMetadata(FIELD_TYPE_UNKNOWN, MYSQLI_NUM_FLAG, (object) [
                         'name' => 'col',
@@ -312,9 +312,9 @@ class UtilTest extends AbstractTestCase
                 ],
                 ['test'],
                 [
-                    '`table`.`col` = test',
+                    "`table`.`col` = 'test'",
                     false,
-                    ['`table`.`col`' => '= test'],
+                    ['`table`.`col`' => "= 'test'"],
                 ],
             ],
             'field type is varchar, value is string - escape string' => [
