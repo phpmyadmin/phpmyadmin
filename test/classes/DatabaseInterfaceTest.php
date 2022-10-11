@@ -710,7 +710,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param int   $versionInt Database version as integer
      * @param bool  $isMariaDb  True if mariadb
      * @param bool  $isPercona  True if percona
-     * @phpstan-param array<string, string> $version
+     * @phpstan-param array<array-key, mixed> $version
      *
      * @dataProvider databaseVersionData
      */
@@ -732,7 +732,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * Data provider for setVersion() tests.
      *
      * @return array
-     * @psalm-return array<int, array{array<string, string>, int, bool, bool}>
+     * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
      */
     public function databaseVersionData(): array
     {
