@@ -2275,6 +2275,9 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Set version
+     *
+     * @param array $version Database version information
+     * @phpstan-param array<string, string> $version
      */
     public function setVersion(array $version): void
     {
