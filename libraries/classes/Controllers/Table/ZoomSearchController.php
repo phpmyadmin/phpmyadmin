@@ -455,7 +455,6 @@ class ZoomSearchController extends AbstractController
         $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
         $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes());
         if ($isInteger) {
-            $is_integer = true;
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
