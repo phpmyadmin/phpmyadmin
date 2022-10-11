@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-01 15:55+0000\n"
-"Last-Translator: Yonjae Lee <yjyj93@gmail.com>\n"
+"PO-Revision-Date: 2022-10-12 10:30+0000\n"
+"Last-Translator: Yun Minseo <ddugi1214@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/ko/"
 ">\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -16216,7 +16216,7 @@ msgstr "생성 쿼리 보이기"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
-msgstr "외래키 제약"
+msgstr "외래 키 제약"
 
 #: templates/table/relation/common_form.twig:10
 msgid "Actions"
@@ -16244,7 +16244,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr "외래키 제약"
+msgstr "외래 키 제약"
 
 #: templates/table/relation/common_form.twig:89
 msgid "+ Add constraint"
