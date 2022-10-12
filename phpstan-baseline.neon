@@ -1466,11 +1466,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Variable \\$i might not be defined\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php

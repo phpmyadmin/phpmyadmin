@@ -282,24 +282,18 @@ class FindReplaceController extends AbstractController
             '&',
             '_',
         ];
-        $found = false;
-        for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
-            if (! str_contains($find, $delimiters[$i])) {
-                $found = true;
-                break;
+
+        foreach ($delimiters as $delimiter) {
+            if (! str_contains($find, $delimiter)) {
+                foreach ($result as $index => $row) {
+                    $result[$index][1] = preg_replace($delimiter . $find . $delimiter, $replaceWith, $row[0]);
+                }
+
+                return $result;
             }
         }
 
-        if (! $found) {
-            return false;
-        }
-
-        $find = $delimiters[$i] . $find . $delimiters[$i];
-        foreach ($result as $index => $row) {
-            $result[$index][1] = preg_replace($find, $replaceWith, $row[0]);
-        }
-
-        return $result;
+        return false;
     }
 
     /**
