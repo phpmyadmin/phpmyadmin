@@ -36,8 +36,6 @@ final class AddPrefixTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $selected = $_POST['selected'] ?? [];
 
         $GLOBALS['sql_query'] = '';
@@ -54,10 +52,6 @@ final class AddPrefixTableController extends AbstractController
         }
 
         $GLOBALS['message'] = Message::success();
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
 
         ($this->structureController)($request);
     }

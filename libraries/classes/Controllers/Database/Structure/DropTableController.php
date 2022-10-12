@@ -45,8 +45,6 @@ final class DropTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
@@ -55,10 +53,6 @@ final class DropTableController extends AbstractController
 
         if ($multBtn !== __('Yes')) {
             $GLOBALS['message'] = Message::success(__('No change'));
-
-            if (empty($_POST['message'])) {
-                $_POST['message'] = Message::success();
-            }
 
             unset($_POST['mult_btn']);
 
@@ -120,10 +114,6 @@ final class DropTableController extends AbstractController
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
         $GLOBALS['message'] = Message::success();
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
 
         unset($_POST['mult_btn']);
 
