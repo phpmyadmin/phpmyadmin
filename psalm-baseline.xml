@@ -548,14 +548,13 @@
       <code>$opts['values']['iconv']</code>
       <code>$opts['values']['recode']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="18">
+    <MixedArrayOffset occurrences="17">
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
       <code>$_POST[$key]</code>
-      <code>$this-&gt;forms[$formName]</code>
       <code>$this-&gt;systemPaths[$workPath]</code>
       <code>$this-&gt;translatedPaths[$workPath]</code>
       <code>$this-&gt;userprefsDisallow[$path]</code>
@@ -568,11 +567,10 @@
       <code>$values[$path]</code>
       <code>$values[$systemPath]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="28">
+    <MixedAssignment occurrences="27">
       <code>$canonicalPath</code>
       <code>$errorList</code>
       <code>$errorList</code>
-      <code>$formName</code>
       <code>$ip</code>
       <code>$isSetupScript</code>
       <code>$key</code>

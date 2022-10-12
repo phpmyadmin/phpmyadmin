@@ -56,7 +56,7 @@ class FormDisplay
     /**
      * Form list
      *
-     * @var Form[]
+     * @var array<string, Form>
      */
     private $forms = [];
 
@@ -559,15 +559,12 @@ class FormDisplay
     /**
      * Validates and saves form data to session
      *
-     * @param array|string $forms            array of form names
-     * @param bool         $allowPartialSave allows for partial form saving on
-     *                                       failed validation
+     * @param string[] $forms            List of form names.
+     * @param bool     $allowPartialSave Allows for partial form saving on failed validation.
      */
-    public function save($forms, $allowPartialSave = true): bool
+    public function save(array $forms, bool $allowPartialSave = true): bool
     {
         $result = true;
-        $forms = (array) $forms;
-
         $values = [];
         $toSave = [];
         $isSetupScript = $GLOBALS['config']->get('is_setup');
