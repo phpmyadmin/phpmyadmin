@@ -309,6 +309,9 @@ class TypesTest extends AbstractTestCase
             ['MULTILINESTRING'],
             ['MULTIPOLYGON'],
             ['GEOMETRYCOLLECTION'],
+            ['JSON'],
+            ['INET6'],
+            ['UUID'],
         ];
     }
 
@@ -772,6 +775,14 @@ class TypesTest extends AbstractTestCase
             [
                 'SET',
                 'CHAR',
+            ],
+            [
+                'JSON',
+                'JSON',
+            ],
+            [
+                'UUID',
+                'UUID',
             ],
             [
                 'UNKNOWN',

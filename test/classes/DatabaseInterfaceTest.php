@@ -712,7 +712,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param bool  $isPercona  True if percona
      * @phpstan-param array<array-key, mixed> $version
      *
-     * @dataProvider databaseVersionData
+     * @dataProvider provideDatabaseVersionData
      */
     public function testSetVersion(
         array $version,
@@ -734,7 +734,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @return array
      * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
      */
-    public function databaseVersionData(): array
+    public function provideDatabaseVersionData(): array
     {
         return [
             [
@@ -748,6 +748,15 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
             [
                 [
+                    '@@version' => '10.01.40-MariaDB-1:10.01.40+maria~ubu2204',
+                    '@@version_comment' => 'mariadb.org binary distribution',
+                ],
+                100140,
+                true,
+                false,
+            ],
+            [
+                [
                     '@@version' => '7.10.3',
                     '@@version_comment' => 'MySQL Community Server (GPL)',
                 ],
@@ -757,11 +766,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
             [
                 [
-                    '@@version' => '10.01.40-MariaDB-1:10.01.40+maria~ubu2204',
-                    '@@version_comment' => 'mariadb.org binary distribution',
+                    '@@version' => '5.5.0',
+                    '@@version_comment' => '',
                 ],
-                100140,
-                true,
+                50500,
+                false,
                 false,
             ],
         ];
