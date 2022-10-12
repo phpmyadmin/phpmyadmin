@@ -20,11 +20,9 @@ class Cache
      * @param string $cacheKey The key to use
      * @param mixed  $value    The value to cache
      */
-    public static function set(string $cacheKey, $value): bool
+    public static function set(string $cacheKey, $value): void
     {
         self::$cacheData[$cacheKey] = $value;
-
-        return true;
     }
 
     /**
@@ -55,20 +53,16 @@ class Cache
      *
      * @param string $cacheKey The key to use to remove the value
      */
-    public static function remove(string $cacheKey): bool
+    public static function remove(string $cacheKey): void
     {
         unset(self::$cacheData[$cacheKey]);
-
-        return true;
     }
 
     /**
      * Purge all cached values
      */
-    public static function purge(): bool
+    public static function purge(): void
     {
         self::$cacheData = [];
-
-        return self::$cacheData === [];
     }
 }

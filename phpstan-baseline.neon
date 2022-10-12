@@ -96,11 +96,6 @@ parameters:
 			path: libraries/classes/BrowseForeigners.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array\\{\\} and array\\{\\} will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Cache.php
-
-		-
 			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array\\{Charset\\?\\: string, Description\\?\\: string, Default collation\\?\\: string, Maxlen\\?\\: string\\}, array\\<string, string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
