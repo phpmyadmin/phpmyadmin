@@ -9,6 +9,7 @@ use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
@@ -26,6 +27,18 @@ class DatabaseInterfaceTest extends AbstractTestCase
         parent::setUp();
         parent::setGlobalDbi();
         $GLOBALS['server'] = 0;
+    }
+
+    /**
+     * Tear down function for mockResponse method
+     */
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        unset($GLOBALS['lang']);
+        unset($GLOBALS['cfg']['Server']['SessionTimeZone']);
+        Context::load();
     }
 
     /**
@@ -170,6 +183,93 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['only_db'] = [];
         $this->dbi->postConnectControl(new Relation($this->dbi));
         $this->assertInstanceOf(DatabaseList::class, $GLOBALS['dblist']);
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should not call setVersion method if cannot fetch version
+     */
+    public function testPostConnectShouldNotCallSetVersionIfNoVersion(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue(null));
+
+        $mock->expects($this->never())->method('setVersion');
+
+        $mock->postConnect();
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should call setVersion method if $version has value
+     */
+    public function testPostConnectShouldCallSetVersionOnce(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+        $versionQueryResult = [
+            '@@version' => '10.20.7-MariaDB-1:10.9.3+maria~ubu2204',
+            '@@version_comment' => 'mariadb.org binary distribution',
+        ];
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue($versionQueryResult));
+
+        $mock->expects($this->once())->method('setVersion')->with($versionQueryResult);
+
+        $mock->postConnect();
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should set version int, isMariaDB and isPercona
+     *
+     * @param array $version    Database version
+     * @param int   $versionInt Database version as integer
+     * @param bool  $isMariaDb  True if mariadb
+     * @param bool  $isPercona  True if percona
+     * @phpstan-param array<array-key, mixed> $version
+     *
+     * @dataProvider provideDatabaseVersionData
+     */
+    public function testPostConnectShouldSetVersion(
+        array $version,
+        int $versionInt,
+        bool $isMariaDb,
+        bool $isPercona
+    ): void {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue($version));
+
+        $mock->postConnect();
+
+        $this->assertEquals($mock->getVersion(), $versionInt);
+        $this->assertEquals($mock->isMariaDB(), $isMariaDb);
+        $this->assertEquals($mock->isPercona(), $isPercona);
     }
 
     /**
@@ -701,5 +801,78 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ], $databaseList);
 
         $this->assertAllQueriesConsumed();
+    }
+
+    /**
+     * Tests for setVersion method.
+     *
+     * @param array $version    Database version
+     * @param int   $versionInt Database version as integer
+     * @param bool  $isMariaDb  True if mariadb
+     * @param bool  $isPercona  True if percona
+     * @phpstan-param array<array-key, mixed> $version
+     *
+     * @dataProvider provideDatabaseVersionData
+     */
+    public function testSetVersion(
+        array $version,
+        int $versionInt,
+        bool $isMariaDb,
+        bool $isPercona
+    ): void {
+        $this->dbi->setVersion($version);
+
+        $this->assertEquals($versionInt, $this->dbi->getVersion());
+        $this->assertEquals($isMariaDb, $this->dbi->isMariaDb());
+        $this->assertEquals($isPercona, $this->dbi->isPercona());
+        $this->assertEquals($version['@@version'], $this->dbi->getVersionString());
+    }
+
+    /**
+     * Data provider for setVersion() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
+     */
+    public function provideDatabaseVersionData(): array
+    {
+        return [
+            [
+                [
+                    '@@version' => '6.1.0',
+                    '@@version_comment' => "Percona Server (GPL), Release '11', Revision 'c1y2gr1df4a'",
+                ],
+                60100,
+                false,
+                true,
+            ],
+            [
+                [
+                    '@@version' => '10.01.40-MariaDB-1:10.01.40+maria~ubu2204',
+                    '@@version_comment' => 'mariadb.org binary distribution',
+                ],
+                100140,
+                true,
+                false,
+            ],
+            [
+                [
+                    '@@version' => '7.10.3',
+                    '@@version_comment' => 'MySQL Community Server (GPL)',
+                ],
+                71003,
+                false,
+                false,
+            ],
+            [
+                [
+                    '@@version' => '5.5.0',
+                    '@@version_comment' => '',
+                ],
+                50500,
+                false,
+                false,
+            ],
+        ];
     }
 }

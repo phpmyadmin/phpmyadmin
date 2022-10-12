@@ -13,6 +13,7 @@ use function __;
 use function _pgettext;
 use function array_diff;
 use function array_merge;
+use function array_values;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -418,6 +419,9 @@ class Types
                 return __('Intended for storage of IPv6 addresses, as well as IPv4 '
                     . 'addresses assuming conventional mapping of IPv4 addresses '
                     . 'into IPv6 addresses');
+
+            case 'UUID':
+                return __('128-bit UUID (Universally Unique Identifier)');
         }
 
         return '';
@@ -485,6 +489,9 @@ class Types
 
             case 'JSON':
                 return 'JSON';
+
+            case 'UUID':
+                return 'UUID';
         }
 
         return '';
@@ -501,6 +508,7 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
+        $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         switch ($class) {
             case 'CHAR':
@@ -545,7 +553,11 @@ class Types
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
 
-                return $ret;
+                if (! $isUUIDSupported) {
+                    $ret = array_diff($ret, ['UUID']);
+                }
+
+                return array_values($ret);
 
             case 'DATE':
                 return [
@@ -621,11 +633,16 @@ class Types
                     'WEEKOFYEAR',
                     'YEARWEEK',
                 ];
+
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_ATON']);
                 }
 
-                return $ret;
+                if (! $isUUIDSupported) {
+                    $ret = array_diff($ret, ['UUID_SHORT']);
+                }
+
+                return array_values($ret);
 
             case 'SPATIAL':
                 if ($serverVersion >= 50600) {
@@ -744,6 +761,7 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
+        $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         // most used types
         $ret = [
@@ -752,6 +770,11 @@ class Types
             'TEXT',
             'DATE',
         ];
+
+        if ($isUUIDSupported) {
+            $ret[] = 'UUID';
+        }
+
         // numeric
         $ret[_pgettext('numeric types', 'Numeric')] = [
             'TINYINT',
@@ -820,6 +843,10 @@ class Types
 
         if (($isMariaDB && $serverVersion > 100207) || (! $isMariaDB && $serverVersion >= 50708)) {
             $ret['JSON'] = ['JSON'];
+        }
+
+        if ($isUUIDSupported) {
+            $ret['UUID'] = ['UUID'];
         }
 
         return $ret;

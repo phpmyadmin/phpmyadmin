@@ -72,6 +72,14 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
+
+        if (! empty($GLOBALS['dbi'])) {
+            $GLOBALS['dbi']->setVersion([
+                '@@version' => '10.9.3-MariaDB-1:10.9.3+maria~ubu2204',
+                '@@version_comment' => 'mariadb.org binary distribution',
+            ]);
+        }
+
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
     }
 
