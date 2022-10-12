@@ -571,12 +571,11 @@ abstract class TestBase extends TestCase
         return $this->webDriver->findElement(WebDriverBy::partialLinkText($partialLinkText));
     }
 
-    /**
-     * Returns true if the browser is safari
-     */
     public function isSafari(): bool
     {
-        return mb_strtolower($this->webDriver->getCapabilities()->getBrowserName()) === 'safari';
+        $capabilities = $this->webDriver->getCapabilities();
+
+        return $capabilities !== null && mb_strtolower($capabilities->getBrowserName()) === 'safari';
     }
 
     /**

@@ -35,6 +35,7 @@ use function intval;
 use function is_array;
 use function is_link;
 use function is_numeric;
+use function is_string;
 use function is_uploaded_file;
 use function mb_strlen;
 use function mb_strtolower;
@@ -441,7 +442,13 @@ final class ImportController extends AbstractController
         $read_limit = $memory_limit / 8;
 
         // handle filenames
-        if (isset($_FILES['import_file'])) {
+        if (
+            isset($_FILES['import_file'])
+            && is_array($_FILES['import_file'])
+            && isset($_FILES['import_file']['name'], $_FILES['import_file']['tmp_name'])
+            && is_string($_FILES['import_file']['name'])
+            && is_string($_FILES['import_file']['tmp_name'])
+        ) {
             $import_file = $_FILES['import_file']['tmp_name'];
             $import_file_name = $_FILES['import_file']['name'];
         }
@@ -623,7 +630,12 @@ final class ImportController extends AbstractController
 
                 if (! empty($local_import_file)) {
                     $message->addText('(' . $local_import_file . ')');
-                } else {
+                } elseif (
+                    isset($_FILES['import_file'])
+                    && is_array($_FILES['import_file'])
+                    && isset($_FILES['import_file']['name'])
+                    && is_string($_FILES['import_file']['name'])
+                ) {
                     $message->addText('(' . $_FILES['import_file']['name'] . ')');
                 }
             }

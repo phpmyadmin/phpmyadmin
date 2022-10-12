@@ -4,20 +4,21 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/5-2/hi/"
-">\n"
+"PO-Revision-Date: 2022-10-05 05:19+0000\n"
+"Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/5-2/hi/>"
+"\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: libraries/advisory_rules_generic.php:9
+#, fuzzy
 msgid "Uptime below one day"
-msgstr ""
+msgstr "सक्रिय रहने की अवधि एक दिन से कम"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
@@ -38,7 +39,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "संस्करण"
+msgstr "1,000 . से नीचे के प्रश्न"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
@@ -216,7 +217,7 @@ msgstr "वर्णन"
 
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "संस्करण स्रोत से संकलित किया गया है, MySQL आधिकारिक बाइनरी नहीं।"
 
 #: libraries/advisory_rules_generic.php:148
 msgid ""
@@ -231,7 +232,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:159
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL मैनुअल केवल आधिकारिक MySQL बायनेरिज़ के लिए सटीक है।"
 
 #: libraries/advisory_rules_generic.php:161
 msgid ""
@@ -251,7 +252,7 @@ msgstr "MySQL वर्ण सेट"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL को 64-बिट पैकेज के रूप में संकलित नहीं किया गया है।"
 
 #: libraries/advisory_rules_generic.php:174
 msgid ""
@@ -263,7 +264,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:178
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "इस होस्ट पर उपलब्ध मेमोरी: %s"
 
 #: libraries/advisory_rules_generic.php:184
 #, fuzzy
@@ -340,7 +341,7 @@ msgstr "क्षेत्र रोयाँ"
 
 #: libraries/advisory_rules_generic.php:234
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "बहुत सारी पंक्तियों को क्रमबद्ध किया जा रहा है।"
 
 #: libraries/advisory_rules_generic.php:236
 msgid ""
@@ -353,7 +354,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:240
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "क्रमबद्ध पंक्तियों का माध्य: %s"
 
 #: libraries/advisory_rules_generic.php:246
 #, fuzzy
@@ -4199,10 +4200,8 @@ msgstr "लापता टेबलएं"
 
 #: libraries/classes/Config/Descriptions.php:855
 #: libraries/classes/RecentFavoriteTable.php:251
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorite tables"
-msgstr "प्रक्रियां"
+msgstr "पसंदीदा टेबल"
 
 #: libraries/classes/Config/Descriptions.php:856
 msgid "Where to show the table row links"
@@ -4210,7 +4209,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:857
 msgid "Show row links anyway"
-msgstr ""
+msgstr "वैसे भी पंक्ति लिंक दिखाएं"
 
 #: libraries/classes/Config/Descriptions.php:859
 msgid "Natural order"
@@ -4240,7 +4239,7 @@ msgstr "phpMyAdmin विन्यास भंडारण टेबल ला�
 
 #: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MySQL आरक्षित शब्द चेतावनी"
 
 #: libraries/classes/Config/Descriptions.php:866
 #, fuzzy
@@ -4250,7 +4249,7 @@ msgstr "सभी रोयों को प्रदर्शित करन�
 
 #: libraries/classes/Config/Descriptions.php:867
 msgid "How to display various action links"
-msgstr ""
+msgstr "विभिन्न क्रिया लिंक कैसे प्रदर्शित करें"
 
 #: libraries/classes/Config/Descriptions.php:868
 msgid "Protect binary columns"
@@ -4266,7 +4265,7 @@ msgstr "क्वरी इतिहास लंबाई"
 
 #: libraries/classes/Config/Descriptions.php:871
 msgid "Recoding engine"
-msgstr ""
+msgstr "रिकोडिंग इंजन"
 
 #: libraries/classes/Config/Descriptions.php:872
 #, fuzzy
@@ -18293,19 +18292,19 @@ msgstr "के लिए"
 
 #: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "एक वैध X509 प्रमाणपत्र की आवश्यकता है।"
 
 #: templates/server/privileges/privileges_table.twig:823
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "आवश्यक है कि कनेक्शन के लिए एक विशिष्ट सिफर पद्धति का उपयोग किया जाए।"
 
 #: templates/server/privileges/privileges_table.twig:832
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "आवश्यक है कि इस सीए द्वारा जारी वैध X509 प्रमाणपत्र प्रस्तुत किया जाए।"
 
 #: templates/server/privileges/privileges_table.twig:841
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "आवश्यक है कि इस विषय के साथ एक वैध X509 प्रमाणपत्र प्रस्तुत किया जाए।"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -18325,15 +18324,15 @@ msgstr "यूसर"
 #: templates/server/privileges/user_properties.twig:57
 #: templates/server/privileges/users_overview.twig:57
 msgid "The selected user was not found in the privilege table."
-msgstr ""
+msgstr "चयनित उपयोगकर्ता विशेषाधिकार तालिका में नहीं मिला।"
 
 #: templates/server/privileges/user_properties.twig:107
 msgid "Change login information / Copy user account"
-msgstr ""
+msgstr "लॉगिन जानकारी बदलें / उपयोगकर्ता खाते की प्रतिलिपि बनाएँ"
 
 #: templates/server/privileges/user_properties.twig:114
 msgid "Create a new user account with the same privileges and …"
-msgstr ""
+msgstr "समान विशेषाधिकारों के साथ एक नया उपयोगकर्ता खाता बनाएँ और…"
 
 #: templates/server/privileges/user_properties.twig:120
 msgid "… keep the old one."
@@ -18356,7 +18355,7 @@ msgstr ""
 
 #: templates/server/privileges/users_overview.twig:16
 msgid "User group"
-msgstr ""
+msgstr "उपयोगकर्ता ग्रुप"
 
 #: templates/server/privileges/users_overview.twig:147
 #, fuzzy
@@ -18370,13 +18369,11 @@ msgstr "यूसर से सभी सक्रिय विशेषाध�
 
 #: templates/server/privileges/users_overview.twig:153
 msgid "Drop the databases that have the same names as the users."
-msgstr ""
+msgstr "उन डेटाबेस को ड्रॉप करदें जिनके नाम उपयोगकर्ताओं के समान हैं।"
 
 #: templates/server/privileges/users_overview.twig:178
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Save changes"
-msgstr "पेज चुनिये"
+msgstr "परिवर्तनों को सेव करें"
 
 #: templates/server/replication/change_primary.twig:5
 #, fuzzy
@@ -18468,6 +18465,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"अब, अपने my.cnf में [mysqld] अनुभाग के अंत में निम्नलिखित पंक्तियाँ जोड़ें "
+"और कृपया बाद में MySQL सर्वर को पुनरारंभ करें।"
 
 #: templates/server/replication/primary_configuration.twig:21
 msgid ""
@@ -18484,27 +18483,27 @@ msgstr "यह सर्वर किसी प्रतिकृति प्�
 
 #: templates/server/replication/primary_replication.twig:16
 msgid "Show connected replicas"
-msgstr ""
+msgstr "जुड़े हुए प्रतिकृतियां दिखाएं"
 
 #: templates/server/replication/primary_replication.twig:38
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"इस सूची में केवल --report-host=host_name विकल्प के साथ शुरू की गई "
+"प्रतिकृतियां दिखाई दे रही हैं।"
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "सर्वर कनेक्शन:"
+msgstr "मुख्य कनेक्शन:"
 
 #: templates/server/replication/replica_configuration.twig:25
 msgid "Replica SQL Thread not running!"
-msgstr ""
+msgstr "प्रतिकृति SQL थ्रेड नहीं चल रहा है!"
 
 #: templates/server/replication/replica_configuration.twig:28
 msgid "Replica IO Thread not running!"
-msgstr ""
+msgstr "प्रतिकृति IO थ्रेड नहीं चल रहा है!"
 
 #: templates/server/replication/replica_configuration.twig:31
 #, fuzzy
@@ -19610,11 +19609,11 @@ msgstr "इसको नया रौ में जोडे"
 
 #: templates/table/insert/actions_panel.twig:10
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "नई पंक्ति के रूप में सम्मिलित करें और त्रुटियों को अनदेखा करें"
 
 #: templates/table/insert/actions_panel.twig:11
 msgid "Show insert query"
-msgstr ""
+msgstr "सम्मिलित क्वेरी दिखाएं"
 
 #: templates/table/insert/actions_panel.twig:15
 msgid "and then"
@@ -20202,7 +20201,7 @@ msgstr "प्रदर्शित रो की अधिकतम संख�
 
 #: templates/table/zoom_search/result_form.twig:7
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "अंक खोजिये/अंक संपादन"
 
 #: templates/table/zoom_search/result_form.twig:14
 #, fuzzy
