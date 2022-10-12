@@ -18,7 +18,7 @@ final class ShowConfigController
     public function __invoke(ServerRequest $request): void
     {
         $form_display = new ConfigForm($GLOBALS['ConfigFile']);
-        $form_display->save('Config');
+        $form_display->save(['Config']);
 
         $response = ResponseRenderer::getInstance();
         $response->disable();

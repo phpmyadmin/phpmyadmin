@@ -471,11 +471,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:save\\(\\) has parameter \\$forms with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:setComments\\(\\) has parameter \\$opts with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
