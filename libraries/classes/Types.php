@@ -140,6 +140,25 @@ class Types
     }
 
     /**
+     * UUID search operators
+     *
+     * @return string[]
+     */
+    public function getUUIDOperators()
+    {
+        return [
+            '=',
+            '!=',
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            'NOT LIKE %...%',
+            'IN (...)',
+            'NOT IN (...)',
+        ];
+    }
+
+    /**
      * Returns operators for given type
      *
      * @param string $type Type of field
@@ -156,6 +175,8 @@ class Types
             $ret = array_merge($ret, $this->getEnumOperators());
         } elseif ($class === 'CHAR') {
             $ret = array_merge($ret, $this->getTextOperators());
+        } elseif ($class === 'UUID') {
+            $ret = array_merge($ret, $this->getUUIDOperators());
         } else {
             $ret = array_merge($ret, $this->getNumberOperators());
         }

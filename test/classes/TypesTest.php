@@ -131,6 +131,26 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
+     * Test for getUUIDOperators
+     */
+    public function testGetUUIDOperators(): void
+    {
+        $this->assertEquals(
+            [
+                '=',
+                '!=',
+                'LIKE',
+                'LIKE %...%',
+                'NOT LIKE',
+                'NOT LIKE %...%',
+                'IN (...)',
+                'NOT IN (...)',
+            ],
+            $this->object->getUUIDOperators()
+        );
+    }
+
+    /**
      * Test for getting type operators
      *
      * @param string       $type   Type of field
@@ -192,6 +212,36 @@ class TypesTest extends AbstractTestCase
                         '=',
                         '!=',
                     ],
+                ],
+            ],
+            [
+                'UUID',
+                false,
+                [
+                    '=',
+                    '!=',
+                    'LIKE',
+                    'LIKE %...%',
+                    'NOT LIKE',
+                    'NOT LIKE %...%',
+                    'IN (...)',
+                    'NOT IN (...)',
+                ],
+            ],
+            [
+                'UUID',
+                true,
+                [
+                    '=',
+                    '!=',
+                    'LIKE',
+                    'LIKE %...%',
+                    'NOT LIKE',
+                    'NOT LIKE %...%',
+                    'IN (...)',
+                    'NOT IN (...)',
+                    'IS NULL',
+                    'IS NOT NULL',
                 ],
             ],
         ];
