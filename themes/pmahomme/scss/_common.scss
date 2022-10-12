@@ -2880,3 +2880,8 @@ body .ui-dialog {
   z-index: 1056;
   top: 100px;
 }
+
+//#17773: On demo server footer links aren't clickable
+#pma_demo.d-print-none {
+  position: unset;
+}
