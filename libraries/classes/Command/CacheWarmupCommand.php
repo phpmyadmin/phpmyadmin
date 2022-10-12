@@ -71,7 +71,7 @@ final class CacheWarmupCommand extends Command
         }
 
         $output->writeln('Warming up all caches.', OutputInterface::VERBOSITY_VERBOSE);
-        $twigCode = $this->warmUptwigCache($output, $env, false);
+        $twigCode = $this->warmUpTwigCache($output, $env, false);
         if ($twigCode !== 0) {
             $output->writeln('Twig cache generation had an error.');
 

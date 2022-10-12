@@ -190,8 +190,8 @@ class GisPolygon extends GisGeometry
         $pdf->Polygon($points_arr, 'F*', [], $color, true);
         // print label if applicable
         if ($label !== '') {
-            $pdf->SetXY($points_arr[2], $points_arr[3]);
-            $pdf->SetFontSize(5);
+            $pdf->setXY($points_arr[2], $points_arr[3]);
+            $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
 

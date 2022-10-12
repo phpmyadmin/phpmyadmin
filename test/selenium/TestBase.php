@@ -140,7 +140,7 @@ abstract class TestBase extends TestCase
 
         // The session Id is only used by BrowserStack
         if ($this->hasBrowserstackConfig()) {
-            $this->sessionId = $this->webDriver->getSessionId();
+            $this->sessionId = $this->webDriver->getSessionID();
         }
 
         $this->navigateTo('');

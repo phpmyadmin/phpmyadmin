@@ -131,7 +131,7 @@ class ExportMediawikiTest extends AbstractTestCase
             $property->getText()
         );
 
-        $sgHeader = $property->getSubGroupHeader();
+        $sgHeader = $property->getSubgroupHeader();
 
         $this->assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 

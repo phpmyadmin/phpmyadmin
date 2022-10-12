@@ -6546,13 +6546,13 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:SetDrawColor\\(\\)\\.$#"
-			count: 3
+			message: "#^Call to an undefined method object\\:\\:lineScale\\(\\)\\.$#"
+			count: 7
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:lineScale\\(\\)\\.$#"
-			count: 7
+			message: "#^Call to an undefined method object\\:\\:setDrawColor\\(\\)\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-

@@ -11481,13 +11481,6 @@
       <code>Cell</code>
       <code>Open</code>
       <code>PageNo</code>
-      <code>SetDrawColor</code>
-      <code>SetFontSize</code>
-      <code>SetLink</code>
-      <code>SetMargins</code>
-      <code>SetTitle</code>
-      <code>SetXY</code>
-      <code>SetXY</code>
       <code>getPageHeight</code>
       <code>getPageHeight</code>
       <code>getPageHeight</code>
@@ -11503,10 +11496,17 @@
       <code>setCMargin</code>
       <code>setCMargin</code>
       <code>setCMargin</code>
+      <code>setDrawColor</code>
+      <code>setFontSize</code>
       <code>setFontSizeScale</code>
       <code>setLineWidthScale</code>
+      <code>setLink</code>
+      <code>setMargins</code>
       <code>setOffline</code>
       <code>setScale</code>
+      <code>setTitle</code>
+      <code>setXY</code>
+      <code>setXY</code>
     </PossiblyNullReference>
     <RedundantCast occurrences="2">
       <code>(string) sprintf('%.0f', ($j * $gridSize - $this-&gt;leftMargin) * $this-&gt;scale + $this-&gt;xMin)</code>
@@ -11528,9 +11528,6 @@
       <code>[$a, $b, $c]</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="12">
-      <code>SetDrawColor</code>
-      <code>SetDrawColor</code>
-      <code>SetDrawColor</code>
       <code>lineScale</code>
       <code>lineScale</code>
       <code>lineScale</code>
@@ -11538,6 +11535,9 @@
       <code>lineScale</code>
       <code>lineScale</code>
       <code>lineScale</code>
+      <code>setDrawColor</code>
+      <code>setDrawColor</code>
+      <code>setDrawColor</code>
       <code>setLineWidthScale</code>
       <code>setLineWidthScale</code>
     </MixedMethodCall>
@@ -11749,7 +11749,6 @@
       <code>$this-&gt;tables[$table]</code>
     </PossiblyInvalidArgument>
     <PossiblyNullReference occurrences="12">
-      <code>SetAuthor</code>
       <code>endSvgDoc</code>
       <code>getFont</code>
       <code>getFont</code>
@@ -11757,6 +11756,7 @@
       <code>getFontSize</code>
       <code>getFontSize</code>
       <code>getFontSize</code>
+      <code>setAuthor</code>
       <code>setFont</code>
       <code>setFontSize</code>
       <code>setTitle</code>
