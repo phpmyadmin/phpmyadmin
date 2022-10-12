@@ -208,4 +208,34 @@ class SearchTest extends AbstractTestCase
             $this->search->buildSqlQuery()
         );
     }
+
+    public function testBuildSqlQueryWithWhereClauseUUID(): void
+    {
+        $_POST['zoom_submit'] = true;
+        $_POST['table'] = 'PMA';
+
+        $this->assertEquals(
+            'SELECT *  FROM `PMA`',
+            $this->search->buildSqlQuery()
+        );
+
+        $_POST['customWhereClause'] = '';
+
+        $this->assertEquals(
+            'SELECT *  FROM `PMA`',
+            $this->search->buildSqlQuery()
+        );
+
+        unset($_POST['customWhereClause']);
+        $_POST['criteriaColumnNames'] = ['id'];
+        $_POST['criteriaColumnOperators'] = ['='];
+
+        $_POST['criteriaValues'] = ['07ca1fdd-4805-11ed-a4dc-0242ac110002'];
+        $_POST['criteriaColumnTypes'] = ['uuid'];
+
+        $this->assertEquals(
+            "SELECT *  FROM `PMA` WHERE `id` = '07ca1fdd-4805-11ed-a4dc-0242ac110002'",
+            $this->search->buildSqlQuery()
+        );
+    }
 }
