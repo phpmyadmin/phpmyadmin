@@ -9,6 +9,7 @@ use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
@@ -26,6 +27,18 @@ class DatabaseInterfaceTest extends AbstractTestCase
         parent::setUp();
         parent::setGlobalDbi();
         $GLOBALS['server'] = 0;
+    }
+
+    /**
+     * Tear down function for mockResponse method
+     */
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        unset($GLOBALS['lang']);
+        unset($GLOBALS['cfg']['Server']['SessionTimeZone']);
+        Context::load();
     }
 
     /**
@@ -170,6 +183,93 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['only_db'] = [];
         $this->dbi->postConnectControl(new Relation($this->dbi));
         $this->assertInstanceOf(DatabaseList::class, $GLOBALS['dblist']);
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should not call setVersion method if cannot fetch version
+     */
+    public function testPostConnectShouldNotCallSetVersionIfNoVersion(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue(null));
+
+        $mock->expects($this->never())->method('setVersion');
+
+        $mock->postConnect();
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should call setVersion method if $version has value
+     */
+    public function testPostConnectShouldCallSetVersionOnce(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+        $versionQueryResult = [
+            '@@version' => '10.20.7-MariaDB-1:10.9.3+maria~ubu2204',
+            '@@version_comment' => 'mariadb.org binary distribution',
+        ];
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue($versionQueryResult));
+
+        $mock->expects($this->once())->method('setVersion')->with($versionQueryResult);
+
+        $mock->postConnect();
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should set version int, isMariaDB and isPercona
+     *
+     * @param array $version    Database version
+     * @param int   $versionInt Database version as integer
+     * @param bool  $isMariaDb  True if mariadb
+     * @param bool  $isPercona  True if percona
+     * @phpstan-param array<array-key, mixed> $version
+     *
+     * @dataProvider provideDatabaseVersionData
+     */
+    public function testPostConnectShouldSetVersion(
+        array $version,
+        int $versionInt,
+        bool $isMariaDb,
+        bool $isPercona
+    ): void {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue($version));
+
+        $mock->postConnect();
+
+        $this->assertEquals($mock->getVersion(), $versionInt);
+        $this->assertEquals($mock->isMariaDB(), $isMariaDb);
+        $this->assertEquals($mock->isPercona(), $isPercona);
     }
 
     /**
