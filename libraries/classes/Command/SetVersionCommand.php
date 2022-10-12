@@ -16,7 +16,7 @@ use function sprintf;
 
 final class SetVersionCommand extends Command
 {
-    /** @var string */
+    /** @var string|null */
     protected static $defaultName = 'set-version';
 
     /** @var string */

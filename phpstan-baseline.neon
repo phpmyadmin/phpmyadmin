@@ -131,11 +131,6 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
-			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\SetVersionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
-			count: 1
-			path: libraries/classes/Command/SetVersionCommand.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:display\\(\\) has parameter \\$filesInfo with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
@@ -159,11 +154,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\WriteGitRevisionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
-			count: 1
-			path: libraries/classes/Command/WriteGitRevisionCommand.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"

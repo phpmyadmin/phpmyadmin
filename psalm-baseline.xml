@@ -178,11 +178,6 @@
       <code>$result</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Command/SetVersionCommand.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$defaultName</code>
-    </NonInvariantDocblockPropertyType>
-  </file>
   <file src="libraries/classes/Command/TwigLintCommand.php">
     <MixedArgument occurrences="6">
       <code>$code</code>
@@ -215,11 +210,6 @@
       <code>$prevErrorHandler</code>
       <code>$prevErrorHandler</code>
     </UnusedVariable>
-  </file>
-  <file src="libraries/classes/Command/WriteGitRevisionCommand.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$defaultName</code>
-    </NonInvariantDocblockPropertyType>
   </file>
   <file src="libraries/classes/Common.php">
     <InvalidArrayOffset occurrences="1">
