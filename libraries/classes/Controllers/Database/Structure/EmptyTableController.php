@@ -64,8 +64,6 @@ final class EmptyTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
@@ -106,10 +104,6 @@ final class EmptyTableController extends AbstractController
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
         $GLOBALS['message'] = Message::success();
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
 
         unset($_POST['mult_btn']);
 
