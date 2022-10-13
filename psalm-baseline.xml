@@ -688,18 +688,7 @@
     </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Config/ServerConfigChecks.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$blowfishSecret</code>
-      <code>$blowfishSecretSet</code>
-    </InvalidScalarArgument>
-    <MixedArgument occurrences="4">
-      <code>$blowfishSecret</code>
-      <code>$blowfishSecret</code>
-      <code>$blowfishSecretSet</code>
-      <code>$cookieAuthUsed</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$blowfishSecret</code>
+    <MixedAssignment occurrences="1">
       <code>$loginCookieValidity</code>
     </MixedAssignment>
   </file>
