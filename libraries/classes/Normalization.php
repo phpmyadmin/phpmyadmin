@@ -397,7 +397,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for 2NF step 2.1
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: string} HTML contents for 2NF step 2.1
      */
     public function getHtmlFor2NFstep1($db, $table)
     {
