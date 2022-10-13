@@ -240,7 +240,7 @@ class ServerConfigChecks
      * @param bool        $cookieAuthServer  Cookie auth is used
      * @param bool        $blowfishSecretSet Blowfish secret set
      *
-     * @return array
+     * @return array<int, bool|string|null>
      */
     protected function performConfigChecksServersSetBlowfishSecret(
         $blowfishSecret,
