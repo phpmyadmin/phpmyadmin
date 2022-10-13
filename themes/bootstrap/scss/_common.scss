@@ -252,10 +252,6 @@ td .icon {
   padding: 0 0.5em;
 }
 
-#pma_demo {
-  z-index: -1;
-}
-
 .confirmation {
   color: $black;
   background-color: pink;
@@ -2719,4 +2715,8 @@ body .ui-dialog {
 
 .resize-vertical {
   resize: vertical;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }
