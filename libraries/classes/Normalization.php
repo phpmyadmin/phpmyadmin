@@ -523,7 +523,7 @@ class Normalization
      * @param string $table               current table
      * @param string $db                  current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
      */
     public function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
     {
