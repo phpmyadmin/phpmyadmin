@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #17747 The Column Visibility Toggle will not be hidden by other elements
 - issue #17756 Edit/Copy/Delete row now works when using GROUP BY
 - issue #17248 Support the UUID data type for MariaDB >= 10.7
+- issue #17656 Fix replace/change/set table prefix is not working
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
