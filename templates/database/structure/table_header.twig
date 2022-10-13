@@ -73,6 +73,9 @@
 </table>
 </div>
 {% if check_all_tables %}
-    {% include 'database/structure/check_all_tables.twig' with check_all_tables only %}
+  {% include 'database/structure/check_all_tables.twig' with check_all_tables only %}
 {% endif %}
 </form>
+{% if check_all_tables %}
+  {% include 'database/structure/bulk_action_modal.twig' with check_all_tables only %}
+{% endif %}
