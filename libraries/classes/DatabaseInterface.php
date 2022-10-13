@@ -2025,15 +2025,6 @@ class DatabaseInterface implements DbalInterface
         return $this->versionInt;
     }
 
-    public function setVersion(int $version): void
-    {
-        if (! defined('TESTSUITE')) {
-            throw new RuntimeException('This method should only be executed in a testing environment.');
-        }
-
-        $this->versionInt = $version;
-    }
-
     /**
      * Server version
      */

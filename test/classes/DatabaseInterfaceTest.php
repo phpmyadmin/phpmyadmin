@@ -851,12 +851,15 @@ class DatabaseInterfaceTest extends AbstractTestCase
         bool $isMariaDb,
         bool $isPercona
     ): void {
-        $this->dbi->setVersion($version);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->assertEquals($versionInt, $this->dbi->getVersion());
-        $this->assertEquals($isMariaDb, $this->dbi->isMariaDb());
-        $this->assertEquals($isPercona, $this->dbi->isPercona());
-        $this->assertEquals($version['@@version'], $this->dbi->getVersionString());
+        $dbi->setVersion($version);
+
+        $this->assertEquals($versionInt, $dbi->getVersion());
+        $this->assertEquals($isMariaDb, $dbi->isMariaDb());
+        $this->assertEquals($isPercona, $dbi->isPercona());
+        $this->assertEquals($version['@@version'], $dbi->getVersionString());
     }
 
     /**
