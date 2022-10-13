@@ -94,6 +94,15 @@ class InsertEditTest extends AbstractTestCase
             new FileListing(),
             new Template()
         );
+
+        if (empty($GLOBALS['dbi'])) {
+            return;
+        }
+
+        $GLOBALS['dbi']->setVersion([
+            '@@version' => '10.9.3-MariaDB-1:10.9.3+maria~ubu2204',
+            '@@version_comment' => 'mariadb.org binary distribution',
+        ]);
     }
 
     /**
