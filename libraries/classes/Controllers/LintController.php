@@ -21,8 +21,8 @@ class LintController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $params = [
-            'sql_query' => $_POST['sql_query'] ?? null,
-            'options' => $_POST['options'] ?? null,
+            'sql_query' => $request->getParsedBodyParam('sql_query'),
+            'options' => $request->getParsedBodyParam('options'),
         ];
 
         /**
