@@ -790,7 +790,7 @@ class Normalization
      * @param string $table            current table
      * @param string $db               current database
      *
-     * @return array
+     * @return array{queryError: bool, message: Message}
      */
     public function moveRepeatingGroup(
         $repeatingColumns,
