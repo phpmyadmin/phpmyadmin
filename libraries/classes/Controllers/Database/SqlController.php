@@ -63,7 +63,7 @@ class SqlController extends AbstractController
             true,
             false,
             isset($_POST['delimiter'])
-                ? htmlspecialchars($_POST['delimiter'])
+                ? htmlspecialchars($request->getParsedBodyParam('delimiter'))
                 : ';'
         ));
     }
