@@ -684,7 +684,7 @@ class Normalization
      * @param array  $newTables list of new tables to be created
      * @param string $db        current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: string|false, extra?: string}
      */
     public function createNewTablesFor3NF(array $newTables, $db)
     {
