@@ -26,7 +26,10 @@ final class PopulateColumnsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $columns = $this->centralColumns->getColumnsNotInCentralList($GLOBALS['db'], $_POST['selectedTable']);
+        $columns = $this->centralColumns->getColumnsNotInCentralList(
+            $GLOBALS['db'],
+            $request->getParsedBodyParam('selectedTable')
+        );
         $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
     }
 }

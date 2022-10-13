@@ -941,12 +941,9 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/CentralColumns/PopulateColumnsController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['selectedTable']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['selectedTable']</code>
-    </PossiblyInvalidCast>
+    <MixedArgument occurrences="1">
+      <code>$request-&gt;getParsedBodyParam('selectedTable')</code>
+    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/CentralColumnsController.php">
     <MixedArgument occurrences="22">
@@ -1395,22 +1392,21 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlController.php">
+    <MixedArgument occurrences="1">
+      <code>$request-&gt;getParsedBodyParam('delimiter')</code>
+    </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['errorUrl']</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['delimiter']</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlFormatController.php">
-    <PossiblyInvalidArgument occurrences="1">
+    <MixedArgument occurrences="1">
       <code>$query</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$params['sql']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
       <code>$query</code>
-    </PossiblyInvalidCast>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/AddPrefixController.php">
     <MixedAssignment occurrences="2">
@@ -1668,7 +1664,7 @@
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="36">
+    <MixedArgument occurrences="37">
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
@@ -1700,6 +1696,7 @@
       <code>$replicaInfo['Ignore_Table']</code>
       <code>$replicaInfo['Wild_Do_Table']</code>
       <code>$replicaInfo['Wild_Ignore_Table']</code>
+      <code>$request-&gt;getParsedBodyParam('primary_connection')</code>
       <code>$sumSize</code>
       <code>$tableIsView</code>
       <code>$truename</code>
@@ -1771,9 +1768,6 @@
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_ROWS']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['primary_connection'] ?? null</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArrayAccess occurrences="8">
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
@@ -2192,7 +2186,8 @@
     <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['language_stats'][$GLOBALS['lang']]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
+      <code>$GLOBALS['db']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['show_query']</code>
     </MixedAssignment>
@@ -2333,6 +2328,11 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$_GET['id']</code>
     </PossiblyInvalidCast>
+  </file>
+  <file src="libraries/classes/Controllers/LintController.php">
+    <MixedAssignment occurrences="1">
+      <code>$options</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/LogoutController.php">
     <MixedAssignment occurrences="1">
