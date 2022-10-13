@@ -43,8 +43,8 @@ final class PrimaryController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $selected = $_POST['selected'] ?? [];
-        $selected_fld = $_POST['selected_fld'] ?? [];
+        $selected = $request->getParsedBodyParam('selected', []);
+        $selected_fld = $request->getParsedBodyParam('selected_fld', []);
 
         if (empty($selected) && empty($selected_fld)) {
             $this->response->setRequestStatus(false);
