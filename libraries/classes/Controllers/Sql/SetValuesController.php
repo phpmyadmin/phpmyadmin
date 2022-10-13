@@ -44,7 +44,7 @@ final class SetValuesController extends AbstractController
 
         $column = $request->getParsedBodyParam('column');
         $currentValue = $request->getParsedBodyParam('curr_value');
-        $fullValues = $request->getParsedBodyParam('get_full_values',false);
+        $fullValues = $request->getParsedBodyParam('get_full_values', false);
         $whereClause = $request->getParsedBodyParam('where_clause');
 
         $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
