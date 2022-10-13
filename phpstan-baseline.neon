@@ -1018,6 +1018,11 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$new_cfg_value of method PhpMyAdmin\\\\Config\\:\\:setUserValue\\(\\) expects string, mixed given\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/CollationConnectionController.php
+
+		-
+			message: "#^Parameter \\#3 \\$new_cfg_value of method PhpMyAdmin\\\\Config\\:\\:setUserValue\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Config/SetConfigController.php
 
 		-
@@ -1461,6 +1466,26 @@ parameters:
 			path: libraries/classes/Controllers/Setup/ServersController.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function htmlentities expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
+			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
+			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
+			message: "#^Parameter \\#4 \\$whereClause of method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
@@ -1749,6 +1774,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:\\$originalColumnTypes type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/TableController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
