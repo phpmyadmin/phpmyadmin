@@ -98,8 +98,8 @@ class SetValuesControllerTest extends AbstractTestCase
             ['curr_value', null, 'b&c'],
         ]);
 
-        $GLOBALS['db'] = $request->getParsedBodyParam('db');
-        $GLOBALS['table'] = $request->getParsedBodyParam('table');
+        $GLOBALS['db'] = 'cvv';
+        $GLOBALS['table'] = 'enums';
 
         $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
