@@ -22,7 +22,7 @@ class CollationConnectionControllerTest extends AbstractTestCase
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['collation_connection', null, 'utf8mb4_general_ci'],
-            ]);
+        ]);
 
         $response = $this->createMock(ResponseRenderer::class);
         $response->expects($this->once())->method('header')
