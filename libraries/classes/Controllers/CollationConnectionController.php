@@ -26,7 +26,7 @@ final class CollationConnectionController extends AbstractController
         $this->config->setUserValue(
             null,
             'DefaultConnectionCollation',
-            $_POST['collation_connection'],
+            $request->getParsedBodyParam('collation_connection'),
             'utf8mb4_unicode_ci'
         );
 
