@@ -445,9 +445,6 @@ img.lightbulb {
   padding: 0 0.5em;
 }
 
-#pma_demo {
-  z-index: -1;
-}
 
 .confirmation {
   color: #000;
@@ -2882,6 +2879,6 @@ body .ui-dialog {
 }
 
 //#17773: On demo server footer links aren't clickable
-#pma_demo.d-print-none {
-  position: unset;
+.table-responsive-md .data {
+  z-index: 9;
 }
