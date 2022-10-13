@@ -976,6 +976,11 @@ parameters:
 			path: libraries/classes/Controllers/Config/SetConfigController.php
 
 		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/CentralColumns/PopulateColumnsController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addColumn\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/CentralColumnsController.php
@@ -1054,6 +1059,21 @@ parameters:
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/SqlAutoCompleteController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/SqlController.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/SqlFormatController.php
+
+		-
+			message: "#^Parameter \\#1 \\$query of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/SqlFormatController.php
 
 		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
@@ -1161,6 +1181,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
+			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
 			message: "#^Parameter \\#4 \\$formattedSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -1239,6 +1264,21 @@ parameters:
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/HomeController.php
+
+		-
+			message: "#^Cannot access offset 'eventEditor' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/LintController.php
+
+		-
+			message: "#^Cannot access offset 'routineEditor' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/LintController.php
+
+		-
+			message: "#^Cannot access offset 'triggerEditor' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/LintController.php
 
 		-
 			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects array, mixed given\\.$#"

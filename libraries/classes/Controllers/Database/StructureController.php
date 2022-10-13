@@ -168,7 +168,7 @@ class StructureController extends AbstractController
             ]);
         }
 
-        $this->replicationInfo->load($_POST['primary_connection'] ?? null);
+        $this->replicationInfo->load($request->getParsedBodyParam('primary_connection'));
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
 
         $pageSettings = new PageSettings('DbStructure');
