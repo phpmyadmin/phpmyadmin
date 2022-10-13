@@ -13,6 +13,8 @@ use stdClass;
 
 use function htmlspecialchars;
 
+use const ENT_COMPAT;
+
 /**
  * @covers \PhpMyAdmin\Export
  * @group large
@@ -180,7 +182,7 @@ INSERT INTO test_table (id, name, datetimefield) VALUES
 
 SQL;
 
-        $this->assertSame(htmlspecialchars($expected), $this->getActualOutputForAssertion());
+        $this->assertSame(htmlspecialchars($expected, ENT_COMPAT), $this->getActualOutputForAssertion());
     }
 
     public function testExportServer(): void
@@ -258,6 +260,6 @@ INSERT INTO test_table (id, name, datetimefield) VALUES
 
 SQL;
 
-        $this->assertSame(htmlspecialchars($expected), $this->getActualOutputForAssertion());
+        $this->assertSame(htmlspecialchars($expected, ENT_COMPAT), $this->getActualOutputForAssertion());
     }
 }
