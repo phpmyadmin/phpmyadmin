@@ -37,7 +37,7 @@ class CheckUserPrivileges
      *
      * @param string $row grant row
      *
-     * @return array
+     * @return array<int,string>
      */
     public function getItemsFromShowGrantsRow(string $row): array
     {
