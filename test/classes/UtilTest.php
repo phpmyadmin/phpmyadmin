@@ -2413,10 +2413,13 @@ class UtilTest extends AbstractTestCase
     /**
      * @dataProvider providerForTestGetMySQLDocuURL
      */
-    public function testGetMySQLDocuURL(string $link, string $anchor, int $version, string $expected): void
+    public function testGetMySQLDocuURL(string $link, string $anchor, string $version, string $expected): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['dbi']->setVersion($version);
+        $GLOBALS['dbi']->setVersion([
+            '@@version' => $version,
+            '@@version_comment' => 'MySQL Community Server (GPL)',
+        ]);
         $this->assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
     }
 
@@ -2430,35 +2433,35 @@ class UtilTest extends AbstractTestCase
             [
                 'ALTER_TABLE',
                 'alter-table-index',
-                80000,
+                '8.0.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Falter-table.html%23alter-table-index',
             ],
             [
                 'ALTER_TABLE',
                 'alter-table-index',
-                50700,
+                '5.7.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Falter-table.html%23alter-table-index',
             ],
             [
                 '',
                 'alter-table-index',
-                50600,
+                '5.6.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Findex.html%23alter-table-index',
             ],
             [
                 'ALTER_TABLE',
                 '',
-                50500,
+                '5.5.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Falter-table.html',
             ],
             [
                 '',
                 '',
-                50700,
+                '5.7.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
             ],
