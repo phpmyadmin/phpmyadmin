@@ -352,7 +352,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.3
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: false|string} HTML contents for step 1.3
      */
     public function getHtmlContentsFor1NFStep3($db, $table)
     {
