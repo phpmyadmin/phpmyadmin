@@ -861,7 +861,7 @@ class Normalization
      * @param string $db     current database
      * @param array  $tables tables formed after 2NF and need to process for 3NF
      *
-     * @return string[]
+     * @return array{legendText: string, headText: string, subText: string, extra: string}
      */
     public function getHtmlFor3NFstep1($db, array $tables)
     {
