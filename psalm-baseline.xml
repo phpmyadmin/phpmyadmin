@@ -1261,14 +1261,10 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php">
-    <PossiblyInvalidArgument occurrences="2">
+    <MixedArgument occurrences="2">
       <code>$params['db']</code>
       <code>$params['sql_query']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$params['db']</code>
-      <code>$params['sql_query']</code>
-    </PossiblyInvalidCast>
+    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
     <MixedArgument occurrences="1">
@@ -15542,6 +15538,9 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
+    <TypeDoesNotContainType occurrences="1">
+      <code>empty($GLOBALS['dbi'])</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment occurrences="2">
@@ -16381,6 +16380,13 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/UtilTest.php">
+    <InvalidArgument occurrences="1">
+      <code>testGetMySQLDocuURL</code>
+    </InvalidArgument>
+    <InvalidReturnStatement occurrences="1"/>
+    <InvalidReturnType occurrences="1">
+      <code>array&lt;int, array{string, string, int, string}&gt;</code>
+    </InvalidReturnType>
     <MixedArgument occurrences="3">
       <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
