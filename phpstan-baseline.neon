@@ -1536,11 +1536,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -1702,11 +1697,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Casting to int something that's already int\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -2903,11 +2893,6 @@ parameters:
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-

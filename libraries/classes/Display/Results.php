@@ -3147,7 +3147,7 @@ class Results
         }
 
         if ($meta->isMappedTypeBit) {
-            $displayedColumn = Util::printableBitValue((int) $displayedColumn, (int) $meta->length);
+            $displayedColumn = Util::printableBitValue((int) $displayedColumn, $meta->length);
 
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,

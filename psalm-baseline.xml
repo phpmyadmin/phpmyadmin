@@ -3921,9 +3921,6 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$_POST['where_clause']</code>
     </PossiblyInvalidOperand>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(int) $fields_meta[$i]-&gt;length</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/SqlController.php">
     <MixedAssignment occurrences="2">
@@ -4442,9 +4439,6 @@
       <code>$_POST['maxPlotLimit']</code>
       <code>$_POST['where_clause']</code>
     </PossiblyInvalidOperand>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(int) $fields_meta[$i]-&gt;length</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/TableController.php">
     <MixedArgument occurrences="1">
@@ -6469,8 +6463,7 @@
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="3">
-      <code>(int) $meta-&gt;length</code>
+    <RedundantCastGivenDocblockType occurrences="2">
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
     </RedundantCastGivenDocblockType>
