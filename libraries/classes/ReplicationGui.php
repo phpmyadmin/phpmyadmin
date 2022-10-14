@@ -72,7 +72,7 @@ class ReplicationGui
      */
     public function getHtmlForPrimaryReplication(?bool $replClearScr, ?string $primaryAddUser): string
     {
-        if ( is_null($replClearScr)) {
+        if ($replClearScr === null) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable('primary', true, false);
             $replicas = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
@@ -81,16 +81,16 @@ class ReplicationGui
             $urlParams['repl_clear_scr'] = true;
         }
 
-        if (! is_null($primaryAddUser)) {
+        if ($primaryAddUser !== null) {
             $primaryAddReplicaUser = $this->getHtmlForReplicationPrimaryAddReplicaUser();
         }
 
         return $this->template->render('server/replication/primary_replication', [
-            'clear_screen' => ! is_null($replClearScr),
+            'clear_screen' => $replClearScr !== null,
             'primary_status_table' => $primaryStatusTable ?? '',
             'replicas' => $replicas ?? [],
             'url_params' => $urlParams ?? [],
-            'primary_add_user' => ! is_null($primaryAddUser),
+            'primary_add_user' => $primaryAddUser !== null,
             'primary_add_replica_user' => $primaryAddReplicaUser ?? '',
         ]);
     }
