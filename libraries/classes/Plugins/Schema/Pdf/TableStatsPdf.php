@@ -121,7 +121,7 @@ class TableStatsPdf extends TableStats
         }
 
         $this->width += $this->diagram->GetStringWidth('      ');
-        $this->diagram->SetFont($this->ff, 'B', $fontSize);
+        $this->diagram->setFont($this->ff, 'B', $fontSize);
         /*
          * it is unknown what value must be added, because
          * table title is affected by the table width value
@@ -130,7 +130,7 @@ class TableStatsPdf extends TableStats
             $this->width += 5;
         }
 
-        $this->diagram->SetFont($this->ff, '', $fontSize);
+        $this->diagram->setFont($this->ff, '', $fontSize);
     }
 
     /**
@@ -153,14 +153,14 @@ class TableStatsPdf extends TableStats
     public function tableDraw(?int $fontSize, bool $withDoc, bool $setColor = false): void
     {
         $this->diagram->setXyScale($this->x, $this->y);
-        $this->diagram->SetFont($this->ff, 'B', $fontSize);
+        $this->diagram->setFont($this->ff, 'B', $fontSize);
         if ($setColor) {
-            $this->diagram->SetTextColor(200);
-            $this->diagram->SetFillColor(0, 0, 128);
+            $this->diagram->setTextColor(200);
+            $this->diagram->setFillColor(0, 0, 128);
         }
 
         if ($withDoc) {
-            $this->diagram->SetLink($this->diagram->customLinks['RT'][$this->tableName]['-'], -1);
+            $this->diagram->setLink($this->diagram->customLinks['RT'][$this->tableName]['-'], -1);
         } else {
             $this->diagram->customLinks['doc'][$this->tableName]['-'] = '';
         }
@@ -176,23 +176,23 @@ class TableStatsPdf extends TableStats
             $this->diagram->customLinks['doc'][$this->tableName]['-']
         );
         $this->diagram->setXScale($this->x);
-        $this->diagram->SetFont($this->ff, '', $fontSize);
-        $this->diagram->SetTextColor(0);
-        $this->diagram->SetFillColor(255);
+        $this->diagram->setFont($this->ff, '', $fontSize);
+        $this->diagram->setTextColor(0);
+        $this->diagram->setFillColor(255);
 
         foreach ($this->fields as $field) {
             if ($setColor) {
                 if (in_array($field, $this->primary)) {
-                    $this->diagram->SetFillColor(215, 121, 123);
+                    $this->diagram->setFillColor(215, 121, 123);
                 }
 
                 if ($field == $this->displayfield) {
-                    $this->diagram->SetFillColor(142, 159, 224);
+                    $this->diagram->setFillColor(142, 159, 224);
                 }
             }
 
             if ($withDoc) {
-                $this->diagram->SetLink($this->diagram->customLinks['RT'][$this->tableName][$field], -1);
+                $this->diagram->setLink($this->diagram->customLinks['RT'][$this->tableName][$field], -1);
             } else {
                 $this->diagram->customLinks['doc'][$this->tableName][$field] = '';
             }
@@ -208,7 +208,7 @@ class TableStatsPdf extends TableStats
                 $this->diagram->customLinks['doc'][$this->tableName][$field]
             );
             $this->diagram->setXScale($this->x);
-            $this->diagram->SetFillColor(255);
+            $this->diagram->setFillColor(255);
         }
     }
 }

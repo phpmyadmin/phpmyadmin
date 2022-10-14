@@ -225,8 +225,8 @@ class GisMultiPolygon extends GisGeometry
 
         // print label if applicable
         if (isset($label_point)) {
-            $pdf->SetXY($label_point[0], $label_point[1]);
-            $pdf->SetFontSize(5);
+            $pdf->setXY($label_point[0], $label_point[1]);
+            $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
 
