@@ -6926,6 +6926,11 @@ parameters:
 			path: libraries/classes/ReplicationGui.php
 
 		-
+			message: "#^Parameter \\#1 \\$action of method PhpMyAdmin\\\\Replication\\:\\:replicaControl\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:fill\\(\\) has parameter \\$status with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationInfo.php

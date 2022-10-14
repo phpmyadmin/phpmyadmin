@@ -70,10 +70,13 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForPrimaryReplication(): string
-    {
-        if (! isset($_POST['repl_clear_scr'])) {
-            $primaryStatusTable = $this->getHtmlForReplicationStatusTable('primary', true, false);
+    public function getHtmlForPrimaryReplication(
+        ?string $connection,
+        ?bool $replClearScr,
+        ?string $primaryAddUser
+    ): string {
+        if ($replClearScr === null) {
+            $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
             $replicas = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
             $urlParams = $GLOBALS['urlParams'];
@@ -81,16 +84,16 @@ class ReplicationGui
             $urlParams['repl_clear_scr'] = true;
         }
 
-        if (isset($_POST['primary_add_user'])) {
+        if ($primaryAddUser !== null) {
             $primaryAddReplicaUser = $this->getHtmlForReplicationPrimaryAddReplicaUser();
         }
 
         return $this->template->render('server/replication/primary_replication', [
-            'clear_screen' => isset($_POST['repl_clear_scr']),
+            'clear_screen' => $replClearScr !== null,
             'primary_status_table' => $primaryStatusTable ?? '',
             'replicas' => $replicas ?? [],
             'url_params' => $urlParams ?? [],
-            'primary_add_user' => isset($_POST['primary_add_user']),
+            'primary_add_user' => $primaryAddUser !== null,
             'primary_add_replica_user' => $primaryAddReplicaUser ?? '',
         ]);
     }
@@ -113,12 +116,14 @@ class ReplicationGui
     /**
      * returns HTML for replica replication configuration
      *
-     * @param bool  $serverReplicaStatus      Whether it is Primary or Replica
-     * @param array $serverReplicaReplication Replica replication
+     * @param ?string $connection               Primary connection
+     * @param bool    $serverReplicaStatus      Whether it is Primary or Replica
+     * @param array   $serverReplicaReplication Replica replication
      *
      * @return string HTML code
      */
     public function getHtmlForReplicaConfiguration(
+        ?string $connection,
         $serverReplicaStatus,
         array $serverReplicaReplication
     ): string {
@@ -172,7 +177,7 @@ class ReplicationGui
 
             $reconfigurePrimaryLink = Url::getCommon($urlParams, '', false);
 
-            $replicaStatusTable = $this->getHtmlForReplicationStatusTable('replica', true, false);
+            $replicaStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'replica', true, false);
 
             $replicaIoRunning = $serverReplicaReplication[0]['Slave_IO_Running'] !== 'No';
             $replicaSqlRunning = $serverReplicaReplication[0]['Slave_SQL_Running'] !== 'No';
@@ -181,7 +186,7 @@ class ReplicationGui
         return $this->template->render('server/replication/replica_configuration', [
             'server_replica_multi_replication' => $serverReplicaMultiReplication,
             'url_params' => $GLOBALS['urlParams'],
-            'primary_connection' => $_POST['primary_connection'] ?? '',
+            'primary_connection' => $connection ?? '',
             'server_replica_status' => $serverReplicaStatus,
             'replica_status_table' => $replicaStatusTable ?? '',
             'replica_sql_running' => $replicaSqlRunning ?? false,
@@ -240,19 +245,21 @@ class ReplicationGui
     /**
      * This function returns html code for table with replication status.
      *
-     * @param string $type     either primary or replica
-     * @param bool   $isHidden if true, then default style is set to hidden, default value false
-     * @param bool   $hasTitle if true, then title is displayed, default true
+     * @param ?string $connection primary connection
+     * @param string  $type       either primary or replica
+     * @param bool    $isHidden   if true, then default style is set to hidden, default value false
+     * @param bool    $hasTitle   if true, then title is displayed, default true
      *
      * @return string HTML code
      */
     public function getHtmlForReplicationStatusTable(
+        ?string $connection,
         $type,
         $isHidden = false,
         $hasTitle = true
     ): string {
         $replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
-        $replicationInfo->load($_POST['primary_connection'] ?? null);
+        $replicationInfo->load($connection);
 
         $replicationVariables = $replicationInfo->primaryVariables;
         $variablesAlerts = null;
@@ -411,9 +418,14 @@ class ReplicationGui
     /**
      * handle control requests
      */
-    public function handleControlRequest(): void
-    {
-        if (! isset($_POST['sr_take_action'])) {
+    public function handleControlRequest(
+        bool $srTakeAction,
+        bool $replicaChangePrimary,
+        bool $srReplicaServerControl,
+        ?string $srReplicaAction,
+        bool $srReplicaSkipError
+    ): void {
+        if (! $srTakeAction) {
             return;
         }
 
@@ -422,19 +434,19 @@ class ReplicationGui
         $messageSuccess = '';
         $messageError = '';
 
-        if (isset($_POST['replica_changeprimary']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
+        if ($replicaChangePrimary && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = __(
                 'Connection to server is disabled, please enable'
                 . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.'
             );
-        } elseif (isset($_POST['replica_changeprimary'])) {
+        } elseif ($replicaChangePrimary) {
             $result = $this->handleRequestForReplicaChangePrimary();
-        } elseif (isset($_POST['sr_replica_server_control'])) {
-            $result = $this->handleRequestForReplicaServerControl();
+        } elseif ($srReplicaServerControl) {
+            $result = $this->handleRequestForReplicaServerControl($srReplicaAction);
             $refresh = true;
 
-            switch ($_POST['sr_replica_action']) {
+            switch ($srReplicaAction) {
                 case 'start':
                     $messageSuccess = __('Replication started successfully.');
                     $messageError = __('Error starting replication.');
@@ -452,7 +464,7 @@ class ReplicationGui
                     $messageError = __('Error.');
                     break;
             }
-        } elseif (isset($_POST['sr_replica_skip_error'])) {
+        } elseif ($srReplicaSkipError) {
             $result = $this->handleRequestForReplicaSkipError();
         }
 
@@ -547,12 +559,12 @@ class ReplicationGui
         return $_SESSION['replication']['sr_action_status'] === 'success';
     }
 
-    public function handleRequestForReplicaServerControl(): bool
+    public function handleRequestForReplicaServerControl(?string $srReplicaAction): bool
     {
         /** @var string|null $control */
         $control = $_POST['sr_replica_control_param'] ?? null;
 
-        if ($_POST['sr_replica_action'] === 'reset') {
+        if ($srReplicaAction === 'reset') {
             $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
             $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
             $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
@@ -562,7 +574,7 @@ class ReplicationGui
                 $qStart !== false && $qStart !== -1;
         } else {
             $qControl = $this->replication->replicaControl(
-                $_POST['sr_replica_action'],
+                $srReplicaAction,
                 $control,
                 DatabaseInterface::CONNECT_USER
             );

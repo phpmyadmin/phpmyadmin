@@ -172,17 +172,31 @@ final class TrackingController extends AbstractController
 
         $createVersion = '';
         if (isset($_POST['submit_create_version'])) {
-            $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table']);
+            $createVersion = $this->tracking->createTrackingVersion(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $_POST['version']
+            );
         }
 
         $deactivateTracking = '';
         if (isset($_POST['toggle_activation']) && $_POST['toggle_activation'] === 'deactivate_now') {
-            $deactivateTracking = $this->tracking->changeTracking($GLOBALS['db'], $GLOBALS['table'], 'deactivate');
+            $deactivateTracking = $this->tracking->changeTracking(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $_POST['version'],
+                'deactivate'
+            );
         }
 
         $activateTracking = '';
         if (isset($_POST['toggle_activation']) && $_POST['toggle_activation'] === 'activate_now') {
-            $activateTracking = $this->tracking->changeTracking($GLOBALS['db'], $GLOBALS['table'], 'activate');
+            $activateTracking = $this->tracking->changeTracking(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $_POST['version'],
+                'activate'
+            );
         }
 
         // Export as SQL execution
@@ -201,7 +215,12 @@ final class TrackingController extends AbstractController
 
         $schemaSnapshot = '';
         if (isset($_POST['snapshot'])) {
-            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot($GLOBALS['urlParams']);
+            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
+                $_POST['db'],
+                $_POST['table'],
+                $_POST['version'],
+                $GLOBALS['urlParams']
+            );
         }
 
         $trackingReportRows = '';
@@ -209,6 +228,7 @@ final class TrackingController extends AbstractController
             $trackingReportRows = $this->tracking->deleteTrackingReportRows(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
+                $_POST['version'],
                 $GLOBALS['data']
             );
         }

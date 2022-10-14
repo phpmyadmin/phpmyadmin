@@ -633,12 +633,12 @@ class Tracking
      *
      * @param array $params url parameters
      */
-    public function getHtmlForSchemaSnapshot(array $params): string
+    public function getHtmlForSchemaSnapshot(string $db, string $table, string $version, array $params): string
     {
         $html = '<h3>' . __('Structure snapshot')
             . '  [<a href="' . Url::getFromRoute('/table/tracking', $params) . '">' . __('Close')
             . '</a>]</h3>';
-        $data = Tracker::getTrackedData($_POST['db'], $_POST['table'], $_POST['version']);
+        $data = Tracker::getTrackedData($db, $table, $version);
 
         // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
         $drop_create_statements = $data['ddlog'][0]['statement'];
@@ -654,7 +654,7 @@ class Tracking
         $html .= Generator::getMessage(
             sprintf(
                 __('Version %s snapshot (SQL code)'),
-                htmlspecialchars($_POST['version'])
+                htmlspecialchars($version)
             ),
             $drop_create_statements
         );
@@ -712,7 +712,7 @@ class Tracking
      *
      * @return string HTML for the message
      */
-    public function deleteTrackingReportRows(string $db, string $table, array &$data)
+    public function deleteTrackingReportRows(string $db, string $table, string $version, array &$data)
     {
         $html = '';
         if (isset($_POST['delete_ddlog'])) {
@@ -720,6 +720,7 @@ class Tracking
             $html .= $this->deleteFromTrackingReportLog(
                 $db,
                 $table,
+                $version,
                 $data,
                 'ddlog',
                 'DDL',
@@ -732,6 +733,7 @@ class Tracking
             $html .= $this->deleteFromTrackingReportLog(
                 $db,
                 $table,
+                $version,
                 $data,
                 'dmlog',
                 'DML',
@@ -752,8 +754,15 @@ class Tracking
      *
      * @return string HTML for the message
      */
-    public function deleteFromTrackingReportLog(string $db, string $table, array &$data, $which_log, $type, $message)
-    {
+    public function deleteFromTrackingReportLog(
+        string $db,
+        string $table,
+        string $version,
+        array &$data,
+        $which_log,
+        $type,
+        $message
+    ) {
         $html = '';
         $delete_id = $_POST['delete_' . $which_log];
 
@@ -764,7 +773,7 @@ class Tracking
             $successfullyDeleted = Tracker::changeTrackingData(
                 $db,
                 $table,
-                $_POST['version'],
+                $version,
                 $type,
                 $data[$which_log]
             );
@@ -867,14 +876,14 @@ class Tracking
      *
      * @return string HTML for the success message
      */
-    public function changeTracking(string $db, string $table, $action)
+    public function changeTracking(string $db, string $table, string $version, $action)
     {
         $html = '';
         if ($action === 'activate') {
-            $status = Tracker::activateTracking($db, $table, $_POST['version']);
+            $status = Tracker::activateTracking($db, $table, $version);
             $message = __('Tracking for %1$s was activated at version %2$s.');
         } else {
-            $status = Tracker::deactivateTracking($db, $table, $_POST['version']);
+            $status = Tracker::deactivateTracking($db, $table, $version);
             $message = __('Tracking for %1$s was deactivated at version %2$s.');
         }
 
@@ -883,7 +892,7 @@ class Tracking
                 sprintf(
                     $message,
                     htmlspecialchars($db . '.' . $table),
-                    htmlspecialchars($_POST['version'])
+                    htmlspecialchars($version)
                 )
             );
             $html .= $msg->getDisplay();
@@ -967,7 +976,7 @@ class Tracking
      *
      * @return string HTML of the success message
      */
-    public function deleteTrackingVersion(string $db, string $table, $version)
+    public function deleteTrackingVersion(string $db, string $table, string $version)
     {
         $html = '';
         $versionDeleted = Tracker::deleteTracking($db, $table, $version);
@@ -990,7 +999,7 @@ class Tracking
      *
      * @return string HTML of the success message
      */
-    public function createTrackingVersion(string $db, string $table)
+    public function createTrackingVersion(string $db, string $table, string $version)
     {
         $html = '';
         $tracking_set = $this->getTrackingSet();
@@ -998,7 +1007,7 @@ class Tracking
         $versionCreated = Tracker::createVersion(
             $db,
             $table,
-            $_POST['version'],
+            $version,
             $tracking_set,
             $this->dbi->getTable($db, $table)->isView()
         );
@@ -1006,7 +1015,7 @@ class Tracking
             $msg = Message::success(
                 sprintf(
                     __('Version %1$s was created, tracking for %2$s is active.'),
-                    htmlspecialchars($_POST['version']),
+                    htmlspecialchars($version),
                     htmlspecialchars($db . '.' . $table)
                 )
             );
@@ -1021,7 +1030,7 @@ class Tracking
      *
      * @param array $selected list of selected tables
      */
-    public function createTrackingForMultipleTables(string $db, array $selected): void
+    public function createTrackingForMultipleTables(string $db, array $selected, string $version): void
     {
         $tracking_set = $this->getTrackingSet();
 
@@ -1029,7 +1038,7 @@ class Tracking
             Tracker::createVersion(
                 $db,
                 $selected_table,
-                $_POST['version'],
+                $version,
                 $tracking_set,
                 $this->dbi->getTable($db, $selected_table)->isView()
             );

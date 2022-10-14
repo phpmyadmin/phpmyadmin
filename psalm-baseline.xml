@@ -1871,13 +1871,15 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="4">
       <code>$_POST['selected']</code>
       <code>$_POST['table']</code>
       <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
+    <PossiblyInvalidCast occurrences="2">
       <code>$_POST['table']</code>
+      <code>$_POST['version']</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidIterator occurrences="1">
       <code>$_POST['selected_tbl']</code>
@@ -2869,14 +2871,21 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ReplicationController.php">
+    <InvalidArgument occurrences="1">
+      <code>$params['repl_clear_scr']</code>
+    </InvalidArgument>
     <MixedArgument occurrences="1">
       <code>$replicaInfo['status']</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="5">
+      <code>$_POST['primary_add_user'] ?? null</code>
       <code>$_POST['primary_connection'] ?? null</code>
+      <code>$_POST['primary_connection'] ?? null</code>
+      <code>$_POST['primary_connection'] ?? null</code>
+      <code>$_POST['sr_replica_action'] ?? null</code>
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/SqlController.php">
@@ -3000,6 +3009,10 @@
       <code>$this-&gt;data-&gt;status['Uptime']</code>
       <code>$this-&gt;data-&gt;status['Uptime']</code>
     </MixedOperand>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$_POST['primary_connection'] ?? null</code>
+      <code>$_POST['primary_connection'] ?? null</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/VariablesController.php">
     <MixedArgumentTypeCoercion occurrences="2">
@@ -4307,13 +4320,20 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="15">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
+      <code>$_POST['db']</code>
+      <code>$_POST['table']</code>
       <code>$_POST['users']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
       <code>$_POST['version']</code>
       <code>$version</code>
     </MixedArgument>
@@ -4337,13 +4357,27 @@
       <code>$_POST['date_to']</code>
       <code>$version</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="10">
       <code>$_POST['date_from']</code>
+      <code>$_POST['db']</code>
+      <code>$_POST['table']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
       <code>$_POST['version']</code>
       <code>$_POST['version']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="3">
+    <PossiblyInvalidCast occurrences="10">
       <code>$_POST['date_from']</code>
+      <code>$_POST['db']</code>
+      <code>$_POST['table']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
+      <code>$_POST['version']</code>
       <code>$_POST['version']</code>
       <code>$_POST['version']</code>
     </PossiblyInvalidCast>
@@ -12323,21 +12357,18 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="8">
+    <PossiblyInvalidArgument occurrences="6">
       <code>$_POST['hostname']</code>
       <code>$_POST['hostname']</code>
       <code>$_POST['pma_pw']</code>
-      <code>$_POST['primary_connection'] ?? null</code>
-      <code>$_POST['sr_replica_action']</code>
       <code>$_POST['text_port']</code>
       <code>$_POST['username']</code>
       <code>$_POST['username']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="6">
+    <PossiblyInvalidCast occurrences="5">
       <code>$_POST['hostname']</code>
       <code>$_POST['hostname']</code>
       <code>$_POST['pma_pw']</code>
-      <code>$_POST['sr_replica_action']</code>
       <code>$_POST['text_port']</code>
       <code>$_POST['username']</code>
     </PossiblyInvalidCast>
@@ -12345,6 +12376,9 @@
       <code>$_POST['sr_skip_errors_count']</code>
       <code>1</code>
     </PossiblyInvalidOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>$srReplicaAction</code>
+    </PossiblyNullArgument>
     <UnusedFunctionCall occurrences="2">
       <code>strtok</code>
       <code>strtok</code>
@@ -14021,33 +14055,12 @@
       <code>$sep</code>
       <code>$sep</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="15">
+    <PossiblyInvalidArgument occurrences="4">
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['table']</code>
       <code>$_POST['table']</code>
       <code>$_POST['users']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="8">
-      <code>$_POST['db']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="2">
       <code>$sep</code>
       <code>$sep</code>
