@@ -15538,9 +15538,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <TypeDoesNotContainType occurrences="1">
-      <code>empty($GLOBALS['dbi'])</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment occurrences="2">
