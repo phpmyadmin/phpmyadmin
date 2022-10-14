@@ -3251,11 +3251,6 @@ parameters:
 			path: libraries/classes/Error.php
 
 		-
-			message: "#^Instanceof between PhpMyAdmin\\\\Error and PhpMyAdmin\\\\Error will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
