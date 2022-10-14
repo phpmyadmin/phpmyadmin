@@ -1071,6 +1071,16 @@ parameters:
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
 
 		-
+			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
+
+		-
+			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
 			path: libraries/classes/Controllers/Database/OperationsController.php
@@ -7111,6 +7121,11 @@ parameters:
 			path: libraries/classes/ReplicationGui.php
 
 		-
+			message: "#^Parameter \\#1 \\$action of method PhpMyAdmin\\\\Replication\\:\\:replicaControl\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ReplicationInfo\\:\\:fill\\(\\) has parameter \\$status with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationInfo.php
@@ -11407,6 +11422,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerExtractValueFromFormattedSize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/UtilTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerForTestGetMySQLDocuURL\\(\\) should return array\\<int, array\\{string, string, int, string\\}\\> but returns array\\{array\\{'ALTER_TABLE', 'alter\\-table\\-index', '8\\.0\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', 'alter\\-table\\-index', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', 'alter\\-table\\-index', '5\\.6\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', '', '5\\.5\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', '', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}\\}\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
 

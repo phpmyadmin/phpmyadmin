@@ -70,8 +70,11 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForPrimaryReplication(?string $connection, ?bool $replClearScr, ?string $primaryAddUser): string
-    {
+    public function getHtmlForPrimaryReplication(
+        ?string $connection,
+        ?bool $replClearScr,
+        ?string $primaryAddUser
+    ): string {
         if ($replClearScr === null) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
             $replicas = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
@@ -242,10 +245,10 @@ class ReplicationGui
     /**
      * This function returns html code for table with replication status.
      *
-     * @param ?string $connection   primary connection
-     * @param string  $type         either primary or replica
-     * @param bool    $isHidden     if true, then default style is set to hidden, default value false
-     * @param bool    $hasTitle     if true, then title is displayed, default true
+     * @param ?string $connection primary connection
+     * @param string  $type       either primary or replica
+     * @param bool    $isHidden   if true, then default style is set to hidden, default value false
+     * @param bool    $hasTitle   if true, then title is displayed, default true
      *
      * @return string HTML code
      */

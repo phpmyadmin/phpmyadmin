@@ -754,8 +754,15 @@ class Tracking
      *
      * @return string HTML for the message
      */
-    public function deleteFromTrackingReportLog(string $db, string $table, string $version, array &$data, $which_log, $type, $message)
-    {
+    public function deleteFromTrackingReportLog(
+        string $db,
+        string $table,
+        string $version,
+        array &$data,
+        $which_log,
+        $type,
+        $message
+    ) {
         $html = '';
         $delete_id = $_POST['delete_' . $which_log];
 
