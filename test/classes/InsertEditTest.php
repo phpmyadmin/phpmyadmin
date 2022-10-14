@@ -1210,6 +1210,58 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="date">', $result);
+
+        // case 5: (else -> bit)
+        $column['True_Type'] = 'bit';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
+
+        $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="bit">', $result);
+
+        // case 6: (else -> uuid)
+        $column['True_Type'] = 'uuid';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
+
+        $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="uuid">', $result);
     }
 
     /**
@@ -2472,6 +2524,46 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertEquals("''", $result);
+
+        // case 10
+        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+            false,
+            '0',
+            ['uuid'],
+            '',
+            [],
+            0,
+            ['a'],
+            [],
+            [1],
+            true,
+            true,
+            '',
+            'test_table',
+            []
+        );
+
+        $this->assertEquals('uuid()', $result);
+
+        // case 11
+        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+            false,
+            '0',
+            ['uuid'],
+            'uuid()',
+            [],
+            0,
+            ['a'],
+            [],
+            [1],
+            true,
+            true,
+            '',
+            'test_table',
+            []
+        );
+
+        $this->assertEquals('uuid()', $result);
     }
 
     /**

@@ -706,6 +706,54 @@ class TableTest extends AbstractTestCase
             $query
         );
 
+        //$default_type is UUID
+        $type = 'UUID';
+        $default_type = 'UUID';
+        $move_to = '';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            '',
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()',
+            $query
+        );
+
+        //$default_type is uuid()
+        $type = 'UUID';
+        $default_type = 'uuid()';
+        $move_to = '';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            '',
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()',
+            $query
+        );
+
         //$default_type is NONE
         $type = 'BOOLEAN';
         $default_type = 'NONE';
