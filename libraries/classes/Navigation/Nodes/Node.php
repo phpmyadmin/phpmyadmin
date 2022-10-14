@@ -650,7 +650,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromInfoSchema($pos, $searchClause)
+    private function getDataFromInfoSchema(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -687,7 +687,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabases($pos, $searchClause)
+    private function getDataFromShowDatabases(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -738,7 +738,7 @@ class Node
                 }
             }
 
-            $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
+            $prefixes = array_slice(array_keys($prefixMap), $pos);
         }
 
         $subClauses = [];
@@ -765,7 +765,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabasesLike($pos, $searchClause)
+    private function getDataFromShowDatabasesLike(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {

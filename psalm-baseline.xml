@@ -8707,9 +8707,8 @@
       <code>$parent</code>
       <code>$title</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="5">
+    <RedundantCastGivenDocblockType occurrences="4">
       <code>(bool) $isGroup</code>
-      <code>(int) $pos</code>
       <code>(string) $name</code>
       <code>(string) $parent-&gt;name</code>
       <code>(string) $prefix</code>
@@ -8766,9 +8765,6 @@
       <code>NodeDatabase</code>
       <code>NodeDatabase</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(int) $pos</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch occurrences="1">

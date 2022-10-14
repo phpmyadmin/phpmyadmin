@@ -5116,11 +5116,6 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
 			path: libraries/classes/Navigation/Nodes/Node.php
@@ -5169,11 +5164,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeColumn\\:\\:getTruncateValue\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeColumn.php
-
-		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/NodeDatabase.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
