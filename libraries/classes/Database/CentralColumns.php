@@ -759,7 +759,7 @@ class CentralColumns
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        if (empty($table) || $table == '') {
+        if ($table === '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         } else {

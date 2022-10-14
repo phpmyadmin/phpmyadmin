@@ -1901,11 +1901,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_column with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
