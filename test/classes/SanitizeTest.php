@@ -185,20 +185,6 @@ class SanitizeTest extends AbstractTestCase
     public function testGetJsValue(string $key, $value, string $expected): void
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
-        $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));
-        $array = [
-            '1',
-            '2',
-            '3',
-        ];
-        $this->assertEquals(
-            "foo = [\"1\",\"2\",\"3\",];\n",
-            Sanitize::getJsValue('foo', $array)
-        );
-        $this->assertEquals(
-            "foo = \"bar\\\"baz\";\n",
-            Sanitize::getJsValue('foo', 'bar"baz')
-        );
     }
 
     /**
@@ -250,7 +236,21 @@ class SanitizeTest extends AbstractTestCase
             [
                 'foo',
                 'apostroph\'',
-                "foo = \"apostroph\\'\";\n",
+                "foo = \"apostroph'\";\n",
+            ],
+            [
+                'foo',
+                [
+                    '1',
+                    '2',
+                    '3',
+                ],
+                "foo = [\"1\",\"2\",\"3\"];\n",
+            ],
+            [
+                'foo',
+                'bar"baz',
+                "foo = \"bar\\\"baz\";\n",
             ],
         ];
     }

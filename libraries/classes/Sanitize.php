@@ -15,10 +15,8 @@ use function array_merge;
 use function count;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
-use function is_bool;
-use function is_int;
 use function is_string;
+use function json_encode;
 use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
@@ -28,6 +26,8 @@ use function strlen;
 use function strtolower;
 use function strtr;
 use function substr;
+
+use const JSON_HEX_TAG;
 
 /**
  * This class includes various sanitization methods that can be called statically
@@ -316,57 +316,17 @@ class Sanitize
     }
 
     /**
-     * Formats a value for javascript code.
-     *
-     * @param string|bool|int $value String to be formatted.
-     *
-     * @return int|string formatted value.
-     */
-    public static function formatJsVal($value)
-    {
-        if (is_bool($value)) {
-            if ($value) {
-                return 'true';
-            }
-
-            return 'false';
-        }
-
-        if (is_int($value)) {
-            return $value;
-        }
-
-        return '"' . self::escapeJsString($value) . '"';
-    }
-
-    /**
      * Formats an javascript assignment with proper escaping of a value
      * and support for assigning array of strings.
      *
-     * @param string $key    Name of value to set
-     * @param mixed  $value  Value to set, can be either string or array of strings
-     * @param bool   $escape Whether to escape value or keep it as it is
-     *                       (for inclusion of js code)
+     * @param string $key   Name of value to set
+     * @param mixed  $value Value to set, can be either string or array of strings
      *
      * @return string Javascript code.
      */
-    public static function getJsValue($key, $value, $escape = true)
+    public static function getJsValue($key, $value)
     {
-        $result = $key . ' = ';
-        if (! $escape) {
-            $result .= $value;
-        } elseif (is_array($value)) {
-            $result .= '[';
-            foreach ($value as $val) {
-                $result .= self::formatJsVal($val) . ',';
-            }
-
-            $result .= "];\n";
-        } else {
-            $result .= self::formatJsVal($value) . ";\n";
-        }
-
-        return $result;
+        return $key . ' = ' . json_encode($value, JSON_HEX_TAG) . ";\n";
     }
 
     /**

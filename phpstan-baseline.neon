@@ -7031,11 +7031,6 @@ parameters:
 			path: libraries/classes/Sanitize.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Sanitize\\:\\:formatJsVal\\(\\) expects bool\\|int\\|string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SavedSearches\\:\\:getCriterias\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
