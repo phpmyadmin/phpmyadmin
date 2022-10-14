@@ -1054,9 +1054,8 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="23">
+    <MixedAssignment occurrences="22">
       <code>$GLOBALS['classes_side_menu']</code>
-      <code>$GLOBALS['display_page']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['fullTableNames']</code>
       <code>$GLOBALS['num_tables']</code>
@@ -1083,10 +1082,7 @@
       <code>$position['dbName']</code>
       <code>$position['tableName']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="36">
-      <code>$GLOBALS['display_page']</code>
-      <code>$GLOBALS['display_page']</code>
-      <code>$GLOBALS['display_page']</code>
+    <PossiblyInvalidArgument occurrences="33">
       <code>$GLOBALS['page']</code>
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
@@ -1158,6 +1154,9 @@
     <PossiblyNullIterator occurrences="1">
       <code>$GLOBALS['tab_pos']</code>
     </PossiblyNullIterator>
+    <RiskyCast occurrences="1">
+      <code>$_GET['page']</code>
+    </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
     <MixedArgument occurrences="1">
@@ -5073,10 +5072,6 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$_GET['export_type']</code>
     </PossiblyInvalidCast>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(int) $displayPage</code>
-      <code>(int) $displayPage</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer/Common.php">
     <MixedArgument occurrences="17">

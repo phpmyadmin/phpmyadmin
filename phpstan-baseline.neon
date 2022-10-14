@@ -1921,11 +1921,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 2
-			path: libraries/classes/Database/Designer.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_column with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php

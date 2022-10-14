@@ -326,7 +326,7 @@ class Designer
         array $scriptTables,
         array $scriptContr,
         array $scriptDisplayField,
-        $displayPage,
+        int $displayPage,
         bool $visualBuilderMode,
         $selectedPage,
         array $paramsArray,
@@ -386,7 +386,7 @@ class Designer
         $designerConfig->scriptContr = $scriptContr;
         $designerConfig->server = $GLOBALS['server'];
         $designerConfig->scriptDisplayField = $displayedFields;
-        $designerConfig->displayPage = (int) $displayPage;
+        $designerConfig->displayPage = $displayPage;
         $designerConfig->tablesEnabled = $relationParameters->pdfFeature !== null;
 
         return $this->template->render('database/designer/main', [
@@ -394,7 +394,7 @@ class Designer
             'text_dir' => $GLOBALS['text_dir'],
             'get_db' => $getDb,
             'designer_config' => json_encode($designerConfig),
-            'display_page' => (int) $displayPage,
+            'display_page' => $displayPage,
             'has_query' => $visualBuilderMode,
             'visual_builder' => $visualBuilderMode,
             'selected_page' => $selectedPage,
