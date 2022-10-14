@@ -2493,4 +2493,60 @@ class UtilTest extends AbstractTestCase
         $actual = Util::splitURLQuery('index.php?route=/table/structure&db=sakila&table=address');
         $this->assertSame(['route=/table/structure', 'db=sakila', 'table=address'], $actual);
     }
+
+    public function testGetDbInfo(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+
+        $tableInfo = [
+            'Name' => 'test_table',
+            'Engine' => 'InnoDB',
+            'Version' => '10',
+            'Row_format' => 'Dynamic',
+            'Rows' => '3',
+            'Avg_row_length' => '5461',
+            'Data_length' => '16384',
+            'Max_data_length' => '0',
+            'Index_length' => '0',
+            'Data_free' => '0',
+            'Auto_increment' => '4',
+            'Create_time' => '2011-12-13 14:15:16',
+            'Update_time' => null,
+            'Check_time' => null,
+            'Collation' => 'utf8mb4_general_ci',
+            'Checksum' => null,
+            'Create_options' => '',
+            'Comment' => '',
+            'Max_index_length' => '0',
+            'Temporary' => 'N',
+            'Type' => 'InnoDB',
+            'TABLE_SCHEMA' => 'test_db',
+            'TABLE_NAME' => 'test_table',
+            'ENGINE' => 'InnoDB',
+            'VERSION' => '10',
+            'ROW_FORMAT' => 'Dynamic',
+            'TABLE_ROWS' => '3',
+            'AVG_ROW_LENGTH' => '5461',
+            'DATA_LENGTH' => '16384',
+            'MAX_DATA_LENGTH' => '0',
+            'INDEX_LENGTH' => '0',
+            'DATA_FREE' => '0',
+            'AUTO_INCREMENT' => '4',
+            'CREATE_TIME' => '2011-12-13 14:15:16',
+            'UPDATE_TIME' => null,
+            'CHECK_TIME' => null,
+            'TABLE_COLLATION' => 'utf8mb4_general_ci',
+            'CHECKSUM' => null,
+            'CREATE_OPTIONS' => '',
+            'TABLE_COMMENT' => '',
+            'TABLE_TYPE' => 'BASE TABLE',
+        ];
+        $expected = [['test_table' => $tableInfo], 1, 1, '_structure', true, false, [], [], 0];
+        $actual = Util::getDbInfo('test_db', '');
+        $this->assertSame($expected, $actual);
+    }
 }
