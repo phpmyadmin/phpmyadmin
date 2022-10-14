@@ -5031,16 +5031,6 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addDbContainers\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addTableContainers\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:buildPathPart\\(\\) has parameter \\$path with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -5082,6 +5072,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addTableContainers\\(\\) expects PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable, PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -5162,16 +5157,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getPaths\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Strict comparison using \\!\\=\\= between PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node and null will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
 

@@ -148,7 +148,7 @@ class NodeTable extends NodeDatabaseChild
      *
      * @return array
      */
-    public function getData($type, $pos, $searchClause = '')
+    public function getData(string $type, int $pos, string $searchClause = ''): array
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval = [];

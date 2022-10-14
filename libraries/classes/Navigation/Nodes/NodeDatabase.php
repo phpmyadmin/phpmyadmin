@@ -321,7 +321,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    public function getData($type, $pos, $searchClause = '')
+    public function getData(string $type, int $pos, string $searchClause = ''): array
     {
         $pos = (int) $pos;
         $retval = [];

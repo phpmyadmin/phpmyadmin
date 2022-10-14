@@ -8519,6 +8519,9 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$table</code>
+    </ArgumentTypeCoercion>
     <DocblockTypeContradiction occurrences="2">
       <code>''</code>
       <code>isset($this-&gt;pos)</code>
@@ -8529,9 +8532,7 @@
       <code>$this-&gt;pos3Name</code>
       <code>$this-&gt;pos3Name</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="30">
-      <code>$container-&gt;children</code>
-      <code>$container-&gt;realName</code>
+    <MixedArgument occurrences="27">
       <code>$db</code>
       <code>$hiddenCounts[$db]</code>
       <code>$item</code>
@@ -8558,7 +8559,6 @@
       <code>$paths['vPath_clean']</code>
       <code>$separator</code>
       <code>$separator</code>
-      <code>$table</code>
       <code>$value</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="11">
@@ -8577,8 +8577,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$hiddenCounts[$db]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="15">
-      <code>$container</code>
+    <MixedAssignment occurrences="11">
       <code>$db</code>
       <code>$item</code>
       <code>$item</code>
@@ -8586,23 +8585,11 @@
       <code>$path</code>
       <code>$path</code>
       <code>$path</code>
-      <code>$retval</code>
-      <code>$retval</code>
       <code>$separator</code>
       <code>$separator</code>
-      <code>$table</code>
       <code>$urlParams['pos3_name']</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>Node|bool</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="4">
-      <code>addChild</code>
-      <code>addChild</code>
-      <code>getChild</code>
-      <code>getChild</code>
-    </MixedMethodCall>
     <MixedOperand occurrences="2">
       <code>$separators[0]</code>
       <code>$separators[0]</code>
@@ -8612,15 +8599,6 @@
       <code>$node</code>
       <code>$node</code>
     </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$container-&gt;children</code>
-      <code>$container-&gt;realName</code>
-      <code>$container-&gt;realName</code>
-    </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="2">
-      <code>$retval</code>
-      <code>$retval</code>
-    </MixedReturnStatement>
     <PossiblyFalseOperand occurrences="2">
       <code>strrpos($class, '\\')</code>
       <code>strrpos($class, '\\')</code>
@@ -8644,18 +8622,9 @@
       <code>$_POST['searchClause']</code>
       <code>$_POST['searchClause2']</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument occurrences="3">
-      <code>$container-&gt;realName</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$database</code>
-      <code>$table</code>
     </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="2">
-      <code>$container-&gt;parent</code>
-      <code>$container-&gt;realName</code>
-    </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="1">
-      <code>addChild</code>
-    </PossiblyNullReference>
     <RedundantCast occurrences="5">
       <code>(int) $GLOBALS['cfg']['FirstLevelNavigationItems']</code>
       <code>(int) $GLOBALS['cfg']['FirstLevelNavigationItems']</code>
@@ -8682,6 +8651,9 @@
       <code>$_POST['pos2_value'] ?? 0</code>
       <code>$_POST['pos3_value']</code>
     </RiskyCast>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$path === []</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Navigation/NodeFactory.php">
     <MixedMethodCall occurrences="1">
