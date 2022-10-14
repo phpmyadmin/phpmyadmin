@@ -76,7 +76,10 @@ class ReplicationController extends AbstractController
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
-            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication();
+            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
+                $params['repl_clear_scr'],
+                $_POST['primary_add_user'] ?? null
+            );
         }
 
         if (isset($params['primary_configure'])) {
