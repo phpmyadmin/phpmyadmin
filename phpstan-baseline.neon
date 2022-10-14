@@ -1826,11 +1826,6 @@ parameters:
 			path: libraries/classes/CreateAddField.php
 
 		-
-			message: "#^Casting to array something that's already array\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
 			count: 2
 			path: libraries/classes/Database/CentralColumns.php
@@ -5219,11 +5214,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
-
-		-
-			message: "#^Casting to array something that's already array\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) has parameter \\$partialDependencies with no value type specified in iterable type array\\.$#"

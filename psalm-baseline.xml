@@ -4986,8 +4986,7 @@
       <code>$db</code>
       <code>$table</code>
     </PossiblyInvalidCast>
-    <RedundantCast occurrences="3">
-      <code>(array) $has_list</code>
+    <RedundantCast occurrences="2">
       <code>(bool) $GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>(int) $GLOBALS['cfg']['MaxRows']</code>
     </RedundantCast>
@@ -8981,9 +8980,6 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$def['Type']</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast occurrences="1">
-      <code>(array) $partialDependencies</code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/OpenDocument.php">
     <InvalidReturnStatement occurrences="1">
