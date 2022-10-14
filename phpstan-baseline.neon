@@ -2896,11 +2896,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getCommentForRow\\(\\) has parameter \\$commentsMap with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php

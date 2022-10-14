@@ -6463,10 +6463,6 @@
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(string) $fieldsMeta[$i]-&gt;name</code>
-      <code>(string) $fieldsMeta[$i]-&gt;name</code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition occurrences="2">
       <code>empty($statementInfo-&gt;statement-&gt;from)</code>
       <code>isset($sessionMaxRows)</code>

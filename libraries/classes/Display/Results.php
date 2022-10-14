@@ -871,9 +871,9 @@ class Results
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($conditionField ? ' condition"' : '')
-                    . '" data-column="' . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . '" data-column="' . htmlspecialchars($fieldsMeta[$i]->name)
                     . '">        '
-                    . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . htmlspecialchars($fieldsMeta[$i]->name)
                     . $comments . '    </th>';
             }
 
