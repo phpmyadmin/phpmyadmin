@@ -401,6 +401,11 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
 			message: "#^Call to function function_exists\\(\\) with 'bzcompress'\\|'gzcompress'\\|'gzencode' will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -453,11 +458,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
@@ -7008,16 +7008,6 @@ parameters:
 		-
 			message: "#^Casting to array\\<string, mixed\\> something that's already array\\<string, mixed\\>\\.$#"
 			count: 4
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
 			path: libraries/classes/Sanitize.php
 
 		-
