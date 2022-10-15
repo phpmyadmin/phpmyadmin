@@ -313,7 +313,7 @@ class Generator
 
         // For uuid field, no default function
         if ($field['True_Type'] === 'uuid') {
-            $defaultFunction = '';
+            return '';
         }
 
         // For primary keys of type char(36) or varchar(36) UUID if the default

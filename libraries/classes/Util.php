@@ -1759,10 +1759,8 @@ class Util
 
     /**
      * This function is to check whether database support UUID
-     *
-     * @return bool
      */
-    public static function isUUIDSupported()
+    public static function isUUIDSupported(): bool
     {
         return Compatibility::isUUIDSupported($GLOBALS['dbi']);
     }

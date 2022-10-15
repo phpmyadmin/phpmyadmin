@@ -17,6 +17,9 @@ use ReflectionProperty;
 use stdClass;
 
 use function hash;
+use function is_object;
+use function is_scalar;
+use function is_string;
 use function mb_substr;
 use function md5;
 use function password_verify;
@@ -539,7 +542,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $result = strval($result);
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('title="comment&gt;"', $result);
 
@@ -837,7 +840,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $result = strval($result);
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
@@ -1188,7 +1191,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $result = strval($result);
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="datetime">', $result);
 
@@ -1216,7 +1219,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $result = strval($result);
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="date">', $result);
 
@@ -1244,7 +1247,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $result = strval($result);
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="bit">', $result);
 
@@ -1272,7 +1275,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $result = strval($result);
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="uuid">', $result);
     }
@@ -1381,7 +1384,7 @@ class InsertEditTest extends AbstractTestCase
             [$url_params]
         );
 
-        $result = strval($result);
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
 
@@ -1619,7 +1622,7 @@ class InsertEditTest extends AbstractTestCase
         unset($column['Default']);
         $column['True_Type'] = 'char';
 
-        $result = $this->callFunction(
+        $result = (array) $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
@@ -1865,7 +1868,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        $result = $this->callFunction(
+        $result = (array) $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getWarningMessages',
@@ -2876,7 +2879,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $actual = strval($actual);
+        $actual = $this->parseString($actual);
 
         $this->assertStringContainsString('col', $actual);
         $this->assertStringContainsString('<option>AES_ENCRYPT</option>', $actual);
@@ -2937,7 +2940,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $actual = strval($actual);
+        $actual = $this->parseString($actual);
 
         $this->assertStringContainsString('qwerty', $actual);
         $this->assertStringContainsString('<option>UUID</option>', $actual);
@@ -3194,5 +3197,25 @@ class InsertEditTest extends AbstractTestCase
             . '</span></a>',
             $actual
         );
+    }
+
+    /**
+     * Convert mixed type value to string
+     *
+     * @param mixed $value
+     *
+     * @return string
+     */
+    private function parseString($value)
+    {
+        if (is_string($value)) {
+            return $value;
+        }
+
+        if (is_object($value) || is_scalar($value)) {
+            return strval($value);
+        }
+
+        return '';
     }
 }
