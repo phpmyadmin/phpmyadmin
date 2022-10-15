@@ -489,7 +489,7 @@
     </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Config/FormDisplay.php">
-    <MixedArgument occurrences="20">
+    <MixedArgument occurrences="18">
       <code>$canonicalPath</code>
       <code>$errorList</code>
       <code>$form-&gt;fields[$field]</code>
@@ -507,8 +507,6 @@
       <code>$val</code>
       <code>$validators[$path]</code>
       <code>$value</code>
-      <code>$valueDefault</code>
-      <code>$valueDefaultJs</code>
       <code>$workPath</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="7">
@@ -593,14 +591,11 @@
     <PossiblyFalseIterator occurrences="1">
       <code>$values[$path]</code>
     </PossiblyFalseIterator>
-    <PossiblyInvalidArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$_POST[$key]</code>
-      <code>$valueDefault</code>
-      <code>$valueDefaultJs</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
+    <PossiblyInvalidCast occurrences="1">
       <code>$valueDefault</code>
-      <code>$valueDefaultJs</code>
     </PossiblyInvalidCast>
     <PossiblyNullOperand occurrences="1"/>
     <PropertyNotSetInConstructor occurrences="1">
@@ -608,11 +603,7 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Config/FormDisplayTemplate.php">
-    <MixedArgument occurrences="1">
-      <code>$arg</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="4">
-      <code>$arg</code>
+    <MixedAssignment occurrences="3">
       <code>$isSetupScript</code>
       <code>$vName</code>
       <code>$validator</code>
@@ -3255,11 +3246,10 @@
       <code>$row_id</code>
       <code>$row_id</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="28">
+    <MixedAssignment occurrences="27">
       <code>$GLOBALS['after_insert']</code>
       <code>$GLOBALS['biggest_max_file_size']</code>
       <code>$GLOBALS['checked']</code>
-      <code>$GLOBALS['chg_evt_handler']</code>
       <code>$GLOBALS['columns_cnt']</code>
       <code>$GLOBALS['comments_map']</code>
       <code>$GLOBALS['current_result']</code>
@@ -7773,7 +7763,7 @@
       <code>$GLOBALS['cfg']['CSPAllow']</code>
       <code>$GLOBALS['cfg']['CaptchaCsp']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="9">
       <code>$cspAllow</code>
       <code>$cspAllow</code>
       <code>$cspAllow</code>
@@ -7783,18 +7773,13 @@
       <code>$cspAllow</code>
       <code>$cspAllow</code>
       <code>$cspAllow</code>
-      <code>$value</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$params</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['buffer_message']</code>
       <code>$GLOBALS['theme']</code>
       <code>$bufferMessage</code>
       <code>$cspAllow</code>
       <code>$pftext</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$GLOBALS['cfg']['CaptchaCsp']</code>
@@ -8282,8 +8267,7 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="3">
-      <code>$column['pma_type']</code>
+    <MixedOperand occurrences="2">
       <code>$file</code>
       <code>$maxlength</code>
     </MixedOperand>
@@ -12383,17 +12367,14 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/Sanitize.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="4">
       <code>$found[1]</code>
       <code>$found[1]</code>
       <code>$found[1]</code>
       <code>$found[3]</code>
-      <code>$val</code>
-      <code>$value</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$url</code>
-      <code>$val</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
@@ -12401,10 +12382,9 @@
     <MixedMethodCall occurrences="1">
       <code>get</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="2">
       <code>$found[3]</code>
       <code>$url</code>
-      <code>$value</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="2">
       <code>$found[0]</code>
@@ -12416,10 +12396,6 @@
       <code>(array) $_POST</code>
       <code>(array) $_REQUEST</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(string) $a_string</code>
-      <code>(string) $string</code>
-    </RedundantCastGivenDocblockType>
     <RedundantCondition occurrences="1">
       <code>$GLOBALS['config'] !== null</code>
     </RedundantCondition>
@@ -16045,8 +16021,7 @@
     </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/SanitizeTest.php">
-    <MixedInferredReturnType occurrences="4">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
       <code>array</code>
