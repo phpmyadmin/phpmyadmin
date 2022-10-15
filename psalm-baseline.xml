@@ -969,12 +969,9 @@
     </UnusedFunctionCall>
   </file>
   <file src="libraries/classes/Controllers/CollationConnectionController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['collation_connection']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['collation_connection']</code>
-    </PossiblyInvalidCast>
+    <MixedArgument occurrences="1">
+      <code>$request-&gt;getParsedBodyParam('collation_connection')</code>
+    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Config/SetConfigController.php">
     <MixedArgument occurrences="1">
@@ -3159,18 +3156,17 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Sql/SetValuesController.php">
-    <PossiblyInvalidArgument occurrences="4">
-      <code>$column</code>
-      <code>$column</code>
-      <code>$currentValue</code>
-      <code>$whereClause</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
-      <code>$column</code>
+    <MixedArgument occurrences="3">
       <code>$column</code>
       <code>$currentValue</code>
       <code>$whereClause</code>
-    </PossiblyInvalidCast>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
+      <code>$column</code>
+      <code>$currentValue</code>
+      <code>$fullValues</code>
+      <code>$whereClause</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Sql/SqlController.php">
     <InvalidArrayOffset occurrences="1">
@@ -4466,12 +4462,9 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/TableController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['db']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['db']</code>
-    </PossiblyInvalidCast>
+    <MixedArgument occurrences="1">
+      <code>$request-&gt;getParsedBodyParam('db')</code>
+    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/ThemeSetController.php">
     <InvalidArrayOffset occurrences="1">
