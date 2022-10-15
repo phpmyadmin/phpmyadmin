@@ -53,7 +53,7 @@ You can get the newest release at https://www.phpmyadmin.net/.
 If you prefer to follow the Git repository, the following branch and tag names may be of interest:
 
 * ``STABLE`` is the current stable release.
-* ``Master`` is the development branch.
+* ``master`` is the development branch.
 * Releases are tagged; for example, version 5.0.1 was tagged as ``RELEASE_5_0_1``.
 
 Note that phpMyAdmin uses `Composer <https://getcomposer.org/>`_ to manage library dependencies; when using Git
