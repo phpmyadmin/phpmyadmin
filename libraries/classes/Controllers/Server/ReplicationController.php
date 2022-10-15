@@ -75,7 +75,15 @@ class ReplicationController extends AbstractController
                 isset($_POST['replica_changeprimary']),
                 isset($_POST['sr_replica_server_control']),
                 $_POST['sr_replica_action'] ?? null,
-                isset($_POST['sr_replica_skip_error'])
+                isset($_POST['sr_replica_skip_error']),
+                isset($_POST['sr_skip_errors_count']) ? (int) $_POST['sr_skip_errors_count'] : 1,
+                $_POST['sr_replica_control_param'] ?? null,
+                [
+                    'username' => $GLOBALS['dbi']->escapeString($_POST['username']),
+                    'pma_pw' => $GLOBALS['dbi']->escapeString($_POST['pma_pw']),
+                    'hostname' => $GLOBALS['dbi']->escapeString($_POST['hostname']),
+                    'port' => (int) $GLOBALS['dbi']->escapeString($_POST['text_port']),
+                ]
             );
         }
 
@@ -85,7 +93,9 @@ class ReplicationController extends AbstractController
             $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
                 $_POST['primary_connection'] ?? null,
                 $params['repl_clear_scr'],
-                $_POST['primary_add_user'] ?? null
+                $_POST['primary_add_user'] ?? null,
+                $_POST['username'] ?? null,
+                $_POST['hostname'] ?? null
             );
         }
 
@@ -96,7 +106,8 @@ class ReplicationController extends AbstractController
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
                     $_POST['primary_connection'] ?? null,
                     $replicaInfo['status'],
-                    $replicationInfo->getReplicaStatus()
+                    $replicationInfo->getReplicaStatus(),
+                    isset($_POST['replica_configure'])
                 );
             }
 

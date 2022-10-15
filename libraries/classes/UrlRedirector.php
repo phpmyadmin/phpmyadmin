@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function __;
-use function is_scalar;
 use function preg_match;
-use function strlen;
 
 /**
  * URL redirector to avoid leaking Referer with some sensitive information.
@@ -17,7 +15,7 @@ final class UrlRedirector
     /**
      * @psalm-return never
      */
-    public static function redirect(): void
+    public static function redirect(string $url): void
     {
         // Load database service because services.php is not available here
         $GLOBALS['dbi'] = DatabaseInterface::load();
@@ -30,9 +28,9 @@ final class UrlRedirector
         $response->disable();
 
         if (
-            ! isset($_GET['url']) || ! is_scalar($_GET['url']) || strlen((string) $_GET['url']) === 0
-            || ! preg_match('/^https:\/\/[^\n\r]*$/', (string) $_GET['url'])
-            || ! Core::isAllowedDomain((string) $_GET['url'])
+            $url === ''
+            || ! preg_match('/^https:\/\/[^\n\r]*$/', $url)
+            || ! Core::isAllowedDomain($url)
         ) {
             Core::sendHeaderLocation('./');
 
@@ -47,7 +45,7 @@ final class UrlRedirector
          */
         $template = $container->get('template');
         echo $template->render('javascript/redirect', [
-            'url' => Sanitize::escapeJsString((string) $_GET['url']),
+            'url' => Sanitize::escapeJsString($url),
         ]);
         // Display redirecting msg on screen.
         // Do not display the value of $_GET['url'] to avoid showing injected content
