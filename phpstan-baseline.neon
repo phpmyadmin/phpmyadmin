@@ -5001,6 +5001,11 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
+			message: "#^Cannot access property \\$pos2 on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 6
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -5089,6 +5094,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) has parameter \\$name with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NodeFactory.php
+
+		-
+			message: "#^Cannot access property \\$children on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
 			message: "#^Casting to bool something that's already bool\\.$#"

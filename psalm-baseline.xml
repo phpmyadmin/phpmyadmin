@@ -8614,6 +8614,9 @@
     <PossiblyNullArgument occurrences="1">
       <code>$database</code>
     </PossiblyNullArgument>
+    <PossiblyNullPropertyFetch occurrences="1">
+      <code>$container-&gt;parent-&gt;pos2</code>
+    </PossiblyNullPropertyFetch>
     <RedundantCast occurrences="5">
       <code>(int) $GLOBALS['cfg']['FirstLevelNavigationItems']</code>
       <code>(int) $GLOBALS['cfg']['FirstLevelNavigationItems']</code>
@@ -8657,18 +8660,25 @@
       <code>$db</code>
       <code>$paths['aPath_clean']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="6">
+      <code>$child</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
     </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>hasChildren</code>
+    </MixedMethodCall>
     <MixedOperand occurrences="3">
       <code>$GLOBALS['cfg']['Server']['hide_db']</code>
       <code>$db</code>
       <code>$db</code>
     </MixedOperand>
+    <MixedPropertyFetch occurrences="1">
+      <code>$child-&gt;type</code>
+    </MixedPropertyFetch>
     <PossiblyInvalidArgument occurrences="1">
       <code>$databases</code>
     </PossiblyInvalidArgument>
@@ -8688,12 +8698,17 @@
       <code>$prefixMap</code>
       <code>$prefixMap</code>
     </PossiblyNullArrayOffset>
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;parent-&gt;children</code>
+    </PossiblyNullIterator>
     <PossiblyNullOperand occurrences="1">
       <code>$arr[0]</code>
     </PossiblyNullOperand>
-    <PropertyNotSetInConstructor occurrences="3">
+    <PossiblyNullPropertyFetch occurrences="1">
+      <code>$this-&gt;parent-&gt;children</code>
+    </PossiblyNullPropertyFetch>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>$displayName</code>
-      <code>$parent</code>
       <code>$title</code>
     </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType occurrences="4">
@@ -8721,14 +8736,12 @@
       <code>$retval</code>
       <code>$retval</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>NodeColumn</code>
+    <PropertyNotSetInConstructor occurrences="1">
       <code>NodeColumn</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeColumnContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeColumnContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeColumnContainer</code>
       <code>NodeColumnContainer</code>
     </PropertyNotSetInConstructor>
@@ -8749,8 +8762,7 @@
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeDatabase</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeDatabase</code>
       <code>NodeDatabase</code>
     </PropertyNotSetInConstructor>
@@ -8761,8 +8773,7 @@
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseChildContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeDatabaseChildContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeDatabaseChildContainer</code>
       <code>NodeDatabaseChildContainer</code>
     </PropertyNotSetInConstructor>
@@ -8771,64 +8782,55 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeDatabaseContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeDatabaseContainer</code>
       <code>NodeDatabaseContainer</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeEvent.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeEvent</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeEvent</code>
       <code>NodeEvent</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeEventContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeEventContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeEventContainer</code>
       <code>NodeEventContainer</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeFunction.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeFunction</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeFunction</code>
       <code>NodeFunction</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeFunctionContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeFunctionContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeFunctionContainer</code>
       <code>NodeFunctionContainer</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeIndex.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeIndex</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeIndex</code>
       <code>NodeIndex</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeIndexContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeIndexContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeIndexContainer</code>
       <code>NodeIndexContainer</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeProcedure.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeProcedure</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeProcedure</code>
       <code>NodeProcedure</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeProcedureContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeProcedureContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeProcedureContainer</code>
       <code>NodeProcedureContainer</code>
     </PropertyNotSetInConstructor>
@@ -8841,42 +8843,36 @@
     <PossiblyNullArgument occurrences="1">
       <code>$arr['Type']</code>
     </PossiblyNullArgument>
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>NodeTable</code>
+    <PropertyNotSetInConstructor occurrences="1">
       <code>NodeTable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTableContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeTableContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeTableContainer</code>
       <code>NodeTableContainer</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTrigger.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeTrigger</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeTrigger</code>
       <code>NodeTrigger</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTriggerContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeTriggerContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeTriggerContainer</code>
       <code>NodeTriggerContainer</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeView.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeView</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeView</code>
       <code>NodeView</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeViewContainer.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NodeViewContainer</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>NodeViewContainer</code>
       <code>NodeViewContainer</code>
     </PropertyNotSetInConstructor>

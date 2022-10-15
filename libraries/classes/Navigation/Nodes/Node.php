@@ -58,10 +58,10 @@ class Node
      */
     public $visible = false;
     /**
-     * @var Node A reference to the parent object of
+     * @var Node|null A reference to the parent object of
      *           this node, NULL for the root node.
      */
-    public $parent;
+    public $parent = null;
     /**
      * @var Node[] An array of Node objects that are
      *             direct children of this node
