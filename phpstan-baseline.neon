@@ -3526,11 +3526,6 @@ parameters:
 			path: libraries/classes/Font.php
 
 		-
-			message: "#^Variable \\$charLists in empty\\(\\) always exists and is not falsy\\.$#"
-			count: 1
-			path: libraries/classes/Font.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:removeRecursion\\(\\) has parameter \\$stack with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php

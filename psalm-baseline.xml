@@ -6911,9 +6911,6 @@
       <code>$count</code>
       <code>$textWidth</code>
     </MixedOperand>
-    <TypeDoesNotContainType occurrences="1">
-      <code>empty($charLists)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Footer.php">
     <InvalidArgument occurrences="1">
