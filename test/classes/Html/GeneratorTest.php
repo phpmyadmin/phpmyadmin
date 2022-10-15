@@ -459,7 +459,7 @@ class GeneratorTest extends AbstractTestCase
      * @param array  $field      field settings
      * @param bool   $insertMode true if insert mode
      * @param string $expected   expected result
-     * @psalm-param array<string, string|bool|null> $row
+     * @psalm-param array<string, string|bool|null> $field
      *
      * @dataProvider providerForTestGetDefaultFunctionForField
      */
