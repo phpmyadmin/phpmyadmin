@@ -52,12 +52,11 @@
       <code>$row</code>
       <code>$variables[$i]</code>
     </MixedArgument>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="9">
       <code>$bookmark-&gt;currentUser</code>
       <code>$bookmark-&gt;currentUser</code>
       <code>$bookmark-&gt;database</code>
       <code>$bookmark-&gt;database</code>
-      <code>$bookmark-&gt;id</code>
       <code>$bookmark-&gt;label</code>
       <code>$bookmark-&gt;label</code>
       <code>$bookmark-&gt;query</code>
@@ -71,9 +70,6 @@
       <code>$label</code>
       <code>$query</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(int) $this-&gt;id</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/BrowseForeigners.php">
     <MixedArgument occurrences="5">
@@ -182,11 +178,6 @@
       <code>$result</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Command/SetVersionCommand.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$defaultName</code>
-    </NonInvariantDocblockPropertyType>
-  </file>
   <file src="libraries/classes/Command/TwigLintCommand.php">
     <MixedArgument occurrences="6">
       <code>$code</code>
@@ -219,11 +210,6 @@
       <code>$prevErrorHandler</code>
       <code>$prevErrorHandler</code>
     </UnusedVariable>
-  </file>
-  <file src="libraries/classes/Command/WriteGitRevisionCommand.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$defaultName</code>
-    </NonInvariantDocblockPropertyType>
   </file>
   <file src="libraries/classes/Common.php">
     <InvalidArrayOffset occurrences="1">

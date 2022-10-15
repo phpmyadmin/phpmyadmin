@@ -71,7 +71,7 @@ class Bookmark
      */
     public function getId(): int
     {
-        return (int) $this->id;
+        return $this->id;
     }
 
     /**
@@ -218,10 +218,10 @@ class Bookmark
     /**
      * @param array $row Resource used to build the bookmark
      */
-    protected static function createFromRow(DatabaseInterface $dbi, $row): Bookmark
+    protected static function createFromRow(DatabaseInterface $dbi, array $row): Bookmark
     {
         $bookmark = new Bookmark($dbi, new Relation($dbi));
-        $bookmark->id = $row['id'];
+        $bookmark->id = (int) $row['id'];
         $bookmark->database = $row['dbase'];
         $bookmark->currentUser = $row['user'];
         $bookmark->label = $row['label'];
@@ -262,16 +262,12 @@ class Bookmark
             DatabaseInterface::CONNECT_CONTROL
         );
 
-        if (! empty($result)) {
-            $bookmarks = [];
-            foreach ($result as $row) {
-                $bookmarks[] = self::createFromRow($dbi, $row);
-            }
-
-            return $bookmarks;
+        $bookmarks = [];
+        foreach ($result as $row) {
+            $bookmarks[] = self::createFromRow($dbi, $row);
         }
 
-        return [];
+        return $bookmarks;
     }
 
     /**
@@ -320,7 +316,7 @@ class Bookmark
             . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
 
         $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
-        if (! empty($result)) {
+        if ($result !== null) {
             return self::createFromRow($dbi, $result);
         }
 

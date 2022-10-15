@@ -51,11 +51,6 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:applyVariables\\(\\) has parameter \\$variables with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Bookmark.php
@@ -101,11 +96,6 @@ parameters:
 			path: libraries/classes/BrowseForeigners.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array\\{\\} and array\\{\\} will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Cache.php
-
-		-
 			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array\\{Charset\\?\\: string, Description\\?\\: string, Default collation\\?\\: string, Maxlen\\?\\: string\\}, array\\<string, string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
@@ -141,11 +131,6 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
-			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\SetVersionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
-			count: 1
-			path: libraries/classes/Command/SetVersionCommand.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:display\\(\\) has parameter \\$filesInfo with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
@@ -169,11 +154,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\WriteGitRevisionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
-			count: 1
-			path: libraries/classes/Command/WriteGitRevisionCommand.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
@@ -1508,11 +1488,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:\\$columnTypes type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Variable \\$i might not be defined\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
