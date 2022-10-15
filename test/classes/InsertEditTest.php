@@ -21,6 +21,7 @@ use function mb_substr;
 use function md5;
 use function password_verify;
 use function sprintf;
+use function strval;
 
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DECIMAL;
@@ -423,6 +424,8 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, false);
 
+        $result = strval($result);
+
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
             'ShowFunctionFields=1&ShowFieldTypesInDataEditView=1&goto=index.php%3Froute%3D%2Fsql',
@@ -432,6 +435,8 @@ class InsertEditTest extends AbstractTestCase
 
         // case 2
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, true);
+
+        $result = strval($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
@@ -443,6 +448,8 @@ class InsertEditTest extends AbstractTestCase
         // case 3
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, false);
 
+        $result = strval($result);
+
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
             'ShowFunctionFields=1&ShowFieldTypesInDataEditView=1&goto=index.php%3Froute%3D%2Fsql',
@@ -452,6 +459,8 @@ class InsertEditTest extends AbstractTestCase
 
         // case 4
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, true);
+
+        $result = strval($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
@@ -537,6 +546,8 @@ class InsertEditTest extends AbstractTestCase
                 $comments,
             ]
         );
+
+        $result = strval($result);
 
         $this->assertStringContainsString('title="comment&gt;"', $result);
 
@@ -833,6 +844,8 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ]
         );
+
+        $result = strval($result);
 
         $this->assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
@@ -1183,6 +1196,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = strval($result);
+
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="datetime">', $result);
 
         // case 4: (else -> date)
@@ -1208,6 +1223,8 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ]
         );
+
+        $result = strval($result);
 
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="date">', $result);
 
@@ -1235,6 +1252,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = strval($result);
+
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="bit">', $result);
 
         // case 6: (else -> uuid)
@@ -1260,6 +1279,8 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ]
         );
+
+        $result = strval($result);
 
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="uuid">', $result);
     }
@@ -1321,6 +1342,8 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->getContinueInsertionForm('tbl', 'db', $where_clause_array, 'localhost');
 
+        $result = strval($result);
+
         $this->assertStringContainsString(
             '<form id="continueForm" method="post" action="' . Url::getFromRoute('/table/replace')
             . '" name="continueForm">',
@@ -1367,6 +1390,8 @@ class InsertEditTest extends AbstractTestCase
             'getHeadAndFootOfInsertRowTable',
             [$url_params]
         );
+
+        $result = strval($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
 
@@ -2861,6 +2886,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $actual = strval($actual);
+
         $this->assertStringContainsString('col', $actual);
         $this->assertStringContainsString('<option>AES_ENCRYPT</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">varchar(20)</span>', $actual);
@@ -2919,6 +2946,9 @@ class InsertEditTest extends AbstractTestCase
                 '',
             ]
         );
+
+        $actual = strval($actual);
+
         $this->assertStringContainsString('qwerty', $actual);
         $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
@@ -3022,6 +3052,9 @@ class InsertEditTest extends AbstractTestCase
             [],
             ['wc']
         );
+
+        $actual = strval($actual);
+
         $this->assertStringContainsString('test', $actual);
         $this->assertStringContainsString('<th>Column</th>', $actual);
         $this->assertStringContainsString('<a', $actual);
@@ -3102,6 +3135,9 @@ class InsertEditTest extends AbstractTestCase
             [],
             ['wc']
         );
+
+        $actual = strval($actual);
+
         $this->assertStringContainsString('foo', $actual);
         $this->assertStringNotContainsString('bar', $actual);
 
@@ -3163,6 +3199,9 @@ class InsertEditTest extends AbstractTestCase
             [],
             ['wc']
         );
+
+        $actual = strval($actual);
+
         $this->assertStringContainsString('foo', $actual);
         $this->assertStringContainsString(
             '<textarea name="fields[multi_edit][0][37b51d194a7513e45b56f6524f2d51f2]"',
