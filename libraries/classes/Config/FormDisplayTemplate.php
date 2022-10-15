@@ -8,11 +8,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 
 use function array_shift;
-use function implode;
+use function json_encode;
+
+use const JSON_HEX_TAG;
 
 /**
  * PhpMyAdmin\Config\FormDisplayTemplate class
@@ -144,12 +145,7 @@ class FormDisplayTemplate
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;
             $vName = array_shift($validator);
-            $vArgs = [];
-            foreach ($validator as $arg) {
-                $vArgs[] = Sanitize::escapeJsString($arg);
-            }
-
-            $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
+            $vArgs = $validator !== [] ? ', ' . json_encode($validator, JSON_HEX_TAG) : '';
             $jsArray[] = "window.Config.registerFieldValidator('"
                 . $fieldId . "', '" . $vName . "', true" . $vArgs . ')';
         }
