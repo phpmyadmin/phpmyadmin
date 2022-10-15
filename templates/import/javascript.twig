@@ -26,7 +26,7 @@ $( function() {
                             </div>
                         </div>
                         <div>
-                            <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock"> {{ 'Uploading your import file…'|trans|e('js') -}}
+                            <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock"> {{ 'Uploading your import file…'|trans|escape('js') -}}
                         </div>
                         <div id="statustext"></div>
                     </div>
@@ -51,7 +51,7 @@ $( function() {
                     complete = response.complete;
 
                     if (total==0 && complete==0 && percent==0) {
-                        $("#upload_form_status_info").html('<img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock"> {{ promot_str|e('js') }}');
+                        $("#upload_form_status_info").html('<img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock"> {{ promot_str|escape('js') }}');
                         $("#upload_form_status").css("display", "none");
                     } else {
                         var now = new Date();
@@ -64,7 +64,7 @@ $( function() {
                             now.getSeconds())
                             + now.getMilliseconds() - 1000;
                         var statustext = Functions.sprintf(
-                            "{{ statustext_str|e('js') }}",
+                            "{{ statustext_str|escape('js') }}",
                             Functions.formatBytes(
                                 complete, 1, window.Messages.strDecimalSeparator
                             ),
@@ -86,7 +86,7 @@ $( function() {
                             var used_time = now - import_start;
                             var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
                             var speed = Functions.sprintf(
-                                "{{ second_str|e('js') }}",
+                                "{{ second_str|escape('js') }}",
                                 Functions.formatBytes(complete / used_time * 1000, 1, window.Messages.strDecimalSeparator)
                             );
 
@@ -94,12 +94,12 @@ $( function() {
                             seconds %= 60;
                             var estimated_time;
                             if (minutes > 0) {
-                                estimated_time = "{{ remaining_min|e('js') }}"
+                                estimated_time = "{{ remaining_min|escape('js') }}"
                                     .replace("%MIN", minutes)
                                     .replace("%SEC", seconds);
                             }
                             else {
-                                estimated_time = "{{ remaining_second|e('js') }}"
+                                estimated_time = "{{ remaining_second|escape('js') }}"
                                 .replace("%SEC", seconds);
                             }
 
@@ -149,7 +149,7 @@ $( function() {
             {# No plugin available #}
             {% set image_tag -%}
                 <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock">
-                {{- 'Please be patient, the file is being uploaded. Details about the upload are not available.'|trans|e('js') -}}
+                {{- 'Please be patient, the file is being uploaded. Details about the upload are not available.'|trans|escape('js') -}}
                 {{- show_docu('faq', 'faq2-9') -}}
             {%- endset %}
             $('#upload_form_status_info').html('{{ image_tag|raw }}');
