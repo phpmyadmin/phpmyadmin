@@ -16,13 +16,14 @@ use function defined;
 use function gmdate;
 use function header;
 use function htmlspecialchars;
-use function implode;
 use function ini_get;
-use function is_bool;
+use function json_encode;
 use function sprintf;
 use function strlen;
 use function strtolower;
 use function urlencode;
+
+use const JSON_HEX_TAG;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -201,15 +202,8 @@ class Header
     public function getJsParamsCode(): string
     {
         $params = $this->getJsParams();
-        foreach ($params as $key => $value) {
-            if (is_bool($value)) {
-                $params[$key] = $key . ':' . ($value ? 'true' : 'false') . '';
-            } else {
-                $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
-            }
-        }
 
-        return 'window.CommonParams.setAll({' . implode(',', $params) . '});';
+        return 'window.CommonParams.setAll(' . json_encode($params, JSON_HEX_TAG) . ');';
     }
 
     /**

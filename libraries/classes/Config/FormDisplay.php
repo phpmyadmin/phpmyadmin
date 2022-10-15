@@ -436,22 +436,22 @@ class FormDisplay
         $this->setComments($systemPath, $opts);
 
         // send default value to form's JS
-        $jsLine = '\'' . $translatedPath . '\': ';
+        $jsLine = '';
         switch ($type) {
             case 'text':
             case 'short_text':
             case 'number_text':
             case 'password':
-                $jsLine .= '\'' . Sanitize::escapeJsString($valueDefault) . '\'';
+                $jsLine = (string) $valueDefault;
                 break;
             case 'checkbox':
-                $jsLine .= $valueDefault ? 'true' : 'false';
+                $jsLine = (bool) $valueDefault;
                 break;
             case 'select':
                 $valueDefaultJs = is_bool($valueDefault)
                 ? (int) $valueDefault
                 : $valueDefault;
-                $jsLine .= '[\'' . Sanitize::escapeJsString($valueDefaultJs) . '\']';
+                $jsLine = (array) $valueDefaultJs;
                 break;
             case 'list':
                 $val = $valueDefault;
@@ -459,12 +459,11 @@ class FormDisplay
                     unset($val['wrapper_params']);
                 }
 
-                $jsLine .= '\'' . Sanitize::escapeJsString(implode("\n", $val))
-                . '\'';
+                $jsLine = implode("\n", $val);
                 break;
         }
 
-        $jsDefault[] = $jsLine;
+        $jsDefault[$translatedPath] = $jsLine;
 
         return $this->formDisplayTemplate->displayInput(
             $translatedPath,
