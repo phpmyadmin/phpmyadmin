@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-10-12 10:30+0000\n"
-"Last-Translator: Yun Minseo <ddugi1214@naver.com>\n"
+"PO-Revision-Date: 2022-10-17 00:56+0000\n"
+"Last-Translator: s.c. yoo <dryoo@live.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/ko/"
 ">\n"
 "Language: ko\n"
@@ -16354,7 +16354,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "느린 쿼리의 비율은 5%%이하여야 합니다, 당신의 수치는 %s%%입니다."
 
 #: libraries/advisory_rules_generic.txt:70
 msgid "Slow query rate"
@@ -16476,10 +16476,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "버전 5.5.8 미만 (5.5버전의 첫 일반 배포판)."
 
 #: libraries/advisory_rules_generic.txt:118
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "MySQL 5.5 안정 버전으로 업그레이드하시는 것을 권장합니다"
+msgstr "MySQL 5.5 안정 버전으로 업그레이드 하는 것을 권장합니다."
 
 #: libraries/advisory_rules_generic.txt:121
 #: libraries/advisory_rules_generic.txt:128
@@ -16785,7 +16783,8 @@ msgstr ""
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
-msgstr ""
+msgstr "%s%%의 모든 임시 테이블이 디스크에 저장되고 있습니다. 이 수치는 25%%이하여야 "
+"합니다"
 
 #: libraries/advisory_rules_generic.txt:219
 msgid "Temp disk rate"
