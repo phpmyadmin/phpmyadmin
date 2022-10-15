@@ -188,14 +188,6 @@ class SanitizeTest extends AbstractTestCase
     }
 
     /**
-     * Test for Sanitize::jsFormat
-     */
-    public function testJsFormat(): void
-    {
-        $this->assertEquals('`foo`', Sanitize::jsFormat('foo'));
-    }
-
-    /**
      * Provider for testFormat
      *
      * @return array
@@ -251,54 +243,6 @@ class SanitizeTest extends AbstractTestCase
                 'foo',
                 'bar"baz',
                 "foo = \"bar\\\"baz\";\n",
-            ],
-        ];
-    }
-
-    /**
-     * Sanitize::escapeJsString tests
-     *
-     * @param string $target expected output
-     * @param string $source string to be escaped
-     *
-     * @dataProvider escapeDataProvider
-     */
-    public function testEscapeJsString(string $target, string $source): void
-    {
-        $this->assertEquals($target, Sanitize::escapeJsString($source));
-    }
-
-    /**
-     * Data provider for testEscape
-     *
-     * @return array data for testEscape test case
-     */
-    public function escapeDataProvider(): array
-    {
-        return [
-            [
-                '\\\';',
-                '\';',
-            ],
-            [
-                '\r\n\\\'<scrIpt></\' + \'script>',
-                "\r\n'<scrIpt></sCRIPT>",
-            ],
-            [
-                '\\\';[XSS]',
-                '\';[XSS]',
-            ],
-            [
-                '</\' + \'script></head><body>[HTML]',
-                '</SCRIPT></head><body>[HTML]',
-            ],
-            [
-                '\"\\\'\\\\\\\'\"',
-                '"\'\\\'"',
-            ],
-            [
-                "\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\",
-                "\\''''''''''''\\",
             ],
         ];
     }

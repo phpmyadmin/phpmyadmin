@@ -10871,11 +10871,6 @@ parameters:
 			path: test/classes/SanitizeTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\SanitizeTest\\:\\:escapeDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/SanitizeTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\SanitizeTest\\:\\:variables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/SanitizeTest.php

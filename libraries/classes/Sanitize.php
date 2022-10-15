@@ -20,7 +20,6 @@ use function json_encode;
 use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
-use function str_replace;
 use function str_starts_with;
 use function strlen;
 use function strtolower;
@@ -258,61 +257,6 @@ class Sanitize
         $filename = preg_replace($pattern, '_', $filename);
 
         return $filename;
-    }
-
-    /**
-     * Format a string so it can be a string inside JavaScript code inside an
-     * eventhandler (onclick, onchange, on..., ).
-     * This function is used to displays a javascript confirmation box for
-     * "DROP/DELETE/ALTER" queries.
-     *
-     * @param string $a_string       the string to format
-     * @param bool   $add_backquotes whether to add backquotes to the string or not
-     *
-     * @return string   the formatted string
-     */
-    public static function jsFormat($a_string = '', $add_backquotes = true)
-    {
-        $a_string = htmlspecialchars((string) $a_string);
-        $a_string = self::escapeJsString($a_string);
-        // Needed for inline javascript to prevent some browsers
-        // treating it as a anchor
-        $a_string = str_replace('#', '\\#', $a_string);
-
-        return $add_backquotes
-            ? Util::backquote($a_string)
-            : $a_string;
-    }
-
-    /**
-     * escapes a string to be inserted as string a JavaScript block
-     * enclosed by <![CDATA[ ... ]]>
-     * this requires only to escape ' with \' and end of script block
-     *
-     * We also remove NUL byte as some browsers (namely MSIE) ignore it and
-     * inserting it anywhere inside </script would allow to bypass this check.
-     *
-     * @param string $string the string to be escaped
-     *
-     * @return string  the escaped string
-     */
-    public static function escapeJsString($string)
-    {
-        return preg_replace(
-            '@</script@i',
-            '</\' + \'script',
-            strtr(
-                (string) $string,
-                [
-                    "\000" => '',
-                    '\\' => '\\\\',
-                    '\'' => '\\\'',
-                    '"' => '\"',
-                    "\n" => '\n',
-                    "\r" => '\r',
-                ]
-            )
-        );
     }
 
     /**

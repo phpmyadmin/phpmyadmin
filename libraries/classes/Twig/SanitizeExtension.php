@@ -20,11 +20,6 @@ class SanitizeExtension extends AbstractExtension
     {
         return [
             new TwigFilter(
-                'js_format',
-                [Sanitize::class, 'jsFormat'],
-                ['is_safe' => ['html']]
-            ),
-            new TwigFilter(
                 'sanitize',
                 [Sanitize::class, 'sanitizeMessage'],
                 ['is_safe' => ['html']]
