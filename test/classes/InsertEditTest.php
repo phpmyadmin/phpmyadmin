@@ -3042,7 +3042,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             ['wc']
         );
-
         $this->assertStringContainsString('test', $actual);
         $this->assertStringContainsString('<th>Column</th>', $actual);
         $this->assertStringContainsString('<a', $actual);
@@ -3123,7 +3122,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             ['wc']
         );
-
         $this->assertStringContainsString('foo', $actual);
         $this->assertStringNotContainsString('bar', $actual);
 
@@ -3185,7 +3183,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             ['wc']
         );
-
         $this->assertStringContainsString('foo', $actual);
         $this->assertStringContainsString(
             '<textarea name="fields[multi_edit][0][37b51d194a7513e45b56f6524f2d51f2]"',
