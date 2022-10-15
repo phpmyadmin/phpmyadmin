@@ -870,7 +870,7 @@ class InsertEdit
                     . $columnNameAppendix . '" value="' . $type . '">';
             }
 
-            if (in_array($column['True_Type'], ['bit', 'uuid'])) {
+            if (in_array($column['True_Type'], ['bit', 'uuid'], true)) {
                 $htmlOutput .= '<input type="hidden" name="fields_type'
                     . $columnNameAppendix . '" value="' . $column['True_Type'] . '">';
             }

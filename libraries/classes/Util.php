@@ -1764,9 +1764,7 @@ class Util
      */
     public static function isUUIDSupported()
     {
-        global $dbi;
-
-        return Compatibility::isUUIDSupported($dbi);
+        return Compatibility::isUUIDSupported($GLOBALS['dbi']);
     }
 
     /**

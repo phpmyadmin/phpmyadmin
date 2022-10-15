@@ -424,8 +424,6 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, false);
 
-        $result = strval($result);
-
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
             'ShowFunctionFields=1&ShowFieldTypesInDataEditView=1&goto=index.php%3Froute%3D%2Fsql',
@@ -435,8 +433,6 @@ class InsertEditTest extends AbstractTestCase
 
         // case 2
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, true);
-
-        $result = strval($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
@@ -448,8 +444,6 @@ class InsertEditTest extends AbstractTestCase
         // case 3
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, false);
 
-        $result = strval($result);
-
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
             'ShowFunctionFields=1&ShowFieldTypesInDataEditView=1&goto=index.php%3Froute%3D%2Fsql',
@@ -459,8 +453,6 @@ class InsertEditTest extends AbstractTestCase
 
         // case 4
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, true);
-
-        $result = strval($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
         $this->assertStringContainsString(
@@ -1341,8 +1333,6 @@ class InsertEditTest extends AbstractTestCase
         $_POST['sql_query'] = 'SELECT 1';
 
         $result = $this->insertEdit->getContinueInsertionForm('tbl', 'db', $where_clause_array, 'localhost');
-
-        $result = strval($result);
 
         $this->assertStringContainsString(
             '<form id="continueForm" method="post" action="' . Url::getFromRoute('/table/replace')
@@ -3053,8 +3043,6 @@ class InsertEditTest extends AbstractTestCase
             ['wc']
         );
 
-        $actual = strval($actual);
-
         $this->assertStringContainsString('test', $actual);
         $this->assertStringContainsString('<th>Column</th>', $actual);
         $this->assertStringContainsString('<a', $actual);
@@ -3136,8 +3124,6 @@ class InsertEditTest extends AbstractTestCase
             ['wc']
         );
 
-        $actual = strval($actual);
-
         $this->assertStringContainsString('foo', $actual);
         $this->assertStringNotContainsString('bar', $actual);
 
@@ -3199,8 +3185,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             ['wc']
         );
-
-        $actual = strval($actual);
 
         $this->assertStringContainsString('foo', $actual);
         $this->assertStringContainsString(

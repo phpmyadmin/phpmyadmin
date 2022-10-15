@@ -10526,11 +10526,6 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 26
-			path: test/classes/InsertEditTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\IpAllowDenyTest\\:\\:proxyIPs\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/IpAllowDenyTest.php
