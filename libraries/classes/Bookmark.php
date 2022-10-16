@@ -7,16 +7,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
+use function count;
+use function strlen;
+use const PREG_SET_ORDER;
+
+use function str_replace;
+use function preg_replace;
+use function preg_match_all;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\ConfigStorage\Relation;
 
-use function count;
-use function preg_match_all;
-use function preg_replace;
-use function str_replace;
-use function strlen;
-
-use const PREG_SET_ORDER;
+use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 
 /**
  * Handles bookmarking SQL queries
@@ -275,7 +276,7 @@ class Bookmark
      *
      * @param DatabaseInterface $dbi                 DatabaseInterface object
      * @param string            $user                Current user
-     * @param string            $db                  the current database name
+     * @param DatabaseName      $db                  the current database name
      * @param int|string        $id                  an identifier of the bookmark to get
      * @param string            $id_field            which field to look up the identifier
      * @param bool              $action_bookmark_all true: get all bookmarks regardless
@@ -287,7 +288,7 @@ class Bookmark
     public static function get(
         DatabaseInterface $dbi,
         string $user,
-        string $db,
+        DatabaseName $db,
         $id,
         string $id_field = 'id',
         bool $action_bookmark_all = false,
@@ -301,7 +302,7 @@ class Bookmark
 
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . " WHERE dbase = '" . $dbi->escapeString($db) . "'";
+            . " WHERE dbase = '" . $dbi->escapeString($db->getName()) . "'";
         if (! $action_bookmark_all) {
             $query .= " AND (user = '"
                 . $dbi->escapeString($user) . "'";
