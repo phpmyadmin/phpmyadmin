@@ -58,7 +58,7 @@ class Export
     /** @var DatabaseInterface */
     private $dbi;
 
-    /** @var mixed */
+    /** @var string */
     public $dumpBuffer = '';
 
     /** @var int */
@@ -126,7 +126,7 @@ class Export
      *
      * @param string $line the insert statement
      */
-    public function outputHandler(?string $line): bool
+    public function outputHandler(string $line): bool
     {
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
@@ -140,7 +140,7 @@ class Export
         if ($GLOBALS['buffer_needed']) {
             $this->dumpBuffer .= $line;
             if ($GLOBALS['onfly_compression']) {
-                $this->dumpBufferLength += strlen((string) $line);
+                $this->dumpBufferLength += strlen($line);
 
                 if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
                     if ($GLOBALS['output_charset_conversion']) {
@@ -150,14 +150,14 @@ class Export
                     if ($GLOBALS['compression'] === 'gzip' && $this->gzencodeNeeded()) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
-                        $this->dumpBuffer = gzencode($this->dumpBuffer);
+                        $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
                     }
 
                     if ($GLOBALS['save_on_server']) {
-                        $writeResult = @fwrite($GLOBALS['file_handle'], (string) $this->dumpBuffer);
+                        $writeResult = @fwrite($GLOBALS['file_handle'], $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
-                        if ($writeResult != strlen((string) $this->dumpBuffer)) {
+                        if ($writeResult != strlen($this->dumpBuffer)) {
                             $GLOBALS['message'] = Message::error(
                                 __('Insufficient space to save the file %s.')
                             );
@@ -184,16 +184,16 @@ class Export
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }
 
-            if ($GLOBALS['save_on_server'] && mb_strlen((string) $line) > 0) {
+            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
                 if ($GLOBALS['file_handle'] !== null) {
-                    $writeResult = @fwrite($GLOBALS['file_handle'], (string) $line);
+                    $writeResult = @fwrite($GLOBALS['file_handle'], $line);
                 } else {
                     $writeResult = false;
                 }
 
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
-                if (! $writeResult || $writeResult != strlen((string) $line)) {
+                if (! $writeResult || $writeResult != strlen($line)) {
                     $GLOBALS['message'] = Message::error(
                         __('Insufficient space to save the file %s.')
                     );
@@ -213,7 +213,7 @@ class Export
             }
         } else {
             // We export as html - replace special chars
-            echo htmlspecialchars((string) $line, ENT_COMPAT);
+            echo htmlspecialchars($line, ENT_COMPAT);
         }
 
         return true;
