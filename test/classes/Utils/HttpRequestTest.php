@@ -36,7 +36,7 @@ class HttpRequestTest extends AbstractTestCase
     private function checkCurlSslFlagsSupport(): void
     {
         $curl = curl_version();
-        /*
+        /**
          * Some SSL engines in CURL do not support CURLOPT_CAPATH
          * and CURLOPT_CAINFO flags, see
          * https://curl.haxx.se/docs/ssl-compared.html

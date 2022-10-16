@@ -243,11 +243,9 @@ final class FieldMetadata
         // so check field type instead of flags
         $this->isNumeric = $this->isType(self::TYPE_INT) || $this->isType(self::TYPE_REAL);
 
-        /*
-            MYSQLI_PART_KEY_FLAG => 'part_key',
-            MYSQLI_TIMESTAMP_FLAG => 'timestamp',
-            MYSQLI_AUTO_INCREMENT_FLAG => 'auto_increment',
-        */
+        // MYSQLI_PART_KEY_FLAG => 'part_key',
+        // MYSQLI_TIMESTAMP_FLAG => 'timestamp',
+        // MYSQLI_AUTO_INCREMENT_FLAG => 'auto_increment',
 
         $this->isMappedTypeBit = $this->isType(self::TYPE_BIT);
         $this->isMappedTypeGeometry = $this->isType(self::TYPE_GEOMETRY);

@@ -308,7 +308,7 @@ class ZipExtension
                 . pack('v', 0) // disk number start
                 . pack('v', 0) // internal file attributes
                 . pack('V', 32) // external file attributes
-                                                 // - 'archive' bit set
+                // - 'archive' bit set
                 . pack('V', $oldOffset) // relative offset of local header
                 . $tempName; // filename
             $oldOffset += strlen($fr);
@@ -319,13 +319,12 @@ class ZipExtension
 
         /* Build string to return */
         $tempCtrlDir = implode('', $ctrlDir);
-        $header = $tempCtrlDir .
-            $eofCtrlDir .
-            pack('v', count($ctrlDir)) . //total #of entries "on this disk"
-            pack('v', count($ctrlDir)) . //total #of entries overall
-            pack('V', strlen($tempCtrlDir)) . //size of central dir
-            pack('V', $oldOffset) . //offset to start of central dir
-            "\x00\x00"; //.zip file comment length
+        $header = $tempCtrlDir . $eofCtrlDir
+            . pack('v', count($ctrlDir)) //total #of entries "on this disk"
+            . pack('v', count($ctrlDir)) //total #of entries overall
+            . pack('V', strlen($tempCtrlDir)) //size of central dir
+            . pack('V', $oldOffset) //offset to start of central dir
+            . "\x00\x00"; //.zip file comment length
 
         $data = implode('', $datasec);
 

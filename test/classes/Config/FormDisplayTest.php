@@ -399,8 +399,7 @@ class FormDisplayTest extends AbstractTestCase
 
         if (! function_exists('recode_string')) {
             $expect['values']['recode'] .= ' (unavailable)';
-            $expect['comment'] .= ($expect['comment'] ? ', ' : '') .
-                '"recode" requires recode extension';
+            $expect['comment'] .= ($expect['comment'] ? ', ' : '') . '"recode" requires recode extension';
         }
 
         $expect['comment_warning'] = 1;

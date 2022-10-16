@@ -82,7 +82,7 @@ class Session
     {
         $messages = [];
         foreach ($errors as $error) {
-            /*
+            /**
              * Remove path from open() in error message to avoid path disclossure
              *
              * This can happen with PHP 5 when nonexisting session ID is provided,
@@ -101,10 +101,7 @@ class Session
             );
         }
 
-        /*
-         * Session initialization is done before selecting language, so we
-         * can not use translations here.
-         */
+        // Session initialization is done before selecting language, so we can not use translations here.
         Core::fatalError(
             'Error during session start; please check your PHP and/or '
             . 'webserver log file and configure your PHP '

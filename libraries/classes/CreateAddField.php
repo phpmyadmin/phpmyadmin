@@ -460,8 +460,7 @@ class CreateAddField
         // get column addition statements
         $sqlStatement = $this->getColumnCreationStatements(false);
 
-        $sqlQuery = 'ALTER TABLE ' .
-            Util::backquote($table) . ' ' . $sqlStatement;
+        $sqlQuery = 'ALTER TABLE ' . Util::backquote($table) . ' ' . $sqlStatement;
         if (isset($_POST['online_transaction'])) {
             $sqlQuery .= ', ALGORITHM=INPLACE, LOCK=NONE';
         }

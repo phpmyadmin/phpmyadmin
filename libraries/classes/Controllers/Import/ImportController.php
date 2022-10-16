@@ -467,7 +467,7 @@ final class ImportController extends AbstractController
             $GLOBALS['import_file'] = Util::userDir((string) $GLOBALS['cfg']['UploadDir'])
                 . $GLOBALS['local_import_file'];
 
-            /*
+            /**
              * Do not allow symlinks to avoid security issues
              * (user can create symlink to file they can not access,
              * but phpMyAdmin can).

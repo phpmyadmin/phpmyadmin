@@ -67,10 +67,7 @@ class TableStatsPdf extends TableStats
 
         $this->heightCell = 6;
         $this->setHeight();
-        /*
-         * setWidth must me after setHeight, because title
-        * can include table height which changes table width
-        */
+        // setWidth must be after setHeight, because title can include table height which changes table width
         $this->setWidth($fontSize);
         if ($sameWideWidth >= $this->width) {
             return;
@@ -122,10 +119,7 @@ class TableStatsPdf extends TableStats
 
         $this->width += $this->diagram->GetStringWidth('      ');
         $this->diagram->setFont($this->ff, 'B', $fontSize);
-        /*
-         * it is unknown what value must be added, because
-         * table title is affected by the table width value
-         */
+        // it is unknown what value must be added, because table title is affected by the table width value
         while ($this->width < $this->diagram->GetStringWidth($this->getTitle())) {
             $this->width += 5;
         }

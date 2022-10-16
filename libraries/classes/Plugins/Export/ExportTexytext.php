@@ -454,12 +454,7 @@ class ExportTexytext extends ExportPlugin
             $dump .= '|' . $trigger['name'];
             $dump .= '|' . $trigger['action_timing'];
             $dump .= '|' . $trigger['event_manipulation'];
-            $dump .= '|' .
-                str_replace(
-                    '|',
-                    '&#124;',
-                    htmlspecialchars($trigger['definition'])
-                );
+            $dump .= '|' . str_replace('|', '&#124;', htmlspecialchars($trigger['definition']));
             $dump .= "\n";
         }
 

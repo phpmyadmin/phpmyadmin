@@ -197,12 +197,10 @@ class Tracking
             return false;
         }
 
-        $sql_query = ' SELECT DISTINCT db_name, table_name FROM ' .
-            Util::backquote($trackingFeature->database) . '.' .
-            Util::backquote($trackingFeature->tracking) .
-            " WHERE db_name = '" . $this->dbi->escapeString($db) .
-            "' " .
-            ' ORDER BY db_name, table_name';
+        $sql_query = ' SELECT DISTINCT db_name, table_name FROM '
+            . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
+            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "' "
+            . ' ORDER BY db_name, table_name';
 
         return $this->dbi->queryAsControlUser($sql_query);
     }
@@ -258,9 +256,7 @@ class Tracking
             $drop_image_or_text .= __('Delete');
         }
 
-        /*
-         *  First, list tracked data definition statements
-         */
+        // First, list tracked data definition statements
         if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
             $msg = Message::notice(__('No data'));
             echo $msg->getDisplay();
@@ -399,9 +395,7 @@ class Tracking
             unset($temp);
         }
 
-        /*
-         *  Secondly, list tracked data manipulation statements
-         */
+        // Secondly, list tracked data manipulation statements
         if (($selection_data || $selection_both) && count($data['dmlog']) > 0) {
             $html .= $this->getHtmlForDataManipulationStatements(
                 $data,
@@ -1118,13 +1112,10 @@ class Tracking
         }
 
         // Prepare statement to get HEAD version
-        $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM ' .
-            Util::backquote($trackingFeature->database) . '.' .
-            Util::backquote($trackingFeature->tracking) .
-            ' WHERE db_name = \'' . $this->dbi->escapeString($db) .
-            '\' ' .
-            ' GROUP BY table_name' .
-            ' ORDER BY table_name ASC';
+        $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM '
+            . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
+            . ' WHERE db_name = \'' . $this->dbi->escapeString($db)
+            . '\'  GROUP BY table_name ORDER BY table_name ASC';
 
         $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
         $untrackedTables = $this->getUntrackedTables($db);
@@ -1133,13 +1124,10 @@ class Tracking
         $versions = [];
         while ($oneResult = $allTablesResult->fetchRow()) {
             [$tableName, $versionNumber] = $oneResult;
-            $tableQuery = ' SELECT * FROM ' .
-                Util::backquote($trackingFeature->database) . '.' .
-                Util::backquote($trackingFeature->tracking) .
-                ' WHERE `db_name` = \''
-                . $this->dbi->escapeString($db)
-                . '\' AND `table_name`  = \''
-                . $this->dbi->escapeString($tableName)
+            $tableQuery = ' SELECT * FROM '
+                . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
+                . ' WHERE `db_name` = \'' . $this->dbi->escapeString($db)
+                . '\' AND `table_name`  = \'' . $this->dbi->escapeString($tableName)
                 . '\' AND `version` = \'' . $versionNumber . '\'';
 
             $versions[] = $this->dbi->queryAsControlUser($tableQuery)->fetchAssoc();

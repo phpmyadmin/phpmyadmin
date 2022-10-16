@@ -2796,8 +2796,8 @@ class Results
 
             $deleteQuery = 'DELETE FROM '
                 . Util::backquote($this->properties['table'])
-                . ' WHERE ' . $whereClause .
-                ($clauseIsUnique ? '' : ' LIMIT 1');
+                . ' WHERE ' . $whereClause
+                . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $urlParams = [
                 'db' => $this->properties['db'],

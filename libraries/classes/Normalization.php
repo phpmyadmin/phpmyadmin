@@ -223,13 +223,12 @@ class Normalization
         $stepTxt = __('Make all columns atomic');
         $html = "<h3 class='text-center'>"
             . __('First step of normalization (1NF)') . '</h3>';
-        $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>" .
-            '<fieldset class="pma-fieldset">' .
-            '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>' .
-            '<h4>' . __(
-                'Do you have any column which can be split into more than'
-                . ' one column? '
-                . 'For example: address can be split into street, city, country and zip.'
+        $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>"
+            . '<fieldset class="pma-fieldset">'
+            . '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>'
+            . '<h4>' . __(
+                'Do you have any column which can be split into more than one column?'
+                . ' For example: address can be split into street, city, country and zip.'
             )
             . "<br>(<a class='central_columns_dialog' data-maxrows='25' "
             . "data-pick=false href='#'> "
@@ -691,9 +690,7 @@ class Normalization
         $queries = [];
         $dropCols = false;
         $error = false;
-        $headText = '<h3>' .
-            __('The third step of normalization is complete.')
-            . '</h3>';
+        $headText = '<h3>' . __('The third step of normalization is complete.') . '</h3>';
         if (count($newTables) === 0) {
             return [
                 'legendText' => __('End of step'),

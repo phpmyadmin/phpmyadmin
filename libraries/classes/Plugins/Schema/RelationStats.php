@@ -64,11 +64,9 @@ abstract class RelationStats
 
         $src_pos = $this->getXy($master_table, $master_field);
         $dest_pos = $this->getXy($foreign_table, $foreign_field);
-        /*
-         * [0] is x-left
-        * [1] is x-right
-        * [2] is y
-        */
+        // [0] is x-left
+        // [1] is x-right
+        // [2] is y
         $src_left = $src_pos[0] - $this->wTick;
         $src_right = $src_pos[1] + $this->wTick;
         $dest_left = $dest_pos[0] - $this->wTick;

@@ -1015,9 +1015,7 @@ class Import
             $pattern = '/CREATE [^`]*(TABLE)/';
             $replacement = 'CREATE \\1 IF NOT EXISTS';
 
-            /* Change CREATE statements to CREATE IF NOT EXISTS to support
-             * inserting into existing structures
-             */
+            // Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures.
             for ($i = 0; $i < $additionalSqlLength; ++$i) {
                 $additionalSql[$i] = preg_replace($pattern, $replacement, $additionalSql[$i]);
                 /* Execute the resulting statements */

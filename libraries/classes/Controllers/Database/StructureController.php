@@ -341,7 +341,7 @@ class StructureController extends AbstractController
                     . htmlspecialchars($currentTable['TABLE_NAME']) . '">';
             }
 
-            /*
+            /**
              * Always activate links for Browse, Search and Empty, even if
              * the icons are greyed, because
              * 1. for views, we don't know the number of rows at this point

@@ -106,7 +106,7 @@ class Export
      */
     public function gzencodeNeeded(): bool
     {
-        /*
+        /**
          * We should gzencode only if the function exists
          * but we don't want to compress twice, therefore
          * gzencode only if transparent compression is not enabled

@@ -121,11 +121,8 @@ class Template
             /* Retry with disabled cache */
             static::$twig->setCache(false);
             $template = static::$twig->load($templateName . '.twig');
-            /*
-             * The trigger error is intentionally after second load
-             * to avoid triggering error when disabling cache does not
-             * solve it.
-             */
+            // The trigger error is intentionally after second load
+            // to avoid triggering error when disabling cache does not solve it.
             trigger_error(
                 sprintf(
                     __('Error while working with template cache: %s'),

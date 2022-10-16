@@ -112,9 +112,7 @@ class RelationStatsPdf extends RelationStats
             $this->xDest + $this->destDir * $this->wTick,
             $this->yDest
         );
-        /*
-         * Draws arrows ->
-        */
+        // Draws arrows ->
         $root2 = 2 * sqrt(2);
         $this->diagram->lineScale(
             $this->xSrc + $this->srcDir * $this->wTick * 0.75,

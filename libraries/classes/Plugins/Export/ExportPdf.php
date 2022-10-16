@@ -285,10 +285,9 @@ class ExportPdf extends ExportPlugin
                 $pdf->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
                 break;
             case 'stand_in':
-                /* export a stand-in definition to resolve view dependencies
-                 * Yet to develop this function
-                 * $pdf->getTableDefStandIn($db, $table);
-                 */
+                // export a stand-in definition to resolve view dependencies
+                // Yet to develop this function
+                //$pdf->getTableDefStandIn($db, $table);
         }
 
         return true;

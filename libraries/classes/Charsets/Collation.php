@@ -341,7 +341,7 @@ final class Collation
             // Unicode charsets
             case 'utf8mb4':
                 $variant = 'UCA 4.0.0';
-            // Fall through to other unicode
+                // Fall through to other unicode
             case 'ucs2':
             case 'utf8':
             case 'utf8mb3':
