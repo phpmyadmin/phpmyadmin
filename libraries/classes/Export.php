@@ -264,7 +264,7 @@ class Export
         $memoryLimitNumber = (int) substr($memoryLimit, 0, -1);
         $lowerLastChar = strtolower(substr($memoryLimit, -1));
         // 2 MB as default
-        if (empty($memoryLimit) || $memoryLimit == '-1') {
+        if ($memoryLimit === '' || $memoryLimit === '0' || $memoryLimit === '-1') {
             $memoryLimit = 2 * 1024 * 1024;
         } elseif ($lowerLastChar === 'm') {
             $memoryLimit = $memoryLimitNumber * 1024 * 1024;
@@ -350,7 +350,7 @@ class Export
         string $filenameTemplate
     ): array {
         if ($exportType === 'server') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_server_filename_template',
                     'Export/file_template_server',
@@ -358,7 +358,7 @@ class Export
                 );
             }
         } elseif ($exportType === 'database') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_db_filename_template',
                     'Export/file_template_database',
@@ -366,7 +366,7 @@ class Export
                 );
             }
         } elseif ($exportType === 'raw') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_raw_filename_template',
                     'Export/file_template_raw',
@@ -374,7 +374,7 @@ class Export
                 );
             }
         } else {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_table_filename_template',
                     'Export/file_template_table',
@@ -586,7 +586,7 @@ class Export
         array $aliases,
         string $separateFiles
     ): void {
-        if (! empty($dbSelect) && is_array($dbSelect)) {
+        if (is_array($dbSelect) && $dbSelect !== []) {
             $tmpSelect = implode('|', $dbSelect);
             $tmpSelect = '|' . $tmpSelect . '|';
         }
