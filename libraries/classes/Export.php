@@ -1129,7 +1129,7 @@ class Export
                 $val1 = $db['alias'][0];
                 $val2 = $db['alias'][1];
                 // Use aliases2 alias if non empty
-                $aliases[$dbName]['alias'] = empty($val2) ? $val1 : $val2;
+                $aliases[$dbName]['alias'] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
             }
 
             if (! isset($db['tables'])) {
@@ -1141,7 +1141,7 @@ class Export
                     $val1 = $tbl['alias'][0];
                     $val2 = $tbl['alias'][1];
                     // Use aliases2 alias if non empty
-                    $aliases[$dbName]['tables'][$tableName]['alias'] = empty($val2) ? $val1 : $val2;
+                    $aliases[$dbName]['tables'][$tableName]['alias'] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
                 }
 
                 if (! isset($tbl['columns'])) {
@@ -1156,7 +1156,7 @@ class Export
                     $val1 = $colAs[0];
                     $val2 = $colAs[1];
                     // Use aliases2 alias if non empty
-                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = empty($val2) ? $val1 : $val2;
+                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
                 }
             }
         }

@@ -70,7 +70,6 @@ final class ExportController extends AbstractController
         $GLOBALS['quick_export'] = $GLOBALS['quick_export'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
-        $GLOBALS['aliases'] = $GLOBALS['aliases'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
         $GLOBALS['remember_template'] = $GLOBALS['remember_template'] ?? null;
@@ -228,13 +227,13 @@ final class ExportController extends AbstractController
         // export page, Export page aliases are given more
         // preference over SQL Query aliases.
         $parser = new Parser($GLOBALS['sql_query']);
-        $GLOBALS['aliases'] = [];
+        $aliases = [];
         if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
-            $GLOBALS['aliases'] = Misc::getAliases($parser->statements[0], $GLOBALS['db']);
+            $aliases = Misc::getAliases($parser->statements[0], $GLOBALS['db']);
         }
 
-        if (! empty($aliasesParam)) {
-            $GLOBALS['aliases'] = $this->export->mergeAliases($GLOBALS['aliases'], $aliasesParam);
+        if ($aliasesParam !== null && $aliasesParam !== []) {
+            $aliases = $this->export->mergeAliases($aliases, $aliasesParam);
             $_SESSION['tmpval']['aliases'] = $aliasesParam;
         }
 
@@ -391,7 +390,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['do_comments'],
                     $GLOBALS['do_mime'],
                     $GLOBALS['do_dates'],
-                    $GLOBALS['aliases'],
+                    $aliases,
                     $GLOBALS['separate_files']
                 );
             } elseif ($GLOBALS['export_type'] === 'database') {
@@ -424,7 +423,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['do_comments'],
                             $GLOBALS['do_mime'],
                             $GLOBALS['do_dates'],
-                            $GLOBALS['aliases'],
+                            $aliases,
                             $GLOBALS['separate_files']
                         );
                     } finally {
@@ -444,7 +443,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['do_comments'],
                         $GLOBALS['do_mime'],
                         $GLOBALS['do_dates'],
-                        $GLOBALS['aliases'],
+                        $aliases,
                         $GLOBALS['separate_files']
                     );
                 }
@@ -489,7 +488,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['limit_to'],
                             $GLOBALS['limit_from'],
                             $GLOBALS['sql_query'],
-                            $GLOBALS['aliases']
+                            $aliases
                         );
                     } finally {
                         $this->export->unlockTables();
@@ -510,7 +509,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['limit_to'],
                         $GLOBALS['limit_from'],
                         $GLOBALS['sql_query'],
-                        $GLOBALS['aliases']
+                        $aliases
                     );
                 }
             }
@@ -1038,14 +1037,9 @@ final class ExportController extends AbstractController
             $GLOBALS['latex_data_label'] = $postParams['latex_data_label'];
         }
 
+        // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
         if (isset($postParams['latex_null'])) {
             $GLOBALS['latex_null'] = $postParams['latex_null'];
         }
-
-        if (! isset($postParams['aliases'])) {
-            return;
-        }
-
-        $GLOBALS['aliases'] = $postParams['aliases'];
     }
 }
