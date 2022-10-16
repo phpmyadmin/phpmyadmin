@@ -617,7 +617,7 @@ class Table implements Stringable
                         }
 
                         break;
-                /** @noinspection PhpMissingBreakStatementInspection */
+                    /** @noinspection PhpMissingBreakStatementInspection */
                     case 'NULL':
                         // If user uncheck null checkbox and not change default value null,
                         // default value will be ignored.

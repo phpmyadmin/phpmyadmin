@@ -799,7 +799,7 @@ $cfg['Confirm'] = true;
  *
  * @global string $cfg['CookieSameSite']
  */
- $cfg['CookieSameSite'] = 'Strict';
+$cfg['CookieSameSite'] = 'Strict';
 
 /**
  * recall previous login in cookie authentication mode or not
@@ -2865,7 +2865,7 @@ $cfg['LinkLengthLimit'] = 1000;
 /**
  * Additional string to allow in CSP headers.
  */
- $cfg['CSPAllow'] = '';
+$cfg['CSPAllow'] = '';
 
 /**
  * Disable the table maintenance mass operations, like optimizing or

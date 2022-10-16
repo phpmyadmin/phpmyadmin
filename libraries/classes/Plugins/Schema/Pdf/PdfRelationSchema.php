@@ -481,7 +481,7 @@ class PdfRelationSchema extends ExportRelationSchema
     {
         global $dbi;
 
-         // TOC
+        // TOC
         $this->diagram->AddPage($this->orientation);
         $this->diagram->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
         $this->diagram->Ln(15);

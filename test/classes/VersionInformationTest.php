@@ -244,7 +244,7 @@ class VersionInformationTest extends AbstractTestCase
             ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
-            $mockVersionInfo->expects($this->atLeast(2))
+        $mockVersionInfo->expects($this->atLeast(2))
             ->method('evaluateVersionCondition')
             ->withConsecutive(
                 ['PHP', '>=5.3'],
