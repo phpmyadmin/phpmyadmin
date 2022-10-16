@@ -71,7 +71,7 @@ class BookmarkTest extends AbstractTestCase
             Bookmark::get(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin',
+                DatabaseName::fromValue('phpmyadmin'),
                 '1'
             )
         );

@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
@@ -332,7 +333,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        $GLOBALS['db'],
+                       DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark,
                         'id',
                         isset($_POST['action_bookmark_all'])
@@ -363,7 +364,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        $GLOBALS['db'],
+                        DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark
                     );
                     if (! $bookmark instanceof Bookmark) {
@@ -388,7 +389,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        $GLOBALS['db'],
+                        DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark
                     );
                     if (! $bookmark instanceof Bookmark) {

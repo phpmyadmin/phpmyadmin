@@ -4,41 +4,42 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
-use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Display\DisplayParts;
-use PhpMyAdmin\Display\Results as DisplayResults;
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\Query\Utilities;
-use PhpMyAdmin\SqlParser\Statements\AlterStatement;
-use PhpMyAdmin\SqlParser\Statements\DropStatement;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\Utils\ForeignKey;
-
 use function __;
-use function array_keys;
-use function array_map;
-use function bin2hex;
 use function ceil;
 use function count;
+use function bin2hex;
 use function defined;
 use function explode;
-use function htmlspecialchars;
+use function is_bool;
+use function sprintf;
+use function ucwords;
 use function in_array;
 use function is_array;
-use function is_bool;
+use function array_map;
 use function is_object;
-use function session_start;
-use function session_write_close;
-use function sprintf;
-use function str_contains;
+use function array_keys;
 use function str_replace;
-use function ucwords;
+
+use function str_contains;
+use function session_start;
+use function htmlspecialchars;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\Utils\ForeignKey;
+use function session_write_close;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Display\DisplayParts;
+use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Display\Results as DisplayResults;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
+use PhpMyAdmin\SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Statements\AlterStatement;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 
 /**
  * Set of functions for the SQL executor
@@ -481,7 +482,7 @@ class Sql
      */
     public function getDefaultSqlQueryForBrowse($db, $table): string
     {
-        $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], $db, $table, 'label', false, true);
+        $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], DatabaseName::fromValue($db), $table, 'label', false, true);
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
             $GLOBALS['using_bookmark_message'] = Message::notice(
