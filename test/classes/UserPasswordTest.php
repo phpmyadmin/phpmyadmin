@@ -48,10 +48,14 @@ class UserPasswordTest extends AbstractTestCase
         string $password,
         string $passwordConfirmation
     ): void {
-        $_POST['nopass'] = $noPassword;
-        $_POST['pma_pw'] = $password;
-        $_POST['pma_pw2'] = $passwordConfirmation;
-        $this->assertEquals(['error' => $error, 'msg' => $message], $this->object->setChangePasswordMsg());
+        $this->assertEquals(
+            ['error' => $error, 'msg' => $message],
+            $this->object->setChangePasswordMsg(
+                $password,
+                $passwordConfirmation,
+                $noPassword
+            )
+        );
     }
 
     /**

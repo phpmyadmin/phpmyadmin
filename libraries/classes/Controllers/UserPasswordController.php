@@ -73,11 +73,18 @@ class UserPasswordController extends AbstractController
                 $GLOBALS['password'] = $_POST['pma_pw'];
             }
 
-            $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg();
+            $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
+                $_POST['pma_pw'],
+                $_POST['pma_pw2'],
+                $_POST['nopass']
+            );
             $GLOBALS['msg'] = $GLOBALS['change_password_message']['msg'];
 
             if (! $GLOBALS['change_password_message']['error']) {
-                $sql_query = $this->userPassword->changePassword($GLOBALS['password']);
+                $sql_query = $this->userPassword->changePassword(
+                    $GLOBALS['password'],
+                    $_POST['authentication_plugin'] ?? null
+                );
 
                 if ($this->response->isAjax()) {
                     $sql_query = Generator::getMessage(

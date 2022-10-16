@@ -32,21 +32,21 @@ class UserPassword
      *
      * @return array   error value and message
      */
-    public function setChangePasswordMsg()
+    public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, string $noPass)
     {
         $error = false;
         $message = Message::success(__('The profile has been updated.'));
 
-        if ($_POST['nopass'] != '1') {
-            if (strlen($_POST['pma_pw']) === 0 || strlen($_POST['pma_pw2']) === 0) {
+        if ($noPass != '1') {
+            if (strlen($pmaPw) === 0 || strlen($pmaPw2) === 0) {
                 $message = Message::error(__('The password is empty!'));
                 $error = true;
-            } elseif ($_POST['pma_pw'] !== $_POST['pma_pw2']) {
+            } elseif ($pmaPw !== $pmaPw2) {
                 $message = Message::error(
                     __('The passwords aren\'t the same!')
                 );
                 $error = true;
-            } elseif (strlen($_POST['pma_pw']) > 256) {
+            } elseif (strlen($pmaPw) > 256) {
                 $message = Message::error(__('Password is too long!'));
                 $error = true;
             }
@@ -63,18 +63,18 @@ class UserPassword
      *
      * @param string $password New password
      */
-    public function changePassword($password): string
+    public function changePassword($password, ?string $authenticationPlugin): string
     {
         $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
 
-        $hashing_function = $this->changePassHashingFunction();
+        $hashing_function = $this->changePassHashingFunction($authenticationPlugin);
 
         [$username, $hostname] = $GLOBALS['dbi']->getCurrentUserAndHost();
 
         $serverVersion = $GLOBALS['dbi']->getVersion();
 
-        if (isset($_POST['authentication_plugin']) && ! empty($_POST['authentication_plugin'])) {
-            $orig_auth_plugin = $_POST['authentication_plugin'];
+        if ($authenticationPlugin !== null && $authenticationPlugin !== '' && $authenticationPlugin !== '0') {
+            $orig_auth_plugin = $authenticationPlugin;
         } else {
             $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin('change', $username, $hostname);
         }
@@ -124,9 +124,9 @@ class UserPassword
      *
      * @return string
      */
-    private function changePassHashingFunction()
+    private function changePassHashingFunction(?string $authenticationPlugin)
     {
-        if (isset($_POST['authentication_plugin']) && $_POST['authentication_plugin'] === 'mysql_old_password') {
+        if ($authenticationPlugin === 'mysql_old_password') {
             $hashing_function = 'OLD_PASSWORD';
         } else {
             $hashing_function = 'PASSWORD';
