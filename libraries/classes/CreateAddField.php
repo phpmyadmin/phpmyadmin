@@ -80,21 +80,20 @@ class CreateAddField
                 continue;
             }
 
-            $definition = $this->getStatementPrefix($isCreateTable) .
-                    Table::generateFieldSpec(
-                        trim($_POST['field_name'][$i]),
-                        $_POST['field_type'][$i],
-                        $_POST['field_length'][$i],
-                        $_POST['field_attribute'][$i],
-                        $_POST['field_collation'][$i] ?? '',
-                        $_POST['field_null'][$i] ?? 'NO',
-                        $_POST['field_default_type'][$i],
-                        $_POST['field_default_value'][$i],
-                        $_POST['field_extra'][$i] ?? false,
-                        $_POST['field_comments'][$i] ?? '',
-                        $_POST['field_virtuality'][$i] ?? '',
-                        $_POST['field_expression'][$i] ?? ''
-                    );
+            $definition = $this->getStatementPrefix($isCreateTable) . Table::generateFieldSpec(
+                trim($_POST['field_name'][$i]),
+                $_POST['field_type'][$i],
+                $_POST['field_length'][$i],
+                $_POST['field_attribute'][$i],
+                $_POST['field_collation'][$i] ?? '',
+                $_POST['field_null'][$i] ?? 'NO',
+                $_POST['field_default_type'][$i],
+                $_POST['field_default_value'][$i],
+                $_POST['field_extra'][$i] ?? false,
+                $_POST['field_comments'][$i] ?? '',
+                $_POST['field_virtuality'][$i] ?? '',
+                $_POST['field_expression'][$i] ?? ''
+            );
 
             $definition .= $this->setColumnCreationStatementSuffix($previousField, $isCreateTable);
             $previousField = $i;
