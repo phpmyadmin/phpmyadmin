@@ -1012,9 +1012,9 @@ class Export
         // for example, a PDF report
         // if it is a merge table, no data is exported
         if ($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data') {
-            if (! empty($sqlQuery)) {
+            if ($sqlQuery !== '') {
                 // only preg_replace if needed
-                if (! empty($addQuery)) {
+                if ($addQuery !== '') {
                     // remove trailing semicolon before adding a LIMIT
                     $sqlQuery = preg_replace('%;\s*$%', '', $sqlQuery);
                 }
