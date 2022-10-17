@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Function get_login_credentials\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: examples/signon-script.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:addRule\\(\\) has parameter \\$rule with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Advisory/Advisor.php
@@ -66,11 +61,6 @@ parameters:
 			path: libraries/classes/Bookmark.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\BrowseForeigners\\:\\:getDescriptionAndTitle\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/BrowseForeigners.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\BrowseForeigners\\:\\:getHtmlForGotoPage\\(\\) has parameter \\$foreignData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/BrowseForeigners.php
@@ -106,11 +96,6 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 2
 			path: libraries/classes/CheckUserPrivileges.php
@@ -127,6 +112,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/CheckUserPrivileges.php
+
+		-
+			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/CheckUserPrivileges.php
 
@@ -636,12 +626,17 @@ parameters:
 			path: libraries/classes/Config/ServerConfigChecks.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServersSetBlowfishSecret\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#1 \\$blowfishSecret of method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServersSetBlowfishSecret\\(\\) expects string\\|null, bool\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/ServerConfigChecks.php
 
 		-
 			message: "#^Parameter \\#2 \\$blowfishSecret of method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServers\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Config/ServerConfigChecks.php
+
+		-
+			message: "#^Parameter \\#3 \\$blowfishSecretSet of method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServersSetBlowfishSecret\\(\\) expects bool, bool\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/ServerConfigChecks.php
 

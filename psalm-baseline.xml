@@ -132,17 +132,11 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
-    <MixedArgument occurrences="3">
-      <code>$showGrantsDbName</code>
-      <code>$showGrantsString</code>
-      <code>$showGrantsTableName</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['col_priv']</code>
       <code>$GLOBALS['db_priv']</code>
       <code>$GLOBALS['db_to_create']</code>
       <code>$GLOBALS['dbs_to_test']</code>
-      <code>$GLOBALS['dbs_to_test'][]</code>
       <code>$GLOBALS['dbs_where_create_table_allowed']</code>
       <code>$GLOBALS['is_create_db_priv']</code>
       <code>$GLOBALS['is_reload_priv']</code>
@@ -694,11 +688,13 @@
     </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Config/ServerConfigChecks.php">
-    <MixedArgument occurrences="6">
-      <code>$blowfishSecret</code>
-      <code>$blowfishSecret</code>
+    <InvalidScalarArgument occurrences="2">
       <code>$blowfishSecret</code>
       <code>$blowfishSecretSet</code>
+    </InvalidScalarArgument>
+    <MixedArgument occurrences="4">
+      <code>$blowfishSecret</code>
+      <code>$blowfishSecret</code>
       <code>$blowfishSecretSet</code>
       <code>$cookieAuthUsed</code>
     </MixedArgument>
@@ -14616,20 +14612,6 @@
       <code>assertFalse</code>
       <code>assertFalse</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="12">
-      <code>$show_grants_dbname</code>
-      <code>$show_grants_dbname</code>
-      <code>$show_grants_dbname</code>
-      <code>$show_grants_dbname</code>
-      <code>$show_grants_str</code>
-      <code>$show_grants_str</code>
-      <code>$show_grants_str</code>
-      <code>$show_grants_str</code>
-      <code>$show_grants_tblname</code>
-      <code>$show_grants_tblname</code>
-      <code>$show_grants_tblname</code>
-      <code>$show_grants_tblname</code>
-    </MixedArgument>
     <RedundantConditionGivenDocblockType occurrences="9">
       <code>assertTrue</code>
       <code>assertTrue</code>
