@@ -452,7 +452,9 @@ class ZoomSearchController extends AbstractController
             ''
         );
         $htmlAttributes = '';
-        if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
+        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes());
+        if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
@@ -482,7 +484,7 @@ class ZoomSearchController extends AbstractController
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
-            'column_data_type' => strtoupper($cleanType),
+            'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
@@ -496,6 +498,8 @@ class ZoomSearchController extends AbstractController
             'db' => $GLOBALS['db'],
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
+            'is_integer' => $isInteger,
+            'is_float' => $isFloat,
         ]);
 
         return [

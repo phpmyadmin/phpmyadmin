@@ -79,7 +79,18 @@
     {% elseif column_type starts with 'bit' %}
         {% set the_class = the_class ~ ' bit' %}
     {% endif %}
-    <input type="text"
+    <input
+        {% if is_integer or is_float %}
+            type="number"
+            {% if is_integer %}
+                inputmode="numeric"
+            {% else %}
+                inputmode="decimal"
+            {% endif %}
+        {% else %}
+            type="text"
+        {% endif %}
+
         name="criteriaValues[{{ column_index }}]"
         data-type="{{ column_data_type }}"
         {{ html_attributes|raw }}
