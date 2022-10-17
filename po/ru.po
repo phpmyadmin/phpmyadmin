@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-09-15 13:17+0000\n"
-"Last-Translator: Андрей <platon436@gmail.com>\n"
+"PO-Revision-Date: 2022-10-18 17:02+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1854,10 +1854,8 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Включить bzip2 сжатие для операций импорта."
 
 #: libraries/classes/Config/Descriptions.php:105
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
+msgstr "Введите URL-адрес вашего API, совместимого с reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:106
 msgid ""
@@ -1878,10 +1876,8 @@ msgstr ""
 "Введите параметр ответа, используемый вашим API, совместимым с reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:109
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Введите ваш публичный ключ для сервиса reCaptcha вашего домена."
+msgstr "Введите открытый ключ для службы reCAPTCHA на вашем домене."
 
 #: libraries/classes/Config/Descriptions.php:110
 msgid "Enter your private key for your domain reCAPTCHA service."
@@ -5352,6 +5348,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Для шифрования файлов cookie в конфигурационном файле необходим действующий "
+"ключ. Временный ключ был автоматически сгенерирован для вас. Обратитесь к "
+"[doc@cfg_blowfish_secret]документации[/doc] ."
 
 #: libraries/classes/Controllers/HomeController.php:328
 #, php-format
@@ -5360,6 +5359,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Ключ шифрования cookie в конфигурационном файле длиннее, чем необходимо. Его "
+"длина должна составлять всего %d байт. Обратитесь к "
+"[doc@cfg_blowfish_secret]документации[/doc] ."
 
 #: libraries/classes/Controllers/HomeController.php:346
 msgid ""
