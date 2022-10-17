@@ -60,7 +60,7 @@ class Advisor
     {
         $this->dbi = $dbi;
         $this->expression = $expression;
-        /*
+        /**
          * Register functions for ExpressionLanguage, we intentionally
          * do not implement support for compile as we do not use it.
          */
@@ -260,7 +260,7 @@ class Advisor
 
             if (isset($rule['precondition'])) {
                 try {
-                     $precondition = $this->evaluateRuleExpression($rule['precondition']);
+                    $precondition = $this->evaluateRuleExpression($rule['precondition']);
                 } catch (Throwable $e) {
                     $this->storeError(
                         sprintf(

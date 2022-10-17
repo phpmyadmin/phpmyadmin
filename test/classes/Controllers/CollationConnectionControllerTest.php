@@ -19,7 +19,10 @@ class CollationConnectionControllerTest extends AbstractTestCase
 {
     public function testInvoke(): void
     {
-        $_POST['collation_connection'] = 'utf8mb4_general_ci';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['collation_connection', null, 'utf8mb4_general_ci'],
+        ]);
 
         $response = $this->createMock(ResponseRenderer::class);
         $response->expects($this->once())->method('header')
@@ -33,6 +36,6 @@ class CollationConnectionControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $config
-        ))($this->createStub(ServerRequest::class));
+        ))($request);
     }
 }

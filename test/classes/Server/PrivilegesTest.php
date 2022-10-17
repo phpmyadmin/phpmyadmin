@@ -338,7 +338,12 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi->addResult('GRANT ALL PRIVILEGES ON `pma_dbname`.* TO \'\'@\'localhost\';', []);
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $dbi->setVersion(50706);
+
+        $dbi->setVersion([
+            '@@version' => '5.7.6',
+            '@@version_comment' => 'MySQL Community Server (GPL)',
+        ]);
+
         $serverPrivileges = $this->getPrivileges($dbi);
 
         $dbname = 'pma_dbname';
@@ -384,7 +389,12 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi->addResult('GRANT ALL PRIVILEGES ON `pma_dbname`.* TO \'\'@\'localhost\';', []);
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $dbi->setVersion(50506);
+
+        $dbi->setVersion([
+            '@@version' => '5.5.6',
+            '@@version_comment' => 'MySQL Community Server (GPL)',
+        ]);
+
         $serverPrivileges = $this->getPrivileges($dbi);
 
         $GLOBALS['username'] = 'username';
@@ -712,7 +722,12 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SET `old_passwords` = 0;', []);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $dbi->setVersion(80011);
+
+        $dbi->setVersion([
+            '@@version' => '8.0.11',
+            '@@version_comment' => 'MySQL Community Server - GPL',
+        ]);
+
         $serverPrivileges = $this->getPrivileges($dbi);
 
         $username = 'PMA_username';
@@ -744,7 +759,12 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->createDatabaseInterface();
-        $dbi->setVersion(80016);
+
+        $dbi->setVersion([
+            '@@version' => '8.0.16',
+            '@@version_comment' => 'MySQL Community Server - GPL',
+        ]);
+
         $serverPrivileges = $this->getPrivileges($dbi);
 
         $username = 'PMA_username';
@@ -776,7 +796,12 @@ class PrivilegesTest extends AbstractTestCase
         $dummyDbi->addResult('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', []);
 
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $dbi->setVersion(50706);
+
+        $dbi->setVersion([
+            '@@version' => '5.7.6',
+            '@@version_comment' => 'MySQL Community Server (GPL)',
+        ]);
+
         $serverPrivileges = $this->getPrivileges($dbi);
 
         $username = 'PMA_username';

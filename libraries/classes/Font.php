@@ -196,9 +196,7 @@ class Font
             $charLists = $this->getCharLists();
         }
 
-        /*
-         * Start by counting the width, giving each character a modifying value
-         */
+        // Start by counting the width, giving each character a modifying value
         $count = 0;
 
         foreach ($charLists as $charList) {
@@ -214,25 +212,19 @@ class Font
         $modifier = 1;
         $font = mb_strtolower($font);
         switch ($font) {
-        /*
-         * no modifier for arial and sans-serif
-         */
             case 'arial':
             case 'sans-serif':
+                // no modifier for arial and sans-serif
                 break;
-        /*
-         * .92 modifier for time, serif, brushscriptstd, and californian fb
-         */
             case 'times':
             case 'serif':
             case 'brushscriptstd':
             case 'californian fb':
+                // .92 modifier for time, serif, brushscriptstd, and californian fb
                 $modifier = .92;
                 break;
-        /*
-         * 1.23 modifier for broadway
-         */
             case 'broadway':
+                // 1.23 modifier for broadway
                 $modifier = 1.23;
                 break;
         }

@@ -51,11 +51,6 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Casting to int something that's already int\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:applyVariables\\(\\) has parameter \\$variables with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Bookmark.php
@@ -101,11 +96,6 @@ parameters:
 			path: libraries/classes/BrowseForeigners.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array\\{\\} and array\\{\\} will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Cache.php
-
-		-
 			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array\\{Charset\\?\\: string, Description\\?\\: string, Default collation\\?\\: string, Maxlen\\?\\: string\\}, array\\<string, string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
@@ -141,16 +131,6 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
-			message: "#^Call to method PhpMyAdmin\\\\Command\\\\CacheWarmupCommand\\:\\:warmUpTwigCache\\(\\) with incorrect case\\: warmUptwigCache$#"
-			count: 1
-			path: libraries/classes/Command/CacheWarmupCommand.php
-
-		-
-			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\SetVersionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
-			count: 1
-			path: libraries/classes/Command/SetVersionCommand.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:display\\(\\) has parameter \\$filesInfo with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
@@ -174,11 +154,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^PHPDoc type string of property PhpMyAdmin\\\\Command\\\\WriteGitRevisionCommand\\:\\:\\$defaultName is not the same as PHPDoc type string\\|null of overridden property Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:\\$defaultName\\.$#"
-			count: 1
-			path: libraries/classes/Command/WriteGitRevisionCommand.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
@@ -1018,6 +993,11 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$new_cfg_value of method PhpMyAdmin\\\\Config\\:\\:setUserValue\\(\\) expects string, mixed given\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/CollationConnectionController.php
+
+		-
+			message: "#^Parameter \\#3 \\$new_cfg_value of method PhpMyAdmin\\\\Config\\:\\:setUserValue\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Config/SetConfigController.php
 
 		-
@@ -1069,6 +1049,16 @@ parameters:
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
+
+		-
+			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
+
+		-
+			message: "#^Parameter \\#2 \\$db of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
 
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
@@ -1461,6 +1451,26 @@ parameters:
 			path: libraries/classes/Controllers/Setup/ServersController.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function htmlentities expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
+			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
+			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\Sql\\:\\:getValuesForColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
+			message: "#^Parameter \\#4 \\$whereClause of method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
@@ -1478,11 +1488,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:\\$columnTypes type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Variable \\$i might not be defined\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
@@ -1749,6 +1754,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:\\$originalColumnTypes type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/TableController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
@@ -2896,11 +2906,6 @@ parameters:
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
-			message: "#^Call to method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getMIMEType\\(\\) with incorrect case\\: getMIMEtype$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
@@ -3691,16 +3696,6 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
@@ -3754,16 +3749,6 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisLineString\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -3824,16 +3809,6 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -3901,16 +3876,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:drawPath\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -3976,16 +3941,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -4044,16 +3999,6 @@ parameters:
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPoint\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:area\\(\\) has parameter \\$ring with no value type specified in iterable type array\\.$#"
@@ -5571,21 +5516,6 @@ parameters:
 			path: libraries/classes/Partitioning/TablePartitionDefinition.php
 
 		-
-			message: "#^Call to method TCPDF\\:\\:setAuthor\\(\\) with incorrect case\\: SetAuthor$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
-			count: 2
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setY\\(\\) with incorrect case\\: SetY$#"
-			count: 2
-			path: libraries/classes/Pdf.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$alias type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Pdf.php
@@ -5969,26 +5899,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportYaml\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportYaml.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFillColor\\(\\) with incorrect case\\: SetFillColor$#"
-			count: 2
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
-			count: 5
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 7
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setY\\(\\) with incorrect case\\: SetY$#"
-			count: 5
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:getTableDef\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
@@ -6421,31 +6331,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setLineWidth\\(\\) with incorrect case\\: SetLineWidth$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setX\\(\\) with incorrect case\\: SetX$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:row\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
@@ -6472,46 +6357,6 @@ parameters:
 
 		-
 			message: "#^Call to method TCPDF\\:\\:Line\\(\\) with incorrect case\\: line$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setDrawColor\\(\\) with incorrect case\\: SetDrawColor$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
-			count: 5
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFontSize\\(\\) with incorrect case\\: SetFontSize$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setLink\\(\\) with incorrect case\\: SetLink$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setMargins\\(\\) with incorrect case\\: SetMargins$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setTitle\\(\\) with incorrect case\\: SetTitle$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setX\\(\\) with incorrect case\\: SetX$#"
-			count: 5
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setXY\\(\\) with incorrect case\\: SetXY$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -6551,13 +6396,13 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:SetDrawColor\\(\\)\\.$#"
-			count: 3
+			message: "#^Call to an undefined method object\\:\\:lineScale\\(\\)\\.$#"
+			count: 7
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:lineScale\\(\\)\\.$#"
-			count: 7
+			message: "#^Call to an undefined method object\\:\\:setDrawColor\\(\\)\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
@@ -6568,26 +6413,6 @@ parameters:
 		-
 			message: "#^Binary operation \"\\+\\=\" between int and array\\<float\\>\\|float results in an error\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFillColor\\(\\) with incorrect case\\: SetFillColor$#"
-			count: 5
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
-			count: 4
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setLink\\(\\) with incorrect case\\: SetLink$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setTextColor\\(\\) with incorrect case\\: SetTextColor$#"
-			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
@@ -6634,11 +6459,6 @@ parameters:
 			message: "#^Parameter mixed of print cannot be converted to string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Call to method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setAuthor\\(\\) with incorrect case\\: SetAuthor$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
@@ -7107,6 +6927,11 @@ parameters:
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
+
+		-
+			message: "#^Parameter \\#1 \\$action of method PhpMyAdmin\\\\Replication\\:\\:replicaControl\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationGui.php
 
@@ -10906,36 +10731,6 @@ parameters:
 			path: test/classes/Partitioning/TablePartitionDefinitionTest.php
 
 		-
-			message: "#^Call to method TCPDF\\:\\:AddPage\\(\\) with incorrect case\\: Addpage$#"
-			count: 2
-			path: test/classes/PdfTest.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:Line\\(\\) with incorrect case\\: line$#"
-			count: 1
-			path: test/classes/PdfTest.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setDrawColor\\(\\) with incorrect case\\: SetDrawColor$#"
-			count: 1
-			path: test/classes/PdfTest.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setFont\\(\\) with incorrect case\\: SetFont$#"
-			count: 1
-			path: test/classes/PdfTest.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setMargins\\(\\) with incorrect case\\: SetMargins$#"
-			count: 1
-			path: test/classes/PdfTest.php
-
-		-
-			message: "#^Call to method TCPDF\\:\\:setTitle\\(\\) with incorrect case\\: SetTitle$#"
-			count: 1
-			path: test/classes/PdfTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
@@ -10969,11 +10764,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
-			message: "#^Call to method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:getSubgroupHeader\\(\\) with incorrect case\\: getSubGroupHeader$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportMediawikiTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -11411,6 +11201,11 @@ parameters:
 			path: test/classes/UtilTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerForTestGetMySQLDocuURL\\(\\) should return array\\<int, array\\{string, string, int, string\\}\\> but returns array\\{array\\{'ALTER_TABLE', 'alter\\-table\\-index', '8\\.0\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', 'alter\\-table\\-index', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', 'alter\\-table\\-index', '5\\.6\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'ALTER_TABLE', '', '5\\.5\\.0', 'index\\.php\\?route\\=…'\\}, array\\{'', '', '5\\.7\\.0', 'index\\.php\\?route\\=…'\\}\\}\\.$#"
+			count: 1
+			path: test/classes/UtilTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerFormatByteDown\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
@@ -11608,11 +11403,6 @@ parameters:
 		-
 			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 2
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Call to method Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver\\:\\:getSessionID\\(\\) with incorrect case\\: getSessionId$#"
-			count: 1
 			path: test/selenium/TestBase.php
 
 		-

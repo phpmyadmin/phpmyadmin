@@ -42,10 +42,10 @@ final class SetValuesController extends AbstractController
     {
         $this->checkUserPrivileges->getPrivileges();
 
-        $column = $_POST['column'];
-        $currentValue = $_POST['curr_value'];
-        $fullValues = $_POST['get_full_values'] ?? false;
-        $whereClause = $_POST['where_clause'] ?? null;
+        $column = $request->getParsedBodyParam('column');
+        $currentValue = $request->getParsedBodyParam('curr_value');
+        $fullValues = $request->getParsedBodyParam('get_full_values', false);
+        $whereClause = $request->getParsedBodyParam('where_clause');
 
         $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
 

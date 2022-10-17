@@ -23,7 +23,6 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
-use RuntimeException;
 
 use function __;
 use function array_diff;
@@ -1104,16 +1103,7 @@ class DatabaseInterface implements DbalInterface
         $version = $this->fetchSingleRow('SELECT @@version, @@version_comment');
 
         if (is_array($version)) {
-            $this->versionString = $version['@@version'] ?? '';
-            $this->versionInt = Utilities::versionToInt($this->versionString);
-            $this->versionComment = $version['@@version_comment'] ?? '';
-            if (stripos($this->versionString, 'mariadb') !== false) {
-                $this->isMariaDb = true;
-            }
-
-            if (stripos($this->versionComment, 'percona') !== false) {
-                $this->isPercona = true;
-            }
+            $this->setVersion($version);
         }
 
         if ($this->versionInt > 50503) {
@@ -2034,15 +2024,6 @@ class DatabaseInterface implements DbalInterface
         return $this->versionInt;
     }
 
-    public function setVersion(int $version): void
-    {
-        if (! defined('TESTSUITE')) {
-            throw new RuntimeException('This method should only be executed in a testing environment.');
-        }
-
-        $this->versionInt = $version;
-    }
-
     /**
      * Server version
      */
@@ -2073,6 +2054,22 @@ class DatabaseInterface implements DbalInterface
     public function isPercona(): bool
     {
         return $this->isPercona;
+    }
+
+    /**
+     * Set version
+     *
+     * @param array $version Database version information
+     * @phpstan-param array<array-key, mixed> $version
+     */
+    public function setVersion(array $version): void
+    {
+        $this->versionString = $version['@@version'] ?? '';
+        $this->versionInt = Utilities::versionToInt($this->versionString);
+        $this->versionComment = $version['@@version_comment'] ?? '';
+
+        $this->isMariaDb = stripos($this->versionString, 'mariadb') !== false;
+        $this->isPercona = stripos($this->versionComment, 'percona') !== false;
     }
 
     /**

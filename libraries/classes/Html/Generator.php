@@ -91,8 +91,7 @@ class Generator
         ?string $text = null
     ): string {
         $kbs = ServerVariablesProvider::getImplementation();
-        $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) :
-                            $kbs->getDocLinkByNameMysql($name);
+        $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) : $kbs->getDocLinkByNameMysql($name);
         $link = $link !== null ? Core::linkURL($link) : $link;
 
         return MySQLDocumentation::show($name, false, $link, $text);
@@ -580,9 +579,8 @@ class Generator
                     . '$sql = "' . $queryBase . '";' . "\n"
                     . '</pre></code>';
             } elseif ($queryTooBig) {
-                $queryBase = '<code class="sql"><pre>' . "\n" .
-                    htmlspecialchars($queryBase, ENT_COMPAT) .
-                    '</pre></code>';
+                $queryBase = '<code class="sql"><pre>' . "\n"
+                    . htmlspecialchars($queryBase, ENT_COMPAT) . '</pre></code>';
             } else {
                 $queryBase = self::formatSql($queryBase);
             }
@@ -1099,20 +1097,15 @@ class Generator
 
         $tagParamsStrings = [];
         $isDataPostFormatSupported = ($urlLength > $GLOBALS['cfg']['LinkLengthLimit'])
-                                || ! $inSuhosinLimits
-                                // Has as sql_query without a signature, to be accepted it needs
-                                // to be sent using POST
-                                || (
-                                    str_contains($url, 'sql_query=')
-                                    && ! str_contains($url, 'sql_signature=')
-                                )
-                                || str_contains($url, 'view[as]=');
+            || ! $inSuhosinLimits
+            || (
+                // Has as sql_query without a signature, to be accepted it needs to be sent using POST
+                str_contains($url, 'sql_query=') && ! str_contains($url, 'sql_signature=')
+            )
+            || str_contains($url, 'view[as]=');
         if ($respectUrlLengthLimit && $isDataPostFormatSupported) {
             $parts = explode('?', $url, 2);
-            /*
-             * The data-post indicates that client should do POST
-             * this is handled in js/ajax.js
-             */
+            // The data-post indicates that client should do POST this is handled in js/ajax.js
             $tagParamsStrings[] = 'data-post="' . ($parts[1] ?? '') . '"';
             $url = $parts[0];
             if (array_key_exists('class', $tagParams) && str_contains($tagParams['class'], 'create_view')) {

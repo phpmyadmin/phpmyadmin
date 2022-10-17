@@ -77,11 +77,17 @@ class StatusController extends AbstractController
             $connections = $this->getConnectionsInfo();
 
             if ($primaryInfo['status']) {
-                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('primary');
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
+                    $_POST['primary_connection'] ?? null,
+                    'primary'
+                );
             }
 
             if ($replicaInfo['status']) {
-                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('replica');
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
+                    $_POST['primary_connection'] ?? null,
+                    'replica'
+                );
             }
         }
 

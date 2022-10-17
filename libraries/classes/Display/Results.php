@@ -2796,8 +2796,8 @@ class Results
 
             $deleteQuery = 'DELETE FROM '
                 . Util::backquote($this->properties['table'])
-                . ' WHERE ' . $whereClause .
-                ($clauseIsUnique ? '' : ' LIMIT 1');
+                . ' WHERE ' . $whereClause
+                . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $urlParams = [
                 'db' => $this->properties['db'],
@@ -4041,7 +4041,7 @@ class Results
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream'
             );
-            $posMimeText = strpos($transformationPlugin->getMIMEtype(), 'Text');
+            $posMimeText = strpos($transformationPlugin->getMIMEType(), 'Text');
             if ($posMimeOctetstream || $posMimeText !== false) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate

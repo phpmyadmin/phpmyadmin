@@ -70,13 +70,23 @@ class ReplicationController extends AbstractController
         }
 
         if ($this->dbi->isSuperUser()) {
-            $this->replicationGui->handleControlRequest();
+            $this->replicationGui->handleControlRequest(
+                isset($_POST['sr_take_action']),
+                isset($_POST['replica_changeprimary']),
+                isset($_POST['sr_replica_server_control']),
+                $_POST['sr_replica_action'] ?? null,
+                isset($_POST['sr_replica_skip_error'])
+            );
         }
 
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
-            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication();
+            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
+                $_POST['primary_connection'] ?? null,
+                $params['repl_clear_scr'],
+                $_POST['primary_add_user'] ?? null
+            );
         }
 
         if (isset($params['primary_configure'])) {
@@ -84,6 +94,7 @@ class ReplicationController extends AbstractController
         } else {
             if (! isset($params['repl_clear_scr'])) {
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
+                    $_POST['primary_connection'] ?? null,
                     $replicaInfo['status'],
                     $replicationInfo->getReplicaStatus()
                 );

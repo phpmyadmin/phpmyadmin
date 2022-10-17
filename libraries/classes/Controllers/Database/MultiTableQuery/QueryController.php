@@ -13,8 +13,8 @@ final class QueryController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $params = [
-            'sql_query' => $_POST['sql_query'],
-            'db' => $_POST['db'] ?? $_GET['db'] ?? null,
+            'sql_query' => $request->getParsedBodyParam('sql_query'),
+            'db' => $request->getParam('db'),
         ];
 
         $this->response->addHTML(MultiTableQuery::displayResults($params['sql_query'], $params['db']));

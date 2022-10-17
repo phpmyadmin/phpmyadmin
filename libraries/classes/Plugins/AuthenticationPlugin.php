@@ -121,9 +121,7 @@ abstract class AuthenticationPlugin
         $this->user = '';
         $this->password = '';
 
-        /*
-         * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
-         */
+        // Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
         $server = 0;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {

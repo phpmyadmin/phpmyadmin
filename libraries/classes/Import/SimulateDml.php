@@ -111,8 +111,7 @@ final class SimulateDml
             $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
         }
 
-        return 'SELECT * FROM ' . implode(', ', $tableReferences) .
-            ' WHERE ' . $where . $orderAndLimit;
+        return 'SELECT * FROM ' . implode(', ', $tableReferences) . ' WHERE ' . $where . $orderAndLimit;
     }
 
     /**
@@ -153,8 +152,7 @@ final class SimulateDml
             $orderAndLimit .= ' LIMIT ' . Query::getClause($statement, $parser->list, 'LIMIT');
         }
 
-        return 'SELECT ' . implode(', ', $columns) .
-            ' FROM ' . implode(', ', $tableReferences) .
-            ' WHERE ' . $where . $orderAndLimit;
+        return 'SELECT ' . implode(', ', $columns) . ' FROM ' . implode(', ', $tableReferences)
+            . ' WHERE ' . $where . $orderAndLimit;
     }
 }

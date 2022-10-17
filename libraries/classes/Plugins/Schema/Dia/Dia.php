@@ -33,15 +33,10 @@ class Dia extends XMLWriter
     public function __construct()
     {
         $this->openMemory();
-        /*
-         * Set indenting using three spaces,
-         * so output is formatted
-         */
+        // Set indenting using three spaces, so output is formatted
         $this->setIndent(true);
         $this->setIndentString('   ');
-        /*
-         * Create the XML document
-         */
+        // Create the XML document
         $this->startDocument('1.0', 'UTF-8');
     }
 

@@ -616,7 +616,7 @@ class Table implements Stringable
                         }
 
                         break;
-                /** @noinspection PhpMissingBreakStatementInspection */
+                    /** @noinspection PhpMissingBreakStatementInspection */
                     case 'NULL':
                         // If user uncheck null checkbox and not change default value null,
                         // default value will be ignored.
@@ -1509,9 +1509,7 @@ class Table implements Stringable
             }
         }
 
-        /*
-         * tested also for a view, in MySQL 5.0.92, 5.1.55 and 5.5.13
-         */
+        // tested also for a view, in MySQL 5.0.92, 5.1.55 and 5.5.13
         $GLOBALS['sql_query'] = '
             RENAME TABLE ' . $this->getFullName(true) . '
                   TO ' . $newTable->getFullName(true) . ';';
@@ -1806,9 +1804,7 @@ class Table implements Stringable
         $maxRows = (int) $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
-            $sqlQuery = ' DELETE FROM ' . $table .
-                ' ORDER BY last_update ASC' .
-                ' LIMIT ' . $numRowsToDelete;
+            $sqlQuery = ' DELETE FROM ' . $table . ' ORDER BY last_update ASC LIMIT ' . $numRowsToDelete;
             $success = $this->dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_CONTROL);
 
             if (! $success) {
@@ -2581,8 +2577,7 @@ class Table implements Stringable
         }
 
         if ($column != null) {
-            $expression = isset($fields[$column]['expr']) ?
-                substr($fields[$column]['expr'], 1, -1) : '';
+            $expression = isset($fields[$column]['expr']) ? substr($fields[$column]['expr'], 1, -1) : '';
 
             return [$column => $expression];
         }

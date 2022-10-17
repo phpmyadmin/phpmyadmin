@@ -97,7 +97,7 @@ class Core
             $error_message = vsprintf($error_message, $message_args);
         }
 
-        /*
+        /**
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
@@ -360,7 +360,7 @@ class Core
             return;
         }
 
-        /*
+        /**
          * Avoid relative path redirect problems in case user entered URL
          * like /phpmyadmin/index.php/ which some web servers happily accept.
          */

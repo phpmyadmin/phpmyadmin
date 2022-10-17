@@ -201,6 +201,15 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports UUID data type
+     * true if uuid is supported
+     */
+    public static function isUUIDSupported(DatabaseInterface $dbi): bool
+    {
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 100700; // 10.7.0
+    }
+
+    /**
      * Returns whether the database server supports virtual columns
      */
     public static function supportsStoredKeywordForVirtualColumns(int $serverVersion): bool

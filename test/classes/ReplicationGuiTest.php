@@ -55,7 +55,7 @@ class ReplicationGuiTest extends AbstractTestCase
      */
     public function testGetHtmlForPrimaryReplication(): void
     {
-        $html = $this->replicationGui->getHtmlForPrimaryReplication();
+        $html = $this->replicationGui->getHtmlForPrimaryReplication(null, null, 'primary_add_user');
 
         //validate 1: Primary replication
         $this->assertStringContainsString('<div class="card-header">Primary replication</div>', $html);
@@ -96,6 +96,7 @@ class ReplicationGuiTest extends AbstractTestCase
 
         //Call the test function
         $html = $this->replicationGui->getHtmlForReplicaConfiguration(
+            null,
             true,
             $replicationInfo->getReplicaStatus()
         );

@@ -247,10 +247,6 @@ img.lightbulb {
   padding: 0 0.5em;
 }
 
-#pma_demo {
-  z-index: -1;
-}
-
 .confirmation {
   background-color: #ffc;
 }
@@ -2722,4 +2718,8 @@ body {
 
 .resize-vertical {
   resize: vertical;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }

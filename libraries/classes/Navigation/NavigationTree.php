@@ -221,7 +221,7 @@ class NavigationTree
             return $retval;
         }
 
-        /*
+        /**
          * @todo describe a scenario where this code is executed
          */
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {

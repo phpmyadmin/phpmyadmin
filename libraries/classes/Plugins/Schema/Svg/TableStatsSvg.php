@@ -107,10 +107,7 @@ class TableStatsSvg extends TableStats
 
         $this->width += $this->font->getStringWidth('  ', $font, $fontSize);
 
-        /*
-         * it is unknown what value must be added, because
-         * table title is affected by the table width value
-         */
+        // it is unknown what value must be added, because table title is affected by the table width value
         while ($this->width < $this->font->getStringWidth($this->getTitle(), $font, $fontSize)) {
             $this->width += 7;
         }

@@ -245,8 +245,7 @@ class Tracker
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
 
-        $createSql .= self::getLogComment() .
-            $exportSqlPlugin->getTableDef($dbName, $tableName, '');
+        $createSql .= self::getLogComment() . $exportSqlPlugin->getTableDef($dbName, $tableName, '');
 
         // Save version
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
@@ -703,9 +702,7 @@ class Tracker
             $statement = $parser->statements[0];
             $options = isset($statement->options) ? $statement->options->options : null;
 
-            /*
-             * DDL statements
-             */
+            // DDL statements
             $result['type'] = 'DDL';
 
             // Parse CREATE statement
@@ -776,9 +773,7 @@ class Tracker
                 return $result;
             }
 
-            /*
-             * DML statements
-             */
+            // DML statements
             $result['type'] = 'DML';
 
             // Parse UPDATE statement

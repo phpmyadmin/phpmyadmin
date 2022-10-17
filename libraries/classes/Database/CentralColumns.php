@@ -171,8 +171,8 @@ class CentralColumns
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
-        $query = 'SELECT count(db_name) FROM ' .
-            Util::backquote($central_list_table) . ' '
+        $query = 'SELECT count(db_name) FROM '
+            . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         $res = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
         if (isset($res[0])) {
@@ -874,8 +874,8 @@ class CentralColumns
         $central_list_table = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
-            ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
+            . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
         $result = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
 
         if (isset($result[0])) {

@@ -503,10 +503,6 @@ img.lightbulb {
   padding: 20px;
 }
 
-#pma_demo {
-  z-index: -1;
-}
-
 #pma_errors #pma_errors {
   padding: 0;
 }
@@ -2853,4 +2849,8 @@ body {
 
 .resize-vertical {
   resize: vertical;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }
