@@ -621,26 +621,6 @@ parameters:
 			path: libraries/classes/Config/Forms/User/SqlForm.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServers\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
-
-		-
-			message: "#^Parameter \\#1 \\$blowfishSecret of method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServersSetBlowfishSecret\\(\\) expects string\\|null, bool\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
-
-		-
-			message: "#^Parameter \\#2 \\$blowfishSecret of method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServers\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
-
-		-
-			message: "#^Parameter \\#3 \\$blowfishSecretSet of method PhpMyAdmin\\\\Config\\\\ServerConfigChecks\\:\\:performConfigChecksServersSetBlowfishSecret\\(\\) expects bool, bool\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
-
-		-
 			message: "#^Cannot access offset int\\|string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Config/Settings.php
