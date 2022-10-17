@@ -557,7 +557,7 @@ class CentralColumns
         bool $allFields = false
     ): array {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if ($cfgCentralColumns === false || $cfgCentralColumns === []) {
             return [];
         }
 
@@ -569,12 +569,8 @@ class CentralColumns
         }
 
         $cols = trim($cols, ',');
-        $has_list = $this->findExistingColNames($db, $cols, $allFields);
-        if (! empty($has_list)) {
-            return (array) $has_list;
-        }
 
-        return [];
+        return $this->findExistingColNames($db, $cols, $allFields);
     }
 
     /**
@@ -763,7 +759,7 @@ class CentralColumns
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        if (empty($table) || $table == '') {
+        if ($table === '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         } else {

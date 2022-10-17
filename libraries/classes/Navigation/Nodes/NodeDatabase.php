@@ -321,9 +321,8 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    public function getData($type, $pos, $searchClause = '')
+    public function getData(string $type, int $pos, string $searchClause = ''): array
     {
-        $pos = (int) $pos;
         $retval = [];
         switch ($type) {
             case 'tables':
@@ -491,7 +490,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getRoutines($routineType, $pos, $searchClause)
+    private function getRoutines(string $routineType, int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval = [];
@@ -548,7 +547,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getProcedures($pos, $searchClause)
+    private function getProcedures(int $pos, string $searchClause)
     {
         return $this->getRoutines('PROCEDURE', $pos, $searchClause);
     }
@@ -561,7 +560,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getFunctions($pos, $searchClause)
+    private function getFunctions(int $pos, string $searchClause)
     {
         return $this->getRoutines('FUNCTION', $pos, $searchClause);
     }
@@ -574,7 +573,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getEvents($pos, $searchClause)
+    private function getEvents(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval = [];

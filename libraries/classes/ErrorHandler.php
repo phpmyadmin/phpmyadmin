@@ -110,7 +110,7 @@ class ErrorHandler
                 break;
             }
 
-            if ((! ($error instanceof Error)) || $error->isDisplayed()) {
+            if ($error->isDisplayed()) {
                 continue;
             }
 

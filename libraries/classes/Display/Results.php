@@ -871,9 +871,9 @@ class Results
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($conditionField ? ' condition"' : '')
-                    . '" data-column="' . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . '" data-column="' . htmlspecialchars($fieldsMeta[$i]->name)
                     . '">        '
-                    . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . htmlspecialchars($fieldsMeta[$i]->name)
                     . $comments . '    </th>';
             }
 
@@ -3147,7 +3147,7 @@ class Results
         }
 
         if ($meta->isMappedTypeBit) {
-            $displayedColumn = Util::printableBitValue((int) $displayedColumn, (int) $meta->length);
+            $displayedColumn = Util::printableBitValue((int) $displayedColumn, $meta->length);
 
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,

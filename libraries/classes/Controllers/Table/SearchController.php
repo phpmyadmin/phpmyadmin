@@ -225,7 +225,7 @@ class SearchController extends AbstractController
             $i = 0;
             foreach ($row as $col => $val) {
                 if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, (int) $fields_meta[$i]->length);
+                    $row[$col] = Util::printableBitValue((int) $val, $fields_meta[$i]->length);
                 }
 
                 $i++;

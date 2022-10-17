@@ -266,7 +266,7 @@ class Common
      *
      * @return array|null of table positions
      */
-    public function getTablePositions($pg): ?array
+    public function getTablePositions(int $pg): ?array
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -299,7 +299,7 @@ class Common
      *
      * @return string|null table name
      */
-    public function getPageName($pg)
+    public function getPageName(int $pg)
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -351,9 +351,9 @@ class Common
      *
      * @param string $db database
      *
-     * @return int|null id of the default pdf page for the database
+     * @return int id of the default pdf page for the database
      */
-    public function getDefaultPage($db): ?int
+    public function getDefaultPage($db): int
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -424,7 +424,7 @@ class Common
 
         $default_page_no = $this->getDefaultPage($db);
         if ($default_page_no != -1) {
-            return intval($default_page_no);
+            return $default_page_no;
         }
 
         $query = 'SELECT MIN(`page_nr`)'
