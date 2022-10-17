@@ -8933,6 +8933,11 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Normalization.php">
+    <InvalidReturnStatement occurrences="2"/>
+    <InvalidReturnType occurrences="1">
+      <code>array{legendText: string, headText: string, queryError: string|false, extra?: string}</code>
+    </InvalidReturnType>
+    <LessSpecificReturnStatement occurrences="1"/>
     <MixedArgument occurrences="28">
       <code>$arrDependson</code>
       <code>$col</code>
@@ -9018,6 +9023,9 @@
       <code>$column</code>
       <code>$element</code>
     </MixedOperand>
+    <MoreSpecificReturnType occurrences="1">
+      <code>array{legendText: string, headText: string, queryError: bool, extra: Message}</code>
+    </MoreSpecificReturnType>
     <PossiblyNullArgument occurrences="2">
       <code>$def['Type']</code>
       <code>$def['Type']</code>

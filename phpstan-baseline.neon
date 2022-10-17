@@ -5276,7 +5276,12 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) should return array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} but returns array\\{legendText\\: string, headText\\: non\\-falsy\\-string, queryError\\: bool, extra\\: ''\\|PhpMyAdmin\\\\Message\\}\\.$#"
+			count: 1
+			path: libraries/classes/Normalization.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) should return array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} but returns array\\{legendText\\: string, headText\\: non\\-falsy\\-string, queryError\\: false\\}\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
 
@@ -5286,7 +5291,7 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor3NF\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor3NF\\(\\) should return array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} but returns array\\{legendText\\: string, headText\\: non\\-falsy\\-string, queryError\\: bool, extra\\: ''\\|PhpMyAdmin\\\\Message\\}\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
 
@@ -5307,11 +5312,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:getAllCombinationPartialKeys\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep3\\(\\) should return array\\<string\\> but returns array\\<string, string\\|false\\>\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
 
@@ -5337,11 +5337,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
 
@@ -10696,13 +10691,188 @@ parameters:
 			path: test/classes/Navigation/Nodes/NodeViewTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
-			count: 4
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
 			path: test/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
-			count: 5
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'hasPrimaryKey' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'headText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'legendText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'message' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'primary_key' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'queryError' and array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'subText' and array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Message' and PhpMyAdmin\\\\Message will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/NormalizationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 1
 			path: test/classes/NormalizationTest.php
 
 		-

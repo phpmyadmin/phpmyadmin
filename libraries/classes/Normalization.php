@@ -266,7 +266,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.2
+     * @return array{legendText: string, headText: string, subText: string, hasPrimaryKey: string, extra: string}
      */
     public function getHtmlContentsFor1NFStep2($db, $table)
     {
@@ -314,7 +314,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.4
+     * @return array{legendText: string, headText: string, subText: string, extra: string} HTML contents for step 1.4
      */
     public function getHtmlContentsFor1NFStep4($db, $table)
     {
@@ -351,7 +351,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.3
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: false|string}
      */
     public function getHtmlContentsFor1NFStep3($db, $table)
     {
@@ -396,7 +396,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for 2NF step 2.1
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: string}
      */
     public function getHtmlFor2NFstep1($db, $table)
     {
@@ -522,7 +522,7 @@ class Normalization
      * @param string $table               current table
      * @param string $db                  current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
      */
     public function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
     {
@@ -683,7 +683,7 @@ class Normalization
      * @param array  $newTables list of new tables to be created
      * @param string $db        current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: string|false, extra?: string}
      */
     public function createNewTablesFor3NF(array $newTables, $db)
     {
@@ -787,7 +787,7 @@ class Normalization
      * @param string $table            current table
      * @param string $db               current database
      *
-     * @return array
+     * @return array{queryError: bool, message: Message}
      */
     public function moveRepeatingGroup(
         $repeatingColumns,
@@ -858,7 +858,7 @@ class Normalization
      * @param string $db     current database
      * @param array  $tables tables formed after 2NF and need to process for 3NF
      *
-     * @return string[]
+     * @return array{legendText: string, headText: string, subText: string, extra: string}
      */
     public function getHtmlFor3NFstep1($db, array $tables)
     {
