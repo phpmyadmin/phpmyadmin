@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-10-16 00:29+0000\n"
-"PO-Revision-Date: 2022-10-04 20:23+0000\n"
+"PO-Revision-Date: 2022-10-18 19:02+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -13558,12 +13558,10 @@ msgstr ""
 "predpostavljajoč običajno preslikavo naslovov IPv4 v naslove IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr ""
-"Shrani vsesplošno edinstven označevalnik (Universally Unique Identifier, "
-"UUID)"
+"128-bitni UUID (vsesplošno edinstven označevalnik, Universally Unique "
+"Identifier)"
 
 #: libraries/classes/Types.php:800
 msgctxt "numeric types"
