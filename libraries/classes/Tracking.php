@@ -21,6 +21,7 @@ use function htmlspecialchars;
 use function in_array;
 use function ini_set;
 use function is_array;
+use function json_encode;
 use function mb_strstr;
 use function preg_replace;
 use function rtrim;
@@ -464,11 +465,11 @@ class Tracking
             . '<option value="sqldumpfile">' . __('SQL dump (file download)')
             . '</option>'
             . '<option value="sqldump">' . __('SQL dump') . '</option>'
-            . '<option value="execution" onclick="alert(\''
-            . Sanitize::escapeJsString(
+            . '<option value="execution" onclick="alert('
+            . htmlspecialchars((string) json_encode(
                 __('This option will replace your table and contained data.')
-            )
-            . '\')">' . __('SQL execution') . '</option></select>';
+            ))
+            . ')">' . __('SQL execution') . '</option></select>';
 
         $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 

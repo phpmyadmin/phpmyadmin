@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
 use stdClass;
 
@@ -23,6 +22,9 @@ use function ob_start;
 use function preg_quote;
 use function serialize;
 use function str_repeat;
+use function strtr;
+
+use const ENT_QUOTES;
 
 /**
  * @covers \PhpMyAdmin\Core
@@ -582,19 +584,24 @@ class CoreTest extends AbstractNetworkTestCase
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test';
-        $testUri_html = htmlspecialchars($testUri);
-        $testUri_js = Sanitize::escapeJsString($testUri);
+        $testUri_js = strtr($testUri, [
+            ':' => '\u003A',
+            '/' => '\/', // Twig uses the short escape sequence
+            '?' => '\u003F',
+            '&' => '\u0026',
+            '=' => '\u003D',
+        ]);
 
         $header = "<html>\n<head>\n    <title>- - -</title>"
             . "\n    <meta http-equiv=\"expires\" content=\"0\">"
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . '">'
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . htmlspecialchars($testUri, ENT_QUOTES) . '">'
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA["
             . "\n        setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);"
             . "\n        //]]>\n    </script>\n</head>"
             . "\n<body>\n<script type=\"text/javascript\">\n    //<![CDATA["
-            . "\n    document.write('<p><a href=\"" . $testUri_html . '">' . __('Go') . "</a></p>');"
+            . "\n    document.write('<p><a href=\"" . $testUri_js . '">' . __('Go') . "</a></p>');"
             . "\n    //]]>\n</script>\n</body>\n</html>\n";
 
         $this->expectOutputString($header);

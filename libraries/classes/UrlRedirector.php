@@ -47,7 +47,7 @@ final class UrlRedirector
          */
         $template = $container->get('template');
         echo $template->render('javascript/redirect', [
-            'url' => Sanitize::escapeJsString((string) $_GET['url']),
+            'url' => (string) $_GET['url'],
         ]);
         // Display redirecting msg on screen.
         // Do not display the value of $_GET['url'] to avoid showing injected content

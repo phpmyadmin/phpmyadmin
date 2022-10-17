@@ -401,6 +401,11 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
 			message: "#^Call to function function_exists\\(\\) with 'bzcompress'\\|'gzcompress'\\|'gzencode' will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -453,11 +458,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
@@ -6986,27 +6986,12 @@ parameters:
 			path: libraries/classes/Sanitize.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:replaceBBLink\\(\\) has parameter \\$found with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:sanitizeFilename\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Sanitize\\:\\:formatJsVal\\(\\) expects bool\\|int\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
 
@@ -11022,11 +11007,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\SanitizeTest\\:\\:docLinks\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/SanitizeTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\SanitizeTest\\:\\:escapeDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/SanitizeTest.php
 
