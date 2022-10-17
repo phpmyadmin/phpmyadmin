@@ -91,7 +91,7 @@ final class PartitioningController extends AbstractController
      */
     private function extractPartitionDetails(): ?array
     {
-        $createTable = (new Table($GLOBALS['table'], $GLOBALS['db']))->showCreate();
+        $createTable = (new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi))->showCreate();
         if (! $createTable) {
             return null;
         }

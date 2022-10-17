@@ -162,9 +162,10 @@ final class RelationController extends AbstractController
 
             $uniqueColumns = [];
             if ($foreignDb && $foreignTable) {
-                $tableObject = Table::get(
+                $tableObject = new Table(
                     $foreignTable,
-                    $foreignDb
+                    $foreignDb,
+                    $this->dbi
                 );
                 $uniqueColumns = $tableObject->getUniqueColumns(false, false);
             }

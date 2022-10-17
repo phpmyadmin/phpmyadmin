@@ -2781,7 +2781,7 @@ class InsertEditTest extends AbstractTestCase
             ->method('getTable')
             ->will(
                 $this->returnValue(
-                    new Table('table', 'db')
+                    new Table('table', 'db', $GLOBALS['dbi'])
                 )
             );
 

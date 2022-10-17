@@ -627,7 +627,7 @@ class Results
             // - For a VIEW we (probably) did not count the number of rows
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
-            $tableObject = new Table($table, $db);
+            $tableObject = new Table($table, $db, $this->dbi);
             if ($unlimNumRows < 2 && ! $tableObject->isView()) {
                 $displayParts = $displayParts->with(['hasSortLink' => false]);
             }
@@ -1194,7 +1194,7 @@ class Results
         [$columnOrder, $columnVisibility] = $this->getColumnParams($statementInfo);
 
         $tableCreateTime = '';
-        $table = new Table($this->properties['table'], $this->properties['db']);
+        $table = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
         if (! $table->isView()) {
             $tableCreateTime = $this->dbi->getTable(
                 $this->properties['db'],
@@ -2638,7 +2638,7 @@ class Results
     private function getColumnParams(StatementInfo $statementInfo): array
     {
         if ($this->isSelect($statementInfo)) {
-            $pmatable = new Table($this->properties['table'], $this->properties['db']);
+            $pmatable = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
             $colOrder = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
             $fieldsCount = $this->properties['fields_cnt'];
             /* Validate the value */
@@ -3745,7 +3745,7 @@ class Results
         }
 
         $messageViewWarning = false;
-        $table = new Table($this->properties['table'], $this->properties['db']);
+        $table = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
         if ($table->isView() && ($total == $GLOBALS['cfg']['MaxExactCountViews'])) {
             $message = Message::notice(
                 __(

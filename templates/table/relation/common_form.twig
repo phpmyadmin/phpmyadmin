@@ -110,7 +110,7 @@
                             {% if existrel[myfield] is defined %}
                                 {% set foreign_column = existrel[myfield]['foreign_field'] %}
                             {% endif %}
-                            {% set table_obj = table_get(foreign_table, foreign_db) %}
+                            {% set table_obj = table_get(foreign_table, foreign_db, dbi) %}
                             {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
                         {% endif %}
 

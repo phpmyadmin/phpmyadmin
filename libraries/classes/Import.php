@@ -1247,7 +1247,7 @@ class Import
 
             unset($params);
 
-            $tableObj = new Table($table[self::TBL_NAME], $dbName);
+            $tableObj = new Table($table[self::TBL_NAME], $dbName, $GLOBALS['dbi']);
             if (! $tableObj->isView()) {
                 $message .= sprintf(
                     '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
