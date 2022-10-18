@@ -274,7 +274,7 @@ final class ColumnsDefinition
                     'STORED GENERATED',
                 ];
                 if (in_array($columnMeta['Extra'], $virtual)) {
-                    $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
+                    $tableObj = new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi);
                     $expressions = $tableObj->getColumnGenerationExpression($columnMeta['Field']);
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }

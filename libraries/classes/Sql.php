@@ -96,7 +96,7 @@ class Sql
             return $statementInfo;
         }
 
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $this->dbi);
 
         if (empty($statementInfo->order)) {
             // Retrieving the name of the column we should sort after.
@@ -1418,7 +1418,7 @@ class Sql
         $statement = $statementInfo->statement;
         if ($statement instanceof SelectStatement) {
             if ($statement->expr && $statement->expr[0]->expr === '*' && $table) {
-                $_table = new Table($table, $db);
+                $_table = new Table($table, $db, $this->dbi);
                 $updatableView = $_table->isUpdatableView();
             }
 
@@ -1657,7 +1657,7 @@ class Sql
         }
 
         $displayResultsObject = new DisplayResults(
-            $GLOBALS['dbi'],
+            $this->dbi,
             $GLOBALS['db'],
             $GLOBALS['table'],
             $GLOBALS['server'],
@@ -1775,7 +1775,7 @@ class Sql
             $pos = $_SESSION['tmpval']['pos'];
         }
 
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $this->dbi);
         $unlimNumRows = $tableObject->countRecords(true);
         //If position is higher than number of rows
         if ($unlimNumRows <= $pos && $pos != 0) {

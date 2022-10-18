@@ -101,19 +101,15 @@ class Table implements Stringable
     private $relation;
 
     /**
-     * @param string                 $tableName table name
-     * @param string                 $dbName    database name
-     * @param DatabaseInterface|null $dbi       database interface for the table
+     * @param string            $tableName table name
+     * @param string            $dbName    database name
+     * @param DatabaseInterface $dbi       database interface for the table
      */
-    public function __construct($tableName, $dbName, ?DatabaseInterface $dbi = null)
+    public function __construct($tableName, $dbName, DatabaseInterface $dbi)
     {
-        if (empty($dbi)) {
-            $dbi = $GLOBALS['dbi'];
-        }
-
-        $this->dbi = $dbi;
         $this->name = $tableName;
         $this->dbName = $dbName;
+        $this->dbi = $dbi;
         $this->relation = new Relation($this->dbi);
     }
 
@@ -130,13 +126,13 @@ class Table implements Stringable
     /**
      * Table getter
      *
-     * @param string                 $tableName table name
-     * @param string                 $dbName    database name
-     * @param DatabaseInterface|null $dbi       database interface for the table
+     * @param string            $tableName table name
+     * @param string            $dbName    database name
+     * @param DatabaseInterface $dbi       database interface for the table
      *
      * @return Table
      */
-    public static function get($tableName, $dbName, ?DatabaseInterface $dbi = null)
+    public static function get($tableName, $dbName, DatabaseInterface $dbi)
     {
         return new Table($tableName, $dbName, $dbi);
     }
@@ -982,7 +978,7 @@ class Table implements Stringable
 
         // Try moving the tables directly, using native `RENAME` statement.
         if ($move && $what === 'data') {
-            $tbl = new Table($sourceTable, $sourceDb);
+            $tbl = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
             if ($tbl->rename($targetTable, $targetDb)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
 
@@ -1099,7 +1095,7 @@ class Table implements Stringable
                  */
                 $statement = new DropStatement();
 
-                $tbl = new Table($targetDb, $targetTable);
+                $tbl = new Table($targetDb, $targetTable, $GLOBALS['dbi']);
 
                 $statement->options = new OptionsArray(
                     [
@@ -1269,14 +1265,14 @@ class Table implements Stringable
             $GLOBALS['sql_query'] = '';
         }
 
-        $table = new Table($targetTable, $targetDb);
+        $table = new Table($targetTable, $targetDb, $GLOBALS['dbi']);
         // Copy the data unless this is a VIEW
         if (($what === 'data' || $what === 'dataonly') && ! $table->isView()) {
             $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
             $GLOBALS['dbi']->query($sqlSetMode);
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
 
-            $oldTable = new Table($sourceTable, $sourceDb);
+            $oldTable = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
             $nonGeneratedCols = $oldTable->getNonGeneratedColumns(true);
             if (count($nonGeneratedCols) > 0) {
                 $sqlInsertData = 'INSERT INTO ' . $target . '('
@@ -1297,7 +1293,7 @@ class Table implements Stringable
             // moving table from replicated one to not replicated one
             $GLOBALS['dbi']->selectDb($sourceDb);
 
-            $sourceTableObj = new Table($sourceTable, $sourceDb);
+            $sourceTableObj = new Table($sourceTable, $sourceDb, $GLOBALS['dbi']);
             if ($sourceTableObj->isView()) {
                 $sqlDropQuery = 'DROP VIEW';
             } else {
@@ -1481,7 +1477,7 @@ class Table implements Stringable
             $newDb = $this->getDbName();
         }
 
-        $newTable = new Table($newName, $newDb);
+        $newTable = new Table($newName, $newDb, $this->dbi);
 
         if ($this->getFullName() === $newTable->getFullName()) {
             return true;

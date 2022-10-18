@@ -686,7 +686,7 @@ class Export
         $views = [];
 
         foreach ($tables as $table) {
-            $tableObject = new Table($table, $db);
+            $tableObject = new Table($table, $db, $this->dbi);
             // if this is a view, collect it for later;
             // views must be exported after the tables
             $isView = $tableObject->isView();
@@ -764,7 +764,7 @@ class Export
                 && in_array($table, $tableData)
                 && ! $isView
             ) {
-                $tableObj = new Table($table, $db);
+                $tableObj = new Table($table, $db, $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
@@ -966,7 +966,7 @@ class Export
             $addQuery = '';
         }
 
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $this->dbi);
         $isView = $tableObject->isView();
         if ($whatStrucOrData === 'structure' || $whatStrucOrData === 'structure_and_data') {
             if ($isView) {
@@ -1023,7 +1023,7 @@ class Export
                 $this->dbi->selectDb($db);
             } else {
                 // Data is exported only for Non-generated columns
-                $tableObj = new Table($table, $db);
+                $tableObj = new Table($table, $db, $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
