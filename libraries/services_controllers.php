@@ -234,6 +234,7 @@ return [
                 '$template' => '@template',
                 '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
+                '$routines' => '@routines',
             ],
         ],
         Database\SearchController::class => [

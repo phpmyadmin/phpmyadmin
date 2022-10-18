@@ -29,15 +29,20 @@ class RoutinesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var Routines */
+    private $routines;
+
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         CheckUserPrivileges $checkUserPrivileges,
-        DatabaseInterface $dbi
+        DatabaseInterface $dbi,
+        Routines $routines
     ) {
         parent::__construct($response, $template);
         $this->checkUserPrivileges = $checkUserPrivileges;
         $this->dbi = $dbi;
+        $this->routines = $routines;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -103,11 +108,9 @@ class RoutinesController extends AbstractController
          */
         $GLOBALS['errors'] = [];
 
-        $routines = new Routines($this->dbi, $this->template, $this->response);
-
-        $routines->handleEditor();
-        $routines->handleExecute();
-        $routines->export();
+        $this->routines->handleEditor();
+        $this->routines->handleExecute();
+        $this->routines->export();
 
         if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'])) {
             $type = null;
@@ -118,7 +121,7 @@ class RoutinesController extends AbstractController
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
+            $rows .= $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
         }
 
         $this->render('database/routines/index', [
