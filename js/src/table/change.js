@@ -318,7 +318,8 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
             target.value === 'AES_DECRYPT' ||
             target.value === 'DES_ENCRYPT' ||
             target.value === 'DES_DECRYPT' ||
-            target.value === 'ENCRYPT') {
+            target.value === 'ENCRYPT' ||
+            target.value === 'SHA2') {
         if (!($('#salt_' + target.id).length)) {
             $thisInput.after(newSaltBox);
         }

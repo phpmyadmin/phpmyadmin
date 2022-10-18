@@ -1590,7 +1590,8 @@ class InsertEdit
             if (
                 ($editField->salt !== null
                     && ($editField->function === 'AES_ENCRYPT'
-                        || $editField->function === 'AES_DECRYPT'))
+                        || $editField->function === 'AES_DECRYPT'
+                        || $editField->function === 'SHA2'))
                 || ($editField->salt
                     && ($editField->function === 'DES_ENCRYPT'
                         || $editField->function === 'DES_DECRYPT'
