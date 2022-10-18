@@ -93,8 +93,7 @@ class ErrorReportController extends AbstractController
                     $success = false;
                 } else {
                     $decoded_response = json_decode($server_response, true);
-                    $success = ! empty($decoded_response) ?
-                        $decoded_response['success'] : false;
+                    $success = ! empty($decoded_response) ? $decoded_response['success'] : false;
                 }
 
                 /* Message to show to the user */

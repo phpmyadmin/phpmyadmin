@@ -63,7 +63,6 @@ class ChangeController extends AbstractController
         $GLOBALS['after_insert'] = $GLOBALS['after_insert'] ?? null;
         $GLOBALS['comments_map'] = $GLOBALS['comments_map'] ?? null;
         $GLOBALS['table_columns'] = $GLOBALS['table_columns'] ?? null;
-        $GLOBALS['chg_evt_handler'] = $GLOBALS['chg_evt_handler'] ?? null;
         $GLOBALS['timestamp_seen'] = $GLOBALS['timestamp_seen'] ?? null;
         $GLOBALS['columns_cnt'] = $GLOBALS['columns_cnt'] ?? null;
         $GLOBALS['tabindex'] = $GLOBALS['tabindex'] ?? null;
@@ -172,9 +171,6 @@ class ChangeController extends AbstractController
         /**
          * Displays the form
          */
-        // autocomplete feature of IE kills the "onchange" event handler and it
-        //        must be replaced by the "onpropertychange" one in this case
-        $GLOBALS['chg_evt_handler'] = 'onchange';
         // Had to put the URI because when hosted on an https server,
         // some browsers send wrongly this form to the http server.
 
@@ -254,7 +250,6 @@ class ChangeController extends AbstractController
                 $GLOBALS['comments_map'],
                 $GLOBALS['timestamp_seen'],
                 $GLOBALS['current_result'],
-                $GLOBALS['chg_evt_handler'],
                 $GLOBALS['jsvkey'],
                 $GLOBALS['vkey'],
                 $GLOBALS['insert_mode'],

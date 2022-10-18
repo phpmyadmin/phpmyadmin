@@ -171,8 +171,8 @@ class CentralColumns
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
-        $query = 'SELECT count(db_name) FROM ' .
-            Util::backquote($central_list_table) . ' '
+        $query = 'SELECT count(db_name) FROM '
+            . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         $res = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
         if (isset($res[0])) {
@@ -557,7 +557,7 @@ class CentralColumns
         bool $allFields = false
     ): array {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if ($cfgCentralColumns === false || $cfgCentralColumns === []) {
             return [];
         }
 
@@ -569,12 +569,8 @@ class CentralColumns
         }
 
         $cols = trim($cols, ',');
-        $has_list = $this->findExistingColNames($db, $cols, $allFields);
-        if (! empty($has_list)) {
-            return (array) $has_list;
-        }
 
-        return [];
+        return $this->findExistingColNames($db, $cols, $allFields);
     }
 
     /**
@@ -763,7 +759,7 @@ class CentralColumns
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        if (empty($table) || $table == '') {
+        if ($table === '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         } else {
@@ -874,8 +870,8 @@ class CentralColumns
         $central_list_table = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
-            ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
+            . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
         $result = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
 
         if (isset($result[0])) {

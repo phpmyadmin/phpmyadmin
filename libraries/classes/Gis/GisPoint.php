@@ -156,8 +156,8 @@ class GisPoint extends GisGeometry
             $pdf->Circle($points_arr[0][0], $points_arr[0][1], 2, 0, 360, 'D', $line);
             // print label if applicable
             if ($label !== '') {
-                $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
-                $pdf->SetFontSize(5);
+                $pdf->setXY($points_arr[0][0], $points_arr[0][1]);
+                $pdf->setFontSize(5);
                 $pdf->Cell(0, 0, $label);
             }
         }

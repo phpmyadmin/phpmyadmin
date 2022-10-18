@@ -46,7 +46,6 @@ class DesignerController extends AbstractController
         $GLOBALS['success'] = $GLOBALS['success'] ?? null;
         $GLOBALS['page'] = $GLOBALS['page'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['display_page'] = $GLOBALS['display_page'] ?? null;
         $GLOBALS['selected_page'] = $GLOBALS['selected_page'] ?? null;
         $GLOBALS['tab_pos'] = $GLOBALS['tab_pos'] ?? null;
         $GLOBALS['fullTableNames'] = $GLOBALS['fullTableNames'] ?? null;
@@ -174,24 +173,23 @@ class DesignerController extends AbstractController
 
         $GLOBALS['script_display_field'] = $this->designerCommon->getTablesInfo();
 
-        $GLOBALS['display_page'] = -1;
         $GLOBALS['selected_page'] = null;
 
         $visualBuilderMode = isset($_GET['query']);
 
         if ($visualBuilderMode) {
-            $GLOBALS['display_page'] = $this->designerCommon->getDefaultPage($_GET['db']);
+            $displayPage = $this->designerCommon->getDefaultPage($_GET['db']);
         } elseif (! empty($_GET['page'])) {
-            $GLOBALS['display_page'] = $_GET['page'];
+            $displayPage = (int) $_GET['page'];
         } else {
-            $GLOBALS['display_page'] = $this->designerCommon->getLoadingPage($_GET['db']);
+            $displayPage = $this->designerCommon->getLoadingPage($_GET['db']);
         }
 
-        if ($GLOBALS['display_page'] != -1) {
-            $GLOBALS['selected_page'] = $this->designerCommon->getPageName($GLOBALS['display_page']);
+        if ($displayPage != -1) {
+            $GLOBALS['selected_page'] = $this->designerCommon->getPageName($displayPage);
         }
 
-        $GLOBALS['tab_pos'] = $this->designerCommon->getTablePositions($GLOBALS['display_page']);
+        $GLOBALS['tab_pos'] = $this->designerCommon->getTablePositions($displayPage);
 
         $GLOBALS['fullTableNames'] = [];
 
@@ -258,7 +256,7 @@ class DesignerController extends AbstractController
                 $GLOBALS['script_tables'],
                 $GLOBALS['script_contr'],
                 $GLOBALS['script_display_field'],
-                $GLOBALS['display_page'],
+                $displayPage,
                 $visualBuilderMode,
                 $GLOBALS['selected_page'],
                 $GLOBALS['classes_side_menu'],

@@ -485,8 +485,8 @@ class Error extends Message
      */
     public function isUserError(): bool
     {
-        return $this->hideLocation ||
-            ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED));
+        return $this->hideLocation
+            || ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED));
     }
 
     /**

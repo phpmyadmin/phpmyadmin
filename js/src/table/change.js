@@ -194,6 +194,19 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
         }
         // Update error on dropdown change
         $thisInput.valid();
+    } else if ($thisInput.data('type') === 'FLOAT') {
+        // Trim spaces
+        $thisInput.val($thisInput.val().trim());
+
+        $(searchFormId).validate({
+            // update errors as we write
+            onkeyup: function (element) {
+                $(element).valid();
+            }
+        });
+        validateFloatField($thisInput, true);
+        // Update error on dropdown change
+        $thisInput.valid();
     }
 }
 window.verifyAfterSearchFieldChange = verifyAfterSearchFieldChange;
@@ -257,6 +270,26 @@ function validateIntField (jqueryInput, returnValueIfIsNumber) {
                 }
             }
         }
+    });
+}
+
+/**
+ * Validate the an input contains an float value
+ * @param {jQuery} jqueryInput the Jquery object
+ * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
+ * @return {void}
+ */
+function validateFloatField (jqueryInput, returnValueIfIsNumber) {
+    // removing previous rules
+    jqueryInput.rules('remove');
+
+    jqueryInput.rules('add', {
+        number: {
+            param: true,
+            depends: function () {
+                return returnValueIfIsNumber;
+            }
+        },
     });
 }
 

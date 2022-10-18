@@ -51,18 +51,18 @@ class PdfTest extends AbstractTestCase
     public function testDocument(): void
     {
         $pdf = new Pdf();
-        $pdf->SetTitle('Title');
+        $pdf->setTitle('Title');
         $pdf->Open();
         $pdf->setAutoPageBreak(true);
-        $pdf->Addpage();
-        $pdf->SetFont(Pdf::PMA_PDF_FONT, 'B', 14);
+        $pdf->AddPage();
+        $pdf->setFont(Pdf::PMA_PDF_FONT, 'B', 14);
         $pdf->Cell(0, 6, 'Cell', 'B', 1, 'C');
         $pdf->Ln();
-        $pdf->Addpage();
+        $pdf->AddPage();
         $pdf->Bookmark('Bookmark');
-        $pdf->SetMargins(0, 0);
-        $pdf->SetDrawColor(200, 200, 200);
-        $pdf->line(0, 0, 100, 100);
+        $pdf->setMargins(0, 0);
+        $pdf->setDrawColor(200, 200, 200);
+        $pdf->Line(0, 0, 100, 100);
         $this->assertStringContainsString('PDF', $pdf->getPDFData());
     }
 }

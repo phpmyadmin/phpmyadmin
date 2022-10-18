@@ -26,7 +26,7 @@ class SchemaExportController
 
     public function __invoke(ServerRequest $request): void
     {
-        if (! isset($_POST['export_type'])) {
+        if ($request->getParsedBodyParam('export_type') === null) {
             $errorMessage = __('Missing parameter:') . ' export_type'
                 . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
                 . '[br]';

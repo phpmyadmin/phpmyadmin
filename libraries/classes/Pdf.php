@@ -55,10 +55,10 @@ class Pdf extends TCPDF
         $pdfa = false
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
-        $this->SetAuthor('phpMyAdmin ' . Version::VERSION);
+        $this->setAuthor('phpMyAdmin ' . Version::VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->setFont(self::PMA_PDF_FONT, '', 14);
         $this->setFooterFont([self::PMA_PDF_FONT, '', 14]);
     }
 
@@ -73,8 +73,8 @@ class Pdf extends TCPDF
             return;
         }
 
-        $this->SetY(-15);
-        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->setY(-15);
+        $this->setFont(self::PMA_PDF_FONT, '', 14);
         $this->Cell(
             0,
             6,
@@ -85,7 +85,7 @@ class Pdf extends TCPDF
             'C'
         );
         $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
-        $this->SetY(20);
+        $this->setY(20);
 
         // set footerset
         $this->footerset[$this->page] = 1;

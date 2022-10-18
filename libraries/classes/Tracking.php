@@ -21,6 +21,7 @@ use function htmlspecialchars;
 use function in_array;
 use function ini_set;
 use function is_array;
+use function json_encode;
 use function mb_strstr;
 use function preg_replace;
 use function rtrim;
@@ -197,12 +198,10 @@ class Tracking
             return false;
         }
 
-        $sql_query = ' SELECT DISTINCT db_name, table_name FROM ' .
-            Util::backquote($trackingFeature->database) . '.' .
-            Util::backquote($trackingFeature->tracking) .
-            " WHERE db_name = '" . $this->dbi->escapeString($db) .
-            "' " .
-            ' ORDER BY db_name, table_name';
+        $sql_query = ' SELECT DISTINCT db_name, table_name FROM '
+            . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
+            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "' "
+            . ' ORDER BY db_name, table_name';
 
         return $this->dbi->queryAsControlUser($sql_query);
     }
@@ -258,9 +257,7 @@ class Tracking
             $drop_image_or_text .= __('Delete');
         }
 
-        /*
-         *  First, list tracked data definition statements
-         */
+        // First, list tracked data definition statements
         if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
             $msg = Message::notice(__('No data'));
             echo $msg->getDisplay();
@@ -399,9 +396,7 @@ class Tracking
             unset($temp);
         }
 
-        /*
-         *  Secondly, list tracked data manipulation statements
-         */
+        // Secondly, list tracked data manipulation statements
         if (($selection_data || $selection_both) && count($data['dmlog']) > 0) {
             $html .= $this->getHtmlForDataManipulationStatements(
                 $data,
@@ -470,11 +465,11 @@ class Tracking
             . '<option value="sqldumpfile">' . __('SQL dump (file download)')
             . '</option>'
             . '<option value="sqldump">' . __('SQL dump') . '</option>'
-            . '<option value="execution" onclick="alert(\''
-            . Sanitize::escapeJsString(
+            . '<option value="execution" onclick="alert('
+            . htmlspecialchars((string) json_encode(
                 __('This option will replace your table and contained data.')
-            )
-            . '\')">' . __('SQL execution') . '</option></select>';
+            ))
+            . ')">' . __('SQL execution') . '</option></select>';
 
         $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
@@ -1118,13 +1113,10 @@ class Tracking
         }
 
         // Prepare statement to get HEAD version
-        $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM ' .
-            Util::backquote($trackingFeature->database) . '.' .
-            Util::backquote($trackingFeature->tracking) .
-            ' WHERE db_name = \'' . $this->dbi->escapeString($db) .
-            '\' ' .
-            ' GROUP BY table_name' .
-            ' ORDER BY table_name ASC';
+        $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM '
+            . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
+            . ' WHERE db_name = \'' . $this->dbi->escapeString($db)
+            . '\'  GROUP BY table_name ORDER BY table_name ASC';
 
         $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
         $untrackedTables = $this->getUntrackedTables($db);
@@ -1133,13 +1125,10 @@ class Tracking
         $versions = [];
         while ($oneResult = $allTablesResult->fetchRow()) {
             [$tableName, $versionNumber] = $oneResult;
-            $tableQuery = ' SELECT * FROM ' .
-                Util::backquote($trackingFeature->database) . '.' .
-                Util::backquote($trackingFeature->tracking) .
-                ' WHERE `db_name` = \''
-                . $this->dbi->escapeString($db)
-                . '\' AND `table_name`  = \''
-                . $this->dbi->escapeString($tableName)
+            $tableQuery = ' SELECT * FROM '
+                . Util::backquote($trackingFeature->database) . '.' . Util::backquote($trackingFeature->tracking)
+                . ' WHERE `db_name` = \'' . $this->dbi->escapeString($db)
+                . '\' AND `table_name`  = \'' . $this->dbi->escapeString($tableName)
                 . '\' AND `version` = \'' . $versionNumber . '\'';
 
             $versions[] = $this->dbi->queryAsControlUser($tableQuery)->fetchAssoc();

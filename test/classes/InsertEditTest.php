@@ -95,11 +95,7 @@ class InsertEditTest extends AbstractTestCase
             new Template()
         );
 
-        if (empty($GLOBALS['dbi'])) {
-            return;
-        }
-
-        $GLOBALS['dbi']->setVersion([
+        $this->dbi->setVersion([
             '@@version' => '10.9.3-MariaDB-1:10.9.3+maria~ubu2204',
             '@@version_comment' => 'mariadb.org binary distribution',
         ]);
@@ -1006,7 +1002,7 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datefield" c tabindex="25" id="field_0_3">',
+            . ' class="textfield datefield" onchange="c" tabindex="25" id="field_0_3">',
             $result
         );
 
@@ -1032,7 +1028,7 @@ class InsertEditTest extends AbstractTestCase
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
             $result
         );
 
@@ -1058,7 +1054,7 @@ class InsertEditTest extends AbstractTestCase
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
             $result
         );
 
@@ -1085,7 +1081,7 @@ class InsertEditTest extends AbstractTestCase
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="11" min="-2147483648" max="2147483647" data-type="INT"'
-            . ' class="textfield" c tabindex="25" inputmode="numeric" id="field_0_3">',
+            . ' class="textfield" onchange="c" tabindex="25" inputmode="numeric" id="field_0_3">',
             $result
         );
     }
@@ -1185,7 +1181,7 @@ class InsertEditTest extends AbstractTestCase
             "a\na\n"
             . '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="25" rows="7" cols="1" dir="/" '
-            . 'id="field_1_3" c tabindex="34" data-type="CHAR">'
+            . 'id="field_1_3" onchange="c" tabindex="34" data-type="CHAR">'
             . '&lt;</textarea>',
             $result
         );
@@ -1220,7 +1216,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             "a\n"
             . '<input type="text" name="fieldsb" value="&lt;" size="20" data-type="'
-            . 'DATE" class="textfield datetimefield" c tabindex="34" id="field_1_3"'
+            . 'DATE" class="textfield datetimefield" onchange="c" tabindex="34" id="field_1_3"'
             . '><input type="hidden" name="auto_incrementb" value="1">'
             . '<input type="hidden" name="fields_typeb" value="timestamp">',
             $result
@@ -2871,7 +2867,6 @@ class InsertEditTest extends AbstractTestCase
                 $resultStub,
                 '',
                 '',
-                '',
                 false,
                 [],
                 &$o_rows,
@@ -2928,7 +2923,6 @@ class InsertEditTest extends AbstractTestCase
                 [],
                 false,
                 $resultStub,
-                '',
                 '',
                 '[a][0]',
                 true,
@@ -3036,7 +3030,6 @@ class InsertEditTest extends AbstractTestCase
             $resultStub,
             '',
             '',
-            '',
             false,
             [],
             $o_rows,
@@ -3116,7 +3109,6 @@ class InsertEditTest extends AbstractTestCase
             $resultStub,
             '',
             '',
-            '',
             false,
             [],
             $o_rows,
@@ -3175,7 +3167,6 @@ class InsertEditTest extends AbstractTestCase
             [],
             false,
             $resultStub,
-            '',
             '',
             '',
             true,

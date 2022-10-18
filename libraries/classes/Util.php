@@ -580,16 +580,10 @@ class Util
 
         $dh = 10 ** $digitsRight;
 
-        /*
-         * This gives us the right SI prefix already,
-         * but $digits_left parameter not incorporated
-         */
+        // This gives us the right SI prefix already, but $digits_left parameter not incorporated
         $d = floor(log10((float) $value) / 3);
-        /*
-         * Lowering the SI prefix by 1 gives us an additional 3 zeros
-         * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
-         * to use, then lower the SI prefix
-         */
+        // Lowering the SI prefix by 1 gives us an additional 3 zeros
+        // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
         $curDigits = floor(log10($value / 1000 ** $d) + 1);
         if ($digitsLeft > $curDigits) {
             $d -= floor(($digitsLeft - $curDigits) / 3);
@@ -1579,10 +1573,10 @@ class Util
             $vars[$key] = $val;
         }
 
-        /* Replacement mapping */
-        /*
-         * The __VAR__ ones are for backward compatibility, because user
-         * might still have it in cookies.
+        /**
+         * Replacement mapping
+         *
+         * The __VAR__ ones are for backward compatibility, because user might still have it in cookies.
          */
         $replace = [
             '@HTTP_HOST@' => $vars['http_host'],

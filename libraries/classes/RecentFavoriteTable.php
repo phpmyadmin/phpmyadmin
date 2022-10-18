@@ -116,8 +116,8 @@ class RecentFavoriteTable
     public function getFromDb(): array
     {
         // Read from phpMyAdmin database, if recent tables is not in session
-        $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable() .
-            " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
+        $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable()
+            . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
         $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
         if ($result) {
@@ -138,11 +138,9 @@ class RecentFavoriteTable
     public function saveToDb()
     {
         $username = $GLOBALS['cfg']['Server']['user'];
-        $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)' .
-                " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
-                . $GLOBALS['dbi']->escapeString(
-                    json_encode($this->tables)
-                ) . "')";
+        $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)'
+            . " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
+            . $GLOBALS['dbi']->escapeString(json_encode($this->tables)) . "')";
 
         $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
 

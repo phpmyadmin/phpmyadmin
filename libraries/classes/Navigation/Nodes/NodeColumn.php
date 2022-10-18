@@ -100,21 +100,12 @@ class NodeColumn extends Node
      *
      * @return string truncated value
      */
-    public function getTruncateValue($key, $value)
+    private function getTruncateValue($key, $value)
     {
-        $retval = '';
-
-        switch ($key) {
-            case 'default':
-                strlen($value) > 6 ?
-                    $retval .= substr($value, 0, 6) . '...' :
-                    $retval = $value;
-                break;
-            default:
-                $retval = $value;
-                break;
+        if ($key === 'default' && strlen($value) > 6) {
+            return substr($value, 0, 6) . '...';
         }
 
-        return $retval;
+        return $value;
     }
 }

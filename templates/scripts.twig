@@ -10,13 +10,13 @@
 {% if files is not empty %}
 window.AJAX.scriptHandler
 {% for file in files %}
-  .add('{{ file.filename|escape_js_string }}', {{ file.has_onload ? 1 : 0 }})
+  .add('{{ file.filename|escape('js') }}', {{ file.has_onload ? 1 : 0 }})
 {% endfor %}
 ;
 $(function() {
 {% for file in files %}
   {% if file.has_onload %}
-  window.AJAX.fireOnload('{{ file.filename|escape_js_string }}');
+  window.AJAX.fireOnload('{{ file.filename|escape('js') }}');
   {% endif %}
 {% endfor %}
 });

@@ -271,7 +271,7 @@ class BrowseForeigners
      *
      * @param string $description the key name's description
      *
-     * @return array the new description and title
+     * @return array<int,string> the new description and title
      */
     private function getDescriptionAndTitle(string $description): array
     {
