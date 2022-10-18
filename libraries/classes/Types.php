@@ -559,6 +559,7 @@ class Types
                     'REVERSE',
                     'RTRIM',
                     'SHA1',
+                    'SHA2',
                     'SOUNDEX',
                     'SPACE',
                     'TRIM',

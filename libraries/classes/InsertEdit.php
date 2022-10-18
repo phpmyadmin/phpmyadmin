@@ -1587,10 +1587,16 @@ class InsertEdit
             ! in_array($editField->function, self::FUNC_NO_PARAM)
             || ($editField->value !== '' && in_array($editField->function, self::FUNC_OPTIONAL_PARAM))
         ) {
+            if ($editField->function === 'SHA2' && $editField->salt === '') {
+                /* 0 is equivalent to 256 */
+                $editField->salt = '0';
+            }
+
             if (
                 ($editField->salt !== null
                     && ($editField->function === 'AES_ENCRYPT'
-                        || $editField->function === 'AES_DECRYPT'))
+                        || $editField->function === 'AES_DECRYPT'
+                        || $editField->function === 'SHA2'))
                 || ($editField->salt
                     && ($editField->function === 'DES_ENCRYPT'
                         || $editField->function === 'DES_DECRYPT'

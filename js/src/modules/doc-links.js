@@ -265,6 +265,7 @@ export const mysqlDocKeyword = {
     'SESSION_USER': ['information-functions', 'function_session_user'],
     'SHA': ['encryption-functions', 'function_sha1'],
     'SHA1': ['encryption-functions', 'function_sha1'],
+    'SHA2': ['encryption-functions', 'function_sha2'],
     'SIGN': ['mathematical-functions', 'function_sign'],
     'SIN': ['mathematical-functions', 'function_sin'],
     'SLEEP': ['miscellaneous-functions', 'function_sleep'],
