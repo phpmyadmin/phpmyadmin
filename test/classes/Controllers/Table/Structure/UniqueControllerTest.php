@@ -50,7 +50,10 @@ class UniqueControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
-        $_POST['selected_fld'] = ['test_field1', 'test_field2'];
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['selected_fld', [], ['test_field1', 'test_field2']],
+        ]);
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
