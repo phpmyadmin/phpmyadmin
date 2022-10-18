@@ -107,7 +107,6 @@ class UniqueControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['message'] = null;
         $GLOBALS['sql_query'] = null;
-        $_POST['selected_fld'] = ['test_field'];
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
@@ -116,6 +115,9 @@ class UniqueControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['selected_fld', [], ['test_field']],
+        ]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
