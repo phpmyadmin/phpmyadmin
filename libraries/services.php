@@ -233,6 +233,14 @@ return [
         'transformations' => [
             'class' => PhpMyAdmin\Transformations::class,
         ],
+        'triggers' => [
+            'class' => PhpMyAdmin\Database\Triggers::class,
+            'arguments' => [
+                '@dbi',
+                '@template',
+                '@response',
+            ],
+        ],
         'user_password' => [
             'class' => PhpMyAdmin\UserPassword::class,
             'arguments' => ['@server_privileges'],

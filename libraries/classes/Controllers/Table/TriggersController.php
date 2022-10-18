@@ -25,13 +25,18 @@ class TriggersController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var Triggers */
+    private $triggers;
+
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi
+        DatabaseInterface $dbi,
+        Triggers $triggers
     ) {
         parent::__construct($response, $template);
         $this->dbi = $dbi;
+        $this->triggers = $triggers;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -93,7 +98,6 @@ class TriggersController extends AbstractController
          */
         $GLOBALS['errors'] = [];
 
-        $triggers = new Triggers($this->dbi, $this->template, $this->response);
-        $triggers->main();
+        $this->triggers->main();
     }
 }

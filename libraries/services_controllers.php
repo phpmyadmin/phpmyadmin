@@ -440,6 +440,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$dbi' => '@dbi',
+                '$triggers' => '@triggers',
             ],
         ],
         DatabaseController::class => [
@@ -1626,6 +1627,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$dbi' => '@dbi',
+                '$triggers' => '@triggers',
             ],
         ],
         Table\ZoomSearchController::class => [

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\TriggersController;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
@@ -51,10 +52,12 @@ class TriggersControllerTest extends AbstractTestCase
         );
 
         $template = new Template();
+        $response = new ResponseRenderer();
         (new TriggersController(
-            new ResponseRenderer(),
+            $response,
             $template,
-            $this->dbi
+            $this->dbi,
+            new Triggers($this->dbi, $template, $response)
         ))($this->createStub(ServerRequest::class));
 
         $items = [
