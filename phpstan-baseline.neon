@@ -1201,23 +1201,8 @@ parameters:
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dumpBuffer of method PhpMyAdmin\\\\Export\\:\\:compress\\(\\) expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#1 \\(mixed\\) of echo cannot be converted to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$dumpBuffer of method PhpMyAdmin\\\\Export\\:\\:closeFile\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$what of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			message: "#^Property PhpMyAdmin\\\\Export\\:\\:\\$dumpBuffer \\(string\\) does not accept array\\|bool\\|string\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
@@ -3336,16 +3321,6 @@ parameters:
 			path: libraries/classes/Export.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#3 \\$what of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Export\\:\\:\\$dumpBufferObjects type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
@@ -3457,11 +3432,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Font\\:\\:getStringWidth\\(\\) has parameter \\$charLists with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Font.php
-
-		-
-			message: "#^Variable \\$charLists in empty\\(\\) always exists and is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Font.php
 

@@ -1896,7 +1896,7 @@
       <code>$GLOBALS['asfile']</code>
       <code>$GLOBALS['file_handle']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="36">
+    <MixedArgument occurrences="32">
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['cfg']['MemoryLimit']</code>
@@ -1929,10 +1929,6 @@
       <code>$GLOBALS['whatStrucOrData']</code>
       <code>$GLOBALS['whatStrucOrData']</code>
       <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$this-&gt;export-&gt;dumpBuffer</code>
-      <code>$this-&gt;export-&gt;dumpBuffer</code>
-      <code>$this-&gt;export-&gt;dumpBuffer</code>
-      <code>$this-&gt;export-&gt;dumpBuffer</code>
     </MixedArgument>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['aliases']</code>
@@ -2109,6 +2105,7 @@
       <code>$GLOBALS['whatStrucOrData']</code>
       <code>$GLOBALS['whatStrucOrData']</code>
     </PossiblyInvalidCast>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="2"/>
     <PossiblyNullArgument occurrences="18">
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['export_plugin']</code>
@@ -6707,11 +6704,10 @@
       <code>$view</code>
       <code>$views[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="6">
       <code>$currentDb</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$this-&gt;dumpBuffer</code>
       <code>$this-&gt;dumpBufferObjects[$objectName]</code>
       <code>$tmpSelect</code>
       <code>$view</code>
@@ -6723,10 +6719,8 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$_POST['db']</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['file_handle']</code>
-      <code>$line</code>
-      <code>$line</code>
     </PossiblyNullArgument>
     <RedundantCondition occurrences="1">
       <code>mb_strtolower($userExtension) != $requiredExtension</code>
@@ -6863,9 +6857,6 @@
       <code>$count</code>
       <code>$textWidth</code>
     </MixedOperand>
-    <TypeDoesNotContainType occurrences="1">
-      <code>empty($charLists)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Footer.php">
     <InvalidArgument occurrences="1">

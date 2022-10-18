@@ -516,7 +516,6 @@ class Results
         $fieldsMeta = $this->properties['fields_meta'];
         $previousTable = '';
         $numberOfColumns = $this->properties['fields_cnt'];
-        $hasTextButton = true;
         $hasEditLink = $displayParts->hasEditLink;
         $deleteLink = $displayParts->deleteLink;
         $hasPrintLink = $displayParts->hasPrintLink;
@@ -555,7 +554,7 @@ class Results
         return $displayParts->with([
             'hasEditLink' => $hasEditLink,
             'deleteLink' => $deleteLink,
-            'hasTextButton' => $hasTextButton,
+            'hasTextButton' => true,
             'hasPrintLink' => $hasPrintLink,
         ]);
     }
@@ -2339,30 +2338,29 @@ class Results
             $transformationPlugin = null;
             $transformOptions = [];
 
-            if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
-                if (
-                    isset($mediaTypeMap[$orgFullColName]['mimetype'])
-                    && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
-                ) {
-                    $file = $mediaTypeMap[$orgFullColName]['transformation'];
-                    $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+            if (
+                $relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']
+                && isset($mediaTypeMap[$orgFullColName]['mimetype'])
+                && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
+            ) {
+                $file = $mediaTypeMap[$orgFullColName]['transformation'];
+                $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
 
-                    if (@file_exists(ROOT_PATH . $includeFile)) {
-                        $className = $this->transformations->getClassName($includeFile);
-                        if (class_exists($className)) {
-                            $plugin = new $className();
-                            if ($plugin instanceof TransformationsPlugin) {
-                                $transformationPlugin = $plugin;
-                                $transformOptions = $this->transformations->getOptions(
-                                    $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
-                                );
+                if (@file_exists(ROOT_PATH . $includeFile)) {
+                    $className = $this->transformations->getClassName($includeFile);
+                    if (class_exists($className)) {
+                        $plugin = new $className();
+                        if ($plugin instanceof TransformationsPlugin) {
+                            $transformationPlugin = $plugin;
+                            $transformOptions = $this->transformations->getOptions(
+                                $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
+                            );
 
-                                $meta->internalMediaType = str_replace(
-                                    '_',
-                                    '/',
-                                    $mediaTypeMap[$orgFullColName]['mimetype']
-                                );
-                            }
+                            $meta->internalMediaType = str_replace(
+                                '_',
+                                '/',
+                                $mediaTypeMap[$orgFullColName]['mimetype']
+                            );
                         }
                     }
                 }
