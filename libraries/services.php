@@ -158,6 +158,14 @@ return [
             'class' => PhpMyAdmin\ResponseRenderer::class,
             'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
         ],
+        'routines' => [
+            'class' => PhpMyAdmin\Database\Routines::class,
+            'arguments' => [
+                '@dbi',
+                '@template',
+                '@response',
+            ],
+        ],
         'server_plugins' => [
             'class' => PhpMyAdmin\Server\Plugins::class,
             'arguments' => ['@dbi'],
@@ -232,6 +240,14 @@ return [
         ],
         'transformations' => [
             'class' => PhpMyAdmin\Transformations::class,
+        ],
+        'triggers' => [
+            'class' => PhpMyAdmin\Database\Triggers::class,
+            'arguments' => [
+                '@dbi',
+                '@template',
+                '@response',
+            ],
         ],
         'user_password' => [
             'class' => PhpMyAdmin\UserPassword::class,
