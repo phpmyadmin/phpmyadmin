@@ -79,17 +79,17 @@
             <td class="column_attribute text-nowrap">{{ attributes[rownum] }}</td>
             <td>{{ row['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
             <td class="text-nowrap">
-                {% if row['Default'] is not null %}
-                    {% if extracted_columnspec['type'] == 'bit' %}
-                        {{ row['Default']|convert_bit_default_value }}
-                    {% else %}
-                        {{ row['Default'] }}
-                    {% endif %}
-                {% elseif row['Null'] == 'YES' %}
+                {%- if row['Default'] is not null -%}
+                    {%- if extracted_columnspec['type'] == 'bit' -%}
+                        {{- row['Default']|convert_bit_default_value -}}
+                    {%- else -%}
+                        {{- row['Default'] -}}
+                    {%- endif -%}
+                {%- elseif row['Null'] == 'YES' -%}
                     <em>NULL</em>
-                {% else %}
+                {%- else -%}
                     <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
-                {% endif %}
+                {%- endif -%}
             </td>
             {% if show_column_comments %}
                 <td>
