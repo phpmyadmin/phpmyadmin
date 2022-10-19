@@ -2793,10 +2793,20 @@ AJAX.registerOnload('functions.js', function () {
         var $msgbox = Functions.ajaxShowMessage();
 
         /**
-         * @var button_options  Object containing options to be passed to jQueryUI's dialog
+         * @var buttonOptions Object containing options to be passed to jQueryUI's dialog
          */
-        var buttonOptions = {};
-        buttonOptions[Messages.strGo] = function () {
+        var buttonOptions = {
+            [Messages.strGo]: {
+                text: Messages.strGo,
+                'class': 'btn btn-primary',
+            },
+            [Messages.strCancel]: {
+                text: Messages.strCancel,
+                'class': 'btn btn-secondary',
+            },
+        };
+
+        buttonOptions[Messages.strGo].click = function () {
             event.preventDefault();
 
             /**
@@ -2833,7 +2843,7 @@ AJAX.registerOnload('functions.js', function () {
             }); // end $.post()
         };
 
-        buttonOptions[Messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel].click = function () {
             $(this).dialog('close');
         };
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
