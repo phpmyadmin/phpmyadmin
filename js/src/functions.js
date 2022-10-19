@@ -2401,7 +2401,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
     var buttonOptions = [
         {
             text: Messages.strOK,
-            'class': 'submitOK',
+            'class': 'btn btn-primary submitOK',
             click: function () {
                 $(this).dialog('close');
                 if (typeof callbackFn === 'function') {
@@ -2411,7 +2411,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
         },
         {
             text: Messages.strCancel,
-            'class': 'submitCancel',
+            'class': 'btn btn-secondary submitCancel',
             click: function () {
                 $(this).dialog('close');
             }
@@ -2421,6 +2421,9 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
     $('<div></div>', { 'id': 'confirm_dialog', 'title': Messages.strConfirm })
         .prepend(question)
         .dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             buttons: buttonOptions,
             close: function () {
                 $(this).remove();
