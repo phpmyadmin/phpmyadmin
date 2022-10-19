@@ -25,12 +25,22 @@ function serverResponseError () {
     btns[Messages.strReloadPage] = function () {
         window.location.reload();
     };
-    $('#emptyDialog').dialog({ title: Messages.strRefreshFailed });
+    $('#emptyDialog').dialog({
+        classes: {
+            'ui-dialog-titlebar-close': 'btn-close'
+        },
+        title: Messages.strRefreshFailed
+    });
     $('#emptyDialog').html(
         Functions.getImage('s_attention') +
         Messages.strInvalidResponseExplanation
     );
-    $('#emptyDialog').dialog({ buttons: btns });
+    $('#emptyDialog').dialog({
+        classes: {
+            'ui-dialog-titlebar-close': 'btn-close'
+        },
+        buttons: btns
+    });
 }
 
 /**
@@ -636,7 +646,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a[href="#importMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
-        $('#emptyDialog').dialog({ title: Messages.strImportDialogTitle });
+        $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
+            title: Messages.strImportDialogTitle
+        });
         $('#emptyDialog').html(Messages.strImportDialogMessage + ':<br><form>' +
             '<input type="file" name="file" id="import_file"> </form>');
 
@@ -695,6 +710,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         };
 
         $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -736,6 +754,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $(this).dialog('close');
         };
         $dialog.dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: '60%',
             height: 'auto',
             buttons: dlgBtns
@@ -1004,7 +1025,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 && typeof window.localStorage.monitorVersion !== 'undefined'
                 && monitorProtocolVersion !== window.localStorage.monitorVersion
             ) {
-                $('#emptyDialog').dialog({ title: Messages.strIncompatibleMonitorConfig });
+                $('#emptyDialog').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
+                    title: Messages.strIncompatibleMonitorConfig
+                });
                 $('#emptyDialog').html(Messages.strIncompatibleMonitorConfigDescription);
 
                 var dlgBtns = {};
@@ -1013,6 +1039,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 };
 
                 $('#emptyDialog').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 400,
                     buttons: dlgBtns
                 });
@@ -1384,6 +1413,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         };
 
         $logAnalyseDialog.dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -1637,7 +1669,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             opts.limitTypes = false;
         }
 
-        $('#emptyDialog').dialog({ title: Messages.strAnalysingLogsTitle });
+        $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
+            title: Messages.strAnalysingLogsTitle
+        });
         $('#emptyDialog').html(Messages.strAnalysingLogs +
                                 ' <img class="ajaxIcon" src="' + themeImagePath +
                                 'ajax_clock_small.gif" alt="">');
@@ -1652,6 +1689,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         };
 
         $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -1681,7 +1721,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 }
 
                 if (logData.rows.length === 0) {
-                    $('#emptyDialog').dialog({ title: Messages.strNoDataFoundTitle });
+                    $('#emptyDialog').dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
+                        title: Messages.strNoDataFoundTitle,
+                    });
                     $('#emptyDialog').html('<p>' + Messages.strNoDataFound + '</p>');
 
                     dlgBtns[Messages.strClose] = function () {
@@ -1695,7 +1740,12 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 runtime.logDataCols = buildLogTable(logData, opts.removeVariables);
 
                 /* Show some stats in the dialog */
-                $('#emptyDialog').dialog({ title: Messages.strLoadingLogs });
+                $('#emptyDialog').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
+                    title: Messages.strLoadingLogs
+                });
                 $('#emptyDialog').html('<p>' + Messages.strLogDataLoaded + '</p>');
                 $.each(logData.sum, function (key, value) {
                     var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
@@ -2036,6 +2086,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         };
 
         $('#queryAnalyzerDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             resizable: false,

@@ -127,6 +127,9 @@ const DatabaseRoutines = {
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 500,
                     buttons: buttonOptions,
                     title: data.title
@@ -292,6 +295,9 @@ const DatabaseRoutines = {
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     height: 400,
                     width: 700,
                     minWidth: 500,
@@ -785,6 +791,9 @@ const DatabaseRoutines = {
                      * Display the dialog to the user
                      */
                     var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
                         width: 650,
                         buttons: that.buttonOptions,
                         title: data.title,

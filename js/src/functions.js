@@ -2848,6 +2848,9 @@ AJAX.registerOnload('functions.js', function () {
 
             $('<div id="change_password_dialog"></div>')
                 .dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     title: Messages.strChangePassword,
                     width: 600,
                     close: function () {

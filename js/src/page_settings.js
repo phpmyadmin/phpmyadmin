@@ -21,6 +21,9 @@ function showSettings (selector) {
     var $clone = $(selector + ' .page_settings').clone(true);
     $(selector)
         .dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             title: Messages.strPageSettings,
             width: 700,
             minHeight: 250,

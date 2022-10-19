@@ -392,6 +392,9 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                 $div
                     .append(data.message)
                     .dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
                         title: Messages.strAddIndex,
                         width: 450,
                         minHeight: 250,
@@ -531,6 +534,9 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
         $(this).remove();
     };
     $('<div></div>').append($dialogContent).dialog({
+        classes: {
+            'ui-dialog-titlebar-close': 'btn-close'
+        },
         minWidth: 525,
         minHeight: 200,
         modal: true,
