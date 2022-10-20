@@ -1243,16 +1243,6 @@
       <code>$GLOBALS['errorUrl']</code>
       <code>['Name' =&gt; $tableName]</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$_POST['db_collation']</code>
-      <code>$_POST['db_collation'] ?? ''</code>
-      <code>$_POST['db_collation'] ?? ''</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="3">
-      <code>$_POST['db_collation']</code>
-      <code>$_POST['db_collation'] ?? ''</code>
-      <code>$_POST['db_collation'] ?? ''</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Database/OperationsController.php">
     <ArgumentTypeCoercion occurrences="1">
