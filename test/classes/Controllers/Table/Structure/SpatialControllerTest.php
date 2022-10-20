@@ -31,7 +31,7 @@ class SpatialControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
-            ['selected_fld', 'test_field'],
+            ['selected_fld', [], ['test_field']],
         ]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
@@ -86,7 +86,7 @@ class SpatialControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
-            ['selected_fld', null],
+            ['selected_fld', [], null],
         ]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->never())->method('__invoke');
@@ -118,7 +118,7 @@ class SpatialControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
-            ['selected_fld', 'test_field'],
+            ['selected_fld', [], ['test_field']],
         ]);
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
