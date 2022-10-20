@@ -837,12 +837,12 @@ class Tracking
      *
      * @param array $entries entries
      */
-    public function exportAsFileDownload(array $entries): void
+    public function exportAsFileDownload(string $table, array $entries): void
     {
         ini_set('url_rewriter.tags', '');
 
         // Replace all multiple whitespaces by a single space
-        $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_POST['table']));
+        $table = htmlspecialchars(preg_replace('/\s+/', ' ', $table));
         $dump = '# ' . sprintf(
             __('Tracking report for table `%s`'),
             $table

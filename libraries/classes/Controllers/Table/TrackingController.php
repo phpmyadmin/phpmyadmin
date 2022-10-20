@@ -139,7 +139,7 @@ final class TrackingController extends AbstractController
 
         // Export as file download
         if (isset($_POST['report_export']) && $_POST['export_type'] === 'sqldumpfile') {
-            $this->tracking->exportAsFileDownload($GLOBALS['entries']);
+            $this->tracking->exportAsFileDownload($_POST['table'], $GLOBALS['entries']);
         }
 
         $actionMessage = '';
