@@ -233,10 +233,7 @@ class CreateController extends AbstractController
             return;
         }
 
-        /** @var string|null $sqlquery */
-        $sqlquery = $request->getParsedBodyParam('sql_query');
-
-        $GLOBALS['sql_query'] = ! empty($sqlquery) ? $sqlquery : '';
+        $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query', '');
 
         // prefill values if not already filled from former submission
         $GLOBALS['view'] = [
