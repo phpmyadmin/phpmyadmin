@@ -105,10 +105,10 @@ class CreateController extends AbstractController
         }
 
         /** @var string|null $createview */
-        $createview = $request->getParsedBodyParam('createview');  
-        
+        $createview = $request->getParsedBodyParam('createview');
+
         /** @var string|null $alterview */
-        $alterview = $request->getParsedBodyParam('alterview');  
+        $alterview = $request->getParsedBodyParam('alterview');
 
         if (isset($createview) || isset($alterview)) {
             /**
@@ -161,11 +161,11 @@ class CreateController extends AbstractController
             $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' AS ' . $view['as'];
 
             if (isset($view['with']) && in_array($view['with'], $GLOBALS['view_with_options'])) {
-                $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' WITH ' .$view['with'] . '  CHECK OPTION';
+                $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' WITH ' . $view['with'] . '  CHECK OPTION';
             }
 
             /** @var string|null $ajaxdialog */
-            $ajaxdialog = $request->getParsedBodyParam('ajax_dialog');  
+            $ajaxdialog = $request->getParsedBodyParam('ajax_dialog');
 
             if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {
                 if (! isset($ajaxdialog)) {
@@ -234,7 +234,7 @@ class CreateController extends AbstractController
         }
 
         /** @var string|null $sqlquery */
-        $sqlquery = $request->getParsedBodyParam('sql_query');        
+        $sqlquery = $request->getParsedBodyParam('sql_query');
 
         $GLOBALS['sql_query'] = ! empty($sqlquery) ? $sqlquery : '';
 
