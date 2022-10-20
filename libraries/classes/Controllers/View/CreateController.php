@@ -168,7 +168,7 @@ class CreateController extends AbstractController
             $ajaxdialog = $request->getParsedBodyParam('ajax_dialog');
 
             if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {
-                if (! isset($ajaxdialog)) {
+                if (is_null($ajaxdialog)) {
                     $GLOBALS['message'] = Message::rawError($this->dbi->getError());
 
                     return;
