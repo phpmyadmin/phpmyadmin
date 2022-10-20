@@ -77,13 +77,13 @@ class ReplicationController extends AbstractController
                 $request->getParsedBodyParam('sr_replica_server_control') !== null,
                 $request->getParsedBodyParam('sr_replica_action'),
                 $request->getParsedBodyParam('sr_replica_skip_error') !== null,
-                isset($_POST['sr_skip_errors_count']) ? (int) $_POST['sr_skip_errors_count'] : 1,
-                $_POST['sr_replica_control_param'] ?? null,
+                (int)$request->getParsedBodyParam('sr_skip_errors_count', 1),
+                $request->getParsedBodyParam('sr_replica_control_param'),
                 [
-                    'username' => $GLOBALS['dbi']->escapeString($_POST['username']),
-                    'pma_pw' => $GLOBALS['dbi']->escapeString($_POST['pma_pw']),
-                    'hostname' => $GLOBALS['dbi']->escapeString($_POST['hostname']),
-                    'port' => (int) $GLOBALS['dbi']->escapeString($_POST['text_port']),
+                    'username' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('username')),
+                    'pma_pw' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('pma_pw')),
+                    'hostname' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('hostname')),
+                    'port' => (int) $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('text_port')),
                 ]
             );
         }
@@ -95,8 +95,8 @@ class ReplicationController extends AbstractController
                 $request->getParsedBodyParam('primary_connection'),
                 $params['repl_clear_scr'],
                 $request->getParsedBodyParam('primary_add_user'),
-                $_POST['username'] ?? null,
-                $_POST['hostname'] ?? null
+                 $request->getParsedBodyParam('username'),
+                 $request->getParsedBodyParam('hostname')
             );
         }
 
@@ -108,7 +108,7 @@ class ReplicationController extends AbstractController
                     $request->getParsedBodyParam('primary_connection'),
                     $replicaInfo['status'],
                     $replicationInfo->getReplicaStatus(),
-                    isset($_POST['replica_configure'])
+                    $request->getParsedBodyParam('replica_configure') !== null
                 );
             }
 
