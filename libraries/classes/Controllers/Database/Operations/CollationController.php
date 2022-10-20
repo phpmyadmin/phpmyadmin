@@ -91,7 +91,11 @@ final class CollationController extends AbstractController
                     continue;
                 }
 
-                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $tableName, $request->getParsedBodyParam('db_collation', ''));
+                $this->operations->changeAllColumnsCollation(
+                    $GLOBALS['db'],
+                    $tableName,
+                    $request->getParsedBodyParam('db_collation', '')
+                );
             }
         }
 
