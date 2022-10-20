@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
@@ -481,7 +482,7 @@ class Sql
      */
     public function getDefaultSqlQueryForBrowse($db, $table): string
     {
-        $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], $db, $table, 'label', false, true);
+        $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], DatabaseName::fromValue($db), $table, 'label', false, true);
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
             $GLOBALS['using_bookmark_message'] = Message::notice(
