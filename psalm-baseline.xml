@@ -1933,10 +1933,8 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['aliases']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="150">
+    <MixedAssignment occurrences="148">
       <code>$GLOBALS['active_page']</code>
-      <code>$GLOBALS['aliases']</code>
-      <code>$GLOBALS['aliases']</code>
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['as_separate_files']</code>
@@ -3905,18 +3903,14 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AddIndexController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AddKeyController.php">
     <MixedAssignment occurrences="1">
@@ -3938,24 +3932,31 @@
     </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
     <MixedArgument occurrences="1">
-      <code>$selected[$i]</code>
+      <code>$selected</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
-      <code>$GLOBALS['num_fields']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
       <code>$selected</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php">
+    <MixedArgument occurrences="1">
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
+    <MixedArgument occurrences="2">
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$GLOBALS['num_fields']</code>
+      <code>$selected</code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="1">
       <code>$selected[$i]</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="1">
@@ -3963,21 +3964,21 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/FulltextController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
-    <MixedArgument occurrences="12">
+    <MixedArgument occurrences="16">
+      <code>$column</code>
+      <code>$column</code>
+      <code>$column</code>
+      <code>$column</code>
       <code>$current_timestamp ? '' : $data['Default']</code>
       <code>$data['Collation'] ?? ''</code>
       <code>$data['Expression']</code>
@@ -4004,24 +4005,16 @@
       <code>$data['Expression']</code>
       <code>$data['Virtuality']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
+    <MixedArrayOffset occurrences="2">
+      <code>$columns[$column]</code>
+      <code>$expressions[$column]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="3">
+      <code>$column</code>
       <code>$data</code>
       <code>$data['Expression']</code>
     </MixedAssignment>
     <PossiblyFalseArgument occurrences="2"/>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset occurrences="2">
-      <code>$columns[$column]</code>
-      <code>$expressions[$column]</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$column</code>
-      <code>$column</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument occurrences="4">
       <code>$current_timestamp ? '' : $data['Default']</code>
       <code>$data['Collation'] ?? ''</code>
@@ -4046,39 +4039,30 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/PrimaryController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['errorUrl']</code>
       <code>$field</code>
       <code>$mult_btn</code>
+      <code>$selected</code>
+      <code>$selected</code>
+      <code>$selected_fld</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullOperand occurrences="1">
       <code>$row['Column_name']</code>
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php">
-    <MixedArgument occurrences="2">
-      <code>$column</code>
+    <MixedArgument occurrences="1">
       <code>$column</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$column</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$column</code>
-      <code>$column</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
       <code>$columns_names</code>
-    </PossiblyInvalidIterator>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/SaveController.php">
     <InvalidArgument occurrences="1">
@@ -4164,32 +4148,24 @@
     </PossiblyInvalidOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/SpatialController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/UniqueController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$field</code>
+      <code>$selected</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <MixedArgument occurrences="12">
