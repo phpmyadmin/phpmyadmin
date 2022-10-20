@@ -870,9 +870,9 @@ class InsertEdit
                     . $columnNameAppendix . '" value="' . $type . '">';
             }
 
-            if ($column['True_Type'] === 'bit') {
+            if (in_array($column['True_Type'], ['bit', 'uuid'], true)) {
                 $htmlOutput .= '<input type="hidden" name="fields_type'
-                    . $columnNameAppendix . '" value="bit">';
+                    . $columnNameAppendix . '" value="' . $column['True_Type'] . '">';
             }
         }
 
@@ -1806,6 +1806,18 @@ class InsertEdit
             && ! isset($multiEditColumnsNull[$key])
         ) {
             $currentValue = "''";
+        }
+
+        // For uuid type, generate uuid value
+        // if empty value but not set null or value is uuid() function
+        if (
+            $type === 'uuid'
+                && ! isset($multiEditColumnsNull[$key])
+                && ($currentValue == "''"
+                    || $currentValue == ''
+                    || $currentValue === "'uuid()'")
+        ) {
+            $currentValue = 'uuid()';
         }
 
         return $currentValue;

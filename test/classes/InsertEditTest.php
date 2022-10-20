@@ -17,10 +17,14 @@ use ReflectionProperty;
 use stdClass;
 
 use function hash;
+use function is_object;
+use function is_scalar;
+use function is_string;
 use function mb_substr;
 use function md5;
 use function password_verify;
 use function sprintf;
+use function strval;
 
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DECIMAL;
@@ -538,6 +542,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = $this->parseString($result);
+
         $this->assertStringContainsString('title="comment&gt;"', $result);
 
         $this->assertStringContainsString('f1&lt;', $result);
@@ -833,6 +839,8 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ]
         );
+
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
@@ -1183,6 +1191,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = $this->parseString($result);
+
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="datetime">', $result);
 
         // case 4: (else -> date)
@@ -1209,7 +1219,65 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = $this->parseString($result);
+
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="date">', $result);
+
+        // case 5: (else -> bit)
+        $column['True_Type'] = 'bit';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
+
+        $result = $this->parseString($result);
+
+        $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="bit">', $result);
+
+        // case 6: (else -> uuid)
+        $column['True_Type'] = 'uuid';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
+
+        $result = $this->parseString($result);
+
+        $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="uuid">', $result);
     }
 
     /**
@@ -1315,6 +1383,8 @@ class InsertEditTest extends AbstractTestCase
             'getHeadAndFootOfInsertRowTable',
             [$url_params]
         );
+
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
 
@@ -1552,7 +1622,7 @@ class InsertEditTest extends AbstractTestCase
         unset($column['Default']);
         $column['True_Type'] = 'char';
 
-        $result = $this->callFunction(
+        $result = (array) $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
@@ -1798,7 +1868,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        $result = $this->callFunction(
+        $result = (array) $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getWarningMessages',
@@ -2472,6 +2542,46 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertEquals("''", $result);
+
+        // case 10
+        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+            false,
+            '0',
+            ['uuid'],
+            '',
+            [],
+            0,
+            ['a'],
+            [],
+            [1],
+            true,
+            true,
+            '',
+            'test_table',
+            []
+        );
+
+        $this->assertEquals('uuid()', $result);
+
+        // case 11
+        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
+            false,
+            '0',
+            ['uuid'],
+            'uuid()',
+            [],
+            0,
+            ['a'],
+            [],
+            [1],
+            true,
+            true,
+            '',
+            'test_table',
+            []
+        );
+
+        $this->assertEquals('uuid()', $result);
     }
 
     /**
@@ -2769,6 +2879,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $actual = $this->parseString($actual);
+
         $this->assertStringContainsString('col', $actual);
         $this->assertStringContainsString('<option>AES_ENCRYPT</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">varchar(20)</span>', $actual);
@@ -2827,6 +2939,9 @@ class InsertEditTest extends AbstractTestCase
                 '',
             ]
         );
+
+        $actual = $this->parseString($actual);
+
         $this->assertStringContainsString('qwerty', $actual);
         $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
@@ -3082,5 +3197,25 @@ class InsertEditTest extends AbstractTestCase
             . '</span></a>',
             $actual
         );
+    }
+
+    /**
+     * Convert mixed type value to string
+     *
+     * @param mixed $value
+     *
+     * @return string
+     */
+    private function parseString($value)
+    {
+        if (is_string($value)) {
+            return $value;
+        }
+
+        if (is_object($value) || is_scalar($value)) {
+            return strval($value);
+        }
+
+        return '';
     }
 }

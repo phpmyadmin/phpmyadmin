@@ -311,6 +311,11 @@ class Generator
             $defaultFunction = $cfg['DefaultFunctions']['first_timestamp'];
         }
 
+        // For uuid field, no default function
+        if ($field['True_Type'] === 'uuid') {
+            return '';
+        }
+
         // For primary keys of type char(36) or varchar(36) UUID if the default
         // function
         // Only applies to insert mode, as it would silently trash data on updates.

@@ -83,6 +83,10 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'is_uuid_supported',
+                [Util::class, 'isUUIDSupported']
+            ),
+            new TwigFunction(
                 'is_foreign_key_supported',
                 [ForeignKey::class, 'isSupported']
             ),

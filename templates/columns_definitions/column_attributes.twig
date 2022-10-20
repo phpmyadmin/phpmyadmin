@@ -46,6 +46,11 @@
     <option value="CURRENT_TIMESTAMP"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'CURRENT_TIMESTAMP' ? ' selected' }}>
       CURRENT_TIMESTAMP
     </option>
+    {% if is_uuid_supported() %}
+    <option value="UUID"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'UUID' ? ' selected' }}>
+      UUID
+    </option>
+    {% endif %}
   </select>
   {% if char_editing == 'textarea' %}
     <textarea name="field_default_value[{{ column_number }}]" cols="15" class="textfield default_value">{{ default_value }}</textarea>
