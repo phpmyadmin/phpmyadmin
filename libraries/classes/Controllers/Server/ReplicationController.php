@@ -30,11 +30,12 @@ class ReplicationController extends AbstractController
     private $dbi;
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        ReplicationGui $replicationGui,
+        ResponseRenderer  $response,
+        Template          $template,
+        ReplicationGui    $replicationGui,
         DatabaseInterface $dbi
-    ) {
+    )
+    {
         parent::__construct($response, $template);
         $this->replicationGui = $replicationGui;
         $this->dbi = $dbi;
@@ -46,10 +47,10 @@ class ReplicationController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $params = [
-            'url_params' => $_POST['url_params'] ?? null,
-            'primary_configure' => $_POST['primary_configure'] ?? null,
-            'replica_configure' => $_POST['replica_configure'] ?? null,
-            'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
+            'url_params' => $request->getParsedBodyParam('url_params'),
+            'primary_configure' => $request->getParsedBodyParam('primary_configure'),
+            'replica_configure' => $request->getParsedBodyParam('replica_configure'),
+            'repl_clear_scr' => $request->getParsedBodyParam('repl_clear_scr'),
         ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -58,7 +59,7 @@ class ReplicationController extends AbstractController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['primary_connection'] ?? null);
+        $replicationInfo->load($request->getParsedBodyParam('primary_connection'));
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
@@ -71,11 +72,11 @@ class ReplicationController extends AbstractController
 
         if ($this->dbi->isSuperUser()) {
             $this->replicationGui->handleControlRequest(
-                isset($_POST['sr_take_action']),
-                isset($_POST['replica_changeprimary']),
-                isset($_POST['sr_replica_server_control']),
-                $_POST['sr_replica_action'] ?? null,
-                isset($_POST['sr_replica_skip_error']),
+                $request->getParsedBodyParam('sr_take_action') !== null,
+                $request->getParsedBodyParam('replica_changeprimary') !== null,
+                $request->getParsedBodyParam('sr_replica_server_control') !== null,
+                $request->getParsedBodyParam('sr_replica_action'),
+                $request->getParsedBodyParam('sr_replica_skip_error') !== null,
                 isset($_POST['sr_skip_errors_count']) ? (int) $_POST['sr_skip_errors_count'] : 1,
                 $_POST['sr_replica_control_param'] ?? null,
                 [
@@ -91,9 +92,9 @@ class ReplicationController extends AbstractController
 
         if ($primaryInfo['status']) {
             $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
-                $_POST['primary_connection'] ?? null,
+                $request->getParsedBodyParam('primary_connection'),
                 $params['repl_clear_scr'],
-                $_POST['primary_add_user'] ?? null,
+                $request->getParsedBodyParam('primary_add_user'),
                 $_POST['username'] ?? null,
                 $_POST['hostname'] ?? null
             );
@@ -102,9 +103,9 @@ class ReplicationController extends AbstractController
         if (isset($params['primary_configure'])) {
             $primaryConfigurationHtml = $this->replicationGui->getHtmlForPrimaryConfiguration();
         } else {
-            if (! isset($params['repl_clear_scr'])) {
+            if (!isset($params['repl_clear_scr'])) {
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
-                    $_POST['primary_connection'] ?? null,
+                    $request->getParsedBodyParam('primary_connection'),
                     $replicaInfo['status'],
                     $replicationInfo->getReplicaStatus(),
                     isset($_POST['replica_configure'])
