@@ -1041,6 +1041,16 @@ parameters:
 			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
 			path: libraries/classes/Controllers/Database/OperationsController.php
@@ -6946,6 +6956,16 @@ parameters:
 			path: libraries/classes/ReplicationGui.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) has parameter \\$sr with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:handleRequestForReplicaChangePrimary\\(\\) has parameter \\$sr with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
+
+		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationGui.php
@@ -8557,6 +8577,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Tracking.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 

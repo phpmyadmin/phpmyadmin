@@ -28,7 +28,7 @@ final class TablesController extends AbstractController
     {
         $params = [
             'tables' => $request->getQueryParam('tables', []),
-            'db' => $request->getQueryParam('db',''),
+            'db' => $request->getQueryParam('db', ''),
         ];
 
         $tablesListForQuery = '';

@@ -229,11 +229,13 @@
       <code>$sqlDelimiter</code>
       <code>$userLink</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$_GET['url'] ?? ''</code>
       <code>$_REQUEST['back']</code>
       <code>$_REQUEST['goto']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
+    <PossiblyInvalidCast occurrences="3">
+      <code>$_GET['url'] ?? ''</code>
       <code>$_REQUEST['back']</code>
       <code>$_REQUEST['goto']</code>
     </PossiblyInvalidCast>
@@ -1222,21 +1224,13 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
+      <code>$params['db']</code>
       <code>$table</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$table</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$params['db']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$params['db']</code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$params['tables']</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/Operations/CollationController.php">
     <MixedArgument occurrences="1">
@@ -2833,13 +2827,29 @@
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="5">
+    <PossiblyInvalidArgument occurrences="12">
+      <code>$_POST['hostname']</code>
+      <code>$_POST['hostname'] ?? null</code>
+      <code>$_POST['pma_pw']</code>
       <code>$_POST['primary_add_user'] ?? null</code>
       <code>$_POST['primary_connection'] ?? null</code>
       <code>$_POST['primary_connection'] ?? null</code>
       <code>$_POST['primary_connection'] ?? null</code>
       <code>$_POST['sr_replica_action'] ?? null</code>
+      <code>$_POST['sr_replica_control_param'] ?? null</code>
+      <code>$_POST['text_port']</code>
+      <code>$_POST['username']</code>
+      <code>$_POST['username'] ?? null</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidCast occurrences="4">
+      <code>$_POST['hostname']</code>
+      <code>$_POST['pma_pw']</code>
+      <code>$_POST['text_port']</code>
+      <code>$_POST['username']</code>
+    </PossiblyInvalidCast>
+    <RiskyCast occurrences="1">
+      <code>$_POST['sr_skip_errors_count']</code>
+    </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Server/SqlController.php">
     <MixedAssignment occurrences="1">
@@ -4246,13 +4256,14 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="16">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
       <code>$_POST['db']</code>
+      <code>$_POST['table']</code>
       <code>$_POST['table']</code>
       <code>$_POST['users']</code>
       <code>$_POST['version']</code>
@@ -4283,9 +4294,10 @@
       <code>$_POST['date_to']</code>
       <code>$version</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="10">
+    <PossiblyInvalidArgument occurrences="11">
       <code>$_POST['date_from']</code>
       <code>$_POST['db']</code>
+      <code>$_POST['table']</code>
       <code>$_POST['table']</code>
       <code>$_POST['version']</code>
       <code>$_POST['version']</code>
@@ -4295,9 +4307,10 @@
       <code>$_POST['version']</code>
       <code>$_POST['version']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="10">
+    <PossiblyInvalidCast occurrences="11">
       <code>$_POST['date_from']</code>
       <code>$_POST['db']</code>
+      <code>$_POST['table']</code>
       <code>$_POST['table']</code>
       <code>$_POST['version']</code>
       <code>$_POST['version']</code>
@@ -12165,10 +12178,20 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/ReplicationGui.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="16">
       <code>$database</code>
       <code>$errorMessage</code>
       <code>$serverReplicationVariable</code>
+      <code>$sr['hostname']</code>
+      <code>$sr['hostname']</code>
+      <code>$sr['hostname']</code>
+      <code>$sr['hostname']</code>
+      <code>$sr['pma_pw']</code>
+      <code>$sr['pma_pw']</code>
+      <code>$sr['port']</code>
+      <code>$sr['port']</code>
+      <code>$sr['username']</code>
+      <code>$sr['username']</code>
       <code>$successMessage</code>
       <code>$val['Type']</code>
       <code>$val['Type']</code>
@@ -12207,7 +12230,11 @@
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="10">
+      <code>$_SESSION['replication']['m_hostname']</code>
+      <code>$_SESSION['replication']['m_password']</code>
+      <code>$_SESSION['replication']['m_port']</code>
+      <code>$_SESSION['replication']['m_username']</code>
       <code>$database</code>
       <code>$errorMessage</code>
       <code>$linkToPrimary</code>
@@ -12218,25 +12245,6 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="6">
-      <code>$_POST['hostname']</code>
-      <code>$_POST['hostname']</code>
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['text_port']</code>
-      <code>$_POST['username']</code>
-      <code>$_POST['username']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="5">
-      <code>$_POST['hostname']</code>
-      <code>$_POST['hostname']</code>
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['text_port']</code>
-      <code>$_POST['username']</code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="2">
-      <code>$_POST['sr_skip_errors_count']</code>
-      <code>1</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$srReplicaAction</code>
     </PossiblyNullArgument>
@@ -13908,10 +13916,9 @@
       <code>$sep</code>
       <code>$sep</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="4">
+    <PossiblyInvalidArgument occurrences="3">
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
-      <code>$_POST['table']</code>
       <code>$_POST['users']</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="2">
@@ -14027,14 +14034,6 @@
       <code>(string) $db</code>
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
-  </file>
-  <file src="libraries/classes/UrlRedirector.php">
-    <RedundantCast occurrences="4">
-      <code>(string) $_GET['url']</code>
-      <code>(string) $_GET['url']</code>
-      <code>(string) $_GET['url']</code>
-      <code>(string) $_GET['url']</code>
-    </RedundantCast>
   </file>
   <file src="libraries/classes/UserPassword.php">
     <MixedArgument occurrences="6">
@@ -14975,6 +14974,12 @@
   <file src="test/classes/Database/QbeTest.php">
     <MixedArgument occurrences="7">
       <code>$actual</code>
+      <code>$this-&gt;callFunction($object, Qbe::class, 'getSortRow', [])</code>
+      <code>$this-&gt;callFunction($object, Qbe::class, 'getSortRow', [])</code>
+      <code>$this-&gt;callFunction($object, Qbe::class, 'getSortRow', [])</code>
+      <code>$this-&gt;callFunction($object, Qbe::class, 'getSortSelectCell', [1, 'ASC'])</code>
+      <code>$this-&gt;callFunction($object, Qbe::class, 'getSortSelectCell', [1])</code>
+      <code>$this-&gt;callFunction($object, Qbe::class, 'getSortSelectCell', [1])</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$actual</code>
