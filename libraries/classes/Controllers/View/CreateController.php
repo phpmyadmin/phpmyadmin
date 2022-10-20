@@ -287,7 +287,7 @@ class CreateController extends AbstractController
             }
         }
 
-        if (isset($view) && is_array($view)) {
+        if (is_array($view)) {
             $GLOBALS['view'] = array_merge($GLOBALS['view'], $view);
         }
 
