@@ -10,6 +10,9 @@ use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Controllers\Setup\MainController;
+use PhpMyAdmin\Controllers\Setup\ShowConfigController;
+use PhpMyAdmin\Controllers\Setup\ValidateController;
 use PhpMyAdmin\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
@@ -177,5 +180,32 @@ class Routing
             && isset($dispatchData[0]['GET']) && is_array($dispatchData[0]['GET'])
             && isset($dispatchData[0]['GET']['/']) && is_string($dispatchData[0]['GET']['/'])
             && $dispatchData[0]['GET']['/'] === HomeController::class;
+    }
+
+    public static function callSetupController(ServerRequest $request): void
+    {
+        $route = $request->getRoute();
+        if ($route === '/setup' || $route === '/') {
+            (new MainController())($request);
+
+            return;
+        }
+
+        if ($route === '/setup/show-config') {
+            (new ShowConfigController())($request);
+
+            return;
+        }
+
+        if ($route === '/setup/validate') {
+            (new ValidateController())($request);
+
+            return;
+        }
+
+        Core::fatalError(sprintf(
+            __('Error 404! The page %s was not found.'),
+            '[code]' . htmlspecialchars($route) . '[/code]'
+        ));
     }
 }

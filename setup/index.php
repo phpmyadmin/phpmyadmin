@@ -3,10 +3,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Common;
-use PhpMyAdmin\Controllers\Setup\MainController;
-use PhpMyAdmin\Controllers\Setup\ShowConfigController;
-use PhpMyAdmin\Controllers\Setup\ValidateController;
-use PhpMyAdmin\Core;
 
 // phpcs:disable PSR1.Files.SideEffects
 if (! defined('ROOT_PATH')) {
@@ -34,25 +30,3 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 require AUTOLOAD_FILE;
 
 Common::run(true);
-
-$request = Common::getRequest();
-$route = $request->getRoute();
-if ($route === '/setup' || $route === '/') {
-    (new MainController())($request);
-    exit;
-}
-
-if ($route === '/setup/show-config') {
-    (new ShowConfigController())($request);
-    exit;
-}
-
-if ($route === '/setup/validate') {
-    (new ValidateController())($request);
-    exit;
-}
-
-Core::fatalError(sprintf(
-    __('Error 404! The page %s was not found.'),
-    '[code]' . htmlspecialchars($route) . '[/code]'
-));

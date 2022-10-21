@@ -224,6 +224,7 @@ final class Common
 
             if ($isSetupPage) {
                 self::setupPageBootstrap($config);
+                Routing::callSetupController($request);
             }
 
             return;
