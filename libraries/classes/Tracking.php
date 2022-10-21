@@ -1053,7 +1053,8 @@ class Tracking
      * @param int    $filter_ts_from filter time stamp from
      * @param int    $filter_ts_to   filter time stamp to
      * @param array  $filter_users   filter users
-     * @param string $logtype        schema|data|schema_and_data
+     * @param string $logtype
+     * @phpstan-param 'schema'|'data'|'schema_and_data' $logtype
      *
      * @return array
      */

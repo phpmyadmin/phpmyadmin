@@ -76,7 +76,7 @@ class UserPasswordController extends AbstractController
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
                 $_POST['pma_pw'],
                 $_POST['pma_pw2'],
-                $_POST['nopass']
+                (bool) $_POST['nopass']
             );
             $GLOBALS['msg'] = $GLOBALS['change_password_message']['msg'];
 

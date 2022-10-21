@@ -32,12 +32,12 @@ class UserPassword
      *
      * @return array   error value and message
      */
-    public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, string $noPass)
+    public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword)
     {
         $error = false;
         $message = Message::success(__('The profile has been updated.'));
 
-        if ($noPass != '1') {
+        if ($skipPassword === false) {
             if (strlen($pmaPw) === 0 || strlen($pmaPw2) === 0) {
                 $message = Message::error(__('The password is empty!'));
                 $error = true;
@@ -119,20 +119,12 @@ class UserPassword
         return $sql_query;
     }
 
-    /**
-     * Generate the hashing function
-     *
-     * @return string
-     */
-    private function changePassHashingFunction(?string $authenticationPlugin)
+    private function changePassHashingFunction(?string $authenticationPlugin): string
     {
         if ($authenticationPlugin === 'mysql_old_password') {
-            $hashing_function = 'OLD_PASSWORD';
-        } else {
-            $hashing_function = 'PASSWORD';
+            return 'OLD_PASSWORD';
         }
-
-        return $hashing_function;
+        return 'PASSWORD';
     }
 
     /**
