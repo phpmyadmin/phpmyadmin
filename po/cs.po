@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
 "PO-Revision-Date: 2022-10-21 08:39+0000\n"
-"Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
+"Last-Translator: mixeros <mixer@mixercz.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/>"
 "\n"
 "Language: cs\n"
@@ -5681,7 +5681,7 @@ msgstr "Hodnoty Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "Please enter the SQL query first."
-msgstr "Prosím zadejte nejdříve SQL dotaz."
+msgstr "Prosím, zadejte nejdříve SQL dotaz."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 msgid "The host name is empty!"
@@ -8591,7 +8591,7 @@ msgstr "Chyba: Nelze přidat vztah cizího klíče!"
 
 #: libraries/classes/Database/Designer/Common.php:640
 msgid "Error: Missing index on column(s)."
-msgstr "Chyba: Ve sloupci(ích) chybí index"
+msgstr "Chyba: Ve sloupci(ích) chybí index."
 
 #: libraries/classes/Database/Designer/Common.php:648
 #: libraries/classes/Database/Designer/Common.php:727
