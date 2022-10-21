@@ -214,7 +214,7 @@ class CreateController extends AbstractController
 
             unset($GLOBALS['pma_transformation_data']);
 
-            if (! isset($ajaxdialog)) {
+            if ($ajaxdialog !== null) {
                 $GLOBALS['message'] = Message::success();
                 /** @var StructureController $controller */
                 $controller = Core::getContainerBuilder()->get(StructureController::class);
