@@ -14438,7 +14438,7 @@
       <code>$serviceName</code>
     </MixedAssignment>
   </file>
-  <file src="setup/lib/common.inc.php">
+  <file src="setup/index.php">
     <RedundantCast occurrences="1">
       <code>(string) $GLOBALS['lang']</code>
     </RedundantCast>
