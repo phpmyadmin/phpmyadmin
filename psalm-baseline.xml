@@ -15682,15 +15682,6 @@
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="7">
-      <code>$actual</code>
-      <code>$actual</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-    </MixedArgument>
     <MixedArrayAccess occurrences="10">
       <code>$result['Field']</code>
       <code>$result['Field_md5']</code>
