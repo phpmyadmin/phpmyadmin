@@ -25,6 +25,7 @@ use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
+use function is_null;
 use function is_string;
 use function sprintf;
 use function str_contains;
@@ -91,11 +92,10 @@ class CreateController extends AbstractController
             'INVOKER',
         ];
 
-        // View name is a compulsory field
-
         /** @var array|null $view */
         $view = $request->getParsedBodyParam('view');
 
+        // View name is a compulsory field
         if (empty($view['name'])) {
             $GLOBALS['message'] = Message::error(__('View name can not be empty!'));
             $this->response->addJSON('message', $GLOBALS['message']);
@@ -109,6 +109,9 @@ class CreateController extends AbstractController
 
         /** @var string|null $alterview */
         $alterview = $request->getParsedBodyParam('alterview');
+
+        /** @var string|null $ajaxdialog */
+        $ajaxdialog = $request->getParsedBodyParam('ajax_dialog');
 
         if ($createview !== null || $alterview !== null) {
             /**
@@ -163,9 +166,6 @@ class CreateController extends AbstractController
             if (isset($view['with']) && in_array($view['with'], $GLOBALS['view_with_options'])) {
                 $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' WITH ' . $view['with'] . '  CHECK OPTION';
             }
-
-            /** @var string|null $ajaxdialog */
-            $ajaxdialog = $request->getParsedBodyParam('ajax_dialog');
 
             if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {
                 if (is_null($ajaxdialog)) {
@@ -297,7 +297,7 @@ class CreateController extends AbstractController
         $this->addScriptFiles(['sql.js']);
 
         echo $this->template->render('view_create', [
-            'ajax_dialog' => isset($ajaxdialog),
+            'ajax_dialog' => $ajaxdialog !== null,
             'text_dir' => $GLOBALS['text_dir'],
             'url_params' => $GLOBALS['urlParams'],
             'view' => $GLOBALS['view'],
