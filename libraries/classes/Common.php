@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
@@ -38,7 +39,9 @@ use function mb_strlen;
 use function mb_strpos;
 use function mb_strrpos;
 use function mb_substr;
+use function ob_start;
 use function register_shutdown_function;
+use function restore_error_handler;
 use function session_id;
 use function strlen;
 use function time;
@@ -217,6 +220,10 @@ final class Common
 
             if ($route === '/url') {
                 UrlRedirector::redirect($_GET['url'] ?? '');
+            }
+
+            if ($isSetupPage) {
+                self::setupPageBootstrap($config);
             }
 
             return;
@@ -628,5 +635,35 @@ final class Common
         }
 
         return self::$request;
+    }
+
+    private static function setupPageBootstrap(Config $config): void
+    {
+        // use default error handler
+        restore_error_handler();
+
+        // Save current language in a cookie, since it was not set in Common::run().
+        $config->setCookie('pma_lang', (string) $GLOBALS['lang']);
+        $config->set('is_setup', true);
+
+        $GLOBALS['ConfigFile'] = new ConfigFile();
+        $GLOBALS['ConfigFile']->setPersistKeys([
+            'DefaultLang',
+            'ServerDefault',
+            'UploadDir',
+            'SaveDir',
+            'Servers/1/verbose',
+            'Servers/1/host',
+            'Servers/1/port',
+            'Servers/1/socket',
+            'Servers/1/auth_type',
+            'Servers/1/user',
+            'Servers/1/password',
+        ]);
+
+        $GLOBALS['dbi'] = DatabaseInterface::load();
+
+        // allows for redirection even after sending some data
+        ob_start();
     }
 }
