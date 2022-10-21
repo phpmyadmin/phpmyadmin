@@ -6657,6 +6657,9 @@
       <code>$nonGeneratedCols</code>
       <code>$nonGeneratedCols</code>
     </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="1">
+      <code>$aliases[$db-&gt;getName()]['alias']</code>
+    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="3">
       <code>$aliases[$dbName]['alias']</code>
       <code>$aliases[$dbName]['tables']</code>

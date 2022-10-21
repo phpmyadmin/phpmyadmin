@@ -482,7 +482,15 @@ class Sql
      */
     public function getDefaultSqlQueryForBrowse($db, $table): string
     {
-        $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], DatabaseName::fromValue($db), $table, 'label', false, true);
+        $bookmark = Bookmark::get(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['user'],
+            DatabaseName::fromValue($db),
+            $table,
+            'label',
+            false,
+            true
+        );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
             $GLOBALS['using_bookmark_message'] = Message::notice(
