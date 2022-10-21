@@ -96,7 +96,7 @@ class CreateController extends AbstractController
         /** @var array|null $view */
         $view = $request->getParsedBodyParam('view');
 
-        if (isset($view['name']) && empty($view['name'])) {
+        if (empty($view['name'])) {
             $GLOBALS['message'] = Message::error(__('View name can not be empty!'));
             $this->response->addJSON('message', $GLOBALS['message']);
             $this->response->setRequestStatus(false);
