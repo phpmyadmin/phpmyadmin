@@ -30,12 +30,11 @@ class ReplicationController extends AbstractController
     private $dbi;
 
     public function __construct(
-        ResponseRenderer  $response,
-        Template          $template,
-        ReplicationGui    $replicationGui,
+        ResponseRenderer $response,
+        Template $template,
+        ReplicationGui $replicationGui,
         DatabaseInterface $dbi
-    )
-    {
+    ) {
         parent::__construct($response, $template);
         $this->replicationGui = $replicationGui;
         $this->dbi = $dbi;
@@ -77,7 +76,7 @@ class ReplicationController extends AbstractController
                 $request->getParsedBodyParam('sr_replica_server_control') !== null,
                 $request->getParsedBodyParam('sr_replica_action'),
                 $request->getParsedBodyParam('sr_replica_skip_error') !== null,
-                (int)$request->getParsedBodyParam('sr_skip_errors_count', 1),
+                (int) $request->getParsedBodyParam('sr_skip_errors_count', 1),
                 $request->getParsedBodyParam('sr_replica_control_param'),
                 [
                     'username' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('username')),
@@ -95,15 +94,15 @@ class ReplicationController extends AbstractController
                 $request->getParsedBodyParam('primary_connection'),
                 $params['repl_clear_scr'],
                 $request->getParsedBodyParam('primary_add_user'),
-                 $request->getParsedBodyParam('username'),
-                 $request->getParsedBodyParam('hostname')
+                $request->getParsedBodyParam('username'),
+                $request->getParsedBodyParam('hostname')
             );
         }
 
         if (isset($params['primary_configure'])) {
             $primaryConfigurationHtml = $this->replicationGui->getHtmlForPrimaryConfiguration();
         } else {
-            if (!isset($params['repl_clear_scr'])) {
+            if (! isset($params['repl_clear_scr'])) {
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
                     $request->getParsedBodyParam('primary_connection'),
                     $replicaInfo['status'],

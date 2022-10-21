@@ -71,8 +71,8 @@ final class TrackingController extends AbstractController
         if (
             Tracker::isActive()
             && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
-            && ! ($toggleActivation === 'deactivate_now')
-            && ! ($reportExport === 'sqldumpfile')
+            && $toggleActivation !== 'deactivate_now'
+            && $reportExport !== 'sqldumpfile'
         ) {
             $GLOBALS['msg'] = Message::notice(
                 sprintf(
@@ -96,12 +96,13 @@ final class TrackingController extends AbstractController
         $GLOBALS['selection_both'] = false;
 
         $report = $request->getParsedBodyParam('report');
+        $versionParam = $request->getParsedBodyParam('version');
         // Init vars for tracking report
         if ($report !== null || $reportExport !== null) {
             $GLOBALS['data'] = Tracker::getTrackedData(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $request->getParsedBodyParam('version')
+                $versionParam
             );
 
             $logType = $request->getParsedBodyParam('logtype', 'schema_and_data');
@@ -142,7 +143,7 @@ final class TrackingController extends AbstractController
         $submitMult = $request->getParsedBodyParam('submit_mult');
         $selectedVersions = $request->getParsedBodyParam('selected_versions');
         if ($submitMult !== null) {
-            if (is_array($selectedVersions) && count($selectedVersions) !== 0) {
+            if (is_array($selectedVersions) && $selectedVersions !== []) {
                 if ($submitMult === 'delete_version') {
                     foreach ($selectedVersions as $version) {
                         $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $version);
@@ -164,7 +165,7 @@ final class TrackingController extends AbstractController
             $deleteVersion = $this->tracking->deleteTrackingVersion(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $request->getParsedBodyParam('version')
+                $versionParam
             );
         }
 
@@ -173,7 +174,7 @@ final class TrackingController extends AbstractController
             $createVersion = $this->tracking->createTrackingVersion(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $request->getParsedBodyParam('version')
+                $versionParam
             );
         }
 
@@ -184,14 +185,14 @@ final class TrackingController extends AbstractController
             $deactivateTracking = $this->tracking->changeTracking(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $request->getParsedBodyParam('version'),
+                $versionParam,
                 'deactivate'
             );
         } elseif ($toggleActivation === 'activate_now') {
             $activateTracking = $this->tracking->changeTracking(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $request->getParsedBodyParam('version'),
+                $versionParam,
                 'activate'
             );
         }
@@ -214,7 +215,7 @@ final class TrackingController extends AbstractController
             $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
                 $request->getParsedBodyParam('db'),
                 $request->getParsedBodyParam('table'),
-                $request->getParsedBodyParam('version'),
+                $versionParam,
                 $GLOBALS['urlParams']
             );
         }
@@ -227,7 +228,7 @@ final class TrackingController extends AbstractController
             $trackingReportRows = $this->tracking->deleteTrackingReportRows(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $request->getParsedBodyParam('version'),
+                $versionParam,
                 $GLOBALS['data']
             );
         }
