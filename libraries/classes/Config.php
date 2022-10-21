@@ -427,7 +427,7 @@ class Config
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
      */
-    public function loadUserPreferences(): void
+    public function loadUserPreferences(bool $isMinimumCommon = false): void
     {
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
@@ -435,7 +435,7 @@ class Config
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && ! isset($GLOBALS['isMinimumCommon'])) {
+        if ($server > 0 && ! $isMinimumCommon) {
             // cache user preferences, use database only when needed
             if (
                 ! isset($_SESSION['cache'][$cache_key]['userprefs'])
@@ -463,7 +463,7 @@ class Config
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
 
-        if (isset($GLOBALS['isMinimumCommon'])) {
+        if ($isMinimumCommon) {
             return;
         }
 

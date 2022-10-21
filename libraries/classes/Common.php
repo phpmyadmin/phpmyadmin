@@ -80,7 +80,7 @@ final class Common
      * - db connection
      * - authentication work
      */
-    public static function run(): void
+    public static function run(bool $isSetupPage = false): void
     {
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
@@ -93,9 +93,7 @@ final class Common
         $request = self::getRequest();
         $route = $request->getRoute();
 
-        if ($route === '/import-status' || $route === '/url' || $route === '/messages') {
-            $GLOBALS['isMinimumCommon'] = true;
-        }
+        $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
         if ($route === '/messages') {
             // Send correct type.
@@ -212,8 +210,8 @@ final class Common
 
         $GLOBALS['dbi'] = null;
 
-        if (isset($GLOBALS['isMinimumCommon'])) {
-            $config->loadUserPreferences();
+        if ($isMinimumCommon) {
+            $config->loadUserPreferences(true);
             $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
             Tracker::enable();
 
