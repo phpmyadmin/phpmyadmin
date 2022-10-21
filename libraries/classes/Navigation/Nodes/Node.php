@@ -58,10 +58,10 @@ class Node
      */
     public $visible = false;
     /**
-     * @var Node A reference to the parent object of
+     * @var Node|null A reference to the parent object of
      *           this node, NULL for the root node.
      */
-    public $parent;
+    public $parent = null;
     /**
      * @var Node[] An array of Node objects that are
      *             direct children of this node
@@ -369,7 +369,7 @@ class Node
      *
      * @return array
      */
-    public function getData($type, $pos, $searchClause = '')
+    public function getData(string $type, int $pos, string $searchClause = ''): array
     {
         if (isset($GLOBALS['cfg']['Server']['DisableIS']) && ! $GLOBALS['cfg']['Server']['DisableIS']) {
             return $this->getDataFromInfoSchema($pos, $searchClause);
@@ -650,7 +650,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromInfoSchema($pos, $searchClause)
+    private function getDataFromInfoSchema(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -687,7 +687,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabases($pos, $searchClause)
+    private function getDataFromShowDatabases(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -738,7 +738,7 @@ class Node
                 }
             }
 
-            $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
+            $prefixes = array_slice(array_keys($prefixMap), $pos);
         }
 
         $subClauses = [];
@@ -765,7 +765,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabasesLike($pos, $searchClause)
+    private function getDataFromShowDatabasesLike(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {

@@ -234,6 +234,7 @@ return [
                 '$template' => '@template',
                 '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
+                '$routines' => '@routines',
             ],
         ],
         Database\SearchController::class => [
@@ -440,6 +441,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$dbi' => '@dbi',
+                '$triggers' => '@triggers',
             ],
         ],
         DatabaseController::class => [
@@ -1626,6 +1628,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$dbi' => '@dbi',
+                '$triggers' => '@triggers',
             ],
         ],
         Table\ZoomSearchController::class => [

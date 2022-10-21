@@ -1225,7 +1225,7 @@ class ExportSqlTest extends AbstractTestCase
             $result
         );
 
-        $this->assertStringContainsString('(NULL, test, 0x3130, 0x36, 0x000a0d1a);', $result);
+        $this->assertStringContainsString('(NULL, \'test\', 0x3130, 0x36, 0x000a0d1a);', $result);
 
         $this->assertStringContainsString('SET IDENTITY_INSERT &quot;table&quot; OFF;', $result);
     }
@@ -1413,22 +1413,22 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testMakeCreateTableMSSQLCompatible(): void
     {
-        $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
-            "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n," .
-            " \" date NOT NULL DEFAULT 'asd'," .
-            " ) unsigned NOT NULL\n, ) unsigned NOT NULL,\n" .
-            " ) unsigned DEFAULT NULL\n, ) unsigned DEFAULT NULL,\n" .
-            " ) unsigned NOT NULL DEFAULT 'dsa',\n" .
-            " \" int(10) DEFAULT NULL,\n" .
-            " \" tinyint(0) DEFAULT NULL\n" .
-            " \" smallint(10) NOT NULL,\n" .
-            " \" bigint(0) NOT NULL\n" .
-            " \" bigint(0) NOT NULL DEFAULT '12'\n" .
-            " \" float(22,2,) DEFAULT NULL,\n" .
-            " \" double DEFAULT NULL\n" .
-            " \" float(22,2,) NOT NULL,\n" .
-            " \" double NOT NULL\n" .
-            " \" double NOT NULL DEFAULT '213'\n";
+        $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n"
+            . "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n,"
+            . " \" date NOT NULL DEFAULT 'asd',"
+            . " ) unsigned NOT NULL\n, ) unsigned NOT NULL,\n"
+            . " ) unsigned DEFAULT NULL\n, ) unsigned DEFAULT NULL,\n"
+            . " ) unsigned NOT NULL DEFAULT 'dsa',\n"
+            . " \" int(10) DEFAULT NULL,\n"
+            . " \" tinyint(0) DEFAULT NULL\n"
+            . " \" smallint(10) NOT NULL,\n"
+            . " \" bigint(0) NOT NULL\n"
+            . " \" bigint(0) NOT NULL DEFAULT '12'\n"
+            . " \" float(22,2,) DEFAULT NULL,\n"
+            . " \" double DEFAULT NULL\n"
+            . " \" float(22,2,) NOT NULL,\n"
+            . " \" double NOT NULL\n"
+            . " \" double NOT NULL DEFAULT '213'\n";
 
         $method = new ReflectionMethod(ExportSql::class, 'makeCreateTableMSSQLCompatible');
         $method->setAccessible(true);

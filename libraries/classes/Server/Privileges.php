@@ -2922,9 +2922,8 @@ class Privileges
         // $sql_query is for the initial-filtered,
         // $sql_query_all is for counting the total no. of users
 
-        $sqlQuery = $sqlQueryAll = 'SELECT *,' .
-            ' IF(`' . $passwordColumn . "` = _latin1 '', 'N', 'Y') AS 'Password'" .
-            ' FROM `mysql`.`user`';
+        $sqlQuery = $sqlQueryAll = 'SELECT *, IF(`' . $passwordColumn
+            . "` = _latin1 '', 'N', 'Y') AS 'Password' FROM `mysql`.`user`";
 
         $sqlQuery .= (isset($_GET['initial'])
             ? $this->rangeOfUsers($_GET['initial'])

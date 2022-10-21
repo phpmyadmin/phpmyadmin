@@ -2,7 +2,7 @@
   <h4>{% trans 'Warning' %}</h4>
   <p>{% trans 'Submitted form contains errors' %}</p>
   <p>
-    <a href="{{ get_common(url_params|merge({'mode': 'revert'})) }}">
+    <a href="../setup/{{ url('/setup', url_params|merge({'mode': 'revert'})) }}">
       {% trans 'Try to revert erroneous fields to their default values' %}
     </a>
   </p>
@@ -10,10 +10,10 @@
 
 {{ errors|raw }}
 
-<a class="btn" href="index.php{{ get_common() }}">
+<a class="btn" href="../setup/{{ url('/setup') }}">
   {% trans 'Ignore errors' %}
 </a>
 
-<a class="btn" href="{{ get_common(url_params|merge({'mode': 'edit'})) }}">
+<a class="btn" href="../setup/{{ url('/setup', url_params|merge({'mode': 'edit'})) }}">
   {% trans 'Show form' %}
 </a>

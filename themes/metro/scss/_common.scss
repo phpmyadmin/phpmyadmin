@@ -1804,6 +1804,7 @@ form.append_fields_form .tblFooters {
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
     padding-left: 0.2em;
+    white-space: nowrap;
 
     &:hover {
       background: $navi-background;
@@ -2848,4 +2849,8 @@ body {
 
 .resize-vertical {
   resize: vertical;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }

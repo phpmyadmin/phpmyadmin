@@ -218,7 +218,7 @@ final class Common
             Tracker::enable();
 
             if ($route === '/url') {
-                UrlRedirector::redirect();
+                UrlRedirector::redirect($_GET['url'] ?? '');
             }
 
             return;

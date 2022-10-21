@@ -70,13 +70,33 @@ class ReplicationController extends AbstractController
         }
 
         if ($this->dbi->isSuperUser()) {
-            $this->replicationGui->handleControlRequest();
+            $this->replicationGui->handleControlRequest(
+                isset($_POST['sr_take_action']),
+                isset($_POST['replica_changeprimary']),
+                isset($_POST['sr_replica_server_control']),
+                $_POST['sr_replica_action'] ?? null,
+                isset($_POST['sr_replica_skip_error']),
+                isset($_POST['sr_skip_errors_count']) ? (int) $_POST['sr_skip_errors_count'] : 1,
+                $_POST['sr_replica_control_param'] ?? null,
+                [
+                    'username' => $GLOBALS['dbi']->escapeString($_POST['username']),
+                    'pma_pw' => $GLOBALS['dbi']->escapeString($_POST['pma_pw']),
+                    'hostname' => $GLOBALS['dbi']->escapeString($_POST['hostname']),
+                    'port' => (int) $GLOBALS['dbi']->escapeString($_POST['text_port']),
+                ]
+            );
         }
 
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
-            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication();
+            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
+                $_POST['primary_connection'] ?? null,
+                $params['repl_clear_scr'],
+                $_POST['primary_add_user'] ?? null,
+                $_POST['username'] ?? null,
+                $_POST['hostname'] ?? null
+            );
         }
 
         if (isset($params['primary_configure'])) {
@@ -84,8 +104,10 @@ class ReplicationController extends AbstractController
         } else {
             if (! isset($params['repl_clear_scr'])) {
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
+                    $_POST['primary_connection'] ?? null,
                     $replicaInfo['status'],
-                    $replicationInfo->getReplicaStatus()
+                    $replicationInfo->getReplicaStatus(),
+                    isset($_POST['replica_configure'])
                 );
             }
 

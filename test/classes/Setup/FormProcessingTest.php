@@ -38,7 +38,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $this->mockResponse(
             [
                 ['status: 303 See Other'],
-                ['Location: index.php?lang=en'],
+                ['Location: ../setup/index.php?route=%2Fsetup&lang=en'],
                 303,
             ]
         );
@@ -85,7 +85,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString('mode=revert', $result);
 
-        $this->assertStringContainsString('<a class="btn" href="index.php?', $result);
+        $this->assertStringContainsString('<a class="btn" href="../setup/index.php?route=/setup&', $result);
 
         $this->assertStringContainsString('mode=edit', $result);
 

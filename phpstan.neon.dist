@@ -22,3 +22,10 @@ parameters:
     dynamicConstantNames:
         - ROOT_PATH
         - VERSION_SUFFIX
+    strictRules:
+        # Allow non-booleans in conditions.
+        booleansInConditions: false
+        # Allow the empty() construct.
+        disallowedConstructs: false
+        # Allow dynamic calls to static methods.
+        strictCalls: false

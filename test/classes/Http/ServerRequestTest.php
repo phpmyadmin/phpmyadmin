@@ -47,4 +47,20 @@ class ServerRequestTest extends TestCase
             ['/', [], ['db' => 'db', 'table' => 'table']],
         ];
     }
+
+    public function testGetQueryParam(): void
+    {
+        $queryParams = ['key1' => 'value1', 'key2' => ['value2'], 'key4' => ''];
+        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub->method('getQueryParams')->willReturn($queryParams);
+        $request = new ServerRequest($requestStub);
+        $this->assertSame('value1', $request->getQueryParam('key1'));
+        $this->assertSame('value1', $request->getQueryParam('key1', 'default'));
+        $this->assertSame(['value2'], $request->getQueryParam('key2'));
+        $this->assertSame(['value2'], $request->getQueryParam('key2', 'default'));
+        $this->assertNull($request->getQueryParam('key3'));
+        $this->assertSame('default', $request->getQueryParam('key3', 'default'));
+        $this->assertSame('', $request->getQueryParam('key4'));
+        $this->assertSame('', $request->getQueryParam('key4', 'default'));
+    }
 }

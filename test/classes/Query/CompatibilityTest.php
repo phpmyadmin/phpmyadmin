@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Query;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Compatibility;
 use PHPUnit\Framework\TestCase;
 
@@ -33,6 +34,33 @@ class CompatibilityTest extends TestCase
             'MariaDB 10.4.1' => [false, true, 100401],
             'MariaDB 10.4.2' => [true, true, 100402],
             'MariaDB 10.4.3' => [true, true, 100403],
+        ];
+    }
+
+    /**
+     * @dataProvider providerForTestIsUUIDSupported
+     */
+    public function testIsUUIDSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        $this->assertSame($expected, Compatibility::isUUIDSupported($dbiStub));
+    }
+
+    /**
+     * @return array[]
+     * @psalm-return array<string, array{bool, bool, int}>
+     */
+    public function providerForTestIsUUIDSupported(): array
+    {
+        return [
+            'MySQL 5.7.5' => [false, false, 50705],
+            'MySQL 8.0.30' => [false, false, 80030],
+            'MariaDB 10.6.0' => [false, true, 100600],
+            'MariaDB 10.7.0' => [true, true, 100700],
         ];
     }
 }

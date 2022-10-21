@@ -44,7 +44,8 @@ final class MoveColumnsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if (! isset($_POST['move_columns']) || ! is_array($_POST['move_columns']) || ! $this->response->isAjax()) {
+        $move_columns = $request->getParsedBodyParam('move_columns');
+        if (! isset($move_columns) || ! is_array($move_columns) || ! $this->response->isAjax()) {
             return;
         }
 
@@ -61,8 +62,8 @@ final class MoveColumnsController extends AbstractController
         $usesLiteralNull = $this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100200;
         $defaultNullValue = $usesLiteralNull ? 'NULL' : null;
         // move columns from first to last
-        for ($i = 0, $l = count($_POST['move_columns']); $i < $l; $i++) {
-            $column = $_POST['move_columns'][$i];
+        for ($i = 0, $l = count($move_columns); $i < $l; $i++) {
+            $column = $move_columns[$i];
             // is this column already correctly placed?
             if ($column_names[$i] == $column) {
                 continue;

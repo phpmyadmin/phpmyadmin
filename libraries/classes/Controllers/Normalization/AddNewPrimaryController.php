@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -25,17 +27,23 @@ final class AddNewPrimaryController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $num_fields = 1;
+
+        $db = DatabaseName::tryFromValue($GLOBALS['db']);
+        $table = TableName::tryFromValue($GLOBALS['table']);
+        $dbName = isset($db) ? $db->getName() : '';
+        $tableName = isset($table) ? $table->getName() : '';
+
         $columnMeta = [
-            'Field' => $GLOBALS['table'] . '_id',
+            'Field' => $tableName . '_id',
             'Extra' => 'auto_increment',
         ];
         $html = $this->normalization->getHtmlForCreateNewColumn(
             $num_fields,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            $dbName,
+            $tableName,
             $columnMeta
         );
-        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+        $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);
     }
 }

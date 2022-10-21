@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Qbe;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -15,151 +14,60 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class QbeTest extends AbstractTestCase
 {
-    /** @var Qbe */
-    protected $object;
-
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'pma_test';
-        $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
-        //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $create_table = 'CREATE TABLE `table1` ('
-            . '`id` int(11) NOT NULL,'
-            . '`value` int(11) NOT NULL,'
-            . 'PRIMARY KEY (`id`,`value`),'
-            . 'KEY `value` (`value`)'
-            . ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
-
-        $dbi->expects($this->any())
-            ->method('fetchValue')
-            ->with('SHOW CREATE TABLE `pma_test`.`table1`', 1)
-            ->will($this->returnValue($create_table));
-
-        $dbi->expects($this->any())
-            ->method('getTableIndexes')
-            ->will($this->returnValue([]));
-
-        $GLOBALS['dbi'] = $dbi;
-        $this->object->dbi = $dbi;
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-        unset($this->object);
-    }
-
-    /**
-     * Test for getSortSelectCell
-     */
     public function testGetSortSelectCell(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertStringContainsString(
             'style="width:12ex" name="criteriaSort[1]"',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSortSelectCell',
-                [1]
-            )
+            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1])
         );
         $this->assertStringNotContainsString(
             'selected="selected"',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSortSelectCell',
-                [1]
-            )
+            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1])
         );
         $this->assertStringContainsString(
             'value="ASC" selected="selected">',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSortSelectCell',
-                [
-                    1,
-                    'ASC',
-                ]
-            )
+            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1, 'ASC'])
         );
     }
 
-    /**
-     * Test for getSortRow
-     */
     public function testGetSortRow(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertStringContainsString(
             'name="criteriaSort[0]"',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSortRow',
-                []
-            )
+            $this->callFunction($object, Qbe::class, 'getSortRow', [])
         );
         $this->assertStringContainsString(
             'name="criteriaSort[1]"',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSortRow',
-                []
-            )
+            $this->callFunction($object, Qbe::class, 'getSortRow', [])
         );
         $this->assertStringContainsString(
             'name="criteriaSort[2]"',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSortRow',
-                []
-            )
+            $this->callFunction($object, Qbe::class, 'getSortRow', [])
         );
     }
 
-    /**
-     * Test for getShowRow
-     */
     public function testGetShowRow(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             '<td class="text-center"><input type'
             . '="checkbox" name="criteriaShow[0]"></td><td class="text-center">'
             . '<input type="checkbox" name="criteriaShow[1]"></td><td '
             . 'class="text-center"><input type="checkbox" name="criteriaShow[2]">'
             . '</td>',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getShowRow',
-                []
-            )
+            $this->callFunction($object, Qbe::class, 'getShowRow', [])
         );
     }
 
-    /**
-     * Test for getCriteriaInputboxRow
-     */
     public function testGetCriteriaInputboxRow(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             '<td class="text-center">'
             . '<input type="hidden" name="prev_criteria[0]" value="">'
@@ -171,20 +79,14 @@ class QbeTest extends AbstractTestCase
             . '<input type="hidden" name="prev_criteria[2]" value="">'
             . '<input type="text" name="criteria[2]" value="" class="textfield" '
             . 'style="width: 12ex" size="20"></td>',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getCriteriaInputboxRow',
-                []
-            )
+            $this->callFunction($object, Qbe::class, 'getCriteriaInputboxRow', [])
         );
     }
 
-    /**
-     * Test for getAndOrColCell
-     */
     public function testGetAndOrColCell(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             '<td class="text-center"><strong>Or:</strong><input type="radio" '
             . 'name="criteriaAndOrColumn[1]" value="or">&nbsp;&nbsp;<strong>And:'
@@ -192,20 +94,14 @@ class QbeTest extends AbstractTestCase
             . '"and"><br>Ins<input type="checkbox" name="criteriaColumnInsert'
             . '[1]">&nbsp;&nbsp;Del<input type="checkbox" '
             . 'name="criteriaColumnDelete[1]"></td>',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getAndOrColCell',
-                [1]
-            )
+            $this->callFunction($object, Qbe::class, 'getAndOrColCell', [1])
         );
     }
 
-    /**
-     * Test for getModifyColumnsRow
-     */
     public function testGetModifyColumnsRow(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             '<td class="text-center"><strong>'
             . 'Or:</strong><input type="radio" name="criteriaAndOrColumn[0]" value'
@@ -221,20 +117,14 @@ class QbeTest extends AbstractTestCase
             . 'name="criteriaColumnDelete[1]"></td><td class="text-center"><br>Ins'
             . '<input type="checkbox" name="criteriaColumnInsert[2]">&nbsp;&nbsp;'
             . 'Del<input type="checkbox" name="criteriaColumnDelete[2]"></td>',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getModifyColumnsRow',
-                []
-            )
+            $this->callFunction($object, Qbe::class, 'getModifyColumnsRow', [])
         );
     }
 
-    /**
-     * Test for getInputboxRow
-     */
     public function testGetInputboxRow(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             '<td class="text-center"><input type="text" name="Or2[0]" value="" class='
             . '"textfield" style="width: 12ex" size="20"></td><td class="text-center">'
@@ -242,29 +132,15 @@ class QbeTest extends AbstractTestCase
             . 'style="width: 12ex" size="20"></td><td class="text-center"><input '
             . 'type="text" name="Or2[2]" value="" class="textfield" style="width: '
             . '12ex" size="20"></td>',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getInputboxRow',
-                [2]
-            )
+            $this->callFunction($object, Qbe::class, 'getInputboxRow', [2])
         );
     }
 
-    /**
-     * Test for getInsDelAndOrCriteriaRows
-     */
     public function testGetInsDelAndOrCriteriaRows(): void
     {
-        $actual = $this->callFunction(
-            $this->object,
-            Qbe::class,
-            'getInsDelAndOrCriteriaRows',
-            [
-                2,
-                3,
-            ]
-        );
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
+        $actual = $this->callFunction($object, Qbe::class, 'getInsDelAndOrCriteriaRows', [2, 3]);
 
         $this->assertStringContainsString('<tr class="noclick">', $actual);
         $this->assertStringContainsString(
@@ -278,132 +154,83 @@ class QbeTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getSelectClause
-     */
     public function testGetSelectClause(): void
     {
-        $this->assertEquals(
-            '',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSelectClause',
-                []
-            )
-        );
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
+        $this->assertEquals('', $this->callFunction($object, Qbe::class, 'getSelectClause', []));
     }
 
-    /**
-     * Test for getWhereClause
-     */
     public function testGetWhereClause(): void
     {
-        $this->assertEquals(
-            '',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getWhereClause',
-                []
-            )
-        );
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
+        $this->assertEquals('', $this->callFunction($object, Qbe::class, 'getWhereClause', []));
     }
 
-    /**
-     * Test for getOrderByClause
-     */
     public function testGetOrderByClause(): void
     {
-        $this->assertEquals(
-            '',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getOrderByClause',
-                []
-            )
-        );
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
+        $this->assertEquals('', $this->callFunction($object, Qbe::class, 'getOrderByClause', []));
     }
 
-    /**
-     * Test for getIndexes
-     */
     public function testGetIndexes(): void
     {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW INDEXES FROM `pma_test`.```table1```', []);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
-            [
-                'unique' => [],
-                'index' => [],
-            ],
+            ['unique' => [], 'index' => []],
             $this->callFunction(
-                $this->object,
+                $object,
                 Qbe::class,
                 'getIndexes',
                 [
-                    [
-                        '`table1`',
-                        'table2',
-                    ],
-                    [
-                        'column1',
-                        'column2',
-                        'column3',
-                    ],
+                    ['`table1`', 'table2'],
+                    ['column1', 'column2', 'column3'],
                     ['column2'],
                 ]
             )
         );
     }
 
-    /**
-     * Test for getLeftJoinColumnCandidates
-     */
     public function testGetLeftJoinColumnCandidates(): void
     {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addSelectDb('pma_test');
+        $dbiDummy->addResult('SHOW INDEXES FROM `pma_test`.```table1```', []);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             [0 => 'column2'],
             $this->callFunction(
-                $this->object,
+                $object,
                 Qbe::class,
                 'getLeftJoinColumnCandidates',
                 [
-                    [
-                        '`table1`',
-                        'table2',
-                    ],
-                    [
-                        'column1',
-                        'column2',
-                        'column3',
-                    ],
+                    ['`table1`', 'table2'],
+                    ['column1', 'column2', 'column3'],
                     ['column2'],
                 ]
             )
         );
     }
 
-    /**
-     * Test for getMasterTable
-     */
     public function testGetMasterTable(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             0,
             $this->callFunction(
-                $this->object,
+                $object,
                 Qbe::class,
                 'getMasterTable',
                 [
-                    [
-                        'table1',
-                        'table2',
-                    ],
-                    [
-                        'column1',
-                        'column2',
-                        'column3',
-                    ],
+                    ['table1', 'table2'],
+                    ['column1', 'column2', 'column3'],
                     ['column2'],
                     ['qbe_test'],
                 ]
@@ -411,11 +238,10 @@ class QbeTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getWhereClauseTablesAndColumns
-     */
     public function testGetWhereClauseTablesAndColumns(): void
     {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $_POST['criteriaColumn'] = [
             'table1.id',
             'table1.value',
@@ -423,46 +249,42 @@ class QbeTest extends AbstractTestCase
             'table1.deleted',
         ];
         $this->assertEquals(
-            [
-                'where_clause_tables' => [],
-                'where_clause_columns' => [],
-            ],
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getWhereClauseTablesAndColumns',
-                []
-            )
+            ['where_clause_tables' => [], 'where_clause_columns' => []],
+            $this->callFunction($object, Qbe::class, 'getWhereClauseTablesAndColumns', [])
         );
     }
 
-    /**
-     * Test for getFromClause
-     */
     public function testGetFromClause(): void
     {
+        $GLOBALS['db'] = 'pma_test';
+        $dbiDummy = $this->createDbiDummy();
+        $createTableStatement = 'CREATE TABLE `table1` (`id` int(11) NOT NULL,`value` int(11) NOT NULL,'
+            . 'PRIMARY KEY (`id`,`value`),KEY `value` (`value`)) ENGINE=InnoDB DEFAULT CHARSET=latin1';
+        $dbiDummy->addResult('SHOW CREATE TABLE `pma_test`.`table1`', [[$createTableStatement]]);
+        $dbiDummy->addSelectDb('pma_test');
+        $dbiDummy->addResult('SHOW CREATE TABLE `pma_test`.`table1`', [[$createTableStatement]]);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $_POST['criteriaColumn'] = [
             'table1.id',
             'table1.value',
             'table1.name',
             'table1.deleted',
         ];
-        $this->assertEquals(
-            '`table1`',
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getFromClause',
-                [['`table1`.`id`']]
-            )
-        );
+        $this->assertEquals('`table1`', $this->callFunction($object, Qbe::class, 'getFromClause', [['`table1`.`id`']]));
     }
 
-    /**
-     * Test for getSQLQuery
-     */
     public function testGetSQLQuery(): void
     {
+        $GLOBALS['db'] = 'pma_test';
+        $dbiDummy = $this->createDbiDummy();
+        $createTableStatement = 'CREATE TABLE `table1` (`id` int(11) NOT NULL,`value` int(11) NOT NULL,'
+            . 'PRIMARY KEY (`id`,`value`),KEY `value` (`value`)) ENGINE=InnoDB DEFAULT CHARSET=latin1';
+        $dbiDummy->addResult('SHOW CREATE TABLE `pma_test`.`table1`', [[$createTableStatement]]);
+        $dbiDummy->addSelectDb('pma_test');
+        $dbiDummy->addResult('SHOW CREATE TABLE `pma_test`.`table1`', [[$createTableStatement]]);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $_POST['criteriaColumn'] = [
             'table1.id',
             'table1.value',
@@ -471,12 +293,7 @@ class QbeTest extends AbstractTestCase
         ];
         $this->assertEquals(
             'FROM `table1`' . "\n",
-            $this->callFunction(
-                $this->object,
-                Qbe::class,
-                'getSQLQuery',
-                [['`table1`.`id`']]
-            )
+            $this->callFunction($object, Qbe::class, 'getSQLQuery', [['`table1`.`id`']])
         );
     }
 }

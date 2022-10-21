@@ -185,28 +185,6 @@ class SanitizeTest extends AbstractTestCase
     public function testGetJsValue(string $key, $value, string $expected): void
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
-        $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));
-        $array = [
-            '1',
-            '2',
-            '3',
-        ];
-        $this->assertEquals(
-            "foo = [\"1\",\"2\",\"3\",];\n",
-            Sanitize::getJsValue('foo', $array)
-        );
-        $this->assertEquals(
-            "foo = \"bar\\\"baz\";\n",
-            Sanitize::getJsValue('foo', 'bar"baz')
-        );
-    }
-
-    /**
-     * Test for Sanitize::jsFormat
-     */
-    public function testJsFormat(): void
-    {
-        $this->assertEquals('`foo`', Sanitize::jsFormat('foo'));
     }
 
     /**
@@ -250,55 +228,21 @@ class SanitizeTest extends AbstractTestCase
             [
                 'foo',
                 'apostroph\'',
-                "foo = \"apostroph\\'\";\n",
-            ],
-        ];
-    }
-
-    /**
-     * Sanitize::escapeJsString tests
-     *
-     * @param string $target expected output
-     * @param string $source string to be escaped
-     *
-     * @dataProvider escapeDataProvider
-     */
-    public function testEscapeJsString(string $target, string $source): void
-    {
-        $this->assertEquals($target, Sanitize::escapeJsString($source));
-    }
-
-    /**
-     * Data provider for testEscape
-     *
-     * @return array data for testEscape test case
-     */
-    public function escapeDataProvider(): array
-    {
-        return [
-            [
-                '\\\';',
-                '\';',
+                "foo = \"apostroph'\";\n",
             ],
             [
-                '\r\n\\\'<scrIpt></\' + \'script>',
-                "\r\n'<scrIpt></sCRIPT>",
+                'foo',
+                [
+                    '1',
+                    '2',
+                    '3',
+                ],
+                "foo = [\"1\",\"2\",\"3\"];\n",
             ],
             [
-                '\\\';[XSS]',
-                '\';[XSS]',
-            ],
-            [
-                '</\' + \'script></head><body>[HTML]',
-                '</SCRIPT></head><body>[HTML]',
-            ],
-            [
-                '\"\\\'\\\\\\\'\"',
-                '"\'\\\'"',
-            ],
-            [
-                "\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\",
-                "\\''''''''''''\\",
+                'foo',
+                'bar"baz',
+                "foo = \"bar\\\"baz\";\n",
             ],
         ];
     }

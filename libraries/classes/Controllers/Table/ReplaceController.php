@@ -489,7 +489,7 @@ final class ReplaceController extends AbstractController
         );
 
         /**Get the total row count of the table*/
-        $_table = new Table($_POST['table'], $_POST['db']);
+        $_table = new Table($_POST['table'], $_POST['db'], $this->dbi);
         $extra_data['row_count'] = $_table->countRecords();
 
         $extra_data['sql_query'] = Generator::getMessage($GLOBALS['message'], $GLOBALS['display_query']);

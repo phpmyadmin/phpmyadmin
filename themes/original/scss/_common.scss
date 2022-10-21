@@ -1605,6 +1605,7 @@ input#auto_increment_opt {
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em 0.2em;
+    white-space: nowrap;
 
     &:hover {
       background: #ddd;
@@ -2717,4 +2718,8 @@ body {
 
 .resize-vertical {
   resize: vertical;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }

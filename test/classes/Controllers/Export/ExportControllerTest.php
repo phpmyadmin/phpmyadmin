@@ -16,6 +16,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use function htmlspecialchars;
 
+use const ENT_COMPAT;
 use const MYSQLI_NUM_FLAG;
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DATETIME;
@@ -192,6 +193,6 @@ SQL;
 
         $this->assertStringNotContainsString('Missing parameter: what', $output);
         $this->assertStringNotContainsString('Missing parameter: export_type', $output);
-        $this->assertStringContainsString(htmlspecialchars($expectedOutput), $output);
+        $this->assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
     }
 }

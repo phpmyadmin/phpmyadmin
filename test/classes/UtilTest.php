@@ -38,6 +38,10 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
+const FIELD_TYPE_INTEGER = 1;
+const FIELD_TYPE_VARCHAR = 253;
+const FIELD_TYPE_UNKNOWN = -1;
+
 /**
  * @covers \PhpMyAdmin\Util
  */
@@ -251,6 +255,137 @@ class UtilTest extends AbstractTestCase
 
         $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
         $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
+    }
+
+    /**
+     * Test for Util::getUniqueCondition
+     * note: GROUP_FLAG = MYSQLI_NUM_FLAG = 32769
+     *
+     * @param FieldMetadata[] $meta     Meta Information for Field
+     * @param array           $row      Current Ddata Row
+     * @param array           $expected Expected Result
+     * @psalm-param array<int, mixed> $row
+     * @psalm-param array{string, bool, array<string, string>} $expected
+     *
+     * @dataProvider providerGetUniqueConditionForGroupFlag
+     */
+    public function testGetUniqueConditionForGroupFlag(array $meta, array $row, array $expected): void
+    {
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
+        $fieldsCount = count($meta);
+        $actual = Util::getUniqueCondition($fieldsCount, $meta, $row);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Provider for testGetUniqueConditionForGroupFlag
+     *
+     * @return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
+     */
+    public function providerGetUniqueConditionForGroupFlag(): array
+    {
+        return [
+            'field type is integer, value is number - not escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                [123],
+                [
+                    '`table`.`col` = 123',
+                    false,
+                    ['`table`.`col`' => '= 123'],
+                ],
+            ],
+            'field type is unknown, value is string - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_UNKNOWN, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test'],
+                [
+                    "`table`.`col` = 'test'",
+                    false,
+                    ['`table`.`col`' => "= 'test'"],
+                ],
+            ],
+            'field type is varchar, value is string - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test'],
+                [
+                    "`table`.`col` = 'test'",
+                    false,
+                    ['`table`.`col`' => "= 'test'"],
+                ],
+            ],
+            'field type is varchar, value is string with double quote - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['"test"'],
+                [
+                    "`table`.`col` = '\\\"test\\\"'",
+                    false,
+                    ['`table`.`col`' => "= '\\\"test\\\"'"],
+                ],
+            ],
+            'field type is varchar, value is string with single quote - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ["'test'"],
+                [
+                    "`table`.`col` = '\'test\''",
+                    false,
+                    ['`table`.`col`' => "= '\'test\''"],
+                ],
+            ],
+            'group by multiple columns and field type is mixed' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'status_id',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test', 2],
+                [
+                    "`table`.`col` = 'test' AND `table`.`status_id` = 2",
+                    false,
+                    [
+                        '`table`.`col`' => "= 'test'",
+                        '`table`.`status_id`' => '= 2',
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -683,6 +818,21 @@ class UtilTest extends AbstractTestCase
                     'attribute' => ' ',
                     'can_contain_collation' => false,
                     'displayed_type' => 'varbinary(255)',
+                ],
+            ],
+            [
+                'varchar(11) /*!100301 COMPRESSED*/',
+                [
+                    'type' => 'varchar',
+                    'print_type' => 'varchar(11)',
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => '11',
+                    'enum_set_values' => [],
+                    'attribute' => 'COMPRESSED=zlib',
+                    'can_contain_collation' => true,
+                    'displayed_type' => 'varchar(11)',
                 ],
             ],
         ];
@@ -2263,10 +2413,13 @@ class UtilTest extends AbstractTestCase
     /**
      * @dataProvider providerForTestGetMySQLDocuURL
      */
-    public function testGetMySQLDocuURL(string $link, string $anchor, int $version, string $expected): void
+    public function testGetMySQLDocuURL(string $link, string $anchor, string $version, string $expected): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
-        $GLOBALS['dbi']->setVersion($version);
+        $GLOBALS['dbi']->setVersion([
+            '@@version' => $version,
+            '@@version_comment' => 'MySQL Community Server (GPL)',
+        ]);
         $this->assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
     }
 
@@ -2280,35 +2433,35 @@ class UtilTest extends AbstractTestCase
             [
                 'ALTER_TABLE',
                 'alter-table-index',
-                80000,
+                '8.0.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Falter-table.html%23alter-table-index',
             ],
             [
                 'ALTER_TABLE',
                 'alter-table-index',
-                50700,
+                '5.7.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Falter-table.html%23alter-table-index',
             ],
             [
                 '',
                 'alter-table-index',
-                50600,
+                '5.6.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Findex.html%23alter-table-index',
             ],
             [
                 'ALTER_TABLE',
                 '',
-                50500,
+                '5.5.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Falter-table.html',
             ],
             [
                 '',
                 '',
-                50700,
+                '5.7.0',
                 'index.php?route=/url&url='
                 . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
             ],
@@ -2339,5 +2492,61 @@ class UtilTest extends AbstractTestCase
         $this->assertSame([], $actual);
         $actual = Util::splitURLQuery('index.php?route=/table/structure&db=sakila&table=address');
         $this->assertSame(['route=/table/structure', 'db=sakila', 'table=address'], $actual);
+    }
+
+    public function testGetDbInfo(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+
+        $tableInfo = [
+            'Name' => 'test_table',
+            'Engine' => 'InnoDB',
+            'Version' => '10',
+            'Row_format' => 'Dynamic',
+            'Rows' => '3',
+            'Avg_row_length' => '5461',
+            'Data_length' => '16384',
+            'Max_data_length' => '0',
+            'Index_length' => '0',
+            'Data_free' => '0',
+            'Auto_increment' => '4',
+            'Create_time' => '2011-12-13 14:15:16',
+            'Update_time' => null,
+            'Check_time' => null,
+            'Collation' => 'utf8mb4_general_ci',
+            'Checksum' => null,
+            'Create_options' => '',
+            'Comment' => '',
+            'Max_index_length' => '0',
+            'Temporary' => 'N',
+            'Type' => 'InnoDB',
+            'TABLE_SCHEMA' => 'test_db',
+            'TABLE_NAME' => 'test_table',
+            'ENGINE' => 'InnoDB',
+            'VERSION' => '10',
+            'ROW_FORMAT' => 'Dynamic',
+            'TABLE_ROWS' => '3',
+            'AVG_ROW_LENGTH' => '5461',
+            'DATA_LENGTH' => '16384',
+            'MAX_DATA_LENGTH' => '0',
+            'INDEX_LENGTH' => '0',
+            'DATA_FREE' => '0',
+            'AUTO_INCREMENT' => '4',
+            'CREATE_TIME' => '2011-12-13 14:15:16',
+            'UPDATE_TIME' => null,
+            'CHECK_TIME' => null,
+            'TABLE_COLLATION' => 'utf8mb4_general_ci',
+            'CHECKSUM' => null,
+            'CREATE_OPTIONS' => '',
+            'TABLE_COMMENT' => '',
+            'TABLE_TYPE' => 'BASE TABLE',
+        ];
+        $expected = [['test_table' => $tableInfo], 1, 1, '_structure', true, false, [], [], 0];
+        $actual = Util::getDbInfo('test_db', '');
+        $this->assertSame($expected, $actual);
     }
 }

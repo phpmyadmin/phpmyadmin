@@ -516,7 +516,6 @@ class Results
         $fieldsMeta = $this->properties['fields_meta'];
         $previousTable = '';
         $numberOfColumns = $this->properties['fields_cnt'];
-        $hasTextButton = true;
         $hasEditLink = $displayParts->hasEditLink;
         $deleteLink = $displayParts->deleteLink;
         $hasPrintLink = $displayParts->hasPrintLink;
@@ -555,7 +554,7 @@ class Results
         return $displayParts->with([
             'hasEditLink' => $hasEditLink,
             'deleteLink' => $deleteLink,
-            'hasTextButton' => $hasTextButton,
+            'hasTextButton' => true,
             'hasPrintLink' => $hasPrintLink,
         ]);
     }
@@ -627,7 +626,7 @@ class Results
             // - For a VIEW we (probably) did not count the number of rows
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
-            $tableObject = new Table($table, $db);
+            $tableObject = new Table($table, $db, $this->dbi);
             if ($unlimNumRows < 2 && ! $tableObject->isView()) {
                 $displayParts = $displayParts->with(['hasSortLink' => false]);
             }
@@ -871,9 +870,9 @@ class Results
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($conditionField ? ' condition"' : '')
-                    . '" data-column="' . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . '" data-column="' . htmlspecialchars($fieldsMeta[$i]->name)
                     . '">        '
-                    . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . htmlspecialchars($fieldsMeta[$i]->name)
                     . $comments . '    </th>';
             }
 
@@ -1194,7 +1193,7 @@ class Results
         [$columnOrder, $columnVisibility] = $this->getColumnParams($statementInfo);
 
         $tableCreateTime = '';
-        $table = new Table($this->properties['table'], $this->properties['db']);
+        $table = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
         if (! $table->isView()) {
             $tableCreateTime = $this->dbi->getTable(
                 $this->properties['db'],
@@ -2339,30 +2338,29 @@ class Results
             $transformationPlugin = null;
             $transformOptions = [];
 
-            if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
-                if (
-                    isset($mediaTypeMap[$orgFullColName]['mimetype'])
-                    && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
-                ) {
-                    $file = $mediaTypeMap[$orgFullColName]['transformation'];
-                    $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+            if (
+                $relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']
+                && isset($mediaTypeMap[$orgFullColName]['mimetype'])
+                && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
+            ) {
+                $file = $mediaTypeMap[$orgFullColName]['transformation'];
+                $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
 
-                    if (@file_exists(ROOT_PATH . $includeFile)) {
-                        $className = $this->transformations->getClassName($includeFile);
-                        if (class_exists($className)) {
-                            $plugin = new $className();
-                            if ($plugin instanceof TransformationsPlugin) {
-                                $transformationPlugin = $plugin;
-                                $transformOptions = $this->transformations->getOptions(
-                                    $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
-                                );
+                if (@file_exists(ROOT_PATH . $includeFile)) {
+                    $className = $this->transformations->getClassName($includeFile);
+                    if (class_exists($className)) {
+                        $plugin = new $className();
+                        if ($plugin instanceof TransformationsPlugin) {
+                            $transformationPlugin = $plugin;
+                            $transformOptions = $this->transformations->getOptions(
+                                $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
+                            );
 
-                                $meta->internalMediaType = str_replace(
-                                    '_',
-                                    '/',
-                                    $mediaTypeMap[$orgFullColName]['mimetype']
-                                );
-                            }
+                            $meta->internalMediaType = str_replace(
+                                '_',
+                                '/',
+                                $mediaTypeMap[$orgFullColName]['mimetype']
+                            );
                         }
                     }
                 }
@@ -2461,16 +2459,7 @@ class Results
 
             $displayParams = $this->properties['display_params'] ?? [];
 
-            // in some situations (issue 11406), numeric returns 1
-            // even for a string type
-            // for decimal numeric is returning 1
-            // have to improve logic
-            // Nullable text fields and text fields have the blob flag (issue 16896)
-            $isNumericAndNotBlob = $meta->isNumeric && ! $meta->isBlob;
-            if (
-                ($isNumericAndNotBlob && $meta->isNotType(FieldMetadata::TYPE_STRING))
-                || $meta->isType(FieldMetadata::TYPE_REAL)
-            ) {
+            if ($meta->isNumeric) {
                 // n u m e r i c
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNumericColumns(
@@ -2647,7 +2636,7 @@ class Results
     private function getColumnParams(StatementInfo $statementInfo): array
     {
         if ($this->isSelect($statementInfo)) {
-            $pmatable = new Table($this->properties['table'], $this->properties['db']);
+            $pmatable = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
             $colOrder = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
             $fieldsCount = $this->properties['fields_cnt'];
             /* Validate the value */
@@ -2805,8 +2794,8 @@ class Results
 
             $deleteQuery = 'DELETE FROM '
                 . Util::backquote($this->properties['table'])
-                . ' WHERE ' . $whereClause .
-                ($clauseIsUnique ? '' : ' LIMIT 1');
+                . ' WHERE ' . $whereClause
+                . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $urlParams = [
                 'db' => $this->properties['db'],
@@ -3156,7 +3145,7 @@ class Results
         }
 
         if ($meta->isMappedTypeBit) {
-            $displayedColumn = Util::printableBitValue((int) $displayedColumn, (int) $meta->length);
+            $displayedColumn = Util::printableBitValue((int) $displayedColumn, $meta->length);
 
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
@@ -3754,7 +3743,7 @@ class Results
         }
 
         $messageViewWarning = false;
-        $table = new Table($this->properties['table'], $this->properties['db']);
+        $table = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
         if ($table->isView() && ($total == $GLOBALS['cfg']['MaxExactCountViews'])) {
             $message = Message::notice(
                 __(
@@ -4050,7 +4039,7 @@ class Results
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream'
             );
-            $posMimeText = strpos($transformationPlugin->getMIMEtype(), 'Text');
+            $posMimeText = strpos($transformationPlugin->getMIMEType(), 'Text');
             if ($posMimeOctetstream || $posMimeText !== false) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate

@@ -38,8 +38,6 @@ final class ReplacePrefixController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $selected = $_POST['selected'] ?? [];
         $fromPrefix = $_POST['from_prefix'] ?? '';
         $toPrefix = $_POST['to_prefix'] ?? '';
@@ -66,10 +64,6 @@ final class ReplacePrefixController extends AbstractController
         }
 
         $GLOBALS['message'] = Message::success();
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
 
         ($this->structureController)($request);
     }

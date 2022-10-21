@@ -1,5 +1,5 @@
 <script type='text/javascript'>
     window.onload = function () {
-        window.location = '{{ url }}';
+        window.location = '{{ url|escape('js') }}';
     };
 </script>

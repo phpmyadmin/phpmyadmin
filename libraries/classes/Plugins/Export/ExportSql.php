@@ -1274,8 +1274,7 @@ class ExportSql extends ExportPlugin
                 $colAlias = $aliases[$db]['tables'][$view]['columns'][$colAlias];
             }
 
-            $tmp[] = Util::backquote($colAlias) . ' ' .
-                $definition['Type'] . "\n";
+            $tmp[] = Util::backquote($colAlias) . ' ' . $definition['Type'] . "\n";
         }
 
         return $createQuery . implode(',', $tmp) . ');' . "\n";
@@ -1518,7 +1517,7 @@ class ExportSql extends ExportPlugin
                 $createQuery = str_replace("\r", "\n", $createQuery);
             }
 
-            /*
+            /**
              * Drop database name from VIEW creation.
              *
              * This is a bit tricky, but we need to issue SHOW CREATE TABLE with
@@ -1718,8 +1717,7 @@ class ExportSql extends ExportPlugin
                  *
                  * @var string
                  */
-                $alterHeader = 'ALTER TABLE ' .
-                    Util::backquoteCompat($tableAlias, $compat, $GLOBALS['sql_backquotes']);
+                $alterHeader = 'ALTER TABLE ' . Util::backquoteCompat($tableAlias, $compat, $GLOBALS['sql_backquotes']);
 
                 /**
                  * The footer of the `ALTER` statement (usually ';')
@@ -1756,8 +1754,9 @@ class ExportSql extends ExportPlugin
                     // InnoDB supports one FULLTEXT index creation at a time.
                     // So FULLTEXT indexes are created one-by-one after other
                     // indexes where created.
-                    $GLOBALS['sql_indexes_query'] .= $alterHeader .
-                        ' ADD ' . implode($alterFooter . $alterHeader . ' ADD ', $indexesFulltext) . $alterFooter;
+                    $GLOBALS['sql_indexes_query'] .= $alterHeader
+                        . ' ADD ' . implode($alterFooter . $alterHeader . ' ADD ', $indexesFulltext)
+                        . $alterFooter;
                 }
 
                 if (! empty($indexes) || ! empty($indexesFulltext)) {
@@ -2263,8 +2262,7 @@ class ExportSql extends ExportPlugin
                 $fields = implode(', ', $fieldSet);
                 $schemaInsert = $sqlCommand . $insertDelayed . ' INTO '
                     . Util::backquoteCompat($tableAlias, $compat, $GLOBALS['sql_backquotes'])
-                    // avoid EOL blank
-                    . ' (' . $fields . ') VALUES';
+                    . ' (' . $fields . ') VALUES'; // avoid EOL blank
             } else {
                 $schemaInsert = $sqlCommand . $insertDelayed . ' INTO '
                     . Util::backquoteCompat($tableAlias, $compat, $GLOBALS['sql_backquotes'])
@@ -2331,12 +2329,8 @@ class ExportSql extends ExportPlugin
                     $values[] = 'NULL';
                 } elseif (
                     $metaInfo->isNumeric
-                    && ! $metaInfo->isMappedTypeTimestamp
-                    && ! $metaInfo->isBlob
                 ) {
                     // a number
-                    // timestamp is numeric on some MySQL 4.1, BLOBs are
-                    // sometimes numeric
                     $values[] = $row[$j];
                 } elseif ($metaInfo->isBinary && isset($GLOBALS['sql_hex_for_binary'])) {
                     // a true BLOB

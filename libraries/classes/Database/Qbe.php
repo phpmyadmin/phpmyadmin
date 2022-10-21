@@ -1290,7 +1290,7 @@ class Qbe
         $result = '';
         foreach ($candidateColumns as $table) {
             if ($checkedTables[$table] != 1) {
-                $tableObj = new Table($table, $this->db);
+                $tableObj = new Table($table, $this->db, $this->dbi);
                 $tsize[$table] = $tableObj->countRecords();
                 $checkedTables[$table] = 1;
             }

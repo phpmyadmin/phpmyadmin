@@ -201,28 +201,6 @@ cleanup_composer_vendors() {
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
         vendor/paragonie/constant_time_encoding/.travis.yml \
-        vendor/paragonie/random_compat/other/build_phar.php \
-        vendor/paragonie/random_compat/other \
-        vendor/paragonie/random_compat/build-phar.sh \
-        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey \
-        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc \
-        vendor/paragonie/random_compat/dist \
-        vendor/paragonie/random_compat/psalm-autoload.php \
-        vendor/paragonie/random_compat/psalm.xml \
-        vendor/paragonie/sodium_compat/.github/ \
-        vendor/paragonie/sodium_compat/dist/ \
-        vendor/paragonie/sodium_compat/phpunit.xml.dist \
-        vendor/paragonie/sodium_compat/.gitignore \
-        vendor/paragonie/sodium_compat/psalm-above-3.xml \
-        vendor/paragonie/sodium_compat/psalm-below-3.xml \
-        vendor/paragonie/sodium_compat/build-phar.sh \
-        vendor/paragonie/sodium_compat/appveyor.yml \
-        vendor/paragonie/sodium_compat/autoload-phpunit.php \
-        vendor/paragonie/sodium_compat/autoload-pedantic.php \
-        vendor/paragonie/sodium_compat/autoload-fast.php \
-        vendor/paragonie/sodium_compat/composer-php52.json \
-        vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php \
-        vendor/paragonie/sodium_compat/src/PHP52 \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \

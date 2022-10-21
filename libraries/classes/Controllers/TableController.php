@@ -23,13 +23,13 @@ final class TableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if (! isset($_POST['db'])) {
+        if ($request->getParsedBodyParam('db') === null) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
             return;
         }
 
-        $this->response->addJSON(['tables' => $this->dbi->getTables($_POST['db'])]);
+        $this->response->addJSON(['tables' => $this->dbi->getTables($request->getParsedBodyParam('db'))]);
     }
 }

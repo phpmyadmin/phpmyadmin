@@ -32,8 +32,6 @@ final class CopyTableWithPrefixController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $selected = $_POST['selected'] ?? [];
         $fromPrefix = $_POST['from_prefix'] ?? null;
         $toPrefix = $_POST['to_prefix'] ?? null;
@@ -57,10 +55,6 @@ final class CopyTableWithPrefixController extends AbstractController
         }
 
         $GLOBALS['message'] = Message::success();
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
 
         ($this->structureController)($request);
     }

@@ -25,13 +25,13 @@
 <div id="menu">
   <ul>
     <li>
-      <a href="index.php{{ get_common() }}"{{ formset is empty ? ' class="active"' }}>
+      <a href="../setup/{{ url('/setup') }}"{{ formset is empty ? ' class="active"' }}>
         {% trans 'Overview' %}
       </a>
     </li>
     {% for page in pages %}
       <li>
-        <a href="index.php{{ get_common({
+        <a href="../setup/{{ url('/setup', {
           'page': 'form',
           'formset': page.formset
         }) }}"{{ formset == page.formset ? ' class="active"' }}>

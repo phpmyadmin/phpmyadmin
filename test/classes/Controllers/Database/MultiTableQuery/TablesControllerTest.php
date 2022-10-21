@@ -45,7 +45,9 @@ class TablesControllerTest extends AbstractTestCase
 
         /** @var TablesController $multiTableQueryController */
         $multiTableQueryController = $GLOBALS['containerBuilder']->get(TablesController::class);
-        $multiTableQueryController($this->createStub(ServerRequest::class));
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getQueryParam')->willReturnOnConsecutiveCalls($_GET['tables'], $_GET['db']);
+        $multiTableQueryController($request);
         $this->assertSame(
             [
                 'foreignKeyConstrains' => [

@@ -6,7 +6,7 @@
 <div class="card">
   <h5 class="card-header">config.inc.php</h5>
   <div class="card-body">
-    <form id="configFileForm" method="post" action="config.php">
+    <form id="configFileForm" method="post" action="../setup/{{ url('/setup/show-config') }}">
       {% if has_check_page_refresh %}
         <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
       {% endif %}

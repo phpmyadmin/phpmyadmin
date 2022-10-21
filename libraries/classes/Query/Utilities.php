@@ -112,10 +112,9 @@ class Utilities
                  * InnoDB constraints, see
                  * https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html
                  */
-                $error .= ' - ' . $error_message .
-                    ' (<a href="' .
-                    Url::getFromRoute('/server/engines/InnoDB/Status') .
-                    '">' . __('Details…') . '</a>)';
+                $error .= ' - ' . $error_message . ' (<a href="'
+                    . Url::getFromRoute('/server/engines/InnoDB/Status')
+                    . '">' . __('Details…') . '</a>)';
             }
         } else {
             $error .= ' - ' . $error_message;

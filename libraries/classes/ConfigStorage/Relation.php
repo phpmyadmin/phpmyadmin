@@ -439,7 +439,7 @@ class Relation
         }
 
         if (($source === 'both' || $source === 'foreign') && strlen($table) > 0) {
-            $tableObj = new Table($table, $db);
+            $tableObj = new Table($table, $db, $this->dbi);
             $show_create_table = $tableObj->showCreate();
             if ($show_create_table) {
                 $parser = new Parser($show_create_table);

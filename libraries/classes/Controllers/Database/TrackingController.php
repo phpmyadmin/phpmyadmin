@@ -92,7 +92,7 @@ class TrackingController extends AbstractController
                 __('Tracking data deleted successfully.')
             )->getDisplay();
         } elseif (isset($_POST['submit_create_version'])) {
-            $this->tracking->createTrackingForMultipleTables($GLOBALS['db'], $_POST['selected']);
+            $this->tracking->createTrackingForMultipleTables($GLOBALS['db'], $_POST['selected'], $_POST['version']);
             echo Message::success(
                 sprintf(
                     __(

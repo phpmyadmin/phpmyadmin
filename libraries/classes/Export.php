@@ -49,6 +49,8 @@ use function substr;
 use function time;
 use function trim;
 
+use const ENT_COMPAT;
+
 /**
  * PhpMyAdmin\Export class
  */
@@ -57,7 +59,7 @@ class Export
     /** @var DatabaseInterface */
     private $dbi;
 
-    /** @var mixed */
+    /** @var string */
     public $dumpBuffer = '';
 
     /** @var int */
@@ -105,7 +107,7 @@ class Export
      */
     public function gzencodeNeeded(): bool
     {
-        /*
+        /**
          * We should gzencode only if the function exists
          * but we don't want to compress twice, therefore
          * gzencode only if transparent compression is not enabled
@@ -125,7 +127,7 @@ class Export
      *
      * @param string $line the insert statement
      */
-    public function outputHandler(?string $line): bool
+    public function outputHandler(string $line): bool
     {
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
@@ -139,7 +141,7 @@ class Export
         if ($GLOBALS['buffer_needed']) {
             $this->dumpBuffer .= $line;
             if ($GLOBALS['onfly_compression']) {
-                $this->dumpBufferLength += strlen((string) $line);
+                $this->dumpBufferLength += strlen($line);
 
                 if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
                     if ($GLOBALS['output_charset_conversion']) {
@@ -149,14 +151,14 @@ class Export
                     if ($GLOBALS['compression'] === 'gzip' && $this->gzencodeNeeded()) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
-                        $this->dumpBuffer = gzencode($this->dumpBuffer);
+                        $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
                     }
 
                     if ($GLOBALS['save_on_server']) {
-                        $writeResult = @fwrite($GLOBALS['file_handle'], (string) $this->dumpBuffer);
+                        $writeResult = @fwrite($GLOBALS['file_handle'], $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
-                        if ($writeResult != strlen((string) $this->dumpBuffer)) {
+                        if ($writeResult != strlen($this->dumpBuffer)) {
                             $GLOBALS['message'] = Message::error(
                                 __('Insufficient space to save the file %s.')
                             );
@@ -183,16 +185,16 @@ class Export
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }
 
-            if ($GLOBALS['save_on_server'] && mb_strlen((string) $line) > 0) {
+            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
                 if ($GLOBALS['file_handle'] !== null) {
-                    $writeResult = @fwrite($GLOBALS['file_handle'], (string) $line);
+                    $writeResult = @fwrite($GLOBALS['file_handle'], $line);
                 } else {
                     $writeResult = false;
                 }
 
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
-                if (! $writeResult || $writeResult != strlen((string) $line)) {
+                if (! $writeResult || $writeResult != strlen($line)) {
                     $GLOBALS['message'] = Message::error(
                         __('Insufficient space to save the file %s.')
                     );
@@ -212,7 +214,7 @@ class Export
             }
         } else {
             // We export as html - replace special chars
-            echo htmlspecialchars((string) $line);
+            echo htmlspecialchars($line, ENT_COMPAT);
         }
 
         return true;
@@ -263,7 +265,7 @@ class Export
         $memoryLimitNumber = (int) substr($memoryLimit, 0, -1);
         $lowerLastChar = strtolower(substr($memoryLimit, -1));
         // 2 MB as default
-        if (empty($memoryLimit) || $memoryLimit == '-1') {
+        if ($memoryLimit === '' || $memoryLimit === '0' || $memoryLimit === '-1') {
             $memoryLimit = 2 * 1024 * 1024;
         } elseif ($lowerLastChar === 'm') {
             $memoryLimit = $memoryLimitNumber * 1024 * 1024;
@@ -349,7 +351,7 @@ class Export
         string $filenameTemplate
     ): array {
         if ($exportType === 'server') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_server_filename_template',
                     'Export/file_template_server',
@@ -357,7 +359,7 @@ class Export
                 );
             }
         } elseif ($exportType === 'database') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_db_filename_template',
                     'Export/file_template_database',
@@ -365,7 +367,7 @@ class Export
                 );
             }
         } elseif ($exportType === 'raw') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_raw_filename_template',
                     'Export/file_template_raw',
@@ -373,7 +375,7 @@ class Export
                 );
             }
         } else {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_table_filename_template',
                     'Export/file_template_table',
@@ -585,7 +587,7 @@ class Export
         array $aliases,
         string $separateFiles
     ): void {
-        if (! empty($dbSelect) && is_array($dbSelect)) {
+        if (is_array($dbSelect) && $dbSelect !== []) {
             $tmpSelect = implode('|', $dbSelect);
             $tmpSelect = '|' . $tmpSelect . '|';
         }
@@ -685,7 +687,7 @@ class Export
         $views = [];
 
         foreach ($tables as $table) {
-            $tableObject = new Table($table, $db->getName());
+            $tableObject = new Table($table, $db->getName(), $this->dbi);
             // if this is a view, collect it for later;
             // views must be exported after the tables
             $isView = $tableObject->isView();
@@ -763,7 +765,7 @@ class Export
                 && in_array($table, $tableData)
                 && ! $isView
             ) {
-                $tableObj = new Table($table, $db->getName());
+                $tableObj = new Table($table, $db->getName(), $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
@@ -965,7 +967,7 @@ class Export
             $addQuery = '';
         }
 
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $this->dbi);
         $isView = $tableObject->isView();
         if ($whatStrucOrData === 'structure' || $whatStrucOrData === 'structure_and_data') {
             if ($isView) {
@@ -1011,9 +1013,9 @@ class Export
         // for example, a PDF report
         // if it is a merge table, no data is exported
         if ($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data') {
-            if (! empty($sqlQuery)) {
+            if ($sqlQuery !== '') {
                 // only preg_replace if needed
-                if (! empty($addQuery)) {
+                if ($addQuery !== '') {
                     // remove trailing semicolon before adding a LIMIT
                     $sqlQuery = preg_replace('%;\s*$%', '', $sqlQuery);
                 }
@@ -1022,7 +1024,7 @@ class Export
                 $this->dbi->selectDb($db);
             } else {
                 // Data is exported only for Non-generated columns
-                $tableObj = new Table($table, $db);
+                $tableObj = new Table($table, $db, $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
@@ -1128,7 +1130,7 @@ class Export
                 $val1 = $db['alias'][0];
                 $val2 = $db['alias'][1];
                 // Use aliases2 alias if non empty
-                $aliases[$dbName]['alias'] = empty($val2) ? $val1 : $val2;
+                $aliases[$dbName]['alias'] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
             }
 
             if (! isset($db['tables'])) {
@@ -1140,7 +1142,7 @@ class Export
                     $val1 = $tbl['alias'][0];
                     $val2 = $tbl['alias'][1];
                     // Use aliases2 alias if non empty
-                    $aliases[$dbName]['tables'][$tableName]['alias'] = empty($val2) ? $val1 : $val2;
+                    $aliases[$dbName]['tables'][$tableName]['alias'] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
                 }
 
                 if (! isset($tbl['columns'])) {
@@ -1155,7 +1157,7 @@ class Export
                     $val1 = $colAs[0];
                     $val2 = $colAs[1];
                     // Use aliases2 alias if non empty
-                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = empty($val2) ? $val1 : $val2;
+                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
                 }
             }
         }

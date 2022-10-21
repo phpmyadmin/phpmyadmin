@@ -28,6 +28,7 @@ use function in_array;
 use function is_array;
 use function is_file;
 use function is_string;
+use function json_encode;
 use function max;
 use function mb_stripos;
 use function mb_strlen;
@@ -595,7 +596,7 @@ class InsertEdit
             . ' cols="' . $textareaCols . '"'
             . ' dir="' . $textDir . '"'
             . ' id="field_' . $idindex . '_3"'
-            . ($onChangeClause ? ' ' . $onChangeClause : '')
+            . ($onChangeClause ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
             . ' data-type="' . $dataType . '">'
             . $specialCharsEncoded
@@ -694,7 +695,8 @@ class InsertEdit
         }
 
         $inputMinMax = '';
-        if (in_array($column['True_Type'], $this->dbi->types->getIntegerTypes())) {
+        $isInteger = in_array($column['True_Type'], $this->dbi->types->getIntegerTypes());
+        if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($column['Type']);
             $isUnsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($column['True_Type'], ! $isUnsigned);
@@ -714,8 +716,9 @@ class InsertEdit
             . ($readOnly ? ' readonly="readonly"' : '')
             . ($inputMinMax ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
-            . ' class="' . $theClass . '" ' . $onChangeClause
+            . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
+            . ($isInteger ? ' inputmode="numeric"' : '')
             . ' id="field_' . $idindex . '_3">';
     }
 
@@ -1587,7 +1590,8 @@ class InsertEdit
             if (
                 ($editField->salt !== null
                     && ($editField->function === 'AES_ENCRYPT'
-                        || $editField->function === 'AES_DECRYPT'))
+                        || $editField->function === 'AES_DECRYPT'
+                        || $editField->function === 'SHA2'))
                 || ($editField->salt
                     && ($editField->function === 'DES_ENCRYPT'
                         || $editField->function === 'DES_DECRYPT'
@@ -1957,7 +1961,6 @@ class InsertEdit
      * @param array           $commentsMap        comments map
      * @param bool            $timestampSeen      whether timestamp seen
      * @param ResultInterface $currentResult      current result
-     * @param string          $chgEvtHandler      javascript change event handler
      * @param string          $jsvkey             javascript validation key
      * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
@@ -1986,7 +1989,6 @@ class InsertEdit
         array $commentsMap,
         $timestampSeen,
         ResultInterface $currentResult,
-        $chgEvtHandler,
         $jsvkey,
         $vkey,
         $insertMode,
@@ -2033,10 +2035,9 @@ class InsertEdit
         }
 
         //Call validation when the form submitted...
-        $onChangeClause = $chgEvtHandler
-            . "=\"return verificationsAfterFieldChange('"
-            . Sanitize::escapeJsString($fieldHashMd5) . "', '"
-            . Sanitize::escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
+        $onChangeClause = 'return verificationsAfterFieldChange('
+            . json_encode($fieldHashMd5) . ', '
+            . json_encode($jsvkey) . ',' . json_encode($column['pma_type']) . ')';
 
         // Use an MD5 as an array index to avoid having special characters
         // in the name attribute (see bug #1746964 )
@@ -2338,7 +2339,6 @@ class InsertEdit
      * @param array           $commentsMap        comments map
      * @param bool            $timestampSeen      whether timestamp seen
      * @param ResultInterface $currentResult      current result
-     * @param string          $chgEvtHandler      javascript change event handler
      * @param string          $jsvkey             javascript validation key
      * @param string          $vkey               validation key
      * @param bool            $insertMode         whether insert mode
@@ -2365,7 +2365,6 @@ class InsertEdit
         array $commentsMap,
         $timestampSeen,
         ResultInterface $currentResult,
-        $chgEvtHandler,
         $jsvkey,
         $vkey,
         $insertMode,
@@ -2418,7 +2417,6 @@ class InsertEdit
                 $commentsMap,
                 $timestampSeen,
                 $currentResult,
-                $chgEvtHandler,
                 $jsvkey,
                 $vkey,
                 $insertMode,

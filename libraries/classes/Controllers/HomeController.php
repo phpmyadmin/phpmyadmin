@@ -82,7 +82,7 @@ class HomeController extends AbstractController
         // This is for $cfg['ShowDatabasesNavigationAsTree'] = false;
         // See: https://github.com/phpmyadmin/phpmyadmin/issues/16520
         // The DB is defined here and sent to the JS front-end to refresh the DB tree
-        $GLOBALS['db'] = $_POST['db'] ?? '';
+        $GLOBALS['db'] = $request->getParsedBodyParam('db', '');
         $GLOBALS['table'] = '';
         $GLOBALS['show_query'] = '1';
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
@@ -200,8 +200,8 @@ class HomeController extends AbstractController
                     . '%sFind out why%s. '
                 );
                 if ($GLOBALS['cfg']['ZeroConf'] == true) {
-                    $messageText .= '<br>' .
-                        __('Or alternately go to \'Operations\' tab of any database to set it up there.');
+                    $messageText .= '<br>'
+                        . __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
 
                 $messageInstance = Message::notice($messageText);
@@ -413,11 +413,6 @@ class HomeController extends AbstractController
 
         /** @psalm-suppress MissingFile */
         include ROOT_PATH . 'libraries/language_stats.inc.php';
-        /*
-         * This message is intentionally not translated, because we're
-         * handling incomplete translations here and focus on english
-         * speaking users.
-         */
         if (
             ! isset($GLOBALS['language_stats'][$GLOBALS['lang']])
             || $GLOBALS['language_stats'][$GLOBALS['lang']] >= $GLOBALS['cfg']['TranslationWarningThreshold']
@@ -425,6 +420,10 @@ class HomeController extends AbstractController
             return;
         }
 
+        /**
+         * This message is intentionally not translated, because we're handling incomplete translations here and focus
+         * on english speaking users.
+         */
         $this->errors[] = [
             'message' => 'You are using an incomplete translation, please help to make it '
                 . 'better by [a@https://www.phpmyadmin.net/translate/'

@@ -36,8 +36,6 @@ final class CopyTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $selected = $_POST['selected'] ?? [];
         $targetDb = $_POST['target_db'] ?? null;
         $selectedCount = count($selected);
@@ -62,10 +60,6 @@ final class CopyTableController extends AbstractController
         }
 
         $GLOBALS['message'] = Message::success();
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
 
         ($this->structureController)($request);
     }

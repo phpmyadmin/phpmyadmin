@@ -18,7 +18,7 @@ use function trim;
 
 class WriteGitRevisionCommand extends Command
 {
-    /** @var string */
+    /** @var string|null */
     protected static $defaultName = 'write-revision-info';
 
     /** @var string */

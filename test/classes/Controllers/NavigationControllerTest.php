@@ -291,8 +291,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
-        $dbTemplate =
-            '  <li class="database database">' . "\n"
+        $dbTemplate = '  <li class="database database">' . "\n"
             . '    <div class="block">' . "\n"
             . '      <i></i>' . "\n"
             . '              <b></b>' . "\n"
@@ -321,8 +320,7 @@ class NavigationControllerTest extends AbstractTestCase
             . "\n"
             . '  </li>';
 
-        $dbTemplateLast =
-            '  <li class="database last database">' . "\n"// "last" class added
+        $dbTemplateLast = '  <li class="database last database">' . "\n"// "last" class added
             . '    <div class="block">' . "\n"
             . '      <i></i>' . "\n"
             . '              ' . "\n"// <b> node is removed
@@ -350,8 +348,7 @@ class NavigationControllerTest extends AbstractTestCase
             . "\n"
             . "\n"
             . '  </li>';
-        $dbTemplateExpanded =
-            '  <li class="database database">' . "\n"
+        $dbTemplateExpanded = '  <li class="database database">' . "\n"
             . '    <div class="block">' . "\n"
             . '      <i></i>' . "\n"
             . '              <b></b>' . "\n"

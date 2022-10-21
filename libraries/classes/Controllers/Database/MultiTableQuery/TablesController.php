@@ -27,8 +27,8 @@ final class TablesController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $params = [
-            'tables' => $_GET['tables'] ?? [],
-            'db' => $_GET['db'] ?? '',
+            'tables' => $request->getQueryParam('tables', []),
+            'db' => $request->getQueryParam('db', ''),
         ];
 
         $tablesListForQuery = '';

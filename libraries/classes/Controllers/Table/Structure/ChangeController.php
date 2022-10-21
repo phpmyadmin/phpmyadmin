@@ -43,7 +43,7 @@ final class ChangeController extends AbstractController
             return;
         }
 
-        $selected = $_POST['selected_fld'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_fld', []);
 
         if (empty($selected)) {
             $this->response->setRequestStatus(false);

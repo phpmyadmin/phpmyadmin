@@ -223,13 +223,12 @@ class Normalization
         $stepTxt = __('Make all columns atomic');
         $html = "<h3 class='text-center'>"
             . __('First step of normalization (1NF)') . '</h3>';
-        $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>" .
-            '<fieldset class="pma-fieldset">' .
-            '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>' .
-            '<h4>' . __(
-                'Do you have any column which can be split into more than'
-                . ' one column? '
-                . 'For example: address can be split into street, city, country and zip.'
+        $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>"
+            . '<fieldset class="pma-fieldset">'
+            . '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>'
+            . '<h4>' . __(
+                'Do you have any column which can be split into more than one column?'
+                . ' For example: address can be split into street, city, country and zip.'
             )
             . "<br>(<a class='central_columns_dialog' data-maxrows='25' "
             . "data-pick=false href='#'> "
@@ -267,7 +266,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.2
+     * @return array{legendText: string, headText: string, subText: string, hasPrimaryKey: string, extra: string}
      */
     public function getHtmlContentsFor1NFStep2($db, $table)
     {
@@ -315,7 +314,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.4
+     * @return array{legendText: string, headText: string, subText: string, extra: string} HTML contents for step 1.4
      */
     public function getHtmlContentsFor1NFStep4($db, $table)
     {
@@ -352,7 +351,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.3
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: false|string}
      */
     public function getHtmlContentsFor1NFStep3($db, $table)
     {
@@ -397,7 +396,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for 2NF step 2.1
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: string}
      */
     public function getHtmlFor2NFstep1($db, $table)
     {
@@ -523,7 +522,7 @@ class Normalization
      * @param string $table               current table
      * @param string $db                  current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
      */
     public function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
     {
@@ -535,7 +534,7 @@ class Normalization
             __('The second step of normalization is complete for table \'%1$s\'.'),
             htmlspecialchars($table)
         ) . '</h3>';
-        if (count((array) $partialDependencies) === 1) {
+        if (count($partialDependencies) === 1) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
@@ -656,18 +655,18 @@ class Normalization
                 }
 
                 $columnList[] = $tmpTableCols;
-                    $html .= '<p><input type="text" name="'
-                        . htmlspecialchars($tableName)
-                        . '" value="' . htmlspecialchars($tableName) . '">'
-                        . '( <u>' . htmlspecialchars($key) . '</u>'
-                        . (count($dependents) > 0 ? ', ' : '')
-                        . htmlspecialchars(implode(', ', $dependents)) . ' )';
-                    $newTables[$table][$tableName] = [
-                        'pk' => $key,
-                        'nonpk' => implode(', ', $dependents),
-                    ];
-                    $i++;
-                    $tableName = 'table' . $i;
+                $html .= '<p><input type="text" name="'
+                    . htmlspecialchars($tableName)
+                    . '" value="' . htmlspecialchars($tableName) . '">'
+                    . '( <u>' . htmlspecialchars($key) . '</u>'
+                    . (count($dependents) > 0 ? ', ' : '')
+                    . htmlspecialchars(implode(', ', $dependents)) . ' )';
+                $newTables[$table][$tableName] = [
+                    'pk' => $key,
+                    'nonpk' => implode(', ', $dependents),
+                ];
+                $i++;
+                $tableName = 'table' . $i;
             }
         }
 
@@ -684,16 +683,14 @@ class Normalization
      * @param array  $newTables list of new tables to be created
      * @param string $db        current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: string|false, extra?: string}
      */
     public function createNewTablesFor3NF(array $newTables, $db)
     {
         $queries = [];
         $dropCols = false;
         $error = false;
-        $headText = '<h3>' .
-            __('The third step of normalization is complete.')
-            . '</h3>';
+        $headText = '<h3>' . __('The third step of normalization is complete.') . '</h3>';
         if (count($newTables) === 0) {
             return [
                 'legendText' => __('End of step'),
@@ -790,7 +787,7 @@ class Normalization
      * @param string $table            current table
      * @param string $db               current database
      *
-     * @return array
+     * @return array{queryError: bool, message: Message}
      */
     public function moveRepeatingGroup(
         $repeatingColumns,
@@ -861,7 +858,7 @@ class Normalization
      * @param string $db     current database
      * @param array  $tables tables formed after 2NF and need to process for 3NF
      *
-     * @return string[]
+     * @return array{legendText: string, headText: string, subText: string, extra: string}
      */
     public function getHtmlFor3NFstep1($db, array $tables)
     {
