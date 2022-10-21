@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseName;
 
 use function count;
 use function preg_match_all;
@@ -275,7 +276,7 @@ class Bookmark
      *
      * @param DatabaseInterface $dbi                 DatabaseInterface object
      * @param string            $user                Current user
-     * @param string            $db                  the current database name
+     * @param DatabaseName      $db                  the current database name
      * @param int|string        $id                  an identifier of the bookmark to get
      * @param string            $id_field            which field to look up the identifier
      * @param bool              $action_bookmark_all true: get all bookmarks regardless
@@ -287,7 +288,7 @@ class Bookmark
     public static function get(
         DatabaseInterface $dbi,
         string $user,
-        string $db,
+        DatabaseName $db,
         $id,
         string $id_field = 'id',
         bool $action_bookmark_all = false,
@@ -301,7 +302,7 @@ class Bookmark
 
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . " WHERE dbase = '" . $dbi->escapeString($db) . "'";
+            . " WHERE dbase = '" . $dbi->escapeString($db->getName()) . "'";
         if (! $action_bookmark_all) {
             $query .= " AND (user = '"
                 . $dbi->escapeString($user) . "'";
