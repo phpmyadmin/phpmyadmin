@@ -20,6 +20,7 @@ use function array_map;
 use function define;
 use function explode;
 use function htmlspecialchars;
+use function is_array;
 use function sprintf;
 use function strtotime;
 
@@ -221,7 +222,8 @@ final class TrackingController extends AbstractController
         }
 
         $trackingReportRows = '';
-        if ($report !== null
+        if (
+            $report !== null
             && ($request->getParsedBodyParam('delete_ddlog') !== null
                 || $request->getParsedBodyParam('delete_dmlog') !== null)
         ) {
