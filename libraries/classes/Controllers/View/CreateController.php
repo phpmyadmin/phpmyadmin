@@ -116,7 +116,7 @@ class CreateController extends AbstractController
              */
             $GLOBALS['sep'] = "\r\n";
 
-            if (isset($createView)) {
+            if ($createView !== null) {
                 $GLOBALS['sql_query'] = 'CREATE';
                 if (isset($view['or_replace'])) {
                     $GLOBALS['sql_query'] .= ' OR REPLACE';
