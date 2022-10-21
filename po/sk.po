@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-03-03 21:57+0000\n"
-"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
+"PO-Revision-Date: 2022-10-23 06:07+0000\n"
+"Last-Translator: mixeros <mixer@mixercz.cz>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-9/sk/"
 ">\n"
 "Language: sk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -127,7 +127,7 @@ msgstr "Typ"
 #: templates/table/search/zoom_result_form.twig:35
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
-msgstr "Nulový"
+msgstr "Prázdný"
 
 #: db_datadict.php:120 libraries/classes/CentralColumns.php:748
 #: libraries/classes/CentralColumns.php:1428
