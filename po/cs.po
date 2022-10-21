@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-10-21 08:20+0000\n"
+"PO-Revision-Date: 2022-10-21 08:39+0000\n"
 "Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/>"
 "\n"
@@ -11229,7 +11229,7 @@ msgstr "Chyba při čtení struktury tabulky %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1611
 msgid "It appears your database uses views;"
-msgstr "Vaše databáze zřejmě využívá pohledy;"
+msgstr "Zdá se, že Vaše databáze používá pohledy;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1778
 msgid "Constraints for dumped tables"
@@ -11265,7 +11265,7 @@ msgstr "VZTAHY TABULKY"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2119
 msgid "It appears your table uses triggers;"
-msgstr "Vaše tabulka zřejmě využívá triggery;"
+msgstr "Zdá se, že Vaše tabulka používá triggery;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2149
 #, php-format
@@ -11837,7 +11837,7 @@ msgstr "Jednoduché dvoustupňové ověřování"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:59
 msgid "For testing purposes only!"
-msgstr "Pouze pro účely testování!"
+msgstr "Pouze pro testovací účely!"
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -17067,7 +17067,7 @@ msgstr "Požaduje zabezpečené připojení."
 
 #: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
-msgstr "Vyžaduje platný certifikát X509."
+msgstr "Je vyžadován platný X509 certifikát."
 
 #: templates/server/privileges/privileges_table.twig:823
 msgid "Requires that a specific cipher method be used for a connection."
