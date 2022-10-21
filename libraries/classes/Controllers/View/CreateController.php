@@ -110,7 +110,7 @@ class CreateController extends AbstractController
         /** @var string|null $alterview */
         $alterview = $request->getParsedBodyParam('alterview');
 
-        if (isset($createview) || isset($alterview)) {
+        if ($createview !== null || $alterview !== null) {
             /**
              * Creates the view
              */
