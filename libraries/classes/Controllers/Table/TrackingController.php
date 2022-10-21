@@ -97,7 +97,11 @@ final class TrackingController extends AbstractController
         $GLOBALS['selection_both'] = false;
 
         $report = $request->getParsedBodyParam('report');
+        /** @var string $versionParam */
         $versionParam = $request->getParsedBodyParam('version');
+        /** @var string $tableParam */
+        $tableParam = $request->getParsedBodyParam('table');
+
         // Init vars for tracking report
         if ($report !== null || $reportExport !== null) {
             $GLOBALS['data'] = Tracker::getTrackedData(
@@ -116,13 +120,16 @@ final class TrackingController extends AbstractController
                 $GLOBALS['selection_both'] = true;
             }
 
-            $dateFrom = strtotime($request->getParsedBodyParam('date_from', $GLOBALS['data']['date_from']));
-            $dateTo = strtotime($request->getParsedBodyParam('date_to', $GLOBALS['data']['date_to']));
-            $users = array_map('trim', explode(',', $request->getParsedBodyParam('users', '*')));
+            /** @var string $dateFrom */
+            $dateFrom = $request->getParsedBodyParam('date_from', $GLOBALS['data']['date_from']);
+            /** @var string $dateTo */
+            $dateTo = $request->getParsedBodyParam('date_to', $GLOBALS['data']['date_to']);
+            /** @var string $users */
+            $users = $request->getParsedBodyParam('users', '*');
 
-            $GLOBALS['filter_ts_from'] = $dateFrom;
-            $GLOBALS['filter_ts_to'] = $dateTo;
-            $GLOBALS['filter_users'] = $users;
+            $GLOBALS['filter_ts_from'] = strtotime($dateFrom);
+            $GLOBALS['filter_ts_to'] = strtotime($dateTo);
+            $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
         }
 
         // Prepare export
@@ -137,7 +144,7 @@ final class TrackingController extends AbstractController
 
         // Export as file download
         if ($reportExport !== null && $request->getParsedBodyParam('export_type') === 'sqldumpfile') {
-            $this->tracking->exportAsFileDownload($request->getParsedBodyParam('table'), $GLOBALS['entries']);
+            $this->tracking->exportAsFileDownload($tableParam, $GLOBALS['entries']);
         }
 
         $actionMessage = '';
@@ -215,7 +222,7 @@ final class TrackingController extends AbstractController
         if ($request->getParsedBodyParam('snapshot') !== null) {
             $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
                 $request->getParsedBodyParam('db'),
-                $request->getParsedBodyParam('table'),
+                $tableParam,
                 $versionParam,
                 $GLOBALS['urlParams']
             );
