@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
@@ -408,10 +409,10 @@ final class ExportController extends AbstractController
                 }
 
                 if (isset($GLOBALS['lock_tables'])) {
-                    $this->export->lockTables($GLOBALS['db'], $GLOBALS['tables'], 'READ');
+                    $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), $GLOBALS['tables'], 'READ');
                     try {
                         $this->export->exportDatabase(
-                            $GLOBALS['db'],
+                            DatabaseName::fromValue($GLOBALS['db']),
                             $GLOBALS['tables'],
                             $GLOBALS['whatStrucOrData'],
                             $GLOBALS['table_structure'],
@@ -431,7 +432,7 @@ final class ExportController extends AbstractController
                     }
                 } else {
                     $this->export->exportDatabase(
-                        $GLOBALS['db'],
+                        DatabaseName::fromValue($GLOBALS['db']),
                         $GLOBALS['tables'],
                         $GLOBALS['whatStrucOrData'],
                         $GLOBALS['table_structure'],
@@ -472,7 +473,7 @@ final class ExportController extends AbstractController
 
                 if (isset($GLOBALS['lock_tables'])) {
                     try {
-                        $this->export->lockTables($GLOBALS['db'], [$GLOBALS['table']], 'READ');
+                        $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), [$GLOBALS['table']], 'READ');
                         $this->export->exportTable(
                             $GLOBALS['db'],
                             $GLOBALS['table'],

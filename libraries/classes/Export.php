@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 
@@ -599,7 +600,7 @@ class Export
 
             $tables = $this->dbi->getTables($currentDb);
             $this->exportDatabase(
-                $currentDb,
+                DatabaseName::fromValue($currentDb),
                 $tables,
                 $whatStrucOrData,
                 $tables,
@@ -625,7 +626,7 @@ class Export
     /**
      * Export at the database level
      *
-     * @param string       $db              the database to export
+     * @param DatabaseName $db              the database to export
      * @param array        $tables          the tables to export
      * @param string       $whatStrucOrData structure or data or both
      * @param array        $tableStructure  whether to export structure for each table
@@ -641,7 +642,7 @@ class Export
      * @param string       $separateFiles   whether it is a separate-files export
      */
     public function exportDatabase(
-        string $db,
+        DatabaseName $db,
         array $tables,
         string $whatStrucOrData,
         array $tableStructure,
@@ -656,14 +657,14 @@ class Export
         array $aliases,
         string $separateFiles
     ): void {
-        $dbAlias = ! empty($aliases[$db]['alias'])
-            ? $aliases[$db]['alias'] : '';
+        $dbAlias = ! empty($aliases[$db->getName()]['alias'])
+            ? $aliases[$db->getName()]['alias'] : '';
 
-        if (! $exportPlugin->exportDBHeader($db, $dbAlias)) {
+        if (! $exportPlugin->exportDBHeader($db->getName(), $dbAlias)) {
             return;
         }
 
-        if (! $exportPlugin->exportDBCreate($db, $exportType, $dbAlias)) {
+        if (! $exportPlugin->exportDBCreate($db->getName(), $exportType, $dbAlias)) {
             return;
         }
 
@@ -676,7 +677,7 @@ class Export
             || $GLOBALS['sql_structure_or_data'] === 'structure_and_data')
             && isset($GLOBALS['sql_procedure_function'])
         ) {
-            $exportPlugin->exportRoutines($db, $aliases);
+            $exportPlugin->exportRoutines($db->getName(), $aliases);
 
             if ($separateFiles === 'database') {
                 $this->saveObjectInBuffer('routines');
@@ -686,7 +687,7 @@ class Export
         $views = [];
 
         foreach ($tables as $table) {
-            $tableObject = new Table($table, $db, $this->dbi);
+            $tableObject = new Table($table, $db->getName(), $this->dbi);
             // if this is a view, collect it for later;
             // views must be exported after the tables
             $isView = $tableObject->isView();
@@ -706,7 +707,7 @@ class Export
                         $separateFiles == ''
                         && isset($GLOBALS['sql_create_view'])
                         && ! $exportPlugin->exportStructure(
-                            $db,
+                            $db->getName(),
                             $table,
                             $errorUrl,
                             'stand_in',
@@ -728,7 +729,7 @@ class Export
                         // This obtains the current table's size
                         $query = 'SELECT data_length + index_length
                               from information_schema.TABLES
-                              WHERE table_schema = "' . $this->dbi->escapeString($db) . '"
+                              WHERE table_schema = "' . $this->dbi->escapeString($db->getName()) . '"
                               AND table_name = "' . $this->dbi->escapeString($table) . '"';
 
                         $size = (int) $this->dbi->fetchValue($query);
@@ -741,7 +742,7 @@ class Export
 
                     if (
                         ! $exportPlugin->exportStructure(
-                            $db,
+                            $db->getName(),
                             $table,
                             $errorUrl,
                             'create_table',
@@ -764,14 +765,14 @@ class Export
                 && in_array($table, $tableData)
                 && ! $isView
             ) {
-                $tableObj = new Table($table, $db, $this->dbi);
+                $tableObj = new Table($table, $db->getName(), $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
-                    . ' FROM ' . Util::backquote($db)
+                    . ' FROM ' . Util::backquote($db->getName())
                     . '.' . Util::backquote($table);
 
-                if (! $exportPlugin->exportData($db, $table, $errorUrl, $localQuery, $aliases)) {
+                if (! $exportPlugin->exportData($db->getName(), $table, $errorUrl, $localQuery, $aliases)) {
                     break;
                 }
             }
@@ -793,7 +794,7 @@ class Export
 
             if (
                 ! $exportPlugin->exportStructure(
-                    $db,
+                    $db->getName(),
                     $table,
                     $errorUrl,
                     'triggers',
@@ -824,7 +825,7 @@ class Export
 
                 if (
                     ! $exportPlugin->exportStructure(
-                        $db,
+                        $db->getName(),
                         $view,
                         $errorUrl,
                         'create_view',
@@ -847,7 +848,7 @@ class Export
             }
         }
 
-        if (! $exportPlugin->exportDBFooter($db)) {
+        if (! $exportPlugin->exportDBFooter($db->getName())) {
             return;
         }
 
@@ -856,7 +857,7 @@ class Export
             // Types of metadata to export.
             // In the future these can be allowed to be selected by the user
             $metadataTypes = $this->getMetadataTypes();
-            $exportPlugin->exportMetadata($db, $tables, $metadataTypes);
+            $exportPlugin->exportMetadata($db->getName(), $tables, $metadataTypes);
 
             if ($separateFiles === 'database') {
                 $this->saveObjectInBuffer('metadata');
@@ -875,7 +876,7 @@ class Export
             return;
         }
 
-        $exportPlugin->exportEvents($db);
+        $exportPlugin->exportEvents($db->getName());
 
         if ($separateFiles !== 'database') {
             return;
@@ -1167,17 +1168,17 @@ class Export
     /**
      * Locks tables
      *
-     * @param string $db       database name
-     * @param array  $tables   list of table names
-     * @param string $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
+     * @param DatabaseName $db       database name
+     * @param array        $tables   list of table names
+     * @param string       $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
      *
      * @return mixed result of the query
      */
-    public function lockTables(string $db, array $tables, string $lockType = 'WRITE')
+    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE')
     {
         $locks = [];
         foreach ($tables as $table) {
-            $locks[] = Util::backquote($db) . '.'
+            $locks[] = Util::backquote($db->getName()) . '.'
                 . Util::backquote($table) . ' ' . $lockType;
         }
 
