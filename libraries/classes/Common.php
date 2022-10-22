@@ -225,7 +225,11 @@ final class Common
             if ($isSetupPage) {
                 self::setupPageBootstrap($config);
                 Routing::callSetupController($request);
+
+                return;
             }
+
+            Routing::callControllerForRoute($request, Routing::getDispatcher(), $GLOBALS['containerBuilder']);
 
             return;
         }
@@ -300,7 +304,8 @@ final class Common
                 'message',
                 Message::error(__('Error: Token mismatch'))
             );
-            exit;
+
+            return;
         }
 
         Profiling::check($GLOBALS['dbi'], $response);
@@ -315,13 +320,13 @@ final class Common
         /* Tell tracker that it can actually work */
         Tracker::enable();
 
-        if (empty($GLOBALS['server']) || ! isset($GLOBALS['cfg']['ZeroConf']) || $GLOBALS['cfg']['ZeroConf'] !== true) {
-            return;
+        if (! empty($GLOBALS['server']) && isset($GLOBALS['cfg']['ZeroConf']) && $GLOBALS['cfg']['ZeroConf']) {
+            /** @var Relation $relation */
+            $relation = $GLOBALS['containerBuilder']->get('relation');
+            $GLOBALS['dbi']->postConnectControl($relation);
         }
 
-        /** @var Relation $relation */
-        $relation = $GLOBALS['containerBuilder']->get('relation');
-        $GLOBALS['dbi']->postConnectControl($relation);
+        Routing::callControllerForRoute($request, Routing::getDispatcher(), $GLOBALS['containerBuilder']);
     }
 
     /**

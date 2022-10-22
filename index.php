@@ -3,8 +3,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Common;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Routing;
 
 // phpcs:disable PSR1.Files.SideEffects
 if (! defined('ROOT_PATH')) {
@@ -32,5 +30,3 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 require AUTOLOAD_FILE;
 
 Common::run();
-
-Routing::callControllerForRoute(Common::getRequest(), Routing::getDispatcher(), Core::getContainerBuilder());
