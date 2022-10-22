@@ -239,7 +239,8 @@
       <code>$_REQUEST['back']</code>
       <code>$_REQUEST['goto']</code>
     </PossiblyInvalidCast>
-    <RedundantCast occurrences="2">
+    <RedundantCast occurrences="3">
+      <code>(string) $GLOBALS['lang']</code>
       <code>(string) $_POST['token']</code>
       <code>(string) $_POST['token']</code>
     </RedundantCast>
@@ -14437,11 +14438,6 @@
       <code>$service</code>
       <code>$serviceName</code>
     </MixedAssignment>
-  </file>
-  <file src="setup/lib/common.inc.php">
-    <RedundantCast occurrences="1">
-      <code>(string) $GLOBALS['lang']</code>
-    </RedundantCast>
   </file>
   <file src="test/classes/AbstractNetworkTestCase.php">
     <MixedAssignment occurrences="1">
