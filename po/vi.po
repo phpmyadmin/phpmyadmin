@@ -6245,8 +6245,8 @@ msgid "Import monitor configuration"
 msgstr "Nhập vào cấu hình theo dõi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Chọn những thể loại bạn muốn nhập vào."
+msgid "Please select the file you want to import:"
+msgstr "Chọn những thể loại bạn muốn nhập vào:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid table name."

@@ -6387,8 +6387,8 @@ msgid "Import monitor configuration"
 msgstr "İzleme yapılandırmasını içe aktar"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Lütfen içe aktarmak istediğiniz dosyayı seçin."
+msgid "Please select the file you want to import:"
+msgstr "Lütfen içe aktarmak istediğiniz dosyayı seçin:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid table name."

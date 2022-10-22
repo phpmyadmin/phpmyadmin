@@ -7174,7 +7174,7 @@ msgstr "\"%1$s\" файлидан андоза конфигурацияни юк
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс бўлган майдонни танланг!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313

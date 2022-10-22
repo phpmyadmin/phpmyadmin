@@ -6514,8 +6514,8 @@ msgstr "Не могу да учитам подразумевану конфиг�
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
-msgid "Please select the file you want to import."
-msgstr "Молимо изаберите примарни или јединствени кључ"
+msgid "Please select the file you want to import:"
+msgstr "Молимо изаберите примарни или јединствени кључ:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 #, fuzzy

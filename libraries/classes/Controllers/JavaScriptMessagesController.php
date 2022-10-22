@@ -309,7 +309,7 @@ final class JavaScriptMessagesController
             ),
             'strImport' => __('Import'),
             'strImportDialogTitle' => __('Import monitor configuration'),
-            'strImportDialogMessage' => __('Please select the file you want to import.'),
+            'strImportDialogMessage' => __('Please select the file you want to import:'),
             'strTableNameDialogMessage' => __('Please enter a valid table name.'),
             'strDBNameDialogMessage' => __('Please enter a valid database name.'),
             'strNoImportFile' => __('No files available on server for import!'),
