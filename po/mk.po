@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-08-31 05:20+0000\n"
+"PO-Revision-Date: 2022-10-23 06:06+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-2/mk/>\n"
+"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-2/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -540,10 +540,10 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Големина на искористен MyISAM клучен бафер"
 
 #: libraries/advisory_rules_generic.php:399
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"%% MyISAM искористен клучен бафер: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/advisory_rules_generic.php:404
 #, fuzzy
@@ -19768,10 +19768,8 @@ msgstr "Поништи"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table caption"
 msgid "Toggle navigation"
-msgstr "Коментар на табела"
+msgstr "Вклучи/Исклучи навигација"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
