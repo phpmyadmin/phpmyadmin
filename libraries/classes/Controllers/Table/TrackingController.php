@@ -220,8 +220,10 @@ final class TrackingController extends AbstractController
 
         $schemaSnapshot = '';
         if ($request->getParsedBodyParam('snapshot') !== null) {
+            /** @var string $db */
+            $db = $request->getParsedBodyParam('db');
             $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
-                $request->getParsedBodyParam('db'),
+                $db,
                 $tableParam,
                 $versionParam,
                 $GLOBALS['urlParams']

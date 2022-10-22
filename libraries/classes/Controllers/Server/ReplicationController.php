@@ -72,7 +72,7 @@ class ReplicationController extends AbstractController
         }
 
         if ($this->dbi->isSuperUser()) {
-            /** @var string|null $sr_replica_action */
+            /** @var string|null $srReplicaAction */
             $srReplicaAction = $request->getParsedBodyParam('sr_replica_action');
             /** @var string|int $srSkipErrorsCount */
             $srSkipErrorsCount = $request->getParsedBodyParam('sr_skip_errors_count', 1);
