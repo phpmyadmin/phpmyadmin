@@ -20,13 +20,10 @@ use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function define;
-use function defined;
 use function explode;
 use function extension_loaded;
 use function function_exists;
-use function gmdate;
 use function hash_equals;
-use function header;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
@@ -44,7 +41,6 @@ use function register_shutdown_function;
 use function restore_error_handler;
 use function session_id;
 use function strlen;
-use function time;
 use function trigger_error;
 use function urldecode;
 
@@ -98,16 +94,6 @@ final class Common
 
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
-        if ($route === '/messages') {
-            // Send correct type.
-            header('Content-Type: text/javascript; charset=UTF-8');
-            // Cache output in client
-            // the nocache query parameter makes sure that this file is reloaded when config changes.
-            header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
-
-            define('PMA_NO_SESSION', true);
-        }
-
         $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
 
         /** @var ErrorHandler $errorHandler */
@@ -129,10 +115,8 @@ final class Common
         $config = $GLOBALS['containerBuilder']->get('config');
         $GLOBALS['config'] = $config;
 
-        /**
-         * include session handling after the globals, to prevent overwriting
-         */
-        if (! defined('PMA_NO_SESSION')) {
+        if ($route !== '/messages') {
+            // Include session handling after the globals, to prevent overwriting.
             Session::setUp($config, $errorHandler);
         }
 

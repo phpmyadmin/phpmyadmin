@@ -6,8 +6,11 @@ namespace PhpMyAdmin\Controllers;
 
 use function __;
 use function _pgettext;
+use function gmdate;
+use function header;
 use function json_encode;
 use function json_last_error_msg;
+use function time;
 
 /**
  * Exporting of translated messages from PHP to JavaScript.
@@ -24,6 +27,7 @@ final class JavaScriptMessagesController
 
     public function __invoke(): void
     {
+        $this->setHTTPHeaders();
         $messages = json_encode($this->messages);
         if ($messages === false) {
             echo '// Error when encoding messages: ' . json_last_error_msg();
@@ -32,6 +36,15 @@ final class JavaScriptMessagesController
         }
 
         echo 'window.Messages = ' . $messages . ';';
+    }
+
+    private function setHTTPHeaders(): void
+    {
+        // Send correct type.
+        header('Content-Type: text/javascript; charset=UTF-8');
+        // Cache output in client
+        // the nocache query parameter makes sure that this file is reloaded when config changes.
+        header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
     }
 
     /**
