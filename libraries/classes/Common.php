@@ -137,21 +137,7 @@ final class Common
         self::setGotoAndBackGlobals($GLOBALS['containerBuilder'], $config);
         self::checkTokenRequestParam();
         self::setDatabaseAndTableFromRequest($GLOBALS['containerBuilder'], $request);
-
-        /**
-         * SQL query to be executed
-         *
-         * @global string $sql_query
-         */
-        $GLOBALS['sql_query'] = '';
-        if ($request->isPost()) {
-            $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query');
-            if (! is_string($GLOBALS['sql_query'])) {
-                $GLOBALS['sql_query'] = '';
-            }
-        }
-
-        $GLOBALS['containerBuilder']->setParameter('sql_query', $GLOBALS['sql_query']);
+        self::setSQLQueryGlobalFromRequest($request);
 
         //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
         //$_REQUEST['server']; // checked later in this file
@@ -655,5 +641,20 @@ final class Common
 
         // allows for redirection even after sending some data
         ob_start();
+    }
+
+    private static function setSQLQueryGlobalFromRequest(ServerRequest $request): void
+    {
+        $sqlQuery = '';
+        if ($request->isPost()) {
+            /** @var mixed $sqlQuery */
+            $sqlQuery = $request->getParsedBodyParam('sql_query');
+            if (! is_string($sqlQuery)) {
+                $sqlQuery = '';
+            }
+        }
+
+        $GLOBALS['sql_query'] = $sqlQuery;
+        $GLOBALS['containerBuilder']->setParameter('sql_query', $sqlQuery);
     }
 }
