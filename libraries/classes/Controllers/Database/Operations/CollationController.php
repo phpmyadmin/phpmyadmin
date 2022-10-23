@@ -43,7 +43,8 @@ final class CollationController extends AbstractController
             return;
         }
 
-        if (empty($request->getParsedBodyParam('db_collation'))) {
+        $dbCollation = $request->getParsedBodyParam('db_collation') ?? '';
+        if (empty($dbCollation)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No collation provided.')));
 
@@ -60,7 +61,7 @@ final class CollationController extends AbstractController
         }
 
         $sql_query = 'ALTER DATABASE ' . Util::backquote($GLOBALS['db'])
-            . ' DEFAULT' . Util::getCharsetQueryPart($request->getParsedBodyParam('db_collation', ''));
+            . ' DEFAULT' . Util::getCharsetQueryPart($dbCollation);
         $this->dbi->query($sql_query);
         $message = Message::success();
 
@@ -81,7 +82,7 @@ final class CollationController extends AbstractController
                     . '.'
                     . Util::backquote($tableName)
                     . ' DEFAULT '
-                    . Util::getCharsetQueryPart($request->getParsedBodyParam('db_collation', ''));
+                    . Util::getCharsetQueryPart($dbCollation);
                 $this->dbi->query($sql_query);
 
                 /**
@@ -91,11 +92,7 @@ final class CollationController extends AbstractController
                     continue;
                 }
 
-                $this->operations->changeAllColumnsCollation(
-                    $GLOBALS['db'],
-                    $tableName,
-                    $request->getParsedBodyParam('db_collation', '')
-                );
+                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $tableName, $dbCollation);
             }
         }
 

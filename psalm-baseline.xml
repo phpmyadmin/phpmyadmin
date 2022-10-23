@@ -1233,17 +1233,16 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Operations/CollationController.php">
-    <MixedArgument occurrences="4">
-      <code>$request-&gt;getParsedBodyParam('db_collation', '')</code>
-      <code>$request-&gt;getParsedBodyParam('db_collation', '')</code>
-      <code>$request-&gt;getParsedBodyParam('db_collation', '')</code>
+    <MixedArgument occurrences="2">
+      <code>$dbCollation</code>
       <code>$tableName</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="1">
       <code>$tableName</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
       <code>$GLOBALS['errorUrl']</code>
+      <code>$dbCollation</code>
       <code>['Name' =&gt; $tableName]</code>
     </MixedAssignment>
   </file>
