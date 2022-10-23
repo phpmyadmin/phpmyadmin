@@ -8,9 +8,6 @@ use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PHPUnit\Framework\TestCase;
 
 use function json_decode;
-use function ob_end_clean;
-use function ob_get_contents;
-use function ob_start;
 use function strlen;
 use function substr;
 
@@ -19,14 +16,14 @@ use function substr;
  */
 class JavaScriptMessagesControllerTest extends TestCase
 {
+    /**
+     * @runInSeparateProcess
+     */
     public function testIndex(): void
     {
-        ob_start();
         (new JavaScriptMessagesController())();
-        $actual = ob_get_contents();
-        ob_end_clean();
+        $actual = $this->getActualOutputForAssertion();
 
-        $this->assertIsString($actual);
         $this->assertStringStartsWith('window.Messages = {', $actual);
         $this->assertStringEndsWith('};', $actual);
 

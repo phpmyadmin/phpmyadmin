@@ -219,11 +219,10 @@
       <code>$GLOBALS['cfg']['MysqlMinVersion']['internal']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['auth_plugin']</code>
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['isConfigLoading']</code>
-      <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['theme']</code>
       <code>$controlLink</code>
       <code>$sqlDelimiter</code>

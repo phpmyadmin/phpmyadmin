@@ -20,13 +20,10 @@ use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function define;
-use function defined;
 use function explode;
 use function extension_loaded;
 use function function_exists;
-use function gmdate;
 use function hash_equals;
-use function header;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
@@ -44,7 +41,6 @@ use function register_shutdown_function;
 use function restore_error_handler;
 use function session_id;
 use function strlen;
-use function time;
 use function trigger_error;
 use function urldecode;
 
@@ -85,7 +81,6 @@ final class Common
      */
     public static function run(bool $isSetupPage = false): void
     {
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
         $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
         $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
@@ -97,16 +92,6 @@ final class Common
         $route = $request->getRoute();
 
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
-
-        if ($route === '/messages') {
-            // Send correct type.
-            header('Content-Type: text/javascript; charset=UTF-8');
-            // Cache output in client
-            // the nocache query parameter makes sure that this file is reloaded when config changes.
-            header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
-
-            define('PMA_NO_SESSION', true);
-        }
 
         $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
 
@@ -129,10 +114,8 @@ final class Common
         $config = $GLOBALS['containerBuilder']->get('config');
         $GLOBALS['config'] = $config;
 
-        /**
-         * include session handling after the globals, to prevent overwriting
-         */
-        if (! defined('PMA_NO_SESSION')) {
+        if ($route !== '/messages') {
+            // Include session handling after the globals, to prevent overwriting.
             Session::setUp($config, $errorHandler);
         }
 
@@ -153,21 +136,7 @@ final class Common
         self::setGotoAndBackGlobals($GLOBALS['containerBuilder'], $config);
         self::checkTokenRequestParam();
         self::setDatabaseAndTableFromRequest($GLOBALS['containerBuilder'], $request);
-
-        /**
-         * SQL query to be executed
-         *
-         * @global string $sql_query
-         */
-        $GLOBALS['sql_query'] = '';
-        if ($request->isPost()) {
-            $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query');
-            if (! is_string($GLOBALS['sql_query'])) {
-                $GLOBALS['sql_query'] = '';
-            }
-        }
-
-        $GLOBALS['containerBuilder']->setParameter('sql_query', $GLOBALS['sql_query']);
+        self::setSQLQueryGlobalFromRequest($request);
 
         //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
         //$_REQUEST['server']; // checked later in this file
@@ -190,20 +159,7 @@ final class Common
 
         self::checkServerConfiguration();
         self::checkRequest();
-
-        /* setup servers                                       LABEL_setup_servers    */
-
-        $config->checkServers();
-
-        /**
-         * current server
-         *
-         * @global integer $server
-         */
-        $GLOBALS['server'] = $config->selectServer();
-        $GLOBALS['urlParams']['server'] = $GLOBALS['server'];
-        $GLOBALS['containerBuilder']->setParameter('server', $GLOBALS['server']);
-        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
+        self::setCurrentServerGlobal($config);
 
         $GLOBALS['cfg'] = $config->settings;
 
@@ -671,5 +627,30 @@ final class Common
 
         // allows for redirection even after sending some data
         ob_start();
+    }
+
+    private static function setSQLQueryGlobalFromRequest(ServerRequest $request): void
+    {
+        $sqlQuery = '';
+        if ($request->isPost()) {
+            /** @var mixed $sqlQuery */
+            $sqlQuery = $request->getParsedBodyParam('sql_query');
+            if (! is_string($sqlQuery)) {
+                $sqlQuery = '';
+            }
+        }
+
+        $GLOBALS['sql_query'] = $sqlQuery;
+        $GLOBALS['containerBuilder']->setParameter('sql_query', $sqlQuery);
+    }
+
+    private static function setCurrentServerGlobal(Config $config): void
+    {
+        $config->checkServers();
+        $server = $config->selectServer();
+        $GLOBALS['server'] = $server;
+        $GLOBALS['urlParams']['server'] = $server;
+        $GLOBALS['containerBuilder']->setParameter('server', $server);
+        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
     }
 }
