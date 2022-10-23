@@ -81,7 +81,6 @@ final class Common
      */
     public static function run(bool $isSetupPage = false): void
     {
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
         $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
         $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
@@ -160,20 +159,7 @@ final class Common
 
         self::checkServerConfiguration();
         self::checkRequest();
-
-        /* setup servers                                       LABEL_setup_servers    */
-
-        $config->checkServers();
-
-        /**
-         * current server
-         *
-         * @global integer $server
-         */
-        $GLOBALS['server'] = $config->selectServer();
-        $GLOBALS['urlParams']['server'] = $GLOBALS['server'];
-        $GLOBALS['containerBuilder']->setParameter('server', $GLOBALS['server']);
-        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
+        self::setCurrentServerGlobal($config);
 
         $GLOBALS['cfg'] = $config->settings;
 
@@ -656,5 +642,15 @@ final class Common
 
         $GLOBALS['sql_query'] = $sqlQuery;
         $GLOBALS['containerBuilder']->setParameter('sql_query', $sqlQuery);
+    }
+
+    private static function setCurrentServerGlobal(Config $config): void
+    {
+        $config->checkServers();
+        $server = $config->selectServer();
+        $GLOBALS['server'] = $server;
+        $GLOBALS['urlParams']['server'] = $server;
+        $GLOBALS['containerBuilder']->setParameter('server', $server);
+        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
     }
 }
