@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function defined;
+use function header;
 use function headers_sent;
 use function http_response_code;
 use function is_array;
@@ -16,6 +17,7 @@ use function json_encode;
 use function json_last_error_msg;
 use function mb_strlen;
 use function register_shutdown_function;
+use function sprintf;
 use function strlen;
 
 use const PHP_SAPI;
@@ -370,7 +372,9 @@ class ResponseRenderer
 
         // Set the Content-Type header to JSON so that jQuery parses the
         // response correctly.
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
 
         $result = json_encode($this->JSON);
         if ($result === false) {

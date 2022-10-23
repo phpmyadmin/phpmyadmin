@@ -13,6 +13,7 @@ use PhpMyAdmin\VersionInformation;
 
 /**
  * @covers \PhpMyAdmin\Controllers\VersionCheckController
+ * @runTestsInSeparateProcesses
  */
 class VersionCheckControllerTest extends AbstractTestCase
 {

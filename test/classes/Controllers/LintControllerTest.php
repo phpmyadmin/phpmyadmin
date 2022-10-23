@@ -14,6 +14,7 @@ use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\Controllers\LintController
+ * @runTestsInSeparateProcesses
  */
 class LintControllerTest extends AbstractTestCase
 {

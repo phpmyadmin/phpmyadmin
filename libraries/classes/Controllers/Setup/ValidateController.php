@@ -11,6 +11,7 @@ use stdClass;
 
 use function __;
 use function explode;
+use function header;
 use function implode;
 use function is_string;
 use function json_decode;
@@ -21,7 +22,9 @@ final class ValidateController
 {
     public function __invoke(ServerRequest $request): void
     {
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
 
         /** @var mixed $id */
         $id = $request->getParsedBodyParam('id');

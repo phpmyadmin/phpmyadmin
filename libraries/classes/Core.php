@@ -119,7 +119,10 @@ class Core
 
         if (! empty($_REQUEST['ajax_request'])) {
             // Generate JSON manually
-            self::headerJSON();
+            foreach (self::headerJSON() as $name => $value) {
+                header(sprintf('%s: %s', $name, $value));
+            }
+
             echo json_encode(
                 [
                     'success' => false,
@@ -388,14 +391,12 @@ class Core
     }
 
     /**
-     * Outputs application/json headers. This includes no caching.
+     * Returns application/json headers. This includes no caching.
+     *
+     * @return array<string, string>
      */
-    public static function headerJSON(): void
+    public static function headerJSON(): array
     {
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
         // No caching
         $headers = self::getNoCacheHeaders();
 
@@ -408,9 +409,7 @@ class Core
          */
         $headers['X-Content-Type-Options'] = 'nosniff';
 
-        foreach ($headers as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
-        }
+        return $headers;
     }
 
     /**

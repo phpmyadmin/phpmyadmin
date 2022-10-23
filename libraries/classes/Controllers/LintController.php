@@ -11,7 +11,9 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
 
+use function header;
 use function json_encode;
+use function sprintf;
 
 /**
  * Represents the interface between the linter and the query editor.
@@ -43,7 +45,9 @@ class LintController extends AbstractController
         // Disabling standard response.
         $this->response->disable();
 
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
 
         if (! empty($params['options'])) {
             $options = $params['options'];
