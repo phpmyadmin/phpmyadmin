@@ -738,12 +738,11 @@ class Results
                 : 'false') . ';"';
 
         $hasRealEndInput = $isInnodb && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount'];
+        $posLast = 0;
         if (is_numeric($_SESSION['tmpval']['max_rows'])) {
             $posLast = @((int) ceil(
                 (int) $this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']
             ) - 1) * intval($_SESSION['tmpval']['max_rows']);
-        } else {
-            $posLast = 0;
         }
 
         $hiddenFields = [
