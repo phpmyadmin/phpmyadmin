@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-10-16 00:29+0000\n"
+"POT-Creation-Date: 2022-10-23 00:30+0000\n"
 "PO-Revision-Date: 2021-12-28 12:53+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1164,8 +1164,8 @@ msgstr "Tìm kiếm:"
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: libraries/classes/Controllers/Server/PrivilegesController.php:341
-#: libraries/classes/Normalization.php:255 libraries/classes/Tracking.php:325
-#: libraries/classes/Tracking.php:479
+#: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:322
+#: libraries/classes/Tracking.php:474
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
@@ -1579,39 +1579,39 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: libraries/classes/Common.php:263
+#: libraries/classes/Common.php:273
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Bạn nên nâng cấp lên %s %s hay bản mới hơn."
 
-#: libraries/classes/Common.php:295
+#: libraries/classes/Common.php:305
 msgid "Error: Token mismatch"
 msgstr "Lỗi: Không khớp thẻ"
 
-#: libraries/classes/Common.php:506
+#: libraries/classes/Common.php:517
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:556
+#: libraries/classes/Common.php:567
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Common.php:573
+#: libraries/classes/Common.php:584
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:584
+#: libraries/classes/Common.php:595
 msgid "GLOBALS overwrite attempt"
 msgstr "Cố gắng kết nối gặp lỗi"
 
-#: libraries/classes/Common.php:594
+#: libraries/classes/Common.php:605
 msgid "possible exploit"
 msgstr "Kết quả có thể"
 
@@ -3115,14 +3115,14 @@ msgstr "Đặt tên các cột ở hàng đầu tiên"
 #: libraries/classes/Config/Descriptions.php:661
 #: libraries/classes/Config/Descriptions.php:794
 #: libraries/classes/Config/Descriptions.php:800
-#: libraries/classes/Plugins/Import/ImportCsv.php:683
+#: libraries/classes/Plugins/Import/ImportCsv.php:684
 msgid "Columns enclosed with"
 msgstr "Bao các cột bằng"
 
 #: libraries/classes/Config/Descriptions.php:662
 #: libraries/classes/Config/Descriptions.php:795
 #: libraries/classes/Config/Descriptions.php:801
-#: libraries/classes/Plugins/Import/ImportCsv.php:694
+#: libraries/classes/Plugins/Import/ImportCsv.php:695
 msgid "Columns escaped with"
 msgstr "Thoát các cột bằng"
 
@@ -3144,13 +3144,13 @@ msgstr "Gỡ bỏ các ký tự CRLF có trong các cột"
 #: libraries/classes/Config/Descriptions.php:665
 #: libraries/classes/Config/Descriptions.php:798
 #: libraries/classes/Config/Descriptions.php:805
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
+#: libraries/classes/Plugins/Import/ImportCsv.php:669
 msgid "Columns terminated with"
 msgstr "Các cột được chấm dứt bằng"
 
 #: libraries/classes/Config/Descriptions.php:666
 #: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Plugins/Import/ImportCsv.php:701
+#: libraries/classes/Plugins/Import/ImportCsv.php:702
 msgid "Lines terminated with"
 msgstr "Dòng được chấm dứt bằng"
 
@@ -3387,7 +3387,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:473
-#: libraries/classes/Util.php:1871 libraries/config.values.php:155
+#: libraries/classes/Util.php:1865 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3503,9 +3503,9 @@ msgstr "Theo dõi thay đổi"
 
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
 #: libraries/classes/Menu.php:357 libraries/classes/Menu.php:478
-#: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1432 libraries/classes/Util.php:1872
-#: libraries/classes/Util.php:1887 libraries/classes/Util.php:1904
+#: libraries/classes/Navigation/Nodes/NodeTable.php:305
+#: libraries/classes/Util.php:1426 libraries/classes/Util.php:1866
+#: libraries/classes/Util.php:1881 libraries/classes/Util.php:1898
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -3700,7 +3700,7 @@ msgstr "Độ rộng bảng điều hướng"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
-#: libraries/classes/Navigation/NavigationTree.php:1352
+#: libraries/classes/Navigation/NavigationTree.php:1351
 msgid "Link with main panel"
 msgstr "Liên kết với bảng điều khiển chính"
 
@@ -3791,7 +3791,7 @@ msgid "Recently used tables"
 msgstr "Các bảng mới dùng gần đây"
 
 #: libraries/classes/Config/Descriptions.php:855
-#: libraries/classes/RecentFavoriteTable.php:245
+#: libraries/classes/RecentFavoriteTable.php:243
 msgid "Favorite tables"
 msgstr "Bảng ưa dùng"
 
@@ -4160,9 +4160,9 @@ msgstr "Bỏ qua các bảng bị khóa"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/Display/Results.php:2747
-#: libraries/classes/Html/Generator.php:657
-#: libraries/classes/Html/Generator.php:906
+#: libraries/classes/Display/Results.php:2745
+#: libraries/classes/Html/Generator.php:658
+#: libraries/classes/Html/Generator.php:907
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:265
@@ -4185,12 +4185,12 @@ msgid "Edit"
 msgstr "Sửa"
 
 #: libraries/classes/Config/Descriptions.php:947
-#: libraries/classes/Html/Generator.php:625
+#: libraries/classes/Html/Generator.php:626
 msgid "Explain SQL"
 msgstr "Giải thích SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1274 libraries/classes/Html/Generator.php:705
+#: libraries/classes/Export.php:1275 libraries/classes/Html/Generator.php:706
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4198,7 +4198,7 @@ msgid "Refresh"
 msgstr "Làm tươi lại"
 
 #: libraries/classes/Config/Descriptions.php:949
-#: libraries/classes/Html/Generator.php:689
+#: libraries/classes/Html/Generator.php:690
 msgid "Create PHP code"
 msgstr "Tạo mã PHP"
 
@@ -4416,39 +4416,39 @@ msgstr "Xếp theo"
 msgid "Server connection collation"
 msgstr "Bảng mã đối chiếu kết nối máy dịch vụ"
 
-#: libraries/classes/Config/FormDisplay.php:602
+#: libraries/classes/Config/FormDisplay.php:601
 #, php-format
 msgid "Missing data for %s"
 msgstr "Thiếu dữ liệu cho %s"
 
-#: libraries/classes/Config/FormDisplay.php:643
+#: libraries/classes/Config/FormDisplay.php:642
 #: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "Giá trị không đúng!"
 
-#: libraries/classes/Config/FormDisplay.php:794
-#: libraries/classes/Config/FormDisplay.php:803
+#: libraries/classes/Config/FormDisplay.php:793
+#: libraries/classes/Config/FormDisplay.php:802
 msgid "unavailable"
 msgstr "không sẵn có"
 
-#: libraries/classes/Config/FormDisplay.php:796
-#: libraries/classes/Config/FormDisplay.php:805
+#: libraries/classes/Config/FormDisplay.php:795
+#: libraries/classes/Config/FormDisplay.php:804
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" yêu cầu cần có phần mở rộng %s"
 
-#: libraries/classes/Config/FormDisplay.php:836
+#: libraries/classes/Config/FormDisplay.php:835
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Việc nhập khẩu dữ liệu có nén sẽ không làm việc bởi vì thiếu hàm %s."
 
-#: libraries/classes/Config/FormDisplay.php:845
+#: libraries/classes/Config/FormDisplay.php:844
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Việc xuất khẩu dữ liệu có nén sẽ không làm việc bởi vì thiếu hàm %s."
 
-#: libraries/classes/Config/FormDisplay.php:864
+#: libraries/classes/Config/FormDisplay.php:863
 #, php-format
 msgid "maximum %s"
 msgstr "tối đa là %s"
@@ -4477,13 +4477,13 @@ msgstr "Tự chọn"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/Import.php:1256 libraries/classes/Menu.php:245
+#: libraries/classes/Import.php:1254 libraries/classes/Menu.php:245
 #: libraries/classes/Menu.php:352
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
-#: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:1431 libraries/classes/Util.php:1886
-#: libraries/classes/Util.php:1903 libraries/config.values.php:60
+#: libraries/classes/Navigation/Nodes/NodeTable.php:296
+#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1880
+#: libraries/classes/Util.php:1897 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4527,8 +4527,8 @@ msgstr "Văn bản OpenDocument"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
 #: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1505
-#: libraries/classes/Util.php:1875 libraries/classes/Util.php:1890
-#: libraries/classes/Util.php:1907 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:1869 libraries/classes/Util.php:1884
+#: libraries/classes/Util.php:1901 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4571,8 +4571,8 @@ msgstr "CSV dùng LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:387
-#: libraries/classes/Menu.php:510 libraries/classes/Util.php:1876
-#: libraries/classes/Util.php:1891 libraries/classes/Util.php:1908
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:1870
+#: libraries/classes/Util.php:1885 libraries/classes/Util.php:1902
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -4621,7 +4621,7 @@ msgstr "Chỉ mục máy chủ không hợp lệ: %s"
 msgid "Server %d"
 msgstr "Máy chủ %d"
 
-#: libraries/classes/Config/ServerConfigChecks.php:67
+#: libraries/classes/Config/ServerConfigChecks.php:59
 #, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -4637,7 +4637,7 @@ msgstr ""
 "thể không đáng tin nếu IP của bạn thuộc về một ISP ở đó hàng ngàn người "
 "dùng, kể cả bạn, đều được kết nối."
 
-#: libraries/classes/Config/ServerConfigChecks.php:92
+#: libraries/classes/Config/ServerConfigChecks.php:84
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -4646,11 +4646,11 @@ msgstr ""
 "được truy cập rộng rãi hoặc có quyền đọc hoặc quyền sửa bởi người dùng khác "
 "trên máy chủ của bạn."
 
-#: libraries/classes/Config/ServerConfigChecks.php:162
+#: libraries/classes/Config/ServerConfigChecks.php:148
 msgid "You should use SSL connections if your database server supports it."
 msgstr "Bạn nên dùng kết nối SSL nếu máy phục vụ cơ sở dữ liệu hỗ trợ nó."
 
-#: libraries/classes/Config/ServerConfigChecks.php:169
+#: libraries/classes/Config/ServerConfigChecks.php:155
 #, fuzzy, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
@@ -4668,7 +4668,7 @@ msgstr ""
 "nhiên, bảo vệ dựa trên IP có thể không đáng tin cậy nếu IP của bạn thuộc về "
 "một ISP, nơi hàng ngàn người dùng, kể cả bạn, được kết nối."
 
-#: libraries/classes/Config/ServerConfigChecks.php:195
+#: libraries/classes/Config/ServerConfigChecks.php:181
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -4678,32 +4678,32 @@ msgid ""
 "[kbd]http[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:224
+#: libraries/classes/Config/ServerConfigChecks.php:210
 msgid "You allow for connecting to the server without a password."
 msgstr "Bạn cho kết nối đến máy chủ mà không cần mật khẩu."
 
-#: libraries/classes/Config/ServerConfigChecks.php:307
-#, php-format
-msgid ""
-"%sZip decompression%s requires functions (%s) which are unavailable on this "
-"system."
-msgstr ""
-
-#: libraries/classes/Config/ServerConfigChecks.php:328
-#, php-format
-msgid ""
-"%sZip compression%s requires functions (%s) which are unavailable on this "
-"system."
-msgstr ""
-
-#: libraries/classes/Config/ServerConfigChecks.php:361
+#: libraries/classes/Config/ServerConfigChecks.php:227
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:385
+#: libraries/classes/Config/ServerConfigChecks.php:278
+#, php-format
+msgid ""
+"%sZip decompression%s requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: libraries/classes/Config/ServerConfigChecks.php:299
+#, php-format
+msgid ""
+"%sZip compression%s requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: libraries/classes/Config/ServerConfigChecks.php:324
 #, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -4711,28 +4711,28 @@ msgid ""
 "%5$d)."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:407
+#: libraries/classes/Config/ServerConfigChecks.php:346
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:433
+#: libraries/classes/Config/ServerConfigChecks.php:372
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:472
+#: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:503
+#: libraries/classes/Config/ServerConfigChecks.php:438
 #, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
@@ -4884,7 +4884,7 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Hiển thị các hàng %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: libraries/classes/Controllers/Database/DesignerController.php:114
+#: libraries/classes/Controllers/Database/DesignerController.php:113
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
@@ -4907,7 +4907,7 @@ msgstr ""
 "Không thể tải phần bổ xung xuất, vui lòng kiểm tra bản cài đặt của bạn!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:578
+#: libraries/classes/Controllers/Import/ImportController.php:579
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -4960,7 +4960,7 @@ msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một b�
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:87
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
-#: libraries/classes/Plugins/AuthenticationPlugin.php:180
+#: libraries/classes/Plugins/AuthenticationPlugin.php:178
 msgid "Access denied!"
 msgstr "Không đủ thẩm quyền!"
 
@@ -5012,7 +5012,7 @@ msgid "Table %s has been emptied."
 msgstr "Bảng %s đã được làm trống."
 
 #: libraries/classes/Controllers/Database/StructureController.php:578
-#: libraries/classes/Display/Results.php:3752
+#: libraries/classes/Display/Results.php:3750
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5035,7 +5035,7 @@ msgstr "không hiểu"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:623
 #: libraries/classes/Plugins/Export/ExportLatex.php:592
 #: libraries/classes/Plugins/Export/ExportOdt.php:766
-#: libraries/classes/Plugins/Export/ExportTexytext.php:604
+#: libraries/classes/Plugins/Export/ExportTexytext.php:599
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -5098,7 +5098,7 @@ msgstr "Chưa có bảng nào được chọn."
 msgid "Database Log"
 msgstr "Nhật ký Cơ sở dữ liệu"
 
-#: libraries/classes/Controllers/ErrorReportController.php:104
+#: libraries/classes/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -5106,11 +5106,11 @@ msgstr ""
 "Một lỗi đã được phát hiện và một báo cáo lỗi đã tự động được gửi đi dựa trên "
 "cài đặt cấu hình của bạn."
 
-#: libraries/classes/Controllers/ErrorReportController.php:108
+#: libraries/classes/Controllers/ErrorReportController.php:107
 msgid "Thank you for submitting this report."
 msgstr "Cám ơn bạn đã gửi báo cáo."
 
-#: libraries/classes/Controllers/ErrorReportController.php:112
+#: libraries/classes/Controllers/ErrorReportController.php:111
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -5118,18 +5118,18 @@ msgstr ""
 "Một lỗi đã được phát hiện và báo cáo. Báo cáo về lỗi này đã được lập nhưng "
 "có lỗi trong quá trình gửi."
 
-#: libraries/classes/Controllers/ErrorReportController.php:115
+#: libraries/classes/Controllers/ErrorReportController.php:114
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Nếu bạn có kinh nghiệm phát hiện vấn đề nào đó không hoạt động tốt, xin hãy "
 "gửi báo cáo lỗi cho chúng tôi một cách thủ công."
 
-#: libraries/classes/Controllers/ErrorReportController.php:118
+#: libraries/classes/Controllers/ErrorReportController.php:117
 msgid "You may want to refresh the page."
 msgstr "Bạn có lẽ nên làm tươi trang này lại."
 
 #: libraries/classes/Controllers/Export/ExportController.php:132
-#: libraries/classes/Export.php:1261
+#: libraries/classes/Export.php:1262
 msgid "Bad type!"
 msgstr "Sai kiểu!"
 
@@ -5236,7 +5236,7 @@ msgstr ""
 "Thư mục $cfg['TempDir'] (%s) không thể truy cập được. phpMyAdmin không thể "
 "tạo được cache cho giao diện và điều này sẽ làm chậm quá trình tải trang."
 
-#: libraries/classes/Controllers/HomeController.php:445
+#: libraries/classes/Controllers/HomeController.php:444
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5247,7 +5247,7 @@ msgstr ""
 "không thể phân chia chuỗi một cách chính xác và nó có thể gây ra kết quả bất "
 "ngờ, rất bất ngờ đó."
 
-#: libraries/classes/Controllers/HomeController.php:463
+#: libraries/classes/Controllers/HomeController.php:462
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5255,7 +5255,7 @@ msgstr ""
 "Không tìm thấy phần mở rộng curl và allow_url_fopen bị tắt. Do đó một số "
 "tính năng như báo cáo lỗi hoặc kiểm tra phiên bản bị vô hiệu."
 
-#: libraries/classes/Controllers/Import/ImportController.php:217
+#: libraries/classes/Controllers/Import/ImportController.php:218
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5264,17 +5264,17 @@ msgstr ""
 "Gần như chắc chắn là bạn cố tải một tập tin có kích cỡ quá lớn. Vui lòng đọc "
 "%stài liệu%s để khắc phục giới hạn này."
 
-#: libraries/classes/Controllers/Import/ImportController.php:375
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:376
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "Showing bookmark"
 msgstr "Hiển thị đánh dấu"
 
-#: libraries/classes/Controllers/Import/ImportController.php:401
-#: libraries/classes/Controllers/Import/ImportController.php:614
+#: libraries/classes/Controllers/Import/ImportController.php:402
+#: libraries/classes/Controllers/Import/ImportController.php:615
 msgid "The bookmark has been deleted."
 msgstr "Đánh dấu đã được xóa."
 
-#: libraries/classes/Controllers/Import/ImportController.php:524
+#: libraries/classes/Controllers/Import/ImportController.php:525
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5284,14 +5284,14 @@ msgstr ""
 "hoặc là cỡ của tập tin vượt quá kích thước mà phần cấu hình PHP của bạn cho "
 "phép. Xem [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:626
+#: libraries/classes/Controllers/Import/ImportController.php:627
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
 "Việc nhập vào đã được thực hiện thành công, %d truy vấn đã thực thi."
 
-#: libraries/classes/Controllers/Import/ImportController.php:663
+#: libraries/classes/Controllers/Import/ImportController.php:664
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5300,7 +5300,7 @@ msgstr ""
 "Văn lệnh đã vượt quá thời hạn chờ, nếu bạn muốn hoàn tất nhập khẩu, vui lòng "
 "%sgửi lại cùng tập tin%s và việc nhập vào sẽ được tiếp tục."
 
-#: libraries/classes/Controllers/Import/ImportController.php:673
+#: libraries/classes/Controllers/Import/ImportController.php:674
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5309,7 +5309,7 @@ msgstr ""
 "thường có nghĩa là phpMyAdmin sẽ không thể hoàn tất việc nhập vào trừ khi "
 "bạn gia tăng giới hạn chờ của PHP."
 
-#: libraries/classes/Controllers/Import/ImportController.php:741
+#: libraries/classes/Controllers/Import/ImportController.php:742
 #: libraries/classes/Controllers/Sql/SqlController.php:173
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Câu lệnh \"DROP DATABASE\" bị tăt."
@@ -5574,7 +5574,7 @@ msgid "Matched rows:"
 msgstr "Các hàng khớp:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:126
-#: libraries/classes/Html/Generator.php:878 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:879 templates/export.twig:67
 msgid "SQL query:"
 msgstr "Truy vấn SQL:"
 
@@ -5612,7 +5612,7 @@ msgid "Removing Selected Users"
 msgstr "Xóa bỏ người dùng đã chọn"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
-#: libraries/classes/Tracking.php:235 libraries/classes/Tracking.php:639
+#: libraries/classes/Tracking.php:234 libraries/classes/Tracking.php:634
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
@@ -5883,7 +5883,7 @@ msgid "Traffic"
 msgstr "Lưu lượng"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1877
+#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1871
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Cài đặt"
@@ -5898,8 +5898,8 @@ msgid "Please add at least one variable to the series!"
 msgstr "Vui lòng thêm ít nhất là một biến vào sê-ri!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
-#: libraries/classes/Display/Results.php:1065
-#: libraries/classes/Plugins/Export/ExportSql.php:2170
+#: libraries/classes/Display/Results.php:1064
+#: libraries/classes/Plugins/Export/ExportSql.php:2169
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -6121,7 +6121,7 @@ msgstr "Xuất vùng chọn:"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: libraries/classes/Menu.php:483
 #: libraries/classes/Server/Status/Processes.php:134
-#: libraries/classes/Util.php:1873 libraries/config.values.php:157
+#: libraries/classes/Util.php:1867 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6404,7 +6404,7 @@ msgstr "Đang đổi bảng mã"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:622
 #: libraries/classes/Plugins/Export/ExportLatex.php:592
 #: libraries/classes/Plugins/Export/ExportOdt.php:765
-#: libraries/classes/Plugins/Export/ExportTexytext.php:604
+#: libraries/classes/Plugins/Export/ExportTexytext.php:599
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:356
@@ -6511,8 +6511,8 @@ msgid "Show query box"
 msgstr "Hiện hộp truy vấn"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
-#: libraries/classes/Display/Results.php:2815
-#: libraries/classes/Tracking.php:258
+#: libraries/classes/Display/Results.php:2813
+#: libraries/classes/Tracking.php:257
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6558,7 +6558,7 @@ msgid "Variable %d:"
 msgstr "Biến %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:403
-#: libraries/classes/Normalization.php:1005
+#: libraries/classes/Normalization.php:1002
 msgid "Pick"
 msgstr "Chọn"
 
@@ -6593,7 +6593,7 @@ msgid "Primary key added."
 msgstr "Đã thêm khóa chính."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
-#: libraries/classes/Normalization.php:282
+#: libraries/classes/Normalization.php:281
 msgid "Taking you to next step…"
 msgstr "Đưa bạn đến bước kế tiếp…"
 
@@ -6603,10 +6603,10 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Bước đầu của việc tiêu chuẩn hóa là đủ cho bảng '%s'."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:417
-#: libraries/classes/Normalization.php:540
-#: libraries/classes/Normalization.php:602
-#: libraries/classes/Normalization.php:699
-#: libraries/classes/Normalization.php:775
+#: libraries/classes/Normalization.php:539
+#: libraries/classes/Normalization.php:601
+#: libraries/classes/Normalization.php:696
+#: libraries/classes/Normalization.php:772
 msgid "End of step"
 msgstr "Bước cuối"
 
@@ -6617,7 +6617,7 @@ msgstr "Bước thứ hai của việc tiêu chuẩn hóa (2NF)"
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:809
-#: libraries/classes/Normalization.php:375
+#: libraries/classes/Normalization.php:374
 msgid "Done"
 msgstr "Xong"
 
@@ -6642,7 +6642,7 @@ msgid "No partial dependencies selected!"
 msgstr "Chưa chọn cơ sở dữ liệu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Export.php:1314 libraries/classes/Html/Generator.php:978
+#: libraries/classes/Export.php:1315 libraries/classes/Html/Generator.php:979
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6774,14 +6774,14 @@ msgstr "bài tóm tắt diễn tả nội dung của dữ liệu này"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/ErrorHandler.php:448 libraries/classes/InsertEdit.php:1934
+#: libraries/classes/ErrorHandler.php:448 libraries/classes/InsertEdit.php:1936
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Bỏ qua"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:480
-#: libraries/classes/Display/Results.php:2751
-#: libraries/classes/Html/Generator.php:76
+#: libraries/classes/Display/Results.php:2749
+#: libraries/classes/Html/Generator.php:79
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
 msgid "Copy"
@@ -7119,7 +7119,7 @@ msgid "Hide panel"
 msgstr "Ẩn bảng điều khiển"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
-#: libraries/classes/Navigation/NavigationTree.php:1355
+#: libraries/classes/Navigation/NavigationTree.php:1354
 msgid "Unlink from main panel"
 msgstr "Bỏ liên kết với bảng điều khiển chính"
 
@@ -7360,13 +7360,13 @@ msgid "Table %s already exists!"
 msgstr "Bảng %s đã sẵn có từ trước rồi!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
-#: libraries/classes/InsertEdit.php:348
+#: libraries/classes/InsertEdit.php:349
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Ẩn"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:699
-#: libraries/classes/Controllers/Table/ChangeController.php:216
+#: libraries/classes/Controllers/Table/ChangeController.php:212
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7438,77 +7438,77 @@ msgstr "Tháng mười hai"
 #. l10n: Short month name for January
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:728
-#: libraries/classes/Util.php:655
+#: libraries/classes/Util.php:649
 msgid "Jan"
 msgstr "Th1"
 
 #. l10n: Short month name for February
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:730
-#: libraries/classes/Util.php:657
+#: libraries/classes/Util.php:651
 msgid "Feb"
 msgstr "Th2"
 
 #. l10n: Short month name for March
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:732
-#: libraries/classes/Util.php:659
+#: libraries/classes/Util.php:653
 msgid "Mar"
 msgstr "Th3"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:734
-#: libraries/classes/Util.php:661
+#: libraries/classes/Util.php:655
 msgid "Apr"
 msgstr "Th4"
 
 #. l10n: Short month name for June
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:738
-#: libraries/classes/Util.php:665
+#: libraries/classes/Util.php:659
 msgid "Jun"
 msgstr "Th6"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:740
-#: libraries/classes/Util.php:667
+#: libraries/classes/Util.php:661
 msgid "Jul"
 msgstr "Th7"
 
 #. l10n: Short month name for August
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:742
-#: libraries/classes/Util.php:669
+#: libraries/classes/Util.php:663
 msgid "Aug"
 msgstr "Th8"
 
 #. l10n: Short month name for September
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:744
-#: libraries/classes/Util.php:671
+#: libraries/classes/Util.php:665
 msgid "Sep"
 msgstr "Th9"
 
 #. l10n: Short month name for October
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:746
-#: libraries/classes/Util.php:673
+#: libraries/classes/Util.php:667
 msgid "Oct"
 msgstr "Th10"
 
 #. l10n: Short month name for November
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:748
-#: libraries/classes/Util.php:675
+#: libraries/classes/Util.php:669
 msgid "Nov"
 msgstr "Th10"
 
 #. l10n: Short month name for December
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:750
-#: libraries/classes/Util.php:677
+#: libraries/classes/Util.php:671
 msgid "Dec"
 msgstr "Th12"
 
@@ -7561,37 +7561,37 @@ msgstr "CN"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:768
-#: libraries/classes/Util.php:683
+#: libraries/classes/Util.php:677
 msgid "Mon"
 msgstr "T2"
 
 #. l10n: Short week day name for Tuesday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:770
-#: libraries/classes/Util.php:685
+#: libraries/classes/Util.php:679
 msgid "Tue"
 msgstr "T3"
 
 #. l10n: Short week day name for Wednesday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:772
-#: libraries/classes/Util.php:687
+#: libraries/classes/Util.php:681
 msgid "Wed"
 msgstr "T4"
 
 #. l10n: Short week day name for Thursday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:774
-#: libraries/classes/Util.php:689
+#: libraries/classes/Util.php:683
 msgid "Thu"
 msgstr "T5"
 
 #. l10n: Short week day name for Friday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:776
-#: libraries/classes/Util.php:691
+#: libraries/classes/Util.php:685
 msgid "Fri"
 msgstr "T6"
 
 #. l10n: Short week day name for Saturday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:778
-#: libraries/classes/Util.php:693
+#: libraries/classes/Util.php:687
 msgid "Sat"
 msgstr "T7"
 
@@ -7772,17 +7772,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Lỗi nghiêm trọng: Bảng điều hướng chỉ có thể truy cập thông qua AJAX"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:29
-#: libraries/classes/Normalization.php:245
+#: libraries/classes/Normalization.php:244
 msgid "Select one…"
 msgstr "Chọn một…"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:30
-#: libraries/classes/Normalization.php:246
+#: libraries/classes/Normalization.php:245
 msgid "No such column"
 msgstr "Không có cột nào như vậy"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
-#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:852
+#: libraries/classes/Normalization.php:249 libraries/classes/Types.php:853
 msgctxt "string types"
 msgid "String"
 msgstr "Chuỗi"
@@ -8527,7 +8527,7 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:246
-#: libraries/classes/Sql.php:1139
+#: libraries/classes/Sql.php:1148
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
@@ -8536,7 +8536,7 @@ msgstr "Đánh dấu %s đã được tạo ra."
 msgid "Bookmark not created!"
 msgstr "Chưa tạo đánh dấu!"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:161
+#: libraries/classes/Controllers/Table/AddFieldController.php:162
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:274
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:222
 #: libraries/classes/Table/Indexes.php:85
@@ -8592,10 +8592,10 @@ msgstr "Bảng %s đã sẵn có từ trước rồi!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:55
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
-#: libraries/classes/Controllers/Table/RelationController.php:299
+#: libraries/classes/Controllers/Table/RelationController.php:300
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3461 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3459 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Truy vấn SQL của bạn đã được thực hiện thành công."
@@ -8636,8 +8636,8 @@ msgstr "Có quá nhiều phép gia nhập mà không dùng chỉ mục."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:80
 #: libraries/classes/Database/Routines.php:1245
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:241
-#: libraries/classes/Sql.php:954
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:242
+#: libraries/classes/Sql.php:963
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
@@ -8675,18 +8675,18 @@ msgstr "Tên bảng còn để trống!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:93
-#: libraries/classes/Html/Generator.php:854 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:739 libraries/classes/Message.php:192
+#: libraries/classes/Html/Generator.php:855 libraries/classes/Import.php:138
+#: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
 msgstr "Lỗi"
 
-#: libraries/classes/Controllers/Table/RelationController.php:240
+#: libraries/classes/Controllers/Table/RelationController.php:241
 msgid "Display column was successfully updated."
 msgstr "Cột trình bày đã được cập nhật thành công."
 
-#: libraries/classes/Controllers/Table/RelationController.php:333
+#: libraries/classes/Controllers/Table/RelationController.php:334
 #, fuzzy
 #| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
@@ -8725,13 +8725,13 @@ msgstr "Chính"
 msgid "Index"
 msgstr "Chỉ mục"
 
-#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:171
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:172
 msgid "The columns have been moved successfully."
 msgstr "Các cột được di chuyển thành công."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:266
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:272
-#: libraries/classes/Tracking.php:783
+#: libraries/classes/Tracking.php:778
 msgid "Query error"
 msgstr "Lỗi truy vấn"
 
@@ -8785,7 +8785,7 @@ msgstr ""
 
 #: libraries/classes/Database/CentralColumns.php:293
 #: libraries/classes/Database/CentralColumns.php:399
-#: libraries/classes/Database/CentralColumns.php:611
+#: libraries/classes/Database/CentralColumns.php:607
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -8813,11 +8813,11 @@ msgstr ""
 msgid "Could not remove columns!"
 msgstr "Không thể gỡ bỏ cột!"
 
-#: libraries/classes/Database/CentralColumns.php:625
+#: libraries/classes/Database/CentralColumns.php:621
 msgid "YES"
 msgstr "CÓ"
 
-#: libraries/classes/Database/CentralColumns.php:625
+#: libraries/classes/Database/CentralColumns.php:621
 msgid "NO"
 msgstr "KHÔNG"
 
@@ -8923,7 +8923,7 @@ msgstr "Truy vấn sau đây bị lỗi: \"%s\""
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:161
 #: libraries/classes/Database/Triggers.php:443
-#: libraries/classes/Html/Generator.php:922
+#: libraries/classes/Html/Generator.php:923
 msgid "MySQL said: "
 msgstr "MySQL đã nói: "
 
@@ -9326,19 +9326,19 @@ msgstr "Vui lòng nhập vào nhiều hơn {0} ký tự"
 msgid "The table name cannot end with a space character."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
-#: libraries/classes/Display/Results.php:1263
+#: libraries/classes/Display/Results.php:1262
 #: templates/display/results/table.twig:204
 msgid "Partial texts"
 msgstr "Các chữ riêng"
 
-#: libraries/classes/Display/Results.php:1267
+#: libraries/classes/Display/Results.php:1266
 #: templates/display/results/table.twig:208
 msgid "Full texts"
 msgstr "Toàn văn"
 
-#: libraries/classes/Display/Results.php:1608
-#: libraries/classes/Display/Results.php:1634 libraries/classes/Util.php:2494
-#: libraries/classes/Util.php:2517 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1607
+#: libraries/classes/Display/Results.php:1633 libraries/classes/Util.php:2488
+#: libraries/classes/Util.php:2511 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9350,9 +9350,9 @@ msgstr "Toàn văn"
 msgid "Descending"
 msgstr "Giảm dần"
 
-#: libraries/classes/Display/Results.php:1616
-#: libraries/classes/Display/Results.php:1626 libraries/classes/Util.php:2486
-#: libraries/classes/Util.php:2509 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1615
+#: libraries/classes/Display/Results.php:1625 libraries/classes/Util.php:2480
+#: libraries/classes/Util.php:2503 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9364,41 +9364,41 @@ msgstr "Giảm dần"
 msgid "Ascending"
 msgstr "Tăng dần"
 
-#: libraries/classes/Display/Results.php:2791
-#: libraries/classes/Display/Results.php:2806
+#: libraries/classes/Display/Results.php:2789
+#: libraries/classes/Display/Results.php:2804
 msgid "The row has been deleted."
 msgstr "Hàng đã bị xóa bỏ."
 
-#: libraries/classes/Display/Results.php:2838
+#: libraries/classes/Display/Results.php:2836
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Giết"
 
-#: libraries/classes/Display/Results.php:3394
+#: libraries/classes/Display/Results.php:3392
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Có thể chỉ là ước đoán. Xem [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3761
+#: libraries/classes/Display/Results.php:3759
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Hiển thị các hàng %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3775
+#: libraries/classes/Display/Results.php:3773
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "Tổng %1$d, %2$d trong truy vấn"
 
-#: libraries/classes/Display/Results.php:3780
+#: libraries/classes/Display/Results.php:3778
 #, php-format
 msgid "%d total"
 msgstr "tổng %d"
 
-#: libraries/classes/Display/Results.php:3793 libraries/classes/Sql.php:960
+#: libraries/classes/Display/Results.php:3791 libraries/classes/Sql.php:969
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
 
-#: libraries/classes/Display/Results.php:4120
+#: libraries/classes/Display/Results.php:4118
 msgid "Link not found!"
 msgstr "Không tìm thấy liên kết!"
 
@@ -9696,9 +9696,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:785
-#: libraries/classes/Html/MySQLDocumentation.php:50
-#: libraries/classes/Sanitize.php:203
+#: libraries/classes/Html/Generator.php:786
+#: libraries/classes/Html/MySQLDocumentation.php:49
+#: libraries/classes/Sanitize.php:202
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
@@ -9724,31 +9724,31 @@ msgstr "Báo cáo"
 msgid "Automatically send report next time"
 msgstr "Lần sau sẽ tự động gửi báo cáo"
 
-#: libraries/classes/Export.php:162 libraries/classes/Export.php:198
-#: libraries/classes/Export.php:474
+#: libraries/classes/Export.php:163 libraries/classes/Export.php:199
+#: libraries/classes/Export.php:475
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Không đủ chỗ để lưu tập tin %s."
 
-#: libraries/classes/Export.php:423
+#: libraries/classes/Export.php:424
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 "Tập tin %s đã sẵn có trên máy chủ, đổi tên hay kiểm tra tùy chọn ghi đè."
 
-#: libraries/classes/Export.php:430 libraries/classes/Export.php:440
+#: libraries/classes/Export.php:431 libraries/classes/Export.php:441
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Trình phục vụ web không có quyền lưu tập tin %s."
 
-#: libraries/classes/Export.php:480
+#: libraries/classes/Export.php:481
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Đổ đã được lưu vào tập tin %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:912
+#: libraries/classes/Export.php:913
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -9823,105 +9823,105 @@ msgstr ""
 msgid "Session not found."
 msgstr "Chỉ mục cột không thấy."
 
-#: libraries/classes/Html/Generator.php:147
+#: libraries/classes/Html/Generator.php:149
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Nhảy tới cơ sở dữ liệu \"%s\"."
 
-#: libraries/classes/Html/Generator.php:173
+#: libraries/classes/Html/Generator.php:175
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Hàm %s bị ảnh hưởng bởi lỗi đã biết, xem %s"
 
-#: libraries/classes/Html/Generator.php:241
+#: libraries/classes/Html/Generator.php:243
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:246
+#: libraries/classes/Html/Generator.php:248
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:248
+#: libraries/classes/Html/Generator.php:250
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:251
+#: libraries/classes/Html/Generator.php:253
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:354
+#: libraries/classes/Html/Generator.php:356
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:355
+#: libraries/classes/Html/Generator.php:357
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:633
+#: libraries/classes/Html/Generator.php:634
 msgid "Skip Explain SQL"
 msgstr "Bỏ qua giảng giải SQL"
 
-#: libraries/classes/Html/Generator.php:642
+#: libraries/classes/Html/Generator.php:643
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "Analyze Explain tại %s"
 
-#: libraries/classes/Html/Generator.php:671
+#: libraries/classes/Html/Generator.php:672
 msgid "Without PHP code"
 msgstr "Không mã PHP"
 
-#: libraries/classes/Html/Generator.php:679
+#: libraries/classes/Html/Generator.php:680
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Gửi truy vấn"
 
-#: libraries/classes/Html/Generator.php:726 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:727 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Hồ sơ"
 
-#: libraries/classes/Html/Generator.php:739
+#: libraries/classes/Html/Generator.php:740
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Sửa chung dòng"
 
-#: libraries/classes/Html/Generator.php:861
+#: libraries/classes/Html/Generator.php:862
 msgid "Static analysis:"
 msgstr "Thống kê phân tích:"
 
-#: libraries/classes/Html/Generator.php:864
+#: libraries/classes/Html/Generator.php:865
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Đã phát sinh %d lỗi trong quá trình phân tích."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:968
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:977
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
-#: libraries/classes/Import.php:1215
+#: libraries/classes/Import.php:1213
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Các cấu trúc sau đây hoặc là được tạo hoặc là bị sửa chữa. Ở đây bạn có thể:"
 
-#: libraries/classes/Import.php:1217
+#: libraries/classes/Import.php:1215
 msgid "View a structure's contents by clicking on its name."
 msgstr "Xem nội dung của cấu trúc bằng cách bấm vào tên của nó."
 
-#: libraries/classes/Import.php:1218
+#: libraries/classes/Import.php:1216
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Thay đổi bất kỳ các tùy chọn của nó bằng các bấm vào liên kết \"Tùy chọn\" "
 "tương ứng."
 
-#: libraries/classes/Import.php:1219
+#: libraries/classes/Import.php:1217
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Sửa cấu trúc bằng cách bấm vào liên kết \"Cấu trúc\"."
 
-#: libraries/classes/Import.php:1223 libraries/classes/Import.php:1257
+#: libraries/classes/Import.php:1221 libraries/classes/Import.php:1255
 #: libraries/classes/Plugins/Export/ExportCodegen.php:68
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -9951,32 +9951,32 @@ msgstr "Sửa cấu trúc bằng cách bấm vào liên kết \"Cấu trúc\"."
 msgid "Options"
 msgstr "Tùy chọn"
 
-#: libraries/classes/Import.php:1226
+#: libraries/classes/Import.php:1224
 #, php-format
 msgid "Go to database: %s"
 msgstr "Chuyển đến cơ sở dữ liệu: %s"
 
-#: libraries/classes/Import.php:1232 libraries/classes/Import.php:1275
+#: libraries/classes/Import.php:1230 libraries/classes/Import.php:1273
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Sửa các cài đặt cho %s"
 
-#: libraries/classes/Import.php:1260
+#: libraries/classes/Import.php:1258
 #, php-format
 msgid "Go to table: %s"
 msgstr "Chuyển đến bảng: %s"
 
-#: libraries/classes/Import.php:1268
+#: libraries/classes/Import.php:1266
 #, php-format
 msgid "Structure of %s"
 msgstr "Cấu trúc của %s"
 
-#: libraries/classes/Import.php:1286
+#: libraries/classes/Import.php:1284
 #, php-format
 msgid "Go to view: %s"
 msgstr "Chuyển đến view: %s"
 
-#: libraries/classes/Import.php:1312
+#: libraries/classes/Import.php:1310
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9993,7 +9993,7 @@ msgstr ""
 "Các chỉ mục %1$s và %2$s dường như là giống nhau và một trong số chúng có "
 "thể gần như chắc chắn nên được xóa bỏ."
 
-#: libraries/classes/InsertEdit.php:364
+#: libraries/classes/InsertEdit.php:365
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10001,7 +10001,7 @@ msgstr ""
 msgid "Function"
 msgstr "Hàm"
 
-#: libraries/classes/InsertEdit.php:367
+#: libraries/classes/InsertEdit.php:368
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:273
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:366
 #: libraries/classes/Plugins/Export/ExportLatex.php:515
@@ -10035,12 +10035,12 @@ msgstr "Hàm"
 msgid "Type"
 msgstr "Kiểu"
 
-#: libraries/classes/InsertEdit.php:740 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:741 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Thư mục bạn đặt cho việc tải lên không thể tiếp cận được."
 
-#: libraries/classes/InsertEdit.php:748
+#: libraries/classes/InsertEdit.php:749
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10050,15 +10050,15 @@ msgstr "Thư mục bạn đặt cho việc tải lên không thể tiếp cận 
 msgid "Or"
 msgstr "Hoặc"
 
-#: libraries/classes/InsertEdit.php:749
+#: libraries/classes/InsertEdit.php:750
 msgid "web server upload directory:"
 msgstr "thư mục để tải lên máy chủ:"
 
-#: libraries/classes/InsertEdit.php:1334 libraries/classes/Sql.php:951
+#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:960
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: libraries/classes/InsertEdit.php:1358 libraries/classes/Sql.php:931
+#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:940
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -10067,21 +10067,21 @@ msgstr "Chỉ số id người dùng kép: %1$d"
 msgid "Ignoring unsupported language code."
 msgstr "Bỏ qua mã ngôn ngữ không được hỗ trợ."
 
-#: libraries/classes/Linter.php:108
+#: libraries/classes/Linter.php:107
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
 "Việc kiểm chuẩn bị tắt cho truy vấn này bị tắt bởi vì nó vượt quá chiều dài "
 "cho phép."
 
-#: libraries/classes/Linter.php:162
+#: libraries/classes/Linter.php:161
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (gần <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:238
-#: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1435 libraries/classes/Util.php:1902
+#: libraries/classes/Navigation/Nodes/NodeTable.php:308
+#: libraries/classes/Util.php:1429 libraries/classes/Util.php:1896
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10090,9 +10090,9 @@ msgid "Browse"
 msgstr "Duyệt"
 
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:361
-#: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:1433 libraries/classes/Util.php:1888
-#: libraries/classes/Util.php:1905 libraries/config.values.php:64
+#: libraries/classes/Navigation/Nodes/NodeTable.php:299
+#: libraries/classes/Util.php:1427 libraries/classes/Util.php:1882
+#: libraries/classes/Util.php:1899 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10103,8 +10103,8 @@ msgid "Search"
 msgstr "Tìm kiếm"
 
 #: libraries/classes/Menu.php:268
-#: libraries/classes/Navigation/Nodes/NodeTable.php:303
-#: libraries/classes/Util.php:1434 libraries/classes/Util.php:1906
+#: libraries/classes/Navigation/Nodes/NodeTable.php:302
+#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1900
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10114,8 +10114,8 @@ msgid "Insert"
 msgstr "Chèn"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2839 libraries/classes/Util.php:1893
-#: libraries/classes/Util.php:1909 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2839 libraries/classes/Util.php:1887
+#: libraries/classes/Util.php:1903 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
@@ -10124,14 +10124,14 @@ msgid "Privileges"
 msgstr "Đặc quyền"
 
 #: libraries/classes/Menu.php:302 libraries/classes/Menu.php:312
-#: libraries/classes/Menu.php:392 libraries/classes/Util.php:1436
-#: libraries/classes/Util.php:1892 libraries/classes/Util.php:1910
+#: libraries/classes/Menu.php:392 libraries/classes/Util.php:1430
+#: libraries/classes/Util.php:1886 libraries/classes/Util.php:1904
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Thao tác"
 
 #: libraries/classes/Menu.php:318 libraries/classes/Menu.php:425
-#: libraries/classes/Util.php:1897 libraries/classes/Util.php:1911
+#: libraries/classes/Util.php:1891 libraries/classes/Util.php:1905
 msgid "Tracking"
 msgstr "Theo dõi"
 
@@ -10141,10 +10141,10 @@ msgstr "Theo dõi"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:687
 #: libraries/classes/Plugins/Export/ExportPdf.php:256
-#: libraries/classes/Plugins/Export/ExportSql.php:2047
-#: libraries/classes/Plugins/Export/ExportTexytext.php:527
+#: libraries/classes/Plugins/Export/ExportSql.php:2046
+#: libraries/classes/Plugins/Export/ExportTexytext.php:522
 #: libraries/classes/Plugins/Export/ExportXml.php:124
-#: libraries/classes/Util.php:1896 libraries/classes/Util.php:1912
+#: libraries/classes/Util.php:1890 libraries/classes/Util.php:1906
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Bẫy"
@@ -10154,11 +10154,11 @@ msgstr "Bẫy"
 msgid "Database seems to be empty!"
 msgstr "Cơ sở dữ liệu có vẻ là đang trống rỗng!"
 
-#: libraries/classes/Menu.php:369 libraries/classes/Util.php:1889
+#: libraries/classes/Menu.php:369 libraries/classes/Util.php:1883
 msgid "Query"
 msgstr "Truy vấn"
 
-#: libraries/classes/Menu.php:405 libraries/classes/Util.php:1894
+#: libraries/classes/Menu.php:405 libraries/classes/Util.php:1888
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Thủ tục"
@@ -10168,15 +10168,15 @@ msgstr "Thủ tục"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:993
 #: libraries/classes/Plugins/Export/ExportXml.php:104
-#: libraries/classes/Util.php:1895 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1889 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Sự kiện"
 
-#: libraries/classes/Menu.php:432 libraries/classes/Util.php:1898
+#: libraries/classes/Menu.php:432 libraries/classes/Util.php:1892
 msgid "Designer"
 msgstr "Bộ thiết kế"
 
-#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1899
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1893
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Các cột trung tâm"
@@ -10186,12 +10186,12 @@ msgid "User accounts"
 msgstr "Các tài khoản người dùng"
 
 #: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1878 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1872 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Nhật ký nhị phân"
 
 #: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1879
+#: libraries/classes/Util.php:1873
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10199,21 +10199,21 @@ msgid "Replication"
 msgstr "Bản sao"
 
 #: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1880 libraries/config.values.php:159
+#: libraries/classes/Util.php:1874 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Biến"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:1881
+#: libraries/classes/Menu.php:548 libraries/classes/Util.php:1875
 msgid "Charsets"
 msgstr "Bảng mã"
 
-#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1883
+#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1877
 msgid "Engines"
 msgstr "Bộ máy"
 
-#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1882
+#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1876
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Phần bổ sung"
@@ -10261,25 +10261,25 @@ msgstr "Bảng:"
 msgid "Views:"
 msgstr "Trình bày:"
 
-#: libraries/classes/Navigation/NavigationTree.php:758
+#: libraries/classes/Navigation/NavigationTree.php:757
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:832
+#: libraries/classes/Navigation/NavigationTree.php:831
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Nhóm:"
 
-#: libraries/classes/Navigation/NavigationTree.php:945
+#: libraries/classes/Navigation/NavigationTree.php:944
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "Tìm thấy %s kết quả"
 
-#: libraries/classes/Navigation/NavigationTree.php:1346
+#: libraries/classes/Navigation/NavigationTree.php:1345
 msgid "Collapse all"
 msgstr "Mở rộng tất cả"
 
@@ -10347,7 +10347,7 @@ msgstr "Mới"
 msgid "Database operations"
 msgstr "Thao tác hiển thị"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:646
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:645
 msgid "Show hidden items"
 msgstr "Hiện các mục tin ẩn"
 
@@ -10441,9 +10441,9 @@ msgid "First step of normalization (1NF)"
 msgstr "Bước đầu của thường hóa (1NF)"
 
 #: libraries/classes/Normalization.php:228
-#: libraries/classes/Normalization.php:278
-#: libraries/classes/Normalization.php:324
-#: libraries/classes/Normalization.php:361
+#: libraries/classes/Normalization.php:277
+#: libraries/classes/Normalization.php:323
+#: libraries/classes/Normalization.php:360
 msgid "Step 1."
 msgstr "Bước 1."
 
@@ -10453,77 +10453,77 @@ msgid ""
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/classes/Normalization.php:236
+#: libraries/classes/Normalization.php:235
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/classes/Normalization.php:238
+#: libraries/classes/Normalization.php:237
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
 
-#: libraries/classes/Normalization.php:253
+#: libraries/classes/Normalization.php:252
 msgid "split into "
 msgstr "chia thành "
 
-#: libraries/classes/Normalization.php:275
+#: libraries/classes/Normalization.php:274
 msgid "Have a primary key"
 msgstr "Có một khóa chính"
 
-#: libraries/classes/Normalization.php:281
+#: libraries/classes/Normalization.php:280
 msgid "Primary key already exists."
 msgstr "Khóa chính đã sẵn có."
 
-#: libraries/classes/Normalization.php:286
+#: libraries/classes/Normalization.php:285
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/classes/Normalization.php:294
+#: libraries/classes/Normalization.php:293
 msgid "Add a primary key on existing column(s)"
 msgstr "Thêm một khóa chính vào các cột sẵn có"
 
-#: libraries/classes/Normalization.php:298
+#: libraries/classes/Normalization.php:297
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/classes/Normalization.php:300
+#: libraries/classes/Normalization.php:299
 msgid "+ Add a new primary key column"
 msgstr "+ Thêm khóa chính mới"
 
-#: libraries/classes/Normalization.php:323
+#: libraries/classes/Normalization.php:322
 msgid "Remove redundant columns"
 msgstr "Gỡ bỏ các cột thừa"
 
-#: libraries/classes/Normalization.php:326
+#: libraries/classes/Normalization.php:325
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/classes/Normalization.php:332
+#: libraries/classes/Normalization.php:331
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:337
+#: libraries/classes/Normalization.php:336
 msgid "Remove selected"
 msgstr "Xóa mục đã chọn"
 
-#: libraries/classes/Normalization.php:338
+#: libraries/classes/Normalization.php:337
 msgid "No redundant column"
 msgstr "Không cột thừa"
 
-#: libraries/classes/Normalization.php:360
+#: libraries/classes/Normalization.php:359
 msgid "Move repeating groups"
 msgstr ""
 
-#: libraries/classes/Normalization.php:363
+#: libraries/classes/Normalization.php:362
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -10532,117 +10532,117 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: libraries/classes/Normalization.php:371
+#: libraries/classes/Normalization.php:370
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:376
+#: libraries/classes/Normalization.php:375
 msgid "No repeating group"
 msgstr ""
 
-#: libraries/classes/Normalization.php:404
+#: libraries/classes/Normalization.php:403
 msgid "Step 2."
 msgstr "Bước 2."
 
-#: libraries/classes/Normalization.php:404
+#: libraries/classes/Normalization.php:403
 msgid "Find partial dependencies"
 msgstr "Tìm các phần phụ thuộc một phần"
 
-#: libraries/classes/Normalization.php:425
+#: libraries/classes/Normalization.php:424
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/classes/Normalization.php:431
-#: libraries/classes/Normalization.php:473
+#: libraries/classes/Normalization.php:430
+#: libraries/classes/Normalization.php:472
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: libraries/classes/Normalization.php:436
+#: libraries/classes/Normalization.php:435
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: libraries/classes/Normalization.php:440
-#: libraries/classes/Normalization.php:870
+#: libraries/classes/Normalization.php:439
+#: libraries/classes/Normalization.php:867
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: libraries/classes/Normalization.php:442
+#: libraries/classes/Normalization.php:441
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Normalization.php:445
+#: libraries/classes/Normalization.php:444
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:458
-#: libraries/classes/Normalization.php:912
+#: libraries/classes/Normalization.php:457
+#: libraries/classes/Normalization.php:909
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "“%1$s” phụ thuộc vào:"
 
-#: libraries/classes/Normalization.php:469
+#: libraries/classes/Normalization.php:468
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:497
+#: libraries/classes/Normalization.php:496
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:535
+#: libraries/classes/Normalization.php:534
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: libraries/classes/Normalization.php:591
-#: libraries/classes/Normalization.php:764
-#: libraries/classes/Normalization.php:842
+#: libraries/classes/Normalization.php:590
+#: libraries/classes/Normalization.php:761
+#: libraries/classes/Normalization.php:839
 msgid "Error in processing!"
 msgstr "Gặp lỗi khi xử lý!"
 
-#: libraries/classes/Normalization.php:638
+#: libraries/classes/Normalization.php:637
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:695
+#: libraries/classes/Normalization.php:693
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: libraries/classes/Normalization.php:815
+#: libraries/classes/Normalization.php:812
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:868
+#: libraries/classes/Normalization.php:865
 msgid "Step 3."
 msgstr "Bước 3."
 
-#: libraries/classes/Normalization.php:868
+#: libraries/classes/Normalization.php:865
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Normalization.php:872
+#: libraries/classes/Normalization.php:869
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10650,23 +10650,23 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: libraries/classes/Normalization.php:926
+#: libraries/classes/Normalization.php:923
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: libraries/classes/Normalization.php:929
+#: libraries/classes/Normalization.php:926
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: libraries/classes/Normalization.php:1001
+#: libraries/classes/Normalization.php:998
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/classes/Normalization.php:1016
+#: libraries/classes/Normalization.php:1013
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -10834,25 +10834,25 @@ msgstr "Sai tài_khoản/mật_khẩu. Từ chối truy cập."
 msgid "Can not find signon authentication script:"
 msgstr "Không thể tìm thấy văn lệnh xác thực đăng nhập:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:176
+#: libraries/classes/Plugins/AuthenticationPlugin.php:174
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Đăng nhập không dùng mật khẩu bị cấm bởi cấu hình (xem AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:185
+#: libraries/classes/Plugins/AuthenticationPlugin.php:183
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:198
-#: libraries/classes/Plugins/AuthenticationPlugin.php:201
+#: libraries/classes/Plugins/AuthenticationPlugin.php:196
+#: libraries/classes/Plugins/AuthenticationPlugin.php:199
 msgid "Cannot log in to the MySQL server"
 msgstr "Không thể đăng nhập vào máy phục vụ MySQL"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:342
+#: libraries/classes/Plugins/AuthenticationPlugin.php:340
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -10949,7 +10949,7 @@ msgstr "Hiển thị hộp thoại tùy chọn"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:192
 #: libraries/classes/Plugins/Export/ExportOdt.php:248
-#: libraries/classes/Plugins/Export/ExportSql.php:2295
+#: libraries/classes/Plugins/Export/ExportSql.php:2293
 #: libraries/classes/Plugins/Export/ExportTexytext.php:176
 msgid "Dumping data for table"
 msgstr "Đang đổ dữ liệu cho bảng"
@@ -11041,22 +11041,22 @@ msgstr "Định nghĩa"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:538
 #: libraries/classes/Plugins/Export/ExportOdt.php:666
-#: libraries/classes/Plugins/Export/ExportSql.php:2033
-#: libraries/classes/Plugins/Export/ExportTexytext.php:508
+#: libraries/classes/Plugins/Export/ExportSql.php:2032
+#: libraries/classes/Plugins/Export/ExportTexytext.php:503
 msgid "Table structure for table"
 msgstr "Cấu trúc bảng cho bảng"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:556
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
-#: libraries/classes/Plugins/Export/ExportSql.php:2084
-#: libraries/classes/Plugins/Export/ExportTexytext.php:533
+#: libraries/classes/Plugins/Export/ExportSql.php:2083
+#: libraries/classes/Plugins/Export/ExportTexytext.php:528
 msgid "Structure for view"
 msgstr "Cấu trúc cho view"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:562
 #: libraries/classes/Plugins/Export/ExportOdt.php:716
-#: libraries/classes/Plugins/Export/ExportSql.php:2116
-#: libraries/classes/Plugins/Export/ExportTexytext.php:548
+#: libraries/classes/Plugins/Export/ExportSql.php:2115
+#: libraries/classes/Plugins/Export/ExportTexytext.php:543
 msgid "Stand-in structure for view"
 msgstr "Cấu trúc đóng vai cho view"
 
@@ -11161,7 +11161,7 @@ msgid "Database:"
 msgstr "Cơ sở dữ liệu:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:310
-#: libraries/classes/Plugins/Export/ExportSql.php:2170
+#: libraries/classes/Plugins/Export/ExportSql.php:2169
 msgid "Data:"
 msgstr "Dữ liệu:"
 
@@ -11271,7 +11271,7 @@ msgid "Data creation options"
 msgstr "Tùy chọn tạo tập tin:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:401
-#: libraries/classes/Plugins/Export/ExportSql.php:2252
+#: libraries/classes/Plugins/Export/ExportSql.php:2251
 msgid "Truncate table before insert"
 msgstr "Cắt ngắn bảng trước khi chèn"
 
@@ -11350,8 +11350,8 @@ msgid "It appears your database uses routines;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các hàm;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:586
-#: libraries/classes/Plugins/Export/ExportSql.php:1576
-#: libraries/classes/Plugins/Export/ExportSql.php:2072
+#: libraries/classes/Plugins/Export/ExportSql.php:1575
+#: libraries/classes/Plugins/Export/ExportSql.php:2071
 msgid "alias export may not work reliably in all cases."
 msgstr "xuất bí danh có thể không làm việc đúng trong mọi trường hợp"
 
@@ -11369,81 +11369,81 @@ msgstr "Siêu dữ liệu cho bảng %s"
 msgid "Metadata for database %s"
 msgstr "Siêu dữ liệu cho cơ sở dữ liệu %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1417
+#: libraries/classes/Plugins/Export/ExportSql.php:1416
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "Tạo:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1427
+#: libraries/classes/Plugins/Export/ExportSql.php:1426
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "Cập nhật lần cuối:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1437
+#: libraries/classes/Plugins/Export/ExportSql.php:1436
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "Lần kiểm tra cuối:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1488
+#: libraries/classes/Plugins/Export/ExportSql.php:1487
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Cấu trúc bảng cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1573
+#: libraries/classes/Plugins/Export/ExportSql.php:1572
 msgid "It appears your database uses views;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các view;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1739
+#: libraries/classes/Plugins/Export/ExportSql.php:1737
 msgid "Constraints for dumped tables"
 msgstr "Các ràng buộc cho các bảng đã đổ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1740
+#: libraries/classes/Plugins/Export/ExportSql.php:1738
 msgid "Constraints for table"
 msgstr "Các ràng buộc cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1766
+#: libraries/classes/Plugins/Export/ExportSql.php:1765
 msgid "Indexes for dumped tables"
 msgstr "Chỉ mục cho các bảng đã đổ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1767
+#: libraries/classes/Plugins/Export/ExportSql.php:1766
 msgid "Indexes for table"
 msgstr "Chỉ mục cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1802
+#: libraries/classes/Plugins/Export/ExportSql.php:1801
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT cho các bảng đã đổ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1803
+#: libraries/classes/Plugins/Export/ExportSql.php:1802
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT cho bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1878
+#: libraries/classes/Plugins/Export/ExportSql.php:1877
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1903
+#: libraries/classes/Plugins/Export/ExportSql.php:1902
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2069
+#: libraries/classes/Plugins/Export/ExportSql.php:2068
 msgid "It appears your table uses triggers;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các bẫy;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2099
+#: libraries/classes/Plugins/Export/ExportSql.php:2098
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Cấu trúc cho view %s được xuất dạng một bảng"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2119
+#: libraries/classes/Plugins/Export/ExportSql.php:2118
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2185
+#: libraries/classes/Plugins/Export/ExportSql.php:2184
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
@@ -11505,7 +11505,7 @@ msgid "Column names:"
 msgstr "Tên cột: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:286
-#: libraries/classes/Plugins/Import/ImportCsv.php:645
+#: libraries/classes/Plugins/Import/ImportCsv.php:646
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Định dạng CSV đầu vào không hợp lệ tại dòng %d."
@@ -11515,15 +11515,15 @@ msgstr "Định dạng CSV đầu vào không hợp lệ tại dòng %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Số lượng cột trong CSV đầu vào không đúng tại dòng %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:666
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
-#: libraries/classes/Plugins/Import/ImportCsv.php:692
-#: libraries/classes/Plugins/Import/ImportCsv.php:699
+#: libraries/classes/Plugins/Import/ImportCsv.php:667
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
+#: libraries/classes/Plugins/Import/ImportCsv.php:693
+#: libraries/classes/Plugins/Import/ImportCsv.php:700
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Đối số không hợp lệ cho nhập CSV: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:831
+#: libraries/classes/Plugins/Import/ImportCsv.php:832
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11613,7 +11613,7 @@ msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
 
 #: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:68
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:87
-#: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:90
+#: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:87
 #: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:87
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -11728,7 +11728,7 @@ msgid ""
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:37
+#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:39
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -11741,8 +11741,8 @@ msgid ""
 msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
-#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: libraries/classes/Util.php:698
+#: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
+#: libraries/classes/Util.php:692
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y lúc %I:%M %p"
 
@@ -11975,79 +11975,79 @@ msgstr ""
 msgid "Please check privileges of directory containing database."
 msgstr "Vui lòng kiểm tra đặc quyền của thư mục chứa cơ sở dữ liệu."
 
-#: libraries/classes/Query/Utilities.php:118
+#: libraries/classes/Query/Utilities.php:117
 msgid "Details…"
 msgstr "Chi tiết…"
 
-#: libraries/classes/RecentFavoriteTable.php:153
+#: libraries/classes/RecentFavoriteTable.php:151
 msgid "Could not save recent table!"
 msgstr "Không thể ghi lại bảng mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:157
+#: libraries/classes/RecentFavoriteTable.php:155
 msgid "Could not save favorite table!"
 msgstr "Không thể ghi lại bảng mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:241
+#: libraries/classes/RecentFavoriteTable.php:239
 msgid "Recent tables"
 msgstr "Các bảng mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:243
+#: libraries/classes/RecentFavoriteTable.php:241
 msgid "Recent"
 msgstr "Mới dùng"
 
-#: libraries/classes/RecentFavoriteTable.php:247
+#: libraries/classes/RecentFavoriteTable.php:245
 msgid "Favorites"
 msgstr "Ưa dùng"
 
-#: libraries/classes/ReplicationGui.php:440
+#: libraries/classes/ReplicationGui.php:444
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:451
+#: libraries/classes/ReplicationGui.php:455
 msgid "Replication started successfully."
 msgstr "Máy bản sao đã được khởi chạy thành công."
 
-#: libraries/classes/ReplicationGui.php:452
+#: libraries/classes/ReplicationGui.php:456
 msgid "Error starting replication."
 msgstr "Có lỗi khi khởi chạy máy bản sao."
 
-#: libraries/classes/ReplicationGui.php:455
+#: libraries/classes/ReplicationGui.php:459
 msgid "Replication stopped successfully."
 msgstr "Máy bản sao đã được dừng thành công."
 
-#: libraries/classes/ReplicationGui.php:456
+#: libraries/classes/ReplicationGui.php:460
 msgid "Error stopping replication."
 msgstr "Có lỗi khi dừng máy bản sao."
 
-#: libraries/classes/ReplicationGui.php:459
+#: libraries/classes/ReplicationGui.php:463
 msgid "Replication resetting successfully."
 msgstr "Máy bản sao đã được cài đặt lại thành công."
 
-#: libraries/classes/ReplicationGui.php:460
+#: libraries/classes/ReplicationGui.php:464
 msgid "Error resetting replication."
 msgstr "Có lỗi khi cài đặt lại máy bản sao."
 
-#: libraries/classes/ReplicationGui.php:463
+#: libraries/classes/ReplicationGui.php:467
 msgid "Success."
 msgstr "Thành công."
 
-#: libraries/classes/ReplicationGui.php:464
+#: libraries/classes/ReplicationGui.php:468
 msgid "Error."
 msgstr "Lỗi."
 
-#: libraries/classes/ReplicationGui.php:507
+#: libraries/classes/ReplicationGui.php:504
 msgid "Unknown error"
 msgstr "Lỗi chưa biết"
 
-#: libraries/classes/ReplicationGui.php:520
+#: libraries/classes/ReplicationGui.php:517
 #, fuzzy, php-format
 #| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "Không thể kết nối tới máy chính %s"
 
-#: libraries/classes/ReplicationGui.php:530
+#: libraries/classes/ReplicationGui.php:527
 #, fuzzy
 #| msgid ""
 #| "Unable to read master log position. Possible privilege problem on master."
@@ -12057,32 +12057,32 @@ msgstr ""
 "Không thể đọc vị trí nhật ký máy chính. Gần như chắc chắn là có trục trặc "
 "với đặc quyền trên máy chính."
 
-#: libraries/classes/ReplicationGui.php:548
+#: libraries/classes/ReplicationGui.php:545
 #, fuzzy
 #| msgid "Unable to change master!"
 msgid "Unable to change primary!"
 msgstr "Không thể đổi máy chính!"
 
-#: libraries/classes/ReplicationGui.php:552
+#: libraries/classes/ReplicationGui.php:549
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s."
 msgid "Primary server changed successfully to %s."
 msgstr "Máy phục vụ chính đã thay đổi thành công thành %s."
 
-#: libraries/classes/Routing.php:101
+#: libraries/classes/Routing.php:104
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:135 setup/index.php:41
+#: libraries/classes/Routing.php:138 libraries/classes/Routing.php:207
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Không tìm thấy cơ sở dữ liệu nguồn “%s“!"
 
-#: libraries/classes/Routing.php:146
+#: libraries/classes/Routing.php:149
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12113,7 +12113,7 @@ msgstr "Gặp lỗi khi đang tải tìm kiếm."
 
 #: libraries/classes/Server/Plugins.php:66
 #: libraries/classes/Server/Privileges.php:795
-#: libraries/classes/Server/Privileges.php:3717
+#: libraries/classes/Server/Privileges.php:3716
 msgid "Native MySQL authentication"
 msgstr "Xác thực MySQL nguyên bản"
 
@@ -12477,7 +12477,7 @@ msgstr "Đặc quyền dành cho %s"
 msgid "User"
 msgstr "Người dùng"
 
-#: libraries/classes/Server/Privileges.php:2975
+#: libraries/classes/Server/Privileges.php:2974
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12487,7 +12487,7 @@ msgstr ""
 "hiện tại. Cái này ngăn ngừa những người khác từ các kết nối nếu bộ phận máy "
 "của tài khoản của họ cho kết nối từ bất kỳ (%s) máy nào."
 
-#: libraries/classes/Server/Privileges.php:3009
+#: libraries/classes/Server/Privileges.php:3008
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12505,7 +12505,7 @@ msgstr ""
 "những người dùng máy phục vụ, nếu chúng bị thay đổi bằng tay. Trong trường "
 "hợp này bạn nên %stải lại các đặc quyền%s trước khi tiếp tục."
 
-#: libraries/classes/Server/Privileges.php:3025
+#: libraries/classes/Server/Privileges.php:3024
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12526,7 +12526,7 @@ msgstr ""
 "hợp này, đặc quyền phải được tại lại nhưng mà hiện tại bạn nên không có đặc "
 "quyền TẢI LẠI."
 
-#: libraries/classes/Server/Privileges.php:3339
+#: libraries/classes/Server/Privileges.php:3338
 msgid "You have added a new user."
 msgstr "Bạn đã thêm một người dùng mới."
 
@@ -12656,16 +12656,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Không có phiên bản ổn định nào mới hơn"
 
-#: libraries/classes/Sql.php:488
+#: libraries/classes/Sql.php:497
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Dùng đánh dấu \"%s\" như là truy vấn duyệt mặc định."
 
-#: libraries/classes/Sql.php:948
+#: libraries/classes/Sql.php:957
 msgid "Showing as PHP code"
 msgstr "Hiện dạng mã PHP"
 
-#: libraries/classes/Sql.php:1320
+#: libraries/classes/Sql.php:1329
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12674,7 +12674,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa không sẵn có. %s"
 
-#: libraries/classes/Sql.php:1334
+#: libraries/classes/Sql.php:1343
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12726,7 +12726,7 @@ msgstr "%s đã bị tắt cho máy chủ MySQL này."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Máy chủ MySQL này không hỗ trợ bộ máy lưu trữ %s."
 
-#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2100
+#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2092
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Tên của khóa chính phải là \"PRIMARY\"!"
 
@@ -12735,43 +12735,43 @@ msgstr "Tên của khóa chính phải là \"PRIMARY\"!"
 msgid "Problems with indexes of table `%s`"
 msgstr "Trục trặc với chỉ mục của bảng “%s“"
 
-#: libraries/classes/Table.php:349
+#: libraries/classes/Table.php:345
 msgid "Unknown table status:"
 msgstr "Không hiểu các trạng thái bảng:"
 
-#: libraries/classes/Table.php:1002
+#: libraries/classes/Table.php:998
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Không tìm thấy cơ sở dữ liệu nguồn “%s“!"
 
-#: libraries/classes/Table.php:1011
+#: libraries/classes/Table.php:1007
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Không tìm thấy cơ sở dữ liệu đích “%s“!"
 
-#: libraries/classes/Table.php:1476
+#: libraries/classes/Table.php:1472
 msgid "Invalid database:"
 msgstr "Cơ sở dữ liệu không hợp lệ:"
 
-#: libraries/classes/Table.php:1494
+#: libraries/classes/Table.php:1490
 msgid "Invalid table name:"
 msgstr "Tên bảng không hợp lệ"
 
-#: libraries/classes/Table.php:1530
+#: libraries/classes/Table.php:1524
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Gặp lỗi khi đổi tên bảng %1$s thành %2$s"
 
-#: libraries/classes/Table.php:1547
+#: libraries/classes/Table.php:1541
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Bảng %1$s đã được đổi tên thành %2$s."
 
-#: libraries/classes/Table.php:1792
+#: libraries/classes/Table.php:1786
 msgid "Could not save table UI preferences!"
 msgstr "Không thể ghi lại bảng mới dùng"
 
-#: libraries/classes/Table.php:1818
+#: libraries/classes/Table.php:1810
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -12780,7 +12780,7 @@ msgstr ""
 "Gặp lỗi khi dọn dẹp tùy thích bảng UI (xem $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1953
+#: libraries/classes/Table.php:1945
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12791,20 +12791,20 @@ msgstr ""
 "không liên tục sau khi bạn làm mới trang này. Vui lòng kiểm tra xem cấu trúc "
 "bảng có bị thay đổi hay không."
 
-#: libraries/classes/Table.php:2112
+#: libraries/classes/Table.php:2104
 msgid "Can't rename index to PRIMARY!"
 msgstr "Không thể đổi tên chỉ mục thành PRIMARY!"
 
-#: libraries/classes/Table.php:2138
+#: libraries/classes/Table.php:2130
 msgid "No index parts defined!"
 msgstr "Chưa định nghĩa bộ phận chỉ mục nào!"
 
-#: libraries/classes/Table.php:2434
+#: libraries/classes/Table.php:2426
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Gặp lỗi khi tạo khóa ngoại trên %1$s (kiểm tra lại kiểu dữ liệu)"
 
-#: libraries/classes/Template.php:131
+#: libraries/classes/Template.php:128
 #, fuzzy, php-format
 #| msgid "Error while loading the search."
 msgid "Error while working with template cache: %s"
@@ -12825,100 +12825,100 @@ msgstr "Không tìm thấy chủ đề %s!"
 msgid "No valid image path for theme %s found!"
 msgstr "Không thấy đường dẫn ảnh hợp lệ cho chủ đề %s!"
 
-#: libraries/classes/Tracking.php:234
+#: libraries/classes/Tracking.php:233
 #: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "Báo cáo theo dõi"
 
-#: libraries/classes/Tracking.php:238
+#: libraries/classes/Tracking.php:237
 msgid "Tracking statements"
 msgstr "Theo dõi trạng thái"
 
-#: libraries/classes/Tracking.php:253
+#: libraries/classes/Tracking.php:252
 msgid "Delete tracking data row from report"
 msgstr "Xóa dòng dữ liệu theo dõi từ báo cáo"
 
-#: libraries/classes/Tracking.php:265
+#: libraries/classes/Tracking.php:262
 msgid "No data"
 msgstr "Không có dữ liệu"
 
-#: libraries/classes/Tracking.php:310
+#: libraries/classes/Tracking.php:307
 #: templates/database/operations/index.twig:131
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Chỉ cấu trúc"
 
-#: libraries/classes/Tracking.php:313
+#: libraries/classes/Tracking.php:310
 #: templates/database/operations/index.twig:143
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Chỉ dữ liệu"
 
-#: libraries/classes/Tracking.php:316
+#: libraries/classes/Tracking.php:313
 #: templates/database/operations/index.twig:137
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
 msgstr "Cấu trúc và dữ liệu"
 
-#: libraries/classes/Tracking.php:381 libraries/classes/Tracking.php:449
+#: libraries/classes/Tracking.php:378 libraries/classes/Tracking.php:444
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 "Hiển thị %1$s với ngày tháng từ %2$s đến %3$s theo người dùng %4$s %5$s"
 
-#: libraries/classes/Tracking.php:470
+#: libraries/classes/Tracking.php:465
 msgid "SQL dump (file download)"
 msgstr "Đổ SQL (tải về tập tin)"
 
-#: libraries/classes/Tracking.php:472
+#: libraries/classes/Tracking.php:467
 msgid "SQL dump"
 msgstr "Đổ SQL"
 
-#: libraries/classes/Tracking.php:475
+#: libraries/classes/Tracking.php:470
 msgid "This option will replace your table and contained data."
 msgstr "Tùy chọn này sẽ thay thế bảng và dữ liệu đã chứa."
 
-#: libraries/classes/Tracking.php:477
+#: libraries/classes/Tracking.php:472
 msgid "SQL execution"
 msgstr "Thực thi SQL"
 
-#: libraries/classes/Tracking.php:481
+#: libraries/classes/Tracking.php:476
 #, php-format
 msgid "Export as %s"
 msgstr "Xuất ra thành %s"
 
-#: libraries/classes/Tracking.php:519
+#: libraries/classes/Tracking.php:514
 msgid "Data manipulation statement"
 msgstr "Chỉ lệnh thao tác dữ liệu"
 
-#: libraries/classes/Tracking.php:555
+#: libraries/classes/Tracking.php:550
 msgid "Data definition statement"
 msgstr "Chỉ lệnh định nghĩa dữ liệu"
 
-#: libraries/classes/Tracking.php:638
+#: libraries/classes/Tracking.php:633
 #: templates/database/tracking/tables.twig:126
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "Chụp cấu trúc"
 
-#: libraries/classes/Tracking.php:656
+#: libraries/classes/Tracking.php:651
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Phiên bản chụp %s (mã SQL)"
 
-#: libraries/classes/Tracking.php:727
+#: libraries/classes/Tracking.php:722
 msgid "Tracking data definition successfully deleted"
 msgstr "Đã xóa thành công phần định nghĩa dữ liệu theo dõi"
 
-#: libraries/classes/Tracking.php:740
+#: libraries/classes/Tracking.php:735
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Đã xóa thành công phần thao tác dữ liệu theo dõi"
 
-#: libraries/classes/Tracking.php:804
+#: libraries/classes/Tracking.php:799
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -12926,35 +12926,35 @@ msgstr ""
 "Bạn có thể thực thi đổ bằng cách tạo và dùng một cơ sở dữ liệu tạm. Vui lòng "
 "chắc chắn rằng bạn có đủ thẩm quyền để làm điều đó."
 
-#: libraries/classes/Tracking.php:808
+#: libraries/classes/Tracking.php:803
 msgid "Comment out these two lines if you do not need them."
 msgstr "Sửa hai dòng này thành ghi chú nếu bạn không cần chúng."
 
-#: libraries/classes/Tracking.php:819
+#: libraries/classes/Tracking.php:814
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "Câu lệnh SQL đã được xuất ra. Vui lòng chép phần đổ hoặc thực thi nó."
 
-#: libraries/classes/Tracking.php:852
+#: libraries/classes/Tracking.php:847
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Báo cáo theo dõi cho bảng “%s“"
 
-#: libraries/classes/Tracking.php:884
+#: libraries/classes/Tracking.php:879
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Theo dõi cho %1$s được kích hoạt tại phiên bản %2$s."
 
-#: libraries/classes/Tracking.php:887
+#: libraries/classes/Tracking.php:882
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Theo dõi cho %1$s bị dừng hoạt động tại phiên bản %2$s."
 
-#: libraries/classes/Tracking.php:986
+#: libraries/classes/Tracking.php:981
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Phiên bản %1$s trên %2$s đã được tạo."
 
-#: libraries/classes/Tracking.php:1017
+#: libraries/classes/Tracking.php:1012
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Phiên bản %1$s đã được tạo, việc theo dõi %2$s đang hoạt động."
@@ -13238,22 +13238,22 @@ msgstr ""
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr ""
 
-#: libraries/classes/Types.php:800
+#: libraries/classes/Types.php:801
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Dạng số"
 
-#: libraries/classes/Types.php:818
+#: libraries/classes/Types.php:819
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Ngày giờ"
 
-#: libraries/classes/Types.php:854
+#: libraries/classes/Types.php:855
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spatial"
 
-#: libraries/classes/UrlRedirector.php:54
+#: libraries/classes/UrlRedirector.php:50
 msgid "Taking you to the target site."
 msgstr "Đưa bạn đến trang đích."
 
@@ -13283,39 +13283,39 @@ msgid "Max: %s%s"
 msgstr "T.Đa: %s%s"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:663
+#: libraries/classes/Util.php:657
 msgctxt "Short month name"
 msgid "May"
 msgstr "Th5"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:681
+#: libraries/classes/Util.php:675
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "CN"
 
-#: libraries/classes/Util.php:719
+#: libraries/classes/Util.php:713
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/classes/Util.php:721
+#: libraries/classes/Util.php:715
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/classes/Util.php:792
+#: libraries/classes/Util.php:786
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s ngày, %s giờ, %s phút và %s giây"
 
-#: libraries/classes/Util.php:1874
+#: libraries/classes/Util.php:1868
 msgid "Users"
 msgstr "Người dùng"
 
-#: libraries/classes/Util.php:2478
+#: libraries/classes/Util.php:2472
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Sắp xếp"
