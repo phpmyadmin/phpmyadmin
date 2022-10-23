@@ -15,6 +15,7 @@ use function header;
 use function ini_get;
 use function session_start;
 use function session_write_close;
+use function sprintf;
 use function time;
 use function usleep;
 
@@ -47,7 +48,9 @@ class StatusController
         // $_GET["message"] is used for asking for an import message
         if (isset($_GET['message']) && $_GET['message']) {
             // AJAX requests can't be cached!
-            Core::noCacheHeader();
+            foreach (Core::getNoCacheHeaders() as $name => $value) {
+                header(sprintf('%s: %s', $name, $value));
+            }
 
             header('Content-type: text/html');
 

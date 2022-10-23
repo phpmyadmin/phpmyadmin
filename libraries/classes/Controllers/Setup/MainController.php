@@ -14,6 +14,7 @@ use function __;
 use function file_exists;
 use function header;
 use function in_array;
+use function sprintf;
 
 final class MainController
 {
@@ -27,7 +28,9 @@ final class MainController
         $pageParam = $request->getQueryParam('page');
         $page = in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
 
-        Core::noCacheHeader();
+        foreach (Core::getNoCacheHeaders() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
 
         // Sent security-related headers
         (new Header())->sendHttpHeaders();

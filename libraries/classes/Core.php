@@ -413,22 +413,6 @@ class Core
     }
 
     /**
-     * Outputs headers to prevent caching in browser (and on the way).
-     */
-    public static function noCacheHeader(): void
-    {
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
-        $headers = self::getNoCacheHeaders();
-
-        foreach ($headers as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
-        }
-    }
-
-    /**
      * @return array<string, string>
      */
     public static function getNoCacheHeaders(): array
