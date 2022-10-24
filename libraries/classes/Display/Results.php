@@ -4416,7 +4416,10 @@ class Results
             $relation = $map[$meta->name];
             // Field to display from the foreign table?
             $dispval = '';
-            if ($relation[2] !== '') {
+
+            // Check that we have a valid column name
+            // Relation::getDisplayField() returns false by default
+            if ($relation[2] !== '' && $relation[2] !== false) {
                 $dispval = $this->getFromForeign($relation, $whereComparison);
             }
 
