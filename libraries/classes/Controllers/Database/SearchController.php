@@ -79,7 +79,7 @@ class SearchController extends AbstractController
         }
 
         // Main search form has been submitted, get results
-        if (isset($_POST['submit_search'])) {
+        if (isset($request->getParsedBodyParam('submit_search'))) {
             $this->response->addHTML($databaseSearch->getSearchResults());
         }
 

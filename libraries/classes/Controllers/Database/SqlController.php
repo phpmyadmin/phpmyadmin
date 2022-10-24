@@ -56,14 +56,15 @@ class SqlController extends AbstractController
          */
         $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
         $GLOBALS['back'] = $GLOBALS['goto'];
+        $delimiter = $request->getParsedBodyParam('delimiter');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
             $GLOBALS['db'],
             '',
             true,
             false,
-            isset($_POST['delimiter'])
-                ? htmlspecialchars($request->getParsedBodyParam('delimiter'))
+            isset($delimiter)
+                ? htmlspecialchars($delimiter)
                 : ';'
         ));
     }
