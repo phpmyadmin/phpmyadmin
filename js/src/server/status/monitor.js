@@ -1898,7 +1898,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
-            $('#logTable').find('table tbody tr').children('td').eq(runtime.logDataCols.length - 2).each(function () {
+            $('#logTable').find('table tbody tr td.queryCell').each(function () {
                 var $t = $(this);
                 // If query is a SELECT and user enabled or disabled to group
                 // queries ignoring data in where statements, we
@@ -2063,7 +2063,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             for (var j = 0, ll = cols.length; j < ll; j++) {
                 // Assuming the query column is the second last
                 if (j === cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
-                    $tRow.append($tCell = $('<td class="linkElem">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
+                    $tRow.append($tCell = $('<td class="linkElem queryCell">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
                     $tCell.on('click', openQueryAnalyzer);
                 } else {
                     $tRow.append('<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>');
