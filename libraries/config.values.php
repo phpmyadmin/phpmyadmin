@@ -218,10 +218,7 @@ return [
             // SQL
             'sql',
         ],
-        'charset' => array_merge(
-            [''],
-            $GLOBALS['cfg']['AvailableCharsets']
-        ),
+        'charset' => array_merge([''], $GLOBALS['cfg']['AvailableCharsets'] ?? []),
         'sql_compatibility' => [
             'NONE',
             'ANSI',
@@ -280,10 +277,7 @@ return [
             'zip',
             'gzip',
         ],
-        'charset' => array_merge(
-            [''],
-            $GLOBALS['cfg']['AvailableCharsets']
-        ),
+        'charset' => array_merge([''], $GLOBALS['cfg']['AvailableCharsets'] ?? []),
         'sql_compatibility' => [
             'NONE',
             'ANSI',

@@ -19,7 +19,7 @@ class VersionTest extends AbstractTestCase
     public function testValidateVersion(): void
     {
         $this->assertIsString(Version::VERSION);
-        $this->assertNotEmpty(Version::VERSION);
+        $this->assertNotEmpty(Version::VERSION); // @phpstan-ignore-line
         $this->assertStringContainsString(Version::SERIES, Version::VERSION, 'x.y must be found in x.y.z');
         $this->assertIsInt(Version::MAJOR);
         $this->assertIsInt(Version::MINOR);
