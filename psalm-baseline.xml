@@ -9114,14 +9114,6 @@
       <code>'data'</code>
     </TypeDoesNotContainNull>
   </file>
-  <file src="libraries/classes/OutputBuffering.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>empty(self::$instance)</code>
-    </DocblockTypeContradiction>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$content</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="libraries/classes/Partitioning/Maintenance.php">
     <MixedArrayAccess occurrences="4">
       <code>$row['Table']</code>
@@ -12262,9 +12254,6 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/ResponseRenderer.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>empty(self::$instance)</code>
-    </DocblockTypeContradiction>
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>

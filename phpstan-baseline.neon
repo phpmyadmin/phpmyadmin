@@ -5451,16 +5451,6 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$instance \\(PhpMyAdmin\\\\OutputBuffering\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\Maintenance\\:\\:analyze\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Partitioning/Maintenance.php
@@ -7042,11 +7032,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\ResponseRenderer\\:\\:\\$JSON type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/ResponseRenderer.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\ResponseRenderer\\:\\:\\$instance \\(PhpMyAdmin\\\\ResponseRenderer\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 

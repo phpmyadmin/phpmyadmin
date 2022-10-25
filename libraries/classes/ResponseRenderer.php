@@ -28,12 +28,11 @@ use const PHP_SAPI;
 class ResponseRenderer
 {
     /**
-     * Response instance
-     *
      * @static
-     * @var ResponseRenderer
+     * @var ResponseRenderer|null
      */
-    private static $instance;
+    private static $instance = null;
+
     /**
      * Header instance
      *
@@ -156,14 +155,14 @@ class ResponseRenderer
         511 => 'Network Authentication Required',
     ];
 
-    /**
-     * Creates a new class instance
-     */
+    /** @var OutputBuffering */
+    private $buffer;
+
     private function __construct()
     {
+        $this->buffer = new OutputBuffering();
+        $this->buffer->start();
         if (! defined('TESTSUITE')) {
-            $buffer = OutputBuffering::getInstance();
-            $buffer->start();
             register_shutdown_function([$this, 'response']);
         }
 
@@ -191,13 +190,11 @@ class ResponseRenderer
     }
 
     /**
-     * Returns the singleton Response object
-     *
-     * @return ResponseRenderer object
+     * Returns the singleton object
      */
-    public static function getInstance()
+    public static function getInstance(): ResponseRenderer
     {
-        if (empty(self::$instance)) {
+        if (self::$instance === null) {
             self::$instance = new ResponseRenderer();
         }
 
@@ -392,9 +389,9 @@ class ResponseRenderer
      */
     public function response(): void
     {
-        $buffer = OutputBuffering::getInstance();
+        $this->buffer->stop();
         if (empty($this->HTML)) {
-            $this->HTML = $buffer->getContents();
+            $this->HTML = $this->buffer->getContents();
         }
 
         if ($this->isAjax()) {
@@ -403,7 +400,7 @@ class ResponseRenderer
             echo $this->getDisplay();
         }
 
-        $buffer->flush();
+        $this->buffer->flush();
         exit;
     }
 
