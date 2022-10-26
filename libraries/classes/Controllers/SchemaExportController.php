@@ -9,6 +9,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use Throwable;
 
 use function __;
 
@@ -45,6 +46,11 @@ class SchemaExportController
          * Include the appropriate Schema Class depending on $export_type
          * default is PDF
          */
-        $this->export->processExportSchema($request->getParsedBodyParam('export_type'));
+        try {
+            $this->export->processExportSchema($request->getParsedBodyParam('export_type'));
+        } catch (Throwable $exception) {
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
+        }
     }
 }

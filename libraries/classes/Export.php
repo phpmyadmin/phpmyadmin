@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Exception;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
@@ -1259,7 +1260,7 @@ class Export
 
         // Check schema export type
         if ($exportPlugin === null) {
-            Core::fatalError(__('Bad type!'));
+            throw new Exception(__('Bad type!'));
         }
 
         $this->dbi->selectDb($_POST['db']);
