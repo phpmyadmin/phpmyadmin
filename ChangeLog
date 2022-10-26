@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix "Link not found!" on foreign columns for tables having no char column to show
 - issue #17390 Fix "Create view" modal doesn't show on results and empty results
 - issue #17772 Fix wrong styles for add button from central columns
+- issue #17389 Fix HTML disappears when exporting settings to browser's storage
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
