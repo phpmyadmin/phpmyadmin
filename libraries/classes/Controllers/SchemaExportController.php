@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 
@@ -19,9 +20,13 @@ class SchemaExportController
     /** @var Export */
     private $export;
 
-    public function __construct(Export $export)
+    /** @var ResponseRenderer */
+    private $response;
+
+    public function __construct(Export $export, ResponseRenderer $response)
     {
         $this->export = $export;
+        $this->response = $response;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -30,7 +35,8 @@ class SchemaExportController
             $errorMessage = __('Missing parameter:') . ' export_type'
                 . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
                 . '[br]';
-            Core::fatalError($errorMessage);
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error($errorMessage)->getDisplay());
 
             return;
         }
