@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix monitor page filter queries only filtering the first row
 - issue        Fix "Link not found!" on foreign columns for tables having no char column to show
 - issue #17390 Fix "Create view" modal doesn't show on results and empty results
+- issue #17772 Fix wrong styles for add button from central columns
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
