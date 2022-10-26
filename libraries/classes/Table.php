@@ -482,7 +482,7 @@ class Table implements Stringable
      * @param string      $collation        collation
      * @param bool|string $null             with 'NULL' or 'NOT NULL'
      * @param string      $defaultType      whether default is CURRENT_TIMESTAMP,
-     *                                       NULL, NONE, USER_DEFINED
+     *                                       NULL, NONE, USER_DEFINED, UUID
      * @param string      $defaultValue     default value for USER_DEFINED
      *                                       default type
      * @param string      $extra            'AUTO_INCREMENT'
@@ -631,6 +631,11 @@ class Table implements Stringable
                         ) {
                             $query .= '(' . $length . ')';
                         }
+
+                        break;
+                    case 'UUID':
+                    case 'uuid()':
+                        $query .= ' DEFAULT uuid()';
 
                         break;
                     case 'NONE':

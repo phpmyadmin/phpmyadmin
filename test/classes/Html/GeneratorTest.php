@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
@@ -449,5 +450,86 @@ class GeneratorTest extends AbstractTestCase
             . ' class="icon ic_b_help"></a>',
             Generator::getServerSSL()
         );
+    }
+
+    /**
+     * Test for Generator::getDefaultFunctionForField
+     *
+     * @param array  $field      field settings
+     * @param bool   $insertMode true if insert mode
+     * @param string $expected   expected result
+     * @psalm-param array<string, string|bool|null> $field
+     *
+     * @dataProvider providerForTestGetDefaultFunctionForField
+     */
+    public function testGetDefaultFunctionForField(
+        array $field,
+        bool $insertMode,
+        string $expected
+    ): void {
+        $this->markTestIncomplete('Needs to be fixed');
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+
+        $GLOBALS['dbi'] = $dbiStub;
+
+        $result = Generator::getDefaultFunctionForField($field, $insertMode);
+
+        $this->assertEquals($expected, $result);
+    }
+
+    /**
+     * Data provider for Generator::getDefaultFunctionForField test
+     *
+     * @return array
+     * @psalm-return array<int, array{array<string, string|bool|null>, bool, string}>
+     */
+    public function providerForTestGetDefaultFunctionForField(): array
+    {
+        return [
+            [
+                [
+                    'True_Type' => 'GEOMETRY',
+                    'first_timestamp' => false,
+                    'Extra' => null,
+                    'Key' => '',
+                    'Type' => '',
+                    'Null' => 'NO',
+                ],
+                true,
+                'ST_GeomFromText',
+            ],
+            [
+                [
+                    'True_Type' => 'timestamp',
+                    'first_timestamp' => true,
+                    'Extra' => null,
+                    'Key' => '',
+                    'Type' => '',
+                    'Null' => 'NO',
+                ],
+                true,
+                'NOW',
+            ],
+            [
+                [
+                    'True_Type' => 'uuid',
+                    'first_timestamp' => false,
+                    'Key' => '',
+                    'Type' => '',
+                ],
+                true,
+                '',
+            ],
+            [
+                [
+                    'True_Type' => '',
+                    'first_timestamp' => false,
+                    'Key' => 'PRI',
+                    'Type' => 'char(36)',
+                ],
+                true,
+                'UUID',
+            ],
+        ];
     }
 }

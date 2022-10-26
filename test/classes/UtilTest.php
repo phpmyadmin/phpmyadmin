@@ -2549,4 +2549,64 @@ class UtilTest extends AbstractTestCase
         $actual = Util::getDbInfo('test_db', '');
         $this->assertSame($expected, $actual);
     }
+
+    /**
+     * Tests for Util::testIsUUIDSupported() method.
+     *
+     * @param bool $isMariaDB True if mariadb
+     * @param int  $version   Database version as integer
+     * @param bool $expected  Expected Result
+     *
+     * @dataProvider provideForTestIsUUIDSupported
+     */
+    public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('isMariaDB')
+            ->will($this->returnValue($isMariaDB));
+
+        $dbi->expects($this->any())
+            ->method('getVersion')
+            ->will($this->returnValue($version));
+
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertEquals(Util::isUUIDSupported(), $expected);
+        unset($GLOBALS['dbi']);
+    }
+
+    /**
+     * Data provider for isUUIDSupported() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{bool, int, bool}>
+     */
+    public function provideForTestIsUUIDSupported(): array
+    {
+        return [
+            [
+                false,
+                60100,
+                false,
+            ],
+            [
+                false,
+                100700,
+                false,
+            ],
+            [
+                true,
+                60100,
+                false,
+            ],
+            [
+                true,
+                100700,
+                true,
+            ],
+        ];
+    }
 }

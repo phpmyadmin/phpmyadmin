@@ -21,16 +21,31 @@ var chartSize;
 var monitorSettings;
 
 function serverResponseError () {
-    var btns = {};
-    btns[window.Messages.strReloadPage] = function () {
-        window.location.reload();
+    var btns = {
+        [window.Messages.strReloadPage]: {
+            text: window.Messages.strReloadPage,
+            class: 'btn btn-primary',
+            click: function () {
+                window.location.reload();
+            },
+        },
     };
-    $('#emptyDialog').dialog({ title: window.Messages.strRefreshFailed });
+    $('#emptyDialog').dialog({
+        classes: {
+            'ui-dialog-titlebar-close': 'btn-close'
+        },
+        title: window.Messages.strRefreshFailed
+    });
     $('#emptyDialog').html(
         Functions.getImage('s_attention') +
         window.Messages.strInvalidResponseExplanation
     );
-    $('#emptyDialog').dialog({ buttons: btns });
+    $('#emptyDialog').dialog({
+        classes: {
+            'ui-dialog-titlebar-close': 'btn-close'
+        },
+        buttons: btns
+    });
 }
 
 /**
@@ -636,13 +651,27 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a[href="#importMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
-        $('#emptyDialog').dialog({ title: window.Messages.strImportDialogTitle });
+        $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
+            title: window.Messages.strImportDialogTitle
+        });
         $('#emptyDialog').html(window.Messages.strImportDialogMessage + ':<br><form>' +
             '<input type="file" name="file" id="import_file"> </form>');
 
-        var dlgBtns = {};
+        var dlgBtns = {
+            [window.Messages.strImport]: {
+                text: window.Messages.strImport,
+                class: 'btn btn-primary',
+            },
+            [window.Messages.strCancel]: {
+                text: window.Messages.strCancel,
+                class: 'btn btn-secondary',
+            },
+        };
 
-        dlgBtns[window.Messages.strImport] = function () {
+        dlgBtns[window.Messages.strImport].click = function () {
             var input = $('#emptyDialog').find('#import_file')[0];
             var reader = new FileReader();
 
@@ -690,11 +719,14 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             reader.readAsText(input.files[0]);
         };
 
-        dlgBtns[window.Messages.strCancel] = function () {
+        dlgBtns[window.Messages.strCancel].click = function () {
             $(this).dialog('close');
         };
 
         $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -731,11 +763,19 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         event.preventDefault();
 
         var $dialog = $('#monitorInstructionsDialog');
-        var dlgBtns = {};
-        dlgBtns[window.Messages.strClose] = function () {
-            $(this).dialog('close');
+        var dlgBtns = {
+            [window.Messages.strClose]: {
+                text: window.Messages.strClose,
+                class: 'btn btn-primary',
+                click: function () {
+                    $(this).dialog('close');
+                }
+            },
         };
         $dialog.dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: '60%',
             height: 'auto',
             buttons: dlgBtns
@@ -1004,15 +1044,28 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 && typeof window.localStorage.monitorVersion !== 'undefined'
                 && monitorProtocolVersion !== window.localStorage.monitorVersion
             ) {
-                $('#emptyDialog').dialog({ title: window.Messages.strIncompatibleMonitorConfig });
+                $('#emptyDialog').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
+                    title: window.Messages.strIncompatibleMonitorConfig
+                });
                 $('#emptyDialog').html(window.Messages.strIncompatibleMonitorConfigDescription);
 
-                var dlgBtns = {};
-                dlgBtns[window.Messages.strClose] = function () {
-                    $(this).dialog('close');
+                var dlgBtns = {
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-primary',
+                        click: function () {
+                            $(this).dialog('close');
+                        }
+                    },
                 };
 
                 $('#emptyDialog').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 400,
                     buttons: dlgBtns
                 });
@@ -1371,19 +1424,31 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         $dateStart.prop('readonly', true);
         $dateEnd.prop('readonly', true);
 
-        var dlgBtns = { };
+        var dlgBtns = {
+            [window.Messages.strFromSlowLog]: {
+                text: window.Messages.strFromSlowLog,
+                class: 'btn btn-secondary',
+            },
+            [window.Messages.strFromGeneralLog]: {
+                text: window.Messages.strFromGeneralLog,
+                class: 'btn btn-secondary',
+            },
+        };
 
-        dlgBtns[window.Messages.strFromSlowLog] = function () {
+        dlgBtns[window.Messages.strFromSlowLog].click = function () {
             loadLog('slow', min, max);
             $(this).dialog('close');
         };
 
-        dlgBtns[window.Messages.strFromGeneralLog] = function () {
+        dlgBtns[window.Messages.strFromGeneralLog].click = function () {
             loadLog('general', min, max);
             $(this).dialog('close');
         };
 
         $logAnalyseDialog.dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -1637,13 +1702,24 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             opts.limitTypes = false;
         }
 
-        $('#emptyDialog').dialog({ title: window.Messages.strAnalysingLogsTitle });
+        $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
+            title: window.Messages.strAnalysingLogsTitle
+        });
         $('#emptyDialog').html(window.Messages.strAnalysingLogs +
                                 ' <img class="ajaxIcon" src="' + themeImagePath +
                                 'ajax_clock_small.gif" alt="">');
-        var dlgBtns = {};
 
-        dlgBtns[window.Messages.strCancelRequest] = function () {
+        var dlgBtns = {
+            [window.Messages.strCancelRequest]: {
+                text: window.Messages.strCancelRequest,
+                class: 'btn btn-primary',
+            },
+        };
+
+        dlgBtns[window.Messages.strCancelRequest].click = function () {
             if (logRequest !== null) {
                 logRequest.abort();
             }
@@ -1652,6 +1728,9 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         };
 
         $('#emptyDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -1673,7 +1752,12 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             },
             function (data) {
                 var logData;
-                var dlgBtns = {};
+                var dlgBtns = {
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-primary',
+                    },
+                };
                 if (typeof data !== 'undefined' && data.success === true) {
                     logData = data.message;
                 } else {
@@ -1681,10 +1765,15 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 }
 
                 if (logData.rows.length === 0) {
-                    $('#emptyDialog').dialog({ title: window.Messages.strNoDataFoundTitle });
+                    $('#emptyDialog').dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
+                        title: window.Messages.strNoDataFoundTitle,
+                    });
                     $('#emptyDialog').html('<p>' + window.Messages.strNoDataFound + '</p>');
 
-                    dlgBtns[window.Messages.strClose] = function () {
+                    dlgBtns[window.Messages.strClose].click = function () {
                         $(this).dialog('close');
                     };
 
@@ -1695,7 +1784,12 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 runtime.logDataCols = buildLogTable(logData, opts.removeVariables);
 
                 /* Show some stats in the dialog */
-                $('#emptyDialog').dialog({ title: window.Messages.strLoadingLogs });
+                $('#emptyDialog').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
+                    title: window.Messages.strLoadingLogs
+                });
                 $('#emptyDialog').html('<p>' + window.Messages.strLogDataLoaded + '</p>');
                 $.each(logData.sum, function (key, value) {
                     var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
@@ -1733,9 +1827,13 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                     }
                 }
 
-                dlgBtns[window.Messages.strJumpToTable] = function () {
-                    $(this).dialog('close');
-                    $(document).scrollTop($('#logTable').offset().top);
+                dlgBtns[window.Messages.strJumpToTable] = {
+                    text: window.Messages.strJumpToTable,
+                    class: 'btn btn-secondary',
+                    click: function () {
+                        $(this).dialog('close');
+                        $(document).scrollTop($('#logTable').offset().top);
+                    },
                 };
 
                 $('#emptyDialog').dialog('option', 'buttons', dlgBtns);
@@ -1800,7 +1898,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             };
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
-            $('#logTable').find('table tbody tr').children('td').eq(runtime.logDataCols.length - 2).each(function () {
+            $('#logTable').find('table tbody tr td.queryCell').each(function () {
                 var $t = $(this);
                 // If query is a SELECT and user enabled or disabled to group
                 // queries ignoring data in where statements, we
@@ -1965,7 +2063,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             for (var j = 0, ll = cols.length; j < ll; j++) {
                 // Assuming the query column is the second last
                 if (j === cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
-                    $tRow.append($tCell = $('<td class="linkElem">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
+                    $tRow.append($tCell = $('<td class="linkElem queryCell">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
                     $tCell.on('click', openQueryAnalyzer);
                 } else {
                     $tRow.append('<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>');
@@ -2026,16 +2124,28 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         }
 
         var profilingChart = null;
-        var dlgBtns = {};
+        var dlgBtns = {
+            [window.Messages.strAnalyzeQuery]: {
+                text: window.Messages.strAnalyzeQuery,
+                class: 'btn btn-primary',
+            },
+            [window.Messages.strClose]: {
+                text: window.Messages.strClose,
+                class: 'btn btn-secondary',
+            },
+        };
 
-        dlgBtns[window.Messages.strAnalyzeQuery] = function () {
+        dlgBtns[window.Messages.strAnalyzeQuery].click = function () {
             profilingChart = loadQueryAnalysis(rowData);
         };
-        dlgBtns[window.Messages.strClose] = function () {
+        dlgBtns[window.Messages.strClose].click = function () {
             $(this).dialog('close');
         };
 
         $('#queryAnalyzerDialog').dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             width: 'auto',
             height: 'auto',
             resizable: false,

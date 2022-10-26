@@ -2721,13 +2721,19 @@ Functions.autoPopulate = function (inputId, offset) {
     }
     var colDefault = window.centralColumnList[db + '_' + table][offset].col_default.toUpperCase();
     var $input4 = $('#' + newInputId + '4');
-    if (colDefault !== '' && colDefault !== 'NULL' && colDefault !== 'CURRENT_TIMESTAMP' && colDefault !== 'CURRENT_TIMESTAMP()') {
-        $input4.val('USER_DEFINED');
-        $input4.next().next().show();
-        $input4.next().next().val(window.centralColumnList[db + '_' + table][offset].col_default);
+    if (colDefault === 'NULL' || colDefault === 'CURRENT_TIMESTAMP' || colDefault === 'CURRENT_TIMESTAMP()') {
+        if (colDefault === 'CURRENT_TIMESTAMP()') {
+            colDefault = 'CURRENT_TIMESTAMP';
+        }
+        $input4.val(colDefault);
+        $input4.siblings('.default_value').hide();
+    } if (colDefault === '') {
+        $input4.val('NONE');
+        $input4.siblings('.default_value').hide();
     } else {
-        $input4.val(window.centralColumnList[db + '_' + table][offset].col_default);
-        $input4.next().next().hide();
+        $input4.val('USER_DEFINED');
+        $input4.siblings('.default_value').show();
+        $input4.siblings('.default_value').val(window.centralColumnList[db + '_' + table][offset].col_default);
     }
     $('#' + newInputId + '5').val(window.centralColumnList[db + '_' + table][offset].col_collation);
     var $input6 = $('#' + newInputId + '6');

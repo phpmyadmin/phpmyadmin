@@ -395,6 +395,10 @@ class Monitor
                             $matches
                         )
                     ) {
+                        if (! isset($insertTables[$matches[2]])) {
+                            $insertTables[$matches[2]] = 0;
+                        }
+
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
                             $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];

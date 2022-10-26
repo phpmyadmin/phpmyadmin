@@ -1741,6 +1741,16 @@ class InsertEdit
             return "b'" . $this->dbi->escapeString($currentValue) . "'";
         }
 
+        // For uuid type, generate uuid value
+        // if empty value but not set null or value is uuid() function
+        if (
+            $editField->type === 'uuid'
+                && ! $editField->isNull
+                && in_array($editField->value, ["''", '', "'uuid()'"], true)
+        ) {
+            return 'uuid()';
+        }
+
         if (
             ($editField->type !== 'datetime' && $editField->type !== 'timestamp' && $editField->type !== 'date')
             || ($editField->value !== 'CURRENT_TIMESTAMP' && $editField->value !== 'current_timestamp()')

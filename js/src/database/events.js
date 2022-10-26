@@ -22,11 +22,6 @@ const DatabaseEvents = {
      */
     syntaxHiglighter: null,
     /**
-     * @var buttonOptions Object containing options for
-     *                    the jQueryUI dialog buttons
-     */
-    buttonOptions: {},
-    /**
      * Validate editor form fields.
      *
      * @return {bool}
@@ -104,18 +99,26 @@ const DatabaseEvents = {
             if (data.success === true) {
                 Functions.ajaxRemoveMessage($msg);
                 /**
-                 * @var button_options Object containing options
+                 * @var buttonOptions Object containing options
                  *                     for jQueryUI dialog buttons
                  */
-                var buttonOptions = {};
-                buttonOptions[window.Messages.strClose] = function () {
-                    $(this).dialog('close').remove();
+                var buttonOptions = {
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-primary',
+                        click: function () {
+                            $(this).dialog('close').remove();
+                        },
+                    },
                 };
                 /**
                  * Display the dialog to the user
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 500,
                     buttons: buttonOptions,
                     title: data.title
@@ -155,9 +158,23 @@ const DatabaseEvents = {
             if (data.success === true) {
                 // We have successfully fetched the editor form
                 Functions.ajaxRemoveMessage($msg);
+                /**
+                 * @var buttonOptions Object containing options
+                 *                     for jQueryUI dialog buttons
+                 */
+                var buttonOptions = {
+                    [window.Messages.strGo]: {
+                        text: window.Messages.strGo,
+                        class: 'btn btn-primary',
+                    },
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-secondary',
+                    },
+                };
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[window.Messages.strGo] = function () {
+                buttonOptions[window.Messages.strGo].click = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof window.CodeMirror !== 'undefined') {
@@ -272,16 +289,19 @@ const DatabaseEvents = {
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[window.Messages.strClose] = function () {
+                buttonOptions[window.Messages.strClose].click = function () {
                     $(this).dialog('close');
                 };
                 /**
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 700,
                     minWidth: 500,
-                    buttons: that.buttonOptions,
+                    buttons: buttonOptions,
                     // Issue #15810 - use button titles for modals (eg: new procedure)
                     // Respect the order: title on href tag, href content, title sent in response
                     title: $this.attr('title') || $this.text() || $(data.title).text(),
