@@ -28,7 +28,6 @@ use Twig\RuntimeLoader\ContainerRuntimeLoader;
 use Twig\TemplateWrapper;
 
 use function __;
-use function is_array;
 use function sprintf;
 use function trigger_error;
 
@@ -76,15 +75,13 @@ class Template
 
         $twig->addRuntimeLoader(new ContainerRuntimeLoader(Core::getContainerBuilder()));
 
-        if (is_array($GLOBALS['cfg']) && ($GLOBALS['cfg']['environment'] ?? '') === 'development') {
+        if (($GLOBALS['cfg']['environment'] ?? '') === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
             // This will enable debug for the extension to print lines
             // It is used in po file lines re-mapping
             TransNode::$enableAddDebugInfo = true;
-        }
-
-        if ($GLOBALS['cfg']['environment'] === 'production') {
+        } else {
             $twig->disableDebug();
             TransNode::$enableAddDebugInfo = false;
         }

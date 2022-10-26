@@ -13679,9 +13679,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Template.php">
-    <RedundantCondition occurrences="1">
-      <code>is_array($GLOBALS['cfg'])</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>static::$twig !== null</code>
     </RedundantConditionGivenDocblockType>
