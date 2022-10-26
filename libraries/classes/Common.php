@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Exception;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
@@ -13,6 +14,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\SqlParser\Lexer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Throwable;
 
 use function __;
 use function array_pop;
@@ -40,6 +42,7 @@ use function ob_start;
 use function register_shutdown_function;
 use function restore_error_handler;
 use function session_id;
+use function sprintf;
 use function strlen;
 use function trigger_error;
 use function urldecode;
@@ -157,8 +160,19 @@ final class Common
         $config->checkPermissions();
         $config->checkErrors();
 
-        self::checkServerConfiguration();
-        self::checkRequest();
+        try {
+            self::checkServerConfiguration();
+            self::checkRequest();
+        } catch (Throwable $exception) {
+            echo (new Template())->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => $exception->getMessage(),
+            ]);
+
+            return;
+        }
+
         self::setCurrentServerGlobal($config);
 
         $GLOBALS['cfg'] = $config->settings;
@@ -225,13 +239,17 @@ final class Common
             Logging::logUser($GLOBALS['cfg']['Server']['user']);
 
             if ($GLOBALS['dbi']->getVersion() < $GLOBALS['cfg']['MysqlMinVersion']['internal']) {
-                Core::fatalError(
-                    __('You should upgrade to %s %s or later.'),
-                    [
+                echo (new Template())->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'error_message' => sprintf(
+                        __('You should upgrade to %s %s or later.'),
                         'MySQL',
-                        $GLOBALS['cfg']['MysqlMinVersion']['human'],
-                    ]
-                );
+                        (string) $GLOBALS['cfg']['MysqlMinVersion']['human']
+                    ),
+                ]);
+
+                return;
             }
 
             // Sets the default delimiter (if specified).
@@ -518,13 +536,11 @@ final class Common
          * empty value or 0.
          */
         if (extension_loaded('mbstring') && ! empty(ini_get('mbstring.func_overload'))) {
-            Core::fatalError(
-                __(
-                    'You have enabled mbstring.func_overload in your PHP '
-                    . 'configuration. This option is incompatible with phpMyAdmin '
-                    . 'and might cause some data to be corrupted!'
-                )
-            );
+            throw new Exception(__(
+                'You have enabled mbstring.func_overload in your PHP '
+                . 'configuration. This option is incompatible with phpMyAdmin '
+                . 'and might cause some data to be corrupted!'
+            ));
         }
 
         /**
@@ -535,11 +551,9 @@ final class Common
             return;
         }
 
-        Core::fatalError(
-            __(
-                'The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin requires these functions!'
-            )
-        );
+        throw new Exception(__(
+            'The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin requires these functions!'
+        ));
     }
 
     /**
@@ -548,7 +562,7 @@ final class Common
     private static function checkRequest(): void
     {
         if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-            Core::fatalError(__('GLOBALS overwrite attempt'));
+            throw new Exception(__('GLOBALS overwrite attempt'));
         }
 
         /**
@@ -558,7 +572,7 @@ final class Common
             return;
         }
 
-        Core::fatalError(__('possible exploit'));
+        throw new Exception(__('possible exploit'));
     }
 
     private static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void
