@@ -35,7 +35,7 @@
               <div class="fw-bold text-center w-50">
                 {{ routine['item_type'] }}
               </div>
-              <input type="submit" name="routine_changetype" value="{{ 'Change to %s'|trans|format(routine.item_type_toggle) }}">
+              <input type="submit" class="btn btn-secondary" name="routine_changetype" value="{{ 'Change to %s'|trans|format(routine.item_type_toggle) }}">
             {% endif %}
           </td>
         </tr>
@@ -64,7 +64,7 @@
           <td></td>
           <td>
             <input type="button" class="btn btn-primary" name="routine_addparameter" value="{% trans 'Add parameter' %}">
-            <input type="submit" name="routine_removeparameter" value="{% trans 'Remove last parameter' %}"{{ not routine.item_num_params ? ' disabled' }}>
+            <input type="submit" class="btn btn-secondary"  name="routine_removeparameter" value="{% trans 'Remove last parameter' %}"{{ not routine.item_num_params ? ' disabled' }}>
           </td>
         </tr>
         <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
