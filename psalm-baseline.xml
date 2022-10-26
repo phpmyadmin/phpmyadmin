@@ -6424,8 +6424,10 @@
       <code>empty($statementInfo-&gt;statement-&gt;from)</code>
       <code>isset($sessionMaxRows)</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="2">
+    <RedundantConditionGivenDocblockType occurrences="4">
       <code>$firstStatement-&gt;order</code>
+      <code>$relation[2] !== '' &amp;&amp; $relation[2] !== false</code>
+      <code>$relation[2] !== false</code>
       <code>isset($meta-&gt;internalMediaType)</code>
     </RedundantConditionGivenDocblockType>
     <UnusedParam occurrences="5">
