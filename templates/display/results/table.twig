@@ -302,3 +302,6 @@
     {% endif %}
   </fieldset>
 {% endif %}
+{% if operations is not empty and not operations.has_procedure %}
+{{ include('modals/create_view.twig') }}
+{% endif %}
