@@ -2638,89 +2638,59 @@ class InsertEditTest extends AbstractTestCase
             $result
         );
 
-        $this->assertEquals("'20\\'12'", $result);
-
-        $this->markTestIncomplete('Following cases need to be fixed');
-        // case 8
-        $_POST['fields']['multi_edit'][0][0] = [];
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['set'],
-            '',
-            [],
-            0,
-            [],
-            [1],
-            [],
-            true,
-            true,
-            '',
-            'test_table',
-            []
+        // Test that an empty value uses the uuid function to generate a value
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "''",
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
         );
 
-        $this->assertEquals('NULL', $result);
+        $this->assertEquals('`fld` = uuid()', $result);
 
-        // case 9
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['protected'],
-            '',
-            [],
-            0,
-            ['a'],
-            [],
-            [1],
-            true,
-            true,
-            '',
-            'test_table',
-            []
+        // Test that the uuid function as a value uses the uuid function to generate a value
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "'uuid()'",
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
         );
 
-        $this->assertEquals("''", $result);
+        $this->assertEquals('`fld` = uuid()', $result);
 
-        // case 10
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['uuid'],
-            '',
-            [],
-            0,
-            ['a'],
-            [],
-            [1],
-            true,
-            true,
-            '',
-            'test_table',
-            []
+        // Test that the uuid type does not have a default value other than null when it is nullable
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '',
+                'uuid',
+                false,
+                true,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
         );
 
-        $this->assertEquals('uuid()', $result);
-
-        // case 11
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['uuid'],
-            'uuid()',
-            [],
-            0,
-            ['a'],
-            [],
-            [1],
-            true,
-            true,
-            '',
-            'test_table',
-            []
-        );
-
-        $this->assertEquals('uuid()', $result);
+        $this->assertEquals('`fld` = NULL', $result);
     }
 
     /**

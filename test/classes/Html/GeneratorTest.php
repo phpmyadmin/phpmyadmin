@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Html;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -467,8 +468,9 @@ class GeneratorTest extends AbstractTestCase
         bool $insertMode,
         string $expected
     ): void {
-        $this->markTestIncomplete('Needs to be fixed');
         $dbiStub = $this->createStub(DatabaseInterface::class);
+        $dbiStub->types = new Types($dbiStub);
+        $dbiStub->method('getVersion')->willReturn(50700);
 
         $GLOBALS['dbi'] = $dbiStub;
 
