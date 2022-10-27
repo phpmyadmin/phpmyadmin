@@ -8,12 +8,22 @@
  */
 
 function showSettings (selector) {
-    var buttons = {};
-    buttons[Messages.strApply] = function () {
+    var buttons = {
+        [Messages.strApply]: {
+            text: Messages.strApply,
+            class: 'btn btn-primary',
+        },
+        [Messages.strCancel]: {
+            text: Messages.strCancel,
+            class: 'btn btn-secondary',
+        },
+    };
+
+    buttons[Messages.strApply].click = function () {
         $('.config-form').trigger('submit');
     };
 
-    buttons[Messages.strCancel] = function () {
+    buttons[Messages.strCancel].click = function () {
         $(this).dialog('close');
     };
 
