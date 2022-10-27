@@ -66,7 +66,7 @@ echo 'Updating OpenLayers'
 cp ./node_modules/ol/ol.css ./js/vendor/openlayers/theme/ol.css
 npx webpack-cli --config ./js/config/ol/webpack.config.js
 echo "/*!
-  * OpenLayers v$(yarn info -s ol version) (https://openlayers.org/)
+  * OpenLayers v$(php -r 'echo json_decode(file_get_contents("./node_modules/ol/package.json"))->version;') (https://openlayers.org/)
   * Copyright 2005-present, OpenLayers Contributors All rights reserved.
   * Licensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)
   *
