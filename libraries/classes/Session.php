@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function function_exists;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
@@ -120,10 +119,7 @@ class Session
      */
     public static function setUp(Config $config, ErrorHandler $errorHandler): void
     {
-        // verify if PHP supports session, die if it does not
-        if (! function_exists('session_name')) {
-            Core::warnMissingExtension('session', true);
-        } elseif (! empty(ini_get('session.auto_start')) && session_name() !== 'phpMyAdmin' && ! empty(session_id())) {
+        if (! empty(ini_get('session.auto_start')) && session_name() !== 'phpMyAdmin' && ! empty(session_id())) {
             // Do not delete the existing non empty session, it might be used by
             // other applications; instead just close it.
             if (empty($_SESSION)) {

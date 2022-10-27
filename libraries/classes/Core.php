@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Exception;
 use PhpMyAdmin\Http\ServerRequest;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -211,9 +212,7 @@ class Core
         }
 
         if ($fatal) {
-            self::fatalError($message);
-
-            return;
+            throw new Exception(Sanitize::sanitizeMessage($message));
         }
 
         $GLOBALS['errorHandler']->addError($message, E_USER_WARNING, '', 0, false);

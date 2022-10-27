@@ -2083,15 +2083,6 @@ class DatabaseInterface implements DbalInterface
             return new self($extension);
         }
 
-        if (! Util::checkDbExtension('mysqli')) {
-            $docLink = sprintf(
-                __('See %sour documentation%s for more information.'),
-                '[doc@faqmysql]',
-                '[/doc]'
-            );
-            Core::warnMissingExtension('mysqli', true, $docLink);
-        }
-
         return new self(new DbiMysqli());
     }
 

@@ -102,7 +102,18 @@ final class Common
         $errorHandler = $GLOBALS['containerBuilder']->get('error_handler');
         $GLOBALS['errorHandler'] = $errorHandler;
 
-        self::checkRequiredPhpExtensions();
+        try {
+            self::checkRequiredPhpExtensions();
+        } catch (Throwable $exception) {
+            echo (new Template())->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => $exception->getMessage(),
+            ]);
+
+            return;
+        }
+
         self::configurePhpSettings();
         self::cleanupPathInfo();
 
@@ -334,6 +345,15 @@ final class Common
          */
         if (! function_exists('ctype_alpha')) {
             Core::warnMissingExtension('ctype', true);
+        }
+
+        if (! function_exists('mysqli_connect')) {
+            $moreInfo = sprintf(__('See %sour documentation%s for more information.'), '[doc@faqmysql]', '[/doc]');
+            Core::warnMissingExtension('mysqli', true, $moreInfo);
+        }
+
+        if (! function_exists('session_name')) {
+            Core::warnMissingExtension('session', true);
         }
 
         /**
