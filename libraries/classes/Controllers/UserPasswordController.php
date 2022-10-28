@@ -69,7 +69,7 @@ class UserPasswordController extends AbstractController
          * If the "change password" form has been submitted, checks for valid values
          * and submit the query or logout
          */
-        if (isset($noPass])) {
+        if ($noPass !== null) {
             if ($noPass == '1') {
                 $GLOBALS['password'] = '';
             } else {

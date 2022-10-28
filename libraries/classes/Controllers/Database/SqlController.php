@@ -63,7 +63,7 @@ class SqlController extends AbstractController
             '',
             true,
             false,
-            isset($delimiter)
+            $delimiter !== null
                 ? htmlspecialchars($delimiter)
                 : ';'
         ));
