@@ -59,8 +59,10 @@ abstract class AbstractController
         }
 
         $GLOBALS['is_db'] = false;
-        $db = DatabaseName::fromValue($GLOBALS['db']);
-        if (strlen($db->getName()) > 0) {
+        $db = DatabaseName::tryFromValue($GLOBALS['db']);
+        $dbName = isset($db) ? $db->getName() : '';
+
+        if (!empty($dbName)) {
             $GLOBALS['is_db'] = $GLOBALS['dbi']->selectDb($db->getName());
             // This "Command out of sync" 2014 error may happen, for example
             // after calling a MySQL procedure; at this point we can't select
