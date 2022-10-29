@@ -108,6 +108,7 @@ body#loginform {
     background: white;
     color: #333;
     padding-left: 5px;
+    padding-right: 5px;
     font-family: $font-family-base;
     min-width: 100%;
 
@@ -124,6 +125,11 @@ body#loginform {
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
+
+    .col-sm-8 {
+      // Force 100% because the form label is hidden
+      width: 100%;
+    }
 
     a {
       color: white;
