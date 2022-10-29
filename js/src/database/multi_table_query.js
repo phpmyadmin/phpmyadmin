@@ -195,6 +195,11 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         $('.criteria_col').each(function () {
             $(this).on('change', function () {
                 var $anchor = $(this).siblings('.jsCriteriaButton').first();
+                if ($(this).is(':checked') && ! $anchor.hasClass('collapsed')) {
+                    // Do not collapse on checkbox tick as it does not make sense
+                    // The user has it open and wants to tick the box
+                    return;
+                }
                 $anchor.trigger('click', ['Trigger']);
             });
         });
