@@ -45,12 +45,11 @@ class ReplicationController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = [
-            'url_params' => $_POST['url_params'] ?? null,
-            'primary_configure' => $_POST['primary_configure'] ?? null,
-            'replica_configure' => $_POST['replica_configure'] ?? null,
-            'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
-        ];
+        /** @var bool|null $replClearScr */
+        $replClearScr = $request->getParsedBodyParam('repl_clear_scr');
+        $replicaConfigure = $request->getParsedBodyParam('replica_configure');
+        $primaryConfigure = $request->getParsedBodyParam('primary_configure');
+
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -58,31 +57,41 @@ class ReplicationController extends AbstractController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['primary_connection'] ?? null);
+        /** @var string $primaryConnection */
+        $primaryConnection = $request->getParsedBodyParam('primary_connection');
+        $replicationInfo->load($primaryConnection);
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
         $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
 
-        if (isset($params['url_params']) && is_array($params['url_params'])) {
-            $GLOBALS['urlParams'] = $params['url_params'];
+        $urlParams = $request->getParsedBodyParam('url_params');
+        if (is_array($urlParams)) {
+            $GLOBALS['urlParams'] = $urlParams;
         }
 
         if ($this->dbi->isSuperUser()) {
+            /** @var string|null $srReplicaAction */
+            $srReplicaAction = $request->getParsedBodyParam('sr_replica_action');
+            /** @var string|int $srSkipErrorsCount */
+            $srSkipErrorsCount = $request->getParsedBodyParam('sr_skip_errors_count', 1);
+            /** @var string|null $srReplicaControlParam */
+            $srReplicaControlParam = $request->getParsedBodyParam('sr_replica_control_param');
+
             $this->replicationGui->handleControlRequest(
-                isset($_POST['sr_take_action']),
-                isset($_POST['replica_changeprimary']),
-                isset($_POST['sr_replica_server_control']),
-                $_POST['sr_replica_action'] ?? null,
-                isset($_POST['sr_replica_skip_error']),
-                isset($_POST['sr_skip_errors_count']) ? (int) $_POST['sr_skip_errors_count'] : 1,
-                $_POST['sr_replica_control_param'] ?? null,
+                $request->getParsedBodyParam('sr_take_action') !== null,
+                $request->getParsedBodyParam('replica_changeprimary') !== null,
+                $request->getParsedBodyParam('sr_replica_server_control') !== null,
+                $srReplicaAction,
+                $request->getParsedBodyParam('sr_replica_skip_error') !== null,
+                (int) $srSkipErrorsCount,
+                $srReplicaControlParam,
                 [
-                    'username' => $GLOBALS['dbi']->escapeString($_POST['username']),
-                    'pma_pw' => $GLOBALS['dbi']->escapeString($_POST['pma_pw']),
-                    'hostname' => $GLOBALS['dbi']->escapeString($_POST['hostname']),
-                    'port' => (int) $GLOBALS['dbi']->escapeString($_POST['text_port']),
+                    'username' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('username')),
+                    'pma_pw' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('pma_pw')),
+                    'hostname' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('hostname')),
+                    'port' => (int) $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('text_port')),
                 ]
             );
         }
@@ -90,28 +99,35 @@ class ReplicationController extends AbstractController
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
+            /** @var string|null $primaryAddUser */
+            $primaryAddUser = $request->getParsedBodyParam('primary_add_user');
+            /** @var string $username */
+            $username = $request->getParsedBodyParam('username');
+            /** @var string $hostname */
+            $hostname = $request->getParsedBodyParam('hostname');
+
             $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
-                $_POST['primary_connection'] ?? null,
-                $params['repl_clear_scr'],
-                $_POST['primary_add_user'] ?? null,
-                $_POST['username'] ?? null,
-                $_POST['hostname'] ?? null
+                $primaryConnection,
+                $replClearScr,
+                $primaryAddUser,
+                $username,
+                $hostname
             );
         }
 
-        if (isset($params['primary_configure'])) {
+        if ($primaryConfigure !== null) {
             $primaryConfigurationHtml = $this->replicationGui->getHtmlForPrimaryConfiguration();
         } else {
-            if (! isset($params['repl_clear_scr'])) {
+            if ($replClearScr === null) {
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
-                    $_POST['primary_connection'] ?? null,
+                    $primaryConnection,
                     $replicaInfo['status'],
                     $replicationInfo->getReplicaStatus(),
-                    isset($_POST['replica_configure'])
+                    $replicaConfigure !== null
                 );
             }
 
-            if (isset($params['replica_configure'])) {
+            if ($replicaConfigure !== null) {
                 $changePrimaryHtml = $this->replicationGui->getHtmlForReplicationChangePrimary('replica_changeprimary');
             }
         }
@@ -121,9 +137,9 @@ class ReplicationController extends AbstractController
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
             'is_primary' => $primaryInfo['status'],
-            'primary_configure' => $params['primary_configure'],
-            'replica_configure' => $params['replica_configure'],
-            'clear_screen' => $params['repl_clear_scr'],
+            'primary_configure' => $primaryConfigure,
+            'replica_configure' => $replicaConfigure,
+            'clear_screen' => $replClearScr,
             'primary_replication_html' => $primaryReplicationHtml ?? '',
             'primary_configuration_html' => $primaryConfigurationHtml ?? '',
             'replica_configuration_html' => $replicaConfigurationHtml ?? '',
