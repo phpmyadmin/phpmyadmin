@@ -17,6 +17,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function strval;
 
 /**
  * View manipulations
@@ -63,19 +64,20 @@ class OperationsController extends AbstractController
 
         $message = new Message();
         $type = 'success';
-        if (isset($_POST['submitoptions'])) {
-            if (isset($_POST['new_name'])) {
-                if ($tableObject->rename($_POST['new_name'])) {
-                    $message->addText($tableObject->getLastMessage());
-                    $GLOBALS['result'] = true;
-                    $GLOBALS['table'] = $tableObject->getName();
-                    /* Force reread after rename */
-                    $tableObject->getStatusInfo(null, true);
-                    $GLOBALS['reload'] = true;
-                } else {
+        $submitoptions = $request->getParsedBodyParam('submitoptions');
+        $newname = $request->getParsedBodyParam('new_name');
+
+        if ($submitoptions !== null) {
+            if ($newname !== null && $tableObject->rename(strval($newname))) {
+                $message->addText($tableObject->getLastMessage());
+                $GLOBALS['result'] = true;
+                $GLOBALS['table'] = $tableObject->getName();
+                /* Force reread after rename */
+                $tableObject->getStatusInfo(null, true);
+                $GLOBALS['reload'] = true;
+            } else {
                     $message->addText($tableObject->getLastError());
                     $GLOBALS['result'] = false;
-                }
             }
 
             $GLOBALS['warning_messages'] = $this->operations->getWarningMessagesArray();
