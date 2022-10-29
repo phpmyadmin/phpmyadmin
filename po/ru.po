@@ -6430,7 +6430,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "Импорт настроек монитора"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import:"
 msgstr "Пожалуйста, выберите файл, который хотите импортировать:"
 

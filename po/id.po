@@ -6706,7 +6706,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "Impor konfigurasi monitor"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import:"
 msgstr "Silahkan pilih berkas yang ingin anda impor:"
 

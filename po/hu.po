@@ -6604,7 +6604,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "Megfigyelési beállítások importálása"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import:"
 msgstr "Válassza ki a fájlt, amelyet importálni szeretne:"
 

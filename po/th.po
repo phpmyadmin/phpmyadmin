@@ -6301,7 +6301,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "ตั้งค่าการตรวจสอบการนำเข้า"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import:"
 msgstr "กรุณาเลือกไฟล์ที่คุณต้องการนำเข้า"
 

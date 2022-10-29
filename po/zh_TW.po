@@ -6104,7 +6104,7 @@ msgstr "未能以匯入的設定檔建立圖表網格，將重設為預設的設
 msgid "Import monitor configuration"
 msgstr "匯入即時監控設定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import:"
 msgstr "請選擇要匯入的檔案："
 

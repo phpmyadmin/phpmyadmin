@@ -6140,7 +6140,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "تشكيل مراقب الواردات"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import:"
 msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده:"
 

@@ -6244,7 +6244,7 @@ msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. �
 msgid "Import monitor configuration"
 msgstr "모니터 설정 가져오기"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Please select the file you want to import:"
 msgstr "가져올 파일을 선택하세요:"
 
