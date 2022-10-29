@@ -6314,7 +6314,7 @@ msgstr "وارد کردن تنظیمات مانیتور"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
 #| msgid "Please select the file you want to import"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "لطفا فایلی را که میخواهید وارد کنید را انتخاب کنید"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313

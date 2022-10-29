@@ -6556,7 +6556,7 @@ msgstr "Niemahčyma zahruzić kanfihuracyju pa zmoŭčańni z: \"%1$s\""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQUE)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313

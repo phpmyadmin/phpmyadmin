@@ -6036,8 +6036,8 @@ msgid "Import monitor configuration"
 msgstr "匯入即時監控設定"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "請選擇要匯入的檔案。"
+msgid "Please select the file you want to import:"
+msgstr "請選擇要匯入的檔案："
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid table name."

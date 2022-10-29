@@ -5810,7 +5810,7 @@ msgid "Import monitor configuration"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "تکایە ئەو پەڕگەیە دەستنیشان بکە کە ئەتەوێت بکرێتەوە."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
@@ -14786,7 +14786,7 @@ msgstr ""
 
 #: templates/import.twig:43
 #, fuzzy
-#| msgid "Please select the file you want to import."
+#| msgid "Please select the file you want to import:"
 msgid "Select file to import"
 msgstr "تکایە ئەو پەڕگەیە دەستنیشان بکە کە ئەتەوێت بکرێتەوە."
 

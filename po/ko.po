@@ -6382,8 +6382,8 @@ msgid "Import monitor configuration"
 msgstr "모니터 설정 가져오기"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "가져올 파일을 선택하세요."
+msgid "Please select the file you want to import:"
+msgstr "가져올 파일을 선택하세요:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 #, fuzzy

@@ -6366,8 +6366,8 @@ msgid "Import monitor configuration"
 msgstr "Uvozi konfiguracijo nadziranja"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Prosimo, izberite datoteko, ki jo želite uvoziti."
+msgid "Please select the file you want to import:"
+msgstr "Prosimo, izberite datoteko, ki jo želite uvoziti:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid table name."

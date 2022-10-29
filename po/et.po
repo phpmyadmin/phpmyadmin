@@ -6321,8 +6321,8 @@ msgid "Import monitor configuration"
 msgstr "Impordi jälgimise seadistus"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Palun vali imporditav fail."
+msgid "Please select the file you want to import:"
+msgstr "Palun vali imporditav fail:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid table name."

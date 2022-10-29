@@ -6268,7 +6268,7 @@ msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313

@@ -6445,8 +6445,8 @@ msgid "Import monitor configuration"
 msgstr "Tuo seuranta-asetukset"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Valitse tuotava tiedosto."
+msgid "Please select the file you want to import:"
+msgstr "Valitse tuotava tiedosto:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 #, fuzzy

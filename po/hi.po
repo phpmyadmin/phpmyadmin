@@ -6782,8 +6782,8 @@ msgstr "देख-रेख (import) विन्यास (configuration) आ�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 #, fuzzy
-#| msgid "Please select the file you want to import"
-msgid "Please select the file you want to import."
+#| msgid "Please select the file you want to import:"
+msgid "Please select the file you want to import:"
 msgstr "जिस फाईल को आयात करना चाहते हैं, उसे चुनें"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
