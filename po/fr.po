@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-10-17 07:59+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2022-10-29 18:19+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
 ">\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6480,7 +6480,7 @@ msgstr "Importer la configuration de surveillance"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please select the file you want to import:"
-msgstr "Merci de choisir le fichier à importer:"
+msgstr "Merci de choisir le fichier à importer :"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid table name."
