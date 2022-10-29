@@ -657,7 +657,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             },
             title: window.Messages.strImportDialogTitle
         });
-        $('#emptyDialog').html(window.Messages.strImportDialogMessage + ':<br><form>' +
+        $('#emptyDialog').html(window.Messages.strImportDialogMessage + '<br><form>' +
             '<input type="file" name="file" id="import_file"> </form>');
 
         var dlgBtns = {

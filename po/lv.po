@@ -6347,7 +6347,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 #, fuzzy
 #| msgid "Please select the file you want to import"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "Lūdzu izvēlies importējamo failu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317

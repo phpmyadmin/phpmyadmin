@@ -6488,7 +6488,7 @@ msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "Үндсэн түлхүүр эсвэл орь ганц түлхүүр сонгон уу"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317

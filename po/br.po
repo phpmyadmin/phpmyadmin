@@ -6494,7 +6494,7 @@ msgstr "N'eo ket kenglotus kefluniadur lec'hel an evezhiañ"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317

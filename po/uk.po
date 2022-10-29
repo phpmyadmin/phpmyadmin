@@ -6384,8 +6384,8 @@ msgid "Import monitor configuration"
 msgstr "Імпорт налаштувань монітору"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Будь ласка, оберіть файл, який ви бажаєте імпортувати."
+msgid "Please select the file you want to import:"
+msgstr "Будь ласка, оберіть файл, який ви бажаєте імпортувати:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Please enter a valid table name."

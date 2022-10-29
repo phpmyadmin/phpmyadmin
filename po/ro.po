@@ -6438,8 +6438,8 @@ msgid "Import monitor configuration"
 msgstr "Importă configurarea monitorizării"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Te rog selectează fișierul pe care vrei să-l imporți."
+msgid "Please select the file you want to import:"
+msgstr "Te rog selectează fișierul pe care vrei să-l imporți:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Please enter a valid table name."

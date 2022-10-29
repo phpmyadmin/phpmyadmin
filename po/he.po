@@ -5930,8 +5930,8 @@ msgid "Import monitor configuration"
 msgstr "ייבוא תצורת מעקב"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "נא לבחור את הקובץ לייבוא."
+msgid "Please select the file you want to import:"
+msgstr "נא לבחור את הקובץ לייבוא:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 #, fuzzy

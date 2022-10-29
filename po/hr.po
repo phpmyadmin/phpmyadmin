@@ -6516,7 +6516,7 @@ msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "Odaberite primarni ključ ili jedinstveni ključ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317

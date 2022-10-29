@@ -5883,7 +5883,7 @@ msgid "Import monitor configuration"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317

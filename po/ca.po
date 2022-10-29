@@ -6639,8 +6639,8 @@ msgid "Import monitor configuration"
 msgstr "Importa la configuració del monitoratge"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Seleccioneu el fitxer que voleu importar."
+msgid "Please select the file you want to import:"
+msgstr "Seleccioneu el fitxer que voleu importar:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Please enter a valid table name."

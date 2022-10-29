@@ -6186,8 +6186,8 @@ msgid "Import monitor configuration"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Zəhmət olmasa import etmək istədiyiniz faylı seçin."
+msgid "Please select the file you want to import:"
+msgstr "Zəhmət olmasa import etmək istədiyiniz faylı seçin:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 #, fuzzy

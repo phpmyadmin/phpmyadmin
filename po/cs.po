@@ -6412,8 +6412,8 @@ msgid "Import monitor configuration"
 msgstr "Nahrát nastavení monitoru"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Prosím zvolte soubor, který chcete nahrát."
+msgid "Please select the file you want to import:"
+msgstr "Prosím zvolte soubor, který chcete nahrát:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Please enter a valid table name."

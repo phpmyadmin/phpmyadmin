@@ -6578,7 +6578,7 @@ msgid "Import monitor configuration"
 msgstr "পর্যবেক্ষকের কনফিগারেশন আমাদনি কর"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
+msgid "Please select the file you want to import:"
 msgstr "আমদানি করার জন্য ফাইলটি নির্বাচন করুন।"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317

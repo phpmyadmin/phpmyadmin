@@ -5886,8 +5886,8 @@ msgid "Import monitor configuration"
 msgstr "I-import ang pagsasaayos ng monitor"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-msgid "Please select the file you want to import."
-msgstr "Pakipili ang file na gusto mong i-import."
+msgid "Please select the file you want to import:"
+msgstr "Pakipili ang file na gusto mong i-import:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 #, fuzzy
@@ -15224,7 +15224,7 @@ msgstr ""
 
 #: templates/import.twig:43
 #, fuzzy
-#| msgid "Please select the file you want to import."
+#| msgid "Please select the file you want to import:"
 msgid "Select file to import"
 msgstr "Pakipili ang file na gusto mong i-import."
 
@@ -15244,7 +15244,7 @@ msgstr ""
 
 #: templates/import.twig:69 templates/import.twig:96
 #, fuzzy
-#| msgid "Please select the file you want to import."
+#| msgid "Please select the file you want to import:"
 msgid "There are no files to import!"
 msgstr "Pakipili ang file na gusto mong i-import."
 

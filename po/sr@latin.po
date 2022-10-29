@@ -6645,8 +6645,8 @@ msgstr "Podešavanje Import monitor-a"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 #, fuzzy
 #| msgid "Please select the file you want to import"
-msgid "Please select the file you want to import."
-msgstr "Molimo izaberite datoteku koju želite da uvezete"
+msgid "Please select the file you want to import:"
+msgstr "Molimo izaberite datoteku koju želite da uvezete:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 #, fuzzy
