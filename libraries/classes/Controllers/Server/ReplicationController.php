@@ -57,7 +57,7 @@ class ReplicationController extends AbstractController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        /** @var string $primaryConnection */
+        /** @var string|null $primaryConnection */
         $primaryConnection = $request->getParsedBodyParam('primary_connection');
         $replicationInfo->load($primaryConnection);
 
