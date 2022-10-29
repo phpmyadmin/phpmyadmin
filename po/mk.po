@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-10-23 06:07+0000\n"
+"PO-Revision-Date: 2022-10-29 17:27+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -17796,10 +17796,9 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:255
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Индекс читања од меморија: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/advisory_rules_generic.txt:259
 #, fuzzy
@@ -17807,9 +17806,8 @@ msgid "Rate of table open"
 msgstr "Направи нова страница"
 
 #: libraries/advisory_rules_generic.txt:262
-#, fuzzy
 msgid "The rate of opening tables is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на отварање на табели е висока."
 
 #: libraries/advisory_rules_generic.txt:263
 msgid ""
@@ -17818,15 +17816,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:264
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Рата на отворени табели: %s, оваа вредност треба да биде помалце од 10 на "
+"саат"
 
 #: libraries/advisory_rules_generic.txt:266
-#, fuzzy
 msgid "Percentage of used open files limit"
-msgstr "Кодна страна на податотеката:"
+msgstr "Процентажа на лимитот на искористени отворени фајлови"
 
 #: libraries/advisory_rules_generic.txt:269
 msgid ""
