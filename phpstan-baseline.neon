@@ -1051,6 +1051,16 @@ parameters:
 			path: libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php
 
 		-
+			message: "#^Parameter \\#1 \\$collation of static method PhpMyAdmin\\\\Util\\:\\:getCharsetQueryPart\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Operations/CollationController.php
+
+		-
+			message: "#^Parameter \\#3 \\$tbl_collation of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Operations/CollationController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
 			path: libraries/classes/Controllers/Database/OperationsController.php

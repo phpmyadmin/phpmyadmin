@@ -43,7 +43,8 @@ final class CollationController extends AbstractController
             return;
         }
 
-        if (empty($_POST['db_collation'])) {
+        $dbCollation = $request->getParsedBodyParam('db_collation') ?? '';
+        if (empty($dbCollation)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No collation provided.')));
 
@@ -60,14 +61,14 @@ final class CollationController extends AbstractController
         }
 
         $sql_query = 'ALTER DATABASE ' . Util::backquote($GLOBALS['db'])
-            . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
+            . ' DEFAULT' . Util::getCharsetQueryPart($dbCollation);
         $this->dbi->query($sql_query);
         $message = Message::success();
 
         /**
          * Changes tables charset if requested by the user
          */
-        if (isset($_POST['change_all_tables_collations']) && $_POST['change_all_tables_collations'] === 'on') {
+        if ($request->getParsedBodyParam('change_all_tables_collations') === 'on') {
             [$tables] = Util::getDbInfo($GLOBALS['db'], '');
             foreach ($tables as ['Name' => $tableName]) {
                 if ($this->dbi->getTable($GLOBALS['db'], $tableName)->isView()) {
@@ -81,20 +82,17 @@ final class CollationController extends AbstractController
                     . '.'
                     . Util::backquote($tableName)
                     . ' DEFAULT '
-                    . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
+                    . Util::getCharsetQueryPart($dbCollation);
                 $this->dbi->query($sql_query);
 
                 /**
                  * Changes columns charset if requested by the user
                  */
-                if (
-                    ! isset($_POST['change_all_tables_columns_collations']) ||
-                    $_POST['change_all_tables_columns_collations'] !== 'on'
-                ) {
+                if ($request->getParsedBodyParam('change_all_tables_columns_collations') !== 'on') {
                     continue;
                 }
 
-                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $tableName, $_POST['db_collation']);
+                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $tableName, $dbCollation);
             }
         }
 
