@@ -39,6 +39,6 @@ class SchemaExportController
          * Include the appropriate Schema Class depending on $export_type
          * default is PDF
          */
-        $this->export->processExportSchema($_POST['export_type']);
+        $this->export->processExportSchema($request->getParsedBodyParam('export_type'));
     }
 }

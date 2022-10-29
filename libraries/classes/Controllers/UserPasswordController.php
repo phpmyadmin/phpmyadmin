@@ -62,15 +62,18 @@ class UserPasswordController extends AbstractController
             return;
         }
 
+        $noPass = $request->getParsedBodyParam('nopass');
+        $pmaPw = $request->getParsedBodyParam('pma_pw');
+
         /**
          * If the "change password" form has been submitted, checks for valid values
          * and submit the query or logout
          */
-        if (isset($_POST['nopass'])) {
-            if ($_POST['nopass'] == '1') {
+        if ($noPass !== null) {
+            if ($noPass == '1') {
                 $GLOBALS['password'] = '';
             } else {
-                $GLOBALS['password'] = $_POST['pma_pw'];
+                $GLOBALS['password'] = $pmaPw;
             }
 
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
