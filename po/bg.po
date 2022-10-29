@@ -6385,7 +6385,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "Импорт настройки за наблюдателя"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please select the file you want to import."
 msgstr "Изберете файла, който искате да импортирате."
 

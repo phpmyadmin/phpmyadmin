@@ -6619,7 +6619,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "Importera monitorkonfigurationen"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please select the file you want to import."
 msgstr "Välj den fil du vill importera."
 

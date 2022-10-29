@@ -6649,7 +6649,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "Could not load default configuration from: \"%1$s\""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please select the file you want to import."
 msgstr ""
 

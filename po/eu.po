@@ -6335,7 +6335,7 @@ msgstr ""
 msgid "Import monitor configuration"
 msgstr "Konfiguratutako monitore lokal bateraezina"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please select the file you want to import."
 msgstr ""
 

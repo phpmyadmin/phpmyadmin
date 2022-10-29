@@ -5985,7 +5985,7 @@ msgstr "使用导入的设置建立图表失败。正在重设为默认设置…
 msgid "Import monitor configuration"
 msgstr "导入监控设置"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please select the file you want to import."
 msgstr "请选择您要导入的文件。"
 
