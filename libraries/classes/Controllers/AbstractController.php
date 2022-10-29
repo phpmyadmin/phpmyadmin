@@ -146,7 +146,12 @@ abstract class AbstractController
         }
 
         $this->response->setHttpResponseCode(400);
-        Core::fatalError($errorMessage);
+        $this->response->setRequestStatus(false);
+        $this->response->addHTML(Message::error($errorMessage)->getDisplay());
+
+        if (! defined('TESTSUITE')) {
+            exit;
+        }
     }
 
     /**

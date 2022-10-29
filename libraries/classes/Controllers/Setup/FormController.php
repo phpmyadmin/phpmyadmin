@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
-use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 
 use function __;
@@ -29,11 +27,14 @@ class FormController extends AbstractController
 
         $formClass = SetupFormList::get($formset);
         if ($formClass === null) {
-            Core::fatalError(__('Incorrect form specified!'));
+            return $this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => __('Incorrect form specified!'),
+            ]);
         }
 
         ob_start();
-        /** @var BaseForm $form */
         $form = new $formClass($this->config);
         FormProcessing::process($form);
         $page = ob_get_clean();

@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Image\ImageWrapper;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
@@ -74,8 +75,9 @@ class WrapperController extends AbstractController
 
         $query = $this->getQuery($table, $request->getParam('where_clause'), $request->getParam('where_clause_sign'));
         if ($query === null) {
+            $this->response->setRequestStatus(false);
             /* l10n: In case a SQL query did not pass a security check  */
-            Core::fatalError(__('There is an issue with your request.'));
+            $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
 
             return;
         }

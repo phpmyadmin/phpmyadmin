@@ -21,7 +21,13 @@ final class MainController
     public function __invoke(ServerRequest $request): void
     {
         if (@file_exists(CONFIG_FILE) && ! $GLOBALS['cfg']['DBG']['demo']) {
-            Core::fatalError(__('Configuration already exists, setup is disabled!'));
+            echo (new Template())->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => __('Configuration already exists, setup is disabled!'),
+            ]);
+
+            return;
         }
 
         /** @var mixed $pageParam */

@@ -9,6 +9,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -62,8 +63,9 @@ class GetFieldController extends AbstractController
             || ! isset($_GET['where_clause_sign'])
             || ! Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_sign'])
         ) {
+            $this->response->setRequestStatus(false);
             /* l10n: In case a SQL query did not pass a security check  */
-            Core::fatalError(__('There is an issue with your request.'));
+            $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
 
             return;
         }

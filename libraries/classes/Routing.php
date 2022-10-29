@@ -203,9 +203,13 @@ class Routing
             return;
         }
 
-        Core::fatalError(sprintf(
-            __('Error 404! The page %s was not found.'),
-            '[code]' . htmlspecialchars($route) . '[/code]'
-        ));
+        echo (new Template())->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => Sanitize::sanitizeMessage(sprintf(
+                __('Error 404! The page %s was not found.'),
+                '[code]' . htmlspecialchars($route) . '[/code]'
+            )),
+        ]);
     }
 }
