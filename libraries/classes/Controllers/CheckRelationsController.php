@@ -37,7 +37,7 @@ class CheckRelationsController extends AbstractController
 
         $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
 
-        $db = DatabaseName::fromValue($GLOBALS['db']);
+        $db = DatabaseName::tryFromValue($GLOBALS['db']);
 
         // If request for creating the pmadb
         if (isset($createPmaDb) && $this->relation->createPmaDatabase($cfgStorageDbName)) {
@@ -45,7 +45,7 @@ class CheckRelationsController extends AbstractController
         }
 
         // If request for creating all PMA tables.
-        if (isset($fixAllPmaDb)) {
+        if (isset($fixAllPmaDb) && $db !== null) {
             $this->relation->fixPmaTables($db->getName());
         }
 
@@ -59,7 +59,7 @@ class CheckRelationsController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('relation/check_relations', [
-            'db' => $db->getName(),
+            'db' => $db !== null ? $db->getName() : '',
             'zero_conf' => $GLOBALS['cfg']['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),
             'sql_dir' => SQL_DIR,
