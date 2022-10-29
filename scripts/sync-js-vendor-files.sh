@@ -40,7 +40,7 @@ echo 'Updating jquery-ui'
 cp ./node_modules/jquery-ui-dist/jquery-ui.min.js ./js/vendor/jquery/jquery-ui.min.js
 # https://github.com/devongovett/jquery.event.drag/commit/2db3b7865f31eee6a8145532554f8b02210180bf#diff-ab8497cedd384270de86ee2e9f06530e
 echo 'Updating jquery-validation'
-cp ./node_modules/jquery-validation/dist/jquery.validate.js ./js/vendor/jquery/jquery.validate.js
+cp ./node_modules/jquery-validation/dist/jquery.validate.min.js ./js/vendor/jquery/jquery.validate.min.js
 cp ./node_modules/jquery-validation/dist/additional-methods.js ./js/vendor/jquery/additional-methods.js
 echo 'Updating js-cookie'
 cp ./node_modules/js-cookie/src/js.cookie.js ./js/vendor/js.cookie.js
