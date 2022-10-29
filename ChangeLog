@@ -50,6 +50,9 @@ phpMyAdmin - ChangeLog
 - issue #17772 Fix wrong styles for add button from central columns
 - issue #17389 Fix HTML disappears when exporting settings to browser's storage
 - issue #17166 Fix "Warning: #1287 'X' is deprecated [...] Please use ST_X instead." on search page
+- issue        Use jquery-migrate.min.js (14KB) instead of jquery-migrate.min.js (31KB)
+- issue #17842 Use jquery.validate.min.js (24 KB) instead of jquery.validate.js (50 KB)
+- issue #17281 Fix links to databases for information_schema.SCHEMATA
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
