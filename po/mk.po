@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-10-23 00:30+0000\n"
-"PO-Revision-Date: 2022-08-31 05:15+0000\n"
+"PO-Revision-Date: 2022-10-29 17:26+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -601,9 +601,9 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:442
-#, fuzzy, php-format
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Индекс читања од меморија: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/classes/Advisory/Rules.php:448
 #, fuzzy
@@ -611,9 +611,8 @@ msgid "Rate of table open"
 msgstr "Направи нова страница"
 
 #: libraries/classes/Advisory/Rules.php:451
-#, fuzzy
 msgid "The rate of opening tables is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на отварање на табели е висока."
 
 #: libraries/classes/Advisory/Rules.php:453
 msgid ""
@@ -622,14 +621,15 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:455
-#, fuzzy, php-format
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Рата на отворени табели: %s, оваа вредност треба да биде помалце од 10 на "
+"саат"
 
 #: libraries/classes/Advisory/Rules.php:460
-#, fuzzy
 msgid "Percentage of used open files limit"
-msgstr "Кодна страна на податотеката:"
+msgstr "Процентажа на лимитот на искористени отворени фајлови"
 
 #: libraries/classes/Advisory/Rules.php:464
 msgid ""
