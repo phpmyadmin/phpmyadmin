@@ -4412,7 +4412,7 @@ class Results
         }
 
         if (isset($map[$meta->name])) {
-            /** @var array<int, string> $relation */
+            /** @var array{0: string, 1: string, 2: string|false, 3: string} $relation */
             $relation = $map[$meta->name];
             // Field to display from the foreign table?
             $dispval = '';
