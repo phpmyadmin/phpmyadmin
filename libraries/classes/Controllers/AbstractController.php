@@ -15,7 +15,6 @@ use PhpMyAdmin\Url;
 use function __;
 use function basename;
 use function defined;
-use function strlen;
 
 abstract class AbstractController
 {

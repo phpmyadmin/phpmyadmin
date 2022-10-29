@@ -1049,11 +1049,10 @@ class Tracking
     /**
      * Function to get the entries
      *
-     * @param array  $data           data
-     * @param int    $filter_ts_from filter time stamp from
-     * @param int    $filter_ts_to   filter time stamp to
-     * @param array  $filter_users   filter users
-     * @param string $logtype
+     * @param array $data           data
+     * @param int   $filter_ts_from filter time stamp from
+     * @param int   $filter_ts_to   filter time stamp to
+     * @param array $filter_users   filter users
      * @phpstan-param 'schema'|'data'|'schema_and_data' $logtype
      *
      * @return array

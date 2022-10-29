@@ -1336,6 +1336,11 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
+			message: "#^Parameter \\#1 \\$exportType of method PhpMyAdmin\\\\Export\\:\\:processExportSchema\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/SchemaExportController.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/BinlogController.php
@@ -1869,6 +1874,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/TableController.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$view has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
@@ -3237,11 +3252,6 @@ parameters:
 
 		-
 			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Strict comparison using \\!\\=\\= between non\\-empty\\-string and false will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -11359,6 +11369,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:testGetTypeOperators\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TypesTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
+			count: 1
+			path: test/classes/UserPasswordTest.php
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"

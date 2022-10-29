@@ -243,7 +243,7 @@ final class TrackingController extends AbstractController
                 $versionParam,
                 $GLOBALS['data'],
                 isset($_POST['delete_ddlog']),
-                isset($_POST['delete_dmlog']),
+                isset($_POST['delete_dmlog'])
             );
         }
 

@@ -1379,11 +1379,12 @@
   </file>
   <file src="libraries/classes/Controllers/Database/SqlController.php">
     <MixedArgument occurrences="1">
-      <code>$request-&gt;getParsedBodyParam('delimiter')</code>
+      <code>$delimiter</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['errorUrl']</code>
+      <code>$delimiter</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlFormatController.php">
@@ -2556,9 +2557,9 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/SchemaExportController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['export_type']</code>
-    </PossiblyInvalidArgument>
+    <MixedArgument occurrences="1">
+      <code>$request-&gt;getParsedBodyParam('export_type')</code>
+    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/BinlogController.php">
     <MixedAssignment occurrences="1">
@@ -2810,38 +2811,19 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ReplicationController.php">
-    <InvalidArgument occurrences="1">
-      <code>$params['repl_clear_scr']</code>
-    </InvalidArgument>
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="5">
       <code>$replicaInfo['status']</code>
+      <code>$request-&gt;getParsedBodyParam('hostname')</code>
+      <code>$request-&gt;getParsedBodyParam('pma_pw')</code>
+      <code>$request-&gt;getParsedBodyParam('text_port')</code>
+      <code>$request-&gt;getParsedBodyParam('username')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
+      <code>$primaryConfigure</code>
+      <code>$replicaConfigure</code>
+      <code>$urlParams</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="12">
-      <code>$_POST['hostname']</code>
-      <code>$_POST['hostname'] ?? null</code>
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['primary_add_user'] ?? null</code>
-      <code>$_POST['primary_connection'] ?? null</code>
-      <code>$_POST['primary_connection'] ?? null</code>
-      <code>$_POST['primary_connection'] ?? null</code>
-      <code>$_POST['sr_replica_action'] ?? null</code>
-      <code>$_POST['sr_replica_control_param'] ?? null</code>
-      <code>$_POST['text_port']</code>
-      <code>$_POST['username']</code>
-      <code>$_POST['username'] ?? null</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
-      <code>$_POST['hostname']</code>
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['text_port']</code>
-      <code>$_POST['username']</code>
-    </PossiblyInvalidCast>
-    <RiskyCast occurrences="1">
-      <code>$_POST['sr_skip_errors_count']</code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Server/SqlController.php">
     <MixedAssignment occurrences="1">
@@ -4248,29 +4230,20 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <MixedArgument occurrences="16">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$_POST['logtype']</code>
+    </ArgumentTypeCoercion>
+    <MixedArgument occurrences="4">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
-      <code>$_POST['date_from']</code>
-      <code>$_POST['date_to']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['users']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
       <code>$version</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
       <code>$GLOBALS['data']['date_from']</code>
       <code>$GLOBALS['data']['date_to']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="18">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['entries']</code>
@@ -4282,39 +4255,17 @@
       <code>$GLOBALS['selection_both']</code>
       <code>$GLOBALS['selection_data']</code>
       <code>$GLOBALS['selection_schema']</code>
-      <code>$_POST['date_from']</code>
-      <code>$_POST['date_to']</code>
+      <code>$logType</code>
+      <code>$report</code>
+      <code>$reportExport</code>
+      <code>$selectedVersions</code>
+      <code>$submitMult</code>
+      <code>$toggleActivation</code>
       <code>$version</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="11">
-      <code>$_POST['date_from']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="11">
-      <code>$_POST['date_from']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
-      <code>$_POST['version']</code>
+    <PossiblyInvalidCast occurrences="1">
+      <code>$_POST['logtype']</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$_POST['selected_versions']</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
@@ -4424,25 +4375,32 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['ShowChgPassword']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="4">
       <code>$GLOBALS['change_password_message']['msg']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']-&gt;getDisplay()</code>
+      <code>$GLOBALS['password']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['change_password_message']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['password']</code>
+      <code>$GLOBALS['password']</code>
+      <code>$noPass</code>
+      <code>$pmaPw</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
       <code>getDisplay</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$GLOBALS['password']</code>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$_POST['authentication_plugin'] ?? null</code>
+      <code>$_POST['pma_pw']</code>
+      <code>$_POST['pma_pw2']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$GLOBALS['password']</code>
+    <PossiblyInvalidCast occurrences="2">
+      <code>$_POST['pma_pw']</code>
+      <code>$_POST['pma_pw2']</code>
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/VersionCheckController.php">
@@ -4458,10 +4416,17 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$GLOBALS['view']['as']</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="8">
       <code>$createView</code>
+      <code>$view['as']</code>
+      <code>$view['column_names']</code>
+      <code>$view['definer']</code>
+      <code>$view['definer']</code>
+      <code>$view['definer']</code>
+      <code>$view['name']</code>
+      <code>$view['name']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="20">
       <code>$GLOBALS['arr']</code>
       <code>$GLOBALS['column_map']</code>
       <code>$GLOBALS['item']</code>
@@ -4469,6 +4434,7 @@
       <code>$GLOBALS['parts']</code>
       <code>$GLOBALS['pma_transformation_data']</code>
       <code>$GLOBALS['sep']</code>
+      <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['systemDb']</code>
       <code>$GLOBALS['view']</code>
       <code>$GLOBALS['view']['as']</code>
@@ -4482,41 +4448,28 @@
       <code>$GLOBALS['view_with_options']</code>
       <code>$createView</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="11">
+    <MixedOperand occurrences="5">
+      <code>$view['algorithm']</code>
+      <code>$view['as']</code>
+      <code>$view['column_names']</code>
+      <code>$view['sql_security']</code>
+      <code>$view['with']</code>
+    </MixedOperand>
+    <PossiblyInvalidArgument occurrences="4">
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
       <code>$_GET['table']</code>
       <code>$_GET['table']</code>
-      <code>$_POST['view']['as']</code>
-      <code>$_POST['view']['column_names']</code>
-      <code>$_POST['view']['definer']</code>
-      <code>$_POST['view']['definer']</code>
-      <code>$_POST['view']['definer']</code>
-      <code>$_POST['view']['name']</code>
-      <code>$_POST['view']['name']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="8">
+    <PossiblyInvalidCast occurrences="4">
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
       <code>$_GET['table']</code>
       <code>$_GET['table']</code>
-      <code>$_POST['view']['as']</code>
-      <code>$_POST['view']['column_names']</code>
-      <code>$_POST['view']['definer']</code>
-      <code>$_POST['view']['name']</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="5">
-      <code>$_POST['view']['algorithm']</code>
-      <code>$_POST['view']['as']</code>
-      <code>$_POST['view']['column_names']</code>
-      <code>$_POST['view']['sql_security']</code>
-      <code>$_POST['view']['with']</code>
-    </PossiblyInvalidOperand>
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$_POST['view']</code>
-    </PossiblyUndefinedArrayOffset>
-    <RedundantCondition occurrences="2">
+    <RedundantCondition occurrences="3">
       <code>empty($GLOBALS['view']['as']) &amp;&amp; is_string($createView)</code>
+      <code>is_array($view)</code>
       <code>is_string($createView)</code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
@@ -4524,21 +4477,18 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/View/OperationsController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$GLOBALS['warning_messages']</code>
+      <code>$newname</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['result']</code>
       <code>$GLOBALS['warning_messages']</code>
+      <code>$newname</code>
+      <code>$submitoptions</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['new_name']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['new_name']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Core.php">
     <InvalidOperand occurrences="1">
@@ -6416,10 +6366,8 @@
       <code>empty($statementInfo-&gt;statement-&gt;from)</code>
       <code>isset($sessionMaxRows)</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="4">
+    <RedundantConditionGivenDocblockType occurrences="2">
       <code>$firstStatement-&gt;order</code>
-      <code>$relation[2] !== '' &amp;&amp; $relation[2] !== false</code>
-      <code>$relation[2] !== false</code>
       <code>isset($meta-&gt;internalMediaType)</code>
     </RedundantConditionGivenDocblockType>
     <UnusedParam occurrences="5">
@@ -14033,20 +13981,12 @@
     <MixedMethodCall occurrences="1">
       <code>handlePasswordChange</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="5">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['pma_pw']</code>
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['pma_pw2']</code>
-      <code>$orig_auth_plugin</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
+    <PossiblyInvalidCast occurrences="1">
       <code>$_POST['pma_pw']</code>
-      <code>$orig_auth_plugin</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="1">
-      <code>$orig_auth_plugin</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullReference occurrences="1">
       <code>handlePasswordChange</code>
     </PossiblyNullReference>
@@ -16188,6 +16128,15 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+  </file>
+  <file src="test/classes/UserPasswordTest.php">
+    <InvalidArgument occurrences="1">
+      <code>testSetChangePasswordMsg</code>
+    </InvalidArgument>
+    <InvalidReturnStatement occurrences="1"/>
+    <InvalidReturnType occurrences="1">
+      <code>array{0: bool, 1: Message, 2: string, 3: string, 4: string}[]</code>
+    </InvalidReturnType>
   </file>
   <file src="test/classes/UserPreferencesTest.php">
     <MixedArgument occurrences="1">

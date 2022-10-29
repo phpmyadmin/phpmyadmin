@@ -124,6 +124,7 @@ class UserPassword
         if ($authenticationPlugin === 'mysql_old_password') {
             return 'OLD_PASSWORD';
         }
+
         return 'PASSWORD';
     }
 

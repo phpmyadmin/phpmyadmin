@@ -25,7 +25,6 @@ use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
-use function is_null;
 use function is_string;
 use function sprintf;
 use function str_contains;
@@ -119,7 +118,7 @@ class CreateController extends AbstractController
              */
             $GLOBALS['sep'] = "\r\n";
 
-            if ($createView !== null) {
+            if ($createview !== null) {
                 $GLOBALS['sql_query'] = 'CREATE';
                 if (isset($view['or_replace'])) {
                     $GLOBALS['sql_query'] .= ' OR REPLACE';
@@ -168,7 +167,7 @@ class CreateController extends AbstractController
             }
 
             if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {
-                if (is_null($ajaxdialog)) {
+                if ($ajaxdialog === null) {
                     $GLOBALS['message'] = Message::rawError($this->dbi->getError());
 
                     return;
