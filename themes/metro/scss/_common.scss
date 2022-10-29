@@ -104,10 +104,10 @@ body#loginform {
 
   select {
     margin: 0 !important;
-    border: 1px solid $navi-background;
-    background: $navi-background;
-    color: $navi-color;
-    padding-left: 0 !important;
+    border: 1px solid #ccc;
+    background: white;
+    color: #333;
+    padding-left: 5px;
     font-family: $font-family-base;
     min-width: 100%;
 
@@ -124,6 +124,10 @@ body#loginform {
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
+
+    a {
+      color: white;
+    }
   }
 
   .card,
@@ -263,6 +267,38 @@ button:not(.accordion-button) {
   color: $button-color;
   text-decoration: none;
   background-color: $button-background;
+
+  &:hover {
+    background-color: $button-hover;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+button.jsAccountLocking {
+  background: none;
+  color: var(--bs-link-color);
+  margin-left: 0;
+
+  &:hover {
+    background: none;
+    color: var(--bs-link-color);
+    text-decoration: underline;
+  }
+}
+
+button.jsPrintButton {
+  background: none;
+  color: #444;
+  margin-left: 0;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+
+  &:hover {
+    background: none;
+    color: #444;
+    text-decoration: none;
+    border: 1px solid #444;
+  }
 }
 
 textarea {
