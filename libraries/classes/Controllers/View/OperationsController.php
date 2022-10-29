@@ -17,6 +17,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function strval;
 
 /**
  * View manipulations
@@ -67,7 +68,7 @@ class OperationsController extends AbstractController
         $newname = $request->getParsedBodyParam('new_name');
 
         if ($submitoptions !== null) {
-            if ($newname !== null && $tableObject->rename($newname)) {
+            if ($newname !== null && $tableObject->rename(strval($newname))) {
                 $message->addText($tableObject->getLastMessage());
                 $GLOBALS['result'] = true;
                 $GLOBALS['table'] = $tableObject->getName();
