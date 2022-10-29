@@ -51,6 +51,9 @@ phpMyAdmin - ChangeLog
 - issue        Use jquery-migrate.min.js (14KB) instead of jquery-migrate.min.js (31KB)
 - issue #17842 Use jquery.validate.min.js (24 KB) instead of jquery.validate.js (50 KB)
 - issue #17281 Fix links to databases for information_schema.SCHEMATA
+- issue #17553 Fix Metro theme unreadable links above navigation tree
+- issue #17553 Metro theme UI fixes and improvements
+- issue #17553 Fix Metro theme login form with
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
