@@ -138,7 +138,8 @@ final class TrackingController extends AbstractController
                 $GLOBALS['data'],
                 (int) $GLOBALS['filter_ts_from'],
                 (int) $GLOBALS['filter_ts_to'],
-                $GLOBALS['filter_users']
+                $GLOBALS['filter_users'],
+                $_POST['logtype']
             );
         }
 
@@ -240,7 +241,9 @@ final class TrackingController extends AbstractController
                 $GLOBALS['db'],
                 $GLOBALS['table'],
                 $versionParam,
-                $GLOBALS['data']
+                $GLOBALS['data'],
+                isset($_POST['delete_ddlog']),
+                isset($_POST['delete_dmlog']),
             );
         }
 

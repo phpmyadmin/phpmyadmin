@@ -599,7 +599,7 @@ class TrackingTest extends AbstractTestCase
         $filter_ts_to = 9999999999;
         $filter_ts_from = 0;
 
-        $entries = $this->tracking->getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users);
+        $entries = $this->tracking->getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users, 'schema');
         $this->assertEquals('username3', $entries[0]['username']);
         $this->assertEquals('statement1', $entries[0]['statement']);
     }
