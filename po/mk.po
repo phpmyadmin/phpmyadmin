@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-10-30 00:25+0000\n"
-"PO-Revision-Date: 2022-10-29 17:26+0000\n"
+"PO-Revision-Date: 2022-10-31 17:03+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -587,9 +587,8 @@ msgstr ""
 "%% MyISAM искористен клучен бафер: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/classes/Advisory/Rules.php:435
-#, fuzzy
 msgid "Percentage of index reads from memory"
-msgstr "Прикажи комплетни упити"
+msgstr "Процентажа на индекс читања од меморија"
 
 #: libraries/classes/Advisory/Rules.php:440
 #, no-php-format
@@ -651,19 +650,19 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:476
-#, fuzzy
 msgid "Rate of open files"
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на отворени фајлови"
 
 #: libraries/classes/Advisory/Rules.php:479
-#, fuzzy
 msgid "The rate of opening files is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Ратата на отворени фајлови е висока."
 
 #: libraries/classes/Advisory/Rules.php:484
-#, fuzzy, php-format
+#, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Рата на отворени фајлови: %s, оваа вредност треба да биде помалку од 5 на "
+"саат"
 
 #: libraries/classes/Advisory/Rules.php:490
 #, fuzzy, no-php-format
@@ -5025,13 +5024,13 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:198
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Дополнителните можности за работа со поврзаните табели се исклучени. За да "
-"дознаете зошто, кликнете %sовде%s."
+"Складиштето за конфигурација на phpMyAdmin не е комплетно подесено, некои "
+"проширени особини се деактивирани. %Пронајдете зашто%s. "
 
 #: libraries/classes/Controllers/HomeController.php:204
 msgid ""
@@ -5244,14 +5243,14 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Оваа операција може да потрае. Да ли да продолжиме?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ја избришете корисничата група \"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
-#, fuzzy, php-format
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да го избришете пребарувањето \"%s\"?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:76
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -5264,19 +5263,16 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:81
-#, fuzzy
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да укинете избраниот(ите) корисник(ци) ?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:82
-#, fuzzy
 msgid "Do you really want to delete this central column?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ја избришете оваа централна колона?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:83
-#, fuzzy
 msgid "Do you really want to delete the selected items?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ги избришете избраните елеметни?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:85
 msgid ""
@@ -5285,14 +5281,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:88
-#, fuzzy
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ги СКРАТИТЕ избраната(ите) партиција(ии)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:89
-#, fuzzy
 msgid "Do you really want to remove partitioning?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ги отстраните партициите?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:90
 #, fuzzy
