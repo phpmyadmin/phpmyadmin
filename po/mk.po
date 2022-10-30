@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-10-29 17:27+0000\n"
+"PO-Revision-Date: 2022-10-31 17:03+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -820,16 +820,13 @@ msgid ""
 msgstr ""
 
 #: index.php:616
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Дополнителните можности за работа со поврзаните табели се исклучени. За да "
-"дознаете зошто, кликнете %sовде%s."
+"Складиштето за конфигурација на phpMyAdmin не е комплетно подесено, некои "
+"проширени особини се деактивирани. %Пронајдете зашто%s. "
 
 #: index.php:623
 msgid ""
@@ -930,16 +927,14 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Оваа операција може да потрае. Да ли да продолжиме?"
 
 #: js/messages.php:66
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ја избришете корисничата група \"%s\"?"
 
 #: js/messages.php:68
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да го избришете пребарувањето \"%s\"?"
 
 #: js/messages.php:70
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -952,22 +947,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:74
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да укинете избраниот(ите) корисник(ци) ?"
 
 #: js/messages.php:76
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete this central column?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ја избришете оваа централна колона?"
 
 #: js/messages.php:78
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete the selected items?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ги избришете избраните елеметни?"
 
 #: js/messages.php:80
 msgid ""
@@ -976,16 +965,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:84
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ги СКРАТИТЕ избраната(ите) партиција(ии)?"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to remove partitioning?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ги отстраните партициите?"
 
 #: js/messages.php:87
 #, fuzzy
@@ -17782,9 +17767,8 @@ msgstr ""
 "%% MyISAM искористен клучен бафер: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/advisory_rules_generic.txt:250
-#, fuzzy
 msgid "Percentage of index reads from memory"
-msgstr "Прикажи комплетни упити"
+msgstr "Процентажа на индекс читања од меморија"
 
 #: libraries/advisory_rules_generic.txt:253
 #, php-format
@@ -17846,20 +17830,19 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:273
-#, fuzzy
 msgid "Rate of open files"
-msgstr "Кодна страна на податотеката:"
+msgstr "Рата на отворени фајлови"
 
 #: libraries/advisory_rules_generic.txt:276
-#, fuzzy
 msgid "The rate of opening files is high."
-msgstr "Кодна страна на податотеката:"
+msgstr "Ратата на отворени фајлови е висока."
 
 #: libraries/advisory_rules_generic.txt:278
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Рата на отворени фајлови: %s, оваа вредност треба да биде помалку од 5 на "
+"саат"
 
 #: libraries/advisory_rules_generic.txt:280
 #, fuzzy, php-format
