@@ -11416,11 +11416,6 @@ parameters:
 			path: test/classes/TypesTest.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with \\$this\\(PhpMyAdmin\\\\Tests\\\\UrlTest\\) and 'assertMatchesRegula…' will always evaluate to true\\.$#"
-			count: 2
-			path: test/classes/UrlTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
 			count: 1
 			path: test/classes/UserPasswordTest.php
