@@ -16,7 +16,7 @@ final class EmptyFormController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected_tbl'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (empty($selected)) {
             $this->response->setRequestStatus(false);

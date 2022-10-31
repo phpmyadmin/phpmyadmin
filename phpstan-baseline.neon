@@ -1096,6 +1096,51 @@ parameters:
 			path: libraries/classes/Controllers/Database/SqlFormatController.php
 
 		-
+			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
+
+		-
+			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Structure/DropFormController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Structure/DropFormController.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/EmptyFormController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/EmptyFormController.php
+
+		-
 			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
