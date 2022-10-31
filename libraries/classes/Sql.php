@@ -13,6 +13,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -745,6 +746,11 @@ class Sql
                 // Removes LIMIT clause that might have been added
                 if ($analyzedSqlResults['limit'] !== null) {
                     $statement->limit = null;
+                }
+
+                if ($analyzedSqlResults['is_group'] === false && count($statement->expr) === 1) {
+                    $statement->expr[0] = new Expression();
+                    $statement->expr[0]->expr = '1';
                 }
 
                 $countQuery = 'SELECT COUNT(*) FROM (' . $statement->build() . ' ) as cnt';

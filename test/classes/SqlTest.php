@@ -370,7 +370,7 @@ class SqlTest extends AbstractTestCase
                 164056,
                 50,
                 false,
-                'SELECT COUNT(*) FROM (SELECT * FROM game_auth_logs AS `l` JOIN ('
+                'SELECT COUNT(*) FROM (SELECT 1 FROM game_auth_logs AS `l` JOIN ('
                     . ' select al.user_id, max(al.id) as id from game_auth_logs al '
                     . 'where al.successfull = 1 group by al.user_id ) AS `last_log` ON last_log.id = l.id'
                     . ' ) as cnt',
@@ -384,7 +384,7 @@ class SqlTest extends AbstractTestCase
                 164056,
                 50,
                 false,
-                'SELECT COUNT(*) FROM (SELECT l.* FROM game_auth_logs AS `l` JOIN ('
+                'SELECT COUNT(*) FROM (SELECT 1 FROM game_auth_logs AS `l` JOIN ('
                     . ' select al.user_id, max(al.id) as id from game_auth_logs al '
                     . 'where al.successfull = 1 group by al.user_id ) AS `last_log` ON last_log.id = l.id'
                     . ' ) as cnt',

@@ -2759,17 +2759,17 @@ class DbiDummy implements DbiExtension
                 'result' => [['hostname', 'username', 'password']],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE not_working_count != 0 ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE not_working_count != 0 ) as cnt',
                 'result' => false,
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users ) as cnt',
                 'result' => [
                     [4],
                 ],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE working_count = 0 ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE working_count = 0 ) as cnt',
                 'result' => [
                     [15],
                 ],
