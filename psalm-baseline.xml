@@ -1489,38 +1489,36 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php">
-    <PossiblyInvalidArgument occurrences="3">
+    <MixedArgument occurrences="3">
       <code>$current</code>
       <code>$current</code>
       <code>$selected</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="3">
-      <code>$current</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="4">
       <code>$current</code>
       <code>$fromPrefix</code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="1">
+      <code>$selected</code>
       <code>$toPrefix</code>
-    </PossiblyInvalidOperand>
-    <PossiblyNullOperand occurrences="1">
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
       <code>$toPrefix</code>
-    </PossiblyNullOperand>
+    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/DropFormController.php">
     <MixedArgument occurrences="2">
       <code>$current</code>
       <code>$current</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="5">
       <code>$current</code>
+      <code>$selected</code>
       <code>$selectedValue</code>
       <code>$selectedValue</code>
       <code>$urlParams['selected'][]</code>
     </MixedAssignment>
-    <PossiblyInvalidIterator occurrences="2">
-      <code>$selected</code>
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/DropTableController.php">
     <MixedArrayAccess occurrences="2">
@@ -1544,12 +1542,10 @@
     <MixedArgument occurrences="1">
       <code>$selectedValue</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
+      <code>$selected</code>
       <code>$selectedValue</code>
     </MixedAssignment>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/EmptyTableController.php">
     <InvalidArgument occurrences="1">

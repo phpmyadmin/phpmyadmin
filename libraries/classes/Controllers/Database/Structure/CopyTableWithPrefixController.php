@@ -32,11 +32,12 @@ final class CopyTableWithPrefixController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected'] ?? [];
-        $fromPrefix = $_POST['from_prefix'] ?? null;
-        $toPrefix = $_POST['to_prefix'] ?? null;
+        $selected = $request->getParsedBodyParam('selected', []);
+        $fromPrefix = $request->getParsedBodyParam('from_prefix');
+        $toPrefix = $request->getParsedBodyParam('to_prefix');
 
         $selectedCount = count($selected);
+        $dropIfExists = $request->getParsedBodyParam('drop_if_exists') === 'true';
 
         for ($i = 0; $i < $selectedCount; $i++) {
             $current = $selected[$i];
@@ -50,7 +51,7 @@ final class CopyTableWithPrefixController extends AbstractController
                 'data',
                 false,
                 'one_table',
-                isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
+                $dropIfExists
             );
         }
 
