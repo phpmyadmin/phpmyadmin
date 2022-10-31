@@ -1036,7 +1036,7 @@ class CoreTest extends AbstractNetworkTestCase
         $this->assertContains('Content-Description: File Transfer', $headersList);
         $this->assertContains('Content-Disposition: attachment; filename="test.sql.gz"', $headersList);
         $this->assertContains('Content-Type: application/x-gzip', $headersList);
-        $this->assertContains('Content-Encoding: gzip', $headersList);
+        $this->assertNotContains('Content-Encoding: gzip', $headersList);
         $this->assertContains('Content-Transfer-Encoding: binary', $headersList);
         $this->assertNotContains('Content-Length: 0', $headersList);
     }

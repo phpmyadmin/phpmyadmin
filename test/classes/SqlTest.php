@@ -362,6 +362,34 @@ class SqlTest extends AbstractTestCase
         // result
         // just browsing
         return [
+            'join on SELECT results with *' => [
+                // -- Showing rows 0 - 49 (164056 total, 0 in query, Query took 0.1498 seconds.)
+                'select * from game_auth_logs l join ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) last_log on last_log.id = l.id;',
+                ['max_rows' => 50, 'pos' => 0],
+                164056,
+                50,
+                false,
+                'SELECT COUNT(*) FROM (select * from game_auth_logs l join ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) last_log on last_log.id = l.id'
+                    . ' ) as cnt',
+            ],
+            'join on SELECT results with alias.*' => [
+                // -- Showing rows 0 - 24 (267 total, Query took 0.1533 seconds.)
+                'select l.* from game_auth_logs l join ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) last_log on last_log.id = l.id;',
+                ['max_rows' => 50, 'pos' => 0],
+                267,
+                50,
+                false,
+                'SELECT COUNT(*) FROM (select l.* from game_auth_logs l join ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) last_log on last_log.id = l.id'
+                    . ' ) as cnt',
+            ],
             [
                 'SELECT * FROM company_users WHERE id != 0 LIMIT 0, 10',
                 ['max_rows' => 250],
@@ -546,13 +574,23 @@ class SqlTest extends AbstractTestCase
         array $sessionTmpVal,
         int $numRows,
         int $expectedNumRows,
-        bool $justBrowsing = false
+        bool $justBrowsing = false,
+        ?string $expectedCountQuery = null
     ): void {
         if ($justBrowsing) {
             $GLOBALS['cfg']['Server']['DisableIS'] = true;
         }
 
         $_SESSION['tmpval'] = $sessionTmpVal;
+
+        if ($expectedCountQuery !== null) {
+            $this->dummyDbi->addResult(
+                $expectedCountQuery,
+                [[$expectedNumRows]],
+                [],
+                []
+            );
+        }
 
         $result = $this->callFunction(
             $this->sql,
@@ -567,6 +605,7 @@ class SqlTest extends AbstractTestCase
             ]
         );
         $this->assertSame($expectedNumRows, $result);
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testExecuteQueryAndSendQueryResponse(): void

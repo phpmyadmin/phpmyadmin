@@ -2978,6 +2978,9 @@ Functions.onloadEnumSetEditor = function () {
         }
         var buttonOptions = {};
         var $centralColumnsDialog = $(centralColumnsDialog).dialog({
+            classes: {
+                'ui-dialog-titlebar-close': 'btn-close'
+            },
             minWidth: width,
             maxHeight: 450,
             modal: true,
