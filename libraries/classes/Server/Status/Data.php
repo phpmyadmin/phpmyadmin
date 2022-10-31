@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Url;
 
@@ -62,6 +63,9 @@ class Data
 
     /** @var ReplicationInfo */
     private $replicationInfo;
+
+    /** @var DatabaseInterface */
+    private $dbi;
 
     public function getReplicationInfo(): ReplicationInfo
     {
@@ -350,15 +354,17 @@ class Data
         ];
     }
 
-    public function __construct()
+    public function __construct(DatabaseInterface $dbi)
     {
-        $this->replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
+        $this->dbi = $dbi;
+
+        $this->replicationInfo = new ReplicationInfo($this->dbi);
         $this->replicationInfo->load($_POST['primary_connection'] ?? null);
 
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
 
         // get status from server
-        $server_status_result = $GLOBALS['dbi']->tryQuery('SHOW GLOBAL STATUS');
+        $server_status_result = $this->dbi->tryQuery('SHOW GLOBAL STATUS');
         if ($server_status_result === false) {
             $server_status = [];
             $this->dataLoaded = false;
@@ -369,7 +375,7 @@ class Data
         }
 
         // for some calculations we require also some server settings
-        $server_variables = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
+        $server_variables = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
         // cleanup of some deprecated values
         $server_status = self::cleanDeprecated($server_status);

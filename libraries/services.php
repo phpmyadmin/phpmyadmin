@@ -201,6 +201,7 @@ return [
         ],
         'status_data' => [
             'class' => PhpMyAdmin\Server\Status\Data::class,
+            'arguments' => ['@dbi'],
         ],
         'status_monitor' => [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
