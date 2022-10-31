@@ -381,7 +381,7 @@ class SqlTest extends AbstractTestCase
                     . ' select al.user_id, max(al.id) as id from game_auth_logs al '
                     . 'where al.successfull = 1 group by al.user_id ) last_log on last_log.id = l.id;',
                 ['max_rows' => 50, 'pos' => 0],
-                164056,
+                267,
                 50,
                 false,
                 'SELECT COUNT(*) FROM (select l.* from game_auth_logs l join ('
