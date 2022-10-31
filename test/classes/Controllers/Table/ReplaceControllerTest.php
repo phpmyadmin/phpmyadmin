@@ -75,7 +75,6 @@ class ReplaceControllerTest extends AbstractTestCase
         $_POST['db'] = $GLOBALS['db'];
         $_POST['table'] = $GLOBALS['table'];
         $_POST['ajax_request'] = 'true';
-        $_POST['sql_query'] = '';
         $_POST['clause_is_unique'] = 1;
         $_POST['where_clause'] = [
             '`test`.`ser` = 2',
@@ -106,6 +105,11 @@ class ReplaceControllerTest extends AbstractTestCase
             ],
         ];
 
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['sql_query', null, ''],
+        ]);
+
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $relation = new Relation($dbi);
@@ -121,7 +125,6 @@ class ReplaceControllerTest extends AbstractTestCase
             $dbi
         );
 
-        $request = $this->createStub(ServerRequest::class);
         $sqlController = new SqlController(
             $response,
             $template,
