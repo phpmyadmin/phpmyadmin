@@ -21,9 +21,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { version: '5.1', branch: 'QA_5_1', php-version: '7.1', node-version: '12', python-version: '3.6' }
           - { version: '5.2', branch: 'QA_5_2', php-version: '7.2', node-version: '12', python-version: '3.6' }
-          - { version: '5.3', branch: 'master', php-version: '7.2', node-version: '12', python-version: '3.6' }
+          - { version: '5.3', branch: 'master', php-version: '7.2', node-version: '14', python-version: '3.6' }
     steps:
       - name: Check out code
         uses: actions/checkout@v3
