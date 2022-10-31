@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - issue #17553 Fix Metro theme unreadable links above navigation tree
 - issue #17553 Metro theme UI fixes and improvements
 - issue #17553 Fix Metro theme login form with
+- issue #16042 Exported gzip file of database has first ~73 kB uncompressed and rest is gzip compressed in Firefox
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
