@@ -8006,6 +8006,11 @@ parameters:
 			path: libraries/classes/SystemDatabase.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/SystemDatabase.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
