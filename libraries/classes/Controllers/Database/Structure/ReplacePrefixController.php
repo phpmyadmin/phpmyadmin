@@ -38,9 +38,9 @@ final class ReplacePrefixController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected'] ?? [];
-        $fromPrefix = $_POST['from_prefix'] ?? '';
-        $toPrefix = $_POST['to_prefix'] ?? '';
+        $selected = $request->getParsedBodyParam('selected', []);
+        $fromPrefix = $request->getParsedBodyParam('from_prefix', '');
+        $toPrefix = $request->getParsedBodyParam('to_prefix', '');
 
         $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);

@@ -1619,32 +1619,39 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php">
-    <PossiblyInvalidArgument occurrences="5">
+    <MixedArgument occurrences="5">
       <code>$current</code>
       <code>$current</code>
       <code>$newTableName</code>
       <code>$selected</code>
       <code>$selected[$i]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="3">
-      <code>$current</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="5">
       <code>$current</code>
       <code>$fromPrefix</code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="1">
+      <code>$newTableName</code>
+      <code>$selected</code>
       <code>$toPrefix</code>
-    </PossiblyInvalidOperand>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$toPrefix</code>
+    </MixedOperand>
     <RedundantCast occurrences="1">
       <code>(string) $fromPrefix</code>
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/ShowCreateController.php">
-    <InvalidArgument occurrences="1">
-      <code>$selected</code>
-    </InvalidArgument>
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$object-&gt;showCreate()</code>
+      <code>$selected</code>
     </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/StructureController.php">
     <InvalidScalarArgument occurrences="2">
