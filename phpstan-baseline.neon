@@ -1116,12 +1116,42 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
+			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
+
+		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
 
 		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
+
+		-
 			message: "#^Parameter \\#1 \\$buffer of static method PhpMyAdmin\\\\Core\\:\\:mimeDefaultFunction\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/ShowCreateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Database\\\\Structure\\\\ShowCreateController\\:\\:getShowCreateTables\\(\\) expects array\\<string\\>, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/ShowCreateController.php
 
