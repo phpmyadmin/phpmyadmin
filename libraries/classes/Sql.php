@@ -736,24 +736,19 @@ class Sql
                 }
             } else {
                 $statement = $analyzedSqlResults['statement'];
-                $tokenList = $analyzedSqlResults['parser']->list;
-                $replaces = [
-                    // Remove ORDER BY to decrease unnecessary sorting time
-                    [
-                        'ORDER BY',
-                        '',
-                    ],
-                    // Removes LIMIT clause that might have been added
-                    [
-                        'LIMIT',
-                        '',
-                    ],
-                ];
-                $countQuery = 'SELECT COUNT(*) FROM (' . Query::replaceClauses(
-                    $statement,
-                    $tokenList,
-                    $replaces
-                ) . ') as cnt';
+
+                // Remove ORDER BY to decrease unnecessary sorting time
+                if ($analyzedSqlResults['order'] !== false) {
+                    $statement->order = null;
+                }
+
+                // Removes LIMIT clause that might have been added
+                if ($analyzedSqlResults['limit'] !== null) {
+                    $statement->limit = null;
+                }
+
+                $countQuery = 'SELECT COUNT(*) FROM (' . $statement->build() . ' ) as cnt';
+
                 $unlimNumRows = $this->dbi->fetchValue($countQuery);
                 if ($unlimNumRows === false) {
                     $unlimNumRows = 0;

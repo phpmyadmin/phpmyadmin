@@ -2782,8 +2782,8 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT COUNT(*) FROM ('
-                . 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) as c1, '
-                . '(SELECT 1 FROM tbl2) as c2 FROM company_users WHERE subquery_case = 0 ) as cnt',
+                . 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) AS `c1`, '
+                . '(SELECT 1 FROM tbl2) AS `c2` FROM company_users WHERE subquery_case = 0 ) as cnt',
                 'result' => [
                     [42],
                 ],
