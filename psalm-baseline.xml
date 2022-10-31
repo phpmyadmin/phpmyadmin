@@ -3075,28 +3075,36 @@
       <code>$values</code>
     </MixedAssignment>
   </file>
+  <file src="libraries/classes/Controllers/Sql/ColumnPreferencesController.php">
+    <MixedAssignment occurrences="2">
+      <code>$colorder</code>
+      <code>$colvisib</code>
+    </MixedAssignment>
+  </file>
   <file src="libraries/classes/Controllers/Sql/EnumValuesController.php">
-    <PossiblyInvalidArgument occurrences="2">
+    <MixedArgument occurrences="2">
       <code>$column</code>
       <code>$curr_value</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
       <code>$column</code>
       <code>$curr_value</code>
-    </PossiblyInvalidCast>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Sql/RelationalValuesController.php">
+    <MixedArgument occurrences="2">
+      <code>$column</code>
+      <code>$curr_value</code>
+    </MixedArgument>
     <MixedArrayAccess occurrences="1">
       <code>$_SESSION['tmpval']['relational_display']</code>
     </MixedArrayAccess>
-    <PossiblyInvalidArgument occurrences="2">
+    <MixedAssignment occurrences="4">
       <code>$column</code>
       <code>$curr_value</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$column</code>
       <code>$curr_value</code>
-    </PossiblyInvalidCast>
+      <code>$relation_key_or_display_column</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Sql/SetValuesController.php">
     <MixedArgument occurrences="3">
@@ -3115,7 +3123,7 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="9">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['disp_message'] ?? null</code>
       <code>$GLOBALS['errorUrl']</code>
@@ -3123,11 +3131,13 @@
       <code>$GLOBALS['extra_data'] ?? null</code>
       <code>$GLOBALS['find_real_end'] ?? null</code>
       <code>$GLOBALS['message_to_show'] ?? null</code>
+      <code>$GLOBALS['sql_query']</code>
+      <code>$GLOBALS['sql_query']</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['ajax_reload']['reload']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="13">
+    <MixedAssignment occurrences="17">
       <code>$GLOBALS['ajax_reload']</code>
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['disp_message']</code>
@@ -3138,31 +3148,24 @@
       <code>$GLOBALS['find_real_end']</code>
       <code>$GLOBALS['is_gotofile']</code>
       <code>$GLOBALS['message_to_show']</code>
+      <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['table_from_sql']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
+      <code>$bkm_all_users</code>
+      <code>$sql_query</code>
+      <code>$store_bkm</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$_POST['bkm_fields']['bkm_label']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
+    <PossiblyInvalidArgument occurrences="4">
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$_GET['sql_query']</code>
       <code>$_GET['sql_signature']</code>
-      <code>$_POST['bkm_fields']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset occurrences="2">
-      <code>$_POST['bkm_fields']['bkm_label']</code>
-      <code>$_POST['bkm_fields']['bkm_label']</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast occurrences="6">
-      <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
+    <PossiblyInvalidCast occurrences="4">
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$_GET['sql_query']</code>
