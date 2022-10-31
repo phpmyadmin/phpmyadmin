@@ -81,7 +81,9 @@ class SqlControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        (new SqlController($response, $template, new SqlQueryForm($template)))($this->createStub(ServerRequest::class));
+        (
+            new SqlController($response, $template, new SqlQueryForm($template, $this->dbi))
+        )($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }
 }

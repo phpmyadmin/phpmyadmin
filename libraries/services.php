@@ -197,7 +197,7 @@ return [
         ],
         'sql_query_form' => [
             'class' => PhpMyAdmin\SqlQueryForm::class,
-            'arguments' => ['$template' => '@template'],
+            'arguments' => ['$template' => '@template', '$dbi' => '@dbi'],
         ],
         'status_data' => [
             'class' => PhpMyAdmin\Server\Status\Data::class,
