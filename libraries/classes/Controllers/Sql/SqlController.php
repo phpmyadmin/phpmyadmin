@@ -116,7 +116,7 @@ class SqlController extends AbstractController
             }
         }
 
-        /** @var array|null $bkm_fields */
+        /** @var array<string>|null $bkm_fields */
         $bkm_fields = $request->getParsedBodyParam('bkm_fields');
         $sql_query = $request->getParsedBodyParam('sql_query');
 
@@ -229,6 +229,9 @@ class SqlController extends AbstractController
         ));
     }
 
+    /**
+     * @param array<string> $bkm_fields
+     */
     private function addBookmark(string $goto, array $bkm_fields, bool $bkm_all_users): void
     {
         $bookmark = Bookmark::createBookmark(
