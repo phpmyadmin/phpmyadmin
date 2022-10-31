@@ -11,6 +11,8 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 
+use function strval;
+
 final class RelationalValuesController extends AbstractController
 {
     /** @var Sql */
@@ -39,22 +41,20 @@ final class RelationalValuesController extends AbstractController
     {
         $this->checkUserPrivileges->getPrivileges();
 
-        $column = $_POST['column'];
-        if (
-            $_SESSION['tmpval']['relational_display'] === 'D'
-            && isset($_POST['relation_key_or_display_column'])
-            && $_POST['relation_key_or_display_column']
-        ) {
-            $curr_value = $_POST['relation_key_or_display_column'];
+        $column = $request->getParsedBodyParam('column');
+        $relation_key_or_display_column = $request->getParsedBodyParam('relation_key_or_display_column');
+
+        if ($_SESSION['tmpval']['relational_display'] === 'D' && $relation_key_or_display_column !== null) {
+            $curr_value = $relation_key_or_display_column;
         } else {
-            $curr_value = $_POST['curr_value'];
+            $curr_value = $request->getParsedBodyParam('curr_value');
         }
 
         $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
             $GLOBALS['db'],
             $GLOBALS['table'],
-            $column,
-            $curr_value
+            strval($column),
+            strval($curr_value)
         );
         $this->response->addJSON('dropdown', $dropdown);
     }

@@ -13,6 +13,7 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function htmlentities;
+use function strval;
 
 use const ENT_COMPAT;
 
@@ -42,9 +43,9 @@ final class EnumValuesController extends AbstractController
     {
         $this->checkUserPrivileges->getPrivileges();
 
-        $column = $_POST['column'];
-        $curr_value = $_POST['curr_value'];
-        $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
+        $column = $request->getParsedBodyParam('column');
+        $curr_value = $request->getParsedBodyParam('curr_value');
+        $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], strval($column));
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));
@@ -54,7 +55,7 @@ final class EnumValuesController extends AbstractController
         }
 
         // Converts characters of $curr_value to HTML entities.
-        $convertedCurrentValue = htmlentities($curr_value, ENT_COMPAT, 'UTF-8');
+        $convertedCurrentValue = htmlentities(strval($curr_value), ENT_COMPAT, 'UTF-8');
 
         $dropdown = $this->template->render('sql/enum_column_dropdown', [
             'values' => $values,

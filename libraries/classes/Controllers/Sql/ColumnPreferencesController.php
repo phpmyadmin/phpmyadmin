@@ -45,12 +45,14 @@ final class ColumnPreferencesController extends AbstractController
         $status = false;
 
         // set column order
-        if (isset($_POST['col_order'])) {
+        $colorder = $request->getParsedBodyParam('col_order');
+        if ($colorder !== null) {
             $status = $this->sql->setColumnProperty($tableObject, 'col_order');
         }
 
         // set column visibility
-        if ($status === true && isset($_POST['col_visib'])) {
+        $colvisib = $request->getParsedBodyParam('col_visib');
+        if ($status === true && $colvisib !== null) {
             $status = $this->sql->setColumnProperty($tableObject, 'col_visib');
         }
 
