@@ -173,11 +173,10 @@ window.AJAX.registerOnload('table/structure.js', function () {
      */
     $(document).on('click', 'a.drop_column_anchor.ajax', function (event) {
         event.preventDefault();
-
         /**
          * @var callBackCheck boolean will flag to true if the previous deleted column is remembered (i.e in case the already deleted column is attempted to be deleted again)
          */
-         var callBackCheck = false;
+        var callBackCheck = false;
         /**
          * @var currTableName String containing the name of the current table
          */
@@ -201,9 +200,8 @@ window.AJAX.registerOnload('table/structure.js', function () {
         var question = Functions.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
         var $thisAnchor = $(this);
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-
             // callBackCheck true means the previous deleted column is remembered using callbacks and hence ignore it
-            if(callBackCheck === true) {
+            if (callBackCheck === true) {
                 return;
             }
             var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingColumn, false);
