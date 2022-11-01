@@ -173,6 +173,11 @@ window.AJAX.registerOnload('table/structure.js', function () {
      */
     $(document).on('click', 'a.drop_column_anchor.ajax', function (event) {
         event.preventDefault();
+
+        /**
+         * @var callBackCheck boolean will flag to true if the previous deleted column is remembered (i.e in case the already deleted column is attempted to be deleted again)
+         */
+         var callBackCheck = false;
         /**
          * @var currTableName String containing the name of the current table
          */
@@ -196,6 +201,11 @@ window.AJAX.registerOnload('table/structure.js', function () {
         var question = Functions.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
         var $thisAnchor = $(this);
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
+
+            // callBackCheck true means the previous deleted column is remembered using callbacks and hence ignore it
+            if(callBackCheck === true) {
+                return;
+            }
             var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingColumn, false);
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += window.CommonParams.get('arg_separator') + 'ajax_page_request=1';
@@ -238,6 +248,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
                 } else {
                     Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
+                callBackCheck = true;
             }); // end $.post()
         });
     }); // end of Drop Column Anchor action
