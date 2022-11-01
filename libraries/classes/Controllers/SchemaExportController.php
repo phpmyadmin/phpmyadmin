@@ -9,7 +9,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use Throwable;
+use RuntimeException;
 
 use function __;
 
@@ -48,7 +48,7 @@ class SchemaExportController
          */
         try {
             $this->export->processExportSchema($request->getParsedBodyParam('export_type'));
-        } catch (Throwable $exception) {
+        } catch (RuntimeException $exception) {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
         }

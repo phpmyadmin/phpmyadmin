@@ -7,13 +7,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use Exception;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use RuntimeException;
 
 use function __;
 use function array_filter;
@@ -1260,7 +1260,7 @@ class Export
 
         // Check schema export type
         if ($exportPlugin === null) {
-            throw new Exception(__('Bad type!'));
+            throw new RuntimeException(__('Bad type!'));
         }
 
         $this->dbi->selectDb($_POST['db']);

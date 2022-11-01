@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use Exception;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\SqlParser\Lexer;
+use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Throwable;
 
 use function __;
 use function array_pop;
@@ -104,7 +104,7 @@ final class Common
 
         try {
             self::checkRequiredPhpExtensions();
-        } catch (Throwable $exception) {
+        } catch (MissingExtensionException $exception) {
             echo (new Template())->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => $GLOBALS['text_dir'] ?? 'ltr',
@@ -174,7 +174,7 @@ final class Common
         try {
             self::checkServerConfiguration();
             self::checkRequest();
-        } catch (Throwable $exception) {
+        } catch (RuntimeException $exception) {
             echo (new Template())->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => $GLOBALS['text_dir'] ?? 'ltr',
@@ -556,7 +556,7 @@ final class Common
          * empty value or 0.
          */
         if (extension_loaded('mbstring') && ! empty(ini_get('mbstring.func_overload'))) {
-            throw new Exception(__(
+            throw new RuntimeException(__(
                 'You have enabled mbstring.func_overload in your PHP '
                 . 'configuration. This option is incompatible with phpMyAdmin '
                 . 'and might cause some data to be corrupted!'
@@ -571,7 +571,7 @@ final class Common
             return;
         }
 
-        throw new Exception(__(
+        throw new RuntimeException(__(
             'The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin requires these functions!'
         ));
     }
@@ -582,7 +582,7 @@ final class Common
     private static function checkRequest(): void
     {
         if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-            throw new Exception(__('GLOBALS overwrite attempt'));
+            throw new RuntimeException(__('GLOBALS overwrite attempt'));
         }
 
         /**
@@ -592,7 +592,7 @@ final class Common
             return;
         }
 
-        throw new Exception(__('possible exploit'));
+        throw new RuntimeException(__('possible exploit'));
     }
 
     private static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void

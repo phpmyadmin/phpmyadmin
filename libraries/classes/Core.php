@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use Exception;
+use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -134,7 +134,7 @@ class Core
         }
 
         if ($fatal) {
-            throw new Exception(Sanitize::sanitizeMessage($message));
+            throw new MissingExtensionException(Sanitize::sanitizeMessage($message));
         }
 
         $GLOBALS['errorHandler']->addError($message, E_USER_WARNING, '', 0, false);
