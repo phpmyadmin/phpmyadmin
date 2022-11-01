@@ -364,18 +364,6 @@ class CoreTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for Core::fatalError
-     */
-    public function testFatalErrorMessage(): void
-    {
-        $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
-
-        $this->expectOutputRegex('/FatalError!/');
-        Core::fatalError('FatalError!');
-    }
-
-    /**
      * Test for Core::getRealSize
      *
      * @param string $size     Size

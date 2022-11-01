@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function defined;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
@@ -52,7 +53,13 @@ class Session
             return;
         }
 
-        Core::fatalError('Failed to generate random CSRF token!');
+        echo (new Template())->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => 'Failed to generate random CSRF token!',
+        ]);
+
+        exit;
     }
 
     /**
@@ -101,14 +108,19 @@ class Session
         }
 
         // Session initialization is done before selecting language, so we can not use translations here.
-        Core::fatalError(
-            'Error during session start; please check your PHP and/or '
+        $errorMessage = 'Error during session start; please check your PHP and/or '
             . 'webserver log file and configure your PHP '
             . 'installation properly. Also ensure that cookies are enabled '
             . 'in your browser.'
             . '<br><br>'
-            . implode('<br><br>', $messages)
-        );
+            . implode('<br><br>', $messages);
+        echo (new Template())->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => $errorMessage,
+        ]);
+
+        exit;
     }
 
     /**
@@ -239,6 +251,14 @@ class Session
             return;
         }
 
-        Core::fatalError('Failed to store CSRF token in session! Probably sessions are not working properly.');
+        echo (new Template())->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => 'Failed to store CSRF token in session! Probably sessions are not working properly.',
+        ]);
+
+        if (! defined('TESTSUITE')) {
+            exit;
+        }
     }
 }

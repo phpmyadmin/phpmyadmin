@@ -198,10 +198,18 @@ class AuthenticationHttp extends AuthenticationPlugin
         parent::showFailure($failure);
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
-            Core::fatalError($error);
-        } else {
-            $this->authForm();
+            echo $this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => $error,
+            ]);
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
         }
+
+        $this->authForm();
     }
 
     /**

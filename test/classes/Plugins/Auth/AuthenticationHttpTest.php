@@ -339,9 +339,11 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
     /**
      * @group medium
+     * @runInSeparateProcess
      */
     public function testAuthFails(): void
     {
+        $GLOBALS['cfg']['Server']['host'] = '';
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
 
