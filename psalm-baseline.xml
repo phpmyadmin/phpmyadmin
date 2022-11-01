@@ -2088,16 +2088,8 @@
       <code>$GLOBALS['whatStrucOrData']</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidPropertyAssignmentValue occurrences="2"/>
-    <PossiblyNullArgument occurrences="18">
+    <PossiblyNullArgument occurrences="10">
       <code>$GLOBALS['charset']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
@@ -2108,10 +2100,6 @@
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['filename_template']</code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="2">
-      <code>exportFooter</code>
-      <code>exportHeader</code>
-    </PossiblyNullReference>
     <RedundantCondition occurrences="2">
       <code>! $GLOBALS['save_on_server']</code>
       <code>$outputFormat === 'sendit' &amp;&amp; ! $GLOBALS['save_on_server']</code>
@@ -3059,21 +3047,11 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Setup/FormController.php">
-    <UndefinedClass occurrences="1">
-      <code>new $formClass($this-&gt;config)</code>
-    </UndefinedClass>
-  </file>
   <file src="libraries/classes/Controllers/Setup/HomeController.php">
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$id</code>
       <code>$id</code>
     </MixedArgumentTypeCoercion>
-  </file>
-  <file src="libraries/classes/Controllers/Setup/ValidateController.php">
-    <MixedAssignment occurrences="1">
-      <code>$values</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Sql/ColumnPreferencesController.php">
     <MixedAssignment occurrences="2">

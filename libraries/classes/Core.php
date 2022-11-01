@@ -52,7 +52,6 @@ use function substr;
 use function trigger_error;
 use function unserialize;
 use function urldecode;
-use function vsprintf;
 
 use const DATE_RFC1123;
 use const E_USER_ERROR;
@@ -83,20 +82,10 @@ class Core
      *
      * loads language file if not loaded already
      *
-     * @param string       $error_message the error message or named error message
-     * @param string|array $message_args  arguments applied to $error_message
+     * @param string $error_message the error message or named error message
      */
-    public static function fatalError(
-        string $error_message,
-        $message_args = null
-    ): void {
-        /* Use format string if applicable */
-        if (is_string($message_args)) {
-            $error_message = sprintf($error_message, $message_args);
-        } elseif (is_array($message_args)) {
-            $error_message = vsprintf($error_message, $message_args);
-        }
-
+    public static function fatalError(string $error_message): void
+    {
         /**
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
