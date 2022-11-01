@@ -71,7 +71,7 @@ class ReplicationController extends AbstractController
             $GLOBALS['urlParams'] = $urlParams;
         }
 
-        if ($this->dbi->isSuperUser()) {
+        if ($this->dbi->isSuperUser() && $request->isPost()) {
             /** @var string|null $srReplicaAction */
             $srReplicaAction = $request->getParsedBodyParam('sr_replica_action');
             /** @var string|int $srSkipErrorsCount */
