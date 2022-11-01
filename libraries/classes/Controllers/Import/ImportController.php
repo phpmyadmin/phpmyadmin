@@ -245,7 +245,10 @@ final class ImportController extends AbstractController
         if (! in_array($GLOBALS['format'], ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'])) {
             // this should not happen for a normal user
             // but only during an attack
-            Core::fatalError('Incorrect format parameter');
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error(__('Incorrect format parameter'))->getDisplay());
+
+            return;
         }
 
         $post_patterns = [

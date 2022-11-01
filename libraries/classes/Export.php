@@ -13,6 +13,7 @@ use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use RuntimeException;
 
 use function __;
 use function array_filter;
@@ -1259,7 +1260,7 @@ class Export
 
         // Check schema export type
         if ($exportPlugin === null) {
-            Core::fatalError(__('Bad type!'));
+            throw new RuntimeException(__('Bad type!'));
         }
 
         $this->dbi->selectDb($_POST['db']);

@@ -42,7 +42,15 @@ class AuthenticationSignon extends AuthenticationPlugin
         ResponseRenderer::getInstance()->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
-            Core::fatalError('You must set SignonURL!');
+            echo $this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => 'You must set SignonURL!',
+            ]);
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
         } else {
             Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
@@ -145,10 +153,13 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Handle script based auth */
         if ($script_name !== '') {
             if (! @file_exists($script_name)) {
-                Core::fatalError(
-                    __('Can not find signon authentication script:')
-                    . ' ' . $script_name
-                );
+                echo $this->template->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'error_message' => __('Can not find signon authentication script:') . ' ' . $script_name,
+                ]);
+
+                exit;
             }
 
             include $script_name;

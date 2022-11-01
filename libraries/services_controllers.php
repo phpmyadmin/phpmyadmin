@@ -813,7 +813,7 @@ return [
         ],
         SchemaExportController::class => [
             'class' => SchemaExportController::class,
-            'arguments' => ['$export' => '@export'],
+            'arguments' => ['$export' => '@export', '$response' => '@response'],
         ],
         Server\BinlogController::class => [
             'class' => Server\BinlogController::class,

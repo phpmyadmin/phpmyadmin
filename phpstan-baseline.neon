@@ -1996,11 +1996,6 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:fatalError\\(\\) has parameter \\$message_args with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Core\\:\\:previewSQL\\(\\) has parameter \\$query_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Core.php

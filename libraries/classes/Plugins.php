@@ -27,6 +27,7 @@ use Throwable;
 use function __;
 use function class_exists;
 use function count;
+use function defined;
 use function get_class;
 use function htmlspecialchars;
 use function is_subclass_of;
@@ -628,10 +629,16 @@ class Plugins
             . ucfirst(strtolower($GLOBALS['cfg']['Server']['auth_type']));
 
         if (! class_exists($class)) {
-            Core::fatalError(
-                __('Invalid authentication method set in configuration:')
-                . ' ' . $GLOBALS['cfg']['Server']['auth_type']
-            );
+            echo (new Template())->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => __('Invalid authentication method set in configuration:')
+                    . ' ' . $GLOBALS['cfg']['Server']['auth_type'],
+            ]);
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
         }
 
         /** @var AuthenticationPlugin $plugin */

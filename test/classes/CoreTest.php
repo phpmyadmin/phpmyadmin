@@ -15,11 +15,6 @@ use function _pgettext;
 use function hash;
 use function header;
 use function htmlspecialchars;
-use function mb_strpos;
-use function ob_end_clean;
-use function ob_get_contents;
-use function ob_start;
-use function preg_quote;
 use function serialize;
 use function str_repeat;
 use function strtr;
@@ -366,42 +361,6 @@ class CoreTest extends AbstractNetworkTestCase
                 false,
             ],
         ];
-    }
-
-    /**
-     * Test for Core::fatalError
-     */
-    public function testFatalErrorMessage(): void
-    {
-        $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
-
-        $this->expectOutputRegex('/FatalError!/');
-        Core::fatalError('FatalError!');
-    }
-
-    /**
-     * Test for Core::fatalError
-     */
-    public function testFatalErrorMessageWithArgs(): void
-    {
-        $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
-
-        $message = 'Fatal error #%d in file %s.';
-        $params = [
-            1,
-            'error_file.php',
-        ];
-
-        $this->expectOutputRegex('/Fatal error #1 in file error_file.php./');
-        Core::fatalError($message, $params);
-
-        $message = 'Fatal error in file %s.';
-        $params = 'error_file.php';
-
-        $this->expectOutputRegex('/Fatal error in file error_file.php./');
-        Core::fatalError($message, $params);
     }
 
     /**
@@ -804,7 +763,7 @@ class CoreTest extends AbstractNetworkTestCase
             . '" target="Documentation"><em>' . $ext
             . '</em></a> extension is missing. Please check your PHP configuration.';
 
-        $this->expectOutputRegex('@' . preg_quote($warn, '@') . '@');
+        $this->expectExceptionMessage($warn);
 
         Core::warnMissingExtension($ext, true);
     }
@@ -825,12 +784,9 @@ class CoreTest extends AbstractNetworkTestCase
             . '</em></a> extension is missing. Please check your PHP configuration.'
             . ' ' . $extra;
 
-        ob_start();
-        Core::warnMissingExtension($ext, true, $extra);
-        $printed = ob_get_contents();
-        ob_end_clean();
+        $this->expectExceptionMessage($warn);
 
-        $this->assertGreaterThan(0, mb_strpos((string) $printed, $warn));
+        Core::warnMissingExtension($ext, true, $extra);
     }
 
     /**

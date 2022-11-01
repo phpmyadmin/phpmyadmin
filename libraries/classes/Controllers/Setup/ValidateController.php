@@ -34,7 +34,9 @@ final class ValidateController
         $valuesParam = $request->getParsedBodyParam('values');
         $values = json_decode(is_string($valuesParam) ? $valuesParam : '');
         if (! ($values instanceof stdClass)) {
-            Core::fatalError(__('Wrong data'));
+            echo json_encode(['success' => false, 'message' => __('Wrong data')]);
+
+            return;
         }
 
         $values = (array) $values;

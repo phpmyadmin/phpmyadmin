@@ -636,16 +636,20 @@ class Config
 
             if ($contents === false) {
                 $this->sourceMtime = 0;
-                Core::fatalError(
-                    sprintf(
+                echo (new Template())->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'error_message' => sprintf(
                         function_exists('__')
-                        ? __('Existing configuration file (%s) is not readable.')
-                        : 'Existing configuration file (%s) is not readable.',
+                            ? __('Existing configuration file (%s) is not readable.')
+                            : 'Existing configuration file (%s) is not readable.',
                         $this->getSource()
-                    )
-                );
+                    ),
+                ]);
 
-                return false;
+                if (! defined('TESTSUITE')) {
+                    exit;
+                }
             }
         }
 
@@ -675,11 +679,13 @@ class Config
         }
 
         $this->sourceMtime = 0;
-        Core::fatalError(
-            __(
-                'Wrong permissions on configuration file, should not be world writable!'
-            )
-        );
+        echo (new Template())->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => __('Wrong permissions on configuration file, should not be world writable!'),
+        ]);
+
+        exit;
     }
 
     /**
@@ -1041,14 +1047,18 @@ class Config
             return;
         }
 
-        Core::fatalError(
-            sprintf(
+        echo (new Template())->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => sprintf(
                 'Failed to load phpMyAdmin configuration (%s:%s): %s',
                 Error::relPath($error['file']),
                 $error['line'],
                 $error['message']
-            )
-        );
+            ),
+        ]);
+
+        exit;
     }
 
     /**

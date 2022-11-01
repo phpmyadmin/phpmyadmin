@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,7 +16,6 @@ use function array_pop;
 use function array_walk_recursive;
 use function chr;
 use function count;
-use function defined;
 use function explode;
 use function filter_var;
 use function function_exists;
@@ -32,7 +32,6 @@ use function intval;
 use function is_array;
 use function is_string;
 use function json_decode;
-use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
@@ -46,12 +45,10 @@ use function str_replace;
 use function strlen;
 use function strpos;
 use function strtolower;
-use function strtr;
 use function substr;
 use function trigger_error;
 use function unserialize;
 use function urldecode;
-use function vsprintf;
 
 use const DATE_RFC1123;
 use const E_USER_ERROR;
@@ -74,80 +71,6 @@ class Core
     {
         // change .. to .
         return (string) preg_replace('@\.\.*@', '.', $path);
-    }
-
-    /**
-     * displays the given error message on phpMyAdmin error page in foreign language,
-     * ends script execution and closes session
-     *
-     * loads language file if not loaded already
-     *
-     * @param string       $error_message the error message or named error message
-     * @param string|array $message_args  arguments applied to $error_message
-     */
-    public static function fatalError(
-        string $error_message,
-        $message_args = null
-    ): void {
-        /* Use format string if applicable */
-        if (is_string($message_args)) {
-            $error_message = sprintf($error_message, $message_args);
-        } elseif (is_array($message_args)) {
-            $error_message = vsprintf($error_message, $message_args);
-        }
-
-        /**
-         * Avoid using Response class as config does not have to be loaded yet
-         * (this can happen on early fatal error)
-         */
-        if (
-            isset($GLOBALS['dbi'], $GLOBALS['config'])
-            && $GLOBALS['config']->get('is_setup') === false
-            && ResponseRenderer::getInstance()->isAjax()
-        ) {
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus(false);
-            $response->addJSON('message', Message::error($error_message));
-
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return;
-        }
-
-        if (! empty($_REQUEST['ajax_request'])) {
-            // Generate JSON manually
-            foreach (self::headerJSON() as $name => $value) {
-                header(sprintf('%s: %s', $name, $value));
-            }
-
-            echo json_encode(
-                [
-                    'success' => false,
-                    'message' => Message::error($error_message)->getDisplay(),
-                ]
-            );
-
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return;
-        }
-
-        $error_message = strtr($error_message, ['<br>' => '[br]']);
-        $template = new Template();
-
-        echo $template->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => Sanitize::sanitizeMessage($error_message),
-        ]);
-
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
     }
 
     /**
@@ -211,9 +134,7 @@ class Core
         }
 
         if ($fatal) {
-            self::fatalError($message);
-
-            return;
+            throw new MissingExtensionException(Sanitize::sanitizeMessage($message));
         }
 
         $GLOBALS['errorHandler']->addError($message, E_USER_WARNING, '', 0, false);
