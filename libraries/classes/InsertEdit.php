@@ -1746,7 +1746,7 @@ class InsertEdit
         if (
             $editField->type === 'uuid'
                 && ! $editField->isNull
-                && in_array($editField->value, ["''", '', "'uuid()'"], true)
+                && in_array($editField->value, ["''", '', "'uuid()'", 'uuid()'], true)
         ) {
             return 'uuid()';
         }
