@@ -243,6 +243,8 @@ final class ColumnsDefinition
                     case 'NULL':
                     case 'CURRENT_TIMESTAMP':
                     case 'current_timestamp()':
+                    case 'UUID':
+                    case 'uuid()':
                         $columnMeta['Default'] = $columnMeta['DefaultType'];
                         break;
                 }
@@ -298,6 +300,11 @@ final class ColumnsDefinition
                     case 'CURRENT_TIMESTAMP':
                     case 'current_timestamp()':
                         $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
+                        $columnMeta['DefaultValue'] = '';
+                        break;
+                    case 'UUID':
+                    case 'uuid()':
+                        $columnMeta['DefaultType'] = 'UUID';
                         $columnMeta['DefaultValue'] = '';
                         break;
                     default:
