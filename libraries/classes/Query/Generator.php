@@ -105,10 +105,10 @@ class Generator
     public static function getTableIndexesSql(
         string $database,
         string $table,
-        ?string $where = null
+        string $where = ''
     ): string {
         $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.' . Util::backquote($table);
-        if ($where) {
+        if ($where !== '') {
             $sql .= ' WHERE (' . $where . ')';
         }
 
