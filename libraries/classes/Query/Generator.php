@@ -292,27 +292,20 @@ class Generator
         ?string $escapedDatabase,
         ?string $escapedTable,
         ?string $escapedColumn
-    ): array {
+    ): string {
         $sqlWheres = [];
-        $arrayKeys = [];
 
         // get columns information from information_schema
         if ($escapedDatabase !== null) {
             $sqlWheres[] = '`TABLE_SCHEMA` = \'' . $escapedDatabase . '\' ';
-        } else {
-            $arrayKeys[] = 'TABLE_SCHEMA';
         }
 
         if ($escapedTable !== null) {
             $sqlWheres[] = '`TABLE_NAME` = \'' . $escapedTable . '\' ';
-        } else {
-            $arrayKeys[] = 'TABLE_NAME';
         }
 
         if ($escapedColumn !== null) {
             $sqlWheres[] = '`COLUMN_NAME` = \'' . $escapedColumn . '\' ';
-        } else {
-            $arrayKeys[] = 'COLUMN_NAME';
         }
 
         // for PMA bc:
@@ -333,7 +326,32 @@ class Generator
             $sql .= "\n" . ' WHERE ' . implode(' AND ', $sqlWheres);
         }
 
-        return [$sql, $arrayKeys];
+        return $sql;
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getInformationSchemaColumns(
+        ?string $database,
+        ?string $table,
+        ?string $column
+    ): array {
+        $arrayKeys = [];
+
+        if ($database === null) {
+            $arrayKeys[] = 'TABLE_SCHEMA';
+        }
+
+        if ($table === null) {
+            $arrayKeys[] = 'TABLE_NAME';
+        }
+
+        if ($column === null) {
+            $arrayKeys[] = 'COLUMN_NAME';
+        }
+
+        return $arrayKeys;
     }
 
     /**

@@ -831,11 +831,12 @@ class DatabaseInterface implements DbalInterface
         $link = self::CONNECT_USER
     ): array {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            [$sql, $arrayKeys] = QueryGenerator::getInformationSchemaColumnsFullRequest(
+            $sql = QueryGenerator::getInformationSchemaColumnsFullRequest(
                 $database !== null ? $this->escapeString($database, $link) : null,
                 $table !== null ? $this->escapeString($table, $link) : null,
                 $column !== null ? $this->escapeString($column, $link) : null
             );
+            $arrayKeys = QueryGenerator::getInformationSchemaColumns($database, $table, $column);
 
             return $this->fetchResult($sql, $arrayKeys, null, $link);
         }
