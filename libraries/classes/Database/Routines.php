@@ -1625,8 +1625,8 @@ class Routines
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaRoutinesRequest(
                 $dbi->escapeString($db),
-                isset($which) && in_array($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
-                empty($name) ? null : $dbi->escapeString($name)
+                in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
+                $name === '' ? null : $dbi->escapeString($name)
             );
             $routines = $dbi->fetchResult($query);
         } else {
@@ -1635,9 +1635,8 @@ class Routines
             if ($which === 'FUNCTION' || $which == null) {
                 $query = 'SHOW FUNCTION STATUS'
                     . " WHERE `Db` = '" . $dbi->escapeString($db) . "'";
-                if ($name) {
-                    $query .= " AND `Name` = '"
-                        . $dbi->escapeString($name) . "'";
+                if ($name !== '') {
+                    $query .= " AND `Name` = '" . $dbi->escapeString($name) . "'";
                 }
 
                 $routines = $dbi->fetchResult($query);
@@ -1646,9 +1645,8 @@ class Routines
             if ($which === 'PROCEDURE' || $which == null) {
                 $query = 'SHOW PROCEDURE STATUS'
                     . " WHERE `Db` = '" . $dbi->escapeString($db) . "'";
-                if ($name) {
-                    $query .= " AND `Name` = '"
-                        . $dbi->escapeString($name) . "'";
+                if ($name !== '') {
+                    $query .= " AND `Name` = '" . $dbi->escapeString($name) . "'";
                 }
 
                 $routines = array_merge($routines, $dbi->fetchResult($query));
