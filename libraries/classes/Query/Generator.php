@@ -21,7 +21,7 @@ class Generator
      *
      * @param array|string $escapedTableOrTables table(s)
      * @param bool         $tblIsGroup           $table is a table group
-     * @param string       $tableType            whether table or view
+     * @param string|null  $tableType            whether table or view
      *
      * @return string a segment of the WHERE clause
      */
@@ -31,31 +31,25 @@ class Generator
         ?string $tableType
     ): string {
         // get table information from information_schema
-        if ($escapedTableOrTables) {
+        if ($escapedTableOrTables !== [] && $escapedTableOrTables !== '') {
+            $sqlWhereTable = 'AND t.`TABLE_NAME` ';
             if (is_array($escapedTableOrTables)) {
-                $sqlWhereTable = 'AND t.`TABLE_NAME` '
-                    . Util::getCollateForIS() . ' IN (\''
+                $sqlWhereTable .= Util::getCollateForIS() . ' IN (\''
                     . implode('\', \'', $escapedTableOrTables)
                     . '\')';
             } elseif ($tblIsGroup === true) {
-                $sqlWhereTable = 'AND t.`TABLE_NAME` LIKE \''
-                    . Util::escapeMysqlWildcards($escapedTableOrTables)
-                    . '%\'';
+                $sqlWhereTable .= 'LIKE \'' . Util::escapeMysqlWildcards($escapedTableOrTables) . '%\'';
             } else {
-                $sqlWhereTable = 'AND t.`TABLE_NAME` '
-                    . Util::getCollateForIS() . ' = \''
-                    . $escapedTableOrTables . '\'';
+                $sqlWhereTable .= Util::getCollateForIS() . ' = \'' . $escapedTableOrTables . '\'';
             }
         } else {
             $sqlWhereTable = '';
         }
 
-        if ($tableType) {
-            if ($tableType === 'view') {
-                $sqlWhereTable .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            } elseif ($tableType === 'table') {
-                $sqlWhereTable .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            }
+        if ($tableType === 'view') {
+            $sqlWhereTable .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
+        } elseif ($tableType === 'table') {
+            $sqlWhereTable .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
         }
 
         return $sqlWhereTable;
@@ -113,8 +107,7 @@ class Generator
         string $table,
         ?string $where = null
     ): string {
-        $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.'
-            . Util::backquote($table);
+        $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.' . Util::backquote($table);
         if ($where) {
             $sql .= ' WHERE (' . $where . ')';
         }
@@ -138,8 +131,7 @@ class Generator
     ): string {
         return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
-            . ($escapedColumn !== null ? " LIKE '"
-                . $escapedColumn . "'" : '');
+            . ($escapedColumn !== null ? " LIKE '" . $escapedColumn . "'" : '');
     }
 
     public static function getInformationSchemaRoutinesRequest(
@@ -168,8 +160,7 @@ class Generator
         }
 
         if ($escapedRoutineName !== null) {
-            $query .= ' AND `SPECIFIC_NAME`'
-                . " = '" . $escapedRoutineName . "'";
+            $query .= ' AND `SPECIFIC_NAME`' . " = '" . $escapedRoutineName . "'";
         }
 
         return $query;
@@ -197,8 +188,7 @@ class Generator
             . ' WHERE `EVENT_SCHEMA` ' . Util::getCollateForIS()
             . " = '" . $escapedDb . "'";
         if ($escapedEventName !== null) {
-            $query .= ' AND `EVENT_NAME`'
-                . " = '" . $escapedEventName . "'";
+            $query .= ' AND `EVENT_NAME`' . " = '" . $escapedEventName . "'";
         }
 
         return $query;
@@ -214,8 +204,7 @@ class Generator
             . ' \'' . $escapedDb . '\'';
 
         if ($escapedTable !== null) {
-            $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS()
-                . " = '" . $escapedTable . "';";
+            $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS() . " = '" . $escapedTable . "';";
         }
 
         return $query;
@@ -309,22 +298,19 @@ class Generator
 
         // get columns information from information_schema
         if ($escapedDatabase !== null) {
-            $sqlWheres[] = '`TABLE_SCHEMA` = \''
-                . $escapedDatabase . '\' ';
+            $sqlWheres[] = '`TABLE_SCHEMA` = \'' . $escapedDatabase . '\' ';
         } else {
             $arrayKeys[] = 'TABLE_SCHEMA';
         }
 
         if ($escapedTable !== null) {
-            $sqlWheres[] = '`TABLE_NAME` = \''
-                . $escapedTable . '\' ';
+            $sqlWheres[] = '`TABLE_NAME` = \'' . $escapedTable . '\' ';
         } else {
             $arrayKeys[] = 'TABLE_NAME';
         }
 
         if ($escapedColumn !== null) {
-            $sqlWheres[] = '`COLUMN_NAME` = \''
-                . $escapedColumn . '\' ';
+            $sqlWheres[] = '`COLUMN_NAME` = \'' . $escapedColumn . '\' ';
         } else {
             $arrayKeys[] = 'COLUMN_NAME';
         }
@@ -343,7 +329,7 @@ class Generator
                     . ' `COLUMN_COMMENT`    AS `Comment`'
                . ' FROM `information_schema`.`COLUMNS`';
 
-        if (count($sqlWheres)) {
+        if ($sqlWheres !== []) {
             $sql .= "\n" . ' WHERE ' . implode(' AND ', $sqlWheres);
         }
 

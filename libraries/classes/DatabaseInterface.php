@@ -386,13 +386,7 @@ class DatabaseInterface implements DbalInterface
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sqlWhereTable = QueryGenerator::getTableCondition(
-                is_array($table) ? array_map(
-                    [
-                        $this,
-                        'escapeString',
-                    ],
-                    $table
-                ) : $this->escapeString($table),
+                is_array($table) ? array_map([$this, 'escapeString'], $table) : $this->escapeString($table),
                 $tableIsGroup,
                 $tableType
             );
