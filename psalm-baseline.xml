@@ -2206,7 +2206,7 @@
       <code>$import_type</code>
       <code>$local_import_file</code>
       <code>$parameter</code>
-      <code>$replacement</code>
+      <code>$replacementValue</code>
       <code>$skip &lt; $read_limit ? $skip : $read_limit</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="7">
@@ -2216,7 +2216,7 @@
       <code>$_POST['sql_query']</code>
       <code>$format</code>
       <code>$local_import_file</code>
-      <code>$replacement</code>
+      <code>$replacementValue</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="3">
       <code>$charset_of_file</code>
