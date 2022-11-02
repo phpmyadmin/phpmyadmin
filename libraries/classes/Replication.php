@@ -78,10 +78,10 @@ class Replication
      * @return ResultInterface|false output of CHANGE MASTER mysql command
      */
     public function replicaChangePrimary(
-        $user,
-        $password,
-        $host,
-        $port,
+        string $user,
+        string $password,
+        string $host,
+        int $port,
         array $pos,
         bool $stop,
         bool $start,
@@ -93,10 +93,10 @@ class Replication
 
         $out = $GLOBALS['dbi']->tryQuery(
             'CHANGE MASTER TO ' .
-            'MASTER_HOST=\'' . $host . '\',' .
-            'MASTER_PORT=' . ($port * 1) . ',' .
-            'MASTER_USER=\'' . $user . '\',' .
-            'MASTER_PASSWORD=\'' . $password . '\',' .
+            'MASTER_HOST=\'' . $GLOBALS['dbi']->escapeString($host) . '\',' .
+            'MASTER_PORT=' . $port . ',' .
+            'MASTER_USER=\'' . $GLOBALS['dbi']->escapeString($user) . '\',' .
+            'MASTER_PASSWORD=\'' . $GLOBALS['dbi']->escapeString($password) . '\',' .
             'MASTER_LOG_FILE=\'' . $pos['File'] . '\',' .
             'MASTER_LOG_POS=' . $pos['Position'] . ';',
             $link

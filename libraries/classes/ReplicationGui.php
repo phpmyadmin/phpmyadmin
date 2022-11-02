@@ -427,7 +427,10 @@ class ReplicationGui
         bool $srReplicaSkipError,
         int $srSkipErrorsCount,
         ?string $srReplicaControlParam,
-        array $sr
+        string $username,
+        string $pmaPassword,
+        string $hostname,
+        int $port
     ): void {
         if (! $srTakeAction) {
             return;
@@ -445,7 +448,7 @@ class ReplicationGui
                 . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.'
             );
         } elseif ($replicaChangePrimary) {
-            $result = $this->handleRequestForReplicaChangePrimary($sr);
+            $result = $this->handleRequestForReplicaChangePrimary($username, $pmaPassword, $hostname, $port);
         } elseif ($srReplicaServerControl) {
             $result = $this->handleRequestForReplicaServerControl($srReplicaAction, $srReplicaControlParam);
             $refresh = true;
@@ -493,29 +496,33 @@ class ReplicationGui
         unset($refresh);
     }
 
-    public function handleRequestForReplicaChangePrimary(array $sr): bool
-    {
-        $_SESSION['replication']['m_username'] = $sr['username'];
-        $_SESSION['replication']['m_password'] = $sr['pma_pw'];
-        $_SESSION['replication']['m_hostname'] = $sr['hostname'];
-        $_SESSION['replication']['m_port'] = $sr['port'];
+    public function handleRequestForReplicaChangePrimary(
+        string $username,
+        string $pmaPassword,
+        string $hostname,
+        int $port
+    ): bool {
+        $_SESSION['replication']['m_username'] = $username;
+        $_SESSION['replication']['m_password'] = $pmaPassword;
+        $_SESSION['replication']['m_hostname'] = $hostname;
+        $_SESSION['replication']['m_port'] = $port;
         $_SESSION['replication']['m_correct'] = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new primary server
         $linkToPrimary = $this->replication->connectToPrimary(
-            $sr['username'],
-            $sr['pma_pw'],
-            $sr['hostname'],
-            $sr['port']
+            $username,
+            $pmaPassword,
+            $hostname,
+            $port
         );
 
         if (! $linkToPrimary) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = sprintf(
                 __('Unable to connect to primary %s.'),
-                htmlspecialchars($sr['hostname'])
+                htmlspecialchars($hostname)
             );
         } else {
             // Read the current primary position
@@ -531,10 +538,10 @@ class ReplicationGui
 
                 if (
                     ! $this->replication->replicaChangePrimary(
-                        $sr['username'],
-                        $sr['pma_pw'],
-                        $sr['hostname'],
-                        $sr['port'],
+                        $username,
+                        $pmaPassword,
+                        $hostname,
+                        $port,
                         $position,
                         true,
                         false,
@@ -547,7 +554,7 @@ class ReplicationGui
                     $_SESSION['replication']['sr_action_status'] = 'success';
                     $_SESSION['replication']['sr_action_info'] = sprintf(
                         __('Primary server changed successfully to %s.'),
-                        htmlspecialchars($sr['hostname'])
+                        htmlspecialchars($hostname)
                     );
                 }
             }
