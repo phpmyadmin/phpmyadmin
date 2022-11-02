@@ -1732,34 +1732,6 @@ class InsertEditTest extends AbstractTestCase
                     'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
                 ],
             ],
-            'uuid with nullable' => [
-                [
-                    'True_Type' => 'uuid',
-                    'Default' => 'uuid()',
-                    'Null' => 'YES',
-                ],
-                [
-                    true,
-                    '',
-                    '',
-                    '',
-                    '',
-                ],
-            ],
-            'uuid with not nullable' => [
-                [
-                    'True_Type' => 'uuid',
-                    'Default' => 'uuid()',
-                    'Null' => 'NO',
-                ],
-                [
-                    false,
-                    'uuid()',
-                    'uuid()',
-                    '',
-                    'uuid()',
-                ],
-            ],
         ];
     }
 

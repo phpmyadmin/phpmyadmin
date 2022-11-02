@@ -1106,14 +1106,7 @@ class InsertEdit
     private function getSpecialCharsAndBackupFieldForInsertingMode(
         array $column
     ) {
-        $isNullableUUID = ! empty($column['True_Type'])
-            && ! empty($column['Default'])
-            && ! empty($column['Null'])
-            && $column['True_Type'] === 'uuid'
-            && $column['Default'] === 'uuid()'
-            && $column['Null'] === 'YES';
-
-        if ($isNullableUUID || (! isset($column['Default']))) {
+        if (! isset($column['Default'])) {
             $column['Default'] = '';
             $realNullValue = true;
             $data = '';
