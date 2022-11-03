@@ -338,14 +338,10 @@ final class ColumnsDefinition
                 }
 
                 // old column type
-                if (isset($columnMeta['Type'])) {
-                    // keep in uppercase because the new type will be in uppercase
-                    $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
-                    if (isset($columnMeta['column_status']) && ! $columnMeta['column_status']['isEditable']) {
-                        $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
-                    }
-                } else {
-                    $form_params['field_type_orig[' . $columnNumber . ']'] = '';
+                // keep in uppercase because the new type will be in uppercase
+                $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
+                if (isset($columnMeta['column_status']) && ! $columnMeta['column_status']['isEditable']) {
+                    $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
                 }
 
                 // old column length
@@ -411,9 +407,11 @@ final class ColumnsDefinition
             }
 
             if ($type_upper === 'BIT') {
-                $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
+                $default_value = ! empty($columnMeta['DefaultValue'])
+                    ? Util::convertBitDefaultValue($columnMeta['DefaultValue'])
+                    : '';
             } elseif ($type_upper === 'BINARY' || $type_upper === 'VARBINARY') {
-                $default_value = bin2hex($columnMeta['DefaultValue']);
+                $default_value = bin2hex((string) $columnMeta['DefaultValue']);
             }
 
             $content_cells[$columnNumber] = [
@@ -501,12 +499,14 @@ final class ColumnsDefinition
      * @param array $columnMeta Column Metadata
      * @phpstan-param array<string, string|null> $columnMeta
      *
-     * @return array<string, string>
+     * @return non-empty-array<array-key, mixed>
      */
     public static function decorateColumnMetaDefault(array $columnMeta): array
     {
-        $metaDefault['DefaultType'] = 'USER_DEFINED';
-        $metaDefault['DefaultValue'] = '';
+        $metaDefault = [
+            'DefaultType' => 'USER_DEFINED',
+            'DefaultValue' => '',
+        ];
 
         switch ($columnMeta['Default']) {
             case null:
@@ -530,7 +530,7 @@ final class ColumnsDefinition
             default:
                 $metaDefault['DefaultValue'] = $columnMeta['Default'];
 
-                if (substr($columnMeta['Type'], -4) === 'text') {
+                if (substr((string) $columnMeta['Type'], -4) === 'text') {
                     $textDefault = substr($columnMeta['Default'], 1, -1);
                     $metaDefault['Default'] = stripcslashes($textDefault);
                 }
