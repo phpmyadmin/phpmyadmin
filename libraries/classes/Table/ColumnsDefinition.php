@@ -84,7 +84,7 @@ final class ColumnsDefinition
                     ]
                 );
                 if (isset($_POST['field_where'])) {
-                    $form_params['after_field'] = $_POST['after_field'];
+                    $form_params['after_field'] = (string) $_POST['after_field'];
                 }
             }
 
@@ -246,6 +246,8 @@ final class ColumnsDefinition
                     case 'NULL':
                     case 'CURRENT_TIMESTAMP':
                     case 'current_timestamp()':
+                    case 'UUID':
+                    case 'uuid()':
                         $columnMeta['Default'] = $columnMeta['DefaultType'];
                         break;
                 }
@@ -282,38 +284,8 @@ final class ColumnsDefinition
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
 
-                switch ($columnMeta['Default']) {
-                    case null:
-                        if ($columnMeta['Default'] === null) {
-                            if ($columnMeta['Null'] === 'YES') {
-                                $columnMeta['DefaultType'] = 'NULL';
-                                $columnMeta['DefaultValue'] = '';
-                            } else {
-                                $columnMeta['DefaultType'] = 'NONE';
-                                $columnMeta['DefaultValue'] = '';
-                            }
-                        } else { // empty
-                            $columnMeta['DefaultType'] = 'USER_DEFINED';
-                            $columnMeta['DefaultValue'] = $columnMeta['Default'];
-                        }
-
-                        break;
-                    case 'CURRENT_TIMESTAMP':
-                    case 'current_timestamp()':
-                        $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
-                        $columnMeta['DefaultValue'] = '';
-                        break;
-                    default:
-                        $columnMeta['DefaultType'] = 'USER_DEFINED';
-                        $columnMeta['DefaultValue'] = $columnMeta['Default'];
-
-                        if (substr($columnMeta['Type'], -4) === 'text') {
-                            $textDefault = substr($columnMeta['Default'], 1, -1);
-                            $columnMeta['Default'] = stripcslashes($textDefault);
-                        }
-
-                        break;
-                }
+                $columnMetaDefault = self::decorateColumnMetaDefault($columnMeta);
+                $columnMeta = array_merge($columnMeta, $columnMetaDefault);
             }
 
             if (isset($columnMeta['Type'])) {
@@ -366,14 +338,10 @@ final class ColumnsDefinition
                 }
 
                 // old column type
-                if (isset($columnMeta['Type'])) {
-                    // keep in uppercase because the new type will be in uppercase
-                    $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
-                    if (isset($columnMeta['column_status']) && ! $columnMeta['column_status']['isEditable']) {
-                        $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
-                    }
-                } else {
-                    $form_params['field_type_orig[' . $columnNumber . ']'] = '';
+                // keep in uppercase because the new type will be in uppercase
+                $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
+                if (isset($columnMeta['column_status']) && ! $columnMeta['column_status']['isEditable']) {
+                    $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
                 }
 
                 // old column length
@@ -439,9 +407,11 @@ final class ColumnsDefinition
             }
 
             if ($type_upper === 'BIT') {
-                $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
+                $default_value = ! empty($columnMeta['DefaultValue'])
+                    ? Util::convertBitDefaultValue($columnMeta['DefaultValue'])
+                    : '';
             } elseif ($type_upper === 'BINARY' || $type_upper === 'VARBINARY') {
-                $default_value = bin2hex($columnMeta['DefaultValue']);
+                $default_value = bin2hex((string) $columnMeta['DefaultValue']);
             }
 
             $content_cells[$columnNumber] = [
@@ -521,5 +491,53 @@ final class ColumnsDefinition
             'dbi' => $dbi,
             'disable_is' => $cfg['Server']['DisableIS'],
         ];
+    }
+
+    /**
+     * Set default type and default value according to the column metadata
+     *
+     * @param array $columnMeta Column Metadata
+     * @phpstan-param array<string, string|null> $columnMeta
+     *
+     * @return non-empty-array<array-key, mixed>
+     */
+    public static function decorateColumnMetaDefault(array $columnMeta): array
+    {
+        $metaDefault = [
+            'DefaultType' => 'USER_DEFINED',
+            'DefaultValue' => '',
+        ];
+
+        switch ($columnMeta['Default']) {
+            case null:
+                if ($columnMeta['Null'] === 'YES') {
+                    $metaDefault['DefaultType'] = 'NULL';
+                } else {
+                    $metaDefault['DefaultType'] = 'NONE';
+                }
+
+                break;
+            case 'CURRENT_TIMESTAMP':
+            case 'current_timestamp()':
+                $metaDefault['DefaultType'] = 'CURRENT_TIMESTAMP';
+
+                break;
+            case 'UUID':
+            case 'uuid()':
+                $metaDefault['DefaultType'] = 'UUID';
+
+                break;
+            default:
+                $metaDefault['DefaultValue'] = $columnMeta['Default'];
+
+                if (substr((string) $columnMeta['Type'], -4) === 'text') {
+                    $textDefault = substr($columnMeta['Default'], 1, -1);
+                    $metaDefault['Default'] = stripcslashes($textDefault);
+                }
+
+                break;
+        }
+
+        return $metaDefault;
     }
 }
