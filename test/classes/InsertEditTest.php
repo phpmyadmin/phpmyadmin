@@ -1659,37 +1659,20 @@ class InsertEditTest extends AbstractTestCase
 
     /**
      * Test for getSpecialCharsAndBackupFieldForInsertingMode
+     *
+     * @param array $column   Column parameters
+     * @param array $expected Expected result
+     * @psalm-param array<string, string|bool|null> $column
+     * @psalm-param array<bool|string> $expected
+     *
+     * @dataProvider providerForTestGetSpecialCharsAndBackupFieldForInsertingMode
      */
-    public function testGetSpecialCharsAndBackupFieldForInsertingMode(): void
-    {
-        $column = [];
-        $column['True_Type'] = 'bit';
-        $column['Default'] = 'b\'101\'';
-        $column['is_binary'] = true;
+    public function testGetSpecialCharsAndBackupFieldForInsertingMode(
+        array $column,
+        array $expected
+    ): void {
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
-
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForInsertingMode',
-            [$column]
-        );
-
-        $this->assertEquals(
-            [
-                false,
-                'b\'101\'',
-                '101',
-                '',
-                '101',
-            ],
-            $result
-        );
-
-        // case 2
-        unset($column['Default']);
-        $column['True_Type'] = 'char';
 
         $result = (array) $this->callFunction(
             $this->insertEdit,
@@ -1699,15 +1682,126 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                true,
-                '',
-                '',
-                '',
-                '',
-            ],
+            $expected,
             $result
         );
+    }
+
+    /**
+     * Data provider for test getSpecialCharsAndBackupFieldForInsertingMode()
+     *
+     * @return array
+     * @psalm-return array<string, array{array<string, string|bool|null>, array<bool|string>}>
+     */
+    public function providerForTestGetSpecialCharsAndBackupFieldForInsertingMode(): array
+    {
+        return [
+            'bit' => [
+                [
+                    'True_Type' => 'bit',
+                    'Default' => 'b\'101\'',
+                    'is_binary' => true,
+                ],
+                [
+                    false,
+                    'b\'101\'',
+                    '101',
+                    '',
+                    '101',
+                ],
+            ],
+            'char' => [
+                [
+                    'True_Type' => 'char',
+                    'is_binary' => true,
+                ],
+                [
+                    true,
+                    '',
+                    '',
+                    '',
+                    '',
+                ],
+            ],
+            'time with CURRENT_TIMESTAMP value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => 'CURRENT_TIMESTAMP',
+                ],
+                [
+                    false,
+                    'CURRENT_TIMESTAMP',
+                    'CURRENT_TIMESTAMP',
+                    '',
+                    'CURRENT_TIMESTAMP',
+                ],
+            ],
+            'time with current_timestamp() value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => 'current_timestamp()',
+                ],
+                [
+                    false,
+                    'current_timestamp()',
+                    'current_timestamp()',
+                    '',
+                    'current_timestamp()',
+                ],
+            ],
+            'time with no dot value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => '10',
+                ],
+                [
+                    false,
+                    '10',
+                    '10.000000',
+                    '',
+                    '10.000000',
+                ],
+            ],
+            'time with dot value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => '10.08',
+                ],
+                [
+                    false,
+                    '10.08',
+                    '10.080000',
+                    '',
+                    '10.080000',
+                ],
+            ],
+            'any text with escape text default' => [
+                [
+                    'True_Type' => 'text',
+                    'Default' => '"lorem\"ipsem"',
+                ],
+                [
+                    false,
+                    '"lorem\"ipsem"',
+                    'lorem"ipsem',
+                    '',
+                    'lorem"ipsem',
+                ],
+            ],
+            'varchar with html special chars' => [
+                [
+                    'True_Type' => 'varchar',
+                    'Default' => 'hello world<br><b>lorem</b> ipsem',
+                ],
+                [
+                    false,
+                    'hello world<br><b>lorem</b> ipsem',
+                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
+                    '',
+                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
+                ],
+            ],
+        ];
     }
 
     /**

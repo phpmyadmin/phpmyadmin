@@ -4,6 +4,13 @@ $textarea-rows: 15;
 .CodeMirror {
   height: 20rem;
   direction: ltr;
+
+  // @see: issue #17705
+  div.CodeMirror-scroll {
+    margin-right: 0;
+    padding-bottom: 0;
+    overflow: hidden !important;
+  }
 }
 
 #inline_editor_outer .CodeMirror {

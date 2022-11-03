@@ -8,6 +8,13 @@ $textarea-rows: 15 !default;
   height: 20rem;
   border: 1px solid #ccc;
   direction: ltr;
+
+  // @see: issue #17705
+  div.CodeMirror-scroll {
+    margin-right: 0;
+    padding-bottom: 0;
+    overflow: hidden !important;
+  }
 }
 
 #pma_console .CodeMirror {
