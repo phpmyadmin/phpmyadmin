@@ -871,7 +871,7 @@ class Routines
             }
 
             if (! empty($itemParamOpsText[$i])) {
-                if ($GLOBALS['dbi']->types->getTypeClass($itemParamType[$i]) === 'CHAR') {
+                if ($this->dbi->types->getTypeClass($itemParamType[$i]) === 'CHAR') {
                     if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
                         $params .= ' CHARSET '
                             . mb_strtolower($itemParamOpsText[$i]);
@@ -880,7 +880,7 @@ class Routines
             }
 
             if (! empty($itemParamOpsNum[$i])) {
-                if ($GLOBALS['dbi']->types->getTypeClass($itemParamType[$i]) === 'NUMBER') {
+                if ($this->dbi->types->getTypeClass($itemParamType[$i]) === 'NUMBER') {
                     $params .= ' '
                         . mb_strtoupper($itemParamOpsNum[$i]);
                 }
@@ -937,14 +937,14 @@ class Routines
         }
 
         if (! empty($_POST['item_returnopts_text'])) {
-            if ($GLOBALS['dbi']->types->getTypeClass($itemReturnType) === 'CHAR') {
+            if ($this->dbi->types->getTypeClass($itemReturnType) === 'CHAR') {
                 $query .= ' CHARSET '
                     . mb_strtolower($_POST['item_returnopts_text']);
             }
         }
 
         if (! empty($_POST['item_returnopts_num'])) {
-            if ($GLOBALS['dbi']->types->getTypeClass($itemReturnType) === 'NUMBER') {
+            if ($this->dbi->types->getTypeClass($itemReturnType) === 'NUMBER') {
                 $query .= ' '
                     . mb_strtoupper($_POST['item_returnopts_num']);
             }

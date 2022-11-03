@@ -46,7 +46,7 @@ class StatusControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $data = new Data();
+        $data = new Data($GLOBALS['dbi']);
 
         $bytesReceived = 100;
         $bytesSent = 200;

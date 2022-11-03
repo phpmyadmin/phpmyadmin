@@ -42,7 +42,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->response = new ResponseRenderer();
         $this->template = new Template();
-        $this->data = new Data();
+        $this->data = new Data($GLOBALS['dbi']);
     }
 
     public function testIndexWithoutData(): void

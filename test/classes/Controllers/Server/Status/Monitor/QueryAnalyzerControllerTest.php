@@ -44,7 +44,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi = new DbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $controller = new QueryAnalyzerController($response, new Template(), new Data(), new Monitor($dbi), $dbi);
+        $controller = new QueryAnalyzerController($response, new Template(), new Data($dbi), new Monitor($dbi), $dbi);
 
         $_POST['database'] = 'database';
         $_POST['query'] = 'query';
