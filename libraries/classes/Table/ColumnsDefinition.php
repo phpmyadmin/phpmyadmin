@@ -82,7 +82,7 @@ final class ColumnsDefinition
             if ($action === '/table/add-field') {
                 $form_params = array_merge($form_params, ['field_where' => $_POST['field_where'] ?? null]);
                 if (isset($_POST['field_where'])) {
-                    $form_params['after_field'] = $_POST['after_field'];
+                    $form_params['after_field'] = (string) $_POST['after_field'];
                 }
             }
 
@@ -281,16 +281,15 @@ final class ColumnsDefinition
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
 
+                $columnMeta['DefaultType'] = 'USER_DEFINED';
+                $columnMeta['DefaultValue'] = '';
+
                 switch ($columnMeta['Default']) {
                     case null:
                         if ($columnMeta['Default'] === null) {
-                            if ($columnMeta['Null'] === 'YES') {
-                                $columnMeta['DefaultType'] = 'NULL';
-                                $columnMeta['DefaultValue'] = '';
-                            } else {
-                                $columnMeta['DefaultType'] = 'NONE';
-                                $columnMeta['DefaultValue'] = '';
-                            }
+                            $columnMeta['DefaultType'] = $columnMeta['Null'] === 'YES'
+                                ? 'NULL'
+                                : 'NONE';
                         } else { // empty
                             $columnMeta['DefaultType'] = 'USER_DEFINED';
                             $columnMeta['DefaultValue'] = $columnMeta['Default'];
@@ -300,15 +299,14 @@ final class ColumnsDefinition
                     case 'CURRENT_TIMESTAMP':
                     case 'current_timestamp()':
                         $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
-                        $columnMeta['DefaultValue'] = '';
+
                         break;
                     case 'UUID':
                     case 'uuid()':
                         $columnMeta['DefaultType'] = 'UUID';
-                        $columnMeta['DefaultValue'] = '';
+
                         break;
                     default:
-                        $columnMeta['DefaultType'] = 'USER_DEFINED';
                         $columnMeta['DefaultValue'] = $columnMeta['Default'];
 
                         if (substr($columnMeta['Type'], -4) === 'text') {
