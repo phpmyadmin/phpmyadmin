@@ -2772,7 +2772,7 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
                 'fld',
-                "uuid()",
+                'uuid()',
                 'uuid',
                 false,
                 false,
