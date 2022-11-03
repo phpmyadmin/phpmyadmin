@@ -284,41 +284,8 @@ final class ColumnsDefinition
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
 
-                $columnMeta['DefaultType'] = 'USER_DEFINED';
-                $columnMeta['DefaultValue'] = '';
-
-                switch ($columnMeta['Default']) {
-                    case null:
-                        if ($columnMeta['Default'] === null) {
-                            $columnMeta['DefaultType'] = $columnMeta['Null'] === 'YES'
-                                ? 'NULL'
-                                : 'NONE';
-                        } else { // empty
-                            $columnMeta['DefaultType'] = 'USER_DEFINED';
-                            $columnMeta['DefaultValue'] = $columnMeta['Default'];
-                        }
-
-                        break;
-                    case 'CURRENT_TIMESTAMP':
-                    case 'current_timestamp()':
-                        $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
-
-                        break;
-                    case 'UUID':
-                    case 'uuid()':
-                        $columnMeta['DefaultType'] = 'UUID';
-
-                        break;
-                    default:
-                        $columnMeta['DefaultValue'] = $columnMeta['Default'];
-
-                        if (substr($columnMeta['Type'], -4) === 'text') {
-                            $textDefault = substr($columnMeta['Default'], 1, -1);
-                            $columnMeta['Default'] = stripcslashes($textDefault);
-                        }
-
-                        break;
-                }
+                $columnMetaDefault = self::decorateColumnMetaDefault($columnMeta);
+                $columnMeta = array_merge($columnMeta, $columnMetaDefault);
             }
 
             if (isset($columnMeta['Type'])) {
@@ -526,5 +493,51 @@ final class ColumnsDefinition
             'dbi' => $dbi,
             'disable_is' => $cfg['Server']['DisableIS'],
         ];
+    }
+
+    /**
+     * Set default type and default value according to the column metadata
+     *
+     * @param array $columnMeta Column Metadata
+     * @phpstan-param array<string, string|null> $columnMeta
+     *
+     * @return array<string, string>
+     */
+    public static function decorateColumnMetaDefault(array $columnMeta): array
+    {
+        $metaDefault['DefaultType'] = 'USER_DEFINED';
+        $metaDefault['DefaultValue'] = '';
+
+        switch ($columnMeta['Default']) {
+            case null:
+                if ($columnMeta['Null'] === 'YES') {
+                    $metaDefault['DefaultType'] = 'NULL';
+                } else {
+                    $metaDefault['DefaultType'] = 'NONE';
+                }
+
+                break;
+            case 'CURRENT_TIMESTAMP':
+            case 'current_timestamp()':
+                $metaDefault['DefaultType'] = 'CURRENT_TIMESTAMP';
+
+                break;
+            case 'UUID':
+            case 'uuid()':
+                $metaDefault['DefaultType'] = 'UUID';
+
+                break;
+            default:
+                $metaDefault['DefaultValue'] = $columnMeta['Default'];
+
+                if (substr($columnMeta['Type'], -4) === 'text') {
+                    $textDefault = substr($columnMeta['Default'], 1, -1);
+                    $metaDefault['Default'] = stripcslashes($textDefault);
+                }
+
+                break;
+        }
+
+        return $metaDefault;
     }
 }
