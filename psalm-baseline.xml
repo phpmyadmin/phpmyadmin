@@ -13433,16 +13433,14 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="13">
       <code>$GLOBALS['mime_map'][$columnMeta['Field']] ?? []</code>
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
+      <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
-      <code>$columnMeta['Default']</code>
-      <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['Field']</code>
       <code>$columnMeta['Field']</code>
-      <code>$columnMeta['Type']</code>
       <code>$columnMeta['Type']</code>
       <code>$extracted_columnspec['attribute'] ?? ''</code>
       <code>$form_params['db']</code>
@@ -13450,42 +13448,19 @@
       <code>$type</code>
       <code>Util::getValueByKey($_POST, 'field_key.' . $columnNumber, '')</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="18">
+    <MixedArrayAccess occurrences="7">
       <code>$GLOBALS['mime_map'][$columnMeta['Field']]</code>
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
-      <code>$columnMeta['Collation']</code>
-      <code>$columnMeta['Comment']</code>
-      <code>$columnMeta['Default']</code>
-      <code>$columnMeta['Default']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['Expression']</code>
-      <code>$columnMeta['Extra']</code>
       <code>$columnMeta['Extra']</code>
       <code>$columnMeta['Field']</code>
       <code>$columnMeta['Field']</code>
-      <code>$columnMeta['Null']</code>
-      <code>$columnMeta['Null']</code>
-      <code>$columnMeta['Type']</code>
-      <code>$columnMeta['Virtuality']</code>
       <code>$columnMeta['column_status']['isEditable']</code>
       <code>$columnMeta['column_status']['isEditable']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="15">
+    <MixedArrayAssignment occurrences="3">
       <code>$GLOBALS['mime_map'][$columnMeta['Field']]</code>
       <code>$available_mime[$mime_type . '_file_quoted'][$mimekey]</code>
-      <code>$columnMeta['Default']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['Expression']</code>
-      <code>$columnMeta['Type']</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="4">
       <code>$GLOBALS['mime_map'][$columnMeta['Field']]</code>
@@ -13493,13 +13468,11 @@
       <code>$comments_map[$columnMeta['Field']]</code>
       <code>$expressions[$columnMeta['Field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="17">
       <code>$GLOBALS['mime_map']</code>
       <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['Default']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['Expression']</code>
       <code>$columnMeta['Key']</code>
       <code>$comments_map[$columnMeta['Field']]</code>
@@ -13518,7 +13491,8 @@
       <code>$form_params['db']</code>
       <code>$form_params['table']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
+    <PossiblyInvalidCast occurrences="3">
+      <code>$_POST['after_field']</code>
       <code>$form_params['db']</code>
       <code>$form_params['table']</code>
     </PossiblyInvalidCast>
@@ -15253,10 +15227,9 @@
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="30">
+    <MixedAssignment occurrences="29">
       <code>$actual</code>
       <code>$actual</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
