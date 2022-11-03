@@ -2768,6 +2768,24 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals('`fld` = uuid()', $result);
 
+        // Test that the uuid function as a value uses the uuid function to generate a value
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                'uuid()',
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
+        );
+
+        $this->assertEquals('`fld` = uuid()', $result);
+
         // Test that the uuid type does not have a default value other than null when it is nullable
         $result = $this->insertEdit->getQueryValueForUpdate(
             new EditField(
