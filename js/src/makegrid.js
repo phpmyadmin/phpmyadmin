@@ -759,7 +759,8 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             if ($dp.length > 0) {
                 // eslint-disable-next-line no-underscore-dangle
                 $(document).on('mousedown', $.datepicker._checkExternalClick);
-                $dp.datepicker('destroy');
+                $dp.datepicker('refresh');
+
                 // change the cursor in edit box back to normal
                 // (the cursor become a hand pointer when we add datepicker)
                 $(g.cEdit).find('.edit_box').css('cursor', 'inherit');
