@@ -85,7 +85,7 @@ class Privileges
      */
     public function __construct(
         Template $template,
-        $dbi,
+        DatabaseInterface $dbi,
         Relation $relation,
         RelationCleanup $relationCleanup,
         Plugins $plugins
@@ -870,9 +870,9 @@ class Privileges
         if (isset($username, $hostname) && $mode === 'change') {
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE `User` = "'
-                . $GLOBALS['dbi']->escapeString($username)
+                . $this->dbi->escapeString($username)
                 . '" AND `Host` = "'
-                . $GLOBALS['dbi']->escapeString($hostname)
+                . $this->dbi->escapeString($hostname)
                 . '" LIMIT 1'
             );
             // Table 'mysql'.'user' may not exist for some previous
@@ -885,9 +885,9 @@ class Privileges
 
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE `User` = "'
-                . $GLOBALS['dbi']->escapeString($username)
+                . $this->dbi->escapeString($username)
                 . '" AND `Host` = "'
-                . $GLOBALS['dbi']->escapeString($hostname)
+                . $this->dbi->escapeString($hostname)
                 . '"'
             );
             if (is_array($row) && isset($row['plugin'])) {
@@ -1014,8 +1014,8 @@ class Privileges
                     . " `authentication_string` = '" . $hashedPassword
                     . "', `Password` = '', "
                     . " `plugin` = '" . $authenticationPlugin . "'"
-                    . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
-                    . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
+                    . " WHERE `User` = '" . $this->dbi->escapeString($username)
+                    . "' AND Host = '" . $this->dbi->escapeString($hostname) . "';";
             } else {
                 // USE 'SET PASSWORD ...' syntax for rest of the versions
                 // Backup the old value, to be reset later
@@ -1023,8 +1023,8 @@ class Privileges
                 $origValue = $row['@@old_passwords'];
                 $updatePluginQuery = 'UPDATE `mysql`.`user` SET'
                     . " `plugin` = '" . $authenticationPlugin . "'"
-                    . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
-                    . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
+                    . " WHERE `User` = '" . $this->dbi->escapeString($username)
+                    . "' AND Host = '" . $this->dbi->escapeString($hostname) . "';";
 
                 // Update the plugin for the user
                 if (! $this->dbi->tryQuery($updatePluginQuery)) {

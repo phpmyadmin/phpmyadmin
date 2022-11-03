@@ -51,7 +51,7 @@ class TrackingTest extends AbstractTestCase
 
         $template = new Template();
         $this->tracking = new Tracking(
-            new SqlQueryForm($template),
+            new SqlQueryForm($template, $GLOBALS['dbi']),
             $template,
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']

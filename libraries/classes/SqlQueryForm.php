@@ -31,12 +31,16 @@ class SqlQueryForm
     /** @var Template */
     private $template;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
      * @param Template $template Template object
      */
-    public function __construct(Template $template)
+    public function __construct(Template $template, DatabaseInterface $dbi)
     {
         $this->template = $template;
+        $this->dbi = $dbi;
     }
 
     /**
@@ -90,14 +94,14 @@ class SqlQueryForm
             [$legend, $query, $columns_list] = $this->init($query);
         }
 
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = new Relation($this->dbi);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
 
         $bookmarks = [];
         if ($display_tab === 'full' && $bookmarkFeature !== null) {
             $bookmark_list = Bookmark::getList(
                 $bookmarkFeature,
-                $GLOBALS['dbi'],
+                $this->dbi,
                 $GLOBALS['cfg']['Server']['user'],
                 $db
             );
@@ -173,7 +177,7 @@ class SqlQueryForm
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columns_list = $GLOBALS['dbi']->getColumns($db, $GLOBALS['table'], true);
+            $columns_list = $this->dbi->getColumns($db, $GLOBALS['table'], true);
 
             $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             $tmp_tbl_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';

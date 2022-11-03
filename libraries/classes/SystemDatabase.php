@@ -108,9 +108,7 @@ class SystemDatabase
                     $dataRow['comment'],
                     $dataRow['mimetype'],
                     $dataRow['transformation'],
-                    $GLOBALS['dbi']->escapeString(
-                        $dataRow['transformation_options']
-                    )
+                    $this->dbi->escapeString($dataRow['transformation_options'])
                 );
 
                 $addComma = true;

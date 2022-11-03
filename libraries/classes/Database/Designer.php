@@ -166,7 +166,7 @@ class Designer
                 . Util::backquote($databaseDesignerSettingsFeature->database) . '.'
                 . Util::backquote($databaseDesignerSettingsFeature->designerSettings)
                 . ' WHERE ' . Util::backquote('username') . ' = "'
-                . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
+                . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user'])
                 . '";';
 
             $result = $this->dbi->fetchSingleRow($query);
