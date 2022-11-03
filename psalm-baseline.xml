@@ -13762,16 +13762,13 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
-    <MixedArgument occurrences="28">
+    <MixedArgument occurrences="25">
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
       <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
-      <code>$columnMeta['Default']</code>
-      <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['Field']</code>
       <code>$columnMeta['Field']</code>
-      <code>$columnMeta['Type']</code>
       <code>$columnMeta['Type']</code>
       <code>$db</code>
       <code>$db</code>
@@ -13792,33 +13789,18 @@
       <code>Util::getValueByKey($_POST, 'field_key.' . $columnNumber, '')</code>
       <code>Util::getValueByKey($extracted_columnspec, 'attribute', '')</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="10">
+    <MixedArrayAccess occurrences="7">
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
-      <code>$columnMeta['Default']</code>
       <code>$columnMeta['Extra']</code>
       <code>$columnMeta['Field']</code>
       <code>$columnMeta['Field']</code>
-      <code>$columnMeta['Null']</code>
-      <code>$columnMeta['Type']</code>
       <code>$columnMeta['column_status']['isEditable']</code>
       <code>$columnMeta['column_status']['isEditable']</code>
       <code>$mime_map[$columnMeta['Field']]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="15">
+    <MixedArrayAssignment occurrences="3">
       <code>$available_mime[$mime_type . '_file_quoted'][$mimekey]</code>
-      <code>$columnMeta['Default']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultType']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['Expression']</code>
-      <code>$columnMeta['Type']</code>
       <code>$mime_map[$columnMeta['Field']]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="4">
@@ -13827,12 +13809,10 @@
       <code>$mime_map[$columnMeta['Field']]</code>
       <code>$mime_map[$columnMeta['Field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="17">
       <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['Default']</code>
-      <code>$columnMeta['DefaultValue']</code>
-      <code>$columnMeta['DefaultValue']</code>
       <code>$columnMeta['Expression']</code>
       <code>$columnMeta['Key']</code>
       <code>$comments_map[$columnMeta['Field']]</code>
@@ -13848,13 +13828,8 @@
       <code>$submit_attribute</code>
       <code>$type</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$form_params['db']</code>
-      <code>$form_params['table']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$form_params['db']</code>
-      <code>$form_params['table']</code>
+    <PossiblyInvalidCast occurrences="1">
+      <code>$_POST['after_field']</code>
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Table/Indexes.php">
@@ -15700,10 +15675,9 @@
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="29">
+    <MixedAssignment occurrences="28">
       <code>$actual</code>
       <code>$actual</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
