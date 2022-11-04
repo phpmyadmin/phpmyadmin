@@ -109,8 +109,7 @@ final class ExportController extends AbstractController
         $onServerParam = $request->getParsedBodyParam('onserver');
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
-        /** @var string|null $structureOrDataForced */
-        $structureOrDataForced = $request->getParsedBodyParam('structure_or_data_forced');
+        $structureOrDataForced = $request->hasBodyParam('structure_or_data_forced');
 
         $this->addScriptFiles(['export_output.js']);
 

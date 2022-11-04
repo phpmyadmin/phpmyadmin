@@ -63,4 +63,16 @@ class ServerRequestTest extends TestCase
         $this->assertSame('', $request->getQueryParam('key4'));
         $this->assertSame('', $request->getQueryParam('key4', 'default'));
     }
+
+    public function testHasBodyParam(): void
+    {
+        $queryParams = ['key1' => 'value1', 'key2' => ['value2'], 'key4' => ''];
+        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub->method('getParsedBody')->willReturn($queryParams);
+        $request = new ServerRequest($requestStub);
+        $this->assertTrue($request->hasBodyParam('key1'));
+        $this->assertTrue($request->hasBodyParam('key2'));
+        $this->assertFalse($request->hasBodyParam('key3'));
+        $this->assertTrue($request->hasBodyParam('key4'));
+    }
 }

@@ -17,7 +17,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function strval;
+use function is_string;
 
 /**
  * View manipulations
@@ -64,11 +64,10 @@ class OperationsController extends AbstractController
 
         $message = new Message();
         $type = 'success';
-        $submitoptions = $request->getParsedBodyParam('submitoptions');
         $newname = $request->getParsedBodyParam('new_name');
 
-        if ($submitoptions !== null) {
-            if ($newname !== null && $tableObject->rename(strval($newname))) {
+        if ($request->hasBodyParam('submitoptions')) {
+            if (is_string($newname) && $tableObject->rename($newname)) {
                 $message->addText($tableObject->getLastMessage());
                 $GLOBALS['result'] = true;
                 $GLOBALS['table'] = $tableObject->getName();

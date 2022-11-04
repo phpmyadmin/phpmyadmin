@@ -96,14 +96,14 @@ final class TrackingController extends AbstractController
         $GLOBALS['selection_data'] = false;
         $GLOBALS['selection_both'] = false;
 
-        $report = $request->getParsedBodyParam('report');
+        $report = $request->hasBodyParam('report');
         /** @var string $versionParam */
         $versionParam = $request->getParsedBodyParam('version');
         /** @var string $tableParam */
         $tableParam = $request->getParsedBodyParam('table');
 
         // Init vars for tracking report
-        if ($report !== null || $reportExport !== null) {
+        if ($report || $reportExport !== null) {
             $GLOBALS['data'] = Tracker::getTrackedData(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
@@ -170,7 +170,7 @@ final class TrackingController extends AbstractController
         }
 
         $deleteVersion = '';
-        if ($request->getParsedBodyParam('submit_delete_version') !== null) {
+        if ($request->hasBodyParam('submit_delete_version')) {
             $deleteVersion = $this->tracking->deleteTrackingVersion(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
@@ -179,7 +179,7 @@ final class TrackingController extends AbstractController
         }
 
         $createVersion = '';
-        if ($request->getParsedBodyParam('submit_create_version') !== null) {
+        if ($request->hasBodyParam('submit_create_version')) {
             $createVersion = $this->tracking->createTrackingVersion(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
@@ -220,7 +220,7 @@ final class TrackingController extends AbstractController
         }
 
         $schemaSnapshot = '';
-        if ($request->getParsedBodyParam('snapshot') !== null) {
+        if ($request->hasBodyParam('snapshot')) {
             /** @var string $db */
             $db = $request->getParsedBodyParam('db');
             $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
@@ -232,11 +232,7 @@ final class TrackingController extends AbstractController
         }
 
         $trackingReportRows = '';
-        if (
-            $report !== null
-            && ($request->getParsedBodyParam('delete_ddlog') !== null
-                || $request->getParsedBodyParam('delete_dmlog') !== null)
-        ) {
+        if ($report && ($request->hasBodyParam('delete_ddlog') || $request->hasBodyParam('delete_dmlog'))) {
             $trackingReportRows = $this->tracking->deleteTrackingReportRows(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
@@ -248,7 +244,7 @@ final class TrackingController extends AbstractController
         }
 
         $trackingReport = '';
-        if ($report !== null || $reportExport !== null) {
+        if ($report || $reportExport !== null) {
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $GLOBALS['data'],
                 $GLOBALS['urlParams'],

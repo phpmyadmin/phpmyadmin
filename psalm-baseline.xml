@@ -3090,10 +3090,9 @@
       <code>$currentValue</code>
       <code>$whereClause</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$column</code>
       <code>$currentValue</code>
-      <code>$fullValues</code>
       <code>$whereClause</code>
     </MixedAssignment>
   </file>
@@ -3115,7 +3114,7 @@
     <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['ajax_reload']['reload']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="17">
+    <MixedAssignment occurrences="16">
       <code>$GLOBALS['ajax_reload']</code>
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['disp_message']</code>
@@ -3132,7 +3131,6 @@
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$bkm_all_users</code>
       <code>$sql_query</code>
-      <code>$store_bkm</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
@@ -4203,7 +4201,7 @@
       <code>$GLOBALS['data']['date_from']</code>
       <code>$GLOBALS['data']['date_to']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="17">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['entries']</code>
@@ -4216,7 +4214,6 @@
       <code>$GLOBALS['selection_data']</code>
       <code>$GLOBALS['selection_schema']</code>
       <code>$logType</code>
-      <code>$report</code>
       <code>$reportExport</code>
       <code>$selectedVersions</code>
       <code>$submitMult</code>
@@ -4437,17 +4434,15 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/View/OperationsController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$GLOBALS['warning_messages']</code>
-      <code>$newname</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['result']</code>
       <code>$GLOBALS['warning_messages']</code>
       <code>$newname</code>
-      <code>$submitoptions</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Core.php">

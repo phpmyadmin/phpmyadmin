@@ -381,4 +381,12 @@ class ServerRequest implements ServerRequestInterface
 
         return $route;
     }
+
+    public function hasBodyParam(string $param): bool
+    {
+        $postParams = $this->getParsedBody();
+
+        return is_array($postParams) && isset($postParams[$param])
+            || is_object($postParams) && property_exists($postParams, $param);
+    }
 }

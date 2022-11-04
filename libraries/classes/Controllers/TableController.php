@@ -23,7 +23,7 @@ final class TableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if ($request->getParsedBodyParam('db') === null) {
+        if (! $request->hasBodyParam('db')) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
