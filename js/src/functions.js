@@ -171,7 +171,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
                 if (typeof tooltip !== 'undefined') {
                     tooltip.disable();
                     var $note = $('<p class="note"></div>');
-                    $note.text(tooltip.option('content'));
+                    $note.text('Note: ' + tooltip.option('content'));
                     $('div.ui-datepicker').append($note);
                 }
             }, 0);

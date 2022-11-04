@@ -597,6 +597,10 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          * @param cell <td> element to be edited
          */
         showEditCell: function (cell) {
+            // destroy the date picker instance left if any
+            var $datePickerInstance = $(g.cEdit).find('.hasDatepicker');
+            $datePickerInstance.datepicker('destroy');
+
             if ($(cell).is('.grid_edit') &&
                 !g.colRsz && !g.colReorder) {
                 if (!g.isCellEditActive) {
@@ -633,8 +637,13 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             // Show as is
                         }
                     }
-                    $(g.cEdit).find('.edit_box').val(value);
 
+                    // If the date is NULL, assign current date in date picker
+                    if ($cell.attr('data-type') === 'date' && value === '') {
+                        value = $.datepicker.formatDate('yy-mm-dd', new Date());
+                    }
+
+                    $(g.cEdit).find('.edit_box').val(value);
                     g.currentEditCell = cell;
                     $(g.cEdit).find('.edit_box').trigger('focus');
                     moveCursorToEnd($(g.cEdit).find('.edit_box'));
