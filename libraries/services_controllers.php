@@ -1115,7 +1115,6 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$sql' => '@sql',
                 '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
             ],

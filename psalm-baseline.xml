@@ -13018,21 +13018,15 @@
     <NullableReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </NullableReturnStatement>
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$_POST[$requestIndex]</code>
+    <PossiblyInvalidArgument occurrences="6">
       <code>$_POST['bkm_label']</code>
       <code>$_POST['dropped_column'] ?? null</code>
-      <code>$_POST['table_create_time'] ?? null</code>
       <code>$numRows</code>
       <code>$numRows</code>
       <code>$numRows</code>
       <code>$numRows</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset occurrences="1">
-      <code>$_POST[$requestIndex]</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$_POST[$requestIndex]</code>
+    <PossiblyInvalidCast occurrences="1">
       <code>$_POST['bkm_label']</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="1">
