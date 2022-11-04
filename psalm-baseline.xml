@@ -2590,35 +2590,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['geom_count']]]></code>
-      <code><![CDATA[$GLOBALS['geom_type']]]></code>
-      <code><![CDATA[$GLOBALS['gis_data']]]></code>
-      <code><![CDATA[$GLOBALS['gis_obj']]]></code>
-      <code><![CDATA[$GLOBALS['gis_types']]]></code>
-      <code><![CDATA[$GLOBALS['open_layers']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['start']]]></code>
-      <code><![CDATA[$GLOBALS['visualization']]]></code>
-      <code><![CDATA[$GLOBALS['visualizationSettings']]]></code>
-      <code><![CDATA[$GLOBALS['wkt']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['geom_type']]]></code>
+      <code>$geomType</code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['geom_count']]]></code>
-      <code><![CDATA[$GLOBALS['geom_type']]]></code>
-      <code><![CDATA[$GLOBALS['geom_type']]]></code>
-      <code><![CDATA[$GLOBALS['gis_data']]]></code>
-      <code><![CDATA[$GLOBALS['gis_obj']]]></code>
-      <code><![CDATA[$GLOBALS['gis_types']]]></code>
-      <code><![CDATA[$GLOBALS['open_layers']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-      <code><![CDATA[$GLOBALS['start']]]></code>
-      <code><![CDATA[$GLOBALS['visualization']]]></code>
-      <code><![CDATA[$GLOBALS['visualizationSettings']]]></code>
-      <code><![CDATA[$GLOBALS['wkt']]]></code>
+      <code>$geomType</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/GitInfoController.php">
