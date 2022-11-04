@@ -3871,13 +3871,11 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AddIndexController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AddKeyController.php">
@@ -3899,22 +3897,6 @@
       <code>$_POST['selected_fld']</code>
     </PossiblyInvalidIterator>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php">
-    <MixedArgument occurrences="1">
-      <code>$selected</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$selected</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php">
-    <MixedArgument occurrences="1">
-      <code>$selected</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$selected</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
     <MixedArgument occurrences="2">
       <code>$selected</code>
@@ -3932,13 +3914,11 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/FulltextController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
@@ -4116,23 +4096,19 @@
     </PossiblyInvalidOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/SpatialController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/UniqueController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">

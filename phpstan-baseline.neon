@@ -1716,31 +1716,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/AddIndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/AddIndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/AddIndexController.php
-
-		-
-			message: "#^Parameter \\#1 \\$field_select of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php
-
-		-
-			message: "#^Parameter \\#2 \\$field_select of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\ChangeController\\:\\:displayHtmlForColumnChange\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/ChangeController.php
@@ -1749,21 +1724,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\ChangeController\\:\\:displayHtmlForColumnChange\\(\\) expects array\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/ChangeController.php
-
-		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/FulltextController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/FulltextController.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/FulltextController.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
@@ -1864,36 +1824,6 @@ parameters:
 			message: "#^Parameter \\#7 \\$null of static method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) expects bool\\|string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/SpatialController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/SpatialController.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/SpatialController.php
-
-		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/UniqueController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/UniqueController.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/UniqueController.php
 
 		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
