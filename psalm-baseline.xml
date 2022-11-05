@@ -2802,12 +2802,11 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ReplicationController.php">
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$replicaInfo['status']</code>
-      <code>$request-&gt;getParsedBodyParam('hostname')</code>
-      <code>$request-&gt;getParsedBodyParam('pma_pw')</code>
-      <code>$request-&gt;getParsedBodyParam('text_port')</code>
-      <code>$request-&gt;getParsedBodyParam('username')</code>
+      <code>$request-&gt;getParsedBodyParam('hostname', '')</code>
+      <code>$request-&gt;getParsedBodyParam('pma_pw', '')</code>
+      <code>$request-&gt;getParsedBodyParam('username', '')</code>
     </MixedArgument>
     <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
@@ -12099,20 +12098,10 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/ReplicationGui.php">
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="6">
       <code>$database</code>
       <code>$errorMessage</code>
       <code>$serverReplicationVariable</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['pma_pw']</code>
-      <code>$sr['pma_pw']</code>
-      <code>$sr['port']</code>
-      <code>$sr['port']</code>
-      <code>$sr['username']</code>
-      <code>$sr['username']</code>
       <code>$successMessage</code>
       <code>$val['Type']</code>
       <code>$val['Type']</code>
@@ -12151,11 +12140,7 @@
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
-      <code>$_SESSION['replication']['m_hostname']</code>
-      <code>$_SESSION['replication']['m_password']</code>
-      <code>$_SESSION['replication']['m_port']</code>
-      <code>$_SESSION['replication']['m_username']</code>
+    <MixedAssignment occurrences="6">
       <code>$database</code>
       <code>$errorMessage</code>
       <code>$linkToPrimary</code>

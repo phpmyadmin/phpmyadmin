@@ -87,12 +87,10 @@ class ReplicationController extends AbstractController
                 $request->getParsedBodyParam('sr_replica_skip_error') !== null,
                 (int) $srSkipErrorsCount,
                 $srReplicaControlParam,
-                [
-                    'username' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('username')),
-                    'pma_pw' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('pma_pw')),
-                    'hostname' => $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('hostname')),
-                    'port' => (int) $GLOBALS['dbi']->escapeString($request->getParsedBodyParam('text_port')),
-                ]
+                $request->getParsedBodyParam('username', ''),
+                $request->getParsedBodyParam('pma_pw', ''),
+                $request->getParsedBodyParam('hostname', ''),
+                (int) $request->getParsedBodyParam('text_port')
             );
         }
 
