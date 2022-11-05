@@ -4189,11 +4189,13 @@
       <code>$GLOBALS['data']</code>
       <code>$version</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="4">
+      <code>$GLOBALS['data']['date_from']</code>
       <code>$GLOBALS['data']['date_from']</code>
       <code>$GLOBALS['data']['date_to']</code>
+      <code>$GLOBALS['data']['date_to']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="17">
+    <MixedAssignment occurrences="19">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['entries']</code>
@@ -4205,6 +4207,8 @@
       <code>$GLOBALS['selection_both']</code>
       <code>$GLOBALS['selection_data']</code>
       <code>$GLOBALS['selection_schema']</code>
+      <code>$_POST['date_from']</code>
+      <code>$_POST['date_to']</code>
       <code>$logType</code>
       <code>$reportExport</code>
       <code>$selectedVersions</code>

@@ -111,6 +111,9 @@ final class TrackingController extends AbstractController
             );
 
             $logType = $request->getParsedBodyParam('logtype', 'schema_and_data');
+            if (! isset($_POST['logtype'])) {
+                $_POST['logtype'] = 'schema_and_data';
+            }
 
             if ($logType === 'schema') {
                 $GLOBALS['selection_schema'] = true;
@@ -122,10 +125,21 @@ final class TrackingController extends AbstractController
 
             /** @var string $dateFrom */
             $dateFrom = $request->getParsedBodyParam('date_from', $GLOBALS['data']['date_from']);
+            if (! isset($_POST['date_from'])) {
+                $_POST['date_from'] = $GLOBALS['data']['date_from'];
+            }
+
             /** @var string $dateTo */
             $dateTo = $request->getParsedBodyParam('date_to', $GLOBALS['data']['date_to']);
+            if (! isset($_POST['date_to'])) {
+                $_POST['date_to'] = $GLOBALS['data']['date_to'];
+            }
+
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
+            if (! isset($_POST['users'])) {
+                $_POST['users'] = '*';
+            }
 
             $GLOBALS['filter_ts_from'] = strtotime($dateFrom);
             $GLOBALS['filter_ts_to'] = strtotime($dateTo);
