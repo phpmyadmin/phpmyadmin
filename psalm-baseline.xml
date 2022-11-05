@@ -3915,20 +3915,13 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$selected</code>
-      <code>$selected[$i]</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
+      <code>[$request-&gt;getParam('field')]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
       <code>$GLOBALS['num_fields']</code>
-      <code>$selected</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected[$i]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$selected[$i]</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/FulltextController.php">
     <MixedArgument occurrences="2">

@@ -57,7 +57,7 @@ class ChangeControllerTest extends AbstractTestCase
             new ColumnsDefinition($this->dbi, new Relation($this->dbi), new Transformations())
         );
 
-        $method->invokeArgs($ctrl, [null]);
+        $method->invokeArgs($ctrl, [[$_REQUEST['field']]]);
         $actual = $response->getHTMLResult();
         $this->assertStringContainsString(
             '<input id="field_0_1"' . "\n"
