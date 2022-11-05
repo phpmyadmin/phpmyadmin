@@ -36,11 +36,6 @@ parameters:
 			path: libraries/classes/Advisor.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace_callback expects array\\|string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$globals type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php
@@ -122,11 +117,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, array\\<int, string\\>\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/CheckUserPrivileges.php
 
@@ -1331,11 +1321,6 @@ parameters:
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/NormalizationController.php
@@ -1596,21 +1581,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function strtoupper expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:\\$columnCollations type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -1777,21 +1747,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function strtoupper expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -4381,11 +4336,6 @@ parameters:
 			path: libraries/classes/Header.php
 
 		-
-			message: "#^Cannot cast array\\<int, string\\>\\|string\\|null to string\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getDefaultFunctionForField\\(\\) has parameter \\$field with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Html/Generator.php
@@ -4583,16 +4533,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:runQuery\\(\\) expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Parameter \\#2 \\$full of method PhpMyAdmin\\\\Import\\:\\:runQuery\\(\\) expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Import.php
 
 		-
@@ -5816,11 +5756,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Binary operation \"\\.\" between 'WWW\\-Authenticate\\:…' and array\\<int, string\\>\\|string\\|null results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin\\:\\:\\$user \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
@@ -5971,17 +5906,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportPdf.php
 
 		-
-			message: "#^Binary operation \"\\.\" between '_' and array\\<int, string\\>\\|string\\|null results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportPhparray.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportPhparray\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportPhparray.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportPhparray.php
 
@@ -6058,11 +5983,6 @@ parameters:
 		-
 			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
 			count: 5
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -7291,11 +7211,6 @@ parameters:
 			path: libraries/classes/Server/Plugins.php
 
 		-
-			message: "#^Binary operation \"\\.\" between 'PASSWORD\\(\\\\'' and array\\<int, string\\>\\|string\\|null results in an error\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) has parameter \\$dbname with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -8471,11 +8386,6 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function rtrim expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
@@ -8559,11 +8469,6 @@ parameters:
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 2
 			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^Binary operation \"\\.\" between non\\-falsy\\-string and array\\<int, string\\>\\|string\\|null results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
 
 		-
 			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\.$#"
@@ -8862,11 +8767,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, array\\<int, string\\>\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 
