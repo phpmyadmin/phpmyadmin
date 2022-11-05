@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-01 19:33+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
 "Language: mk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -8117,11 +8117,10 @@ msgid "File could not be read!"
 msgstr "Датотеката не е можно да се прочита!"
 
 #: libraries/classes/File.php:506
-#, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Бројот на записи може да биде приближен. За подетални информации види FAQ "
-"3.11"
+"Грешка при пренесување на уплоадираниот фајл, види [doc@faq1-11]FAQ 1."
+"11[/doc]."
 
 #: libraries/classes/File.php:525
 msgid "Error while moving uploaded file."
@@ -15334,10 +15333,9 @@ msgstr "Број на записи на страница"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Сочувај на серверот во директориумот %s"
+msgstr "Сочувај на серверот во директориумот <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -16414,20 +16412,17 @@ msgid "Username"
 msgstr "Корисничко име:"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s погодоци во табелата <i>%s</i>"
-msgstr[1] "%s погодоци во табелата <i>%s</i>"
+msgstr[0] "%1$s погодок во <strong>%2$s</strong>"
+msgstr[1] "%1$s погодоци во <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>вкупно:</b> <i>%s</i> погодоци"
-msgstr[1] "<b>вкупно:</b> <i>%s</i> погодоци"
+msgstr[0] "<strong>Вкупно:</strong> <em>%count%</em> погодок"
+msgstr[1] "<strong>Вкупно:</strong> <em>%count%</em> погодоци"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -17861,20 +17856,21 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:285
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Непосредни заклучувања на табели: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/advisory_rules_generic.txt:287
 msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:292
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Рата на чекање за заклучување на табели: %s, оваа вредност треба да бида "
+"помала од 1 на саат"
 
 #: libraries/advisory_rules_generic.txt:294
 #, fuzzy
@@ -17902,20 +17898,17 @@ msgid "Thread cache hit rate %%"
 msgstr "Вид на упит"
 
 #: libraries/advisory_rules_generic.txt:304
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "Thread cache is not efficient."
-msgstr "Серверот не одговара"
+msgstr "Тред кешот не е ефикасен."
 
 #: libraries/advisory_rules_generic.txt:305
 msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:306
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Тред кеш рата на употреба %s%%, оваа вредност треба да биде над 80%%"
 
 #: libraries/advisory_rules_generic.txt:308
 msgid "Threads that are slow to launch"
@@ -17988,10 +17981,8 @@ msgstr "Конекции"
 
 #: libraries/advisory_rules_generic.txt:334
 #: libraries/advisory_rules_generic.txt:341
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Премногу конекции се абортирани."
 
 #: libraries/advisory_rules_generic.txt:335
 #: libraries/advisory_rules_generic.txt:342
@@ -18026,10 +18017,8 @@ msgstr "Содржина"
 
 #: libraries/advisory_rules_generic.txt:348
 #: libraries/advisory_rules_generic.txt:355
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Дозволува креирање на привремени табели…"
+msgstr "Премногу клиенти се абортирани."
 
 #: libraries/advisory_rules_generic.txt:349
 #: libraries/advisory_rules_generic.txt:356
@@ -18141,10 +18130,8 @@ msgid "InnoDB buffer pool size"
 msgstr "Големина на баферот"
 
 #: libraries/advisory_rules_generic.txt:385
-#, fuzzy
-#| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Големина на баферот"
+msgstr "InnoDB баферот пулот е премногу мал."
 
 #: libraries/advisory_rules_generic.txt:386
 #, php-format
@@ -18195,10 +18182,8 @@ msgid "Query cache disabled"
 msgstr "Вид на упит"
 
 #: libraries/advisory_rules_mysql_before80003.txt:13
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Серверот не одговара"
+msgstr "Кешот за барање не е вклучен."
 
 #: libraries/advisory_rules_mysql_before80003.txt:14
 msgid ""
