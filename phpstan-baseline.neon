@@ -1486,6 +1486,16 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/Processes/KillController.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Server/Status/Processes/RefreshController.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\StatusController\\:\\:getConnectionsInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
@@ -7691,17 +7701,7 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Processes\\:\\:getList\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Processes.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Processes\\:\\:getList\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Processes.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Processes\\:\\:getSortableColumnsForProcessList\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Processes.php
 

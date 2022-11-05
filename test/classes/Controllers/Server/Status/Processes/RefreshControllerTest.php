@@ -66,11 +66,18 @@ class RefreshControllerTest extends AbstractTestCase
             new Processes($GLOBALS['dbi'])
         );
 
-        $_POST['full'] = '1';
-        $_POST['order_by_field'] = 'process';
-        $_POST['sort_order'] = 'DESC';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['column_name', '', ''],
+            ['order_by_field', '', 'process'],
+            ['sort_order', '', 'DESC'],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['full', true],
+            ['showExecuting', false],
+        ]);
 
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('index.php?route=/server/status/processes', $html);
