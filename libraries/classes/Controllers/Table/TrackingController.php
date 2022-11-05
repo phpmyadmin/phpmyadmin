@@ -20,6 +20,7 @@ use function array_map;
 use function define;
 use function explode;
 use function htmlspecialchars;
+use function in_array;
 use function is_array;
 use function sprintf;
 use function strtotime;
@@ -110,10 +111,8 @@ final class TrackingController extends AbstractController
                 $versionParam
             );
 
-            $logType = $request->getParsedBodyParam('logtype', 'schema_and_data');
-            if (! isset($_POST['logtype'])) {
-                $_POST['logtype'] = 'schema_and_data';
-            }
+            $logType = $this->validateLogTypeParam($request->getParsedBodyParam('logtype'));
+            $_POST['logtype'] = $logType;
 
             if ($logType === 'schema') {
                 $GLOBALS['selection_schema'] = true;
@@ -292,5 +291,15 @@ final class TrackingController extends AbstractController
             'tracking_report' => $trackingReport,
             'main' => $main,
         ]);
+    }
+
+    /**
+     * @param mixed $param
+     *
+     * @psalm-return 'schema'|'data'|'schema_and_data'
+     */
+    private function validateLogTypeParam($param): string
+    {
+        return in_array($param, ['schema', 'data'], true) ? $param : 'schema_and_data';
     }
 }
