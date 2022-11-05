@@ -12,11 +12,9 @@ final class QueryController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'sql_query' => $request->getParsedBodyParam('sql_query'),
-            'db' => $request->getParam('db'),
-        ];
-
-        $this->response->addHTML(MultiTableQuery::displayResults($params['sql_query'], $params['db']));
+        $this->response->addHTML(MultiTableQuery::displayResults(
+            $request->getParsedBodyParam('sql_query'),
+            $request->getParam('db')
+        ));
     }
 }

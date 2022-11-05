@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
 
 use function header;
+use function is_array;
 use function json_encode;
 use function sprintf;
 
@@ -22,11 +23,6 @@ class LintController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'sql_query' => $request->getParsedBodyParam('sql_query'),
-            'options' => $request->getParsedBodyParam('options'),
-        ];
-
         /**
          * The SQL query to be analyzed.
          *
@@ -38,7 +34,7 @@ class LintController extends AbstractController
          *
          * @var string
          */
-        $sqlQuery = ! empty($params['sql_query']) ? $params['sql_query'] : '';
+        $sqlQuery = $request->getParsedBodyParam('sql_query', '');
 
         $this->response->setAjax(true);
 
@@ -49,9 +45,8 @@ class LintController extends AbstractController
             header(sprintf('%s: %s', $name, $value));
         }
 
-        if (! empty($params['options'])) {
-            $options = $params['options'];
-
+        $options = $request->getParsedBodyParam('options');
+        if (is_array($options)) {
             if (! empty($options['routineEditor'])) {
                 $sqlQuery = 'CREATE PROCEDURE `a`() ' . $sqlQuery;
             } elseif (! empty($options['triggerEditor'])) {

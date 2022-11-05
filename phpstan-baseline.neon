@@ -1046,16 +1046,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$collation of static method PhpMyAdmin\\\\Util\\:\\:getCharsetQueryPart\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Database/Operations/CollationController.php
@@ -1089,16 +1079,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/SqlController.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/SqlFormatController.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/SqlFormatController.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
@@ -1364,21 +1344,6 @@ parameters:
 			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/HomeController.php
-
-		-
-			message: "#^Cannot access offset 'eventEditor' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/LintController.php
-
-		-
-			message: "#^Cannot access offset 'routineEditor' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/LintController.php
-
-		-
-			message: "#^Cannot access offset 'triggerEditor' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/LintController.php
 
 		-
 			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects array, mixed given\\.$#"

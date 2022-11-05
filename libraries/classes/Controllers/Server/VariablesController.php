@@ -37,16 +37,13 @@ class VariablesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-
-        $params = ['filter' => $_GET['filter'] ?? null];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
-        $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
+        $filterValue = $request->getQueryParam('filter', '');
 
         $this->addScriptFiles(['server/variables.js']);
 
