@@ -1321,6 +1321,11 @@ parameters:
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
+			message: "#^Parameter \\#2 \\$replace of function preg_replace expects array\\|string, float\\|int\\|string\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Parameter \\#2 \\$size of method PhpMyAdmin\\\\Import\\:\\:getNextChunk\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
