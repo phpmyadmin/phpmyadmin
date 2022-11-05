@@ -51,8 +51,6 @@ class GisDataEditorController extends AbstractController
         $type = $request->getParsedBodyParam('type', '');
         /** @var string|null $value */
         $value = $request->getParsedBodyParam('value');
-        /** @var string|null $generate */
-        $generate = $request->getParsedBodyParam('generate');
         /** @var string|null $inputName */
         $inputName = $request->getParsedBodyParam('input_name');
 
@@ -143,7 +141,7 @@ class GisDataEditorController extends AbstractController
             ->asOl();
 
         // If the call is to update the WKT and visualization make an AJAX response
-        if ($generate) {
+        if ($request->hasBodyParam('generate')) {
             $this->response->addJSON([
                 'result' => $GLOBALS['result'],
                 'visualization' => $GLOBALS['visualization'],

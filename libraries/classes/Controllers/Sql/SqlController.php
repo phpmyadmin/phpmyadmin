@@ -191,9 +191,9 @@ class SqlController extends AbstractController
         /**
          * Bookmark add
          */
-        $store_bkm = $request->getParsedBodyParam('store_bkm');
-        $bkm_all_users = $request->getParsedBodyParam('bkm_all_users');
-        if ($store_bkm !== null && $bkm_fields !== null) {
+        $store_bkm = $request->hasBodyParam('store_bkm');
+        $bkm_all_users = $request->getParsedBodyParam('bkm_all_users'); // Should this be hasBodyParam?
+        if ($store_bkm && $bkm_fields !== null) {
             $this->addBookmark($GLOBALS['goto'], $bkm_fields, (bool) $bkm_all_users);
 
             return;

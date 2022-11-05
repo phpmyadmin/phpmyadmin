@@ -48,20 +48,16 @@ class ErrorReportController extends AbstractController
     {
         /** @var string $exceptionType */
         $exceptionType = $request->getParsedBodyParam('exception_type', '');
-        /** @var string|null $sendErrorReport */
-        $sendErrorReport = $request->getParsedBodyParam('send_error_report');
         /** @var string|null $automatic */
         $automatic = $request->getParsedBodyParam('automatic');
         /** @var string|null $alwaysSend */
         $alwaysSend = $request->getParsedBodyParam('always_send');
-        /** @var string|null $getSettings */
-        $getSettings = $request->getParsedBodyParam('get_settings');
 
         if (! in_array($exceptionType, ['js', 'php'])) {
             return;
         }
 
-        if ($sendErrorReport) {
+        if ($request->hasBodyParam('send_error_report')) {
             if ($exceptionType === 'php') {
                 /**
                  * Prevent infinite error submission.
@@ -148,7 +144,7 @@ class ErrorReportController extends AbstractController
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }
-        } elseif ($getSettings) {
+        } elseif ($request->hasBodyParam('get_settings')) {
             $this->response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
         } elseif ($exceptionType === 'js') {
             $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());

@@ -103,22 +103,17 @@ class CreateController extends AbstractController
             return;
         }
 
-        /** @var string|null $createview */
-        $createview = $request->getParsedBodyParam('createview');
+        $createview = $request->hasBodyParam('createview');
+        $alterview = $request->hasBodyParam('alterview');
+        $ajaxdialog = $request->hasBodyParam('ajax_dialog');
 
-        /** @var string|null $alterview */
-        $alterview = $request->getParsedBodyParam('alterview');
-
-        /** @var string|null $ajaxdialog */
-        $ajaxdialog = $request->getParsedBodyParam('ajax_dialog');
-
-        if ($createview !== null || $alterview !== null) {
+        if ($createview || $alterview) {
             /**
              * Creates the view
              */
             $GLOBALS['sep'] = "\r\n";
 
-            if ($createview !== null) {
+            if ($createview) {
                 $GLOBALS['sql_query'] = 'CREATE';
                 if (isset($view['or_replace'])) {
                     $GLOBALS['sql_query'] .= ' OR REPLACE';
@@ -167,7 +162,7 @@ class CreateController extends AbstractController
             }
 
             if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {
-                if ($ajaxdialog === null) {
+                if (! $ajaxdialog) {
                     $GLOBALS['message'] = Message::rawError($this->dbi->getError());
 
                     return;
@@ -213,7 +208,7 @@ class CreateController extends AbstractController
 
             unset($GLOBALS['pma_transformation_data']);
 
-            if ($ajaxdialog !== null) {
+            if ($ajaxdialog) {
                 $GLOBALS['message'] = Message::success();
                 /** @var StructureController $controller */
                 $controller = Core::getContainerBuilder()->get(StructureController::class);
@@ -296,7 +291,7 @@ class CreateController extends AbstractController
         $this->addScriptFiles(['sql.js']);
 
         echo $this->template->render('view_create', [
-            'ajax_dialog' => $ajaxdialog !== null,
+            'ajax_dialog' => $ajaxdialog,
             'text_dir' => $GLOBALS['text_dir'],
             'url_params' => $GLOBALS['urlParams'],
             'view' => $GLOBALS['view'],

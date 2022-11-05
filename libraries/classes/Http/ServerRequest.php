@@ -381,4 +381,24 @@ class ServerRequest implements ServerRequestInterface
 
         return $route;
     }
+
+    public function has(string $param): bool
+    {
+        return $this->hasBodyParam($param) || $this->hasQueryParam($param);
+    }
+
+    public function hasQueryParam(string $param): bool
+    {
+        $getParams = $this->getQueryParams();
+
+        return isset($getParams[$param]);
+    }
+
+    public function hasBodyParam(string $param): bool
+    {
+        $postParams = $this->getParsedBody();
+
+        return is_array($postParams) && isset($postParams[$param])
+            || is_object($postParams) && property_exists($postParams, $param);
+    }
 }

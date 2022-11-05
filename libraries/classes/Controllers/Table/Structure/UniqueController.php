@@ -15,6 +15,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
+use function is_array;
 
 final class UniqueController extends AbstractController
 {
@@ -41,7 +42,7 @@ final class UniqueController extends AbstractController
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
 
-        if (empty($selected)) {
+        if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 

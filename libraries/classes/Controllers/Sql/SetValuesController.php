@@ -44,7 +44,6 @@ final class SetValuesController extends AbstractController
 
         $column = $request->getParsedBodyParam('column');
         $currentValue = $request->getParsedBodyParam('curr_value');
-        $fullValues = $request->getParsedBodyParam('get_full_values', false);
         $whereClause = $request->getParsedBodyParam('where_clause');
 
         $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
@@ -57,7 +56,7 @@ final class SetValuesController extends AbstractController
         }
 
         // If the $currentValue was truncated, we should fetch the correct full values from the table.
-        if ($fullValues && ! empty($whereClause)) {
+        if ($request->hasBodyParam('get_full_values') && ! empty($whereClause)) {
             $currentValue = $this->sql->getFullValuesForSetColumn(
                 $GLOBALS['db'],
                 $GLOBALS['table'],

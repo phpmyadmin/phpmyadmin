@@ -23,12 +23,10 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function array_keys;
-use function array_map;
 use function bin2hex;
 use function ceil;
 use function count;
 use function defined;
-use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
@@ -429,31 +427,6 @@ class Sql
         $isSuperUser
     ): bool {
         return ! $allowUserDropDatabase && $statementInfo->dropDatabase && ! $isSuperUser;
-    }
-
-    /**
-     * Function to set a column property
-     *
-     * @param Table  $table        Table instance
-     * @param string $requestIndex col_order|col_visib
-     *
-     * @return bool|Message
-     */
-    public function setColumnProperty(Table $table, string $requestIndex)
-    {
-        $propertyValue = array_map('intval', explode(',', $_POST[$requestIndex]));
-        switch ($requestIndex) {
-            case 'col_order':
-                $propertyToSet = Table::PROP_COLUMN_ORDER;
-                break;
-            case 'col_visib':
-                $propertyToSet = Table::PROP_COLUMN_VISIB;
-                break;
-            default:
-                $propertyToSet = '';
-        }
-
-        return $table->setUiProp($propertyToSet, $propertyValue, $_POST['table_create_time'] ?? null);
     }
 
     /**

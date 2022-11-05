@@ -3089,10 +3089,9 @@
       <code>$currentValue</code>
       <code>$whereClause</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$column</code>
       <code>$currentValue</code>
-      <code>$fullValues</code>
       <code>$whereClause</code>
     </MixedAssignment>
   </file>
@@ -3114,7 +3113,7 @@
     <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['ajax_reload']['reload']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="17">
+    <MixedAssignment occurrences="16">
       <code>$GLOBALS['ajax_reload']</code>
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['disp_message']</code>
@@ -3131,7 +3130,6 @@
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$bkm_all_users</code>
       <code>$sql_query</code>
-      <code>$store_bkm</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
@@ -3870,13 +3868,11 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AddIndexController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AddKeyController.php">
@@ -3898,22 +3894,6 @@
       <code>$_POST['selected_fld']</code>
     </PossiblyInvalidIterator>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php">
-    <MixedArgument occurrences="1">
-      <code>$selected</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$selected</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php">
-    <MixedArgument occurrences="1">
-      <code>$selected</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$selected</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$selected</code>
@@ -3924,13 +3904,11 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/FulltextController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
@@ -4108,23 +4086,19 @@
     </PossiblyInvalidOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/SpatialController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/UniqueController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$field</code>
-      <code>$selected</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
@@ -4219,7 +4193,7 @@
       <code>$GLOBALS['data']['date_from']</code>
       <code>$GLOBALS['data']['date_to']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="17">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['entries']</code>
@@ -4232,7 +4206,6 @@
       <code>$GLOBALS['selection_data']</code>
       <code>$GLOBALS['selection_schema']</code>
       <code>$logType</code>
-      <code>$report</code>
       <code>$reportExport</code>
       <code>$selectedVersions</code>
       <code>$submitMult</code>
@@ -4453,17 +4426,15 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/View/OperationsController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$GLOBALS['warning_messages']</code>
-      <code>$newname</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['result']</code>
       <code>$GLOBALS['warning_messages']</code>
       <code>$newname</code>
-      <code>$submitoptions</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Core.php">
@@ -12994,21 +12965,15 @@
     <NullableReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </NullableReturnStatement>
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$_POST[$requestIndex]</code>
+    <PossiblyInvalidArgument occurrences="6">
       <code>$_POST['bkm_label']</code>
       <code>$_POST['dropped_column'] ?? null</code>
-      <code>$_POST['table_create_time'] ?? null</code>
       <code>$numRows</code>
       <code>$numRows</code>
       <code>$numRows</code>
       <code>$numRows</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset occurrences="1">
-      <code>$_POST[$requestIndex]</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$_POST[$requestIndex]</code>
+    <PossiblyInvalidCast occurrences="1">
       <code>$_POST['bkm_label']</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="1">
