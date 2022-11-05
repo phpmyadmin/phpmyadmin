@@ -279,9 +279,6 @@ class TrackingTest extends AbstractTestCase
             'dmlog' => ['dmlog'],
         ];
         $url_params = [];
-        $selection_schema = false;
-        $selection_data = false;
-        $selection_both = false;
         $filter_ts_to = 0;
         $filter_ts_from = 0;
         $filter_users = [];
@@ -289,9 +286,7 @@ class TrackingTest extends AbstractTestCase
         $html = $this->tracking->getHtmlForTrackingReport(
             $data,
             $url_params,
-            $selection_schema,
-            $selection_data,
-            $selection_both,
+            'logtype',
             $filter_ts_to,
             $filter_ts_from,
             $filter_users

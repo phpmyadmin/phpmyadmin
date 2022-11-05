@@ -4180,13 +4180,11 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <ArgumentTypeCoercion occurrences="1">
+    <MixedArgument occurrences="5">
+      <code>$GLOBALS['data']</code>
+      <code>$GLOBALS['data']</code>
+      <code>$GLOBALS['data']</code>
       <code>$_POST['logtype']</code>
-    </ArgumentTypeCoercion>
-    <MixedArgument occurrences="4">
-      <code>$GLOBALS['data']</code>
-      <code>$GLOBALS['data']</code>
-      <code>$GLOBALS['data']</code>
       <code>$version</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
@@ -4195,7 +4193,7 @@
       <code>$GLOBALS['data']['date_to']</code>
       <code>$GLOBALS['data']['date_to']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="15">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['entries']</code>
@@ -4204,18 +4202,17 @@
       <code>$GLOBALS['filter_ts_to']</code>
       <code>$GLOBALS['filter_users']</code>
       <code>$GLOBALS['msg']</code>
-      <code>$GLOBALS['selection_both']</code>
-      <code>$GLOBALS['selection_data']</code>
-      <code>$GLOBALS['selection_schema']</code>
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
-      <code>$logType</code>
       <code>$reportExport</code>
       <code>$selectedVersions</code>
       <code>$submitMult</code>
       <code>$toggleActivation</code>
       <code>$version</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$_POST['logtype']</code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="1">
       <code>$_POST['logtype']</code>
     </PossiblyInvalidCast>
@@ -15988,6 +15985,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/TrackingTest.php">
+    <InvalidArgument occurrences="1">
+      <code>'logtype'</code>
+    </InvalidArgument>
     <MixedArgument occurrences="1">
       <code>$html</code>
     </MixedArgument>

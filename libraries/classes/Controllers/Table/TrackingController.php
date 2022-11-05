@@ -50,9 +50,6 @@ final class TrackingController extends AbstractController
         $GLOBALS['filter_ts_from'] = $GLOBALS['filter_ts_from'] ?? null;
         $GLOBALS['filter_ts_to'] = $GLOBALS['filter_ts_to'] ?? null;
         $GLOBALS['filter_users'] = $GLOBALS['filter_users'] ?? null;
-        $GLOBALS['selection_schema'] = $GLOBALS['selection_schema'] ?? null;
-        $GLOBALS['selection_data'] = $GLOBALS['selection_data'] ?? null;
-        $GLOBALS['selection_both'] = $GLOBALS['selection_both'] ?? null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -93,15 +90,15 @@ final class TrackingController extends AbstractController
         $GLOBALS['filter_ts_from'] = null;
         $GLOBALS['filter_ts_to'] = null;
         $GLOBALS['filter_users'] = [];
-        $GLOBALS['selection_schema'] = false;
-        $GLOBALS['selection_data'] = false;
-        $GLOBALS['selection_both'] = false;
 
         $report = $request->hasBodyParam('report');
         /** @var string $versionParam */
         $versionParam = $request->getParsedBodyParam('version');
         /** @var string $tableParam */
         $tableParam = $request->getParsedBodyParam('table');
+
+        $logType = $this->validateLogTypeParam($request->getParsedBodyParam('logtype'));
+        $_POST['logtype'] = $logType;
 
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
@@ -110,17 +107,6 @@ final class TrackingController extends AbstractController
                 $GLOBALS['table'],
                 $versionParam
             );
-
-            $logType = $this->validateLogTypeParam($request->getParsedBodyParam('logtype'));
-            $_POST['logtype'] = $logType;
-
-            if ($logType === 'schema') {
-                $GLOBALS['selection_schema'] = true;
-            } elseif ($logType === 'data') {
-                $GLOBALS['selection_data'] = true;
-            } else {
-                $GLOBALS['selection_both'] = true;
-            }
 
             /** @var string $dateFrom */
             $dateFrom = $request->getParsedBodyParam('date_from', $GLOBALS['data']['date_from']);
@@ -261,9 +247,7 @@ final class TrackingController extends AbstractController
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $GLOBALS['data'],
                 $GLOBALS['urlParams'],
-                $GLOBALS['selection_schema'],
-                $GLOBALS['selection_data'],
-                $GLOBALS['selection_both'],
+                $logType,
                 (int) $GLOBALS['filter_ts_to'],
                 (int) $GLOBALS['filter_ts_from'],
                 $GLOBALS['filter_users']
