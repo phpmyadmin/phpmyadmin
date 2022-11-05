@@ -556,11 +556,11 @@ class Triggers
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaTriggersRequest(
                 $dbi->escapeString($db),
-                empty($table) ? null : $dbi->escapeString($table)
+                $table === '' ? null : $dbi->escapeString($table)
             );
         } else {
             $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
-            if ($table) {
+            if ($table !== '') {
                 $query .= " LIKE '" . $dbi->escapeString($table) . "';";
             }
         }

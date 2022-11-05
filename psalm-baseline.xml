@@ -5824,9 +5824,8 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="44">
+    <MixedArgument occurrences="42">
       <code>$a</code>
-      <code>$arrayKeys</code>
       <code>$b</code>
       <code>$database</code>
       <code>$databaseName</code>
@@ -5848,7 +5847,6 @@
       <code>$link</code>
       <code>$link</code>
       <code>$password</code>
-      <code>$sql</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>

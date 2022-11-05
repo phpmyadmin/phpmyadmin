@@ -7091,11 +7091,6 @@ parameters:
 			path: libraries/classes/Query/Compatibility.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getInformationSchemaColumnsFullRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Query/Generator.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getTableCondition\\(\\) has parameter \\$escapedTableOrTables with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Query/Generator.php
