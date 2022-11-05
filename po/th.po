@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/"
-">\n"
+"PO-Revision-Date: 2022-11-07 12:05+0000\n"
+"Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -173,6 +173,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"คุณควรอัพเกรดเนื่องจาก MySQL 5.1 ได้ปรับปรุงเรื่องประสิทธิภาพ และใน MySQL "
+"5.5 ก็ได้ปรับปรุงให้ดีกว่านี้"
 
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
@@ -188,13 +190,15 @@ msgstr "รุ่นย่อย"
 
 #: libraries/advisory_rules_generic.php:122
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "รุ่นต่ำกว่า 5.1.30 (GA รุ่นแรกของ 5.1)"
 
 #: libraries/advisory_rules_generic.php:124
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"คุณควรอัพเกรดเนื่องจากรุ่นล่าสุดของ MySQL 5.1 ได้ปรับปรุงเรื่องประสิทธิภาพ "
+"และใน MySQL 5.5 ก็ได้ปรับปรุงให้ดีกว่านี้"
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -4491,7 +4495,7 @@ msgstr "อื่นๆ"
 
 #: libraries/classes/Config/Descriptions.php:987
 msgid "Server connection collation"
-msgstr "ตรวจทานการเชื่อมต่อเซิร์ฟเวอร์"
+msgstr "การเรียงลำดับสำหรับการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/FormDisplay.php:605
 #, php-format
@@ -4501,10 +4505,8 @@ msgstr "ข้อมูลที่หายไปสำหรับ %s"
 #: libraries/classes/Config/FormDisplay.php:646
 #: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
-#, fuzzy
-#| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "ค่าไม่ถูกต้อง"
+msgstr "ค่าไม่ถูกต้อง!"
 
 #: libraries/classes/Config/FormDisplay.php:797
 #: libraries/classes/Config/FormDisplay.php:806
@@ -4520,12 +4522,12 @@ msgstr "\"%s\" ต้องใช้ส่วนขยาย %s"
 #: libraries/classes/Config/FormDisplay.php:839
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
-msgstr ""
+msgstr "ไม่สามารถใช้การนำเข้าแบบบีบอัดได้เนื่องจากขาดฟังก์ชัน %s"
 
 #: libraries/classes/Config/FormDisplay.php:848
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr ""
+msgstr "ไม่สามารถใช้การส่งออกแบบบีบอัดได้เนื่องจากขาดฟังก์ชัน %s"
 
 #: libraries/classes/Config/FormDisplay.php:867
 #, php-format
@@ -4546,7 +4548,7 @@ msgstr "การรับรองความถูกต้องของก
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:25
 msgid "Quick"
-msgstr ""
+msgstr "รวดเร็ว"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:29
 msgid "Custom"
@@ -9038,21 +9040,19 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/classes/Display/Results.php:3991
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "แสดงแถว"
+msgstr "กำลังแสดงแถวที่ %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4005
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "ทั้งหมด %1$d, %2$d ในคำค้น"
 
 #: libraries/classes/Display/Results.php:4010
-#, fuzzy, php-format
-#| msgid "total"
+#, php-format
 msgid "%d total"
-msgstr "ทั้งหมด"
+msgstr "ทั้งหมด %d"
 
 #: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:973
 #, fuzzy, php-format
@@ -9554,11 +9554,9 @@ msgid "Profiling"
 msgstr "การทำแฟ้มประวัติ"
 
 #: libraries/classes/Html/Generator.php:746
-#, fuzzy
-#| msgid "Add new field"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "แก้ไขแบบอินไลน์"
 
 #: libraries/classes/Html/Generator.php:870
 #, fuzzy
@@ -9988,7 +9986,7 @@ msgstr "คอลัมน์"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:33
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:272
@@ -10026,23 +10024,20 @@ msgstr "คอลัมน์"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:38
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
-#, fuzzy
 msgid "Database operations"
-msgstr "สถิติฐานข้อมูล"
+msgstr "การดำเนินการกับฐานข้อมูล"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:664
-#, fuzzy
-#| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "แสดงคำแนะนำ"
+msgstr "แสดงรายการที่ถูกซ่อนไว้"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:33
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:475
@@ -10058,23 +10053,22 @@ msgstr "เหตุการณ์"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:634
 #: libraries/classes/Plugins/Export/ExportXml.php:105
-#, fuzzy
 msgid "Functions"
-msgstr "ฟังก์ชั่น"
+msgstr "ฟังก์ชัน"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:33
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:33
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "ใหม่"
 
 #: libraries/classes/Navigation/Nodes/Node.php:630
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "ขยาย/ยุบ"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
@@ -10657,7 +10651,6 @@ msgstr ""
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
 #: libraries/config.values.php:347
-#, fuzzy
 msgid "structure"
 msgstr "โครงสร้าง"
 
@@ -10684,10 +10677,8 @@ msgstr "ข้อมูล"
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
-#, fuzzy
-#| msgid "Structure and data"
 msgid "structure and data"
-msgstr "ทั้งโครงสร้างและข้อมูล"
+msgstr "โครงสร้างและข้อมูล"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:74
 #: libraries/classes/Plugins/Export/ExportLatex.php:158
@@ -10897,18 +10888,14 @@ msgstr "ใส่ชื่อฟิลด์ที่แถวแรก"
 #: libraries/classes/Plugins/Export/ExportXml.php:232
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "โฮสต์"
+msgstr "โฮสต์:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:761
 #: libraries/classes/Plugins/Export/ExportXml.php:238
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "เวลาในการสร้าง"
+msgstr "เวลาที่สร้าง:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
 #: libraries/classes/Plugins/Export/ExportSql.php:765
@@ -10920,10 +10907,8 @@ msgstr "เวอร์ชันของเซิร์ฟเวอร์:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
 #: libraries/classes/Plugins/Export/ExportSql.php:767
 #: libraries/classes/Plugins/Export/ExportXml.php:241
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "รุ่นของ PHP"
+msgstr "เวอร์ชันของ PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:246
 #: libraries/classes/Plugins/Export/ExportSql.php:947
@@ -10931,29 +10916,21 @@ msgstr "รุ่นของ PHP"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "ฐานข้อมูล"
+msgstr "ฐานข้อมูล:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:312
 #: libraries/classes/Plugins/Export/ExportSql.php:2226
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "ข้อมูล"
+msgstr "ข้อมูล:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:513
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "โครงสร้าง"
+msgstr "โครงสร้าง:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:77
-#, fuzzy
-#| msgid "Export"
 msgid "Export table names"
-msgstr "ส่งออก"
+msgstr "ส่งออกชื่อตาราง"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:84
 #, fuzzy
@@ -11797,35 +11774,27 @@ msgstr ""
 
 #: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
-msgstr ""
+msgstr "รายละเอียด…"
 
 #: libraries/classes/RecentFavoriteTable.php:159
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "ไม่สามารถบันทึกตารางล่าสุด"
+msgstr "ไม่สามารถบันทึกตารางล่าสุดได้!"
 
 #: libraries/classes/RecentFavoriteTable.php:163
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "ไม่สามารถบันทึกตารางล่าสุด"
+msgstr "ไม่สามารถบันทึกตารางโปรดได้!"
 
 #: libraries/classes/RecentFavoriteTable.php:247
 msgid "Recent tables"
 msgstr "ตารางล่าสุด"
 
 #: libraries/classes/RecentFavoriteTable.php:249
-#, fuzzy
-#| msgid "Reset"
 msgid "Recent"
-msgstr "ตั้งค่าใหม่"
+msgstr "ล่าสุด"
 
 #: libraries/classes/RecentFavoriteTable.php:253
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorites"
-msgstr "ตัวแปร"
+msgstr "รายการโปรด"
 
 #: libraries/classes/ReplicationGui.php:438
 msgid ""
@@ -11944,10 +11913,8 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/classes/SavedSearches.php:385
-#, fuzzy
-#| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "ข้อผิดพลาดขณะเคลื่อนย้ายไฟล์อัพโหลด"
+msgstr "ข้อผิดพลาดขณะโหลดการค้นหา"
 
 #: libraries/classes/Server/Plugins.php:68
 #: libraries/classes/Server/Privileges.php:788
@@ -12403,9 +12370,8 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/server/binlog/index.twig:27
-#, fuzzy
 msgid "Files"
-msgstr "จำนวนฟิลด์"
+msgstr "ไฟล์"
 
 #: libraries/classes/Server/Status/Data.php:180
 msgid "Flush (close) all tables"
@@ -12456,7 +12422,7 @@ msgstr "คำสั่ง"
 
 #: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
-msgstr ""
+msgstr "ความคืบหน้า"
 
 #: libraries/classes/Setup/Index.php:130
 msgid ""
@@ -13358,22 +13324,16 @@ msgid "Never send error reports"
 msgstr ""
 
 #: libraries/config.values.php:205
-#, fuzzy
-#| msgid "Export defaults"
 msgid "Server default"
-msgstr "ส่งออกค่าเริ่มต้น"
+msgstr "ค่าเริ่มต้นเซิร์ฟเวอร์"
 
 #: libraries/config.values.php:206
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
-msgstr "เปิดใช้อยู่"
+msgstr "เปิดใช้"
 
 #: libraries/config.values.php:207
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "ระงับการใช้อยู่"
+msgstr "ปิดใช้"
 
 #: libraries/config.values.php:259
 msgid "Quick - display only the minimal options to configure"
@@ -13388,16 +13348,12 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "กำหนดเอง - เหมือนข้างต้น แต่ไม่มีทางเลือกที่รวดเร็ว/กำหนดเอง"
 
 #: libraries/config.values.php:328
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "คำสั่ง INSERT เต็มรูปแบบ"
+msgstr "คำสั่ง INSERT แบบสมบูรณ์"
 
 #: libraries/config.values.php:329
-#, fuzzy
-#| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr "คำสั่ง INSERT แบบขยาย"
 
 #: libraries/config.values.php:330
 msgid "both of the above"
@@ -13412,10 +13368,8 @@ msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
 #: setup/validate.php:31
-#, fuzzy
-#| msgid "No databases"
 msgid "Wrong data"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ข้อมูลไม่ถูกต้อง"
 
 #: setup/validate.php:38
 #, php-format
@@ -13442,15 +13396,14 @@ msgstr "ไม่มี"
 #: templates/database/central_columns/main.twig:77
 #: templates/database/central_columns/main.twig:312
 msgid "As defined:"
-msgstr ""
+msgstr "ตามที่กำหนด:"
 
 #: templates/columns_definitions/column_attributes.twig:97
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+msgstr ""
+"คุณไม่มีสิทธิที่จะดำเนินการนี้ กรุณาดูที่เอกสารประกอบสำหรับข้อมูลเพิ่มเติม"
 
 #: templates/columns_definitions/column_attributes.twig:111
 #: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
@@ -13489,8 +13442,7 @@ msgstr "ครั้งแรก"
 
 #: templates/columns_definitions/column_attributes.twig:182
 #: templates/table/structure/display_structure.twig:433
-#, fuzzy, php-format
-#| msgid "After %s"
+#, php-format
 msgid "after %s"
 msgstr "หลัง %s"
 
@@ -13504,10 +13456,8 @@ msgstr "ชื่อตาราง"
 #: templates/console/display.twig:99
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "และ"
+msgstr "เพิ่ม"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
@@ -13516,10 +13466,8 @@ msgid "column(s)"
 msgstr "คอลัมน์"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "การเรียงลำดับ"
+msgstr "การเรียงลำดับ:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
@@ -14061,10 +14009,8 @@ msgstr "ตัวกรอง"
 
 #: templates/database/central_columns/main.twig:167
 #: templates/display/results/table.twig:64
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this table"
-msgstr "ค้นหาในฐานข้อมูล"
+msgstr "ค้นหาในตารางนี้"
 
 #: templates/database/central_columns/main.twig:178
 #: templates/table/structure/display_structure.twig:418
@@ -14313,9 +14259,8 @@ msgid "Pin text"
 msgstr "ข้อความบางส่วน"
 
 #: templates/database/designer/main.twig:202
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "แสดงทั้งหมด"
+msgstr "ซ่อน/แสดงทั้งหมด"
 
 #: templates/database/designer/main.twig:212
 #, fuzzy
@@ -14324,10 +14269,8 @@ msgid "Hide/Show tables with no relationship"
 msgstr "เสนอโครงสร้างตาราง"
 
 #: templates/database/designer/main.twig:223
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of tables:"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนตาราง:"
 
 #: templates/database/designer/main.twig:381
 #, fuzzy
@@ -14519,8 +14462,6 @@ msgstr ""
 #: templates/server/user_groups/edit_user_groups.twig:11
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "เลือกทั้งหมด"
 
@@ -15373,8 +15314,6 @@ msgid "Trigger name"
 msgstr "ชื่อผู้ใช้"
 
 #: templates/database/triggers/editor_form.twig:37
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "เวลา"
@@ -15403,10 +15342,8 @@ msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
 #: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนแถว:"
 
 #: templates/display/results/table.twig:52
 msgid "All"
@@ -17824,7 +17761,7 @@ msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:74
 msgid "Error management:"
-msgstr ""
+msgstr "การจัดการข้อผิดพลาด:"
 
 #: templates/server/replication/replica_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
@@ -17832,12 +17769,12 @@ msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
-msgstr ""
+msgstr "ข้ามข้อผิดพลาดปัจจุบัน"
 
 #: templates/server/replication/replica_configuration.twig:87
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "ข้าม %s ข้อผิดพลาดถัดไป"
 
 #: templates/server/replication/replica_configuration.twig:107
 #, fuzzy, php-format
@@ -17870,24 +17807,21 @@ msgid "Variable"
 msgstr "ตัวแปร"
 
 #: templates/server/select/index.twig:7 templates/server/select/index.twig:19
-#, fuzzy
-#| msgid "Server"
 msgid "Current server:"
-msgstr "เซิร์ฟเวอร์"
+msgstr "เซิร์ฟเวอร์ปัจจุบัน:"
 
 #: templates/server/status/advisor/index.twig:6
 #: templates/server/status/advisor/index.twig:19
 msgid "Advisor system"
-msgstr "แนะนำระบบ"
+msgstr "ระบบที่ปรึกษา"
 
 #: templates/server/status/advisor/index.twig:9
 msgid "Not enough privilege to view the advisor."
 msgstr ""
 
 #: templates/server/status/advisor/index.twig:12
-#, fuzzy
 msgid "Instructions"
-msgstr "ฟังก์ชั่น"
+msgstr "คำแนะนำ"
 
 #: templates/server/status/advisor/index.twig:24
 msgid ""
@@ -18972,10 +18906,8 @@ msgid "Table %s has been flushed."
 msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
 
 #: templates/table/operations/index.twig:376
-#, fuzzy
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "ล้างตาราง (flush)"
+msgstr "ล้างตาราง (FLUSH)"
 
 #: templates/table/operations/index.twig:413
 msgid "Empty the table (TRUNCATE)"
@@ -18988,9 +18920,8 @@ msgid "Empty the table (DELETE FROM)"
 msgstr "ลบข้อมูลตาราง (TRUNCATE)"
 
 #: templates/table/operations/index.twig:452
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ลบตาราง (DROP)"
 
 #: templates/table/operations/index.twig:474
 #, fuzzy
@@ -19009,14 +18940,12 @@ msgid "Check referential integrity"
 msgstr "ตรวจสอบความสมบูรณ์ของการอ้างถึง:"
 
 #: templates/table/operations/view.twig:12
-#, fuzzy
 msgid "Rename view to"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "เปลี่ยนชื่อวิวเป็น"
 
 #: templates/table/operations/view.twig:37
-#, fuzzy
 msgid "Delete the view (DROP)"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ลบวิว (DROP)"
 
 #: templates/table/page_with_secondary_tabs.twig:11
 #, fuzzy
