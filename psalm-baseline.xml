@@ -2802,12 +2802,11 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ReplicationController.php">
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$replicaInfo['status']</code>
-      <code>$request-&gt;getParsedBodyParam('hostname')</code>
-      <code>$request-&gt;getParsedBodyParam('pma_pw')</code>
-      <code>$request-&gt;getParsedBodyParam('text_port')</code>
-      <code>$request-&gt;getParsedBodyParam('username')</code>
+      <code>$request-&gt;getParsedBodyParam('hostname', '')</code>
+      <code>$request-&gt;getParsedBodyParam('pma_pw', '')</code>
+      <code>$request-&gt;getParsedBodyParam('username', '')</code>
     </MixedArgument>
     <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
@@ -3896,20 +3895,13 @@
     </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$selected</code>
-      <code>$selected[$i]</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
+      <code>[$request-&gt;getParam('field')]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
       <code>$GLOBALS['num_fields']</code>
-      <code>$selected</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$selected[$i]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$selected[$i]</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/FulltextController.php">
     <MixedArgument occurrences="1">
@@ -5803,9 +5795,8 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="44">
+    <MixedArgument occurrences="42">
       <code>$a</code>
-      <code>$arrayKeys</code>
       <code>$b</code>
       <code>$database</code>
       <code>$databaseName</code>
@@ -5827,7 +5818,6 @@
       <code>$link</code>
       <code>$link</code>
       <code>$password</code>
-      <code>$sql</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
@@ -12070,20 +12060,10 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/ReplicationGui.php">
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="6">
       <code>$database</code>
       <code>$errorMessage</code>
       <code>$serverReplicationVariable</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['hostname']</code>
-      <code>$sr['pma_pw']</code>
-      <code>$sr['pma_pw']</code>
-      <code>$sr['port']</code>
-      <code>$sr['port']</code>
-      <code>$sr['username']</code>
-      <code>$sr['username']</code>
       <code>$successMessage</code>
       <code>$val['Type']</code>
       <code>$val['Type']</code>
@@ -12122,11 +12102,7 @@
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
-      <code>$_SESSION['replication']['m_hostname']</code>
-      <code>$_SESSION['replication']['m_password']</code>
-      <code>$_SESSION['replication']['m_port']</code>
-      <code>$_SESSION['replication']['m_username']</code>
+    <MixedAssignment occurrences="6">
       <code>$database</code>
       <code>$errorMessage</code>
       <code>$linkToPrimary</code>

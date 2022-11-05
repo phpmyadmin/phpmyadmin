@@ -1653,8 +1653,7 @@ class Table implements Stringable
     {
         $sql = QueryGenerator::getTableIndexesSql(
             $this->getDbName(),
-            $this->getName(),
-            ''
+            $this->getName()
         );
         $indexed = $this->dbi->fetchResult($sql, 'Column_name', 'Column_name');
 

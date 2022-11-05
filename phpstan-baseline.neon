@@ -1471,6 +1471,26 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/ReplicationController.php
+
+		-
+			message: "#^Parameter \\#10 \\$hostname of method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/ReplicationController.php
+
+		-
+			message: "#^Parameter \\#8 \\$username of method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/ReplicationController.php
+
+		-
+			message: "#^Parameter \\#9 \\$pmaPassword of method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/ReplicationController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\Processes\\\\KillController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/Processes/KillController.php
@@ -7006,11 +7026,6 @@ parameters:
 			path: libraries/classes/Query/Compatibility.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getInformationSchemaColumnsFullRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Query/Generator.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getTableCondition\\(\\) has parameter \\$escapedTableOrTables with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Query/Generator.php
@@ -7057,16 +7072,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:getHtmlForReplicaConfiguration\\(\\) has parameter \\$serverReplicaReplication with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/ReplicationGui.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:handleControlRequest\\(\\) has parameter \\$sr with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/ReplicationGui.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:handleRequestForReplicaChangePrimary\\(\\) has parameter \\$sr with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationGui.php
 

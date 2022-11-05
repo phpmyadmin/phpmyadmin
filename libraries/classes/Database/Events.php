@@ -616,13 +616,12 @@ class Events
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaEventsRequest(
                 $this->dbi->escapeString($db),
-                empty($name) ? null : $this->dbi->escapeString($name)
+                $name === '' ? null : $this->dbi->escapeString($name)
             );
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
-            if ($name) {
-                $query .= " WHERE `Name` = '"
-                    . $this->dbi->escapeString($name) . "'";
+            if ($name !== '') {
+                $query .= " WHERE `Name` = '" . $this->dbi->escapeString($name) . "'";
             }
         }
 

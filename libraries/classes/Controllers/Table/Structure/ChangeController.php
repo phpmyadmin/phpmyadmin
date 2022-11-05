@@ -15,6 +15,7 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function count;
+use function is_array;
 
 final class ChangeController extends AbstractController
 {
@@ -37,15 +38,15 @@ final class ChangeController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if (isset($_GET['change_column'])) {
-            $this->displayHtmlForColumnChange(null);
+        if ($request->getParsedBodyParam('change_column') !== null) {
+            $this->displayHtmlForColumnChange([$request->getParam('field')]);
 
             return;
         }
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
 
-        if (empty($selected)) {
+        if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
@@ -58,30 +59,23 @@ final class ChangeController extends AbstractController
     /**
      * Displays HTML for changing one or more columns
      *
-     * @param array|null $selected the selected columns
+     * @param string[] $selected the selected columns
      */
-    private function displayHtmlForColumnChange(?array $selected): void
+    private function displayHtmlForColumnChange(array $selected): void
     {
         $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
-
-        if (empty($selected)) {
-            $selected[] = $_REQUEST['field'];
-            $selected_cnt = 1;
-        } else { // from a multiple submit
-            $selected_cnt = count($selected);
-        }
 
         /**
          * @todo optimize in case of multiple fields to modify
          */
         $fields_meta = [];
-        for ($i = 0; $i < $selected_cnt; $i++) {
-            $value = $this->dbi->getColumn($GLOBALS['db'], $GLOBALS['table'], $selected[$i], true);
-            if (count($value) === 0) {
+        foreach ($selected as $column) {
+            $value = $this->dbi->getColumn($GLOBALS['db'], $GLOBALS['table'], $column, true);
+            if ($value === []) {
                 $message = Message::error(
                     __('Failed to get description of column %s!')
                 );
-                $message->addParam($selected[$i]);
+                $message->addParam($column);
                 $this->response->addHTML($message->getDisplay());
             } else {
                 $fields_meta[] = $value;
