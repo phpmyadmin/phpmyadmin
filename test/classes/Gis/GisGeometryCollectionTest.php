@@ -179,7 +179,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         $return = $this->object->prepareRowAsPng(
             'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
             'image',
-            '#B02EE0',
+            [176, 46, 224],
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
@@ -192,7 +192,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @param string $spatial    string to parse
      * @param string $label      field label
-     * @param string $line_color line color
+     * @param int[]  $color      line color
      * @param array  $scale_data scaling parameters
      * @param TCPDF  $pdf        expected output
      *
@@ -201,11 +201,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
-        string $line_color,
+        array $color,
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
         $this->assertInstanceOf(TCPDF::class, $return);
     }
 
@@ -220,7 +220,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
             [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 'pdf',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
@@ -237,7 +237,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @param string $spatial   string to parse
      * @param string $label     field label
-     * @param string $lineColor line color
+     * @param int[]  $color     line color
      * @param array  $scaleData scaling parameters
      * @param string $output    expected output
      *
@@ -246,11 +246,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
-        string $lineColor,
+        array $color,
         array $scaleData,
         string $output
     ): void {
-        $svg = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         $this->assertMatchesRegularExpression($output, $svg);
     }
 
@@ -265,7 +265,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
             [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 'svg',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
@@ -275,7 +275,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
                 '/^(<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
                     . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg)(\d+)'
                     . '(" class="polygon vector" stroke="black" stroke-width="0.5"'
-                    . ' fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/',
+                    . ' fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/',
             ],
         ];
     }
@@ -286,7 +286,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param string $spatial    string to parse
      * @param int    $srid       SRID
      * @param string $label      field label
-     * @param array  $line_color line color
+     * @param int[]  $color      line color
      * @param array  $scale_data scaling parameters
      * @param string $output     expected output
      *
@@ -296,7 +296,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $spatial,
         int $srid,
         string $label,
-        array $line_color,
+        array $color,
         array $scale_data,
         string $output
     ): void {
@@ -306,7 +306,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
                 $spatial,
                 $srid,
                 $label,
-                $line_color,
+                $color,
                 $scale_data
             )
         );

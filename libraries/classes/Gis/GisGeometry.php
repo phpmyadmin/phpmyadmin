@@ -32,25 +32,25 @@ abstract class GisGeometry
      *
      * @param string $spatial    GIS data object
      * @param string $label      label for the GIS data object
-     * @param string $color      color for the GIS data object
+     * @param int[]  $color      color for the GIS data object
      * @param array  $scale_data data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    abstract public function prepareRowAsSvg($spatial, $label, $color, array $scale_data);
+    abstract public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data);
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
      * @param string      $spatial    GIS POLYGON object
      * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $color      Color for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
      */
     abstract public function prepareRowAsPng(
         $spatial,
         ?string $label,
-        $color,
+        array $color,
         array $scale_data,
         ImageWrapper $image
     ): ImageWrapper;
@@ -60,7 +60,7 @@ abstract class GisGeometry
      *
      * @param string      $spatial    GIS data object
      * @param string|null $label      label for the GIS data object
-     * @param string      $color      color for the GIS data object
+     * @param int[]       $color      color for the GIS data object
      * @param array       $scale_data array containing data related to scaling
      * @param TCPDF       $pdf        TCPDF instance
      *
@@ -69,7 +69,7 @@ abstract class GisGeometry
     abstract public function prepareRowAsPdf(
         $spatial,
         ?string $label,
-        $color,
+        array $color,
         array $scale_data,
         $pdf
     );
@@ -81,7 +81,7 @@ abstract class GisGeometry
      * @param string $spatial    GIS data object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS data object
-     * @param array  $color      color for the GIS data object
+     * @param int[]  $color      color for the GIS data object
      * @param array  $scale_data array containing data related to scaling
      *
      * @return string the JavaScript related to a row in the GIS dataset
@@ -90,7 +90,7 @@ abstract class GisGeometry
         $spatial,
         int $srid,
         $label,
-        $color,
+        array $color,
         array $scale_data
     );
 

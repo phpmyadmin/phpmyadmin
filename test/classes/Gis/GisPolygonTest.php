@@ -426,7 +426,7 @@ class GisPolygonTest extends GisGeomTestCase
         $return = $this->object->prepareRowAsPng(
             'POLYGON((123 0,23 30,17 63,123 0))',
             'image',
-            '#B02EE0',
+            [176, 46, 224],
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
@@ -439,7 +439,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @param string $spatial    GIS POLYGON object
      * @param string $label      label for the GIS POLYGON object
-     * @param string $fill_color color for the GIS POLYGON object
+     * @param int[]  $color      color for the GIS POLYGON object
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
@@ -448,11 +448,11 @@ class GisPolygonTest extends GisGeomTestCase
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
-        string $fill_color,
+        array $color,
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
         $this->assertInstanceOf(TCPDF::class, $return);
     }
 
@@ -467,7 +467,7 @@ class GisPolygonTest extends GisGeomTestCase
             [
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 'pdf',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
@@ -484,7 +484,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @param string $spatial   GIS POLYGON object
      * @param string $label     label for the GIS POLYGON object
-     * @param string $fillColor color for the GIS POLYGON object
+     * @param int[]  $color     color for the GIS POLYGON object
      * @param array  $scaleData array containing data related to scaling
      * @param string $output    expected output
      *
@@ -493,11 +493,11 @@ class GisPolygonTest extends GisGeomTestCase
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
-        string $fillColor,
+        array $color,
         array $scaleData,
         string $output
     ): void {
-        $svg = $this->object->prepareRowAsSvg($spatial, $label, $fillColor, $scaleData);
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         $this->assertMatchesRegularExpression($output, $svg);
     }
 
@@ -512,7 +512,7 @@ class GisPolygonTest extends GisGeomTestCase
             [
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 'svg',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
@@ -521,7 +521,7 @@ class GisPolygonTest extends GisGeomTestCase
                 ],
                 '/^(<path d=" M 222, 288 L 22, 228 L 10, 162 Z " name="svg" '
                 . 'id="svg)(\d+)(" class="polygon vector" stroke="black" '
-                . 'stroke-width="0.5" fill="#B02EE0" fill-rule="evenodd" '
+                . 'stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" '
                 . 'fill-opacity="0.8"\/>)$/',
             ],
         ];
@@ -533,7 +533,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS POLYGON object
-     * @param array  $fill_color color for the GIS POLYGON object
+     * @param int[]  $color      color for the GIS POLYGON object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
@@ -543,7 +543,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        array $fill_color,
+        array $color,
         array $scale_data,
         string $output
     ): void {
@@ -553,7 +553,7 @@ class GisPolygonTest extends GisGeomTestCase
                 $spatial,
                 $srid,
                 $label,
-                $fill_color,
+                $color,
                 $scale_data
             )
         );
