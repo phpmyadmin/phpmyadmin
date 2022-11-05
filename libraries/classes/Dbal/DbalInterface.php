@@ -578,7 +578,21 @@ interface DbalInterface
     public function getFieldsMeta(ResultInterface $result): array;
 
     /**
+     * Returns properly quoted string for use in MySQL queries.
+     *
+     * @param string $str  string to be quoted
+     * @param mixed  $link optional database link to use
+     *
+     * @psalm-return non-empty-string
+     *
+     * @psalm-taint-escape sql
+     */
+    public function quoteString(string $str, $link = DatabaseInterface::CONNECT_USER): string;
+
+    /**
      * returns properly escaped string for use in MySQL queries
+     *
+     * @deprecated Use {@see quoteString()} instead.
      *
      * @param string $str  string to be escaped
      * @param mixed  $link optional database link to use

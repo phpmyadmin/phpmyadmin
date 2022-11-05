@@ -1127,9 +1127,9 @@ class Import
                             $isVarchar = false;
                         }
 
-                        $tempSQLStr .= $isVarchar ? "'" : '';
-                        $tempSQLStr .= $GLOBALS['dbi']->escapeString((string) $tables[$i][self::ROWS][$j][$k]);
-                        $tempSQLStr .= $isVarchar ? "'" : '';
+                        $tempSQLStr .= $isVarchar
+                            ? $GLOBALS['dbi']->quoteString((string) $tables[$i][self::ROWS][$j][$k])
+                            : (string) $tables[$i][self::ROWS][$j][$k];
                     }
 
                     if ($k != $numCols - 1) {
@@ -1421,8 +1421,8 @@ class Import
 
         // Query to check if table is 'Transactional'.
         $checkQuery = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = "' . $GLOBALS['dbi']->escapeString($table) . '" '
-            . 'AND `table_schema` = "' . $GLOBALS['dbi']->escapeString($db) . '" '
+            . 'WHERE `table_name` = ' . $GLOBALS['dbi']->quoteString($table) . ' '
+            . 'AND `table_schema` = ' . $GLOBALS['dbi']->quoteString($db) . ' '
             . 'AND UPPER(`engine`) IN ("'
             . implode('", "', $transactionalEngines)
             . '")';

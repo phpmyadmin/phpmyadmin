@@ -730,8 +730,8 @@ class Export
                         // This obtains the current table's size
                         $query = 'SELECT data_length + index_length
                               from information_schema.TABLES
-                              WHERE table_schema = "' . $this->dbi->escapeString($db->getName()) . '"
-                              AND table_name = "' . $this->dbi->escapeString($table) . '"';
+                              WHERE table_schema = ' . $this->dbi->quoteString($db->getName()) . '
+                              AND table_name = ' . $this->dbi->quoteString($table);
 
                         $size = (int) $this->dbi->fetchValue($query);
                         //Converting the size to MB

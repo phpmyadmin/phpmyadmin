@@ -261,8 +261,8 @@ class Operations
     public function runEventDefinitionsForDb($db, DatabaseName $newDatabaseName): void
     {
         $event_names = $this->dbi->fetchResult(
-            'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-            . $this->dbi->escapeString($db) . '\';'
+            'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= '
+            . $this->dbi->quoteString($db) . ';'
         );
         if (! $event_names) {
             return;
@@ -327,26 +327,26 @@ class Operations
 
         // For Db specific privileges
         $query_db_specific = 'UPDATE ' . Util::backquote('db')
-            . 'SET Db = \'' . $this->dbi->escapeString($newName)
-            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+            . 'SET Db = ' . $this->dbi->quoteString($newName)
+            . ' where Db = ' . $this->dbi->quoteString($oldDb) . ';';
         $this->dbi->query($query_db_specific);
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newName)
-            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+            . 'SET Db = ' . $this->dbi->quoteString($newName)
+            . ' where Db = ' . $this->dbi->quoteString($oldDb) . ';';
         $this->dbi->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newName)
-            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+            . 'SET Db = ' . $this->dbi->quoteString($newName)
+            . ' where Db = ' . $this->dbi->quoteString($oldDb) . ';';
         $this->dbi->query($query_col_specific);
 
         // For procedures specific privileges
         $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newName)
-            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+            . 'SET Db = ' . $this->dbi->quoteString($newName)
+            . ' where Db = ' . $this->dbi->quoteString($oldDb) . ';';
         $this->dbi->query($query_proc_specific);
 
         // Finally FLUSH the new privileges
@@ -680,8 +680,7 @@ class Operations
         $table_alters = [];
 
         if (isset($_POST['comment']) && urldecode($_POST['prev_comment']) !== $_POST['comment']) {
-            $table_alters[] = 'COMMENT = \''
-                . $this->dbi->escapeString($_POST['comment']) . '\'';
+            $table_alters[] = 'COMMENT = ' . $this->dbi->quoteString($_POST['comment']);
         }
 
         if (
@@ -799,20 +798,20 @@ class Operations
 
         // For table specific privileges
         $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newDb)
-            . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
-            . '\' where Db = \'' . $this->dbi->escapeString($oldDb)
-            . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
-            . '\';';
+            . 'SET Db = ' . $this->dbi->quoteString($newDb)
+            . ', Table_name = ' . $this->dbi->quoteString($newTable)
+            . ' where Db = ' . $this->dbi->quoteString($oldDb)
+            . ' AND Table_name = ' . $this->dbi->quoteString($oldTable)
+            . ';';
         $this->dbi->query($query_table_specific);
 
         // For column specific privileges
         $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-            . 'SET Db = \'' . $this->dbi->escapeString($newDb)
-            . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
-            . '\' where Db = \'' . $this->dbi->escapeString($oldDb)
-            . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
-            . '\';';
+            . 'SET Db = ' . $this->dbi->quoteString($newDb)
+            . ', Table_name = ' . $this->dbi->quoteString($newTable)
+            . ' where Db = ' . $this->dbi->quoteString($oldDb)
+            . ' AND Table_name = ' . $this->dbi->quoteString($oldTable)
+            . ';';
         $this->dbi->query($query_col_specific);
 
         // Finally FLUSH the new privileges

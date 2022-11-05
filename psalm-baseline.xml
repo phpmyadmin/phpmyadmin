@@ -46,6 +46,9 @@
     </UnusedClosureParam>
   </file>
   <file src="libraries/classes/Bookmark.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="4">
       <code>$bkm_fields['bkm_label']</code>
       <code>$bkm_fields['bkm_sql_query']</code>
@@ -767,6 +770,10 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/ConfigStorage/Relation.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidArgument occurrences="1">
       <code>usort($tables, 'strnatcasecmp')</code>
     </InvalidArgument>
@@ -887,7 +894,67 @@
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
     </RedundantCondition>
   </file>
+  <file src="libraries/classes/ConfigStorage/RelationCleanup.php">
+    <DeprecatedMethod occurrences="48">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
+  </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
+    <DeprecatedMethod occurrences="6">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$tabNames</code>
     </MixedArgumentTypeCoercion>
@@ -1222,6 +1289,12 @@
       <code>$request-&gt;getParam('db')</code>
       <code>$request-&gt;getParsedBodyParam('sql_query')</code>
     </MixedArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/Operations/CollationController.php">
     <MixedArgument occurrences="2">
@@ -2158,6 +2231,9 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Import/ImportController.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
@@ -2955,6 +3031,9 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsFormController.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <PossiblyInvalidArgument occurrences="1">
       <code>$username</code>
     </PossiblyInvalidArgument>
@@ -2967,6 +3046,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/GetVariableController.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="3">
       <code>$params['name']</code>
       <code>$params['name']</code>
@@ -2977,6 +3059,10 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/SetVariableController.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="2">
       <code>$formattedValue</code>
       <code>$varValue[1]</code>
@@ -3347,6 +3433,12 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
+    <DeprecatedMethod occurrences="4">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidScalarArgument occurrences="3">
       <code>$_POST['columnIndex']</code>
       <code>$_POST['columnIndex']</code>
@@ -4307,6 +4399,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/View/CreateController.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="1">
       <code>$GLOBALS['view']['as']</code>
     </DocblockTypeContradiction>
@@ -4467,6 +4563,14 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/CreateAddField.php">
+    <DeprecatedMethod occurrences="6">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <LessSpecificReturnStatement occurrences="1"/>
     <MixedArgument occurrences="13">
       <code>$_POST['comment']</code>
@@ -4602,6 +4706,41 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Database/CentralColumns.php">
+    <DeprecatedMethod occurrences="33">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidScalarArgument occurrences="1">
       <code>$tn_pageNow</code>
     </InvalidScalarArgument>
@@ -4795,6 +4934,10 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Designer.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="20">
       <code>$tabColumn[$tableName]['COLUMN_ID']</code>
       <code>$tabColumn[$tableName]['TYPE'][$j]</code>
@@ -4859,6 +5002,32 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Database/Designer/Common.php">
+    <DeprecatedMethod occurrences="24">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="17">
       <code>$DB</code>
       <code>$TAB</code>
@@ -4957,6 +5126,17 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Events.php">
+    <DeprecatedMethod occurrences="9">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="5">
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['errors']</code>
@@ -5268,6 +5448,22 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Routines.php">
+    <DeprecatedMethod occurrences="14">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidArgument occurrences="2">
       <code>$itemParamDir</code>
       <code>$itemParamName</code>
@@ -5555,6 +5751,10 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Search.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="4">
       <code>$column['Field']</code>
       <code>$eachTable</code>
@@ -5578,6 +5778,12 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Triggers.php">
+    <DeprecatedMethod occurrences="4">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="8">
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['errors']</code>
@@ -5723,6 +5929,14 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
+    <DeprecatedMethod occurrences="6">
+      <code>[$this, 'escapeString']</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <EmptyArrayAccess occurrences="1">
       <code>$resultTarget[]</code>
     </EmptyArrayAccess>
@@ -5796,7 +6010,7 @@
       <code>$tableData['Engine']</code>
       <code>$tableData['Index_length']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="10">
+    <MixedArrayOffset occurrences="11">
       <code>$databases[$databaseName]</code>
       <code>$resultRows[$row[$key]]</code>
       <code>$resultTarget[$row[$keyIndex]]</code>
@@ -5805,6 +6019,7 @@
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
+      <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
@@ -5881,6 +6096,9 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/DbTableExists.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
@@ -5940,6 +6158,9 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Display/Results.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="2">
       <code>$displayParts-&gt;hasNavigationBar &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
       <code>[]</code>
@@ -6592,6 +6813,20 @@
       <code>$state['name'] ?? ''</code>
       <code>$state['username']</code>
     </MixedArgument>
+  </file>
+  <file src="libraries/classes/Export/TemplateModel.php">
+    <DeprecatedMethod occurrences="10">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
   </file>
   <file src="libraries/classes/FieldMetadata.php">
     <MixedAssignment occurrences="8">
@@ -7675,7 +7910,7 @@
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$i][self::TBL_NAME]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="22">
+    <MixedArrayAccess occurrences="23">
       <code>$analyses[$i][self::FORMATTEDSQL][$colCount]</code>
       <code>$analyses[$i][self::SIZES]</code>
       <code>$analyses[$i][self::TYPES]</code>
@@ -7688,6 +7923,7 @@
       <code>$tables[$i][self::COL_NAMES]</code>
       <code>$tables[$i][self::COL_NAMES]</code>
       <code>$tables[$i][self::COL_NAMES]</code>
+      <code>$tables[$i][self::ROWS]</code>
       <code>$tables[$i][self::ROWS]</code>
       <code>$tables[$i][self::ROWS]</code>
       <code>$tables[$i][self::ROWS]</code>
@@ -8265,6 +8501,21 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
+    <DeprecatedMethod occurrences="13">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset occurrences="7">
       <code>$GLOBALS['cfg']['NavigationDisplayLogo']</code>
       <code>$GLOBALS['cfg']['NavigationDisplayServers']</code>
@@ -8289,6 +8540,10 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$table</code>
     </ArgumentTypeCoercion>
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="2">
       <code>''</code>
       <code>isset($this-&gt;pos)</code>
@@ -8431,6 +8686,15 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Navigation/Nodes/Node.php">
+    <DeprecatedMethod occurrences="7">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="5">
       <code>$GLOBALS['cfg']['Server']['hide_db']</code>
       <code>$db</code>
@@ -8525,6 +8789,27 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabase.php">
+    <DeprecatedMethod occurrences="19">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidReturnStatement occurrences="4">
       <code>$retval</code>
       <code>$retval</code>
@@ -8614,6 +8899,18 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
+    <DeprecatedMethod occurrences="10">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <PossiblyInvalidPropertyFetch occurrences="2">
       <code>$this-&gt;realParent()-&gt;realName</code>
       <code>$this-&gt;realParent()-&gt;realName</code>
@@ -8766,6 +9063,10 @@
     </InvalidReturnType>
   </file>
   <file src="libraries/classes/Operations.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="14">
       <code>$arr['foreign_db']</code>
       <code>$arr['foreign_db']</code>
@@ -8965,6 +9266,14 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Partitioning/Partition.php">
+    <DeprecatedMethod occurrences="6">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArrayAccess occurrences="1">
       <code>$value['Name']</code>
     </MixedArrayAccess>
@@ -9652,6 +9961,18 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
+    <DeprecatedMethod occurrences="10">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="2">
       <code>empty($field-&gt;options)</code>
       <code>empty($field-&gt;references)</code>
@@ -9910,6 +10231,10 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportXml.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="7">
       <code>$code</code>
       <code>$col_as</code>
@@ -10309,6 +10634,9 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="2">
       <code>$nameArray === false</code>
       <code>$nameArray === false</code>
@@ -10401,6 +10729,11 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportLdi.php">
+    <DeprecatedMethod occurrences="3">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="3">
       <code>$GLOBALS['ldi_columns']</code>
       <code>$GLOBALS['ldi_enclosed']</code>
@@ -10987,6 +11320,9 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/Pdf.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="12">
       <code>$data[$i]</code>
       <code>$data[$i]</code>
@@ -11979,6 +12315,9 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$output</code>
     </LessSpecificReturnStatement>
+    <MixedArgument occurrences="1">
+      <code>$pos['File']</code>
+    </MixedArgument>
     <MixedArrayAccess occurrences="2">
       <code>$data[0]['File']</code>
       <code>$data[0]['Position']</code>
@@ -11987,8 +12326,7 @@
       <code>$output['File']</code>
       <code>$output['Position']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$pos['File']</code>
+    <MixedOperand occurrences="1">
       <code>$pos['Position']</code>
     </MixedOperand>
     <MoreSpecificReturnType occurrences="1">
@@ -12171,6 +12509,108 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/Server/Privileges.php">
+    <DeprecatedMethod occurrences="100">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="1">
       <code>''</code>
     </DocblockTypeContradiction>
@@ -12531,6 +12971,14 @@
       <code>$_POST['max_user_connections']</code>
     </RiskyCast>
   </file>
+  <file src="libraries/classes/Server/Privileges/AccountLocking.php">
+    <DeprecatedMethod occurrences="4">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
+  </file>
   <file src="libraries/classes/Server/Select.php">
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$server['only_db']</code>
@@ -12598,6 +13046,9 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Server/Status/Monitor.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidArrayAccess occurrences="1">
       <code>$temp[strlen($temp) - 1]</code>
     </InvalidArrayAccess>
@@ -12810,6 +13261,9 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Sql.php">
+    <DeprecatedMethod occurrences="1">
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <LessSpecificReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </LessSpecificReturnStatement>
@@ -13027,6 +13481,60 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Table.php">
+    <DeprecatedMethod occurrences="52">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
@@ -13386,6 +13894,12 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Table/Search.php">
+    <DeprecatedMethod occurrences="4">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="16">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
       <code>$_POST['criteriaColumnTypes'][$column_index]</code>
@@ -13512,6 +14026,48 @@
     </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Tracker.php">
+    <DeprecatedMethod occurrences="40">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="3">
       <code>null</code>
       <code>null</code>
@@ -13583,6 +14139,14 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Tracking.php">
+    <DeprecatedMethod occurrences="6">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="21">
       <code>$columns</code>
       <code>$data[$which_log]</code>
@@ -13701,6 +14265,29 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Transformations.php">
+    <DeprecatedMethod occurrences="21">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="1">
       <code>$upd_query</code>
     </MixedArgument>
@@ -13799,6 +14386,16 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/UserPassword.php">
+    <DeprecatedMethod occurrences="8">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="6">
       <code>$hostname</code>
       <code>$hostname</code>
@@ -13824,6 +14421,15 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/UserPreferences.php">
+    <DeprecatedMethod occurrences="7">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$path</code>
       <code>$url_params</code>
@@ -13844,6 +14450,12 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Util.php">
+    <DeprecatedMethod occurrences="4">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <EmptyArrayAccess occurrences="1">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
@@ -14786,6 +15398,10 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Dbal/DbiDummyTest.php">
+    <DeprecatedMethod occurrences="2">
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedInferredReturnType occurrences="2">
       <code>array</code>
       <code>array</code>
@@ -15682,6 +16298,15 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/Server/PrivilegesTest.php">
+    <DeprecatedMethod occurrences="7">
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+      <code>escapeString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="7">
       <code>$export</code>
       <code>$extra_data['new_privileges']</code>
