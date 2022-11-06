@@ -270,7 +270,7 @@ class Tracking
             $drop_image_or_text
         );
 
-        $html .= $this->getHtmlForTrackingReportExportForm2($url_params, $str1, $str2, $str3, $str4, $str5);
+        $html .= $this->getHtmlForTrackingReportExportForm2($url_params, $str1, $str2, $str3, $str4, $str5, $logType);
 
         $html .= "<br><br><hr><br>\n";
 
@@ -286,7 +286,7 @@ class Tracking
      */
     public function getHtmlForElementsOfTrackingReport(string $logType)
     {
-        $str1 = '<select name="logtype">'
+        $str1 = '<select name="log_type">'
             . '<option value="schema"'
             . ($logType === 'schema' ? ' selected="selected"' : '') . '>'
             . __('Structure only') . '</option>'
@@ -323,7 +323,7 @@ class Tracking
      * @param int    $filter_ts_to       filter time stamp from
      * @param int    $filter_ts_from     filter time stamp tp
      * @param array  $filter_users       filter users
-     * @param string $str1               HTML for logtype select
+     * @param string $str1               HTML for log_type select
      * @param string $str2               HTML for "from date"
      * @param string $str3               HTML for "to date"
      * @param string $str4               HTML for user
@@ -399,11 +399,12 @@ class Tracking
      * Generate HTML for export form
      *
      * @param array  $url_params Parameters
-     * @param string $str1       HTML for logtype select
+     * @param string $str1       HTML for log_type select
      * @param string $str2       HTML for "from date"
      * @param string $str3       HTML for "to date"
      * @param string $str4       HTML for user
      * @param string $str5       HTML for "list report"
+     * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
      */
@@ -413,7 +414,8 @@ class Tracking
         $str2,
         $str3,
         $str4,
-        $str5
+        $str5,
+        string $logType
     ) {
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($url_params + [
@@ -435,7 +437,7 @@ class Tracking
         $html .= Url::getHiddenInputs($url_params + [
             'report' => 'true',
             'version' => $_POST['version'],
-            'logtype' => $_POST['logtype'],
+            'log_type' => $logType,
             'date_from' => $_POST['date_from'],
             'date_to' => $_POST['date_to'],
             'users' => $_POST['users'],
@@ -1034,15 +1036,15 @@ class Tracking
      * @param int   $filter_ts_from filter time stamp from
      * @param int   $filter_ts_to   filter time stamp to
      * @param array $filter_users   filter users
-     * @phpstan-param 'schema'|'data'|'schema_and_data' $logtype
+     * @phpstan-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return array
      */
-    public function getEntries(array $data, $filter_ts_from, $filter_ts_to, array $filter_users, string $logtype)
+    public function getEntries(array $data, $filter_ts_from, $filter_ts_to, array $filter_users, string $logType)
     {
         $entries = [];
         // Filtering data definition statements
-        if ($logtype === 'schema' || $logtype === 'schema_and_data') {
+        if ($logType === 'schema' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
                 $this->filter(
@@ -1055,7 +1057,7 @@ class Tracking
         }
 
         // Filtering data manipulation statements
-        if ($logtype === 'data' || $logtype === 'schema_and_data') {
+        if ($logType === 'data' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
                 $this->filter(

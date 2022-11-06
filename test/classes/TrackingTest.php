@@ -272,11 +272,10 @@ class TrackingTest extends AbstractTestCase
         $_POST['date_from'] = 'date_from';
         $_POST['date_to'] = 'date_to';
         $_POST['users'] = 'users';
-        $_POST['logtype'] = 'logtype';
         $data = [
             'tracking' => 'tracking',
-            'ddlog' => ['ddlog'],
-            'dmlog' => ['dmlog'],
+            'ddlog' => [['date' => '2022-11-02 22:15:24']],
+            'dmlog' => [['date' => '2022-11-02 22:15:24']],
         ];
         $url_params = [];
         $filter_ts_to = 0;
@@ -286,7 +285,7 @@ class TrackingTest extends AbstractTestCase
         $html = $this->tracking->getHtmlForTrackingReport(
             $data,
             $url_params,
-            'logtype',
+            'schema_and_data',
             $filter_ts_to,
             $filter_ts_from,
             $filter_users
@@ -572,7 +571,6 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetEntries(): void
     {
-        $_POST['logtype'] = 'schema';
         $data = [
             'tracking' => 'tracking',
             'ddlog' => [

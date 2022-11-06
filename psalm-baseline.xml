@@ -4149,11 +4149,10 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['data']</code>
-      <code>$_POST['logtype']</code>
       <code>$version</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
@@ -4179,12 +4178,6 @@
       <code>$toggleActivation</code>
       <code>$version</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['logtype']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['logtype']</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
@@ -15954,9 +15947,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/TrackingTest.php">
-    <InvalidArgument occurrences="1">
-      <code>'logtype'</code>
-    </InvalidArgument>
     <MixedArgument occurrences="1">
       <code>$html</code>
     </MixedArgument>

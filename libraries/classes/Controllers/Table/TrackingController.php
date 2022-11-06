@@ -97,8 +97,7 @@ final class TrackingController extends AbstractController
         /** @var string $tableParam */
         $tableParam = $request->getParsedBodyParam('table');
 
-        $logType = $this->validateLogTypeParam($request->getParsedBodyParam('logtype'));
-        $_POST['logtype'] = $logType;
+        $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
 
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
@@ -138,7 +137,7 @@ final class TrackingController extends AbstractController
                 (int) $GLOBALS['filter_ts_from'],
                 (int) $GLOBALS['filter_ts_to'],
                 $GLOBALS['filter_users'],
-                $_POST['logtype']
+                $logType
             );
         }
 

@@ -11301,11 +11301,6 @@ parameters:
 			path: test/classes/TrackerTest.php
 
 		-
-			message: "#^Parameter \\#3 \\$logType of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects 'data'\\|'schema'\\|'schema_and_data', 'logtype' given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TransformationsTest\\:\\:fixupData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TransformationsTest.php

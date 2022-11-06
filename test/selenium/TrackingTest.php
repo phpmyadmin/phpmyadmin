@@ -81,10 +81,7 @@ class TrackingTest extends TestBase
         );
 
         // only structure
-        $this->selectByLabel(
-            $this->byName('logtype'),
-            'Structure only'
-        );
+        $this->selectByLabel($this->byName('log_type'), 'Structure only');
 
         $this->byCssSelector("input[value='Go']")->click();
 
@@ -105,10 +102,7 @@ class TrackingTest extends TestBase
         );
 
         // only data
-        $this->selectByLabel(
-            $this->waitForElement('name', 'logtype'),
-            'Data only'
-        );
+        $this->selectByLabel($this->waitForElement('name', 'log_type'), 'Data only');
 
         $this->byCssSelector("input[value='Go']")->click();
 
