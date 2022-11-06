@@ -53,10 +53,13 @@ class BinlogControllerTest extends AbstractTestCase
 
         $controller = new BinlogController($response, new Template(), $GLOBALS['dbi']);
 
-        $_POST['log'] = 'index1';
-        $_POST['pos'] = '3';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['log', null, 'index1'],
+            ['pos', 0, '3'],
+        ]);
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 

@@ -1396,6 +1396,21 @@ parameters:
 			path: libraries/classes/Controllers/SchemaExportController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/BinlogController.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/BinlogController.php
+
+		-
+			message: "#^Parameter \\#1 \\$log of method PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:getSqlQuery\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/BinlogController.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/BinlogController.php
