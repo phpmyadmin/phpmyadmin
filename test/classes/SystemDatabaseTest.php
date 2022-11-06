@@ -45,7 +45,7 @@ class SystemDatabaseTest extends AbstractTestCase
 
         $dbi->expects($this->any())
             ->method('quoteString')
-            ->will($this->returnCallback(function (string $string) {
+            ->will($this->returnCallback(static function (string $string) {
                 return "'" . $string . "'";
             }));
 
