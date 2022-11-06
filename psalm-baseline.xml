@@ -2911,11 +2911,6 @@
       <code>$params['time_start']</code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/ProcessesController.php">
-    <MixedAssignment occurrences="1">
-      <code>$GLOBALS['errorUrl']</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Controllers/Server/Status/QueriesController.php">
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
@@ -13150,17 +13145,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Server/Status/Processes.php">
-    <MixedArgument occurrences="1">
-      <code>$params['order_by_field']</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$urlParams['order_by_field']</code>
-      <code>$urlParams['showExecuting']</code>
-      <code>$urlParams['sort_order']</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$params['sort_order']</code>
-    </MixedOperand>
     <RedundantCondition occurrences="1">
       <code>0 !== --$sortableColCount</code>
     </RedundantCondition>

@@ -87,13 +87,19 @@ class ProcessesControllerTest extends AbstractTestCase
         $this->assertStringContainsString('Show full queries', $html);
         $this->assertStringContainsString('index.php?route=/server/status/processes', $html);
 
-        $_POST['full'] = '1';
-        $_POST['column_name'] = 'Database';
-        $_POST['order_by_field'] = 'Db';
-        $_POST['sort_order'] = 'ASC';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['column_name', '', 'Database'],
+            ['order_by_field', '', 'Db'],
+            ['sort_order', '', 'ASC'],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['full', true],
+            ['showExecuting', false],
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
@@ -101,12 +107,19 @@ class ProcessesControllerTest extends AbstractTestCase
         $this->assertStringContainsString('Database', $html);
         $this->assertStringContainsString('DESC', $html);
 
-        $_POST['column_name'] = 'Host';
-        $_POST['order_by_field'] = 'Host';
-        $_POST['sort_order'] = 'DESC';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['column_name', '', 'Host'],
+            ['order_by_field', '', 'Host'],
+            ['sort_order', '', 'DESC'],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['full', true],
+            ['showExecuting', false],
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 

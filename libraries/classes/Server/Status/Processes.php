@@ -26,43 +26,33 @@ final class Processes
     }
 
     /**
-     * @param array $params Request parameters
-     *
      * @return array<string, array|string|bool>
      */
-    public function getList(array $params): array
+    public function getList(bool $showExecuting, bool $showFullSql, string $orderByField, string $sortOrder): array
     {
         $urlParams = [];
 
-        $showFullSql = ! empty($params['full']);
-        if ($showFullSql) {
-            $urlParams['full'] = '';
-        } else {
-            $urlParams['full'] = 1;
-        }
+        $urlParams['full'] = $showFullSql ? '' : 1;
 
         $sqlQuery = $showFullSql
             ? 'SHOW FULL PROCESSLIST'
             : 'SHOW PROCESSLIST';
         if (
-            (! empty($params['order_by_field'])
-                && ! empty($params['sort_order']))
-            || ! empty($params['showExecuting'])
+            ($orderByField !== '' && $sortOrder !== '')
+            || $showExecuting
         ) {
-            $urlParams['order_by_field'] = $params['order_by_field'];
-            $urlParams['sort_order'] = $params['sort_order'];
-            $urlParams['showExecuting'] = $params['showExecuting'];
+            $urlParams['order_by_field'] = $orderByField;
+            $urlParams['sort_order'] = $sortOrder;
+            $urlParams['showExecuting'] = $showExecuting;
             $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
 
-        if (! empty($params['showExecuting'])) {
+        if ($showExecuting) {
             $sqlQuery .= ' WHERE state != "" ';
         }
 
-        if (! empty($params['order_by_field']) && ! empty($params['sort_order'])) {
-            $sqlQuery .= ' ORDER BY '
-                . Util::backquote($params['order_by_field'])
-                . ' ' . $params['sort_order'];
+        if ($orderByField !== '' && $sortOrder !== '') {
+            $sqlQuery .= ' ORDER BY ' . Util::backquote($orderByField) . ' ' . $sortOrder;
         }
 
         $result = $this->dbi->query($sqlQuery);
@@ -93,16 +83,22 @@ final class Processes
             ];
         }
 
+        $columns = $this->getSortableColumnsForProcessList($showExecuting, $showFullSql, $orderByField, $sortOrder);
+
         return [
-            'columns' => $this->getSortableColumnsForProcessList($showFullSql, $params),
+            'columns' => $columns,
             'rows' => $rows,
             'refresh_params' => $urlParams,
             'is_mariadb' => $this->dbi->isMariaDB(),
         ];
     }
 
-    private function getSortableColumnsForProcessList(bool $showFullSql, array $params): array
-    {
+    private function getSortableColumnsForProcessList(
+        bool $showExecuting,
+        bool $showFullSql,
+        string $orderByField,
+        string $sortOrder
+    ): array {
         // This array contains display name and real column name of each
         // sortable column in the table
         $sortableColumns = [
@@ -152,16 +148,16 @@ final class Processes
 
         $columns = [];
         foreach ($sortableColumns as $columnKey => $column) {
-            $is_sorted = ! empty($params['order_by_field'])
-                && ! empty($params['sort_order'])
-                && ($params['order_by_field'] == $column['order_by_field']);
+            $is_sorted = $orderByField !== ''
+                && $sortOrder !== ''
+                && ($orderByField == $column['order_by_field']);
 
             $column['sort_order'] = 'ASC';
-            if ($is_sorted && $params['sort_order'] === 'ASC') {
+            if ($is_sorted && $sortOrder === 'ASC') {
                 $column['sort_order'] = 'DESC';
             }
 
-            if (isset($params['showExecuting'])) {
+            if ($showExecuting) {
                 $column['showExecuting'] = 'on';
             }
 
