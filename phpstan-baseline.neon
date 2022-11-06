@@ -8486,11 +8486,6 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForElementsOfTrackingReport\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForIndexes\\(\\) has parameter \\$indexes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php

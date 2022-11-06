@@ -98,6 +98,10 @@ final class TrackingController extends AbstractController
 
         $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
 
+        $dateFrom = '';
+        $dateTo = '';
+        $users = '';
+
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
             $trackedData = Tracker::getTrackedData(
@@ -108,21 +112,10 @@ final class TrackingController extends AbstractController
 
             /** @var string $dateFrom */
             $dateFrom = $request->getParsedBodyParam('date_from', $trackedData['date_from']);
-            if (! isset($_POST['date_from'])) {
-                $_POST['date_from'] = $trackedData['date_from'];
-            }
-
             /** @var string $dateTo */
             $dateTo = $request->getParsedBodyParam('date_to', $trackedData['date_to']);
-            if (! isset($_POST['date_to'])) {
-                $_POST['date_to'] = $trackedData['date_to'];
-            }
-
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
-            if (! isset($_POST['users'])) {
-                $_POST['users'] = '*';
-            }
 
             $GLOBALS['filter_ts_from'] = strtotime($dateFrom);
             $GLOBALS['filter_ts_to'] = strtotime($dateTo);
@@ -235,8 +228,8 @@ final class TrackingController extends AbstractController
                 $GLOBALS['table'],
                 $versionParam,
                 $trackedData,
-                isset($_POST['delete_ddlog']),
-                isset($_POST['delete_dmlog'])
+                $request->hasBodyParam('delete_ddlog'),
+                $request->hasBodyParam('delete_dmlog')
             );
         }
 
@@ -248,7 +241,11 @@ final class TrackingController extends AbstractController
                 $logType,
                 (int) $GLOBALS['filter_ts_to'],
                 (int) $GLOBALS['filter_ts_from'],
-                $GLOBALS['filter_users']
+                $GLOBALS['filter_users'],
+                $versionParam,
+                $dateFrom,
+                $dateTo,
+                $users
             );
         }
 

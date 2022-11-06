@@ -13583,8 +13583,7 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Tracking.php">
-    <InvalidArgument occurrences="1"/>
-    <MixedArgument occurrences="31">
+    <MixedArgument occurrences="21">
       <code>$columns</code>
       <code>$data[$which_log]</code>
       <code>$data['ddlog']</code>
@@ -13605,18 +13604,9 @@
       <code>$indexes</code>
       <code>$selected_table</code>
       <code>$selected_table</code>
-      <code>$str1</code>
-      <code>$str1</code>
-      <code>$str2</code>
-      <code>$str2</code>
-      <code>$str3</code>
-      <code>$str3</code>
-      <code>$str4</code>
-      <code>$str4</code>
-      <code>$str5</code>
-      <code>$str5</code>
       <code>$value['Name']</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1"/>
     <MixedArrayAccess occurrences="17">
       <code>$data[$which_log][$delete_id]</code>
       <code>$entry['date']</code>
@@ -13678,10 +13668,7 @@
       <code>$sep</code>
       <code>$sep</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="4">
-      <code>$_POST['date_from']</code>
-      <code>$_POST['date_to']</code>
-      <code>$_POST['users']</code>
+    <PossiblyInvalidArgument occurrences="1">
       <code>$data['schema_snapshot']</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset occurrences="2">
