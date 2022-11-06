@@ -457,44 +457,43 @@ class GisMultiPolygon extends GisGeometry
      */
     public function generateParams(string $value, int $index = -1): array
     {
-        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = $this->parseWktAndSrid($value);
-            $params['srid'] = $data['srid'];
+            $params = [
+                'srid' => $data['srid'],
+                $index => [],
+            ];
             $wkt = $data['wkt'];
         } else {
-            $params[$index]['gis_type'] = 'MULTIPOLYGON';
+            $params = [
+                $index => ['gis_type' => 'MULTIPOLYGON'],
+            ];
             $wkt = $value;
         }
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
-        $multipolygon = mb_substr($wkt, 15, -3);
-        // Separate each polygon
-        $wkt_polygons = explode(')),((', $multipolygon);
+        $wkt_multipolygon = mb_substr($wkt, 15, -3);
+        $wkt_polygons = explode(')),((', $wkt_multipolygon);
+        $coords = ['no_of_polygons' => count($wkt_polygons)];
 
-        $param_row =& $params[$index]['MULTIPOLYGON'];
-        $param_row['no_of_polygons'] = count($wkt_polygons);
-
-        $k = 0;
-        foreach ($wkt_polygons as $wkt_polygon) {
+        foreach ($wkt_polygons as $k => $wkt_polygon) {
             $wkt_rings = explode('),(', $wkt_polygon);
-            $param_row[$k]['no_of_lines'] = count($wkt_rings);
-            $j = 0;
-            foreach ($wkt_rings as $wkt_ring) {
-                $points_arr = $this->extractPoints($wkt_ring, null);
-                $no_of_points = count($points_arr);
-                $param_row[$k][$j]['no_of_points'] = $no_of_points;
+            $coords[$k] = ['no_of_lines' => count($wkt_rings)];
+            foreach ($wkt_rings as $j => $wkt_ring) {
+                $points = $this->extractPoints($wkt_ring, null);
+                $no_of_points = count($points);
+                $coords[$k][$j] = ['no_of_points' => $no_of_points];
                 for ($i = 0; $i < $no_of_points; $i++) {
-                    $param_row[$k][$j][$i]['x'] = $points_arr[$i][0];
-                    $param_row[$k][$j][$i]['y'] = $points_arr[$i][1];
+                    $coords[$k][$j][$i] = [
+                        'x' => $points[$i][0],
+                        'y' => $points[$i][1],
+                    ];
                 }
-
-                $j++;
             }
-
-            $k++;
         }
+
+        $params[$index]['MULTIPOLYGON'] = $coords;
 
         return $params;
     }

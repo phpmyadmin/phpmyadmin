@@ -480,35 +480,39 @@ class GisPolygon extends GisGeometry
      */
     public function generateParams(string $value, int $index = -1): array
     {
-        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = $this->parseWktAndSrid($value);
-            $params['srid'] = $data['srid'];
+            $params = [
+                'srid' => $data['srid'],
+                $index => [],
+            ];
             $wkt = $data['wkt'];
         } else {
-            $params[$index]['gis_type'] = 'POLYGON';
+            $params = [
+                $index => ['gis_type' => 'POLYGON'],
+            ];
             $wkt = $value;
         }
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr($wkt, 9, -2);
-        // Separate each linestring
-        $linerings = explode('),(', $polygon);
-        $params[$index]['POLYGON']['no_of_lines'] = count($linerings);
+        $wkt_polygon = mb_substr($wkt, 9, -2);
+        $wkt_rings = explode('),(', $wkt_polygon);
+        $coords = ['no_of_lines' => count($wkt_rings)];
 
-        $j = 0;
-        foreach ($linerings as $linering) {
-            $points_arr = $this->extractPoints($linering, null);
-            $no_of_points = count($points_arr);
-            $params[$index]['POLYGON'][$j]['no_of_points'] = $no_of_points;
+        foreach ($wkt_rings as $j => $wkt_ring) {
+            $points = $this->extractPoints($wkt_ring, null);
+            $no_of_points = count($points);
+            $coords[$j] = ['no_of_points' => $no_of_points];
             for ($i = 0; $i < $no_of_points; $i++) {
-                $params[$index]['POLYGON'][$j][$i]['x'] = $points_arr[$i][0];
-                $params[$index]['POLYGON'][$j][$i]['y'] = $points_arr[$i][1];
+                $coords[$j][$i] = [
+                    'x' => $points[$i][0],
+                    'y' => $points[$i][1],
+                ];
             }
-
-            $j++;
         }
+
+        $params[$index]['POLYGON'] = $coords;
 
         return $params;
     }

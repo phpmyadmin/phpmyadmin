@@ -7870,10 +7870,6 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Gis/GisGeometryCollection.php">
-    <DocblockTypeContradiction>
-      <code>! $gis_obj</code>
-      <code>$gis_obj</code>
-    </DocblockTypeContradiction>
     <MixedArgument>
       <code>$type</code>
     </MixedArgument>
@@ -7921,8 +7917,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$no_of_points</code>
-      <code><![CDATA[$params[$index]['LINESTRING'][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['LINESTRING'][$i]['y']]]></code>
       <code>$point</code>
       <code>$point</code>
       <code>$point</code>
@@ -7945,10 +7939,6 @@
     </PossiblyFalseArgument>
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[$params[$index]['LINESTRING']]]></code>
-      <code><![CDATA[$params[$index]['LINESTRING']]]></code>
-      <code><![CDATA[$params[$index]['LINESTRING']]]></code>
-      <code><![CDATA[$params[$index]['LINESTRING'][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['LINESTRING'][$i]['y']]]></code>
     </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
@@ -7982,8 +7972,8 @@
       <code>$point[1]</code>
       <code>$point[1]</code>
       <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
+      <code>$points[$i][0]</code>
+      <code>$points[$i][1]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][1]</code>
@@ -7999,8 +7989,6 @@
       <code>$data_row</code>
       <code>$no_of_lines</code>
       <code>$no_of_points</code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING'][$j][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING'][$j][$i]['y']]]></code>
       <code>$point</code>
       <code>$point</code>
       <code>$point</code>
@@ -8026,14 +8014,6 @@
     </PossiblyFalseArgument>
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[$params[$index]['MULTILINESTRING']]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING']]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING']]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING']]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING'][$j][$i]]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING'][$j][$i]]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING'][$j][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING'][$j][$i]['y']]]></code>
-      <code><![CDATA[$params[$index]['MULTILINESTRING'][$j]['no_of_points']]]></code>
     </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
@@ -8067,8 +8047,8 @@
       <code>$point[1]</code>
       <code>$point[1]</code>
       <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
+      <code>$points[$i][0]</code>
+      <code>$points[$i][1]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
@@ -8080,8 +8060,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$no_of_points</code>
-      <code><![CDATA[$params[$index]['MULTIPOINT'][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['MULTIPOINT'][$i]['y']]]></code>
       <code>$point</code>
       <code>$point</code>
       <code>$point</code>
@@ -8105,10 +8083,6 @@
     </PossiblyFalseArgument>
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[$params[$index]['MULTIPOINT']]]></code>
-      <code><![CDATA[$params[$index]['MULTIPOINT']]]></code>
-      <code><![CDATA[$params[$index]['MULTIPOINT']]]></code>
-      <code><![CDATA[$params[$index]['MULTIPOINT'][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['MULTIPOINT'][$i]['y']]]></code>
     </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
@@ -8118,9 +8092,6 @@
     <ArgumentTypeCoercion>
       <code>$points_arr</code>
     </ArgumentTypeCoercion>
-    <InvalidArrayOffset>
-      <code><![CDATA[$params[$index]['MULTIPOLYGON']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code>$label_point[0]</code>
       <code>$label_point[0]</code>
@@ -8145,15 +8116,12 @@
       <code>$label_point[0]</code>
       <code>$label_point[1]</code>
       <code>$label_point[1]</code>
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k][$j]</code>
-      <code>$param_row[$k][$j][$i]</code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
       <code>$point[0]</code>
       <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
+      <code>$points[$i][0]</code>
+      <code>$points[$i][1]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
       <code><![CDATA[$ring1['isOuter']]]></code>
@@ -8170,20 +8138,6 @@
       <code><![CDATA[$row_data['parts'][$j]['points']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k][$j]</code>
-      <code>$param_row[$k][$j]</code>
-      <code>$param_row[$k][$j]</code>
-      <code>$param_row[$k][$j][$i]</code>
-      <code>$param_row[$k][$j][$i]</code>
-      <code><![CDATA[$param_row[$k][$j][$i]['x']]]></code>
-      <code><![CDATA[$param_row[$k][$j][$i]['y']]]></code>
-      <code><![CDATA[$param_row[$k][$j]['no_of_points']]]></code>
-      <code><![CDATA[$param_row[$k]['no_of_lines']]]></code>
-      <code><![CDATA[$param_row['no_of_polygons']]]></code>
       <code><![CDATA[$row_data['parts'][$i]]]></code>
       <code><![CDATA[$row_data['parts'][$i]]]></code>
       <code><![CDATA[$row_data['parts'][$i]['isOuter']]]></code>
@@ -8211,8 +8165,6 @@
       <code>$no_of_lines</code>
       <code>$no_of_points</code>
       <code>$no_of_polygons</code>
-      <code><![CDATA[$param_row[$k][$j][$i]['x']]]></code>
-      <code><![CDATA[$param_row[$k][$j][$i]['y']]]></code>
       <code>$point</code>
       <code>$point</code>
       <code>$ring</code>
@@ -8242,9 +8194,9 @@
       <code>$black</code>
       <code>$fill_color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment>
       <code><![CDATA[$params[$index]['MULTIPOLYGON']]]></code>
-    </PossiblyInvalidArrayAccess>
+    </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8266,23 +8218,19 @@
       <code><![CDATA[$gis_data[$index]['POINT']['x']]]></code>
       <code><![CDATA[$gis_data[$index]['POINT']['y']]]></code>
       <code><![CDATA[$gis_data[$index]['POINT']['y']]]></code>
+      <code>$points[0][0]</code>
+      <code>$points[0][1]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
     </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$params[$index]['POINT']['x']]]></code>
-      <code><![CDATA[$params[$index]['POINT']['y']]]></code>
-    </MixedAssignment>
     <MixedOperand>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
@@ -8300,7 +8248,6 @@
       <code>$point_color</code>
     </PossiblyFalseArgument>
     <PossiblyInvalidArrayAssignment>
-      <code><![CDATA[$params[$index]['POINT']]]></code>
       <code><![CDATA[$params[$index]['POINT']]]></code>
     </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
@@ -8341,8 +8288,8 @@
       <code><![CDATA[$p2['y']]]></code>
       <code>$point[0]</code>
       <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
+      <code>$points[$i][0]</code>
+      <code>$points[$i][1]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
       <code><![CDATA[$polygon[$last]['x']]]></code>
@@ -8376,8 +8323,6 @@
       <code>$p1</code>
       <code>$p1</code>
       <code>$p2</code>
-      <code><![CDATA[$params[$index]['POLYGON'][$j][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['POLYGON'][$j][$i]['y']]]></code>
       <code>$point</code>
       <code><![CDATA[$pointA['x']]]></code>
       <code><![CDATA[$pointA['y']]]></code>
@@ -8448,14 +8393,6 @@
     </PossiblyFalseArgument>
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[$params[$index]['POLYGON']]]></code>
-      <code><![CDATA[$params[$index]['POLYGON']]]></code>
-      <code><![CDATA[$params[$index]['POLYGON']]]></code>
-      <code><![CDATA[$params[$index]['POLYGON']]]></code>
-      <code><![CDATA[$params[$index]['POLYGON'][$j][$i]]]></code>
-      <code><![CDATA[$params[$index]['POLYGON'][$j][$i]]]></code>
-      <code><![CDATA[$params[$index]['POLYGON'][$j][$i]['x']]]></code>
-      <code><![CDATA[$params[$index]['POLYGON'][$j][$i]['y']]]></code>
-      <code><![CDATA[$params[$index]['POLYGON'][$j]['no_of_points']]]></code>
     </PossiblyInvalidArrayAssignment>
     <PossiblyNullOperand>
       <code>$x1</code>

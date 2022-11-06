@@ -4341,17 +4341,12 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Cannot access offset 'x' on array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\.$#"
+			message: "#^Cannot access offset 'LINESTRING' on array\\{\\}\\|array\\{gis_type\\: 'LINESTRING'\\}\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -4401,12 +4396,12 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Cannot access offset 'no_of_points' on array\\{0\\?\\: array\\{x\\: mixed, y\\: mixed\\}, no_of_points\\: int\\<0, max\\>\\}\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset 'MULTILINESTRING' on array\\{\\}\\|array\\{gis_type\\: 'MULTILINESTRING'\\}\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Cannot access offset 'x' on array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -4461,7 +4456,7 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Cannot access offset 'x' on array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\.$#"
+			message: "#^Cannot access offset 'MULTIPOINT' on array\\{\\}\\|array\\{gis_type\\: 'MULTIPOINT'\\}\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -4521,12 +4516,17 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Cannot access offset 'MULTIPOLYGON' on array\\{gis_type\\: 'MULTIPOLYGON'\\}\\|int\\.$#"
+			message: "#^Cannot access offset 'MULTIPOLYGON' on array\\{\\}\\|array\\{gis_type\\: 'MULTIPOLYGON'\\}\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Cannot access offset 'no_of_lines' on array\\{0\\: array\\{no_of_points\\: int\\<0, max\\>, 0\\?\\: array\\{x\\: mixed, y\\: mixed\\}\\}, no_of_lines\\: int\\<1, max\\>\\}\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int on non\\-empty\\-array\\<'no_of_lines'\\|int, array\\{no_of_points\\: int\\<0, max\\>, 0\\?\\: array\\{x\\: mixed, y\\: mixed\\}\\}\\|int\\<1, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4591,6 +4591,11 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Cannot access offset 'POINT' on array\\{\\}\\|array\\{gis_type\\: 'POINT'\\}\\|int\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisPoint.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -4641,12 +4646,12 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Cannot access offset 'no_of_points' on array\\{0\\?\\: array\\{x\\: mixed, y\\: mixed\\}, no_of_points\\: int\\<0, max\\>\\}\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset 'POLYGON' on array\\{\\}\\|array\\{gis_type\\: 'POLYGON'\\}\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Cannot access offset 'x' on array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 

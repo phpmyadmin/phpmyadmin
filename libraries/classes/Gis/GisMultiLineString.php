@@ -350,35 +350,39 @@ class GisMultiLineString extends GisGeometry
      */
     public function generateParams(string $value, int $index = -1): array
     {
-        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = $this->parseWktAndSrid($value);
-            $params['srid'] = $data['srid'];
+            $params = [
+                'srid' => $data['srid'],
+                $index => [],
+            ];
             $wkt = $data['wkt'];
         } else {
-            $params[$index]['gis_type'] = 'MULTILINESTRING';
+            $params = [
+                $index => ['gis_type' => 'MULTILINESTRING'],
+            ];
             $wkt = $value;
         }
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng = mb_substr($wkt, 17, -2);
-        // Separate each linestring
-        $linestirngs = explode('),(', $multilinestirng);
-        $params[$index]['MULTILINESTRING']['no_of_lines'] = count($linestirngs);
+        $wkt_multilinestring = mb_substr($wkt, 17, -2);
+        $wkt_linestrings = explode('),(', $wkt_multilinestring);
+        $coords = ['no_of_lines' => count($wkt_linestrings)];
 
-        $j = 0;
-        foreach ($linestirngs as $linestring) {
-            $points_arr = $this->extractPoints($linestring, null);
-            $no_of_points = count($points_arr);
-            $params[$index]['MULTILINESTRING'][$j]['no_of_points'] = $no_of_points;
+        foreach ($wkt_linestrings as $j => $wkt_linestring) {
+            $points = $this->extractPoints($wkt_linestring, null);
+            $no_of_points = count($points);
+            $coords[$j] = ['no_of_points' => $no_of_points];
             for ($i = 0; $i < $no_of_points; $i++) {
-                $params[$index]['MULTILINESTRING'][$j][$i]['x'] = $points_arr[$i][0];
-                $params[$index]['MULTILINESTRING'][$j][$i]['y'] = $points_arr[$i][1];
+                $coords[$j][$i] = [
+                    'x' => $points[$i][0],
+                    'y' => $points[$i][1],
+                ];
             }
-
-            $j++;
         }
+
+        $params[$index]['MULTILINESTRING'] = $coords;
 
         return $params;
     }

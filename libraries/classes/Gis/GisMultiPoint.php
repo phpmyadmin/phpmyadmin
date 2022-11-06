@@ -326,27 +326,35 @@ class GisMultiPoint extends GisGeometry
      */
     public function generateParams(string $value, int $index = -1): array
     {
-        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = $this->parseWktAndSrid($value);
-            $params['srid'] = $data['srid'];
+            $params = [
+                'srid' => $data['srid'],
+                $index => [],
+            ];
             $wkt = $data['wkt'];
         } else {
-            $params[$index]['gis_type'] = 'MULTIPOINT';
+            $params = [
+                $index => ['gis_type' => 'MULTIPOINT'],
+            ];
             $wkt = $value;
         }
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $points = mb_substr($wkt, 11, -1);
-        $points_arr = $this->extractPoints($points, null);
+        $wkt_points = mb_substr($wkt, 11, -1);
+        $points = $this->extractPoints($wkt_points, null);
 
-        $no_of_points = count($points_arr);
-        $params[$index]['MULTIPOINT']['no_of_points'] = $no_of_points;
+        $no_of_points = count($points);
+        $coords = ['no_of_points' => $no_of_points];
         for ($i = 0; $i < $no_of_points; $i++) {
-            $params[$index]['MULTIPOINT'][$i]['x'] = $points_arr[$i][0];
-            $params[$index]['MULTIPOINT'][$i]['y'] = $points_arr[$i][1];
+            $coords[$i] = [
+                'x' => $points[$i][0],
+                'y' => $points[$i][1],
+            ];
         }
+
+        $params[$index]['MULTIPOINT'] = $coords;
 
         return $params;
     }

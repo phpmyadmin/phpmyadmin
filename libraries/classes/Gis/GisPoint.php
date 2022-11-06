@@ -297,23 +297,29 @@ class GisPoint extends GisGeometry
      */
     public function generateParams(string $value, int $index = -1): array
     {
-        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = $this->parseWktAndSrid($value);
-            $params['srid'] = $data['srid'];
+            $params = [
+                'srid' => $data['srid'],
+                $index => [],
+            ];
             $wkt = $data['wkt'];
         } else {
-            $params[$index]['gis_type'] = 'POINT';
+            $params = [
+                $index => ['gis_type' => 'POINT'],
+            ];
             $wkt = $value;
         }
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr($wkt, 6, -1);
-        $points_arr = $this->extractPoints($point, null);
+        $wkt_point = mb_substr($wkt, 6, -1);
+        $points = $this->extractPoints($wkt_point, null);
 
-        $params[$index]['POINT']['x'] = $points_arr[0][0];
-        $params[$index]['POINT']['y'] = $points_arr[0][1];
+        $params[$index]['POINT'] = [
+            'x' => $points[0][0],
+            'y' => $points[0][1],
+        ];
 
         return $params;
     }
