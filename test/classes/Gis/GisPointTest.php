@@ -136,7 +136,7 @@ class GisPointTest extends GisGeomTestCase
                 "'POINT(5.02 8.45)',124",
                 null,
                 [
-                    'srid' => '124',
+                    'srid' => 124,
                     0 => [
                         'POINT' => [
                             'x' => '5.02',

@@ -131,7 +131,7 @@ class GisLineStringTest extends GisGeomTestCase
                 "'LINESTRING(5.02 8.45,6.14 0.15)',124",
                 null,
                 [
-                    'srid' => '124',
+                    'srid' => 124,
                     0 => $temp,
                 ],
             ],

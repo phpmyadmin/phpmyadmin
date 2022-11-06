@@ -191,7 +191,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . "(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',124",
                 null,
                 [
-                    'srid' => '124',
+                    'srid' => 124,
                     0 => $temp,
                 ],
             ],
