@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-06 00:22+0000\n"
-"PO-Revision-Date: 2022-11-06 09:12+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -5512,7 +5512,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
 msgid "Incorrect format parameter"
-msgstr "Paramètre de format incorrect"
+msgstr "Paramètre \"format\" incorrect"
 
 #: libraries/classes/Controllers/Import/ImportController.php:379
 #: libraries/classes/Controllers/Import/ImportController.php:622
