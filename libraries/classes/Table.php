@@ -2098,11 +2098,11 @@ class Table implements Stringable
                 }
 
                 $sqlQuery .= sprintf(
-                    ' ADD %s ',
+                    ' ADD %s',
                     $index->getChoice()
                 );
                 if ($index->getName()) {
-                    $sqlQuery .= Util::backquote($index->getName());
+                    $sqlQuery .= ' ' . Util::backquote($index->getName());
                 }
 
                 break;
@@ -2118,7 +2118,7 @@ class Table implements Stringable
             $indexFields[$key] .= '(' . $column->getSubPart() . ')';
         }
 
-        if (empty($indexFields)) {
+        if ($indexFields === []) {
             $error = Message::error(__('No index parts defined!'));
         } else {
             $sqlQuery .= ' (' . implode(', ', $indexFields) . ')';
@@ -2143,15 +2143,15 @@ class Table implements Stringable
         }
 
         $parser = $index->getParser();
-        if ($index->getChoice() === 'FULLTEXT' && ! empty($parser)) {
-            $sqlQuery .= ' WITH PARSER ' . $this->dbi->escapeString($parser);
+        if ($index->getChoice() === 'FULLTEXT' && $parser !== '') {
+            $sqlQuery .= ' WITH PARSER ' . $parser;
         }
 
         $comment = $index->getComment();
-        if (! empty($comment)) {
+        if ($comment !== '') {
             $sqlQuery .= sprintf(
-                " COMMENT '%s'",
-                $this->dbi->escapeString($comment)
+                ' COMMENT %s',
+                $this->dbi->quoteString($comment)
             );
         }
 

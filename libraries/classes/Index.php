@@ -95,7 +95,7 @@ class Index
      *
      * @var string
      */
-    private $parser = null;
+    private $parser = '';
 
     /**
      * @param array $params parameters
