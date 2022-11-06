@@ -1296,6 +1296,16 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
+			message: "#^Argument of an invalid type array\\<int, array\\<string, string\\>\\>\\|string\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
 			message: "#^Cannot access offset 'success' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ErrorReportController.php
@@ -8341,31 +8351,6 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Cannot access offset 'ddlog' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Cannot access offset 'schema_snapshot' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Cannot access offset 'statement' on mixed\\.$#"
-			count: 4
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 3
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
@@ -8561,23 +8546,33 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
+			message: "#^Offset 'statement' does not exist on array\\{date\\: string, username\\: string, statement\\: string\\}\\|string\\.$#"
+			count: 4
+			path: libraries/classes/Tracking.php
+
+		-
+			message: "#^Offset 0 does not exist on array\\<int, array\\{date\\: string, username\\: string, statement\\: string\\}\\>\\|string\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Tracking.php
+
+		-
+			message: "#^Offset 1 does not exist on array\\<int, array\\{date\\: string, username\\: string, statement\\: string\\}\\>\\|string\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Tracking.php
+
+		-
 			message: "#^Parameter \\#1 \\$columns of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForColumns\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Parameter \\#1 \\$data of static method PhpMyAdmin\\\\Core\\:\\:safeUnserialize\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$data of static method PhpMyAdmin\\\\Core\\:\\:safeUnserialize\\(\\) expects string, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 
 		-
 			message: "#^Parameter \\#1 \\$dbName of static method PhpMyAdmin\\\\Tracker\\:\\:isTracked\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Tracking.php
 
 		-
@@ -8597,11 +8592,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 

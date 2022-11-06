@@ -531,12 +531,17 @@ class Tracker
      * @param string $tablename name of table
      * @param string $version   version number
      *
-     * @return mixed record DDM log, DDL log, structure snapshot, tracked
-     *         statements.
-     *
-     * @static
+     * @return array<string, array<int, array<string, string>>|string|null>
+     * @psalm-return array{
+     *   date_from: string,
+     *   date_to: string,
+     *   ddlog: list<array{date: string, username: string, statement: string}>,
+     *   dmlog: list<array{date: string, username: string, statement: string}>,
+     *   tracking: string|null,
+     *   schema_snapshot: string|null
+     * }|array<never, never>
      */
-    public static function getTrackedData($dbname, $tablename, $version)
+    public static function getTrackedData($dbname, $tablename, $version): array
     {
         $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;

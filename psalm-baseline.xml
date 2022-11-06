@@ -1764,21 +1764,15 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/Controllers/Database/TrackingController.php">
-    <MixedArgument occurrences="3">
-      <code>$GLOBALS['data']['ddlog']</code>
-      <code>$GLOBALS['data']['ddlog']</code>
+    <MixedArgument occurrences="1">
       <code>$table</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$GLOBALS['data']['ddlog']</code>
-      <code>$GLOBALS['data']['ddlog']</code>
-      <code>$GLOBALS['data']['ddlog']</code>
+    <MixedArrayAccess occurrences="3">
       <code>$entry['date']</code>
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="12">
-      <code>$GLOBALS['data']</code>
+    <MixedAssignment occurrences="11">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
@@ -1796,7 +1790,9 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="4">
+    <PossiblyInvalidArgument occurrences="6">
+      <code>$GLOBALS['data']['ddlog']</code>
+      <code>$GLOBALS['data']['ddlog']</code>
       <code>$_POST['selected']</code>
       <code>$_POST['table']</code>
       <code>$_POST['version']</code>
@@ -1812,6 +1808,9 @@
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$GLOBALS['data']['ddlog']</code>
+    </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
     <MixedArgument occurrences="1">
@@ -4149,20 +4148,10 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <MixedArgument occurrences="4">
-      <code>$GLOBALS['data']</code>
-      <code>$GLOBALS['data']</code>
-      <code>$GLOBALS['data']</code>
+    <MixedArgument occurrences="1">
       <code>$version</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$GLOBALS['data']['date_from']</code>
-      <code>$GLOBALS['data']['date_from']</code>
-      <code>$GLOBALS['data']['date_to']</code>
-      <code>$GLOBALS['data']['date_to']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="15">
-      <code>$GLOBALS['data']</code>
+    <MixedAssignment occurrences="12">
       <code>$GLOBALS['data']</code>
       <code>$GLOBALS['entries']</code>
       <code>$GLOBALS['errorUrl']</code>
@@ -4170,8 +4159,6 @@
       <code>$GLOBALS['filter_ts_to']</code>
       <code>$GLOBALS['filter_users']</code>
       <code>$GLOBALS['msg']</code>
-      <code>$_POST['date_from']</code>
-      <code>$_POST['date_to']</code>
       <code>$reportExport</code>
       <code>$selectedVersions</code>
       <code>$submitMult</code>
@@ -13603,7 +13590,7 @@
   </file>
   <file src="libraries/classes/Tracking.php">
     <InvalidArgument occurrences="1"/>
-    <MixedArgument occurrences="32">
+    <MixedArgument occurrences="31">
       <code>$columns</code>
       <code>$data[$which_log]</code>
       <code>$data['ddlog']</code>
@@ -13614,7 +13601,6 @@
       <code>$data['dmlog']</code>
       <code>$data['dmlog']</code>
       <code>$data['dmlog']</code>
-      <code>$data['schema_snapshot']</code>
       <code>$data['tracking']</code>
       <code>$ddlog_count</code>
       <code>$drop_create_statements</code>
@@ -13637,13 +13623,8 @@
       <code>$str5</code>
       <code>$value['Name']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="22">
+    <MixedArrayAccess occurrences="17">
       <code>$data[$which_log][$delete_id]</code>
-      <code>$data['ddlog']</code>
-      <code>$data['ddlog']</code>
-      <code>$data['ddlog']</code>
-      <code>$data['ddlog']</code>
-      <code>$data['schema_snapshot']</code>
       <code>$entry['date']</code>
       <code>$entry['date']</code>
       <code>$entry['statement']</code>
@@ -13666,9 +13647,8 @@
       <code>$entry['line_number']</code>
       <code>$entry['url_params']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="18">
       <code>$columns</code>
-      <code>$data</code>
       <code>$drop_create_statements</code>
       <code>$entries[]</code>
       <code>$entry</code>
@@ -13704,20 +13684,34 @@
       <code>$sep</code>
       <code>$sep</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="4">
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
       <code>$_POST['users']</code>
+      <code>$data['schema_snapshot']</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset occurrences="2">
+      <code>$data['ddlog'][0]['statement']</code>
+      <code>$data['ddlog'][1]['statement']</code>
+    </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidCast occurrences="1">
+      <code>$data['schema_snapshot']</code>
+    </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="2">
       <code>$sep</code>
       <code>$sep</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="5">
+      <code>$data['ddlog'][0]['statement']</code>
+      <code>$data['ddlog'][0]['statement']</code>
       <code>$entry['db_name']</code>
       <code>$entry['table_name']</code>
       <code>$tableName</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$data['ddlog'][0]</code>
+      <code>$data['ddlog'][1]</code>
+    </PossiblyNullArrayAccess>
     <PossiblyNullOperand occurrences="1">
       <code>$versionNumber</code>
     </PossiblyNullOperand>
@@ -15937,9 +15931,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/TrackerTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$result</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
