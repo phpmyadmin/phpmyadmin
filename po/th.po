@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -7331,13 +7331,12 @@ msgstr "กำลังแสดงแถวที่ %1s - %2s"
 #: libraries/classes/Display/Results.php:4573
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "ทั้งหมด %1$d, %2$d ในคำค้น"
 
 #: libraries/classes/Display/Results.php:4578
-#, fuzzy, php-format
-#| msgid "total"
+#, php-format
 msgid "%d total"
-msgstr "ทั้งหมด"
+msgstr "ทั้งหมด %d"
 
 #: libraries/classes/Display/Results.php:4590 libraries/classes/Sql.php:1435
 #, php-format
@@ -11321,10 +11320,8 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/classes/SavedSearches.php:415
-#, fuzzy
-#| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "ข้อผิดพลาดขณะเคลื่อนย้ายไฟล์อัพโหลด"
+msgstr "ข้อผิดพลาดขณะโหลดการค้นหา"
 
 #: libraries/classes/Server/Privileges.php:222 server_privileges.php:120
 msgid "No privileges."
