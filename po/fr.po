@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-06 00:22+0000\n"
 "PO-Revision-Date: 2022-11-06 09:12+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -5511,10 +5511,8 @@ msgstr ""
 "%sdocumentation%s pour trouver le moyen de contourner cette limite."
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "Formulaire incorrect spécifié !"
+msgstr "Paramètre de format incorrect"
 
 #: libraries/classes/Controllers/Import/ImportController.php:379
 #: libraries/classes/Controllers/Import/ImportController.php:622
