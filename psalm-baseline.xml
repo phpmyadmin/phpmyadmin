@@ -1772,8 +1772,7 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="11">
-      <code>$GLOBALS['data']</code>
+    <MixedAssignment occurrences="10">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
@@ -1791,12 +1790,12 @@
       <code>$entry['username']</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="6">
-      <code>$GLOBALS['data']['ddlog']</code>
-      <code>$GLOBALS['data']['ddlog']</code>
       <code>$_POST['selected']</code>
       <code>$_POST['table']</code>
       <code>$_POST['version']</code>
       <code>$_POST['version']</code>
+      <code>$trackedData['ddlog']</code>
+      <code>$trackedData['ddlog']</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="2">
       <code>$_POST['table']</code>
@@ -1809,7 +1808,7 @@
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
     <PossiblyNullIterator occurrences="1">
-      <code>$GLOBALS['data']['ddlog']</code>
+      <code>$trackedData['ddlog']</code>
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
@@ -2091,8 +2090,7 @@
     <MixedArgument occurrences="1">
       <code>$GLOBALS['geom_type']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="15">
-      <code>$GLOBALS['data']</code>
+    <MixedAssignment occurrences="12">
       <code>$GLOBALS['geom_count']</code>
       <code>$GLOBALS['geom_type']</code>
       <code>$GLOBALS['geom_type']</code>
@@ -2101,12 +2099,10 @@
       <code>$GLOBALS['gis_types']</code>
       <code>$GLOBALS['open_layers']</code>
       <code>$GLOBALS['result']</code>
-      <code>$GLOBALS['srid']</code>
       <code>$GLOBALS['start']</code>
       <code>$GLOBALS['visualization']</code>
       <code>$GLOBALS['visualizationSettings']</code>
       <code>$GLOBALS['wkt']</code>
-      <code>$GLOBALS['wkt_with_zero']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/GitInfoController.php">
@@ -4151,8 +4147,7 @@
     <MixedArgument occurrences="1">
       <code>$version</code>
     </MixedArgument>
-    <MixedAssignment occurrences="12">
-      <code>$GLOBALS['data']</code>
+    <MixedAssignment occurrences="11">
       <code>$GLOBALS['entries']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['filter_ts_from']</code>
@@ -7606,8 +7601,7 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="9">
-      <code>$GLOBALS['data']</code>
+    <MixedAssignment occurrences="8">
       <code>$alt</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>

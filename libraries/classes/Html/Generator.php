@@ -275,8 +275,6 @@ class Generator
      */
     public static function getDefaultFunctionForField(array $field, $insertMode): string
     {
-        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
-
         $defaultFunction = '';
 
         // Can we get field class based values?
@@ -304,7 +302,6 @@ class Generator
             ($field['True_Type'] === 'timestamp')
             && $field['first_timestamp']
             && empty($field['Default'])
-            && empty($GLOBALS['data'])
             && $field['Extra'] !== 'on update CURRENT_TIMESTAMP'
             && $field['Null'] === 'NO'
         ) {

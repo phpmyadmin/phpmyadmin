@@ -53,7 +53,6 @@ class TrackingController extends AbstractController
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
         $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
-        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
         $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -132,10 +131,10 @@ class TrackingController extends AbstractController
         }
 
         // Get tracked data about the database
-        $GLOBALS['data'] = Tracker::getTrackedData($GLOBALS['db'], '', '1');
+        $trackedData = Tracker::getTrackedData($GLOBALS['db'], '', '1');
 
         // No tables present and no log exist
-        if ($GLOBALS['num_tables'] == 0 && count($GLOBALS['data']['ddlog']) === 0) {
+        if ($GLOBALS['num_tables'] == 0 && count($trackedData['ddlog']) === 0) {
             echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
             if (empty($isSystemSchema)) {
@@ -151,12 +150,12 @@ class TrackingController extends AbstractController
         echo $this->tracking->getHtmlForDbTrackingTables($GLOBALS['db'], $GLOBALS['urlParams'], $GLOBALS['text_dir']);
 
         // If available print out database log
-        if (count($GLOBALS['data']['ddlog']) <= 0) {
+        if (count($trackedData['ddlog']) <= 0) {
             return;
         }
 
         $log = '';
-        foreach ($GLOBALS['data']['ddlog'] as $entry) {
+        foreach ($trackedData['ddlog'] as $entry) {
             $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
                 . $entry['statement'] . "\n";
         }

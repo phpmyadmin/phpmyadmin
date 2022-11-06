@@ -45,7 +45,6 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
         $GLOBALS['entries'] = $GLOBALS['entries'] ?? null;
         $GLOBALS['filter_ts_from'] = $GLOBALS['filter_ts_from'] ?? null;
         $GLOBALS['filter_ts_to'] = $GLOBALS['filter_ts_to'] ?? null;
@@ -85,7 +84,7 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
-        $GLOBALS['data'] = [];
+        $trackedData = [];
         $GLOBALS['entries'] = [];
         $GLOBALS['filter_ts_from'] = null;
         $GLOBALS['filter_ts_to'] = null;
@@ -101,22 +100,22 @@ final class TrackingController extends AbstractController
 
         // Init vars for tracking report
         if ($report || $reportExport !== null) {
-            $GLOBALS['data'] = Tracker::getTrackedData(
+            $trackedData = Tracker::getTrackedData(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
                 $versionParam
             );
 
             /** @var string $dateFrom */
-            $dateFrom = $request->getParsedBodyParam('date_from', $GLOBALS['data']['date_from']);
+            $dateFrom = $request->getParsedBodyParam('date_from', $trackedData['date_from']);
             if (! isset($_POST['date_from'])) {
-                $_POST['date_from'] = $GLOBALS['data']['date_from'];
+                $_POST['date_from'] = $trackedData['date_from'];
             }
 
             /** @var string $dateTo */
-            $dateTo = $request->getParsedBodyParam('date_to', $GLOBALS['data']['date_to']);
+            $dateTo = $request->getParsedBodyParam('date_to', $trackedData['date_to']);
             if (! isset($_POST['date_to'])) {
-                $_POST['date_to'] = $GLOBALS['data']['date_to'];
+                $_POST['date_to'] = $trackedData['date_to'];
             }
 
             /** @var string $users */
@@ -133,7 +132,7 @@ final class TrackingController extends AbstractController
         // Prepare export
         if ($reportExport !== null) {
             $GLOBALS['entries'] = $this->tracking->getEntries(
-                $GLOBALS['data'],
+                $trackedData,
                 (int) $GLOBALS['filter_ts_from'],
                 (int) $GLOBALS['filter_ts_to'],
                 $GLOBALS['filter_users'],
@@ -235,7 +234,7 @@ final class TrackingController extends AbstractController
                 $GLOBALS['db'],
                 $GLOBALS['table'],
                 $versionParam,
-                $GLOBALS['data'],
+                $trackedData,
                 isset($_POST['delete_ddlog']),
                 isset($_POST['delete_dmlog'])
             );
@@ -244,7 +243,7 @@ final class TrackingController extends AbstractController
         $trackingReport = '';
         if ($report || $reportExport !== null) {
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
-                $GLOBALS['data'],
+                $trackedData,
                 $GLOBALS['urlParams'],
                 $logType,
                 (int) $GLOBALS['filter_ts_to'],
