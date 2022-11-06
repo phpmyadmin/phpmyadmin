@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-06 00:22+0000\n"
-"PO-Revision-Date: 2022-10-29 17:26+0000\n"
-"Last-Translator: JonathanExam <644245001@mcru.ac.th>\n"
+"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -4495,7 +4495,7 @@ msgstr "อื่นๆ"
 
 #: libraries/classes/Config/Descriptions.php:987
 msgid "Server connection collation"
-msgstr "ตรวจทานการเชื่อมต่อเซิร์ฟเวอร์"
+msgstr "การเรียงลำดับสำหรับการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/FormDisplay.php:601
 #, php-format
@@ -4505,10 +4505,8 @@ msgstr "ข้อมูลที่หายไปสำหรับ %s"
 #: libraries/classes/Config/FormDisplay.php:642
 #: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
-#, fuzzy
-#| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "ค่าไม่ถูกต้อง"
+msgstr "ค่าไม่ถูกต้อง!"
 
 #: libraries/classes/Config/FormDisplay.php:793
 #: libraries/classes/Config/FormDisplay.php:802
@@ -4524,12 +4522,12 @@ msgstr "\"%s\" ต้องใช้ส่วนขยาย %s"
 #: libraries/classes/Config/FormDisplay.php:835
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
-msgstr ""
+msgstr "ไม่สามารถใช้การนำเข้าแบบบีบอัดได้เนื่องจากขาดฟังก์ชัน %s"
 
 #: libraries/classes/Config/FormDisplay.php:844
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr ""
+msgstr "ไม่สามารถใช้การส่งออกแบบบีบอัดได้เนื่องจากขาดฟังก์ชัน %s"
 
 #: libraries/classes/Config/FormDisplay.php:863
 #, php-format
@@ -4550,7 +4548,7 @@ msgstr "การรับรองความถูกต้องของก
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:25
 msgid "Quick"
-msgstr ""
+msgstr "รวดเร็ว"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:29
 msgid "Custom"
@@ -9459,21 +9457,19 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/classes/Display/Results.php:3763
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "แสดงแถว"
+msgstr "กำลังแสดงแถวที่ %1s - %2s"
 
 #: libraries/classes/Display/Results.php:3777
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "ทั้งหมด %1$d, %2$d ในคำค้น"
 
 #: libraries/classes/Display/Results.php:3782
-#, fuzzy, php-format
-#| msgid "total"
+#, php-format
 msgid "%d total"
-msgstr "ทั้งหมด"
+msgstr "ทั้งหมด %d"
 
 #: libraries/classes/Display/Results.php:3795 libraries/classes/Sql.php:942
 #, fuzzy, php-format
@@ -9975,11 +9971,9 @@ msgid "Profiling"
 msgstr "การทำแฟ้มประวัติ"
 
 #: libraries/classes/Html/Generator.php:745
-#, fuzzy
-#| msgid "Add new field"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "แก้ไขแบบอินไลน์"
 
 #: libraries/classes/Html/Generator.php:867
 #, fuzzy
@@ -12341,10 +12335,8 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/classes/SavedSearches.php:379
-#, fuzzy
-#| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "ข้อผิดพลาดขณะเคลื่อนย้ายไฟล์อัพโหลด"
+msgstr "ข้อผิดพลาดขณะโหลดการค้นหา"
 
 #: libraries/classes/Server/Plugins.php:66
 #: libraries/classes/Server/Privileges.php:795
@@ -13766,10 +13758,8 @@ msgstr "ชื่อตาราง"
 #: templates/console/display.twig:124
 #: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "และ"
+msgstr "เพิ่ม"
 
 #: templates/columns_definitions/column_definitions_form.twig:39
 #, fuzzy
@@ -13778,10 +13768,8 @@ msgid "column(s)"
 msgstr "คอลัมน์"
 
 #: templates/columns_definitions/column_definitions_form.twig:73
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "การเรียงลำดับ"
+msgstr "การเรียงลำดับ:"
 
 #: templates/columns_definitions/column_definitions_form.twig:76
 msgid "Storage Engine:"
@@ -14335,10 +14323,8 @@ msgstr "ตัวกรอง"
 
 #: templates/database/central_columns/main.twig:167
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this table"
-msgstr "ค้นหาในฐานข้อมูล"
+msgstr "ค้นหาในตารางนี้"
 
 #: templates/database/central_columns/main.twig:178
 #: templates/table/structure/display_structure.twig:418
@@ -15647,8 +15633,6 @@ msgid "Trigger name"
 msgstr "ชื่อผู้ใช้"
 
 #: templates/database/triggers/editor_form.twig:37
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "เวลา"
@@ -15724,10 +15708,8 @@ msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
 #: templates/display/results/table.twig:124 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "ระเบียนต่อหน้า"
+msgstr "จำนวนแถว:"
 
 #: templates/display/results/table.twig:127
 msgid "All"
@@ -19121,10 +19103,8 @@ msgid "Table %s has been flushed."
 msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
 
 #: templates/table/operations/index.twig:376
-#, fuzzy
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "ล้างตาราง (flush)"
+msgstr "ล้างตาราง (FLUSH)"
 
 #: templates/table/operations/index.twig:413
 msgid "Empty the table (TRUNCATE)"
@@ -19137,9 +19117,8 @@ msgid "Empty the table (DELETE FROM)"
 msgstr "ลบข้อมูลตาราง (TRUNCATE)"
 
 #: templates/table/operations/index.twig:452
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ลบตาราง (DROP)"
 
 #: templates/table/operations/index.twig:474
 #, fuzzy
@@ -19158,14 +19137,12 @@ msgid "Check referential integrity"
 msgstr "ตรวจสอบความสมบูรณ์ของการอ้างถึง:"
 
 #: templates/table/operations/view.twig:12
-#, fuzzy
 msgid "Rename view to"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr "เปลี่ยนชื่อวิวเป็น"
 
 #: templates/table/operations/view.twig:37
-#, fuzzy
 msgid "Delete the view (DROP)"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ลบวิว (DROP)"
 
 #: templates/table/page_with_secondary_tabs.twig:11
 #, fuzzy
