@@ -2125,11 +2125,8 @@ class Table implements Stringable
         }
 
         $keyBlockSizes = $index->getKeyBlockSize();
-        if (! empty($keyBlockSizes)) {
-            $sqlQuery .= sprintf(
-                ' KEY_BLOCK_SIZE = %s',
-                $this->dbi->escapeString((string) $keyBlockSizes)
-            );
+        if ($keyBlockSizes !== 0) {
+            $sqlQuery .= ' KEY_BLOCK_SIZE = ' . $keyBlockSizes;
         }
 
         // specifying index type is allowed only for primary, unique and index only
