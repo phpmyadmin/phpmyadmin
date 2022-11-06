@@ -297,15 +297,15 @@ class Generator
 
         // get columns information from information_schema
         if ($escapedDatabase !== null) {
-            $sqlWheres[] = '`TABLE_SCHEMA` = \'' . $escapedDatabase . '\' ';
+            $sqlWheres[] = '`TABLE_SCHEMA` = ' . $escapedDatabase . ' ';
         }
 
         if ($escapedTable !== null) {
-            $sqlWheres[] = '`TABLE_NAME` = \'' . $escapedTable . '\' ';
+            $sqlWheres[] = '`TABLE_NAME` = ' . $escapedTable . ' ';
         }
 
         if ($escapedColumn !== null) {
-            $sqlWheres[] = '`COLUMN_NAME` = \'' . $escapedColumn . '\' ';
+            $sqlWheres[] = '`COLUMN_NAME` = ' . $escapedColumn . ' ';
         }
 
         // for PMA bc:

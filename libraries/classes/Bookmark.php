@@ -120,10 +120,10 @@ class Bookmark
         $query = 'INSERT INTO ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
             . ' (id, dbase, user, query, label) VALUES (NULL, '
-            . "'" . $this->dbi->escapeString($this->database) . "', "
-            . "'" . $this->dbi->escapeString($this->currentUser) . "', "
-            . "'" . $this->dbi->escapeString($this->query) . "', "
-            . "'" . $this->dbi->escapeString($this->label) . "')";
+            . $this->dbi->quoteString($this->database) . ', '
+            . $this->dbi->quoteString($this->currentUser) . ', '
+            . $this->dbi->quoteString($this->query) . ', '
+            . $this->dbi->quoteString($this->label) . ')';
 
         return (bool) $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
     }
@@ -249,9 +249,9 @@ class Bookmark
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
             . " WHERE ( `user` = ''"
-            . " OR `user` = '" . $dbi->escapeString($user) . "' )";
+            . ' OR `user` = ' . $dbi->quoteString($user) . ' )';
         if ($db !== false) {
-            $query .= " AND dbase = '" . $dbi->escapeString($db) . "'";
+            $query .= ' AND dbase = ' . $dbi->quoteString($db);
         }
 
         $query .= ' ORDER BY label ASC';
@@ -302,10 +302,9 @@ class Bookmark
 
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . " WHERE dbase = '" . $dbi->escapeString($db->getName()) . "'";
+            . ' WHERE dbase = ' . $dbi->quoteString($db->getName());
         if (! $action_bookmark_all) {
-            $query .= " AND (user = '"
-                . $dbi->escapeString($user) . "'";
+            $query .= ' AND (user = ' . $dbi->quoteString($user);
             if (! $exact_user_match) {
                 $query .= " OR user = ''";
             }
@@ -314,7 +313,7 @@ class Bookmark
         }
 
         $query .= ' AND ' . Util::backquote($id_field)
-            . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
+            . ' = ' . $dbi->quoteString((string) $id) . ' LIMIT 1';
 
         $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
         if ($result !== null) {

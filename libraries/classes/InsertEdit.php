@@ -1566,21 +1566,21 @@ class InsertEdit
              */
             $hash = password_hash($editField->value, PASSWORD_DEFAULT);
 
-            return "'" . $this->dbi->escapeString($hash) . "'";
+            return $this->dbi->quoteString($hash);
         }
 
         if ($editField->function === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = (string) $this->dbi->fetchValue('SELECT UUID()');
 
-            return "'" . $this->dbi->escapeString($uuid) . "'";
+            return $this->dbi->quoteString($uuid);
         }
 
         if (
             in_array($editField->function, $this->getGisFromTextFunctions())
             || in_array($editField->function, $this->getGisFromWKBFunctions())
         ) {
-            return $editField->function . "('" . $this->dbi->escapeString($editField->value) . "')";
+            return $editField->function . '(' . $this->dbi->quoteString($editField->value) . ')';
         }
 
         if (
@@ -1597,11 +1597,11 @@ class InsertEdit
                         || $editField->function === 'DES_DECRYPT'
                         || $editField->function === 'ENCRYPT'))
             ) {
-                return $editField->function . "('" . $this->dbi->escapeString($editField->value) . "','"
-                    . $this->dbi->escapeString($editField->salt) . "')";
+                return $editField->function . '(' . $this->dbi->quoteString($editField->value) . ','
+                    . $this->dbi->quoteString($editField->salt) . ')';
             }
 
-            return $editField->function . "('" . $this->dbi->escapeString($editField->value) . "')";
+            return $editField->function . '(' . $this->dbi->quoteString($editField->value) . ')';
         }
 
         return $editField->function . '()';
@@ -1738,7 +1738,7 @@ class InsertEdit
         if ($editField->type === 'bit') {
             $currentValue = (string) preg_replace('/[^01]/', '0', $editField->value);
 
-            return "b'" . $this->dbi->escapeString($currentValue) . "'";
+            return 'b' . $this->dbi->quoteString($currentValue);
         }
 
         // For uuid type, generate uuid value
@@ -1755,7 +1755,7 @@ class InsertEdit
             ($editField->type !== 'datetime' && $editField->type !== 'timestamp' && $editField->type !== 'date')
             || ($editField->value !== 'CURRENT_TIMESTAMP' && $editField->value !== 'current_timestamp()')
         ) {
-            return "'" . $this->dbi->escapeString($editField->value) . "'";
+            return $this->dbi->quoteString($editField->value);
         }
 
         // If there is a value, we ignore the Null checkbox;

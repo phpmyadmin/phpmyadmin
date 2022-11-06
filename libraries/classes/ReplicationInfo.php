@@ -125,7 +125,7 @@ final class ReplicationInfo
 
     private function setDefaultPrimaryConnection(string $connection): void
     {
-        $this->dbi->query(sprintf('SET @@default_master_connection = \'%s\'', $this->dbi->escapeString($connection)));
+        $this->dbi->query(sprintf('SET @@default_master_connection = %s', $this->dbi->quoteString($connection)));
     }
 
     private static function fill(array $status, string $key): array

@@ -44,8 +44,10 @@ class SystemDatabaseTest extends AbstractTestCase
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([

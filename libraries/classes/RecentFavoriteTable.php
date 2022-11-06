@@ -117,7 +117,7 @@ class RecentFavoriteTable
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable()
-            . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
+            . ' WHERE `username` = ' . $GLOBALS['dbi']->quoteString($GLOBALS['cfg']['Server']['user']);
 
         $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
         if ($result) {
@@ -139,8 +139,8 @@ class RecentFavoriteTable
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)'
-            . " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
-            . $GLOBALS['dbi']->escapeString(json_encode($this->tables)) . "')";
+            . ' VALUES (' . $GLOBALS['dbi']->quoteString($username) . ', '
+            . $GLOBALS['dbi']->quoteString(json_encode($this->tables)) . ')';
 
         $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
 

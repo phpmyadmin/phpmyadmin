@@ -93,11 +93,11 @@ class Replication
 
         $out = $GLOBALS['dbi']->tryQuery(
             'CHANGE MASTER TO ' .
-            'MASTER_HOST=\'' . $GLOBALS['dbi']->escapeString($host) . '\',' .
+            'MASTER_HOST=' . $GLOBALS['dbi']->quoteString($host) . ',' .
             'MASTER_PORT=' . $port . ',' .
-            'MASTER_USER=\'' . $GLOBALS['dbi']->escapeString($user) . '\',' .
-            'MASTER_PASSWORD=\'' . $GLOBALS['dbi']->escapeString($password) . '\',' .
-            'MASTER_LOG_FILE=\'' . $pos['File'] . '\',' .
+            'MASTER_USER=' . $GLOBALS['dbi']->quoteString($user) . ',' .
+            'MASTER_PASSWORD=' . $GLOBALS['dbi']->quoteString($password) . ',' .
+            'MASTER_LOG_FILE=' . $GLOBALS['dbi']->quoteString($pos['File']) . ',' .
             'MASTER_LOG_POS=' . $pos['Position'] . ';',
             $link
         );
