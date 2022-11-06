@@ -324,12 +324,12 @@ class GisMultiPoint extends GisGeometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1): array
+    public function generateParams(string $value, int $index = -1): array
     {
         $params = [];
         if ($index == -1) {
             $index = 0;
-            $data = GisGeometry::generateParams($value);
+            $data = $this->parseWktAndSrid($value);
             $params['srid'] = $data['srid'];
             $wkt = $data['wkt'];
         } else {

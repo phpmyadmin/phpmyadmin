@@ -166,15 +166,14 @@ abstract class GisGeometry
     }
 
     /**
-     * Generates parameters for the GIS data editor from the value of the GIS column.
-     * This method performs common work.
-     * More specific work is performed by each of the geom classes.
+     * Parses the wkt and optional srid from a combined string for the GIS data editor
      *
      * @param string $value value of the GIS column
      *
-     * @return array parameters for the GIS editor from the value of the GIS column
+     * @return array<string,int|string> parameters for the GIS editor from the value of the GIS column
+     * @psalm-return array{'srid':int,'wkt':string}
      */
-    public function generateParams($value): array
+    protected function parseWktAndSrid(string $value): array
     {
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
@@ -193,6 +192,16 @@ abstract class GisGeometry
             'wkt' => $wkt,
         ];
     }
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value Value of the GIS column
+     * @param int    $index Index of the geometry
+     *
+     * @return array params for the GIS data editor from the value of the GIS column
+     */
+    abstract public function generateParams(string $value, int $index = -1): array;
 
     /**
      * Extracts points, scales and returns them as an array.
