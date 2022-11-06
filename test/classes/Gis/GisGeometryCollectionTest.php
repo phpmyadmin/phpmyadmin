@@ -9,9 +9,6 @@ use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
 
-use function method_exists;
-use function preg_match;
-
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometryCollection
  * @runTestsInSeparateProcesses
@@ -253,21 +250,8 @@ class GisGeometryCollectionTest extends AbstractTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
-
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression(
-                $output,
-                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
-            );
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp(
-                $output,
-                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
-            );
-        }
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
+        $this->assertMatchesRegularExpression($output, $svg);
     }
 
     /**

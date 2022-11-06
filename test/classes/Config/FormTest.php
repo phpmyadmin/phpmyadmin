@@ -11,7 +11,6 @@ use ReflectionClass;
 use ReflectionProperty;
 
 use function array_keys;
-use function method_exists;
 use function preg_match;
 
 /**
@@ -151,13 +150,7 @@ class FormTest extends AbstractTestCase
         $this->assertIsString($result[1]);
 
         // needs regexp because the counter is static
-
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
-        }
+        $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
     }
 
     /**
@@ -189,17 +182,10 @@ class FormTest extends AbstractTestCase
         unset($result['test']);
 
         // needs regexp because the counter is static
-
-        $keys = array_keys($result);
-        $key = $keys[0];
+        $key = array_keys($result)[0];
         $this->assertIsString($key);
 
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^\:group\:end\:(\d+)$/', $key);
-        }
+        $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
 
         preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];

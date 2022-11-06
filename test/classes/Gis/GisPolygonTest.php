@@ -8,8 +8,6 @@ use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function preg_match;
-
 /**
  * @covers \PhpMyAdmin\Gis\GisPolygon
  * @runTestsInSeparateProcesses
@@ -499,8 +497,8 @@ class GisPolygonTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $fillColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $fillColor, $scaleData);
+        $this->assertMatchesRegularExpression($output, $svg);
     }
 
     /**

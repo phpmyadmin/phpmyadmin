@@ -262,15 +262,8 @@ class GisPointTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsSvg(
-                $spatial,
-                $label,
-                $pointColor,
-                $scaleData
-            )
-        );
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $pointColor, $scaleData);
+        $this->assertMatchesRegularExpression($output, $svg);
     }
 
     /**
@@ -291,7 +284,7 @@ class GisPointTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '',
+                '/^$/',
             ],
         ];
     }

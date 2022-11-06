@@ -8,8 +8,6 @@ use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function preg_match;
-
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiPoint
  * @runTestsInSeparateProcesses
@@ -248,8 +246,8 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $pointColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $pointColor, $scaleData);
+        $this->assertMatchesRegularExpression($output, $svg);
     }
 
     /**
