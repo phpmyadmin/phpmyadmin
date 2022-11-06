@@ -26,13 +26,13 @@ final class TablesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'tables' => $request->getQueryParam('tables', []),
-            'db' => $request->getQueryParam('db', ''),
-        ];
+        /** @var string[] $tables */
+        $tables = $request->getQueryParam('tables', []);
+        /** @var string $db */
+        $db = $request->getQueryParam('db', '');
 
         $tablesListForQuery = '';
-        foreach ($params['tables'] as $table) {
+        foreach ($tables as $table) {
             $tablesListForQuery .= "'" . $this->dbi->escapeString($table) . "',";
         }
 
@@ -40,7 +40,7 @@ final class TablesController extends AbstractController
 
         $constrains = $this->dbi->fetchResult(
             QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
-                $this->dbi->escapeString($params['db']),
+                $this->dbi->escapeString($db),
                 $tablesListForQuery
             )
         );

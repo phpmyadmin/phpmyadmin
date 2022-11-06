@@ -1219,18 +1219,9 @@
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php">
     <MixedArgument occurrences="2">
-      <code>$params['db']</code>
-      <code>$params['sql_query']</code>
+      <code>$request-&gt;getParam('db')</code>
+      <code>$request-&gt;getParsedBodyParam('sql_query')</code>
     </MixedArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
-    <MixedArgument occurrences="2">
-      <code>$params['db']</code>
-      <code>$table</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$table</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Operations/CollationController.php">
     <MixedArgument occurrences="2">
@@ -1385,14 +1376,6 @@
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$delimiter</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/Database/SqlFormatController.php">
-    <MixedArgument occurrences="1">
-      <code>$query</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$query</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/AddPrefixController.php">
@@ -2571,23 +2554,9 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Server/Databases/CreateController.php">
-    <InvalidArgument occurrences="1">
-      <code>['db' =&gt; $params['new_db']]</code>
-    </InvalidArgument>
-    <PossiblyInvalidArgument occurrences="6">
-      <code>$params['db_collation']</code>
-      <code>$params['db_collation']</code>
-      <code>$params['db_collation']</code>
-      <code>$params['new_db']</code>
-      <code>$params['new_db']</code>
-      <code>$params['new_db']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
-      <code>$params['db_collation']</code>
-      <code>$params['db_collation']</code>
-      <code>$params['new_db']</code>
-      <code>$params['new_db']</code>
-    </PossiblyInvalidCast>
+    <MixedAssignment occurrences="1">
+      <code>$dbCollation</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/Databases/DestroyController.php">
     <InvalidArrayOffset occurrences="1">
@@ -3042,7 +3011,7 @@
       <code>$serverVarsSession[$name]</code>
     </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="2">
-      <code>$GLOBALS['errorUrl']</code>
+      <code>$filterValue</code>
       <code>$value</code>
     </MixedAssignment>
   </file>
